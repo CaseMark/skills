@@ -10,9 +10,14 @@ permissions:
   pull-requests: write
 
 jobs:
+  # ── Job 1: Fast structural validation (Python) ────────────────────────────
   validate:
-    name: Validate Skills
+    name: Structural Validation
     runs-on: ubuntu-latest
+    outputs:
+      skills: ${{ steps.changed.outputs.skills }}
+      report: ${{ steps.validate.outputs.report }}
+      passed: ${{ steps.validate.outputs.passed }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,7 +26,6 @@ jobs:
       - name: Find changed skills
         id: changed
         run: |
-          # Get list of changed SKILL.md files
           CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/SKILL.md')
           if [ -z "$CHANGED" ]; then
             echo "No SKILL.md files changed"
@@ -47,10 +51,14 @@ jobs:
         id: validate
         run: |
           python3 << 'SCRIPT'
-          import yaml
-          import os
-          import re
-          import sys
+          import yaml, os, re, sys, json
+
+          VALID_TAGS = {
+            "litigation", "corporate", "transactional", "regulatory",
+            "agreement", "pleading", "motion", "brief", "memo",
+            "letter", "summary", "analysis", "checklist", "policy",
+            "drafting", "summarization", "research",
+          }
 
           errors = []
           warnings = []
@@ -66,15 +74,12 @@ jobs:
               dir_name = os.path.basename(skill_dir)
               skills_checked.append(skill_path)
 
-              # Read file
               try:
                   with open(skill_path, 'r') as f:
                       content = f.read()
               except FileNotFoundError:
-                  # File was deleted
                   continue
 
-              # Parse frontmatter
               fm_match = re.match(r'^---\n(.*?)\n---\n(.*)$', content, re.DOTALL)
               if not fm_match:
                   errors.append(f"**{skill_path}**: Missing or malformed YAML frontmatter")
@@ -95,7 +100,7 @@ jobs:
               elif len(name) > 64:
                   errors.append(f"**{skill_path}**: `name` exceeds 64 characters ({len(name)})")
               elif not re.match(r'^[a-z0-9]([a-z0-9-]*[a-z0-9])?$', name):
-                  errors.append(f"**{skill_path}**: `name` must be lowercase alphanumeric + hyphens, cannot start/end with hyphen")
+                  errors.append(f"**{skill_path}**: `name` must be lowercase alphanumeric + hyphens")
               elif '--' in name:
                   errors.append(f"**{skill_path}**: `name` must not contain consecutive hyphens")
               elif name != dir_name:
@@ -108,21 +113,27 @@ jobs:
               elif len(desc) > 1024:
                   errors.append(f"**{skill_path}**: `description` exceeds 1024 characters ({len(desc)})")
               else:
-                  # Check for first/second person
                   lower_desc = desc.lower()
                   if lower_desc.startswith('i ') or ' i ' in lower_desc[:50]:
-                      warnings.append(f"**{skill_path}**: `description` may use first person. Use third person (e.g., 'Processes...' not 'I process...')")
+                      warnings.append(f"**{skill_path}**: `description` may use first person")
                   if lower_desc.startswith('you ') or lower_desc.startswith('use this'):
-                      warnings.append(f"**{skill_path}**: `description` may use second person. Use third person.")
+                      warnings.append(f"**{skill_path}**: `description` may use second person")
+
+              # Validate tags
+              tags = fm.get('tags', [])
+              if tags:
+                  invalid = [t for t in tags if t not in VALID_TAGS]
+                  if invalid:
+                      errors.append(f"**{skill_path}**: Invalid tags: {', '.join(invalid)}. Must be from controlled vocabulary.")
 
               # Validate body line count
               line_count = len(body.strip().split('\n'))
               if line_count > 500:
-                  errors.append(f"**{skill_path}**: Body exceeds 500 lines ({line_count}). Split content into reference files.")
+                  errors.append(f"**{skill_path}**: Body exceeds 500 lines ({line_count})")
               elif line_count > 400:
-                  warnings.append(f"**{skill_path}**: Body is {line_count} lines. Consider splitting into reference files before it exceeds 500.")
+                  warnings.append(f"**{skill_path}**: Body is {line_count} lines, approaching 500 limit")
 
-              # Check for nested references (references in reference files)
+              # Check for nested references
               ref_dir = os.path.join(skill_dir, 'references')
               if os.path.isdir(ref_dir):
                   for ref_file in os.listdir(ref_dir):
@@ -130,48 +141,88 @@ jobs:
                       if os.path.isfile(ref_path) and ref_file.endswith('.md'):
                           with open(ref_path, 'r') as f:
                               ref_content = f.read()
-                          # Check if reference file links to other files
                           nested_refs = re.findall(r'\[.*?\]\(((?!http).*?\.md)\)', ref_content)
                           if nested_refs:
-                              warnings.append(f"**{ref_path}**: Contains nested references ({', '.join(nested_refs)}). Keep references one level deep from SKILL.md.")
+                              warnings.append(f"**{ref_path}**: Nested references detected")
 
-              # Check for duplicate name across all skills
-              # (This is a simplified check - the full check should compare against all existing skills)
-
-          # Output results
-          report = "## Skill QA Report\n\n"
+          report = "### Structural Validation\n\n"
           report += f"**Skills checked:** {len(skills_checked)}\n\n"
 
           if errors:
-              report += "### Errors\n\n"
+              report += "#### ❌ Errors\n\n"
               for e in errors:
                   report += f"- {e}\n"
               report += "\n"
 
           if warnings:
-              report += "### Warnings\n\n"
+              report += "#### ⚠️ Warnings\n\n"
               for w in warnings:
                   report += f"- {w}\n"
               report += "\n"
 
           if not errors and not warnings:
-              report += "All checks passed.\n"
+              report += "✅ All structural checks passed.\n"
 
-          # Write report for PR comment
           with open('qa-report.md', 'w') as f:
               f.write(report)
 
+          # Set outputs
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              # Escape multiline for GH output
+              escaped = report.replace('%', '%25').replace('\n', '%0A').replace('\r', '%0D')
+              f.write(f"report={escaped}\n")
+              f.write(f"passed={'false' if errors else 'true'}\n")
+
           if errors:
               print("VALIDATION FAILED")
-              print(report)
               sys.exit(1)
-          else:
-              print("VALIDATION PASSED")
-              print(report)
           SCRIPT
 
-      - name: Post PR comment
-        if: always() && steps.changed.outputs.skills != ''
+  # ── Job 2: Claude Code deep review ────────────────────────────────────────
+  review:
+    name: Claude Code Review
+    needs: validate
+    if: needs.validate.outputs.skills != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            You are reviewing a pull request that modifies agent skills in the CaseMark/skills repository.
+
+            Read the SKILL-SPEC at spec/SKILL-SPEC.md to understand the authoring standard.
+
+            For each changed SKILL.md file in this PR, evaluate:
+
+            1. **Quality** (A/B/C/F):
+               - A: Production-ready. Clear instructions, concrete examples, good trigger keywords.
+               - B: Good but minor improvements possible.
+               - C: Needs work. Missing examples, vague instructions, or inconsistent terminology.
+               - F: Does not meet spec. Structural issues, missing sections, or fundamentally unclear.
+
+            2. **Duplicate check**: Does this skill overlap significantly with any existing skill in skills/legal/?
+               List the top 2-3 most similar existing skills by name and briefly say why they differ (or flag if too similar).
+
+            3. **Specific suggestions**: Concrete, actionable improvements (if any). Focus on:
+               - Missing trigger keywords in the description
+               - Instructions that explain things the model already knows
+               - Vague output format specifications
+               - Missing input/output examples
+               - Inconsistent terminology
+
+            Format your review as a single comment with a heading per skill file reviewed.
+            End with an overall grade and a one-line summary.
+
+            Keep it concise — reviewers are busy. No filler.
+          claude_args: "--max-turns 5 --model claude-sonnet-4-6"
+
+      - name: Post structural report
+        if: always()
         uses: actions/github-script@v7
         with:
           script: |
@@ -180,10 +231,11 @@ jobs:
             try {
               report = fs.readFileSync('qa-report.md', 'utf8');
             } catch {
-              report = '## Skill QA Report\n\nValidation script failed to produce a report.';
+              return; // No report to post
             }
 
-            // Find and update existing comment or create new one
+            const fullReport = `## Skill QA Report\n\n${report}`;
+
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -199,13 +251,13 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 comment_id: botComment.id,
-                body: report,
+                body: fullReport,
               });
             } else {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body: report,
+                body: fullReport,
               });
             }
