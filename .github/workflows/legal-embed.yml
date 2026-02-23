@@ -74,31 +74,14 @@ jobs:
 
             const frontmatter = yaml.parse(match[1]);
             const body = match[2].trim();
-            const tags = frontmatter.tags || [];
-
             return {
               slug: frontmatter.name,
               name: frontmatter.name,
               summary: frontmatter.description,
               content: body,
-              legalContext: {
-                tags,
-                keywords: extractKeywords(frontmatter.description, body),
-              },
-              authorName: 'casemark',
+              tags: frontmatter.tags || [],
               license: frontmatter.license || 'Apache-2.0',
             };
-          }
-
-          function extractKeywords(description, body) {
-            // Extract meaningful terms from description and headers
-            const headers = body.match(/^#{1,3}\s+(.+)$/gm) || [];
-            const headerTerms = headers.map(h => h.replace(/^#+\s+/, '').toLowerCase());
-            const descTerms = description.toLowerCase()
-              .replace(/[^a-z0-9\s]/g, ' ')
-              .split(/\s+/)
-              .filter(w => w.length > 3);
-            return [...new Set([...headerTerms, ...descTerms])].slice(0, 20);
           }
 
           async function generateEmbedding(text) {
@@ -116,15 +99,14 @@ jobs:
             const embeddingStr = `[${embedding.join(',')}]`;
 
             await sql`
-              INSERT INTO skills (slug, name, summary, content, embedding, legal_context, author_name, license, visibility, skill_type, version, created_at, updated_at)
-              VALUES (${skill.slug}, ${skill.name}, ${skill.summary}, ${skill.content}, ${embeddingStr}::vector, ${JSON.stringify(skill.legalContext)}::jsonb, ${skill.authorName}, ${skill.license}, 'public', 'root', 1, NOW(), NOW())
+              INSERT INTO skills (slug, name, summary, content, embedding, tags, license, version, created_at, updated_at)
+              VALUES (${skill.slug}, ${skill.name}, ${skill.summary}, ${skill.content}, ${embeddingStr}::vector, ${skill.tags}, ${skill.license}, 1, NOW(), NOW())
               ON CONFLICT (slug) DO UPDATE SET
                 name = EXCLUDED.name,
                 summary = EXCLUDED.summary,
                 content = EXCLUDED.content,
                 embedding = EXCLUDED.embedding,
-                legal_context = EXCLUDED.legal_context,
-                author_name = EXCLUDED.author_name,
+                tags = EXCLUDED.tags,
                 license = EXCLUDED.license,
                 version = skills.version + 1,
                 updated_at = NOW()
