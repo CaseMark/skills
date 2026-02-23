@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 env:
-  DATABASE_URL_WRITE: ${{ secrets.DATABASE_URL_WRITE }}
-  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
 
 jobs:
   embed:
@@ -64,8 +64,11 @@ jobs:
           const fs = require('fs');
           const path = require('path');
 
-          const sql = neon(process.env.DATABASE_URL_WRITE);
-          const openai = new OpenAI();
+          const sql = neon(process.env.DATABASE_URL);
+          const openai = new OpenAI({
+            apiKey: process.env.AI_GATEWAY_API_KEY,
+            baseURL: 'https://ai-gateway.vercel.sh/v1',
+          });
 
           async function parseSkill(filePath) {
             const content = fs.readFileSync(filePath, 'utf8');
