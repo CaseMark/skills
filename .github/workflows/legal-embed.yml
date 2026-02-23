@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  SKILLS_DB_URL: ${{ secrets.SKILLS_DB_URL }}
   AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
 
 jobs:
@@ -64,7 +64,7 @@ jobs:
           const fs = require('fs');
           const path = require('path');
 
-          const sql = neon(process.env.DATABASE_URL);
+          const sql = neon(process.env.SKILLS_DB_URL);
           const openai = new OpenAI({
             apiKey: process.env.AI_GATEWAY_API_KEY,
             baseURL: 'https://ai-gateway.vercel.sh/v1',
