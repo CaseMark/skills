@@ -1,0 +1,292 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-8d39-7b40-97fa-866b7453699f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "5793b500-a7f8-4bf8-914f-7504bcf304b6",
+  "slug": "charitable-remainder-trust-draft",
+  "name": "Charitable Remainder Trust (CRT)",
+  "summary": "Drafts a comprehensive Charitable Remainder Trust (CRT) document compliant with IRC Section 664 and Treasury regulations. Establishes irrevocable trusts providing income to non-charitable beneficiaries with remainder interests to qualified charities, suitable for sophisticated estate planning clients. Use for transactional drafting in estate planning to ensure tax qualification as CRAT or CRUT.",
+  "content": "# Charitable Remainder Trust (CRT) Drafting Prompt\n\nYou are tasked with drafting a comprehensive Charitable Remainder Trust (CRT) document that complies with Internal Revenue Code Section 664 and applicable state law. This irrevocable trust instrument must satisfy all technical requirements for tax-exempt status while clearly articulating the rights of income beneficiaries and the charitable remainder interest. Your draft should be suitable for execution by sophisticated clients working with estate planning counsel and must reflect current IRS regulations, Treasury guidelines, and best practices in charitable gift planning.\n\n## Declaration of Trust and Trust Establishment\n\nBegin with a formal declaration establishing this instrument as an irrevocable charitable remainder trust under IRC Section 664. Identify the settlor (grantor) by full legal name and address, designate the initial trustee(s) with complete identifying information, and name both the non-charitable income beneficiaries and the qualified charitable remainder beneficiaries. The declaration must explicitly state the trust's dual purpose: providing income to non-charitable beneficiaries for a specified term while ensuring a meaningful remainder interest passes to qualified charitable organizations. Include precise effective date language and a statement that the trust is intended to qualify as either a charitable remainder annuity trust (CRAT) or charitable remainder unitrust (CRUT) as applicable. Reference the specific IRS revenue procedures and sample trust provisions that govern CRT formation, ensuring the declaration incorporates all mandatory language required for tax qualification.\n\n## Irrevocability Clause and Initial Funding Provisions\n\nDraft clear and unambiguous language establishing that this trust is irrevocable and may not be amended, modified, or revoked by the settlor, beneficiaries, or any other party except as specifically permitted under IRC Section 664 regulations. Detail the initial funding of the trust by describing the assets being transferred, including:\n- Specific identification of cash, securities, real property, or other assets with sufficient detail for title transfer\n- Valuation methodology and date of valuation for initial trust assets\n- Representations regarding the settlor's ownership and right to transfer the assets\n- Acknowledgment that additional contributions may or may not be permitted depending on trust type (CRAT vs. CRUT)\n- Provisions addressing the acceptance of assets by the trustee and any restrictions on acceptable asset types\n\nEnsure the funding provisions align with IRS requirements that prohibit certain assets (such as debt-encumbered property or S corporation stock in most cases) and include language preserving the trust's tax-exempt status if problematic assets are inadvertently contributed.\n\n## Income Beneficiary Rights and Distribution Formula\n\nArticulate with mathematical precision the payout mechanism for non-charitable income beneficiaries, specifying whether this is a charitable remainder annuity trust (fixed annuity amount) or charitable remainder unitrust (percentage of annual fair market value). For a CRAT, state the exact dollar amount or fixed percentage of initial fair market value to be paid annually. For a CRUT, specify the exact percentage (minimum 5%, maximum 50%) of the net fair market value of trust assets as determined annually. Include:\n- The frequency of distributions (annual, semi-annual, quarterly, or monthly)\n- The valuation date for determining annual trust value in a CRUT\n- Whether the trust includes a net income limitation (NICRUT) or net income with makeup provision (NIMCRUT)\n- The duration of the income interest, whether for the life or lives of named individuals or for a term of years not exceeding twenty years\n- Provisions addressing the 10% minimum remainder interest requirement under IRC Section 664(d)\n\nCite the specific Treasury Regulation sections (\u00a71.664-1 through \u00a71.664-4) that govern these payout requirements and include calculation examples if the trust structure is complex. Ensure the distribution provisions cannot be modified in any manner that would disqualify the trust's tax-exempt status.\n\n## Charitable Remainder Beneficiary Designation and Distribution Terms\n\nDesignate the qualified charitable remainder beneficiaries with specificity, naming either specific IRC Section 501(c)(3) organizations or creating a mechanism for selection among qualified charities. If naming specific charities, include their full legal names, addresses, and tax identification numbers. If granting discretion to select among charities, clearly delineate who holds that power and the standards governing selection. Address contingencies if a named charity ceases to qualify under Section 501(c)(3) or ceases to exist, including:\n- Automatic substitution provisions favoring organizations with similar charitable purposes\n- Authority for the trustee or another party to designate replacement charities\n- Cy pres provisions ensuring the charitable intent is fulfilled\n- Requirements that all remainder beneficiaries must be qualified organizations at the time of distribution\n\nInclude language confirming that the charitable remainder interest is irrevocable and vested, though the specific charitable recipients may be subject to selection. Specify the timing and manner of distribution to charitable beneficiaries upon termination of the income interest, including whether distribution will be in cash, in-kind assets, or at trustee discretion.\n\n## Trustee Authority, Fiduciary Duties, and Administrative Provisions\n\nEnumerate the trustee's powers and responsibilities in administering this charitable remainder trust, emphasizing both the fiduciary obligations owed to income beneficiaries and the duty to preserve the charitable remainder interest. Grant the trustee comprehensive investment authority consistent with the prudent investor rule while prohibiting any act of self-dealing or transactions that would constitute prohibited acts under IRC Section 4941. Specific provisions should address:\n- Investment discretion including authority to retain, sell, exchange, or invest in any property or asset class\n- Duty to maintain the trust's tax-exempt status and avoid unrelated business taxable income\n- Authority to employ attorneys, accountants, investment advisors, and other professionals\n- Accounting and reporting obligations to income beneficiaries and charitable remaindermen\n- Compensation provisions for trustees, whether individual or corporate\n\nInclude mandatory language prohibiting the trustee from engaging in any act of self-dealing, retaining excess business holdings, making jeopardizing investments, or making taxable expenditures as defined in IRC Sections 4941-4945. Address the trustee's authority to make the annual valuation of trust assets for CRUT purposes and establish procedures for determining income versus principal. Specify whether the trustee has authority to allocate receipts and expenses under state principal and income acts or whether the trust establishes its own allocation rules.\n\n## Governing Law, Amendment Limitations, and Trust Termination\n\nSpecify that the trust shall be governed by and construed according to the laws of the designated state, while acknowledging that federal tax law under IRC Section 664 supersedes state law to the extent of any conflict. Establish the exclusive venue for any trust-related litigation and specify which state's laws govern trust administration, fiduciary duties, and interpretation. Address the limited circumstances under which the trust may be amended:\n- Amendments necessary to maintain tax qualification under IRC Section 664 are permitted\n- Amendments to correct scrivener's errors or ambiguities that do not affect beneficial interests\n- Prohibition on any amendment that would alter the income beneficiaries' interests or the charitable remainder\n- Court reformation provisions if necessary to conform to tax qualification requirements\n\nDetail the termination provisions, specifying that the trust terminates upon the death of the last income beneficiary (for life interest trusts) or at the end of the specified term of years. Include provisions for early termination only if permitted under applicable regulations, such as when the trust value falls below the minimum amount making continued administration uneconomical. Require final accounting to all interested parties and specify the procedure for distributing the remainder interest to charitable beneficiaries upon termination.\n\n## Execution, Acknowledgment, and Attestation Requirements\n\nConclude the trust instrument with properly formatted signature blocks for the settlor(s) and trustee(s), including full legal names, dates, and acknowledgment that each party understands their respective rights and obligations. Include notarial acknowledgment language compliant with the designated state's requirements for real property transfers if real estate is being contributed to the trust. Provide for:\n- Settlor signature with acknowledgment of irrevocability and understanding of tax consequences\n- Trustee signature accepting the fiduciary appointment and responsibilities\n- Notary public acknowledgment with seal, commission expiration, and proper venue\n- Witness signatures if required by state law for testamentary or trust instruments\n- Acceptance of charitable remainder beneficiaries if required for vesting of their interests\n\nEnsure the execution formalities satisfy both state law requirements for trust validity and any heightened requirements for charitable trusts or trusts holding real property. Include a statement that the settlor has been advised to seek independent legal and tax counsel regarding the consequences of establishing this irrevocable charitable remainder trust.\n\n---\n\n**Final Instruction**: Draft a complete, execution-ready Charitable Remainder Trust document incorporating all sections above with appropriate legal formality, precise technical language, and full compliance with IRC Section 664 requirements. The document should be professionally formatted with appropriate article and section numbering, include all necessary definitions, and be suitable for review by the client's tax and legal advisors prior to execution.",
+  "parent_skill_id": "8bedabb0-a0e4-4136-9d06-540d72094eac",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "estate_planning"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:48:23.380652Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Composing skill markdown for charitable remainder trust**
+
+I'm drafting a concise SKILL.md for "charitable-remainder-trust" with metadata from legal context, a clear purpose statement, prerequisites as a numbered list, and key legal requirements focused on IRC 664 and related Treasury regulations. The draft will contrast CRAT and CRUT features, highlight payout and term limits, note contribution rules, cover asset restrictions cautiously, and mark uncertain citations with [VERIFY].
+thinking
+**Drafting comprehensive CRT skill markdown**
+
+I'm preparing the full SKILL.md for charitable remainder trusts with detailed metadata, a clear third-person description, explicit prerequisites numbered flat, structured output sections including inputs, clause library, payout math, and compliance checklists. The draft will highlight key legal requirements and trustee duties, include flat numbered lists and tables for clarity, caution on uncertain citations with [VERIFY], and feature do/don't guidelines avoiding nested lists. The final content targets about 110 lines with code blocks for templates and math.
+codex
+---
+name: charitable-remainder-trust
+description: Drafts IRC 664–compliant U.S. Charitable Remainder Trust (CRT) agreements, including CRAT/CRUT payout math, remainder qualification, trustee powers, tax compliance, and execution formalities. Use when drafting a CRT, CRAT, CRUT, unitrust, annuity trust, or charitable remainder planning document, or when ensuring IRC 664 compliance.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Charitable Remainder Trust (CRT)
+
+Execution-ready CRT agreement that qualifies under IRC 664 and applicable state law.
+
+## Prerequisites
+
+1. Trust type election: CRAT or CRUT, and whether NICRUT or NIMCRUT applies.
+2. Parties and roles: settlor, trustee(s), income beneficiary(ies), and charitable remainder beneficiary(ies) or selection authority.
+3. Funding assets list with FMV, valuation date, and transfer documents; identify any restricted or problematic assets.
+4. Payout terms: percentage or annuity amount, frequency, and term (life/lives or term of years not exceeding 20).
+5. Actuarial inputs to satisfy the 10% remainder test and any CRAT probability test [VERIFY].
+6. Governing law state, venue, and execution formalities (notary, witnesses, real property requirements).
+
+## Output Structure / Process
+
+Use article-style numbering and include defined terms.
+
+**Trust Type Selection**
+
+| Item | CRAT | CRUT |
+| --- | --- | --- |
+| Payout base | Fixed annuity based on initial FMV | Annual % of annual FMV |
+| Additional contributions | Prohibited | Permitted |
+| Valuation | One-time initial | Annual valuation date |
+| Variants | Standard | Standard, NICRUT, NIMCRUT |
+
+**Core Agreement Sections**
+
+| Section | Required Content |
+| --- | --- |
+| Declaration | Identify settlor, trustee, beneficiaries; state intent to qualify under IRC 664 and applicable Treasury regs (§1.664-1 to §1.664-4). |
+| Irrevocability | Expressly irrevocable; no amendment except to maintain qualification or correct scrivener’s error. |
+| Funding | Asset description, valuation date, transfer warranties, acceptance by trustee, restrictions on problematic assets. |
+| Payout Clause | CRAT annuity or CRUT unitrust; 5%–50% payout range; frequency; start date. |
+| Net Income Limit | NICRUT or NIMCRUT election if applicable; define “net income” and makeup mechanics. |
+| Term | Life/lives or term of years not exceeding 20; termination trigger. |
+| Remainder | Identify qualified charities or selection mechanism; contingency for disqualified/defunct charities. |
+| Trustee Powers | Investment authority, valuation procedures, professional retention, accounting, and reporting. |
+| Tax Compliance | Prohibited transactions, UBTI avoidance, and qualification safeguards. |
+| Accounting | Annual statements to income beneficiaries and remainder charities. |
+| Amendment | Limited to qualification maintenance and scrivener’s error, no change to beneficial interests. |
+| Termination | Final accounting; remainder distribution in cash or in kind at trustee discretion. |
+| Execution | Signature blocks, acknowledgments, notary, witnesses if required. |
+
+**Payout Math (Insert in Clause or Appendix)**
+
+```text
+CRAT: Annual annuity = Initial FMV × Payout %
+CRUT: Annual unitrust amount = Annual FMV × Payout %
+Remainder test: PV of remainder >= 10% of initial FMV
+Term: Life/lives or <= 20 years
+```
+
+**Charitable Beneficiary Clause**
+
+Include one of the following structures and add contingencies:
+
+| Structure | Requirements |
+| --- | --- |
+| Named charities | Full legal names, addresses, EINs; confirm 501(c)(3) status. |
+| Selection authority | Identify selector; require selection only among qualified 501(c)(3) organizations at distribution. |
+| Cy pres | Permit substitution with similar charitable purpose if a named charity is ineligible or defunct. |
+
+**Compliance Checklist (Insert as internal drafting checklist)**
+
+1. IRC 664(d)(1) or 664(d)(2) structure identified.
+2. Payout between 5% and 50% of FMV.
+3. Term does not exceed 20 years if term-based.
+4. 10% remainder test satisfied.
+5. CRAT: no additional contributions; annual payout fixed.
+6. CRUT: annual valuation date defined.
+7. Prohibited transaction and self-dealing prohibitions included (IRC 4941-4945 as applicable) [VERIFY].
+8. UBTI avoidance clause and trustee duty to maintain qualification [VERIFY].
+
+## Guidelines
+
+- State explicitly that the trust is intended to qualify under IRC 664 and Treasury Regs §1.664-1 to §1.664-4.
+- Do not permit amendment that changes income or remainder interests.
+- Include trustee duty to avoid self-dealing and other prohibited acts; add qualified exception language for administrative corrections [VERIFY].
+- Flag any contributed asset that could cause UBTI or other tax issues; require trustee discretion to decline or dispose.
+- If a CRAT, do not allow additional contributions or variable payout adjustments.
+- If a CRUT, define the annual valuation date and permissible valuation method.
+- Use [VERIFY] where local law or specialized tax tests are uncertain.
+tokens used
+5,327

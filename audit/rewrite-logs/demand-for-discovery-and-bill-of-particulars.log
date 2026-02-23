@@ -1,0 +1,321 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c73-0fd5-7392-9150-926972d38a22
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f461fe35-90c7-4e01-816a-fc7e96ff018e",
+  "slug": "demand-for-discovery-and-bill-of-particulars",
+  "name": "Demand for Discovery and Bill of Particulars",
+  "summary": "Drafts a comprehensive Demand for Discovery and Bill of Particulars tailored for criminal defense litigation. Compels the prosecution to disclose specific evidence, documents, and detailed factual allegations to clarify vague charges and support effective trial preparation. Use during the discovery phase after initial pleadings to strategically narrow issues and identify weaknesses in the case against the defendant.",
+  "content": "# Enhanced Prompt: Demand for Discovery and Bill of Particulars\n\nYou are an expert litigation attorney tasked with drafting a comprehensive Demand for Discovery and Bill of Particulars. This critical litigation document serves to compel the opposing party to provide specific information, documents, and detailed allegations necessary for effective trial preparation. Your draft must demonstrate both legal precision and strategic acumen, ensuring every request is properly grounded in applicable procedural rules while advancing your client's litigation objectives.\n\n## Understanding Your Assignment and Gathering Essential Information\n\nBefore drafting begins, you must thoroughly understand the case context and procedural posture. Begin by searching through all available case documents to identify the key facts, parties, claims, defenses, and any prior discovery exchanges. Extract specific information including the full names of all parties, the nature of the claims or charges, dates of relevant events, alleged damages or injuries, and any specific allegations made in the complaint or charging document that require clarification. Identify the jurisdiction and confirm whether this is a federal or state matter, civil or criminal, as this determination governs which procedural rules apply. Review any prior pleadings, motions, or court orders that may inform what discovery is appropriate or what limitations the court has already imposed.\n\nPay particular attention to vague or conclusory allegations in the opposing party's pleadings that would benefit from specification through a bill of particulars. In civil cases, this might include general allegations of negligence without specific acts identified, claims of damages without itemization, or references to \"numerous\" documents or communications without identification. In criminal cases, look for charging documents that cite statutory language without specifying the precise conduct alleged, dates given as ranges rather than specific times, or references to co-conspirators or accomplices without names. Your demand should strategically target these deficiencies to force the opposing party to commit to specific factual theories that can be tested at trial.\n\n## Establishing Proper Caption and Jurisdictional Foundation\n\nDraft a complete and properly formatted caption that reflects the specific requirements of the court where the case is pending. The caption must include the full court name with proper designation of the division or department if applicable, the complete case title listing all parties with their proper designations as plaintiffs, defendants, petitioners, respondents, or in criminal cases as the prosecuting authority and the accused. Include the complete case number or index number exactly as it appears in court records, and title the document clearly as \"Demand for Discovery and Bill of Particulars\" or with whatever specific designation local rules require.\n\nResearch the applicable procedural rules to ensure your caption and document format comply with all technical requirements. Federal civil cases operate under the Federal Rules of Civil Procedure, particularly Rules 26 through 37 governing discovery, while federal criminal cases follow the Federal Rules of Criminal Procedure, especially Rule 16 addressing discovery and Rule 7(f) concerning bills of particulars. State courts have their own procedural codes that may differ significantly in scope, timing, and format requirements. Verify whether local rules impose additional requirements such as specific font sizes, margin widths, page limits, or mandatory notices that must appear on discovery demands.\n\n## Crafting a Compelling Introduction with Legal Authority\n\nYour introductory section must immediately establish the legal foundation for this demand while explaining its necessity for trial preparation. Identify the requesting party by full name and role in the litigation, then cite with precision the specific procedural rules, statutes, and any relevant case law that authorize both the discovery demands and the bill of particulars you are seeking. For federal civil matters, reference Federal Rules of Civil Procedure Rule 26(b)(1) establishing the scope of discovery as any nonprivileged matter relevant to any party's claim or defense and proportional to the needs of the case, along with Rules 33, 34, and 36 governing specific discovery devices. For criminal matters, cite Federal Rule of Criminal Procedure 16 detailing the government's and defendant's discovery obligations, and Rule 7(f) permitting the court to direct the government to file a bill of particulars.\n\nArticulate clearly why this information is necessary and proportional to the needs of the case. Explain that without the requested discovery and specifications, your client cannot adequately prepare for trial, evaluate settlement options, or formulate appropriate defenses or responses to the claims asserted. Emphasize that the requests are narrowly tailored to obtain only information that is genuinely relevant and necessary, avoiding any appearance of harassment, undue burden, or fishing expeditions that might invite objections or court intervention limiting your discovery.\n\n## Formulating Strategic and Specific Discovery Demands\n\nStructure your discovery demands with meticulous attention to specificity, relevance, and strategic value. Each request should be numbered sequentially and drafted with sufficient particularity that the responding party can identify exactly what is being requested, while remaining broad enough to capture all relevant materials within the category. Begin with demands for core documents that are central to the claims or defenses, then expand to supporting materials, communications, and background information that provides context or reveals the opposing party's knowledge and intent.\n\nWhen requesting documents and electronically stored information, specify the time period covered by the request, typically beginning from a date reasonably before the events at issue and extending through the present to capture ongoing developments. Identify the types of documents sought with precision, including contracts, agreements, correspondence, emails, text messages, memoranda, reports, photographs, video or audio recordings, social media posts, financial records, medical records, employment files, or any other category of materials relevant to the specific facts of your case. For electronically stored information, specify the format for production, requesting native format with metadata preserved for databases and structured data, and searchable PDF or TIFF formats for standard documents. Include standard language requiring production of all documents in the responding party's possession, custody, or control, which encompasses materials held by agents, employees, representatives, consultants, experts, or attorneys acting on the party's behalf.\n\nCraft demands for information about witnesses, experts, and other persons with knowledge of relevant facts. Request the identification of all persons the opposing party may call as witnesses at trial, including their full names, addresses, telephone numbers, and a brief description of the subject matter of their expected testimony. For expert witnesses, demand complete curriculum vitae, all reports prepared in connection with the case, all data and materials considered in forming opinions, a complete statement of all opinions to be expressed and the basis for each opinion, a list of all publications authored in the previous ten years, and a list of all cases in which the expert has testified at trial or by deposition in the previous four years. This information is essential for evaluating the credibility and qualifications of opposing experts and preparing effective cross-examination.\n\n## Demanding Specification Through Bill of Particulars\n\nThe bill of particulars portion of your demand must identify with precision each vague, ambiguous, or general allegation in the opposing party's pleading that requires clarification. Frame each demand to address a specific deficiency that genuinely impairs your ability to prepare an adequate response or defense. In civil cases, this might include demanding that the plaintiff specify the exact acts or omissions that allegedly constitute negligence, identify the specific contractual provisions allegedly breached and explain how each was violated, itemize each category of damages claimed with the amount sought for each category and the factual basis for the calculation, or identify each document or communication referenced generally in the complaint with sufficient detail to permit location and review.\n\nIn criminal cases, the bill of particulars serves to ensure the defendant receives adequate notice of the charges to prepare a defense and avoid double jeopardy. Demand that the prosecution specify the precise acts alleged to constitute each element of each charged offense, the specific dates and times when the alleged criminal conduct occurred rather than broad date ranges, the exact locations where offenses allegedly took place with sufficient specificity to prepare alibi defenses or challenge venue, the identity of all alleged co-conspirators, accomplices, or participants in the charged conduct, and the specific manner and means by which the defendant allegedly committed each offense. Each specification demanded should relate directly to an element of the charged offense or an affirmative defense available to the defendant.\n\n## Establishing Clear Compliance Requirements and Deadlines\n\nSpecify a reasonable deadline for response that complies with applicable procedural rules while providing sufficient time for your trial preparation needs. In federal civil cases, Rule 33 requires answers to interrogatories within thirty days after service, and Rule 34 requires responses to document requests within thirty days, though parties may stipulate to different timeframes. State rules vary, with some jurisdictions requiring responses in as few as twenty days or permitting as many as forty-five days. For bills of particulars in criminal cases, consult local rules and case law, as the Federal Rules of Criminal Procedure do not specify a response time, leaving this to the court's discretion and local practice.\n\nState explicitly that all responses must be complete, verified if required by applicable rules, and served within the specified timeframe. Include language preserving your right to seek court intervention if responses are inadequate, evasive, incomplete, or untimely. Reference the specific remedies available under applicable procedural rules, such as Federal Rule of Civil Procedure 37 authorizing motions to compel discovery, sanctions for failure to comply with discovery obligations, and orders precluding the use of information or witnesses not properly disclosed. Note that the responding party has a continuing obligation to supplement responses if additional information becomes available, as required by Federal Rule of Civil Procedure 26(e) and similar state provisions.\n\nAddress the consequences of failure to respond adequately. Explain that if the opposing party fails to provide complete and timely responses, you will seek appropriate relief from the court, which may include orders compelling responses, monetary sanctions including attorney's fees incurred in bringing a motion to compel, preclusion of evidence or witnesses not properly disclosed, dismissal of claims or defenses, entry of default judgment, or in criminal cases, dismissal of charges or preclusion of evidence at trial. This language serves both to encourage compliance and to establish a record supporting any subsequent motion practice if responses prove deficient.\n\n## Incorporating Required Certifications and Professional Obligations\n\nInclude all certifications required by applicable procedural rules and professional responsibility standards. Federal Rule of Civil Procedure 26(g) requires that every discovery request be signed by at least one attorney of record and includes a certification that to the best of the attorney's knowledge, information, and belief formed after reasonable inquiry, the request is consistent with the rules and warranted by existing law or by a nonfrivolous argument for extending, modifying, or reversing existing law, is not interposed for any improper purpose such as to harass, cause unnecessary delay, or needlessly increase the cost of litigation, and is neither unreasonable nor unduly burdensome or expensive considering the needs of the case, prior discovery in the case, the amount in controversy, and the importance of the issues at stake.\n\nDraft certification language that affirms your good faith in propounding these discovery demands and requesting this bill of particulars. State that each request is made for the legitimate purpose of preparing for trial, evaluating settlement, or formulating appropriate legal strategies, and that you have made reasonable inquiry to ensure the requests are proportional to the needs of the case and not duplicative of information already obtained. This certification protects against sanctions under Rule 26(g) and demonstrates professionalism and adherence to ethical obligations.\n\n## Finalizing with Proper Signature Block and Service Information\n\nConclude the document with a complete signature block that includes the attorney's full name, bar admission number and jurisdiction, law firm name if applicable, complete mailing address, telephone number, facsimile number if available, and email address. Designate the attorney as \"Attorney for [Plaintiff/Defendant/Petitioner/Respondent]\" as appropriate. If the document will be filed electronically, ensure the signature block complies with electronic filing requirements, which typically permit electronic signatures in the form of \"/s/ [Attorney Name]\" or similar designations approved by local rules.\n\nInclude a certificate of service indicating the date and method of service on all parties required to receive the demand. Specify whether service was accomplished by electronic filing through the court's case management system with automatic service to registered users, by email to counsel of record, by first-class mail, by personal delivery, or by other means permitted under applicable rules. List the names and addresses of all counsel or parties served. This certificate creates a record establishing timely service and starts the clock running on response deadlines.\n\n## Conducting Final Strategic Review and Quality Control\n\nBefore finalizing the document, conduct a comprehensive review to ensure strategic soundness and legal compliance. Verify that each discovery demand and specification request is likely to yield information genuinely useful for trial preparation, settlement evaluation, or case strategy development. Confirm that all requests comply with scope limitations under applicable discovery rules, respecting privileges such as attorney-client privilege, work product protection, and any other recognized privileges or protections. Ensure the demands satisfy proportionality requirements by considering the importance of the issues at stake, the amount in controversy, the parties' relative access to relevant information, the parties' resources, the importance of the discovery in resolving the issues, and whether the burden or expense of the proposed discovery outweighs its likely benefit.\n\nReview the document for compliance with the specific procedural and substantive law of the jurisdiction, incorporating any recent amendments to discovery rules or relevant case law developments that might affect the scope or manner of discovery. Anticipate likely objections such as claims of undue burden, overly broad requests, vagueness, or requests for privileged information, and consider whether requests should be refined to withstand these challenges or whether you are prepared to litigate the appropriateness of the requests through motion practice. Ensure the final document is professionally formatted, free of typographical or grammatical errors, properly paginated, and ready for service on opposing counsel and filing with the court if required by local practice. The completed demand should reflect the highest standards of legal practice while strategically advancing your client's interests in the litigation.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:41:17.920893Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+codex
+---
+name: discovery-and-bill-of-particulars
+description: Drafts U.S. litigation pleadings that combine a discovery demand with a bill of particulars to force targeted disclosure, narrow vague theories, and build a record for compulsion or sanction relief. Use after initial pleadings/return date in criminal defense (primary) or discovery-active civil actions when allegations are underspecified, evidence is opaque, or trial-preparation notices are unclear. Trigger keywords: discovery demand, bill of particulars, motion to compel, FRCP 16, FRCP 26, FRCP 33, FRCP 34, FRCP 37, particularity.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Demand for Discovery and Bill of Particulars
+
+Generate a court-ready pleading that enforces proportional discovery, specifies ambiguous factual/theory allegations, and preserves enforceable compliance leverage.
+
+## Prerequisites
+
+1. Confirm jurisdiction, court, division/department, case number, local rules, and any standing filing or formatting orders.
+2. Confirm case posture and whether the matter is criminal, civil, or hybrid procedural posture.
+3. Collect charging document/complaint, prior pleadings, motions, stipulations, and existing discovery responses.
+4. Identify the ambiguous allegations or information gaps blocking trial preparation.
+5. Identify all potential privilege categories and current protective-order constraints.
+6. Decide preferred enforcement path: meet-and-confer, motion practice sequence, fee/sanction posture.
+
+## Output Structure / Process
+
+### 1) Regime selection and governing authority block
+
+Output this matrix first:
+
+| Track | Governing rules | Core use | Baseline deadline | Notes |
+|---|---|---|---|---|
+| Criminal | Fed. R. Crim. P. 16; 7(f) + local criminal practice | Discovery + particulars for notice and defense prep | Local rule/time limit [VERIFY] | For charge specificity and due-process clarity |
+| Federal civil | FRCP 26(b)(1), 26(e), 26(g), 33, 34, 36, 37 | Discovery scope + itemized requests | FRCP 33/34 baseline 30 days from service [VERIFY] | Check local deviations |
+| State | State procedure + local rules | Adapted template | State statute/rule specific [VERIFY] | Confirm nomenclature and service mechanics |
+
+### 2) Intake-driven issue framing (fill-in schema)
+
+```text
+Court: [jurisdiction]
+Judge/department: [if required]
+Plaintiff/Prosecution: [name]
+Defendant: [name]
+Case number: [xxxx]
+Motion/declaration label: Demand for Discovery and Bill of Particulars
+Strategic objective: [e.g., narrow charges, obtain witness/evidence disclosure, prepare defenses]
+```
+
+### 3) Draft the authority and need section
+
+- State party status, case stage, and why relief is necessary.
+- Criminal: cite FRCP 16 and FRCP 7(f) for disclosure and particularized charge notice.
+- Civil: cite FRCP 26(b)(1), 33, 34, 36, 37 for relevance, specificity, and sanctions path.
+- Include proportionality statement and statement that requests avoid harassment/fishing.
+
+### 4) Discovery demands (numbered, machine-readable)
+
+Use one numbered list with strict specificity. Required columns:
+
+| Req. | Category | Custodian/source | Time range | Format | Rationale |
+|---|---|---|---|---|---|
+| 1 | Documents/es | [party + affiliates] | [from/to] | Native + metadata [if ESI] | [defense use] |
+| 2 | Communications | [emails/texts/notes] | [from/to] | Native + native index | [defense use] |
+| 3 | Witness IDs | [trial/public witnesses] | [if ongoing] | Contact + summary scope | Trial prep/notice |
+| 4 | Expert materials | [experts] | [all] | CVs, reports, data, opinions, testing basis | Rebuttal/cross prep |
+
+Template for each item:
+
+```text
+[No.] Request for [documents|communications|identity|expert materials]:
+Request:
+Ground:
+Response format:
+Privilege carve-out:
+```
+
+### 5) Bill of particulars module (civil+criminal branches)
+
+```text
+Demand [No.]:
+Allegation to specify:
+Exact information required:
+Reason tied to element/issue:
+```
+
+Criminal nodes:
+- acts constituting each charged offense
+- exact dates/times and locations
+- identified participants/co-conspirators/accomplices
+- manner and means for each offense
+- nexus to venue/elements/defenses
+
+Civil nodes:
+- contract/ statutory provisions breached + breach conduct
+- itemized damages per category + calculation basis
+- each referenced document described with enough specificity for production
+
+### 6) Compliance controls and deadlines
+
+- State response deadline and service method.
+- Require complete, verified responses when required by local/operative rules.
+- Require supplementation duty as new information becomes known.
+- Include fallback sequence: meet-and-confer → motion to compel → sanctions/preclusion/fee recovery.
+- Prefer explicit court-ready language for incomplete, evasive, or untimely responses.
+
+### 7) Certification, signature, and service block
+
+```text
+I certify under [applicable rule] that this demand is grounded in law, not interposed for delay/harrasment, and not unduly burdensome.
+Attorney:
+Bar/firm/contact:
+/s/ [Attorney]
+Date:
+Certificate of Service:
+Served on [party/counsel] via [CMS/e-service/mail]
+Date/time/method:
+```
+
+### 8) Final control checks
+
+- Every request mapped to a litigation purpose.
+- Privilege and nonparty constraints acknowledged.
+- No duplicate/mutually inconsistent requests.
+- No invented deadlines; each date/time/citation verified per applicable rules.
+- Local captioning/formatting requirements reflected.
+
+## Guidelines
+
+- Keep the document narrowly tailored: each request should be specific, relevant, and discoverable.
+- Use parallel phrasing for criminal and civil tracks; never mix standards without indicating governing rule.
+- Separate factual requests from relief/remedy requests to reduce objections.
+- Build an escalation-ready record: avoid vague terms, include exact relief language.
+- Mark jurisdictional assumptions with `[VERIFY]` when local law or state provisions are uncertain.
+
+tokens used
+7,845

@@ -1,0 +1,181 @@
+skill_a,name_a,type_a,skill_b,name_b,type_b,similarity
+deposition-summary-page-line,Deposition Summary - Page-line,form,deposition-summaries-deep-analysis,Deposition Summaries - Deep Analysis,form,0.9461
+corporate-securities-and-capital-markets,securities and capital markets,root,regulatory-securities-and-capital-markets,securities and capital markets,root,0.9375
+draft-environmental-indemnity-agreement,Environmental Indemnity Agreement,form,environmental-indemnity-agreement-transactional,Environmental Indemnity Agreement (Transactional),form,0.9368
+corporate-finance-term-loan-agreement-draft,Term Loan Agreement,form,draft-term-loan-agreement,Loan Agreement (Term),form,0.9307
+discovery-summarization,Discovery Summarization,form,litigation-discovery-document-summarization,Discovery Document Summarization,form,0.9273
+transactional-employment-arbitration-agreement-draft,Arbitration Agreement (Employment),form,employee-arbitration-agreement,Employee Arbitration Agreement,form,0.9243
+transactional-mergers-and-acquisitions,mergers and acquisitions,root,corporate-mergers-and-acquisitions,mergers and acquisitions,root,0.9209
+police-report-summaries,Police Report Summaries,form,police-incident-report-summary,Police/Incident Report Summary,form,0.9203
+litigation-class-action-motion-final-settlement-approval,Motion for Final Approval of Settlement,form,litigation-class-action-motion-for-preliminary-approval-of-settlement,Motion for Preliminary Approval of Settlement,form,0.9174
+litigation-personal-injury-settlement-demand-letter,Settlement Demand Letter,form,litigation-personal-injury-demand-letter,Demand Letter,form,0.9161
+draft-pre-trial-statement-commercial-litigation,Pre-Trial Statement,form,litigation-commercial-pre-trial-statement-report,Pre-Trial Statement/Report,form,0.9143
+transactional-corporate-governance,corporate governance,root,corporate-corporate-governance,corporate governance,root,0.9100
+discovery-summarization,Discovery Summarization,form,discovery-document-summaries,Discovery Document Summaries,form,0.9096
+discovery-document-summaries,Discovery Document Summaries,form,litigation-discovery-document-summarization,Discovery Document Summarization,form,0.9088
+settlement-summaries,Settlement Summaries,form,settlement-agreement-summaries,Settlement Agreement Summaries,form,0.9052
+settlement-agreement-summaries,Settlement Agreement Summaries,form,draft-settlement-summaries,Draft Settlement Summaries,form,0.9038
+litigation-e-discovery-esi-protocol,E-Discovery Protocol (ESI Protocol),form,e-discovery-protocol-agreement,E-Discovery Protocol Agreement,form,0.9027
+regulatory-non-profit-organizations,non profit organizations,root,corporate-non-profit-organizations,non profit organizations,root,0.8993
+discovery-summarization,Discovery Summarization,form,discovery-response-summary,Discovery response,form,0.8964
+stock-purchase-agreement-ma,Stock Purchase Agreement M&A,form,draft-stock-purchase-agreement,Stock Purchase Agreement,form,0.8886
+litigation-appeals-amicus-curiae-brief,Amicus Curiae Brief,form,litigation-amicus-briefs,Amicus Briefs,form,0.8879
+notice-of-class-action-to-class-members,Notice of Class Action to Class Members,form,litigation-class-action-communication-plan-class-notice,Communication Plan for Class Notice,form,0.8864
+corporate-finance-subordination-agreement-draft,Subordination Agreement,form,subordination-agreement-debt,Subordination Agreement (Debt),form,0.8843
+insider-trading-policy-financial-firm,Insider Trading Policy (Financial Firm),form,draft-insider-trading-policy,Insider Trading Policy,form,0.8838
+litigation-cross-examination-key-points-summary,Cross-Examination Key Points,form,cross-examination-summaries,Cross-Examination Summaries,form,0.8829
+transactional-intellectual-property-licensing,intellectual property licensing,root,regulatory-intellectual-property-licensing,intellectual property licensing,root,0.8797
+investigator-agreement-clinical-trial,Investigator Agreement (Clinical Trial),form,clinical-trial-agreement-drafting,Clinical Trial Agreement,form,0.8794
+corporate-governance-board-meeting-summaries,Board Meeting Summaries,form,shareholder-meeting-summaries,Shareholder Meeting Summaries,form,0.8791
+transactional-residential-real-estate,residential real estate,root,transactional-commercial-real-estate,commercial real estate,root,0.8790
+settlement-summaries,Settlement Summaries,form,draft-settlement-summaries,Draft Settlement Summaries,form,0.8780
+verdict-judgment-summary,Verdict/Judgment Summary,form,verdict-analysis,Verdict Analysis,form,0.8760
+corporate-board-resolution-dissolution,Board Resolution to Dissolve,form,shareholder-resolution-to-dissolve,Shareholder Resolution to Dissolve,form,0.8738
+mediation-arbitration-statement,Mediation or Arbitration Statement,form,litigation-mediation-statement-brief,Mediation Statement/Brief,form,0.8706
+pre-litigation-demand-letter,Pre-Litigation Demand Letter,form,litigation-personal-injury-demand-letter,Demand Letter,form,0.8690
+transactional-commercial-leasing,commercial leasing,root,transactional-commercial-real-estate,commercial real estate,root,0.8667
+energy-regulation-summaries,Energy Regulation Summaries,form,renewable-energy-regulation-summaries,Renewable Energy Regulation Summaries,form,0.8664
+draft-asset-purchase-agreement-apa,Asset Purchase Agreement (APA),form,corporate-mergers-and-acquisitions-asset-purchase-agreement-draft,Asset Purchase Agreement,form,0.8660
+notice-of-appeal-criminal,Notice of Appeal - Criminal,form,litigation-appeals-notice-of-appeal,Notice of Appeal,form,0.8652
+draft-bill-of-sale,Bill of Sale,form,bill-of-sale-personal-property-cre,Bill of Sale for Personal Property (CRE),form,0.8641
+complex-settlement-agreement-summary,Complex Settlement Agreement Summary,form,settlement-agreement-summaries,Settlement Agreement Summaries,form,0.8622
+litigation-personal-injury-settlement-demand-letter,Settlement Demand Letter,form,settlement-demand-package,Settlement Demand Package,form,0.8611
+regulatory-employment-and-consulting,employment and consulting,root,transactional-employment-and-consulting,employment and consulting,root,0.8587
+deposition-summaries-deep-analysis,Deposition Summaries - Deep Analysis,form,deposition-summary-with-key-document-index,Deposition Summary with Key Document Index,form,0.8578
+transactional-assignment-of-intellectual-property,Assignment of Intellectual Property,form,transactional-assignment-of-license,Assignment of License,form,0.8569
+insurance-policy-summaries,Insurance Policy Summaries,form,insurance-correspondence-summarization,Insurance Correspondence Summarization,form,0.8552
+discovery-response-summary,Discovery response,form,litigation-discovery-document-summarization,Discovery Document Summarization,form,0.8518
+tender-of-defense-contractual-obligations,Tender of Defense Contractual Obligations,form,tender-letter-denial,Tender Letter Denial,form,0.8515
+discovery-response-summary,Discovery response,form,interrogatory-response-summaries,Interrogatory Response Summaries,form,0.8511
+insurance-policy-summaries,Insurance Policy Summaries,form,insurance-claim-summaries,Insurance Claim Summaries,form,0.8507
+draft-minutes-board-of-directors-meeting,Minutes of Board of Directors Meeting,form,corporate-minutes-shareholders-meeting,Minutes of Shareholders Meeting,form,0.8499
+complex-settlement-agreement-summary,Complex Settlement Agreement Summary,form,settlement-summaries,Settlement Summaries,form,0.8498
+deposition-summaries-deep-analysis,Deposition Summaries - Deep Analysis,form,deposition-summary-narrative,Deposition Summary - Narrative,form,0.8497
+litigation-personal-injury-motion-for-summary-judgment,Motion for Summary Judgment,form,litigation-summary-judgment-motion-brief,Summary Judgment Motion Brief,form,0.8488
+litigation-appeals-appellant-brief,Appellate Brief for Appellant,form,litigation-appeals-appellees-response-brief,Appellee's Response Brief,form,0.8488
+contract-summarization,Contract Summarization,form,employment-contract-summaries,Employment Contract Summaries,form,0.8480
+healthcare-compliance-summaries,Healthcare Compliance Summaries,form,compliance-summaries,Compliance Summaries,form,0.8468
+written-discovery-response-summary,Written Discovery Response Summary,form,discovery-response-summary,Discovery response,form,0.8465
+response-to-petition-dissolution-marriage,Response to Petition,form,petition-for-dissolution-of-marriage,Petition for Dissolution of Marriage,form,0.8463
+settlement-demand-package,Settlement Demand Package,form,demand-package-compilation,Demand Package Compilation,form,0.8461
+corporate-finance-loan-and-security-agreement,Loan and Security Agreement,form,corporate-finance-term-loan-agreement-draft,Term Loan Agreement,form,0.8455
+transactional-franchise-renewal-agreement-draft,Franchise Renewal Agreement,form,draft-franchise-agreement,Franchise Agreement,form,0.8450
+litigation-appeals-appellees-response-brief,Appellee's Response Brief,form,litigation-appeals-reply-brief-appellant,Reply Brief for Appellant,form,0.8448
+discovery-summarization,Discovery Summarization,form,interrogatory-response-summaries,Interrogatory Response Summaries,form,0.8448
+corporate-finance-secured-promissory-note-draft,Promissory Note (Secured),form,draft-commercial-promissory-note,Commercial Promissory Note,form,0.8447
+draft-minutes-board-of-directors-meeting,Minutes of Board of Directors Meeting,form,corporate-non-profit-board-meeting-minutes,Minutes of Non-Profit Board Meeting,form,0.8446
+litigation-personal-injury-settlement-demand-letter,Settlement Demand Letter,form,pre-litigation-demand-letter,Pre-Litigation Demand Letter,form,0.8440
+deposition-summary-page-line,Deposition Summary - Page-line,form,deposition-summary-narrative,Deposition Summary - Narrative,form,0.8436
+corporate-articles-of-incorporation,Articles of Incorporation,form,articles-of-incorporation-non-profit,Articles of Incorporation (Non-Profit),form,0.8418
+draft-minutes-board-of-directors-meeting,Minutes of Board of Directors Meeting,form,organizational-meeting-minutes,Organizational Meeting Minutes,form,0.8411
+insurance-correspondence-summarization,Insurance Correspondence Summarization,form,insurance-claim-summaries,Insurance Claim Summaries,form,0.8397
+expert-testimony-summarization,Expert Testimony Summarization,form,expert-witness-report-summaries,Expert Witness Report Summaries,form,0.8390
+litigation-mediation-statement-brief,Mediation Statement/Brief,form,litigation-personal-injury-mediation-statement,Mediation Statement,form,0.8390
+litigation-employment-litigation,Employment  Litigation,root,litigation-commercial-litigation,Commercial  Litigation,root,0.8381
+expert-report-class-damages,Expert Report on Class Damages,form,expert-report-on-damages,Expert Report on Damages,form,0.8367
+bill-of-sale-and-assignment,Bill of Sale and Assignment,form,transactional-assignment-and-assumption-agreement,Assignment and Assumption Agreement,form,0.8366
+settlement-agreement-summaries,Settlement Agreement Summaries,form,settlement-agreement-release-summary,Settlement Agreement & Release Summary,form,0.8361
+series-a-stock-purchase-agreement-draft,Series A Stock Purchase Agreement,form,draft-stock-purchase-agreement,Stock Purchase Agreement,form,0.8359
+transactional-assignment-and-assumption-agreement,Assignment and Assumption Agreement,form,assignment-and-assumption-of-leases,Assignment and Assumption of Leases,form,0.8359
+deposition-summary-page-line,Deposition Summary - Page-line,form,deposition-summary-with-key-document-index,Deposition Summary with Key Document Index,form,0.8357
+corporate-state-qualification-to-do-business,State Qualification to Do Business,form,corporate-foreign-corporation-registration,Foreign Corporation Registration,form,0.8357
+litigation-personal-injury-letter-of-spoliation,Letter of Spoliation,form,litigation-document-preservation-letter,Document Preservation Letter,form,0.8330
+draft-intercreditor-agreement,Intercreditor Agreement,form,intercreditor-agreement-lien-priority,Intercreditor Agreement (Lien Priority),form,0.8319
+summary-judgment-summarization,Summary Judgments,form,judgment-summaries,Judgment Summaries,form,0.8318
+litigation-class-action-fairness-hearing-notice,Fairness Hearing Notice,form,notice-of-class-action-to-class-members,Notice of Class Action to Class Members,form,0.8310
+multi-year-tax-return-income-analysis,Multi-Year Tax Return Income Analysis,form,tax-return-summary,Tax Return Summary,form,0.8303
+litigation-mediation-summary-statement,Mediation Summaries/Statement,form,litigation-mediation-statement-brief,Mediation Statement/Brief,form,0.8297
+settlement-summaries,Settlement Summaries,form,litigation-settlement-proposals,Settlement Proposals,form,0.8295
+settlement-summaries,Settlement Summaries,form,settlement-agreement-release-summary,Settlement Agreement & Release Summary,form,0.8285
+draft-confidentiality-severance-agreement-employment-litigation,Confidentiality and Severance Agreement,form,employee-separation-and-release-agreement,Employee Separation and Release Agreement,form,0.8281
+articles-of-dissolution,Articles of Dissolution,form,corporate-final-report-of-dissolution,Final Report of Dissolution,form,0.8275
+employee-dispute-summaries,Employee Dispute Summaries,form,employee-complaint-summaries,Employee Complaint Summaries,form,0.8270
+corporate-finance-loan-and-security-agreement,Loan and Security Agreement,form,draft-term-loan-agreement,Loan Agreement (Term),form,0.8263
+litigation-settlement-agreements,Settlement Agreements,form,draft-settlement-summaries,Draft Settlement Summaries,form,0.8262
+complex-settlement-agreement-summary,Complex Settlement Agreement Summary,form,draft-settlement-summaries,Draft Settlement Summaries,form,0.8258
+security-agreement-granting-lien,Security Agreement (Granting Lien),form,corporate-finance-loan-and-security-agreement,Loan and Security Agreement,form,0.8258
+receipt-of-fdd-form,Receipt of FDD Form,form,draft-franchise-disclosure-document-fdd,Franchise Disclosure Document (FDD),form,0.8257
+executive-summaries,Executive Summaries,form,summarize-files,Summarize files,form,0.8255
+litigation-employment-litigation,Employment  Litigation,root,litigation-real-estate-litigation,Real  Estate  Litigation,root,0.8251
+corporate-corporate-dissolution,corporate dissolution,root,corporate-corporate-formation,corporate formation,root,0.8247
+trial-preparation-summaries,Trial Preparation Summaries,form,cross-examination-summaries,Cross-Examination Summaries,form,0.8244
+promissory-note-residential,Promissory Note (Residential),form,draft-commercial-promissory-note,Commercial Promissory Note,form,0.8236
+patent-infringement-analysis-report,Patent Infringement Analysis Report,form,ip-infringement-analysis,Infringement Analysis,form,0.8236
+complaint-for-patent-infringement,Complaint for Patent Infringement,form,complaint-for-copyright-infringement,Complaint for Copyright Infringement,form,0.8232
+settlement-summaries,Settlement Summaries,form,litigation-settlement-agreements,Settlement Agreements,form,0.8223
+litigation-personal-injury-client-intake-summary,Client Intake Summary / Questionnaire,form,litigation-personal-injury-initial-client-intake-form,Initial Client Intake Form,form,0.8220
+transactional-residential-purchase-agreement,Residential Purchase Agreement,form,purchase-sale-agreement-commercial-real-estate,Purchase and Sale Agreement (Commercial Real Estate),form,0.8215
+draft-advance-health-care-directive,Advance Health Care Directive,form,draft-healthcare-power-of-attorney,Healthcare Power of Attorney,form,0.8201
+corporate-corporate-governance,corporate governance,root,corporate-corporate-formation,corporate formation,root,0.8201
+litigation-support-summaries,Litigation Support Summaries,form,legal-strategy-summaries,Legal Strategy Summaries,form,0.8201
+shelf-registration-statement-form-s-3,Shelf Registration Statement (Form S-3),form,registration-statement-form-s-1,Registration Statement Form S-1,form,0.8200
+complex-settlement-agreement-summary,Complex Settlement Agreement Summary,form,settlement-agreement-release-summary,Settlement Agreement & Release Summary,form,0.8199
+transactional-residential-real-estate-escrow-instructions,Escrow Instructions,form,corporate-mergers-and-acquisitions-escrow-agreement-draft,Escrow Agreement,form,0.8198
+objection-to-proof-of-claim,Objection to Proof of Claim,form,litigation-bankruptcy-proof-of-claim,Proof of Claim (Bankruptcy),form,0.8193
+policy-summaries,Policy Summaries,form,regulatory-general-policy-manuals,Policy Manuals,form,0.8193
+legal-memoranda,Legal Memoranda,form,litigation-personal-injury-legal-memorandum,Legal Memorandum,form,0.8193
+interrogatory-response-summaries,Interrogatory Response Summaries,form,litigation-discovery-document-summarization,Discovery Document Summarization,form,0.8192
+corporate-plan-of-liquidation-and-dissolution,Plan of Liquidation and Dissolution,form,shareholder-resolution-to-dissolve,Shareholder Resolution to Dissolve,form,0.8191
+summarize-files,Summarize files,form,discovery-document-summaries,Discovery Document Summaries,form,0.8188
+communication-summarization,Communication Summarization,form,summarize-files,Summarize files,form,0.8188
+litigation-mediation-briefs,Mediation Briefs,form,litigation-mediation-statement-brief,Mediation Statement/Brief,form,0.8187
+corporate-corporate-finance,corporate finance,root,corporate-corporate-governance,corporate governance,root,0.8185
+litigation-order-certifying-class,Order Certifying Class,form,litigation-motion-for-class-certification,Motion for Class Certification,form,0.8183
+executive-summaries,Executive Summaries,form,legal-opinion-summaries,Legal Opinion Summaries,form,0.8182
+transactional-residential-lease-agreement,Residential Lease Agreement,form,transactional-residential-purchase-agreement,Residential Purchase Agreement,form,0.8180
+discovery-response-summary,Discovery response,form,discovery-document-summaries,Discovery Document Summaries,form,0.8178
+litigation-criminal-defense-motion-to-dismiss-indictment,Motion to Dismiss Indictment,form,litigation-motion-to-dismiss-commercial,Motion to Dismiss,form,0.8177
+litigation-employment-litigation,Employment  Litigation,root,litigation-intellectual-property-litigation,Intellectual  Property  Litigation,root,0.8163
+tender-of-defense-to-insurance-carrier,Tender of Defense to Insurance Carrier,form,tender-of-defense-contractual-obligations,Tender of Defense Contractual Obligations,form,0.8151
+deposition-summary-with-key-document-index,Deposition Summary with Key Document Index,form,deposition-summary-narrative,Deposition Summary - Narrative,form,0.8150
+litigation-employment-litigation,Employment  Litigation,root,litigation-family-law,Family  Law,root,0.8150
+legal-audit-summaries,Legal Audit Summaries,form,audit-report-summaries,Audit Report Summaries,form,0.8150
+litigation-intellectual-property-litigation,Intellectual  Property  Litigation,root,litigation-real-estate-litigation,Real  Estate  Litigation,root,0.8143
+mediation-arbitration-statement,Mediation or Arbitration Statement,form,litigation-personal-injury-mediation-statement,Mediation Statement,form,0.8142
+regulatory-securities-and-capital-markets,securities and capital markets,root,regulatory-financial-services,financial services,root,0.8133
+plan-of-reorganization-chapter-11,Plan of Reorganization Chapter 11,form,disclosure-statement-plan-reorganization,Disclosure Statement for Plan of Reorganization,form,0.8131
+litigation-settlement-proposals,Settlement Proposals,form,settlement-agreement-summaries,Settlement Agreement Summaries,form,0.8131
+settlement-demand-package,Settlement Demand Package,form,litigation-personal-injury-demand-letter,Demand Letter,form,0.8131
+litigation-appeals-appellant-brief,Appellate Brief for Appellant,form,litigation-appeals-reply-brief-appellant,Reply Brief for Appellant,form,0.8127
+contract-summarization,Contract Summarization,form,summarize-files,Summarize files,form,0.8121
+organizational-meeting-minutes,Organizational Meeting Minutes,form,corporate-minutes-shareholders-meeting,Minutes of Shareholders Meeting,form,0.8120
+corporate-corporate-finance,corporate finance,root,corporate-securities-and-capital-markets,securities and capital markets,root,0.8114
+litigation-real-estate-litigation,Real  Estate  Litigation,root,litigation-commercial-litigation,Commercial  Litigation,root,0.8113
+legal-research-summaries,Legal Research Summaries,form,legal-article-summaries,Legal Article Summaries,form,0.8112
+litigation-criminal-defense-plea-agreement-summaries,Plea Agreement Summaries,form,litigation-criminal-defense-plea-agreement-draft,Plea Agreement,form,0.8108
+bill-of-sale-and-assignment,Bill of Sale and Assignment,form,assignment-and-assumption-of-leases,Assignment and Assumption of Leases,form,0.8108
+pharmaceutical-regulation-summaries,Pharmaceutical Regulation Summaries,form,regulatory-submission-summaries,Regulatory Submission Summaries,form,0.8107
+litigation-settlement-agreements,Settlement Agreements,form,litigation-class-action-settlement-agreement,Class Action Settlement Agreement,form,0.8105
+legal-memoranda,Legal Memoranda,form,corporate-governance-client-memo,Client Memo,form,0.8102
+litigation-settlement-agreements,Settlement Agreements,form,settlement-agreement-summaries,Settlement Agreement Summaries,form,0.8098
+corporate-corporate-finance,corporate finance,root,corporate-corporate-formation,corporate formation,root,0.8092
+transactional-commercial-leasing-landlords-consent-to-sublease,Landlord's Consent to Sublease,form,transactional-sublease-agreement,Sublease Agreement,form,0.8088
+written-discovery-response-summary,Written Discovery Response Summary,form,interrogatory-response-summaries,Interrogatory Response Summaries,form,0.8083
+deed-of-trust-security-agreement-drafting,Deed of Trust and Security Agreement,form,transactional-residential-mortgage-deed-of-trust-draft,Mortgage or Deed of Trust (Residential),form,0.8082
+discovery-summarization,Discovery Summarization,form,summarize-files,Summarize files,form,0.8079
+form-10-q-quarterly-report-draft,Form 10-Q Quarterly Report,form,form-10k-annual-report-drafting,Form 10-K Annual Report,form,0.8077
+corporate-corporate-finance,corporate finance,root,corporate-venture-capital-and-private-equity,venture capital and private equity,root,0.8075
+due-diligence-reports,Due Diligence Reports,form,due-diligence-summaries,Due Diligence Summaries,form,0.8073
+bill-of-sale-and-assignment,Bill of Sale and Assignment,form,bill-of-sale-personal-property-cre,Bill of Sale for Personal Property (CRE),form,0.8072
+policy-summaries,Policy Summaries,form,summarize-files,Summarize files,form,0.8065
+summary-judgment-summarization,Summary Judgments,form,litigation-summary-judgment-motion-brief,Summary Judgment Motion Brief,form,0.8063
+draft-employee-non-disclosure-agreement,Non-Disclosure Agreement (NDA) for Employee,form,draft-employee-confidentiality-security-agreement,Employee Confidentiality and Security Agreement,form,0.8060
+corporate,Corporate Practice,root,corporate-corporate-formation,corporate formation,root,0.8060
+litigation-settlement-agreements,Settlement Agreements,form,settlement-and-license-agreement,Settlement and License Agreement,form,0.8057
+draft-franchise-transfer-agreement,Franchise Transfer Agreement,form,draft-franchise-agreement,Franchise Agreement,form,0.8056
+tax-return-summary,Tax Return Summary,form,tax-summaries-for-spousal-support,Tax Summaries for Spousal Support,form,0.8054
+corporate-securities-and-capital-markets,securities and capital markets,root,corporate-venture-capital-and-private-equity,venture capital and private equity,root,0.8053
+complaint-to-determine-dischargeability-of-debt,Complaint to Determine Dischargeability of Debt,form,litigation-bankruptcy-adversary-proceeding-complaint,Adversary Proceeding Complaint,form,0.8050
+draft-trademark-license-agreement,Trademark License Agreement,form,patent-license-agreement-exclusive,Patent License Agreement (Exclusive),form,0.8049
+transactional-lease-guaranty,Lease Guaranty,form,guaranty-agreement-drafting,Guaranty Agreement,form,0.8040
+sports-licensing-agreement-summaries,Sports Licensing Agreement Summaries,form,license-agreement-summaries,License Agreement Summaries,form,0.8040
+consulting-agreement-with-seller,Consulting Agreement with Seller,form,draft-consulting-services-agreement,Consulting Services Agreement,form,0.8037
+demand-package-compilation,Demand Package Compilation,form,litigation-personal-injury-demand-letter,Demand Letter,form,0.8031
+corporate-plan-of-liquidation-and-dissolution,Plan of Liquidation and Dissolution,form,corporate-board-resolution-dissolution,Board Resolution to Dissolve,form,0.8017
+draft-informed-consent-form-clinical-trial,Informed Consent Form for Clinical Trial,form,regulatory-healthcare-informed-consent-form-draft,Informed Consent Form,form,0.8017
+guaranty-agreement-drafting,Guaranty Agreement,form,guaranty-unlimited,Guaranty (Unlimited),form,0.8017
+written-discovery-response-summary,Written Discovery Response Summary,form,discovery-summarization,Discovery Summarization,form,0.8014
+shareholder-meeting-summaries,Shareholder Meeting Summaries,form,corporate-minutes-shareholders-meeting,Minutes of Shareholders Meeting,form,0.8013
+regulatory-environmental-law,environmental law,root,regulatory-energy-law,energy law,root,0.8003
+contract-summarization,Contract Summarization,form,contract-abstracts,Contract Abstracts,form,0.8002
+litigation-personal-injury-investigation-report-summary,Investigation Report Summaries,form,litigation-criminal-defense-interview-summaries,Interview Summaries,form,0.8001

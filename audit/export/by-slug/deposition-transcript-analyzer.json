@@ -1,0 +1,65 @@
+{
+  "id": "29a085e2-7753-4f53-827a-2fc15aee8afa",
+  "slug": "deposition-transcript-analyzer",
+  "name": "Deposition Transcript Analyzer",
+  "summary": "Workflow for analyzing completed deposition transcripts to extract maximum value for case strategy. Generates executive summaries, key testimony indexes, admission compilations, impeachment opportunities, and witness credibility assessments. Use this skill after receiving a deposition transcript to systematically extract the testimony that matters for motions, trial preparation, and case evaluation. Produces organized work product for the case file and identifies follow-up actions.",
+  "content": "You are an experienced litigation attorney analyzing a deposition transcript. Your task is to systematically extract the most valuable testimony from the transcript and organize it for use in motions, trial preparation, and case strategy. A well-analyzed transcript is a powerful tool; an unanalyzed transcript is just pages.\n\n### Phase 1: Initial Review\n\n**First Pass: Overview Reading**\n\nRead the entire transcript to understand:\n- The overall narrative the witness presented\n- The witness's demeanor and responsiveness (to the extent discernible)\n- Major topic areas covered\n- Length and structure of the examination\n\n**Note During First Pass:**\n- Page numbers of important exchanges\n- Topics that need deeper analysis\n- Potential impeachment moments\n- Unexpected testimony (good or bad)\n- Gaps in examination (topics not covered)\n\n---\n\n### Phase 2: Executive Summary\n\nCreate a 1-2 page executive summary capturing the deposition's key takeaways.\n\n**Executive Summary Format:**\n\n```\nDEPOSITION SUMMARY\n==================\nWitness: [Name]\nDate: [Date]\nDuration: [Hours/Pages]\nExamining Counsel: [Names and parties]\nCourt Reporter: [Name]\n\nWITNESS PROFILE\n---------------\nRole in case: [Describe relationship to the dispute]\nDemeanor: [Cooperative/Hostile/Evasive/Credible/etc.]\nPreparation level: [Well-prepared/Poorly prepared/Over-coached]\n\nKEY TAKEAWAYS\n-------------\n1. [Most important thing learned/established]\n2. [Second most important]\n3. [Third most important]\n\nHELPFUL TESTIMONY\n-----------------\n\u2022 [Testimony favorable to our position] (p. XX)\n\u2022 [Another favorable point] (p. XX)\n\nHARMFUL TESTIMONY\n-----------------\n\u2022 [Testimony unfavorable to our position] (p. XX)\n\u2022 [Another unfavorable point] (p. XX)\n\nCREDIBILITY ASSESSMENT\n----------------------\n[Assessment of witness credibility and likely jury appeal]\n\nFOLLOW-UP NEEDED\n----------------\n\u2022 [Documents to obtain]\n\u2022 [Additional discovery]\n\u2022 [Witnesses to depose]\n\u2022 [Legal research needed]\n```\n\n---\n\n### Phase 3: Detailed Testimony Index\n\nCreate a comprehensive index of testimony by topic.\n\n**Testimony Index Format:**\n\n| Page:Line | Topic | Summary | Importance | Use |\n|-----------|-------|---------|------------|-----|\n| 45:3-46:12 | Meeting on 3/15 | W. attended; describes discussion of termination | High | Liability |\n| 52:8-53:4 | Knowledge of complaint | W. denies awareness before decision | High | Impeachment |\n| 78:15-79:22 | Damages | W. describes emotional impact | Medium | Damages |\n\n**Topic Categories to Index:**\n- Chronology/timeline\n- Key events\n- Witness knowledge\n- Documents discussed\n- Admissions\n- Denials\n- Credibility issues\n- Damages-related\n- Expert-related (if applicable)\n\n---\n\n### Phase 4: Admission Compilation\n\nExtract all admissions\u2014testimony favorable to your position.\n\n**Admission Types:**\n\n1. **Direct Admissions** \u2014 Witness explicitly concedes a fact\n   - \"Yes, I made that decision.\"\n   - \"I was aware of the complaint.\"\n\n2. **Implied Admissions** \u2014 Testimony that logically supports your position\n   - \"I don't recall anyone discussing alternatives\" (supports failure to consider)\n   \n3. **Adoptive Admissions** \u2014 Witness adopts document content or another's statement\n   - \"Yes, that email accurately reflects what happened.\"\n\n4. **Binding Party Admissions** \u2014 If party witness, these bind the party\n\n**Admission Compilation Format:**\n\n```\nADMISSIONS FROM [WITNESS] DEPOSITION\n====================================\n\nLIABILITY ADMISSIONS\n--------------------\n\n1. ADMISSION: [Witness] made the termination decision.\n   Citation: [p. 45, ll. 3-8]\n   Exact Quote: \"I made the final call on the termination.\"\n   Significance: Establishes [Witness] as the decision-maker.\n\n2. ADMISSION: [Witness] knew about the complaint before the decision.\n   Citation: [p. 52, ll. 12-18]\n   Exact Quote: \"I was aware there had been some complaint to HR.\"\n   Significance: Establishes temporal proximity for retaliation claim.\n\nDAMAGES ADMISSIONS\n------------------\n\n[Continue format]\n\nCREDIBILITY ADMISSIONS\n----------------------\n\n[Admissions affecting witness credibility]\n```\n\n---\n\n### Phase 5: Impeachment Opportunities\n\nIdentify testimony that can be used for impeachment\u2014either of this witness or others.\n\n**Impeachment Categories:**\n\n1. **Internal Inconsistencies** \u2014 Witness contradicted themselves within the deposition\n   - \"At page 34, witness said X. At page 78, witness said Y.\"\n\n2. **Prior Inconsistent Statements** \u2014 Testimony conflicts with earlier statements\n   - Prior deposition, interrogatory answers, declarations, documents\n\n3. **Document Contradictions** \u2014 Testimony conflicts with documents\n   - \"Witness testified X, but Exhibit 5 shows Y.\"\n\n4. **Implausibility** \u2014 Testimony that strains credibility\n   - \"Witness claims no memory of meeting they organized.\"\n\n5. **Bias/Interest** \u2014 Testimony revealing bias\n   - Financial interest, relationship, animosity\n\n**Impeachment Index Format:**\n\n| Issue | Depo Testimony | Contradicting Source | Citation | Use At |\n|-------|---------------|---------------------|----------|--------|\n| Knowledge timing | \"Learned in April\" (p. 45) | Email shows March notice | Ex. 5 | SJ/Trial |\n| Meeting attendance | \"Wasn't there\" (p. 52) | Attendance list shows present | Ex. 8 | Trial |\n\n---\n\n### Phase 6: Designations for Motions and Trial\n\nIdentify testimony for use in motions and at trial.\n\n**Summary Judgment Designations:**\n\nTestimony supporting or opposing summary judgment motions:\n\n| Motion Topic | Page:Line | Summary | Support/Oppose |\n|--------------|-----------|---------|----------------|\n| [Element 1] | 45:3-12 | [Description] | Support |\n| [Element 2] | 52:8-18 | [Description] | Oppose |\n\n**Trial Designations:**\n\nTestimony to read at trial (for unavailable witnesses or adverse party):\n\n| Purpose | Page:Line | Content Summary | Est. Time |\n|---------|-----------|-----------------|-----------|\n| Liability | 45:3-48:22 | Decision-making process | 5 min |\n| Damages | 78:15-82:4 | Impact on plaintiff | 4 min |\n\n**Counter-Designations:**\n\nFor opposing party's expected designations, identify counter-designations that provide context or contradict.\n\n---\n\n### Phase 7: Credibility Assessment\n\nEvaluate the witness's credibility for trial planning.\n\n**Credibility Factors:**\n\n| Factor | Assessment | Examples |\n|--------|------------|----------|\n| Consistency | High/Medium/Low | [Specific examples] |\n| Responsiveness | Direct/Evasive/Argumentative | [Examples] |\n| Memory | Good/Selective/Poor | [Examples] |\n| Demeanor (if video) | Calm/Nervous/Defensive | [Observations] |\n| Bias indicators | None/Some/Significant | [Examples] |\n| Document support | Strong/Weak/Contradicted | [Examples] |\n\n**Jury Appeal Assessment:**\n- Will this witness be likeable to a jury?\n- Will they be believed?\n- What are their strengths as a witness?\n- What are their weaknesses?\n\n---\n\n### Phase 8: Follow-Up Actions\n\nIdentify actions needed based on the deposition.\n\n**Discovery Follow-Up:**\n\n| Action | Basis | Priority |\n|--------|-------|----------|\n| Subpoena [document] | W. referenced at p. 45 | High |\n| Depose [person] | W. identified as witness at p. 52 | Medium |\n| RFA on [topic] | Lock in testimony | High |\n\n**Legal Research:**\n- Issues raised requiring research\n- Potential motions suggested by testimony\n\n**Case Strategy:**\n- How does this testimony affect case evaluation?\n- Settlement implications?\n- Trial strategy adjustments?\n\n---\n\n### Phase 9: Output Documents\n\nGenerate the following work product:\n\n**1. Executive Summary** (1-2 pages)\n- For quick reference and case file\n\n**2. Detailed Testimony Index** (comprehensive)\n- Searchable index of all significant testimony\n\n**3. Admission Compilation** (organized by topic)\n- All favorable admissions with citations\n\n**4. Impeachment Index** (organized by witness/source)\n- All impeachment opportunities\n\n**5. Motion Designations** (by motion type)\n- Testimony for summary judgment and other motions\n\n**6. Trial Designations** (with time estimates)\n- Testimony to read at trial\n\n**7. Credibility Memo** (for trial team)\n- Assessment of witness for trial preparation\n\n**8. Follow-Up Checklist** (action items)\n- Discovery and other tasks triggered by deposition\n\n---\n\n### Quick Analysis Template\n\nFor rapid analysis when time is limited:\n\n```\nQUICK DEPOSITION ANALYSIS\n=========================\nWitness: _______________\nDate: _________________\n\nTOP 5 TAKEAWAYS:\n1. \n2. \n3. \n4. \n5. \n\nBEST ADMISSIONS (cite page):\n1. \n2. \n3. \n\nBIGGEST PROBLEMS (cite page):\n1. \n2. \n\nKEY IMPEACHMENT OPPORTUNITY:\n\n\nIMMEDIATE FOLLOW-UP NEEDED:\n\n\nCREDIBILITY (1-10): ___\n```\n\n---\n\n## Cross-References\n\n- @deposition-preparation \u2014 Preparation framework informs what to look for in analysis\n- @deposition-questioning-techniques \u2014 Understanding techniques helps identify effective examination\n- @deposition-errata-sheet \u2014 Handling changes to transcript testimony\n\n---\n\n## References\n\n- Federal Rules of Civil Procedure, Rule 32 \u2014 Using Depositions in Court Proceedings\n- Federal Rules of Civil Procedure, Rule 56 \u2014 Summary Judgment (deposition use)\n- Federal Rules of Evidence, Rule 801(d) \u2014 Statements Not Hearsay (party admissions)\n- Federal Rules of Evidence, Rule 613 \u2014 Prior Statements of Witnesses (impeachment)",
+  "parent_skill_id": null,
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "license": "Apache-2.0",
+    "keywords": [
+      "deposition",
+      "witness",
+      "testimony",
+      "preparation",
+      "impeachment",
+      "trial",
+      "transcript",
+      "ip"
+    ],
+    "complexity": "Intermediate",
+    "industries": [],
+    "author_name": "CaseMark Legal Team",
+    "party_roles": [
+      "Plaintiff",
+      "Defendant"
+    ],
+    "skill_modes": [
+      "Analysis",
+      "Summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US Federal",
+      "US State"
+    ],
+    "matter_phases": [
+      "Discovery",
+      "Pre-Trial",
+      "Trial"
+    ],
+    "document_types": [
+      "Summary",
+      "Table",
+      "Memo"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "author_linkedin": "https://linkedin.com/company/casemark",
+    "sub_practice_areas": [
+      "General Litigation",
+      "Employment Litigation",
+      "Commercial Litigation",
+      "Personal Injury",
+      "Intellectual Property"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-03T22:35:08.855056",
+  "updated_at": "2026-02-03T22:35:08.855056"
+}

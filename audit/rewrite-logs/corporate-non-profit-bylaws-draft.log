@@ -1,0 +1,295 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7c-3adc-7700-b5ce-1fc97756a991
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "c91132a6-cbdc-490c-a718-6e042f6981ab",
+  "slug": "corporate-non-profit-bylaws-draft",
+  "name": "Bylaws for Non-Profit Corporation",
+  "summary": "Drafts comprehensive bylaws for non-profit corporations, ensuring compliance with state nonprofit corporation acts and IRS Section 501(c)(3) requirements. Structures governance rules for directors, officers, and members while aligning with articles of incorporation. Use when forming a new non-profit or updating its internal operating rules.",
+  "content": "# Bylaws for Non-Profit Corporation\n\nYou are tasked with drafting comprehensive bylaws for a non-profit corporation that will serve as the foundational governance document for the organization. These bylaws must be legally compliant, professionally structured, and tailored to the specific needs of the client's non-profit entity while adhering to applicable state law and federal tax requirements.\n\n## Document Overview and Approach\n\nBegin by understanding that bylaws are the internal operating rules that govern how a non-profit corporation functions. They are legally binding on the organization's directors, officers, and members, and must comply with both the state nonprofit corporation act where the entity is incorporated and IRS requirements for tax-exempt status under Section 501(c)(3) of the Internal Revenue Code. Your draft should be clear, unambiguous, and comprehensive enough to guide the organization through routine operations and extraordinary circumstances alike.\n\nBefore drafting, gather essential information about the organization including its state of incorporation, intended tax-exempt purpose, governance structure preferences, membership model (if any), and any specific operational requirements. Review any existing articles of incorporation to ensure consistency between the two documents, as bylaws must not conflict with the articles or applicable law.\n\n## Article I: Name and Principal Office\n\nDraft the opening article to formally state the exact legal name of the corporation as it appears in the articles of incorporation, ensuring it includes any required designators such as \"Inc.\" or \"Corporation\" as mandated by state law. Specify the complete address of the principal office, including street address, city, state, and zip code. Include a provision allowing the board of directors to change the principal office location without amending the bylaws, which provides operational flexibility. If the organization will maintain additional offices or registered agent requirements, address those here. Verify that the corporate name complies with your state's nonprofit naming requirements, which typically prohibit misleading terms and may require or prohibit certain designations.\n\n## Article II: Purpose and Nonprofit Status\n\nArticulate the organization's charitable, educational, religious, scientific, or other tax-exempt purpose with sufficient specificity to satisfy IRS requirements while maintaining flexibility for future activities within that purpose. The purpose statement should align with the articles of incorporation and fall within one or more categories recognized under IRC Section 501(c)(3). Include explicit language stating that the corporation is organized exclusively for exempt purposes, that no part of net earnings will inure to the benefit of private individuals, and that the organization will not engage in prohibited political campaign activities or substantial lobbying. \n\nReference the specific subsection of 501(c)(3) under which the organization seeks or maintains exemption. Include dissolution language required by the IRS stating that upon dissolution, assets must be distributed for exempt purposes or to federal, state, or local government for public purposes. Confirm that this article contains all mandatory provisions required for tax-exempt status, as these cannot be easily amended without jeopardizing exempt status.\n\n## Article III: Membership\n\nDetermine and clearly articulate whether the corporation will have a formal membership structure or operate as a board-only (non-membership) corporation. If the organization will have members, define each class of membership with precision, specifying qualifications for membership, application and admission procedures, membership rights (including voting rights on specific matters), dues or fees if applicable, and the duration of membership terms. Address member meeting requirements including annual meeting obligations, special meeting procedures, notice requirements (typically 10-30 days depending on state law), quorum requirements, and voting procedures.\n\nEstablish clear procedures for membership termination, suspension, or expulsion, ensuring due process protections such as notice and opportunity to be heard before involuntary termination. If operating as a non-membership corporation, explicitly state that the corporation shall have no members and that all powers typically reserved to members are vested in the board of directors. Consider the governance implications of each structure: membership corporations provide broader stakeholder participation but require more complex meeting procedures, while board-only structures offer operational simplicity but concentrate power in fewer hands.\n\n## Article IV: Board of Directors\n\nEstablish the board composition by specifying either a fixed number of directors or a variable range (e.g., \"not fewer than five nor more than fifteen directors\"), which provides flexibility for board growth. Detail director qualifications, which may include age requirements, residency requirements, or prohibitions on conflicts of interest, while ensuring compliance with state law minimums. Describe the election or appointment process, including who has authority to elect directors (members, if any, or the board itself), nomination procedures, and term lengths (typically one to three years, often staggered to ensure continuity).\n\nAddress director removal procedures, specifying grounds for removal (with or without cause) and the vote required, ensuring compliance with state nonprofit corporation law which often requires specific procedures for director removal. Define the process for filling board vacancies, whether through board appointment or member election, and specify whether directors filling vacancies serve the remainder of the term or a full new term. Enumerate the board's powers and duties, including authority to manage corporate affairs, adopt policies, hire and supervise executive staff, approve budgets, and exercise all powers of the corporation except those reserved to members by law or the bylaws. Include provisions regarding director compensation (typically prohibited or limited for charitable nonprofits) and reimbursement of reasonable expenses.\n\n## Article V: Meetings of the Board\n\nEstablish a regular meeting schedule by requiring at least one annual meeting and specifying whether additional regular meetings will occur monthly, quarterly, or on another schedule, noting that regular meetings typically require less formal notice. Detail notice requirements for both regular and special meetings, specifying the minimum advance notice period (commonly 3-10 days), acceptable methods of notice delivery (written, electronic, or oral), and required content of meeting notices. State whether notice may be waived and under what circumstances, as most state laws permit waiver by written consent or attendance without objection.\n\nDefine quorum as the minimum number of directors required for the board to conduct business, typically a majority of the full board or a specific fraction required by state law. Specify the vote required for board action, distinguishing between ordinary matters (usually majority of directors present) and extraordinary matters requiring supermajority or unanimous consent, such as amendments to bylaws, sale of substantially all assets, or merger. Address meeting procedures including who may call special meetings, whether directors may participate by telephone or videoconference (explicitly authorize if desired, as state laws vary), and whether the board may act by written consent without a meeting if permitted by state law. Include provisions for executive sessions and any limitations on who may attend board meetings.\n\n## Article VI: Officers\n\nIdentify all required officers, which typically include at minimum a president (or chair), secretary, and treasurer, as these positions are mandated by most state nonprofit corporation acts. Define each officer's duties with specificity: the president typically presides at meetings and provides general supervision of corporate affairs; the secretary maintains corporate records, provides meeting notices, and records minutes; the treasurer oversees financial matters and may present financial reports. Consider whether to include additional officers such as vice president, assistant secretary, or assistant treasurer based on organizational needs.\n\nEstablish officer selection procedures, specifying that officers are elected by the board of directors (unless members have this power), the term of office (commonly one year), and whether officers may serve consecutive terms. Address officer removal, typically allowing removal with or without cause by the board, and establish vacancy procedures. Clarify whether one person may hold multiple offices, noting that many states prohibit the same person from serving as both president and secretary. Include provisions regarding officer compensation if applicable, ensuring compliance with IRS intermediate sanctions rules that require reasonable compensation based on comparable positions.\n\n## Article VII: Committees\n\nDistinguish between board committees (composed of directors with delegated board authority) and advisory committees (which may include non-directors and have no binding authority). For board committees, specify which are standing committees that will exist continuously (such as executive, finance, audit, or governance committees) versus special committees created for specific temporary purposes. Define each standing committee's composition, appointment process, authority, and responsibilities, ensuring that certain fundamental board responsibilities cannot be delegated, such as amending bylaws, electing officers, or approving dissolution.\n\nEstablish procedures for committee creation, appointment of committee members and chairs, terms of service, meeting requirements, and reporting obligations to the full board. If the organization will have an executive committee with broad authority to act between board meetings, carefully define its powers and any limitations, ensuring compliance with state law restrictions on executive committee authority. Consider whether committees may include non-director members for advisory purposes while maintaining director control over decision-making. Address committee meeting procedures, notice requirements, and quorum, which may mirror board meeting provisions or be tailored to committee needs.\n\n## Article VIII: Fiscal Matters\n\nDesignate the organization's fiscal year, which may be a calendar year or any twelve-month period, noting that this should align with the fiscal year reported to the IRS on Form 990. Establish financial oversight procedures including budget adoption requirements, approval thresholds for contracts and expenditures, and requirements for financial reviews or audits. Specify who has authority to execute contracts on behalf of the corporation, whether officers generally, specific officers for certain transaction types, or only with board authorization above specified amounts.\n\nInclude comprehensive indemnification provisions protecting directors, officers, and potentially employees and volunteers from personal liability for actions taken in good faith on behalf of the corporation, to the fullest extent permitted by state law. Address insurance by authorizing the corporation to purchase directors and officers liability insurance. Establish conflict of interest policies requiring disclosure of potential conflicts, recusal from voting on affected matters, and procedures for determining whether transactions with interested parties are fair and reasonable to the corporation. Include provisions regarding corporate records, specifying what records must be maintained, where they will be kept, and who has inspection rights, ensuring compliance with state nonprofit corporation act requirements for record-keeping and member or director access.\n\n## Article IX: Amendments and Dissolution\n\nEstablish the procedure for amending bylaws, specifying who has amendment authority (typically the board of directors, though members may have this power in membership corporations), notice requirements for amendment proposals, and the vote required for adoption (often two-thirds or majority of the full board). Consider whether certain provisions should require higher voting thresholds or member approval, particularly provisions affecting member rights or fundamental governance structure. State whether amendments may be made at regular or special meetings and whether advance notice of proposed amendments must be provided.\n\nDetail dissolution procedures in compliance with state nonprofit corporation law and IRS requirements for 501(c)(3) organizations. Specify that dissolution requires board approval (and member approval if applicable) with the vote threshold required by state law, typically two-thirds or greater. Include the mandatory IRS dissolution provision requiring that upon dissolution, all remaining assets after payment of liabilities must be distributed exclusively for exempt purposes within the meaning of Section 501(c)(3), or to federal, state, or local government for public purposes, and that no assets may be distributed to directors, officers, or private individuals. Reference the state nonprofit corporation act's dissolution procedures regarding notice to the attorney general, creditor notification, and asset distribution, ensuring full compliance with statutory requirements.\n\n## Drafting Standards and Final Review\n\nThroughout the bylaws, use clear, precise language avoiding ambiguity while maintaining appropriate legal terminology. Ensure internal consistency in defined terms, cross-references, and procedural requirements. Verify that all provisions comply with the state nonprofit corporation act where the entity is incorporated, as state laws vary significantly in their requirements and default rules. Confirm that provisions satisfy IRS requirements for 501(c)(3) tax-exempt status, particularly regarding organizational purposes, private inurement prohibitions, dissolution clauses, and political activity restrictions.\n\nReview the bylaws against the articles of incorporation to ensure no conflicts exist, as articles typically take precedence over bylaws. Consider including a severability clause stating that if any provision is found invalid, the remaining provisions continue in effect. Upon completion, prepare a comprehensive document properly formatted with articles, sections, and subsections clearly numbered and titled, suitable for formal adoption by the board of directors through resolution.",
+  "parent_skill_id": "f4b65ea6-5a24-4445-8f46-1faf41a33dd0",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "non_profit_organizations"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:51:19.075809Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: linear ready
+mcp: case-dev-docs ready
+mcp startup: ready: linear, case-dev-docs; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing nonprofit bylaws skill**
+
+I'm selecting the slug "nonprofit-bylaws" and will create a SKILL.md file that includes metadata normalized from the JSON input, a concise third-person description with key legal terms, clear prerequisites, and a structured, compressed instruction set using tables, checklists, and code blocks for essential nonprofit corporation bylaw clauses without nested bullets.
+thinking
+**Drafting detailed nonprofit bylaws skill**
+
+The SKILL.md will present finalized metadata and a full structured nonprofit bylaws drafting guide including prerequisites, an article-based outline with required content tables, flat bullet checklists for membership and governance, key clause templates, and usage guidelines emphasizing state law variability and 501(c)(3) compliance, carefully avoiding nested bullets and unnecessary commentary.
+codex
+---
+name: nonprofit-bylaws
+description: Drafts U.S. nonprofit corporation bylaws aligned to state nonprofit corporation acts and IRC §501(c)(3) requirements, defining governance for members, directors, officers, committees, meetings, fiscal controls, conflicts, and dissolution for use when forming or updating nonprofit bylaws or aligning them with articles of incorporation. Trigger keywords: bylaws, nonprofit corporation, 501(c)(3), board of directors, membership, articles of incorporation, amendments, dissolution.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Nonprofit Corporation Bylaws
+
+Create a board-adoptable bylaws document that is consistent with the articles and state nonprofit law while preserving 501(c)(3) eligibility.
+
+## Prerequisites
+
+1. State of incorporation and applicable nonprofit corporation act.
+2. Final or near-final articles of incorporation.
+3. Tax-exempt status target (e.g., 501(c)(3)) and purpose statement.
+4. Governance design decisions: membership vs non-membership, board size/terms, officer roles, committee model.
+5. Operational policies to embed by reference: conflicts, fiscal controls, records retention.
+
+## Output Structure / Process
+
+Use this structure and include all marked items.
+
+| Article | Required Content |
+| --- | --- |
+| I. Name and Offices | Exact corporate name; principal office address; board authority to change office; registered agent if desired. |
+| II. Purpose and 501(c)(3) Limits | Exclusive exempt purpose; private inurement prohibition; political campaign ban; lobbying limits; dissolution distribution clause to 501(c)(3) or government. |
+| III. Members | Either "no members" clause or membership classes, qualifications, dues, rights, meetings, quorum, votes, termination. |
+| IV. Board of Directors | Number or range; qualifications; election/appointment; term length and staggering; removal; vacancies; powers; compensation limits; reimbursement. |
+| V. Board Meetings | Regular/annual meeting cadence; special meeting call authority; notice method and timing; quorum; voting thresholds; written consent; remote participation; waivers; minutes. |
+| VI. Officers | Required officer titles; duties; election; term; removal; vacancies; dual office limits; compensation approval standards. |
+| VII. Committees | Board vs advisory committees; appointment; authority limits; meeting rules; reporting to board. |
+| VIII. Fiscal and Records | Fiscal year; budget approval; contract authority; checks/signatures; audits/reviews; indemnification; D&O insurance; conflicts policy; corporate records and inspection rights. |
+| IX. Amendments | Who may amend; notice; vote threshold; member approval if applicable. |
+| X. Dissolution | Board and member approvals; asset distribution for exempt purposes; compliance with state dissolution procedures [VERIFY]. |
+
+Drafting steps:
+
+1. Confirm no conflicts with articles; if conflicts exist, revise bylaws or flag for amendment.
+2. Select membership model and encode all member powers and meeting rules.
+3. Set board size, term structure, and voting thresholds that comply with state defaults.
+4. Insert required 501(c)(3) clauses verbatim or near-verbatim.
+5. Define fiscal controls and conflict procedures suited to the client’s risk profile.
+6. Add severability and adoption clause.
+
+### Clause Templates (fill in brackets)
+
+```text
+Purpose: The Corporation is organized exclusively for [charitable/educational/etc.] purposes within the meaning of Section 501(c)(3) of the Internal Revenue Code.
+
+Private Inurement: No part of the net earnings of the Corporation shall inure to the benefit of, or be distributable to, its directors, officers, members, or private persons, except that the Corporation shall be authorized to pay reasonable compensation for services rendered.
+
+Political Activity: The Corporation shall not participate in, or intervene in, any political campaign on behalf of or in opposition to any candidate for public office, and no substantial part of its activities shall be the carrying on of propaganda or otherwise attempting to influence legislation.
+
+Dissolution: Upon dissolution, assets shall be distributed for one or more exempt purposes within the meaning of Section 501(c)(3), or to the federal government, or to a state or local government, for a public purpose.
+```
+
+### Membership Decision Checklist
+
+- [ ] Corporation has members.
+- [ ] Corporation has no members; all member powers are vested in the board.
+- [ ] Member classes defined (if applicable).
+- [ ] Member admission, dues, and termination procedures defined.
+- [ ] Member meeting notice, quorum, and voting thresholds set.
+
+### Board Governance Checklist
+
+- [ ] Board size or range set and compliant with state minimums.
+- [ ] Terms and staggering described.
+- [ ] Removal and vacancy procedures stated.
+- [ ] Quorum and voting thresholds set for ordinary and extraordinary actions.
+- [ ] Written consent and remote participation authorized (if allowed by state law).
+- [ ] Executive session rules addressed.
+
+### Fiscal and Compliance Checklist
+
+- [ ] Fiscal year aligned to Form 990 reporting.
+- [ ] Budget approval process defined.
+- [ ] Contract and expenditure authority thresholds set.
+- [ ] Indemnification and D&O insurance authorized.
+- [ ] Conflict of interest policy required and enforced.
+- [ ] Records and inspection rights addressed.
+
+## Guidelines
+
+- Ensure bylaws mirror the articles of incorporation; articles control if inconsistent.
+- Keep 501(c)(3) clauses intact; do not soften prohibitions on inurement or political activity.
+- State nonprofit law varies on notice, quorum, remote meetings, and director removal; verify state-specific defaults before finalizing.
+- If members exist, confirm member approval requirements for amendments, mergers, and dissolution.
+- Officer compensation must be reasonable and approved under a conflicts policy; include comparability review if needed.
+- Dissolution may require attorney general notice and charitable asset restrictions; verify state requirements [VERIFY].
+- Avoid delegating non-delegable board powers to committees; list prohibited committee actions explicitly.
+- Use clear defined terms and consistent cross-references; include severability and adoption clause.
+tokens used
+7,140

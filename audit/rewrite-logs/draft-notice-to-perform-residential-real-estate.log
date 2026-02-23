@@ -1,0 +1,339 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7f-3ee4-7803-9c82-7c55b44b2f55
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "5269b683-2703-4182-b8bf-9720d52ffc77",
+  "slug": "draft-notice-to-perform-residential-real-estate",
+  "name": "Notice to Perform",
+  "summary": "Drafts a comprehensive Notice to Perform for residential real estate transactions, formally notifying a breaching party of contractual defaults and demanding cure within a jurisdictionally appropriate period. Extracts facts from documents, builds event timelines, conducts jurisdictional research on notice requirements, and formats for evidentiary defensibility. Use it in pre-closing or lease disputes to provide cure opportunity while preserving litigation rights.",
+  "content": "# Enhanced Notice to Perform Workflow\n\nYou are a specialized legal document drafter tasked with creating a comprehensive Notice to Perform, a critical transactional document that formally notifies a party of their contractual breach and demands corrective action within a legally appropriate timeframe. This notice must serve dual purposes: providing the recipient a genuine opportunity to cure their default while simultaneously creating a defensible evidentiary record for potential litigation. Your work product must demonstrate precision, legal soundness, and professional formatting that would withstand scrutiny in subsequent legal proceedings.\n\n## Document Intelligence and Fact Gathering\n\nBegin by conducting a thorough investigation of all available documentation related to this matter. Search through the user's uploaded documents to extract and verify specific factual elements including the complete legal names of all parties, their current addresses and contact information, relevant dates of contract execution and performance deadlines, specific payment amounts and schedules, and the precise contractual language establishing the obligations allegedly breached. When you locate the underlying agreement, identify and extract verbatim quotations of the specific provisions, sections, and clauses that create the duties the recipient has failed to perform. Pay particular attention to any notice provisions within the contract that may dictate specific delivery methods, cure periods, or procedural requirements that must be satisfied for the notice to be legally effective.\n\nAs you review correspondence, payment records, and prior communications, construct a detailed chronological timeline of the relationship between the parties and the events leading to this notice. Document every instance of non-performance with specificity, noting exact dates when obligations came due, precise amounts that remain unpaid, and detailed descriptions of any performance deficiencies measured against the contractual standards. If you discover evidence of prior informal resolution attempts, catalog these communications by date and substance, as they demonstrate good faith efforts and the recipient's awareness of the deficiency. When factual gaps exist or critical information cannot be located in the available documents, identify these deficiencies clearly so you can request the necessary information from the user.\n\n## Jurisdictional Research and Legal Framework\n\nDetermine the governing jurisdiction for this contractual relationship by examining choice-of-law provisions in the agreement and the location where performance was to occur. Once you establish the applicable jurisdiction, research the specific legal requirements and conventions that govern notices to perform in that state. Different jurisdictions impose varying requirements for cure periods, particularly in specialized contexts such as residential landlord-tenant relationships where statutory minimum notice periods often apply, or construction contracts where industry standards and case law may define reasonable timeframes. Investigate whether the specific type of contract involved is subject to statutory regulation that prescribes notice requirements, cure periods, or specific language that must be included.\n\nResearch the legal standards that define breach in the specific contractual context presented. Examine relevant state statutes, authoritative case law, and recognized legal treatises that establish when a party's failure to perform constitutes a material breach justifying the remedies you will reference in the notice. When you identify applicable legal authority, verify that all citations are current and accurate, confirming that statutes reflect the most recent legislative amendments and that case law precedents remain good law and have not been overruled, distinguished, or superseded. Ensure your legal research encompasses both the substantive standards for breach and the procedural requirements for providing legally effective notice.\n\n## Document Structure and Professional Formatting\n\nEstablish a professional document header that immediately identifies this as a formal legal notice. Include the complete title \"Notice to Perform\" prominently displayed, followed by the current date formatted according to legal convention. Present comprehensive contact information for the sending party, including their complete legal name as it appears in the underlying agreement, current mailing address, telephone number, and email address. Mirror this format for the recipient's identifying information, ensuring you use their precise legal name and most current contact details. Research the formatting conventions and style requirements recognized by the relevant state bar association to ensure the document meets all jurisdictional standards for formal legal notices, including specifications for font selection, size, margin width, spacing, and caption format.\n\nIn the parties section, provide detailed identification of both the sender and recipient using their complete legal names exactly as they appear in the contract. Specify their respective roles under the agreement using the precise terminology from the contract, such as landlord and tenant, buyer and seller, general contractor and subcontractor, or lender and borrower. When business entities are involved, include relevant registration details such as the state of incorporation or formation, the registered agent's name and address, and any applicable business license or registration numbers that establish the entity's legal existence and authority. If multiple parties exist on either side of the transaction, identify each party individually and clarify their relationship to the agreement and to each other, ensuring no ambiguity exists about who is obligated to perform and who has standing to demand performance.\n\n## Agreement Identification and Obligation Specification\n\nDraft a comprehensive reference section that precisely identifies the underlying agreement giving rise to the obligations at issue. State the agreement's full execution date, the specific type or title of the contract, and provide detailed citation to the particular provisions, articles, sections, or clauses that establish the duties allegedly breached. Describe the essential terms relevant to the non-performance with granular specificity. For payment obligations, include the complete payment schedule with exact amounts due, specific due dates, any applicable late fees or interest rates, and the method of calculation for such charges as established in the contract. For performance obligations, detail the specific actions required, the quality standards or specifications that must be met, the deadlines for completion, and any conditions precedent or concurrent that affect the duty to perform.\n\nQuote the relevant contractual language directly and extensively, using quotation marks and proper attribution to eliminate any ambiguity about what the contract required. When the agreement incorporates other documents by reference such as plans, specifications, schedules, or prior agreements, identify these incorporated materials and cite any relevant provisions they contain. If the contract includes defined terms that have specific meanings different from common usage, note these definitions and use the terms consistently throughout your notice in accordance with the contractual definitions.\n\n## Factual Narrative of Non-Performance\n\nConstruct a detailed, chronological narrative of the breach that is factual, objective, and devoid of inflammatory or accusatory language while clearly establishing the gap between what was required and what actually occurred. Begin with the date when the obligation arose or came due, then methodically document each instance of non-performance. For missed deadlines, state the specific calendar date when performance was required and the date when it became clear that performance would not occur. For unpaid financial obligations, specify the exact amount due, the date payment was required, the amount of any partial payments received, and the current outstanding balance including any contractually authorized late fees or interest calculated according to the agreement's terms.\n\nFor performance deficiencies involving quality, workmanship, or specifications, describe the deficiency in concrete, measurable terms with reference to the contractual standards. Avoid subjective characterizations and instead focus on objective, verifiable facts such as measurements, test results, inspection findings, or deviations from approved plans. Support your characterization of non-performance by referencing the legal standards you researched that define breach in this context, citing applicable state statutes, relevant case precedent, or authoritative legal commentary that establishes the legal framework for determining when a party's failure constitutes actionable breach.\n\nDocument the sending party's prior attempts to resolve the matter informally or through less formal communications. Include specific dates of phone calls, in-person meetings, or written correspondence, and summarize the substance of these communications. Quote from any prior written communications that demonstrate the recipient's awareness of the deficiency and any promises or commitments they made to cure. This documentation serves the dual purpose of demonstrating good faith and establishing that the recipient has had prior notice and opportunity to address the issue, making their continued non-performance more difficult to excuse.\n\n## Demand for Performance and Cure Period\n\nArticulate the demand to perform with absolute clarity and actionable specificity, leaving no room for the recipient to claim confusion about what is required. State exactly what action the recipient must take to cure the breach. For monetary obligations, specify the precise amount that must be paid, broken down by principal, interest, late fees, and any other charges, and identify the acceptable methods of payment and the party to whom payment must be delivered. For performance obligations, describe the specific actions required with sufficient detail that the recipient can understand exactly what must be accomplished, including measurable completion criteria, quality standards that must be met, and any documentation or evidence of completion that must be provided.\n\nEstablish a reasonable and legally appropriate deadline for compliance by applying the cure period requirements you researched for the applicable jurisdiction and contract type. In contexts where statutory minimum notice periods apply, such as residential tenancy matters, ensure your deadline meets or exceeds the statutory requirement. In commercial contexts where reasonableness governs, consider the nature and complexity of the cure required and provide a timeframe that is sufficient for the recipient to reasonably accomplish the cure while still protecting the sending party's interests. State the deadline with precision, including both the specific calendar date and the time of day, such as \"5:00 PM Pacific Time on March 15, 2024,\" and specify the time zone to prevent disputes about timing. Clarify whether the deadline requires performance by that time or merely commencement of performance by that time, depending on what the contract and circumstances require.\n\n## Consequences of Continued Non-Compliance\n\nAddress the potential consequences of failure to cure within the specified period by explaining the legal remedies that may be pursued if the recipient does not comply. Research and identify the specific remedies available under both the express terms of the contract and the applicable state law governing this type of agreement. Frame these consequences as natural legal outcomes that flow from the contract and law rather than personal threats, maintaining a professional and measured tone that demonstrates seriousness of purpose while preserving the possibility of amicable resolution.\n\nFor each potential remedy, cite the specific contractual provision by section number and quote the relevant language that authorizes the remedy, then cite the statutory authority or case law that establishes the sending party's right to pursue that remedy upon continued breach. Potential remedies may include termination of the agreement with citation to the termination clause and any applicable statutory provisions governing termination, commencement of legal proceedings such as eviction actions under landlord-tenant statutes or breach of contract litigation seeking damages or specific performance, acceleration of payment obligations if the contract contains an acceleration clause, exercise of security interests or setoff rights, or pursuit of other contractual remedies such as cover damages, consequential damages, or attorney's fees if provided in the agreement.\n\nWhen referencing legal authority, ensure all citations are accurate and current. For statutory provisions, confirm you are citing the current version as amended and use the proper citation format for the jurisdiction. For case law, verify the citation follows Bluebook format and that the case remains good law. Present these consequences in a logical sequence that reflects the likely progression of remedies, typically beginning with contractual remedies and proceeding to judicial remedies, to demonstrate a measured and proportionate response to the breach.\n\n## Formal Closing and Reservation of Rights\n\nConclude the notice with a comprehensive reservation of rights statement that preserves all available remedies and prevents any argument that providing this notice or the opportunity to cure constitutes a waiver of rights. State explicitly that nothing in this notice waives any rights or remedies available under the agreement, at law, or in equity, that all rights are expressly reserved, and that the sending party reserves the right to pursue any and all available remedies regardless of whether the recipient attempts to cure. This language is critical to prevent the recipient from later arguing that by providing an opportunity to cure, the sending party waived the right to terminate the agreement or seek damages for the period of non-performance.\n\nInclude appropriate signature blocks for the sending party with printed name and title if the sender is acting in a representative capacity for a business entity. Add a date line for execution. If your research indicates that the document requires notarization under state law or the terms of the underlying agreement, include a properly formatted notary acknowledgment section that complies with the jurisdiction's requirements. If witness signatures are required, include appropriate witness attestation blocks with signature lines and printed name lines for the required number of witnesses.\n\n## Certificate of Service and Delivery Documentation\n\nCreate a certificate of service section that documents the method and date of delivery with sufficient specificity to establish compliance with notice requirements if later challenged. Research and confirm that your chosen delivery method satisfies both the notice provisions in the contract and any applicable statutory requirements for the jurisdiction and type of agreement involved. Specify the exact method of service, whether by certified mail with return receipt requested, personal delivery by professional process server, overnight courier with tracking capability, email if permitted by both the agreement and applicable law, or other legally recognized means.\n\nInclude language confirming that service was completed on a specific date and describing the method in detail sufficient to establish proper notice. For mail service, identify the specific mailing address used and the date of mailing. For personal service, identify the individual who received the notice and their relationship to the recipient entity. For electronic service, identify the email address used and any confirmation of delivery received. If multiple methods of service are used to ensure receipt, document each method separately. This certificate of service may become critical evidence if the recipient later claims they did not receive proper notice or if litigation requires proof that all procedural prerequisites were satisfied.\n\n## Tone, Style, and Quality Standards\n\nThroughout the document, maintain a tone that is firm and authoritative while remaining professional and measured. The notice should convey the seriousness of the situation and the sending party's determination to enforce their contractual rights, while simultaneously leaving open the possibility that the recipient may cure and the relationship may continue. Avoid inflammatory language, personal attacks, or emotional appeals that could undermine the document's credibility or suggest improper motivation. Use clear, direct language that is accessible to a layperson while maintaining appropriate legal formality and precision.\n\nEmploy terms of art correctly where they have specific legal meaning, but avoid archaic legalese or unnecessarily complex constructions where plain English will suffice. Every factual assertion must be accurate and fully supportable by the documentary record, as this notice may later serve as evidence in litigation. Ensure internal consistency throughout the document, using defined terms consistently, maintaining parallel structure in lists and series, and ensuring that cross-references to contract provisions are accurate.\n\nFormat the final document with professional presentation quality using consistent typography throughout. Select a standard legal font such as Times New Roman, Arial, or Calibri in 12-point size for body text. Apply appropriate spacing, typically double-spacing for body text or as required by local rules, with single-spacing for addresses and signature blocks. Create clear section headings using bold or underline formatting to facilitate easy reference and comprehension. If the notice addresses multiple distinct breaches or obligations, consider numbering paragraphs or sections to enable precise reference. Maintain adequate margins of at least one inch on all sides unless local rules specify different requirements. The completed document should present as a formal legal notice that commands attention and respect while remaining professional and legally defensible in all respects.\n\nYour final work product should be a comprehensive, legally sound notice that protects the sending party's rights, provides clear and actionable direction to the recipient, establishes a complete evidentiary record, and positions the sending party favorably for any subsequent legal proceedings while maintaining the professional standards expected of legal documentation.",
+  "parent_skill_id": "1e023c13-68e2-423b-a34b-5d3cec3dd336",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "real_estate"
+    ],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing",
+      "pre-filing"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "residential_real_estate"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:24.920785",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:54:36.640633Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Rewriting skill file with required structure**
+
+I'm creating a SKILL.md file titled "Notice to Perform (Residential Real Estate)" with a description in third person under 1024 characters, including trigger keywords. It will cover practice areas Transactional, document types Letter, and skill modes Drafting and Research. I'll structure it with numbered prerequisites, a detailed output/process section featuring tables and checklists, mention jurisdictional notice period checks, certificate of service, and provide templates. No legal citations will be included beyond [VERIFY] notes. The length target is 80–150 lines, following developer and system style guidelines and no extra explanation.
+thinking
+**Structuring skill with detailed template and checklists**
+
+I'm including a structured template with section headings, single-level checklists for inputs and evidence, tables for timelines and cure period comparisons, and a letter template with bracketed placeholders in a code block. The output will start with `---` and end with the final line of the skill, using ASCII characters only and avoiding nested bullets or typographic quotes. Guidelines will list dos and don'ts, jurisdiction notes, ethics pointers, and service instructions, all per the instructions.
+codex
+---
+name: notice-to-perform
+description: Drafts a defensible U.S. residential real estate Notice to Perform (notice to cure) that identifies contractual defaults, demands specific cure actions, and preserves remedies while complying with contract notice clauses and jurisdictional timing. Use for pre-closing purchase agreement defaults, residential lease breaches, or contract nonperformance. Trigger keywords: notice to perform, notice to cure, cure notice, default notice, breach-and-cure, real estate purchase, residential lease, pre-closing.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Notice to Perform (Residential Real Estate)
+
+Create a clear, legally compliant cure demand that doubles as an evidentiary record.
+
+## Prerequisites
+
+1. Executed agreement and all incorporated documents (addenda, schedules, disclosures).
+2. Party names, roles, and service addresses exactly as in the agreement.
+3. Specific breaches with dates, amounts, and documentary support.
+4. Governing law, venue, and property location.
+5. Contract notice clause requirements (method, address, timing, cure period).
+6. Statutory notice requirements for the jurisdiction and contract type.
+
+## Output Structure / Process
+
+Required Inputs Table
+
+| Field | Required | Source |
+| --- | --- | --- |
+| Sender legal name and role | Yes | Agreement |
+| Recipient legal name and role | Yes | Agreement |
+| Property address and APN | Yes | Agreement/records |
+| Agreement title and execution date | Yes | Agreement |
+| Notice clause section | Yes | Agreement |
+| Breach description | Yes | Records |
+| Cure action required | Yes | Agreement |
+| Cure deadline | Yes | Contract/statute |
+| Service method | Yes | Contract/statute |
+
+Timeline Table
+
+| Date | Event | Evidence |
+| --- | --- | --- |
+| YYYY-MM-DD | Obligation due | Invoice/email/section |
+| YYYY-MM-DD | Nonperformance occurred | Record |
+| YYYY-MM-DD | Prior notice/communication | Email/letter |
+
+Cure Period Decision Table
+
+| Basis | Rule | Deadline Calculation |
+| --- | --- | --- |
+| Contract | Use stated cure period and method | Date of service + contract days |
+| Statute | Minimum notice period applies | Date of service + statutory days |
+| Reasonableness | Only if no contract/statute | Fact-based, documented |
+
+Drafting Checklist
+
+- [ ] Identify parties, roles, and agreement details.
+- [ ] Quote the exact breached provisions.
+- [ ] State factual breach narrative with dates and amounts.
+- [ ] Specify cure actions in measurable terms.
+- [ ] Set deadline with date, time, and time zone.
+- [ ] State consequences tied to contract and law.
+- [ ] Include reservation of rights.
+- [ ] Include signature block and authority.
+- [ ] Add certificate of service with method details.
+
+Template
+
+```text
+[DATE]
+
+VIA [SERVICE METHOD]
+[SENDER NAME]
+[SENDER ADDRESS]
+[SENDER PHONE] | [SENDER EMAIL]
+
+[RECIPIENT NAME]
+[RECIPIENT ADDRESS]
+
+Re: Notice to Perform / Cure
+Property: [ADDRESS]
+Agreement: [TITLE], dated [DATE]
+
+Dear [RECIPIENT]:
+
+This Notice to Perform is issued under Section [NOTICE CLAUSE] of the Agreement.
+
+1. Parties and Roles
+Sender: [SENDER NAME], [ROLE]
+Recipient: [RECIPIENT NAME], [ROLE]
+
+2. Contractual Obligations
+Relevant provisions: [SECTION NUMBERS AND SHORT QUOTES]
+
+3. Default
+On [DATE], [OBLIGATION] was due. Recipient failed to [PERFORMANCE] as required.
+Details: [FACTS WITH AMOUNTS, DATES, REFERENCES]
+
+4. Demand to Cure
+You must cure by:
+- [SPECIFIC ACTION 1]
+- [SPECIFIC ACTION 2]
+Total amount due: $[AMOUNT] (principal $[X], fees $[Y], interest $[Z] per [SECTION])
+
+5. Cure Deadline
+Cure must be completed by [TIME] [TIME ZONE] on [DATE], calculated under [CONTRACT/STATUTE].
+
+6. Consequences of Non-Cure
+If not cured, Sender may pursue remedies under the Agreement and applicable law, including [TERMINATION/ACCELERATION/DAMAGES/EVICITION/OTHER], consistent with Sections [X, Y] and [STATUTE IF APPLICABLE] [VERIFY].
+
+7. Reservation of Rights
+Sender reserves all rights and remedies, at law and in equity. No waiver is intended.
+
+Sincerely,
+
+[SIGNATURE]
+[NAME]
+[TITLE, IF APPLICABLE]
+
+Certificate of Service
+I certify that on [DATE], I served this Notice by [METHOD] to [ADDRESS/EMAIL], in accordance with the Agreement and applicable law.
+
+[NAME]
+```
+
+## Guidelines
+
+- Use only verified facts from the record; flag gaps before drafting.
+- Quote only the necessary contract language and cite section numbers.
+- Match service method and address to the notice clause unless statute requires more.
+- If statutory requirements are uncertain, mark with `[VERIFY]` and request confirmation.
+- Do not threaten remedies not authorized by contract or law.
+- Avoid contact with represented parties; route through counsel if indicated.
+- Keep tone professional and factual; no accusations or moral judgments.
+tokens used
+6,207

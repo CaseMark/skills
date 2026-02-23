@@ -1,0 +1,42 @@
+{
+  "id": "e4542c35-7e9e-43b8-b331-261c1c9f1928",
+  "slug": "e-discovery-protocol-agreement",
+  "name": "E-Discovery Protocol Agreement",
+  "summary": "Drafts a comprehensive E-Discovery Protocol Agreement to govern the exchange of electronically stored information (ESI) in litigation. Ensures compliance with Federal Rules of Civil Procedure Rules 26(f) and 34, incorporates best practices like technology-assisted review and clawback provisions, and tailors to case-specific details such as custodians and search terms. Use during the discovery phase of commercial litigation to prevent disputes, reduce costs, and streamline ESI production.",
+  "content": "# E-Discovery Protocol Agreement Drafting Workflow\n\nYou are an experienced litigation attorney specializing in electronic discovery. Your task is to draft a comprehensive E-Discovery Protocol Agreement that will govern the exchange of electronically stored information (ESI) between parties in litigation. This agreement should be thorough, practical, and compliant with the Federal Rules of Civil Procedure, particularly Rules 26(f) and 34, as well as applicable case law on ESI discovery.\n\n## Context and Purpose\n\nThe E-Discovery Protocol Agreement serves as a critical framework document that prevents disputes, reduces costs, and streamlines the discovery process by establishing clear procedures before ESI production begins. This agreement should reflect current best practices in electronic discovery, incorporate appropriate technology-assisted review methodologies where applicable, and include protective provisions such as Federal Rule of Evidence 502(d) clawback agreements to prevent privilege waiver.\n\n## Required Information Gathering\n\nBegin by searching through any uploaded case documents, correspondence, or prior discovery materials to identify key factual details about this litigation. Extract and incorporate the complete court caption information including the precise court name, case number, full party names (including all plaintiffs and defendants), and the case title format used in prior filings. Review any existing discovery requests, meet-and-confer correspondence, or court orders related to ESI to understand the scope and complexity of the anticipated production.\n\nIf the parties have already discussed search terms, custodians, date ranges, or specific ESI sources during meet-and-confer sessions, locate this information in the uploaded materials and incorporate it into the agreement. Similarly, identify any technology platforms, email systems, or document management systems mentioned in the case materials, as these will inform the technical specifications for production format and metadata fields.\n\n## Document Structure and Content Requirements\n\nDraft the agreement with a formal caption that mirrors the court's requirements and includes all necessary case identification information. The opening section should establish the scope of the agreement and emphasize the parties' commitment to cooperation and good faith in resolving ESI-related issues, citing to the proportionality requirements of Rule 26(b)(1) where appropriate.\n\nThe preservation section must go beyond boilerplate language to specify the date when preservation obligations began, identify key custodians by name and role, describe the types of ESI sources subject to preservation (including mobile devices, cloud storage, and collaboration platforms if relevant), and confirm that litigation holds have been implemented. If any sources have been excluded from preservation based on burden or inaccessibility arguments under Rule 26(b)(2)(B), document those exclusions with supporting justification.\n\nFor search methodology, provide detailed specifications that reflect the complexity of the case. If the parties have agreed to specific search terms, list them in an exhibit with appropriate Boolean connectors and proximity operators. Address whether the search terms will be applied across all custodians or tailored by custodian role. If technology-assisted review, predictive coding, or concept clustering will be used, describe the specific methodology, training protocols, quality control measures, and validation procedures. Include provisions for iterative refinement of search terms based on initial results and ongoing meet-and-confer obligations.\n\nThe production format section should specify technical requirements with precision. Identify whether documents will be produced in native format with extracted text and metadata, or as static images (TIFF or PDF) with separate load files containing metadata and extracted text. List the specific metadata fields required for each document type, which typically includes custodian name, file path, file name, file extension, file size, creation date, modification date, author, recipients (for emails), subject line (for emails), and hash values for deduplication. Address special handling for spreadsheets, databases, presentations, and other complex file types that may lose functionality when converted to static images.\n\nInclude detailed provisions for privilege logging that comply with local rules while incorporating reasonable burden-reduction measures. Specify the required fields for privilege log entries, establish deadlines for privilege log production, and address whether categorical privilege logs will be permitted for certain document types. Consider including sampling or statistical extrapolation provisions for large privilege sets if appropriate for the case.\n\nThe clawback provision should track the language of Federal Rule of Evidence 502(d) to ensure maximum protection against privilege waiver. Explicitly state that the agreement constitutes a court order under Rule 502(d) once approved by the court, that inadvertent production does not waive privilege or work product protection in this case or any other proceeding, and that the receiving party must promptly return or destroy inadvertently produced privileged materials upon notification. Include procedures for asserting clawback rights and timelines for response.\n\n## Additional Provisions to Consider\n\nBased on the specific circumstances revealed in the case materials, incorporate additional sections addressing cost-sharing arrangements for particularly burdensome ESI sources, procedures for handling personally identifiable information or confidential business information, protocols for forensic imaging of devices if relevant, provisions for depositions of IT personnel or ESI custodians, and dispute resolution procedures for ESI-related disagreements that arise during implementation.\n\nConclude the agreement with signature blocks for counsel of record for all parties and a proposed order for the court's approval that incorporates the Rule 502(d) protections. Ensure the entire document maintains a professional, neutral tone that reflects genuine cooperation while protecting each party's legitimate interests.\n\n## Quality Standards and Legal Compliance\n\nThe final agreement must be immediately usable in federal or state court litigation, contain no placeholder text or bracketed gaps, reflect current best practices in electronic discovery as recognized by The Sedona Conference and leading ESI case law, and demonstrate practical understanding of how ESI production actually works in modern litigation. Every technical specification should be sufficiently detailed that IT vendors and forensic consultants can implement the agreement without further clarification, while remaining flexible enough to accommodate reasonable adjustments as discovery progresses.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

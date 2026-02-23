@@ -1,0 +1,45 @@
+{
+  "id": "cb627154-503c-42d4-b5e2-c93a2b383edc",
+  "slug": "renewable-energy-regulation-summaries",
+  "name": "Renewable Energy Regulation Summaries",
+  "summary": "Generates comprehensive summaries of regulatory frameworks for renewable energy sources like solar and wind. It synthesizes federal, state, and local regulations, including permitting processes, incentives, compliance requirements, and emerging trends. Use it to provide strategic insights for companies, governments, and advisors navigating renewable energy development.",
+  "content": "# Renewable Energy Regulation Summary\n\nYou are tasked with creating a comprehensive regulatory summary for renewable energy sources, focusing on solar and wind energy frameworks. This summary will serve as a strategic resource for companies, government entities, and legal advisors navigating the complex landscape of renewable energy law and policy.\n\n## Objective and Scope\n\nYour primary objective is to produce a clear, actionable summary of the current regulatory framework governing renewable energy development and deployment. This document should synthesize federal, state, and local regulations, identifying key compliance requirements, permitting processes, incentive structures, and emerging legal trends. The summary must be accessible to both legal professionals and business stakeholders who need to understand regulatory obligations and opportunities in the renewable energy sector.\n\n## Research and Analysis Requirements\n\nBegin by conducting thorough research into the applicable regulatory landscape. Search for current federal statutes and regulations governing renewable energy, including provisions under the Federal Power Act, Public Utility Regulatory Policies Act (PURPA), and relevant sections of the Internal Revenue Code addressing tax credits and incentives. Examine state-level renewable portfolio standards (RPS), net metering policies, interconnection requirements, and siting regulations. If the user has provided specific documents related to renewable energy projects or regulatory filings, search those materials first to extract relevant compliance information, permit conditions, and regulatory interpretations that may apply to the specific context.\n\nVerify all legal citations and regulatory references to ensure accuracy. When citing federal regulations from the Code of Federal Regulations or state administrative codes, confirm that you are referencing the current, in-force version. Pay particular attention to recent amendments or proposed rulemakings that may affect renewable energy development, as this is a rapidly evolving area of law.\n\n## Content Structure and Key Elements\n\nYour summary should be organized to provide both high-level strategic insights and detailed regulatory guidance. Begin with an executive overview that identifies the primary regulatory bodies with jurisdiction over renewable energy projects, including the Federal Energy Regulatory Commission (FERC), state public utility commissions, environmental agencies, and local planning authorities. Explain the division of regulatory authority between federal and state governments, noting areas of concurrent jurisdiction and potential conflicts.\n\nProvide detailed analysis of the permitting and approval processes required for renewable energy projects. This should include environmental review requirements under the National Environmental Policy Act (NEPA) or state equivalents, endangered species consultations, cultural resource assessments, and aviation safety reviews for wind projects. Describe interconnection procedures and standards, including both FERC's large generator interconnection procedures and state-level small generator interconnection rules. Address land use and zoning considerations, setback requirements, and community engagement obligations that may apply.\n\nExamine the financial and incentive structures that shape renewable energy development. Summarize available federal tax credits, including the Investment Tax Credit (ITC) and Production Tax Credit (PTC), noting eligibility requirements, phase-down schedules, and recent legislative changes. Describe state-level incentives such as renewable energy credits (RECs), feed-in tariffs, and grant programs. Analyze power purchase agreement (PPA) frameworks and regulatory treatment of different ownership and financing structures.\n\n## Legal Considerations and Best Practices\n\nAddress critical legal issues that frequently arise in renewable energy projects. Discuss grid integration requirements and reliability standards, including compliance with North American Electric Reliability Corporation (NERC) standards for utility-scale projects. Examine environmental justice considerations and community benefit requirements that are increasingly incorporated into renewable energy regulations. Analyze decommissioning obligations and financial assurance requirements that ensure proper site restoration at project end-of-life.\n\nConsider emerging regulatory trends that may impact future renewable energy development. This includes evolving transmission planning processes, energy storage integration rules, offshore wind regulatory frameworks, and climate disclosure requirements. Note any pending legislation or regulatory proceedings that could significantly alter the regulatory landscape.\n\n## Practical Application and Strategic Guidance\n\nThe summary should enable readers to identify regulatory pathways for specific renewable energy initiatives. Provide guidance on navigating multi-jurisdictional approval processes, managing regulatory timelines, and addressing common compliance challenges. Highlight opportunities to leverage regulatory incentives and streamlined approval processes where available. Identify potential regulatory risks and mitigation strategies, including strategies for addressing public opposition, environmental concerns, and grid interconnection delays.\n\n## Format and Presentation\n\nPresent your findings in a clear, well-organized document that uses headings, subheadings, and transitional language to guide readers through complex regulatory material. Use plain language explanations alongside technical legal terminology, defining key terms and acronyms upon first use. Include proper legal citations for all referenced statutes, regulations, and agency guidance documents. Where appropriate, incorporate tables or charts to illustrate regulatory frameworks, timelines, or comparative state policies.\n\nConclude with actionable recommendations tailored to the intended audience, whether that is a renewable energy developer seeking to navigate the approval process, a government entity designing supportive policies, or a legal advisor counseling clients on compliance strategies. The final document should serve as both a reference guide and a strategic planning tool for advancing sustainable energy initiatives within the bounds of applicable law.",
+  "parent_skill_id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "energy"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "energy_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.162922",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

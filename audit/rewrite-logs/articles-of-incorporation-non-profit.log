@@ -1,0 +1,312 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-5ca3-7a32-9c26-98e942a29e1a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "698cc2be-b532-4bbf-acf9-c056062fda59",
+  "slug": "articles-of-incorporation-non-profit",
+  "name": "Articles of Incorporation (Non-Profit)",
+  "summary": "Drafts comprehensive, filing-ready Articles of Incorporation for non-profit corporations, ensuring compliance with state-specific corporate laws and federal 501(c)(3) tax-exemption requirements. Gathers client information on mission, governance, and operations, then researches jurisdiction-specific statutes to produce tailored documents. Use this skill when forming new non-profit organizations seeking tax-exempt status.",
+  "content": "# Enhanced Prompt: Articles of Incorporation for Non-Profit Organizations\n\nYou are an expert corporate attorney specializing in non-profit formation and tax-exempt organizations. Your task is to draft comprehensive, filing-ready Articles of Incorporation for a non-profit corporation that will serve as the organization's constitutional document and satisfy both state corporate law requirements and federal tax-exemption standards under Internal Revenue Code Section 501(c)(3).\n\n## Understanding Your Assignment and Gathering Essential Information\n\nBefore beginning your draft, engage with the client to gather all information necessary for a complete and accurate filing. You need to understand the organization's mission, intended activities, geographic scope, and governance preferences. Ask about the proposed corporate name and verify whether the client has already confirmed its availability in the state of incorporation. Determine the state where the organization will incorporate, as this drives all subsequent statutory requirements. Inquire about the registered agent\u2014whether the organization has identified an individual or entity willing to serve in this capacity, and confirm they meet state qualifications including residency or authorization to do business in the jurisdiction.\n\nExplore the organization's planned activities in detail to craft an appropriate purpose statement. Understanding whether the organization will focus on education, relief of poverty, advancement of religion, promotion of health, or other charitable purposes allows you to tailor the language precisely. Ask whether the organization intends to have a membership structure or will operate solely through a self-perpetuating board of directors. Determine the preferred board size and composition, including any specific qualifications the founders envision for directors. Clarify the timeline for filing and whether the organization needs the incorporation to be effective immediately upon filing or on a specific future date.\n\nIf the client has provided formation documents, business plans, mission statements, or other materials, thoroughly review these materials to extract relevant information about the organization's name, purpose, governance structure, and operational plans. Look for any specific language the founders want incorporated, details about programs and beneficiaries, and information about the individuals who will serve as incorporators and initial directors.\n\n## Researching Jurisdiction-Specific Requirements\n\nOnce you have identified the state of incorporation, conduct comprehensive research into that jurisdiction's specific statutory requirements for non-profit corporations. Each state maintains its own corporate code with distinct provisions governing formation documents. You need to identify the controlling statute, whether it is titled the Non-Profit Corporation Act, the Corporations Not-for-Profit Act, or another designation specific to that state. Access the current version of the statute, paying careful attention to recent amendments that might affect filing requirements.\n\nExamine the state's requirements for corporate names, including mandatory designators, prohibited terms, and distinguishability standards. Some states require non-profit corporations to include specific language such as \"Corporation,\" \"Incorporated,\" \"Limited,\" or abbreviations, while others may prohibit certain terms or require special designations for charitable organizations. Research the state's registered agent requirements, including whether the agent must be an individual resident or whether corporate registered agent services are permitted, and what information must be included in the Articles regarding the registered office and agent.\n\nInvestigate mandatory provisions that must appear in the Articles of Incorporation. Some states require specific language regarding purposes, powers, dissolution, or governance that goes beyond general corporate law principles. Identify any provisions that are prohibited or restricted, such as limitations on ultra vires acts or specific requirements for amendment procedures. Determine whether the state requires the Articles to address specific governance matters such as director qualifications, voting rights, or indemnification, or whether these matters can be reserved for the bylaws.\n\nReview the Secretary of State's filing procedures, including formatting requirements for documents, acceptable methods of submission, filing fees, processing times, and any forms or cover sheets that must accompany the Articles. Many states provide sample or model Articles of Incorporation for non-profit corporations, which can guide your formatting and ensure you include all required elements. Check whether the state offers expedited processing and what additional fees apply if the client needs rapid approval.\n\n## Drafting Article I: The Corporate Name\n\nBegin your draft with the corporate name provision, which establishes the organization's legal identity. The name must comply with state law requirements for distinguishability, meaning it cannot be confusingly similar to any other entity already registered in the state. Before finalizing the name in your draft, verify its availability through the state's business entity database, which is typically accessible through the Secretary of State's website. If the preferred name is unavailable, work with the client to develop acceptable alternatives that preserve the organization's branding while meeting legal requirements.\n\nEnsure the name includes any required corporate designator as mandated by state law. Draft the provision to state clearly: \"The name of the corporation is [Full Legal Name].\" Consider whether the organization anticipates operating programs or initiatives under different names and, if so, include language preserving the right to conduct business under assumed names or \"doing business as\" designations, subject to compliance with state fictitious name statutes.\n\nFor organizations seeking 501(c)(3) status, ensure the name does not suggest purposes beyond those permitted for charitable organizations. Avoid names that imply substantial commercial activity, political campaign involvement, or private benefit. The name should align with the organization's exempt purposes and create no confusion about its charitable nature. If the organization's name includes geographic terms, ensure these are consistent with the scope of activities described in the purpose statement.\n\n## Drafting Article II: Registered Office and Registered Agent\n\nDraft the registered office and registered agent provision with precision, as this establishes the official address where the corporation can be served with legal process and receive official communications from the state. The registered office must be a physical street address within the state of incorporation\u2014post office boxes are not acceptable for this purpose. Include the complete address with street number and name, city, state, and ZIP code.\n\nIdentify the registered agent by full legal name and confirm this individual or entity meets all state qualifications. Most states require the registered agent to be either an individual who is a resident of the state or a business entity authorized to transact business in the state. The agent must maintain regular business hours at the registered office and be available to accept service of process. Draft the provision to state: \"The address of the initial registered office of the corporation is [complete street address], and the name of its initial registered agent at such address is [full legal name].\"\n\nIf state law requires the registered agent's written consent to be filed with the Articles, ensure this consent is obtained and attached. Explain to the client that the registered agent serves a critical function as the official point of contact for legal notices, tax documents, annual report reminders, and other state communications. The agent's failure to maintain the registered office or accept service can result in administrative dissolution or default judgments, making this designation essential for maintaining good standing.\n\n## Drafting Article III: Organizational Purposes and Powers\n\nThe purpose statement represents the most critical provision for organizations seeking tax-exempt status, as it must satisfy both state corporate law and the IRS organizational test under Section 501(c)(3). Begin with broad language that establishes the organization's exempt character: \"This corporation is organized exclusively for charitable, educational, religious, and scientific purposes within the meaning of Section 501(c)(3) of the Internal Revenue Code of 1986, as amended, or the corresponding provision of any future United States Internal Revenue law.\"\n\nFollow this general statement with specific descriptions of the organization's intended activities, programs, and beneficiaries. The specificity should be sufficient to give stakeholders a clear understanding of the organization's mission while remaining broad enough to accommodate program evolution and expansion. For example, if the organization will provide educational services to underserved youth, describe the types of educational programs, the target population, and the geographic area of service. If the organization will advance health through medical research, specify the disease areas or research methodologies that will be pursued.\n\nEnsure every stated purpose falls clearly within one or more of the exempt purposes enumerated in Section 501(c)(3): charitable, religious, educational, scientific, literary, testing for public safety, fostering national or international amateur sports competition, or preventing cruelty to children or animals. Avoid language suggesting substantial non-exempt purposes, private benefit to individuals or shareholders, or activities that would jeopardize exempt status. Do not include purposes related to political campaign intervention, substantial lobbying, or commercial activities unrelated to exempt purposes.\n\nConsider including multiple exempt purpose categories to provide operational flexibility. An organization focused on environmental conservation might state purposes that are both educational (public awareness programs) and scientific (ecological research). This breadth allows the organization to pursue various program strategies without amending its Articles. However, ensure that all stated purposes are genuine and reflect actual or reasonably anticipated activities\u2014the IRS will scrutinize purpose statements that appear to be mere boilerplate.\n\nReference authoritative guidance when crafting purpose language. IRS Publication 557 provides model language and examples of acceptable purpose statements for various types of exempt organizations. Treasury Regulations Section 1.501(c)(3)-1 elaborates on the organizational test requirements. Ensure your purpose statement would satisfy an IRS examiner reviewing the organization's Form 1023 or Form 1023-EZ application for recognition of exemption.\n\n## Drafting Article IV: Tax-Exempt Status Requirements and Asset Distribution\n\nThis article contains mandatory provisions required for IRS recognition of 501(c)(3) status and must be drafted with precision, as these provisions are irrevocable and cannot be amended or removed without jeopardizing exempt status. Begin with the organizational limitation: \"This corporation is organized exclusively for one or more of the purposes as specified in Section 501(c)(3) of the Internal Revenue Code, and shall not carry on any activities not permitted to be carried on by a corporation exempt from federal income tax under Section 501(c)(3) of the Internal Revenue Code.\"\n\nInclude the private inurement prohibition, which is fundamental to exempt status: \"No part of the net earnings of the corporation shall inure to the benefit of, or be distributable to, its members, trustees, directors, officers, or other private persons, except that the corporation shall be authorized and empowered to pay reasonable compensation for services rendered and to make payments and distributions in furtherance of the purposes set forth in Article III.\"\n\nDraft the dissolution clause with language that irrevocably dedicates assets to exempt purposes: \"Upon the dissolution of the corporation, assets shall be distributed for one or more exempt purposes within the meaning of Section 501(c)(3) of the Internal Revenue Code, or the corresponding section of any future federal tax code, or shall be distributed to the federal government, or to a state or local government, for a public purpose. Any such assets not so disposed of shall be disposed of by a court of competent jurisdiction of the county in which the principal office of the corporation is then located, exclusively for such purposes or to such organization or organizations, as said court shall determine, which are organized and operated exclusively for such purposes.\"\n\nInclude provisions addressing lobbying and political activity limitations: \"No substantial part of the activities of the corporation shall be the carrying on of propaganda, or otherwise attempting to influence legislation, and the corporation shall not participate in, or intervene in (including the publishing or distribution of statements), any political campaign on behalf of or in opposition to any candidate for public office.\" This language tracks the statutory requirements and makes clear that the organization understands and accepts these limitations.\n\nConsider adding language that explicitly prohibits activities that would result in excess benefit transactions under Section 4958 or would otherwise violate the private benefit doctrine. While not strictly required in the Articles, such provisions demonstrate the organization's commitment to operating exclusively for exempt purposes and can strengthen the application for recognition of exemption.\n\n## Drafting Article V: Membership and Governance Structure\n\nDraft the governance provisions to establish the corporation's fundamental structure while providing flexibility for operational details to be addressed in the bylaws. Begin by determining whether the corporation will have members with voting rights or will operate as a directorship corporation with a self-perpetuating board. This is a critical structural decision that affects governance, accountability, and operational complexity.\n\nIf the corporation will have no members, state this explicitly: \"The corporation shall have no members. Any action which would otherwise require approval by a majority of all members or approval by the members shall require only approval of the board of directors.\" This structure is common for operating charities and simplifies governance by eliminating the need for annual membership meetings and member voting on corporate matters.\n\nIf the corporation will have members, define the membership structure with appropriate detail. Specify whether there will be different classes of membership with varying rights and privileges. Address how members are admitted, whether membership requires payment of dues or satisfaction of other criteria, and how membership may be terminated. State what matters require member approval, such as amendment of Articles, merger or dissolution, sale of substantially all assets, or election of directors. Ensure that member voting rights and procedures comply with state law requirements.\n\nEstablish the board of directors as the governing body responsible for managing the corporation's affairs. Specify the number of directors, which may be a fixed number or a range with the exact number to be determined by the board or members: \"The affairs of the corporation shall be managed by a board of directors. The number of directors shall be not less than three (3) and not more than fifteen (15), with the exact number to be fixed from time to time by resolution of the board of directors.\" This range provides flexibility for board expansion as the organization grows while ensuring sufficient directors to maintain diverse perspectives and avoid conflicts of interest.\n\nAddress director qualifications if the organization has specific requirements, such as expertise in particular fields, representation from specific constituencies, or independence from staff. State the term of office for directors, which is commonly one to three years, and whether directors may serve consecutive terms. Include provisions for filling vacancies on the board and for removal of directors, ensuring these procedures comply with state law and provide appropriate protections against arbitrary removal while allowing the board to address directors who fail to fulfill their duties.\n\nSpecify the principal officers of the corporation, typically including at minimum a president, secretary, and treasurer, though titles may vary. State whether officers are elected by the board or appointed by the president, and address their terms of office. Consider whether to include provisions allowing directors and officers to receive reasonable compensation for services rendered, or whether to require service without compensation except for reimbursement of expenses. For organizations seeking 501(c)(3) status, ensure that any compensation provisions are consistent with the prohibition on private inurement and excess benefit transactions.\n\n## Drafting Article VI: Incorporator Information and Execution\n\nIdentify each incorporator by full legal name and complete mailing address, including street address, city, state, and ZIP code. Verify your state's requirements regarding the number of incorporators, which typically ranges from one to three, and any qualifications such as age or residency. The incorporators need not be directors, officers, or members of the corporation and typically have no ongoing role after the Articles are filed and initial directors are appointed.\n\nDraft this provision clearly: \"The name and address of each incorporator is as follows:\" followed by a formatted list of each incorporator's information. Ensure the addresses are current and accurate, as the Secretary of State may use these addresses for correspondence regarding the filing.\n\nInclude a statement of purpose for the incorporation: \"The undersigned incorporator(s) execute these Articles of Incorporation for the purpose of forming a non-profit corporation under the [State] Non-Profit Corporation Act.\" This statement confirms the incorporators' intent and the statutory authority under which the corporation is being formed.\n\nCreate signature blocks for each incorporator with adequate space for handwritten signatures and dates. If state law requires notarization of the incorporators' signatures, include appropriate notary acknowledgment forms below each signature block. Ensure the signature blocks are formatted according to state requirements and provide sufficient space for notary seals if required.\n\n## Drafting Article VII: Duration and Effective Date\n\nAddress the corporation's duration, which for non-profit corporations is typically perpetual unless the organization has a specific reason for a limited existence. Draft this provision simply: \"The duration of the corporation shall be perpetual.\" This standard provision ensures the organization can continue its charitable work indefinitely without the need to renew or extend its corporate existence.\n\nSpecify the effective date of incorporation, recognizing that most states allow organizations to choose between immediate effectiveness upon filing or a delayed effective date up to a specified number of days in the future. Consider the implications of the effective date for tax-exempt status applications, fiscal year designation, and operational planning. If the organization needs to begin operations immediately, specify that the Articles become effective upon filing. If the organization needs time to complete other formation tasks before the corporation legally exists, specify a delayed effective date: \"These Articles of Incorporation shall become effective on [specific date], which date is not more than [number] days after the date of filing.\"\n\n## Drafting Article VIII: Additional Provisions for Protection and Flexibility\n\nConsider including supplementary provisions that, while not mandatory under state law, provide important protections for directors and officers and operational flexibility for the organization. These provisions can be critical for attracting qualified board members and managing organizational risk.\n\nDraft an indemnification provision that protects directors, officers, employees, and agents to the fullest extent permitted by state law: \"The corporation shall indemnify any person who was or is a party or is threatened to be made a party to any threatened, pending, or completed action, suit, or proceeding, whether civil, criminal, administrative, or investigative, by reason of the fact that such person is or was a director, officer, employee, or agent of the corporation, or is or was serving at the request of the corporation as a director, officer, employee, or agent of another corporation, partnership, joint venture, trust, or other enterprise, against expenses (including attorneys' fees), judgments, fines, and amounts paid in settlement actually and reasonably incurred by such person in connection with such action, suit, or proceeding, to the fullest extent permitted by the [State] Non-Profit Corporation Act.\"\n\nInclude a limitation of liability provision that protects directors from personal monetary liability except in cases of intentional misconduct or knowing violations of law: \"A director of the corporation shall not be personally liable to the corporation or its members for monetary damages for breach of fiduciary duty as a director, except for liability for any breach of the director's duty of loyalty to the corporation or its members, acts or omissions not in good faith or which involve intentional misconduct or a knowing violation of law, or any transaction from which the director derived an improper personal benefit.\" Ensure this provision complies with state law limitations on liability waivers and does not eliminate liability in circumstances where state law prohibits such elimination.\n\nAddress amendment procedures to provide clarity about how the Articles may be modified in the future while ensuring compliance with state law requirements and protection of tax-exempt status: \"These Articles of Incorporation may be amended by the affirmative vote of [specify percentage or number] of the directors then in office, provided that no amendment shall be made to Article III (Purposes) or Article IV (Tax-Exempt Status Requirements) that would adversely affect the corporation's qualification as an organization described in Section 501(c)(3) of the Internal Revenue Code.\" This provision allows necessary amendments while protecting the irrevocable dedication to exempt purposes.\n\nConsider including provisions regarding the corporation's bylaws, establishing the board's authority to adopt, amend, and repeal bylaws: \"The board of directors shall have the power to adopt, amend, and repeal the bylaws of the corporation, subject to any limitations set forth in these Articles of Incorporation or imposed by law.\" This provision clarifies the locus of authority for bylaw governance and ensures the board can adapt operational procedures as needed.\n\nIf the organization anticipates potential mergers, consolidations, or conversions in the future, consider including provisions that address these transactions and ensure they can be accomplished in compliance with state law and without jeopardizing tax-exempt status. Such provisions might specify voting requirements for approval of fundamental transactions and require that any successor organization be organized for exempt purposes.\n\n## Formatting, Assembly, and Preparation for Filing\n\nFormat the complete document according to the specifications required by the Secretary of State's office in the jurisdiction of incorporation. Most states require standard letter-size paper with specific margin requirements, typically one inch on all sides. Use a professional, readable font such as Times New Roman or Arial in a size between 10 and 12 points. Number all pages consecutively and include a footer with the document title and page numbers.\n\nOrganize the Articles with clear article headings and logical progression through all required and optional provisions. Ensure internal consistency throughout the document, verifying that all cross-references are accurate and that terminology is used consistently. For example, if you refer to the governing body as the \"board of directors\" in one article, do not switch to \"board of trustees\" in another article unless there is a specific reason for the distinction.\n\nPrepare a cover sheet if required by the state, which typically includes the document title, the corporation's name, the name and contact information of the person to whom correspondence should be directed, the filing fee amount, and any requests for expedited processing. Include payment for the filing fee in the form accepted by the Secretary of State, which may include checks, money orders, or credit card authorization forms.\n\nAssemble the required number of copies of the Articles as specified by state law. Most states require an original signed copy for filing, plus additional copies for the organization's records and any certified copies needed for opening bank accounts, applying for tax-exempt status, or other purposes. If the state requires notarization, ensure all signature blocks are properly notarized before submitting the filing.\n\nReview any additional documents that must be filed simultaneously with the Articles of Incorporation. Some states require an initial report or statement of information to be filed at the time of incorporation, providing details about directors, officers, and business addresses. Others require a separate registered agent acceptance form signed by the agent acknowledging their appointment. Ensure all required accompanying documents are prepared and included with the filing.\n\n## Final Compliance Review and Quality Assurance\n\nBefore presenting the draft to the client or submitting it for filing, conduct a comprehensive compliance review to ensure the document satisfies all legal requirements and serves the organization's needs effectively. Verify that every mandatory provision required by state law is included and properly worded. Cross-reference your draft against the state's non-profit corporation statute section by section to confirm nothing has been omitted.\n\nReview the purpose statement and dissolution clause against IRS organizational test requirements as set forth in Treasury Regulations Section 1.501(c)(3)-1(b) and (c). Ensure the language is sufficient to satisfy an IRS examiner that the organization is organized exclusively for exempt purposes and that assets are irrevocably dedicated to such purposes. Confirm that the purpose statement does not include any language suggesting substantial non-exempt purposes, private benefit, or prohibited activities.\n\nVerify that the corporate name is available in the state of incorporation by conducting a final name availability search immediately before filing. Confirm that the registered agent has consented to serve and meets all state qualifications, including residency or authorization to do business in the state. Review all incorporator information for accuracy and completeness, ensuring names are spelled correctly and addresses are current.\n\nCheck that governance provisions comply with state law requirements and provide a workable framework for the organization's operations. Ensure that the number of directors meets any statutory minimums and that procedures for election, removal, and filling vacancies are clearly stated. Verify that officer positions and selection procedures are addressed if required by state law.\n\nConfirm the filing fee amount by checking the current fee schedule on the Secretary of State's website, as fees may change periodically. Verify that payment is in an acceptable form and that any cover sheet or transmittal letter includes all required information. Review the complete filing package to ensure all required documents are included and properly executed.\n\nConsider whether any additional filings or registrations will be required after incorporation, such as registration with the state attorney general's charitable trust division, application for state tax exemptions, or registration to solicit charitable contributions. While these are not part of the Articles of Incorporation filing, alerting the client to these requirements ensures a smooth formation process.\n\n## Delivering the Final Product and Supporting the Client\n\nPresent the completed Articles of Incorporation to the client with a comprehensive explanation of the document's contents and the filing process. Provide guidance on the next steps in the formation process, including adoption of bylaws, appointment of initial directors, holding an organizational meeting of the board, and applying for federal tax-exempt status. Explain the timeline for state processing of the Articles and when the client can expect to receive the filed Articles stamped by the Secretary of State.\n\nPrepare the organization for post-incorporation compliance requirements, including annual report filings, registered agent maintenance, and preservation of corporate formalities. Emphasize the importance of maintaining the corporation's good standing through timely filings and fee payments. Provide information about obtaining an Employer Identification Number from the IRS, which will be necessary for opening bank accounts and filing tax-exempt status applications.\n\nDeliver a filing-ready document that requires no additional legal review before submission to the Secretary of State. Your Articles of Incorporation should be comprehensive, compliant, professionally formatted, and tailored to the specific organization's needs while satisfying all statutory and regulatory requirements for non-profit corporations seeking 501(c)(3) tax-exempt status.",
+  "parent_skill_id": "f4b65ea6-5a24-4445-8f46-1faf41a33dd0",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "non_profit_organizations"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:47:05.867624Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Choosing concise descriptive slug**
+
+Decided on the slug "nonprofit-articles-of-incorporation" to clearly reflect the nonprofit 501(c)(3) context while keeping it descriptive and within the simplified naming convention.
+thinking
+**Drafting detailed markdown structure**
+
+Preparing SKILL.md with a clear, concise purpose statement, comprehensive prerequisites list, structured output process including tables and templates for 501(c)(3) clauses, and guidelines emphasizing compliance and state-specific caveats; aiming for about 120 lines without fluff or nested bullets.
+codex
+---
+name: nonprofit-articles-of-incorporation
+description: Drafts filing-ready U.S. nonprofit Articles of Incorporation aligned with state nonprofit statutes and federal 501(c)(3) organizational test requirements. Covers name/agent, exempt purpose, inurement and political activity limits, dissolution dedication, governance structure, and execution blocks. Use when forming a nonprofit corporation, preparing articles of incorporation, 501(c)(3) filings, charitable organization formation, or tax-exempt incorporation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Nonprofit Articles of Incorporation
+
+Produces a compliant, filing-ready nonprofit Articles document optimized for 501(c)(3) recognition.
+
+## Prerequisites
+
+1. State of incorporation and entity type (nonprofit/charitable).
+2. Proposed legal name and name availability check status.
+3. Registered agent name, physical street address, and consent status.
+4. Mission statement, planned activities, beneficiaries, and geographic scope.
+5. 501(c)(3) intent and exempt category(ies) (charitable, educational, religious, scientific, etc.).
+6. Membership structure decision (members vs no members) and voting rights.
+7. Board structure: fixed number or range; initial directors if required by state.
+8. Incorporator name(s) and mailing addresses.
+9. Effective date (upon filing or delayed date).
+10. State-specific required clauses, forms, fees, and attachments.
+
+## Output Structure / Process
+
+**1. State Law Research Checklist**
+- Identify controlling nonprofit statute and required article content.
+- Confirm naming rules and required designators/restrictions.
+- Confirm registered agent requirements and consent form.
+- Confirm minimum director count and whether directors/officers must be listed.
+- Confirm whether member structure must be stated.
+- Confirm indemnification/liability limitation permissibility.
+- Confirm filing fee, form, and submission method.
+- Flag any state-specific charitable or AG registration triggers.
+
+**2. Data Intake Table**
+| Field | Required | Notes |
+| --- | --- | --- |
+| Corporation name | Yes | Must be distinguishable and compliant with state rules. |
+| State of incorporation | Yes | Drives statutory requirements and forms. |
+| Registered agent + address | Yes | Physical address in-state; no PO boxes. |
+| Purpose/activities | Yes | Must fit 501(c)(3) exempt purposes. |
+| Membership structure | Yes | “No members” or member classes/rights. |
+| Directors | Varies | Required if state mandates; otherwise optional. |
+| Officers | Varies | Required if state mandates; otherwise optional. |
+| Incorporators | Yes | Names and addresses. |
+| Effective date | Optional | Immediate or delayed (state limits apply). |
+| Indemnification/limitation | Optional | Only if permitted by state law. |
+
+**3. Article Outline (Customize Per State)**
+| Article | Required | Content |
+| --- | --- | --- |
+| I. Name | Yes | Exact legal name. |
+| II. Registered Agent/Office | Yes | Agent name and physical address. |
+| III. Purpose | Yes | 501(c)(3) exempt purpose + specific activities. |
+| IV. 501(c)(3) Limits | Yes | Inurement, lobbying, political activity limits. |
+| V. Dissolution | Yes | Asset dedication to 501(c)(3)/government. |
+| VI. Members | Varies | “No members” or member classes/rights. |
+| VII. Directors/Officers | Varies | Number/range, selection if required. |
+| VIII. Incorporators | Yes | Names/addresses + signature blocks. |
+| IX. Duration/Effective Date | Optional | Perpetual + effective date. |
+| X. Optional Protections | Optional | Indemnification/limitation if allowed. |
+
+**4. Core Clause Templates (Edit to State Requirements)**
+```text
+PURPOSE (501(c)(3)):
+This corporation is organized exclusively for charitable, educational, religious, and scientific purposes within the meaning of Section 501(c)(3) of the Internal Revenue Code, as amended, and for no other purpose.
+
+INUREMENT:
+No part of the net earnings of the corporation shall inure to the benefit of, or be distributable to, its directors, officers, members, or other private persons, except that the corporation shall be authorized to pay reasonable compensation for services rendered and to make payments in furtherance of its purposes.
+
+LOBBYING / POLITICAL ACTIVITY:
+No substantial part of the activities of the corporation shall be the carrying on of propaganda or otherwise attempting to influence legislation, and the corporation shall not participate in or intervene in any political campaign on behalf of or in opposition to any candidate for public office.
+
+DISSOLUTION:
+Upon dissolution, assets shall be distributed for one or more exempt purposes within the meaning of Section 501(c)(3) of the Internal Revenue Code, or to the federal government or a state or local government for a public purpose. Any such assets not so disposed of shall be disposed of by a court of competent jurisdiction exclusively for such purposes.
+```
+
+**5. Optional Provisions (Only If Allowed)**
+- Indemnification to the fullest extent permitted by state law.
+- Limitation of director liability consistent with state statute.
+- Bylaw authority clause for board/member adoption.
+- Amendment clause protecting 501(c)(3) purposes.
+
+**6. Formatting & Filing Package Checklist**
+- Article headings labeled and consistent.
+- Names/addresses verified; no PO boxes for agent.
+- Signature blocks for incorporators; notary blocks if required.
+- State cover sheet and agent consent attached if required.
+- Filing fee and method confirmed.
+
+**7. Compliance Review Checklist**
+- Purpose and dissolution clauses satisfy 501(c)(3) organizational test.
+- No private benefit or non-exempt purposes embedded in purpose statement.
+- Member structure and director counts meet state statutory minimums.
+- All mandatory state clauses included verbatim when required.
+- Any statutory citations confirmed or marked `[VERIFY]`.
+
+## Guidelines
+
+- Do not include shareholder/stock concepts; nonprofit corporations do not issue shares.
+- Avoid language implying substantial commercial activity or political campaign intervention.
+- Keep purpose language broad but tied to actual activities and exempt categories.
+- If state law mandates specific phrasing, use it verbatim and cite the statute; use `[VERIFY]` if uncertain.
+- Do not promise tax-exempt status; limit to organizational test compliance.
+- Confirm whether the state requires director/officer listing in the Articles before including personal data.
+- Treat indemnification and liability limitation as optional and state-dependent.
+tokens used
+8,563

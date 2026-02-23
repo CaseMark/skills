@@ -1,0 +1,201 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-5ba2-7881-ada9-408f1d4c2bbf
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "32ca9c8c-4e02-4b5b-bdd0-6922ff4970f4",
+  "slug": "litigation-mediation-briefs",
+  "name": "Mediation Briefs",
+  "summary": "Drafts comprehensive mediation briefs for commercial litigation matters, presenting the client's position persuasively while educating the mediator on facts, law, damages, and litigation risks. Structures the brief with executive summary, neutral facts, legal analysis, damages assessment, and settlement framework to facilitate productive negotiations. Use prior to mediation sessions to demonstrate good faith and promote settlement.",
+  "content": "# Mediation Brief Preparation\n\nYou are tasked with preparing a comprehensive mediation brief that effectively presents your client's position, facilitates productive settlement discussions, and demonstrates good faith participation in the mediation process. A mediation brief serves as both an advocacy document and an educational tool for the mediator, who typically has no prior knowledge of the dispute.\n\nBegin by thoroughly reviewing all case materials, pleadings, discovery responses, and relevant correspondence to understand the complete factual and legal landscape. Search through uploaded documents to extract key facts, dates, parties involved, monetary amounts in dispute, and critical communications that support your client's position. Pay particular attention to evidence that demonstrates liability, damages, or defenses, as these will form the foundation of your brief.\n\nStructure the mediation brief to include an executive summary that concisely captures the dispute, the parties' positions, and the relief sought. Follow with a detailed statement of facts presented in a neutral yet persuasive manner, acknowledging both strengths and weaknesses of your position to establish credibility with the mediator. Include a legal analysis section that addresses the applicable law, relevant precedents, and how the facts support your client's claims or defenses. When citing legal authorities, ensure all case law and statutory references are properly verified and formatted according to Bluebook citation standards.\n\nThe damages or relief section should provide a clear, well-supported calculation of your client's losses or, if defending, a reasoned challenge to the opposing party's damage claims. Include documentation such as medical bills, lost wage calculations, expert reports, or other quantifiable evidence. Address both economic and non-economic damages where applicable, and consider the range of potential outcomes at trial versus settlement.\n\nIncorporate a candid assessment of litigation risks, including the strengths of the opposing party's position, potential evidentiary challenges, and the costs and uncertainties of continued litigation. This demonstrates good faith and helps the mediator understand the realistic parameters for settlement. Consider including a confidential section for the mediator's eyes only that discusses your client's settlement authority, priorities, and any non-monetary interests that might facilitate resolution.\n\nThroughout the brief, maintain a professional and solution-oriented tone that focuses on resolution rather than adversarial posturing. The goal is to educate the mediator about why your position is reasonable and meritorious while remaining open to compromise. Avoid inflammatory language or personal attacks that might hinder productive negotiations.\n\nConclude with a clear statement of your client's settlement position or the framework within which settlement discussions should proceed. If there are creative solutions, alternative structures, or non-monetary terms that might bridge the gap between the parties, identify these possibilities to give the mediator tools for facilitating agreement.\n\nEnsure the brief complies with any page limits, formatting requirements, or submission deadlines established by the mediation agreement or the mediator's procedures. The final document should be polished, well-organized, and professionally presented, as it reflects not only on the merits of your case but also on your credibility and professionalism as counsel.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "brief"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:43.916716Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:42:44.244924Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:45.224426Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:46.023599Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e516bfdbf3db-SJC)
+2026-02-23T21:42:46.943782Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e51cf99debe9-SJC)
+2026-02-23T21:42:48.200924Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e524bb80f993-SJC)
+2026-02-23T21:42:50.327941Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e531cbbfae00-SJC)
+2026-02-23T21:42:53.779687Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e547afeb33fc-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-mediation-briefs-hs_bmg74.md
+
+STDOUT:
+

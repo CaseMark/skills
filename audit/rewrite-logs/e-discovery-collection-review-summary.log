@@ -1,0 +1,343 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-729c-7c02-9880-93d7e1dc3c8e
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "242047ad-6a7e-4644-851f-d5bddf09cf71",
+  "slug": "e-discovery-collection-review-summary",
+  "name": "E-Discovery Collection & Review Summary",
+  "summary": "Generates a comprehensive internal status report tracking the lifecycle of electronically stored information (ESI) from collection through attorney review in litigation. It summarizes data volumes by custodian, search term hit results, and progress on relevance and privilege determinations. Use it during the discovery phase of commercial litigation to provide visibility for counsel, case managers, and clients on e-discovery progress and resource needs.",
+  "content": "# E-Discovery Collection & Review Summary Workflow\n\n## Purpose and Strategic Context\n\nYou are responsible for preparing a comprehensive internal status report that tracks electronically stored information (ESI) throughout its complete lifecycle\u2014from initial collection through final attorney review. This report serves as the authoritative record of e-discovery progress for litigation counsel, case managers, and client stakeholders, providing clear visibility into data volumes across custodians, the effectiveness of search term strategies, and the pace and outcomes of document review for both relevance and privilege determinations. The summary must enable informed decision-making about case strategy, resource allocation, and timeline projections while maintaining strict confidentiality and work product protection.\n\n## Information Gathering and Source Material Assembly\n\nBegin by conducting a thorough search of all uploaded case documents to locate and extract the three critical categories of source materials required for this analysis. First, identify all raw collection logs, metadata files, and processing reports from your e-discovery vendor, which typically appear in CSV, JSON, or structured text formats. These files contain foundational data about what ESI was collected, from which custodians, and how it was processed. Search specifically for documents containing terms like \"collection log,\" \"processing report,\" \"vendor deliverable,\" \"data load summary,\" and custodian names to ensure comprehensive retrieval.\n\nSecond, locate exported reports from your review platform that capture coding decisions, search term hit counts, and reviewer activity metrics. These documents often include titles containing \"review statistics,\" \"coding report,\" \"search term results,\" or \"platform export.\" Extract all relevant data points including document counts, reviewer names, coding categories, and timestamp information. Third, identify finalized attorney review decisions that document relevance determinations and privilege assertions, searching for documents labeled as \"privilege log,\" \"relevance coding,\" \"attorney review summary,\" or similar designations. Ensure you are working with the most current versions by checking document dates and version indicators.\n\nIf any critical source materials cannot be located through document search, systematically identify what information is missing and request clarification from the user about where these materials can be found or whether alternative data sources are available. Document any gaps in source materials as these will need to be disclosed in your final summary with appropriate caveats about completeness.\n\n## Data Validation and Normalization Process\n\nOnce all source materials are identified and extracted, conduct rigorous validation to ensure data integrity before proceeding with analysis. Cross-reference custodian identifiers across different data sources, as vendors and review platforms frequently use inconsistent naming conventions that must be reconciled to enable accurate aggregation. Create a master custodian mapping table that standardizes all variations of each individual's name, employee ID, or other identifiers into a single canonical reference.\n\nVerify that document counts align logically across the collection-to-review pipeline. The total number of documents collected should equal or exceed the number processed, which should equal or exceed the number loaded into the review platform, which should equal or exceed the number reviewed. Any discrepancies in these cascading totals indicate potential data loss, duplication, or processing errors that must be investigated and explained. Calculate these verification metrics with precision, documenting any anomalies discovered and the steps taken to resolve or account for them.\n\nValidate the completeness of search term data by confirming that every search term or Boolean query string employed in the matter has corresponding hit count data. If search term results appear incomplete or inconsistent, note these limitations explicitly as they will affect the reliability of your effectiveness analysis. Similarly, verify that review coding data includes all required fields such as reviewer identity, coding date, relevance designation, privilege assertion, and any issue tags or other categorical assignments used in the matter.\n\n## Collection Metrics Analysis and Custodian Profiling\n\nConstruct a comprehensive collection metrics summary organized by custodian that quantifies the volume of data collected from each individual, the number of discrete files or documents, and the current processing status. For each custodian, calculate the total data volume in gigabytes, the number of individual items collected, the file type distribution showing the breakdown between emails, office documents, and other formats, and the processing completion percentage indicating what proportion has been successfully loaded into the review platform versus what remains in processing queues or encountered errors.\n\nIdentify custodians who present unusual data profiles that may require special attention or explanation. Flag individuals with exceptionally high data volumes that significantly exceed the matter average, as these may indicate pack rats, key players with extensive relevant communications, or technical issues like personal file storage being inadvertently collected. Similarly, highlight custodians with unusually low data volumes that fall well below expectations, as this may suggest incomplete collection, data retention issues, or individuals with limited involvement in the relevant time period.\n\nCalculate processing success rates and error frequencies to assess the technical quality of the collection. Determine what percentage of collected data successfully processed without errors, what types of errors occurred most frequently, and whether certain custodians or file types experienced disproportionate processing failures. This analysis reveals both the reliability of your dataset and potential areas where additional technical remediation or re-collection may be necessary.\n\n## Search Term Effectiveness Evaluation\n\nAnalyze the results of search term application across the collected dataset to assess the effectiveness of your search strategy and inform decisions about term refinement or additional targeted collection. For each search term or Boolean query string employed, document the number of documents retrieved, the hit rate as a percentage of the total reviewable population, and where available, the precision rate based on sample validation exercises showing what percentage of retrieved documents were actually relevant.\n\nIdentify high-performing search terms that efficiently retrieve relevant documents with minimal false positives, as these represent successful targeting that may inform future search strategies. Conversely, flag underperforming terms that either retrieve too few documents to be useful or generate excessive false positives that waste review resources. Calculate the overlap between different search terms to understand redundancy in your search strategy and identify opportunities for consolidation or refinement.\n\nIf sample validation data is available showing relevance rates for documents retrieved by specific search terms, use this information to project the likely yield from remaining unreviewed search term hits. This projection enables more accurate forecasting of total relevant document volumes and helps prioritize which search term results should be reviewed first to maximize early case assessment value.\n\n## Attorney Review Progress and Productivity Analysis\n\nThe core of your summary focuses on review statistics that demonstrate attorney productivity and case assessment progress. Calculate the total number of documents that have undergone human review, then determine the percentage coded as relevant to the litigation, the percentage designated as privileged, and the percentage marked as non-responsive or irrelevant. These metrics provide essential insight into case exposure, the strength of privilege assertions, and the efficiency of your search and collection strategy.\n\nBreak down review progress by individual attorney or review team to assess productivity and identify resource allocation issues. For each reviewer, calculate the number of documents reviewed, the average review rate in documents per hour, and the coding distribution showing their relevance and privilege designation patterns. Significant variations in coding patterns between reviewers may indicate inconsistent application of review protocols that requires additional training or quality control measures.\n\nAnalyze review velocity trends over time to project completion dates and identify potential bottlenecks. Calculate the daily or weekly review rate, determine whether review speed is accelerating or decelerating, and project the estimated completion date based on current productivity levels and remaining document volumes. If review is falling behind schedule, quantify the gap between current progress and target milestones, and calculate the additional resources or accelerated productivity required to meet deadlines.\n\nExamine privilege assertion patterns to ensure consistency and identify potential issues requiring senior attorney attention. Calculate the overall privilege rate as a percentage of reviewed documents, compare privilege rates across different custodians to identify individuals with unusually high or low privilege assertions, and analyze privilege rates by document type to verify that patterns align with expectations. Privilege rates that deviate significantly from historical norms or matter-specific expectations may indicate over-designation, under-designation, or the need for additional privilege training.\n\n## Comprehensive Output Generation and Presentation\n\nTransform your analytical findings into a detailed written report that serves as the primary deliverable for this workflow. Structure the report to begin with an executive summary that provides a high-level overview of collection completeness, search term effectiveness, review progress, and projected completion timeline. This opening section should immediately orient readers to the current state of e-discovery and highlight any critical issues requiring immediate attention.\n\nFollow the executive summary with detailed sections addressing each analytical component. Present collection metrics in a clear tabular format organized by custodian, showing data volumes, item counts, file type distributions, and processing status for each individual. Include narrative commentary that explains any anomalies, such as custodians with incomplete processing or unexpectedly high data volumes, and describes the steps being taken to address these issues.\n\nDocument search term performance in a comprehensive table that lists each search term, its hit count, hit rate percentage, and where available, its precision rate based on validation sampling. Provide interpretive analysis that identifies the most effective search terms, flags underperforming queries that may need refinement, and recommends any adjustments to the search strategy based on the results observed. If term overlap analysis reveals significant redundancy, include recommendations for consolidating or eliminating duplicative search terms.\n\nPresent review statistics through multiple analytical lenses to provide complete visibility into progress and productivity. Create a master review status table showing total documents reviewed, relevance rates, privilege rates, and completion percentages. Supplement this with reviewer-specific productivity metrics that enable case managers to assess individual performance and identify team members who may need additional support or training. Include trend analysis with visual representations showing review velocity over time and projected completion dates based on current productivity levels.\n\nAddress privilege designations with particular care given their sensitivity and potential impact on the litigation. Present privilege statistics in aggregate form showing overall privilege rates, privilege distribution by custodian, and privilege patterns by document type. Include narrative analysis that contextualizes these numbers, explaining whether privilege rates align with expectations and identifying any patterns that may require senior attorney review or adjustment to privilege review protocols.\n\nConclude the report with a forward-looking section that synthesizes all findings into actionable recommendations and timeline projections. Based on the data analyzed, provide specific recommendations regarding resource allocation, search term refinement, quality control measures, or other adjustments needed to optimize the e-discovery process. Project realistic completion dates for remaining collection, processing, and review activities, clearly stating the assumptions underlying these projections and identifying risks that could impact the timeline.\n\n## Quality Assurance and Validation Protocol\n\nBefore finalizing your report, conduct rigorous quality checks to ensure accuracy and completeness. Verify that every custodian identified in vendor collection data appears in your master status table with corresponding metrics, as omissions could indicate data processing failures or incomplete analysis. Cross-verify total document counts across all data sources\u2014collection logs, search term results, and review platform exports\u2014to ensure consistency and identify any discrepancies that might suggest data loss or duplication during processing.\n\nImplement targeted validation for privilege determinations given their heightened sensitivity and potential for challenge. If sample validation data is available, verify that privilege designations have been reviewed and approved by attorneys with appropriate authority. Document this validation process as it may be relevant to privilege log preparation and potential challenges from opposing counsel.\n\nReview all numerical calculations to confirm accuracy, particularly percentages, projections, and trend analyses that will inform strategic decisions. Verify that all formulas and calculations are mathematically sound, that percentages are calculated against the correct denominators, and that projections are based on reasonable assumptions clearly stated in the report. Check that all data visualizations accurately represent the underlying data without distortion or misleading presentation.\n\n## Legal and Professional Compliance Considerations\n\nThroughout this workflow, maintain strict adherence to data security protocols appropriate for confidential litigation materials and work product. Ensure that all analysis occurs within the bounds of any protective orders governing the litigation and that your summary does not inadvertently disclose privileged content or work product beyond authorized recipients. Be particularly attentive to how privilege statistics are presented, ensuring they provide necessary visibility for case management without revealing the substance of privileged communications or attorney mental impressions.\n\nDocument your methodology and any assumptions made during data normalization, metric calculation, or projection development, as opposing counsel or courts may later scrutinize your e-discovery process. Maintain an audit trail showing how source data was processed, how discrepancies were resolved, and what validation steps were performed to ensure accuracy. This documentation protects the integrity of your e-discovery process and provides support if your methods are challenged.\n\nBefore distributing any version of this summary beyond the immediate litigation team, clearly mark the document as attorney work product and include appropriate confidentiality legends. The report should explicitly state that it is prepared for purposes of litigation, contains attorney mental impressions and case assessment information, and is protected from disclosure under applicable work product and attorney-client privilege doctrines. Ensure that distribution is limited to individuals who need the information for case management or strategic decision-making purposes, and implement appropriate access controls to prevent unauthorized disclosure.\n\nRecognize that this summary may inform critical decisions about case strategy, settlement negotiations, and resource allocation. Present all findings objectively and completely, including information that may be unfavorable or concerning, so that counsel can make fully informed decisions. If your analysis reveals significant problems such as substantial gaps in collection, ineffective search strategies, or review quality issues, present these findings clearly with specific recommendations for remediation rather than minimizing or obscuring the concerns.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:55:54.957950Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Identifying required instructions**
+
+The instructions indicate reading the AGENTS.md file in the skills directory to understand rewrite skill requirements, so I'll proceed to read that file.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+exec
+/bin/zsh -lc 'cat /Users/max/CaseMark/skills/AGENTS.md' in /Users/max/CaseMark/skills exited 1 in 51ms:
+cat: /Users/max/CaseMark/skills/AGENTS.md: No such file or directory
+
+
+thinking
+**Deciding skill slug and metadata**
+
+I'm choosing the concise slug "ediscovery-review-summary" and planning to write a third-person skill description that includes key trigger keywords and usage guidance.
+thinking
+**Outlining detailed skill content structure**
+
+I'm specifying comprehensive sections for the skill including prerequisites, a multi-part output structure with tables and templates, guidelines emphasizing confidentiality and jurisdiction, and a precise front matter with metadata and a polished description under 1024 characters.
+codex
+---
+name: ediscovery-review-summary
+description: Produces an internal U.S. litigation e-discovery status summary covering ESI collection, processing, search term hits, review throughput, relevance/privilege rates, and completion forecasts. Use during discovery to brief counsel, case managers, or clients on progress, risks, and resource needs; trigger keywords: e-discovery, ESI, collection log, processing report, data load summary, review statistics, coding report, search term results, privilege review, status report.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# E-Discovery Collection & Review Summary
+
+Internal status report that tracks ESI from collection through attorney review and projects completion.
+
+## Prerequisites
+
+1. Custodian list with identifiers and collection scope (systems, date ranges, locations)
+2. Collection logs and processing reports from vendor
+3. Review platform exports for coding, reviewer activity, and search term results
+4. Search term list or Boolean queries used in the matter
+5. Review protocol (relevance, privilege, issue tags) and QC standards
+6. Milestones or deadlines that the review must meet
+7. Protective order or confidentiality requirements for reporting
+
+## Output Structure / Process
+
+**1) Source Inventory**
+
+| Source | Expected Format | Required Fields | Status | Notes |
+|---|---|---|---|---|
+| Collection log | CSV/JSON | custodian, source, volume, item count, dates | | |
+| Processing report | CSV/PDF | processed count, errors, deNIST, dedupe | | |
+| Load summary | CSV | loaded count, load failures | | |
+| Search term results | CSV | term, hit count, corpus size | | |
+| Review stats | CSV | reviewer, docs reviewed, hours | | |
+| Coding export | CSV | relevance, privilege, issue tags, date | | |
+| Privilege log or summary | CSV/PDF | privilege type, counts | | |
+
+**2) Normalization & Integrity Checks**
+
+| Check | Method | Pass/Fail | Notes |
+|---|---|---|---|
+| Custodian name alignment | Create master mapping table | | |
+| Pipeline totals | Collected ≥ Processed ≥ Loaded ≥ Reviewed | | |
+| Missing search terms | Term list vs results export | | |
+| Coding completeness | reviewer, date, relevance, privilege present | | |
+| Error reconciliation | Processing errors vs re-runs | | |
+
+**Custodian Mapping Table**
+
+| Canonical Custodian | Variant Names/IDs | Source Systems | Notes |
+|---|---|---|---|
+
+**3) Core Metrics Tables**
+
+**A. Collection & Processing by Custodian**
+
+| Custodian | Collected GB | Items | Processed % | Load Failures | File Type Mix | Exceptions |
+|---|---|---:|---:|---:|---|---|
+
+**B. Search Term Effectiveness**
+
+| Term/Query | Hits | Hit Rate % | Sample Precision % | Overlap % | Action |
+|---|---:|---:|---:|---:|---|
+
+**C. Review Status (Matter-Level)**
+
+| Total Reviewable | Reviewed | % Reviewed | Relevant % | Privileged % | Non-Responsive % | Est. Completion Date |
+|---:|---:|---:|---:|---:|---:|---|
+
+**D. Reviewer Productivity**
+
+| Reviewer/Team | Docs Reviewed | Hours | Docs/Hour | Relevant % | Privileged % | QC Rate % | Notes |
+|---|---:|---:|---:|---:|---:|---:|---|
+
+**E. Privilege Patterns**
+
+| Custodian | Privileged % | Dominant Doc Types | Notes/Red Flags |
+|---|---:|---|---|
+
+**4) Definitions & Calculations**
+
+| Metric | Formula |
+|---|---|
+| Hit Rate % | hits / total reviewable corpus |
+| Precision % | relevant hits / sampled hits |
+| Review Velocity | docs reviewed / time period |
+| Completion ETA | remaining docs / current velocity |
+| Privilege Rate % | privileged / reviewed |
+
+**5) Executive Summary Template**
+
+```text
+Executive Summary
+- Collection completeness: [status + anomalies]
+- Processing health: [success % + key errors]
+- Search term performance: [top/weak terms + overlap]
+- Review progress: [reviewed %, relevance %, privilege %]
+- Forecast: [ETA + assumptions]
+- Risks & actions: [top 3]
+```
+
+**6) Findings, Risks, and Recommendations**
+
+- List missing sources and resulting limitations.
+- Flag custodians with outlier volumes or error rates.
+- Identify low-precision or high-overlap search terms.
+- Note reviewer inconsistencies and QC actions.
+- Recommend resource changes or search term refinement.
+
+**7) Assumptions & Gaps**
+
+| Assumption or Gap | Impact | Mitigation |
+|---|---|---|
+
+**8) Work Product Legend**
+
+Include the legend: “Attorney Work Product / Privileged & Confidential. Internal use only.”
+
+## Guidelines
+
+- Report only aggregate metrics; do not disclose privileged content.
+- If counts conflict, surface the discrepancy and state the suspected cause.
+- Use U.S. discovery terminology and confirm local rules if distributing externally.
+- Mark any uncertain legal citations with `[VERIFY]`.
+- Keep narrative neutral and data-driven; avoid strategy conclusions.
+tokens used
+7,054

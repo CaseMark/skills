@@ -1,0 +1,349 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-0ecf-77b2-85a1-6b64ebafa989
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "8953c208-8556-4668-aabe-f8ee632987de",
+  "slug": "draft-settlement-summaries",
+  "name": "Draft Settlement Summaries",
+  "summary": "Drafts comprehensive settlement summaries documenting key terms, negotiation chronologies, and agreements in commercial litigation. It extracts essential details from emails, drafts, and mediation notes to create professional reference documents for attorneys, clients, and stakeholders. Use it post-settlement to provide high-level overviews and precise material terms without reviewing full correspondence.",
+  "content": "# Draft Settlement Summaries\n\nYou are tasked with creating a comprehensive settlement summary that documents the key terms, negotiations, and agreements reached in a legal settlement. This summary serves as a critical reference document for attorneys, clients, and stakeholders to understand the resolution of the dispute without reviewing extensive negotiation correspondence or draft agreements.\n\nBegin by searching through all available settlement-related documents, including negotiation emails, draft settlement agreements, term sheets, mediation notes, and final executed agreements. Extract and organize the essential information that tells the complete story of how the parties reached resolution. Your summary should provide both a high-level overview and sufficient detail to understand the material terms and conditions.\n\nStructure your settlement summary to include the following key components in a clear, professional format. Start with an executive summary that captures the essence of the settlement in two to three paragraphs, identifying the parties, the nature of the underlying dispute, the settlement amount or consideration, and the date of agreement. Follow this with a detailed chronology of the negotiation process, highlighting key milestones such as initial demands, counteroffers, mediation sessions, and breakthrough moments that led to resolution.\n\nDocument the material terms of the settlement with precision and clarity. This includes monetary payments with specific amounts and payment schedules, non-monetary consideration such as releases of claims or dismissals of litigation, confidentiality provisions, non-admission clauses, and any ongoing obligations or covenants. Pay particular attention to release language, identifying exactly which claims and parties are being released and any carve-outs or exceptions. If the settlement involves structured payments, installment plans, or contingent obligations, create a clear timeline or table showing when each obligation becomes due.\n\nAddress the procedural aspects of the settlement implementation, including dismissal requirements, court approval processes if applicable, and any conditions precedent that must be satisfied before the settlement becomes effective. Note whether the settlement is subject to court approval, particularly in class actions, derivative suits, or matters involving minors or incapacitated persons. Identify any representations, warranties, or acknowledgments made by either party as part of the settlement.\n\nAnalyze any unique or non-standard provisions that may have particular significance to your client or the matter. This might include tax allocation clauses, indemnification provisions, dispute resolution mechanisms for settlement-related disagreements, or provisions addressing future conduct or business relationships between the parties. If the settlement resolves only certain claims while preserving others, clearly delineate what is being settled versus what remains in dispute.\n\nThroughout your summary, maintain objectivity while highlighting strategic considerations and potential risks. If certain terms were heavily negotiated or represent compromises from initial positions, note this context to help readers understand the give-and-take of the negotiation process. Include relevant dates, deadlines, and time-sensitive obligations prominently so they are not overlooked.\n\nConclude with a section on implementation and next steps, outlining what actions must be taken to effectuate the settlement, who is responsible for each action, and the timeline for completion. This practical guidance ensures that the settlement terms are properly executed and the matter is fully resolved according to the agreement.\n\nYour settlement summary should be written in clear, professional language accessible to both legal professionals and clients. Avoid unnecessary legal jargon while maintaining precision in describing legal concepts and obligations. Use headings, subheadings, and formatting to make the document easy to navigate and reference. The final product should serve as a standalone document that provides a complete understanding of the settlement without requiring readers to consult the underlying agreements or correspondence.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "summarization",
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement",
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:55:29.431900Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+TITLE: Settlement Summary  
+DESCRIPTION:  
+This skill provides a structured approach for summarizing settlement communications, including settlement terms, mediation notes, term sheets, releases, payment schedules, and confidentiality considerations. It supports Litigation practice areas within the US jurisdiction. It is triggered by keywords such as "settlement summary," "settlement terms," "mediation notes," "term sheet," "release," "payment schedule," and "confidentiality." The skill modes include Summarization and Drafting.  
+
+PREREQUISITES:  
+1. Final agreement or term sheet  
+2. Record of negotiation chronology  
+3. Parties and case information  
+4. Deadlines and conditional requirements  
+5. Approval and court authorization requirements (e.g., for minors or class actions)  
+
+OUTPUT STRUCTURE:  
+
+Executive Summary  
+- Concise overview of the settlement purpose and scope  
+
+Negotiation Chronology (Table)  
+| Date       | Party      | Event/Action        | Notes                  |  
+
+Material Terms (Table)  
+| Term                | Description                          | Value/Status          |  
+
+Releases & Claims (Table)  
+| Party Released      | Claims Released                      | Exceptions/Notes      |  
+
+Non-Monetary Obligations (Table)  
+| Obligation          | Responsible Party                    | Deadline/Condition   |  
+
+Conditions Precedent & Approvals (Table)  
+| Condition/Approval  | Responsible Party                    | Status/Deadline      |  
+
+Implementation Plan (Task List Table)  
+| Task                | Responsible Party                    | Due Date             | Status               |  
+
+Open Items Checklist  
+- Outstanding issues or decisions needing resolution  
+
+KEY GUIDELINES:  
+- Address confidentiality and privilege considerations, including referencing FRE 408 (Federal Rule of Evidence concerning settlement communications)[VERIFY].  
+- Avoid admissions of liability or fault language unless explicit.  
+- Highlight confidentiality, non-disparagement, taxation, and admission provisions clearly.  
+- Include cautionary notes about court approval for settlements involving minors or class actions.  
+- Maintain clear, flat checklist formatting without nested bullets.  
+- Ensure all table fields are completed where information is available.  
+
+CAUTIONS:  
+- Settlement communications are often confidential and privileged; handle and summarize accordingly.  
+- Be cautious of including sensitive payment schedules or term details that could affect enforceability or confidentiality.  
+
+DOCUMENT TYPES: Summary  
+PRACTICE AREAS: Litigation  
+JURISDICTION: US  
+SKILL_MODES: Summarization, Drafting
+thinking
+**Crafting skill content**
+codex
+---
+name: settlement-summary
+description: Drafts structured U.S. litigation settlement summaries that capture negotiated terms, releases, obligations, and implementation steps for attorney and client reference. Use when summarizing settlement agreements, mediation outcomes, term sheets, or settlement negotiations; trigger keywords include “settlement summary”, “mediation notes”, “term sheet”, “release”, “payment schedule”, “confidentiality”, and “dismissal”.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Drafting
+---
+
+# Settlement Summary
+
+Produce a standalone summary of settlement history and material terms with clear implementation steps.
+
+## Prerequisites
+
+1. Final settlement agreement or executed term sheet
+2. Negotiation record: emails, draft redlines, mediation notes
+3. Case caption, parties, counsel, and matter identifiers
+4. Settlement consideration details and payment timelines
+5. Any court-approval requirements or dismissal procedures
+
+## Output Structure / Process
+
+Use the following structure and tables.
+
+## Executive Summary
+
+Include in 2-3 short paragraphs:
+- Parties and matter
+- Nature of dispute and resolution date
+- Consideration (monetary and non-monetary)
+- Status of execution and effectiveness
+
+## Negotiation Chronology
+
+| Date | Event | Offer/Counter | Notes |
+|---|---|---|---|
+| YYYY-MM-DD | Initial demand | $ | Key terms |
+| YYYY-MM-DD | Mediation | $ | Breakthroughs |
+| YYYY-MM-DD | Agreement in principle | $ | Open issues |
+
+## Material Terms
+
+| Term | Details |
+|---|---|
+| Consideration | Amount, form, and allocation |
+| Payment schedule | Dates, method, contingencies |
+| Releases | Releasing parties, released parties |
+| Claims released | Enumerated claims or categories |
+| Carve-outs | Claims preserved or excluded |
+| Dismissal | With/without prejudice; filings required |
+| Confidentiality | Scope, exceptions, permitted disclosures |
+| Non-disparagement | Scope, duration, remedies |
+| No admission | Clause summary |
+| Tax treatment | Allocation language or 1099 terms |
+| Attorneys’ fees | Who pays; caps or waivers |
+| Indemnity | Scope, duration, triggers |
+| Future conduct | Business terms or restrictive covenants |
+| Dispute resolution | Forum, venue, governing law |
+
+## Releases and Preservation
+
+| Item | Scope | Exceptions |
+|---|---|---|
+| Parties released | List all releasing/released entities | |
+| Claims released | Known/unknown; statutory/common law | |
+| Claims preserved | Explicit exclusions | |
+
+## Conditions Precedent / Approvals
+
+Checklist:
+- Court approval required (class action, minors, derivatives)
+- Lien resolution or insurer consent
+- Confidentiality acknowledgments executed
+- Dismissal papers drafted and approved
+
+## Implementation Plan
+
+| Task | Owner | Deadline | Dependency |
+|---|---|---|---|
+| Execute agreement | | | |
+| First payment | | | |
+| File dismissal | | | |
+| Tax docs issued | | | |
+| Close file / archive | | | |
+
+## Open Items / Risks
+
+List unresolved issues, contingencies, or compliance risks that could delay effectiveness.
+
+## Guidelines
+
+- Stay neutral; describe negotiations without advocacy.
+- Use exact amounts, dates, and party names; avoid rounding.
+- Flag any missing documents or ambiguous terms.
+- Do not quote privileged communications verbatim.
+- Identify any confidentiality constraints on distribution.
+- Note when terms deviate materially from initial positions.
+tokens used
+2,373

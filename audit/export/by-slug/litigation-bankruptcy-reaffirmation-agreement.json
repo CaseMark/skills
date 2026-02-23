@@ -1,0 +1,41 @@
+{
+  "id": "9d3870d4-83f7-477e-a76c-7ed5555a7672",
+  "slug": "litigation-bankruptcy-reaffirmation-agreement",
+  "name": "Reaffirmation Agreement",
+  "summary": "Drafts comprehensive Reaffirmation Agreements for U.S. bankruptcy litigation under 11 U.S.C. \u00a7 524(c). Structures the document with an agreement summary in tabular format, detailed original and modified loan terms, debtor certification, and attorney certification. Use when a debtor voluntarily reaffirms a dischargeable debt to retain secured collateral like vehicles or homes.",
+  "content": "# Reaffirmation Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Reaffirmation Agreement for bankruptcy litigation proceedings. This is a critical voluntary agreement between a debtor and creditor that allows the debtor to continue paying a dischargeable debt after bankruptcy, typically to retain possession of a secured asset such as a vehicle or home.\n\n## Context and Legal Framework\n\nA reaffirmation agreement is governed by 11 U.S.C. \u00a7 524(c) and must comply with strict statutory requirements to be enforceable. This agreement represents an exception to the general bankruptcy discharge, where the debtor voluntarily agrees to remain personally liable for a debt that would otherwise be eliminated. The agreement must be filed with the bankruptcy court and, in certain circumstances, requires court approval.\n\nBefore drafting, search through all available case documents and client files to gather essential information including the debtor's name, creditor's name, original loan terms, current account balance, payment history, and details about any collateral securing the debt. Extract specific dollar amounts, interest rates, payment schedules, and any prior modifications to the original agreement.\n\n## Document Structure and Required Components\n\nBegin with Part A: Agreement Summary, which must clearly state the total amount of debt being reaffirmed, including principal, accrued interest, and any fees. Present this information in a clear tabular format that allows the debtor to understand the financial obligation at a glance.\n\nPart B: The Agreement must identify both parties with complete legal names and addresses. Detail the original loan terms including the date of the original agreement, initial principal amount, interest rate, payment amount, and payment frequency. Then specify the terms of reaffirmation, noting whether the original terms remain unchanged or if modifications have been negotiated. If any terms have changed\u2014such as reduced interest rates, extended payment periods, or principal reductions\u2014these modifications must be explicitly disclosed with before-and-after comparisons to ensure transparency.\n\nPart C: Debtor Certification requires the debtor to certify under penalty of perjury that they understand the agreement is voluntary, that they have the ability to make the required payments, and that the agreement does not impose an undue hardship on them or their dependents. Include the statutory language regarding the debtor's right to rescind the agreement within the time period specified in bankruptcy law.\n\nPart D: Attorney Certification applies when the debtor is represented by counsel. The attorney must certify that the agreement was fully explained to the debtor, that the debtor entered into it voluntarily, that the debtor was advised of the legal effect and consequences of the agreement and of any default under it, and that the attorney believes the debtor can afford to make the payments. The attorney must also certify that the agreement does not impose an undue hardship on the debtor or their dependents.\n\nPart E: Court Approval Section should note that if the debtor is not represented by an attorney, or if the debtor's income minus monthly expenses (as shown on Schedule I and J) is insufficient to cover the reaffirmed debt, court approval is required. Include language indicating that a hearing will be scheduled and the court must make specific findings that the agreement does not impose an undue hardship and is in the debtor's best interest.\n\n## Compliance and Risk Considerations\n\nEnsure the agreement includes all disclosures required by Bankruptcy Rule 4008 and Official Form 240A. The document must clearly state that the debtor is not required to reaffirm any debt and that reaffirmation may have significant negative consequences if the debtor later defaults. Include prominent warnings that if the debtor fails to make payments, the creditor may repossess the collateral and the debtor will remain personally liable for any deficiency balance.\n\nVerify that the reaffirmation makes economic sense for the debtor by comparing the value of the collateral to the amount of debt being reaffirmed. If the debt substantially exceeds the asset's value, include additional disclosures and consider whether the agreement can withstand judicial scrutiny under the undue hardship standard.\n\n## Signature and Execution Requirements\n\nConclude with a signature section that includes spaces for the debtor's signature and date, the creditor's signature and date, and if applicable, the debtor's attorney's signature and date. Include a notarization block if required by local bankruptcy court rules. Ensure all signature lines are clearly labeled and include printed name fields beneath each signature line.\n\nFormat the entire document in a clear, professional manner using numbered sections and subsections that correspond to the official bankruptcy form structure. Use plain language where possible while maintaining legal precision, and ensure all statutory citations are accurate and current. The final document should be ready for filing with the bankruptcy court and should anticipate potential objections from the United States Trustee or other parties in interest.",
+  "parent_skill_id": "e2706f93-2f57-48d2-adf6-247cbb765062",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "bankruptcy-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

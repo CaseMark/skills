@@ -1,0 +1,355 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-36f3-74f3-b310-2b0e179dde20
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "8ead3cd9-3591-46f4-8b9f-c92ff87bd6ac",
+  "slug": "draft-solar-site-lease-agreement",
+  "name": "Solar Site Lease Agreement",
+  "summary": "Drafts a comprehensive Solar Site Lease Agreement between a landowner (Lessor) and solar energy developer (Lessee) for installing, operating, and maintaining solar facilities. Incorporates property details, lease terms, financial structures, regulatory compliance, and industry best practices from sources like NYSERDA. Use this skill for renewable energy projects requiring long-term land leases with jurisdictional research.",
+  "content": "# Enhanced Solar Site Lease Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Solar Site Lease Agreement that governs the relationship between a landowner (Lessor) and a solar energy developer (Lessee) for the installation, operation, and maintenance of solar energy facilities on the leased premises.\n\n## Initial Information Gathering and Research Phase\n\nBegin by conducting a thorough review of any uploaded documents related to the property, parties, or existing agreements. Search through the user's document repository to extract critical information including property descriptions, legal descriptions, parcel numbers, existing easements or encumbrances, party names and addresses, and any preliminary terms that have been negotiated. This foundational research will ensure the agreement accurately reflects the specific transaction details.\n\nSupplement your document review with targeted research on current solar lease best practices, industry standards, and regulatory requirements. Focus your research on authoritative sources including state bar association guidelines, the New York State Energy Research and Development Authority (NYSERDA) solar lease frameworks, Department of Energy resources, and reputable legal information providers. Pay particular attention to jurisdiction-specific requirements that may affect solar development, including zoning regulations, environmental compliance standards, and renewable energy incentive programs.\n\n## Document Structure and Drafting Requirements\n\n**Parties and Recitals Section**: Draft clear identification provisions for both the Lessor (landowner) and Lessee (solar developer), including full legal names, addresses, and organizational status. The recitals should establish the purpose and context of the agreement, specifically articulating the Lessee's intent to develop, construct, operate, and maintain a solar photovoltaic energy generation facility on the premises. Include recitals addressing the parties' understanding of renewable energy benefits, economic considerations, and the mutual intent to facilitate clean energy production.\n\n**Property Description and Lease Term Provisions**: Provide a precise legal description of the leased premises, incorporating metes and bounds descriptions, tax parcel identifiers, and acreage calculations drawn from the property documents. Include provisions for access easements, utility corridors, and any excluded areas. For the lease term, establish a comprehensive timeline including the commencement date (which may be contingent on obtaining necessary permits and approvals), the initial term duration (typically 20-30 years for solar projects to align with power purchase agreements and equipment lifecycles), and detailed renewal options with specific notice requirements and conditions.\n\n**Financial Terms and Payment Structure**: Draft detailed rent provisions that reflect the economic arrangement between the parties. This should include base rent calculations (whether fixed annual payments, per-acre rates, or revenue-sharing arrangements), escalation clauses tied to consumer price index or fixed percentage increases, payment schedules and methods, and any bonus payments for project milestones. Research current market rates for solar land leases in the applicable jurisdiction and include provisions addressing how rent may be affected by partial project development, force majeure events, or curtailment of operations.\n\n**Use Rights and Development Provisions**: Clearly delineate the permitted uses of the property, specifically authorizing the Lessee to conduct solar energy generation activities including site assessment, installation of solar panels and related equipment, energy storage systems if applicable, and transmission infrastructure. Address environmental compliance obligations, including requirements for environmental site assessments, endangered species surveys, wetland delineations, and stormwater management. Include provisions governing the Lessee's right to make improvements, construct access roads, install fencing and security systems, and connect to the electrical grid.\n\n**Installation, Ownership, and Decommissioning Requirements**: Establish clear provisions regarding the installation of solar infrastructure, specifying that all improvements and equipment remain the personal property of the Lessee throughout the lease term. Include detailed decommissioning obligations that address the Lessee's responsibility to remove all equipment and restore the property at lease termination, financial security requirements (such as decommissioning bonds or letters of credit), and salvage value considerations. Research state-specific decommissioning requirements and incorporate applicable regulatory standards.\n\n**Operational Responsibilities and Maintenance**: Allocate maintenance and repair responsibilities between the parties, typically assigning the Lessee responsibility for all solar equipment and improvements while the Lessor retains responsibility for the underlying land (excluding areas affected by solar operations). Address vegetation management, drainage maintenance, road upkeep, and snow removal obligations. Include provisions for the Lessor's reserved rights to continue agricultural or other compatible uses on non-developed portions of the property.\n\n**Risk Allocation and Insurance Requirements**: Draft comprehensive insurance and indemnification provisions that protect both parties. Require the Lessee to maintain commercial general liability insurance with minimum coverage limits appropriate for solar installations (research current industry standards, typically $2-5 million), property insurance covering the solar equipment, and workers' compensation insurance. Include additional insured endorsements for the Lessor and waiver of subrogation provisions. Establish mutual indemnification obligations with appropriate carve-outs for each party's negligence or willful misconduct.\n\n**Tax, Incentive, and Utility Provisions**: Address the allocation of property tax responsibilities, clarifying whether the solar improvements will be separately assessed and who bears the tax burden. Include provisions addressing renewable energy incentives, tax credits, and renewable energy certificates (RECs), specifying ownership and any revenue-sharing arrangements. Establish the Lessee's rights to access utilities, install metering equipment, and interconnect with the electrical grid, including any cost-sharing arrangements for utility upgrades.\n\n**Transfer Rights and Assignment Provisions**: Draft assignment and subletting provisions that balance the Lessee's need for financing flexibility with the Lessor's interest in controlling who operates on the property. Typically, permit assignment to affiliates, lenders (for collateral assignment purposes), and qualified solar operators with Lessor consent not to be unreasonably withheld. Include specific criteria for acceptable assignees and notice requirements. Address the Lessor's limited assignment rights, typically requiring Lessee consent if assignment would affect the solar operations.\n\n**Default, Remedies, and Termination Provisions**: Establish clear events of default for both parties, including non-payment of rent, breach of material covenants, bankruptcy or insolvency, and abandonment of the project. Include appropriate notice and cure periods (typically 30-60 days for monetary defaults, 60-90 days for non-monetary defaults). Draft remedy provisions including the right to terminate, pursue damages, and specific performance. Address early termination rights for both parties, including termination for failure to achieve commercial operation within specified timeframes and the Lessee's right to terminate if the project becomes economically unfeasible.\n\n**Governing Law and Dispute Resolution**: Specify the governing law jurisdiction, typically the state where the property is located. Research any state-specific solar lease statutes or regulations that must be incorporated. Consider including alternative dispute resolution provisions such as mediation or arbitration to avoid costly litigation, while preserving each party's right to seek injunctive relief in court for urgent matters.\n\n**Execution and Miscellaneous Provisions**: Include standard contract provisions such as entire agreement clauses, amendment requirements (typically requiring written consent of both parties), severability provisions, notice procedures with specific addresses for each party, and force majeure clauses tailored to solar operations. Ensure signature blocks comply with applicable law, including acknowledgment requirements for recording the lease or a memorandum of lease. Address electronic signature validity and include provisions for recording a short-form memorandum of lease to provide public notice while maintaining confidentiality of financial terms.\n\n## Final Document Assembly\n\nOnce you have gathered all necessary information from the user's documents, completed your research on applicable legal standards and industry practices, and confirmed any party-specific requirements or preferences, synthesize all findings into a comprehensive, professionally formatted Solar Site Lease Agreement. The final document should be well-organized with numbered articles and sections, include a table of contents for agreements exceeding ten pages, use defined terms consistently throughout, and incorporate all researched best practices and legal requirements specific to the jurisdiction and transaction. Ensure the agreement balances the interests of both parties while providing clear, enforceable terms that will govern the solar development project throughout its lifecycle.",
+  "parent_skill_id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "energy"
+    ],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "energy_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.239355",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:55:39.765340Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Identifying skill usage for rewriting**
+
+Determined the user request to rewrite a skill aligns with the "skill-creator" task, so I'll proceed to read the SKILL.md file related to that skill to handle creation or updating.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Reading skill creator markdown**
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+
+thinking
+**Prioritizing user format over skill-creator constraints**
+
+The user’s explicit metadata and formatting instructions override the skill-creator’s limited frontmatter rules, so I'll produce the skill with full metadata in the frontmatter and imperative style in the body, dropping the practice-area prefix in the slug.
+thinking
+**Selecting concise slug and confirming detailed content plan**
+
+I've resolved to use "solar-site-lease" as the slug for clarity and conciseness, dropping the "draft-" prefix as instructed. The skill will include comprehensive metadata, a clear purpose, prerequisites, detailed structured content with tables, checklists, templates, and domain expertise aligned with user requirements and formatting constraints.
+thinking
+**Confirming user format and detailed structure for SKILL.md**
+
+I resolved to follow the user's exact SKILL.md markdown formatting with frontmatter and markdown headings, interpreting developer header guidelines as applying to response prose rather than file content. The content will include comprehensive metadata, prerequisites, a key terms table, a clear section outline, checklists, template code blocks, exhibits list, and guidelines as specified, all in plain ASCII without nested lists or extraneous commentary.
+codex
+---
+name: solar-site-lease
+description: Drafts U.S. solar site lease agreements between landowners/lessors and solar developers/lessees for long-term ground leases of solar PV facilities. Covers option and lease terms, rent structures, easements and access, construction and operations rights, decommissioning security, insurance and indemnity, tax and REC allocation, assignment and lender protections, defaults, and recording of a memorandum of lease. Use when drafting or revising solar farm land leases, solar PV site leases, renewable energy land leases, or solar facility ground lease agreements.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Solar Site Lease Agreement
+
+Draft a long-term ground lease for siting, constructing, operating, and decommissioning a solar energy facility.
+
+## Prerequisites
+
+1. Parties and authority: legal names, entity types, signatories, notice addresses.
+2. Property data: legal description, parcel IDs, survey, acreage, title report, existing easements.
+3. Project scope: capacity (MW), site plan, storage/BESS, interconnection point, access roads.
+4. Business terms: option period, lease term, renewals, rent model, escalation, bonus or revenue share.
+5. Jurisdiction inputs: zoning and setback rules, environmental and stormwater requirements, decommissioning rules.
+6. Financing constraints: lender collateral assignment, step-in rights, SNDA requirements.
+7. Insurance and tax positions: target limits, property tax treatment, REC ownership position.
+
+## Output Structure / Process
+
+Populate a key terms table before drafting the full agreement.
+
+| Term | Required Input | Notes |
+|---|---|---|
+| Premises | Legal description, parcel IDs, acreage | Attach as Exhibit A; specify excluded areas |
+| Option/Feasibility | Length, option payment, extension rights | Tie to permitting and interconnection |
+| Lease Term | Operations term, renewals, notice | Align with PPA and equipment life |
+| Rent | Base, per-acre or fixed, escalation | Define payment timing and proration |
+| Access/Easements | Locations, width, utilities | Include construction and perpetual access |
+| Decommissioning Security | Bond/LOC amount, trigger, update cadence | Align with local rules and lender needs |
+| Insurance | CGL limits, property, workers' comp | Name Lessor additional insured |
+| Taxes/RECs | Allocation, PILOT, REC ownership | Define reporting and audit rights |
+| Assignment | Permitted transferees, consent standard | Allow lender collateral assignment |
+
+Draft the agreement in numbered articles using this order.
+
+1. Parties, recitals, and defined terms.
+2. Premises and exhibits; legal description and survey.
+3. Option and site investigation rights.
+4. Lease commencement and conditions precedent.
+5. Lease term and renewal mechanics.
+6. Rent, escalation, and payment procedures.
+7. Use rights and permitted improvements.
+8. Access, easements, and utility interconnection.
+9. Construction standards and site controls.
+10. Operations, maintenance, and vegetation management.
+11. Compliance with laws, permits, and environmental duties.
+12. Ownership of improvements and personal property status.
+13. Insurance, indemnity, and limitation of liability.
+14. Taxes, assessments, incentives, and RECs.
+15. Assignment, sublease, and lender protections.
+16. Casualty, condemnation, and restoration.
+17. Defaults, notices, and cure periods.
+18. Termination rights and decommissioning.
+19. Recording; memorandum of lease form.
+20. Miscellaneous: confidentiality, notices, amendments, counterparts.
+
+Use this decommissioning and security template and fill all placeholders.
+
+```text
+Decommissioning. Within {12} months after termination or expiration, Lessee shall
+remove all solar equipment, foundations, cables, and improvements to a depth of
+{X} feet, restore grade, and reseed disturbed areas, subject to applicable law.
+
+Security. Beginning {Year/Trigger}, Lessee shall maintain a bond or letter of credit
+in the amount of {$$} (adjusted every {N} years) to secure decommissioning, payable
+to Lessor, with {Lessor approval} of issuer and form.
+```
+
+Include exhibits as separate attachments.
+
+- Exhibit A: Legal description and survey.
+- Exhibit B: Site plan and easement map.
+- Exhibit C: Form of memorandum of lease.
+- Exhibit D: Insurance requirements and certificates.
+- Exhibit E: Decommissioning plan (if required by jurisdiction).
+
+Before finalizing, confirm the checklist.
+
+- [ ] Legal description matches the survey and title report.
+- [ ] Option period and drop-dead COD date are defined.
+- [ ] Rent schedule and escalation are unambiguous.
+- [ ] Decommissioning security meets local ordinance or county guidelines.
+- [ ] REC ownership and tax responsibility are explicitly allocated.
+- [ ] Assignment and lender step-in rights are included.
+- [ ] Recording requirements and notary blocks are correct.
+
+## Guidelines
+
+- Use the governing law of the state where the property is located.
+- Tie commencement and extensions to objective milestones and permits.
+- Avoid guaranteeing tax credits or incentives; state no assurance.
+- Allocate property tax and PILOT obligations with clear reimbursement mechanics.
+- Provide Lessor access and inspection rights with reasonable notice.
+- Preserve Lessor compatible use rights if intended (e.g., grazing) with carve-outs.
+- Use realistic cure periods (monetary and non-monetary) and define notice methods.
+- Require compliance with zoning, setbacks, glare/noise, stormwater, and environmental permits.
+- Record only a memorandum of lease to keep financial terms confidential when appropriate.
+- Mark any jurisdiction-specific statutory citations with [VERIFY] if not confirmed.
+tokens used
+16,285

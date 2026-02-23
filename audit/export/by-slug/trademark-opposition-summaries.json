@@ -1,0 +1,44 @@
+{
+  "id": "ff30b46f-c1b0-4d54-9cb7-e1072f0f28e0",
+  "slug": "trademark-opposition-summaries",
+  "name": "Trademark Opposition Summaries",
+  "summary": "Generates structured, analytical summaries of trademark opposition proceedings, detailing opposition grounds, arguments and evidence from both parties, and procedural status or outcomes. Use it to provide IP attorneys, trademark owners, and counsel with balanced overviews for evaluating dispute strengths, strategic options, and settlement decisions in intellectual property litigation.",
+  "content": "# Trademark Opposition Summary Workflow\n\nYou are tasked with creating a comprehensive trademark opposition summary that provides a complete analytical overview of a trademark opposition proceeding. This summary serves as a critical document for intellectual property attorneys, trademark owners, and corporate counsel who need to understand the full scope of an opposition dispute, evaluate strategic options, and make informed decisions about prosecution or settlement.\n\n## Objective and Scope\n\nYour primary objective is to produce a structured, professionally written summary that captures all essential elements of a trademark opposition proceeding. The summary must present a balanced view of the dispute by thoroughly analyzing the opposition grounds, examining the arguments and evidence presented by both the opposer and the applicant, and documenting the current procedural status or final outcome of the proceeding. This document should enable legal professionals to quickly grasp the key issues, assess the strength of each party's position, and understand the implications for trademark rights and brand protection strategies.\n\n## Information Gathering and Analysis\n\nBegin by conducting a thorough review of all available opposition materials. Search through uploaded documents to identify the notice of opposition, the applicant's answer, any discovery materials, briefs, evidentiary submissions, and decisions or orders from the Trademark Trial and Appeal Board or relevant trademark office. Extract concrete facts including the trademark application serial number, the mark itself, the goods or services at issue, filing dates, priority dates, and the identities of both parties. When documents reference specific legal precedents or statutory provisions, verify these citations to ensure accuracy and provide proper attribution.\n\nAnalyze the opposition grounds systematically, identifying whether the opposer alleges likelihood of confusion under applicable trademark law, claims prior rights through common law use or registration, asserts dilution of a famous mark, challenges the descriptiveness or genericness of the applied-for mark, or raises other statutory bars to registration. For each ground asserted, extract the specific factual allegations and legal theories that support the opposition. Pay particular attention to evidence of actual use in commerce, the strength and distinctiveness of the opposer's mark, the similarity of the marks in appearance, sound, meaning, and commercial impression, the relatedness of the goods or services, and any evidence of actual confusion in the marketplace.\n\n## Structural Requirements and Content Organization\n\nStructure your summary to provide maximum clarity and utility for legal decision-making. Begin with an executive overview that identifies the parties, the marks in conflict, the application number, and a concise statement of the primary issues in dispute. Follow with a detailed section on opposition grounds that explains each basis for opposition with supporting facts and legal arguments. Include a separate section analyzing the applicant's defenses and counterarguments, which may include challenges to the opposer's standing, arguments that the marks are dissimilar or used in different channels of trade, evidence of coexistence without confusion, or claims that the opposer's mark is weak or entitled to only a narrow scope of protection.\n\nDocument the procedural history chronologically, noting key dates such as the filing of the notice of opposition, the answer, discovery deadlines, motion practice, trial dates, and any extensions or suspensions. If the proceeding has concluded, provide a comprehensive analysis of the outcome, including whether the opposition was sustained or dismissed, the reasoning provided by the tribunal, any conditions imposed on registration, and the implications for both parties' trademark rights. If the matter is ongoing, clearly state the current procedural posture and identify upcoming deadlines or anticipated next steps.\n\n## Legal Considerations and Best Practices\n\nYour summary must reflect sound understanding of trademark law principles and opposition practice. Consider the relevant jurisdiction's standards for likelihood of confusion, which typically involve multi-factor tests examining mark similarity, goods/services relatedness, channels of trade, purchaser sophistication, and evidence of actual confusion. When analyzing dilution claims, address whether the opposer's mark qualifies as famous and whether the applicant's use is likely to cause blurring or tarnishment. For descriptiveness challenges, evaluate whether the mark has acquired secondary meaning and the strength of evidence supporting distinctiveness.\n\nMaintain objectivity throughout your analysis by presenting both parties' positions fairly and identifying the strengths and weaknesses of each side's case. Highlight any evidentiary gaps, procedural deficiencies, or strategic vulnerabilities that may affect the outcome. When relevant precedents are cited by either party, verify these authorities and assess their applicability to the facts at hand. Note any settlement discussions, consent agreements, or coexistence arrangements that may have been proposed or executed during the proceeding.\n\n## Output Format and Professional Standards\n\nDeliver your summary as a polished legal document suitable for client communication, internal case evaluation, or strategic planning purposes. Use clear section headings, maintain consistent formatting, and employ precise legal terminology while ensuring the document remains accessible to business stakeholders who may not have specialized trademark expertise. Include proper citations to the record, referencing specific exhibits, testimony, or filings by document name and date. When quoting arguments or evidence, provide exact quotations with appropriate attribution to ensure accuracy and credibility.\n\nThe final summary should serve as a standalone reference document that enables readers to understand the opposition without needing to review the underlying file. It should support informed decision-making about whether to pursue or defend the opposition, evaluate settlement options, assess the risk of adverse outcomes, and develop strategies for protecting trademark rights in light of the opposition's resolution or current status.",
+  "parent_skill_id": "adccc2a5-9c43-42a4-8e4e-70541b15086f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "intellectual-property-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:04.106521",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

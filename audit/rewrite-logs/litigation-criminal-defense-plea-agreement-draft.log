@@ -1,0 +1,201 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-28f9-7763-a563-17b52a47d6be
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "384aa315-5add-48d4-80ad-2457a6c93f63",
+  "slug": "litigation-criminal-defense-plea-agreement-draft",
+  "name": "Plea Agreement",
+  "summary": "Drafts comprehensive Plea Agreements for criminal defense in litigation matters. This skill generates precise, enforceable documents detailing parties, charges, factual basis, plea terms, and sentencing recommendations for guilty or no contest pleas in exchange for prosecutorial concessions. Use it during pre-trial negotiations to formalize settlements compliant with federal or state rules.",
+  "content": "# Plea Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Plea Agreement, a critical litigation document that formalizes the resolution of criminal charges through negotiated settlement between the prosecution and defense. This document must be precise, legally sound, and compliant with applicable federal or state procedural rules.\n\n## Document Purpose and Context\n\nA Plea Agreement represents a binding contract between the defendant and the government, wherein the defendant agrees to plead guilty or no contest to specified charges in exchange for certain concessions from the prosecution. This document must protect the defendant's constitutional rights while ensuring the agreement is enforceable and acceptable to the court. Your draft must reflect the serious nature of this agreement and include all necessary legal protections and disclosures.\n\n## Section 1: Parties and Jurisdictional Information\n\nBegin by clearly identifying all parties to the agreement with complete legal names and relevant identifiers. Specify the full legal name of the defendant, including any aliases or also-known-as names, along with date of birth and case number. Identify the prosecuting authority (whether United States Attorney's Office, District Attorney, or other governmental entity) and the specific prosecutor assigned to the case. Establish the court's jurisdiction by naming the specific court (including district or division), the presiding judge if assigned, and the complete case caption. Include the statutory authority under which the court has jurisdiction over the matter.\n\n## Section 2: Charges and Plea Specification\n\nProvide a detailed enumeration of all original charges filed against the defendant, including specific statute citations, count numbers, and maximum penalties for each charge. Clearly state which charges the defendant agrees to plead guilty or no contest to, and which charges, if any, the government agrees to dismiss or not pursue. Specify the precise nature of the plea (guilty or no contest/nolo contendere) and ensure the language reflects that this plea is made voluntarily and with full understanding of its consequences. If the plea involves a reduction of charges, explicitly state both the original charge and the reduced charge to which the defendant will plead.\n\n## Section 3: Factual Basis and Stipulations\n\nArticulate a clear factual basis that establishes each element of the offense(s) to which the defendant is pleading. This narrative should be sufficiently detailed to satisfy the court that there is a factual foundation for the plea, typically including:\n\n- The specific date, time, and location of the offense\n- The defendant's actions that constitute the criminal conduct\n- Any victims, co-conspirators, or other relevant parties involved\n- The defendant's mental state or intent as required by the statute\n- Any aggravating or mitigating circumstances relevant to sentencing\n\nThe factual basis must be written in a way that the defendant can acknowledge as true and accurate, as this stipulation will bind the defendant and may be used in subsequent proceedings.\n\n## Section 4: Sentencing Recommendations and Agreements\n\nDetail all sentencing terms agreed upon by the parties, recognizing that the court retains ultimate sentencing authority. Specify whether this is a Rule 11(c)(1)(A) agreement (specific sentence binding on the court if accepted), Rule 11(c)(1)(B) agreement (recommendation that court may accept or reject), or Rule 11(c)(1)(C) agreement (sentence range recommendation), or the equivalent under state rules. Include:\n\n- Recommended term of incarceration (or agreement to recommend probation)\n- Proposed fines, restitution amounts, and payment schedules\n- Special conditions of probation or supervised release\n- Forfeiture agreements, if applicable\n- Any agreement regarding sentencing guideline calculations or departures\n\nClearly state whether the government reserves the right to advocate for a particular sentence or agrees to remain silent at sentencing. Address whether the defendant retains the right to request a different sentence than recommended.\n\n## Section 5: Rights Waived and Retained\n\nComprehensively enumerate the constitutional and statutory rights the defendant waives by entering this plea agreement. This critical section must demonstrate that the defendant understands the rights being relinquished, including:\n\n- The right to trial by jury and to confront witnesses\n- The right to remain silent and not incriminate oneself\n- The right to compel attendance of witnesses for the defense\n- The right to appeal, including any specific waiver of appellate rights or post-conviction relief (specify scope and exceptions, such as ineffective assistance of counsel or prosecutorial misconduct)\n- Any waiver of rights under statutes such as the Speedy Trial Act\n\nClearly identify any rights the defendant expressly retains, such as the right to appeal an illegal sentence or to challenge the voluntariness of the plea. Include specific language confirming that the defendant has discussed these waivers with counsel and understands their implications.\n\n## Section 6: Additional Terms and Conditions\n\nAddress any additional agreements between the parties, including cooperation obligations, agreements regarding related civil or administrative proceedings, media contact restrictions, or agreements not to pursue certain legal remedies. Specify the defendant's obligations regarding truthful testimony, debriefing sessions, or ongoing cooperation with law enforcement. Include breach provisions that clearly state the consequences if either party fails to fulfill their obligations under the agreement, and specify whether the government may reinstate dismissed charges upon defendant's breach.\n\n## Section 7: Acknowledgments and Certifications\n\nInclude comprehensive acknowledgment language wherein the defendant affirms that:\n\n- The plea is voluntary and not the result of force, threats, or promises beyond those in the agreement\n- The defendant has reviewed the agreement thoroughly with counsel and understands all terms\n- The defendant is satisfied with counsel's representation\n- The defendant understands the nature of the charges and potential penalties\n- The defendant is entering the plea with a clear mind, not under the influence of substances, and is mentally competent\n\n## Section 8: Signature Blocks and Attorney Certifications\n\nProvide signature lines for the defendant (with date), defense counsel (with bar number and certification that the agreement has been fully explained to the defendant), the prosecutor (with title and office), and space for court approval if required by local rules. Defense counsel should certify that they have discussed the agreement with the defendant, believe the defendant understands the terms, and believe the plea is made voluntarily and with full knowledge of consequences.\n\n## Drafting Standards and Final Review\n\nEnsure the entire document uses clear, unambiguous language accessible to a layperson while maintaining legal precision. Avoid legalese where plain language suffices, but retain necessary terms of art. Verify that all cross-references within the document are accurate and that the agreement is internally consistent. Confirm compliance with applicable Federal Rules of Criminal Procedure (particularly Rule 11) or state equivalents, and local court rules. The final document should be formatted professionally with appropriate headings, numbered paragraphs for easy reference, and sufficient spacing for signatures.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:30.395795Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:30.607327Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:31.550454Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:32.394172Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c1dafec65e-SJC)
+2026-02-23T21:42:33.429391Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c86aea2157-SJC)
+2026-02-23T21:42:34.801989Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4d05ee469a0-SJC)
+2026-02-23T21:42:37.096465Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4df4aa1ef9b-SJC)
+2026-02-23T21:42:40.871194Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4f6bf6cc710-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-criminal-defense-plea-agreement-draft-o858bi46.md
+
+STDOUT:
+

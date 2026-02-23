@@ -1,0 +1,352 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7c-f7b6-7d83-ba44-24480a2f90b0
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "0e3aeb3e-9d52-475f-9d81-86eef4567f93",
+  "slug": "corporate-subscription-agreement-draft",
+  "name": "Subscription Agreement",
+  "summary": "Drafts comprehensive Subscription Agreements governing relationships between corporate service providers and subscribers. Extracts and incorporates specific business details from uploaded documents into structured sections covering parties, services, terms, payments, and termination. Applies industry best practices and legal standards for precise, balanced corporate documents.",
+  "content": "# Enhanced Subscription Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Subscription Agreement that governs the relationship between a service provider and subscriber. This corporate document must be professionally structured, legally sound, and tailored to the specific business relationship while incorporating industry best practices and applicable legal standards.\n\n## Initial Information Gathering and Context\n\nBegin by thoroughly searching the user's uploaded documents to extract all relevant business details, including the parties' legal names and addresses, the specific services or products being subscribed to, pricing structures, term lengths, and any special provisions or requirements unique to this arrangement. Pay particular attention to any existing specifications, service level agreements, or business terms that have been previously negotiated or documented.\n\n## Document Structure and Drafting Approach\n\nThe Subscription Agreement should be organized into clear, logical sections that comprehensively address all material terms of the subscription relationship. Each section must be drafted with precision and include appropriate legal protections for both parties.\n\n**Parties and Recitals**: Identify the complete legal names, addresses, and organizational status of both the service provider and subscriber. Include recitals that provide context for the agreement, explaining the nature of the business relationship and the purpose of the subscription services. Research current best practices for party identification clauses in commercial subscription agreements to ensure proper legal designation.\n\n**Subscription Services and Scope**: Provide a detailed description of the services, products, or access rights being provided under the subscription. Draw from any uploaded specifications, product descriptions, or service documentation to ensure accuracy and completeness. The description should be specific enough to avoid ambiguity while allowing reasonable flexibility for service evolution. Research industry standards for service scope definitions in subscription-based business models to incorporate appropriate language regarding service levels, availability, support obligations, and any usage limitations or restrictions.\n\n**Term, Renewal, and Termination**: Clearly specify the initial subscription term, including the commencement date and duration. Address automatic renewal provisions, including notice requirements for non-renewal and the conditions under which either party may terminate the agreement. Include provisions for termination for cause, termination for convenience (if applicable), and the effects of termination on data, access rights, and outstanding obligations. Verify current legal standards and best practices for subscription term provisions, particularly regarding auto-renewal disclosure requirements and consumer protection considerations that may apply in the relevant jurisdiction.\n\n**Payment Terms and Financial Obligations**: Detail all financial aspects of the subscription, including subscription fees, billing frequency, accepted payment methods, and the timing of payments. Address late payment consequences, including any interest charges or suspension of services, ensuring compliance with applicable usury laws and commercial practices. Include provisions for fee adjustments, price increases (with appropriate notice requirements), taxes, and any additional charges for overage or premium features. Research standard payment clause formulations in commercial subscription agreements to ensure enforceability and clarity.\n\n**Intellectual Property Rights and Licenses**: Clearly delineate ownership of all intellectual property, including pre-existing IP of each party, any IP developed during the subscription term, and the scope of licenses granted. Specify whether the subscriber receives a limited, non-exclusive license to use the service provider's IP, and define any restrictions on use, modification, or redistribution. Address ownership of subscriber data and content, including any rights the service provider may need to operate the services. Verify current legal standards for IP provisions in subscription agreements, particularly regarding SaaS platforms and digital services.\n\n**Confidentiality and Data Protection**: Incorporate robust confidentiality provisions that protect proprietary information exchanged during the subscription relationship. Define what constitutes confidential information, establish obligations for protection, specify permitted disclosures, and set forth the duration of confidentiality obligations. If the subscription involves personal data or sensitive business information, include appropriate data protection provisions consistent with applicable privacy laws. Research best practices for confidentiality clauses in commercial subscription agreements, drawing from both general NDA principles and subscription-specific considerations.\n\n**Representations, Warranties, and Disclaimers**: Include appropriate representations and warranties from both parties regarding their authority to enter the agreement, compliance with laws, and the nature of the services provided. For the service provider, address warranties regarding service functionality, performance standards, and compliance with specifications. Balance these warranties with appropriate disclaimers, particularly disclaimers of implied warranties of merchantability and fitness for a particular purpose where legally permissible. Research and cite current legal standards for warranty provisions in service agreements, ensuring compliance with applicable commercial law and consumer protection statutes.\n\n**Limitation of Liability and Indemnification**: Draft carefully calibrated liability limitations that protect both parties from excessive exposure while maintaining enforceability. Specify caps on damages (often tied to fees paid), exclude or limit consequential and indirect damages where appropriate, and carve out exceptions for certain types of claims such as IP infringement, confidentiality breaches, or gross negligence. Include mutual indemnification provisions for third-party claims arising from each party's breach or misconduct. Verify that liability limitations comply with applicable law and research standard formulations used in commercial subscription agreements to ensure enforceability.\n\n**Governing Law, Jurisdiction, and Dispute Resolution**: Specify the governing law that will apply to the agreement, typically the law of a particular state or jurisdiction with a connection to one of the parties or the transaction. Include a jurisdiction or venue clause designating where disputes must be brought, and consider whether alternative dispute resolution mechanisms such as mediation or arbitration would be appropriate. Research best practices for choice of law and forum selection clauses in commercial agreements, ensuring the selected provisions are enforceable and appropriate for the parties' business relationship.\n\n**General Provisions and Execution**: Include standard boilerplate provisions addressing assignment restrictions, amendment procedures, notice requirements, severability, waiver, force majeure, entire agreement clauses, and counterpart execution. Provide appropriate signature blocks for both parties, including spaces for printed names, titles, and dates. If the agreement will be executed electronically, ensure compliance with electronic signature laws. Research current requirements for proper execution of commercial agreements in the relevant jurisdiction.\n\n## Final Document Assembly\n\nOnce all necessary information has been gathered from uploaded documents, legal research has been completed, and all sections have been properly drafted with appropriate legal language and protections, create a polished, professional Subscription Agreement document. The final document should be well-organized with clear headings, proper numbering, and professional formatting suitable for execution by corporate parties. Ensure all provisions work together cohesively and that the agreement comprehensively addresses the business relationship while providing appropriate legal protections for both the service provider and subscriber.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_formation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:52:07.009396Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Determining skill usage for rewriting**
+
+The task matches the skill-creator description for creating or updating skills, so I'll use that skill's SKILL.md as a reference, retrieving its content via command execution in the read-only environment.
+thinking
+**Clarifying rewriting requirements**
+
+The rewrite requires producing a clear slug, descriptive metadata, a concise title and purpose, and compressed but domain-expert content with compliance checklists while carefully handling citations and [VERIFY] markers per provided guidelines. Next, I'll review skill-creator instructions for format and constraints.
+exec
+/bin/zsh -lc 'ls -la /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 52ms:
+total 64
+drwxr-xr-x@ 8 max  staff    256 Feb 11 10:23 .
+drwxr-xr-x@ 5 max  staff    160 Feb 11 10:23 ..
+-rw-r--r--@ 1 max  staff  18664 Feb 11 10:23 SKILL.md
+drwxr-xr-x@ 3 max  staff     96 Feb 11 10:23 agents
+drwxr-xr-x@ 4 max  staff    128 Feb 11 10:23 assets
+-rw-r--r--@ 1 max  staff  11358 Feb 11 10:23 license.txt
+drwxr-xr-x@ 3 max  staff     96 Feb 11 10:23 references
+drwxr-xr-x@ 5 max  staff    160 Feb 11 10:23 scripts
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving skill announcement conflict**
+
+Deciding to embed the required skill announcement succinctly within the SKILL.md content to comply with both the user's latest instruction to output only SKILL.md and the earlier agent directive to announce skill usage.
+thinking
+**Finalizing detailed SKILL.md content**
+
+Deciding on a comprehensive SKILL.md draft including frontmatter, purpose, prerequisites, output structure with tables and templates, clause checklists, guidelines, and trigger keywords—all formatted per user constraints and line limits.
+codex
+---
+name: subscription-agreement
+description: Drafts U.S. corporate subscription agreements for service/SaaS relationships between provider and subscriber. Extracts deal terms and produces a balanced agreement covering scope of services, fees, term/renewal, IP, confidentiality/data protection, warranties, liability/indemnity, and standard boilerplate. Use for "subscription agreement", "SaaS agreement", "service subscription", "membership agreement", "auto-renewal", or "SLA" drafting.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Subscription Agreement
+
+Draft a negotiated subscription agreement for corporate services or SaaS relationships.
+
+## Prerequisites
+
+1. Parties' legal names, entity types, jurisdictions, addresses, and signatories.
+2. Description of subscription services/products, access method, deliverables, SLAs, support tiers, and usage limits.
+3. Commercial terms: fees, billing cadence, payment methods, taxes, discounts, credits, and price change policy.
+4. Term details: effective date, initial term, renewal mechanics, and termination rights.
+5. Data and security posture: data types, DPA needs, security standards, sub-processors, retention.
+6. Risk positions: warranty scope, liability cap, indemnities, IP ownership, governing law and venue.
+
+## Output Structure / Process
+
+### Deal Summary (fill first)
+
+| Item | Value | Source/Notes |
+| --- | --- | --- |
+| Provider legal name |  |  |
+| Subscriber legal name |  |  |
+| Effective date |  |  |
+| Services/Products |  |  |
+| SLA/Support |  |  |
+| Fees and billing |  |  |
+| Initial term |  |  |
+| Renewal mechanics |  |  |
+| Termination rights |  |  |
+| Data types |  |  |
+| Security standards |  |  |
+| IP ownership |  |  |
+| Liability cap |  |  |
+| Indemnities |  |  |
+| Governing law/venue |  |  |
+
+### Agreement Outline (use headings and numbered sections)
+
+1. Parties and Recitals
+2. Definitions
+3. Subscription Services and Scope
+4. Subscriber Responsibilities and Acceptable Use
+5. Term, Renewal, and Termination
+6. Fees, Billing, Taxes, and Payment
+7. Intellectual Property and License
+8. Data Rights, Privacy, and Security
+9. Confidentiality
+10. Warranties and Disclaimers
+11. Limitation of Liability
+12. Indemnification
+13. Compliance and Export/Sanctions
+14. Notices
+15. Assignment, Changes, Force Majeure, Severability, Entire Agreement
+16. Signature Blocks and Execution
+
+### Clause Requirements Checklist
+
+- Parties/Recitals: entity type, jurisdiction of formation, principal address, purpose of agreement.
+- Scope: clear services description, limitations, uptime/SLAs, support hours, change management.
+- Term/Renewal: initial term, auto-renewal notice window, non-renewal method, effects of termination.
+- Fees: amounts, billing cycle, payment due date, late fees, tax allocation, fee changes.
+- IP: provider IP retained; license scope to subscriber; subscriber data ownership.
+- Data/Privacy: data types, security measures, breach notice timing, retention/deletion, sub-processors.
+- Warranties: authority and compliance; service warranty (if any); disclaimer of implied warranties.
+- Liability: cap amount and basis; excluded damages; carve-outs (IP, confidentiality, gross negligence).
+- Indemnity: third-party IP claims by provider; misuse or data issues by subscriber; procedure and control.
+- Boilerplate: assignment, amendment, waiver, force majeure, severability, entire agreement, counterparts.
+
+### Template Snippets (adapt and integrate)
+
+```text
+Auto-Renewal
+The Initial Term begins on [Effective Date] and continues for [Term Length]. Unless either party gives written notice of non-renewal at least [Notice Period] before the end of the then-current term, the Agreement renews for successive [Renewal Term] terms. If required by applicable auto-renewal laws, Provider will deliver renewal reminders and cancellation instructions in the required form.
+
+License Grant
+Provider grants Subscriber a limited, non-exclusive, non-transferable, non-sublicensable license during the Term to access and use the Services solely for Subscriber's internal business purposes, subject to the Documentation and this Agreement. All rights not expressly granted are reserved.
+
+Limitation of Liability
+Except for Excluded Claims, each party's aggregate liability arising out of or relating to this Agreement will not exceed the fees paid or payable by Subscriber to Provider in the [12] months preceding the event giving rise to the claim. Neither party is liable for indirect, special, consequential, punitive, or lost profits damages.
+
+Termination Effects
+Upon termination, Subscriber's access to the Services will cease, and Provider will make Subscriber Data available for export for [Export Period]. After that period, Provider may delete Subscriber Data in accordance with its retention policy, unless legally required to retain it.
+```
+
+### Consistency Checks
+
+- Defined terms are used consistently and capitalized.
+- Fee calculations align with invoicing and payment terms.
+- Termination section aligns with data retention and access shutoff.
+- Liability cap aligns with indemnity carve-outs and warranty scope.
+- Governing law and venue align with notice and dispute sections.
+
+## Guidelines
+
+- Default to B2B posture; if consumer-facing, add consumer protections and update auto-renewal handling.
+- Avoid scope ambiguity: tie services to a schedule, order form, or SLA attachment.
+- Do not grant implied IP rights; specify license scope, restrictions, and ownership of derivatives.
+- Align data terms with actual processing activities; add a DPA if personal data is processed.
+- Keep warranty language and disclaimers aligned with jurisdictional limits.
+- Use clear notice mechanics and cure periods for termination for cause.
+- If electronic signatures are used, ensure compliance with applicable e-signature laws and internal policy.
+tokens used
+20,552

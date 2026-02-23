@@ -1,0 +1,200 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-612a-7ee3-8141-226e9d73f95a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "dc47f117-5a33-458b-b787-b56c03cecfa5",
+  "slug": "litigation-motion-for-class-certification",
+  "name": "Motion for Class Certification",
+  "summary": "Drafts a comprehensive Motion for Class Certification under Federal Rule of Civil Procedure 23 or state equivalents, anchored in evidence from case materials like pleadings, discovery, and expert reports. Builds persuasive arguments demonstrating numerosity, commonality, typicality, adequacy, and predominance to secure class treatment. Use in class action litigation during discovery or pre-trial phases to advance collective claims efficiently.",
+  "content": "# Motion for Class Certification - Enhanced Legal Workflow\n\nYou are an experienced class action litigator tasked with drafting a comprehensive Motion for Class Certification that will withstand rigorous judicial scrutiny under Federal Rule of Civil Procedure 23 or applicable state equivalents. This motion represents one of the most consequential filings in class action litigation, determining whether individual claims may proceed collectively on behalf of all similarly situated persons. Your objective is to craft a persuasive, evidence-based motion that demonstrates unequivocally that class certification serves the interests of judicial efficiency and justice.\n\n## Document Intelligence and Evidentiary Foundation\n\nBegin by conducting a thorough review of all case materials that have been uploaded to this matter. Search systematically through pleadings, discovery responses, expert reports, deposition transcripts, business records, and correspondence to identify and extract critical facts supporting certification. You should locate specific evidence regarding the number of potential class members, common factual patterns in the defendant's conduct, damages evidence, admissions or statements supporting class treatment, and any data demonstrating the scope and uniformity of the alleged misconduct. Every factual assertion in your motion must be anchored to specific evidence with precise citations including document names, page numbers, paragraph numbers, and exhibit references.\n\nWhen you identify relevant evidence in the case materials, extract the specific language, data points, and admissions that support each element of certification. If the defendant's business records reveal the number of affected individuals, cite those records with particularity. If discovery responses contain admissions about uniform policies or practices, quote the relevant portions verbatim. If expert reports analyze class-wide proof methodologies, integrate their findings throughout your legal arguments rather than relegating them to a separate section. Your motion should demonstrate that certification is supported not by legal conclusions alone but by concrete evidence drawn from the record.\n\nExamine any existing expert reports with particular attention to how they address predominance of common questions, the feasibility of proving liability and damages on a class-wide basis, and whether individual issues can be managed efficiently. Analyze the expert's methodology to ensure it applies uniformly across the proposed class and withstands reliability standards. If multiple experts have opined on different certification issues, synthesize their conclusions into a cohesive narrative showing that sophisticated analysis supports class treatment from multiple disciplinary perspectives.\n\n## Strategic Architecture and Compelling Introduction\n\nYour motion must open with a compelling introduction that immediately orients the court to the nature of the case, the proposed class definition, and why class treatment is not only appropriate but essential to vindicate the rights of numerous individuals who have suffered similar harm. Within the first two pages, the court should understand the defendant's alleged misconduct, the injury suffered by class members, the number of affected individuals, and why individual litigation would be impracticable or inadequate. This introduction should establish the narrative framework that carries through the entire motion, presenting class certification as the logical and necessary procedural mechanism for resolving widespread harm caused by common conduct.\n\nThe class definition itself requires meticulous crafting and must be presented early in the motion with clear explanation of each definitional element. Define the temporal scope with specific dates that correspond to the period of the defendant's alleged misconduct, establish clear geographic boundaries appropriate to the defendant's conduct and the applicable law, and articulate the unifying characteristics that bind class members together through their relationship to the defendant's actions. The definition must be precise enough to be administratively manageable, allowing the court and parties to determine with reasonable certainty who falls within the class, yet broad enough to encompass all persons injured by the alleged misconduct. Avoid definitions that require extensive individualized inquiry to determine membership, and ensure that the definition tracks the legal theory of liability rather than the ultimate merits of the claims.\n\n## Rule 23(a) Prerequisites: Numerosity, Commonality, Typicality, and Adequacy\n\nThe substantive legal analysis must methodically address each element of Rule 23(a) with evidentiary rigor, building a foundation that makes certification appear not merely permissible but inevitable given the facts. When establishing numerosity, provide concrete data demonstrating that joinder of all class members would be impracticable. This may include population estimates derived from the defendant's own records obtained through discovery, industry data, expert demographic analysis, government statistics, or other reliable sources. Present this evidence persuasively, explaining not merely that the class is large but why individual joinder would impose unreasonable burdens on the judicial system and potential plaintiffs. Address practical considerations such as the geographic dispersion of class members, the modest value of individual claims that would make separate actions economically infeasible, and the negative value of individual litigation where claims are small but the aggregate harm is substantial.\n\nFor commonality, identify the core questions of law or fact that unite the class and explain how these questions are capable of generating common answers that will resolve central issues in the litigation. Under the rigorous standard established by controlling Supreme Court and circuit precedent, you must demonstrate that class members have suffered the same injury arising from a common course of conduct, not merely that they have all suffered a violation of the same provision of law. Focus on the defendant's conduct and decision-making processes, showing that uniform policies, practices, or actions affected all class members in the same way. Distinguish between questions that affect all class members uniformly and those that may require individualized inquiry, demonstrating that the common questions are substantial and significant to the resolution of the litigation rather than peripheral or minor. Anticipate and preemptively address the defendant's likely argument that individual issues predominate, showing instead that common proof can establish the defendant's liability across the class even if damages or other individual issues require some degree of individualized determination.\n\nTypicality requires demonstrating that the named plaintiff's claims arise from the same course of conduct that gives rise to the claims of absent class members and are based on the same legal theories. Present evidence showing that the named plaintiff suffered the same type of injury as class members through the same mechanism of harm, even if the extent of damages may vary. Search the case materials for evidence of the named plaintiff's interactions with the defendant, the specific harm they suffered, and how their experience mirrors that of other class members. Address any potential arguments that the named plaintiff is atypical or faces unique defenses, explaining why such differences do not defeat typicality under controlling precedent. If the defendant is likely to argue that the named plaintiff has unusual characteristics or motivations, preemptively distinguish between differences that affect the legal theory of recovery and those that merely affect the quantum of damages or other individual issues.\n\nThe adequacy analysis demands particular attention to both the named plaintiff's qualifications and class counsel's credentials, as this element addresses the court's concern that absent class members will be fairly and vigorously represented. Present detailed information about the named plaintiff's understanding of their representative role, their commitment to the litigation, their willingness to participate in discovery and trial, and their absence of conflicts with absent class members. If you have obtained a declaration from the named plaintiff, cite specific portions demonstrating their knowledge of the case, their motivation for serving as class representative, and their understanding that they owe fiduciary duties to the class. Address any potential conflicts of interest forthrightly, explaining why the named plaintiff's interests align with those of absent class members despite any apparent differences.\n\nFor class counsel, provide comprehensive information about prior class action experience, resources available to prosecute the case through trial and appeal, track record of success in similar litigation, and specific qualifications that demonstrate the ability to manage complex class litigation. Detail the number of class actions previously handled, the results achieved including settlements and judgments obtained, any judicial recognition of competence in class action litigation, and the financial and personnel resources committed to this case. If co-counsel arrangements enhance the legal team's capabilities, explain how the division of responsibilities ensures efficient prosecution while maintaining unified strategy. Cite to curriculum vitae, firm resumes, or other materials that document these qualifications with specificity.\n\n## Rule 23(b) Analysis: Predominance, Superiority, and Alternative Subsections\n\nAfter establishing the Rule 23(a) prerequisites, your motion must satisfy one of the Rule 23(b) subsections, and this analysis often forms the analytical centerpiece of the motion. For most damages class actions proceeding under Rule 23(b)(3), the predominance and superiority requirements demand rigorous, evidence-based analysis that goes beyond mere assertion of legal conclusions. Predominance requires demonstrating that questions common to class members predominate over questions affecting only individual members, a standard that is more demanding than the commonality requirement of Rule 23(a) and requires showing that common issues constitute a significant part of the individual cases and can be resolved for all class members in a single adjudication.\n\nYour predominance analysis should systematically identify the elements of the underlying claims and demonstrate that each element can be proven through common evidence applicable to the entire class. If the case involves allegations of uniform policies or practices, explain how the existence and content of those policies can be established through common documentary evidence, testimony from corporate decision-makers, and expert analysis. If the case involves standardized contracts or disclosures, show how interpretation of those documents presents common questions resolvable through ordinary principles of contract or statutory construction. Address the proof of causation and damages with particular care, as these elements often present the greatest risk of individual issues defeating predominance.\n\nWhen damages vary among class members, you must demonstrate that they can nevertheless be calculated using a common methodology that applies uniform principles across the class. If expert reports propose damages models, explain in detail how the methodology works, what data inputs it requires, how it accounts for individual variations without requiring individualized proof, and why it is scientifically reliable and legally sufficient. Distinguish between variations in damages amounts, which do not defeat predominance, and variations in the methodology required to calculate damages, which may. Show that even if some individual issues exist regarding damages, they can be managed through sampling, statistical analysis, claims administration processes, or other mechanisms that do not require individual mini-trials for each class member.\n\nAddress the superiority requirement by systematically evaluating alternative methods of adjudication and explaining why class treatment is superior to individual litigation, consolidation, multidistrict litigation without class certification, or other procedural mechanisms. Consider the practical realities facing individual class members, including the economics of pursuing small-value claims individually where attorney's fees and litigation costs would exceed potential recovery, the risk of inconsistent adjudications if multiple courts address the same legal questions, the benefits of concentrating litigation in a single forum with comprehensive discovery and unified case management, and the efficiencies gained through collective resolution. If individual litigation is already pending in other forums, explain why class certification would nevertheless promote judicial economy and consistent outcomes by providing a single proceeding that resolves all claims arising from the defendant's conduct.\n\nFor cases seeking injunctive or declaratory relief under Rule 23(b)(2), demonstrate that the defendant has acted or refused to act on grounds generally applicable to the class, making final injunctive or declaratory relief appropriate for the class as a whole. Explain why the requested relief would benefit all class members uniformly and why individual actions for injunctive relief would be duplicative or inadequate. If the case seeks both injunctive relief and monetary damages, address whether the monetary claims are incidental to the injunctive relief or whether they require individual opt-out rights under Rule 23(b)(3), applying the controlling standards in your jurisdiction.\n\nIf proceeding under Rule 23(b)(1), establish that individual adjudications would create risks of inconsistent standards of conduct for the defendant or would practically impair the interests of absent class members. For Rule 23(b)(1)(A) classes, show that separate actions would create incompatible standards requiring the defendant to engage in contradictory conduct. For Rule 23(b)(1)(B) classes, demonstrate that individual adjudications would as a practical matter dispose of the interests of absent class members or substantially impair their ability to protect their interests.\n\n## Notice, Administration, and Case Management Plan\n\nDevelop a comprehensive plan for providing constitutionally adequate notice to class members that demonstrates careful consideration of due process requirements and practical realities. Your notice plan should describe the methodology for identifying class members using available records and data sources, explaining what information the defendant possesses that can be used to locate class members and how that information will be obtained and processed. Propose specific notice content written in plain language accessible to laypersons, avoiding legal jargon while accurately describing the nature of the lawsuit, the class definition, class members' rights to participate or opt out, the binding effect of the judgment, and how to obtain additional information.\n\nDetail the distribution methods that will achieve the best notice practicable under the circumstances, which for Rule 23(b)(3) classes requires individual notice to all class members who can be identified through reasonable effort. Explain how class members will be located and reached, whether through direct mail to addresses obtained from the defendant's records, email to electronic addresses in the defendant's databases, publication notice in appropriate media outlets, digital advertising targeted to the demographic profile of class members, or a combination of methods designed to maximize reach. If you propose innovative notice methods such as social media campaigns, targeted digital advertising, or mobile device notifications, provide evidence or expert opinion supporting the effectiveness of these approaches in reaching the class population and achieving the constitutional standard of notice reasonably calculated to apprise interested parties of the pendency of the action.\n\nAddress the anticipated costs of notice administration and identify who will bear these expenses, typically class counsel advancing costs subject to later recovery from any settlement or judgment. Provide cost estimates based on the proposed notice plan, including expenses for locating class members, printing and mailing notices, publication costs, claims administration, and any technology platforms required for notice distribution or claims processing. If the notice costs are substantial, explain why they are necessary to achieve adequate notice and how they will be managed to ensure the class action remains a superior method of adjudication despite these expenses.\n\nBeyond notice, demonstrate that you have considered the practical management of class litigation if certification is granted. Propose specific case management procedures that will facilitate efficient resolution while protecting the rights of all parties. Consider whether bifurcation of liability and damages phases would promote efficiency by allowing common liability issues to be resolved before addressing individual damages questions. Evaluate whether bellwether or sample trials could test legal theories, provide information about the range of potential outcomes, and inform settlement negotiations without requiring full trials for all class members. If damages will be determined through statistical sampling or extrapolation, explain the proposed methodology and its legal and scientific basis. Address whether appointment of a special master would assist the court in managing particular aspects of the litigation such as discovery disputes, claims administration, or damages calculation.\n\n## Jurisdictional Precision and Anticipatory Defense\n\nResearch and apply the specific legal standards governing class certification in your jurisdiction, as circuits and state courts often interpret Rule 23 requirements with significant variations. Identify controlling precedent from the relevant circuit or state supreme court that supports your certification arguments, explaining how the facts of your case satisfy the standards articulated in those decisions. If your jurisdiction has adopted particular approaches to predominance analysis, ascertainability requirements, or other certification issues, demonstrate that your motion addresses those jurisdiction-specific concerns. Distinguish any adverse authority the defendant is likely to cite, explaining why those cases are factually distinguishable, have been superseded by subsequent precedent, or address different legal issues.\n\nIf your jurisdiction requires rigorous analysis of the merits at the certification stage, be prepared to present evidence and argument demonstrating the strength of the underlying claims without transforming the certification motion into a premature summary judgment proceeding. Explain that while the court must understand the nature of the claims to assess whether common questions predominate, certification does not require finding that the plaintiff will prevail on the merits but only that the claims are suitable for class treatment. If the defendant is likely to challenge the viability of the legal theory, address those challenges sufficiently to show that the claims have a sufficient legal and factual basis to warrant class treatment, while reserving full merits arguments for later stages of the litigation.\n\nAnticipate the defendant's opposition arguments and address them preemptively within your motion, demonstrating command of the issues and reducing the impact of the opposition brief. Common defense challenges include assertions that individual issues predominate over common questions, that the proposed class is unmanageable due to size or complexity, that the named plaintiff is inadequate or atypical, that subclasses are necessary to address conflicts among class members, that the class definition is overbroad or administratively infeasible, or that ascertainability problems prevent class certification. For each anticipated argument, present evidence and legal authority showing why the challenge lacks merit or can be addressed through appropriate case management procedures.\n\nIf individual issues exist regarding reliance, causation, affirmative defenses, or other elements, explain why they do not defeat predominance because they can be addressed through common proof, presumptions, burden-shifting frameworks, or manageable individualized proceedings after common issues are resolved. If the defendant is likely to argue that the class is unascertainable because membership cannot be determined without individualized inquiry, demonstrate that objective criteria exist for identifying class members using the defendant's records or other reliable sources. If conflicts among class members are alleged, show that the interests of all class members align with respect to the core liability issues even if they may have different preferences regarding remedies or settlement terms.\n\n## Professional Presentation and Persuasive Structure\n\nStructure your motion to build persuasive momentum, beginning with your strongest arguments and most compelling evidence while maintaining a logical progression through the certification requirements. While comprehensive analysis is essential, maintain focus on the core certification requirements and avoid unnecessary tangents into merits arguments, procedural history, or background information that does not advance the certification analysis. Your motion should typically range from twenty-five to fifty pages depending on case complexity, local rules, and the extent of evidentiary support required, with every page serving a strategic purpose in demonstrating that certification is warranted.\n\nOrganize the motion with descriptive headings and subheadings that guide the reader through your analysis and allow the court to locate specific arguments quickly. Use a clear hierarchy of headings that reflects the logical structure of your argument, with major sections addressing each certification requirement and subsections addressing particular issues or anticipated challenges. Maintain a professional, confident tone that acknowledges the significant responsibility courts undertake in certifying class actions while firmly asserting that the evidence and law support certification in this case. Avoid overstatement or hyperbole, allowing the strength of your evidence and legal analysis to speak for itself.\n\nUse clear, direct language that makes complex legal and factual issues accessible to the court without sacrificing precision or sophistication. When technical or industry-specific terminology is necessary, provide brief explanations that allow the court to understand the concepts without requiring specialized knowledge. Vary sentence structure and length to maintain readability while conveying complex information, using shorter sentences for key points and longer sentences for detailed analysis. Employ transition sentences between sections that connect your arguments and show how each element of certification builds on the previous analysis.\n\nEnsure that every factual statement is supported by citation to specific evidence in the record, and every legal proposition is anchored to appropriate authority. When citing to case documents, provide complete information including document name, page number, paragraph number if applicable, and exhibit designation to facilitate the court's review. Use pinpoint citations to specific pages or paragraphs rather than citing entire documents, allowing the court to locate the relevant evidence quickly. If certain evidence is particularly compelling, consider highlighting it through block quotations, strategic emphasis, or detailed discussion in the text, but use such techniques sparingly to maintain their impact.\n\nYour conclusion should synthesize the evidence and arguments presented throughout the motion, demonstrating that all certification requirements are satisfied and that class treatment serves the fundamental purposes of Rule 23. Restate the proposed class definition and requested relief, specify the proposed notice plan and case management procedures, and request that the court enter an order certifying the class, appointing the named plaintiff as class representative, and appointing class counsel. Consider whether you should request a hearing on the motion to allow oral argument on contested issues, or whether the motion can be decided on the papers given the strength of your evidentiary showing.\n\nYour ultimate objective is to present the court with a motion that is simultaneously comprehensive and accessible, legally sophisticated and factually grounded, demonstrating beyond reasonable doubt that class certification serves the fundamental purposes of Rule 23: achieving judicial efficiency, ensuring consistent adjudication, and providing meaningful access to justice for individuals whose claims might otherwise go unvindicated. The motion should leave the court with confidence that certifying the class is not only legally appropriate but practically necessary to resolve the widespread harm alleged in the complaint.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "motion"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:44.548380Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:44.771662Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:45.939006Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:46.745085Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e51bba472157-SJC)
+2026-02-23T21:42:47.619479Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5213fa00793-SJC)
+2026-02-23T21:42:49.168846Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e52a2e52df9a-SJC)
+2026-02-23T21:42:51.303396Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e53808ef2510-SJC)
+2026-02-23T21:42:55.460303Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e551bd1533dc-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-motion-for-class-certification-jknaxmp_.md
+
+STDOUT:
+

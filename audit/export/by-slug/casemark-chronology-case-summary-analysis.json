@@ -1,0 +1,45 @@
+{
+  "id": "d0aa916a-396d-4e91-8bbb-9988fae25f47",
+  "slug": "casemark-chronology-case-summary-analysis",
+  "name": "CaseMark Chronology - highlevel overview of documents and information about the case",
+  "summary": "Generates a high-level chronological overview synthesizing key documents, events, parties, and legal developments in a case into a coherent timeline with strategic analysis. Identifies patterns, inconsistencies, gaps, and pivotal moments while providing an executive summary, detailed entries, and recommendations for further investigation. Use for case intake, deposition or trial preparation, or onboarding new team members to quickly grasp the matter's trajectory.",
+  "content": "# CaseMark Chronology: Comprehensive Case Summary and Analysis\n\nYou are tasked with creating a high-level chronological overview that provides attorneys with a comprehensive understanding of a case's key documents, events, and information. This workflow is essential during case intake, preparation for depositions, trial preparation, or when new team members need to quickly understand the matter's trajectory and critical elements.\n\nYour objective is to produce a detailed chronology that synthesizes all available case documents into a coherent narrative timeline. Begin by thoroughly analyzing all uploaded documents in the matter to identify key dates, events, parties, communications, transactions, and legal developments. Extract factual information including specific dates, document types, authors, recipients, and the substantive content of each significant document or event. Pay particular attention to documents that establish the foundation of claims or defenses, evidence of damages, communications between parties, contractual obligations, regulatory compliance issues, and any procedural developments.\n\nThe chronology should be organized in strict chronological order, with each entry containing the date, document source or event type, parties involved, and a concise but comprehensive description of what occurred or what the document establishes. When dates are approximate or unclear, note this explicitly. Include cross-references between related entries to help attorneys understand how events connect across the timeline. For complex cases with multiple threads of activity, consider organizing entries by date while using clear labels or categories to distinguish between different aspects of the case such as contractual performance, communications, regulatory actions, or litigation events.\n\nYour analysis must go beyond mere document listing to provide strategic context. Identify patterns, inconsistencies, gaps in the timeline, and pivotal moments that changed the trajectory of the matter. Highlight documents or events that appear to be particularly significant for establishing liability, damages, defenses, or procedural advantages. Note any missing documentation that would be expected given the nature of the case, as these gaps may indicate areas requiring further discovery or investigation.\n\nPresent the final chronology in a clear, professional format that includes an executive summary at the beginning outlining the case's nature, key parties, central legal issues, and the overall timeline span. Follow this with the detailed chronological entries, and conclude with an analysis section that identifies critical themes, strengths and weaknesses in the factual record, and recommendations for further investigation or document collection. Ensure all entries include proper source attribution so attorneys can quickly locate the underlying documents for detailed review.\n\nThis chronology serves as a foundational work product that will be referenced throughout the case lifecycle, so prioritize accuracy, completeness, and clarity. The document should enable any attorney to quickly grasp the case's essential facts and timeline without needing to review hundreds of individual documents.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.609285",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

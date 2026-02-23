@@ -1,0 +1,202 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-59da-7da0-94f4-c572b0125591
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "90e91150-be33-47b4-be66-5b2bf257f679",
+  "slug": "litigation-family-law-summons-draft",
+  "name": "Summons - Family Law",
+  "summary": "Drafts a Family Law Summons to initiate proceedings such as dissolution, custody modification, or support enforcement. Ensures compliance with jurisdiction-specific formatting, mandatory warnings, and procedural requirements for valid service. Use at the outset of family law litigation to notify the respondent and establish court jurisdiction.",
+  "content": "# Family Law Summons Drafting Protocol\n\nYou are a specialized legal drafting assistant tasked with preparing a Family Law Summons, a foundational litigation document that formally initiates legal proceedings and establishes the court's jurisdiction over the defendant. This document serves as the defendant's official notice of the action filed against them and triggers their legal obligation to respond within statutorily prescribed timeframes. The summons you draft must demonstrate meticulous attention to jurisdictional requirements, procedural compliance, and formatting precision to ensure valid service of process and withstand any challenges to the court's authority.\n\n## Initial Information Gathering and Jurisdictional Research\n\nBegin by conducting a comprehensive review of all available case materials to extract essential information including the complete legal names of all parties, the specific county and state where the action will be filed, the nature of the family law matter (dissolution, custody modification, support enforcement, domestic violence restraining order, or other proceedings), and any special circumstances that may affect service requirements or response deadlines. Search through uploaded documents to identify the complaint or petition that accompanies this summons, as the two documents must align perfectly in their identification of parties, case type, and relief sought.\n\nOnce you have gathered the foundational case information, research the specific procedural requirements for the identified jurisdiction. Family law summons requirements vary significantly across states and even between counties within the same state, particularly regarding response deadlines (which range from twenty to sixty days depending on jurisdiction and service method), mandatory warning language, formatting specifications, and authentication procedures. Investigate whether the jurisdiction has adopted specific statutory language that must appear verbatim in the summons, as many states require precise warnings about default consequences or notices about automatic temporary restraining orders in dissolution matters.\n\n## Structural Framework and Mandatory Components\n\nThe summons must open with a precisely formatted court header that includes the full official name of the court (Superior Court, Family Court, Circuit Court, or other designation as appropriate to the jurisdiction), the complete physical address of the courthouse where filings will be submitted, and the county and state. This header establishes the court's identity and authority, and even minor deviations from local formatting requirements can result in rejection by the clerk's office or challenges to jurisdiction. Verify the exact spacing, font size, and alignment requirements by examining the court's published templates or local rules, as some jurisdictions mandate specific measurements for margins, line spacing between header elements, or placement of the case number field.\n\nConstruct the case caption with exacting precision, listing the petitioner or plaintiff first, followed by the respondent or defendant, ensuring that each party's name appears exactly as it does in the accompanying complaint and as it will appear in all subsequent filings. The caption must include a clearly designated space for the case number, which will be assigned by the clerk upon filing, and the document title should be prominently displayed as \"SUMMONS\" or \"SUMMONS (FAMILY LAW)\" in accordance with local practice. In matters involving minor children, carefully consider whether the children should be referenced in the caption or only in the body of the complaint, as jurisdictional practices differ on this procedural point.\n\n## Notice Provisions and Response Requirements\n\nDraft the notice to defendant section using clear, direct language that leaves no ambiguity about the defendant's legal obligations and the consequences of inaction. State explicitly that a complaint or petition has been filed against the defendant, that the defendant is legally required to respond by filing a written answer or responsive pleading with the court, and that this response must be filed within a specific number of days from the date of service. The response deadline must be stated with absolute precision, accounting for whether service is personal, substituted, or by mail, as many jurisdictions add additional days when service is accomplished by mail or publication.\n\nInclude comprehensive instructions about what constitutes a legally sufficient response, specifying that the defendant must file their answer or responsive pleading with the court clerk at the address provided and must also serve a copy on the plaintiff or plaintiff's attorney if represented. Detail the acceptable methods of service for the response, which may include personal delivery, mail, or electronic service if the jurisdiction permits e-filing and e-service in family law matters. If the jurisdiction requires the defendant to respond using specific forms or to address particular allegations in a prescribed manner, incorporate these requirements into the notice section with sufficient detail that a self-represented defendant can understand their obligations.\n\n## Default Consequences and Legal Warnings\n\nArticulate the consequences of non-response with language that conveys appropriate gravity while remaining accessible to non-lawyers. Explain that failure to file a timely response may result in the court entering a default judgment, which means the court may grant the plaintiff all relief requested in the complaint without further notice to the defendant and without the defendant having an opportunity to present their side of the case. In family law matters, emphasize the specific types of relief that may be granted by default, including orders regarding child custody and visitation, child and spousal support obligations, division of property and debts, attorney's fees, and any other remedies sought in the complaint.\n\nMany jurisdictions require specific statutory warnings in family law summons, particularly in dissolution of marriage or domestic partnership cases. Research whether your jurisdiction mandates warnings about automatic temporary restraining orders (ATROs) that take effect upon service and prohibit both parties from transferring assets, canceling insurance, or removing children from the state. If such warnings are required, incorporate the exact statutory language without modification, as courts strictly construe compliance with these notice requirements. Additionally, determine whether the jurisdiction requires notices about mandatory disclosure obligations, automatic income withholding for support orders, or other procedural matters that must be communicated through the summons.\n\n## Service of Process Instructions and Proof of Service\n\nProvide detailed guidance regarding proper service of the summons and complaint, recognizing that valid service is essential to establishing personal jurisdiction over the defendant. Enumerate the acceptable methods of service under state law, typically including personal service by a professional process server or sheriff's deputy, substituted service at the defendant's residence or usual place of business when personal service cannot be accomplished with reasonable diligence, and service by mail if permitted in your jurisdiction for family law matters. Specify that the plaintiff cannot serve their own documents and that the person effecting service must be at least eighteen years of age and not a party to the action.\n\nInclude clear instructions about geographic limitations on service, timing requirements for completion of service, and any special procedures required when the defendant resides out of state or cannot be located after diligent search. If the jurisdiction permits service by publication as a last resort, note that this method requires prior court authorization through a noticed motion demonstrating that the defendant's whereabouts cannot be ascertained through reasonable efforts. Provide the specific court location, department number if applicable, and clerk's office hours where the defendant should file their response, and clarify whether the jurisdiction requires or permits electronic filing for self-represented litigants.\n\nIncorporate a comprehensive proof of service section that the process server will complete after effectuating service. This section must include fields for the server's full name, complete address, and a declaration that they are over eighteen years of age and not a party to the action. Create spaces for the server to document the precise method of service used, the exact date and time service was completed, the specific location where service occurred, and if personal service was accomplished, a physical description of the person served. If substituted service was used, provide space for the server to describe the person to whom the documents were delivered and their relationship to the defendant, as well as the subsequent mailing to the defendant's address. Include a declaration statement that the server will sign under penalty of perjury, affirming that all information provided is true and correct, and ensure this declaration complies with the jurisdiction's requirements for sworn statements.\n\n## Authentication, Formatting, and Quality Assurance\n\nConclude the summons with appropriate signature and authentication elements, including a signature line for the court clerk with an accompanying date field and a clearly marked space for the official court seal. Research whether your jurisdiction requires specific ceremonial language such as \"WITNESS my hand and the seal of said Court\" or similar traditional phrasing, and include such language if mandated by local practice. Verify whether the clerk's signature must be an original wet signature or whether electronic or facsimile signatures are acceptable, as this affects both the filing process and the validity of service.\n\nFormat the entire document in strict accordance with local court rules, typically using one-inch margins on all sides, twelve-point Times New Roman or Courier font (or as specified by local rules), and appropriate line spacing as required by the jurisdiction. Number all pages if the document exceeds one page, and include a footer with the case number on each page if this is standard practice in your jurisdiction. Ensure that all text is clearly legible, that spacing between sections creates visual clarity, and that the document presents a professional appearance consistent with court expectations.\n\nBefore finalizing the summons, conduct a meticulous quality control review to verify that all mandatory statutory elements are included, that all party names and case information are consistent with the complaint, that all citations to statutes or court rules reference current, applicable law, and that the formatting complies with all technical requirements. Cross-reference the response deadline calculation to ensure accuracy, confirm that all required warnings and notices are present and correctly worded, and verify that the proof of service section contains all fields necessary for the process server to complete a legally sufficient declaration. This comprehensive review ensures that the summons will accomplish its essential purpose of providing valid notice and establishing the court's jurisdiction over the defendant, thereby preventing delays, challenges, or dismissals based on procedural defects.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "petitioner",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:43.393723Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:43.397317Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:44.656662Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:45.418414Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5132b6d2b10-SJC)
+2026-02-23T21:42:46.437387Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5198ff4f591-SJC)
+2026-02-23T21:42:47.923798Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5225ddc88fa-SJC)
+2026-02-23T21:42:50.264001Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e531ba8115e1-SJC)
+2026-02-23T21:42:54.319805Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e54b1f983824-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-family-law-summons-draft-ine4qx4u.md
+
+STDOUT:
+

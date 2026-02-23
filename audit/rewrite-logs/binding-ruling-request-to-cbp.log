@@ -1,0 +1,319 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-f7dd-70d3-b706-adc47f0185df
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "64de9db5-c3a4-4a1f-abc1-b53dd32b714c",
+  "slug": "binding-ruling-request-to-cbp",
+  "name": "Binding Ruling Request to CBP",
+  "summary": "Drafts a comprehensive and legally precise Binding Ruling Request to U.S. Customs and Border Protection (CBP) pursuant to 19 CFR Part 177. This skill conducts thorough research on merchandise facts and customs law to establish requester standing and provide persuasive analysis for tariff classification, valuation, or other treatments. Use it when seeking binding guidance on customs compliance for prospective imports in international trade.",
+  "content": "# Enhanced Binding Ruling Request to U.S. Customs and Border Protection\n\nYou are tasked with drafting a comprehensive and legally precise Binding Ruling Request to U.S. Customs and Border Protection (CBP) pursuant to 19 CFR Part 177. This formal regulatory document must demonstrate mastery of customs law, meticulous attention to procedural requirements, and persuasive legal analysis. A binding ruling provides definitive guidance on the tariff classification, valuation, country of origin marking, or other customs treatment of merchandise before importation, offering critical certainty for international trade compliance.\n\n## Document Preparation and Research Foundation\n\nBegin by conducting thorough research within any uploaded documents to identify all relevant factual information about the merchandise, prior importations, commercial arrangements, and business relationships. Search for technical specifications, manufacturing details, supply chain documentation, prior CBP correspondence, commercial invoices, and any previous customs determinations. Extract specific data points including material compositions with percentages, manufacturing processes, country of origin information, related party relationships, payment terms, and any prior ruling numbers or entry documentation. Verify all factual assertions against source documents and maintain precise attribution to ensure every statement in the ruling request can be substantiated with documentary evidence.\n\nSupplement document-based research with targeted legal research to identify the controlling statutory framework, applicable regulations, relevant CBP rulings, and pertinent judicial decisions. For classification questions, locate analogous CBP headquarters rulings and New York rulings addressing similar merchandise, paying particular attention to factual parallels and the analytical reasoning employed. For valuation issues, research transaction value methodology under 19 USC 1401a and identify precedents addressing related party transactions, assists, royalties, or other valuation adjustments. Ensure all legal citations conform to Bluebook standards and verify the current validity of cited authorities.\n\n## Requester Identification and Standing\n\nDraft a comprehensive identification section that establishes the requester's legal standing to seek a binding ruling under 19 CFR 177.1(c). Present the complete legal name of the requesting entity as it appears in corporate formation documents, the principal place of business with full street address, direct telephone and email contact information, and the name and title of the authorized signatory. Articulate with precision the requester's relationship to the merchandise, whether as the actual importer of record, a prospective importer with demonstrable intent to import, the foreign manufacturer or exporter, or another party with a direct and substantial interest in the customs treatment determination.\n\nWhen the request is submitted through legal counsel or a licensed customs broker, provide complete credentials including bar admission or customs broker license number, reference the executed power of attorney with its date and scope of authority, and confirm explicit authorization to act on behalf of the principal in customs matters. Address any potential standing issues proactively, particularly when the requester is not the ultimate importer, by explaining the commercial necessity for advance certainty and the requester's legitimate interest in the ruling determination.\n\n## Comprehensive Merchandise Description\n\nDevelop an exhaustive technical description of the merchandise that enables CBP to render an informed determination without physical examination, though note that samples, photographs, or specimens will be submitted as supplementary evidence. The description must capture the essential character of the merchandise through multiple analytical lenses. Begin with the commercial designation and trade name, then systematically detail the material composition, providing specific percentages by weight or volume for all constituent materials and identifying each material by its technical or chemical name rather than generic terms.\n\nDescribe the manufacturing process in sufficient detail to understand how raw materials are transformed into the finished product, noting any critical steps that affect the merchandise's essential character or classification. Include precise dimensions, weight, capacity, or other quantitative specifications, and identify the primary function and intended commercial use with specificity regarding the end-user application and market sector. Reference applicable industry standards, technical certifications, or regulatory compliance requirements such as ASTM specifications, ISO standards, FDA approvals, or FCC certifications that characterize the merchandise within its commercial context.\n\nIf proposing a specific Harmonized Tariff Schedule classification, state the complete ten-digit HTS number and provide detailed analysis under the General Rules of Interpretation, explaining how GRI 1 through GRI 6 lead to the proposed classification. Reference the Harmonized System Explanatory Notes for the relevant heading and subheading, quoting language that supports the classification and addressing any exclusionary provisions. Distinguish the merchandise from products classified under alternative headings by identifying the specific characteristics that determine its essential character and tariff treatment.\n\n## Factual Background and Transaction Structure\n\nPresent a complete factual narrative that establishes the commercial context for the ruling request and provides CBP with full transparency regarding all circumstances that might affect customs treatment. Describe the entire supply chain from raw material sourcing through manufacturing, intermediate processing, and final importation into the United States. Identify each entity involved in the commercial transaction including manufacturers, exporters, importers, distributors, and end-users, and explicitly address whether any related party relationships exist as defined under 19 CFR 152.102(g).\n\nDetail the terms of sale using recognized Incoterms, specify the transaction currency and payment terms, and disclose any non-monetary consideration, assists provided to the foreign producer, royalty or license fee arrangements, or proceeds of subsequent resale that accrue to the seller. If the transaction involves related parties, provide the transfer pricing methodology, explain how the transaction value was determined, and address whether the relationship influenced the price under the test circumstances of 19 CFR 152.103(l).\n\nWhen the merchandise or substantially similar merchandise has been previously imported, provide complete entry history including entry numbers, dates of entry, ports of entry, declared classifications and values, and the outcome of any CBP reviews, audits, or examinations. Reference any prior binding rulings, internal advice, or protest decisions that addressed the same or similar merchandise, and if circumstances have changed since those determinations, explain precisely what has changed in terms of product specifications, manufacturing processes, business relationships, or material facts.\n\n## Precise Legal Questions Presented\n\nFormulate each legal question with the precision necessary to elicit a definitive determination from CBP, ensuring that every question falls within the scope of the binding ruling program and CBP's administrative authority. Structure each question to address a single discrete issue, avoiding compound inquiries that conflate multiple legal determinations. For classification requests, frame the question to identify the specific HTS provision at issue: \"Whether the subject merchandise is properly classifiable under subheading 8471.30.01, HTSUS, as portable automatic data processing machines weighing not more than 10 kg, or alternatively under subheading 8517.62.00, HTSUS, as machines for the reception, conversion and transmission or regeneration of voice, images or other data.\"\n\nFor valuation questions, identify the specific methodology and any adjustments at issue: \"Whether the transaction value is acceptable as the basis for appraisement under 19 USC 1401a(b) when the buyer and seller are related parties, and if so, whether royalty payments for the use of trademarks must be added to the price actually paid or payable under 19 USC 1401a(b)(1)(D).\" For country of origin determinations, reference the applicable legal framework: \"Whether the country of origin for marking purposes under 19 CFR Part 102 is China, where the components are manufactured, or Mexico, where final assembly occurs and the product undergoes a change in tariff classification.\"\n\nEnsure each question demonstrates understanding of CBP's jurisdictional limits by avoiding requests for advisory opinions on hypothetical future scenarios, interpretations of non-customs laws, or determinations regarding reasonable care, negligence, or fraud that fall outside the binding ruling program's scope.\n\n## Persuasive Legal Analysis and Precedent Application\n\nConstruct a systematic legal analysis that applies controlling statutory provisions, implementing regulations, and CBP precedents to the specific facts of the merchandise and transaction. Begin with the foundational statutory authority, citing the relevant provisions of Title 19 United States Code and explaining how the statutory language governs the determination sought. For classification matters, methodically apply the General Rules of Interpretation in hierarchical order, demonstrating how GRI 1 requires classification according to the terms of the headings and any relative section or chapter notes, and proceeding through subsequent GRIs only when classification cannot be determined under preceding rules.\n\nIncorporate the Harmonized System Explanatory Notes as persuasive authority, quoting relevant passages that describe the scope of headings or subheadings and explain how the merchandise's characteristics align with or diverge from the Explanatory Notes' guidance. Reference CBP's Informed Compliance Publications, What Every Member of the Trade Community Should Know About publications, and other official CBP guidance documents that provide interpretive context for classification, valuation, or marking determinations.\n\nIdentify and analyze analogous CBP rulings, prioritizing headquarters rulings for their precedential weight and citing New York rulings when they address factually similar merchandise. For each cited ruling, explain the factual similarities that make the precedent applicable, quote the relevant analytical reasoning, and demonstrate how the same legal principles compel the requested determination in the present case. When potentially adverse rulings exist, distinguish them based on material factual differences, explain why they address different legal questions, or argue that they represent outdated interpretations superseded by subsequent regulatory changes or judicial decisions.\n\nIncorporate relevant judicial precedents from the Court of International Trade and the United States Court of Appeals for the Federal Circuit, ensuring proper Bluebook citation format and explaining how judicial interpretations of the tariff schedule, valuation statutes, or rules of origin inform the analysis. When technical or scientific evidence supports the classification or valuation position, reference expert opinions, laboratory analyses, or industry standards, summarizing the methodology and conclusions while noting that complete reports are attached as exhibits.\n\n## Supporting Documentation and Evidence\n\nCompile a comprehensive evidentiary package that substantiates every factual assertion and provides CBP with the information necessary to render an informed determination. Prepare a detailed attachment index that enumerates each exhibit with a brief description of its contents and relevance to the ruling request. Include high-resolution photographs or product samples that visually demonstrate the merchandise's physical characteristics, construction, and distinguishing features, ensuring that images capture relevant details such as material composition, assembly methods, and functional components.\n\nAttach complete technical specifications, engineering drawings, or product schematics that provide precise measurements, material compositions, and manufacturing tolerances. Include manufacturing process descriptions or flow charts that illustrate how raw materials are transformed into the finished product, noting any critical steps that affect classification or origin determination. Provide commercial invoices or pro forma invoices that document the transaction value, payment terms, and any additional charges or adjustments, along with purchase orders or sales contracts that establish the terms of sale and relationship between parties.\n\nSubmit any prior CBP rulings, whether binding rulings, internal advice, or protest decisions, that have addressed the same merchandise or substantially similar products, along with any CBP correspondence, CF 28 requests for information, or CF 29 notices of action that provide relevant background. Include expert opinions, laboratory test reports, or technical analyses that support classification or composition claims, ensuring that each expert's qualifications and methodology are clearly documented. When claiming eligibility for preferential trade programs or special tariff treatment, provide all required certifications, declarations of origin, or supporting documentation specified by the applicable trade agreement or statutory provision.\n\n## Certification, Confidentiality, and Procedural Compliance\n\nConclude with a formal certification statement executed by an individual with personal knowledge of the facts or a reasonable basis for the representations made, affirming under penalty of perjury that all information provided is true, correct, and complete to the best of the signatory's knowledge and belief. The certification must include the printed name, title, and signature of the authorized representative, along with the date of execution. Ensure the signatory possesses actual authority to bind the requesting entity and has reviewed all factual assertions for accuracy.\n\nAddress confidentiality considerations by identifying any business proprietary information, trade secrets, or commercially sensitive data included in the ruling request, and explicitly request confidential treatment under 19 CFR 177.2(b)(7). Explain the basis for confidentiality, describing how disclosure would cause substantial competitive harm, and request that CBP redact specified information from any published version of the ruling while maintaining the confidential complete version in CBP's administrative record.\n\nVerify compliance with all procedural requirements under 19 CFR Part 177, confirming that the request is directed to the appropriate CBP office based on the nature of the determination sought, whether the National Commodity Specialist Division for classification matters or the appropriate Center of Excellence and Expertise for industry-specific questions. Ensure the request does not seek determinations on matters excluded from the binding ruling program, such as questions of reasonable care or compliance that are properly addressed through other administrative mechanisms, issues that are the subject of pending litigation or protests, or hypothetical scenarios without concrete importation plans.\n\n## Final Document Assembly and Quality Review\n\nAssemble the complete Binding Ruling Request as a professionally formatted legal document with clear section headings, consistent formatting, and logical organization that guides the reader through the factual background, legal questions, analytical framework, and supporting evidence. Maintain a formal, respectful tone throughout that demonstrates professionalism and regard for CBP's administrative processes while advocating persuasively for the requested determination. Ensure every legal citation is complete and accurate, every factual assertion is supported by documentary evidence, and every analytical conclusion flows logically from the application of law to facts.\n\nReview the completed document for internal consistency, verifying that the merchandise description aligns with attached specifications, the factual narrative supports the legal analysis, and the questions presented correspond to the determinations sought. Confirm that all cross-references to exhibits are accurate, all regulatory citations are current, and all CBP rulings cited remain valid and have not been modified, revoked, or superseded. The final document should reflect thorough preparation, command of customs law, and strategic presentation that maximizes the likelihood of obtaining a favorable binding ruling that provides the certainty necessary for compliant international trade operations.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "petitioner"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:18.504969",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:47:44.907012Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Rewriting skill metadata**
+
+I’m drafting the new skill markdown with a concise slug "binding-ruling-request," a clear third-person description including trigger keywords, and formatted metadata tables using capitalized legal context terms as instructed.
+thinking
+**Drafting comprehensive skill content**
+
+I'm preparing the complete SKILL.md with statute references marked [VERIFY] where uncertain, a clear purpose statement, structured sections for intake, research, drafting, and compliance, plus tables for inputs and templates. The description will include trigger keywords and a caution that CBP rulings exclude hypothetical or protested issues.
+codex
+---
+name: binding-ruling-request
+description: Drafts U.S. CBP binding ruling requests under 19 CFR Part 177 for tariff classification, valuation, country of origin, or marking issues. Builds standing, merchandise description, questions presented, and precedent-driven analysis with exhibit indexing, confidentiality requests, and certification language. Use when preparing a CBP binding ruling request, HTSUS classification submission, valuation ruling, origin/marking determination, or CBP pre-import guidance. Trigger keywords: "binding ruling", "CBP", "19 CFR 177", "HTSUS", "classification", "valuation", "country of origin", "marking".
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# CBP Binding Ruling Request
+
+Drafts a complete binding ruling request package for U.S. Customs and Border Protection.
+
+## Prerequisites
+
+1. Merchandise specs with composition, dimensions, function, and manufacturing process
+2. Supply chain and transaction facts including parties, terms of sale, and related-party status
+3. Prior entries, rulings, or CBP correspondence (if any)
+4. Target legal issue: classification, valuation, origin/marking, or other customs treatment
+
+## Output Structure / Process
+
+Use this document outline and required fields.
+
+### A. Required Inputs Table
+
+| Category | Required Data | Notes |
+| --- | --- | --- |
+| Requester | Legal name, address, contact, signatory title | Standing under 19 CFR 177.1(c) [VERIFY] |
+| Representative | Counsel/broker info, POA date/scope | If submitting via agent |
+| Merchandise | Trade name, technical name, composition %, dimensions, function, use | Include samples/photos list |
+| Manufacturing | Countries, steps, critical transformations | Identify origin impacts |
+| Transaction | Incoterms, currency, payment terms, assists, royalties | Valuation impacts |
+| Related Parties | Ownership/controls per 19 CFR 152.102(g) [VERIFY] | Provide relationship facts |
+| Prior Imports | Entry numbers, ports, dates, classifications, outcomes | If any |
+| Prior CBP | Ruling numbers, CF 28/29, protests | Attach copies |
+
+### B. Document Sections (Required)
+
+1. **Cover Letter / Header**
+   - Addressee: appropriate CBP office (NCS or CEE)
+   - Subject line: “Binding Ruling Request – [Merchandise]”
+2. **Requester Identification and Standing**
+   - Entity details and relationship to merchandise
+   - If not importer of record, explain direct and substantial interest
+3. **Merchandise Description**
+   - Technical description, composition by % and material names
+   - Manufacturing process, key steps, and functional characteristics
+   - Photos, samples, drawings, standards/certifications
+4. **Factual Background**
+   - Supply chain narrative and parties
+   - Terms of sale, pricing, assists, royalties, resale proceeds
+   - Related-party pricing methodology (if applicable)
+5. **Questions Presented**
+   - One issue per question
+   - Use specific HTSUS subheadings or valuation/origin framework
+6. **Legal Analysis**
+   - Statutory/regulatory framework
+   - Apply GRI 1-6 for classification
+   - HS Explanatory Notes support
+   - CBP rulings (HQ, NY) and judicial precedents
+   - Distinguish adverse authority
+7. **Exhibits and Evidence Index**
+   - Numbered exhibits with descriptions
+8. **Certification and Signature**
+   - Truthfulness certification and authority
+9. **Confidentiality Request**
+   - Identify BPI and request protection under 19 CFR 177.2(b)(7) [VERIFY]
+
+### C. Question Templates
+
+Classification:
+“Whether the subject merchandise is properly classifiable under subheading ____ HTSUS, or alternatively under subheading ____ HTSUS.”
+
+Valuation:
+“Whether transaction value is acceptable under 19 USC 1401a(b) [VERIFY], and whether [royalties/assists/proceeds] must be added under 19 USC 1401a(b)(1)(D) [VERIFY].”
+
+Origin/Marking:
+“Whether the country of origin for marking under 19 CFR Part 102 [VERIFY] is ____ or ____ given the described processing.”
+
+### D. Legal Analysis Checklist
+
+- Identify controlling statute and regulation
+- Apply GRI sequence for classification
+- Cite HS Explanatory Notes for headings/subheadings
+- Compare to HQ and NY rulings with factual parallels
+- Address adverse rulings and distinctions
+- Include CIT and CAFC precedents when relevant
+- Verify all citations are current
+
+### E. Evidence Index Template
+
+| Exhibit | Description | Purpose |
+| --- | --- | --- |
+| Ex. 1 | Product spec sheet | Composition and function |
+| Ex. 2 | Manufacturing flowchart | Origin analysis |
+| Ex. 3 | Photos/samples | Visual characteristics |
+| Ex. 4 | Invoices/POs/contracts | Valuation |
+| Ex. 5 | Prior CBP rulings | Precedent |
+| Ex. 6 | Lab reports/expert opinions | Technical support |
+
+### F. Certification Block
+
+“I certify that the information furnished in this request is true and complete to the best of my knowledge and belief, and that I am authorized to submit this request on behalf of the requester.”
+Name:
+Title:
+Signature:
+Date:
+
+## Guidelines
+
+- Do not request rulings on hypothetical or non-customs issues.
+- Avoid compound questions; one issue per question.
+- Ensure factual assertions are fully supported by exhibits.
+- Mark any uncertain legal citations with `[VERIFY]`.
+- Note pending litigation, protests, or audits that could bar consideration.
+- Use Bluebook format for all legal authorities.
+tokens used
+5,565

@@ -1,0 +1,327 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-3164-7453-aa7f-b5d78a4c1211
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d73289bd-7dc3-45eb-8c03-34eb353bbcc7",
+  "slug": "biotechnology-patent-summaries",
+  "name": "Biotechnology Patent Summaries",
+  "summary": "Generates comprehensive summaries of biotechnology patent filings and disputes, extracting key details like patent numbers, claims, status, parties involved, and procedural timelines. Analyzes complex biotechnological claims for infringement risks, validity, and strategic implications, aiding IP counsel in freedom-to-operate assessments, licensing opportunities, and litigation evaluations. Use this skill for quick, actionable overviews in biotech IP landscapes.",
+  "content": "# Biotechnology Patent Summary Workflow\n\nYou are a specialized intellectual property analyst focused on biotechnology patents. Your task is to create comprehensive, strategic summaries of patent filings and disputes in the biotechnology sector that enable companies to make informed decisions about their intellectual property landscape, competitive positioning, and potential litigation risks.\n\n## Objective and Scope\n\nGenerate a detailed summary that provides actionable intelligence on biotechnology patent matters. This summary should serve as a critical decision-making tool for patent counsel, R&D directors, business development teams, and C-suite executives who need to understand the patent landscape, assess freedom-to-operate, identify licensing opportunities, or evaluate litigation risks. The biotechnology sector presents unique challenges including complex scientific subject matter, evolving patent eligibility standards under Alice/Mayo, and high-stakes disputes involving blockbuster therapeutics, diagnostic methods, and gene editing technologies.\n\n## Required Analysis Components\n\nBegin by identifying and extracting all relevant patent information from the provided documents or sources. For patent filings, capture the application or patent number, filing and priority dates, inventors, assignees, title, abstract, and key claims with particular attention to independent claims that define the broadest scope of protection. Analyze the technical field and specific biotechnology domain, whether it involves monoclonal antibodies, gene therapies, CRISPR technologies, recombinant proteins, diagnostic biomarkers, or other innovations. Assess the patent's current status including whether it is pending, granted, abandoned, or subject to post-grant proceedings such as inter partes review or reexamination.\n\nFor patent disputes, identify all parties involved including plaintiffs, defendants, and any third-party interveners. Document the forum and jurisdiction, noting whether the matter is in federal district court, the Patent Trial and Appeal Board, the International Trade Commission, or foreign tribunals. Summarize the nature of the dispute, including specific allegations of infringement, the accused products or methods, and any asserted defenses such as invalidity, non-infringement, or inequitable conduct. Track procedural status including key dates for claim construction hearings, expert discovery deadlines, summary judgment motions, and trial dates.\n\nProvide substantive analysis of the patent claims at issue, translating complex biotechnological concepts into clear explanations that non-scientists can understand while maintaining technical accuracy. Explain the claimed invention's mechanism of action, its advantages over prior art, and the scope of protection it provides. For disputes, analyze the strength of infringement contentions by comparing claim language to the accused technology, and evaluate validity challenges by examining cited prior art references, enablement issues, and written description requirements that are particularly scrutinized in biotechnology cases.\n\n## Strategic Context and Implications\n\nPlace each patent or dispute within the broader competitive and technological landscape. Identify how the patent relates to existing patent families, continuation applications, or divisional filings that may extend protection. Assess the commercial significance by connecting patents to marketed products, clinical pipeline candidates, or platform technologies that underpin multiple applications. For disputes, evaluate potential outcomes and their business impact, including damages exposure, injunction risks, and effects on product launch timelines or market exclusivity.\n\nConsider the evolving legal standards that uniquely affect biotechnology patents. Address patent eligibility concerns for diagnostic methods, natural products, and isolated genetic sequences following the Supreme Court's decisions in Mayo, Myriad, and Ariosa. Analyze enablement and written description requirements in light of the Federal Circuit's heightened scrutiny for genus claims covering antibodies or other biological molecules with significant structural variability. Evaluate obviousness challenges, particularly those involving lead compound analysis, reasonable expectation of success, and objective indicia of non-obviousness such as commercial success or long-felt need.\n\n## Output Format and Presentation\n\nStructure your summary to facilitate rapid comprehension and strategic decision-making. Begin with an executive summary that captures the essential facts, key issues, and bottom-line implications in three to four paragraphs. Follow with detailed sections covering patent identification and bibliographic data, technical background explaining the relevant science, claim analysis with specific claim language and scope interpretation, prior art and validity considerations, infringement analysis if applicable, procedural history and status, and strategic recommendations.\n\nUse clear headings and subheadings to organize information logically. Present technical information in accessible language while maintaining precision, defining specialized terms when first introduced. Include specific citations to claim numbers, paragraph numbers in patent specifications, exhibit references in litigation documents, and relevant legal authorities. When discussing claim scope, quote key claim limitations verbatim and explain their meaning in context.\n\nFor patent disputes, create a timeline of significant events and a clear statement of what is at stake commercially and legally. Identify any patterns across multiple related disputes, such as serial litigation campaigns or coordinated challenges to patent validity. Flag any unusual procedural developments, unexpected rulings, or emerging legal issues that could have precedential impact beyond the immediate case.\n\n## Legal and Regulatory Considerations\n\nEnsure your summary addresses jurisdiction-specific requirements and international dimensions where relevant. For U.S. patents, consider the impact of the America Invents Act's first-to-file provisions, post-grant review procedures, and changes to best mode and inequitable conduct standards. For international matters, note differences in patent eligibility, grace periods, and enforcement mechanisms across key jurisdictions including Europe, Japan, and China where biotechnology companies often seek parallel protection.\n\nIdentify any regulatory exclusivity that operates independently of patent protection, such as FDA orphan drug exclusivity, biologics exclusivity under the BPCIA, or pediatric exclusivity extensions. Assess how patent term adjustments, patent term extensions under Hatch-Waxman or its biologics equivalent, and terminal disclaimers affect the effective period of market exclusivity.\n\nHighlight ethical and policy considerations that may influence patent validity or enforcement, particularly for controversial technologies like human gene editing, embryonic stem cells, or synthetic biology applications. Note any amicus participation by patient advocacy groups, professional societies, or government agencies that signals broader stakeholder interest.\n\n## Deliverable Quality Standards\n\nYour summary must be accurate, current, and actionable. Verify all factual information including patent numbers, case citations, and party names. Distinguish clearly between established facts, legal arguments advanced by parties, and your analytical assessments. Update the summary to reflect the most recent developments, noting the date through which information is current. Provide sufficient detail to support strategic planning while remaining concise enough for busy executives to digest quickly.\n\nThe final summary should enable readers to understand what intellectual property is at stake, who controls it, what challenges or disputes exist, what the likely outcomes are, and what actions the company should consider in response. This may include recommendations to design around patents, seek licenses, file oppositions or invalidity challenges, adjust R&D priorities, or prepare for potential litigation. Your analysis should empower biotechnology companies to navigate the complex patent landscape with confidence and strategic clarity.",
+  "parent_skill_id": "5b460232-3c68-43e5-be24-101410c162fd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "biotechnology"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery",
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "intellectual_property_licensing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:48:01.356256Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating biotech patent summary skill**
+
+I'm outlining a concise skill named "biotech-patent-summary" with clear metadata, a concise purpose, numbered prerequisites, structured outputs using tables and checklists, and jurisdiction-specific patent law points including major case names and procedural elements, ensuring inclusion of citation instructions and maintaining a focused, flat format.
+thinking
+**Drafting detailed skill description and outputs**
+
+I'm defining the skill's detailed description with trigger keywords, enumerated prerequisites including current date, and a structured output featuring clear sections and tables such as claim scope, validity, infringement, and timelines, plus checklists and procedural guidance. I'm adding usage instructions for missing dispute data, strict citation and confidentiality guidelines, and notes on jurisdiction and ethics flags to keep output precise and compliant.
+codex
+---
+name: biotech-patent-summary
+description: Produces structured summaries and risk analysis of U.S. biotechnology patent filings and disputes, extracting bibliographic data, claim scope, status, parties, venues, and timelines; assesses eligibility, enablement, written description, obviousness, infringement, and exclusivity impacts to support FTO, licensing, and litigation decisions. Use when asked for biotech patent summary, freedom-to-operate/FTO, PTAB IPR/PGR, ITC or district case overview, claim-scope analysis, Mayo/Myriad/Ariosa eligibility, BPCIA exclusivity, or licensing diligence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+    - Transactional
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Biotechnology Patent Summary
+
+Deliver a concise, decision-ready summary of biotech patent filings or disputes with claim-scope, validity, and business impact analysis.
+
+## Prerequisites
+
+1. **Primary sources** — patent application/publication or issued patent, prosecution history if available
+2. **Status data** — USPTO/PAIR status, PTAB filings, or court docket entries
+3. **Technology description** — accused product/process or target R&D program for FTO
+4. **Prior art set** — cited references and any known competing publications/patents
+5. **Jurisdiction scope** — U.S. default; list any foreign parallels if provided
+6. **As-of date** — specify the date through which information is current
+
+## Output Structure / Process
+
+Use this fixed section order. Omit sections that do not apply and state “Not applicable.”
+
+### 1) Executive Snapshot (3–6 bullets)
+- Patent/Case: {identifier}
+- Posture: {pending/granted/IPR/litigation/settled}
+- Core claim: {one-sentence scope}
+- Key risks: {eligibility/112/103/infringement}
+- Business impact: {market/product/pipeline}
+- Recommended action: {license/design-around/challenge/monitor}
+
+### 2) Patent Identification
+| Field | Value |
+|---|---|
+| Patent/App No. | |
+| Title | |
+| Assignee(s) | |
+| Inventor(s) | |
+| Priority/Filing | |
+| Status | pending/granted/abandoned/expired |
+| Family/Continuations | |
+| Related cases | |
+
+### 3) Technical Background (Plain English)
+- Mechanism of action:
+- Novelty claim:
+- Prior art baseline:
+
+### 4) Claim Scope Summary
+Quote key limitations verbatim, then explain in plain English.
+
+| Claim No. | Key Limitations (verbatim) | Plain-English Scope | Breadth/Risk |
+|---|---|---|---|
+
+### 5) Eligibility / §101 (Biotech‑Specific)
+Checklist and short analysis.
+- [ ] Diagnostic method concerns (Mayo)
+- [ ] Natural product/isolation concerns (Myriad)
+- [ ] Routine/conventional steps (Ariosa)
+- [ ] Engineered composition or specific improvement
+- [ ] Practical application tied to concrete steps
+
+### 6) Enablement & Written Description / §112
+| Issue | Evidence | Risk Level |
+|---|---|---|
+| Genus breadth vs disclosed species | | |
+| Structural guidance (e.g., antibodies) | | |
+| Functional claiming | | |
+| Undue experimentation | | |
+
+### 7) Obviousness / §103
+- Lead compound analysis
+- Reasonable expectation of success
+- Objective indicia: commercial success, long‑felt need, failure of others
+
+### 8) Infringement Mapping (if dispute or FTO)
+| Claim Limitation | Accused Feature/Process | Mapping Evidence | Gap |
+|---|---|---|---|
+
+### 9) Procedural Posture & Timeline (if dispute)
+| Date | Event | Forum | Impact |
+|---|---|---|---|
+| | | | |
+
+### 10) PTAB / ITC / District Case Summary (if applicable)
+| Forum | Docket/Case No. | Parties | Stage | Next Milestones |
+|---|---|---|---|---|
+
+### 11) Exclusivity & Term
+| Item | Date/Duration | Notes |
+|---|---|---|
+| PTA/PTE | | |
+| BPCIA exclusivity | | |
+| Orphan drug | | |
+| Pediatric | | |
+| Terminal disclaimer | | |
+
+### 12) Strategic Implications
+- Commercial exposure: damages/injunction/launch timing
+- Portfolio leverage: licensing/defensive uses
+- Design‑around feasibility
+- Settlement posture
+
+### 13) Recommendations (Actionable)
+Use a numbered list with owners and deadlines.
+
+## Guidelines
+
+- Separate **facts**, **party allegations**, and **analysis** explicitly.
+- Cite claim numbers, spec paragraphs, and docket entries when used.
+- Flag uncertain legal citations with `[VERIFY]`.
+- Do not assert validity or infringement conclusively; provide risk‑graded analysis.
+- U.S. law default; add a short “International Parallels” section only if data exists.
+- If clinical or diagnostic claims, emphasize §101 and §112 risks.
+- If gene editing or stem cell technologies, add a brief ethics/policy note.
+- Keep total length 1–3 pages unless the user requests more.
+tokens used
+3,816

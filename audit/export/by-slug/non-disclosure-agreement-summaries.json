@@ -1,0 +1,43 @@
+{
+  "id": "b9c2368f-6e95-4ae7-b8a1-9a0ff2277462",
+  "slug": "non-disclosure-agreement-summaries",
+  "name": "Non-Disclosure Agreement (NDA) Summaries",
+  "summary": "Generates comprehensive, structured summaries of Non-Disclosure Agreements (NDAs) in a clear format for quick reference. Highlights key elements including parties, confidentiality definitions, permitted disclosures, exclusions, standard of care, term, survival provisions, and breach consequences. Use when legal teams or stakeholders need to distill NDA obligations and risks efficiently in transactional or corporate contexts.",
+  "content": "# Non-Disclosure Agreement (NDA) Summary Prompt\n\nYou are a legal professional tasked with creating a comprehensive summary of a Non-Disclosure Agreement. Your objective is to distill the NDA into a clear, actionable summary that highlights the most critical provisions governing confidential information, disclosure parameters, and consequences of breach.\n\nBegin by thoroughly reviewing the entire NDA document to ensure you capture all material terms. Your analysis should identify and extract the essential elements that legal teams, business stakeholders, and compliance officers need to understand their obligations and risks under this agreement.\n\n## Summary Structure and Content Requirements\n\nYour summary must be organized in a clear, professional format that enables quick reference and decision-making. Start with a brief overview paragraph that identifies the parties to the agreement, the effective date, the term or duration of confidentiality obligations, and the general purpose or context of the NDA (such as whether it relates to a potential business transaction, employment relationship, vendor engagement, or other commercial arrangement).\n\nFollowing the overview, provide a detailed section on confidentiality obligations that specifies what information is considered confidential under the agreement. This should include the definition of confidential information, any categorical descriptions or examples provided in the NDA, and importantly, any carve-outs or exclusions from the definition such as information that is publicly available, independently developed, or already known to the receiving party. Clearly articulate the standard of care required for protecting confidential information, whether it mirrors the party's protection of its own confidential information or imposes a specific standard such as reasonable care or heightened security measures.\n\nCreate a comprehensive section addressing permitted and prohibited disclosures. Identify any circumstances under which disclosure is explicitly authorized, including disclosures to employees, contractors, advisors, or affiliates who have a need to know, and note any requirements that such recipients be bound by similar confidentiality obligations. Document any provisions allowing disclosure pursuant to legal process, court order, or regulatory requirement, and whether the disclosing party must provide advance notice to allow the other party to seek protective measures. Clearly state what uses of confidential information are permitted beyond mere receipt and protection, such as evaluation for business purposes, and what uses are expressly prohibited.\n\nProvide a detailed analysis of the term and survival provisions. Specify when confidentiality obligations commence, how long they continue during the relationship, and critically, how long they survive after termination of the agreement or the underlying business relationship. Note any provisions requiring return or destruction of confidential materials upon termination and any certification requirements related to such destruction.\n\n## Breach Consequences and Remedies\n\nDedicate substantial attention to documenting the consequences of breach and available remedies. Identify whether the agreement acknowledges that monetary damages may be inadequate to compensate for breach and whether it specifically authorizes injunctive relief or specific performance without the need to post bond. Note any liquidated damages provisions that specify predetermined amounts for certain breaches. Document any indemnification obligations related to unauthorized disclosure or use of confidential information, including whether the indemnifying party must cover legal fees and costs.\n\nCapture any limitation of liability provisions that might cap damages or exclude certain categories of damages such as consequential, incidental, or punitive damages, as these directly impact the practical consequences of breach. If the agreement includes dispute resolution provisions such as mandatory arbitration, mediation, or jurisdiction and venue selections, include these as they affect how breach claims would be pursued.\n\n## Additional Material Provisions\n\nBeyond the core confidentiality framework, identify other provisions that materially affect the parties' rights and obligations. This includes any non-solicitation or non-compete restrictions that extend beyond pure confidentiality, intellectual property ownership or licensing terms related to information exchanged, any representations and warranties about the confidential information or authority to disclose it, and governing law and jurisdiction provisions.\n\nNote any unusual, particularly favorable, or particularly onerous terms that deviate from market standards for NDAs. Flag any ambiguities or potential gaps in coverage that could create enforcement challenges or unintended exposure.\n\n## Professional Standards and Best Practices\n\nThroughout your summary, maintain precision in legal terminology while ensuring the document remains accessible to business professionals who may not have legal training. Use clear headings and subheadings to enable quick navigation to specific topics. When referencing specific provisions, cite to the relevant section numbers or page numbers in the original NDA to facilitate verification and deeper review when needed.\n\nYour summary should be comprehensive enough that a reader can understand their material obligations and risks without reviewing the full agreement, yet concise enough to serve as a practical reference tool. Aim for a length that captures all material terms while remaining digestible, typically ranging from one to three pages depending on the complexity of the underlying NDA.\n\nIf you encounter any provisions that are unclear, internally inconsistent, or potentially unenforceable, note these issues in your summary as they may require legal review or negotiation. Similarly, if the NDA is silent on important topics typically addressed in such agreements, such as the standard of care or survival period, flag these omissions.\n\nPresent your final summary in a clean, professional format suitable for inclusion in a contract management system, distribution to business stakeholders, or attachment to internal approval memoranda. The summary should stand alone as a reliable reference document that enables informed decision-making about confidentiality obligations and breach risks under this NDA.",
+  "parent_skill_id": "67f61090-da8b-4201-be46-695d7d2df4a1",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

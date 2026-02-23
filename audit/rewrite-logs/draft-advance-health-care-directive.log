@@ -1,0 +1,331 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c73-2331-7191-aaed-e4012a922b6b
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "b1880a16-12b5-425b-877c-d6ea87c37a35",
+  "slug": "draft-advance-health-care-directive",
+  "name": "Advance Health Care Directive",
+  "summary": "This skill guides an LLM through attorney-supervised drafting of a state-compliant U.S. Advance Health Care Directive that appoints health care agents, resolves the HIPAA access gap, and records clinically usable treatment preferences. It emphasizes state-law verification for execution formalities, statutory forms, and special limitations, integrates HIPAA authorization requirements, and addresses adversarial risks from family disputes and institutional challenges. The workflow requires explicit statutory verification for every jurisdiction-specific claim and mandatory attorney review before execution.",
+  "content": "# Advance Health Care Directive Drafting Skill \u2014 U.S. (State-Specific)\n\n## 1. Opening Context\n\nThis skill produces an attorney-supervised Advance Health Care Directive (AHCD), a foundational estate planning instrument that serves two primary functions: appointing one or more health care agents to make medical decisions when the client lacks capacity, and memorializing the client's treatment preferences\u2014including end-of-life choices, organ donation, and related instructions to clinicians. Depending on the state, this instrument may be called an \"Advance Directive,\" \"Health Care Power of Attorney,\" \"Health Care Proxy,\" or \"Living Will,\" and some jurisdictions treat the agent appointment and living will as separate documents that may be combined.\n\nDone well, an AHCD protects the client's bodily autonomy, reduces the risk of unwanted treatment, minimizes family conflict, and provides clinicians with an actionable roadmap. Done poorly, it can be rejected by hospitals, trigger statutory default-surrogate rules contrary to the client's intent, create ambiguity that forces providers to default to aggressive treatment, or invite litigation among family members. The directive's audience is broader than most estate planning documents: emergency room clinicians, attending physicians, nursing staff, hospital legal and risk management departments, long-term care intake teams, and the client's family all need clarity and procedural validity.\n\nProfessional standards governing this workflow include competent client counseling and document drafting (ABA Model Rule 1.1), communication sufficient for informed consent (Model Rule 1.4), confidentiality over sensitive medical information (Model Rule 1.6), conflict screening when family dynamics are complex (Model Rule 1.7), and special care when a client may have diminished capacity (Model Rule 1.14). At the federal level, the Patient Self-Determination Act (42 U.S.C. \u00a7 1395cc(f)) requires hospitals receiving Medicare and Medicaid funding to ask patients about advance directives upon admission, making the document's portability and recognizability a practical concern. HIPAA (45 C.F.R. \u00a7 164.508) governs the authorization needed for agents to access protected health information.\n\nScope boundaries: this skill covers drafting and execution-readiness of an advance directive instrument, including common ancillary clauses such as HIPAA authorization, organ donation, disposition of remains preferences where permitted, and pregnancy-related limitations where applicable. It does not replace clinician-facing medical orders such as POLST/MOLST (Physician Orders for Life-Sustaining Treatment / Medical Orders for Life-Sustaining Treatment), which are separate documents requiring clinician signatures and governed by separate state programs. When the client's goals require immediate, actionable medical orders (e.g., a current DNR), the directive should be paired with POLST/MOLST counseling and referral.\n\n## 2. Understanding the Context and Purpose\n\nAdvance directives sit at the intersection of estate planning, health law, constitutional privacy rights, and family dynamics. The legal bedrock is the principle of patient autonomy, recognized by the U.S. Supreme Court in Cruzan v. Director, Missouri Department of Health, 497 U.S. 261 (1990), which acknowledged a constitutionally protected liberty interest in refusing unwanted medical treatment while permitting states to require \"clear and convincing evidence\" of the patient's wishes. The AHCD serves as that evidence.\n\nStrategically, the document is not primarily about enforceability in court; it is about real-world usability in hospitals and long-term care settings under time pressure. The key outcomes you are optimizing for are: (a) the client's values are translated into actionable medical instructions, (b) the correct decision-maker is recognized immediately without bureaucratic delay, (c) the directive is executed in a manner that the particular state's providers will accept without escalation to ethics committees or courts, and (d) the document withstands potential challenges from family members or institutional gatekeepers.\n\nDrafting requires balancing two competing interests: providing specific enough instructions to guide a surrogate in difficult moments, and maintaining enough flexibility to account for medical advancements and unforeseen clinical scenarios. When the agent must exercise discretion, the governing standard in most jurisdictions is \"substituted judgment\"\u2014the agent must make the choice the client would make for themselves if able, informed by the client's stated values and known preferences.\n\nIf the client travels or receives care across state lines, portability becomes a strategic concern. Many states honor out-of-state directives if valid where executed, but the details vary, and provider acceptance is often smoother with a locally conforming form. When multi-state use is expected, consider preparing state-specific versions and advising the client to carry and distribute the version most likely to be recognized in each care setting.\n\n## 3. Prerequisites and Information Gathering\n\nBefore drafting, the LLM must collect the facts that drive enforceability and usability. If any required inputs are missing, the LLM must pause and ask targeted follow-up questions rather than guessing or filling gaps with assumptions.\n\nFirst, identify jurisdiction and portability needs. Confirm the client's state of residence, where the directive will likely be used (e.g., a second-home state), and whether the client anticipates care in a different jurisdiction. Because advance directive requirements are state-specific and sometimes form-driven, the drafting baseline should be the state whose providers will most often rely on the document. If the client splits time between states, consider preparing a primary directive under the principal state's law and a companion document under the secondary state's law, but only after attorney review and verification of reciprocity provisions.\n\nSecond, collect the client's identity and capacity context. Obtain full legal name, all prior names (if relevant for matching medical records), date of birth, address, phone, and email. Ask whether the client currently has any diagnosis that could raise capacity concerns\u2014cognitive impairment, progressive neurological disease, recent hospitalization with delirium. If there is a known or suspected capacity issue, the LLM must flag this for the supervising attorney. Contemporaneous capacity documentation (a physician's evaluation or attorney's capacity memo) should be arranged before execution, because later challenges to capacity are a common attack vector for invalidating directives.\n\nThird, collect existing documents and care context. Request and review any prior advance directives, living wills, DNR orders, POLST/MOLST forms, organ donor registry entries, durable powers of attorney (financial), estate planning documents (for consistency of agent choices), and any guardianship or conservatorship orders. Also gather relevant medical context the client wishes to disclose, such as chronic illness, religious constraints on treatment, or prior traumatic ICU experiences that inform current preferences.\n\nFourth, gather agent and alternate agent details. For each proposed agent and alternate, collect full legal name, relationship to the client, address, phone, email, and assess practical availability (geographic proximity, work constraints, willingness to serve). Inquire about family conflict risks\u2014whether any person is likely to contest the agent's authority. Confirm whether any proposed agent is also a treating provider or works at a facility where the client receives care; many states restrict facility employees from serving as agents or witnesses absent kinship. If the client proposes co-agents, understand that co-agent structures invite paralysis in emergencies and must be accompanied by clear decision rules.\n\nFifth, determine the incapacity trigger. Ask whether the agent's authority should be \"springing\" (effective only upon a clinical determination of incapacity) or \"immediate\" (effective upon signing, though the client retains control as long as they have capacity). This choice has significant practical implications, particularly for the HIPAA access problem discussed below.\n\nSixth, gather the client's values and treatment preferences with sufficient specificity. At minimum, elicit preferences regarding: CPR; intubation and mechanical ventilation; artificial nutrition and hydration; dialysis; antibiotics for life-threatening infections; hospitalization versus comfort-focused care; palliative sedation and pain control (including willingness to accept medication that may hasten death); religious or cultural constraints (e.g., refusal of blood products); and desired setting of care if terminally ill. Ask the client to articulate goals in plain language (\"I prioritize comfort and being at home over living as long as possible\") and then translate those values into directive language. The client's preferences should address specific clinical scenarios: terminal conditions, persistent vegetative states, end-stage conditions (e.g., advanced dementia), and situations where burdens of treatment outweigh benefits.\n\nSeventh, gather organ donation and disposition preferences. Determine whether the client wants donation for transplant, therapy, research, or education, and whether any organs or tissues are excluded. Confirm whether the client is registered through the state organ donor registry or driver's license program, and reconcile any inconsistency. Also ask about autopsy preferences and disposition of remains; in some states, disposition authority is governed by a separate statute and may require a separate document.\n\nEighth, collect execution logistics. Confirm whether the client can access a notary, whether qualified witnesses are available, and where execution will occur (home, office, hospital, long-term care facility). If the client is a patient in a skilled nursing facility, special witnessing requirements may apply (e.g., California requires a patient advocate or ombudsman signature under Cal. Prob. Code \u00a7 4675).\n\n## 4. Step-by-Step Drafting Process\n\n### Step 1: Confirm the Governing State Law Framework\n\nBegin by determining the state's statutory scheme. Many states, following the Uniform Health-Care Decisions Act (UHCDA), combine the agent appointment and living will in a single instrument. Others treat them as separate documents. Some states\u2014such as California (Probate Code \u00a7 4701) and Florida (Fla. Stat. \u00a7 765.101 et seq.)\u2014provide statutory forms that, while technically optional, function as safe harbors and are most readily accepted by providers. Other states mandate specific language that must be included verbatim.\n\nYou must verify, using authoritative sources (the state's current advance directive statute, official health department guidance, or state bar resources), the following points before drafting final text: (a) whether the state provides a statutory form and whether any language must be reproduced verbatim; (b) execution requirements\u2014witnesses versus notary, number of witnesses, disqualification categories; (c) default effectiveness rules and any required capacity determination procedures; (d) any special limitations, including pregnancy-related restrictions, mental health treatment authority, anatomical gift integration, and facility patient advocate rules; and (e) revocation methods.\n\nAnti-hallucination guardrail: do not rely on parametric memory for state execution rules or statutory language. Instead, search for and locate the state's current advance directive statute and official guidance, and include the URL in your working notes. If web access is not available in the execution environment, insert a prominent banner: \"[VERIFY: STATE LAW REQUIREMENTS AND STATUTORY FORM \u2014 Execution formalities must be conformed to [STATE] law before signing.]\" Draft a jurisdiction-neutral instrument explicitly marked as requiring state-law conformance.\n\nCommon mistake: using a California-style form in a non-California state with incompatible witness rules, leading to rejection at hospital admission.\n\n### Step 2: Draft the Appointment of Health Care Agent\n\nThe agent appointment is the most frequently consulted section of the directive. Draft it so a nurse or hospital administrator can identify the decision-maker within seconds under clinical pressure. Use clear headings, boldface names where formatting allows, and complete contact information.\n\nInclude a statement that the agent's authority becomes effective upon the client's incapacity (or immediately, if the client selected that option), and specify who determines incapacity\u2014typically the attending physician, though some states require concurrence by a second physician. Authority should be broad enough to cover consent, refusal, and withdrawal of treatment; access to and release of medical records (including HIPAA-protected information); admission and discharge decisions; selection and dismissal of healthcare providers; and end-of-life care determinations. The language must be sufficiently comprehensive to cover unforeseen medical situations while respecting any specific limitations the client wishes to impose.\n\nInclude an explicit conflict-resolution hierarchy: if the agent's judgment conflicts with written instructions in the living will section, the written instructions must prevail. This prevents an agent from overriding the client's express wishes. For circumstances not addressed by written instructions, the agent should apply the substituted judgment standard\u2014deciding as the client would decide if able, guided by stated values.\n\nIllustrative agent appointment language (to be conformed to state law):\n\n\"I appoint the following person as my Health Care Agent to make health care decisions for me if I am determined to lack capacity to make or communicate such decisions:\n\n[NAME], [RELATIONSHIP]\nAddress: [ADDRESS]\nPhone: [PHONE] Email: [EMAIL]\n\nMy Agent may consent to, refuse, or withdraw any health care, including life-sustaining treatment, consistent with my instructions and known wishes. My Agent may access and authorize release of my health information under HIPAA and applicable state law to carry out these duties. If my Agent's judgment differs from any specific instruction I have given in this directive, my written instruction shall control. This appointment is effective when my primary treating clinician (and any additional clinician(s) required by [STATE] law) determines that I lack capacity to make or communicate health care decisions. [VERIFY: state determination standard.]\"\n\nAdversarial awareness: opposing family members may claim the agent exceeded authority or acted contrary to wishes. Reduce risk by including a values statement, a clear instruction hierarchy, and a declaration that the client intentionally chose the named agent.\n\n### Step 3: Build a Robust Alternate-Agent Succession Plan\n\nDesignating alternates is not just convenience; it is a dispute-avoidance mechanism and a safeguard against operational failure when the primary agent cannot be reached. Draft clear succession: alternates act only if the primary agent is unavailable, unwilling, or disqualified, with each successive alternate stepping in only if all prior agents are unavailable. Specify that providers may rely on a representation of unavailability as permitted by state law.\n\nIf family conflict is likely, strengthen the directive with a statement that the client intentionally chose the agent over other relatives, and guidance on how the agent should handle family consultation (\"my agent may consult with my family but is not required to obtain consensus\"). This helps clinicians and hospital counsel feel safer relying on the agent's authority.\n\nIllustrative succession language:\n\n\"If my Health Care Agent is not reasonably available, is unwilling to act, or is unable to act, I appoint as my First Alternate Agent: [NAME/CONTACT]. If the First Alternate cannot serve, I appoint as my Second Alternate Agent: [NAME/CONTACT]. A health care provider may rely on a representation that an Agent is unavailable if permitted by [STATE] law. [VERIFY.]\"\n\nCommon mistakes: naming alternates without defining when they step in; listing multiple co-agents without explaining tie-breakers; or creating a committee structure unworkable in emergencies. If the client insists on co-agents, draft a decision rule (unanimous vs. majority), a tie-breaker mechanism, and verify that state law permits co-agents.\n\n### Step 4: Resolve the HIPAA Gap and Draft Records-Access Authorization\n\nA critical but frequently overlooked drafting problem is the \"HIPAA gap.\" Under HIPAA, providers generally cannot disclose protected health information to the agent until the agent's authority is established. But if the AHCD is \"springing\" (effective only upon incapacity), the agent is not yet authorized to act until a physician makes a capacity determination\u2014creating a circular problem where the physician cannot share information with the person trying to establish that the trigger condition has been met.\n\nTo solve this, include an immediate HIPAA authorization regardless of whether the substantive decision-making power is springing or immediate. This allows the agent to access records and communicate with physicians right away to determine whether the incapacity trigger has been met. The authorization should identify the agent and alternates as permitted recipients, describe the information scope, and include the required elements under 45 C.F.R. \u00a7 164.508.\n\nBe aware that certain categories of records carry heightened protections. Substance use disorder records subject to 42 C.F.R. Part 2 require specific authorization elements; HIV/AIDS records and mental health records may be subject to additional state-law restrictions. If the client expects the agent to access such records, flag this for attorney verification and draft the necessary additional authorization language.\n\nIllustrative HIPAA language (to be verified against 45 C.F.R. \u00a7 164.508 and state law):\n\n\"Effective immediately upon signing, I authorize my Health Care Agent (and any successor agent acting under this directive) to access all of my medical records, communicate with any of my health care providers, and receive my protected health information under HIPAA (45 C.F.R. \u00a7 164.508) and applicable state law. This authorization remains in effect until revoked. [VERIFY: required elements and any heightened protections for substance use, mental health, or HIV/AIDS records.]\"\n\n### Step 5: Translate Values into Clinically Usable Living Will Instructions\n\nThe living will section must not read like a philosophical essay or a vague aspiration. Providers need clear, scenario-based instructions that fit common clinical decision points. Avoid terms like \"no heroic measures\" or \"extraordinary care,\" which have no clinical definition and invite conflicting interpretation.\n\nDraft in a layered structure. Begin with a short statement of overarching goals and values\u2014these guide the agent and providers when specific instructions do not address the situation. Then provide specific preferences for common interventions: CPR, mechanical ventilation, artificial nutrition and hydration, dialysis, antibiotics for life-threatening infections, and hospitalization versus comfort care. For each intervention, define the clinical context in which the preference applies. A client might want CPR for a sudden cardiac event while otherwise healthy, but refuse it in the end stages of a terminal illness.\n\nAddress palliative care affirmatively. Junior practitioners often focus so heavily on the refusal of treatment that they neglect the provision of comfort care. Explicitly direct that, regardless of any refusal of life-sustaining treatment, the client must receive palliative care\u2014treatment to alleviate pain and suffering, including medication that may unintentionally hasten death. This is grounded in the \"doctrine of double effect,\" which distinguishes treatment intended to relieve suffering (even with a foreseeable risk of hastening death) from actions intended to cause death. Including this language protects the agent and the physician from liability under state criminal statutes.\n\nIncorporate the state's statutory definitions where available. States define \"terminal condition,\" \"permanent unconsciousness,\" and related terms differently; using the statutory language reduces ambiguity and aligns the directive with the legal framework providers are accustomed to applying.\n\nIllustrative values-and-treatment structure:\n\n\"My goals and values: If I have a serious illness or injury and cannot make decisions, I want my care guided by these priorities: (1) relief of pain and suffering; (2) ability to recognize and interact with loved ones; (3) avoiding prolonged treatment that only prolongs the dying process.\n\nLife-sustaining treatment: If I am in a terminal condition or irreversible condition as defined by [STATE] law , I direct:\n\n(1) CPR: I do / do not want attempted resuscitation.\n(2) Ventilation: I do / do not want mechanical ventilation if I cannot breathe on my own, except for a short trial period if my clinician believes recovery is reasonably likely.\n(3) Artificial nutrition/hydration: I do / do not want tube feeding or IV hydration when it would only prolong the dying process. Comfort feeding by mouth as tolerated is acceptable.\n(4) Comfort care: I want treatment to relieve pain and anxiety, including palliative sedation and medication that may unintentionally shorten my life, to the fullest extent permitted by law.\n\nUnaddressed circumstances: If my specific instructions do not address the situation, my Agent should make decisions consistent with my values and what I would choose if able, applying the substituted judgment standard.\"\n\nCommon mistakes: contradictory instructions (\"no life support\" alongside \"do everything possible\"); omitting palliative care language; using undefined terms; and drafting instructions so rigid they prevent comfort-focused interventions.\n\nAdversarial awareness: family members sometimes litigate withdrawal of nutrition and hydration. Reduce risk by stating that the client considered these issues specifically, using statutory definitions, and pairing the instruction with values-based rationale.\n\nJurisdiction-specific considerations: some states impose pregnancy-related limitations on withholding or withdrawing life-sustaining treatment. If the client is of childbearing potential, the directive must be reviewed against state restrictions, and the client must be counseled about enforceability. Some states' provisions are constitutionally contested; flag for attorney review.\n\n### Step 6: Integrate Organ Donation and Post-Death Directives\n\nThe AHCD is often the first document family members and hospital staff locate after death, making it the practical vehicle for organ donation and disposition instructions even when these topics are technically governed by separate statutes.\n\nFor organ and tissue donation, align the directive with the Revised Uniform Anatomical Gift Act (RUAGA) framework as adopted in the relevant state. Clearly distinguish between donation for transplantation versus research or education. If the client is already registered through the state donor registry or driver's license program, ensure the directive does not conflict; under most states' RUAGA adoptions, a registry designation generally cannot be overridden by family, but inconsistency creates confusion and delay.\n\nIllustrative organ donation language:\n\n\"Upon my death, I make an anatomical gift of: (a) any needed organs and tissues / (b) only the following: [LIST]. My gift may be used for: transplantation, therapy, research, and education / only for: [PURPOSE]. I authorize my Agent to cooperate with organ procurement organizations consistent with this directive and applicable law. [VERIFY: state anatomical gift integration and priority rules.]\"\n\nFor disposition of remains and autopsy preferences, include them only if state law clearly permits inclusion in an advance directive or if the state recognizes a \"disposition agent\" appointment. Many states govern disposition authority through a separate statute (often requiring a separate document). If so, include a note recommending a separate Appointment of Agent to Control Disposition of Remains, and draft basic instructions in the AHCD to cover the immediate post-death period before probate.\n\n### Step 7: Draft Revocation, Severability, and Provider-Protection Clauses\n\nRevocation rules vary significantly by state. Some states allow revocation orally, in writing, by physical destruction, or by expressing intent to a clinician; others impose additional procedural steps. Draft a revocation clause that tracks the statute once verified. Include a statement that the client may revoke at any time while having capacity, and that the client intends providers to rely on the most recent version. Add a \"supersedes prior directives\" clause with the current date and advise the client (through the supervising attorney) to destroy prior inconsistent originals.\n\nInclude provider reliance and protection language to encourage acceptance. Many state statutes protect providers who rely in good faith on an apparently valid directive or agent instruction. After verifying the statute, include a clause reflecting that providers may rely on copies and electronic versions, and on the agent's authority absent actual knowledge of revocation.\n\nInclude a severability clause: if any provision is held invalid or unenforceable, the remainder of the directive continues in effect. This protects against the risk that a technical defect in one section\u2014such as a pregnancy limitation clause that is later invalidated\u2014does not void the entire instrument.\n\nIllustrative reliance clause (to be conformed to state law):\n\n\"A copy, fax, or electronic version of this directive has the same effect as the original to the extent permitted by [STATE] law. A health care provider may rely on this directive and the decisions of my Agent in good faith unless the provider has actual knowledge that it has been revoked. [VERIFY statutory language.]\"\n\nNote regarding conscientious objection: some states allow healthcare providers or facilities to refuse to honor a directive based on conscience or religious grounds. Include a provision requiring the objecting provider to make reasonable efforts to transfer the patient to a willing provider, as required by the applicable state statute.\n\n### Step 8: Engineer Execution Compliance\n\nExecution is where otherwise excellent directives fail. Once you have verified the state's formalities, tailor the signature blocks exactly: number of witnesses, required witness declarations, notary acknowledgment, and any special requirements for facility residents.\n\nDraft witness declarations that track statutory disqualifications. Common disqualifications include the agent, the treating clinician, employees of the facility where the client is a patient, and certain relatives or beneficiaries\u2014but the exact categories vary by state and must not be assumed. Do not draft generic witness language; conform it to the verified statute. If notarization is permitted as an alternative to or in addition to witnesses, include a compliant notary block.\n\nDraft an Agent Acceptance section. While not always statutorily required, it is operationally useful: it demonstrates the agent understands and accepts the role, reducing later claims that the agent never agreed to serve.\n\nIllustrative agent acceptance language:\n\n\"I, [AGENT NAME], accept appointment as Health Care Agent for [CLIENT]. I have read this directive and agree to act in accordance with it, the client's known wishes and values, and applicable law.\n\nSignature: __________ Date: __________\"\n\nCommon mistakes: using witnesses who are disqualified under the state's specific rules; forgetting that some states require particular attestation language in the witness declaration; failing to date the document; and neglecting facility-specific requirements such as California's ombudsman signature for skilled nursing facility residents (Cal. Prob. Code \u00a7 4675).\n\nAdversarial awareness: capacity challenges at the time of execution are the most common grounds for contesting an advance directive. If capacity is a foreseeable issue\u2014the client is elderly, recently hospitalized, or has a cognitive diagnosis\u2014the supervising attorney should arrange for contemporaneous capacity documentation (a physician's evaluation letter), use neutral witnesses who can testify to the client's understanding, and consider video-recording the execution ceremony with client consent, subject to privacy rules and state ethics requirements. The LLM should flag this risk rather than improvising solutions.\n\n## 5. Critical Legal Standards and Compliance\n\nThis work implicates core professional responsibility obligations and high-risk malpractice areas.\n\nCompetence (Model Rule 1.1): The attorney must understand both the law and the clinical implications of the choices the client is making. The LLM-driven workflow satisfies competence requirements only if the attorney supervises output and verifies state-specific legal requirements. The LLM must not present unverified statutory content as authoritative.\n\nClient with diminished capacity (Model Rule 1.14): When drafting for an elderly or ill client, the attorney must take reasonable steps to verify capacity at the time of signing. If capacity is borderline, document the interaction in a contemporaneous memo and consider obtaining a medical evaluation.\n\nCommunication (Model Rule 1.4): The client must understand the choices being made. The LLM can generate clear explanatory language to accompany the directive, but the attorney must ensure the client's informed consent.\n\nConfidentiality (Model Rule 1.6): Client health preferences and medical context are highly sensitive. Avoid unnecessary retention or disclosure of medical information in the drafting workflow.\n\nConflicts and undue influence (Model Rule 1.7): Agent selection can create conflicts, especially when a family member who benefits under the client's estate plan is steering decisions. Screen for conflicts and red flags of undue influence. The LLM should prompt the user to confirm that instructions reflect the client's preferences, not the proposed agent's.\n\nCandor and non-assistance in fraud (Model Rule 1.2(d)): If asked to backdate a directive, fabricate witnesses or notarization, or assist in overriding a known valid directive without the declarant's consent, the LLM must refuse and flag the request.\n\nHIPAA compliance: HIPAA authorization elements must match 45 C.F.R. \u00a7 164.508 requirements. If substance use disorder records may be implicated, 42 C.F.R. Part 2 applies with heightened requirements; do not represent Part 2 compliance without confirming current requirements.\n\nMalpractice risk areas: The highest-exposure risks in AHCD drafting are (a) incorrect execution formalities rendering the directive void, (b) ambiguous or contradictory instructions that providers cannot follow, (c) agent ineligibility under state law, (d) failure to address portability or provider usability, and (e) fabricated or unverified legal authorities in the document. Mitigate through state-law verification with cited sources, clear internal instruction hierarchy, and mandatory attorney review before execution.\n\n## 6. Quality Control and Review\n\nTreat review as a legal and operational audit. Apply the following framework before finalizing:\n\nFirst, confirm the governing law. Every statement about execution requirements, effectiveness triggers, revocation methods, pregnancy limitations, mental health authority, and provider reliance must be traced to a verified state statute, official state form, or official agency guidance\u2014with a URL where available\u2014or must be flagged with a verification notation for attorney confirmation.\n\nSecond, confirm factual accuracy and internal coherence. Verify all names and contact details are correct and consistent across the agent appointment, HIPAA authorization, organ donation, and signature blocks. Confirm alternates are properly ordered and succession triggers are consistent. Confirm the living will instructions do not contradict the agent authority\u2014for example, if the client directs \"no artificial nutrition,\" the agent clause should not suggest unfettered discretion to authorize it contrary to instructions.\n\nThird, confirm usability and clinical readability. The document should be scannable: clear headings, key choices stated plainly, minimal legalese. An ER physician should be able to identify the agent and core instructions within 60 seconds. If formatting allows, bold key names and decision points.\n\nFourth, verify citations and authority references. If the output references statutes, regulatory provisions, or forms, they must be verified by web search and cited with URLs, or flagged as requiring verification. Never generate case citations, statute numbers, or regulatory references from parametric memory without verification.\n\nFifth, confirm the document contains no internal contradictions between sections\u2014particularly between the agent's scope of authority, the conflict-resolution hierarchy, and the specific treatment instructions.\n\nFinally, the LLM must include an explicit notation that this is draft work product requiring review by a licensed attorney in the relevant jurisdiction before execution. It does not constitute legal advice. The supervising attorney should review the document, supervise execution, and advise on distribution\u2014providing copies to agents, the primary care physician, and uploading to patient portals where available.\n\n## 7. Jurisdiction-Specific Adaptations\n\nAdvance directive law is state-specific in ways that materially change drafting. The following illustrative examples demonstrate the range of variation, but every state's requirements must be independently verified before finalizing any directive.\n\nExecution formalities diverge significantly. Some states accept notarization as an alternative to witnesses; others require two adult witnesses and impose detailed disqualification rules; some require special witnessing in facilities. California requires either notarization or two witnesses, and adds a patient advocate or ombudsman requirement for skilled nursing facility residents (Cal. Prob. Code \u00a7 4675). Florida requires two witnesses, one of whom must not be a spouse or blood relative (Fla. Stat. \u00a7 765.104).\n\nSubstantive triggers and definitions vary. States define \"terminal condition,\" \"permanent unconsciousness,\" and \"capacity\" differently; some require attending physician determinations, some require two physicians. When drafting living will provisions, adopt the state's defined terms where available.\n\nNew York uses separate instruments\u2014a \"Health Care Proxy\" for agent appointment and a \"Living Will\" for treatment instructions\u2014though they are often combined in practice. New York imposes a high evidentiary standard for withdrawal of life support, making specificity of documented wishes particularly important.\n\nTexas uses a \"Directive to Physicians and Family or Surrogates\" and has a controversial provision (Health & Safety Code \u00a7 166.046) establishing a process for hospitals to withdraw life-sustaining treatment over family objections after an ethics committee review and a 10-day transfer period. Drafting for Texas clients should account for this hospital review process.\n\nPregnancy limitations are jurisdiction-dependent and constitutionally contested. Some states restrict withholding or withdrawing life-sustaining treatment from a pregnant patient under certain conditions. If the client is of childbearing potential or raises pregnancy-related preferences, verify the state's rules and flag for attorney review.\n\nMental health treatment authority differs across states. Some require separate instruments or specific language to authorize psychiatric medication, inpatient admission, or electroconvulsive therapy. Do not include such authority by default; verify state requirements and include only with client consent and attorney review.\n\nPortability and recognition of out-of-state directives varies. Many states honor out-of-state directives if valid where executed, but provider acceptance is often smoother with a locally conforming form. If multi-state use is expected, consider preparing state-specific versions.\n\nPOLST/MOLST interaction is state-program dependent. The advance directive guides substitute decision-making; POLST/MOLST is a clinician order set that travels across care settings and produces immediately actionable medical orders. Where the client's preferences involve DNR status or comfort-only care, recommend discussing POLST/MOLST with the supervising attorney and the client's clinician.",
+  "parent_skill_id": "8bedabb0-a0e4-4136-9d06-540d72094eac",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "estate_planning"
+    ]
+  },
+  "version": 2,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:41:23.529990Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+codex
+---
+name: advance-health-care-directive
+description: Drafts U.S. state-compliant Advance Health Care Directives (health care proxy, living will, and related execution package) into attorney-review-ready, clinically actionable documents. Use when a user requests a health care directive, healthcare agent appointment, capacity trigger planning, HIPAA authorization bridge, organ donation/disposition preference, or execution checklist before signing and distribution.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Advance Health Care Directive
+
+Drafts a jurisdiction-specific directive package that appoints a health care decision-maker, sets treatment preferences, addresses record-access and portability issues, and enforces execution formalities.
+
+## Prerequisites
+
+1. **Jurisdiction locked**: client principal state plus expected care states identified; determine whether out-of-state portability is needed.
+2. **Draft scope confirmed**: directive + health care agent + living wishes + revocation + execution clauses; attorney review required before finalization.
+3. **Capacity context collected**: no contested capacity assumptions; if concern exists, flag for contemporaneous capacity memo.
+4. **Client identity/case data captured**: legal name, DOB, aliases, contact data, diagnosis context relevant to decision-making.
+5. **Agent architecture collected**: primary agent and alternates with full contact details, availability, conflicts, and consent to serve.
+6. **Treatment preference inputs captured**: CPR, ventilation, feeding/hydration, hospitalization goals, comfort care, palliative sedation position, religious/cultural restrictions.
+7. **Existing documents reviewed**: prior directives, POLST/MOLST, donor registry status, powers of attorney, guardianship/adult protective orders.
+8. **Execution logistics captured**: where signing occurs, notary availability, witness constraints, facility-specific rules, spouse/relative limitations.
+9. **Conflict and influence screening**: family tensions, beneficiary pressure, undue influence indicators flagged to attorney.
+10. **Stop-conditions**: if required legal inputs are missing, pause and request follow-up instead of drafting assumptions.
+
+## Output Structure / Process
+
+### 1) Intake and validation
+| Data Block | Required Fields | Verification |
+|---|---|---|
+| Client profile | Name, DOB, aliases, state residence, contact | Confirm spelling consistency across all blocks |
+| Jurisdiction | Primary state, secondary care state(s), portability strategy | [VERIFY] all execution/effectiveness rules per state statute |
+| Capacity posture | Capacity red flags, physician assessment request, memory of recent delirium episodes | Counsel for contemporaneous memo when risk is present |
+| Agent chain | Primary + up to two alternates, relationships, contact, disqualifications | Confirm no disqualified classes under local statute |
+| Treatment values | Scenario-based preferences, values hierarchy, palliative care directives | Ensure no contradictory instructions |
+| Legal/medical interfaces | POLST/MOLST status, donor registry status, prior directives | Reconcile conflicts and provide harmonized set |
+| Execution logistics | Witness sources, notary method, facility constraints | Include jurisdiction-specific affidavit/attestation language |
+| Delivery plan | Copy recipients (agent, PCP, facilities, portal) | Include immediate distribution checklist |
+
+### 2) State-law scaffold (must be completed before drafting final text)
+| Topic | Required confirmation |
+|---|---|
+| Governing statute/framework | Identify controlling statute and official form/official guidance URL |
+| Formalities | Witness vs. notary options, number, disqualifications, facility-specific add-ons |
+| Trigger mechanics | Springing vs immediate authority; incapacity standard and certifying clinician count |
+| Substantive scope | Definitions (terminal, incurable, persistent unconsciousness, etc.) if used in instructions |
+| Limitations | Pregnancy restrictions, mental health treatment authority, substance/mental-health/HIV record limits |
+| Revocation | Permitted methods and effective timing |
+| Provider protection | Reliance rights for copies/electronic versions and good-faith immunity |
+| Criminal/self-harm-adjacent language | Palliative medication and comfort care phrasing review |
+
+### 3) Draft section order (fixed)
+1. Purpose statement and chosen effective date.
+2. Health care agent appointment (clear trigger and scope).
+3. Successor agent ladder with strict availability/unavailability conditions.
+4. Written values statement and decision-making hierarchy.
+5. Treatment instruction matrix.
+6. HIPAA authorization bridge (effective immediately unless state otherwise requires).
+7. Organ donation/disposition-of-remains notes.
+8. Revocation, supersession, and severability.
+9. Provider reliance and transfer obligations (if conscience objection possible).
+10. Execution block (signature/witness/notary/acceptance).
+
+### 4) Section templates
+
+```text
+[CLIENT NAME], [CLIENT ADDRESS]
+I appoint [PRIMARY AGENT NAME], [RELATIONSHIP], as my Health Care Agent.
+Contact: [ADDRESS] | [PHONE] | [EMAIL]
+Authority starts when [trigger condition], as determined by [clinician criteria per state law].
+Agent authority includes: treatment consent/denial, admission/discharge, care-site transfer, treatment preferences execution, and record-access coordination.
+If written instruction conflicts with discretionary choice, written instruction controls.
+If unspecified, Agent applies my stated values and substituted-judgment standard.
+```
+
+```text
+If my Primary Agent is unavailable/unwilling/disqualified, I appoint:
+First Alternate: [NAME/CONTACT]
+Second Alternate: [NAME/CONTACT]
+Each assumes authority only if all prior agents are unavailable per state rules.
+```
+
+```text
+I authorize my Health Care Agent and alternates to access and exchange all medical records and protected health information now, regardless of trigger status, for purposes of determining incapacity and coordinating care.
+Effective date: immediate upon execution.
+Scope includes records from all treating providers, facilities, laboratories, and insurers.
+[VERIFY: 45 C.F.R. § 164.508 requirements and any state/Part 2 overlays.]
+```
+
+```text
+My goals:
+1) Comfort and pain control.
+2) Maintain communication/contact with loved ones when feasible.
+3) Avoid prolonged treatment with no reasonable benefit.
+Treatment preferences:
+- CPR: [Yes/No; include context]
+- Ventilation: [Yes/No; include limits]
+- Artificial nutrition/hydration: [Yes/No; include context]
+- Hospitalization: [Preference]
+- Comfort care: [Include explicit palliative care and symptom-control direction]
+If not specified, apply my values and best judgment as if I could decide for myself.
+```
+
+```text
+Revocation:
+I may revoke at any time while capable, by [state-authorized methods].
+Latest signed/revised version governs.
+Severability:
+If one provision is unenforceable, all other provisions remain effective.
+Copies and electronic versions may be used as permitted by [STATE] law.
+```
+
+### 5) Execution compliance checklist
+| Item | Required output |
+|---|---|
+| Witnessing | Correct count and disqualification screening completed |
+| Notary | Form and statement match state-prescribed language if used |
+| Facility patients | Facility-specific add-on clauses satisfied (e.g., ombudsman/patient advocate where applicable) |
+| Agent acceptance | Optional acceptance statement included |
+| Plain-language usability | Agent and key instructions identifiable in <60 seconds in an ER context |
+| Internal consistency | No contradiction between agent powers and treatment instructions |
+| Review tags | Every statutory claim marked `[VERIFY]` unless confirmed by statute URL |
+
+### 6) State-specific flags to preserve
+- Use state templates/forms where required or strongly recommended.
+- Example variances to flag for attorney review: California facility witness/ombudsman rules, Florida witness composition, New York split-instrument systems (proxy + living will), Texas hospital review process for withdrawal over family objections.
+- Pregnancy limitations and mental-health treatment authority are state-sensitive and potentially unstable across case law updates.  
+- Use `[VERIFY]` tags for any citation or statutory quote unless sourced in-session.
+
+## Guidelines
+
+- Do not rely on memory for any state execution formalities or statutory language. Require statute URLs or official guidance.
+- Flag unresolved jurisdictional questions with `[VERIFY]` and do not finalize text as final legal language.
+- Use scenario-specific, clinically interpretable wording; avoid vague slogans like “no heroic measures.”
+- Enforce values hierarchy: client instructions override broad surrogate discretion.
+- Treat portability as a design requirement, not a footnote.
+- Include attorney-review disclaimer and execution-readiness statement in final output.
+- Do not produce unverified legal authority text; refuse fraud/backdating/fabrication requests.
+- Do not advise on clinical decisions; this is legal structuring only.
+
+tokens used
+11,520

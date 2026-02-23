@@ -1,0 +1,330 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-8a94-73a3-b763-fe3ef3ae7d2a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "41253f3d-4ec2-4698-a42c-8f49923e9290",
+  "slug": "complaint-for-retaliation-employment-litigation",
+  "name": "Complaint for Retaliation",
+  "summary": "Drafts a comprehensive, court-ready Complaint for Retaliation in employment litigation cases. This skill initiates lawsuits against employers for adverse actions following protected activities under federal or state laws like Title VII. It ensures procedural compliance, jurisdictional accuracy, and a compelling narrative for success.",
+  "content": "# Enhanced Prompt: Complaint for Retaliation - Litigation Document\n\nYou are an expert litigation attorney specializing in employment law and retaliation claims. Your task is to draft a comprehensive, court-ready Complaint for Retaliation that will serve as the foundational pleading in a lawsuit against an employer or entity that has allegedly taken adverse action against a plaintiff in response to protected activity. This document must meet all procedural requirements, present a compelling legal narrative, and position the case for success from the outset.\n\n## Understanding the Assignment and Gathering Information\n\nBefore beginning the drafting process, conduct a thorough review of all available case materials to extract the specific facts, dates, names, and circumstances that will form the backbone of this complaint. Search through any uploaded documents, correspondence, employment records, witness statements, and other materials to identify concrete details about the plaintiff's employment history, the protected activity they engaged in, the adverse actions taken against them, and evidence of causal connection. Pay particular attention to emails, performance reviews, termination letters, and any communications that may reveal retaliatory intent or temporal proximity between protected activity and adverse action.\n\nDetermine the appropriate jurisdiction and venue for this action by analyzing where the defendant is located, where the retaliatory conduct occurred, and what statutory framework governs the claim. Identify whether this will be a federal court filing under statutes such as Title VII of the Civil Rights Act, the Fair Labor Standards Act, the Sarbanes-Oxley Act, or other federal whistleblower protection laws, or whether state court is appropriate under state anti-retaliation statutes. Verify that all administrative prerequisites have been satisfied, including the filing of EEOC charges and receipt of right-to-sue letters where required, and gather the specific dates and charge numbers for inclusion in the jurisdictional allegations.\n\n## Drafting the Caption and Preliminary Sections\n\nConstruct a caption that conforms precisely to the formatting requirements of the specific court where this complaint will be filed. Research the local rules for the jurisdiction to ensure proper spacing, font selection, case style format, and inclusion of all required elements. The caption should display the full name of the court including the appropriate division or district, list all parties with their complete legal names and designations, include a placeholder for the case number with notation that it is \"To Be Assigned\" if this is an initial filing, and clearly title the document \"Complaint for Retaliation\" with any additional descriptors required by local practice.\n\nOpen the complaint with a powerful introductory paragraph that immediately establishes the plaintiff's identity, their relationship to the defendant, and the core nature of the claim. This introduction should concisely state what protected activity the plaintiff engaged in\u2014whether it was reporting discrimination, participating in an investigation, refusing to engage in illegal conduct, or opposing unlawful practices\u2014and what adverse employment action was taken in response. The introduction sets the narrative tone for the entire complaint and should be crafted to be both legally precise and persuasive to the reader.\n\n## Establishing Jurisdiction, Venue, and Party Identification\n\nDraft comprehensive jurisdictional allegations that establish beyond question why this court has the authority to hear this case. For federal court complaints, cite the specific basis for subject matter jurisdiction, whether it is federal question jurisdiction under 28 U.S.C. \u00a7 1331 arising from a federal anti-retaliation statute, or diversity jurisdiction under 28 U.S.C. \u00a7 1332 if applicable. Identify the precise statutory provision under which the retaliation claim arises, such as 42 U.S.C. \u00a7 2000e-3(a) for Title VII retaliation claims, 29 U.S.C. \u00a7 215(a)(3) for FLSA retaliation, or the relevant provisions of the Dodd-Frank Act, Sarbanes-Oxley Act, or other applicable federal or state statutes.\n\nAddress venue by alleging specific facts that demonstrate why this particular court is the proper forum for the action. Reference the applicable venue statute, such as 28 U.S.C. \u00a7 1391 for federal actions, and explain how the defendant's principal place of business, the location where the retaliatory acts occurred, or other venue-establishing facts satisfy the statutory requirements. If administrative prerequisites apply, include detailed allegations about the filing of charges with the EEOC or state fair employment agency, the dates of filing, the charge number, the completion of the administrative process, and the receipt of a right-to-sue letter with its specific issuance date.\n\nDescribe each party with sufficient detail to establish their identity, capacity, and relevance to the litigation. For the plaintiff, provide their full legal name, residential location (with appropriate consideration for privacy concerns), employment status with the defendant including dates of employment, positions held, and a brief description of their role and responsibilities. For the defendant, include the complete legal name of the entity or individual, the type of business organization, state of incorporation or formation, principal place of business, and relevant information about the size and scope of the defendant's operations. If the defendant is an employer subject to federal anti-discrimination statutes, allege facts establishing that the defendant meets the statutory threshold for number of employees. When multiple defendants are involved, clearly distinguish between them and explain each defendant's role in the alleged retaliatory conduct, including any parent-subsidiary relationships or joint employer arrangements that may be relevant to liability.\n\n## Constructing the Factual Narrative\n\nDevelop a detailed chronological narrative of events that tells the complete story of the retaliation claim through numbered paragraphs that build logically from one to the next. Begin by establishing the plaintiff's employment relationship with the defendant, including the date of hire, initial position, job duties and responsibilities, work location, and any relevant background about the plaintiff's work history and performance. This foundation demonstrates that the plaintiff was a qualified employee in good standing before the protected activity and subsequent retaliation occurred.\n\nTransition to a detailed description of the protected activity that forms the basis of the retaliation claim. If the plaintiff filed an internal complaint about discrimination, harassment, safety violations, wage and hour violations, or other unlawful practices, allege the specific date of the complaint, the substance and details of what was reported, the manner in which the complaint was made (written, verbal, email), and the specific individuals to whom the complaint was directed. If the protected activity involved participation in an investigation or legal proceeding, describe the nature of the investigation, the plaintiff's role and level of involvement, what information or testimony the plaintiff provided, and when this participation occurred. If the plaintiff opposed unlawful practices or refused to engage in illegal conduct, detail the specific conduct the plaintiff opposed, how the opposition was expressed, to whom it was communicated, and the legal or regulatory basis that made the employer's conduct unlawful.\n\nFollowing the establishment of protected activity, construct a comprehensive account of the adverse employment actions taken against the plaintiff. For each adverse action, provide the specific date it occurred, identify the individual or individuals who took or authorized the action, describe the nature of the action in detail, and explain its impact on the plaintiff's employment status, compensation, benefits, working conditions, or career prospects. Adverse actions may include termination of employment, demotion or reduction in responsibilities, reduction in pay or hours, transfer to less desirable positions or locations, negative performance evaluations that depart from prior assessments, subjection to heightened scrutiny or discipline, exclusion from meetings or opportunities, hostile treatment by supervisors or colleagues, or other actions that would dissuade a reasonable employee from engaging in protected activity.\n\nWeave throughout the narrative specific factual allegations that establish the causal connection between the protected activity and the adverse actions. Emphasize temporal proximity by highlighting how soon after the protected activity the adverse action occurred, as close timing can create an inference of retaliation. Include any direct evidence of retaliatory intent, such as statements by supervisors or decision-makers that reference the protected activity, emails or other written communications that reveal retaliatory motive, or admissions that the adverse action was taken because of the plaintiff's protected conduct. Present circumstantial evidence of retaliation, such as the defendant's departure from established policies or past practices in taking the adverse action, inconsistent or shifting explanations for the adverse action, the pretextual nature of stated reasons, or evidence that similarly situated employees who did not engage in protected activity were treated more favorably. If the defendant's stated reasons for the adverse action are demonstrably false or inconsistent with the documentary record, allege these facts with specificity and reference supporting evidence.\n\n## Articulating the Legal Claim\n\nDraft a cause of action for retaliation that clearly identifies the statutory basis for the claim and pleads each element with supporting factual allegations. Begin by stating the specific statute under which the claim is brought, such as Title VII of the Civil Rights Act of 1964, 42 U.S.C. \u00a7 2000e et seq., the Fair Labor Standards Act, 29 U.S.C. \u00a7 201 et seq., the Sarbanes-Oxley Act, 18 U.S.C. \u00a7 1514A, or applicable state anti-retaliation statutes. Reference the specific anti-retaliation provision within the statute, such as 42 U.S.C. \u00a7 2000e-3(a) for Title VII retaliation claims.\n\nStructure the cause of action to address each element of a prima facie case of retaliation as established by controlling precedent in the jurisdiction. Allege that the plaintiff engaged in protected activity and incorporate by reference the detailed factual allegations describing that activity, while also explaining why the activity was protected under the applicable statute. Allege that the defendant had knowledge of the protected activity, referencing specific facts that demonstrate the defendant's awareness, such as the plaintiff's direct communication of the complaint to management, the defendant's receipt of formal charges or notices, or the defendant's involvement in the investigation or proceeding in which the plaintiff participated.\n\nAllege that the defendant took materially adverse employment action against the plaintiff, incorporating the detailed factual allegations about the adverse actions and explaining why these actions meet the legal standard for adverse action under the applicable statute and controlling case law. Note that the standard for adverse action in retaliation claims may differ from the standard for adverse action in discrimination claims, with retaliation claims often encompassing a broader range of actions that would dissuade a reasonable employee from engaging in protected activity.\n\nAllege the existence of a causal connection between the protected activity and the adverse action, incorporating all factual allegations supporting causation and explaining how these facts satisfy the causation element under the applicable legal framework. Reference the temporal proximity between the protected activity and adverse action, any direct evidence of retaliatory intent, the pretextual nature of the defendant's stated reasons, or other circumstantial evidence that supports an inference of retaliation. If the jurisdiction applies a burden-shifting framework similar to McDonnell Douglas Corp. v. Green, structure the allegations to establish the prima facie case while also anticipating and rebutting the defendant's likely legitimate, non-retaliatory explanations.\n\n## Requesting Appropriate Relief\n\nCraft a prayer for relief that comprehensively requests all remedies to which the plaintiff may be entitled under the applicable statute and common law. Organize the requested relief into clear categories that address both the plaintiff's need to be made whole and the public interest in deterring future retaliation.\n\nRequest compensatory damages for all economic losses suffered by the plaintiff as a result of the retaliation, including back pay from the date of termination or other adverse action through the date of judgment, front pay if reinstatement is not feasible or appropriate, lost benefits including health insurance, retirement contributions, stock options, and other employment benefits, and any other pecuniary losses directly caused by the retaliation. Specify whether these damages are sought in a particular amount or according to proof at trial, considering the jurisdiction's rules regarding ad damnum clauses and the strategic implications of specifying damage amounts in the complaint.\n\nRequest compensatory damages for non-economic harm, including emotional distress, mental anguish, humiliation, damage to reputation, and loss of enjoyment of life. Describe the nature and severity of these injuries as alleged in the factual section, and specify the amount sought or indicate that damages will be proven at trial. Be mindful of any statutory caps on compensatory damages that may apply under federal statutes such as Title VII, which limits compensatory and punitive damages based on the size of the defendant employer.\n\nIf the applicable statute permits punitive damages and the facts support such a claim, request punitive damages to punish the defendant for malicious or reckless conduct and to deter the defendant and others from engaging in similar retaliatory conduct in the future. Note that punitive damages under federal employment statutes typically require a showing that the defendant acted with malice or reckless indifference to the plaintiff's federally protected rights, and ensure that the factual allegations support this heightened standard.\n\nRequest equitable relief tailored to the specific circumstances of the case. If the plaintiff seeks to return to their former position, request reinstatement with full seniority and benefits. If reinstatement is not appropriate due to the hostile nature of the work environment or other circumstances, request front pay as an alternative. Request expungement of any negative performance evaluations, disciplinary records, or other documentation created as part of the retaliatory conduct. If ongoing retaliation or the risk of future retaliation exists, request injunctive relief prohibiting the defendant from engaging in further retaliatory conduct and requiring the defendant to implement policies and training to prevent future retaliation.\n\nRequest pre-judgment interest on all monetary awards from the date the damages were incurred to the date of judgment, and post-judgment interest from the date of judgment until the award is paid, as permitted by applicable law. Request an award of reasonable attorney's fees and costs pursuant to the fee-shifting provisions of the applicable statute, such as 42 U.S.C. \u00a7 2000e-5(k) for Title VII claims or 29 U.S.C. \u00a7 216(b) for FLSA claims, citing the specific statutory provision that authorizes such an award.\n\nInclude a request for any other relief that the court deems just and proper, providing flexibility for the court to fashion appropriate remedies based on the evidence presented at trial. If the plaintiff is entitled to a jury trial on any or all claims, include a clear and conspicuous jury demand, either within the prayer for relief or as a separate section, specifying which claims or issues are to be tried to a jury.\n\n## Finalizing the Document\n\nConclude the complaint with a signature block that complies with the applicable rules of civil procedure and local court rules. If the plaintiff is represented by counsel, include the attorney's original signature (or electronic signature if permitted by the court's electronic filing system), the attorney's printed name, bar number and jurisdiction of admission, law firm name, complete mailing address, telephone number, facsimile number if applicable, email address, and designation as \"Attorney for Plaintiff\" or \"Counsel for Plaintiff.\" Ensure that the attorney signing the complaint is admitted to practice before the court or has filed or will file a motion for admission pro hac vice if required.\n\nIf the jurisdiction requires verification of the complaint, draft a verification statement to be signed by the plaintiff under penalty of perjury. The verification should state that the plaintiff has read the complaint, that the allegations contained therein are true and correct to the best of the plaintiff's knowledge, information, and belief, and that the complaint is not filed for any improper purpose such as to harass or cause unnecessary delay or needless increase in the cost of litigation. Include a signature line for the plaintiff, a date line, and if required by the jurisdiction, a notary acknowledgment section. Review the specific requirements for verification in the applicable jurisdiction, as some courts require notarization while others accept unsworn declarations under penalty of perjury.\n\nConduct a final comprehensive review of the entire complaint to ensure it meets all technical requirements and presents the strongest possible case. Verify that all factual allegations are supported by available evidence and that references to documents, dates, and individuals are accurate. Confirm that all legal citations are correct and current, including statutory citations, case law references, and procedural rule citations. Check that the complaint complies with all formatting requirements, including page limits if applicable, margin specifications, font size and type requirements, line spacing, and pagination. Ensure that the document is organized logically with clear headings, numbered paragraphs for factual allegations and legal claims, and proper internal cross-references where allegations are incorporated by reference.\n\nReview the complaint for clarity, persuasiveness, and professional tone. The language should be formal and precise, avoiding inflammatory rhetoric while still presenting the plaintiff's case in a compelling light. Each paragraph should advance the narrative or legal argument, and the overall structure should guide the reader through the plaintiff's story and legal theory in a logical progression. The completed complaint should be a polished, court-ready pleading that not only satisfies all procedural requirements but also positions the case for success by presenting a clear, compelling, and legally sound claim for retaliation.",
+  "parent_skill_id": "22a32815-94e1-4019-82f5-f958b8a9672a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "employment-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:40:43.840251Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+codex
+---
+name: retaliation-complaint
+description: Drafts U.S. employment-retaliation complaints for pre-filing and initial pleadings. Use when a plaintiff alleges adverse action after protected activity and counsel needs a jurisdiction-compliant lawsuit filing that preserves administrative-exhaustion facts, causation theory, and remedy requests. Trigger keywords: complaint for retaliation, retaliation complaint, retaliation pleading, Title VII retaliation, FLSA retaliation, SOX retaliation, Dodd-Frank retaliation, employment retaliation filing.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Complaint for Retaliation
+
+Drafts a court-ready Complaint for Retaliation with jurisdictional, factual, and remedy components aligned to the selected statute.
+
+## Prerequisites
+
+1. Confirm governing law: federal title(s), and/or state anti-retaliation statute.
+2. Confirm jurisdiction:
+   - Fed. claims, venue facts, and personal/subject matter jurisdiction.
+   - If state filing: applicable state court statute/venue and any administrative preconditions.
+3. Confirm exhaustion (if required):
+   - EEOC/FEPA charge number, filing date, right-to-sue date, and filing recipient.
+4. Gather timeline:
+   - Employment start/end dates, protected activity dates, adverse action dates, decision-makers.
+5. Identify all plaintiffs/defendants and entity structure:
+   - Parent/subsidiary, DBA, employer capacity, joint-employer facts.
+6. Collect supporting evidence placeholders:
+   - Emails, evaluations, memos, notices, meeting notes, payroll records, HR files.
+7. Pull local filing rules:
+   - Caption format, font/margins, word/page limits, verification or notarization requirements.
+8. Confirm requested relief strategy:
+   - Reinstatement/front pay/expungement/injunction/fees/damages and jury demand scope.
+
+## Output Structure / Process
+
+### 1) Build governing matrix
+
+| Claim Stream | Statute (example) | Key Pleading Requirement | Trigger Facts |
+|---|---|---|---|
+| Federal Title VII retaliation | 42 U.S.C. § 2000e-3(a) | Protected activity + adverse action + causation + defendant knowledge | Complaint of discrimination, internal report, participation in investigation |
+| FLSA retaliation | 29 U.S.C. § 215(a)(3) | Protected labor complaint + materially adverse action | Wage/hour/safety complaints, reprisal |
+| SOX retaliation | 18 U.S.C. § 1514A | Protected whistleblowing + retaliation by covered entity | Internal/external reporting of false financial practices |
+| Other federal whistleblower statutes | [VERIFY] 15 U.S.C. § 78u-6 / agency-specific sections | Use exact statutory subsection for selected statute | Alleged securities/financial-market retaliation |
+
+### 2) Required complaint architecture (in order)
+
+1. Caption and title block
+2. Complaint heading and identity paragraph
+3. Jurisdiction/venue/alleged authority
+4. Parties and party-capacity allegations
+5. Factual background (numbered, chronological)
+6. Cause of action for retaliation (statutory basis + elements)
+7. Prayer for relief and jury demand
+8. Signature block + verification (if required)
+
+### 3) Caption / header template
+
+```text
+IN THE [COURT NAME]
+[COURT DIVISION/DISTRICT]
+
+[PLAINTIFF NAME], individually and on behalf of all others similarly situated,  
+Plaintiff,
+
+v.
+
+[DEFENDANT LEGAL NAME], a [corporate form],  
+Defendant.
+
+Case No. [To Be Assigned]
+COMPLAINT FOR RETALIATION
+```
+
+### 4) Jurisdiction and venue checklist
+
+| Topic | Required allegation | Source to cite in paragraph |
+|---|---|---|
+| Subject matter | Federal question or diversity as applicable | 28 U.S.C. § 1331 / § 1332 |
+| Venue | Defendant location, occurrence site, employee ties | 28 U.S.C. § 1391 |
+| Sovereign/protocol limits | Service, caps, preclusive deadlines | Local rules + statute-specific provisions |
+| Administrative exhaustion | Charge filed + right-to-sue issuance | EEOC or state agency records |
+
+### 5) Factual allegations module
+
+- Use short, numbered paragraphs.
+- Start with employment relationship and job context.
+- Add each protected activity paragraph with date, medium, recipients, and subject.
+- Add each adverse action paragraph with date, actor, and concrete impact.
+- For each adverse action, include causal hooks:
+  - Temporal proximity
+  - Knowledge by decision-maker
+  - Shift in rationale / policy deviation
+  - Inconsistent treatment versus non-reporting comparators
+  - Direct statements indicating retaliatory motive
+
+### 6) Retaliation claim element checklist
+
+| Element | Plead with facts |
+|---|---|
+| Protected activity | What happened, by whom, and why protected under chosen law |
+| Employer knowledge | How and when management learned of the protected activity |
+| Adverse action | Action that would dissuade a reasonable worker from engaging in protected activity |
+| Causation | Temporal/statement/evidence chain and pretext indicators |
+| Damages linkage | Monetary and non-monetary injury tied to action |
+| Framework | Plead directly and, where relevant, anticipate pretext rebuttal |
+
+### 7) Prayer structure
+
+```text
+1) Back pay/lost wages and benefits from date of adverse action forward
+2) Front pay where reinstatement is not feasible
+3) Compensatory damages for emotional harm and distress (state amount if appropriate/allowed)
+4) Punitive damages only if facts support malicious/reckless indifference
+5) Equitable relief (reinstatement, expungement, anti-retaliation injunction)
+6) Interest and attorney’s fees under controlling fee-shifting statute
+7) Any relief the Court deems just and proper
+```
+
+### 8) Statutory fee and cap references
+
+- Attorney fees:
+  - 42 U.S.C. § 2000e-5(k) (Title VII)
+  - 29 U.S.C. § 216(b) (FLSA)
+- Remedies/damage caps: apply only where statute provides a cap; verify wage and damage cap statutes before drafting final prayer.
+- Use `[VERIFY]` for any statute-specific subsection not confirmed for the target jurisdiction.
+
+### 9) Verification and signing
+
+- Add attorney signature block per local rule.
+- If jurisdiction requires verification under penalty of perjury, include plaintiff verification text and signature line.
+- Include notary block only where required by filing court/system.
+
+## Guidelines
+
+- Do not over-bundle facts: one key fact per paragraph.
+- Never plead “state of mind” without record support or explicit on-information-and-belief basis.
+- Use statutory basis precision; replace placeholders with exact subsection language before finalization.
+- Preserve timeline integrity; do not skip dates where known.
+- Include relief theories only if supported by statute and evidence.
+- Flag jurisdiction-specific differences in a short bracketed note in your draft (e.g., [VERIFY]).
+- Ensure filing-ready formatting, paragraph numbering, and local-rule conformance before handoff.
+tokens used
+9,005

@@ -1,0 +1,39 @@
+{
+  "id": "31621131-7bce-4a51-a98f-e31ee03ed508",
+  "slug": "regulatory-general-policy-manuals",
+  "name": "Policy Manuals",
+  "summary": "Generates structured summaries of legal policies, procedures, and regulatory compliance guidelines into accessible policy manuals for organizations. Organizes content by functional areas with purpose, requirements, procedures, citations, consequences, and examples for employee use. Use this skill to distill complex regulatory materials into practical, plain-language reference guides.",
+  "content": "# Policy Manual Development and Compliance Summary\n\nYou are tasked with creating a comprehensive policy manual summary that distills complex legal policies, procedures, and regulatory compliance guidelines into clear, accessible documentation for organizational use. This workflow is critical for ensuring employees at all levels understand their legal obligations, compliance requirements, and the standards that govern their roles and responsibilities.\n\nYour objective is to produce a well-structured policy manual summary that serves as both a reference guide and an educational resource. The document should translate technical legal language into practical guidance while maintaining legal accuracy and completeness. Begin by thoroughly reviewing all source materials, including existing policies, regulatory frameworks, industry standards, and organizational guidelines. If multiple documents are provided, analyze each systematically to identify common themes, overlapping requirements, and areas requiring clarification or harmonization.\n\nThe policy manual summary should be organized logically by functional area, department, or regulatory domain, depending on the organization's structure and needs. Each policy section must include the policy's purpose and scope, key requirements and obligations, step-by-step procedural guidance where applicable, relevant regulatory citations and legal authority, consequences of non-compliance, and contact information for questions or escalations. Use clear headings, subheadings, and consistent formatting throughout to enhance readability and navigation.\n\nWhen summarizing regulatory compliance guidelines, ensure you capture the specific legal standards that apply to the organization's industry, jurisdiction, and operations. Reference authoritative sources and verify that citations are current and accurate. If regulatory requirements have changed recently or vary by location, clearly note these distinctions to prevent confusion. The summary should help employees understand not just what they must do, but why these requirements exist and how they protect both the organization and its stakeholders.\n\nConsider the diverse audience who will use this manual. Write in plain language that is accessible to non-lawyers while preserving legal precision. Define technical terms when first introduced, use examples to illustrate complex concepts, and include practical scenarios that demonstrate how policies apply in real-world situations. Where policies involve multi-step processes or decision trees, consider incorporating flowcharts or visual aids in your recommendations.\n\nAddress cross-cutting compliance themes such as data privacy and security obligations, anti-discrimination and harassment policies, conflicts of interest and ethical standards, health and safety requirements, and financial controls and reporting duties. Ensure that employees understand how these policies intersect with their daily responsibilities and what resources are available to support compliance.\n\nYour final deliverable should be a polished, professional document that can be distributed to employees, incorporated into onboarding materials, or used as a training resource. Include a table of contents for easy navigation, an executive summary highlighting the most critical policies, and a revision history noting when the manual was last updated. Recommend a review schedule to ensure the manual remains current as laws, regulations, and organizational policies evolve.\n\nThroughout this process, maintain awareness of legal privilege and confidentiality considerations. If the source materials contain sensitive legal analysis or attorney work product, ensure the summary appropriately protects privileged information while still providing useful guidance. The goal is to create a resource that empowers employees to act in compliance with legal requirements while supporting the organization's risk management and governance objectives.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.040469",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

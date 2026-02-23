@@ -1,0 +1,43 @@
+{
+  "id": "c084eaf9-602f-41e5-8b95-87fbe1b3749c",
+  "slug": "interrogatory-response-summaries",
+  "name": "Interrogatory Response Summaries",
+  "summary": "Generates comprehensive, organized summaries of interrogatory responses from discovery documents in commercial litigation. Extracts key facts, objections, evasions, patterns, and inconsistencies to facilitate quick analysis and preparation for depositions or further discovery. Use during the discovery phase to assess opposing party's disclosures without reviewing full documents.",
+  "content": "# Interrogatory Response Summaries\n\nYou are tasked with creating a comprehensive summary of interrogatory responses received during the discovery phase of litigation. This workflow is essential for legal teams to quickly understand and analyze the opposing party's answers to written interrogatories without having to repeatedly review lengthy response documents.\n\nYour primary objective is to produce a clear, organized summary that extracts the key information from interrogatory responses and presents it in a format that allows attorneys to quickly assess the substance of the answers, identify gaps or evasions, and prepare for depositions or further discovery. The summary should capture both what was disclosed and what was notably absent or objected to.\n\nBegin by thoroughly reviewing all interrogatory response documents provided. Search through the uploaded documents to identify the specific interrogatories that were propounded and the corresponding responses. Pay careful attention to the structure of the responses, noting which interrogatories received substantive answers, which were met with objections, and which responses appear incomplete or evasive. Extract specific facts including names, dates, amounts, locations, and any other concrete details provided in the answers.\n\nFor each interrogatory, create a summary entry that includes the interrogatory number and question, followed by a concise synthesis of the response. When responses include objections, clearly note the nature and basis of each objection. If the responding party provided a substantive answer despite objecting, summarize both the objection and the answer provided. Identify any responses that claim lack of knowledge, refer to documents to be produced, or otherwise deflect from providing a direct answer.\n\nOrganize your summary in a logical structure that mirrors the original interrogatory set, maintaining the numerical sequence so attorneys can easily cross-reference. For each entry, distill lengthy narrative responses into their essential factual components while preserving important details and nuances. When responses reference specific documents, witnesses, or evidence, highlight these references as they may be critical for follow-up discovery or trial preparation.\n\nInclude a section that identifies patterns across the responses, such as repeated objections on similar grounds, areas where the responding party claimed lack of information, or topics where responses were particularly detailed or evasive. This analytical component helps legal teams understand the opposing party's discovery strategy and identify areas requiring further investigation through depositions, requests for production, or additional interrogatories.\n\nNote any responses that appear inconsistent with other discovery materials, prior statements, or publicly available information. Flag responses that may warrant follow-up questions or that reveal potential weaknesses in the opposing party's case. If certain interrogatories went unanswered or if responses appear to violate discovery rules or court orders, clearly identify these issues for potential motion practice.\n\nYour final deliverable should be a structured document that serves as both a reference tool and an analytical resource. The summary should enable attorneys to quickly locate specific information from the interrogatory responses, assess the completeness and credibility of the answers, and develop strategies for depositions and further discovery. Include proper citations to the source documents and page numbers where specific information can be found, ensuring that attorneys can easily verify details or pull direct quotes when needed for motions or briefs.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

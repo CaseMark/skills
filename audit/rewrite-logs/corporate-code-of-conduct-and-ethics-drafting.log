@@ -1,0 +1,317 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-723b-7871-a0d8-81e972e83ce7
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "bc9e9b5f-0010-4911-8608-7325fe80db93",
+  "slug": "corporate-code-of-conduct-and-ethics-drafting",
+  "name": "Code of Conduct and Ethics",
+  "summary": "Drafts a comprehensive Code of Business Conduct and Ethics for corporations, ensuring compliance with SEC regulations, Sarbanes-Oxley Act Section 406, and stock exchange listing standards. Incorporates company-specific context, values, and regulatory requirements to create an actionable ethical framework that guides decision-making and protects reputation. Use when developing foundational governance documents for public companies or regulated industries.",
+  "content": "# Code of Business Conduct and Ethics Drafting Workflow\n\n## Workflow Purpose and Strategic Context\n\nThis workflow guides the creation of a comprehensive Code of Business Conduct and Ethics that serves as both the ethical foundation and compliance framework for a corporation. The resulting document must accomplish multiple critical objectives: satisfy regulatory requirements including SEC regulations for public companies and stock exchange listing standards, provide clear guidance for day-to-day ethical decision-making across all levels of the organization, establish enforceable standards that protect the corporation's reputation and stakeholder interests, and create a cultural cornerstone that reflects the organization's genuine commitment to integrity and legal compliance.\n\nThe Code you draft should be more than a compliance formality\u2014it must be a living document that genuinely influences behavior and decision-making throughout the organization. It should speak authentically to your company's culture while maintaining the professional gravitas appropriate for a foundational governance document. The tone should inspire ethical conduct while remaining practical and actionable, providing personnel with both aspirational principles and concrete guidance they can apply to real business situations.\n\n## Essential Information Gathering\n\nBefore beginning the drafting process, gather comprehensive information about the corporation and its specific context. Start by searching the user's uploaded documents for any existing codes of conduct, ethics policies, corporate governance documents, or compliance materials that may inform the new Code. Look for the company's mission statement, values statements, and any prior board resolutions or policies addressing ethical conduct. Examine any regulatory filings, particularly for public companies, to understand existing compliance commitments and disclosure obligations.\n\nIdentify the corporation's full legal name, jurisdiction of incorporation, and whether it is publicly traded (and if so, on which exchange). Determine the scope of operations including geographic footprint, industry sectors, and any regulated activities that may require specific ethical standards. Understand the organizational structure, including whether there are subsidiaries, international operations, or joint ventures that may need to be addressed in the Code's scope provisions.\n\nResearch the specific regulatory requirements applicable to this corporation. For public companies, review the requirements of Section 406 of the Sarbanes-Oxley Act, which mandates codes of ethics for senior financial officers, and the applicable stock exchange listing standards (NYSE, NASDAQ, or others) that impose specific content and disclosure requirements. For companies in regulated industries such as healthcare, financial services, government contracting, or defense, identify industry-specific ethical and compliance obligations that must be addressed. Search for any recent enforcement actions, regulatory guidance, or industry best practices that should inform the Code's content.\n\n## Document Structure and Foundational Elements\n\nBegin the Code with a compelling leadership statement that establishes the tone from the top. This introduction should ideally come from the CEO, Board Chair, or both, and must accomplish several critical objectives: articulate why ethics and compliance matter to the organization's success, acknowledge that while the Code cannot address every situation it provides guiding principles for decision-making, create a sense of shared responsibility among all covered persons, and demonstrate leadership's personal commitment to ethical conduct. The introduction should connect the Code to the company's mission and values, making clear that ethical conduct is not separate from business success but essential to it.\n\nDraft a clear scope provision that identifies precisely who is covered by the Code. Typically this includes all employees regardless of level or location, all officers including the CEO and senior financial officers, and all members of the Board of Directors. Consider whether the Code should also apply to contractors, consultants, temporary workers, or other third parties acting on behalf of the company. For public companies, ensure that the Code specifically addresses senior financial officers as required by SEC regulations, and consider whether enhanced or additional provisions are appropriate for this group.\n\nEstablish the Code's relationship to other company policies and procedures. The Code typically provides high-level ethical principles while more detailed policies address specific topics such as anti-corruption, data privacy, workplace conduct, or financial controls. Make clear whether the Code incorporates other policies by reference, supplements them, or serves as the overarching framework with which all other policies must be consistent. Address how conflicts between the Code and other policies should be resolved, typically by applying the most stringent standard.\n\n## Core Substantive Provisions\n\nArticulate the foundational principle of legal compliance as the baseline for all other ethical standards. This provision must establish that compliance with all applicable laws, regulations, and rules in every jurisdiction where the company operates is non-negotiable and forms the minimum standard of conduct. Address the complexity of the modern regulatory environment and the expectation that personnel will seek guidance when legal requirements are unclear or appear to conflict. For international operations, establish the principle that personnel must comply with the most stringent applicable standard when laws of different jurisdictions conflict, while recognizing that some situations may require specific legal analysis.\n\nDevelop a comprehensive conflicts of interest policy that defines what constitutes a conflict, provides concrete examples relevant to your business, establishes clear disclosure obligations, and outlines the approval process for situations where conflicts cannot be avoided. The definition should encompass situations where personal interests, relationships, or activities interfere with or appear to interfere with the ability to act in the company's best interests. Provide specific examples that resonate with your organization's actual operations, such as financial interests in competitors or business partners, outside employment or business activities, personal relationships that could affect business decisions, service on outside boards, or acceptance of gifts and entertainment from those doing business with the company.\n\nEstablish clear disclosure requirements specifying to whom potential conflicts must be reported (such as the General Counsel, Compliance Officer, or an Ethics Committee) and the timing of such disclosures. Make explicit that disclosure alone does not constitute approval and that personnel must not proceed with potentially conflicting activities without express written authorization. Address the important principle that personnel should avoid not only actual conflicts but also situations that could reasonably be perceived as creating conflicts, recognizing that the appearance of impropriety can be as damaging as actual impropriety.\n\nDraft a corporate opportunities provision that protects the company's interests in business prospects that rightfully belong to the organization. Define corporate opportunities to include any business opportunity discovered through the use of corporate property, information, or position; opportunities in the company's line of business or relating to its actual or prospective activities; opportunities of practical advantage to the company; or opportunities in which the company has an interest or reasonable expectancy. Establish the prohibition against personally exploiting such opportunities without first presenting them to the company and obtaining appropriate approval, typically from the Board of Directors or a designated committee.\n\nCreate robust provisions protecting confidential information and company assets. The confidentiality policy should define the scope of protected information broadly to include all non-public information that might be of use to competitors or harmful to the company or its stakeholders if disclosed, encompassing trade secrets, business strategies, financial information, customer and supplier data, employee information, product development plans, and marketing strategies. Establish that personnel must maintain confidentiality of information entrusted to them by the company and learned in the course of their employment, except when disclosure is authorized or legally mandated.\n\nAddress the obligation to protect confidential information belonging to the company's customers, suppliers, and business partners, which may be subject to contractual confidentiality obligations. Include practical guidance on protecting confidential information through secure storage, limited access, careful discussion in public places, and proper disposal. Make clear that confidentiality obligations continue even after employment or service ends, while including appropriate carve-outs for legally protected activities such as whistleblowing, cooperation with government investigations, and other disclosures protected by law.\n\nThe asset protection policy should establish that all personnel are responsible for safeguarding company assets against theft, loss, damage, misuse, and waste. Define company assets broadly to include physical property, intellectual property, information and data, technology and systems, and financial resources. Address the expectation that company assets will be used primarily for legitimate business purposes, and if the company permits limited personal use, specify clearly what is permitted and under what conditions. Include the obligation to report suspected theft, fraud, or misuse of company assets.\n\nArticulate the company's commitment to fair dealing and ethical business practices. Establish that the company seeks competitive advantages through superior performance, innovation, and customer service\u2014never through unethical or illegal business practices. Address the expectation that personnel will deal fairly with customers, suppliers, competitors, and employees, and will not take unfair advantage through manipulation, concealment, abuse of privileged information, misrepresentation of material facts, or any other unfair dealing practice. Consider addressing specific fair dealing concerns relevant to your industry, such as honest marketing and advertising, fair competition without disparagement of competitors, honest dealing with customers regarding product capabilities, fair treatment of suppliers, and respect for competitors' intellectual property.\n\n## Reporting, Investigation, and Enforcement Framework\n\nEstablish clear, accessible procedures for reporting suspected violations of the Code, other company policies, or applicable laws and regulations. The policy should encourage personnel to come forward with concerns while providing multiple reporting channels to accommodate different comfort levels and situations. Specify the various avenues available for reporting, which should include direct supervisors, Human Resources, the Legal Department, the Compliance Officer, a confidential Ethics Hotline (specify whether anonymous reporting is permitted and provide contact information), and for accounting or auditing matters, the Audit Committee of the Board of Directors.\n\nAddress how reports will be handled, including that all reports will be taken seriously and investigated appropriately, that the company will maintain confidentiality to the extent possible consistent with effective investigation and legal requirements, and that personnel are expected to cooperate fully with investigations. Emphasize that the reporting mechanisms are available not only for reporting violations but also for asking questions and seeking clarification when personnel are uncertain about the right course of action.\n\nCreate a strong non-retaliation policy that protects personnel who report suspected violations or participate in investigations in good faith. This policy is critical to creating a culture where personnel feel safe raising concerns and is often legally required. Clearly state that the company prohibits retaliation against any person who reports suspected misconduct in good faith or participates in an investigation, even if the investigation ultimately determines that no violation occurred. Define retaliation broadly to include any adverse action taken because of the reporting or participation, such as termination, demotion, harassment, or other unfavorable treatment.\n\nClarify that non-retaliation protection applies regardless of whether the report is ultimately substantiated, as long as it was made in good faith and not with knowledge that it was false. Address the consequences for anyone who retaliates against a person for reporting concerns or participating in an investigation. Include language clarifying what does not constitute retaliation, such as legitimate performance management or disciplinary action for reasons unrelated to the reporting, and provide a mechanism for reporting suspected retaliation.\n\nEstablish the framework for enforcing the Code and holding personnel accountable for violations. Specify who has authority to determine whether violations have occurred and what disciplinary action is appropriate\u2014typically the Board of Directors, which may delegate day-to-day enforcement to management, the Compliance Officer, or an Ethics Committee while retaining oversight and authority over significant matters. Address the range of disciplinary actions that may be imposed for violations, which should be proportionate to the severity of the violation and may include counseling and training, written warnings, suspension, demotion, termination of employment or service, and referral to law enforcement authorities for potential criminal violations.\n\nClarify that disciplinary action may be taken not only for direct violations but also for failing to report known violations, directing or approving violations by others, or retaliating against those who report violations. Consider addressing factors that may be considered in determining appropriate discipline, such as the severity of the violation, whether it was intentional or inadvertent, the individual's position and responsibilities, prior disciplinary history, and cooperation with the investigation. Make clear that violations may also result in civil or criminal liability for the individual.\n\nEstablish a policy governing waivers of the Code, which should be rare and subject to appropriate oversight and disclosure. For publicly traded companies, SEC regulations and stock exchange rules impose specific requirements for waivers granted to executive officers and directors, including prompt public disclosure. Specify that waivers will be granted only in extraordinary circumstances where strict compliance would produce an unreasonable or inequitable result and where the waiver would not be inconsistent with the company's commitment to ethical conduct and legal compliance.\n\nMake clear that any waiver for executive officers or directors may be made only by the Board of Directors or a designated Board committee and must be documented in writing with appropriate justification. Address the public disclosure requirements applicable to such waivers, including the timing and method of disclosure required by applicable law and stock exchange rules, such as posting on the company's website or disclosure in SEC filings.\n\n## Acknowledgment and Implementation\n\nDraft an acknowledgment statement that personnel will sign to confirm receipt, review, and understanding of the Code and commitment to comply with its terms. This acknowledgment serves multiple purposes: it provides evidence that personnel have been provided with the Code and have had the opportunity to review it, creates a record of the individual's commitment to comply, and may be relevant in enforcement proceedings or litigation. The acknowledgment should clearly state that the individual has received and read the Code, understands its contents, agrees to comply with its terms, and understands that violations may result in disciplinary action up to and including termination.\n\nConsider whether the acknowledgment should include additional certifications, such as that the individual is not aware of any violations of the Code or that the individual has disclosed any potential conflicts of interest. Address the timing and process for obtaining acknowledgments, such as upon hire, annually, or when the Code is updated. Provide appropriate fields for execution including signature, printed name, title, date, and any other information needed for record-keeping purposes. For electronic acknowledgment systems, ensure that the execution method complies with applicable electronic signature laws and company policies.\n\n## Critical Legal and Practical Considerations\n\nFor publicly traded companies, ensure the Code satisfies all SEC requirements under Section 406 of the Sarbanes-Oxley Act and applicable stock exchange listing standards. The Code must address specific topics required by these regulations and must be filed as an exhibit to the annual report or incorporated by reference with appropriate disclosure. Verify that the Code meets the specific content requirements for codes of ethics applicable to senior financial officers, including provisions addressing honest and ethical conduct, full and accurate disclosure in periodic reports, and compliance with applicable laws and regulations.\n\nTailor the Code to address ethical issues and regulatory requirements specific to your industry. For healthcare companies, address anti-kickback laws, patient privacy, and research integrity. For financial services firms, address insider trading, customer privacy, and fiduciary duties. For government contractors, address procurement integrity, cost accounting standards, and security requirements. For companies with significant environmental impact, address environmental compliance and sustainability commitments.\n\nFor companies operating internationally, address how the Code applies across different jurisdictions and how to handle conflicts between local laws and company standards. Consider cultural differences in business practices while maintaining consistent ethical standards globally. Determine whether translations are necessary and ensure that translated versions accurately convey the Code's requirements. Address compliance with local labor and employment laws regarding codes of conduct, which may impose specific requirements for employee consultation, works council involvement, or data privacy protections.\n\nDraft the Code in clear, accessible language that can be understood by all personnel, avoiding unnecessary legal jargon while maintaining appropriate precision. The tone should be professional but not overly legalistic, aspirational but practical. Use concrete examples and scenarios where appropriate to illustrate how the Code applies to real business situations. Consider the diverse audience that will use the Code, from entry-level employees to senior executives and board members, and ensure the language is accessible to all while maintaining the gravitas appropriate for a foundational governance document.\n\nConsider how the Code will be communicated to personnel, what training will be provided, and how compliance will be monitored. The Code is only effective if personnel understand and apply it, so implementation planning is as important as the drafting itself. Establish a process for periodically reviewing and updating the Code to reflect changes in laws, regulations, business operations, and emerging ethical issues. Document the version and effective date of the Code clearly.\n\nEnsure appropriate Board oversight of the Code, typically through the Audit Committee or a designated Ethics and Compliance Committee. Establish expectations for regular reporting to the Board on compliance with the Code, investigations of alleged violations, any waivers granted, and the effectiveness of the Code in promoting ethical conduct. Consider whether the Code should include provisions addressing emerging ethical issues such as artificial intelligence, data ethics, social media use, or environmental, social, and governance (ESG) commitments.\n\nThe resulting Code of Business Conduct and Ethics should authentically reflect the company's values and culture while establishing clear, enforceable standards that protect the organization and its stakeholders. It should provide both the aspirational vision of the company's ethical commitments and the practical guidance personnel need to make ethical decisions in their daily work. When complete, the Code should serve as a genuine tool for promoting integrity throughout the organization, not merely a compliance formality that sits unread in a handbook.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:50:27.150903Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Crafting code-of-business-conduct skill**
+
+I'm creating a new "code-of-business-conduct" skill with metadata from legal_context and including a detailed description, purpose, prerequisites, and structured guidance featuring tables, checklists, and compliance notes referencing SEC/SOX 406 and exchange listing rules, marking uncertain details with [VERIFY].
+thinking
+**Detailing skill content structure**
+
+I'm outlining the full "code-of-business-conduct" skill with precise metadata, a clear purpose, numbered prerequisites, structured drafting steps, required and optional sections in tables, key SOX 406 topics, templates with placeholders in code blocks, and guidelines covering jurisdictional, whistleblower, and compliance cautions, ensuring length and format requirements while avoiding fluff or nested bullets.
+codex
+---
+name: code-of-business-conduct
+description: Drafts a U.S. corporate Code of Business Conduct and Ethics aligned with SEC/Sarbanes-Oxley Section 406 and exchange listing standards, with company-specific scope, conflicts rules, reporting channels, and enforcement. Use when creating or updating a corporate code of conduct, code of ethics, SOX 406 code for senior financial officers, NYSE/Nasdaq compliance policies, or board-governed ethics frameworks.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Code of Business Conduct and Ethics
+
+Produce a board-ready Code of Business Conduct and Ethics tailored to the company’s operations and U.S. public-company compliance obligations.
+
+## Prerequisites
+
+1. Company legal name, jurisdiction of incorporation, ownership status, and exchange (if any)
+2. Existing governance docs and policies to align or supersede
+3. Industry regulatory obligations and jurisdictions of operation
+4. Reporting channels and contact points (hotline, Legal, Compliance, Audit Committee)
+5. Disciplinary authority and waiver approval body
+
+## Output Structure / Process
+
+Draft in the following order and include every required section.
+
+**Drafting Checklist**
+1. Confirm scope and covered persons
+2. Insert tone-from-the-top leadership statement
+3. Map required topics (SOX 406, listing standards) to sections
+4. Tailor conflicts, gifts, and industry risks with examples
+5. Define reporting, investigations, anti-retaliation, and enforcement
+6. Define waiver process and disclosure requirements
+7. Add acknowledgment and version/effective date
+
+**Required Sections Table**
+
+| Section | Purpose | Required Content |
+| --- | --- | --- |
+| Title + Effective Date | Anchors the document | Full legal name; version; effective date |
+| Leadership Statement | Tone from the top | Commitment to ethics and compliance; shared responsibility |
+| Scope + Applicability | Covered persons | Employees, officers, directors, senior financial officers; affiliates/contractors if applicable |
+| Relationship to Other Policies | Hierarchy | Cross-reference policies; “most stringent applies” rule |
+| Legal Compliance | Baseline standard | Compliance with laws/regulations; seek guidance when unclear |
+| SOX 406 Code of Ethics | Public-company requirement | Honest and ethical conduct; conflicts; full, fair, accurate, timely disclosure; compliance with laws; internal reporting; accountability |
+| Conflicts of Interest | Define + manage conflicts | Definition; disclosure duty; approval process; examples |
+| Corporate Opportunities | Prevent usurpation | Definition; no personal benefit without approval |
+| Confidentiality + Data | Protect information | Scope; third-party info; security practices; post-employment duty; lawful carve-outs |
+| Company Assets | Protect property | Proper use; limited personal use rules; report misuse |
+| Fair Dealing | Competitive integrity | No manipulation, concealment, misrepresentation, or abuse |
+| Reporting + Investigations | Safe reporting | Multiple channels; confidentiality limits; cooperate |
+| Non-Retaliation | Whistleblower protection | Prohibit retaliation; report retaliation process |
+| Enforcement | Accountability | Disciplinary range; failure-to-report liability |
+| Waivers | Board oversight | Board or committee approval for execs/directors; disclosure obligations |
+| Acknowledgment | Evidence of receipt | Signature block; annual or onboarding execution |
+
+**Section Templates**
+
+```text
+Leadership Statement (from CEO/Chair)
+- Ethics and compliance are essential to our success.
+- This Code guides decisions when rules are unclear.
+- Every covered person shares responsibility.
+
+Scope
+- Applies to all employees, officers, and directors.
+- Includes senior financial officers as defined by SEC rules.
+- [Optional] Applies to contractors and agents acting on our behalf.
+
+Conflicts of Interest
+- A conflict exists when personal interests interfere or appear to interfere with company interests.
+- Disclose promptly to [Compliance Officer/Legal].
+- No activity may proceed without written approval.
+
+Reporting
+- Report concerns to: supervisor, HR, Legal, Compliance, Ethics Hotline, Audit Committee (for accounting/audit).
+- Anonymous reporting: [Yes/No].
+- All reports are investigated; confidentiality maintained to the extent feasible.
+
+Non-Retaliation
+- Good-faith reporting or participation in investigations is protected.
+- Retaliation is grounds for дисциплиline up to termination.
+
+Waivers
+- Only the Board or designated committee may grant waivers for executive officers or directors.
+- Any such waiver will be disclosed as required by law and listing standards.
+```
+
+**Industry Add-On Table (Include if applicable)**
+
+| Industry | Add-On Topics |
+| --- | --- |
+| Financial Services | Insider trading, fiduciary duties, customer privacy |
+| Healthcare | Anti-kickback, patient privacy, research integrity |
+| Government Contracting | Procurement integrity, cost accounting, security |
+| Tech/Data | Data governance, AI ethics, cybersecurity |
+| Environmental Impact | Environmental compliance, sustainability commitments |
+
+**Acknowledgment Block (Add to end)**
+
+```text
+I acknowledge receipt of the Code of Business Conduct and Ethics, understand its contents, and agree to comply.
+Name:
+Title:
+Signature:
+Date:
+```
+
+## Guidelines
+
+- U.S. focus: align with SEC SOX 406 code-of-ethics requirements and applicable exchange listing standards.
+- Use concrete examples tied to actual business activities; avoid hypothetical edge cases.
+- Include lawful whistleblower and government-cooperation carve-outs; do not waive statutory rights.
+- Avoid employment promises or “cause” language unless approved by HR/Legal.
+- If multiple jurisdictions apply, add a short “Local Law Conflicts” provision and require Legal review.
+- Mark any uncertain legal citations with `[VERIFY]`.
+tokens used
+6,133

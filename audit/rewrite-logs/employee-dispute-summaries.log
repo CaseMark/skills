@@ -1,0 +1,273 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-d1ba-7c71-aa7e-ef7ed3f51c67
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "95dc5b76-0616-4a9b-9d42-791871735536",
+  "slug": "employee-dispute-summaries",
+  "name": "Employee Dispute Summaries",
+  "summary": "Generates comprehensive, objective summaries of employee disputes, distilling allegations, responses, procedural history, resolutions, and contextual factors from various documents. Designed for HR departments and legal advisors to quickly understand key elements and status of employment conflicts like discrimination, harassment, or wrongful termination. Use it when reviewing complex litigation or internal investigations for actionable insights.",
+  "content": "# Employee Dispute Summary Prompt\n\nYou are tasked with creating a comprehensive summary of an employee dispute for use by HR departments and legal advisors. This summary must distill complex employment-related conflicts into a clear, actionable document that enables quick understanding of the dispute's key elements and current status.\n\nBegin by thoroughly reviewing all available documentation related to the employee dispute. This includes complaint letters, witness statements, investigation reports, correspondence between parties, disciplinary records, employment agreements, company policies, and any formal legal filings. Extract and organize information across five critical dimensions: the allegations made, the responses provided by all parties, the procedural history and current status, any resolutions or settlements reached, and relevant contextual factors.\n\nWhen documenting the allegations, identify the specific claims being made, including the nature of the dispute (discrimination, harassment, wrongful termination, wage and hour violations, breach of contract, or other employment-related matters). Specify who is making each allegation, the dates and locations of alleged incidents, any witnesses identified, and the legal or policy violations claimed. Present these allegations objectively without making credibility determinations, using precise language that captures the substance of each claim while avoiding inflammatory characterizations.\n\nFor responses, summarize how each party has addressed the allegations. Include the employer's position, any defenses raised, the employee's rebuttals to employer arguments, and positions taken by any third parties such as union representatives or co-workers. Note where parties agree on facts and where material disputes exist. Document any admissions, denials, or affirmative defenses that have legal significance.\n\nThe procedural status section should provide a clear timeline of the dispute's progression. Note when the initial complaint was filed, what internal processes have been followed (such as HR investigations, grievance procedures, or mediation attempts), whether any external agencies are involved (EEOC, state labor boards, arbitration forums), the current stage of any formal proceedings, upcoming deadlines or hearings, and what procedural steps remain. This chronology enables readers to understand both what has occurred and what actions may be required going forward.\n\nIf any resolution has been reached, document its terms comprehensively. Include whether the matter was resolved through settlement, arbitration award, administrative decision, or other means. Specify any monetary compensation, non-monetary remedies such as reinstatement or policy changes, confidentiality provisions, non-admission clauses, and ongoing obligations for either party. Note whether the resolution is final or subject to appeal or further review.\n\nThroughout the summary, maintain strict objectivity and avoid legal conclusions unless they have been formally determined by a court, arbitrator, or administrative body. Use clear, professional language accessible to both legal and HR professionals. Identify any gaps in documentation or areas where additional investigation may be needed. Flag potential legal risks, including exposure to litigation, regulatory violations, or precedent-setting implications for company policy.\n\nStructure the summary to enable quick reference, with clear section headings and concise paragraphs. Begin with an executive overview that captures the essential nature of the dispute in two to three sentences. Include a parties section identifying all individuals and entities involved with their roles. Present the substantive sections on allegations, responses, procedure, and resolution in logical order. Conclude with a section on outstanding issues, next steps, and recommendations for HR or legal counsel consideration.\n\nEnsure all factual assertions are supported by reference to specific source documents. When quoting from documents, use quotation marks and cite the source. Where information is based on witness statements or interviews, attribute accordingly. If certain facts are disputed or unclear, note this explicitly rather than presenting one party's version as established fact.\n\nConsider the practical needs of your audience. HR professionals require clarity on policy implications, employee relations concerns, and operational impacts. Legal advisors need sufficient detail to assess litigation risk, regulatory compliance, and strategic options. Your summary should serve both audiences by providing the factual foundation they need while highlighting the most significant legal and business considerations.\n\nThe final document should be comprehensive yet concise, typically ranging from two to five pages depending on the complexity of the dispute. It should enable a reader unfamiliar with the matter to quickly understand what happened, what the current status is, and what decisions or actions may be required. This summary becomes a critical reference document for decision-making, settlement negotiations, litigation strategy, and organizational learning about employment practices.",
+  "parent_skill_id": "22a32815-94e1-4019-82f5-f958b8a9672a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "Employment_Litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:56:19.498408Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing detailed employee dispute summary skill**
+
+I'm creating a skill called "employee-dispute-summary" focused on summarizing employment disputes with a clear description, structured sections (including tables and checklists), a concise title and purpose, metadata featuring Litigation and Summary, and prerequisites listing essential documents; this will help users generate thorough dispute summaries referencing key facts, allegations, investigations, and next steps.
+thinking
+**Crafting full employee dispute summary skill content**
+
+I'm preparing complete SKILL.md content for the employee-dispute-summary skill in markdown, including a detailed description, metadata, a clear purpose, prerequisites, a numbered output structure with tables, checklists, and guidelines emphasizing neutrality, citation, confidentiality, and jurisdiction, all formatted with no nested bullets and strictly adhering to length and content constraints.
+codex
+---
+name: employee-dispute-summary
+description: Produces a structured, source-cited summary of U.S. employment disputes for HR and litigation review, covering allegations, responses, procedural history, resolutions, risks, and next steps. Use for HR investigations, EEOC/agency matters, discrimination, harassment, retaliation, wrongful termination, wage-hour disputes, grievance/arbitration files, or when asked to “summarize an employee dispute” or “employment litigation summary.”
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Employee Dispute Summary
+
+Create an objective, source-cited summary of an employee dispute for HR and legal decision-making.
+
+## Prerequisites
+
+1. **Source corpus**: complaints, witness statements, investigation reports, correspondence, disciplinary records, employment agreements, policies/handbooks, performance reviews, agency filings, pleadings, settlement docs.
+2. **Parties list**: all individuals/entities with roles and relationships.
+3. **Timeline anchors**: key dates, deadlines, hearings, and process milestones.
+4. **Forum details**: internal process, arbitration, EEOC/state agency, court, union grievance.
+5. **Resolution terms**: any settlement, award, or decision documents, if applicable.
+
+## Output Structure / Process
+
+1. **Executive Overview** (2–3 sentences)
+   - Nature of dispute, core claims, current status, and immediate next step.
+2. **Parties and Roles**
+   | Party | Role | Relationship | Counsel/Rep | Source |
+   |---|---|---|---|---|
+3. **Allegations Matrix**
+   | Allegation | Claim Type | Alleged Conduct | Dates/Locations | Witnesses | Policy/Statute Cited | Status | Source |
+   |---|---|---|---|---|---|---|---|
+4. **Responses and Defenses**
+   | Party | Position | Admissions | Denials | Affirmative Defenses | Disputed Facts | Source |
+   |---|---|---|---|---|---|---|
+5. **Procedural History Timeline**
+   | Date | Event | Forum/Process | Outcome/Status | Next Deadline | Source |
+   |---|---|---|---|---|---|
+6. **Resolution / Outcome (if any)**
+   | Resolution Type | Date | Monetary Terms | Non-Monetary Terms | Confidentiality/Non-Admission | Appeal/Review Status | Source |
+   |---|---|---|---|---|---|---|
+7. **Findings / Determinations**
+   | Decision-Maker | Finding | Standard Applied | Scope | Effective Date | Source |
+   |---|---|---|---|---|---|
+8. **Outstanding Issues and Next Steps**
+   - [ ] Open factual disputes
+   - [ ] Pending procedural steps
+   - [ ] Required notices/approvals
+   - [ ] Evidence gaps to close
+   - [ ] Decision points for HR/Legal
+9. **Risk and Policy Impact**
+   | Risk Area | Exposure Level | Rationale | Potential Remedies | Policy/Operational Impact | Source |
+   |---|---|---|---|---|---|
+10. **Source Map**
+    | Fact/Assertion | Source Doc ID | Page/Section | Confidence |
+    |---|---|---|---|
+11. **Gaps / Additional Information Needed**
+    - List missing documents, unclear facts, or unverified assertions.
+
+**Source Handling Rules**
+- Tag each factual assertion with a source marker like `[Doc-12]`.
+- If quoting, use quotation marks and cite the document and page/section.
+- If a fact is disputed, state both positions and label as **Disputed**.
+
+## Guidelines
+
+- Maintain neutrality; do not assess credibility or intent.
+- State legal conclusions only if formally determined by a court, arbitrator, or agency.
+- Identify the governing policy version and effective date when cited.
+- Note any privilege or confidentiality restrictions; avoid reproducing sensitive material beyond what is necessary.
+- If jurisdiction is unclear or non-U.S., flag it explicitly and adjust labels; use `[VERIFY]` for uncertain citations.
+- Highlight anti-retaliation and preservation obligations when implicated by the facts.
+- Keep the document concise and scannable; target 2–5 pages for complex matters.
+tokens used
+3,413

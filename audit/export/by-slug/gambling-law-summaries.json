@@ -1,0 +1,43 @@
+{
+  "id": "60cfd0af-a92a-477d-ab7e-cc7444ec111e",
+  "slug": "gambling-law-summaries",
+  "name": "Gambling Law Summaries",
+  "summary": "Generates comprehensive regulatory summaries of gambling laws for specified US jurisdictions, covering legal status, licensing requirements, operational restrictions, and oversight agencies. Distinguishes between commercial casinos, tribal gaming, online platforms, sports betting, and other forms. Use for gaming industry stakeholders like casino operators and online platforms needing strategic compliance overviews.",
+  "content": "# Gambling Law Regulatory Summary Prompt\n\nYou are tasked with creating a comprehensive regulatory summary of gambling laws applicable to a specific jurisdiction or business operation. This summary should serve as a strategic reference document for gaming industry stakeholders, including casino operators, online gambling platforms, gaming equipment manufacturers, and legal compliance teams navigating the complex regulatory landscape.\n\nBegin by identifying the relevant jurisdiction(s) for analysis. If the user has not specified a jurisdiction, ask them to clarify whether they need coverage of federal regulations, specific state laws, tribal gaming regulations, international frameworks, or a multi-jurisdictional analysis. The scope should be tailored to the client's operational footprint, whether they operate physical casinos, online platforms, sports betting operations, lottery systems, or a combination of gaming activities.\n\nConduct thorough research into the current regulatory framework governing gambling activities in the identified jurisdiction(s). Your analysis should examine statutory provisions, administrative regulations, regulatory agency guidance, recent enforcement actions, and relevant case law that shapes the operational environment. Search for official sources including state gaming commission websites, federal regulatory databases, published administrative codes, and authoritative legal commentary on gambling regulation. Verify all legal citations and ensure that statutory references, regulatory code sections, and case names are accurate and current.\n\nStructure your summary to address the following core regulatory dimensions in clear, accessible prose. First, provide an overview of the legal status of gambling in the jurisdiction, including which forms of gaming are permitted, prohibited, or subject to specific restrictions. Distinguish between different categories such as commercial casinos, tribal gaming facilities, charitable gaming, online gambling platforms, sports betting, daily fantasy sports, and social gaming. Explain the constitutional or statutory foundation for gambling regulation and identify the primary regulatory agencies with oversight authority.\n\nNext, detail the licensing and permitting requirements that govern market entry and ongoing operations. Describe the types of licenses available, including operator licenses, vendor licenses, key employee licenses, and manufacturer certifications. Outline the application process, including required documentation, background investigation procedures, financial suitability standards, and character and fitness requirements. Specify application fees, license term durations, and renewal procedures. Address any restrictions on license transferability and conditions that may trigger license revocation or suspension.\n\nExamine operational restrictions and compliance obligations that licensed entities must observe. Cover requirements related to minimum capitalization, responsible gaming programs, anti-money laundering controls, patron age verification, advertising and marketing limitations, game integrity standards, and technical specifications for gaming equipment or platforms. For online gambling operations, address geolocation requirements, payment processing restrictions, data security obligations, and server location mandates. Include any limitations on betting types, stake limits, payout ratios, or operational hours.\n\nAnalyze the tax and fee structure applicable to gambling operations, including gross gaming revenue taxes, license fees, regulatory assessments, and any local taxes or community impact payments. Explain how tax rates vary by gaming type, revenue thresholds, or operator category. Note any tax incentives, credits, or special provisions that may apply.\n\nAddress enforcement mechanisms and penalties for regulatory violations, including administrative sanctions, civil penalties, criminal liability, and license disciplinary actions. Highlight recent enforcement trends and notable regulatory actions that illustrate agency priorities and compliance expectations.\n\nIf the jurisdiction has recently enacted new legislation or is considering pending reforms, summarize these developments and their potential impact on the regulatory landscape. Note any transition periods, grandfathering provisions, or implementation timelines that may affect current or prospective operators.\n\nThroughout your summary, maintain a practical focus on how these regulations affect business operations and strategic decision-making. Use clear headings and logical organization to make the document easily navigable for business executives, compliance officers, and legal counsel. Where regulations are ambiguous or subject to evolving interpretation, note areas of legal uncertainty and recommend consultation with specialized gaming law counsel.\n\nPresent your findings in a professional memorandum format suitable for executive review and strategic planning. The summary should be comprehensive yet concise, typically ranging from five to fifteen pages depending on jurisdictional complexity. Include a brief executive summary at the beginning highlighting the most critical regulatory requirements and recent developments. Conclude with practical recommendations for compliance and risk management tailored to the client's specific gaming operations.\n\nEnsure all legal citations follow proper Bluebook format and include hyperlinks to official sources where available. Date your summary and include a disclaimer noting that gambling laws are subject to frequent change and that the summary should not substitute for individualized legal advice on specific operational questions.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "gaming"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "gambling"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.747548",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

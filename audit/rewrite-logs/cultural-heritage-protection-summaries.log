@@ -1,0 +1,310 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-6ca3-7d63-936a-4c5b83670c88
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "0c639cb8-f1a2-4014-9498-3d3990f694fd",
+  "slug": "cultural-heritage-protection-summaries",
+  "name": "Cultural Heritage Protection Summaries",
+  "summary": "Generates comprehensive summaries of recent legal developments, judicial decisions, legislative changes, and treaty updates in cultural heritage protection. Synthesizes key cases on repatriation, site protection, illicit trafficking, and enforcement from international tribunals and national courts. Structures outputs thematically for governments, NGOs, and international organizations to inform preservation efforts.",
+  "content": "# Cultural Heritage Protection Legal Developments Summary\n\nYou are tasked with creating a comprehensive summary of recent legal developments and cases related to cultural heritage protection. This summary will serve governments, international organizations, and NGOs working to preserve cultural heritage sites, artifacts, and intangible cultural property worldwide.\n\nYour summary should synthesize recent judicial decisions, legislative changes, treaty developments, and regulatory updates that impact cultural heritage protection. Begin by conducting thorough research to identify the most significant and recent legal developments in this field, including cases from international tribunals, national courts, and administrative bodies that address issues such as repatriation of cultural artifacts, protection of archaeological sites, enforcement of cultural property laws, illicit trafficking prosecutions, and disputes over cultural heritage ownership.\n\nWhen analyzing cases, extract and present the essential elements including the parties involved, the cultural heritage items or sites at issue, the legal framework applied (whether international conventions like the 1970 UNESCO Convention, the 1954 Hague Convention, UNIDROIT Convention, or national cultural heritage laws), the key legal questions presented, the court's reasoning, and the practical implications of the decision for cultural preservation efforts. Pay particular attention to precedent-setting decisions that establish new interpretations of cultural heritage law or resolve conflicts between competing claims to cultural property.\n\nFor legislative and regulatory developments, identify new statutes, amendments to existing cultural heritage protection laws, and administrative regulations that affect how cultural property is managed, protected, or transferred. Consider developments at international, regional, and national levels, noting how different jurisdictions are evolving their approaches to cultural heritage protection in response to contemporary challenges such as armed conflict, climate change, development pressures, and the digital documentation of heritage.\n\nStructure your summary to be accessible to diverse stakeholders including legal advisors to cultural institutions, policy makers developing heritage protection frameworks, enforcement officials combating illicit trafficking, and advocates working on repatriation claims. Begin with an executive overview highlighting the most critical developments, then organize subsequent sections thematically by topic areas such as repatriation and restitution, protection during armed conflict, underwater cultural heritage, intangible cultural heritage, indigenous cultural rights, and enforcement mechanisms.\n\nFor each development or case discussed, provide proper legal citations following appropriate citation standards, include the date of the decision or enactment, identify the jurisdiction, and explain the practical significance for cultural heritage protection efforts. Where relevant, note how developments in one jurisdiction may influence approaches in others or contribute to the evolution of customary international law in this field.\n\nConclude with an analysis of emerging trends, identifying patterns across multiple developments that suggest evolving approaches to cultural heritage protection, potential areas of future legal development, and practical recommendations for stakeholders seeking to strengthen cultural preservation frameworks. Your summary should be thorough yet concise, typically ranging from three to seven pages depending on the volume and complexity of recent developments, and should be updated periodically to reflect the dynamic nature of this legal field.\n\nEnsure all factual claims about cases and legal developments are verified and accurately represented, as this summary will inform critical decision-making by organizations responsible for protecting irreplaceable cultural heritage.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "international"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:18.63059",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:52:37.223922Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Producing compressed SKILL.md content**
+
+I'm creating a concise SKILL.md for "Cultural Heritage Protection Summary" with simplified slug and no practice-area prefixes, strictly following formatting rules including no nested bullets but allowing tables. It will include a third-person max 1024-character description with trigger keywords, capitalized practice areas/document types/skill modes, and structured sections: Executive Overview, Thematic Sections, Case/Development Entries, Trends, Recommendations, Appendix, plus citations and key instruments without article specifics. It will outline prerequisites, process steps (date range, jurisdictions, sources, citations), output length (3-7 pages), update cadence, and quality checks.
+thinking
+**Composing detailed SKILL.md content**
+
+I'm integrating specified trigger keywords into the description and defining five clear prerequisites including timeframe, jurisdiction scope, audience, citation style, and source access. The output structure will have Intake Checklist, Research Sweep, Selection Criteria, and a Development Entry Template table, plus a simple Thematic Sections list with coverage. The Executive Overview is a bullet list; Case/Legislation/Treaty Update uses a code block template. Compliance steps include verifying accuracy and marking gaps, with notes on cross-jurisdiction influence and jurisdiction caveats. Guidelines cover do's/don'ts like avoiding advocacy and marking unsettled law; respecting cultural sensitivity is emphasized. This form skill involves research and summarization, sized at about 120-160 lines, all respecting no nested bullets.
+codex
+---
+name: cultural-heritage-summary
+description: Produces structured, citation-ready summaries of recent legal developments in cultural heritage protection, covering repatriation/restitution, site and object protection, illicit trafficking enforcement, and treaty or legislative updates. Use when tracking cultural heritage law, preparing NGO or government briefings, or summarizing international and national decisions. Trigger keywords: cultural heritage, repatriation, restitution, UNESCO 1970, Hague Convention 1954, UNIDROIT 1995, illicit trafficking, underwater cultural heritage, intangible heritage, heritage protection.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Research
+    - Summarization
+---
+
+# Cultural Heritage Protection Summary
+
+Deliver a concise, defensible update on legal developments affecting cultural heritage protection across jurisdictions and tribunals.
+
+## Prerequisites
+
+1. **Time window** — exact start/end dates for developments covered.
+2. **Scope** — jurisdictions, tribunals, and administrative bodies included.
+3. **Audience** — government, NGO, cultural institution, enforcement, or mixed.
+4. **Citation standard** — Bluebook, OSCOLA, or organization-specific style.
+5. **Source access** — decisions, statutes, treaties, official releases, and regulations.
+
+## Output Structure / Process
+
+**Executive Overview (max 1 page)**
+- 5–10 bullet headlines of the most material developments.
+- One-sentence implications per headline.
+
+**Thematic Sections (use only those supported by the source set)**
+- Repatriation and restitution
+- Site and monument protection
+- Illicit trafficking and enforcement
+- Armed conflict and emergency protections
+- Underwater cultural heritage
+- Intangible cultural heritage and indigenous rights
+- Cultural property in trade/customs and export controls
+- Digital heritage and documentation
+
+**Development Selection Criteria**
+- Direct legal effect (binding decision, statute, regulation, treaty action).
+- New interpretation or change in enforcement posture.
+- Cross-border or precedent value.
+- High-impact items for stakeholders.
+
+**Development Entry Template**
+```text
+Title:
+Jurisdiction / Forum:
+Date:
+Type: (Decision / Statute / Regulation / Treaty / Policy)
+Parties / Actors:
+Subject Matter:
+Legal Framework: (e.g., 1954 Hague Convention; 1970 UNESCO; 1995 UNIDROIT; 2001 UCH; 2003 ICH; 1972 World Heritage; national statutes)
+Key Issue:
+Holding / Outcome:
+Reasoning Snapshot:
+Practical Impact:
+Cross-Jurisdiction Signal:
+Citations:
+```
+
+**Case/Decision Table (preferred format)**
+| Field | Required |
+| --- | --- |
+| Parties / Case Name | Yes |
+| Court/Tribunal | Yes |
+| Date | Yes |
+| Cultural Property at Issue | Yes |
+| Legal Basis | Yes |
+| Key Question | Yes |
+| Outcome | Yes |
+| Practical Effect | Yes |
+| Citation | Yes |
+
+**Legislation/Regulation Table**
+| Field | Required |
+| --- | --- |
+| Jurisdiction | Yes |
+| Instrument | Yes |
+| Date Enacted / Effective | Yes |
+| Key Changes | Yes |
+| Impact on Heritage Protection | Yes |
+| Citation | Yes |
+
+**Treaty/International Instrument Update Table**
+| Field | Required |
+| --- | --- |
+| Instrument | Yes |
+| Action (ratification/implementation/interpretation) | Yes |
+| State/Body | Yes |
+| Date | Yes |
+| Practical Consequence | Yes |
+| Citation | Yes |
+
+**Trend Analysis (final section)**
+- 3–6 bullet trends, each with 1–2 supporting examples.
+- Include enforcement intensity, restitution momentum, conflict-related protections, and compliance gaps if supported.
+
+**Recommendations (optional, only if requested)**
+- 3–7 pragmatic actions tied to specific developments.
+
+## Guidelines
+
+- Verify all dates, holdings, and enactment status; use `[VERIFY]` for uncertain citations or treaty status.
+- Do not summarize media reports without primary sources; cite official decisions, statutes, or treaty actions.
+- Distinguish binding law from policy guidance or soft law.
+- Note treaty applicability only where the jurisdiction has ratified or implemented; otherwise label as persuasive or non-binding.
+- Avoid advocacy tone; present neutral legal analysis.
+- Use culturally sensitive terminology and accurately identify indigenous or source communities.
+- If a development affects return, restitution, or title, state the exact legal basis (statute, treaty, or court rule).
+- Flag unresolved issues, splits, or pending appeals explicitly.
+- Keep length within the agreed window (default 3–7 pages).
+tokens used
+2,876

@@ -1,0 +1,389 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7a-568c-7903-9aee-7025cdddc1bc
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2348b1f8-d164-4034-a73f-2fa038ee8e2f",
+  "slug": "complaint-for-partition-of-real-property",
+  "name": "Complaint for Partition of Real Property",
+  "summary": "Drafts a comprehensive Complaint for Partition of Real Property, a pleading used when co-owners disagree on property disposition and require court-ordered division or sale. It establishes jurisdiction, venue, parties' relationships, and a detailed property description while complying with state statutes. Use this skill in real estate litigation to initiate partition actions.",
+  "content": "# Complaint for Partition of Real Property\n\nYou are tasked with drafting a comprehensive Complaint for Partition of Real Property, a litigation document used when co-owners of real property cannot agree on its disposition and seek court intervention to divide or sell the property. This complaint must be meticulously crafted to comply with jurisdictional requirements while clearly establishing the factual and legal basis for partition.\n\n## Caption and Court Information\n\nBegin by establishing the proper court heading and case caption. Include the full legal name of the court with appropriate jurisdiction over the property (typically the superior or circuit court in the county where the property is located). If a case number has been assigned, include it prominently. List all plaintiffs and defendants with their full legal names, using proper designations such as \"et al.\" when multiple parties are involved. The caption should follow the specific formatting requirements of your jurisdiction, which may include particular spacing, font requirements, or organizational structure. Ensure that the title of the document clearly identifies it as a \"Complaint for Partition of Real Property\" or similar language required by local rules.\n\n## Introduction and Jurisdictional Statement\n\nDraft an introductory paragraph that immediately identifies this action as a complaint for partition under the applicable state statute. Establish the court's subject matter jurisdiction by citing the specific statutory authority that grants the court power to order partition of real property. Address personal jurisdiction by demonstrating that defendants have sufficient contacts with the forum state, typically through property ownership within the jurisdiction. Establish proper venue by showing that the real property at issue is located within the county where the action is filed. This section should be concise yet comprehensive, providing the court with immediate clarity about the nature of the action and why it properly belongs before this particular court.\n\n## Parties and Their Relationships\n\nProvide detailed allegations about each plaintiff and defendant, including their full legal names, current addresses, and residency status. Describe the relationship between the parties, whether they are family members, business partners, former spouses, or other co-owners. Explain how the co-ownership relationship arose, such as through inheritance, joint purchase, gift, or other means of acquisition. If any party is deceased, identify their estate representative or heirs. For corporate or entity owners, include their state of incorporation or organization and principal place of business. This section establishes standing and demonstrates that all necessary parties with ownership interests have been joined in the action.\n\n## Property Description and Legal Identification\n\nInclude a complete and accurate legal description of the real property subject to partition. This must go beyond a street address to include the official legal description as it appears in the deed or other recorded instruments, typically including lot numbers, block numbers, subdivision names, metes and bounds descriptions, or other identifying information required for real property conveyances in your jurisdiction. Provide the street address for practical identification, the assessor's parcel number (APN) for tax purposes, and the county where the property is situated. If available, reference the recording information for the most recent deed (book and page number or instrument number). Describe the general character of the property, such as whether it is improved or unimproved, residential or commercial, and its approximate size or acreage.\n\n## Ownership Interests, Acquisition, and Encumbrances\n\nSet forth detailed allegations regarding each party's ownership interest in the property, specifying the percentage or fractional share held by each co-owner. Explain how each party acquired their interest, whether through purchase, inheritance, gift, or other means, and provide approximate dates of acquisition. Allege that the parties hold the property as tenants in common (or joint tenants, if applicable) with undivided interests. Identify any mortgages, liens, easements, or other encumbrances affecting the property, including the names of lienholders and approximate amounts owed. Address whether any party has made improvements to the property or paid more than their proportionate share of expenses, as this may affect the equitable distribution of proceeds. This factual foundation is critical to establishing each party's rights and the court's authority to order an equitable partition.\n\n## Grounds for Partition and Impracticability of Division in Kind\n\nArticulate the specific reasons why partition is necessary and appropriate. Allege that the co-owners cannot agree on the disposition of the property, whether through sale, buyout, or continued joint ownership. Explain any attempts made to resolve the dispute outside of court, demonstrating that litigation is necessary. Critically, address whether the property can be physically divided in kind (actual partition) or whether it must be sold and the proceeds divided (partition by sale). In most cases, you will allege that the property cannot be equitably divided in kind without material injury to the parties' interests, citing factors such as:\n\n- The physical characteristics of the property make division impractical or impossible\n- Division would substantially diminish the value of the individual parcels compared to the whole\n- The property is improved with a single structure that cannot be reasonably divided\n- Zoning or land use regulations would prevent subdivision\n- The parties' fractional interests are such that equitable physical division is not feasible\n\nSupport these allegations with specific facts about the property's size, configuration, improvements, and current use.\n\n## Statutory Authority and Legal Basis\n\nCite the specific state statute authorizing partition actions, typically found in the state's civil procedure code or property code. Reference any relevant case law or procedural rules that govern partition proceedings in your jurisdiction. Allege that the plaintiff has complied with any statutory prerequisites, such as providing notice to co-owners or attempting alternative dispute resolution if required. Demonstrate that the action is timely filed and not barred by any statute of limitations or laches. This section establishes the legal framework supporting the court's authority to grant the requested relief.\n\n## Prayer for Relief\n\nConclude with a comprehensive prayer for relief that requests all appropriate remedies. Request that the court order partition of the property, specifying whether you seek partition in kind or partition by sale based on the allegations in the complaint. Ask for the appointment of a referee, commissioner, or special master if required by statute or local practice to oversee the partition process, conduct the sale, or make recommendations to the court. Request that the court:\n\n- Determine the ownership interests and rights of all parties\n- Order an accounting of rents, profits, and expenses related to the property\n- Award costs of suit, including filing fees, service costs, and referee fees\n- Grant such other and further relief as the court deems just and proper\n\nIf seeking partition by sale, request that the court order the property sold under court supervision, with proceeds distributed according to the parties' ownership interests after payment of liens, encumbrances, and costs of sale.\n\n## Verification, Signature, and Certification\n\nInclude a verification statement signed under penalty of perjury by the plaintiff or a party with personal knowledge of the facts alleged, affirming that the allegations in the complaint are true and correct to the best of their knowledge. Provide a signature block for the attorney of record, including their name, bar number, firm name, address, telephone number, email address, and designation as \"Attorney for Plaintiff.\" If the plaintiff is proceeding pro se, include an appropriate signature block with contact information. Add any certification required by local rules regarding service, conferencing with opposing parties, or compliance with court procedures. Ensure that the document complies with all formatting requirements, including page limits, font specifications, line spacing, and margin requirements specified by local court rules.\n\nThroughout the complaint, maintain a professional and objective tone, using clear and precise language. Organize allegations logically with numbered paragraphs for easy reference. Avoid argumentative language or legal conclusions unsupported by factual allegations. Ensure that all factual allegations are specific enough to provide notice to defendants while preserving flexibility for proof at trial. The complaint should be comprehensive enough to withstand a motion to dismiss while remaining focused on the essential elements of a partition action.",
+  "parent_skill_id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "real-estate-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:07.566581",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:49:17.172271Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Selecting skill-creator for rewriting skill**
+
+The user’s task clearly matches the skill-creator role for creating or updating skills, so I’ll proceed to read its SKILL.md to guide the rewrite accordingly.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 51ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Reviewing skill creator README**
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Determining skill usage announcement placement**
+
+YAML frontmatter cannot contain extra fields, and adding any lines before the initial `---` violates the spec, so the announcement cannot be included inline; the final output must strictly be the SKILL.md content as originally instructed.
+thinking
+**Finalizing detailed skill content plan**
+
+The plan solidifies crafting a comprehensive SKILL.md for a partition complaint, including precise YAML frontmatter, a structured prerequisites list, detailed output structure with tables, checklists, and a complaint skeleton with placeholders, all confined to 80–150 lines and adhering strictly to user output rules.
+codex
+---
+name: partition-complaint
+description: Drafts a U.S. civil complaint for partition of real property by co-owners, establishing jurisdiction and venue, parties and standing, legal property description, ownership interests, encumbrances, and grounds for partition in kind or by sale with appropriate relief and accounting. Use when filing partition actions, resolving tenant-in-common or joint tenancy disputes, or seeking court-ordered division or sale of real property. Trigger keywords: partition, partition by sale, partition in kind, co-owner dispute, tenants in common, joint tenants, referee, commissioner, accounting.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Complaint for Partition of Real Property
+
+Draft a partition complaint that pleads jurisdiction, ownership, property description, and grounds for partition in kind or by sale.
+
+## Prerequisites
+
+1. Governing state partition statute and local rule requirements.
+2. Recorded deed(s) and full legal description of the property.
+3. Current ownership breakdown with percentage or fractional interests.
+4. Encumbrances and lienholder information.
+5. Property facts supporting partition in kind or partition by sale.
+6. Prior attempts to resolve the dispute, if any.
+
+## Output Structure / Process
+
+Use the structure below and keep allegations in numbered paragraphs.
+
+### Required Facts Intake
+
+| Item | Details |
+| --- | --- |
+| Court and county | Venue where the property is located |
+| Parties | Full legal names, capacity, addresses, entity info |
+| Co-ownership basis | Purchase, inheritance, gift, divorce, etc. |
+| Tenancy type | Tenants in common or joint tenants |
+| Property | Street address, APN, county |
+| Legal description | Metes/bounds or lot/block/subdivision |
+| Ownership interests | Percentages or fractional shares |
+| Encumbrances | Mortgages, liens, easements, amounts |
+| Property use | Residential/commercial, improvements |
+| Partition type | In kind or by sale with supporting facts |
+| Prior efforts | Negotiations, demands, ADR if required |
+
+### Pleading Outline
+
+1. **Caption**  
+Identify court, parties, and title: "Complaint for Partition of Real Property."
+
+2. **Introduction and Nature of Action**  
+State this is an action for partition under the governing statute.
+
+3. **Jurisdiction and Venue**  
+Allege subject matter jurisdiction, personal jurisdiction via ownership in forum, and venue in the county where the property sits.
+
+4. **Parties**  
+Allege each party's identity and relationship to the property. For entities: formation state and principal place of business. For estates: personal representative or heirs.
+
+5. **Property Description**  
+Include street address, APN, and full legal description. Attach legal description as Exhibit A when required.
+
+6. **Ownership Interests**  
+Allege tenancy type and specific ownership shares. State acquisition method and dates.
+
+7. **Encumbrances and Contributions**  
+List recorded liens and material encumbrances. Allege disproportionate payments or improvements if seeking accounting or credits.
+
+8. **Grounds for Partition**  
+Allege inability to agree on disposition and why partition is necessary.
+
+9. **Partition Type**  
+Plead whether partition in kind is feasible. If seeking sale, allege material injury or impracticability of physical division with supporting facts.
+
+10. **Statutory Authority and Compliance**  
+Cite the state partition statute and plead satisfaction of any preconditions such as notice or ADR.
+
+11. **Prayer for Relief**  
+Request determination of interests, partition in kind or sale, appointment of a referee/commissioner if applicable, accounting, costs, and other relief.
+
+12. **Verification and Signature**  
+Include verification if required and attorney or pro se signature block.
+
+### Partition Type Checklist
+
+Use these allegations when supporting partition by sale:
+
+- Physical division is impracticable due to size, configuration, access, or utilities.
+- Single structure or improvements cannot be divided without destroying value.
+- Zoning or subdivision rules prevent lawful division.
+- Division would materially diminish value compared to sale as a whole.
+- Fractional interests make equitable division infeasible.
+
+### Prayer for Relief Menu
+
+| Relief | Include When |
+| --- | --- |
+| Partition in kind | Physical division is feasible and equitable |
+| Partition by sale | In kind causes material injury or impracticable |
+| Appointment of referee/commissioner | Statute or local practice requires |
+| Accounting | Dispute over rents, profits, taxes, or improvements |
+| Costs and fees | Authorized by statute, contract, or equity |
+| Sale procedure | Court-supervised sale and distribution |
+
+### Template Skeleton
+
+```text
+[COURT NAME]
+[COUNTY], [STATE]
+
+[PLAINTIFF],              )
+                           )   Case No.: [____]
+        Plaintiff,         )
+                           )   COMPLAINT FOR PARTITION
+v.                         )   OF REAL PROPERTY
+                           )
+[DEFENDANT],               )
+        Defendant.         )
+
+1.  [Nature of action and statute]
+2.  [Jurisdiction]
+3.  [Venue]
+4.  [Parties]
+5.  [Property description + Exhibit A]
+6.  [Ownership interests]
+7.  [Encumbrances and contributions]
+8.  [Grounds for partition]
+9.  [Partition in kind impracticable / partition by sale facts]
+10. [Compliance with statute and prerequisites]
+
+PRAYER FOR RELIEF
+A.  [Determine interests]
+B.  [Order partition in kind / by sale]
+C.  [Appoint referee/commissioner]
+D.  [Accounting]
+E.  [Costs/fees]
+F.  [Other relief]
+
+[Verification, if required]
+[Signature block]
+```
+
+## Guidelines
+
+- Join all co-owners and necessary lienholders; identify unknown claimants per local rules.
+- Use the deed’s legal description verbatim; attach as an exhibit when required.
+- Plead tenancy type precisely; do not assume joint tenancy without record support.
+- Avoid conclusory statements; tie partition-by-sale allegations to concrete property facts.
+- Check local rules for verification, special notices, or pre-filing ADR.
+- Do not include settlement communications or privileged material in the complaint.
+- If seeking fees or credits, plead statutory or contractual basis.
+tokens used
+11,678

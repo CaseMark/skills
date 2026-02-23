@@ -1,0 +1,42 @@
+{
+  "id": "5931c157-d6ab-439c-9bf8-7e1fb254c44a",
+  "slug": "draft-subscription-agreement-for-investment-fund",
+  "name": "Subscription Agreement for Fund",
+  "summary": "Drafts a comprehensive Subscription Agreement for venture capital or private equity investment funds. Extracts fund-specific details from uploaded documents like PPMs or LPAs and incorporates US securities law compliance, including accredited investor representations and risk acknowledgments. Use this skill when preparing subscription documents for fund capital raises.",
+  "content": "# Enhanced Prompt: Subscription Agreement for Fund\n\nYou are tasked with drafting a comprehensive Subscription Agreement for an investment fund. This is a critical corporate document that governs the relationship between a fund entity and its investors (subscribers), establishing the legal framework for capital contributions and investor rights.\n\nBegin by conducting thorough research into the user's uploaded documents to extract all relevant fund-specific information, including the fund's legal name, structure (LLC, LP, etc.), investment strategy, minimum subscription amounts, share or unit classes, pricing mechanisms, and any existing fund formation documents such as the Private Placement Memorandum or Limited Partnership Agreement. This document-specific information forms the foundation of the agreement and must be accurately reflected throughout.\n\n## Structure and Content Requirements\n\nThe agreement must open with precise identification of all parties, including the fund's full legal name, jurisdiction of formation, principal place of business, and the subscriber's complete identifying information (legal name, address, tax identification number, and entity type if applicable). For individual subscribers, include capacity declarations and authority representations.\n\nDraft detailed subscription terms that specify the exact subscription amount in U.S. dollars, the number and class of units or shares being purchased, the price per unit or share, and the total capital commitment. Include provisions for capital calls if applicable to the fund structure, payment schedules, and any minimum or maximum subscription thresholds. Address whether the subscription is subject to acceptance by the fund's general partner or manager, and specify any conditions under which the subscription may be rejected or reduced.\n\nThe representations and warranties section requires particular attention to securities law compliance. The subscriber must represent their status as an \"accredited investor\" under Regulation D of the Securities Act of 1933, providing specific criteria they meet (income thresholds, net worth requirements, or entity qualifications). Include representations regarding the subscriber's investment intent, acknowledgment that the securities are not registered and cannot be freely transferred, understanding of illiquidity and lock-up periods, and capacity to bear the economic risk of loss. Draft comprehensive risk acknowledgments covering market risk, lack of liquidity, potential for total loss, reliance on management, conflicts of interest, and regulatory risks specific to the fund's investment strategy.\n\nEstablish clear conditions precedent to the fund's obligation to accept the subscription, including satisfactory completion of know-your-customer (KYC) and anti-money laundering (AML) due diligence, receipt of all required documentation (W-9 or W-8 forms, accreditation verification, entity formation documents if applicable), and approval by the fund's general partner or investment committee. Specify that the subscription becomes binding only upon written acceptance by the fund.\n\nDetail the payment mechanics with precision, including acceptable payment methods (wire transfer, check, in-kind contributions if permitted), wire instructions, payment deadlines relative to the subscription date or acceptance notice, and procedures for handling insufficient funds or failed transfers. Describe the closing process, including when the subscriber will be admitted to the fund, when capital will be called if using a drawdown structure, and when the subscriber will receive confirmation of their ownership interest.\n\n## Legal Framework and Compliance\n\nThe governing law provision should specify the state law that governs the agreement's interpretation and enforcement, typically matching the fund's jurisdiction of formation or principal place of business. Include a mandatory arbitration or forum selection clause specifying where disputes must be resolved, and address whether the subscriber waives jury trial rights. Incorporate standard boilerplate provisions including severability (ensuring that if one provision is unenforceable, the remainder stays in effect), amendment procedures (typically requiring written consent of both parties), assignment restrictions (preventing transfer without fund consent), integration clauses (establishing this as the complete agreement), and notice provisions with specific addresses and methods for legal communications.\n\nEnsure the signature blocks comply with both traditional and electronic signature requirements under the ESIGN Act and UETA. For entity subscribers, include spaces for authorized signatories with title designations and, where appropriate, corporate seals or attestations. Include date lines and, if the fund uses a subscription booklet approach, provide spaces for exhibits such as the investor questionnaire, accredited investor verification form, and beneficial ownership certification under FinCEN rules.\n\nThroughout the drafting process, maintain awareness of applicable securities regulations including SEC rules under the Investment Company Act of 1940 (if relevant), state blue sky laws, and FINRA requirements if broker-dealers are involved in the offering. Cross-reference the agreement with the fund's governing documents to ensure consistency in terminology, rights, and obligations.\n\nWhen you have gathered all necessary information from the user's documents and completed your research into standard market practices for subscription agreements in the relevant fund type (private equity, hedge fund, venture capital, real estate, etc.), generate a complete, professionally formatted Subscription Agreement that is ready for legal review. The document should be comprehensive, legally sound, and tailored to the specific fund and subscriber while incorporating industry-standard protections and compliance measures.",
+  "parent_skill_id": "ab63d5b1-bd0b-450d-a7a7-36572e5e9d27",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "venture_capital_and_private_equity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

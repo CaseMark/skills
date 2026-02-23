@@ -1,0 +1,469 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-4c9f-7071-b1f8-b200619b6eea
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "76df7b55-7501-42c9-b84a-38c40344a8ba",
+  "slug": "litigation-amicus-briefs",
+  "name": "Amicus Briefs",
+  "summary": "Drafts and analyzes amicus curiae briefs submitted by non-parties to provide courts with additional perspectives, expertise, or arguments in appellate matters. Ensures briefs complement litigants' positions while adhering to court rules, Bluebook citations, and jurisdictional requirements. Use when representing organizations, experts, or interest groups influencing case outcomes without direct party involvement.",
+  "content": "# Amicus Brief Drafting and Analysis\n\nYou are tasked with drafting or analyzing an amicus curiae brief\u2014a \"friend of the court\" submission filed by non-litigants who seek to provide the court with additional perspectives, expertise, or arguments relevant to pending litigation. Amicus briefs serve a unique function in the judicial process by introducing viewpoints, data, or legal analysis that may not be fully developed by the parties themselves, often representing broader public interests, industry concerns, or specialized knowledge.\n\nWhen drafting an amicus brief, begin by thoroughly understanding the underlying case, including the parties' positions, the legal questions presented, and the procedural posture. Search through any case documents, pleadings, or court filings that have been provided to extract key facts, legal issues, and arguments already raised by the litigants. This foundational research ensures your brief complements rather than duplicates the parties' submissions and identifies gaps where additional perspective would be most valuable.\n\nYour brief should open with a concise summary that crystallizes your client's or organization's interest in the case and the core position being advanced. This summary must be accessible to judges who may review dozens of amicus submissions, clearly articulating why this particular perspective matters and what unique contribution it makes to the court's understanding. The introduction should establish your amicus's standing or interest\u2014whether as an industry association, advocacy organization, academic institution, government entity, or group of concerned citizens\u2014and explain how the court's decision may impact constituencies beyond the immediate parties.\n\nThe argument section must be meticulously researched and supported by authoritative legal sources. Conduct comprehensive legal research to identify relevant case law, statutes, regulations, and secondary sources that support your position. When citing legal authorities, ensure all citations conform to Bluebook standards with proper formatting and verification of source accuracy. Your analysis should demonstrate how existing legal principles apply to the questions before the court, potentially highlighting consequences, policy implications, or practical considerations that deserve judicial attention. If your amicus represents specialized expertise\u2014such as scientific knowledge, industry practice, or historical context\u2014integrate this substantive information seamlessly with legal argument, providing proper attribution and supporting documentation.\n\nStructure the brief according to the court's rules and conventions, typically including a table of contents, table of authorities, statement of interest, summary of argument, detailed argument with headings, and conclusion. Pay careful attention to jurisdictional requirements regarding page limits, filing deadlines, consent requirements, and formatting specifications. Many courts require consent from the parties or leave of court before accepting amicus briefs, so verify procedural prerequisites before finalizing the document.\n\nWhen analyzing an existing amicus brief, evaluate its effectiveness by examining whether it provides genuinely new information or perspectives distinct from the parties' briefs, assesses the quality and persuasiveness of its legal reasoning and citation support, considers the credibility and relevance of the amicus's stated interest, and determines whether the brief's structure and writing facilitate judicial comprehension. Extract and summarize the brief's core arguments, supporting authorities, and policy contentions in a format that allows quick reference and comparison with other submissions in the case.\n\nThroughout this process, maintain the highest standards of legal writing: precision in language, clarity in organization, and rigor in analysis. An effective amicus brief respects the court's time by being focused and well-crafted while providing genuinely useful assistance to judicial decision-making. The final product should reflect both legal sophistication and strategic awareness of how this submission fits within the broader litigation landscape and advances the interests it represents.",
+  "parent_skill_id": "6656102b-326d-43b3-a8eb-6cbe182c81c6",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "appeal"
+    ],
+    "document_types": [
+      "brief"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "appeals"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:02:18.729255Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Preparing to use skill-creator**
+
+I'm deciding to use the skill-creator skill since the user's rewrite request matches creating or revising a SKILL.md file; next, I'll read the existing SKILL.md to proceed.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Deciding final SKILL.md format**
+
+The user’s format preferences supersede skill-creator defaults, so I'll rewrite SKILL.md with full metadata and detailed description using the user’s exact format, naming the slug "amicus-brief" and including specified practice areas, document types, modes, triggers, and a concise, third-person description.
+thinking
+---
+name: amicus-brief  
+description: Drafts and analyzes U.S. appellate amicus curiae briefs for non-parties, ensuring Rule 29 and Rule 37 compliance, unique perspective development, and Bluebook-ready authority. Use for "amicus brief", "friend of the court", "non-party brief", "appellate amicus", "Rule 29", or "Rule 37" requests.  
+metadata:  
+  author: casemark  
+  practice_areas:  
+    - Litigation  
+  document_types:  
+    - Brief  
+  skill_modes:  
+    - Drafting  
+    - Analysis  
+---
+
+# Amicus Brief
+
+Produce or evaluate U.S. appellate amicus briefs that add a distinct, rule-compliant perspective to the court.
+
+# Prerequisites
+
+1. Case docket and parties’ briefs.  
+2. Client or organization interest and authority to submit amicus.  
+3. Governing rules, local court requirements, and filing deadlines.  
+4. Relevant record materials and supporting evidence.  
+5. Consent from parties or leave of court as required.
+
+# Output Structure / Process
+
+| Mode     | Description                                             | Core Steps                                                                                       |
+|----------|---------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| Drafting | Prepare compliant draft amicus brief                     | 1. Verify prerequisites 2. Follow formatting rules 3. Include required sections 4. Apply citations and disclosures 5. Review compliance checklist |
+| Analysis | Evaluate existing amicus brief for quality and compliance | 1. Assess novelty and relevance 2. Verify authority and interest 3. Check for disclosure and rule compliance 4. Review legal analysis and structure |
+
+## Drafting Checklist
+
+- [ ] Confirm adherence to FRAP 29 and Supreme Court Rule 37 (see Guidelines).  
+- [ ] Include identity and interest of amicus and party supported.  
+- [ ] Obtain and document consent or court leave.  
+- [ ] Disclose authorship, funding sources, and affiliations as required.  
+- [ ] Ensure no new issues are introduced unless permitted and framed properly.  
+- [ ] Cite authorities with Bluebook format.  
+- [ ] Comply with word/page limits (typically 6,500 words for amicus under FRAP 29(b)) [VERIFY].  
+- [ ] Include required sections and follow court-specific formatting.
+
+## Analysis Checklist
+
+- [ ] Verify brief presents a unique and non-duplicative perspective.  
+- [ ] Confirm interest and authority of amicus party.  
+- [ ] Check disclosure of funding, authorship, and consent status.  
+- [ ] Assess alignment with supported party’s position without improper new issues.  
+- [ ] Evaluate citation quality and legal authority.  
+- [ ] Ensure conformity to relevant court rules and deadlines.
+
+# Template Outline
+
+```
+[Cover/Caption Page]
+
+Statement of Interest  
+Statement of Consent or Leave to File  
+Summary of Argument  
+Argument (with clear headings)  
+Conclusion  
+Certificate of Compliance (word count verification)  
+Certificate of Service  
+Appendix (if applicable)
+```
+
+# Guidelines
+
+- Always verify and follow the specific appellate court’s local rules.  
+- FRAP 29 governs federal appellate amicus briefs; Supreme Court Rule 37 applies to SCOTUS filings.  
+- Consent from all parties or leave of court is generally required before filing.  
+- Disclose all financial support, authorship, or funding sources per FRAP 29(a)(4)(E) and SCOTUS Rule 37.6.  
+- Avoid raising new legal issues not presented by the parties unless clearly permitted; frame any new issues in support of existing questions.  
+- Comply with applicable word or page limits; typically 6,500 words for amicus briefs under FRAP 29(b) [VERIFY].  
+- Include corporate disclosure statements where applicable (see FRAP 26.1 and related rules).  
+- Cite all authorities following Bluebook standards.  
+- Check for deadlines, filing methods (e.g., ECF), and certificate of service requirements.  
+- Protect confidential or sealed information; do not reveal information outside the official record unless authorized.  
+- When citing extra-record materials, limit use to policy or legislative facts and clearly label as such.  
+- Tailor briefing to appellate context and jurisdictional nuances.  
+- Filing timing is typically within 7 days after principal brief of supported party is filed [VERIFY].
+
+# Rule Checks
+
+| Rule or Requirement                       | What to Confirm                                             |
+|------------------------------------------|--------------------------------------------------------------|
+| FRAP 29                                  | Governs federal appellate amicus briefs                      |
+| Supreme Court Rule 37                     | Governs SCOTUS amicus briefs                                 |
+| FRAP 29(a)(4)(E) & SCOTUS Rule 37.6     | Disclosure of authorship, funding, and affiliations          |
+| FRAP 29(b)                               | Word limit of 6,500 words for amicus briefs [VERIFY]         |
+| Filing deadlines                         | Typically within 7 days of principal brief [VERIFY]          |
+| Consent vs. leave of court               | Requirement depending on court and case                      |
+| Corporate Disclosure (FRAP 26.1)         | Disclosure statements for corporate amici                    |
+
+# Citations
+
+- Federal Rules of Appellate Procedure Rule 29  
+- Supreme Court Rule 37  
+- FRAP 29(a)(4)(E) disclosure requirements  
+- FRAP 29(b) word limits [VERIFY]  
+- SCOTUS Rule 37.6 disclosure rules
+
+Use this skill to draft or analyze amicus briefs ensuring compliance with U.S. appellate procedures and effective presentation of non-party interests.
+codex
+---
+name: amicus-brief
+description: Drafts and analyzes U.S. appellate amicus curiae briefs for non-parties, ensuring Rule 29/Rule 37 compliance, unique perspective development, and Bluebook-ready authority. Use for amicus brief, friend of the court, non-party brief, appellate amicus, Rule 29, or Rule 37 requests.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Brief
+  skill_modes:
+    - Drafting
+    - Analysis
+---
+
+# Amicus Brief
+
+Produce or evaluate U.S. appellate amicus briefs that add a distinct, rule-compliant perspective to the court.
+
+## Prerequisites
+
+1. Case posture and issues presented, plus parties’ briefs or at minimum their arguments and requested relief
+2. Amicus identity, constituency, and concrete stake in the outcome
+3. Applicable court rules (FRAP 29, state equivalents, or Supreme Court Rule 37) and local formatting requirements
+4. Consent status or plan for motion for leave, plus filing deadline
+5. Source set for legal authorities and any empirical or policy materials to be cited
+
+## Output Structure / Process
+
+Mode selection:
+
+| Mode | Use when | Output |
+| --- | --- | --- |
+| Drafting | Creating a new amicus brief | Full brief with required sections and compliance items |
+| Analysis | Reviewing an existing amicus brief | Structured critique and summary table |
+
+Drafting workflow checklist:
+
+- Confirm jurisdiction and rule set (federal, state, Supreme Court)
+- Verify consent or prepare motion for leave
+- Identify unique contribution and avoid duplicating party arguments
+- Build authority map: controlling precedent, persuasive precedent, statutes, regulations, secondary sources
+- Integrate expertise or policy evidence with clear sourcing
+- Draft sections in required order and verify page/word limits
+- Add disclosure statements, certificates, and signatures
+- Run compliance pass: Bluebook, formatting, service, and ECF rules
+
+Analysis workflow checklist:
+
+- Identify distinct contribution and non-duplication of party arguments
+- Assess credibility and fit of amicus interest
+- Evaluate legal authority strength and accuracy of citations
+- Flag any new issues not raised by parties
+- Check compliance with rule requirements and formatting
+- Summarize core arguments and practical or policy impacts
+
+Required sections by default (adapt to court rules):
+
+- Table of Contents
+- Table of Authorities
+- Statement of Interest
+- Summary of Argument
+- Argument with headings
+- Conclusion
+- Certificates and disclosures (see rule checks)
+
+Rule checks (confirm for the specific court):
+
+| Requirement | What to confirm |
+| --- | --- |
+| Consent or leave | Parties’ consent filed or motion for leave prepared |
+| Timing | Filing deadline, often within 7 days after the supported party’s principal brief [VERIFY] |
+| Length | Word/page limits for amicus briefs [VERIFY] |
+| Disclosure | Authorship and funding disclosure (FRAP 29(a)(4)(E); Supreme Court Rule 37.6) |
+| Corporate disclosure | Entity disclosure statement if required (FRAP 26.1 or local equivalent) |
+| Service | Proper service on all parties and proof of service |
+| Format | Font, spacing, margins, cover color, ECF requirements |
+
+Argument structure guidance (use headings; keep tight and specific):
+
+| Section | Purpose |
+| --- | --- |
+| Interest | Establish legitimacy and why the amicus perspective matters |
+| Summary | One-page max, stating the unique thesis and outcome requested |
+| Argument | 2–4 core points, each tied to controlling law and practical impact |
+| Conclusion | Clear request for disposition or adoption of rule |
+
+Template outline:
+
+```text
+[Cover / Caption]
+
+TABLE OF CONTENTS
+TABLE OF AUTHORITIES
+
+STATEMENT OF INTEREST
+[Explain amicus constituency, expertise, and direct stake.]
+
+CONSENT / LEAVE STATUS
+[State consent or note motion for leave.]
+
+SUMMARY OF ARGUMENT
+[Concise thesis and outcome sought.]
+
+ARGUMENT
+I. [Point 1: Legal principle + unique perspective]
+II. [Point 2: Policy/industry/technical evidence tied to law]
+III. [Point 3: Practical consequences or administrability]
+
+CONCLUSION
+[Requested disposition.]
+
+DISCLOSURE OF AUTHORSHIP AND FUNDING
+[FRAP 29(a)(4)(E) / Supreme Court Rule 37.6 statement.]
+
+CORPORATE DISCLOSURE STATEMENT
+[If required by court rule.]
+
+CERTIFICATE OF COMPLIANCE
+[Word count method and total.]
+
+CERTIFICATE OF SERVICE
+[Service method, date, recipients.]
+```
+
+## Guidelines
+
+- Do not duplicate party briefs; add distinct law, data, or consequences
+- Avoid introducing new issues; if referencing extra-record materials, frame as legislative facts or policy context
+- Use Bluebook citations and verify every authority for accuracy
+- Keep tone neutral, precise, and judicially useful; avoid advocacy excess
+- State the amicus interest concretely and tie it to the outcome sought
+- Follow jurisdictional rules first; FRAP/SCOTUS rules are defaults only
+- Redact or avoid confidential information not in the public record
+tokens used
+10,366

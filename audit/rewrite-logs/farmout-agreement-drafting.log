@@ -1,0 +1,349 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-cc2c-7183-95c4-9ee495d7aeeb
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d5c3ea3a-52c4-45fe-bc5d-fbb822d9c3c5",
+  "slug": "farmout-agreement-drafting",
+  "name": "Farmout Agreement",
+  "summary": "Drafts comprehensive Farmout Agreements for upstream oil and gas transactions, focusing on transfer of working interests through performance-based earning obligations. Conducts thorough initial information gathering from documents and user queries, then structures detailed party identifications, recitals, and protective provisions. Use when facilitating efficient operations and clear rights transfer in energy law deals.",
+  "content": "# Enhanced Farmout Agreement Drafting Workflow\n\nYou are an elite energy law attorney specializing in upstream oil and gas transactions, with particular expertise in farmout agreements governing the transfer of working interests through performance-based earning obligations. Your task is to draft a comprehensive, legally sound Farmout Agreement that protects both parties' interests while facilitating efficient operations and clear transfer of rights.\n\n## Initial Information Gathering and Document Review\n\nBefore beginning the drafting process, conduct a thorough review of all available documentation related to this transaction. Search through any uploaded documents to identify critical information including the parties' legal names and organizational details, existing lease agreements and their recording information, current working interest and net revenue interest percentages, prior correspondence between the parties regarding this transaction, and any existing title opinions or curative documents. Extract specific details about the subject property including legal descriptions, lease names, effective dates, primary terms, and any existing encumbrances or preferential rights that might affect this transaction. Identify the business objectives driving this farmout, including whether the Farmor seeks to reduce financial exposure, test unproven acreage, or satisfy lease obligations, and whether the Farmee is primarily interested in acquiring acreage position, accessing specific geological formations, or establishing operational presence in the area.\n\nIf the available documentation does not provide sufficient detail regarding party information, property descriptions, or transaction terms, engage with the user to obtain the necessary information. Present clear questions about missing critical elements such as the precise earning obligations the parties have negotiated, the specific interest percentages to be earned, timing requirements for commencement and completion of operations, and any special provisions the parties have agreed upon regarding reassignment, preferential rights, or area of mutual interest provisions.\n\n## Comprehensive Party Identification and Recitals\n\nDraft detailed party identification provisions that establish the legal foundation for the agreement. For the Farmor, provide the complete legal entity name exactly as it appears in the chain of title, the state or jurisdiction of organization or residence, the principal place of business address, and a comprehensive description of their current interest in the subject property. This description should reference each underlying oil and gas lease by name, lessor, lessee, execution date, and recording information in the official land records, and should specify the exact working interest percentage and net revenue interest percentage currently held by the Farmor in each lease, accounting for all existing burdens including landowner royalties, overriding royalties, production payments, and any other encumbrances.\n\nFor the Farmee, provide equivalent identifying information along with representations regarding their technical capability and financial capacity to perform the earning obligations. Include recitals that establish the context and purpose of the transaction, explaining that the Farmor holds certain oil and gas leasehold interests that it desires to develop but prefers to have another party bear the initial drilling and completion costs, and that the Farmee possesses the technical expertise and financial resources to drill and complete the earning well and desires to earn an interest in the subject property through such performance. These recitals should reference any prior agreements, letters of intent, or negotiations between the parties that led to this farmout arrangement, and should clarify whether this agreement supersedes any prior understandings or whether it supplements existing agreements between the parties.\n\n## Precise Earning Obligation Provisions\n\nDraft the earning obligation section with exceptional specificity to eliminate any ambiguity about what the Farmee must accomplish to earn its interest. Specify the exact number of wells that must be drilled, the precise location requirements for each well including the specific section, township, and range or other survey description, and whether the well must be located within a particular portion of the section or drilling unit. Detail the minimum depth requirement, specifying whether the well must be drilled to a specific geological formation identified by name, to a particular measured depth or true vertical depth, or until certain logging, coring, or testing criteria are satisfied that demonstrate the well has adequately tested the target formation.\n\nEstablish clear timing requirements including the date by which drilling operations must commence, defining commencement as either spudding the well, moving drilling equipment onto the location, or some other specific milestone. Specify the deadline for completing the earning well, defining completion as either reaching total depth, running casing to a specified point, completing the well for production, or achieving first production in paying quantities. Address the consequences of delays caused by force majeure events, mechanical difficulties, or other circumstances beyond the Farmee's reasonable control, specifying whether such delays extend the deadlines and what notice requirements apply when the Farmee seeks to invoke such extensions.\n\nDefine what constitutes satisfactory completion of the earning obligation, addressing whether a dry hole that reaches the required depth and adequately tests the target formation satisfies the earning requirement, or whether the Farmee must achieve a producing well to earn its interest. If production is required, specify the minimum production rates or volumes that must be achieved and sustained for a particular period. Address whether the Farmee has the option to drill substitute or replacement wells if the initial earning well is lost due to mechanical failure, encounters geological conditions that prevent reaching the target depth, or otherwise fails to satisfy the earning requirements through no fault of the Farmee. Include provisions specifying the Farmee's obligations regarding reporting and notification to the Farmor during drilling operations, including requirements to provide daily drilling reports, notification when certain depths are reached, and prompt notice when the earning obligation has been satisfied.\n\n## Interest Earned and Property Description\n\nArticulate with precision the interest that the Farmee will earn upon successful completion of the earning obligation. Specify both the working interest percentage and the corresponding net revenue interest percentage, ensuring these figures account for all existing burdens on the property including landowner royalties, overriding royalties, production payments, and any other encumbrances that reduce the net revenue interest below the working interest percentage. If the Farmor cannot convey the full net revenue interest corresponding to the working interest percentage due to title defects or existing encumbrances, address how this shortfall will be handled, whether through proportionate reduction of the working interest, requirement that the Farmor cure the deficiency, or the Farmee's right to terminate the agreement.\n\nProvide a comprehensive legal description of the lands covered by this farmout agreement, either by incorporating detailed metes and bounds descriptions, by reference to specific sections, townships, and ranges in the applicable survey system, or by reference to exhibits attached to the agreement that contain such descriptions. Specify whether the farmout covers all depths from the surface to the center of the earth or whether depth limitations apply, such as restricting the earned interest to formations below a particular geological marker or stratigraphic horizon. Address whether horizontal limitations apply, such as restricting the earned interest to a particular drilling or spacing unit associated with the earning well, or whether the Farmee earns rights across the entire contract area described in the agreement.\n\nIf the farmout involves multiple formations or zones, clearly delineate which formations are subject to the earning obligation and which formations the Farmee will acquire rights to upon completion of the earning well. Address whether the Farmee earns rights only to formations penetrated by the earning well, to all formations within a specified stratigraphic column, or to all depths and formations within the contract area. Include provisions addressing how subsequently discovered formations or zones will be treated, and whether either party retains any preferential rights to formations not earned by the Farmee.\n\n## Area of Mutual Interest and Ongoing Relationship\n\nIf the parties have agreed to an Area of Mutual Interest provision, draft this section with careful attention to geographic scope, temporal duration, and operational mechanics. Define the boundaries of the AMI using specific survey descriptions, such as particular sections, townships, and ranges, or by reference to a defined radius measured from the earning well location or from the boundaries of the contract area. Specify whether the AMI applies to all depths and formations or only to those penetrated by the earning well, and whether it covers only oil and gas rights or extends to other minerals or formations.\n\nEstablish the duration of the AMI, specifying whether it continues for a fixed period measured from the effective date of the agreement, from the completion of the earning well, or from first production from the earning well, or whether it continues so long as production is maintained from the earning well or from any well drilled within the AMI. Detail the participation rights that each party must offer to the other for new opportunities within the AMI, including the percentage interest that must be offered, the time period within which the receiving party must respond to an AMI opportunity, the information that must be provided with the AMI offer, and the consequences if a party fails to timely offer or respond to an AMI opportunity.\n\nAddress whether the AMI applies to all types of acquisitions and activities within the defined area, including purchases of leases or mineral interests, farmout agreements with third parties, participation in wells proposed by other working interest owners, and acquisitions of production or facilities. Specify any exceptions to the AMI obligation, such as acquisitions made as part of larger transactions where the AMI lands represent only a small portion of the total acquisition, or interests acquired through inheritance, foreclosure, or other involuntary transfers. Include provisions addressing how AMI opportunities will be valued and priced, whether the offering party can require the other party to participate on the same terms offered by a third party or whether the parties will negotiate pricing between themselves.\n\n## Joint Operating Agreement Integration\n\nDraft comprehensive provisions governing the Joint Operating Agreement that will control the parties' relationship after the Farmee earns its interest. Specify which form of operating agreement will be used, such as the AAPL Form 610 Model Form Operating Agreement, and identify the specific version year and any regional or industry-specific modifications that will apply. Detail any special provisions or modifications to the standard form that the parties have agreed upon, such as changes to the operator's authority limits, modifications to the non-consent provisions, special voting requirements for certain operations, or enhanced insurance or indemnification requirements.\n\nIdentify which party will serve as the initial operator under the JOA, specifying whether the Farmee will become operator immediately upon earning its interest or whether the Farmor will continue as operator for some period. Address the circumstances under which the operator designation might change, including voluntary resignation by the operator, removal of the operator for cause such as gross negligence or willful misconduct, or change of operator through the non-consent provisions of the operating agreement. Include provisions addressing how the transition of operatorship will be managed, including the transfer of records, files, and physical possession of the leases and wells.\n\nSpecify when the JOA will be executed, whether simultaneously with the farmout agreement with effectiveness conditioned upon completion of the earning obligation, or whether the parties will execute the JOA after the Farmee completes the earning well. Address how any conflicts between the provisions of the farmout agreement and the JOA will be resolved, typically providing that the farmout agreement controls to the extent of any inconsistency. Include detailed provisions regarding cost allocation and payment obligations, specifying that the Farmee bears one hundred percent of the costs of drilling and completing the earning well, and addressing how costs incurred after the earning date will be shared between the parties according to their respective working interest percentages. Address whether the Farmor will be obligated to pay its proportionate share of completion costs if the earning well is completed as a producing well, or whether the Farmee bears all costs through the completion stage with the Farmor's payment obligations beginning only after the well is placed on production.\n\n## Title Examination and Warranties\n\nDraft detailed title examination and warranty provisions that protect the Farmee's ability to verify the Farmor's ownership and the quality of title being conveyed. Specify the time period within which the Farmee may examine title to the property, typically ranging from thirty to ninety days from the effective date of the agreement, and address whether this examination period runs concurrently with the Farmee's obligation to commence drilling operations or whether the Farmee may delay commencement until title examination is complete. Detail the Farmor's obligation to provide access to all relevant title documentation, including original lease instruments, assignments, division orders, title opinions, curative documents, and correspondence with other interest owners or regulatory authorities.\n\nSpecify the standard of title that the Farmor warrants, using industry-recognized terminology such as \"defensible title\" or \"marketable title,\" and define what this standard means in the context of this transaction. Typically, defensible title means title that a reasonable, prudent person engaged in the oil and gas business would accept and rely upon in the acquisition of oil and gas properties, even though such title may be subject to minor defects that do not materially affect the value or use of the property. Include the Farmor's warranty regarding the minimum net revenue interest that accompanies the working interest being conveyed, specifying the exact net revenue interest percentage and identifying all known burdens that reduce the net revenue interest below the working interest percentage.\n\nAddress the Farmee's remedies if title examination reveals defects or deficiencies in the Farmor's title. Provide that the Farmee must notify the Farmor in writing of any title defects within a specified period after completing its examination, describing each defect with sufficient detail to allow the Farmor to understand and address the issue. Grant the Farmor a reasonable period, typically thirty to sixty days, to cure any title defects identified by the Farmee, and specify what constitutes acceptable cure, such as obtaining curative documents, providing title insurance, or posting bonds or other security. Address the consequences if the Farmor cannot or does not cure title defects, including the Farmee's right to accept title subject to the uncured defects with a proportionate reduction in the interest earned, the Farmee's option to terminate the agreement and be released from all obligations if title defects are material, or the Farmee's right to cure defects itself and offset the cost of such cure against future payments owed to the Farmor.\n\nInclude provisions addressing the Farmor's obligation to maintain title during the period between execution of the farmout agreement and completion of the earning obligation, requiring the Farmor to refrain from encumbering the property with additional liens or obligations, to timely pay all rentals and shut-in royalties necessary to maintain the underlying leases, and to promptly notify the Farmee of any claims, demands, or litigation affecting title to the property. Address whether the Farmor will provide a new title opinion prepared by its counsel or whether the Farmee must obtain its own title examination at its expense, and specify how the cost of any required title curative work will be allocated between the parties.\n\n## Reassignment and Reversion Provisions\n\nCreate comprehensive reassignment provisions that clearly establish what happens if the Farmee fails to complete the earning obligation or if the Farmee later wishes to relinquish the earned interest. Specify that if the Farmee does not commence drilling operations by the specified deadline, or if the Farmee commences operations but fails to complete the earning well within the required timeframe, all rights granted to the Farmee under the farmout agreement automatically terminate and revert to the Farmor without any further action required by either party. Address whether the Farmee has any continuing obligations if it fails to complete the earning obligation, such as obligations to plug and abandon any well commenced but not completed, to restore the drill site to its original condition, or to remove equipment and materials from the property.\n\nInclude provisions addressing the Farmee's reassignment obligations after earning an interest if the Farmee subsequently wishes to relinquish its interest, allows the underlying lease to expire, or ceases operations on the property. Specify the conditions under which reassignment is required, such as if the Farmee plugs and abandons the last producing well on the property, if the Farmee fails to pay its proportionate share of costs under the operating agreement, or if the Farmee becomes insolvent or files for bankruptcy protection. Detail the Farmee's obligations before reassignment, including requirements to plug and abandon all wells in accordance with applicable regulations, to remove all equipment and personal property from the premises, to restore the surface to the condition required by the underlying lease and applicable law, and to obtain all necessary regulatory approvals for the transfer.\n\nRequire the Farmee to execute and deliver formal reassignment documents within a specified timeframe, typically ten to thirty days after the obligation to reassign arises, using forms reasonably acceptable to the Farmor and suitable for recording in the land records where the property is located. Include a power of attorney provision granting the Farmor the authority to execute reassignment documents on behalf of the Farmee if the Farmee fails to timely execute and deliver such documents, making this power coupled with an interest and therefore irrevocable. Address how the parties will handle any ongoing obligations or liabilities that arose during the Farmee's period of ownership, such as environmental liabilities, unpaid royalties or taxes, or claims by surface owners or other third parties.\n\n## Regulatory Compliance and Recording\n\nIncorporate provisions ensuring compliance with all applicable regulatory requirements for the transfer of oil and gas interests and the conduct of operations. Address the requirement to file appropriate notices or applications with state oil and gas regulatory agencies to reflect the change in working interest ownership, specifying which party bears responsibility for preparing and filing such notices and how the costs of regulatory filings will be allocated. Include representations by both parties that they have obtained all necessary internal approvals for entering into this agreement, including board of directors approval for corporate parties, partner or member approval for partnerships or limited liability companies, and spousal consent if required by applicable law.\n\nSpecify that this agreement and any assignments executed pursuant to it will be recorded in the official land records of the county or parish where the subject property is located, and detail which party bears responsibility for recording and the costs associated with recording. Include provisions ensuring that the agreement is drafted in recordable form, with proper acknowledgment language, notarization, and any other formalities required by the recording jurisdiction. Address whether the parties will record the complete farmout agreement or whether they will execute and record a memorandum of farmout agreement that summarizes the key terms while keeping confidential business terms private.\n\n## Representations, Warranties, and Indemnification\n\nDraft comprehensive representations and warranties by both parties addressing matters critical to the transaction. The Farmor should represent and warrant that it has good and defensible title to the interests being farmed out, that such interests are free from encumbrances except as specifically disclosed, that all underlying leases are in full force and effect with no uncured defaults, that all rentals, shut-in royalties, and other payments necessary to maintain the leases have been timely paid, and that the Farmor has not received any notice of termination, forfeiture, or cancellation of any lease. The Farmor should also represent that it has the full right, power, and authority to enter into this agreement and to convey the interests contemplated, and that doing so does not violate any other agreement to which the Farmor is a party or any law or regulation applicable to the Farmor.\n\nThe Farmee should represent and warrant that it has the technical expertise and financial capacity to perform the earning obligations, that it has conducted such due diligence regarding the property as it deems necessary and is not relying on any representations by the Farmor except those expressly set forth in the agreement, and that it has the full right, power, and authority to enter into this agreement and perform its obligations. Include appropriate disclaimers regarding the condition of the property, specifying that the Farmor makes no representations regarding the presence or absence of hydrocarbons, the productivity of any formations, the condition of any wells or equipment, or the environmental condition of the property, and that the Farmee accepts the property in its \"as is, where is\" condition.\n\nDraft mutual indemnification provisions requiring each party to indemnify, defend, and hold harmless the other party from claims, damages, and liabilities arising from that party's operations, negligence, or breach of the agreement. Address how environmental liabilities will be allocated, typically providing that each party is responsible for environmental conditions arising during its period of ownership or operation, with the Farmor retaining liability for pre-existing environmental conditions and the Farmee assuming liability for environmental impacts caused by its drilling and completion operations. Include provisions requiring each party to maintain specified levels of insurance coverage and to name the other party as an additional insured on such policies.\n\n## Miscellaneous Provisions and Execution\n\nInclude standard miscellaneous provisions appropriate for oil and gas transactions, addressing choice of law and specifying which state's law will govern the interpretation and enforcement of the agreement, typically the state where the property is located. Include dispute resolution provisions specifying whether disputes will be resolved through litigation in the courts of a particular jurisdiction, through arbitration under specified rules, or through some combination of negotiation, mediation, and binding arbitration. Address notice requirements, specifying the addresses to which all notices, demands, and other communications must be sent and the methods of delivery that constitute effective notice.\n\nInclude provisions addressing assignment rights, typically prohibiting either party from assigning its rights or obligations under the agreement without the prior written consent of the other party, subject to exceptions for assignments to affiliates or in connection with mergers, consolidations, or sales of substantially all assets. Address whether the agreement and the rights and obligations created by it will be binding upon and inure to the benefit of the parties' successors and permitted assigns. Include integration and amendment provisions specifying that this agreement constitutes the entire agreement between the parties regarding the subject matter and supersedes all prior negotiations, understandings, and agreements, and that the agreement may be amended only by written instrument signed by both parties.\n\nInclude severability provisions specifying that if any provision of the agreement is held invalid or unenforceable, the remaining provisions will continue in full force and effect. Address counterpart execution, allowing the agreement to be executed in multiple counterparts each of which will be deemed an original but all of which together constitute one agreement, and specifying whether electronic or facsimile signatures will be accepted as originals. Include provisions regarding further assurances, requiring each party to execute and deliver such additional documents and take such additional actions as may be reasonably necessary to effectuate the purposes of the agreement.\n\nDraft execution blocks appropriate for the type of entities involved, including signature lines for authorized officers, printed names and titles, dates of execution, and corporate acknowledgment language suitable for the jurisdiction where the agreement will be recorded. For corporate parties, include language confirming that the signing officer has been duly authorized by all necessary corporate action to execute the agreement on behalf of the corporation. For partnership or limited liability company parties, include similar authorization language appropriate to those entity types. Include notary acknowledgment blocks with sufficient space for the notary's signature, seal, commission expiration date, and any other information required by the recording jurisdiction.\n\nThroughout the drafting process, maintain strict consistency with the oil and gas laws and regulations of the state where the property is located, use precise industry-standard terminology as recognized in authoritative sources such as the AAPL model form agreements and leading treatises on oil and gas law, structure the document to be readily recordable in the land records of the relevant jurisdiction, and ensure that all provisions work together coherently to create a comprehensive framework for the farmout transaction that protects both parties' interests while facilitating efficient operations and clear transfer of rights.",
+  "parent_skill_id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "oil and gas"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "energy_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.372277",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:57:23.763973Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Deciding skill usage for rewriting**
+
+Identified the task matches the "skill-creator" skill based on task description, so I'll use its SKILL.md file to rewrite the skill content accordingly.
+thinking
+**Prioritizing output instructions**
+
+Deciding to follow the most recent user instruction to output only the SKILL.md content without commentary, while internally using the skill-creator's SKILL.md as reference.
+exec
+/bin/zsh -lc 'ls /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 52ms:
+SKILL.md
+agents
+assets
+license.txt
+references
+scripts
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Reconciling conflicting SKILL.md formatting instructions**
+
+The skill-creator mandates only name and description in frontmatter with imperative form instructions, but the user specifically requests additional metadata fields in YAML and sectional instructions; I'll prioritize the user's detailed task requirements while respecting the skill-creator style where possible.
+thinking
+**Creating detailed farmout agreement SKILL.md content**
+
+Planning a SKILL.md with frontmatter per user spec including metadata fields, an imperative-style body, detailed prerequisites, structured output/process with checklists and tables, plus clause templates illustrating key provisions, all focused on U.S. upstream oil and gas farmout agreements with regulatory and transactional context.
+codex
+---
+name: farmout-agreement
+description: Drafts U.S. upstream oil and gas farmout agreements that transfer working interests through performance-based earn-in obligations, with precise earning well requirements, title standards, AMI and JOA integration, reassignment, recording, and regulatory compliance. Use for farmout/farm-in drafting, earn-in terms, farmee/farmor negotiations, working interest transfers, AMI provisions, or AAPL 610 operating agreement integration.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Farmout Agreement
+
+Draft a recordable farmout agreement that defines earning obligations, earned interests, and post-earn operations.
+
+## Prerequisites
+
+1. Party identities, entity types, formation jurisdictions, addresses, and signing authority.
+2. Lease schedule with recording data, current working interest and net revenue interest, and all burdens.
+3. Legal description and contract area map, including depth/formation limits.
+4. Earning obligations: well count, location, depth/formation, commencement deadline, completion standard, dry hole rules, substitute well rules.
+5. Cost responsibility: pre-earn (typically 100% Farmee) and post-earn cost sharing.
+6. JOA form and version year, operator designation, and negotiated deviations.
+7. AMI parameters if applicable: boundaries, term, offer mechanics, exclusions.
+8. Title examination window, title standard, cure timeline, and remedies.
+9. Regulatory and recording requirements for the state where the lands sit.
+
+## Output Structure / Process
+
+1. Validate inputs.
+Required fields checklist:
+- Contract area description and exhibit references.
+- WI/NRI math and burdens.
+- Earning well location and depth criteria.
+- Deadlines and force majeure triggers.
+- Operator and JOA form/version.
+
+2. Build exhibits.
+Exhibit list:
+- Exhibit A: Lease schedule with recording data and WI/NRI by lease.
+- Exhibit B: Legal description and contract area map.
+- Exhibit C: Earning well location (plat or coordinates).
+- Exhibit D: JOA form and any addenda.
+- Exhibit E: AMI map and description (if used).
+- Exhibit F: Form of Assignment and Bill of Sale.
+- Exhibit G: Memorandum of Farmout (if recording summary only).
+
+3. Draft agreement sections in order.
+| Section | Must include |
+| --- | --- |
+| Parties and Recitals | Purpose, prior LOI/term sheet status, intent to earn interest. |
+| Definitions | Contract Area, Earning Well, Earning Date, Commencement, Completion, WI, NRI, AMI. |
+| Grant/Farmout | Interest to be earned, burdened WI/NRI, title standard. |
+| Lands/Depths | Horizontal and vertical limits, formation scope. |
+| Earning Obligations | Well count, location, depth, deadlines, reporting, force majeure. |
+| Cost Allocation | Pre-earn costs, post-earn cost sharing, payout triggers. |
+| JOA Integration | Form/version, operator, conflict clause. |
+| Title Examination | Access, defect notice, cure period, remedies. |
+| AMI | Area, term, offer mechanics, exclusions. |
+| Reassignment/Reversion | Failure to earn, surrender after earning, P&A duties. |
+| Regulatory/Recording | Filing responsibilities, recordable form, memo vs full. |
+| Reps/Warranties | Defensible title, authority, no undisclosed burdens. |
+| Indemnity/Insurance | Operational liability allocation, environmental split. |
+| Miscellaneous | Law, venue, notices, assignment limits, counterparts. |
+
+4. Insert clause templates as needed.
+
+```text
+Earning Obligation.
+Farmee shall drill [one] Earning Well on [Legal Description/Exhibit C] to a minimum [TVD/MD] of [depth] or to the [formation], and shall commence drilling no later than [date]. "Commence" means [spud/move rig/construct location]. Farmee shall complete drilling by [date]; "complete" means [reach TD/run casing/complete for production/first production in paying quantities]. A dry hole that reaches the required depth and tests the target formation [does/does not] satisfy the Earning Obligation. If the Earning Well is lost due to [mechanical failure/conditions beyond control], Farmee may drill a substitute well within [time] on [same unit/approved location] to satisfy the Earning Obligation.
+```
+
+```text
+Interest Earned.
+Upon satisfaction of the Earning Obligation, Farmor shall assign to Farmee a [__]% Working Interest and [__]% Net Revenue Interest in the Contract Area, subject to existing burdens shown on Exhibit A. If Farmor cannot convey the stated NRI due to title defects or undisclosed burdens, Farmee may elect: (a) proportionate reduction in WI/NRI; (b) Farmor cure within [__] days; or (c) terminate as to affected lands.
+```
+
+```text
+Reassignment/Reversion.
+If Farmee fails to timely commence or complete the Earning Obligation, all rights granted hereunder terminate and revert to Farmor without further action, and Farmee shall plug and abandon any well commenced and restore the surface in accordance with applicable law and lease obligations. After earning, if Farmee elects to surrender or ceases operations and no wells are producing, Farmee shall reassign its interest to Farmor within [__] days using Exhibit F.
+```
+
+```text
+Title Examination and Cure.
+Farmee may examine title within [__] days of the Effective Date. Farmor shall provide access to all title instruments and curative materials. Title standard is [defensible/marketable] title. Farmee shall deliver written defects within [__] days after examination; Farmor shall have [__] days to cure. If uncured, Farmee may elect proportionate reduction, cure at its expense and offset against payments, or terminate as to affected lands.
+```
+
+5. Final checks.
+Checklist:
+- Reconcile WI/NRI with burdens and include proportionate reduction mechanics.
+- Define Commencement and Completion with objective milestones.
+- State dry hole treatment and substitute well rights.
+- Confirm JOA conflict clause and effective date.
+- Include recordable acknowledgments and notary blocks.
+
+## Guidelines
+
+- Use "defensible title" unless the client explicitly requires marketable title.
+- Align WI/NRI with all burdens; avoid silent NRI shortfalls.
+- Define deadlines, force majeure, and reporting with objective triggers.
+- Address dry hole treatment and substitute well mechanics explicitly.
+- Make the farmout control over JOA for conflicts; specify JOA form/version year.
+- Decide whether to record full agreement or memorandum; include recordable acknowledgments.
+- Allocate environmental liabilities by period of ownership/operation.
+- Disclaim geology and production representations; include "as is, where is" language.
+- Verify state-specific regulatory filings and recording formalities; mark uncertain items as [VERIFY].
+tokens used
+20,595

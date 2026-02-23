@@ -1,0 +1,42 @@
+{
+  "id": "f4669225-745c-4d12-a471-8cee84519eb6",
+  "slug": "regulatory-submission-summaries",
+  "name": "Regulatory Submission Summaries",
+  "summary": "Generates comprehensive summaries of regulatory submissions for government approval processes, such as FDA applications. Distills complex documents including clinical data, manufacturing info, and compliance evidence into clear overviews for regulatory reviewers, compliance teams, and executives. Use it to prepare concise representations of submission packages highlighting purpose, scope, and supporting evidence.",
+  "content": "# Regulatory Submission Summary Prompt\n\nYou are tasked with creating a comprehensive regulatory submission summary for a government regulatory approval process. This summary serves as a critical compliance document that distills complex regulatory submissions into clear, actionable overviews for review by regulatory bodies, internal compliance teams, and executive stakeholders.\n\nYour summary must provide a complete yet concise representation of the regulatory submission package, enabling reviewers to quickly understand the submission's purpose, scope, supporting evidence, and compliance posture. This document will be used by regulatory affairs professionals, legal counsel, quality assurance teams, and senior management to assess readiness for submission and to track the approval process.\n\nBegin by thoroughly examining all submission materials provided, including the primary application or filing documents, supporting technical data, clinical or safety studies, manufacturing information, labeling materials, environmental assessments, and any correspondence with the regulatory agency. Search through these documents systematically to identify and extract the essential components that regulatory reviewers prioritize: the regulatory pathway being pursued, the specific approval or clearance being sought, the legal and regulatory basis for the submission, and the timeline for review.\n\nStructure your summary to address the following core elements in a logical flow that mirrors regulatory review processes. Start with an executive overview that identifies the submitting entity, the regulatory body receiving the submission, the type of submission (such as New Drug Application, 510(k) premarket notification, environmental permit application, or rate case filing), the submission date, and the requested approval or action. Clearly state the regulatory framework and specific statutory or regulatory provisions under which the submission is made.\n\nProvide a detailed description of the subject matter of the submission, whether it is a pharmaceutical product, medical device, chemical substance, financial service, telecommunications infrastructure, or other regulated activity. Include key identifying information such as product names, chemical compositions, device classifications, service descriptions, or facility identifications as applicable to the regulatory context. Explain the intended use, target population, or scope of operations that the submission seeks to authorize.\n\nSummarize the supporting data and evidence presented in the submission with particular attention to how it addresses the regulatory agency's approval criteria. For pharmaceutical or medical device submissions, this includes clinical trial results, safety and efficacy data, manufacturing and quality control information, and proposed labeling. For environmental or infrastructure submissions, include environmental impact assessments, engineering studies, public health and safety analyses, and mitigation measures. For financial or telecommunications submissions, detail the economic analyses, market studies, consumer impact assessments, and technical specifications provided. Present key findings, statistical results, and conclusions from studies in a way that demonstrates how the submission meets regulatory standards.\n\nIdentify and explain any novel aspects, special circumstances, or areas of potential regulatory concern that may require additional scrutiny or discussion. This might include first-in-class designations, breakthrough therapy requests, environmental justice considerations, precedent-setting rate structures, or innovative technologies without established regulatory pathways. Describe how the submission addresses these issues and any risk mitigation strategies proposed.\n\nDocument the regulatory compliance strategy reflected in the submission, including citations to applicable statutes, regulations, and guidance documents. Note any pre-submission meetings, regulatory feedback, or agency correspondence that shaped the submission approach. If the submission includes requests for expedited review, waivers, exemptions, or special designations, clearly explain the basis for these requests and the supporting justification provided.\n\nOutline the anticipated regulatory review process, including expected timelines, review milestones, opportunities for agency questions or information requests, and any public comment periods or advisory committee meetings that may be part of the process. Identify the key decision points and approval criteria that will determine the outcome.\n\nHighlight any attachments, appendices, or supporting documentation that accompany the submission, providing a brief description of each major component so reviewers can quickly locate specific information. This inventory should be comprehensive enough to serve as a roadmap to the complete submission package.\n\nConclude with a compliance assessment that addresses the submission's readiness and completeness relative to regulatory requirements. Note any areas where additional information may be requested by the agency, any conditions or limitations that may be imposed on approval, and any post-approval commitments or ongoing compliance obligations that the submission proposes or that may be required.\n\nThroughout the summary, maintain precise legal and technical language appropriate to the regulatory context while ensuring clarity for readers who may not be subject matter experts in all technical areas. Use proper regulatory terminology, cite specific regulatory sections accurately, and present data with appropriate context and qualifications. Your summary should inspire confidence in the thoroughness and quality of the submission while providing transparent disclosure of any limitations or uncertainties.\n\nThe final summary should be formatted as a professional regulatory document with clear headings, logical organization, and proper attribution of data sources. It should be suitable for inclusion in regulatory files, presentation to executive leadership, and reference throughout the review process. Ensure that all factual statements are supported by the submission materials and that any interpretations or conclusions are clearly identified as such.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:14.53691",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

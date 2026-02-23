@@ -1,0 +1,41 @@
+{
+  "id": "3ea02c8a-19c9-426a-851c-b8412b0ce8e4",
+  "slug": "legislative-bill-summaries",
+  "name": "Legislative Summaries",
+  "summary": "Generates comprehensive summaries of legislative bills, including identifying information, intent, major provisions, potential impacts, and implementation considerations. Translates complex legislative language into plain terms for lawmakers, lobbyists, policy advocates, and citizens. Use when needing clear insights into proposed legislation's purpose, effects, and status.",
+  "content": "# Legislative Bill Summary Prompt\n\nYou are tasked with creating a comprehensive legislative summary that provides lawmakers, lobbyists, policy advocates, and engaged citizens with a clear understanding of a proposed bill. Your summary should demystify complex legislative language and illuminate the practical implications of the proposed legislation.\n\nBegin by conducting thorough research on the bill in question. Search for the full text of the legislation, official legislative records, committee reports, fiscal notes, and any available analysis from legislative research services or nonpartisan policy organizations. Gather information about the bill's sponsors, the legislative session in which it was introduced, its current status in the legislative process, and any amendments that have been proposed or adopted.\n\nYour summary should open with essential identifying information including the bill number, official title, primary sponsor(s), date of introduction, and current legislative status. Provide this information in a clear, accessible format that allows readers to quickly understand what they are reviewing.\n\nNext, articulate the legislative intent and purpose. Explain the problem or gap in existing law that this bill seeks to address. Describe the policy objectives the sponsors aim to achieve and the rationale behind the proposed approach. If the bill responds to specific events, court decisions, or constituent concerns, provide that context to help readers understand why this legislation is being considered at this time.\n\nPresent the major provisions of the bill in plain language, organizing them logically by subject matter or by the sequence in which they appear in the legislation. For each significant provision, explain what current law requires, what the bill would change, and how the new framework would operate. Translate statutory language into accessible terms while maintaining legal accuracy. When the bill creates new programs, mandates, prohibitions, or rights, clearly describe who would be affected, what actions would be required or permitted, and what enforcement mechanisms would apply.\n\nAnalyze the potential impacts across multiple dimensions. Consider fiscal impacts on government budgets at relevant levels, including implementation costs, ongoing operational expenses, and any revenue implications. Examine how the bill would affect different stakeholder groups including individuals, businesses, nonprofit organizations, and government agencies. Assess whether the legislation would expand or restrict rights, create new obligations, or shift the balance of authority between different entities or levels of government. If the bill addresses a matter of ongoing policy debate, acknowledge the different perspectives and explain how this proposal positions itself within that broader conversation.\n\nAddress implementation considerations including effective dates, phase-in periods, rulemaking authority granted to agencies, and any reporting or evaluation requirements. Note whether the bill includes sunset provisions or requires future legislative review.\n\nIdentify any controversial or contested elements of the legislation. If there are known points of opposition or debate, present the competing arguments fairly and objectively. Highlight provisions that may face constitutional challenges, conflict with federal law, or create tension with existing state statutes.\n\nConclude with a balanced assessment that helps readers understand the significance of this legislation. Avoid advocacy or partisan framing, but do provide context about whether this represents incremental adjustment or fundamental reform, whether it aligns with or departs from trends in other jurisdictions, and what questions remain unresolved.\n\nThroughout your summary, maintain a neutral, informative tone appropriate for a diverse audience with varying levels of legal and policy expertise. Use clear section headings to organize your analysis. When citing specific sections of the bill, reference them precisely so readers can locate the relevant language in the full text. If technical terms or legal concepts are necessary, provide brief explanations to ensure accessibility.\n\nYour completed summary should serve as a reliable reference document that enables busy professionals and engaged citizens to quickly grasp what the bill does, why it matters, and what effects it would have if enacted. The summary should be thorough enough to inform substantive discussion while remaining concise enough to be read and absorbed efficiently.",
+  "parent_skill_id": "59e6abf6-a94e-4f2f-afd4-06c28bbf0021",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "government_contracts"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:16.433546",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

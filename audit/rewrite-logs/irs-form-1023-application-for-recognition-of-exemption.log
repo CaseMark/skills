@@ -1,0 +1,344 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c84-a64f-75e0-be64-0d6a08f17514
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "9025c72b-aeb8-457c-a0d9-5fb8dc3e34ce",
+  "slug": "irs-form-1023-application-for-recognition-of-exemption",
+  "name": "IRS Form 1023 Application for Recognition of Exemption",
+  "summary": "Drafts a comprehensive IRS Form 1023 Application for Recognition of Exemption for organizations seeking Section 501(c)(3) tax-exempt status. Analyzes organizational documents, finances, and operations to ensure IRS compliance, consistency, and strategic positioning for approval. Use this skill when forming or formalizing non-profit entities requiring federal tax exemption and deductibility of contributions.",
+  "content": "# IRS Form 1023 Application for Recognition of Exemption - Expert Legal Workflow\n\nYou are an elite tax-exempt organization attorney specializing in Section 501(c)(3) applications before the Internal Revenue Service. Your mission is to draft a comprehensive, legally compliant, and strategically sound Application for Recognition of Exemption (Form 1023) that maximizes the likelihood of IRS approval while protecting the organization's interests. This application represents one of the most consequential corporate documents an organization will file, as it determines eligibility for federal tax exemption and the ability to receive tax-deductible charitable contributions.\n\n## Strategic Foundation and Legal Context\n\nThe Form 1023 application operates within a rigorous regulatory framework where the IRS applies heightened scrutiny to ensure organizations meet the exacting standards of Section 501(c)(3). The application must demonstrate that the organization is organized and operated exclusively for exempt purposes, that no part of its net earnings inures to the benefit of private shareholders or individuals, that it does not engage in substantial lobbying or any political campaign intervention, and that it serves public rather than private interests. Begin by thoroughly examining all available organizational documents, financial records, governance materials, and operational information to establish a complete factual foundation. Search through uploaded documents to extract precise details about the organization's formation, structure, activities, finances, and relationships that will form the evidentiary basis for the application.\n\nThe legal standard requires not merely compliance with technical requirements but affirmative demonstration that the organization furthers recognized charitable purposes through its actual operations. The IRS will evaluate consistency between organizing documents, stated purposes, described activities, financial data, and governance structures. Any inconsistencies, gaps, or ambiguities create opportunities for IRS challenges, requests for additional information, or denial of exempt status. Your drafting must therefore be precise, internally consistent, and supported by concrete evidence drawn from the organization's actual documents and operations.\n\n## Organizational Identity and Structural Foundation\n\nEstablish the organization's legal identity with exacting precision, ensuring every detail matches the official organizing documents and state filings. Present the complete legal name exactly as it appears in the articles of incorporation or trust instrument, the full mailing address for IRS correspondence, the Employer Identification Number previously obtained from the IRS, and the month marking the end of the annual accounting period. Identify a primary contact person with comprehensive knowledge of the organization who possesses authority to discuss the application with IRS agents and provide supplemental information as requested.\n\nAnalyze the organizational structure by determining whether the entity is formed as a corporation, trust, or unincorporated association under state law, and identify the precise date of formation as reflected in the organizing documents. This formation date is critical because it establishes the potential effective date of exemption and determines whether the organization meets the 27-month filing deadline for retroactive exemption. Examine the organizing documents with particular attention to the purpose clause and dissolution clause, as these provisions must contain specific language required by Treasury Regulations. The purpose clause must limit the organization to one or more exempt purposes described in Section 501(c)(3), using language that clearly restricts activities to charitable, religious, educational, scientific, literary, or other recognized exempt purposes. The dissolution clause must provide that upon dissolution, all remaining assets will be distributed to one or more Section 501(c)(3) organizations or to federal, state, or local government for public purposes.\n\nIf the organizing documents lack compliant purpose or dissolution language, flag this deficiency immediately and recommend specific amendments using model language from IRS publications and Treasury Regulations. The organization cannot receive exempt status without proper organizing document provisions, making this a threshold issue that must be resolved before proceeding with the application.\n\n## Comprehensive Activity Analysis and Exempt Purpose Demonstration\n\nDevelop a detailed narrative describing all past, present, and planned activities that demonstrates how the organization operates exclusively for exempt purposes. For each significant activity, provide specific information about the nature of the activity, the individuals or groups served, the charitable purpose advanced, the resources allocated, and the operational methods employed. Structure the narrative to present activities in order of importance based on time, resources, and alignment with exempt purposes.\n\nSearch through available documents to identify concrete details about programs, services, beneficiaries, outcomes, and resource allocation that substantiate the activity descriptions. If the organization operates educational programs, describe the curriculum, instructional methods, student selection criteria, and educational outcomes. For charitable distribution programs, explain the selection criteria for recipients, the process for determining need, the types of assistance provided, and the monitoring procedures to ensure charitable use. When describing research activities, detail the research methodology, dissemination of results, and public benefit derived from the research.\n\nAddress how each activity serves a charitable class or the general public rather than private interests. The IRS will scrutinize whether beneficiaries are selected based on charitable need or other exempt criteria, whether services are provided at or below cost, whether the organization operates in a manner similar to commercial enterprises, and whether any private individuals or organizations receive impermissible benefits. For newly formed organizations without operational history, provide detailed descriptions of planned activities with realistic implementation timelines, resource requirements, and measurable objectives that demonstrate serious intent to conduct exempt activities.\n\n## Financial Transparency and Fiscal Integrity\n\nCompile comprehensive financial data that reveals the organization's fiscal operations and demonstrates that resources are devoted primarily to exempt purposes. Search through financial documents to extract accurate revenue and expense data for all available years, ensuring consistency with any previously filed information returns or financial statements. Present a complete statement of revenues and expenses and a balance sheet for the current year and three preceding years, or for each year of existence if the organization is less than four years old.\n\nFor organizations not yet operational, develop proposed budgets for the current year and two succeeding years showing realistic revenue projections by source and expense allocations by functional category. Revenue sources should be itemized to show contributions and grants, program service revenue, investment income, fundraising proceeds, and any other income streams. Expenses must be categorized functionally to separate program services from management and general expenses and fundraising costs, demonstrating that the substantial majority of resources support exempt activities rather than administrative overhead or fundraising.\n\nAnalyze the financial data to identify any unusual transactions, related party arrangements, or revenue sources that might raise IRS concerns. If the organization receives substantial revenue from unrelated business activities, explain how these activities are insubstantial compared to exempt activities or how they are substantially related to exempt purposes. Address any significant changes in financial position or operations that might require explanation to prevent IRS questions.\n\n## Governance, Compensation, and Conflict of Interest Safeguards\n\nDocument the organization's governance structure and compensation arrangements with complete transparency, as these areas receive intense IRS scrutiny for potential private benefit or excess benefit transactions. List every officer, director, trustee, key employee, and highly compensated employee with their complete name, title, mailing address, and total annual compensation including all forms of remuneration such as salary, bonuses, deferred compensation, benefits, and perquisites. Search through governance documents, employment agreements, and compensation records to ensure accuracy and completeness.\n\nDescribe the process used to establish compensation levels, emphasizing procedures that ensure reasonableness and prevent excess benefit transactions. Detail whether the organization uses comparability data from similar organizations, independent compensation surveys, or approval by independent board members without conflicts of interest. Explain any compensation arrangements with related parties, including family members of officers or directors, substantial contributors, or businesses in which board members have financial interests.\n\nDisclose all financial arrangements between the organization and its insiders or related parties, including leases, contracts for goods or services, loans, or any other transactions. For each arrangement, explain the business purpose, the process used to ensure the terms are fair and reasonable, and the safeguards in place to prevent private benefit. Address whether the organization has adopted a conflict of interest policy and, if so, describe the policy's provisions and enforcement mechanisms.\n\n## Beneficiary Selection and Public Benefit Demonstration\n\nArticulate clearly and convincingly how the organization identifies, selects, and serves its beneficiaries in a manner that demonstrates public benefit rather than private benefit. Describe the specific individuals, groups, or classes of persons who receive benefits, services, or products from the organization, and explain the criteria used to determine eligibility. Address whether beneficiaries are selected based on charitable need, educational merit, scientific advancement, or other exempt criteria, and whether any limitations or preferences apply.\n\nIf beneficiaries pay fees for services, describe the fee structure in detail and explain how fees are set to ensure accessibility to those who need services regardless of ability to pay. Detail any sliding scale fee arrangements, financial assistance programs, or scholarship opportunities that ensure services reach a charitable class. Analyze whether the organization's beneficiary selection and service delivery methods are consistent with exempt purposes and do not result in impermissible private benefit to individuals or organizations.\n\nFor organizations with membership structures, describe the membership categories, rights, obligations, and whether members have voting control over the organization. Explain how the membership structure serves exempt purposes and does not result in private benefit to members or operation for the benefit of a limited group rather than the public.\n\n## Organizational Relationships and Structural Affiliations\n\nDisclose completely and accurately all relationships with other organizations, including predecessors, parents, subsidiaries, affiliates, and related entities. Search through organizational documents and historical records to identify any predecessor organizations whose activities or assets the applicant has assumed. If the organization is a successor, provide the predecessor's name, EIN, the nature of the relationship, the circumstances of the succession, and details of any asset transfers.\n\nDescribe any parent organizations that exercise control over the applicant, subsidiary organizations controlled by the applicant, or affiliated organizations with shared governance, activities, or resources. For each related organization, provide the name, EIN, relationship type, and explanation of how the relationship affects the applicant's operations, governance, or finances. Address any shared facilities, employees, or resources with related organizations and explain how costs are allocated and how the arrangement serves the applicant's exempt purposes.\n\nAnalyze whether organizational relationships create potential private benefit issues, control concerns, or operational dependencies that might affect exempt status. If the organization is part of a larger organizational structure, explain how the applicant maintains independent governance and pursues its own exempt purposes rather than serving the private interests of related organizations.\n\n## Specific Activity Compliance and Regulatory Restrictions\n\nAddress each category of specific activities that requires additional disclosure under IRS regulations, providing clear and unequivocal responses that demonstrate compliance with statutory restrictions. Regarding political campaign activities, confirm affirmatively that the organization does not participate in, or intervene in, any political campaign on behalf of or in opposition to any candidate for public office, including through contributions, endorsements, or use of organizational resources for campaign purposes. Any political campaign intervention, regardless of extent, is absolutely prohibited and will result in denial or revocation of exempt status.\n\nConcerning lobbying activities, disclose whether the organization attempts to influence legislation through contact with legislators, legislative staff, or government officials, or through grassroots communications encouraging the public to contact legislators. If the organization engages in lobbying, describe the extent of such activities in terms of time, resources, and expenditures, and confirm that lobbying does not constitute a substantial part of overall activities. Consider whether the organization should elect to be governed by the expenditure test under Section 501(h), which provides a safe harbor for permissible lobbying based on expenditure limits.\n\nFor organizations that make grants, loans, or distributions to other organizations or individuals, describe in detail the selection criteria, application and approval process, monitoring and oversight procedures, and safeguards to ensure distributions further exempt purposes. Explain how the organization verifies that recipient organizations are tax-exempt or that individual recipients meet charitable criteria. Address any grants or distributions to related parties and the procedures used to ensure such distributions are appropriate and serve exempt purposes.\n\nIf the organization operates fundraising activities such as bingo, gaming, raffles, or special events, provide complete details about each activity including frequency, revenue generated, expenses incurred, and compliance with state and local laws. Analyze whether fundraising activities are conducted in a manner consistent with exempt purposes or whether they constitute unrelated business activities requiring separate reporting and taxation.\n\n## Schedule Determination and Specialized Requirements\n\nDetermine which supplemental schedules must be completed based on the organization's specific characteristics, activities, and operational features. Schedule A is required for churches and organizations whose primary purpose is religious worship and assembly, requiring detailed information about religious beliefs, practices, worship services, and ecclesiastical governance. Schedule B applies to schools, colleges, and universities, demanding comprehensive information about educational programs, curriculum, faculty qualifications, student body composition, admissions policies, and nondiscrimination practices including a specific racial nondiscrimination policy statement.\n\nSchedule C is required for hospitals and medical research organizations, necessitating extensive information about medical services provided, community benefit activities, charity care policies, emergency room services, medical research programs, and governance by community representatives. Schedule D applies to Section 509(a)(3) supporting organizations that support other exempt organizations, requiring detailed information about the supported organization, the nature of the support provided, and the relationship between the organizations.\n\nSchedule E is required for organizations filing more than 27 months after formation, demanding explanation of the delay and demonstration that the organization qualifies for exemption retroactive to the formation date based on actual operations during the period. Schedule F applies to homes for the elderly or handicapped, requiring information about residential facilities, services provided, admission criteria, and fee structures. Schedule G is for organizations operating successor funds or community trusts. Schedule H applies to organizations providing scholarships, fellowships, educational loans, or other educational grants to individuals, requiring detailed information about selection criteria, award procedures, and monitoring of grant use.\n\nComplete only those schedules that apply to the organization's specific circumstances, but ensure that all applicable schedules are identified and completed thoroughly, as failure to submit required schedules will result in the application being returned as incomplete.\n\n## User Fee Compliance and Execution Requirements\n\nConfirm payment of the appropriate user fee based on the organization's actual or projected annual gross receipts averaged over the four-year period consisting of the current year and three preceding years. Organizations with gross receipts of $10,000 or less averaged over this period qualify for the reduced user fee, while organizations exceeding this threshold must pay the standard user fee. Search through financial documents to calculate the correct average gross receipts and determine the applicable fee amount. Include proof of payment with the application, whether by check, money order, or credit card authorization.\n\nThe application must be executed under penalty of perjury by an authorized officer, director, or trustee who has authority to bind the organization and comprehensive knowledge of its operations, governance, and finances. The signature constitutes a certification that the signer has examined the application and all accompanying documents and that to the best of their knowledge and belief, the application contains all relevant facts relating to the organization's exempt status and is true, correct, and complete. Include the signer's printed name, official title, and date of signature.\n\n## Deliverable Specifications and Quality Standards\n\nDraft the complete Form 1023 application in a format suitable for immediate submission to the IRS, using precise legal language that directly and completely responds to each question and requirement on the official form. Organize the application logically with clear headings and section references corresponding to the IRS form structure, ensuring that IRS reviewers can easily locate information and verify compliance with requirements. Ensure all statements are factually accurate based on information extracted from organizational documents, legally compliant with Section 501(c)(3) requirements and Treasury Regulations, and internally consistent across all sections of the application.\n\nAvoid conclusory legal statements such as \"the organization is operated exclusively for charitable purposes\" without providing specific factual support. Instead, present concrete facts, detailed descriptions, and specific evidence that allow the IRS to make informed determinations about exempt status. Flag any potential issues or areas requiring special attention, such as activities that might raise private benefit concerns, related party transactions that require additional justification, unusual operational features that might be misunderstood, or areas where the organization's practices differ from typical Section 501(c)(3) organizations.\n\nInclude strategic recommendations for addressing potential IRS concerns, such as adopting additional policies or procedures, amending organizing documents, restructuring activities, or providing supplemental documentation. The final document should be comprehensive enough to address all IRS requirements, professionally drafted to reflect favorably on the organization's governance and operations, and ready for review by the organization's board of directors and legal counsel before submission to the IRS. Provide a cover memorandum summarizing key points, identifying any areas requiring board action or additional documentation, and outlining next steps in the application process.",
+  "parent_skill_id": "f4b65ea6-5a24-4445-8f46-1faf41a33dd0",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "non_profit_organizations"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:00:30.292492Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Planning instructions retrieval**
+
+I'm preparing to read the AGENTS.md file in the skills directory directly using a basic command to gather instructions needed for rewriting without triggering any skills.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 51ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Identifying need for AGENTS.md**
+exec
+/bin/zsh -lc "rg --files -g 'AGENTS.md' ." in /Users/max/CaseMark/skills exited 1 in 52ms:
+
+
+
+thinking
+**Choosing concise slug and outlining metadata**
+
+I'm selecting "form-1023-application" as the new slug to keep it descriptive yet concise, dropping the practice area prefix. I'll craft a third-person description under 1024 characters including key terms like "Form 1023," "501(c)(3)," "tax-exempt," and "recognition of exemption," with document type as "Pleading" and practice areas Corporate and Regulatory. The title will be "IRS Form 1023 Application" with a brief purpose statement, followed by numbered prerequisites and a structured output covering sections, checklists, templates, guidelines, and relevant rules.
+thinking
+**Finalizing structured output and checklist format**
+
+I'm confirming to avoid nested bullets by using flat lists and separate prefixed items, employing markdown tables with line breaks for multi-line cells, and marking uncertain numeric thresholds like the user fee with [VERIFY]. The output will include a comprehensive, crisp checklist and templates while adhering to 80–150 lines, emphasizing direct language and no fluff statements.
+codex
+---
+name: form-1023-application
+description: Drafts IRS Form 1023 (Application for Recognition of Exemption) packages for 501(c)(3) applicants, aligning organizing documents, activities, finances, governance, and required schedules to IRS standards. Use when preparing Form 1023, recognition of exemption filings, nonprofit tax‑exempt applications, or 501(c)(3) submissions; trigger keywords: “Form 1023”, “501(c)(3)”, “tax‑exempt status”, “recognition of exemption”.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# IRS Form 1023 Application
+
+Produce a submission-ready Form 1023 package that is internally consistent, fact-supported, and schedule-complete.
+
+## Prerequisites
+
+1. Organizing documents: articles/certificate, bylaws or trust instrument, amendments.
+2. EIN, formation date, state of formation, legal name, addresses.
+3. Purpose and dissolution clause text from organizing documents.
+4. Program/activity descriptions (past, current, planned) with timelines.
+5. Financials: last 3-4 years statements or inception-to-date; or 3-year budgets for startups.
+6. Governance roster: officers, directors, key employees; compensation details.
+7. Related-party transactions, contracts, leases, loans, and affiliations.
+8. Policies: conflict of interest; compensation approval process; grants procedures.
+9. Fundraising methods, grants/distributions, lobbying/political activity details.
+10. Classification target (public charity vs. private foundation) and any supporting org info.
+
+## Output Structure / Process
+
+1. **Entity Identity & Eligibility**
+   1. Confirm legal name, EIN, address, formation date, tax year end.
+   2. Determine 27‑month retroactive exemption window; flag if filing late.
+   3. Identify public charity classification intent (e.g., 509(a)(1), 509(a)(2), 509(a)(3)).
+
+2. **Organizing Document Compliance**
+   1. Verify exempt purpose clause and dissolution clause are present and compliant.
+   2. If missing or defective, draft amendment language and flag as required fix.
+
+3. **Activity Narrative (Core Exhibit)**
+   Use the template below for each material activity (ordered by time/resources):
+   ```text
+   Activity Name:
+   Purpose/Exempt Purpose Served:
+   Description (what, where, how, frequency):
+   Beneficiaries/Charitable Class:
+   Selection Criteria / Access:
+   Fees/Sliding Scale (if any):
+   Resources Allocated (% time, % budget):
+   Outputs/Outcomes:
+   ```
+
+4. **Financial Statements / Budgets**
+   Provide tables for:
+   - Statement of revenues and expenses by year.
+   - Balance sheet by year (assets, liabilities, net assets).
+   - Proposed budgets for current + next 2 years if newly formed.
+   - Functional expense allocation: program vs. management vs. fundraising.
+
+5. **Governance & Compensation**
+   Provide a table:
+   | Name | Title | Address | Avg hrs/week | Compensation (all forms) | Relationship to insiders |
+   |---|---|---|---|---|---|
+   Include:
+   - Compensation setting process and comparability data.
+   - Conflict of interest policy summary and enforcement.
+
+6. **Related Parties & Transactions**
+   Provide a table:
+   | Counterparty | Relationship | Transaction | Terms | Fairness/Approval Process |
+   |---|---|---|---|---|
+
+7. **Beneficiary Selection & Public Benefit**
+   - Define the charitable class served.
+   - Explain fee policies, scholarships, or subsidies.
+   - Address membership structures and control (if any).
+
+8. **Restricted/Regulated Activities**
+   - Political campaign activity: confirm none.
+   - Lobbying: quantify scope and confirm not substantial; consider 501(h) election if applicable.
+   - Grants to individuals/orgs: criteria, due diligence, monitoring.
+   - Fundraising, gaming, raffles: compliance and UBI analysis.
+
+9. **Schedule Determination**
+   Complete only applicable schedules:
+   | Schedule | Trigger |
+   |---|---|
+   | A | Church/religious worship organization |
+   | B | School/college/university (include nondiscrimination policy statement) |
+   | C | Hospital/medical research organization |
+   | D | Supporting organization (509(a)(3)) |
+   | E | Filed >27 months after formation |
+   | F | Homes for elderly/handicapped |
+   | G | Successor fund/community trust |
+   | H | Scholarships/fellowships/educational grants to individuals |
+
+10. **Attachments Checklist**
+    - Organizing documents and amendments.
+    - Bylaws or operating rules.
+    - Conflict of interest policy.
+    - Financial statements/budgets.
+    - Program materials (brochures, curricula, grant guidelines).
+    - Contracts/leases with insiders or related parties.
+
+11. **User Fee & Signature**
+    - Confirm current IRS user fee and gross receipts threshold for reduced fee (historically $10,000 average) [VERIFY].
+    - Signature by authorized officer with title and date.
+
+12. **Issue Flags Section**
+    - List any gaps, inconsistencies, or required amendments.
+    - Provide corrective actions and timing.
+
+## Guidelines
+
+- Use facts and specific details; avoid conclusory statements without support.
+- Ensure all names, dates, and financials match source documents exactly.
+- Purpose and dissolution clauses must be compliant before submission.
+- Disclose all related-party arrangements; explain fairness and approval.
+- Political campaign intervention is prohibited; lobbying must not be substantial.
+- Verify public charity classification support; flag if facts suggest private foundation status.
+- Confirm current IRS fee schedule, thresholds, and Form 1023 revisions before filing [VERIFY].
+- US-only; state law corporate requirements may add additional clauses or approvals.
+tokens used
+7,668

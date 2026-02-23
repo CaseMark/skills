@@ -1,0 +1,42 @@
+{
+  "id": "05ed7841-fea6-45c5-9028-92f4c731edfe",
+  "slug": "mechanics-lien-foreclosure-action",
+  "name": "Mechanic's Lien Foreclosure Action",
+  "summary": "Drafts a comprehensive complaint to foreclose a mechanic's lien in real estate litigation. Used by contractors, subcontractors, or material suppliers to enforce liens against non-paying property owners by seeking court-ordered property sale. Ensures compliance with state statutes through detailed jurisdictional allegations, factual timelines, and party identifications.",
+  "content": "# Enhanced Prompt: Mechanic's Lien Foreclosure Action\n\nYou are tasked with drafting a comprehensive Mechanic's Lien Foreclosure Action complaint for litigation purposes. This is a formal lawsuit filed by a contractor, subcontractor, or material supplier seeking to enforce their mechanic's lien rights against real property due to non-payment for labor, services, or materials provided.\n\n## Document Purpose and Legal Context\n\nThis complaint serves to initiate judicial foreclosure proceedings on a previously recorded mechanic's lien. The action seeks a court order determining the amount due, declaring the lien valid and enforceable, and ultimately ordering the sale of the subject property to satisfy the debt. The complaint must establish both the validity of the underlying lien and the plaintiff's right to foreclose, while complying with all applicable state statutory requirements for mechanic's lien enforcement.\n\n## Required Information Gathering\n\nBegin by searching through all available case documents to extract critical factual information. You should identify and compile the complete legal names and addresses of the plaintiff contractor or supplier, the property owner defendant, and any other parties with recorded interests in the property who must be joined as defendants. Locate the original construction contract or purchase order, payment records showing amounts due, the recorded mechanic's lien document with its recording date and instrument number, and the legal description of the subject property.\n\nDetermine the precise timeline of events, including when work commenced, when materials were delivered, dates of completion or cessation of work, when payment demands were made, statutory deadline compliance for lien recording, and any applicable notice requirements that were satisfied. Calculate the total amount owed, including unpaid principal for labor and materials, any contractual interest provisions, and costs of lien recording and enforcement.\n\n## Document Structure and Content Requirements\n\n**Caption and Preliminary Matters**: Draft a complete caption identifying the appropriate court of jurisdiction (typically the superior or circuit court for the county where the property is located), case number if assigned, and all parties with their designated roles. The plaintiff should be identified with their complete business entity type, while defendants must include the property owner and all junior lienholders or encumbrancers whose interests would be affected by foreclosure.\n\n**Jurisdictional Allegations**: Establish subject matter jurisdiction by alleging this is an action to foreclose a mechanic's lien as authorized by state statute, and that the amount in controversy meets any jurisdictional threshold. Establish venue by alleging the subject property is located within the county and that this is the proper venue for in rem proceedings affecting real property.\n\n**Factual Background**: Present a detailed chronological narrative beginning with the contractual relationship between plaintiff and defendant. Describe with specificity the nature of the construction project, the scope of work or materials the plaintiff was engaged to provide, and the agreed-upon contract price or payment terms. Detail the plaintiff's performance, including specific dates when labor was performed or materials were delivered, and the reasonable value of such work and materials.\n\nAllege the defendant's breach by failing to pay the amounts due despite demand, specifying the exact amount owed and when payment was due. Include allegations regarding any partial payments received and the remaining balance. Describe the plaintiff's compliance with all statutory prerequisites, including service of preliminary notices if required by state law, timely recording of the mechanic's lien within the statutory period after completion or cessation of work, and proper service of the lien on the property owner.\n\n**Count I - Foreclosure of Mechanic's Lien**: This count should incorporate all preceding allegations and specifically allege that plaintiff holds a valid, perfected mechanic's lien against the subject property in the amount of the debt. Request that the court determine the full amount due including principal, interest, and costs, adjudicate the validity and priority of the lien, order foreclosure of the lien against the property, and direct the sale of the property through judicial sale proceedings with the proceeds applied to satisfy the judgment.\n\n**Count II - Breach of Contract (Alternative or Additional Claim)**: If appropriate under the circumstances and jurisdiction, include a separate count alleging breach of the underlying construction contract. Incorporate the contract formation and performance allegations, specifically allege the defendant's material breach by failing to pay amounts due under the contract terms, and assert damages equal to the unpaid contract balance plus any consequential damages permitted under the contract and applicable law.\n\n**Count III - Unjust Enrichment (Alternative Claim)**: In jurisdictions permitting alternative pleading, consider including an unjust enrichment claim alleging the defendant received the benefit of plaintiff's labor and materials, that defendant has knowledge of this benefit, and that retention of the benefit without payment would be unjust and inequitable.\n\n**Prayer for Relief**: Demand comprehensive relief including a judgment foreclosing the mechanic's lien and determining the full amount due with pre-judgment interest at the statutory or contractual rate. Request an order directing judicial sale of the property with proceeds applied first to costs of sale, then to satisfaction of plaintiff's lien and judgment. Seek a deficiency judgment for any amount remaining unpaid after application of sale proceeds if permitted by state law. Request judgment for breach of contract damages, attorney's fees and costs if provided by contract or statute, and any other relief the court deems just and proper.\n\n## Formatting and Professional Standards\n\nThe complaint must be formatted according to local court rules regarding margins, line spacing, page numbering, and caption format. Each paragraph should be numbered consecutively and contain a single factual allegation or legal assertion. Attach as exhibits the recorded mechanic's lien, the underlying contract or purchase order, and any statutory notices that were served. Include a verification or affidavit if required by state law for mechanic's lien foreclosure actions.\n\nEnsure all monetary amounts are stated with precision, all dates are accurate and verifiable from the case documents, and all legal descriptions of property are copied exactly from the recorded lien or title documents. The tone should be formal and assertive while maintaining professional courtesy, and all allegations must be stated with sufficient specificity to satisfy pleading requirements while being supported by available evidence.\n\nDraft the complete complaint as a polished, court-ready litigation document that demonstrates thorough knowledge of mechanic's lien law and foreclosure procedures in the applicable jurisdiction.",
+  "parent_skill_id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "real-estate-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.14518",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

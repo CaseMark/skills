@@ -1,0 +1,42 @@
+{
+  "id": "1394eef8-c325-4d6b-8a1e-6fe70a94dda5",
+  "slug": "tender-of-defense-to-insurance-carrier",
+  "name": "Tender of Defense to Insurance Carrier",
+  "summary": "Drafts a formal tender of defense letter to an insurance carrier in personal injury litigation. This skill generates a demand for the carrier to immediately assume defense of the insured client upon tendering a lawsuit or claim, preserving policy rights and triggering the duty to defend. Use it promptly after a client is sued to avoid late notice defenses and initiate coverage obligations.",
+  "content": "Understanding What You're Doing\nA tender of defense is:\nA formal demand that the insurance carrier defend your client in litigation\nA legal notice that triggers the carrier's duty to investigate coverage\nA document that preserves your client's rights under the policy\nOften the first shot fired in a coverage dispute\nKey principle: You're not asking for coverage - you're demanding it. The burden is on the carrier to prove why they shouldn't defend.\n\nStep 1: Timing is Everything\nSend the tender immediately when:\nYour client gets sued\nA claim is made against your client\nYou become aware of potential liability\nWhy timing matters:\nMany policies require \"prompt notice\"\nDelays can void coverage entirely\nCarriers love to use late notice as a coverage defense\nThe sooner you tender, the sooner the carrier has to make a decision\nPro tip: If you're even thinking about tendering, do it. You can't un-ring that bell, but you can always clarify later.\n\nStep 2: Gather Your Materials\nBefore you start writing, collect:\nThe insurance policy (declarations page at minimum, full policy if available)\nThe complaint or claim documents\nAny correspondence about the underlying matter\nDocumentation of the client relationship/engagement\nPrior tender letters if this is a follow-up\nDon't wait for the full policy - carriers often stall on providing complete policy language. Tender based on what you have.\n\nStep 3: Document Structure\nHeader Information:\nYour letterhead\nDate\nCarrier's claims department address (certified mail, return receipt)\nRE: [Insured's Name], Policy No. [X], Tender of Defense\nClaim Number (if assigned)\nOpening Paragraph - The Demand:\n\"We represent [Client Name] in connection with [describe litigation/claim]. We hereby tender the defense of this matter to [Carrier] under Policy No. [X] and demand that [Carrier] assume the defense immediately.\"\nBe direct and unequivocal - this isn't a request, it's a demand.\n\nStep 4: Statement of Facts\nInclude only facts relevant to coverage:\nBasic description of the underlying lawsuit/claim\nKey allegations that trigger coverage\nDate of incident (confirm it's within policy period)\nLocation of incident (confirm it's within coverage territory)\nWhat NOT to include:\nDon't admit fault or liability for your client\nDon't speculate about what \"really happened\"\nDon't provide information that could hurt coverage\nDon't include privileged communications\nExample: \"On [date], Plaintiff filed suit alleging that [basic factual allegations]. A copy of the complaint is attached as Exhibit A. The alleged incident occurred on [date] at [location].\"\n\nStep 5: Coverage Analysis - Keep It Simple\nDon't write a coverage opinion - that's the carrier's job. Instead:\nIdentify the potentially applicable coverage sections\nPoint out key allegations that clearly trigger coverage\nNote that the duty to defend is broader than the duty to indemnify\nReference the \"eight corners rule\" if applicable in your state\nExample: \"The complaint alleges bodily injury occurring during the policy period arising from [Insured's] business operations, which appears to fall within Coverage A of the policy. Under [State] law, [Carrier] has a duty to defend if there is any potential for coverage based on the allegations.\"\n\nStep 6: Demand Specific Action\nBe explicit about what you want:\nImmediate assumption of defense\nAssignment of defense counsel\nTimeline for response\nAcknowledgment of tender\nExample paragraph: \"We demand that [Carrier] immediately acknowledge this tender, assume the defense of this matter, and assign qualified defense counsel. Please confirm in writing within 10 days that [Carrier] will defend this action. The answer in this matter is due on [date], and we require sufficient time to coordinate with assigned counsel.\"\n\nStep 7: Preserve Your Client's Rights\nInclude protective language:\nReservation of rights to seek coverage under other policies\nNotice that client will seek reimbursement if carrier wrongfully denies\nStatement about continuing to defend under reservation\nReference to bad faith consequences\nExample: \"This tender is made without waiver of any rights under the policy or at law. If [Carrier] fails to accept this tender, [Insured] reserves all rights to seek reimbursement of defense costs and damages resulting from any wrongful denial of coverage. [Insured] will continue to defend this action under a reservation of rights pending [Carrier's] response.\"\n\nStep 8: Closing and Logistics\nProfessional closing:\nRequest specific timeline for response\nProvide your contact information\nInclude certificate of service\nList enclosures\nEnclosures typically include:\nCopy of complaint/claim documents\nCopy of summons (if applicable)\nAny relevant correspondence\nProof of coverage (declarations page, etc.)\n\nStep 9: Tone and Style Guidelines\nDo:\nBe professional but firm\nUse declarative statements, not tentative language\nBe concise - 1-2 pages maximum usually\nStick to facts and avoid argument\nUse business letter format\nDon't:\nBe adversarial or threatening (yet)\nAdmit any wrongdoing by client\nArgue coverage extensively - that comes later if needed\nInclude irrelevant background information\nUse uncertain language (\"may,\" \"might,\" \"appears\")\n\nStep 10: Special Considerations\nMultiple Policies:\nIf client has multiple potentially applicable policies, tender to all of them simultaneously and note the others in each tender.\nExcess Coverage:\nIf tendering to excess carrier, note the status of primary coverage and include documentation.\n\nCommon Mistakes to Avoid:\nWaiting too long - tender immediately upon notice\nOver-explaining coverage - let the carrier do the analysis\nAdmitting facts harmful to coverage - stick to complaint allegations\nBeing wishy-washy - this is a demand, not a request\nForgetting to set deadlines - give carrier specific timeframe to respond\nNot sending certified mail - you need proof of receipt\nIncluding privileged information - work product, client confidences\nIgnoring policy conditions - notice provisions, cooperation clauses\n\nDocument all additional costs\n\nFinal Reminders:\nThis letter does three critical things:\nTriggers the carrier's duty to investigate and make a coverage decision\nPreserves your client's rights under the policy\nStarts the clock ticking on the carrier's response obligations\nQuality control checklist:\nPolicy number correct?\nIncident date within policy period?\nAll relevant allegations identified?\nSpecific demands made?\nDeadline for response set?\nCertified mail, return receipt?\nClient approval obtained?\nRemember - insurance carriers get hundreds of these. Make yours stand out by being clear, professional, and legally sound. The goal is to make it as easy as possible for them to say \"yes\" and as difficult as possible for them to say \"no.\"\nNow draft it up and bring it to me for review before it goes out\n",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:07.182891",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

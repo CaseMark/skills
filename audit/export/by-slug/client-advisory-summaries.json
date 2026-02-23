@@ -1,0 +1,43 @@
+{
+  "id": "291aa447-f573-403a-9097-13a4b40ba6c5",
+  "slug": "client-advisory-summaries",
+  "name": "Client Advisory Summaries",
+  "summary": "Generates comprehensive client advisory summaries that inform clients about recent legal developments, upcoming law changes, or specific advisory content impacting their business or personal legal affairs. Translates complex legal information into clear, actionable guidance with tailored impact analysis, proper Bluebook citations, and recommendations for compliance or strategic planning. Use this skill when preparing proactive updates to keep clients informed and ahead of regulatory shifts.",
+  "content": "# Client Advisory Summary Prompt\n\nYou are tasked with preparing a comprehensive Client Advisory Summary that informs clients about recent legal developments, upcoming changes in law, or specific advisory content relevant to their business or personal legal affairs. This summary should be clear, actionable, and tailored to help clients understand how legal changes may impact their operations, compliance obligations, or strategic planning.\n\n## Objective and Scope\n\nYour primary goal is to create a concise yet thorough advisory document that translates complex legal developments into practical guidance. The summary should identify relevant legal changes, explain their significance, assess their impact on the client's specific circumstances, and provide clear recommendations for action or consideration. This advisory serves as both an informational resource and a proactive risk management tool, demonstrating the firm's value in keeping clients ahead of regulatory and legal changes.\n\n## Research and Information Gathering\n\nBegin by conducting comprehensive research into recent legal developments relevant to the client's industry, jurisdiction, and specific legal concerns. Search for recent case law, statutory amendments, regulatory updates, administrative guidance, and pending legislation that may affect the client. When researching, prioritize authoritative sources including official government websites, court databases, regulatory agency publications, and reputable legal news sources. Verify all legal citations and ensure that any cases, statutes, or regulations referenced are accurately identified with proper Bluebook citations. Cross-reference multiple sources to confirm the accuracy and current status of any legal development you plan to include.\n\nIf the client has provided background documents, contracts, policies, or prior advisories, thoroughly review these materials to understand their existing legal framework and identify specific areas where new developments may create conflicts, opportunities, or compliance gaps. Extract relevant facts, dates, obligations, and provisions that may be affected by the legal changes you've identified.\n\n## Structure and Content Requirements\n\nThe advisory summary should open with a clear executive summary that highlights the most critical developments and their immediate implications in two to three paragraphs. This section should be accessible to non-lawyers while maintaining professional precision. Following the executive summary, organize the body of the advisory into logical sections based on topic area, regulatory domain, or impact category. Each section should identify the specific legal development, provide context about its origin and purpose, explain the substantive changes or new requirements, and analyze how these changes affect the client's current practices, obligations, or rights.\n\nThroughout the advisory, maintain a balance between legal accuracy and practical clarity. Avoid excessive legal jargon, but do not oversimplify to the point of losing important nuance. When technical legal concepts are necessary, provide brief explanations or context. Include specific examples or scenarios that illustrate how the legal change might apply to the client's actual business operations or personal circumstances.\n\n## Impact Analysis and Recommendations\n\nFor each legal development discussed, provide a clear assessment of its relevance and potential impact on the client. Categorize impacts as immediate, short-term, or long-term, and indicate whether they present compliance obligations, strategic opportunities, or potential risks. Your analysis should consider both direct legal requirements and indirect business implications, such as competitive effects, operational changes, or reputational considerations.\n\nConclude each section with specific, actionable recommendations. These may include steps to ensure compliance, suggested policy or contract revisions, timing considerations for implementation, areas requiring further legal review, or opportunities to leverage the legal change for competitive advantage. Be explicit about any deadlines, effective dates, or time-sensitive actions the client should consider.\n\n## Professional Standards and Tone\n\nMaintain a professional yet accessible tone throughout the advisory. The document should reflect the firm's expertise while being client-focused and service-oriented. Use clear headings and subheadings to enhance readability and allow clients to quickly locate information relevant to their specific concerns. Where appropriate, include visual elements such as timelines, comparison tables, or flowcharts to illustrate complex changes or decision points.\n\nEnsure that all factual assertions are supported by reliable sources and that all legal citations are accurate and complete. Include footnotes or endnotes for detailed citations while keeping the main text flowing and readable. If certain developments require assumptions about the client's circumstances or if the analysis depends on facts not yet confirmed, clearly identify these limitations and suggest follow-up discussions or information gathering.\n\n## Deliverable Format\n\nThe final Client Advisory Summary should be formatted as a professional memorandum or letter, typically ranging from two to five pages depending on the complexity and number of developments covered. Include appropriate firm branding, the date of preparation, identification of the client and matter, and clear attribution of authorship. Close with an invitation for the client to discuss the advisory in greater detail and provide contact information for follow-up questions. The document should be polished, proofread, and ready for immediate distribution to the client without further editing.\n\nYour advisory should position the law firm as a trusted advisor that not only monitors legal developments but also translates them into strategic guidance that protects and advances the client's interests.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis",
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.667035",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "3032f3b0-389c-4862-afac-9bb2c2515c7f",
+  "slug": "legal-research-methodology",
+  "name": "Legal Research Methodology",
+  "summary": "Systematic approach to legal research including primary sources, secondary sources, and verification.",
+  "content": "# Legal Research Methodology\n\n## Research Hierarchy\n1. **Binding Authority** (must follow)\n   - Statutes in jurisdiction\n   - Regulations in jurisdiction\n   - Case law from controlling courts\n\n2. **Persuasive Authority** (may follow)\n   - Case law from other jurisdictions\n   - Secondary sources\n   - Restatements\n\n## Research Process\n1. Identify the legal issue\n2. Determine jurisdiction\n3. Find controlling statutes/regulations\n4. Find binding case law\n5. Expand to persuasive authority if needed\n6. Verify currency (Shepardize/KeyCite)\n7. Update before filing\n\n## Source Evaluation\n- Check if still good law\n- Note any negative treatment\n- Distinguish unfavorable authority\n- Document your research trail\n\n## Common Databases\n- Westlaw\n- LexisNexis\n- Bloomberg Law\n- Google Scholar (for initial research)\n- Court websites (for local rules)\n",
+  "parent_skill_id": null,
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "skill_modes": [
+      "research"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-01-06T03:16:15.3172"
+}

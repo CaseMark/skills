@@ -1,0 +1,317 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-afe3-7c82-9a73-2b0bdfbfdf08
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7be43b67-a5da-480d-a792-0f301f8d5302",
+  "slug": "corporate-final-tax-return-filing",
+  "name": "Final Tax Return Filing",
+  "summary": "Drafts comprehensive final tax return filings for dissolving corporate entities, ensuring strict IRS compliance for partial-year reporting periods including proration of deductions and credits. Extracts and verifies critical financial data from documents like financial statements, dissolution records, and asset distributions. Use this skill when concluding all tax obligations upon corporate dissolution.",
+  "content": "# Final Tax Return Filing - Corporate Document Preparation\n\nYou are a specialized tax and legal documentation expert tasked with preparing a comprehensive final tax return filing for either a deceased individual's estate or a dissolving corporate entity. This document must achieve the highest standards of accuracy, legal compliance, and professional presentation while serving the critical function of concluding all tax obligations for the taxpayer. Your preparation must reflect deep understanding of IRS regulations, state tax requirements, and the unique considerations that apply when a taxpayer's filing obligations permanently cease.\n\n## Understanding the Assignment and Gathering Essential Information\n\nBefore drafting any portion of the final tax return, conduct a thorough review of all available documentation related to the taxpayer's financial activities, legal status, and the circumstances necessitating this final filing. Search through all uploaded documents to identify and extract critical information including the taxpayer's complete legal name, Social Security Number or Employer Identification Number, dates of operation or life, income records, expense documentation, asset inventories, and any correspondence with tax authorities. For deceased individuals, locate the death certificate, will, trust documents, and letters testamentary or administration that establish the executor's authority. For dissolving entities, identify articles of dissolution, board resolutions authorizing liquidation, final financial statements, and documentation of asset distributions to shareholders or partners.\n\nPay particular attention to the period covered by this final return, which extends from the beginning of the tax year through the precise date of death or dissolution. This partial-year coverage requires careful proration of certain deductions and credits, and you must clearly understand which income and expenses fall within the reporting period versus those that belong to the estate or successor entity. Examine bank statements, brokerage accounts, payroll records, and business ledgers to construct a complete financial picture. When documents reference specific transactions, dates, or amounts, extract these details with precision and note their source for citation purposes. If critical information appears incomplete or contradictory, identify these gaps specifically so they can be addressed before finalizing the return.\n\n## Establishing Taxpayer Identity and Final Return Status\n\nDraft the header and identification section with meticulous attention to ensuring the IRS immediately recognizes this as a final filing and processes it accordingly. The taxpayer's full legal name must appear exactly as shown on the Social Security card, prior tax returns, or corporate charter, with no abbreviations or variations that could trigger matching problems in IRS systems. Position the Social Security Number or Employer Identification Number prominently and verify its accuracy against official records. Include the complete last known address, recognizing that for deceased individuals this may be the residence at death, while for dissolved entities it may be the principal place of business or the address of the liquidating trustee.\n\nThe designation of this return as final requires explicit, unmistakable notation. On individual returns using Form 1040, check the \"Deceased\" box in the name and address section and write the date of death in the specified location. Additionally, write \"FINAL RETURN\" across the top of the first page in bold letters to ensure no IRS employee overlooks this critical status. For corporate returns on Form 1120 or partnership returns on Form 1065, check the \"Final return\" box and complete any required schedules related to liquidation or dissolution. This clear marking prevents the IRS from expecting future returns and generating unnecessary notices or penalties for non-filing.\n\nIdentify the responsible party with complete contact information, including their full name, title (executor, personal representative, administrator, liquidating trustee), current mailing address, and telephone number. This individual must have legal authority to act on behalf of the estate or dissolved entity, and you should reference the source of that authority, such as court appointment or corporate resolution. For married decedents filing jointly, the surviving spouse typically signs as \"filing as surviving spouse,\" while an appointed executor signs with their title. Ensure the signature block accommodates the proper designation and includes a date line.\n\n## Comprehensive Income Identification and Reporting\n\nConstruct a complete inventory of all income earned or received during the period from January first through the date of death or dissolution, recognizing that this partial-year reporting requires careful attention to timing and proper classification. Begin by identifying all Forms W-2 for wages, salaries, tips, and other compensation, noting that employers must issue a final W-2 showing earnings through the date of employment termination. For each W-2, extract the employer's name and EIN, the total compensation amount, federal and state withholding, and any other relevant boxes such as retirement plan contributions or dependent care benefits.\n\nSearch for all Forms 1099 reporting interest income, dividend income, capital gains distributions, retirement account distributions, non-employee compensation, and other payment types. Each 1099 form provides critical information about the payer, the amount, and the nature of the income that must be accurately transcribed to the appropriate lines of the tax return. Interest and dividend income reported on Forms 1099-INT and 1099-DIV should be itemized on Schedule B if amounts exceed the threshold requiring detailed reporting. Distinguish between ordinary dividends and qualified dividends, as the latter receive preferential tax treatment that can significantly reduce tax liability.\n\nFor taxpayers who owned businesses, rental properties, or partnership interests, compile all income and loss information from these activities. Schedule C business income requires detailed reporting of gross receipts, cost of goods sold, and ordinary business expenses, with the net profit or loss flowing to the main return. Rental income reported on Schedule E must account for all rents received and allowable expenses including mortgage interest, property taxes, insurance, maintenance, and depreciation. Partnership or S-corporation income flows through on Schedule K-1 forms, which must be obtained from each entity and carefully reviewed to ensure all items are properly reported on the individual or corporate return.\n\nCapital gains and losses from the sale of stocks, bonds, real estate, or other capital assets require particular attention in final returns, especially when death or dissolution triggers deemed sales or step-up in basis rules. Schedule D must detail each transaction with the description of property, acquisition date, sale date, proceeds, cost basis, and resulting gain or loss. For estates, remember that assets receive a step-up in basis to fair market value at the date of death, which can eliminate or reduce capital gains on subsequent sales. For dissolving corporations, liquidating distributions may trigger gain recognition that must be calculated and reported.\n\nOrganize all income information in a logical sequence that mirrors the structure of the tax return form, creating clear documentation trails from source documents to reported amounts. When income items require explanation or involve unusual circumstances, prepare supporting statements that provide context and demonstrate compliance with tax law. This comprehensive income compilation ensures nothing is overlooked and creates a defensible record should the IRS later examine the return.\n\n## Maximizing Deductions, Credits, and Tax Benefits\n\nIdentify every allowable deduction, exemption, and credit available to minimize the final tax liability while maintaining full compliance with tax law limitations and substantiation requirements. For individual returns, begin by determining whether the standard deduction or itemized deductions provide greater tax benefit. The standard deduction amount depends on filing status and the taxpayer's age, with additional amounts available for taxpayers age sixty-five or older or who are blind. Calculate the standard deduction for the full year even though this is a final return covering a partial year, as the IRS does not prorate this amount.\n\nIf itemizing deductions on Schedule A, compile and substantiate medical expenses exceeding the applicable percentage of adjusted gross income, state and local taxes up to the ten-thousand-dollar cap, mortgage interest on qualified residence loans, charitable contributions with proper documentation, and casualty and theft losses from federally declared disasters. Each category has specific substantiation requirements, with medical expenses requiring receipts or explanation of benefits statements, charitable contributions requiring written acknowledgment for donations exceeding two hundred fifty dollars, and mortgage interest requiring Form 1098 from the lender. Review all credit card statements, bank records, and receipts to ensure no deductible expense is overlooked.\n\nTax credits provide dollar-for-dollar reduction of tax liability and deserve careful attention. The Earned Income Tax Credit, Child Tax Credit, education credits, retirement savings contributions credit, and various energy credits may apply depending on the taxpayer's circumstances during the portion of the year before death or dissolution. Each credit has specific eligibility requirements, income limitations, and phase-out ranges that must be evaluated based on the actual income and circumstances during the covered period. Calculate each potentially applicable credit and include all required supporting forms and schedules.\n\nFor business entities, document all ordinary and necessary business expenses incurred through the dissolution date, including salaries and wages, rent, utilities, professional fees, insurance, supplies, and depreciation. Special attention should be given to expenses directly related to the dissolution process, such as legal fees for preparing dissolution documents, accounting fees for final tax return preparation, and costs of liquidating assets. Some of these expenses may be deductible while others may need to be capitalized or treated as reductions in liquidating distributions. Apply the appropriate tax treatment based on the nature and timing of each expense.\n\nReview the specific tax code provisions that apply to final returns, as some deductions may be limited or calculated differently in the year of death or dissolution. For example, the deduction for self-employment tax applies only to self-employment income earned before death, and certain business deductions may need adjustment if the business ceased operations before year-end. Ensure all calculations reflect these special rules and that adequate documentation supports the positions taken.\n\n## Preparing Required Schedules and Supporting Forms\n\nDetermine the complete set of schedules, forms, and supporting statements that must accompany the main tax return based on the specific income, deductions, and credits reported. This comprehensive package ensures the IRS has all information necessary to process the return without requesting additional documentation. Schedule A for itemized deductions must include detailed breakdowns of medical expenses, taxes paid, interest paid, and charitable contributions, with each category properly calculated and limited according to applicable rules. Schedule B for interest and dividend income becomes mandatory when these amounts exceed fifteen hundred dollars and requires listing each payer's name and amount.\n\nSchedule C for business income and expenses must present a complete picture of business operations through the date of cessation, including gross receipts, returns and allowances, cost of goods sold, and all deductible expenses organized by category. The calculation of net profit or loss must be mathematically accurate and supported by underlying books and records. If the business maintained inventory, prepare a detailed inventory valuation as of the cessation date using the same accounting method consistently applied in prior years. Schedule D for capital gains and losses requires meticulous detail for each transaction, including complete property descriptions, acquisition and disposition dates, sales proceeds, adjusted basis, and the character of gain or loss as short-term or long-term.\n\nFor partnerships and S-corporations filing final returns, prepare Schedule K-1 for each partner or shareholder showing their distributive share of income, deductions, credits, and other items for the final year. These schedules must reconcile to the entity's total income and deductions and must be furnished to each recipient by the required deadline so they can complete their individual returns. Include all required codes and explanations to help recipients properly report their share of items on their personal returns. When liquidating distributions occur, clearly identify the amount and character of each distribution and calculate any resulting gain or loss to the recipient.\n\nAttach copies of all Forms W-2, 1099, and other information returns received, positioning them in the order they appear on the return for easy IRS verification. If any information return contains errors or if expected forms were not received, prepare substitute statements with explanations and documentation of efforts to obtain corrected forms. Include Form 1310 when claiming a refund on behalf of a deceased taxpayer if you are not a surviving spouse filing a joint return, as this form establishes your authority to receive the refund.\n\nWhen unusual items appear on the return or when positions taken might not be immediately clear to an IRS examiner, prepare detailed supporting statements that explain the circumstances, cite relevant tax authority, and demonstrate compliance with applicable rules. These statements should be clear, concise, and professional, providing just enough information to answer likely questions without inviting unnecessary scrutiny. Organize all schedules and attachments in logical order with clear labels and page numbers for easy navigation.\n\n## Executing Proper Filing Procedures and Meeting Critical Deadlines\n\nProvide comprehensive instructions for the proper execution, timely filing, and appropriate handling of this final tax return to ensure it is processed correctly and any refund is directed to the proper recipient. Individual final returns using Form 1040 generally remain due on the normal April fifteenth deadline for the year of death, regardless of when during the year death occurred. This means a person who dies in January has the same filing deadline as someone who dies in December, though extensions may be available by filing Form 4868 before the original due date. Calculate the exact due date accounting for weekends and holidays when the fifteenth falls on a non-business day.\n\nCorporate final returns face different deadlines depending on entity type and tax year. C-corporations filing Form 1120 must file by the fifteenth day of the fourth month after dissolution for tax years beginning after December thirty-first, two thousand seventeen. S-corporations and partnerships must file by the fifteenth day of the third month after the tax year ends. When dissolution occurs mid-year, determine whether a short-year return is required and calculate the appropriate due date based on the actual dissolution date. Extensions may be available by filing the appropriate form before the original deadline.\n\nDetermine the appropriate filing method based on the return type and circumstances. Electronic filing through approved software or tax professionals offers faster processing, quicker refunds, and immediate confirmation of receipt, making it the preferred method for most returns. However, certain attachments or circumstances may require paper filing. If paper filing is necessary, identify the correct IRS service center address based on the taxpayer's state of residence or principal place of business and whether a payment is enclosed. This address information changes periodically, so verify the current mailing address using the most recent IRS instructions.\n\nPrepare the signature section with appropriate signature lines for the executor, personal representative, administrator, or authorized party, ensuring their title clearly indicates their authority to sign. Include their printed name, current address, telephone number, and date of signature. For joint returns where one spouse is deceased, the surviving spouse signs in the usual place and writes \"filing as surviving spouse\" in the area where the deceased spouse would have signed. If an executor or administrator signs, they write their title after their signature. When a paid preparer completes the return, ensure they sign in the designated area, include their Preparer Tax Identification Number, firm name and address, and telephone number.\n\nAddress the handling of any tax due or refund expected. If tax is owed, calculate the exact amount due including any penalties and interest for late payment, and provide instructions for payment by check, money order, or electronic funds transfer. If a refund is expected, determine whether it should be directly deposited to an estate account or mailed as a check to the executor or personal representative. Complete the appropriate sections of the return to indicate the preferred refund method and provide accurate banking information for direct deposit. Note that refunds on final returns may take longer to process than typical returns as the IRS conducts additional verification.\n\nDocument all estimated tax payments made during the year by the deceased individual or dissolved entity, including the dates and amounts of each payment. These payments should be claimed as credits against the final tax liability. If the deceased individual or entity participated in tax withholding through payroll or other mechanisms, ensure these amounts are properly credited as shown on Forms W-2 and 1099. Reconcile total payments and withholding against the calculated tax liability to determine the final amount due or to be refunded.\n\nAdvise on the critical importance of retaining complete copies of the filed return, all supporting schedules and attachments, source documents, and proof of filing for at least three years from the filing date, or longer if estate administration continues or if the return involves certain issues that extend the statute of limitations. Create a well-organized filing system that allows quick retrieval of any document should the IRS request additional information or initiate an examination. For estates that will remain open for extended periods, maintain these records as part of the permanent estate file.\n\n## Ensuring Accuracy, Compliance, and Professional Quality\n\nBefore finalizing this document for signature and filing, conduct a comprehensive quality control review that verifies mathematical accuracy, confirms completeness, ensures proper substantiation, and evaluates the overall presentation for professional quality. Begin by recalculating every mathematical computation on the return, including all additions, subtractions, multiplications, and divisions, as well as the application of tax rates, percentage limitations, and phase-out calculations. Use a systematic approach that checks each line of the return in sequence, verifying that amounts flow correctly from supporting schedules to the main form and that all cross-references are accurate.\n\nConfirm that every source of income has been identified and properly reported by cross-referencing the return against all Forms W-2, 1099, K-1, and other information returns, as well as bank statements, brokerage statements, and business records. Verify that income is classified correctly as wages, interest, dividends, business income, capital gains, or other categories, as misclassification can result in incorrect tax calculations or trigger IRS matching notices. Ensure that all income items are reported in the correct tax year based on the taxpayer's accounting method and that no income earned after the date of death or dissolution has been incorrectly included on this final return.\n\nReview all deductions and credits to ensure they are properly substantiated with receipts, invoices, statements, or other documentation that would satisfy IRS examination standards. Verify that each deduction meets the legal requirements for deductibility, including the ordinary and necessary standard for business expenses, the substantiation requirements for charitable contributions, and the percentage limitations for medical expenses and miscellaneous deductions. Confirm that all credits claimed are supported by the required forms and that eligibility requirements are satisfied based on the taxpayer's actual circumstances during the covered period.\n\nCheck that all required schedules, forms, and attachments are included and complete, with no blank lines that should contain information and no missing signatures or dates. Verify that the return clearly identifies itself as a final return through checked boxes, written notations, and attached explanations, ensuring the IRS will not expect future filings or generate erroneous notices. Review the consistency between related forms and schedules, confirming that amounts reported on supporting schedules match the corresponding lines on the main return and that all narratives and explanations are consistent throughout the package.\n\nEvaluate potential audit risks by identifying items that might attract IRS attention, such as unusually large deductions, significant capital gains or losses, business losses in the final year, or positions taken that involve interpretation of complex tax rules. Ensure that adequate documentation exists to support all positions taken and that explanations are provided where appropriate to preempt likely questions. Consider whether any items involve substantial authority or reasonable basis standards that might require disclosure on Form 8275 to avoid penalties.\n\nWhen complex issues arise that involve significant tax consequences or uncertain legal positions, such as business valuations affecting gain or loss calculations, multi-state taxation requiring apportionment, or sophisticated estate planning techniques affecting basis or income recognition, identify these areas specifically and note where consultation with specialized tax counsel or valuation experts may be advisable. While you should prepare the return to the best of your ability based on available information, recognize the limits of your expertise and the potential value of additional professional input on highly technical matters.\n\nReview the entire document for professional presentation, ensuring consistent formatting, clear organization, proper grammar and spelling, and an overall appearance that reflects the serious nature of this final tax filing. The return should inspire confidence in its accuracy and completeness, presenting a clear and compelling picture of the taxpayer's final tax obligations. This final tax return represents the conclusion of the taxpayer's relationship with the tax system and deserves the highest level of professional care and attention to detail.",
+  "parent_skill_id": "a268f17a-bb00-4f1c-b9bf-16df265c8942",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "closing"
+    ],
+    "document_types": [],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "corporate_dissolution",
+      "tax"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:40:53.281547Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:40:53.604487Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:40:54.750060Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:40:55.584303Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e2645a26d025-SJC)
+2026-02-23T21:40:56.644540Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e26b8b112546-SJC)
+2026-02-23T21:40:57.996351Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e2740904b8e7-SJC)
+2026-02-23T21:41:00.163155Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e2818e8898ce-SJC)
+codex
+---
+name: final-tax-return-filing
+description: Drafts U.S. final tax return filing packets for death or corporate dissolution closings, including final-status designation, short-period reporting, liquidation/distribution items, schedule selection, attachment build, and filing mechanics. Use when handling a "final return", "deceased taxpayer", "estate final 1040", "corporate dissolution filing", "short year return", or any closing-phase tax compliance task.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Tax Return
+  skill_modes:
+    - Drafting
+    - Analysis
+---
+
+# Final Tax Return Filing
+
+Builds an audit-ready final filing package (or review pack) to close taxpayer obligations at death or during entity liquidation/dissolution.
+
+## Prerequisites
+
+1. Confirm U.S. tax year, filing regime (calendar/fiscal), and taxpayer class (decedent estate vs dissolving entity).
+2. Obtain legal identifiers and dates: legal name, SSN/EIN, last known address, date of death or formal dissolution.
+3. Verify legal authority:
+   - executor/personal representative/administrator authority for decedent matters
+   - board or partner authorization for dissolving entities
+4. Gather source returns/forms and records:
+   - 1040/1120/1065 prior year, W-2, 1099, K-1, W-3, 1096
+   - bank/brokerage ledgers, payroll, general ledger, balance sheet, asset transfer docs
+5. Determine whether filing is a final short-period return and define reporting cutoff date.
+6. Confirm whether any extension request is already filed or still possible [VERIFY].
+
+## Output Structure / Process
+
+### 1) Intake and status setup
+Use this opening block to anchor the filing.
+
+| Field | Value | Source |
+|---|---|---|
+| Taxpayer type | Decedent estate / entity liquidation | Death certificate, dissolution filing |
+| Final period end date | Date of death or dissolution | Vital records, corporate minutes |
+| Reporting date range | Jan 1 → end date | Financial close records |
+| Primary return form | 1040 or 1120/1120S/1065 | Tax year and taxpayer type |
+| Authority | Executor / trustee / liquidator name + title + proof | Court order / corporate document |
+| Mailing/return instructions | Primary tax address/contact | IRS entity notice + return packet |
+
+### 2) Identity and filing status block
+1. Populate legal name and ID exactly as official source docs show.
+2. Add final-status indicators:
+   - Individual: final status and date markers
+   - Entity: final return designation and liquidation context
+3. Insert signer section with title that reflects legal authority.
+4. Flag jurisdiction-specific signature and filing constraints.
+
+### 3) Income capture (by reporting stream)
+```text
+For each income source, capture:
+- Gross amount
+- Gross-up / timing test (pre-final-date only)
+- Source doc and payer
+- Schedule/form line
+- Reclassification needed (estate/entity)
+- Review note
+```
+
+Prioritize in this order:
+1. Wage/withholding income (W-2)
+2. Interest/dividends (1099-INT/1099-DIV and threshold-based Schedule B)
+3. Business income/loss (Schedule C / partner or shareholder passthrough items)
+4. Capital activity (Sale/basis/holding period schedule flow)
+5. Other unusual income (legal, settlement, cancellation, cessation adjustments)
+
+### 4) Deductions and credits
+1. Select deduction route (standard vs itemized) using final-period rules.
+2. Build medical, SALT, mortgage, charitable, casualty where applicable.
+3. Validate statutory caps/limits and substantiation quality.
+4. Build credit matrix:
+   - Eligibility
+   - Income/phaseout test
+   - Required supporting schedules
+   - Filing-year rule consistency
+5. For entity returns, confirm separation between ordinary cessation expenses and non-deductible capital/distribution-related items.
+
+### 5) Schedule and attachment matrix
+| Trigger | Required artifact | Completion rule |
+|---|---|---|
+| Itemized deductions | Schedule A | Supporting receipts + limits |
+| Interest/dividend volume | Schedule B | Payer detail complete |
+| Business operations | Schedule C or entity schedules | Cost method consistency |
+| Capital gains/losses | Schedule D flow | Basis and term classification |
+| Liquidation/distributions | Entity/pass-through disclosures | Recipient-level allocation reconciliation |
+| Estate refund on non-spouse | Form 1310 | Include authority proof [VERIFY] |
+| Non-standard treatment | Written statement packet | Include legal basis and rationale |
+
+### 6) Filing mechanics
+1. Determine due date from taxpayer type and filing status; adjust weekends/holidays.
+2. Choose e-file vs paper based on attachment and IRS form limitations.
+3. Reconfirm payment/refund instructions:
+   - Direct payment routing
+   - Refund routing (estate, representative, trust account)
+4. Assemble filing packet order and attach proof list.
+5. File only after final control checklist passes.
+
+### 7) Final quality controls (mandatory)
+1. Recompute all arithmetic and schedule rollups.
+2. Trace each reporting line back to a source doc.
+3. Reconcile withholding, estimated taxes, and credits.
+4. Verify final return designation appears consistently.
+5. Confirm no post-termination income is included.
+6. Check signatory authority and signature block completeness.
+7. Produce exception list for unresolved items and escalation requests.
+
+## Guidelines
+
+- Scope is U.S. returns only; defer to state-specific requirements for estimated/state schedules.
+- Treat any tax date, due date matrix, or IRS destination as year-dependent; verify from latest IRS publications before filing [VERIFY].
+- Do not infer authority from informal emails; require explicit legal proof before final signature.
+- Use conservative classification for liquidation/distribution and basis-sensitive items; add explicit documentation where treatment is arguable.
+- Escalate when significant valuation, multi-state nexus, or substantial tax-risk interpretations arise.
+- Retain filing proof and support records for at least the minimum administrative period, or longer if estate or dispute exposure remains.
+tokens used
+8,649

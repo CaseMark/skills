@@ -1,0 +1,193 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c76-72b0-77e2-91f6-4b4ba7560b5f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "836bd1b2-63dd-499c-b934-2ea55473495e",
+  "slug": "zoning-and-land-use-appeal",
+  "name": "Zoning and Land Use Appeal",
+  "summary": "Drafts a comprehensive Zoning and Land Use Appeal document, typically as a petition for writ of mandate or complaint for declaratory relief, challenging final administrative decisions by local government bodies on land use matters. Ensures compliance with state procedural rules, exhausts administrative remedies, and applies appropriate standards of judicial review such as substantial evidence or abuse of discretion. Use this skill when appealing zoning denials, variances, or permits after reviewing the full administrative record.",
+  "content": "# Enhanced Specification for Zoning and Land Use Appeal\n\nYou are tasked with drafting a comprehensive Zoning and Land Use Appeal, a litigation document that challenges a final administrative decision by a local government body regarding land use matters. This document typically takes the form of a petition for writ of mandate and/or complaint for declaratory relief and must comply with all applicable state procedural rules and local court requirements.\n\n## Initial Information Gathering and Document Review\n\nBefore beginning the drafting process, conduct a thorough review of all available materials related to the administrative proceedings. Search through any uploaded documents to identify and extract critical information including the property owner's full legal name and status, the exact date of the final administrative decision, the specific governmental body that rendered the decision, the property's assessor's parcel number and legal description, and the current zoning and general plan designations. Locate and extract verbatim any findings made by the decision-making body, as these will be central to your challenge. Identify all procedural steps taken during the administrative process, including dates of public hearings, notices provided, and environmental review documents prepared. Extract specific testimony, expert opinions, technical studies, and other evidence presented during the administrative proceedings that either support or contradict the governmental body's decision. Pay particular attention to any procedural irregularities, evidentiary gaps, or inconsistencies in the administrative record that could form the basis for legal challenge.\n\n## Document Purpose and Strategic Legal Framework\n\nThis appeal challenges administrative decisions made by municipal planning commissions, city councils, county boards of supervisors, or similar governmental entities exercising land use authority. Your drafting must demonstrate that all administrative remedies have been exhausted and establish proper grounds for judicial review under the applicable standard of review. The standard typically includes substantial evidence review for factual findings, procedural compliance review for process violations, abuse of discretion analysis for discretionary decisions, or constitutional challenges such as regulatory takings claims under the Fifth and Fourteenth Amendments. Structure your document to align with the specific standard of review applicable to each ground for challenge, recognizing that different aspects of the administrative decision may be subject to different levels of judicial scrutiny. Frame your arguments with awareness that courts generally defer to local land use decisions but will intervene when the decision lacks evidentiary support, violates procedural requirements, exceeds legal authority, or infringes constitutional rights.\n\n## Caption and Preliminary Matter Requirements\n\nDraft a complete caption that identifies the appropriate court of jurisdiction, which is typically the superior court in the county where the subject property is located or where the governmental body sits. Identify the petitioner by their complete legal name and capacity, specifying whether they appear as the property owner, contract purchaser, permit applicant, adjacent landowner, or other interested party with standing to challenge the decision. Identify the respondent governmental entity with precision, naming the specific body that rendered the final decision rather than a generic governmental designation. For example, use \"City Council of the City of Sacramento\" rather than simply \"City of Sacramento\" when the city council made the final determination. If real parties in interest exist, such as a project applicant when the petitioner is a neighboring property owner challenging an approval, identify them in the caption as well. Include the case number designation line and the full document title, which should specify the nature of the proceeding as a \"Petition for Writ of Mandate and Complaint for Declaratory Relief\" or similar formulation appropriate to your jurisdiction and the relief sought.\n\n## Introduction and Jurisdictional Foundation\n\nBegin with a clear, compelling introductory section that immediately orients the court to the nature of the dispute. Identify the petitioner and state the nature of the action as a petition for writ of mandate pursuant to the applicable state statute governing judicial review of administrative decisions, such as Code of Civil Procedure section 1094.5 in California, and as a complaint for declaratory relief. Identify with specificity the governmental decision being challenged, including the date of the final decision, the governmental body that rendered it, and the substance of what was decided. For example, state that \"on October 15, 2024, the City Council of the City of Riverside adopted Resolution No. 2024-087 denying Petitioner's application for a conditional use permit to operate a residential care facility at 1234 Main Street.\"\n\nEstablish the court's subject matter jurisdiction by alleging that the petitioner has exhausted all available administrative remedies by pursuing the application through all required levels of review and appeal within the governmental entity's administrative process. Allege that the decision being challenged is the final administrative decision and that no further administrative remedies are available. Assert that the petition is timely filed within the applicable statute of limitations, which is typically ninety days from the date the decision became final, and specify the exact date from which the limitations period runs. Establish the petitioner's standing by alleging facts demonstrating that the petitioner is a party aggrieved by the decision with a beneficial interest that is substantially affected by the administrative determination. For a property owner or applicant, this is typically straightforward, but for neighboring property owners or other interested parties, provide specific allegations about how the decision affects their property values, use and enjoyment of their property, or other legally cognizable interests.\n\n## Detailed Party Identification and Interests\n\nProvide comprehensive allegations identifying all parties and their relationship to the dispute. For the petitioner, include their full legal name, address, and the precise nature of their interest in the subject property or administrative decision. If the petitioner is the property owner, allege the date and manner of acquisition and the nature of the ownership interest held. If the petitioner is a contract purchaser, describe the purchase agreement and the contingencies related to obtaining land use approvals. If the petitioner is an applicant who is not the property owner, explain the relationship to the owner and the authority to seek land use entitlements. If the petitioner is a neighboring property owner or other interested party challenging an approval granted to another, provide detailed allegations about the proximity of the petitioner's property to the subject property, the specific ways in which the approved project will impact the petitioner's property or interests, and why these impacts give rise to standing to challenge the decision.\n\nFor the respondent governmental entity, identify the specific body that made the final decision and allege its authority under state enabling legislation and local ordinances to make land use determinations. Explain the governmental body's role in the local land use regulatory scheme and its jurisdiction over the type of application at issue. If there are real parties in interest, identify them by name and address and explain their relationship to the underlying application. For example, if the petitioner is challenging approval of a project, the project applicant or developer is typically named as a real party in interest. Allege sufficient facts to demonstrate that all necessary parties have been joined in the action.\n\n## Comprehensive Property Description and Project Background\n\nProvide a detailed description of the real property that is the subject of the appeal. Include the complete street address, the assessor's parcel number as it appears in county records, and if available, the full legal description from the deed or title report. Describe the property's size in acres or square feet, its general topography and physical characteristics, and any significant features such as watercourses, slopes, vegetation, or existing structures. Identify the property's current zoning designation under the local zoning ordinance and its land use designation under the applicable general plan or comprehensive plan. If the property is subject to any overlay zones, specific plans, or other special regulatory designations, identify those as well. Describe the existing use of the property and any relevant history of prior uses or development.\n\nThen provide a detailed narrative description of the land use application or project that was the subject of the administrative proceedings. Explain what type of land use entitlement was sought, whether a zoning variance, conditional use permit, general plan amendment, zone change, site plan approval, design review approval, subdivision map, or other discretionary approval. Describe in specific terms what the applicant proposed to do with the property, including the type and intensity of use, the size and characteristics of any proposed structures, the number of dwelling units or amount of commercial space, parking and access arrangements, and any other relevant project features. Explain why the proposed use or development required discretionary approval from the governmental body rather than being permitted by right under existing regulations. If the application sought relief from specific development standards such as setbacks, height limits, or density restrictions, identify those standards and the extent of the deviation requested.\n\nDescribe any aspects of the proposal that became particularly contentious during the administrative process, such as concerns about traffic impacts, neighborhood compatibility, environmental effects, or consistency with applicable plans and policies. This background section should provide the court with a complete understanding of what was proposed and why it required governmental approval, setting the stage for the subsequent description of the administrative proceedings and the grounds for challenging the decision.\n\n## Chronological Administrative Proceedings and Procedural History\n\nProvide a detailed chronological narrative of the administrative proceedings that led to the final decision being challenged. This section should read as a comprehensive procedural history that demonstrates both the petitioner's exhaustion of administrative remedies and the preservation of issues for judicial review. Begin with the initial filing of the application, including the specific date of filing and the type of application submitted. Describe the procedural steps required by local ordinance for processing the application, including the assignment to planning staff, the requirement for various technical studies or reports, and any pre-application meetings or preliminary reviews that occurred.\n\nDetail the environmental review process conducted under applicable state environmental laws. For jurisdictions subject to the California Environmental Quality Act, describe whether the governmental body determined the project was categorically exempt, prepared a negative declaration or mitigated negative declaration, or prepared an environmental impact report. Identify the date of any environmental determination, the basis for that determination, and any environmental issues identified during the review process. If environmental review documents were prepared, describe their content and any mitigation measures proposed. If the petitioner or others submitted comments on environmental documents, reference those comments and the governmental body's responses.\n\nDescribe the public notice provided for administrative hearings, including the dates notices were published or mailed, the content of the notices, and whether the notice complied with all applicable legal requirements. Identify any deficiencies in the notice that may form a basis for procedural challenge. Describe each public hearing in detail, beginning with any initial hearing before a planning commission, zoning board of adjustment, or other subordinate body. For each hearing, provide the date, the format of the hearing, a summary of the staff report and recommendation, the testimony and evidence presented by the applicant, testimony and evidence presented by the petitioner or other interested parties, and any deliberations and decision by the hearing body. If the hearing body made an initial decision, describe that decision and whether it was an approval, denial, or approval with conditions.\n\nIf the matter proceeded to a city council, board of supervisors, or other legislative body for final action, whether on appeal from the initial decision or as the required final approval authority, describe those proceedings with equal detail. Include the date of the hearing, whether the matter was heard de novo or on the record from the prior hearing, the presentations made by staff and the parties, the nature and extent of public comment, and the deliberations of the decision-making body. Describe the final vote, including how individual members voted if that information is available from the record. Identify the formal action taken, whether by resolution, ordinance, or other official act, and include the resolution or ordinance number and adoption date.\n\nThroughout this chronological narrative, allege specifically that the petitioner participated in the administrative proceedings by submitting written comments, presenting testimony at public hearings, or otherwise making their positions known to the decision-making body. Identify the specific issues and objections raised by the petitioner during the administrative process, demonstrating that these issues were presented to the governmental body and are therefore preserved for judicial review. Conclude this section by alleging that the petitioner has exhausted all available administrative remedies, that no further administrative appeals or reconsideration procedures are available, and that the decision being challenged is the final administrative decision subject to judicial review.\n\n## Substantive Grounds for Reversal or Set Aside\n\nPresent the legal grounds for overturning the administrative decision in separate, clearly articulated causes of action or claims for relief. Each ground should be supported by specific factual allegations drawn from the administrative record and should be structured around the recognized bases for judicial review of administrative land use decisions. Frame each cause of action with a clear heading that identifies the legal basis for relief, and organize the allegations to first establish the legal standard applicable to that ground of review, then present the specific facts demonstrating how the administrative decision fails to satisfy that standard.\n\nFor challenges based on insufficient evidentiary support, allege that the findings made by the governmental body are not supported by substantial evidence in the light of the whole administrative record. Identify each specific finding that lacks adequate evidentiary support, quote the finding verbatim from the resolution or decision document, and then explain in detail why the evidence in the record does not support that finding. Point to contrary evidence in the record, such as expert testimony, technical studies, or other documentation that contradicts the finding. Explain what evidence would have been necessary to support the finding and why that evidence is absent from the record. For example, if the governmental body found that a proposed use would not generate excessive traffic, but the record contains a traffic study showing significant impacts and no contrary traffic analysis, allege those specific facts and explain why the finding lacks substantial evidentiary support. This ground is particularly appropriate when the decision-maker made factual determinations about impacts, compatibility, or other empirical matters that are contradicted by expert evidence in the record.\n\nFor challenges based on procedural violations, allege that the governmental body failed to proceed in the manner required by law. Identify with specificity each procedural requirement that was violated, whether arising from state statute, local ordinance, or constitutional due process requirements. Quote the relevant statutory or ordinance language establishing the procedural requirement, then allege the specific facts demonstrating how the governmental body failed to comply with that requirement. Procedural grounds may include failures to provide adequate public notice in terms of timing, content, or distribution; failures to make findings required by law or to make findings that are sufficiently specific and detailed to permit judicial review; failures to comply with environmental review procedures such as preparing required environmental documents, circulating documents for public review, or responding to comments; failures to follow the governmental body's own procedural rules regarding hearing procedures, voting requirements, or delegation of authority; or failures to provide adequate opportunity for public participation or to consider evidence and testimony presented by interested parties. For each procedural violation alleged, explain why the violation was prejudicial and affected the outcome of the proceedings or substantially impaired the petitioner's rights.\n\nFor challenges based on abuse of discretion, allege that the decision exceeded the bounds of reason and constituted an arbitrary or capricious exercise of discretion. Explain how the decision was not supported by rational analysis or was inconsistent with the evidence and applicable legal standards. This ground is appropriate when the decision-maker acted in a manner that no reasonable person could consider justified by the facts in the record. Provide specific examples of how the decision was unreasonable, such as applying inconsistent standards to similar applications, ignoring relevant evidence, relying on improper considerations, or reaching conclusions that are internally contradictory or inconsistent with applicable policies. For example, if the governmental body denied an application based on concerns about neighborhood compatibility but approved similar applications in the same neighborhood, or if the decision is inconsistent with policies in the general plan or comprehensive plan, allege those specific facts as demonstrating abuse of discretion.\n\nFor constitutional challenges, articulate the specific constitutional provision violated and the facts supporting the constitutional claim. For regulatory takings claims under the Fifth Amendment as applied to the states through the Fourteenth Amendment, allege that the decision effects a taking of private property without just compensation. If alleging a categorical taking, allege that the decision denies all economically beneficial or productive use of the property by describing the property's value before and after the decision and demonstrating that no viable economic use remains. If alleging an exactions taking under the Nollan and Dolan line of cases, allege that the governmental body imposed conditions on approval that lack an essential nexus to legitimate governmental interests and are not roughly proportional to the project's impacts. Identify each condition imposed, explain why it lacks the required nexus and proportionality, and describe the burden imposed on the property owner. For equal protection challenges, allege that the petitioner was treated differently from similarly situated property owners without rational basis, providing specific examples of comparable properties or applications that received more favorable treatment. For substantive due process challenges, allege that the decision was arbitrary and capricious and shocks the conscience, describing facts that demonstrate the extreme nature of the governmental action.\n\nIf the challenge involves violations of state environmental review statutes, identify each specific procedural or substantive requirement that was not satisfied. For example, under the California Environmental Quality Act, allege failures to prepare required environmental documents, failures to analyze significant environmental impacts, failures to consider feasible alternatives or mitigation measures, failures to make required findings regarding significant unavoidable impacts, or failures to comply with public notice and comment requirements. For each alleged violation, explain why it constitutes prejudicial error that requires the decision to be set aside, demonstrating that the error prevented informed decision-making or informed public participation.\n\n## Comprehensive Prayer for Relief\n\nDraft a detailed prayer for relief that requests all remedies appropriate to the claims alleged and the relief sought by the petitioner. Begin by requesting that the court issue a peremptory writ of mandate directing the respondent to set aside, vacate, and rescind its decision, identifying the specific resolution, ordinance, or other official action to be set aside. Request declaratory relief establishing the rights and obligations of the parties with respect to the subject property and the applicable land use regulations. If the petitioner seeks approval of the application that was denied, request that the court direct the respondent to approve the application, or alternatively, to reconsider the application and proceed in accordance with law and the court's decision. If the petitioner seeks to overturn an approval granted to another party, request that the court direct the respondent to rescind the approval and deny the application, or alternatively, to reconsider the application after complying with applicable legal requirements.\n\nRequest preliminary and permanent injunctive relief if appropriate to prevent implementation of the challenged decision or to prevent irreparable harm to the petitioner's property or interests pending resolution of the petition. Request an award of reasonable attorney's fees and costs to the extent authorized by statute, such as under the private attorney general doctrine codified in Code of Civil Procedure section 1021.5 or similar state provisions, alleging the necessary elements for fee recovery including that the action has resulted in the enforcement of an important right affecting the public interest, that a significant benefit has been conferred on the general public or a large class of persons, and that the necessity and financial burden of private enforcement make the award of fees appropriate. Request costs of suit including filing fees, service of process costs, and costs of preparing the administrative record. Conclude with a request for such other and further relief as the court deems just and proper, preserving the court's discretion to grant additional appropriate relief.\n\n## Verification, Supporting Documents, and Filing Requirements\n\nEnsure that the petition is properly verified by the petitioner or, if the petitioner is a corporation or other entity, by an officer or authorized representative with knowledge of the facts. The verification should state that the verifying party has read the petition, that the allegations are true of their own knowledge except as to those matters stated on information and belief, and that as to those matters they believe them to be true. For matters outside the personal knowledge of the verifying party, the verification should be based on information and belief derived from review of documents and consultation with counsel.\n\nPrepare the petition to be accompanied by the administrative record or, if the record is voluminous, to be followed by a motion requesting that the respondent prepare and certify the administrative record pursuant to applicable procedural rules. Consider whether the circumstances require filing a concurrent memorandum of points and authorities in support of any immediate relief sought, such as a temporary restraining order or preliminary injunction. Such immediate relief may be necessary if the challenged decision authorizes imminent action such as demolition, construction, or other activity that would cause irreparable harm to the petitioner's interests before the petition can be fully adjudicated. If seeking immediate relief, prepare a separate motion with supporting declarations establishing the elements required for preliminary injunctive relief, including likelihood of success on the merits, irreparable harm absent injunctive relief, balance of hardships favoring the petitioner, and public interest considerations.\n\nEnsure compliance with all local court rules regarding formatting requirements such as font size and style, line spacing, margin widths, and page limits. Verify the correct filing fees and procedures for the court in which the petition will be filed. Confirm the requirements for service of the petition on all parties, including any special requirements for service on governmental entities. Prepare a proposed order for the court to issue the writ of mandate, as some jurisdictions require submission of proposed orders with the initial filing.\n\n## Drafting Standards, Tone, and Quality Control\n\nMaintain a professional, objective tone throughout the document while advocating forcefully for your client's position. Use precise legal terminology appropriate to land use and administrative law, including terms of art such as \"substantial evidence,\" \"abuse of discretion,\" \"procedural due process,\" and \"regulatory taking.\" Organize the document logically with clear headings and subheadings that guide the reader through the petition's structure. Number all paragraphs consecutively for easy reference in subsequent briefing and at hearings. Ensure that all factual allegations are specific and concrete rather than conclusory, and tie each factual allegation to evidence that appears or will appear in the administrative record. Avoid making factual assertions that cannot be supported by the record, as the court's review is limited to the record before the administrative body.\n\nDraft with constant awareness that judicial review of administrative land use decisions is based on the administrative record compiled during the proceedings before the governmental body. All factual allegations in the petition should reference evidence that was before the decision-making body, such as staff reports, technical studies, hearing testimony, written comments, or other documents in the record. Do not rely on facts or evidence that were not presented during the administrative proceedings, as such evidence is generally not admissible in the judicial review proceeding. Structure your arguments to demonstrate that the errors alleged can be established from the face of the administrative record without need for additional evidence.\n\nBefore finalizing the document, review it carefully to ensure internal consistency, verify that all cross-references are accurate, confirm that all legal citations are correct and properly formatted, and check that the document complies with all applicable procedural requirements. Consider the strategic implications of each allegation and ensure that the petition presents a coherent theory of the case that will be persuasive to the reviewing court. The petition should tell a clear story of why the administrative decision was legally deficient and why the court should grant the relief requested, supported by specific facts and applicable legal authority.",
+  "parent_skill_id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "appeal",
+      "post-trial"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "Real_Estate_Litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.225842",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:45:00.171258Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:45:00.472555Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:45:03.287574Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:45:03.982449Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e8758d82eb2c-SJC)
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-zoning-and-land-use-appeal-gib9x6zy.md
+
+STDOUT:
+

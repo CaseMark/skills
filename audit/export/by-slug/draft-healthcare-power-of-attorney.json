@@ -1,0 +1,45 @@
+{
+  "id": "ead42186-be91-4bc9-a189-c270bdd86f91",
+  "slug": "draft-healthcare-power-of-attorney",
+  "name": "Healthcare Power of Attorney",
+  "summary": "Drafts a comprehensive, state-compliant Healthcare Power of Attorney document that designates an agent to make healthcare decisions for the principal when incapacitated. Incorporates principal preferences on life-sustaining treatments, organ donation, and execution formalities while ensuring jurisdictional compliance through research. Use this skill for creating advance healthcare directives in regulatory healthcare law practice.",
+  "content": "# Healthcare Power of Attorney - Enhanced Legal Workflow\n\nYou are tasked with drafting a comprehensive Healthcare Power of Attorney (HCPOA) document that complies with applicable state law requirements and accurately reflects the principal's healthcare decision-making preferences. This is a critical advance directive document that designates an agent to make healthcare decisions on behalf of the principal when they are unable to do so themselves.\n\n## Document Preparation and Jurisdictional Compliance\n\nBegin by determining the applicable state jurisdiction, as Healthcare Power of Attorney requirements vary significantly by state. Research and verify the specific statutory requirements for the identified jurisdiction, including witness requirements, notarization mandates, form specifications, and any prohibited provisions. Ensure the document complies with state-specific regulations regarding healthcare advance directives, including any required statutory language or warnings that must be included.\n\n## Principal and Agent Information Collection\n\nGather complete identifying information for the principal, including full legal name, current address, date of birth, and contact information. Collect the same comprehensive information for the designated healthcare agent (attorney-in-fact), ensuring this person is legally eligible to serve under state law. If an alternate or successor agent is designated, obtain their complete information as well. Verify that the chosen agent understands the responsibilities and is willing to serve in this capacity.\n\n## Scope of Authority and Healthcare Preferences\n\nDraft clear and comprehensive language defining the scope of the agent's authority. The standard grant should authorize the agent to make all healthcare decisions the principal could make if capable, including decisions about medical treatments, surgical procedures, diagnostic tests, medication administration, and facility placement. Address specific healthcare scenarios with precision, particularly regarding life-sustaining treatment preferences. Document the principal's wishes regarding artificial nutrition and hydration, mechanical ventilation, cardiopulmonary resuscitation, and other life-prolonging interventions in both terminal condition and persistent vegetative state scenarios.\n\nInclude provisions addressing organ and tissue donation preferences, anatomical gifts, and disposition of remains if the principal wishes to document these decisions. Specify any limitations on the agent's authority, religious or moral directives that should guide decision-making, and preferences regarding pain management and palliative care. Ensure the language clearly distinguishes between the principal's binding directives and guidance that allows agent discretion.\n\n## Legal Formalities and Execution Requirements\n\nStructure the execution section to comply with state-specific witnessing and notarization requirements. Most jurisdictions require two witnesses who meet specific eligibility criteria (typically not related to the principal, not named as agent, and not involved in the principal's healthcare). Include appropriate witness attestation language confirming the principal's capacity, voluntary execution, and proper identity. If notarization is required or recommended in the jurisdiction, include a proper notarial certificate with venue and acknowledgment language.\n\n## Professional Safeguards and Best Practices\n\nIncorporate a capacity declaration where the principal affirms they are of sound mind and under no duress or undue influence. Include revocation provisions explaining how the principal may revoke or amend the document, and specify the effective date and duration of the power of attorney. Add HIPAA authorization language explicitly permitting the agent to access the principal's protected health information, as this is essential for the agent to fulfill their duties effectively.\n\nDraft a severability clause to preserve the document's validity if any provision is found invalid, and include guidance for healthcare providers regarding their duty to honor the document and any immunity provisions available under state law. Consider adding provisions addressing potential conflicts between multiple agents if co-agents are appointed, and specify whether they must act jointly or may act independently.\n\n## Output Format and Document Structure\n\nGenerate a complete, professionally formatted Healthcare Power of Attorney document with the following structure: a clear title identifying the document type and jurisdiction; an introductory paragraph identifying the principal and stating the document's purpose; numbered articles or sections addressing designation of agent, scope of authority, specific healthcare directives, execution formalities, and any additional provisions; signature blocks for the principal with date and capacity declaration; witness attestation sections with full signature blocks; and notarial certificate if applicable.\n\nThe final document should be written in clear, accessible language while maintaining legal precision and enforceability. Include any state-mandated warnings, notices, or informational statements in prominent position. Provide the document in a format suitable for execution, with adequate space for handwritten signatures and dates. Include a cover page or header identifying the document type, principal's name, and execution date for easy filing and retrieval in medical records.",
+  "parent_skill_id": "4349c044-8af1-4018-bcc4-abf8fd5aa8f7",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "healthcare"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "healthcare_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:17.607724",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

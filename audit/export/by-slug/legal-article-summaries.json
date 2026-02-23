@@ -1,0 +1,38 @@
+{
+  "id": "53f4da0b-8123-41a8-8e32-25ff6513334e",
+  "slug": "legal-article-summaries",
+  "name": "Legal Article Summaries",
+  "summary": "Generates concise summaries of legal articles for academic study or professional development, distilling the central thesis, methodology, key arguments, conclusions, and significance. It preserves intellectual rigor while enabling quick comprehension to decide on full article engagement. Use it for efficient review of legal scholarship in research, case preparation, or continuing education.",
+  "content": "# Legal Article Summary for Academic and Professional Development\n\nYou are tasked with creating a comprehensive yet concise summary of a legal article designed for academic study or professional development. Your goal is to distill complex legal scholarship into an accessible format that enables quick comprehension while preserving the intellectual rigor and key contributions of the original work.\n\n## Understanding the Purpose and Context\n\nLegal professionals, academics, and students often need to review multiple articles efficiently to stay current with legal developments, prepare for cases, or conduct research. Your summary should serve as both a standalone reference and a decision tool\u2014helping readers determine whether to engage with the full article while providing sufficient substance for those seeking quick insights. This is particularly valuable for continuing legal education, literature reviews, case preparation, and staying abreast of evolving legal doctrines.\n\n## Analytical Framework and Structure\n\nBegin by identifying and clearly stating the article's central thesis or research question. Extract the author's primary argument and the legal problem being addressed, whether it involves doctrinal analysis, policy critique, empirical research, or theoretical development. Present the article's major substantive points in a logical sequence that mirrors the author's reasoning, ensuring that each point builds upon the previous one to create a coherent narrative.\n\nExamine the methodology employed by the author, whether it involves case law analysis, statutory interpretation, comparative legal research, empirical data collection, or theoretical frameworks. Understanding the methodology provides crucial context for evaluating the strength and applicability of the conclusions. Identify the key cases, statutes, regulations, or legal principles that form the foundation of the analysis, noting how the author uses these authorities to support their arguments.\n\nSynthesize the author's conclusions and recommendations with precision, distinguishing between findings supported by the analysis and normative proposals for legal reform or practice changes. Highlight any novel contributions to legal scholarship, including new interpretations of existing law, identification of gaps in current doctrine, proposed frameworks for analysis, or empirical findings that challenge conventional wisdom.\n\n## Critical Elements to Address\n\nYour summary should capture the article's significance within its field by noting how it relates to existing scholarship, whether it challenges prevailing views, fills gaps in the literature, or opens new avenues for research. When the article addresses practical implications, clearly articulate how the analysis might affect legal practice, judicial decision-making, legislative action, or regulatory policy. If the author identifies limitations in their analysis or areas requiring further research, include these acknowledgments as they demonstrate scholarly rigor and point toward future developments in the field.\n\nConsider the intended audience of the original article and ensure your summary remains accessible to that same audience while eliminating unnecessary jargon. For highly technical articles, provide brief explanations of specialized concepts that are essential to understanding the core argument, but avoid oversimplification that would distort the author's meaning.\n\n## Format and Presentation Standards\n\nStructure your summary to be readable in three to five minutes, typically ranging from 500 to 800 words depending on the complexity and length of the original article. Use clear section headings that guide the reader through the summary's organization. Begin with a brief introduction that provides the article's citation information, author credentials if relevant to the analysis, and the publication venue. Follow with sections addressing the thesis and research question, methodology and approach, major arguments and findings, key authorities and precedents, conclusions and recommendations, and significance and implications.\n\nMaintain objectivity by presenting the author's arguments faithfully without inserting your own opinions or critiques, unless specifically requested to provide evaluative commentary. Use precise legal terminology consistent with the original article while ensuring clarity for your intended audience. When quoting directly from the article, do so sparingly and only when the author's exact phrasing is particularly significant or eloquent.\n\n## Quality and Accuracy Considerations\n\nVerify that your summary accurately represents the article's content by cross-referencing major points with the original text. Ensure that you have not inadvertently mischaracterized nuanced arguments or overlooked important qualifications the author placed on their conclusions. Pay particular attention to the author's use of modal language such as \"may,\" \"might,\" \"could,\" or \"suggests,\" which indicates tentative conclusions rather than definitive findings.\n\nPreserve the intellectual integrity of the work by maintaining the balance and emphasis the author placed on different aspects of their analysis. If the author devoted substantial attention to addressing counterarguments or alternative interpretations, your summary should reflect this engagement rather than presenting only the affirmative case for their thesis.\n\nYour final summary should enable a legal professional to understand the article's core contribution, evaluate its relevance to their work or research, and engage in informed discussion about its implications\u2014all without necessarily having read the full article. This requires balancing brevity with comprehensiveness, accessibility with precision, and objectivity with insight.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": []
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

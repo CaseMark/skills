@@ -1,0 +1,310 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-8fe3-7333-912a-88446bb61d1c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7e1d8424-36ee-47fa-9852-29ca64c1dab3",
+  "slug": "cybersecurity-breach-summaries",
+  "name": "Cybersecurity Breach Summaries",
+  "summary": "Generates comprehensive summaries of cybersecurity breach incidents, structuring details on discovery date, attack nature, affected systems, data scope, response actions, and regulatory implications. It provides executive overviews, detailed chronologies, and impact analyses from incident reports and forensic data for legal and compliance use. Use it to create legally sound records essential for organizations managing digital risks under frameworks like GDPR, CCPA, and HIPAA.",
+  "content": "# Cybersecurity Breach Summary Prompt\n\nYou are a specialized legal AI assistant tasked with creating a comprehensive cybersecurity breach summary document. This summary serves as a critical legal and operational record for organizations responding to data security incidents, and will be used by legal counsel, compliance officers, executive leadership, and potentially regulatory authorities to understand the full scope and implications of a cybersecurity breach.\n\nYour primary objective is to produce a clear, thorough, and legally sound summary that documents all material aspects of the breach incident. Begin by searching through any uploaded incident reports, forensic analyses, system logs, notification letters, or related documentation to extract concrete facts about the breach. If specific regulatory guidance or breach notification requirements are relevant to the analysis, conduct research to ensure the summary addresses all applicable legal obligations under frameworks such as GDPR, CCPA, HIPAA, state breach notification laws, or sector-specific regulations.\n\nThe summary document should be structured to provide immediate clarity on the most critical aspects of the incident while maintaining sufficient detail for legal and regulatory purposes. Open with an executive overview that captures the essential facts: the date and time the breach was discovered, the nature of the security incident, the systems or networks affected, and the current status of the response. This section should be written in clear, non-technical language that enables executives and board members to quickly grasp the severity and scope of the incident.\n\nFollowing the executive overview, provide a detailed chronology of the breach that establishes a clear timeline from initial compromise through discovery and ongoing response. Document when the breach likely occurred based on forensic evidence, when it was first detected, who discovered it and through what means, and what immediate containment actions were taken. Include specific dates, times, and responsible parties where available. This chronological account serves both as an internal record and as potential evidence should litigation or regulatory investigation follow.\n\nThe scope and impact analysis forms the core of your summary and requires meticulous attention to detail. Describe the technical nature of the breach, including the attack vector, vulnerabilities exploited, and systems compromised. Identify all categories of data that were accessed, exfiltrated, or potentially compromised, with particular attention to sensitive personal information, protected health information, financial data, trade secrets, or other regulated data types. Quantify the number of individuals affected with as much precision as available information allows, and specify whether these are customers, employees, business partners, or other stakeholders. If the full scope remains under investigation, clearly state what is known, what remains uncertain, and what investigative steps are underway to determine the complete impact.\n\nYour summary must thoroughly document all response actions taken to date and planned next steps. Detail the immediate containment measures implemented, such as system isolation, password resets, or access revocations. Describe the forensic investigation process, including whether external cybersecurity firms or law enforcement have been engaged. Document all notifications made to affected individuals, regulatory bodies, law enforcement, business partners, or other stakeholders, including the timing and method of notification. Address remediation efforts such as security patches applied, system hardening measures, enhanced monitoring, or infrastructure changes implemented to prevent recurrence.\n\nThe regulatory and legal implications section requires careful analysis of applicable legal frameworks and potential exposure. Identify all breach notification laws that may apply based on the types of data compromised and the jurisdictions of affected individuals. Assess compliance with notification timing requirements and content mandates under relevant statutes. Consider potential regulatory investigations or enforcement actions by agencies such as state attorneys general, the FTC, HHS, or data protection authorities. Evaluate litigation risk, including potential class action exposure or contractual liability to business partners. If cyber insurance coverage exists, note whether the insurer has been notified and any coverage implications.\n\nThroughout the summary, maintain a tone that is factual and objective while acknowledging the seriousness of the incident. Avoid speculation about matters still under investigation, but clearly identify areas of ongoing inquiry. Use precise language when describing technical aspects, but provide sufficient explanation that non-technical readers can understand the nature and significance of the breach. Where uncertainty exists about the scope of compromise or number of affected individuals, present ranges or maximum potential exposure rather than definitive numbers that may later prove inaccurate.\n\nConclude with a forward-looking section that addresses lessons learned and preventive measures. Identify any security gaps or process failures that enabled the breach and describe corrective actions being implemented. This demonstrates organizational accountability and commitment to preventing future incidents, which can be valuable in regulatory discussions and potential litigation defense.\n\nEnsure all factual assertions in the summary are supported by reference to specific source documents, forensic reports, or investigative findings. Attribute information appropriately and note the source and date of key facts. If certain details remain confidential or subject to attorney-client privilege, indicate this without disclosing protected information. The final document should serve as both a comprehensive record of the incident and a strategic tool for managing the legal, regulatory, and reputational consequences of the breach.",
+  "parent_skill_id": "ba3a7b36-0ba1-4804-8d31-b83b8cb31d15",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "data_privacy_and_cybersecurity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:10.11096",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:52:45.961479Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Drafting skill metadata and description**
+
+I'm preparing a SKILL.md using the given naming convention "cybersecurity-breach-summary" and crafting a detailed third-person description, metadata fields, trigger keywords, title, purpose statement, and numbered prerequisites per the instructions.
+thinking
+**Composing detailed skill structure and template**
+
+I'm finalizing the SKILL.md content with a comprehensive YAML header, precise description under 1024 characters, numbered prerequisites, a detailed output template in markdown including tables and checklists as requested, plus clear guidelines covering confidentiality, citations with [VERIFY], jurisdiction handling, and privilege boundaries—all formatted without nested bullets and within the target line count.
+codex
+---
+name: cybersecurity-breach-summary
+description: Produces structured cybersecurity breach summary documents for regulatory and compliance use, covering discovery, incident mechanics, affected systems, data scope, response actions, notification status, and legal exposure. Use for breach summaries, incident response report synthesis, forensic report summaries, board updates, and regulatory notification prep. Trigger keywords: data breach, cybersecurity incident, breach summary, incident report, forensic analysis, notification timeline, GDPR, CCPA/CPRA, HIPAA, state breach law.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Cybersecurity Breach Summary
+
+Produce a legally defensible, source-attributed incident summary suitable for executive, counsel, and regulator review.
+
+## Prerequisites
+
+1. Incident reports, forensic analyses, and relevant system logs.
+2. Known discovery date/time, incident window, and current response status.
+3. Inventory of affected systems/applications and data categories.
+4. Known or estimated affected population counts and jurisdictions.
+5. Response actions taken and planned, including containment and remediation.
+6. Notification obligations and any notices already sent.
+7. Contractual notice/cure requirements and cyber insurance details, if applicable.
+8. Privilege boundaries and confidentiality flags from counsel.
+
+## Output Structure / Process
+
+Use the template below. Populate only with verified facts. Attribute each key fact to a source and date. Separate known facts from hypotheses or open questions.
+
+````markdown
+# Executive Overview
+- Discovery date/time (timezone):
+- Incident window (earliest to latest evidence):
+- Incident type / attack vector:
+- Affected systems:
+- Data categories involved:
+- Estimated affected individuals:
+- Current status (contained/ongoing):
+- Immediate actions taken:
+- Material business impact:
+
+# Incident Timeline
+| Date/Time (TZ) | Event | Source (doc + date) | Owner | Confidence |
+|---|---|---|---|---|
+
+# Technical Summary
+- Initial access vector:
+- Vulnerability or control failure:
+- Lateral movement evidence:
+- Persistence mechanisms:
+- Exfiltration evidence:
+- Integrity/availability impacts:
+
+# Systems Affected
+| System/App | Environment | Data Stored | Impact | Status | Source |
+|---|---|---|---|---|---|
+
+# Data Impact
+| Data Category | Regulated? | Population Type | Est. Count | Jurisdictions | Evidence/Source |
+|---|---|---|---|---|---|
+
+# Affected Population
+| Population | Est. Count (range if needed) | Jurisdictions | Notes |
+|---|---|---|---|
+
+# Response Actions
+| Action | Date | Owner | Status | Evidence/Source |
+|---|---|---|---|---|
+
+# Notifications
+| Recipient | Legal Basis | Deadline | Sent Date | Method | Content Summary | Source |
+|---|---|---|---|---|---|---|
+
+# Legal/Regulatory Assessment
+| Regime | Applicability Trigger | Deadline Rule | Status | Notes |
+|---|---|---|---|---|
+| GDPR Art. 33/34 [VERIFY] | | | | |
+| HIPAA Breach Notification Rule (45 CFR 164.400–414) [VERIFY] | | | | |
+| CCPA/CPRA [VERIFY] | | | | |
+| State breach laws (list states) | | | | |
+
+# Contractual / Litigation Exposure
+- Key contracts with notice obligations:
+- SLAs or security addenda implicated:
+- Potential claims and venues:
+- Preservation actions taken:
+
+# Insurance
+- Carrier/policy:
+- Notice sent (date/time):
+- Coverage issues or reservations:
+
+# Open Issues / Ongoing Investigation
+- 
+
+# Remediation & Lessons Learned
+| Gap/Root Cause | Corrective Action | Owner | Due Date | Status |
+|---|---|---|---|---|
+
+# Source Map
+| Fact | Source Document | Date | Page/Section |
+|---|---|---|---|
+````
+
+## Guidelines
+
+- Maintain a factual, non-speculative tone; label unknowns explicitly.
+- Use date/time with timezone and keep a single chronological basis of record.
+- When scope is uncertain, use ranges and explain the basis.
+- Attribute all material assertions to a specific source document and date.
+- Keep privileged content in clearly marked sections if required by counsel.
+- List all jurisdictions implicated by affected individuals, not just HQ location.
+- If unsure about a legal citation or deadline, mark it `[VERIFY]`.
+- Do not opine on liability; describe exposure factors and triggers only.
+tokens used
+4,154

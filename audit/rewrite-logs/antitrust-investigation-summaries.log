@@ -1,0 +1,340 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-5c98-7a60-adb5-2d65b1171ca5
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e126b6ec-add2-4c3d-a18c-7c24d4b3d7fa",
+  "slug": "antitrust-investigation-summaries",
+  "name": "Antitrust Investigation Summaries",
+  "summary": "Generates comprehensive summaries of antitrust investigations, detailing allegations, chronologies, procedural status, and implications for corporate compliance. Structures content with executive overviews, detailed timelines, and precise legal theories under scrutiny. Use when tracking regulatory probes by agencies like FTC or DOJ for executives and legal counsel.",
+  "content": "# Antitrust Investigation Summary Prompt\n\nYou are tasked with creating a comprehensive antitrust investigation summary for corporate compliance and regulatory affairs purposes. This document serves as a critical resource for executives, board members, legal counsel, and compliance officers who need to understand the scope, status, and implications of antitrust proceedings involving the organization.\n\n## Objective and Scope\n\nYour summary must provide a complete, accurate, and professionally structured account of an antitrust investigation. Begin by thoroughly reviewing all available materials related to the investigation, including regulatory correspondence, subpoenas, civil investigative demands, internal memoranda, expert reports, and any publicly available information about the proceedings. Search the uploaded documents to extract concrete facts such as specific allegations, dates of key events, names of investigating agencies and officials, market definitions, alleged anticompetitive conduct, and any quantified harm or damages claims.\n\n## Required Content and Structure\n\nThe summary should open with an executive overview that concisely states the investigating authority (such as the Federal Trade Commission, Department of Justice Antitrust Division, state attorneys general, or foreign competition authorities), the nature of the alleged violations (whether price-fixing, market allocation, monopolization, merger concerns, or other anticompetitive practices), and the current procedural status. This overview must enable a reader to grasp the essential facts within two to three paragraphs.\n\nFollowing the executive overview, provide a detailed chronology of the investigation that traces its evolution from initial inquiry through the present. Document when the company first became aware of the investigation, whether through a subpoena, civil investigative demand, dawn raid, or voluntary disclosure. Include the dates and substance of all significant communications with regulators, production deadlines for documents and data, depositions or interviews of company personnel, and any extensions or modifications to investigative requests. This chronological account creates an essential timeline for understanding how the matter has developed and helps identify patterns in the regulatory approach.\n\nThe allegations section must articulate with precision what conduct the investigating authority believes violates antitrust law. Describe the relevant market or markets as defined by regulators, the specific business practices under scrutiny, the legal theories being pursued (whether per se violations, rule of reason analysis, or abuse of dominance), and any preliminary findings or statements of concern issued by the investigating body. When multiple theories of harm are being investigated, address each separately with supporting detail. Reference specific statutory provisions allegedly violated, such as Section 1 or Section 2 of the Sherman Act, Section 7 of the Clayton Act, or equivalent provisions under state or foreign competition law.\n\n## Legal and Business Context\n\nYour summary must situate the investigation within the broader legal and business landscape. Explain the competitive dynamics of the relevant market, including market shares, key competitors, barriers to entry, and any recent industry consolidation or disruption. Identify whether this investigation is part of a broader industry sweep, follows complaints from competitors or customers, or stems from the agency's own market monitoring. If the investigation involves coordination with foreign competition authorities or parallel proceedings in multiple jurisdictions, detail these connections and any implications for global compliance strategy.\n\nAddress the company's response strategy and cooperation posture. Describe the internal investigation conducted, including any forensic analysis of communications, economic modeling, or privilege reviews. Note whether the company is cooperating fully, asserting privileges or objections, seeking confidential treatment for sensitive business information, or pursuing any procedural challenges. If the company has implemented remedial measures, enhanced compliance programs, or made business changes in response to the investigation, document these proactive steps as they may influence regulatory disposition.\n\n## Outcomes and Ongoing Status\n\nFor investigations that have concluded, provide comprehensive detail on the resolution. If the matter closed without action, explain the basis for that decision and any conditions or commitments made by the company. For consent decrees or settlement agreements, summarize the key terms including any monetary payments, behavioral restrictions, divestitures, compliance monitoring, or reporting obligations. When investigations have resulted in litigation, describe the procedural posture, key rulings, trial outcomes, and any appeals. Include specific dollar amounts for fines, disgorgement, or damages, and explain how these were calculated.\n\nFor ongoing investigations, assess the current status with as much specificity as possible. Identify what investigative steps remain outstanding, anticipated timelines for agency decisions, and any upcoming deadlines or milestones. Evaluate the range of potential outcomes based on the evidence developed, the agency's historical approach to similar matters, and any settlement discussions or preliminary indications from regulators. This forward-looking analysis helps stakeholders prepare for various scenarios and make informed strategic decisions.\n\n## Risk Assessment and Implications\n\nConclude with a candid assessment of the investigation's implications for the business. Analyze potential financial exposure, including the methodology for calculating fines under applicable guidelines and any risk of treble damages in follow-on civil litigation. Evaluate reputational risks, particularly if the investigation has attracted media attention or could affect customer relationships, investor confidence, or employee morale. Consider operational impacts such as restrictions on business practices, required divestitures, or limitations on future transactions. Address any personal liability risks for executives or directors, and note whether the company is providing or advancing legal fees for individuals.\n\nIdentify lessons learned and compliance enhancements that should be implemented regardless of outcome. These may include improvements to antitrust training programs, enhanced review of competitively sensitive communications, revised protocols for trade association participation, or strengthened merger clearance procedures. Frame these recommendations as opportunities to strengthen the compliance culture and reduce future regulatory risk.\n\n## Professional Standards and Confidentiality\n\nThroughout the summary, maintain strict attorney-client privilege and work product protections. Clearly mark the document as privileged and confidential legal analysis prepared at the direction of counsel. Use precise legal terminology while ensuring the summary remains accessible to non-lawyer business executives. Support factual assertions with specific citations to source documents, regulatory correspondence, or public filings. Where information is incomplete or uncertain, acknowledge these limitations rather than speculating. The summary should reflect the highest standards of legal analysis while serving as a practical tool for corporate decision-making in a high-stakes regulatory environment.",
+  "parent_skill_id": "b5ab7115-707e-4537-ad00-f8dc8fa8fb69",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "antitrust"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:14.757629",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:47:05.870141Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Prioritizing user output instructions**
+exec
+/bin/zsh -lc 'ls /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 51ms:
+SKILL.md
+agents
+assets
+license.txt
+references
+scripts
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving slug simplification**
+
+Deciding to drop the "antitrust" prefix from the slug per user instructions on removing practice area prefixes, resulting in a simpler slug like "investigation-summary" for clarity and compliance.
+thinking
+**Detailing skill content and structure**
+
+Clarified the frontmatter metadata and detailed the skill's content structure, including title, purpose, prerequisites, output process, and guidelines with careful adherence to user formatting rules and focus on antitrust investigation summaries.
+codex
+---
+name: investigation-summary
+description: Produces structured U.S. antitrust investigation summaries for executives and counsel, covering agency, alleged conduct, market definition, legal theories, chronology, procedural posture, exposure, and compliance implications. Use for FTC or DOJ Antitrust Division probes, state AG investigations, foreign competition authority inquiries, merger investigations, civil investigative demands (CIDs), subpoenas, or dawn-raid responses.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Antitrust Investigation Summary
+
+Deliver a decision-ready antitrust investigation brief with evidence-linked chronology, legal theories, and business risk.
+
+## Prerequisites
+
+1. Regulatory correspondence or process documents (CIDs, subpoenas, Second Requests, notices, meeting minutes).
+2. Internal investigation materials (interview memos, forensic reviews, privilege log entries).
+3. Market and competitive data (market shares, competitors, pricing, entry barriers).
+4. Public sources (press, filings, complaints, consent decrees, agency statements).
+5. Current status inputs (deadlines, productions, negotiations, upcoming meetings).
+
+## Output Structure / Process
+
+1. Build the key-facts table first and resolve gaps.
+2. Draft the summary using the template below, keeping each section concise and source-cited.
+3. If multiple authorities or jurisdictions are involved, create one subsection per authority and a consolidated risk section.
+
+**Key Facts Table**
+| Field | Required Detail | Source |
+|---|---|---|
+| Investigating Authority | Agency, division, lead office, contact(s) | |
+| Matter Type | Conduct, merger, or industry sweep | |
+| Alleged Conduct | Price-fixing, monopolization, exclusive dealing, etc. | |
+| Market Definition | Product and geographic market as asserted | |
+| Statutory Hooks | Sherman Act §1/§2, Clayton Act §7, FTC Act §5, state/foreign provisions | |
+| Initiation Trigger | Complaint, market study, HSR, dawn raid, etc. | |
+| First Notice Date | Date and instrument | |
+| Procedural Posture | Inquiry, formal investigation, litigation, appeal | |
+| Key Deadlines | Production dates, meetings, milestones | |
+| Exposure Signals | Stated penalties, remedies sought, damages claims | |
+| Remediation | Compliance changes, business changes | |
+
+**Summary Template**
+```markdown
+ATTORNEY-CLIENT PRIVILEGED & WORK PRODUCT
+CONFIDENTIAL — ANTITRUST INVESTIGATION SUMMARY
+
+**Executive Overview**
+Agency:  
+Matter Type:  
+Alleged Conduct:  
+Market:  
+Current Status:  
+Immediate Decisions/Actions:  
+
+**Chronology**
+| Date | Event | Source | Notes |
+|---|---|---|---|
+
+**Allegations & Legal Theories**
+| Theory | Conduct | Market Definition | Statutes | Evidence |
+|---|---|---|---|---|
+
+**Market & Industry Context**
+- Market structure and shares:
+- Key competitors:
+- Barriers to entry:
+- Industry dynamics or consolidation:
+
+**Procedural Status**
+- Investigative steps completed:
+- Outstanding requests:
+- Upcoming milestones:
+
+**Company Response**
+- Cooperation posture:
+- Privilege/objections asserted:
+- Internal investigation steps:
+- Remedial measures:
+
+**Outcomes / Scenarios**
+- If closed: disposition and conditions.
+- If ongoing: likely range of outcomes and timelines.
+
+**Risk Assessment**
+| Risk Category | Exposure | Drivers | Mitigation |
+|---|---|---|---|
+
+**Compliance Actions**
+- Immediate compliance controls:
+- Medium-term program enhancements:
+- Training or policy updates:
+```
+
+**Citation Standard**
+- Attach a source tag to every factual assertion, e.g., `[source: CID-2024-05-12]` or `[source: Memo-Interview-JD-001]`.
+- If a fact is inferred, label it as inference and cite the source used.
+
+## Guidelines
+
+- Use exact dates and agency names; do not paraphrase procedural instruments.
+- Separate allegations from proven facts; do not speculate.
+- Flag missing or uncertain facts explicitly; use `[VERIFY]` for uncertain statutes or foreign-law citations.
+- For merger-related matters, state the asserted theory of harm and any divestiture or behavioral remedy signals.
+- Include any parallel proceedings (state AGs, EC, CMA, or other competition authorities) as separate subsections.
+- Maintain privilege labels and confidentiality headers in the document.
+tokens used
+19,328

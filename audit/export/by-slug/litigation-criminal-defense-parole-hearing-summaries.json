@@ -1,0 +1,41 @@
+{
+  "id": "a556d85d-9b4c-4afb-b81c-3912137b3c18",
+  "slug": "litigation-criminal-defense-parole-hearing-summaries",
+  "name": "Parole Hearing Summaries",
+  "summary": "Generates comprehensive summaries of parole hearings in criminal defense matters, distilling transcripts, testimony, evidence, victim statements, and board decisions into structured narratives. Captures chronological events, inmate rehabilitation claims, and parole outcomes for quick reference by attorneys, parole boards, and stakeholders. Use it post-conviction to prepare for appeals, future hearings, or case strategy discussions.",
+  "content": "# Parole Hearing Summary Prompt\n\nYou are tasked with creating a comprehensive summary of a parole hearing for criminal law matters. This summary serves as a critical document for attorneys, parole boards, victims' advocates, and other stakeholders who need to understand the key events, testimony, evidence, and decisions from a parole hearing proceeding.\n\nBegin by thoroughly reviewing all available hearing transcripts, exhibits, witness statements, and related documentation. Your analysis should capture the complete narrative of the hearing while distilling complex proceedings into an accessible format that legal professionals can quickly reference when preparing for subsequent hearings, appeals, or case strategy discussions.\n\nThe summary must open with essential case identification information including the inmate's name and identification number, the offense of conviction with relevant dates, the current sentence being served, and the specific date and location of the parole hearing. Include the composition of the parole board panel and any other officials present, as well as identifying all parties who participated including the inmate, legal counsel, victims or their representatives, and any witnesses who provided testimony.\n\nYour narrative should proceed chronologically through the hearing, beginning with any opening statements or procedural matters. Document the inmate's testimony with particular attention to statements regarding acceptance of responsibility, expressions of remorse, explanations of the circumstances surrounding the offense, and any claims of rehabilitation or changed circumstances. Capture the substance of questions posed by board members and the inmate's responses, especially regarding institutional conduct, participation in rehabilitative programming, educational or vocational achievements, mental health or substance abuse treatment, and post-release plans including housing, employment, and family support.\n\nWhen victim impact statements are presented, whether in person or through written submissions, summarize the key points raised including the ongoing impact of the crime, concerns about public safety, and any position taken regarding parole suitability. Similarly, document any testimony from family members, employers, counselors, or other witnesses who speak to the inmate's character, progress, or release plans.\n\nAnalyze and summarize any documentary evidence introduced during the hearing, including institutional disciplinary records, psychological evaluations, certificates of program completion, letters of support, proposed parole plans, and any expert reports addressing risk assessment or rehabilitation. Note how board members responded to or questioned this evidence.\n\nThe summary must clearly articulate the parole board's decision, including whether parole was granted, denied, or continued for further consideration. If denied, capture the specific reasons cited by the board, any statutory or regulatory factors referenced, and the timeline for the next hearing opportunity. If granted, document any conditions imposed, the proposed release date, and any special requirements for supervision. When the decision is continued or deferred, explain what additional information or actions are required before a final determination.\n\nThroughout your summary, maintain objectivity while ensuring that all legally significant statements, admissions, or commitments are accurately captured. Use direct quotations sparingly but strategically when specific language is particularly important for understanding the board's reasoning or the inmate's position. Organize the information logically with clear section headings that allow readers to quickly locate specific aspects of the hearing.\n\nConclude with a brief analysis section that identifies the key factors that appeared to influence the board's decision, any unresolved issues that may affect future hearings, and practical considerations for counsel preparing for subsequent proceedings. This forward-looking perspective helps attorneys develop effective strategies for continued representation.\n\nYour final summary should be thorough enough to serve as a standalone record of the hearing while remaining concise enough to be reviewed efficiently by busy legal professionals. Aim for a document that balances comprehensive coverage with readability, typically ranging from three to eight pages depending on the complexity and length of the hearing. Ensure all factual assertions are supported by the hearing record and clearly distinguish between direct testimony, documentary evidence, and board commentary or reasoning.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "4a95616b-b606-4228-b257-c1aceb9ef19e",
+  "slug": "litigation-support-summaries",
+  "name": "Litigation Support Summaries",
+  "summary": "Generates comprehensive summaries of ongoing commercial litigation cases, covering case overview, procedural posture, litigation strategy, timelines, deadlines, and discovery status. Assists legal teams and clients in tracking progress, coordinating resources, and preparing for future phases in complex disputes. Use it to provide strategic overviews during active litigation matters.",
+  "content": "# Litigation Support Summary Prompt\n\nYou are tasked with creating a comprehensive litigation support summary that provides legal teams and clients with a clear, strategic overview of ongoing litigation. This summary serves as a critical management tool to track case progress, coordinate resources, and prepare for upcoming litigation phases.\n\nBegin by conducting a thorough review of all case-related documents that have been uploaded or are available in the matter file. Search through pleadings, discovery materials, correspondence, court orders, expert reports, and any strategic memoranda to extract the essential information needed for this summary. Your analysis should capture both the current state of the litigation and the forward-looking strategic considerations.\n\n## Core Components to Address\n\n**Case Overview and Procedural Posture**: Provide a concise summary of the dispute, identifying all parties, the nature of the claims and defenses, the court and jurisdiction, and the current procedural stage. Include the case caption, docket number, and presiding judge. Describe any significant procedural developments, including motions filed, hearings held, and rulings issued. If the case involves multiple claims or counterclaims, clearly delineate each cause of action and its current status.\n\n**Litigation Strategy and Theory of the Case**: Articulate the overarching legal strategy being pursued, including the primary legal theories, key factual arguments, and the desired outcome. Explain how the litigation strategy has evolved based on discovery findings, court rulings, or changed circumstances. Identify the strengths and weaknesses of both your position and the opposing party's position, providing candid assessments that will help the team make informed strategic decisions. Address any alternative dispute resolution considerations or settlement posture.\n\n**Timeline and Critical Deadlines**: Create a detailed timeline that includes all past significant events and upcoming deadlines. This should encompass discovery cutoff dates, expert disclosure deadlines, dispositive motion deadlines, pretrial conference dates, and the trial date if scheduled. Highlight any deadlines that require immediate attention or substantial preparation time. Include both court-imposed deadlines and internal target dates for work product completion. If the case involves a complex procedural history, present the timeline in a clear, chronological format that allows readers to quickly understand the case's progression.\n\n**Discovery Status and Key Evidence**: Summarize the current state of discovery, including what has been requested, produced, and remains outstanding. Identify the most critical evidence obtained through discovery and explain its significance to the case theory. Discuss any discovery disputes, protective orders, or privilege issues that have arisen or may arise. If depositions have been conducted or are scheduled, summarize key testimony and identify witnesses who still need to be deposed. Address the status of expert discovery, including which experts have been retained, their opinions, and any Daubert or similar challenges anticipated.\n\n**Resource Allocation and Budget Considerations**: Provide a realistic assessment of the resources required to effectively prosecute or defend the litigation through its anticipated conclusion. This includes staffing requirements, identifying which attorneys and paralegals are assigned to specific tasks, and estimating the time commitments needed for upcoming phases. Address litigation costs beyond attorney fees, such as expert witness fees, e-discovery expenses, court reporter costs, and travel expenses. If a litigation budget has been established, compare actual expenditures to date against the budget and project future costs for remaining litigation phases. Flag any resource constraints or budget concerns that may impact strategic decisions.\n\n**Risks, Opportunities, and Recommendations**: Analyze the key risks facing the client in this litigation, including potential adverse outcomes, cost escalation, reputational concerns, and business disruption. Conversely, identify opportunities to strengthen the case position, such as favorable legal developments, weaknesses in the opponent's case revealed through discovery, or settlement leverage points. Provide clear, actionable recommendations for next steps, including specific tasks that should be prioritized, strategic decisions that need to be made, and any course corrections that should be considered based on recent developments.\n\n## Format and Presentation Standards\n\nStructure the summary in a professional format suitable for presentation to both legal team members and clients who may not have daily involvement in the case details. Use clear section headings that correspond to the core components outlined above. Write in plain language that is accessible to non-lawyers while maintaining legal precision where necessary. When referencing specific documents, cite them clearly with document names and relevant page or paragraph numbers so readers can locate source materials if needed.\n\nThe summary should be comprehensive yet concise, typically ranging from five to ten pages depending on case complexity. Prioritize information that is actionable and decision-relevant over purely historical recitation of events. Use visual aids such as timelines, charts, or tables where they enhance clarity, particularly for complex procedural histories or multi-party litigation.\n\nEnsure that all factual assertions are supported by the case record and clearly distinguish between established facts, disputed facts, and legal arguments. Maintain objectivity in assessing case strengths and weaknesses\u2014the summary should provide decision-makers with realistic assessments rather than advocacy. If certain information is unavailable or uncertain, acknowledge these gaps and recommend steps to obtain the needed information.\n\nThis litigation support summary should serve as a living document that can be updated as the case progresses, providing a reliable reference point for strategic planning, client communications, and team coordination throughout the litigation lifecycle.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

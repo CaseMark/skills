@@ -1,0 +1,493 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-0a69-7c83-8a1a-3bcf2afbdb5a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d24f3b70-e36f-4874-adda-8ae7cb6f45fc",
+  "slug": "corporate-venture-capital-side-letter-draft",
+  "name": "Side Letter",
+  "summary": "Drafts comprehensive and enforceable side letters that supplement or modify existing corporate agreements without formal amendments. Tailored for venture capital and private equity transactions to address specific terms, clarify ambiguities, or grant special rights. Ensures legal precision, commercial practicality, and alignment with primary agreement provisions.",
+  "content": "# Enhanced Side Letter Drafting Workflow\n\nYou are a specialized corporate attorney tasked with drafting a comprehensive and legally sound Side Letter\u2014a supplementary corporate document that modifies, clarifies, or adds provisions to an existing primary agreement without formally amending the underlying contract. Side letters serve critical functions in corporate transactions, investment arrangements, employment agreements, and commercial contracts by addressing specific concerns or negotiating additional terms while preserving the structural integrity of the main agreement. Your role is to create a document that is legally enforceable, commercially practical, and precisely tailored to the parties' specific needs.\n\n## Initial Document Analysis and Context Gathering\n\nBegin by conducting a thorough review of all relevant documentation to establish the complete factual and legal context for this side letter. Search through the user's uploaded documents to locate and analyze the primary agreement that this side letter will supplement, extracting key information including the agreement's title, execution date, parties' full legal names and entity types, governing law provisions, and material terms that may be affected by the side letter. Identify any related agreements, prior amendments, or existing side letters that could impact the drafting approach or create potential conflicts. Examine the primary agreement's amendment provisions to confirm whether a side letter is the appropriate vehicle or whether a formal amendment is required, particularly noting any restrictions on modifications, requirements for board approval, or prohibitions against oral modifications.\n\nEstablish the specific business objective and legal purpose that necessitates this side letter by gathering information about the commercial context, relationship dynamics between the parties, and the particular issues being addressed. Determine whether the side letter will grant exceptions to standard terms, clarify ambiguous provisions, establish confidential arrangements, memorialize oral understandings, provide special rights to specific parties, or address regulatory or compliance requirements. Assess the enforceability implications and confirm that the proposed modifications will not contradict fundamental terms of the main agreement or adversely affect third-party rights. If the user has not provided complete information about the purpose or specific terms to be included, engage them directly to understand their objectives, the business rationale for the side letter, and any sensitive considerations that should inform the drafting approach.\n\n## Drafting the Header, Parties, and Foundational Elements\n\nConstruct a clear and professional header that prominently identifies the document as a \"Side Letter\" or \"Side Letter Agreement\" and includes the execution date or a blank for later insertion. Ensure absolute precision in identifying all parties by using their complete legal names, entity types, and jurisdictional information exactly as they appear in the primary agreement\u2014this consistency is critical for avoiding confusion about party identity and ensuring the side letter is properly integrated with the main agreement. Include a specific and unambiguous reference to the primary agreement by its full title, execution date, and parties, providing sufficient detail that any reader can immediately identify which agreement is being supplemented without consulting external documents.\n\nCompose recitals that establish both the legal foundation and business context for the side letter with clarity and strategic purpose. The recitals should acknowledge the existence and general purpose of the primary agreement, articulate the specific circumstances or business needs that necessitate this supplementary documentation, and confirm that all parties possess the requisite authority to enter into this agreement. Frame the recitals to support the interpretation and enforceability of the substantive terms while avoiding unnecessary admissions or overly detailed explanations that might create unintended obligations. The narrative should be sufficiently comprehensive that a third party reviewing the document years later can understand why the parties entered into this arrangement and how it relates to their broader commercial relationship.\n\n## Crafting Precise and Enforceable Substantive Provisions\n\nDraft the operative provisions of the side letter with exceptional specificity, ensuring that each term is clear, actionable, and legally enforceable. Structure the provisions in a logical sequence using numbered or lettered sections that facilitate easy reference and cross-referencing with the primary agreement. For each provision, explicitly state whether it supplements, modifies, clarifies, or supersedes specific sections of the primary agreement, using precise cross-references to article and section numbers to eliminate any ambiguity about which terms are affected and how.\n\nEnsure that every right, obligation, condition, and exception is defined with concrete specificity, including relevant timeframes, performance standards, triggering events, measurement criteria, and consequences for non-compliance. When drafting modifications or exceptions to the primary agreement's terms, clearly delineate the scope of the change and any limitations on its application. If the side letter creates additional representations, warranties, or covenants, ensure they are drafted with the same level of precision and legal rigor as the primary agreement, including appropriate qualifications, knowledge limitations, and materiality thresholds where commercially appropriate.\n\nAddress confidentiality considerations explicitly if the side letter itself or its specific terms are intended to remain confidential from other parties, stakeholders, or the public. Include clear provisions specifying who may access the side letter, under what circumstances disclosure is permitted, and what remedies are available for unauthorized disclosure. If the side letter's effectiveness depends on conditions precedent or subsequent, draft these conditions with sufficient specificity that the parties can objectively determine whether they have been satisfied. Establish clear duration and termination provisions that specify whether the side letter's terms are permanent modifications, time-limited arrangements, or tied to specific events, milestones, or the termination of the underlying agreement.\n\n## Establishing the Relationship Between Documents and Integration\n\nInclude a carefully crafted provision that definitively establishes the relationship between the side letter and the primary agreement to prevent conflicts and create a clear hierarchy of terms. Specify that the side letter forms an integral part of the primary agreement and must be read in conjunction with it, while unambiguously stating that in the event of any conflict between specific provisions, the side letter's terms shall control to the extent of the particular matters addressed herein. This provision must be drafted with precision to ensure that the side letter modifies only the intended terms without inadvertently affecting other provisions of the primary agreement.\n\nDraft an integration clause confirming that the primary agreement, as modified by this side letter and any other written amendments, represents the entire agreement between the parties concerning the subject matter addressed, superseding all prior negotiations, understandings, representations, and agreements\u2014whether written or oral\u2014related to these specific terms. Address the disclosure and confidentiality status of the side letter itself, specifying whether it may be shared with third parties such as auditors, regulators, or potential acquirers, or whether it must be maintained as confidential between the parties. Include provisions addressing assignment and transfer rights, which may differ from the primary agreement depending on the nature of the side letter's terms and the parties' commercial objectives.\n\n## Incorporating Governing Law, Dispute Resolution, and Essential Boilerplate\n\nEstablish the governing law for the side letter, which should typically mirror the choice of law provision in the primary agreement to ensure consistent interpretation and avoid conflicts of law issues, unless there are compelling jurisdictional or regulatory reasons for selecting different governing law. Include a comprehensive dispute resolution provision that specifies whether disputes arising from or relating to the side letter will be resolved through the same mechanisms as the primary agreement\u2014whether arbitration, litigation in specified courts, or mediation\u2014or through different procedures tailored to the nature of the side letter's terms.\n\nIncorporate essential boilerplate provisions that are appropriately tailored to the jurisdiction, transaction type, and specific circumstances of the side letter. These should include amendment and waiver provisions requiring written consent from all parties for any modifications to the side letter, ensuring that the parties cannot inadvertently modify these carefully negotiated terms through course of conduct or oral agreements. Include a severability clause providing that if any provision is determined to be invalid or unenforceable, the remaining provisions will continue in full force and effect to the maximum extent permitted by law. Add counterparts and electronic signature provisions that permit execution in multiple counterparts and recognize electronic signatures as legally valid and binding, facilitating efficient execution particularly when parties are in different locations.\n\nDraft notice provisions specifying how communications regarding the side letter should be delivered, typically incorporating by reference the notice procedures from the primary agreement while allowing for any necessary modifications to reflect changed circumstances or contact information. Include a clause explicitly stating that the side letter creates no third-party beneficiaries and is intended solely for the benefit of the named parties and their permitted successors and assigns, unless the commercial purpose specifically requires third-party beneficiary rights.\n\n## Preparing Execution Blocks and Finalizing the Document\n\nPrepare professional and legally appropriate signature blocks for all parties to the primary agreement, or for those specific parties affected by the side letter's terms if not all original parties need to execute this supplementary document. Each signature block must include the party's full legal name as it appears in the primary agreement, a signature line, a printed name line for the individual signing, their title when signing on behalf of an entity, and a date line. For corporate entities, ensure that the signature block reflects proper corporate authority, typically requiring signatures from authorized officers with titles such as Chief Executive Officer, President, or other officers with appropriate signing authority as established in the entity's governing documents.\n\nIf the side letter's terms or the primary agreement's provisions require board approval, unanimous consent, or other corporate formalities before execution, include appropriate attestations, acknowledgments, or certifications confirming that such approvals have been obtained. Consider whether the document requires notarization, witnessing, or other formalities based on the governing jurisdiction's requirements, the nature of the obligations being undertaken, and any specific requirements in the primary agreement regarding supplementary documentation.\n\n## Conducting Comprehensive Final Review and Quality Assurance\n\nBefore presenting the final side letter, conduct a meticulous review to ensure internal consistency, perfect alignment with the primary agreement, and full compliance with applicable legal requirements. Verify that all cross-references to the primary agreement are accurate and correspond to the correct article, section, and subsection numbers. Confirm that defined terms are used consistently throughout the side letter and match the definitions in the primary agreement, or if new defined terms are introduced, that they are clearly defined and do not conflict with existing definitions.\n\nAnalyze whether the side letter inadvertently creates conflicts with other related agreements in the transaction structure or violates any non-amendment provisions, anti-waiver clauses, or modification restrictions in the primary agreement. Assess potential unintended consequences, including tax implications, regulatory compliance issues, securities law considerations, or effects on financial covenants or other material terms. Ensure that the document's level of formality, sophistication, and legal precision is appropriate for the transaction's significance and that all material business terms have been accurately captured and properly documented in legally enforceable language.\n\nYour final deliverable should be a polished, comprehensive side letter that effectively accomplishes the parties' business objectives while maintaining legal enforceability, internal consistency, and seamless integration with the primary agreement. The document should reflect the highest standards of corporate legal drafting and provide clear guidance for interpretation and implementation by the parties and their advisors.",
+  "parent_skill_id": "ab63d5b1-bd0b-450d-a7a7-36572e5e9d27",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "letter",
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "venture_capital_and_private_equity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:52:11.736438Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+---
+slug: side-letter
+title: Side Letter (VC/PE)
+practice_areas: Corporate
+document_types: Letter, Agreement
+skill_modes: Drafting
+jurisdiction: US
+description: >
+  This skill focuses on drafting side letter agreements in the venture capital and private equity context. Side letters typically address investor rights exceptions such as most favored nation clauses, information rights, and co-sale rights. It supports creating tailored agreements that supplement main investment documents, ensuring specialized terms are clearly documented. Trigger keywords include side letter, side-letter, most favored nation, information rights, co-sale, and investor rights exceptions.
+
+purpose: Create clear, precise side letter agreements reflecting investor-specific negotiated terms in VC/PE transactions.
+
+prerequisites:
+1. Understanding of standard venture capital and private equity term sheets and agreements.
+2. Familiarity with investor rights and exceptions commonly negotiated in side letters.
+3. Knowledge of basic contract drafting principles.
+4. Awareness of relevant US jurisdictional considerations for investment agreements.
+
+process:
+| Step | Description                                    | Output                                          |
+|-------|----------------------------------------------|------------------------------------------------|
+| 1     | Identify investor-specific exceptions        | List of negotiated rights to cover in letter   |
+| 2     | Draft opening clauses                         | Title, parties, recitals, effective date       |
+| 3     | Specify rights and obligations                | Side letter terms, e.g., MFN, information rights|
+| 4     | Include integration and amendment clauses     | Confirm letter's relationship to main documents|
+| 5     | Review for consistency with main agreements   | Cross-check references and avoid conflicts     |
+| 6     | Finalize signature blocks                      | Proper execution format                          |
+
+checklist:
+- [ ] Confirm investor-specific terms to include
+- [ ] Align side letter terms with main agreements
+- [ ] Use clear, unambiguous language
+- [ ] Include effective date and parties
+- [ ] Define scope and limitations of rights granted
+- [ ] Confirm integration with main documents
+- [ ] Ensure proper execution format
+
+guidelines:
+- Use precise, concise language avoiding unnecessary fluff
+- Maintain consistency with core investment documents
+- Highlight exceptions clearly to avoid ambiguity
+- Use flat lists to enumerate terms and obligations
+- Keep technical vocabulary suited to VC/PE legal context
+
+templates:
+| Section                 | Content Summary                                          |
+|-------------------------|----------------------------------------------------------|
+| Title                   | Side Letter Agreement                                    |
+| Parties                 | Clearly identify signatories                             |
+| Recitals                | Reference main investment documents                      |
+| Definitions             | Define key terms such as "Investor Rights"              |
+| Side Letter Terms       | Enumerate specific exceptions and rights                |
+| Integration Clause      | State side letter relationship with main agreements     |
+| Amendment Clause        | Procedures for modifying the side letter                 |
+| Governing Law           | US jurisdiction specification                            |
+| Execution               | Signature blocks for all parties                         |
+
+ASCII Art:
+
+```
+ ____________________________
+|                            |
+|       SIDE LETTER          |
+|____________________________|
+
+[Parties]  [Effective Date]
+
+[Side Letter Terms]
+- Most Favored Nation
+- Information Rights
+- Co-Sale Rights
+- Investor Rights Exceptions
+
+[Signatures]
+```
+---
+thinking
+---
+slug: side-letter
+title: Side Letter (VC/PE)
+practice_areas:
+  - Corporate
+document_types:
+  - Letter
+  - Agreement
+skill_modes:
+  - Drafting
+jurisdiction: US
+description: >
+  Drafts U.S. venture capital and private equity side letter agreements that supplement existing corporate agreements without formal amendment, using precise cross-references, conflict hierarchy, confidentiality, duration, and execution mechanics. Use when drafting a side letter, side letter agreement, supplemental letter, investor side letter, MFN carve-out, or special-rights letter tied to an existing agreement. Trigger keywords include side letter, side letter agreement, supplemental agreement, investment side letter, special rights, MFN, confidentiality, clarify terms, and modify agreement.
+
+purpose: Create clear supplemental agreements that modify or clarify venture capital or private equity investment agreements without formal amendment.
+
+prerequisites:
+1. Primary agreement and all related amendments or side letters
+2. Exact party names, entity types, and signing authority details
+3. Specific terms to add, modify, clarify, or waive
+4. Amendment provisions and required consents or approvals
+5. Governing law and dispute resolution preferences
+6. Confidentiality and disclosure constraints governing the side letter
+7. Effective date, duration, and any conditions precedent or subsequent
+
+process:
+
+### Intake Checklist
+
+- [ ] Identify primary agreement by full title, date, and parties
+- [ ] Confirm side letter permitted under amendment or waiver provisions
+- [ ] List all affected sections with article and section numbers
+- [ ] Determine scope limits and carve-outs
+- [ ] Confirm which parties must sign
+- [ ] Confirm any board, investor, or third-party consents required
+
+### Section Map
+
+1. Header and date  
+2. Parties and reference to primary agreement  
+3. Recitals including purpose and authority  
+4. Operative provisions (numbered)  
+5. Relationship to primary agreement and conflict resolution  
+6. Confidentiality and permitted disclosures  
+7. Term, termination, and survival clauses  
+8. Assignment provisions (if differing from primary agreement)  
+9. Governing law and dispute resolution  
+10. Notices (incorporate by reference or restate)  
+11. Entire agreement and no oral modification clause  
+12. Severability, waiver, counterparts, and electronic signature  
+13. No third-party beneficiaries clause  
+14. Signature blocks  
+
+### Core Clause Matrix
+
+| Topic                  | Required Inputs                              | Drafting Notes                                                                                  |
+|------------------------|---------------------------------------------|------------------------------------------------------------------------------------------------|
+| Modification/Clarification | Section references; exact revised text     | Clearly state how sections are amended or clarified with precise citations                      |
+| Additional Rights       | Right holders; scope; triggers               | Define conditions, limitations, timeframes, and remedies                                       |
+| Exceptions/Waivers      | Baseline obligations; exception scope        | Limit exceptions narrowly, avoid broad implied waivers                                         |
+| Confidentiality        | Disclosure permissions                        | Align with fund and investor requirements                                                      |
+| Conditions             | Precedent or subsequent triggers             | Use objective criteria and specific deadlines                                                  |
+| Duration               | End dates or triggering events                | Specify survival of key clauses                                                                |
+| Conflict Hierarchy      | Conflicting terms                             | Side letter controls only on addressed matters                                                 |
+| Dispute Resolution      | Forum; arbitration rules                       | Mirror primary agreement unless justified                                                      |
+| Notices                | Addresses and methods                          | Incorporate primary agreement’s provisions unless changed                                     |
+
+### Drafting Template
+
+```text
+SIDE LETTER AGREEMENT
+
+This Side Letter Agreement (this "Side Letter") is entered into as of [Date] by and between [Party A] and [Party B] (each, a "Party" and collectively, the "Parties").
+
+WHEREAS, the Parties are party to that certain [Primary Agreement Title], dated [Date] (the "Agreement");
+
+WHEREAS, the Parties desire to modify, clarify, or supplement the Agreement as set forth below.
+
+1. Modification/Clarification. Section [X] of the Agreement is hereby [amended/clarified] as follows: [insert replacement or addendum text].
+
+2. Additional Rights. [Describe special rights, conditions, timeframes, and limits].
+
+3. Confidentiality. [Set forth permitted disclosures and obligations regarding the Side Letter].
+
+4. Term and Termination. [Specify duration and survival clauses].
+
+5. Relationship to Agreement. Except as expressly set forth herein, the Agreement remains in full force and effect. In the event of conflict, this Side Letter controls solely as to matters addressed herein.
+
+[Optional Clauses: Assignment; Notices; Entire Agreement and No Oral Modification; Severability; Waiver; Counterparts; Electronic Signature; No Third-Party Beneficiaries; Governing Law; Dispute Resolution.]
+
+IN WITNESS WHEREOF, the Parties have executed this Side Letter as of the date first written above.
+```
+
+### Quality Control Checklist
+
+- [ ] Confirm all cross-references exactly match the primary agreement  
+- [ ] Ensure defined terms align with or supplement the primary agreement  
+- [ ] Verify changes do not exceed intended scope  
+- [ ] Confirm all required consents and approvals are obtained  
+- [ ] Ensure confidentiality terms align with disclosure obligations  
+- [ ] Verify governing law and dispute resolution provisions are consistent or justified  
+- [ ] Confirm signature blocks reflect correct authority and titles  
+
+guidelines:
+- Use defined terms and formatting consistent with the primary agreement  
+- Keep modifications narrow and explicitly tied to stated sections  
+- State side letter confidentiality and permitted recipients  
+- Avoid altering rights of non-signatories without explicit consent  
+- If primary agreement forbids side letter modifications, prepare a formal amendment instead  
+- Align drafting with investor rights frameworks, MFN provisions, and fund reporting obligations in VC/PE deals  
+- If selecting different governing law or dispute resolution, explain rationale in recitals or a dedicated clause  
+---
+codex
+---
+name: side-letter
+description: Drafts U.S. venture capital and private equity side letter agreements that supplement existing corporate agreements without formal amendment, using precise cross-references, conflict hierarchy, confidentiality, duration, and execution mechanics. Use when drafting a side letter, side letter agreement, supplemental letter, investor side letter, MFN carve-out, or special-rights letter tied to an existing agreement.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Letter
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Side Letter
+
+Draft a supplemental agreement that modifies or clarifies a primary agreement while preserving the main document's structure.
+
+## Prerequisites
+
+1. Primary agreement and all amendments/side letters
+2. Exact party names, entity types, and signing authority
+3. Specific terms to add, modify, clarify, or waive
+4. Amendment and consent requirements with required approvals
+5. Governing law and dispute resolution preferences
+6. Confidentiality and disclosure constraints for the side letter itself
+7. Effective date, duration, and any conditions precedent or subsequent
+
+## Output Structure / Process
+
+Use this structure and complete each step.
+
+### Intake Checklist
+
+- [ ] Identify the primary agreement by full title, date, and parties
+- [ ] Confirm a side letter is permitted under amendment or waiver provisions
+- [ ] List every affected section with article and section numbers
+- [ ] Determine scope limits and carve-outs
+- [ ] Confirm whether all or only some parties must sign
+- [ ] Confirm any board, investor, or third-party consents
+
+### Section Map
+
+1. Header and date
+2. Parties and reference to primary agreement
+3. Recitals (purpose and authority)
+4. Operative provisions (numbered)
+5. Relationship to primary agreement and conflict rule
+6. Confidentiality and disclosure
+7. Term, termination, and survival
+8. Assignment (if different from primary agreement)
+9. Governing law and dispute resolution
+10. Notices (incorporate by reference or restate)
+11. Entire agreement and no oral modification
+12. Severability, waiver, counterparts, electronic signature
+13. No third-party beneficiaries
+14. Signature blocks
+
+### Clause Matrix
+
+| Topic | Required Inputs | Drafting Notes |
+| --- | --- | --- |
+| Modification or clarification | Section references; exact replacement text | State "amends" or "clarifies" and cite sections precisely |
+| Additional rights | Right holder; scope; triggers | Define conditions, time limits, and remedies |
+| Exceptions or waivers | Baseline obligation; exception scope | Limit to specific facts and avoid implied broad waiver |
+| Confidentiality of side letter | Who can see; permitted disclosures | Align with fund and investor reporting needs |
+| Conditions | Precedent or subsequent triggers | Use objective criteria and deadlines |
+| Duration | End date or event | State survival of key clauses |
+| Conflict hierarchy | Conflicting terms | Side letter controls only as to stated matters |
+| Dispute resolution | Forum; arbitration rules | Mirror primary agreement unless reason to deviate |
+| Notices | Addresses; method | Incorporate primary agreement unless changed |
+
+### Drafting Template (compact)
+
+```text
+SIDE LETTER AGREEMENT
+
+This Side Letter Agreement (this "Side Letter") is entered into as of [Date] by and between [Party A] and [Party B] (each, a "Party" and together, the "Parties").
+
+WHEREAS, the Parties are party to that certain [Primary Agreement Title], dated [Date] (the "Agreement");
+WHEREAS, the Parties desire to [modify/clarify/supplement] the Agreement as set forth below.
+
+1. [Modification/Clarification]. Section [X] of the Agreement is hereby [amended/clarified] as follows: [insert replacement or addendum text].
+2. [Additional Right/Exception]. [Describe right, conditions, timeframes, and limits].
+3. [Confidentiality of Side Letter]. [Permitted disclosures; required notices].
+4. [Term and Termination]. [Duration; survival].
+
+Relationship to Agreement. Except as expressly set forth herein, the Agreement remains in full force and effect. In the event of a conflict between this Side Letter and the Agreement, this Side Letter controls solely with respect to the matters addressed herein.
+
+[Optional: Assignment; Notices; Entire Agreement; Severability; Waiver; Counterparts; E-signature; No Third-Party Beneficiaries; Governing Law; Dispute Resolution.]
+
+IN WITNESS WHEREOF, the Parties have executed this Side Letter as of the date first written above.
+```
+
+### Quality Control Checklist
+
+- [ ] Cross-references match the primary agreement exactly
+- [ ] Defined terms match the primary agreement or are newly defined
+- [ ] No change exceeds intended scope
+- [ ] Consent and approval requirements satisfied
+- [ ] Confidentiality aligns with disclosure obligations (auditors, regulators, acquirers)
+- [ ] Governing law and dispute resolution consistent or justified
+- [ ] Signature blocks reflect proper authority and titles
+
+## Guidelines
+
+- Use the primary agreement's defined terms and formatting conventions.
+- Keep modifications narrow and explicitly tied to specified sections.
+- State whether the side letter is confidential and who may receive it.
+- Avoid altering rights of non-signatories without explicit consent.
+- If the primary agreement forbids modification by side letter, use a formal amendment instead.
+- For VC and PE deals, verify alignment with investor rights, MFN clauses, and fund reporting obligations.
+- If selecting different governing law or dispute resolution, explain the rationale in the recitals or a dedicated clause.
+tokens used
+5,994

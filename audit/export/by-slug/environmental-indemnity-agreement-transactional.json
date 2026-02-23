@@ -1,0 +1,43 @@
+{
+  "id": "5cab742d-50d7-4cfb-aaf4-2764a4b782ae",
+  "slug": "environmental-indemnity-agreement-transactional",
+  "name": "Environmental Indemnity Agreement (Transactional)",
+  "summary": "Drafts comprehensive Environmental Indemnity Agreements for transactional real estate and lending deals. Protects lenders and secured parties from environmental liabilities, including contamination, remediation costs, and regulatory violations on properties. Use when allocating environmental risks in commercial transactions to align with primary deal documents.",
+  "content": "# Environmental Indemnity Agreement (Transactional) - Enhanced Drafting Protocol\n\nYou are tasked with drafting a comprehensive Environmental Indemnity Agreement for a transactional matter. This agreement serves as a critical risk allocation instrument in commercial real estate and lending transactions, protecting lenders and secured parties from environmental liabilities associated with contaminated or potentially contaminated properties.\n\n## Document Purpose and Context\n\nBegin by thoroughly understanding the transaction context. Search through all uploaded documents to identify the parties involved, the underlying loan or acquisition transaction, property details, and any existing environmental assessments or Phase I/II reports. The indemnity agreement must align precisely with the commercial terms of the primary transaction documents, so extract key dates, loan amounts, property descriptions, and any environmental conditions or contingencies already negotiated.\n\n## Structural Requirements and Drafting Approach\n\n**Party Identification and Recitals**: Clearly define the Indemnitor (typically the borrower, property owner, or guarantor) and the Indemnitee (usually the lender, secured party, or their successors and assigns). Include complete legal names, entity types, and jurisdictions of formation. The recitals should provide essential background including the nature of the financing or acquisition, the property's location and legal description, any known environmental conditions, and the parties' intent to allocate environmental risks. Review uploaded transaction documents to ensure consistency with defined terms and party designations used throughout the deal documentation.\n\n**Indemnification Provisions**: Draft robust indemnification language covering all environmental claims, liabilities, losses, damages, costs, and expenses arising from or related to the property. This must encompass pre-existing contamination, releases of hazardous substances during the indemnitor's ownership or operations, violations of environmental laws, and all remediation costs regardless of when discovered. The indemnification should extend to regulatory enforcement actions, third-party claims, natural resource damages, and diminution in property value. Specify that the indemnity covers both known and unknown conditions, and survives regardless of the indemnitee's knowledge or due diligence findings. Research current environmental indemnity standards to ensure the scope reflects market practice for similar transactions.\n\n**Representations, Warranties, and Covenants**: Include comprehensive representations regarding environmental compliance history, absence of known violations or pending investigations, no undisclosed releases or contamination, and full disclosure of all environmental reports and assessments. Representations should address permits, underground storage tanks, asbestos, lead-based paint, and hazardous materials storage or use. Draft ongoing covenants requiring continued compliance with all environmental laws, immediate notice of any violations or governmental communications, maintenance of necessary permits, cooperation with investigations, and granting access for environmental assessments. If uploaded documents contain site-specific environmental data or Phase I findings, incorporate appropriate qualifications or disclosures while maintaining the indemnitor's liability.\n\n**Survival, Duration, and Enforcement Mechanisms**: Specify that all indemnification obligations survive the closing of the underlying transaction and continue until the later of loan repayment, property transfer, or completion of any required remediation. Environmental liabilities can emerge decades after a transaction, so the survival period should reflect the long-tail nature of environmental risks. Address whether the indemnity is absolute and unconditional, independent of any loan default, and enforceable regardless of bankruptcy or insolvency proceedings. Include provisions for direct payment of remediation costs, establishment of escrows or reserves if contamination is discovered, and the indemnitee's right to undertake remediation and seek reimbursement.\n\n**Governing Law and Dispute Resolution**: Designate the governing law, typically the state where the property is located, as environmental regulations are primarily state-specific and courts in the property's jurisdiction will be most familiar with applicable environmental statutes. Specify exclusive jurisdiction and venue in courts located in that state. Consider whether arbitration is appropriate for environmental disputes, noting that some environmental claims may require judicial resolution or regulatory involvement. Research jurisdictional best practices for environmental indemnities to ensure enforceability.\n\n**Standard Provisions and Execution**: Include essential boilerplate provisions addressing severability (ensuring the agreement remains enforceable if any provision is invalidated), amendment procedures (typically requiring written consent of all parties), notice requirements with specific addresses and methods of delivery, assignment rights (particularly the indemnitee's right to assign to loan participants or successors), and counterpart execution. Ensure signature blocks accommodate entity signatories with appropriate authority recitals and, if applicable, compliance with electronic signature requirements under ESIGN and UETA.\n\n## Final Document Assembly\n\nOnce you have gathered all necessary information from uploaded documents, researched applicable environmental indemnity standards, and confirmed jurisdictional requirements, create a complete Environmental Indemnity Agreement that is internally consistent, aligned with the underlying transaction, and provides comprehensive protection for the indemnitee while clearly defining the indemnitor's obligations. The final document should be suitable for immediate review by transaction counsel and ready for negotiation and execution.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.80346",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

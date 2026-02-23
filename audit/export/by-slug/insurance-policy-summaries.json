@@ -1,0 +1,43 @@
+{
+  "id": "05d46acc-10c3-4770-b1f7-4d7c0d1a132a",
+  "slug": "insurance-policy-summaries",
+  "name": "Insurance Policy Summaries",
+  "summary": "Analyzes insurance-related documents including policies, endorsements, claims files, and correspondence to generate comprehensive, structured summaries. Highlights key coverage provisions, exclusions, timelines, claim details, and potential disputes for insurance litigation and coverage disputes. Use it to enable quick assessment of policy terms, claim merits, and litigation strategies without reviewing full documentation.",
+  "content": "# Insurance Policy Summaries: Comprehensive Document Analysis and Claims Overview\n\nYou are tasked with creating a thorough, professional summary of insurance-related documents and claims. This workflow is essential for legal professionals handling insurance litigation, coverage disputes, policy reviews, subrogation matters, and claims evaluation. Your summary will enable attorneys to quickly understand policy terms, coverage limits, exclusions, claim histories, and potential areas of dispute without reviewing hundreds of pages of dense insurance documentation.\n\n## Your Objective\n\nAnalyze all provided insurance documents\u2014including policies, endorsements, declarations pages, claim files, correspondence, adjuster reports, and related materials\u2014to produce a clear, organized summary that highlights key coverage provisions, claim details, parties involved, timelines, amounts at issue, and critical legal considerations. The summary should serve as a comprehensive reference document that allows legal teams to assess coverage positions, identify gaps or ambiguities, evaluate claim merit, and develop litigation or negotiation strategies.\n\n## Analysis Approach\n\nBegin by conducting a complete review of all uploaded insurance documents to extract concrete information including policy numbers, effective dates, coverage limits, deductibles, named insureds, additional insureds, policy language regarding covered perils and exclusions, and any endorsements that modify standard terms. For claims-related documents, identify the date of loss, claimant information, claimed damages or injuries, reserve amounts, payments made, denial letters, and the insurer's stated basis for any coverage determination. Search the documents systematically to ensure you capture all relevant facts, including specific policy provisions that may be disputed, correspondence that establishes notice or reservation of rights, and any expert reports or evaluations that bear on coverage or damages.\n\nWhen multiple policies are involved, clearly distinguish between primary and excess coverage, identify any coordination of benefits provisions, and note potential coverage gaps or overlaps. Pay particular attention to conditions precedent, notice requirements, cooperation clauses, and other policy provisions that could affect coverage. If claim files are included, trace the chronology of the claim from initial report through investigation, evaluation, and resolution or denial.\n\n## Required Summary Components\n\nYour summary must be structured to provide both high-level overview and detailed reference information. Open with an executive summary that captures the essential facts in two to three paragraphs: what policies are at issue, what event or loss triggered the claim, what coverage is being sought or disputed, and what the current status is. Follow this with detailed sections organized logically.\n\nCreate a section on Policy Information that lists each relevant policy with its insurer, policy number, period of coverage, named insured, coverage types and limits, applicable deductibles or self-insured retentions, and key endorsements. Include a section on Coverage Analysis that identifies the specific policy provisions relevant to the claim, noting the insuring agreement language, applicable exclusions, conditions, and definitions that may be disputed. Quote critical policy language verbatim when it is central to coverage determination.\n\nDevelop a Claims History section that chronologically presents the loss event, notice to insurers, investigation activities, coverage positions taken by insurers, any reservation of rights or denial letters, amounts paid or reserved, and current claim status. Identify all parties involved including insureds, claimants, adjusters, coverage counsel, and experts. Include a section on Legal Issues and Considerations that highlights potential coverage disputes, ambiguities in policy language, notice or cooperation issues, bad faith concerns, or other legal questions that may arise.\n\n## Format and Presentation Standards\n\nPresent your summary in clear, professional prose using section headings and subheadings to organize information logically. Use tables or structured lists only when presenting multiple policies, coverage limits, or chronological claim events where such format enhances clarity. Cite to specific documents and page numbers when referencing policy provisions, correspondence, or claim file materials so that attorneys can quickly locate source materials. Maintain objectivity in your analysis, presenting facts and identifying issues without advocating for a particular coverage position unless specifically instructed to do so.\n\nEnsure that all monetary amounts are clearly stated with dates, all parties are properly identified with their roles, and all relevant dates are captured accurately. Flag any missing information that would be material to coverage analysis, such as gaps in claim documentation, unclear policy language, or absent endorsements referenced in declarations pages. Your summary should be comprehensive enough that a legal professional unfamiliar with the matter can understand the insurance landscape and key issues after reading it.\n\n## Legal and Professional Considerations\n\nInsurance policies are contracts of adhesion interpreted under state-specific rules that often favor coverage and construe ambiguities against the insurer. Be alert to policy language that may be subject to varying interpretations, particularly regarding scope of coverage, exclusion applicability, and conditions precedent. Note any choice of law provisions in the policies as coverage interpretation may vary significantly by jurisdiction. Consider whether any claims implicate multiple policies across different periods, triggering allocation issues or disputes over which policy responds.\n\nBe mindful of confidentiality and privilege concerns when summarizing claim files that may contain attorney work product or communications with coverage counsel. Identify any documents that appear to be privileged so they can be handled appropriately. When bad faith or extra-contractual liability may be at issue, note insurer conduct that could be relevant including investigation adequacy, timeliness of coverage decisions, and reasonableness of claim handling.\n\nThis summary serves as a critical tool for case evaluation, coverage negotiation, motion practice, and trial preparation in insurance matters. Your thorough, accurate, and well-organized analysis will enable legal teams to make informed strategic decisions and provide sound advice to clients regarding insurance coverage and claims.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

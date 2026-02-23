@@ -1,0 +1,361 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-7021-7000-9057-5762219884f6
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "c3cbc24a-36d8-46e6-9d72-acc08e748907",
+  "slug": "extract-technical-api-constraints",
+  "name": "Extract Technical API Constraints for Legal Exhibits",
+  "summary": "Analyzes developer documentation\u2014primarily OpenAPI/Swagger specifications, plus narrative docs\u2014to extract rate limits, authentication methods, data fields, and other technical constraints for inclusion in legal exhibits and contract schedules. Produces a structured, traceable API Access & Constraints Schedule with defined terms, risk flags, and change-management provisions, bridging the gap between engineering artifacts and legally precise contract language.",
+  "content": "# Extract Technical API Constraints for Legal Exhibits\n\n**Slug**: `extract-technical-api-constraints`\n**Version**: 1.0\n\n---\n\n## Assumptions Used\n\nUnless overridden at Checkpoint A, this skill proceeds on these defaults:\n\n1. **Use case**: Drafting an **API Access & Constraints Schedule** to attach to an MSA/SOW for a B2B SaaS/API provider.\n2. **API protocol**: RESTful API documented via **OpenAPI Specification (OAS) v3.0+** (or Swagger v2.0). Non-RESTful APIs (GraphQL, gRPC) may require adaptation of extraction patterns.\n3. **Commitment posture**: The exhibit is **primarily descriptive** (documents current technical behavior) and avoids creating new warranties unless explicitly requested.\n4. **Contract posture**: **Outbound** (you are the API provider). Alternatives: Inbound (you are the client) or Mutual Integration.\n5. **Scope**: Single API product, **one production environment** plus sandbox (if referenced), current GA version.\n6. **Audience**: Commercial counsel / legal ops with access to engineering for confirmation.\n\n> **Important**: Document all deviations from these assumptions in the Risk/Gap Log.\n\n## Open Items / Needed Inputs\n\nProvide if available; if not, the workflow still produces a draft with flagged gaps:\n\n- Agreement type and label: Exhibit/Schedule name, and whether it is customer paper or vendor paper.\n- Governing law and any regulated-industry constraints (health, financial services, education).\n- API sources: OpenAPI file(s), developer portal URLs, auth docs, rate limit/quotas page, SLA/support policy pages.\n- Scope boundaries: which endpoints are in-scope, versions, regions, environments (prod/sandbox), and whether webhooks are included.\n- Data classification guidance: what counts as Personal Data, Sensitive Personal Data, PHI, PCI, secrets.\n\n---\n\n## Phase 0: Minimum-Input Alignment (MANDATORY)\n\n### Checkpoint A: Pre-Draft Intake Snapshot\n\nConfirm these parameters before extraction begins. Defaults shown in **bold**. If you do not respond, the skill proceeds using defaults and flags uncertainties.\n\n| # | Parameter | Default | Alternatives |\n|---|---|---|---|\n| 1 | **Exhibit type / placement** | **MSA/SOW Exhibit: \"API Access & Constraints Schedule\"** | DPA Annex; Security Exhibit; Order Form attachment |\n| 2 | **API scope** | **Single API, current GA version** | Multiple APIs; include beta endpoints; include webhooks; include partner-only endpoints |\n| 3 | **Contract posture** | **Outbound (Provider)** | Inbound (Client); Mutual Integration |\n| 4 | **Commitment level** | **Descriptive / as-is** | Binding commitments; Hybrid (commit to specific SLOs and notice periods only) |\n| 5 | **Constraint categories** | **Auth + rate limits + data fields** | Add: environments, IP allowlisting, logging/audit, error handling, deprecation policy, SLA/SLO references, sub-processors for data flows |\n| 6 | **Output mode** | **Full Package** | Quick Reference; Checklist Only; Risk Matrix |\n\n**Assumptions explicitly made if unanswered**: Use the bold defaults above.\n\n---\n\n## Phase 1: Source Intake, Normalization & Taxonomy Mapping\n\n### Objective\n\nCreate a defensible \"evidence set\" of technical sources, normalize them into an extraction-ready format, and map technical documentation fields to their legal significance.\n\n### Deliverables\n\n1. **Source Register** (table)\n2. **Normalized Spec Notes** (short bullet digest of versions, servers, auth schemes, tags)\n3. **Technical-to-Legal Crosswalk** (table)\n\n### Steps\n\n- Collect sources (priority order):\n  1. OpenAPI/Swagger JSON/YAML (including component schemas)\n  2. Auth guide (OAuth/API keys/JWT/mTLS)\n  3. Rate limit/quotas documentation\n  4. Changelog / deprecation policy / breaking-changes policy (often in READMEs)\n  5. Error code documentation\n  6. Data model docs and examples\n  7. SLA/support policy pages (if you will reference uptime/support in the exhibit)\n- Lock the versions and timestamps.\n- Normalize:\n  - Convert OpenAPI to a stable view (rendered HTML or parsed tables) and record the spec version.\n  - Capture server URLs and environment labels (prod/sandbox/regional).\n  - Identify security schemes under `components.securitySchemes` and global vs. operation-level security.\n\n### Template: Source Register\n\n| ID | Source Type | URL / File | Version / Commit | Retrieved (UTC) | Owner | Notes / Reliability |\n|---|---|---|---|---|---|---|\n| S-1 | OpenAPI spec | | | | Eng | Primary / authoritative |\n| S-2 | Auth docs | | | | Eng | |\n| S-3 | Rate limit docs | | | | Eng/Support | May differ by plan |\n| S-4 | Changelog / deprecation | | | | PM | |\n| S-5 | Error code docs | | | | Eng | |\n\n### Template: Technical-to-Legal Crosswalk\n\n| OpenAPI Field / Doc Section | Example Value | Legal Significance | Typical Clause Reference |\n|---|---|---|---|\n| `info.version` | v2.1.0 | Versioning & Sunset Rights | Maintenance & Support; Change Mgmt |\n| `servers[].url` | `https://api.example.com` | Data Residency / Jurisdiction | Privacy & Compliance; Exhibit \u00a71 |\n| `paths.{path}.{method}` | GET /v1/widgets | Scope of License / Permitted Actions | Grant of License; Exhibit \u00a74 |\n| `components.securitySchemes` | OAuth2 (client_credentials) | Security Standards / Liability | Security & Indemnity; Exhibit \u00a72 |\n| `x-ratelimit-limit` (or docs) | 1000/min | Usage Caps / Overages / SLA | Fees / Service Levels; Exhibit \u00a73 |\n| `components.schemas.{Model}` | User { email, ssn } | PII / Regulated Data | DPA; Data Processing Schedule |\n\n### Checklist (Phase 1)\n\n- [ ] Identify authoritative source hierarchy (spec vs. portal vs. blog post)\n- [ ] Record retrieval date/time for each source\n- [ ] Confirm API versioning scheme (path-based `/v1/`, header-based, query-based)\n- [ ] Capture environment base URLs and any region-specific endpoints\n- [ ] Note if spec includes `x-` vendor extensions relevant to limits/auth\n- [ ] Map each key technical field to its legal clause reference\n\n---\n\n## Phase 2: Technical Constraint Extraction (Auth, Rate Limits, Data Model, Operations)\n\n### Objective\n\nExtract the technical constraints most likely to become legally relevant statements.\n\n### Deliverables\n\n1. **API Constraint Extraction Table** (endpoint-by-endpoint)\n2. **Data Field Inventory** (schemas \u2192 fields, requiredness, sensitivity flags)\n3. **Auth & Access Profile** (methods, token lifetimes, scopes)\n4. **Rate Limit Profile** (requests/time, burst, quotas, headers, 429 behavior)\n\n### Extraction Framework\n\n#### A. Authentication & Authorization\n\n- Scheme(s): API key, OAuth2 (authorization code / client credentials), JWT bearer, mTLS, HMAC signatures.\n- Credential placement: header / query / cookie.\n- Scope model: OAuth scopes, RBAC roles, tenant isolation.\n- Token lifecycle: expiration, refresh, rotation expectations.\n- IP allowlisting / network controls (if documented).\n\n#### B. Rate Limits / Quotas\n\n- Hard limits (per minute/hour/day), burst limits.\n- Dimensions: per API key, per tenant, per IP, per endpoint group.\n- Limit headers: `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `Retry-After`.\n- Enforcement behavior: HTTP 429; backoff requirements; throttling vs. blocking.\n- Tiering: limits vary by plan/order form.\n- **Legal mapping**: How does a 429 event relate to \"Suspension of Service\" rights or SLA exclusions?\n\n#### C. Endpoints / Operations\n\nFor each operation (method + path):\n- Required request fields and formats.\n- Idempotency requirements (idempotency keys).\n- Pagination / filters / sorting constraints.\n- Max payload size.\n- Async operations and webhooks (delivery retries, signing, event schemas).\n\n#### D. Data Fields (Legally Salient)\n\n- Personal Data fields (names, emails, identifiers) and Sensitive categories.\n- Authentication secrets and tokens.\n- Financial / health / education identifiers (PCI, PHI, FERPA).\n- Data minimization: required vs. optional fields.\n- Data residency hints (region-specific servers).\n\n#### E. Error Handling & Reliability Signals\n\n- Standard error object schema.\n- Retriable vs. non-retriable codes.\n- **Impact on SLA**: Which error codes (4xx vs. 5xx) count toward or are excluded from uptime calculations?\n- Deprecation headers, sunset policies (if present).\n\n### Template: API Constraint Extraction Table\n\n| Tag / Domain | Method | Path | Summary | Auth Required? | Auth Type / Scopes | Rate Limit (doc) | Key Request Fields (required) | Key Response Fields | Pagination / Max | Errors (notable) | Notes / Legal Relevance |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| | GET | /v1/widgets | List widgets | Yes | OAuth2: widgets:read | 60 rpm (per key) | tenant_id | items[].id, items[].status | limit<=100 | 401/403/429 | Rate limit should not be warranted unless committed |\n\n### Template: Data Field Inventory\n\n| Schema | Field | Type | Required? | Example | Likely Classification | Notes |\n|---|---|---|---|---|---|---|\n| User | email | string | Yes | a@b.com | Personal Data | Consider DPA mapping |\n| Payment | card_last4 | string | No | 1234 | PCI-related | Avoid storing full PAN |\n| User | ip_address | string | No | 192.168.1.1 | Personal Data (GDPR) | Log retention implications |\n\n### Checklist (Phase 2)\n\n- [ ] Identify all `securitySchemes` and map to operations (global + per-operation)\n- [ ] Extract OAuth scopes and ensure they align with exhibit terms (\"least privilege\")\n- [ ] Locate rate limit statements (spec extensions, docs pages, response headers)\n- [ ] Extract \"required\" fields from request bodies and path/query parameters\n- [ ] Flag any fields likely to be regulated/sensitive\n- [ ] Note any contradictions between spec and narrative docs\n- [ ] Map HTTP error codes to potential legal consequences (SLA exclusions, suspension rights)\n\n> **Tip**: Treat rate limits and field definitions as **time-sensitive**; build the exhibit to allow updates via change-control rather than hard-wiring guarantees.\n\n---\n\n## Phase 3: Legal Translation & Exhibit Drafting\n\n### Objective\n\nConvert extracted technical constraints into contract-ready exhibit language that is accurate, non-ambiguous, and appropriately bounded.\n\n### Deliverables\n\n1. **API Access & Constraints Schedule** (draft exhibit)\n2. **Defined Terms & Interpretive Notes** (embedded or appendix)\n\n### Drafting Principles\n\n- **Do not over-warrant** undocumented behavior. Prefer \"as described in Documentation as of [date]\" paired with notice/change control.\n- **Separate descriptive from committed**: If you must commit, use measurable metrics and tie them to plan/tier.\n- **Bind to artifacts**: \"Documentation\" definition includes specific URLs/files (Source Register IDs).\n- **Control updates**: Add a \"Documentation Updates\" clause and \"material adverse change\" concept if customer requires.\n- **Avoid silent scope creep**: Define \"API\" by name, version, and base URL(s).\n- **Map errors to rights**: Explicitly state which error conditions (e.g., 429) constitute permissible suspension vs. SLA failures.\n\n### Exhibit Template: API Access & Constraints Schedule\n\n---\n\n**EXHIBIT [___]: API ACCESS & CONSTRAINTS SCHEDULE**\n\n**Effective Date**: [___]\n\n#### Section 1. API Identification\n\n- **API Name**: [Product / API name]\n- **API Version(s)**: [v1 / 2026-01]\n- **Base URLs / Environments**:\n  - Production: [https://api.example.com]\n  - Sandbox/Test (if any): [https://sandbox-api.example.com]\n- **Documentation**: The documentation sources listed in the **Source Register** (IDs: [S-1\u2026S-n]) as retrieved on [date] (the \"**Documentation**\").\n\n#### Section 2. Authentication and Access Controls\n\n- **Supported Authentication Methods**: [OAuth 2.0 Client Credentials / API Key / mTLS].\n- **Credential Placement**: [Authorization header: Bearer \\<token\\>].\n- **Scopes / Roles**: [List scopes/roles or reference table].\n- **Tenant Isolation**: Access is logically segregated by [tenant/account identifier] as described in Documentation.\n- **Client Obligations**: Client is solely responsible for the security, rotation, and confidentiality of all credentials issued to Client.\n- **Security Notes** (optional): [IP allowlisting requirements, key rotation guidance, webhook signature verification].\n\n*Optional commitment language (use only if approved):*\n> Provider will maintain the authentication method(s) listed above for the then-current GA version of the API, subject to Section 6 (Change Management).\n\n#### Section 3. Rate Limits / Quotas / Throttling\n\n- **Published Limits**: [Insert specific limits if stable and tier-bound; otherwise reference Documentation].\n- **Limit Dimensions**: [per API key / per tenant / per IP / per endpoint group].\n- **Burst Tolerance**: [Allowed / Not documented / Up to X requests in Y-second window].\n- **Throttle Response**: Requests exceeding limits may receive **HTTP 429 Too Many Requests** and/or other responses as described in Documentation. Client will implement reasonable exponential backoff.\n- **Relationship to SLA**: Rate-limit throttling (HTTP 429) [does / does not] constitute Downtime for purposes of the SLA. Provider-initiated throttling for abuse or security purposes is excluded from SLA calculations.\n\n*Safer descriptive phrasing:*\n> Rate limits may vary by service plan, endpoint, and system conditions and are described in the Documentation.\n\n#### Section 4. Endpoint Scope and Core Operations\n\nThe \"**API Services**\" consist of the endpoints listed below [or: defined in the OpenAPI specification attached as Exhibit [___]-A].\n\n| Operation | Purpose | Auth / Scopes | Notes |\n|---|---|---|---|\n| GET /v1/widgets | List widgets | widgets:read | Pagination limit 100 |\n| POST /v1/widgets | Create widget | widgets:write | Idempotency key required |\n\nEndpoints marked \"beta,\" \"experimental,\" or \"preview\" in the Documentation are expressly excluded from the scope of this Schedule and from any service-level commitments.\n\n#### Section 5. Data Fields and Data Handling Notes\n\n- **Primary Objects**: [Widget, User, Event].\n- **Required Fields (by operation/object)**: [Reference Data Field Inventory or attach as sub-schedule].\n- **Sensitive Data**: The API is **not intended** to process [PHI / PCI / Special Category Data] except as expressly documented and authorized. Client shall not submit such data unless the parties have executed a [BAA / PCI Addendum / appropriate supplement].\n- **Webhooks** (if any): Event payload schemas, delivery retry policies, and signing/verification requirements are as described in Documentation.\n\n> See @privacy-and-security-exhibit-builder for expanded PII mapping and DPA cross-referencing.\n\n#### Section 6. Change Management / Versioning / Deprecation\n\n- **Versioning**: [path-based / header-based] as described in Documentation.\n- **Breaking Changes**: Provider defines a \"Breaking Change\" as [removal of an endpoint, removal of a required response field, change to authentication method, or change to error response format].\n- **Deprecation Notice**: Provider will use commercially reasonable efforts to provide [X] days' notice before implementing Breaking Changes to GA endpoints, via [changelog / email / Deprecation header].\n- **Material Changes** (optional negotiated term): [X] days' prior written notice for changes that materially reduce functionality or materially increase Client's integration burden.\n\n> See @contract-change-management-and-versioning for detailed deprecation and sunset clauses.\n\n#### Section 7. Error Handling\n\n- **Error Format**: The API returns errors in the format described in Documentation [e.g., JSON object with `code`, `message`, `details` fields].\n- **Retriable Errors**: Client should retry on [429, 500, 502, 503] with exponential backoff.\n- **Non-Retriable Errors**: [400, 401, 403, 404, 422] indicate client-side issues and should not be retried without corrective action.\n\n#### Section 8. Support & Incident Notes (optional)\n\n> Support terms and any uptime/service levels are governed by [Support Policy / SLA Exhibit], not this Schedule.\n\n#### Section 9. Order of Precedence\n\nIn the event of conflict between this Schedule and the Documentation:\n\n- **Option A** (provider-friendly): This Schedule controls only where it **expressly** states a commitment; otherwise Documentation controls.\n- **Option B** (customer-friendly): This Schedule controls.\n\n[Select one and delete the other.]\n\n---\n\n## Phase 4: Traceability, Validation & Risk Flags\n\n### Objective\n\nEnsure every exhibit statement is traceable to a technical source and identify items needing engineering or legal confirmation.\n\n### Deliverables\n\n1. **Traceability Matrix**\n2. **Risk/Gap Log**\n\n### Template: Traceability Matrix\n\n| Exhibit Section | Statement / Data Point | Source ID | Spec Path / Anchor | Confidence (H/M/L) | Notes / Needed Confirmation |\n|---|---|---|---|---|---|\n| \u00a73 | \"60 requests/min per API key\" | S-3 | Rate limits page | M | Confirm by plan/tier |\n| \u00a72 | \"OAuth2 client credentials supported\" | S-1 | components.securitySchemes | H | |\n| \u00a76 | \"30 days' notice for Breaking Changes\" | S-4 | Changelog policy | L | Not in spec; only in blog |\n\n### Template: Risk/Gap Log\n\n| ID | Issue | Impact | Proposed Fix | Owner | Status |\n|---|---|---|---|---|---|\n| G-1 | Rate limits not specified in spec; only on marketing page | Potential over-commitment | Reference docs; avoid numeric commitments | Legal/Eng | Open |\n| G-2 | Sensitive fields unclear (DOB present in examples) | Privacy risk | Confirm data classification; update DPA mapping | Privacy | Open |\n| G-3 | Breaking changes policy found only in README, not spec | Enforceability concern | Confirm with PM; add to Documentation definition | Legal/PM | Open |\n| G-4 | Server URL points to us-east-1; no EU endpoint | Data residency gap | Flag for privacy review | Privacy | Open |\n\n### Checklist (Phase 4)\n\n- [ ] Each numeric limit has a source and tier qualifier (if applicable)\n- [ ] Each auth statement matches operation-level security requirements\n- [ ] Identify any \"beta\" / \"experimental\" endpoints and exclude or label\n- [ ] Confirm whether sandbox differs materially from prod\n- [ ] Confirm webhook retry behavior (often not in OpenAPI)\n- [ ] Ensure exhibit doesn't promise availability/performance unless intended\n- [ ] Verify server URLs against data residency requirements\n- [ ] Confirm error-code-to-SLA mapping is consistent with SLA exhibit\n\n---\n\n## Phase 5: Output Refinement (MANDATORY)\n\n### Checkpoint B: Post-Draft Fit Check\n\nDoes the draft match your needs? Choose refinements (reply with letters):\n\n| Option | Description |\n|---|---|\n| **A** | **Make strictly descriptive** \u2014 Remove any implied commitments; strengthen disclaimers and cross-references. |\n| **B** | **Convert to binding commitments** \u2014 Add measurable rate limits, notice periods, scope guarantees; require tier mapping. |\n| **C** | **Expand privacy/data handling** \u2014 Identify Personal Data fields; add allowed/prohibited data types; cross-link to DPA/security exhibit. See @privacy-and-security-exhibit-builder. |\n| **D** | **Add change management/deprecation terms** \u2014 Sunset headers, minimum notice, backward compatibility. See @contract-change-management-and-versioning. |\n| **E** | **Reformat for customer paper** \u2014 Adjust order of precedence, add stronger remedies, audit rights references. |\n| **F** | **Generate redline-ready clause alternatives** \u2014 Provider-friendly vs. customer-friendly positions side by side. |\n| **G** | **Produce Risk Matrix** \u2014 Compare Client's requested access vs. the API's technical reality with gap analysis and risk ratings. |\n\n---\n\n## Phase 6: Quality-Control Self-Audit (MANDATORY)\n\n### Pre-Publication QC Checklist\n\n- [ ] **Assumptions Used** are listed at top and reflected in the exhibit language\n- [ ] **Open Items / Needed Inputs** are captured and reflected in Risk/Gap Log\n- [ ] All Phase deliverables present: Source Register, Crosswalk, Extraction Table, Data Field Inventory, Exhibit Draft, Traceability Matrix, Risk/Gap Log\n- [ ] No statement inadvertently creates a warranty (unless intended and approved)\n- [ ] Rate limits are tiered/qualified; no un-sourced numbers\n- [ ] Auth methods/scopes align with spec and docs (no \"OAuth\" if only API keys exist)\n- [ ] Data field classifications are clearly labeled as \"likely\" unless confirmed\n- [ ] Exhibit defines \"Documentation\" and locks retrieval date/version\n- [ ] **Version alignment**: Exhibit references a specific API version (e.g., v1.2), not a generic \"current\" version\n- [ ] **Error-code handling**: Provision addresses how HTTP errors (4xx, 5xx) affect SLA calculations\n- [ ] **PII inventory**: All fields identified in schemas are cross-referenced with the DPA\n- [ ] **Jurisdiction/residency**: If `servers.url` points to a specific region, the contract accounts for data residency\n- [ ] **Security alignment**: Authentication method in spec matches legal security requirements\n- [ ] Order of precedence is explicit\n- [ ] Conflicts/ambiguities are flagged with owners in Risk/Gap Log\n- [ ] Beta/experimental endpoints are excluded or labeled\n\n### Professional Disclaimer\n\nThis skill provides a structured approach to extracting technical data for legal exhibit drafting and does not constitute legal advice. Applicability depends on your contract, industry, and jurisdiction. Confirm technical assertions with qualified engineers and obtain legal review by licensed counsel for the governing jurisdiction.\n\n---\n\n## Output Modes\n\n### Mode 1: Full Package (default)\n\nIncludes all deliverables:\n1. Source Register\n2. Technical-to-Legal Crosswalk\n3. API Constraint Extraction Table\n4. Data Field Inventory\n5. Auth & Access Profile + Rate Limit Profile\n6. Draft API Access & Constraints Schedule\n7. Traceability Matrix\n8. Risk/Gap Log\n\n### Mode 2: Quick Reference\n\n**One-page checklist summary** for deal teams or sales:\n- [ ] Identify authoritative spec and lock version/date\n- [ ] Extract security schemes + scopes; map to operations\n- [ ] Locate rate limit source; confirm tiering; avoid unsourced numbers\n- [ ] List in-scope endpoints; exclude beta/experimental\n- [ ] Inventory required request fields + sensitive data fields\n- [ ] Draft exhibit with \"Documentation as of [date]\" and change-control clause\n- [ ] Map HTTP error codes to SLA treatment\n- [ ] Create traceability for each numeric/technical statement\n\n### Mode 3: Checklist Only\n\nThe extraction and QC checklists from Phases 1, 2, 4, and 6 consolidated as a standalone review protocol.\n\n### Mode 4: Risk Matrix\n\nComparison table of Client's Requested Access vs. API's Technical Reality:\n\n| Constraint Area | Client Request / Expectation | API Technical Reality | Gap? | Risk Level | Recommended Action |\n|---|---|---|---|---|---|\n| Rate Limit | Unlimited calls | 1,000/min per key | Yes | Medium | Negotiate higher tier or burst allowance |\n| Auth | SSO/SAML | OAuth2 client credentials only | Yes | High | Confirm roadmap; add contractual commitment |\n| Data Residency | EU-only | US-East-1 only | Yes | High | Flag for privacy counsel |\n\n---\n\n## Cross-References (Related Skills)\n\n- @interpret-openapi-spec-for-legal-review \u2014 Dependency for accurate parsing and mapping of OpenAPI specifications\n- @draft-msa-exhibits-and-schedules \u2014 Structuring exhibits and order-of-precedence clauses\n- @privacy-and-security-exhibit-builder \u2014 Mapping data fields to privacy/security obligations and DPA annexes\n- @contract-change-management-and-versioning \u2014 Deprecation/versioning clauses and notice mechanics",
+  "parent_skill_id": null,
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "generated_from": "evolution_approved",
+    "parent_skill_id": "382a95c2-29f3-496d-9600-e491ddacdc38"
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-09T00:50:31.391318",
+  "updated_at": "2026-02-09T01:02:53.01548"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:57:00.163923Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Deciding metadata fallback**
+
+Since legal_context lacks practice areas, doc types, and skill modes, I'll fallback to a safe default "General" for metadata to avoid inaccuracies, noting this as a provisional choice.
+thinking
+**Outlining detailed skill content**
+
+I'm mapping a comprehensive SKILL.md structure with clear ASCII formatting, no nested bullets, explicit numbered prerequisites, stepwise output/process sections with tables for parameters and templates, concise exhibit skeleton, traceability and risk logs, QC checklist, guidelines, and an output modes table—all within 120 lines.
+codex
+---
+name: api-constraints-exhibit
+description: Extracts technical API constraints from OpenAPI/Swagger and developer docs into a contract-ready API Access & Constraints Schedule with traceability, risk flags, and change-control language. Use when preparing legal exhibits or schedules for API access, rate limits, authentication, data fields, and deprecation terms. Trigger keywords: OpenAPI, Swagger, API constraints, rate limits, authentication, API access exhibit, contract schedule, MSA/SOW.
+metadata:
+  author: casemark
+  practice_areas:
+    - Unspecified
+  document_types:
+    - Exhibit
+  skill_modes:
+    - Extraction
+---
+
+# API Access & Constraints Schedule
+
+Produces a traceable exhibit that translates API technical limits into contract-ready language.
+
+## Prerequisites
+
+1. Agreement context: exhibit name/placement, provider vs. client posture, commitment level.
+2. Authoritative sources: OpenAPI/Swagger files, auth docs, rate limit/quotas page, error docs, changelog/deprecation policy.
+3. Scope boundaries: API product, versions, environments, regions, in-scope endpoints, webhooks.
+4. Data classification rules: Personal Data, Sensitive Data, PHI, PCI, secrets.
+5. SLA/support references if any uptime or support statements are to be referenced.
+
+## Output Structure / Process
+
+### Step 1: Intake Snapshot
+
+| Parameter | Default | Alternatives |
+|---|---|---|
+| Exhibit type | API Access & Constraints Schedule | DPA Annex, Security Exhibit, Order Form attachment |
+| API scope | Single API, current GA version | Multiple APIs, beta endpoints, webhooks |
+| Contract posture | Provider (outbound) | Client (inbound), mutual |
+| Commitment level | Descriptive/as-is | Binding commitments, hybrid |
+| Constraint categories | Auth, rate limits, data fields | Add environments, IP allowlisting, logging, errors, deprecation |
+| Output mode | Full Package | Quick Reference, Checklist Only, Risk Matrix |
+
+Record deviations and unresolved items in the Risk/Gap Log.
+
+### Step 2: Source Register and Normalization
+
+| ID | Source Type | URL/File | Version/Commit | Retrieved (UTC) | Owner | Notes |
+|---|---|---|---|---|---|---|
+| S-1 | OpenAPI spec | | | | Eng | Primary |
+| S-2 | Auth docs | | | | Eng | |
+| S-3 | Rate limits | | | | Eng/Support | Plan-dependent? |
+| S-4 | Changelog/deprecation | | | | PM | |
+| S-5 | Error codes | | | | Eng | |
+
+Checklist:
+- [ ] Lock version and retrieval timestamp for each source.
+- [ ] Capture `servers[].url` and environment labels.
+- [ ] Identify `components.securitySchemes` and operation-level security.
+
+### Step 3: Technical-to-Legal Crosswalk
+
+| Field / Doc Section | Example | Legal Significance | Clause Reference |
+|---|---|---|---|
+| `info.version` | v2.1.0 | Versioning & sunset | Change management |
+| `servers[].url` | https://api.example.com | Data residency | Privacy/compliance |
+| `paths.{path}.{method}` | GET /v1/widgets | Scope of license | Grant of access |
+| `components.securitySchemes` | OAuth2 client credentials | Security standard | Security obligations |
+| Rate limit docs | 1000/min | Usage caps | Fees/SLA |
+
+### Step 4: Extraction Tables
+
+API Constraint Extraction Table:
+
+| Tag | Method | Path | Summary | Auth Required | Auth Type/Scopes | Rate Limit | Key Required Fields | Key Response Fields | Pagination/Max | Errors | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| | GET | /v1/widgets | List widgets | Yes | OAuth2: widgets:read | 60 rpm | tenant_id | items[].id | limit<=100 | 401/403/429 | |
+
+Data Field Inventory:
+
+| Schema | Field | Type | Required | Example | Classification | Notes |
+|---|---|---|---|---|---|---|
+| User | email | string | Yes | a@b.com | Personal Data | |
+| Payment | card_last4 | string | No | 1234 | PCI-related | |
+
+Auth & Access Profile:
+
+| Category | Details |
+|---|---|
+| Methods | API key, OAuth2, mTLS, JWT |
+| Credential placement | Header, query, cookie |
+| Scopes/roles | List scopes/roles |
+| Token lifecycle | Expiry, refresh, rotation |
+
+Rate Limit Profile:
+
+| Dimension | Limit | Burst | Headers | Enforcement | Tiering |
+|---|---|---|---|---|---|
+| Per API key | | | X-RateLimit-* | 429 | By plan |
+
+### Step 5: Exhibit Draft (Template)
+
+```text
+EXHIBIT [___]: API ACCESS & CONSTRAINTS SCHEDULE
+
+Section 1. API Identification
+API Name: [ ]
+API Version(s): [ ]
+Base URLs: Production [ ], Sandbox [ ]
+Documentation: Source Register IDs [ ] as of [date] ("Documentation")
+
+Section 2. Authentication and Access Controls
+Methods: [ ]
+Credential placement: [ ]
+Scopes/Roles: [ ]
+Tenant isolation: [ ]
+Client obligations: credential security and rotation
+
+Section 3. Rate Limits / Quotas / Throttling
+Published limits: [ ]
+Limit dimensions: [ ]
+Burst tolerance: [ ]
+Throttle response: 429 and backoff
+SLA treatment of throttling: [ ]
+
+Section 4. Endpoint Scope and Core Operations
+In-scope endpoints: [table or attach OpenAPI]
+Beta/experimental endpoints excluded unless expressly included
+
+Section 5. Data Fields and Data Handling Notes
+Primary objects: [ ]
+Required fields: [ ]
+Sensitive data permitted or prohibited: [ ]
+Webhooks: event schema and retry behavior per Documentation
+
+Section 6. Change Management / Versioning / Deprecation
+Versioning scheme: [ ]
+Breaking Change definition: [ ]
+Notice period and channel: [ ]
+
+Section 7. Error Handling
+Error format: [ ]
+Retriable errors: [ ]
+Non-retriable errors: [ ]
+
+Section 8. Support & Incident Notes
+Support/SLA governed by [SLA/Support Exhibit]
+
+Section 9. Order of Precedence
+Option A: Schedule controls only for express commitments
+Option B: Schedule controls in full
+```
+
+### Step 6: Traceability Matrix
+
+| Exhibit Section | Statement | Source ID | Spec Path/Anchor | Confidence | Notes |
+|---|---|---|---|---|---|
+| 3 | "60 requests/min per API key" | S-3 | Rate limits page | M | Plan-dependent |
+
+### Step 7: Risk/Gap Log
+
+| ID | Issue | Impact | Proposed Fix | Owner | Status |
+|---|---|---|---|---|---|
+| G-1 | Rate limits only on marketing page | Over-commitment risk | Reference docs, avoid hard numbers | Legal/Eng | Open |
+
+### Step 8: QC Checklist
+
+- [ ] Every numeric limit has a source and tier qualifier.
+- [ ] Auth methods match operation-level security.
+- [ ] Beta/experimental endpoints excluded or labeled.
+- [ ] "Documentation" definition locks version and retrieval date.
+- [ ] No unintended warranties.
+- [ ] Error-code treatment aligns with SLA exhibit.
+- [ ] Sensitive fields flagged and mapped to DPA.
+
+### Output Modes
+
+| Mode | Contents |
+|---|---|
+| Full Package | All tables, exhibit, traceability, risk/gap log |
+| Quick Reference | One-page checklist summary |
+| Checklist Only | Consolidated checklists |
+| Risk Matrix | Client request vs. API reality |
+
+## Guidelines
+
+- Avoid over-warranting undocumented behavior; prefer "as of [date]" with change-control.
+- Do not include numeric limits without a source and tier qualifier.
+- Treat 429 throttling explicitly in relation to SLA calculations.
+- Exclude beta/preview endpoints unless expressly agreed.
+- Flag regulated data categories and require appropriate addenda.
+- If jurisdiction or practice area is unknown, use neutral language and flag for review.
+- Any citation uncertainty should be marked `[VERIFY]`.
+tokens used
+9,637

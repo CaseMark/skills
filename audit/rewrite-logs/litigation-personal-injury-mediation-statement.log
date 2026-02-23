@@ -1,0 +1,199 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-8758-70d1-bce0-7399273a03b5
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f92ddf27-02eb-4bda-939d-03fa41ae519c",
+  "slug": "litigation-personal-injury-mediation-statement",
+  "name": "Mediation Statement",
+  "summary": "Drafts a comprehensive mediation statement for personal injury litigation cases, guiding users through pre-drafting considerations, header, executive summary, factual background, liability analysis, party testimony, and medical records review. Structures the document persuasively to highlight favorable facts, law, and evidence while addressing opponent arguments. Use this skill to prepare professional statements submitted 7-10 days before mediation to facilitate settlement negotiations.",
+  "content": "Step-by-Step Instructions for Drafting a Mediation Statement\nPre-Drafting Considerations\nConfidentiality: Confirm whether the mediation statement will be shared with opposing counsel or kept confidential to the mediator\nLength: Aim for 5-15 pages depending on case complexity\nDeadline: Submit 7-10 days before mediation (or per mediator's requirements)\nFormat: Professional, single-spaced, with clear headings and numbered exhibits\n\nStep 1: Header and Introduction\nDraft a professional opening that includes:\nCase caption (Party v. Party, Case No.)\nDate of mediation\nMediator's name\nThank you statement: \"Thank you for agreeing to mediate this matter on [date]. We look forward to working with you to reach a resolution.\"\n\nStep 2: Executive Summary/Case Overview\nWrite 2-3 sentences maximum:\nType of case (e.g., \"This premises liability case involves disputed liability and damages\")\nKey issue in one sentence\nYour client's position in broad terms\nExample: \"This case involves a slip and fall at defendant's store where liability is clear but plaintiff's claimed injuries are grossly exaggerated and unsupported by objective medical evidence.\"\n\nStep 3: Factual Background\nPresent facts chronologically and persuasively:\nStart with favorable context for your client\nInclude key dates, times, locations\nHighlight favorable witness statements\nReference and attach key photos, documents, or evidence as exhibits\nUse active/passive voice strategically (active for opponent's bad acts, passive for your client's)\nSpin technique: Focus on facts that support your theory while accurately presenting unfavorable facts in context\nIf applicable and just for example, If Plaintiff: Emphasize dangerous conditions, lack of warnings, defendant's knowledge For Defense: Emphasize plaintiff's actions, obvious hazards, proper maintenance. In sum, facts in the light most favorable to your client for the purposes of negotiation. \n\nStep 4: Liability Analysis\nStructure this section with:\nApplicable legal standard (cite relevant statutes/case law)\nElement-by-element analysis showing why law favors your client\nDistinguish adverse authority if necessary\nAddress opponent's likely arguments and explain why they fail\nHighlight strongest liability arguments\nExample elements for premises liability: Duty, breach, causation, comparative fault\n\nStep 5: Party Testimony and Discovery Analysis\nAnalyze key testimony/discovery responses:\nHighlight favorable admissions from opposing party\nPoint out contradictions in opponent's story\nEmphasize credibility issues (changing stories, implausible explanations \u2013 a jury hates a lying witness)\nNote gaps in opponent's discovery responses or lies.\nReference specific deposition testimony with page citations (if available or summary if that is available, without the need for citations). \nAttach key deposition excerpts as exhibits or deposition summary by Casemark linked to the transcript.\n\nStep 6: Medical Records/Injury Analysis\nFor Personal Injury Cases:\nPre-incident medical history: Frame favorably for your client\nPost-incident treatment: Analyze what records actually show vs. what's claimed\nCausation issues: Medical evidence linking/not linking injuries to incident\nObjective vs. subjective findings: Emphasize objective evidence\nTreatment gaps or inconsistencies\nReturn to normal activities: Evidence of exaggeration\nFor Non-PI Cases:\nDocument analysis: What business records, contracts, communications actually show\nQuantification support: Whether claimed damages have proper documentation\n\nStep 7: Damages Analysis\nBreak down claimed damages:\nMedical bills: Reasonable and necessary vs. excessive/unrelated\nLost wages: Properly documented vs. speculative\nPain and suffering: Objective support vs. subjective claims\nProperty damage: Actual vs. inflated repair costs\nEconomic losses: Properly calculated vs. speculative\nExpert testimony: Reliability and basis of opponent's expert opinions\nProvide an analysis as to the credibility of these alleged damages in the light most favorable to the client. \n\nStep 8: Expert Witness Analysis\nAddress expert testimony:\nYour expert's qualifications and opinions\nOpponent's expert weaknesses (qualifications, methodology, bias)\nHow expert testimony will play at trial\n\nStep 9: Trial Outlook and Strategic Considerations\nPaint picture of likely trial outcome:\nJury appeal: Which party will jury favor and why\nPending motions: Summary judgment, motions in limine, etc.\nEvidence problems: What opponent won't be able to prove/get admitted\nWitnesses: Credibility issues opponent will face\nCosts and fees: Attorney's fees, expert costs if recoverable\nAppeal risks: Likelihood of reversal if opponent wins\n\nStep 10: Settlement History\nChronologically list all settlement communications:\nDates of offers/demands\nAmounts demanded/offered\nMovement in positions over time\nReasonableness analysis: Why opponent's position is unrealistic\nExample: \"On 3/15/24, plaintiff demanded $500,000. On 4/1/24, defendant offered $25,000. Obviously the parties are significantly a part in the analysis of this case\u201d. \n\nStep 11: Settlement Recommendations \u2013 How can we settle this case?\nEnd with clear path forward:\nWhat opponent must do: \"Plaintiff must recognize the weakness of their case and reduce demands significantly\"\nConsequences of non-settlement: Costs, time, risk for opponent\nDo not propose an actual settlement number. Rather, discuss things that the other side needs to do in order to reach a resolution. Example: Plaintiff has further to drop than defendant. Defendant must realize this case involves a child in a plaintiff friendly jurisdiction. Even on Plaintiff\u2019s best day, she will not be likely awarded more than X. The judge is focused more on one side than the other so it will be an uphill battle. Whatever the issues may be that are impeding settlement, it must should be described here and briefly why they are wrong and it will not work out for them. \n\nStep 12: Exhibits and Appendices\nAttach key documents as exhibits:\nKey deposition excerpts, if important, but we do not want to bombard the mediator. \nMedical chronologies by Caremark.\nExpert reports\nRelevant contracts/documents\nKeep it to the documents that are the most important and/or documents that the mediator can us during the mediation. If you provide too much, it could get lost. The report is meant to highlight the most important information for negotiations. \n\nFinal Review Checklist\nPersuasive tone throughout while remaining professional\nClient's position clearly articulated\nOpponent's weaknesses highlighted\nA settlement path provided\nProofread for grammar, spelling, formatting\nMediator's name and mediation date correct\nRemember: The goal is to educate the mediator about your case's strengths while positioning for favorable settlement discussions. Be persuasive but don\u2019t be so persuasive to lack credibility through inaccurate statements that the other side can easily disprove.  Look reasonble, but advocate, hard.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "brief"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.934163",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:54.210525Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:54.409137Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:55.603543Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:56.514938Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5580f4ffc54-SJC)
+2026-02-23T21:42:57.629120Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e55fbfaacf09-SJC)
+2026-02-23T21:42:59.037394Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5686e9e5bc0-SJC)
+2026-02-23T21:43:01.389347Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e576cc6cfa22-SJC)
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-personal-injury-mediation-statement-fzj67j3h.md
+
+STDOUT:
+

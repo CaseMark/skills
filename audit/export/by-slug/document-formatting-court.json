@@ -1,0 +1,25 @@
+{
+  "id": "8cdd3af1-222f-42d1-9f22-252670481e6a",
+  "slug": "document-formatting-court",
+  "name": "Court Document Formatting",
+  "summary": "Standard formatting requirements for court filings including captions, margins, fonts, and local rules compliance.",
+  "content": "# Court Document Formatting\n\n## General Federal Requirements\n- 8.5\" x 11\" paper\n- 1\" margins (all sides)\n- 12-point font (Times New Roman or similar)\n- Double-spaced body text\n- Consecutively numbered pages\n- Line numbers (many courts)\n\n## Caption Elements\n- Court name\n- Case number\n- Party names\n- Document title\n\n## Common Local Variations\n- Page limits\n- Font requirements\n- E-filing specifications\n- Certificate of service format\n- Exhibit formatting\n\n## Best Practices\n- Always check local rules\n- Review judge's individual practices\n- Use court's preferred forms\n- Include all required certifications\n- Proofread caption details\n\n## E-Filing Considerations\n- PDF/A format often required\n- File size limits\n- Bookmarks for long documents\n- OCR for scanned documents\n",
+  "parent_skill_id": null,
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "skill_modes": [
+      "drafting"
+    ],
+    "document_types": [
+      "pleading",
+      "motion",
+      "brief"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-01-06T03:16:15.3172"
+}

@@ -1,0 +1,347 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-dfde-7c60-a74e-709fdf818979
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2bce5b87-f785-477a-ab33-9953d56b94b7",
+  "slug": "corporate-finders-fee-agreement-draft",
+  "name": "Finder's Fee Agreement",
+  "summary": "Drafts a comprehensive Finder's Fee Agreement for compensating independent finders who introduce business opportunities like merger targets, investors, or partners to corporate clients. Ensures strict compliance with US securities laws, broker-dealer regulations, and anti-corruption statutes by limiting the finder's role to introductions only. Use in mergers and acquisitions or corporate development scenarios to create enforceable contracts without triggering licensing requirements.",
+  "content": "# Enhanced Finder's Fee Agreement Drafting Prompt\n\nYou are an expert corporate attorney tasked with drafting a comprehensive, legally enforceable Finder's Fee Agreement. This document establishes the contractual relationship between a finder (an independent contractor who identifies business opportunities) and a client company that will compensate the finder for successful introductions. Your draft must be sophisticated enough to withstand legal scrutiny while remaining accessible to business professionals, and it must carefully navigate the regulatory landscape to avoid inadvertently creating a broker-dealer relationship or other licensed professional obligations.\n\n## Initial Document Research and Context Gathering\n\nBefore beginning your draft, search through any uploaded documents, correspondence, or prior agreements to identify specific details about the parties, the nature of opportunities being sought, industry context, compensation expectations, and any previous finder relationships. Look for information about the client company's business model, target transaction types, geographic focus, and strategic objectives. If the user has provided term sheets, email exchanges, or preliminary discussions, extract key commercial terms, fee percentages, exclusivity expectations, and any specific compliance concerns. Understanding whether this involves introducing potential customers, investors, merger targets, or strategic partners will fundamentally shape your drafting approach, particularly regarding regulatory compliance and fee structure.\n\n## Regulatory Compliance Framework and Licensing Considerations\n\nDraft the agreement with acute awareness of securities laws, broker-dealer registration requirements under the Securities Exchange Act of 1934, and state-specific finder's fee regulations. The document must clearly establish that the finder's role is limited to making introductions and providing basic background information, explicitly excluding negotiation, transaction structuring, investment advice, or any activities that would trigger broker-dealer registration requirements. If the opportunities involve securities transactions, include specific language confirming that the finder will not receive transaction-based compensation in a manner that requires SEC registration, or alternatively, include representations that the finder maintains all necessary licenses and registrations. Address anti-bribery compliance by incorporating representations regarding adherence to the Foreign Corrupt Practices Act, UK Bribery Act, and similar anti-corruption laws, particularly if introductions may involve foreign entities or government-related opportunities. Consider industry-specific regulations such as FINRA rules, state insurance licensing requirements, or healthcare anti-kickback statutes depending on the business context.\n\n## Parties Identification with Precision and Legal Sufficiency\n\nBegin the agreement with a comprehensive identification section that captures the complete legal names of both parties, their organizational form (corporation, limited liability company, partnership, or individual), jurisdiction of formation or residence, principal business addresses, and any relevant tax identification numbers. For the client company, verify the exact legal entity name as it appears in formation documents, and ensure the signatory will have proper authority under corporate bylaws or operating agreements. For the finder, determine whether they are operating as an individual, through a professional corporation, or via another business entity, as this affects tax treatment and liability considerations. Include sufficient detail to enable proper legal notice under the agreement and to establish personal jurisdiction should disputes arise. If multiple affiliated entities are involved, clarify which specific entity is the contracting party and whether obligations extend to affiliates or subsidiaries.\n\n## Recitals That Establish Business Purpose and Intent\n\nCompose detailed whereas clauses that create a clear record of the commercial relationship and business justification for the arrangement. Explain that the client seeks to identify specific categories of business opportunities\u2014whether potential customers for products or services, investors for capital raises, acquisition targets for strategic growth, strategic partners for joint ventures, or other clearly defined opportunities. Describe the finder's relevant industry experience, professional network, geographic reach, or specialized knowledge that makes them valuable for this purpose. Articulate the mutual benefit of the arrangement and the legitimate business purpose, which can be critical if the agreement is later scrutinized by regulators, tax authorities, or in litigation. These recitals serve not merely as preamble but as interpretive context that courts may reference when resolving ambiguities or determining the parties' original intent.\n\n## Scope of Services with Clear Boundaries and Limitations\n\nDefine the finder's obligations and limitations with precision that eliminates ambiguity about role boundaries. Specify that the finder will identify and introduce opportunities meeting criteria established by the client, which should be described with enough specificity to guide the finder's efforts while maintaining flexibility for valuable unexpected opportunities. The finder's role should be limited to making introductions, providing publicly available or generally known background information about introduced parties, and facilitating initial contact. Explicitly exclude activities that would create agency relationships, fiduciary duties, or licensing requirements, including negotiating transaction terms, providing valuation opinions, offering legal or financial advice, making representations or warranties on behalf of the client, or engaging in solicitation activities that would require broker-dealer registration. Address whether the arrangement is exclusive or non-exclusive, and if exclusive, define the scope of exclusivity by geography, industry sector, or opportunity type. Establish any reporting obligations, such as periodic updates on introduction activity, documentation requirements for claimed introductions, or communication protocols for presenting opportunities to the client.\n\n## Compensation Structure with Mathematical Precision and Triggering Events\n\nDraft the compensation provisions to eliminate any possibility of dispute about when fees are earned and how they are calculated. If compensation is percentage-based, define the exact calculation methodology, specifying whether the percentage applies to total transaction value, initial payments only, recurring revenue streams, or some combination thereof. For transactions involving multiple payment stages, earnouts, or deferred consideration, establish clearly how and when the finder participates in such payments. Define the triggering event for fee payment with specificity\u2014common triggers include execution of a definitive agreement, closing of a transaction, receipt of payment by the client, or achievement of specific milestones. Specify the payment timeline, typically within thirty to sixty days of the triggering event, and the payment method. Address potential complications such as transactions that are restructured, opportunities that result in multiple related transactions, or situations where introduced parties engage with the client in ways different from originally anticipated. Include provisions addressing the finder's sole responsibility for income taxes, self-employment taxes, and any applicable withholding obligations. Consider whether fee caps are appropriate for very large transactions, and address how fees will be allocated if multiple finders claim credit for the same opportunity.\n\n## Term Duration, Termination Rights, and Post-Termination Fee Entitlement\n\nEstablish the agreement's effective date and duration, either as a fixed term or an ongoing arrangement terminable by either party upon written notice. Specify the required notice period for termination without cause, typically thirty to ninety days, and address whether immediate termination is permitted for cause such as material breach, regulatory violations, or fraudulent conduct. The most critical and frequently disputed aspect of finder's fee agreements involves post-termination fee entitlement, commonly known as the tail period. Draft provisions that clearly establish whether the finder remains entitled to fees for introductions made during the active term that result in transactions after termination, and if so, for how long. Tail periods typically range from six months to two years depending on the nature of opportunities and typical transaction timelines in the relevant industry. Define what constitutes a qualifying introduction during the term, such as documented presentation of an opportunity to the client with sufficient identifying information. Address whether the tail period applies only to specific identified opportunities or to any transaction with parties introduced during the term. Consider including a sunset provision where the fee percentage decreases over time during the tail period to reflect the diminishing connection between the finder's introduction and the eventual transaction.\n\n## Confidentiality Obligations and Proprietary Information Protection\n\nRecognize that the finder will likely receive sensitive business information, strategic plans, acquisition criteria, financial data, customer lists, pricing information, and other proprietary information that requires protection. Define confidential information broadly to encompass all non-public information disclosed by either party in connection with the agreement, whether disclosed orally, in writing, electronically, or through observation. Include standard exceptions for information that is publicly available through no breach of the agreement, independently developed without reference to confidential information, rightfully obtained from third parties without confidentiality restrictions, or required to be disclosed by law or court order. Impose specific obligations on the finder to maintain confidentiality, use confidential information solely for performing services under the agreement, implement reasonable security measures to prevent unauthorized disclosure, and refrain from disclosing even the existence of the agreement or the client's interest in particular opportunities without prior consent. Address the treatment of confidential information upon termination, requiring return or certified destruction of all confidential materials and any copies. Specify that confidentiality obligations survive termination indefinitely for trade secrets and for a defined period of three to five years for other confidential information. Include provisions addressing required legal disclosures, obligating the finder to provide prompt notice to the client of any subpoena, court order, or regulatory demand for confidential information so the client can seek protective orders.\n\n## Representations, Warranties, and Compliance Certifications\n\nInclude comprehensive representations and warranties that allocate risk and establish baseline expectations for both parties' conduct. The finder should represent and warrant that they possess full authority to enter into and perform under the agreement without violating any other contractual obligations or confidentiality restrictions. Critical compliance representations should confirm that the finder will comply with all applicable laws including anti-bribery and anti-corruption laws such as the Foreign Corrupt Practices Act and UK Bribery Act, that they will not offer or provide anything of value to government officials or private parties to improperly influence business decisions, and that they will conduct all activities in accordance with applicable industry regulations. Address licensing requirements by having the finder represent either that no broker-dealer, investment adviser, or other professional license is required for the contemplated services, or alternatively, that the finder maintains all necessary licenses in good standing. Include representations that the finder has no conflicts of interest that would impair their ability to perform services impartially, or has disclosed all such conflicts in writing. The finder should warrant that they will not make any misrepresentations or engage in fraudulent conduct in connection with introductions, and that all information provided about opportunities will be accurate to the best of their knowledge. The client should represent that it has authority to enter the agreement and will conduct its own independent due diligence on all opportunities, relying on its own professional advisors rather than on any advice from the finder. Consider including an explicit acknowledgment that the finder is not providing legal, financial, tax, investment, or other professional advice, and that the client will make all business decisions independently.\n\n## Indemnification Provisions and Liability Limitations\n\nDraft mutual indemnification provisions that appropriately allocate risk based on each party's conduct and control. The finder should indemnify and hold harmless the client against third-party claims, damages, losses, and expenses (including reasonable attorneys' fees) arising from the finder's breach of representations or warranties, violation of applicable laws, negligent or willful misconduct, or unauthorized disclosure of confidential information. The client should indemnify the finder against claims arising from the client's use of introduced opportunities, the client's own misconduct or breach, or the client's products, services, or business operations. Structure the indemnification provisions to require prompt written notice of claims, the opportunity to control the defense, and reasonable cooperation from the indemnified party. Consider including provisions that limit or exclude liability for consequential, incidental, indirect, special, or punitive damages, recognizing that such limitations may not be enforceable for certain types of claims such as fraud, willful misconduct, or breach of confidentiality. Evaluate whether to include an overall liability cap, typically limiting total liability to the fees paid or payable under the agreement, while potentially carving out certain obligations from the cap such as confidentiality breaches or indemnification obligations. Ensure that indemnification provisions comply with public policy limitations in the governing jurisdiction and do not attempt to indemnify against the indemnitee's own negligence where such provisions are unenforceable.\n\n## Governing Law Selection and Dispute Resolution Mechanisms\n\nSpecify the governing law with precision, typically selecting the law of the state where the client is headquartered, where the agreement is executed, or where the finder primarily operates, expressly excluding that jurisdiction's conflict of laws principles that might point to another state's law. Consider whether to include a dispute resolution clause requiring alternative dispute resolution before litigation, which can reduce costs and maintain confidentiality. A tiered dispute resolution approach might require good faith negotiation between senior executives for thirty days, followed by mediation under specified rules (such as JAMS or American Arbitration Association mediation procedures) before either party may pursue arbitration or litigation. If including an arbitration provision, specify whether arbitration is binding, the arbitration rules that will govern (such as AAA Commercial Arbitration Rules), the number of arbitrators (typically one for smaller disputes, three for larger ones), the location of arbitration, and how arbitrator fees will be allocated. Address whether arbitration decisions are subject to appeal and how discovery will be handled in arbitration. Alternatively, if the parties prefer litigation, include a consent to jurisdiction and venue clause specifying the exclusive courts where disputes must be brought, along with a waiver of any objection to personal jurisdiction or venue in those courts. Consider including a prevailing party attorneys' fees provision, which can discourage frivolous claims and provide cost recovery for the successful party, though recognize this creates mutual risk. Address whether the parties must continue performing their obligations during a dispute, typically requiring continued performance except for payment obligations that are genuinely contested in good faith.\n\n## Independent Contractor Status and Tax Treatment Clarification\n\nInclude explicit provisions establishing that the finder is an independent contractor, not an employee, agent, partner, or joint venturer with the client. Specify that the finder has no authority to bind the client, make commitments on the client's behalf, or create obligations for the client. Clarify that the finder is solely responsible for all taxes arising from compensation received under the agreement, including federal and state income taxes, self-employment taxes, and any other applicable taxes. State that the finder will receive IRS Form 1099 rather than Form W-2, and that the client will not withhold taxes, provide employee benefits, or make contributions to social security, unemployment insurance, or workers' compensation on the finder's behalf. Address the finder's responsibility to maintain their own insurance coverage, including professional liability insurance if appropriate to the services. Specify that the finder controls the manner and means of performing services, subject to achieving the results specified in the agreement, and that the finder may use their own equipment, resources, and methods. These provisions help establish independent contractor status for tax purposes and reduce the risk of the relationship being recharacterized as employment, which could create significant tax liabilities and benefit obligations for the client.\n\n## General Provisions That Ensure Enforceability and Completeness\n\nInclude a comprehensive set of general provisions that address standard contractual issues and ensure the agreement's enforceability. Draft an entire agreement clause stating that this agreement constitutes the complete understanding between the parties regarding the subject matter and supersedes all prior negotiations, understandings, and agreements, whether written or oral. Require that any amendments or modifications be made in writing and signed by both parties, preventing claims of oral modifications. Address assignment rights, typically prohibiting the finder from assigning the agreement or delegating duties without the client's prior written consent, while permitting the client to assign to affiliates, subsidiaries, or successors in connection with mergers, acquisitions, or corporate reorganizations. Include a severability provision stating that if any provision is found invalid or unenforceable, the remaining provisions continue in full force and effect, and the invalid provision will be reformed to the minimum extent necessary to make it enforceable while preserving the parties' intent. Draft a notices provision specifying how all notices, requests, and other communications must be delivered (such as by email to specified addresses with confirmation, by certified mail return receipt requested, or by overnight courier), to which addresses, and when notice is deemed received. Include a waiver provision clarifying that failure to enforce any right or provision does not constitute a waiver of that right or provision, and that any waiver must be in writing to be effective. Address whether the agreement may be executed in counterparts, each of which constitutes an original but all of which together constitute one agreement, and whether electronic signatures are acceptable and have the same legal effect as original signatures. Consider including a force majeure clause excusing performance delays caused by circumstances beyond a party's reasonable control, though carefully consider whether this is appropriate for a finder's fee agreement where services are typically not time-critical.\n\n## Document Structure, Drafting Style, and Professional Presentation\n\nOrganize the agreement in a logical sequence with numbered articles and sections, using descriptive headings that facilitate navigation and reference. Begin with the parties identification and recitals, followed by the operative provisions addressing services, compensation, term, confidentiality, representations, indemnification, and dispute resolution, and conclude with general provisions and signature blocks. Use defined terms consistently throughout the document, capitalizing defined terms and providing clear definitions in a definitions section or upon first use. Maintain parallel structure in similar provisions, use active voice where possible, and avoid archaic legal terminology that obscures meaning without adding precision. Draft in clear, professional language appropriate for a binding corporate contract while ensuring accessibility to business professionals who will need to understand their rights and obligations. Ensure all cross-references are accurate and update automatically if sections are renumbered. Include appropriate transition language between sections to create a cohesive document rather than a series of disconnected provisions. Provide signature blocks with spaces for printed names, titles (for corporate signatories), and dates, ensuring that corporate parties sign through authorized officers or representatives. Consider whether to include exhibits such as a description of target opportunities, fee calculation examples, or forms of introduction documentation that the finder should use.\n\n## Customization Based on Transaction Context and Industry Norms\n\nTailor the specific terms of the agreement to reflect the business context, industry practices, and the parties' commercial expectations. For finder's fees in mergers and acquisitions contexts, consider Lehman formula fee structures or other industry-standard approaches, and address how fees are affected by earnouts, escrows, or purchase price adjustments. For finders introducing potential customers, consider whether fees should be based on initial contract value, lifetime customer value, or recurring revenue over a defined period. In capital raising contexts, ensure strict compliance with securities laws and consider whether the finder must be a registered broker-dealer, and if so, include appropriate representations and documentation requirements. Address geographic scope based on where the client seeks opportunities and where the finder has relevant contacts. Consider exclusivity carefully, recognizing that exclusive arrangements may justify higher fees but limit the client's flexibility, while non-exclusive arrangements allow multiple finders but may create disputes about who deserves credit for an introduction. Adjust the term length based on the typical sales cycle or transaction timeline in the relevant industry, with shorter terms for transactional introductions and longer terms for relationship-based opportunities. Set tail periods that reflect how long introduced relationships typically take to mature into transactions, with longer tails for complex transactions like mergers and acquisitions and shorter tails for straightforward customer introductions. Throughout the drafting process, balance the need for comprehensive legal protection with the practical reality that overly complex or one-sided agreements may discourage finders from executing or performing effectively, and ensure that the agreement reflects a fair allocation of risk and reward that will sustain a productive business relationship.",
+  "parent_skill_id": "dff94cd3-1513-4427-8bbe-6d4721e158d9",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "mergers_and_acquisitions"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:50:55.658139Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Crafting finders-fee-agreement skill**
+
+I'm preparing a concise SKILL.md for a Finder's Fee Agreement focused on Corporate and Transactional practice areas, covering drafting mode. It includes a purpose statement, a numbered prerequisites list, sections with checklists, key legal references like securities laws and broker-dealer regulations, and avoids nested bullets per instructions.
+thinking
+**Outlining detailed finder’s fee agreement structure**
+
+I'm drafting a structured Finder's Fee Agreement skill with defined terms, sequential sections with checklists, regulatory decision gates, exclusivity matrices, and templates for compensation and tails. It covers key compliance notes for securities broker-dealer issues, anti-corruption, and jurisdiction caveats, ensuring a clear, flat-list format under 150 lines for drafting use.
+codex
+---
+name: finders-fee-agreement
+description: Drafts U.S. corporate Finder's Fee Agreements for introductions of M&A targets, investors, strategic partners, or customers, with broker-dealer, anti-corruption, and licensing guardrails. Use when drafting finder, introducer, referral-fee, or business-opportunity agreements, especially in corporate development, M&A, or capital-raising contexts.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Finder's Fee Agreement
+
+Produce a contract that compensates an introducer while constraining activities to avoid broker-dealer or agency status.
+
+## Prerequisites
+
+1. **Parties** — legal names, entity types, jurisdictions, addresses, signatories, authority.
+2. **Opportunity scope** — target type, industry, geography, deal size, exclusions.
+3. **Compensation model** — percentage, flat, tiers, caps, earnouts, payment timing.
+4. **Regulatory posture** — securities vs non-securities, licensing status, any exemptions.
+5. **Exclusivity + term** — exclusive or not, term length, termination rights, tail period.
+6. **Confidentiality** — NDA terms, permitted use, disclosure triggers.
+7. **Dispute framework** — governing law, venue/arbitration, fees.
+
+## Output Structure / Process
+
+### 1) Definitions (table)
+
+| Term | Definition |
+| --- | --- |
+| Client | Contracting entity receiving introductions. |
+| Finder | Independent contractor providing introductions. |
+| Opportunity | Specific category of target parties and transactions. |
+| Qualified Introduction | Documented intro meeting criteria and client acknowledgment. |
+| Transaction | Definitive agreement or closing event that triggers fees. |
+| Transaction Value | Defined base for fee calculation. |
+| Fee | Amount payable for a Qualified Introduction that results in a Transaction. |
+| Tail Period | Post-termination window for fee eligibility. |
+
+### 2) Parties + Recitals (checklist)
+
+- Identify each party with jurisdiction and address.
+- Recite business purpose and scope of opportunities.
+- State Finder’s network/experience basis for engagement.
+
+### 3) Services + Limitations (checklist)
+
+- Finder’s role limited to introductions and basic background information.
+- Explicitly exclude negotiation, structuring, valuation, advice, or solicitation.
+- No authority to bind Client or act as agent.
+
+### 4) Exclusivity Matrix (table)
+
+| Scope | Exclusive? | Carve-outs |
+| --- | --- | --- |
+| Industry | Yes/No | Existing relationships |
+| Geography | Yes/No | Named exclusions |
+| Opportunity Type | Yes/No | Client-initiated deals |
+
+### 5) Compensation Formula (table)
+
+| Component | Rule |
+| --- | --- |
+| Fee Base | `Transaction Value` definition (include/exclude earnouts, escrows). |
+| Rate | % or flat; tiers if applicable. |
+| Trigger | Signature, closing, or receipt of funds. |
+| Timing | Pay within X days of trigger. |
+| Cap/Min | Any fee cap or minimum. |
+| Allocation | Multiple finders; priority or pro‑rata rule. |
+
+### 6) Tail Period (table)
+
+| Tail Length | Applies To | Proof Required |
+| --- | --- | --- |
+| X months | Introduced parties | Written introduction + client acknowledgment |
+
+### 7) Regulatory Gate (decision table)
+
+| Scenario | Required Clause |
+| --- | --- |
+| Non-securities opportunities | Confirm no securities solicitation; no transaction-based fees tied to securities. |
+| Securities-related | Finder represents broker-dealer registration or exemption basis [VERIFY]. |
+| Foreign introductions | FCPA/UK Bribery Act compliance representations. |
+| Regulated industry | Add industry compliance (e.g., healthcare AKS [VERIFY], insurance licensing). |
+
+### 8) Confidentiality (checklist)
+
+- Define Confidential Information and exceptions.
+- Use-only-for-performance restriction.
+- Return/destroy on termination.
+- Survival: trade secrets indefinite; other confidential info X years.
+
+### 9) Representations + Compliance (checklist)
+
+- Authority, no conflicts, compliance with laws.
+- No bribery, kickbacks, or improper payments.
+- No misrepresentation of Client or Opportunity.
+- Client performs independent due diligence.
+
+### 10) Indemnity + Liability (checklist)
+
+- Mutual indemnities tied to breach, misconduct, or legal violations.
+- Notice, defense control, cooperation mechanics.
+- Liability cap and carve-outs (fraud, willful misconduct, confidentiality).
+
+### 11) Disputes (options)
+
+- **Option A: Arbitration** — rules, seat, arbitrator count, fees, interim relief.
+- **Option B: Litigation** — exclusive venue, consent to jurisdiction.
+- Include attorneys’ fees provision if desired.
+
+### 12) Miscellaneous (checklist)
+
+- Independent contractor; no employment or agency.
+- Tax responsibility; 1099; no benefits.
+- Assignment restrictions; client assignment to affiliates.
+- Entire agreement; amendments in writing.
+- Notices with delivery methods and deemed receipt.
+- Counterparts and e-signatures.
+
+### Required Clause Blocks (templates)
+
+```text
+Finder Role Limitation.
+Finder will solely identify and introduce potential Opportunities to Client. Finder will not: (i) negotiate terms; (ii) provide legal, tax, investment, or valuation advice; (iii) solicit offers to buy or sell securities; or (iv) bind Client in any manner.
+```
+
+```text
+Broker-Dealer Compliance.
+Finder represents that the Services do not require broker-dealer registration under federal or state law, or that Finder holds all required registrations and licenses and will provide evidence upon request. [VERIFY]
+```
+
+```text
+Anti-Corruption.
+Finder will comply with all applicable anti-corruption laws, including the FCPA and UK Bribery Act, and will not offer or provide anything of value to influence any decision or obtain improper advantage.
+```
+
+## Guidelines
+
+- Do not imply agency, fiduciary duty, or authority to negotiate.
+- Avoid transaction-based fees tied to securities unless broker-dealer registration is addressed. [VERIFY]
+- Tail period must be tied to a documented Qualified Introduction.
+- Add state finder-fee statute references only if confirmed. [VERIFY]
+- If government entities or healthcare referrals are involved, include specific anti‑kickback language. [VERIFY]
+- Keep fee calculation definitions unambiguous; define `Transaction Value` precisely.
+tokens used
+15,931

@@ -1,0 +1,68 @@
+{
+  "id": "690988d2-05d8-4e85-b5b0-443a6b13a9d1",
+  "slug": "bankruptcy-collateral-valuation-reference",
+  "name": "Collateral Valuation Reference (Bankruptcy Claims)",
+  "summary": "Reference guide for valuing collateral in bankruptcy secured claims. Covers valuation standards by collateral type (real property, vehicles, equipment, accounts receivable, inventory), valuation source hierarchy, Chapter 7 vs. Chapter 13 valuation differences, and deficiency calculations. Use this skill when determining the secured portion of a claim, preparing for valuation disputes, or calculating unsecured deficiency amounts. Essential companion to proof of claim drafting for secured creditors.",
+  "content": "You are assisting with collateral valuation for bankruptcy secured claims. Your task is to help determine appropriate collateral values, identify valuation sources, and calculate the secured and unsecured portions of claims.\n\n### Valuation Standards by Collateral Type\n\n**Real Property**\n\n| Valuation Source | Reliability | When to Use |\n|------------------|-------------|-------------|\n| Professional appraisal (MAI) | Highest | Claims over $50K, contested values, commercial property |\n| BPO (Broker Price Opinion) | Medium | Moderate claims, residential property, quick turnaround needed |\n| Tax assessment | Low-Medium | Baseline when no other data; often understates market value |\n| Zillow/Redfin estimate | Low | Preliminary estimate only; not suitable for court filings |\n\nRequired information for real property valuation:\n- Property address and legal description\n- Property type (single-family, multi-family, commercial, land)\n- Approximate square footage and lot size\n- Condition and any known defects\n- Date of valuation\n- Comparable sales data (if using market approach)\n\n**Vehicles**\n\n| Valuation Source | Reliability | Notes |\n|------------------|-------------|-------|\n| NADA Guides | High | Industry standard for banks and credit unions |\n| Kelley Blue Book | High | Consumer-facing, widely accepted by courts |\n| Black Book | High | Wholesale/auction values; useful for trade-in scenarios |\n| Dealer quote | Medium | Document in writing; may reflect retail or wholesale |\n\nRequired information for vehicle valuation:\n- Year, make, model, trim level\n- Vehicle Identification Number (VIN)\n- Current mileage\n- Condition assessment (excellent, good, fair, poor)\n- Optional equipment and features\n- Retail vs. wholesale value (specify which is used)\n\n**Equipment and Machinery**\n\n| Valuation Source | Reliability | Notes |\n|------------------|-------------|-------|\n| Certified equipment appraisal | Highest | Required for specialized or high-value equipment |\n| Industry pricing guides | Medium | Rouse, IronPlanet, Equipment Watch (sector-specific) |\n| Comparable auction sales | Medium | Recent results from Ritchie Bros., other auctions |\n| Depreciated book value | Low | Accounting value often differs from market value |\n\nFor specialized equipment, consider:\n- Age and remaining useful life\n- Maintenance history and condition\n- Technological obsolescence\n- Market demand in the relevant industry\n- Cost to remove and transport\n\n**Accounts Receivable**\n\nCalculate net collectible value:\n\n```\nGross A/R Balance:                    $______________\nLess: Doubtful/uncollectible         ($______________)\nLess: Disputed amounts               ($______________)\nLess: Contra accounts/offsets        ($______________)\nLess: Aging discount (see below)     ($______________)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nNet Collectible Value:                $______________\n```\n\nAging adjustment factors (typical):\n\n| Aging Category | Collection Rate | Adjustment |\n|----------------|-----------------|------------|\n| Current (0-30 days) | 95-100% | 0-5% discount |\n| 31-60 days | 85-90% | 10-15% discount |\n| 61-90 days | 70-80% | 20-30% discount |\n| 91-120 days | 40-60% | 40-60% discount |\n| Over 120 days | 10-30% | 70-90% discount |\n\nAdjust rates based on industry norms, debtor's historical collection experience, and nature of account debtors.\n\n**Inventory**\n\n| Inventory Type | Valuation Method |\n|----------------|------------------|\n| Raw materials | Lower of cost or market |\n| Work in progress | Percentage of completion \u00d7 expected finished value |\n| Finished goods | Net realizable value (selling price less costs to sell) |\n| Obsolete/slow-moving | Liquidation value only |\n\nConsider:\n- FIFO vs. LIFO accounting method\n- Market demand for the specific inventory\n- Seasonality and shelf life\n- Costs to store, market, and sell\n- Whether sale requires going-concern operations\n\n### Chapter 7 vs. Chapter 13 Valuation Standards\n\n**Chapter 7 (Liquidation)**\n\nUse **liquidation value**\u2014the price achievable in a quick, forced sale:\n\n- Typically 50-70% of retail/replacement value\n- Assumes distressed sale conditions\n- Considers costs of sale (auction fees, transport, storage)\n- Appropriate because assets will actually be liquidated\n\n**Chapter 13 (Reorganization)**\n\nUse **replacement value** for personal property per *Associates Commercial Corp. v. Rash*, 520 U.S. 953 (1997):\n\n- \"The price a debtor would have to pay for comparable property\"\n- Retail replacement cost, not wholesale\n- Considers the property's condition and age\n- Does not include costs a dealer would incur (profit margin, warranties)\n\nThe *Rash* standard generally results in higher valuations than liquidation value.\n\n**Practical Implications**\n\n| Chapter | Valuation Standard | Effect on Secured Claim |\n|---------|-------------------|------------------------|\n| Chapter 7 | Liquidation | Lower collateral value = larger unsecured deficiency |\n| Chapter 13 | Replacement | Higher collateral value = larger secured claim paid through plan |\n\n### Deficiency Calculation\n\nWhen debt exceeds collateral value, calculate the secured and unsecured portions:\n\n```\nTotal Debt Owed:                      $______________\n  (Principal + Interest + Fees)\n  \nCollateral Value:                     $______________\n  (Per valuation method above)\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nIf Debt \u2264 Collateral Value:\n  Secured Claim:                      $______________ (entire debt)\n  Unsecured Deficiency:               $0\n\nIf Debt > Collateral Value:\n  Secured Claim:                      $______________ (= collateral value)\n  Unsecured Deficiency:               $______________ (= debt - collateral)\n```\n\n**Example:**\n\n```\nTotal Debt (principal + interest):    $100,000\nCollateral Value (vehicle):           $ 75,000\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nSecured Claim (Box 9):                $ 75,000\nUnsecured Deficiency (Box 11):        $ 25,000\n```\n\n### Special Valuation Rules\n\n**910-Day Rule (Chapter 13 Vehicles)**\n\nUnder 11 U.S.C. \u00a7 1325(a), if the debt was incurred within 910 days of filing AND the collateral is a motor vehicle acquired for personal use:\n\n- Debtor CANNOT cram down the secured claim to collateral value\n- Creditor is entitled to payment of full debt as a secured claim\n- Known as the \"hanging paragraph\" exception\n\n**Real Property Exception (Chapter 13)**\n\nSecured claims on the debtor's principal residence cannot be modified in Chapter 13. The creditor is entitled to:\n- Cure of arrearages through the plan\n- Maintenance of regular payments\n- Full contractual terms\n\n**Oversecured vs. Undersecured**\n\n| Status | Definition | Post-Petition Interest |\n|--------|------------|----------------------|\n| Oversecured | Collateral value > Total debt | Entitled to post-petition interest under \u00a7 506(b) |\n| Undersecured | Collateral value < Total debt | No post-petition interest on secured portion |\n\n### Documentation Requirements\n\nFor any valuation, document:\n\n1. **Source**: Who prepared the valuation, their qualifications\n2. **Date**: When the valuation was performed (must be reasonably current)\n3. **Methodology**: Approach used (market, cost, income)\n4. **Assumptions**: Key assumptions underlying the value\n5. **Comparables**: Supporting data (sales, listings, auction results)\n6. **Condition**: Assessment of the collateral's current condition\n\n### Valuation Disputes\n\nIf the debtor or trustee disputes the collateral value:\n\n**Preparation:**\n- Obtain professional appraisal if not already done\n- Gather comparable sales/auction data\n- Document collateral condition with photographs\n- Identify any encumbrances or title issues affecting value\n\n**Hearing:**\n- Be prepared to present valuation evidence\n- Anticipate debtor's valuation methodology\n- Consider whether stipulation is possible\n- Evaluate cost-benefit of litigation vs. compromise\n\n---\n\n## Cross-References\n\n- @bankruptcy-proof-of-claim \u2014 Main proof of claim drafting skill\n- @bankruptcy-interest-calculation-reference \u2014 Interest calculations for claim amounts\n- @bankruptcy-objection-to-proof-of-claim \u2014 Challenging collateral valuations\n- @ucc-perfection-analysis \u2014 Security interest perfection and priority\n- @bankruptcy-chapter-13-plan-analysis \u2014 Plan treatment of secured claims\n\n---\n\n## References\n\n- 11 U.S.C. \u00a7 506 (Determination of Secured Status)\n- 11 U.S.C. \u00a7 1325(a) (Chapter 13 Plan Confirmation\u2014910-Day Rule)\n- *Associates Commercial Corp. v. Rash*, 520 U.S. 953 (1997) (Replacement Value Standard)\n- *Till v. SCS Credit Corp.*, 541 U.S. 465 (2004) (Cram Down Interest Rate)\n- Federal Rule of Bankruptcy Procedure 3012 (Valuation of Security)\n- Uniform Standards of Professional Appraisal Practice (USPAP)",
+  "parent_skill_id": "addcaec6-ecc8-4c88-b6de-88e135ef28b3",
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "license": "Apache-2.0",
+    "keywords": [
+      "bankruptcy",
+      "proof of claim",
+      "creditor",
+      "chapter 7",
+      "chapter 13",
+      "secured",
+      "unsecured",
+      "collateral",
+      "valuation",
+      "claim",
+      "deficiency"
+    ],
+    "complexity": "Intermediate",
+    "industries": [],
+    "author_name": "CaseMark Legal Team",
+    "party_roles": [
+      "Creditor",
+      "Creditor's Counsel",
+      "Secured Party"
+    ],
+    "skill_modes": [
+      "Analysis",
+      "Valuation"
+    ],
+    "court_systems": [
+      "US Bankruptcy Court"
+    ],
+    "jurisdictions": [
+      "US Federal"
+    ],
+    "matter_phases": [
+      "Post-Petition",
+      "Claims Administration",
+      "Plan Confirmation"
+    ],
+    "document_types": [
+      "Reference",
+      "Analysis"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Bankruptcy"
+    ],
+    "author_linkedin": "https://linkedin.com/company/casemark",
+    "sub_practice_areas": [
+      "Bankruptcy Litigation",
+      "Creditor Rights",
+      "Secured Transactions"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-05T01:11:46.546927",
+  "updated_at": "2026-02-05T01:11:46.546927"
+}

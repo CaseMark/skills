@@ -1,0 +1,44 @@
+{
+  "id": "c95161fd-c9bc-49ee-b6e6-2ec327eae5fc",
+  "slug": "independent-medical-examination-ime-report-summary",
+  "name": "Independent Medical Examination (IME) Report Summary",
+  "summary": "Analyzes the defense's Independent Medical Examination (IME) report by summarizing the expert's findings and opinions, comparing them to the client's treating physicians' records, and identifying weaknesses, biases, or contradictions for cross-examination. Generates a strategic critical analysis to exploit vulnerabilities in the defense position during case preparation. Use this skill in personal injury litigation during discovery or pre-trial phases when reviewing defense medical expert reports.",
+  "content": "# Independent Medical Examination (IME) Report Summary - Enhanced Workflow\n\nYou are tasked with creating a comprehensive critical analysis of an Independent Medical Examination (IME) report prepared by the defense's medical expert. This analysis must serve as a strategic tool for identifying weaknesses, biases, and contradictions that can be exploited during cross-examination and case preparation.\n\n## Workflow Objectives and Scope\n\nBegin by thoroughly examining all uploaded case documents to locate the IME report and related medical records. Your analysis must accomplish three primary objectives: first, provide a complete and accurate summary of the defense expert's findings and opinions; second, conduct a detailed comparison between the IME conclusions and the treating physicians' records to identify discrepancies; and third, highlight specific vulnerabilities in the IME that can be challenged at deposition or trial.\n\n## Document Analysis and Information Gathering\n\nSearch through all uploaded documents to extract the complete factual foundation for your analysis. Identify and review the IME report itself, all treating physician records and notes, diagnostic imaging reports, therapy records, and any prior medical examinations. Pay particular attention to dates of treatment, specific diagnoses, functional limitations documented over time, and the progression of the client's condition. Extract direct quotes from both the IME and treating records that demonstrate contradictions or inconsistencies.\n\nCross-reference the IME examiner's stated credentials and methodology against recognized medical-legal standards. Research current medical literature and authoritative sources to verify whether the examination techniques, diagnostic criteria, and causation analysis employed by the defense expert align with accepted practices in the relevant medical specialty.\n\n## Critical Analysis Framework\n\nStructure your analysis to expose the strategic weaknesses in the defense position. Begin with a detailed introduction that identifies the IME examiner, the referral source (typically defense counsel or insurance carrier), the date and location of examination, and the specific questions the examiner was asked to address. Note any limitations in the scope of examination or records reviewed.\n\nPresent comprehensive examinee information including the client's demographics, detailed injury mechanism, current symptoms and complaints, treatment history, and the legal context of the claim. This section should establish the baseline against which the IME will be measured.\n\nCatalog every medical record, report, and document the IME examiner claims to have reviewed. Compare this list against the complete medical file to identify any critical records that were omitted from the examiner's review\u2014such omissions often indicate bias or provide grounds for challenging the expert's opinions as incomplete.\n\nAnalyze the history section of the IME with particular scrutiny. Document instances where the examiner's recitation of the patient's history differs from what is recorded in treating physician notes. Identify any symptoms, complaints, or functional limitations that the patient reported to treating doctors but that are minimized or absent from the IME history. Note whether the examiner's physical examination was comprehensive or cursory, and compare examination findings with those documented by treating physicians on similar dates.\n\n## Comparative Medical Analysis\n\nCreate a detailed comparison chart or narrative that places the IME diagnosis and opinions alongside the treating physicians' diagnoses and treatment recommendations. Highlight every point of divergence, particularly regarding causation (whether the injury was caused by the incident in question), maximum medical improvement (whether the patient has recovered as much as possible), permanent impairment ratings, need for future medical care, and work restrictions or disability status.\n\nResearch and cite authoritative medical-legal resources to establish the standard of care and accepted diagnostic criteria for the client's injuries. When the IME examiner's opinions deviate from these standards or from the consensus of treating physicians, document this with specific citations to medical literature, AMA Guides to the Evaluation of Permanent Impairment, specialty-specific guidelines, and relevant case law addressing similar medical-legal issues.\n\n## Identifying Bias and Impeachment Opportunities\n\nExamine the IME for indicators of bias or advocacy for the defense position. Common red flags include: minimization of subjective complaints without objective basis, selective citation of medical records that support defense theories while ignoring contrary evidence, use of outdated or non-standard diagnostic criteria, opinions on causation that exceed the examiner's expertise, and conclusions that appear predetermined rather than based on examination findings.\n\nResearch the IME examiner's background, including their history of testifying for defendants versus plaintiffs, any disciplinary actions or published criticisms of their methodology, and whether they derive substantial income from medical-legal examinations rather than patient care. Document any financial incentives or relationships with the referring party that could suggest bias.\n\n## Strategic Recommendations and Cross-Examination Preparation\n\nConclude with a strategic section that synthesizes your findings into actionable recommendations. Identify the three to five most significant vulnerabilities in the IME that should be prioritized for cross-examination. For each vulnerability, provide the specific documentary evidence or medical authority that contradicts the examiner's position.\n\nRecommend specific areas for deposition questioning, including gaps in the examiner's review of records, inconsistencies between the examination findings and the written report, and opinions that lack adequate foundation. Suggest additional expert consultation or supplemental medical evidence that may be needed to rebut the IME effectively.\n\nAddress the practical implications of the IME for case valuation and settlement strategy. If the IME significantly undermines the defense position, note this as leverage for negotiations. If the IME presents serious challenges, identify the steps needed to rehabilitate the client's medical case.\n\n## Final Document Assembly\n\nOnce you have completed your comprehensive research, analysis, and comparison of all medical evidence, compile your findings into a well-organized memorandum. The document should be immediately useful to trial counsel, providing both a detailed reference for understanding the medical issues and a strategic roadmap for challenging the defense expert. Ensure all factual assertions are supported by specific citations to the record, and all legal or medical standards are properly attributed to authoritative sources.\n\nThe final work product must be thorough enough to serve as the foundation for expert witness preparation, cross-examination outlines, and motion practice related to the admissibility or weight of the defense medical opinions.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.400631",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

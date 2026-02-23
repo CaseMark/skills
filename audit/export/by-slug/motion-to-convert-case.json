@@ -1,0 +1,42 @@
+{
+  "id": "c251d741-d1aa-48c8-8e0f-9ee0801f442e",
+  "slug": "motion-to-convert-case",
+  "name": "Motion to Convert Case",
+  "summary": "Drafts a formal Motion to Convert Case for bankruptcy litigation under 11 U.S.C. \u00a7 706. Used to request conversion from one bankruptcy chapter to another, such as Chapter 7 to Chapter 13, with structured sections including caption, facts, and legal arguments compliant with federal and local rules. Extracts case details from documents to build a compelling, objective narrative.",
+  "content": "# Motion to Convert Case - Enhanced Workflow Prompt\n\nYou are drafting a Motion to Convert Case, a formal litigation document typically used in bankruptcy proceedings to request conversion from one chapter to another (most commonly from Chapter 7 to Chapter 13 under 11 U.S.C. \u00a7 706). This motion must be precise, well-supported, and compliant with both federal bankruptcy rules and local court requirements.\n\n## Document Structure and Development Process\n\nBegin by establishing the proper caption and court header. The caption must include the full court name with jurisdiction, the complete case number, all party names (debtor, trustee, and any relevant creditors), and the formal title \"Motion to Convert Case Under 11 U.S.C. \u00a7 706\" or the applicable statutory provision. Research current court formatting requirements from official sources such as USCourts.gov or the specific bankruptcy court's local rules to ensure compliance with caption standards, font requirements, and margin specifications.\n\nThe introduction should immediately state the movant's identity and the specific relief sought. Clearly articulate whether the motion seeks conversion from Chapter 7 to Chapter 13, Chapter 13 to Chapter 7, or another chapter conversion. Reference the controlling statutory authority (typically 11 U.S.C. \u00a7 706 for debtor-initiated conversions or \u00a7 1307 for Chapter 13 conversions). Search through all uploaded case documents to extract the debtor's name, case filing date, current chapter status, and any prior conversion history. This factual foundation is critical for establishing the procedural posture and the court's familiarity with the case.\n\nDevelop a comprehensive factual background section that tells the debtor's story while maintaining professional objectivity. This narrative should explain the circumstances that led to the original bankruptcy filing, any material changes in the debtor's financial situation since filing, and the specific reasons necessitating conversion. Review uploaded financial documents, schedules, statements of financial affairs, and any amendments to identify concrete facts such as income changes, employment status, asset acquisitions or losses, and shifts in debt composition. Include specific dollar amounts, dates, and documentary references. Research best practices for factual presentations in bankruptcy motions from reputable legal resources to ensure your narrative is both compelling and appropriately restrained.\n\nThe legal argument section forms the substantive core of the motion. Construct a multi-layered argument that addresses both the statutory requirements for conversion and the equitable considerations courts examine. For debtor-initiated conversions under \u00a7 706, emphasize that conversion is generally a matter of right unless the case was previously converted or the debtor is ineligible for the target chapter. Find and verify the exact text of 11 U.S.C. \u00a7 706, \u00a7 109 (eligibility requirements), and any applicable provisions of \u00a7 1307 or \u00a7 1112. Research and cite controlling circuit precedent and relevant bankruptcy court decisions from your jurisdiction that interpret these provisions, particularly cases addressing similar factual circumstances such as income fluctuations, good faith, or feasibility of proposed plans.\n\nAddress potential counterarguments proactively. If creditors or the trustee might oppose conversion, anticipate objections based on bad faith, abuse of process, or prejudice to creditors. Distinguish unfavorable precedent and emphasize factors that demonstrate the debtor's good faith, such as full disclosure, changed circumstances beyond the debtor's control, or the benefit to creditors from conversion (for example, higher dividend potential in Chapter 13 versus Chapter 7). Verify all legal citations to ensure accuracy of case names, reporters, page numbers, and holding statements.\n\nDraft a prayer for relief that specifies exactly what the court should order. Request an order converting the case from the current chapter to the target chapter, effective as of a specific date. If applicable, request that the court set a hearing date, establish deadlines for filing a Chapter 13 plan and schedules, or provide other procedural relief. Research standard relief language from successful conversion motions to ensure your requests are appropriately framed and complete. Consider whether you need to request waiver of any fees or extension of time for compliance with new chapter requirements.\n\nConclude with a proper signature block that includes the attorney's name, bar number, firm name, complete address, telephone number, email address, and designation as \"Attorney for Debtor\" or the appropriate party designation. Include the date of signing. Append a certificate of service that certifies delivery of the motion to all required parties, including the trustee, United States Trustee, and any creditors entitled to notice under local rules. Verify the proper format for certificates of service from court templates or practice management resources to ensure compliance with local requirements regarding service methods and timing.\n\n## Final Document Creation\n\nOnce you have gathered all necessary case-specific information from uploaded documents, researched and verified all legal authorities, and confirmed procedural requirements, create a complete, professionally formatted Motion to Convert Case. The document should be ready for attorney review and filing, with all citations properly formatted in Bluebook style, all factual assertions supported by the case record, and all procedural requirements satisfied. The motion should be persuasive yet objective, demonstrating both legal entitlement to conversion and equitable grounds supporting the relief requested.",
+  "parent_skill_id": "e2706f93-2f57-48d2-adf6-247cbb765062",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "motion"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "bankruptcy-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

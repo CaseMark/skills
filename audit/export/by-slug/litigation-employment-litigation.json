@@ -1,0 +1,23 @@
+{
+  "id": "22a32815-94e1-4019-82f5-f958b8a9672a",
+  "slug": "litigation-employment-litigation",
+  "name": "Employment  Litigation",
+  "summary": "Skills related to employment  litigation within litigation practice.",
+  "content": "# Employment  Litigation\n\nThis is a sub-category under litigation practice containing specialized skills.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "employment-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

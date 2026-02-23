@@ -1,0 +1,353 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7f-2277-7673-94cd-8373057f739a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "150ff76d-cae2-4c72-b56a-8ba55eaeaf55",
+  "slug": "draft-minutes-board-of-directors-meeting",
+  "name": "Minutes of Board of Directors Meeting",
+  "summary": "Drafts comprehensive, legally compliant minutes for Board of Directors meetings that adhere to corporate governance standards and state law. Extracts and incorporates specific details from uploaded documents like agendas, bylaws, attendance records, and prior minutes to ensure precision and defensibility. Use this skill to create official records of board discussions, actions, and decisions for corporate formality.",
+  "content": "# Minutes of Board of Directors Meeting\n\nYou are tasked with drafting comprehensive Minutes of a Board of Directors Meeting that comply with corporate governance standards and state law requirements. These minutes serve as the official record of board actions and decisions, and must be precise, complete, and legally defensible. The document should reflect proper corporate formality while remaining clear and accessible.\n\nBefore beginning the drafting process, search the user's uploaded documents for any materials related to this board meeting, including agendas, reports presented, resolutions proposed, attendance records, or prior meeting minutes that may inform the current document. Extract specific factual details such as the corporation's full legal name, director names and titles, meeting date and time, location or virtual platform details, and any substantive matters discussed or voted upon. If the user has uploaded corporate bylaws or governance documents, review the specific quorum requirements, notice provisions, and procedural rules that govern board meetings for this particular corporation.\n\n## Meeting Header and Identification\n\nBegin the minutes with a complete header that establishes the meeting's legitimacy and context. Include the full legal name of the corporation exactly as it appears in the articles of incorporation, the specific date of the meeting, the exact start time, and the location. For physical meetings, provide the complete street address and room designation if applicable. For virtual meetings, specify the platform used such as Zoom, Microsoft Teams, or other videoconferencing technology, and note that directors participated remotely in accordance with the bylaws and applicable state law permitting virtual attendance.\n\nClearly state whether this is a regular meeting held pursuant to a schedule established by the bylaws or prior board resolution, a special meeting called for a specific purpose, or an emergency meeting convened under urgent circumstances. Reference the specific authority under which the meeting was called, citing the relevant bylaw provision by section number or the board resolution that authorized the meeting. For special meetings, document that proper notice was provided to all directors, specifying the number of days' notice required by the bylaws and confirming that this requirement was satisfied. If any director waived notice in writing, note this fact and indicate that the waiver is attached to the minutes or filed with corporate records.\n\n## Attendance, Quorum, and Participation\n\nDocument with precision all individuals present at the meeting, organizing them by category to provide clarity about roles and participation rights. List each director present by full name and title, noting their method of participation if attending remotely through videoconference, telephone, or other means permitted by the bylaws. Separately identify directors who were absent, and if your corporate governance policies distinguish between excused and unexcused absences, make this designation clear. Record the presence of corporate officers who are not directors, identifying them by name and title such as Chief Financial Officer, General Counsel, or Vice President of Operations.\n\nDocument any employees, outside legal counsel, accountants, consultants, or other guests who attended all or portions of the meeting, specifying their roles and the agenda items for which they were present if they did not participate in the entire session. This is particularly important when sensitive matters such as executive compensation or potential litigation are discussed in executive session with limited attendance.\n\nMost critically, include an explicit statement confirming that a quorum was present throughout the meeting as required by the corporation's bylaws. Specify both the quorum requirement drawn from the bylaws, such as \"a majority of the directors then in office\" or \"at least five directors,\" and confirm the actual number present satisfied this threshold. For example, state \"A quorum was present, with seven of the nine directors then in office participating, exceeding the requirement of a majority set forth in Article IV, Section 3 of the Bylaws.\" This confirmation is essential because corporate actions taken without proper quorum may be voidable, and the minutes must establish the validity of all proceedings.\n\n## Call to Order and Procedural Matters\n\nRecord who presided over the meeting, typically the board chair, lead independent director, or president as specified in the bylaws, and the exact time the meeting was called to order. Note whether the presiding officer confirmed that proper notice had been provided to all directors in accordance with the bylaws and applicable state corporation law, or alternatively, whether all directors were present and unanimously waived notice either in writing or by their participation without objection.\n\nIf any directors arrived after the meeting commenced or departed before adjournment, document these times with precision as they may affect whether a quorum was present for specific votes or deliberations. For example, note \"Director Martinez arrived at 10:15 a.m. during the CFO's financial report\" or \"Director Thompson departed at 11:30 a.m. prior to consideration of the merger proposal.\" Address any preliminary procedural matters such as the adoption of an agenda for the meeting, the appointment of a timekeeper for presentations, or the establishment of rules governing discussion and debate.\n\n## Approval of Previous Minutes\n\nDocument the board's consideration of minutes from the previous meeting or meetings, as this review and approval process validates the continuity and accuracy of the corporation's official record. Specify the date of the prior meeting whose minutes were reviewed, such as \"The Board considered the draft minutes of the regular meeting held on March 15, 2024.\" Record whether the minutes were approved as presented or whether any corrections, amendments, or clarifications were requested by directors who identified inaccuracies or omissions.\n\nIf amendments were made, briefly note the nature of the changes without reproducing the entire prior minutes. For example, state \"Director Chen requested correction of the vote count on the budget resolution to reflect that she voted in favor rather than abstaining, and this correction was accepted.\" Include the formal motion to approve, identifying by name the director who made the motion and the director who seconded it, and record the vote result. A typical entry would read: \"Upon motion duly made by Director Johnson and seconded by Director Williams, the minutes of the March 15, 2024 meeting were unanimously approved as amended.\"\n\n## Officer and Committee Reports\n\nProvide substantive summaries of all reports presented to the board during the meeting, capturing the essential information conveyed while avoiding unnecessary verbosity. For each officer report, identify the reporting officer by name and title, and summarize the key content including financial metrics, operational updates, strategic initiatives, risk factors, or matters requiring board attention or action. When the Chief Executive Officer presents a business update, capture major developments such as new product launches, significant customer acquisitions or losses, competitive challenges, regulatory matters, or strategic pivots. When the Chief Financial Officer presents financial results, record material metrics such as revenue, earnings, cash position, debt levels, and any significant variances from budget or prior periods.\n\nWhen committee reports are presented, identify the committee by its full name such as Audit Committee, Compensation Committee, Nominating and Corporate Governance Committee, or any special committee formed for a particular purpose. Note the committee chair presenting the report and summarize the substantive content including the committee's activities since the last board meeting, findings from any investigations or reviews conducted, and any recommendations to the full board requiring action.\n\nFocus on material information and actionable items rather than attempting to transcribe reports verbatim, which would make the minutes unwieldy and potentially create unnecessary legal exposure. If written reports were distributed to directors in advance or at the meeting, note that they were provided and indicate whether they are attached as exhibits to the minutes or filed separately with corporate records. When directors ask questions or raise concerns during reports, capture these exchanges if they clarify important matters, reveal board oversight activities, or document the board's engagement with management on material issues.\n\n## Deliberations, Motions, and Resolutions\n\nThis section forms the core of the minutes and requires meticulous attention to detail, as it documents the board's decision-making process and formal actions. For each item of business considered, provide sufficient context to make the board's actions understandable to future readers who may review these minutes months or years later, including regulators, auditors, potential acquirers, lenders, or courts evaluating whether the board fulfilled its fiduciary duties.\n\nDescribe the matter under consideration with enough specificity to identify it clearly. For example, rather than simply noting \"the Board discussed a potential acquisition,\" state \"the Board considered the proposed acquisition of TechVenture Inc., a Delaware corporation, for aggregate consideration of $50 million in cash and stock.\" Summarize the key points of discussion, focusing on the different viewpoints expressed, the material information considered by directors, the risks and benefits analyzed, and any expert advice received. Generally avoid attributing specific comments to individual directors unless legally required for matters involving conflicts of interest, or strategically important to demonstrate that a particular director raised concerns or advocated for a specific position.\n\nFor each formal motion, record the complete text of the resolution or a clear summary of the action proposed. Use precise language that leaves no ambiguity about what the board approved. Identify by name the director who made the motion and the director who seconded it. Specify the vote result with precision, indicating whether the vote was unanimous, and if not, providing the exact count of votes for, against, and abstaining. For significant matters such as major transactions, amendments to bylaws, election or removal of officers, approval of stock option plans, or other actions with substantial legal or business implications, consider recording votes by individual director name to create a clear record of each director's position.\n\nIf any director disclosed a conflict of interest and recused themselves from discussion or voting, document this carefully and completely. Note the nature of the conflict if appropriate, such as \"Director Anderson disclosed that his law firm represents the counterparty to the proposed transaction and recused himself from all discussion and voting on this matter, leaving the meeting room at 2:15 p.m. and returning at 2:45 p.m. after the vote was completed.\" This documentation demonstrates compliance with conflict of interest policies and applicable legal standards for interested-party transactions.\n\nDocument the approval of contracts, agreements, or transactions with sufficient detail to identify them clearly, including the parties involved, the general terms and conditions, and the financial amounts if material. Record the authorization of specific officers to execute documents or take particular actions on behalf of the corporation, such as \"RESOLVED, that the Chief Executive Officer is authorized to execute the Asset Purchase Agreement with Acme Corporation substantially in the form presented to the Board, with such changes as the CEO deems appropriate in consultation with legal counsel.\" Capture the adoption of corporate policies such as insider trading policies, whistleblower procedures, or environmental compliance programs. Record the approval of annual budgets or strategic financial plans, decisions regarding the declaration of dividends or other distributions to shareholders, the election or removal of officers, the appointment of committee members, the engagement of auditors or other professional advisors, and any other corporate actions taken.\n\nWhen the board approves actions that have specific legal requirements under state corporation law, such as approval of interested-party transactions, amendments to articles of incorporation or bylaws, authorization of significant asset sales, approval of mergers or other fundamental corporate changes, or ratification of actions taken by officers between meetings, ensure the minutes reflect compliance with applicable statutory procedures. This may include documentation of special voting requirements such as supermajority approval, fairness opinions obtained, shareholder approval requirements, or other heightened standards specified in the corporation's governing documents or applicable law.\n\n## Adjournment and Next Meeting\n\nNote the exact time at which the meeting was adjourned and identify the director who made the motion to adjourn if formal action was taken, though many boards adjourn by consensus without a formal motion. If the board scheduled its next regular meeting, record the date, time, and location or virtual platform to be used. If the next meeting date was not set, note that the next meeting will be called in accordance with the bylaws or as determined by the chair, which preserves flexibility while confirming compliance with governance procedures.\n\n## Authentication and Approval\n\nConclude the minutes with appropriate signature lines and approval language that authenticate the document as the official corporate record. Include a statement such as \"Respectfully submitted\" followed by a signature line for the corporate secretary or, if the secretary was absent, the assistant secretary who prepared the minutes. Provide space for the secretary's printed name, title, and the date of signing. Consider including a separate section for formal approval of the minutes at a subsequent board meeting, with language such as \"The foregoing minutes were approved by the Board of Directors at its meeting held on [date]\" followed by signature lines for the presiding officer and secretary. This dual authentication process, with initial preparation by the secretary and subsequent approval by the board at its next meeting, provides additional validation of the minutes' accuracy and completeness.\n\n## Legal and Practical Considerations\n\nThroughout the minutes, maintain an objective, factual tone that focuses on actions taken and information considered rather than subjective characterizations of discussions or personal opinions expressed. Avoid including information that is subject to attorney-client privilege, work product protection, or other confidentiality concerns beyond what is necessary for the corporate record. Strike a careful balance between providing sufficient detail to demonstrate that the board engaged in informed decision-making and exercised appropriate oversight, while avoiding unnecessary verbosity or inclusion of preliminary discussions that could create legal exposure if the minutes are later subject to discovery in litigation or regulatory investigation.\n\nRemember that these minutes may be reviewed by various audiences including shareholders exercising inspection rights, regulators conducting examinations, independent auditors verifying corporate governance, potential acquirers conducting due diligence, lenders evaluating creditworthiness, and courts assessing whether directors fulfilled their fiduciary duties. The minutes should reflect well on the board's diligence, independence, and adherence to good governance practices while protecting the corporation's legal and business interests.\n\nEnsure compliance with the specific requirements of the jurisdiction in which the corporation is incorporated, as states vary in their mandates regarding the content, retention period, and availability of board minutes. Some states require that minutes document specific information for certain types of corporate actions, impose particular retention periods, or grant shareholders specific inspection rights. When documenting actions that trigger special legal requirements, such as approval of transactions with interested parties under state corporation law safe harbor provisions, authorization of indemnification for directors or officers, or ratification of defective corporate acts, confirm that the minutes reflect compliance with all applicable procedural requirements and substantive standards.\n\nAfter drafting the minutes, review any uploaded corporate documents to verify accuracy of names, titles, quorum requirements, and procedural compliance. Ensure all factual details such as dates, times, vote counts, and financial figures are precisely stated and consistent with source materials. The final document should serve as a reliable, professional record that would withstand scrutiny in any legal or business context while efficiently conveying the board's actions and decisions.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:54:28.883095Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing skill content draft**
+
+I'm selecting a concise, descriptive slug "board-minutes" and will create a clear, data-grounded SKILL.md including titled purpose, prerequisites, structured process with checklists and templates, plus guidelines with compliance and jurisdiction notes, keeping style consistent and avoiding uncertain citations.
+thinking
+title: Board Minutes  
+slug: board-minutes  
+description: Board meeting minutes (corporate governance memo/record) capturing the official record of the board of directors' meeting including quorum, agenda, approvals, motions, resolutions, and actions. Triggers include "minutes", "board meeting", "board of directors", "corporate governance", "quorum", "resolutions", "agenda", and "bylaws".  
+practice_areas: Corporate  
+document_types: Memo  
+skill_modes: Drafting  
+
+purpose: To provide a structured approach for drafting accurate and compliant board meeting minutes that serve as the official record of corporate governance decisions.  
+
+prerequisites:  
+1. Have access to the board meeting agenda and related documents.  
+2. Understand the corporation’s bylaws regarding quorum, notice, and voting procedures.  
+3. Know the key attendees and their roles for accurate attendee listing.  
+4. Familiarity with standard corporate governance terms and practices.  
+
+## Output Structure / Process  
+
+Section                  | Required Fields  
+-------------------------|----------------  
+Intake Extraction        | Meeting date, time, location, type (regular/special)  
+Header Block             | Meeting title, date, start time, location  
+Attendees / Quorum       | Names, roles, confirmation of quorum based on bylaws  
+Call to Order            | Time, chairperson statement  
+Approvals               | Prior meeting minutes approved or noted  
+Reports                 | Summary of reports presented with presenter names  
+Business Items          | For each item: context, discussion summary, motion, vote tally, resolution text  
+Executive Session       | Indication and summary if applicable  
+Adjournment             | Time and method of adjournment  
+Next Meeting            | Date, time, and location if scheduled  
+Approvals / Signature   | Prepared by, approved by, date signed  
+
+### Motion / Resolution Template  
+
+Field         | Description  
+--------------|-------------  
+Motion Text   | Exact wording of the motion or proposal  
+Moved By      | Name of the director who moved the motion  
+Seconded By   | Name of the director who seconded the motion  
+Discussion    | Brief summary of discussion points related to the motion  
+Vote          | Number in favor, opposed, abstentions  
+Resolution    | Formal resolution text reflecting the outcome  
+
+## Checklist for Factual Verification  
+
+- Confirm meeting date and time accuracy  
+- Verify quorum presence per corporate bylaws  
+- Ensure all motions and votes are recorded exactly  
+- Check spelling of names and titles  
+- Verify approvals or rejections of prior minutes  
+- Confirm resolutions match discussion outcomes  
+- Record any conflicts of interest disclosed  
+- Confirm any remote attendance is noted and complies with bylaws  
+- Check all signatures and dates are present  
+
+## Drafting Guidelines  
+
+- Use an objective and neutral tone throughout  
+- Avoid attributing statements unless necessary for clarity  
+- Do not include privileged or confidential information  
+- Record any conflicts of interest or recusals explicitly  
+- Confirm quorum requirements and notice provisions are met  
+- Note if remote attendance or waivers of notice apply  
+- Use clear, concise language and standardized terms  
+
+## Compliance Notes  
+
+- Adhere to corporation’s bylaws for quorum, notice, and voting rules  
+- If jurisdiction-specific requirements apply (e.g., certain state corporation laws), confirm compliance separately  
+- Avoid specific statutory citations unless verified  
+- Ensure minutes accurately reflect formal actions and decisions  
+
+author: casemark
+codex
+---
+name: board-minutes
+description: Drafts corporate board of directors meeting minutes (official governance record/memo) capturing notice, quorum, attendance, reports, deliberations, motions, resolutions, votes, conflicts, and adjournment. Use for "board minutes", "minutes of board meeting", "board of directors meeting minutes", "corporate minutes", "board resolutions", "quorum", or "bylaws compliance".
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+---
+
+# Board of Directors Meeting Minutes
+
+Produce a complete, defensible record of board actions, votes, and governance compliance.
+
+## Prerequisites
+
+1. Corporation legal name and jurisdiction of incorporation.
+2. Meeting date, time, location or virtual platform, and meeting type (regular, special, emergency).
+3. Attendance list for directors, officers, and guests; arrivals/departures.
+4. Governing documents: bylaws or board resolutions with notice and quorum rules.
+5. Agenda, reports, resolutions, and any written materials provided to the board.
+6. Prior meeting minutes and any corrections approved.
+
+## Output Structure / Process
+
+### Document Header Template
+
+```
+[Corporation Legal Name]
+Minutes of the Board of Directors Meeting
+Date: [Month DD, YYYY]
+Time: [Start Time] to [Adjournment Time]
+Location: [Full Address] / Virtual: [Platform + access method]
+Meeting Type: [Regular / Special / Emergency]
+Authority: [Bylaw section or board resolution]
+```
+
+### Required Sections and Fields
+
+| Section | Required Fields |
+| --- | --- |
+| 1. Call to Order | Presiding officer; time called; confirmation of notice or waiver; statement of meeting type |
+| 2. Attendance | Directors present (name, title, participation method); directors absent; officers present; guests (role, agenda item); arrivals/departures with times |
+| 3. Quorum | Quorum rule from bylaws; number present; confirmation quorum maintained |
+| 4. Approval of Prior Minutes | Date of prior meeting; approval as presented or amended; motion/second; vote count |
+| 5. Officer Reports | Officer name/title; key metrics or material updates; written reports referenced |
+| 6. Committee Reports | Committee name; chair; findings/recommendations; actions requested |
+| 7. Business Items | For each item: context, discussion summary, motion/second, vote result, resolution text |
+| 8. Conflicts / Recusals | Director name; nature of conflict; recusal timing; return timing |
+| 9. Executive Session | Purpose; attendees; start/end times; any formal actions |
+| 10. Adjournment | Time adjourned; motion/consent; next meeting info if set |
+| 11. Authentication | Secretary signature block; approval line for next meeting |
+
+### Business Item Template
+
+```
+Item: [Title / Subject]
+Summary: [Material facts and considerations; no verbatim debate]
+Motion: [Director Name] moved to [action]; seconded by [Director Name].
+Vote: [Unanimous / X for, Y against, Z abstain].
+Resolution: [Full text or concise, unambiguous summary].
+```
+
+### Resolution Drafting Checklist
+
+- Action authority cited (bylaws, prior resolution, or statutory requirement).
+- Parties, instruments, and amounts identified (if material).
+- Delegation language clear (who can execute, scope of discretion).
+- Voting threshold met (simple majority, supermajority, or unanimous if required).
+- Record of any recusals tied to the resolution.
+
+### Accuracy Verification Checklist
+
+- Legal name matches formation documents.
+- Notice and quorum statements match bylaws.
+- All dates/times and vote counts verified against source materials.
+- Attachments/exhibits referenced and labeled if used.
+
+## Guidelines
+
+- Use an objective, factual tone; avoid subjective characterizations or verbatim debate.
+- Do not include privileged legal advice or detailed attorney-client communications.
+- Attribute individual director statements only when legally required or material to conflicts.
+- Record conflicts and recusals explicitly; note departure/return times.
+- For remote meetings, note compliance with bylaws and applicable state law.
+- If jurisdiction-specific statutory requirements apply (e.g., interested-party transactions, fundamental changes), confirm compliance and add a brief compliance statement. Mark uncertain citations as [VERIFY].
+- Keep summaries concise but sufficient to show informed oversight and deliberation.
+tokens used
+5,197

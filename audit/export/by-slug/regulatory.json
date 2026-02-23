@@ -1,0 +1,20 @@
+{
+  "id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "slug": "regulatory",
+  "name": "Regulatory Practice",
+  "summary": "Root skill for regulatory compliance, government relations, and administrative law matters.",
+  "content": "# Regulatory Practice\n\nThis is the parent category for all regulatory skills. Regulatory work involves compliance with government rules, agency interactions, and administrative proceedings.\n\n## Sub-areas\n- Financial Services Regulation\n- Healthcare Law\n- Environmental Law\n- FDA & Food/Drug Law\n- Data Privacy & Cybersecurity\n- Energy Law\n- Government Contracts\n- International Trade & Customs\n- Securities Compliance\n\n## Key Principles\n- Deep understanding of regulatory frameworks\n- Proactive compliance programs\n- Agency relationship management\n- Risk assessment and mitigation\n- Documentation and record-keeping\n",
+  "parent_skill_id": null,
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Regulatory"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

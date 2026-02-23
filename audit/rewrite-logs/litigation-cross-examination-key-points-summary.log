@@ -1,0 +1,201 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-2bae-7cd1-9509-107ee5671f96
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e38fd2bf-b9a7-4e1e-a623-fea388fb6d36",
+  "slug": "litigation-cross-examination-key-points-summary",
+  "name": "Cross-Examination Key Points",
+  "summary": "Generates a comprehensive cross-examination summary from case materials like depositions and exhibits to identify impeachment points, inconsistencies, and strategic opportunities. Organizes points by witness and theme with precise citations for quick courtroom reference. Use during trial preparation and proceedings in commercial litigation to challenge opposing witnesses effectively.",
+  "content": "# Cross-Examination Key Points Summary\n\nYou are tasked with preparing a comprehensive cross-examination summary to support trial preparation and courtroom proceedings. This document serves as a strategic roadmap for attorneys to effectively challenge opposing witnesses, impeach testimony, and advance their case theory during trial.\n\n## Objective and Scope\n\nYour goal is to analyze all available case materials\u2014including depositions, witness statements, expert reports, discovery responses, and exhibits\u2014to identify and organize the most critical points for cross-examination. This summary should enable trial counsel to quickly reference key impeachment material, inconsistencies, admissions, and strategic opportunities during witness examination. The analysis must be thorough, strategically organized, and immediately actionable in the courtroom setting.\n\n## Analysis and Content Requirements\n\nBegin by conducting a comprehensive review of all relevant documents in the case file, paying particular attention to prior testimony, sworn statements, and any communications from witnesses who will testify at trial. Search through depositions, interrogatory responses, and witness interviews to extract statements that can be used for impeachment, contradiction, or to establish favorable facts. Identify patterns of inconsistency across multiple statements by the same witness, noting the specific source document, page number, and line citation for each relevant passage.\n\nFor each witness anticipated to testify, create a dedicated section that organizes cross-examination points by theme or topic area rather than chronologically. Within each theme, present the key points in a logical sequence that builds toward your strategic objective, whether that is impeachment, establishing an element of your case, or undermining the credibility of the witness. Include specific quotations with precise citations to the source material, ensuring that counsel can locate the exact language during examination. When inconsistencies exist between a witness's prior statements and their expected trial testimony, present these side-by-side with clear attribution to facilitate effective impeachment.\n\nIncorporate references to documentary evidence and exhibits that support or contradict witness testimony. When a witness has made statements about a particular document, email, contract, or physical evidence, cross-reference that testimony with the actual exhibit to identify opportunities for confrontation. Note any instances where the witness lacks personal knowledge, relies on hearsay, or makes statements that conflict with objective documentary evidence.\n\n## Strategic Considerations and Best Practices\n\nFrame each cross-examination point with the underlying strategic purpose clearly identified. Indicate whether a particular line of questioning is designed to elicit a favorable admission, impeach credibility, establish foundation for excluding testimony, or advance a specific element of your legal theory. Consider the order and pacing of questions, noting which points should be addressed early to establish control and which should be saved for maximum impact.\n\nAddress potential objections and how to overcome them. When a cross-examination point may trigger hearsay, relevance, or other evidentiary objections, include brief notes on the applicable exception or argument for admissibility. Identify areas where the witness may attempt to evade, qualify, or explain away damaging admissions, and suggest follow-up questions to maintain control of the examination.\n\nConsider the witness's likely demeanor, expertise, and credibility with the jury. For expert witnesses, identify challenges to their methodology, qualifications, or the factual assumptions underlying their opinions. For lay witnesses, focus on perception, memory, bias, and interest in the outcome. Tailor the tone and complexity of questions to the witness type, ensuring that cross-examination points are presented in a manner most likely to resonate with the fact-finder.\n\n## Format and Organization\n\nStructure the summary to maximize utility during trial. Use clear headings for each witness, with subheadings for thematic areas of cross-examination. Present each key point as a concise statement followed by supporting citations and relevant context. Include a quick-reference section at the beginning that lists the top impeachment opportunities and must-cover points for each witness. Ensure that all citations include the document name, page number, and line number where applicable, formatted consistently throughout the summary. The final product should be a working document that counsel can annotate, reorganize, and reference efficiently in the fast-paced trial environment.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:31.327909Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:31.440862Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:32.600317Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:33.429151Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c80d625476-SJC)
+2026-02-23T21:42:34.476059Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4ce499e2734-SJC)
+2026-02-23T21:42:35.709970Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4d6ebf6501e-SJC)
+2026-02-23T21:42:37.950921Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4e3f8adf9d0-SJC)
+2026-02-23T21:42:41.917314Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4fd7eb6eb26-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-cross-examination-key-points-summary-3pjl32_d.md
+
+STDOUT:
+

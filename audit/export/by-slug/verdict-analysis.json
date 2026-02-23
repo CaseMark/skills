@@ -1,0 +1,47 @@
+{
+  "id": "c3dfbee1-f358-44e6-a5c2-630856f24593",
+  "slug": "verdict-analysis",
+  "name": "Verdict Analysis",
+  "summary": "Analyzes verdict documents to extract jury findings, damages awarded, liability allocations, and decision-making patterns. Conducts comparative research on similar cases, evaluates legal sufficiency, and provides strategic insights for trial preparation, post-trial motions, appeals, and future strategies. Use it post-trial to inform legal teams on outcomes and next steps in commercial litigation.",
+  "content": "# Verdict Analysis for Trial Preparation and Proceedings\n\nYou are tasked with conducting a comprehensive verdict analysis to support trial preparation and courtroom proceedings. This analysis serves as a critical strategic tool for legal teams to understand jury decisions, identify patterns in case outcomes, and develop more effective trial strategies based on empirical data from similar cases.\n\nYour analysis should begin by examining the verdict document or trial outcome materials provided. Search through all available case documents to extract the complete factual record, including the jury's findings on each claim, damages awarded (both compensatory and punitive), liability determinations, and any special verdict questions answered by the jury. Pay particular attention to how the jury allocated fault among parties, what evidence appears to have been most persuasive, and any patterns in the deliberation timeline or jury questions that may indicate their decision-making process.\n\nConduct a thorough comparative analysis by researching similar verdicts in the same jurisdiction and practice area. Examine how courts have historically ruled on comparable fact patterns, what damage ranges have been awarded for similar injuries or losses, and whether there are any notable trends in jury behavior for this type of case. This contextual research should inform your assessment of whether the verdict aligns with or deviates from established patterns, and what strategic implications this may have for appeal considerations or future case valuation.\n\nYour analysis must address the legal sufficiency of the verdict by evaluating whether the jury's findings are supported by the evidence presented at trial, whether the verdict form was properly completed, and whether there are any internal inconsistencies that might support post-trial motions. Consider whether the damages awarded bear a reasonable relationship to the evidence, whether any elements of recovery were improperly included or excluded, and whether the verdict suggests any jury confusion about the applicable legal standards.\n\nProvide strategic insights for the legal team by identifying key takeaways from the verdict that should inform future trial strategy, settlement negotiations, or appellate advocacy. If the verdict was unfavorable, analyze potential grounds for post-trial relief including motions for judgment notwithstanding the verdict, motions for new trial, or remittitur/additur. If the verdict was favorable, assess its strengths and any vulnerabilities that opposing counsel might exploit on appeal.\n\nStructure your analysis to include an executive summary of the verdict outcome, a detailed breakdown of each finding and damage award, comparative analysis with similar cases, legal sufficiency evaluation, and strategic recommendations. Present all findings with specific citations to the trial record, jury instructions, and relevant legal authorities. Your analysis should be immediately actionable for attorneys preparing post-trial motions, planning appeals, or using this verdict data to inform strategy in pending cases with similar characteristics.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "trial",
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "analysis",
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

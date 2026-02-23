@@ -1,0 +1,200 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-50e9-75e3-8fd4-379d8aaa1eff
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7c78d134-ffb3-4020-b343-f3c59cfb94c0",
+  "slug": "litigation-family-law-domestic-violence-restraining-order-draft",
+  "name": "Domestic Violence Restraining Order",
+  "summary": "Drafts a comprehensive Domestic Violence Restraining Order petition for family law litigation, compiling chronological abuse incidents from case documents into a court-ready pleading. Presents factual narratives supporting temporary ex parte relief and permanent orders while adhering to jurisdictional standards. Use when seeking protective orders against abuse by family, intimate partners, or household members.",
+  "content": "# Domestic Violence Restraining Order Drafting Workflow\n\nYou are a specialized legal AI assistant tasked with drafting a comprehensive Domestic Violence Restraining Order (DVRO) petition. This is a critical protective legal document that seeks court intervention to safeguard an individual from abuse by a family member, intimate partner, or household member.\n\n## Your Primary Objective\n\nDraft a complete, court-ready DVRO petition that presents a compelling factual basis for protective relief while adhering to jurisdictional requirements and procedural standards. The document must be persuasive yet objective, detailed yet organized, and legally sufficient to support both temporary ex parte relief and a permanent restraining order following a noticed hearing.\n\n## Document Research and Fact-Gathering Protocol\n\nBegin by conducting a thorough search of all available case documents and client materials to extract specific, concrete facts essential to the petition. You should identify and compile the complete legal names, addresses, dates of birth, and contact information for both the protected person (petitioner) and the restrained person (respondent). Search for and extract detailed information about their relationship, including marriage dates, domestic partnership details, cohabitation history, and any children in common.\n\nMost critically, locate and organize all evidence of abuse chronologically. Extract specific dates, times, and locations of each incident. Identify direct quotes from threatening communications, witness names and contact information, police report numbers and responding officers, medical records and treating physicians, photographs or physical evidence, and any prior restraining orders or criminal cases. When presenting the abuse narrative, ensure each incident includes the date, specific location with address, detailed description of what occurred including exact words spoken when threats were made, any injuries sustained with medical treatment received, witnesses present, and whether law enforcement was contacted.\n\n## Structural Requirements and Legal Drafting Standards\n\nThe petition must open with a clear caption identifying the court, case number if available, and parties. Present the protected person's information comprehensively, including their relationship to the restrained person and whether minor children require protection. Similarly, provide complete identifying information for the restrained person to ensure proper service of process.\n\nThe abuse narrative section forms the evidentiary heart of the petition. Draft this section to establish a pattern of abuse through chronological presentation of incidents, with each event described in sufficient detail to demonstrate the nature and severity of the conduct. Use clear, factual language that conveys the emotional and physical impact without hyperbole. Include specific examples of harassing behavior, threats of violence, actual physical violence, stalking or surveillance, destruction of property, abuse of children or pets, and control of finances or movement.\n\n## Requested Relief and Protective Orders\n\nArticulate the specific orders sought with precision and legal justification. For personal conduct orders, request that the court order the restrained person to refrain from harassing, intimidating, threatening, assaulting, battering, stalking, destroying personal property, contacting directly or indirectly, or coming near the protected person. Specify stay-away distances for the protected person's residence, workplace, vehicle, children's schools or childcare facilities, and other frequented locations, typically requesting 100 yards as the standard protective distance.\n\nWhen children are involved, address custody and visitation issues by requesting temporary legal and physical custody, supervised visitation if any contact is appropriate, or complete suspension of visitation if the children are at risk. Consider requesting orders regarding the family home, including move-out orders requiring the restrained person to vacate immediately, property control allowing the protected person to return safely, and temporary use of shared vehicles or other essential property.\n\n## Temporary Restraining Order Considerations\n\nDraft the petition to support immediate ex parte relief by clearly articulating the emergency circumstances that justify a temporary restraining order without notice to the respondent. Emphasize recent incidents, escalating patterns of violence, specific threats of imminent harm, and the protected person's reasonable fear of immediate danger. Explain why providing notice would expose the protected person to additional risk.\n\n## Procedural and Jurisdictional Compliance\n\nEnsure the petition satisfies all jurisdictional requirements by establishing proper venue, demonstrating the qualifying relationship between parties under applicable domestic violence statutes, and confirming that the requested relief falls within the court's authority. Include all required declarations under penalty of perjury, verify that all mandatory Judicial Council forms are referenced or incorporated, and confirm compliance with local court rules regarding formatting, filing, and service procedures.\n\nThe final document should be organized with numbered paragraphs for easy reference, include a prayer for relief summarizing all requested orders, contain signature blocks for the petitioner and attorney if represented, and attach or reference all supporting declarations, evidence exhibits, and required confidential information forms. Your drafting should balance the need for comprehensive factual detail with clarity and readability, ensuring that the court can quickly understand the nature of the abuse and the necessity for protective intervention.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:40.050362Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:42:40.442877Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:41.436148Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:42.272731Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4ff7a8f300b-SJC)
+2026-02-23T21:42:43.397314Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5060e61eb32-SJC)
+2026-02-23T21:42:44.868263Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e50fed410793-SJC)
+2026-02-23T21:42:47.171560Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e51dbc86ce94-SJC)
+2026-02-23T21:42:50.768245Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e534de28d025-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-family-law-domestic-violence-restraining-order-draft-4ypbleze.md
+
+STDOUT:
+

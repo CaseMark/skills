@@ -1,0 +1,202 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-81bb-7710-ba3b-7e6e34d92809
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "99e53271-a2fb-4cae-8447-a8b244216b41",
+  "slug": "litigation-personal-injury-legal-letter",
+  "name": "Legal Letter",
+  "summary": "Drafts professional legal letters for personal injury litigation matters. Guides collection of case details, formats headers and references, and tailors tone for opposing counsel or insurance companies to demand settlement or preserve rights. Use during pre-filing, pre-trial, or settlement phases for strategic communications.",
+  "content": "Before You Start Writing, Collect:\n[Extract information from file if not available provide placeholders for user or ask the user for the input]\n1.1 Case Identifiers\nCase Name: [Plaintiff v. Defendant format]\nCase Number: [Court-assigned docket number, if filed]\nClient Matter Number: [Our firm's internal tracking number]\nClaim Number: [Insurance claim number, if applicable]\n1.2 Communication Details\nPrimary Recipient: Name, title, firm/organization\nEmail Address: Verify accuracy in our contact database\nCC Recipients: Other parties who should receive copies\nMethod of Delivery: Email (most common), certified mail, hand delivery\n1.3 Strategic Context\nWhat are we writing about? [Specific issue or demand]\nWhy are we writing? [Legal requirement, strategic positioning, client request]\nWhat do we hope to accomplish? [Settlement, compliance, preservation of rights]\nSTEP 2: LETTERHEAD AND HEADER FORMATTING\n2.2 Standard Header Format:\n[DATE]\nVia Email: [email@address.com]\n[RECIPIENT NAME]\n[TITLE]\n[FIRM/ORGANIZATION]\n[ADDRESS]\n[CITY, STATE ZIP]\n\n\n2.3 Reference Line (Critical):\nRe: [Case Name]\n    [Court Name] Case No. [Number] (if filed)\n    Our Client: [Client Name]\n    Matter No.: [Internal number]\n    Claim No.: [If applicable]\n    [Brief description of letter subject]\nExample Header:\nMarch 15, 2024\n\nVia Email Only: smartinez@martinezlaw.com\n\nSarah J. Martinez, Esq.\nSenior Partner\nMartinez & Associates LLP\n1234 Legal Boulevard\nSpringfield, IL 62701\n\nRe: Johnson v. ABC Manufacturing Corp.\n    Circuit Court of Sangamon County Case No. 2024-CV-1234\n    Our Client: Robert Johnson\n    Matter No.: 2024-0156\n    Claim No.: INS-789456\n    Demand for Settlement - Product Liability\nSTEP 3: DETERMINE YOUR AUDIENCE AND TONE\nConsider Who You're Writing To:\n3.1 Opposing Counsel\nTone: Professional, firm but respectful\nLanguage: Legal terminology appropriate\nStrategy: Position client favorably and persuasive.  \nGoal: Negotiate, demand, or preserve rights\n3.3 Insurance Company\nTone: Business-like, documentation-focused\nLanguage: Industry-specific terminology\nStrategy: Present clear liability and damages case so the company has what it needs to make an offer or decision. \nGoal: Prompt payment or coverage decision\nSTEP 4: OPENING PARAGRAPH - SET THE STAGE\nInstructions:\n4.1 Identify Your Client and Role\n\"I represent [Client Name] in connection with [brief description of matter]. I am writing to [state primary purpose] regarding [specific issue].\"\n4.2 Provide Context\nReference previous correspondence, meetings, or deadlines, if any. For example, I am responding to your 10 day demand. \nEstablish timeline and urgency if applicable\nConnect to any legal obligations or rights\nExample:\nDear [RECIPIENT NAME],\n\"I represent Robert Johnson in connection with his product liability claim against your insured, ABC Manufacturing Corp. I am writing to demand settlement of Mr. Johnson's claim regarding the defective industrial mixer that caused his injuries on January 15, 2024. As you know, we previously provided notice of this claim on February 1, 2024, and your thirty-day investigation period has expired.\"\nSTEP 5: BODY PARAGRAPHS - BUILD YOUR CASE\nStructure the Body Using This Framework:\n5.1 Factual Foundation (Paragraph 2-3)\nSummarize key facts chronologically\nInclude only facts that support your position\nReference supporting documentation\nBe specific about dates, amounts, and parties\n5.2 Legal Basis (Paragraph 3-4)\nCite relevant statutes, regulations, or case law\nExplain legal standards clearly that are favorable to your position.\nConnect law to your client's situation\n5.3 Damages/Consequences (Paragraph 4-5) \u2013 If applicable. \nSpecify monetary damages with calculations\nInclude supporting documentation references\nAddress non-economic damages if applicable\nMention ongoing consequences or future costs\nExample Body Structure:\nFactual Summary:\n\"On January 15, 2024, Mr. Johnson was operating ABC's Model X-2000 industrial mixer when the safety guard failed, causing the mixing blade to strike his left hand. The incident occurred during normal operation, following all manufacturer guidelines. Medical records confirm multiple fractures requiring surgery and extensive rehabilitation.\"\n\nLegal Basis:\n\"Under Illinois product liability law, 735 ILCS 5/2-621, ABC is strictly liable for injuries caused by defective products. The safety guard's failure constitutes both a design defect and manufacturing defect under the standards established in Crispin v. Volkswagenwerk, 591 N.E.2d 966 (Ill. App. 1992).\"\n\nDamages:\n\"Mr. Johnson's documented damages exceed $150,000, including medical expenses ($45,000), lost wages ($78,000), and ongoing disability. Attached medical records and employment verification support these calculations.\"\n\nSTEP 6: DEMANDS AND DEADLINES\nInstructions:\n6.1 Be Specific and Clear\nState exactly what you want\nInclude deadlines with consequences, if there are any.\nReference any legal requirements for response time\nProvide payment/response instructions\n6.2 Make Demands Reasonable but Strong\nBase demands on documented losses\nInclude interest and costs where appropriate\nAllow reasonable time for response\nMaintain negotiation room if appropriate\nExample:\n\"We demand settlement of Mr. Johnson's claim in the amount of $175,000. This demand reflects documented damages plus reasonable compensation for pain and suffering. Please confirm your acceptance of this settlement demand within 30 days of this letter.\n\nIf we do not receive your acceptance by April 15, 2024, we will file suit without further notice and seek additional damages including attorney fees and costs under Illinois law.\"\n\nSTEP 7: CLOSING PARAGRAPH AND PRESERVATION LANGUAGE\nInstructions:\n7.1 Professional Closing\nInvite communication\nProvide your direct contact information\nReference any attached documents\nSet expectations for follow-up\n7.2 Include Standard Preservation Language:\n\"Please preserve all documents, electronically stored information, and physical evidence related to this matter as litigation may be reasonably anticipated.\"\nExample:\n\"I am available to discuss this matter and potential resolution. Please direct all communications regarding this claim to my attention. I have attached copies of medical records, employment verification, and the incident report for your review.\n\nPlease preserve all documents, electronically stored information, and physical evidence related to this matter as litigation may be reasonably anticipated.\n\nI look forward to your prompt response.\"\n\nSTEP 8: SIGNATURE BLOCK AND ATTACHMENTS\nFormat:\nSincerely,\n\n[Your signature]\n[Your typed name]\n\ncc: [Client name]\nEnclosures:  Attachements\n\nSTEP 9: FINAL REVIEW CHECKLIST\nBefore Sending, Verify:\n9.1 Accuracy\nAll names, dates, and amounts are correct\nCase numbers and claim numbers match file\nEmail addresses are current and accurate\nAll referenced attachments are included\n9.2 Strategy\nLetter achieves stated objectives\nTone is appropriate for audience\nDemands are reasonable and supported\nTimeline creates appropriate urgency\n9.3 Professionalism\nGrammar, spelling, and punctuation are correct\nFormatting is consistent and professional\nLegal citations are accurate\nFirm letterhead and contact information included\n9.4 Risk Management\nNo confidential information inappropriately disclosed\nPreservation language included where appropriate\nClient has reviewed and approved if required\nCopy saved to client file\n\nSPECIAL CONSIDERATIONS BY LETTER TYPE\nSettlement Demand Letters\nLead with strongest facts and clearest liability\nInclude comprehensive damage calculations\nSet realistic but firm deadlines\nLeave room for negotiation\nCease and Desist Letters\nBe specific about prohibited conduct\nReference legal basis for demands\nInclude consequences for non-compliance\nDocument prior violations if applicable\nNotice Letters\nMeet statutory notice requirements exactly\nInclude all required information\nUse required delivery methods\nPreserve proof of delivery\nResponse Letters\nAddress all points raised in original correspondence to the extent helpful to your position.\nMaintain professional tone even when disagreeing\nProvide factual corrections diplomatically\nPreserve client's position for future proceedings\n\nCOMMON MISTAKES TO AVOID\nGeneric language - Customize every letter to specific facts and law\nUnclear demands - Always specify exactly what you want\nMissing deadlines - Track and meet all response requirements\nInappropriate tone - Match tone to audience and objectives\nIncomplete information - Include all necessary case identifiers\nPoor formatting - Professional appearance matters\nOverly aggressive language - Firm but professional works better\nFailure to preserve evidence - Always include preservation language when appropriate\n\n",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.648206",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:53.070778Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:53.247871Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:54.541784Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:55.342988Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5517e8ff457-SJC)
+2026-02-23T21:42:56.393229Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5580ea3156a-SJC)
+2026-02-23T21:42:57.767038Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e560aeac138a-SJC)
+2026-02-23T21:42:59.845705Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e56dbbb2eb25-SJC)
+2026-02-23T21:43:03.719362Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e585eb278462-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-personal-injury-legal-letter-85ukznsf.md
+
+STDOUT:
+

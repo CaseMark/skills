@@ -1,0 +1,336 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-7425-7993-aa0f-215533113063
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "35e13af3-66c6-470e-8f66-da64cf6fee42",
+  "slug": "corporate-conflict-of-interest-policy-draft",
+  "name": "Conflict of Interest Policy",
+  "summary": "Drafts a comprehensive Conflict of Interest Policy for corporate and nonprofit organizations, incorporating best practices from IRS guidelines, ABA rules, and state laws. Ensures definitions, procedures, and compliance mechanisms to safeguard decision-making integrity. Use this skill for creating or updating governance documents in organizational formation or ongoing compliance efforts.",
+  "content": "# Enhanced Prompt: Conflict of Interest Policy\n\nYou are tasked with drafting a comprehensive Conflict of Interest Policy suitable for corporate or nonprofit organizations. This document must be professionally structured, legally sound, and tailored to protect the organization from conflicts that could compromise decision-making integrity or fiduciary duties.\n\nBegin by conducting thorough research to establish best practices and legal standards. Search authoritative legal resources including the American Bar Association Model Rules, state bar association ethics guidelines, IRS guidelines for nonprofit governance (particularly Publication 557 and Form 1023 instructions), and reputable legal information providers such as Nolo and LegalZoom. Verify all legal definitions and procedural requirements against official sources to ensure accuracy and compliance with current standards.\n\nReview any documents the user has uploaded to identify organization-specific information, existing governance policies, bylaws, or prior conflict disclosures that should inform the policy's scope and procedures. Extract relevant facts including the organization's legal structure, board composition, key personnel roles, and any industry-specific regulatory requirements that may apply.\n\n## Document Structure and Content Requirements\n\n**Purpose and Scope Section**: Draft a clear statement articulating why the policy exists\u2014to protect the organization's integrity, ensure transparent decision-making, and comply with legal and ethical obligations. Define the policy's applicability, specifying which individuals are covered (board members, officers, employees, key contractors, substantial contributors for nonprofits). Address whether the policy applies to both actual and potential conflicts, and clarify the organization's commitment to ethical governance. Reference relevant legal frameworks such as state nonprofit corporation laws, Sarbanes-Oxley provisions for applicable entities, or industry-specific regulations.\n\n**Definitions Section**: Provide precise legal definitions for critical terms. Define \"conflict of interest\" as any situation where an individual's personal, financial, or professional interests could improperly influence their judgment or actions on behalf of the organization. Define \"interested person\" to include anyone in a position to influence organizational decisions who has a direct or indirect financial or personal interest in a transaction. Define \"disinterested director\" or \"independent director\" according to applicable corporate governance standards. Include definitions for \"financial interest\" (encompassing ownership, investment, compensation, and prospective employment), \"family member\" (specifying degrees of relationship), and \"material financial interest\" with appropriate thresholds. Cite authoritative sources such as the ABA Model Nonprofit Corporation Act, Revised Model Business Corporation Act, or relevant state statutes.\n\n**Identification of Conflicts Section**: Describe the types of situations that constitute conflicts, providing concrete examples to aid recognition. Address financial conflicts including business transactions with the organization, competing business interests, gifts or entertainment from vendors or parties doing business with the organization, and personal use of organizational assets or information. Cover non-financial conflicts such as family relationships with employees or contractors, service on boards of competing or related organizations, and personal relationships that could affect objectivity. Explain the duty of each covered person to proactively identify potential conflicts before they arise. Reference best practices from organizations like the Council on Foundations, BoardSource, or Public Counsel regarding conflict identification protocols.\n\n**Disclosure Procedures Section**: Establish clear, mandatory disclosure requirements. Specify that covered individuals must disclose all potential conflicts in writing, detailing the timing requirements (annual disclosure statements, plus immediate disclosure when new conflicts arise or transactions are proposed). Describe the disclosure form or questionnaire that will be used, including what information must be provided (nature of the interest, parties involved, financial details, relationship to the organization's activities). Designate who receives disclosures (typically the board chair, governance committee, or compliance officer) and how they will be documented and maintained. For nonprofits, ensure procedures align with IRS Form 990 reporting requirements and state charitable solicitation regulations. Verify these procedures against IRS guidelines and state-specific nonprofit governance laws.\n\n**Review and Resolution Section**: Detail the step-by-step process for evaluating disclosed conflicts and determining appropriate action. Explain that the interested person must recuse themselves from discussion and voting on the matter, leaving the room during deliberations if required. Describe how disinterested directors or committee members will assess whether a conflict exists and its materiality. Outline resolution options including approval with safeguards (competitive bidding, independent valuation, enhanced disclosure), modification of the transaction to eliminate the conflict, or prohibition of the transaction. Specify documentation requirements for all conflict reviews, including the basis for decisions and votes taken. Address how to handle situations where a quorum cannot be achieved due to conflicts. Reference conflict resolution best practices from state bar associations and corporate governance authorities.\n\n**Compliance and Enforcement Section**: Establish mechanisms to ensure ongoing adherence to the policy. Describe annual training requirements for all covered persons, including new board member orientation on conflict obligations. Specify that the organization will maintain a conflicts register or log documenting all disclosures and resolutions. Address monitoring procedures, such as periodic reviews of transactions with related parties and annual certification processes. Define consequences for violations, which may include removal from the board or employment, rescission of conflicted transactions, restitution of any improper benefits, and potential legal action. For nonprofits, note that violations could jeopardize tax-exempt status. Designate responsibility for policy administration and periodic review (typically the governance or audit committee).\n\n**Acknowledgment Section**: Include a formal acknowledgment form to be signed annually by all covered persons. The form should confirm that the individual has received, read, and understood the policy; agrees to comply with its requirements; and has disclosed all known conflicts or certified that none exist. Provide space for listing any disclosed interests. Ensure the acknowledgment language is legally sufficient and that signed forms will be retained in organizational records. Verify the form's adequacy against standard templates from legal resources while ensuring it meets the organization's specific needs.\n\n## Final Document Assembly\n\nOnce you have gathered all necessary legal research, verified definitions and procedures against authoritative sources, and incorporated any organization-specific information from uploaded documents, create a polished, professional Conflict of Interest Policy document. The document should use clear, accessible language while maintaining legal precision, include appropriate section numbering and formatting, and be ready for board review and adoption. Ensure all legal citations are properly formatted and all procedural requirements are actionable and enforceable.",
+  "parent_skill_id": "f4b65ea6-5a24-4445-8f46-1faf41a33dd0",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "memo",
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "non-profit-organizations",
+      "corporate-governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:50:29.551805Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Composing Conflict of Interest Policy Skill**
+
+Creating a streamlined skill document titled "Conflict of Interest Policy" with a concise third-person description under 1024 characters incorporating key trigger terms like conflict of interest, COI, related party, and governance policy. Metadata will reflect corporate legal contexts with properly capitalized document types and skill modes. The skill will include a clear one-line purpose, a numbered list of prerequisites, a structured process involving tables, and concise guidelines referencing authoritative nonprofit and corporate legal sources, marked with [VERIFY] when citation certainty is low. The focus is on precision without fluff and careful inclusion of references to IRS forms and model acts.
+thinking
+**Drafting detailed policy outline and templates**
+
+Outlining a structured policy with sections and tables detailing required content, including a checklist-based conflict review workflow and numbered procedure flow. Providing plain-text code-block templates for both disclosure and acknowledgment forms. Including a US jurisdiction note and ensuring the description remains concise and third-person under 1024 characters. The output will avoid nested bullets and use single-level lists as instructed.
+codex
+---
+name: conflict-of-interest-policy
+description: Drafts U.S. corporate and nonprofit conflict of interest policies with clear definitions, disclosure mechanics, review/recusal procedures, and enforcement controls aligned to IRS governance guidance and common state corporate/nonprofit standards. Use when creating or updating governance policies, board COI rules, related‑party transaction procedures, or Form 990/board disclosure practices. Trigger keywords: conflict of interest, COI, related party, interested person, board disclosure, nonprofit governance, Form 990, disclosure questionnaire, recusal.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Memo
+    - Agreement
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Conflict of Interest Policy
+
+Creates an adoptable policy for identifying, disclosing, evaluating, and resolving conflicts in U.S. corporate or nonprofit governance.
+
+## Prerequisites
+
+1. Organization type and jurisdiction (e.g., nonprofit corporation in California, Delaware corporation)
+2. Governing documents and notice/approval rules (bylaws, charter, committee charters)
+3. Board/management structure and covered persons list
+4. Current related-party transactions and disclosure history
+5. Industry-specific rules, if any (healthcare, education, financial services)
+
+## Output Structure / Process
+
+**Policy Assembly Checklist**
+
+1. Scope and applicability
+2. Definitions
+3. Disclosure obligations
+4. Review, recusal, and approval procedure
+5. Documentation and recordkeeping
+6. Training and annual certification
+7. Enforcement and remedies
+8. Appendices: disclosure form + annual acknowledgment
+
+**Section Requirements Table**
+
+| Section | Required Content |
+| --- | --- |
+| Purpose & Scope | Integrity, fiduciary duties, decision-making protection; applies to board, officers, key employees, committee members, and other covered persons. |
+| Definitions | Conflict of interest, interested person, disinterested/independent director, financial interest, family member, material interest. |
+| Disclosure | Timing (annual + ad hoc), written form, recipients, and record retention. |
+| Review & Resolution | Recusal rules, quorum handling, decision standard, approval options, documentation. |
+| Monitoring | Annual training, conflicts register, periodic related-party review. |
+| Enforcement | Consequences and remedial actions; nonprofit tax status risk. |
+| Records | Minutes detail, disclosure forms, approvals, and retention period. |
+
+**Definitions (Insert in Policy)**
+
+- **Conflict of Interest**: A situation where personal, financial, or professional interests could impair impartial decision-making on behalf of the organization.
+- **Interested Person**: Any covered person with a direct or indirect interest in a transaction or arrangement involving the organization.
+- **Financial Interest**: Ownership, investment, compensation, or prospective employment with a party to a transaction; include indirect interests through family or affiliated entities.
+- **Family Member**: Spouse/domestic partner, parents, children, siblings, in‑laws; extend if jurisdiction requires [VERIFY].
+
+**Disclosure Procedure**
+
+1. Annual written disclosure by all covered persons.
+2. Immediate disclosure when a potential conflict arises.
+3. Disclosures submitted to designated officer or committee.
+4. Maintain a conflicts register and retain forms with governance records.
+
+**Conflict Review Workflow**
+
+1. Determine if a conflict exists.
+2. Require interested person to recuse from discussion and vote.
+3. Assess materiality and fairness using disinterested decision-makers.
+4. Approve only if best interest and fair to the organization.
+5. Document basis for decision and voting results.
+
+**Approval Safeguards (Select as Appropriate)**
+
+- Competitive bids or alternatives review
+- Independent valuation or third‑party benchmarking
+- Written terms approval by disinterested directors
+- Conditions or limitations to mitigate influence
+
+**Quorum & Voting**
+
+- Specify how quorum is calculated when conflicts exist.
+- If quorum fails, refer to alternate committee or independent directors.
+
+**Recordkeeping Requirements**
+
+- Disclosure forms
+- Meeting minutes with recusal and voting details
+- Rationale for approval or rejection
+- Related-party transaction register
+
+**Appendix A: Disclosure Form (Template)**
+
+```text
+Conflict of Interest Disclosure
+Name:
+Role/Title:
+Date:
+
+1) Do you, your family, or affiliated entities have a financial or personal interest in any
+transaction, arrangement, or relationship involving the organization?  Yes / No
+If Yes, describe:
+- Parties involved:
+- Nature of interest:
+- Estimated value or compensation:
+- Dates and terms:
+- How the organization is involved:
+
+2) Are you aware of any potential conflicts not listed above?  Yes / No
+If Yes, describe:
+
+Certification:
+I certify that the above is complete and accurate to the best of my knowledge.
+Signature: _______________________  Date: _______________
+```
+
+**Appendix B: Annual Acknowledgment (Template)**
+
+```text
+Annual Conflict of Interest Acknowledgment
+I acknowledge that I have received, read, and understand the Conflict of Interest Policy.
+I agree to comply with it and to disclose any actual or potential conflicts.
+I certify that I have disclosed all known conflicts or have none to disclose.
+
+Name: __________________  Signature: __________________  Date: __________
+```
+
+## Guidelines
+
+- Use U.S. governance standards consistent with IRS nonprofit guidance (Form 990, Publication 557, Form 1023 instructions) and common state corporate/nonprofit norms.
+- If citing model acts (e.g., Model Nonprofit Corporation Act, Revised Model Business Corporation Act), avoid section numbers unless verified [VERIFY].
+- Ensure policy aligns with bylaws, committee charters, and any related-party transaction rules.
+- Require written disclosures and documented approvals; avoid informal verbal-only processes.
+- For nonprofits, flag tax‑exempt risk and intermediate sanctions exposure if applicable [VERIFY].
+- Do not approve transactions without disinterested review, documented rationale, and recorded vote.
+tokens used
+3,605

@@ -1,0 +1,41 @@
+{
+  "id": "d49a1e66-d517-4551-ba33-e5fc6b0c847d",
+  "slug": "boundary-dispute-complaint",
+  "name": "Boundary Dispute Complaint",
+  "summary": "Drafts a comprehensive Boundary Dispute Complaint for real estate litigation to establish the true boundary line between adjoining properties. Incorporates detailed factual allegations from surveys, deeds, and encroachments, with claims for quiet title and trespass. Use when initiating a lawsuit to resolve boundary disputes involving conflicting property descriptions or unauthorized encroachments.",
+  "content": "# Enhanced Prompt for Boundary Dispute Complaint\n\nYou are tasked with drafting a comprehensive Boundary Dispute Complaint for real estate litigation. This complaint will establish the true boundary line between adjoining properties and, where applicable, address encroachments and trespass claims.\n\n## Document Structure and Requirements\n\nBegin by creating a properly formatted complaint with a complete caption identifying the court name, plaintiff's full legal name, and defendant's full legal name. The caption should follow the local court rules and formatting requirements for the jurisdiction where the case will be filed.\n\n## Factual Foundation and Property Descriptions\n\nDraft detailed factual allegations that establish the foundation for the boundary dispute. Include the complete legal description of the plaintiff's property as it appears in the deed or survey, using precise metes and bounds descriptions, lot and block numbers, or other applicable legal descriptions. Similarly, provide the legal description of the defendant's adjoining property to clearly establish the relationship between the two parcels.\n\nArticulate the nature of the boundary dispute with specificity. Describe how the plaintiff's understanding of the true boundary line differs from the defendant's position, referencing any surveys, deeds, historical documents, or physical markers that support the plaintiff's claim. If the plaintiff has obtained a professional survey, incorporate the surveyor's findings and explain how they establish the correct boundary location. Address any conflicting deed descriptions, ambiguous language in historical conveyances, or discrepancies in prior surveys that have created the dispute.\n\nWhen an encroachment exists, describe it with precision including the type of structure or improvement (fence, building, driveway, landscaping), its dimensions, and the extent to which it crosses onto the plaintiff's property. Specify when the encroachment was discovered and whether the defendant was notified prior to filing suit.\n\n## Legal Claims and Causes of Action\n\nStructure the complaint to include Count I for Quiet Title to Boundary Line, seeking a judicial determination and declaration of the true and correct boundary line between the properties. This count should incorporate all relevant legal standards for boundary disputes in the jurisdiction, including principles of deed interpretation, survey evidence, and any applicable statutes governing boundary determinations.\n\nIf an encroachment is present, include Count II for Trespass, alleging that the defendant's placement or maintenance of improvements on the plaintiff's property constitutes an ongoing trespass. This count should seek both compensatory damages for the unlawful occupation of the plaintiff's land and injunctive relief requiring removal of the encroaching structure or improvement. Specify the nature of damages including diminution in property value, loss of use and enjoyment, and any costs incurred by the plaintiff in addressing the encroachment.\n\n## Prayer for Relief\n\nConclude with a comprehensive prayer for relief requesting: (1) a declaratory judgment establishing the true and correct boundary line between the properties; (2) an order requiring the defendant to recognize and respect the judicially determined boundary; (3) if applicable, mandatory injunctive relief requiring removal of any encroachments; (4) compensatory damages for trespass and any harm to the plaintiff's property; (5) costs and attorney's fees if permitted by statute or contract; and (6) any other relief the court deems just and proper.\n\n## Jurisdictional and Procedural Considerations\n\nEnsure the complaint includes all necessary jurisdictional allegations, including the basis for subject matter jurisdiction (typically the amount in controversy and the nature of the dispute as a real property matter) and personal jurisdiction over the defendant. Include allegations establishing venue in the chosen court, typically based on the location of the real property at issue.\n\nThroughout the complaint, maintain a professional and factual tone, avoiding inflammatory language while clearly establishing the plaintiff's entitlement to relief. Use numbered paragraphs for factual allegations, incorporate any relevant exhibits (surveys, deeds, photographs) by reference, and ensure all legal descriptions are accurate and complete. The complaint should be sufficiently detailed to survive a motion to dismiss while remaining clear and accessible to the court.",
+  "parent_skill_id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "real-estate-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:07.489512",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

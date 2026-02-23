@@ -1,0 +1,44 @@
+{
+  "id": "c72395e0-c1e0-4d14-9bf0-4ab118a5729d",
+  "slug": "operations-manual-acknowledgement",
+  "name": "Operations Manual Acknowledgement",
+  "summary": "Drafts a comprehensive Operations Manual Acknowledgement document that records an employee's or franchisee's receipt, understanding, and agreement to comply with company policies. Ensures enforceability for use in disputes, terminations, or litigation by including precise affirmative statements and at-will employment disclaimers. Ideal for transactional onboarding in franchise agreements or employment contexts.",
+  "content": "# Operations Manual Acknowledgement - Enhanced Legal Workflow Prompt\n\nYou are tasked with drafting a comprehensive Operations Manual Acknowledgement, a critical transactional document that creates a legally binding record of an employee's receipt, understanding, and agreement to comply with company operational policies and procedures.\n\n## Document Purpose and Context\n\nThis acknowledgement serves as evidence that the employee has received the company's operations manual and agrees to abide by its terms. The document must be clear, unambiguous, and enforceable while maintaining a professional tone appropriate for the employment relationship. Consider that this acknowledgement may be used in future disputes regarding policy compliance, termination proceedings, or litigation involving workplace conduct. The document should be drafted to withstand legal scrutiny while remaining accessible to employees at all levels of the organization.\n\n## Structural Requirements and Content Development\n\nBegin with a professional header that clearly identifies the document as an \"Operations Manual Acknowledgement\" and includes the company's full legal name, the effective date of the acknowledgement, and any relevant document reference numbers. The header should be formatted consistently with other company employment documents to maintain organizational branding and legal coherence.\n\nDraft a concise preamble that establishes the context and purpose of the acknowledgement. This section should explain that the employee is acknowledging receipt of the operations manual, which contains essential policies, procedures, and guidelines governing their employment. Reference the specific version or edition of the operations manual being acknowledged, including its effective date, to avoid ambiguity about which policies the employee has agreed to follow. The preamble should also clarify whether the operations manual supersedes previous versions and whether it supplements or is incorporated into the employment agreement.\n\nThe acknowledgement statement constitutes the core of this document and must be drafted with precision. Include clear, affirmative language confirming that the employee: (1) has received a complete copy of the operations manual, (2) has read and understands its contents, (3) agrees to comply with all policies and procedures outlined therein, (4) understands that violation of these policies may result in disciplinary action up to and including termination, and (5) acknowledges that the operations manual does not constitute a contract of employment and that employment remains at-will unless otherwise specified in a separate written agreement. Consider including language that addresses the employee's responsibility to seek clarification on any policies they do not understand and their obligation to stay informed of any updates or amendments to the manual.\n\n## Employee Information and Execution Requirements\n\nCreate clearly labeled fields for essential employee information including full legal name (printed), job title or position, department or division, employee identification number if applicable, and the date of acknowledgement. Ensure adequate space is provided for handwritten entries and that the layout facilitates easy completion and filing.\n\nDesign a signature block that includes a line for the employee's signature with a date field immediately adjacent. Consider whether your jurisdiction or company policy requires witness signatures or countersignatures from human resources representatives or supervisory personnel. If witnesses are required, provide appropriate signature lines with printed name fields and date fields. Include a statement immediately above the signature line that reiterates the employee's acknowledgement and agreement, such as: \"By signing below, I acknowledge that I have received, read, and understood the Operations Manual and agree to comply with all policies contained therein.\"\n\n## Legal Considerations and Compliance\n\nEnsure the document complies with applicable employment laws in your jurisdiction, including any requirements for acknowledgements to be provided in languages other than English if serving a multilingual workforce. Consider whether the acknowledgement should include specific references to key policies such as anti-discrimination, harassment prevention, safety protocols, or confidentiality obligations that may have heightened legal significance. The document should be drafted to support the company's position in potential unemployment claims, wrongful termination litigation, or regulatory investigations.\n\nInclude appropriate disclaimers clarifying that the operations manual and this acknowledgement do not alter the at-will nature of employment, do not create contractual rights, and that the company reserves the right to modify, amend, or rescind policies at any time with or without notice. Consider adding language regarding the employee's obligation to return company property, including the operations manual, upon termination of employment.\n\nDraft the document in clear, plain language accessible to employees without legal training while maintaining the formality and precision necessary for legal enforceability. Avoid overly complex sentence structures or unnecessary legalese that might later be construed against the employer under principles of contract interpretation. The final document should be suitable for immediate implementation in the employment onboarding process and should integrate seamlessly with existing human resources documentation systems.",
+  "parent_skill_id": "b3dc080b-3fb7-400d-a0b2-e0590d304262",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "franchise-agreements",
+      "employment-and-consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

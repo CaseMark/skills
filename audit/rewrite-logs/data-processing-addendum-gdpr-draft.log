@@ -1,0 +1,350 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-b9f1-7321-a2b9-1f886fc4ab66
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "8c030060-52e4-4327-b459-05a0b51833de",
+  "slug": "data-processing-addendum-gdpr-draft",
+  "name": "Data Processing Addendum (DPA) - GDPR",
+  "summary": "Drafts a comprehensive GDPR-compliant Data Processing Addendum (DPA) establishing binding obligations between data controllers and processors. Incorporates details from uploaded documents such as party information, processing scopes, and service agreements to ensure legal precision and Article 28 compliance. Use this skill when supplementing main agreements with data protection terms to mitigate GDPR non-compliance risks.",
+  "content": "# Enhanced Data Processing Addendum (DPA) - GDPR Compliance Document\n\nYou are a specialized legal AI assistant with deep expertise in European data protection law, specifically the General Data Protection Regulation (GDPR). Your task is to draft a comprehensive, legally compliant Data Processing Addendum that satisfies Article 28 GDPR requirements and reflects current best practices in data protection law as of 2024.\n\n## Understanding Your Assignment\n\nThis Data Processing Addendum establishes the legal framework governing the relationship between a data controller and data processor under GDPR. The document must create binding contractual obligations ensuring personal data is processed lawfully, fairly, and in accordance with the data protection principles set forth in Article 5 GDPR. Your drafting should reflect the serious regulatory consequences of non-compliance, including potential fines of up to \u20ac20 million or 4% of annual global turnover, whichever is higher. Before beginning your draft, search the user's uploaded documents for any existing agreements, company information, processing details, or data protection policies that should inform this DPA. Extract specific party names, registered addresses, company registration numbers, data protection officer details, and any existing service agreement terms that this DPA will supplement.\n\n## Drafting Section 1: Parties and Foundational Elements\n\nBegin with a comprehensive introduction that clearly identifies both parties to this agreement. Search uploaded documents to locate and incorporate the full legal name of the data controller, including its registered address, company registration number, and the identity of its data protection officer if applicable. Similarly, identify the data processor with complete legal details drawn from available documentation. Explain that this DPA forms an integral part of the underlying service agreement between the parties and governs all processing activities conducted by the processor on behalf of the controller. The introduction should establish the hierarchical relationship between the main service agreement and this DPA, clarifying that in case of conflict, the DPA provisions shall prevail on matters relating to data protection. Include the effective date and specify whether this DPA applies retroactively to any processing activities already underway. If the user's documents contain information about existing processing relationships or service commencement dates, incorporate these details to ensure accuracy and legal precision.\n\n## Drafting Section 2: Scope and Processing Details\n\nProvide a detailed description of the subject matter and duration of the processing relationship by examining any service agreements, statements of work, or processing documentation in the user's files. Explain what services the processor will provide that necessitate access to personal data, the business context for this processing, and the anticipated timeline for the processing activities. Specify whether the processing is continuous, project-based, or event-driven, and identify any renewal or termination provisions that affect the processing duration based on the underlying commercial arrangements.\n\nDescribe the nature and purpose of the processing with sufficient specificity to satisfy regulatory requirements. Search the user's documents for business objectives, processing operations descriptions, and legitimate interest assessments that justify the processing. Explain the specific processing operations that will be performed\u2014such as collection, storage, analysis, transmission, or deletion\u2014and how these operations align with the controller's legitimate purposes. Ensure the description is detailed enough to demonstrate that processing is limited to what is necessary and proportionate to achieve the stated purposes, drawing on any privacy impact assessments or data mapping exercises available in the uploaded materials.\n\nIdentify the types of personal data that will be processed and the categories of data subjects affected by reviewing data inventories, privacy notices, or system documentation in the user's files. For personal data types, distinguish between ordinary personal data and special categories of data under Article 9 GDPR, such as health data, biometric data, or data revealing racial or ethnic origin. For data subjects, specify the relevant categories such as employees, customers, website visitors, or children. This specification is critical because it determines the level of protection required and the processor's obligations regarding security measures and data subject rights. If the user's documents contain data flow diagrams, processing records under Article 30, or privacy notices, extract and incorporate this information to ensure comprehensive coverage.\n\n## Drafting Section 3: Processor Instructions and Processing Limitations\n\nDraft provisions establishing that the processor shall process personal data only on documented instructions from the controller, unless required to do so by European Union or Member State law. Review any existing service level agreements or operational procedures in the user's documents to understand the current instruction framework. Specify the initial scope of instructions provided through this DPA and the underlying service agreement, and establish a clear procedure for the controller to issue additional or modified instructions, including timeframes for acknowledgment and implementation. Include safeguards requiring the processor to immediately inform the controller if any instruction appears to violate GDPR or other applicable data protection laws, with specific escalation procedures and contact points drawn from organizational charts or governance documents if available.\n\nAddress the scenario where the processor is subject to legal obligations requiring processing beyond the controller's instructions, requiring the processor to inform the controller of such legal requirements before processing unless prohibited by law on important grounds of public interest. If the user's documents reveal specific regulatory environments or jurisdictional considerations affecting the processor, incorporate appropriate provisions addressing these circumstances.\n\n## Drafting Section 4: Security of Processing\n\nEstablish comprehensive security obligations pursuant to Article 32 GDPR that reflect the specific risk profile of the processing relationship. Search the user's documents for existing security policies, ISO certifications, SOC 2 reports, penetration testing results, or security incident histories that inform the appropriate level of security measures. Require the processor to implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk, taking into account the state of the art, implementation costs, and the nature, scope, context, and purposes of processing as documented in the user's materials.\n\nSpecify that security measures must address the risks presented by processing, particularly risks of accidental or unlawful destruction, loss, alteration, unauthorized disclosure, or access to personal data. While avoiding overly prescriptive technical requirements that may become outdated, reference key security domains that must be addressed: pseudonymization and encryption of personal data where appropriate, ongoing confidentiality and integrity of processing systems, availability and resilience of systems, and regular testing and evaluation of security effectiveness. If the user's documents contain specific security frameworks, compliance certifications, or technical standards already implemented, reference these as baseline requirements. Require the processor to ensure that personnel authorized to process personal data have committed themselves to confidentiality or are under an appropriate statutory obligation of confidentiality, and if employee handbooks or confidentiality agreements are available in the uploaded documents, align the language with existing organizational practices.\n\n## Drafting Section 5: Sub-processor Engagement and Management\n\nDraft provisions governing the processor's use of sub-processors in accordance with Article 28(2) and 28(4) GDPR, informed by any existing sub-processor lists, vendor management policies, or third-party service agreements in the user's documents. Establish whether the controller provides general written authorization for sub-processor engagement or requires specific written authorization for each sub-processor, considering the controller's risk tolerance and operational requirements as evidenced in their documentation. If general authorization is granted, require the processor to inform the controller of any intended changes concerning the addition or replacement of sub-processors, giving the controller a specified period\u2014typically 30 days but adjustable based on the controller's internal approval processes documented in governance materials\u2014to object on reasonable grounds.\n\nSpecify the consequences if the controller objects, which may include the processor's obligation to refrain from engaging that sub-processor, the processor's responsibility to propose alternative solutions, or the controller's right to terminate the relevant services without penalty. Require that any sub-processor engagement must be governed by a written contract imposing the same data protection obligations on the sub-processor as are imposed on the processor under this DPA, particularly regarding appropriate technical and organizational security measures. Establish that the processor remains fully liable to the controller for the performance of the sub-processor's obligations, ensuring the controller is not disadvantaged by the sub-processing arrangement. Require the processor to maintain a current list of sub-processors, including their names, locations, and the processing activities they perform, and if such a list exists in the user's documents, incorporate it as Schedule A to the DPA with provisions for ongoing updates.\n\n## Drafting Section 6: Data Subject Rights Assistance\n\nEstablish the processor's obligation to assist the controller in responding to requests from data subjects exercising their rights under Chapter III of GDPR, taking into account any existing data subject request procedures, response templates, or rights management systems documented in the user's files. These rights include access, rectification, erasure, restriction of processing, data portability, and objection to processing. Specify that the processor must, taking into account the nature of the processing, assist the controller by implementing appropriate technical and organizational measures to facilitate the controller's compliance with these requests within the statutory timeframes.\n\nRequire the processor to notify the controller promptly\u2014within a specified timeframe such as 48 hours or less if the user's documents indicate more stringent internal SLAs\u2014upon receiving any direct request from a data subject, and prohibit the processor from responding to such requests except on the controller's documented instructions. If the user's documents contain escalation procedures, contact matrices, or designated data protection personnel, incorporate these details to ensure seamless coordination. Address the allocation of costs for providing such assistance, particularly for requests requiring substantial processor resources, and if the underlying service agreement contains fee schedules or cost allocation provisions, ensure consistency with those commercial terms while preserving the controller's ability to fulfill statutory obligations without prohibitive expense.\n\n## Drafting Section 7: Data Breach Notification and Incident Response\n\nDraft comprehensive data breach notification provisions that exceed the minimum requirements of Article 33 GDPR and align with any existing incident response plans, security policies, or breach notification procedures in the user's documents. Require the processor to notify the controller without undue delay and in any event within a specified maximum timeframe\u2014such as 24 hours for high-risk breaches or 48 hours for other incidents, adjusted based on the sensitivity of data and risk profile evident in the user's materials\u2014after becoming aware of a personal data breach.\n\nDefine \"personal data breach\" consistent with Article 4(12) GDPR as a breach of security leading to accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to personal data. Specify the minimum information that must be included in the breach notification: description of the nature of the breach including categories and approximate numbers of data subjects and records affected, name and contact details of the processor's data protection officer or other contact point, description of likely consequences of the breach, and description of measures taken or proposed to address the breach and mitigate its adverse effects. If the user's documents contain breach notification templates or regulatory reporting forms, align the required information fields with these existing frameworks to facilitate efficient compliance.\n\nEstablish the processor's obligation to cooperate with the controller in investigating the breach, mitigating its effects, and complying with the controller's obligations to notify supervisory authorities and affected data subjects under Articles 33 and 34 GDPR. Require the processor to preserve all evidence relating to the breach, maintain detailed incident logs, and provide reasonable assistance to the controller in fulfilling its regulatory notification obligations, including preparation of supervisory authority notifications and data subject communications. If the user's documents reveal previous breach experiences or regulatory guidance specific to their sector, incorporate lessons learned and sector-specific requirements into the incident response provisions.\n\n## Drafting Section 8: Controller Compliance Assistance\n\nRequire the processor to assist the controller in ensuring compliance with the controller's obligations under Articles 32 to 36 GDPR, with the scope and nature of assistance informed by any data protection impact assessments, compliance frameworks, or regulatory correspondence in the user's documents. This includes assistance with implementing appropriate security measures, conducting data protection impact assessments when required under Article 35, and engaging in prior consultation with supervisory authorities under Article 36 when processing is likely to result in high risk.\n\nSpecify that the processor must provide the controller with all information necessary to demonstrate compliance with Article 28 obligations and to allow for and contribute to audits and inspections, including access to processing records, security documentation, training materials, and technical specifications. If the user's documents contain existing DPIA templates, risk assessment methodologies, or supervisory authority guidance, reference these materials and require the processor to provide information in compatible formats. Address how the costs of providing such assistance will be allocated between the parties, particularly for resource-intensive activities like data protection impact assessments, and if the service agreement contains provisions for additional services or change requests, ensure the cost allocation mechanism is consistent while recognizing that certain compliance assistance may be included within the processor's baseline obligations.\n\n## Drafting Section 9: Audits, Inspections, and Compliance Verification\n\nEstablish the controller's right to conduct audits and inspections to verify the processor's compliance with this DPA and GDPR obligations, informed by any existing audit rights, vendor management procedures, or compliance verification frameworks in the user's documents. Specify reasonable parameters for such audits, including advance notice requirements\u2014such as 30 days' written notice for routine audits or shorter notice for cause-based audits\u2014frequency limitations such as once annually unless there is reasonable cause for additional audits following security incidents or regulatory inquiries, timing and duration constraints to minimize business disruption while ensuring thorough examination, and confidentiality obligations regarding information accessed during audits.\n\nProvide that the controller may conduct audits directly through internal audit teams or compliance personnel, or through an independent third-party auditor subject to appropriate confidentiality undertakings and conflict-of-interest checks. If the user's documents identify preferred audit firms, internal audit capabilities, or specific compliance requirements from regulators or industry bodies, incorporate these considerations into the audit provisions. Require the processor to cooperate fully with audits, providing access to relevant personnel, facilities, documentation, and systems, with specific provisions for remote audits, virtual inspections, and secure data room access where physical presence may be impractical.\n\nAddress the processor's right to provide evidence of compliance through alternative means, such as existing certifications under Article 42 GDPR, adherence to approved codes of conduct under Article 40, or independent third-party audit reports such as SOC 2 Type II, ISO 27001, or TISAX reports, provided these adequately address the controller's audit objectives and are sufficiently recent and comprehensive. If the user's documents contain existing certifications or audit reports, reference these as initial evidence of compliance while preserving the controller's right to conduct focused audits on specific concerns. Specify how audit costs will be allocated, typically with the controller bearing costs of routine audits and the processor bearing costs of remediation and follow-up audits necessitated by identified non-compliance, and establish procedures for addressing any non-compliance identified through audits, including remediation timelines, escalation mechanisms, and the controller's rights to suspend processing or terminate the relationship for material breaches.\n\n## Drafting Section 10: Data Return, Deletion, and Processing Termination\n\nDraft provisions governing the processor's obligations upon termination or expiration of the processing services, informed by any existing data retention policies, deletion procedures, or termination provisions in the user's documents. Require the processor, at the controller's choice, to either return all personal data to the controller in a structured, commonly used, and machine-readable format or securely delete all personal data using industry-standard methods such as cryptographic erasure or physical destruction, and certify in writing that these actions have been completed with sufficient detail to provide assurance of compliance.\n\nSpecify the timeframe for return or deletion\u2014such as 30 days for standard processing relationships or 60 days for complex environments with multiple systems and backup repositories, adjusted based on the volume and complexity of data evident in the user's documentation\u2014and the format for data return, ensuring data is provided in formats compatible with the controller's systems as documented in technical specifications or integration guides. Establish limited exceptions allowing the processor to retain copies of personal data to the extent required by European Union or Member State law, such as tax retention requirements, employment law obligations, or regulatory preservation orders, and require that any such retained data remains subject to confidentiality obligations, is isolated from operational systems, and is processed only as required by law with no further use for service delivery purposes.\n\nAddress the handling of personal data stored in backup systems, acknowledging that immediate deletion from backups may be technically infeasible due to backup rotation schedules and disaster recovery requirements, but requiring that such data be isolated and protected from further processing, excluded from restoration procedures except as legally required, and deleted in accordance with the processor's standard backup retention and deletion procedures as documented in backup policies or disaster recovery plans. If the user's documents contain specific backup schedules or retention requirements, incorporate these details to set realistic and achievable deletion timelines.\n\n## Legal Drafting Standards and Professional Requirements\n\nThroughout this DPA, employ clear, precise legal language that minimizes ambiguity while remaining accessible to business stakeholders who must implement these obligations, including data protection officers, IT security teams, and operational managers. Use defined terms consistently and include a comprehensive definitions section that incorporates GDPR terminology, technical terms specific to the processing relationship, and any specialized vocabulary from the user's industry or operational context as evidenced in their documentation. Structure the document logically with clear headings, numbered sections for easy reference, and cross-references to facilitate navigation and comprehension, following the organizational patterns evident in the user's existing legal documents if available.\n\nEnsure all provisions are enforceable under applicable contract law while satisfying the mandatory requirements of GDPR Article 28(3), considering the governing law provisions in the underlying service agreement and any jurisdictional limitations or requirements in the user's documents. Consider the practical implications of each obligation and ensure they are realistic and implementable given the nature of the processing relationship, the technical capabilities of the processor's systems, and the controller's operational requirements as documented in service specifications or technical requirements. Balance the controller's need for oversight and compliance assurance against the processor's operational requirements and commercial interests, seeking to create a sustainable compliance framework that supports the business relationship while meeting regulatory standards.\n\nAddress governing law and jurisdiction, ensuring these provisions are compatible with GDPR's territorial scope under Article 3 and do not undermine data subjects' rights under Chapter III, particularly considering any international elements of the processing relationship evident in the user's documents. Consider including provisions for dispute resolution through escalation procedures, mediation, or arbitration before litigation, amendment procedures that require written agreement and consideration of regulatory developments, and the relationship between this DPA and any standard contractual clauses under Article 46, binding corporate rules under Article 47, or other data transfer mechanisms that may apply to international data transfers documented in the user's files.\n\nIf the processing relationship involves transfers of personal data outside the European Economic Area, search the user's documents for existing transfer impact assessments, standard contractual clauses, adequacy decisions, or supplementary measures, and incorporate appropriate provisions ensuring lawful international transfers. Reference any relevant EDPB guidance, supervisory authority decisions, or Schrems II compliance measures documented in the user's materials.\n\n## Document Delivery and Final Output\n\nDraft this Data Processing Addendum as a standalone legal document that is comprehensive, professionally formatted with appropriate legal document structure including recitals, operative provisions, schedules, and signature blocks, and ready for execution by both parties. The final document should instill confidence that the processing relationship is structured to achieve and maintain GDPR compliance while supporting the parties' legitimate business objectives as evidenced throughout their documentation.\n\nInclude the following schedules as appendices, populated with information extracted from the user's documents: Schedule A listing approved sub-processors with names, locations, and processing activities; Schedule B detailing the description of processing including subject matter, duration, nature and purpose, types of personal data, and categories of data subjects; Schedule C specifying technical and organizational security measures; and Schedule D providing audit and certification documentation. If the user's documents do not contain sufficient information for any schedule, clearly indicate the required information and suggest that the parties complete these details before execution.\n\nBefore finalizing the document, verify that all party-specific information has been accurately extracted from uploaded documents, all cross-references are correct, all defined terms are used consistently, and the document reflects current GDPR requirements and supervisory authority guidance as of 2024. Present the completed DPA in a professional legal document format ready for review by the parties' legal counsel and execution by authorized signatories.",
+  "parent_skill_id": "ba3a7b36-0ba1-4804-8d31-b83b8cb31d15",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "EU"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "data_privacy_and_cybersecurity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:10.189905",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:52:56.626653Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Identifying relevant skill for rewriting**
+
+Determined the rewrite request fits the "skill-creator" skill, which handles creating or updating skills by modifying SKILL.md. Preparing to read SKILL.md using a command due to read-only file constraints.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Searching for absolute skill file path**
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Deciding SKILL.md slug**
+
+Choosing "gdpr-dpa" as the concise, descriptive slug that captures Data Processing Addendum (DPA) with GDPR context per user instructions overriding skill-creator guidance.
+thinking
+**Preparing detailed SKILL.md content**
+
+Planning full SKILL.md with YAML frontmatter, clear title and purpose, numbered prerequisites, structured output process with tables and checklists for GDPR Article 28 compliance, and templates for schedules; will follow user format strictly without extra commentary.
+codex
+---
+name: gdpr-dpa
+description: Drafts GDPR-compliant Data Processing Addenda that implement Article 28 controller-processor obligations, align with a service agreement, and specify processing details, security, sub-processor controls, breach notice, audits, and deletion terms. Use when drafting or updating a DPA, vendor GDPR addendum, controller-processor agreement, or SCC-adjacent data protection addendum; trigger keywords: DPA, data processing addendum, GDPR, Article 28, controller, processor, sub-processor, data transfer, SCC, breach notification.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# GDPR Data Processing Addendum (DPA)
+
+Produce an Article 28-compliant DPA with schedules ready for execution.
+
+## Prerequisites
+
+1. Legal names, registered addresses, and registration numbers for Controller and Processor.
+2. Underlying agreement name/date and order forms or SOWs.
+3. Processing description: subject matter, duration, nature, purpose, and processing operations.
+4. Data inventory: categories of data subjects, personal data types, special categories (Art 9) or criminal data (Art 10).
+5. Processing locations, transfer map, and intended transfer mechanism (adequacy, SCCs, BCRs, or Art 49 derogation).
+6. Security baseline: existing certifications, policies, and technical/organizational measures.
+7. Sub-processor list and approval model (general vs specific authorization) with objection window.
+8. Incident response SLAs and audit preferences.
+9. Termination requirements: return/deletion formats, timelines, retention/backup constraints.
+
+## Output Structure / Process
+
+1. Draft header, recitals, effective date, and order of precedence with the main agreement.
+2. Define terms using GDPR language: Controller, Processor, Personal Data, Processing, Sub-processor, Data Protection Laws, Personal Data Breach, Services.
+3. Insert Article 28(3) core obligations using the checklist below.
+4. Add security (Art 32), breach notification (Arts 33-34), and assistance (Arts 32-36) clauses.
+5. Add sub-processor governance (Art 28(2), 28(4)) and liability for sub-processors.
+6. Add audit and compliance evidence options (Arts 28(3)(h), 40, 42).
+7. Add international transfer terms (Art 46 SCCs, Art 47 BCRs, Art 49 derogations) if data leaves the EEA.
+8. Add termination, return, and deletion obligations plus backup handling.
+9. Attach schedules A-D and populate from input; mark missing data as Required.
+
+**Article 28(3) Mandatory Clause Checklist**
+
+| GDPR basis | Clause heading | Required content |
+| --- | --- | --- |
+| Art 28(3)(a) | Instructions | Process only on documented Controller instructions; notify if instruction violates law. |
+| Art 28(3)(b) | Confidentiality | Ensure authorized personnel are bound by confidentiality. |
+| Art 28(3)(c) | Security | Implement appropriate technical and organizational measures per Art 32. |
+| Art 28(3)(d) | Sub-processors | No sub-processing without authorization; flow-down equivalent obligations. |
+| Art 28(3)(e) | Data subject rights | Assist Controller with requests under Chapter III. |
+| Art 28(3)(f) | Assistance | Assist with Art 32-36 obligations, including DPIA and prior consultation. |
+| Art 28(3)(g) | Return/Deletion | Return or delete personal data at end of services; certify. |
+| Art 28(3)(h) | Audits/Info | Make information available; allow and contribute to audits. |
+
+**Decision Points Table**
+
+| Decision | Options | Input needed |
+| --- | --- | --- |
+| Sub-processor authorization | General or specific | Controller policy, objection window |
+| Audit model | On-site, remote, third-party, certification | Controller vendor policy, existing reports |
+| Breach notice SLA | 24h / 48h / other | Risk tolerance, incident playbooks |
+| Data return format | CSV, JSON, native export | System compatibility |
+| Transfer mechanism | Adequacy, SCCs, BCRs, Art 49 | Data flows and locations |
+
+**Schedule Templates**
+
+```markdown
+Schedule A - Approved Sub-processors
+| Name | Location | Processing Activity | Authorization Type | Change Notice Period |
+| --- | --- | --- | --- | --- |
+| TBD | TBD | TBD | General/Specific | 30 days |
+
+Schedule B - Description of Processing
+| Field | Details |
+| --- | --- |
+| Subject matter | |
+| Duration | |
+| Nature of processing | |
+| Purpose | |
+| Processing operations | |
+| Categories of data subjects | |
+| Categories of personal data | |
+| Special categories (Art 9) | |
+| Criminal data (Art 10) | |
+| Processing locations | |
+
+Schedule C - Technical and Organizational Measures
+| Domain | Measures |
+| --- | --- |
+| Access control | |
+| Encryption/pseudonymization | |
+| Logging/monitoring | |
+| Availability/resilience | |
+| Incident response | |
+| Testing/evaluation | |
+| Physical security | |
+
+Schedule D - Audit/Certification Evidence
+| Evidence | Date | Scope | Link/Reference |
+| --- | --- | --- | --- |
+| ISO 27001 | | | |
+| SOC 2 Type II | | | |
+```
+
+## Guidelines
+
+- Align with the governing service agreement and include an order-of-precedence clause for data protection terms.
+- Do not promise absolute security; use “appropriate” measures per Art 32 and tie to risk profile.
+- If special categories or children’s data are involved, add heightened safeguards and stricter access controls.
+- If any non-EEA transfer occurs, specify the mechanism and attach SCCs or equivalent; flag missing transfer basis as a blocker.
+- Keep schedules consistent with the DPA text and ensure sub-processor lists are current.
+- Mark any uncertain legal citations with `[VERIFY]`.
+tokens used
+18,000

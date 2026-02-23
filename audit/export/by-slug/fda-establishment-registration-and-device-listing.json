@@ -1,0 +1,44 @@
+{
+  "id": "d1ec71ef-dda0-4994-96f8-ae42533fe0fc",
+  "slug": "fda-establishment-registration-and-device-listing",
+  "name": "Establishment Registration and Device Listing",
+  "summary": "Drafts comprehensive FDA Establishment Registration and Device Listing documents compliant with 21 CFR Part 807 for medical device manufacturers. Structures filings with establishment details, owner information, and device inventories using current FDA forms and guidance. Use for initial registrations, renewals, or updates to ensure regulatory compliance.",
+  "content": "# Enhanced Prompt: Establishment Registration and Device Listing\n\nYou are tasked with drafting a comprehensive Establishment Registration and Device Listing document that complies with FDA regulatory requirements under 21 CFR Part 807. This document serves as a critical regulatory filing for medical device manufacturers and must meet all federal compliance standards while accurately representing the establishment's operations and device portfolio.\n\n## Research and Information Gathering\n\nBegin by conducting thorough research to ensure the document reflects current regulatory requirements and best practices. Search for the most recent FDA Form 2830 templates and official guidance documents from FDA.gov, paying particular attention to any updates in registration requirements or format specifications. Examine the user's uploaded documents to extract all relevant establishment information, device specifications, and corporate details that will form the foundation of this registration. Cross-reference your findings with authoritative legal resources to verify that the document structure and content align with accepted industry standards for medical device registration.\n\n## Document Structure and Content Requirements\n\n**Document Header and Identification Section**: Establish the document's regulatory context by creating a comprehensive header that includes the document title, preparation date, and explicit references to applicable FDA regulations, particularly 21 CFR Part 807. Incorporate the appropriate FDA form numbers and ensure all regulatory citations are current and accurately formatted according to federal standards.\n\n**Establishment Information Section**: Provide complete and accurate details about the registering establishment, including the legal owner name, complete physical and mailing addresses, all relevant contact information, the FDA Establishment Identifier (FEI) number, and a detailed description of all business activities conducted at the facility. Ensure that the business activities are described using FDA-recognized terminology and that all information matches official corporate records and previous FDA submissions.\n\n**Owner and Operator Details Section**: Document comprehensive information about the establishment's ownership and operational leadership, including full legal names, official titles, signature authority designations, and complete contact details for all responsible parties. Verify that the individuals listed have the legal authority to bind the establishment in regulatory matters and that their roles align with FDA expectations for responsible parties in device registration.\n\n**Device Listing Section**: Create a detailed inventory of all devices manufactured, prepared, propagated, compounded, or processed at the establishment. For each device, provide the FDA product code, device classification (Class I, II, or III), a clear description of the intended use, and the device listing number if previously assigned. Ensure that device descriptions are technically accurate, align with FDA classification databases, and clearly communicate the medical purpose and application of each device. Include any relevant predicate device information or 510(k) numbers where applicable.\n\n**Compliance and Certifications Section**: Draft comprehensive compliance statements that affirm the establishment's adherence to all applicable FDA regulations, including Quality System Regulation (QSR) requirements where relevant. If the establishment is foreign, include complete information about the designated U.S. agent, including their name, address, phone number, and email address. Document any claimed exemptions with specific regulatory citations and justifications. Include certifications regarding the accuracy of the information provided and acknowledgment of the legal obligations associated with device registration.\n\n**Signatures and Attestations Section**: Provide properly formatted signature blocks for all required signatories, including the establishment owner or operator and any other responsible officials. Include clear attestation language that confirms the accuracy and completeness of the information provided, acknowledges the legal consequences of false statements, and affirms the signatory's authority to bind the establishment. Ensure signature requirements comply with both FDA regulations and general legal standards for executed documents.\n\n## Quality Assurance and Finalization\n\nBefore finalizing the document, verify that all information is internally consistent, that all required sections are complete, and that the document adheres to professional legal drafting standards. Ensure that all regulatory citations are accurate and current, that contact information is complete and properly formatted, and that the document presents a clear and comprehensive picture of the establishment's operations and device portfolio. The final document should be suitable for immediate submission to the FDA and should withstand regulatory scrutiny.\n\nOnce you have gathered all necessary information from uploaded documents, conducted appropriate regulatory research, and structured the content according to FDA requirements, create the complete Establishment Registration and Device Listing document with all sections properly formatted and all required information accurately presented.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "formation"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:13.733368",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

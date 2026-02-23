@@ -1,0 +1,46 @@
+{
+  "id": "dcc6d327-0c08-43b4-96ed-c54580d0f742",
+  "slug": "corporate-governance-client-memo",
+  "name": "Client Memo",
+  "summary": "Drafts comprehensive client memoranda that communicate legal analysis, case developments, or strategic recommendations in clear, accessible language for non-lawyer audiences. Structures the document with an executive summary, background, analysis, and actionable recommendations, incorporating research and citations as needed. Use it for corporate governance matters to bridge complex legal issues with client understanding.",
+  "content": "# Client Memo Prompt\n\nYou are tasked with drafting a comprehensive client memorandum that communicates legal analysis, case developments, or strategic recommendations in clear, accessible language. This document serves as a critical bridge between complex legal matters and client understanding, requiring you to balance technical accuracy with readability for non-lawyer audiences.\n\nBegin by gathering all relevant information about the matter at hand. If the user has uploaded case files, contracts, correspondence, or other supporting documents, search through these materials thoroughly to extract key facts, dates, parties, amounts, and any critical details that inform your analysis. When specific legal questions arise that require current statutory or case law authority, conduct targeted research to locate and verify the most relevant and recent sources, ensuring all citations are properly formatted and authoritative.\n\nStructure the memorandum to include a clear heading identifying the client, matter, date, and subject line. Open with a concise executive summary that captures the essential points and recommendations in plain language, allowing busy clients to grasp the core message immediately. Follow with a background section that establishes the factual context, drawing directly from the available documents and matter files to ensure accuracy and completeness.\n\nThe analysis section should address the legal issues systematically, explaining applicable law and how it applies to the client's specific circumstances. Translate legal concepts into business terms where possible, avoiding unnecessary jargon while maintaining precision. When citing statutes, regulations, or case precedent, provide proper attribution and briefly explain the relevance rather than assuming the client will understand the legal significance. If multiple strategic options exist, present each with its associated risks, benefits, and practical implications.\n\nConclude with clear, actionable recommendations that flow logically from your analysis. Specify next steps, deadlines, and any decisions the client needs to make. Throughout the memorandum, maintain a professional yet approachable tone that builds client confidence while managing expectations realistically. If certain facts remain unclear or additional information would strengthen the analysis, identify these gaps explicitly and request the necessary materials or clarifications from the client.\n\nBefore finalizing, ensure the memorandum is free of legal errors, properly cites all sources, and presents information in a logical flow that guides the client from context through analysis to conclusion. The final document should empower the client to make informed decisions while demonstrating your thorough understanding of their matter and your commitment to their interests.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis",
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

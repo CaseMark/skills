@@ -1,0 +1,313 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-e255-7363-beae-9a36ef8b21f8
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2b0e3dd3-2247-434e-a679-6fca55c4d2a8",
+  "slug": "legal-newsletter-summaries",
+  "name": "Legal Newsletter Summaries",
+  "summary": "Generates concise, actionable summaries of recent legal news, case law updates, regulatory changes, and industry developments for busy professionals. Distills significant items into headlines, explanations, implications, and action items, organized by practice area or theme. Use it to quickly stay informed on high-impact legal developments without reading full articles.",
+  "content": "# Legal Newsletter Summary Generation\n\nYou are tasked with creating a concise, actionable legal newsletter summary designed for busy legal professionals who need to stay informed about recent developments without spending hours reading full articles. Your goal is to distill complex legal news, case law updates, regulatory changes, and industry developments into digestible insights that can be quickly consumed and applied.\n\nBegin by gathering the most current and relevant legal news from authoritative sources. Search for recent developments in the specific practice areas, jurisdictions, or topics requested by the user. Focus on sources such as court opinions, regulatory announcements, bar association publications, legal news outlets, and official government websites. Prioritize information from the past week to two weeks unless the user specifies a different timeframe, ensuring the summary reflects the most current legal landscape.\n\nAs you identify relevant news items, evaluate each for significance and practical impact. Consider whether the development affects existing legal precedent, introduces new compliance requirements, signals emerging trends, or presents immediate action items for practitioners. Not all legal news carries equal weight\u2014prioritize items that will genuinely impact how attorneys advise clients, structure transactions, litigate cases, or manage risk. Filter out purely procedural updates or minor developments unless they contribute to a larger pattern worth noting.\n\nStructure your summary to maximize readability and utility. Begin each news item with a clear, descriptive headline that immediately conveys the core development. Follow with a concise explanation of what happened, why it matters, and what legal professionals should know or do in response. Include specific details such as case names with proper citations, statute or regulation numbers, effective dates, jurisdictions affected, and key holdings or provisions. When discussing case law, identify the court, parties, legal issues presented, and the practical implications of the ruling rather than merely reciting procedural history.\n\nOrganize the summary logically, grouping related items by practice area, jurisdiction, or theme as appropriate. If covering multiple practice areas, use clear section headings to help readers quickly navigate to their areas of interest. Within each section, order items by significance or urgency, placing time-sensitive developments or major precedential decisions first. Maintain a professional but accessible tone throughout, avoiding unnecessary jargon while preserving legal precision where terminology matters.\n\nFor each significant development, provide context that helps readers understand its broader implications. If a new regulation is announced, explain how it differs from prior requirements and what compliance steps may be necessary. If a court issues a notable ruling, indicate whether it represents a departure from previous law, creates a circuit split, or resolves an unsettled question. When regulatory agencies issue guidance or enforcement priorities, highlight what this signals about future enforcement activity and risk areas.\n\nInclude practical takeaways and action items where relevant. If a development requires immediate attention\u2014such as a new filing deadline, a change in procedure, or an emerging compliance obligation\u2014clearly flag this for readers. When a case or regulation may affect ongoing matters, suggest considerations for review of existing client files, contracts, or policies. If a trend is emerging across multiple developments, synthesize this pattern and explain its potential trajectory.\n\nEnsure all citations are accurate and properly formatted according to Bluebook standards where formal citation is appropriate. For case law, verify that you have the correct parties, court, year, and reporter information. For statutes and regulations, confirm the proper code section and any recent amendments. When referencing legal news articles or commentary, attribute the source appropriately while focusing your summary on the underlying legal development rather than the article itself.\n\nConclude with a brief forward-looking statement if appropriate, noting upcoming oral arguments, pending regulatory comment periods, anticipated legislative action, or other developments that readers should monitor. This helps legal professionals not only understand what has happened but also anticipate what may be coming next in their practice areas.\n\nYour final summary should be comprehensive yet concise, typically ranging from 500 to 1,500 words depending on the volume and complexity of developments covered. Each individual news item should be summarized in 75 to 200 words, providing enough detail to be meaningful while respecting the time constraints of busy professionals. The entire summary should be scannable, allowing readers to quickly identify items relevant to their practice and dive deeper into those areas while skipping less pertinent sections.\n\nRemember that your audience consists of licensed attorneys, paralegals, compliance professionals, and legal executives who need reliable, accurate information they can trust and act upon. Maintain the highest standards of accuracy, avoid speculation or editorial commentary, and focus on delivering factual, actionable intelligence that enhances their ability to serve clients and manage legal risk effectively.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": []
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:01:51.588148Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Outlining skill content and structure**
+
+I'm defining a clear, concise skill file for legal newsletter summaries with a simplified slug, third-person description, prerequisite list, structured output steps, tables, checklists, and citation guidelines emphasizing verification, jurisdiction, and avoiding legal advice.
+thinking
+**Adding source quality ladder and citation guidelines**
+
+I'm including a detailed source quality ladder table, specifying Bluebook citation style with a [VERIFY] placeholder, emphasizing no commentary or plagiarism, organizing items by practice area and urgency, and instructions for flagging immediate action or noting no material updates.
+codex
+---
+name: newsletter-summary
+description: Produces concise, actionable U.S. legal newsletter summaries of recent developments (case law, regulatory changes, guidance, enforcement, legislation) organized by practice area or theme. Delivers headlines, what happened, why it matters, and action items with citations and effective dates. Use for legal news digests, weekly/monthly client updates, or internal awareness. Trigger keywords: newsletter summary, legal update, case law update, regulatory update, weekly digest, compliance news.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Research
+---
+
+# Legal Newsletter Summary
+
+Deliver a scannable, practice-relevant digest of recent legal developments with concrete implications and actions.
+
+## Prerequisites
+
+1. **Scope** — practice areas, jurisdictions, industries, and audience (internal, clients, executives)
+2. **Time window** — default last 7–14 days unless user specifies
+3. **Source access** — approved sources list or permission to research authoritative sources
+4. **Format preference** — sectioning by practice area, jurisdiction, or theme; word count target if any
+
+## Output Structure / Process
+
+### 1) Intake & Scoping
+
+Checklist:
+- Confirm audience and tone (internal ops vs client-facing)
+- Confirm practice areas and jurisdictions
+- Confirm time window and publication cadence
+- Define exclusions (e.g., no minor procedural updates)
+
+### 2) Research & Source Capture
+
+Source hierarchy (use highest available):
+| Tier | Source Type | Examples | Use Notes |
+| --- | --- | --- | --- |
+| 1 | Primary law | Court opinions, statutes, regs, agency orders | Prefer for holdings and requirements |
+| 2 | Official guidance | Agency guidance, FAQs, enforcement releases | Use for compliance signals |
+| 3 | Bar/industry | Bar updates, reputable legal publications | Use for context and trends |
+
+Capture fields per item:
+- Source title, date, jurisdiction, authority
+- Direct citation (case name, reporter, statute/reg number, docket)
+- Link/locator if provided by user
+
+### 3) Triage & Ranking
+
+Rank each candidate item:
+- **Impact**: High / Medium / Low
+- **Urgency**: Immediate / Near-term / Watch
+- **Scope**: Broad / Sector-specific / Narrow
+- **Novelty**: New rule, major shift, split, clarification
+
+Prioritize:
+- New compliance obligations
+- Binding appellate decisions
+- Significant enforcement trends
+- Deadlines or effective dates
+
+### 4) Item Template (75–200 words each)
+
+Use this exact structure:
+| Field | Required Content |
+| --- | --- |
+| Headline | 8–14 words, action-oriented |
+| What Happened | 1–3 sentences, factual |
+| Why It Matters | 1–3 sentences, impact on practice/clients |
+| Action Items | Bullets, concrete steps |
+| Details | Court/agency, jurisdiction, effective date, citations |
+| Confidence | High/Medium/Low if source quality is mixed |
+
+### 5) Section Layout
+
+Order within each section:
+1. Urgent/time-sensitive
+2. High impact precedential/regulatory
+3. Emerging trends
+
+Section header format:
+- **Practice Area / Theme** — optional subheading for jurisdiction
+
+### 6) Final Assembly Template
+
+```markdown
+# Legal Newsletter Summary
+**Coverage Window:** {start_date}–{end_date}
+**Jurisdictions:** {list}
+**Practice Areas:** {list}
+
+## {Practice Area / Theme}
+### {Headline}
+**What Happened:** ...
+**Why It Matters:** ...
+**Action Items:**
+- ...
+**Details:** Court/Agency, Jurisdiction, Effective Date, Citation(s)
+
+## Watchlist / Upcoming
+- {Pending appeals, comment periods, scheduled arguments}
+```
+
+### 7) Citation Rules
+
+- Use Bluebook-style citations for cases and statutes where appropriate
+- Include court and year for cases
+- Include code section and latest amendment date for statutes/regs
+- Mark uncertain citations as `[VERIFY]`
+
+## Guidelines
+
+- No editorializing; stick to verifiable facts and implications
+- Never copy article text; summarize the underlying legal development
+- Flag effective dates and compliance deadlines explicitly
+- Note circuit splits or conflicting authority when present
+- If no material updates, state “No material updates in the covered period”
+- US-focused unless user specifies otherwise
+- Use `[VERIFY]` for any citation not confirmed in a primary source
+tokens used
+2,837

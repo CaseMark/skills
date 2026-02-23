@@ -1,0 +1,38 @@
+{
+  "id": "2b0e3dd3-2247-434e-a679-6fca55c4d2a8",
+  "slug": "legal-newsletter-summaries",
+  "name": "Legal Newsletter Summaries",
+  "summary": "Generates concise, actionable summaries of recent legal news, case law updates, regulatory changes, and industry developments for busy professionals. Distills significant items into headlines, explanations, implications, and action items, organized by practice area or theme. Use it to quickly stay informed on high-impact legal developments without reading full articles.",
+  "content": "# Legal Newsletter Summary Generation\n\nYou are tasked with creating a concise, actionable legal newsletter summary designed for busy legal professionals who need to stay informed about recent developments without spending hours reading full articles. Your goal is to distill complex legal news, case law updates, regulatory changes, and industry developments into digestible insights that can be quickly consumed and applied.\n\nBegin by gathering the most current and relevant legal news from authoritative sources. Search for recent developments in the specific practice areas, jurisdictions, or topics requested by the user. Focus on sources such as court opinions, regulatory announcements, bar association publications, legal news outlets, and official government websites. Prioritize information from the past week to two weeks unless the user specifies a different timeframe, ensuring the summary reflects the most current legal landscape.\n\nAs you identify relevant news items, evaluate each for significance and practical impact. Consider whether the development affects existing legal precedent, introduces new compliance requirements, signals emerging trends, or presents immediate action items for practitioners. Not all legal news carries equal weight\u2014prioritize items that will genuinely impact how attorneys advise clients, structure transactions, litigate cases, or manage risk. Filter out purely procedural updates or minor developments unless they contribute to a larger pattern worth noting.\n\nStructure your summary to maximize readability and utility. Begin each news item with a clear, descriptive headline that immediately conveys the core development. Follow with a concise explanation of what happened, why it matters, and what legal professionals should know or do in response. Include specific details such as case names with proper citations, statute or regulation numbers, effective dates, jurisdictions affected, and key holdings or provisions. When discussing case law, identify the court, parties, legal issues presented, and the practical implications of the ruling rather than merely reciting procedural history.\n\nOrganize the summary logically, grouping related items by practice area, jurisdiction, or theme as appropriate. If covering multiple practice areas, use clear section headings to help readers quickly navigate to their areas of interest. Within each section, order items by significance or urgency, placing time-sensitive developments or major precedential decisions first. Maintain a professional but accessible tone throughout, avoiding unnecessary jargon while preserving legal precision where terminology matters.\n\nFor each significant development, provide context that helps readers understand its broader implications. If a new regulation is announced, explain how it differs from prior requirements and what compliance steps may be necessary. If a court issues a notable ruling, indicate whether it represents a departure from previous law, creates a circuit split, or resolves an unsettled question. When regulatory agencies issue guidance or enforcement priorities, highlight what this signals about future enforcement activity and risk areas.\n\nInclude practical takeaways and action items where relevant. If a development requires immediate attention\u2014such as a new filing deadline, a change in procedure, or an emerging compliance obligation\u2014clearly flag this for readers. When a case or regulation may affect ongoing matters, suggest considerations for review of existing client files, contracts, or policies. If a trend is emerging across multiple developments, synthesize this pattern and explain its potential trajectory.\n\nEnsure all citations are accurate and properly formatted according to Bluebook standards where formal citation is appropriate. For case law, verify that you have the correct parties, court, year, and reporter information. For statutes and regulations, confirm the proper code section and any recent amendments. When referencing legal news articles or commentary, attribute the source appropriately while focusing your summary on the underlying legal development rather than the article itself.\n\nConclude with a brief forward-looking statement if appropriate, noting upcoming oral arguments, pending regulatory comment periods, anticipated legislative action, or other developments that readers should monitor. This helps legal professionals not only understand what has happened but also anticipate what may be coming next in their practice areas.\n\nYour final summary should be comprehensive yet concise, typically ranging from 500 to 1,500 words depending on the volume and complexity of developments covered. Each individual news item should be summarized in 75 to 200 words, providing enough detail to be meaningful while respecting the time constraints of busy professionals. The entire summary should be scannable, allowing readers to quickly identify items relevant to their practice and dive deeper into those areas while skipping less pertinent sections.\n\nRemember that your audience consists of licensed attorneys, paralegals, compliance professionals, and legal executives who need reliable, accurate information they can trust and act upon. Maintain the highest standards of accuracy, avoid speculation or editorial commentary, and focus on delivering factual, actionable intelligence that enhances their ability to serve clients and manage legal risk effectively.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": []
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

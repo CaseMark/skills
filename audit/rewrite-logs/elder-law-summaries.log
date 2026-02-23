@@ -1,0 +1,356 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-85ae-7f52-bb19-7c7cf965156e
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "b174bda2-1727-476a-85d8-776ae8d182ab",
+  "slug": "elder-law-summaries",
+  "name": "Elder Law Summaries",
+  "summary": "Generates comprehensive, accessible summaries of elder law issues including estate planning, elder abuse, healthcare rights, Medicaid eligibility, and guardianship. Analyzes uploaded documents to identify risks, gaps in protections, and recommended actions while structuring output for both legal professionals and families. Use this skill for overviews of elderly client matters requiring jurisdiction-specific insights and immediate action items.",
+  "content": "# Elder Law Summary: Comprehensive Legal Overview for Elderly Client Matters\n\nYou are tasked with creating a thorough, accessible summary of legal issues affecting an elderly individual or group of elderly clients. This summary should serve as a comprehensive resource for legal professionals, family members, and caregivers to understand the full landscape of legal considerations relevant to elder care, protection, and planning.\n\nBegin by identifying and analyzing all relevant legal domains that impact the elderly client's situation. Your summary should address estate planning considerations including wills, trusts, powers of attorney, and advance healthcare directives. Examine potential elder abuse concerns, whether financial exploitation, physical abuse, neglect, or emotional harm, and outline the legal protections and remedies available. Cover healthcare rights comprehensively, including Medicare and Medicaid eligibility, long-term care planning, nursing home rights, and end-of-life decision-making authority. Additionally, consider guardianship and conservatorship issues, Social Security and pension benefits, housing rights, age discrimination protections, and any other legal matters specific to the client's circumstances.\n\nWhen documents have been provided, conduct a complete review to extract all relevant facts, dates, relationships, financial information, medical conditions, and existing legal arrangements. Identify any red flags such as suspicious financial transactions, signs of undue influence, capacity concerns, or gaps in legal protection. Search through uploaded materials systematically to ensure no critical information is overlooked, and cite specific documents when referencing facts or concerns.\n\nStructure your summary to be both comprehensive for legal professionals and understandable for family members who may lack legal training. Open with an executive overview that captures the most pressing legal issues and immediate action items. Then provide detailed sections for each relevant legal domain, explaining the current status, applicable laws and regulations, potential risks or vulnerabilities, and recommended next steps. Include jurisdiction-specific information where relevant, as elder law varies significantly by state, particularly regarding Medicaid planning, guardianship procedures, and elder abuse reporting requirements.\n\nFor estate planning matters, assess whether current documents are adequate, properly executed, and reflect the client's current wishes and circumstances. Identify any assets that may not be properly titled or designated. For healthcare decision-making, verify that advance directives are current, legally valid, and accessible to healthcare providers and family members. If elder abuse is suspected or confirmed, outline the legal obligations for reporting, available protective orders or interventions, and potential civil or criminal remedies.\n\nWhen addressing Medicaid planning and long-term care, explain the complex interplay between asset protection strategies, look-back periods, and eligibility requirements in clear terms. If the client is already receiving care or benefits, verify that all arrangements comply with applicable regulations and that the client's rights are being protected. For clients with diminished capacity, evaluate whether guardianship or conservatorship may be necessary, appropriate, or should be avoided in favor of less restrictive alternatives.\n\nThroughout your summary, maintain sensitivity to the dignity and autonomy of the elderly client while acknowledging the practical realities of aging, potential vulnerability, and the need for protective legal structures. Balance thoroughness with clarity, ensuring that complex legal concepts are explained in accessible language without oversimplification. Highlight time-sensitive matters that require immediate attention, such as upcoming Medicaid application deadlines, statute of limitations concerns for abuse claims, or urgent need for incapacity planning documents.\n\nConclude with a prioritized action plan that identifies immediate steps, short-term objectives, and long-term planning considerations. Specify which actions require attorney involvement, which can be handled by family members or caregivers, and which may require coordination with financial advisors, healthcare providers, or social services agencies. Include relevant contact information for state agencies, elder law resources, and reporting hotlines where appropriate.\n\nYour summary should empower families and legal professionals to make informed decisions that protect the elderly client's legal rights, financial security, healthcare autonomy, and personal dignity while ensuring compliance with all applicable laws and regulations.",
+  "parent_skill_id": "8bedabb0-a0e4-4136-9d06-540d72094eac",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "review"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "formation"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "estate_planning"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:55:59.986188Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Identifying relevant skill for rewriting**
+
+The skill-creator matches the task of rewriting SKILL.md as it guides creating or updating skills; next I'll read SKILL.md content to proceed.
+exec
+/bin/zsh -lc 'ls -la' in /Users/max/CaseMark/skills succeeded in 51ms:
+total 72
+drwxr-xr-x  15 max  staff    480 Feb 23 13:26 .
+drwxr-xr-x@ 21 max  staff    672 Feb 23 10:30 ..
+drwxr-xr-x@  3 max  staff     96 Feb 23 13:38 .claude
+drwxr-xr-x@ 10 max  staff    320 Feb 23 13:56 .git
+drwxr-xr-x@  3 max  staff     96 Feb 23 10:35 .github
+-rw-r--r--@  1 max  staff     79 Feb 23 10:37 .gitignore
+-rw-r--r--@  1 max  staff   2836 Feb 23 10:38 CONTRIBUTING.md
+-rw-r--r--@  1 max  staff  10765 Feb 23 10:37 LICENSE
+-rw-r--r--@  1 max  staff   3676 Feb 23 10:38 README.md
+-rw-r--r--@  1 max  staff  11764 Feb 23 13:26 SKILL.md
+drwxr-xr-x@  9 max  staff    288 Feb 23 11:59 audit
+drwxr-xr-x@  6 max  staff    192 Feb 23 13:39 scripts
+drwxr-xr-x@  4 max  staff    128 Feb 23 10:35 skills
+drwxr-xr-x@  3 max  staff     96 Feb 23 10:37 spec
+drwxr-xr-x@  3 max  staff     96 Feb 23 10:36 template
+
+thinking
+**Locating skill-creator README**
+
+Noticed the skill-creator README file at the specified path and preparing to read its contents for relevant details.
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Deciding SKILL.md slug and formatting**
+
+I'll add a short line announcing the skill usage before the SKILL.md content to comply with instructions, then generate SKILL.md. For the slug, I'll remove the practice area prefix "elder-law" to produce a clearer slug like "summary" or "elder-summary."
+thinking
+**Finalizing slug and SKILL.md content outline**
+
+I'll use the slug "elder-summary" per prefix drop instructions and prepare detailed SKILL.md content with structured metadata, description including trigger keywords, prerequisites, output structure, guidelines, and templates for elder law matter summaries around 120 lines.
+codex
+Using skill: `skill-creator` (updating a skill into a clean SKILL.md).
+
+---
+name: elder-summary
+description: Produces structured elder law matter summaries from client records, covering estate planning, advance directives, powers of attorney, Medicaid/long-term care planning, guardianship or conservatorship, elder abuse or exploitation, and benefits. Flags gaps, risks, and action items with document citations. Use for “elder law summary”, “Medicaid planning review”, “guardianship analysis”, “advance directive review”, “POA status”, “long-term care eligibility”, or “elder abuse red flags”.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+    - Review
+---
+
+# Elder Law Matter Summary
+
+Produces a structured, jurisdiction-aware summary of an elder client’s legal, financial, and care situation with risks and actions.
+
+## Prerequisites
+
+1. **Jurisdiction** — state and county (if known)
+2. **Client profile** — age, residence, caregivers, decision-makers
+3. **Estate plan** — will, trust, POA, advance directive, HIPAA release
+4. **Financials** — asset list, income sources, recent statements/transactions
+5. **Benefits** — Medicare/Medicaid, Social Security, pension, VA (if any)
+6. **Care setting** — facility agreements, care plans, incident reports
+7. **Capacity/abuse indicators** — evaluations, reports, suspicious activity
+8. **Key contacts** — family, agents, providers, caseworkers, APS (if engaged)
+
+## Output Structure / Process
+
+Use the following structure and fill with facts from records. Tag every fact with a source in the format `[Doc: name | date]`. If a statute or regulation is referenced and uncertain, mark `[VERIFY]`.
+
+**1. Executive Overview (3–6 bullets)**  
+- Top risks or exposure  
+- Urgent deadlines or time-sensitive items  
+- Immediate recommended actions  
+- Any suspected abuse/neglect or capacity concerns
+
+**2. Client Snapshot (table)**
+
+| Field | Summary | Source |
+| --- | --- | --- |
+| Name / DOB |  |  |
+| Residence / Care Setting |  |  |
+| Primary Decision-Makers |  |  |
+| Diagnoses / Capacity Indicators |  |  |
+| Income / Benefits |  |  |
+| Primary Assets |  |  |
+
+**3. Document Inventory (table)**
+
+| Document | Date | Status (Valid/Expired/Missing) | Issues/Gaps | Source |
+| --- | --- | --- | --- | --- |
+
+**4. Legal Domain Analysis (repeat table per domain)**  
+Domains to cover: Estate Planning, Healthcare Decision-Making, Benefits/Medicaid & Long-Term Care, Guardianship/Conservatorship, Elder Abuse/Exploitation, Housing/Facility Rights, Other (as relevant).
+
+| Domain | Current Status | Risks / Red Flags | Recommended Actions | Source |
+| --- | --- | --- | --- | --- |
+
+**5. Red Flag Checklist**  
+Use `[ ]` for unchecked and `[x]` when supported by evidence.
+
+- [ ] Missing or outdated will/trust
+- [ ] No durable financial POA
+- [ ] No healthcare POA / advance directive
+- [ ] Questionable capacity or undue influence indicators
+- [ ] Unexplained financial transfers or new joint owners/beneficiaries
+- [ ] Facility incidents or neglect indicators
+- [ ] Medicaid eligibility risk (asset/income threshold issues)
+- [ ] Look-back period exposure (state-specific; cite) [VERIFY]
+
+**6. Jurisdiction-Specific Notes**  
+- Medicaid eligibility rules, look-back period, spousal impoverishment rules [VERIFY]  
+- Guardianship filing standards and priority of appointments [VERIFY]  
+- Mandatory reporting requirements for suspected abuse [VERIFY]
+
+**7. Action Plan (table)**
+
+| Priority | Action | Owner | Target Date | Notes |
+| --- | --- | --- | --- | --- |
+| Immediate (0–30 days) |  |  |  |  |
+| Near-Term (30–90 days) |  |  |  |  |
+| Long-Term (90+ days) |  |  |  |  |
+
+**8. Open Questions / Missing Items**  
+List unanswered questions and missing documents needed to complete analysis.
+
+## Guidelines
+
+- Use only facts in the record; label inferences as “Inference”.
+- Keep tone neutral and accessible for families while preserving legal precision.
+- Do not diagnose medical capacity; summarize evidence and flag need for evaluation.
+- If abuse is suspected, elevate to immediate action and cite reporting rules; mark uncertain citations with `[VERIFY]`.
+- Highlight conflicts among family members, agents, or care providers.
+- Do not provide legal advice; provide options and next steps for attorney review.
+- If jurisdiction is unknown, state that conclusions are conditional and request it.
+tokens used
+10,218
+
+OUTPUT:
+Using skill: `skill-creator` (updating a skill into a clean SKILL.md).
+
+---
+name: elder-summary
+description: Produces structured elder law matter summaries from client records, covering estate planning, advance directives, powers of attorney, Medicaid/long-term care planning, guardianship or conservatorship, elder abuse or exploitation, and benefits. Flags gaps, risks, and action items with document citations. Use for “elder law summary”, “Medicaid planning review”, “guardianship analysis”, “adv

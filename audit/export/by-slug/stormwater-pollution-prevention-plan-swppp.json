@@ -1,0 +1,42 @@
+{
+  "id": "4addab52-9cad-4918-b7e2-4ae20e5a52d1",
+  "slug": "stormwater-pollution-prevention-plan-swppp",
+  "name": "Stormwater Pollution Prevention Plan (SWPPP)",
+  "summary": "Drafts a comprehensive Stormwater Pollution Prevention Plan (SWPPP) compliant with the federal Clean Water Act NPDES program and state regulations for construction projects disturbing one or more acres. Specifies site details, best management practices for erosion and sediment control, inspection and maintenance schedules, and recordkeeping protocols. Use for environmental regulatory compliance to prevent stormwater pollution during construction.",
+  "content": "You are tasked with drafting a comprehensive Stormwater Pollution Prevention Plan (SWPPP) that complies with federal Clean Water Act requirements under the National Pollutant Discharge Elimination System (NPDES) program and applicable state regulations. This regulatory document must meet EPA standards for construction activities disturbing one or more acres of land and demonstrate how the project will prevent stormwater pollution through effective erosion and sediment controls.\n\nBegin by gathering essential site information including the complete project name, physical location with coordinates or legal description, total acreage of disturbance, and identification of the operator responsible for day-to-day operational control of construction activities. Identify all receiving waters and any sensitive environmental features within the project area. Search through any available project documents, site plans, or environmental assessments to extract accurate site characteristics, soil types, topography, and drainage patterns that will inform the selection of appropriate best management practices.\n\nDevelop a detailed Best Management Practices section that addresses both structural and non-structural controls. For erosion and sediment controls, specify the type, location, installation timing, and maintenance requirements for each BMP including silt fencing, sediment basins, inlet protection devices, stabilized construction entrances, and temporary or permanent seeding. Describe good housekeeping practices covering material storage areas with secondary containment, spill prevention and response procedures, waste management protocols including proper disposal of construction debris, and designated concrete washout areas with appropriate containment. Each BMP description should include design specifications, installation standards, and performance criteria that align with state-specific requirements or local municipal separate storm sewer system (MS4) permits.\n\nCreate a robust inspection and maintenance program that establishes the frequency and scope of site inspections. The standard requires inspections at least once every seven calendar days and within 24 hours of any storm event producing 0.5 inches or more of rainfall. Detail the qualifications required for inspection personnel, the specific elements to be inspected, documentation requirements for each inspection, and procedures for identifying and correcting deficiencies. Outline maintenance procedures for each BMP type and establish timelines for corrective actions when BMPs are not operating effectively or when new sources of pollution are identified.\n\nEstablish comprehensive recordkeeping requirements that ensure compliance with regulatory mandates. Specify that the SWPPP must be maintained on-site or be readily available at a central location, along with all inspection reports, rainfall measurements, and records of BMP maintenance and repairs. Include provisions for documenting any modifications to the SWPPP, correspondence with regulatory agencies, and records of employee training on pollution prevention measures. The recordkeeping section should reference the minimum three-year retention period required under NPDES regulations.\n\nConclude with a certification section that includes the required regulatory language confirming that the SWPPP was prepared in accordance with good engineering practices and that the operator understands and will implement the pollution prevention measures described in the plan. The certification must include signature lines for the operator or duly authorized representative, printed name, title, date, and professional engineer seal if required by state regulations. Include a statement that the signatory has examined the document and that based on their inquiry of those individuals responsible for obtaining the information, the document is true, accurate, and complete to the best of their knowledge.\n\nFormat the final SWPPP as a professional regulatory document with a table of contents, numbered sections and subsections, site maps showing BMP locations, detail drawings of structural controls, and appendices containing relevant permits, correspondence, and supporting documentation. Ensure all technical terminology aligns with EPA and state environmental agency guidance documents, and include references to applicable regulatory citations including 40 CFR Part 122 and state-specific water quality standards.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:13.285612",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

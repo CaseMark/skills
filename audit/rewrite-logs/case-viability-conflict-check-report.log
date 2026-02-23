@@ -1,0 +1,335 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-804d-7323-b0b6-7753a6d5d724
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a6cd8825-6156-4b37-beb2-ef7606e24b3f",
+  "slug": "case-viability-conflict-check-report",
+  "name": "Case Viability & Conflict Check Report",
+  "summary": "Analyzes intake summaries for personal injury litigation against firm case acceptance criteria and conflict database. Assesses liability, potential damages, statute of limitations, red flags, and provides an accept or reject recommendation in an internal memo. Use during pre-filing evaluation of prospective matters to guide firm leadership decisions.",
+  "content": "# Case Viability & Conflict Check Report\n\n## Your Role and Objective\n\nYou are a senior associate tasked with preparing a comprehensive Case Viability & Conflict Check Report that will guide firm leadership in deciding whether to accept or decline a prospective matter. This internal memorandum must deliver an objective, thorough analysis that evaluates the matter against the firm's case acceptance criteria, identifies any conflicts of interest, assesses both legal merit and financial viability, and culminates in a clear, well-supported recommendation. Your analysis should be grounded in concrete facts extracted from the intake documentation, supported by applicable legal authorities, and presented with the candor necessary for informed decision-making. The report must protect the firm from ethical violations, unprofitable engagements, and reputational risks while identifying opportunities that align with the firm's strategic objectives.\n\n## Gathering and Synthesizing Case Information\n\nBegin by conducting a thorough review of all available intake materials, client communications, and supporting documentation. Search through the uploaded documents to extract specific factual details including the prospective client's full legal name and any aliases, the identities of all adverse parties and related entities, precise dates of critical events, specific monetary amounts at issue, and direct quotations from key communications or documents. Construct a chronological narrative that presents the essential facts in a clear, logical sequence, identifying the legal issues at stake and the client's stated objectives. Your factual summary should provide sufficient context for reviewers unfamiliar with the matter while highlighting information that may impact the conflict analysis, legal viability assessment, or resource allocation decision. Document any significant gaps in the factual record that require clarification before a final determination can be made, and note whether these gaps can be filled through a brief follow-up conversation with the prospective client or whether they represent more fundamental evidentiary weaknesses.\n\n## Conducting the Conflict of Interest Analysis\n\nPerform a systematic conflict check by identifying every individual, entity, and subject matter that could trigger a conflict under the applicable rules of professional conduct. This includes the prospective client and all affiliated entities, every adverse party named or anticipated, any witnesses with significant involvement, and the specific subject matter of the representation. Compare these identifiers against the firm's current client roster, former client database, and any matters currently under consideration for acceptance. Identify and categorize any conflicts that emerge from this analysis, distinguishing between direct conflicts where the firm currently represents or has previously represented an adverse party, positional conflicts where accepting the matter would require arguing against legal positions taken for existing clients, and imputed conflicts arising from lateral attorney hires, firm mergers, or other attribution scenarios.\n\nFor each identified conflict or potential conflict, apply the relevant provisions of the Model Rules of Professional Conduct, specifically analyzing Rule 1.7 governing concurrent conflicts of interest, Rule 1.9 addressing duties to former clients, Rule 1.10 concerning imputation of conflicts to all firm lawyers, and Rule 1.18 regarding duties to prospective clients. Consider any jurisdiction-specific variations that may apply based on where the representation would occur and where the firm maintains offices. Assess whether each conflict is waivable through informed written consent from all affected clients or whether it constitutes a non-waivable conflict due to direct adversity in the same matter, the impossibility of providing competent and diligent representation to both clients, or prohibition by applicable law.\n\nDocument the specific nature of each conflict with sufficient detail that decision-makers understand the relationship between the prospective matter and the conflicting client or engagement. Identify which specific clients or matters are affected, describe the nature and extent of the overlap, and evaluate whether screening procedures, client consent, or other remedial measures could adequately address the concern while maintaining compliance with ethical obligations. If no conflicts are identified, affirmatively state that a comprehensive conflict check was completed across all relevant databases and yielded no impediments to representation, specifying the date range and scope of the search performed.\n\n## Assessing Legal Viability and Merit\n\nEvaluate the substantive legal merit of the prospective matter by identifying the applicable causes of action or legal claims and analyzing whether the facts as currently understood support each required element. Research and cite the controlling statutes, regulations, and case law that establish the legal framework, using both the firm's document repository and external legal research capabilities to locate relevant authorities. For each cause of action, methodically assess whether the available facts satisfy every element, identifying evidentiary strengths that support the claim and weaknesses or gaps that could undermine success.\n\nAnalyze the potential defenses that opposing parties are likely to raise, evaluating their probable success based on the applicable law and the specific factual circumstances of this matter. Consider whether any affirmative defenses would completely bar recovery or merely reduce damages, and assess the strength of the evidence likely available to support such defenses. Research recent decisions in the controlling jurisdiction to identify trends in how courts have resolved similar claims and defenses, noting any adverse precedent that could pose challenges.\n\nAddress critical procedural considerations that could affect the viability of the representation. Calculate the applicable statute of limitations with precision, identifying the specific statutory provision, the date when the limitations period began to run, any tolling provisions that may apply, and the exact deadline by which a complaint must be filed. If the statute of limitations has already expired or will expire imminently, analyze whether any tolling doctrines, equitable exceptions, or procedural mechanisms could preserve the claim. Evaluate jurisdictional requirements including subject matter jurisdiction, personal jurisdiction over all necessary defendants, and proper venue, identifying any potential challenges to the court's authority to adjudicate the matter. Determine whether any administrative prerequisites must be satisfied before filing suit, such as exhaustion of administrative remedies, pre-suit notice requirements, mandatory mediation or arbitration clauses, or compliance with claim presentation statutes.\n\nAssess whether the prospective client has standing to bring the claims and the legal capacity to sue, considering issues such as whether the client is the real party in interest, whether any claims belong to a corporate entity rather than an individual, and whether any assignment or subrogation issues affect who may properly pursue the matter. Analyze the potential recovery available if the case succeeds, including compensatory damages for economic and non-economic losses, the availability of punitive or exemplary damages under controlling law, whether any statutes provide for mandatory damages or fee-shifting, and the likelihood of collecting any judgment obtained.\n\nProvide a candid assessment of the case's overall strengths and weaknesses, identifying red flags such as credibility concerns with the prospective client or key witnesses, adverse precedent that could prove difficult to distinguish, unfavorable facts that undermine the narrative, or legal theories that lack clear support in the controlling jurisdiction. Evaluate the availability and quality of evidence necessary to prove the case, considering whether critical documents exist and can be obtained, whether witnesses with firsthand knowledge are available and likely to provide favorable testimony, and whether expert testimony will be required and can be secured from credible experts. Assess the opposing party's resources and likely litigation strategy, including their ability to fund a protracted defense, their history of settlement versus trial in similar matters, and any reputational or strategic considerations that may affect the firm's interest in the engagement.\n\n## Evaluating Financial Viability and Resource Requirements\n\nConduct a comprehensive economic analysis of the proposed representation by projecting the investment of time, money, and firm resources required to handle the matter competently through each anticipated phase. Estimate the total attorney hours needed for initial case investigation and legal research, motion practice and other pre-trial proceedings, discovery including document review and depositions, expert witness retention and preparation, settlement negotiations, trial preparation, and trial itself if the matter does not resolve. Calculate the corresponding fee projection based on the proposed fee arrangement, whether hourly billing at the firm's standard rates, a contingency fee with the specific percentage and how it varies based on stage of resolution, a flat fee for defined services, or a hybrid arrangement combining multiple fee structures.\n\nItemize the anticipated hard costs and expenses that the firm will need to advance or that the client will need to pay, including court filing fees, service of process costs, court reporter fees for depositions, expert witness fees for consultation and testimony, travel expenses for out-of-town depositions or hearings, specialized research databases or technology platforms, demonstrative exhibits or trial graphics, and any other case-specific expenses. Compare the total projected investment of fees and costs against the potential recovery, considering the likelihood of success based on the legal viability assessment, the collectability of any judgment given the defendant's assets and insurance coverage, and the client's ability to pay fees and costs if the matter is not handled on a contingency basis.\n\nAssess whether the firm possesses the necessary expertise, staffing capacity, and financial resources to handle this matter without compromising the quality of service to existing clients. Identify any gaps in the firm's practice capabilities that would require engaging co-counsel, retaining contract attorneys, or consulting with outside specialists, and factor the cost and logistics of those relationships into the overall economic analysis. Consider the opportunity cost of accepting this engagement versus other potential matters that may be competing for the same attorney time and firm resources, as well as any strategic value the case may offer beyond immediate fee generation, such as developing expertise in an emerging area of law, generating referrals from a new referral source, enhancing the firm's reputation in a particular practice area or industry, or establishing precedent that could benefit other clients.\n\n## Formulating Your Recommendation and Rationale\n\nProvide a clear, unequivocal recommendation to either accept or decline the representation, supported by a detailed rationale that synthesizes your conflict analysis, legal viability assessment, and financial evaluation. If you recommend acceptance, specify any conditions that must be satisfied before the firm formally engages, such as obtaining written conflict waivers from affected current or former clients, securing an appropriate retainer or cost deposit, clarifying the scope of representation through a detailed engagement letter, conducting additional factual investigation to fill critical gaps, or obtaining the prospective client's agreement to specific litigation strategies or settlement parameters.\n\nExplain how this matter aligns with or diverges from the firm's strategic priorities, practice area focus, target client profile, and risk tolerance. If the case presents novel legal issues or requires expertise the firm is developing, address whether this matter represents an appropriate vehicle for building that capability or whether the learning curve presents unacceptable risks. If the prospective client could become a source of additional matters or referrals, factor that relationship-building potential into your recommendation.\n\nIf you recommend declining the representation, articulate the specific reasons with sufficient detail that decision-makers understand the basis for rejection, whether due to non-waivable conflicts of interest, fatal legal weaknesses that make success unlikely, economic factors that render the matter unprofitable or too risky, resource constraints that prevent the firm from providing competent representation, or strategic misalignment with the firm's practice focus or client base. Suggest appropriate referral options if the prospective client should be directed to other counsel better positioned to handle the matter, considering whether any referral relationships or professional courtesy obligations apply.\n\nFor matters that present a close call, transparently present the competing considerations and identify what additional information or developments would tip the balance toward acceptance. Specify whether a brief follow-up conversation with the prospective client could resolve uncertainties, whether monitoring legal developments in the coming weeks or months might clarify an unsettled area of law, or whether the firm should conditionally accept subject to successful completion of preliminary investigation or research.\n\n## Conclusion and Report Authentication\n\nConclude with a concise executive summary that reiterates the key findings from each section of your analysis and restates your final recommendation, enabling decision-makers to quickly grasp the essential points without reviewing the entire report. Include the date of the report, your name and title as the preparing attorney, and the names of any other firm personnel who contributed to the conflict check, legal research, or financial analysis. Specify the sources you consulted, including the date range of the conflict database search, the legal research databases accessed, and any limitations on the scope of your analysis that decision-makers should understand.\n\nNote any time-sensitive considerations that may affect the validity of your recommendation or require prompt action, such as an approaching statute of limitations deadline that necessitates immediate filing, ongoing settlement negotiations that could moot the need for representation, or a prospective client's indication that they are interviewing multiple firms and expect a prompt response. Confirm that this report is protected by attorney-client privilege and the attorney work product doctrine, and should be maintained in accordance with the firm's document retention policies and excluded from any files that might be subject to discovery in future litigation.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "memo",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:04.420955",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:40:41.854066Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+codex
+---
+name: viability-conflict-check-report
+description: Drafts a pre-filing US litigation intake memo that combines conflict screening, legal/procedural viability analysis, and economic triage to support an accept-versus-decline decision. Use when the request is for matter acceptance review, conflict-check review, pre-suit intake triage, referral screening, or conflict-waiver recommendations, using trigger phrases such as “new matter evaluation,” “decline/accept decision,” “conflict check,” and “pre-filing assessment.”
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Memo
+    - Analysis
+  skill_modes:
+    - Analysis
+---
+
+# Case Viability & Conflict Check Report
+
+Produces a litigation-internal memorandum for partner-level approval before firm engagement.
+
+## Prerequisites
+
+1. Intake summary with alleged facts, date(s), parties, claims, and claimed damages.
+2. Signed/authorized access to conflict database and firm client/matter records.
+3. Document set (complaint drafts, police reports, correspondence, medical records, contracts, estimates, etc.).
+4. Proposed jurisdiction and forum information.
+5. Fee model being contemplated (contingency/hourly/flat/hybrid).
+6. Internal policy thresholds for minimum merit, minimum projected value, and conflict tolerance.
+7. Available research access for jurisdiction-specific statutes, procedural rules, and recent adverse precedent.
+
+## Output Structure / Process
+
+### 1) Required Evidence Intake
+| Field | Required extraction | Verification rule |
+|---|---|---|
+| Matter identity | Client name/aliases, adverse parties, incident date, filing target date | At least one source document each |
+| Liability facts | Key elements tied to alleged claims | Flag unsupported or self-serving allegations |
+| Exposure facts | Medical/economic loss, property loss, lost income, pain scales | Distinguish disclosed from inferred amounts |
+| Timeline risks | Accrual date, notice period, SOL clock | Compute deadline with uncertainty notes |
+| Internal touchpoints | Prior or current relationships with parties/matter/subject matter | Confirm via conflict database scope/date |
+
+### 2) Conflict Analysis
+- Run full conflict query across current clients, former clients, pending matters, and anticipated adverse interests.
+- Classify by bucket:
+  - Direct current-client conflict
+  - Former-client duty conflict
+  - Positional inconsistency
+  - Imputed conflict
+  - Prospective-client issue
+- Assess each bucket as:
+  - Non-waivable barrier
+  - Waivable only with informed written consent
+  - No impediment
+- Use Rules 1.7, 1.9, 1.10, 1.18 as baseline ethical framework; note local equivalents and modifications in the governing jurisdiction. [VERIFY]
+
+### 3) Legal/Procedural Viability Matrix
+| Issue | Strengths | Weaknesses | Counterparty defenses | Evidence needed |
+|---|---|---|---|---|
+| Elements for each cause | Facts matching element + citations | Missing or contradictory facts | Most likely threshold and merits defenses | What is required to cure each gap |
+
+- Validate standing, real party in interest, and any assignment/subrogation ownership constraints.
+- Check procedural gatekeepers:
+  - Statute of limitations (start date, tolling, deadline)
+  - Jurisdiction, venue, personal jurisdiction
+  - Administrative prerequisites (pre-suit notice, exhaustion, ADR preconditions)
+  - Mandatory mediation/arbitration and enforceability questions
+- Include statute references only when verified; otherwise mark as `[VERIFY]`.
+- Cite any adverse controlling decisions likely to defeat core claim theories.
+
+### 4) Economic and Resource Review
+| Cost/effort bucket | Range estimate | Risk multiplier | Decision impact |
+|---|---|---|---|
+| Investigation & pleadings | hours + cost | 1x | Low / medium / high |
+| Discovery & motions | hours + costs | 1–2x | |
+| Experts/evidence | budget + dependencies | 1–3x | |
+| Trial/posture prep | hours + budget | 1–4x | |
+| Collection risk | low / medium / low certainty | value-adjusted recovery | |
+
+- Quantify expected recovery bands (best/base/worst) and estimate collectability.
+- Compare projected investment against expected upside and downside.
+- Include staffing need, conflicts-screen burden, and co-counsel or specialist dependency.
+
+### 5) Recommendation Logic
+- Require explicit recommendation: `ACCEPT` or `DECLINE` (no soft close).
+- If `ACCEPT`, list pre-engagement conditions:
+  - Conflict waivers
+  - Retainer/cost structure
+  - Retention letter scope limits
+  - Clarifying call and evidence supplement list
+- If `DECLINE`, provide:
+  - Legal reason(s)
+  - Economics reason(s)
+  - Resource/risk reason(s)
+  - Referral destination(s), including courtesy constraints
+
+### 6) Report Template
+```text
+Case Viability & Conflict Check Report
+Date:
+Preparer:
+Matter ID:
+Jurisdiction / Court venue:
+Matter phase: Pre-filing
+
+1) Intake Fact Snapshot
+- Client:
+- Adverse parties:
+- Date(s) of accrual:
+- Alleged losses:
+- Current procedural posture:
+
+2) Conflict Check Record
+- Databases searched:
+- Date range covered:
+- Conflict findings:
+- Waiver strategy/consent feasibility:
+- Final conflict posture:
+
+3) Legal Viability Assessment
+- Claims and element analysis:
+- Procedural blockers:
+- Exposure ceiling + collectability:
+- Adverse authority/defense profile:
+
+4) Economic Viability
+- Estimated cost by phase:
+- Fee model assumptions:
+- ROI and risk-adjusted upside:
+- Capacity/utilization impact:
+
+5) Recommendation
+- Decision:
+- Conditions precedent:
+- Red flags:
+- Action memo:
+
+6) Sources / Limits
+- Legal authorities:
+- Internal records reviewed:
+- Analysis limitations / missing facts:
+```
+
+## Guidelines
+
+1. Use conservative assumptions when material facts are missing; treat gaps as risk unless corroborated.
+2. Distinguish confirmed facts from inferred facts and unsupported inferences.
+3. Do not provide client-directed legal advice in this memo; keep language leadership-internal.
+4. Never normalize conflicts; document waiver path and failure mode before acceptance.
+5. Require explicit decision authority and date stamp in final section.
+6. Treat any jurisdiction-specific rule, statute, or procedural nuance as needing independent verification where unfamiliar. [VERIFY]
+7. Preserve privilege posture by routing as attorney work product/internal analysis; exclude from client-facing files without cleanup.
+tokens used
+16,100

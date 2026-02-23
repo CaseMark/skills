@@ -1,0 +1,40 @@
+{
+  "id": "41b172d3-4f19-46d8-8742-79d63cddd4b0",
+  "slug": "human-resources-policy-summaries",
+  "name": "Human Resources Policy Summaries",
+  "summary": "Generates comprehensive, plain-language summaries of HR policies focused on employment law compliance for organizations. Organizes content thematically by major areas like anti-discrimination, wage and hour, leave entitlements, and workplace safety, highlighting employee rights, obligations, legal frameworks, and practical guidance. Use this skill when reviewing employee handbooks or policy documents to create accessible compliance guides for employees.",
+  "content": "# HR Policy Compliance Summary Workflow\n\nYou are tasked with creating a comprehensive yet accessible summary of an organization's human resources policies as they relate to employment law compliance. This summary serves a critical dual purpose: ensuring organizational compliance with federal, state, and local employment regulations while making complex legal requirements understandable to employees at all levels.\n\nBegin by thoroughly reviewing all provided HR policy documents, employee handbooks, and related compliance materials. Your analysis should identify and extract key provisions related to employment law compliance, including but not limited to anti-discrimination policies, wage and hour requirements, leave entitlements (FMLA, ADA, state-specific provisions), workplace safety obligations, privacy protections, and anti-harassment procedures. Pay particular attention to policies that create enforceable rights or obligations for employees, as these require especially clear communication.\n\nStructure your summary to balance legal precision with plain-language accessibility. For each major policy area, provide a clear statement of what the policy requires, explain the underlying legal framework that necessitates the policy, and articulate both employee rights and corresponding obligations. Where policies reference specific statutes or regulations, include these citations for reference while ensuring the explanation remains comprehensible to non-lawyers. Highlight any recent updates to policies that reflect changes in employment law, and flag areas where the organization's policies may exceed minimum legal requirements, as employees should understand the full scope of protections available to them.\n\nYour summary should be organized thematically rather than by document source, grouping related policies together even if they appear in separate handbooks or policy statements. Create distinct sections for major compliance areas such as equal employment opportunity and non-discrimination, compensation and benefits, leave and accommodation, workplace conduct and safety, privacy and data protection, and complaint and investigation procedures. Within each section, use clear headings and subheadings that employees can easily navigate when seeking information about their specific rights or obligations.\n\nInclude practical guidance on how employees can exercise their rights under these policies, such as whom to contact with questions, how to request accommodations or leave, and what procedures to follow when reporting concerns. Emphasize any time-sensitive requirements, such as deadlines for requesting leave or filing internal complaints, as these procedural elements are often critical to preserving employee rights. Where policies involve multi-step processes, consider including brief workflow descriptions that walk employees through what to expect.\n\nAddress potential areas of confusion or common misconceptions about employment rights and obligations. For instance, clarify the distinction between at-will employment and wrongful termination protections, explain how different leave entitlements may interact or run concurrently, and describe the scope and limitations of confidentiality in various contexts. Your goal is to prevent misunderstandings that could lead to either employees failing to assert legitimate rights or making unfounded claims based on misinterpretation of policy language.\n\nConclude with a section on resources and next steps, directing employees to appropriate contacts for different types of questions or concerns, whether HR personnel, compliance officers, employee assistance programs, or external agencies. Include a clear statement about the summary's purpose as an educational tool and note that it does not replace the full policy documents, which remain controlling in case of any discrepancy.\n\nThe final deliverable should be a polished document suitable for distribution to all employees, written at an accessible reading level while maintaining legal accuracy. Use formatting techniques such as bold text for key terms, bullet points for lists of rights or requirements, and text boxes or callouts for particularly important information. The tone should be informative and supportive, reinforcing the organization's commitment to compliance and employee welfare while clearly communicating expectations for all parties.",
+  "parent_skill_id": "43b99e7e-7093-4876-89c4-8ebc98560188",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "employment-and-consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.148674",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

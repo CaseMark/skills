@@ -1,0 +1,44 @@
+{
+  "id": "c3698877-09d3-4ca8-86b6-06c4297bd1a8",
+  "slug": "human-rights-case-summaries",
+  "name": "Human Rights Case Summaries",
+  "summary": "Generates comprehensive, structured summaries of significant human rights cases, covering case identification, factual background, legal arguments, verdicts, and broader social implications. Use this skill to create accessible resources for NGOs, governments, international organizations, and advocates analyzing key human rights precedents.",
+  "content": "# Human Rights Case Summary Workflow\n\nYou are tasked with creating a comprehensive summary of a significant human rights case that will serve as a critical resource for NGOs, governments, international organizations, and human rights advocates. This summary must capture not only the legal mechanics of the case but also its broader implications for human rights law and social justice.\n\n## Understanding the Assignment\n\nWhen a user provides a human rights case for summarization, your role is to produce a thorough, professionally structured document that distills complex legal proceedings into an accessible yet authoritative overview. The summary should serve multiple audiences\u2014from legal practitioners who need precise doctrinal analysis to policy makers who require insight into the case's practical implications for human rights protection and advocacy.\n\nBegin by gathering all available information about the case. If the user has provided case documents, examine them thoroughly to extract factual details, legal arguments, procedural history, and outcomes. When documents are insufficient or unavailable, conduct targeted research to locate the official case decision, relevant court filings, and authoritative secondary sources that discuss the case's significance. Verify all legal citations and ensure you're working with the most accurate and complete version of the court's decision.\n\n## Structural Framework and Content Requirements\n\nYour summary should open with essential case identification information, including the full case name, court or tribunal, decision date, and relevant citation information formatted according to appropriate legal citation standards. Provide immediate context by identifying the human rights instruments, constitutional provisions, or statutory frameworks at the center of the dispute.\n\nThe factual background section must present a clear narrative of the events that gave rise to the legal challenge. Describe the parties involved, the alleged human rights violations, and the circumstances that led to litigation. This narrative should be detailed enough to allow readers unfamiliar with the case to understand what happened, who was affected, and why the matter warranted judicial intervention. Pay particular attention to the human dimension\u2014the real-world impact on individuals and communities\u2014while maintaining professional objectivity.\n\nIn analyzing the legal arguments, present both the petitioners' claims and the respondents' defenses with equal clarity and precision. Identify the specific human rights allegedly violated, the legal theories advanced by each side, and the interpretive questions the court was asked to resolve. This section should demonstrate how the parties framed the legal issues, what precedents they invoked, and how they distinguished or analogized to prior cases. When multiple legal claims were presented, address each substantively while showing how they interconnected within the overall litigation strategy.\n\nThe court's decision and reasoning deserve the most detailed treatment. Explain not just what the court decided but why it reached that conclusion. Analyze the interpretive methodology the court employed, the weight it gave to various sources of law, and how it balanced competing rights or interests. If the decision involved multiple judges, note any concurring or dissenting opinions and explain how they differed from the majority view. Highlight any novel legal interpretations, extensions of existing doctrine, or departures from previous precedent. When the court's reasoning relies on international human rights instruments, comparative constitutional law, or evolving standards of human dignity, explain these foundations clearly.\n\n## Broader Implications and Practical Impact\n\nBeyond the immediate legal outcome, your summary must address the case's significance for human rights law and practice. Consider how the decision affects the interpretation and enforcement of specific rights, whether it expands or contracts protections, and what obligations it imposes on state or non-state actors. Analyze the precedential value of the ruling\u2014which courts or jurisdictions it binds, and how persuasive it might be in other contexts.\n\nExamine the social and political implications with nuance and depth. How does this decision affect vulnerable populations, marginalized communities, or specific groups whose rights were at issue? What practical changes might result in government policy, institutional practices, or social norms? If the case addresses systemic issues like discrimination, access to justice, or state accountability, discuss how the ruling might catalyze or impede broader reform efforts. Consider both intended consequences and potential unintended effects.\n\nFor cases decided by international or regional human rights bodies, address questions of implementation and compliance. What remedies did the court order, and what mechanisms exist to ensure they're carried out? How have relevant governments responded to the decision? If the case is recent, note any ongoing developments in its implementation or any subsequent litigation it has spawned.\n\n## Professional Standards and Presentation\n\nThroughout the summary, maintain a tone that is authoritative yet accessible, legally precise yet comprehensible to non-specialists. Avoid unnecessary jargon, but don't oversimplify complex legal concepts. When technical terms are essential, provide brief explanations that allow readers from diverse backgrounds to follow the analysis.\n\nSupport all factual assertions and legal interpretations with proper citations to primary sources. Every quote from the court's opinion, reference to a legal provision, or citation to secondary commentary should be attributed accurately. Ensure that readers can trace your analysis back to authoritative sources and verify the information independently.\n\nThe final document should be structured with clear headings and logical flow, allowing readers to navigate easily between sections. Consider including a brief executive summary at the beginning for readers who need a quick overview, while ensuring the full analysis provides the depth required for serious research and advocacy work.\n\nYour summary should stand as a reliable, comprehensive resource that captures both the legal technicalities and the human significance of the case, serving the diverse needs of those working to advance human rights protection worldwide.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.778693",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

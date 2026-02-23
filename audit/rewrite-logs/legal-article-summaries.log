@@ -1,0 +1,278 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-6ac8-7610-9a06-8a0a70721bce
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "53f4da0b-8123-41a8-8e32-25ff6513334e",
+  "slug": "legal-article-summaries",
+  "name": "Legal Article Summaries",
+  "summary": "Generates concise summaries of legal articles for academic study or professional development, distilling the central thesis, methodology, key arguments, conclusions, and significance. It preserves intellectual rigor while enabling quick comprehension to decide on full article engagement. Use it for efficient review of legal scholarship in research, case preparation, or continuing education.",
+  "content": "# Legal Article Summary for Academic and Professional Development\n\nYou are tasked with creating a comprehensive yet concise summary of a legal article designed for academic study or professional development. Your goal is to distill complex legal scholarship into an accessible format that enables quick comprehension while preserving the intellectual rigor and key contributions of the original work.\n\n## Understanding the Purpose and Context\n\nLegal professionals, academics, and students often need to review multiple articles efficiently to stay current with legal developments, prepare for cases, or conduct research. Your summary should serve as both a standalone reference and a decision tool\u2014helping readers determine whether to engage with the full article while providing sufficient substance for those seeking quick insights. This is particularly valuable for continuing legal education, literature reviews, case preparation, and staying abreast of evolving legal doctrines.\n\n## Analytical Framework and Structure\n\nBegin by identifying and clearly stating the article's central thesis or research question. Extract the author's primary argument and the legal problem being addressed, whether it involves doctrinal analysis, policy critique, empirical research, or theoretical development. Present the article's major substantive points in a logical sequence that mirrors the author's reasoning, ensuring that each point builds upon the previous one to create a coherent narrative.\n\nExamine the methodology employed by the author, whether it involves case law analysis, statutory interpretation, comparative legal research, empirical data collection, or theoretical frameworks. Understanding the methodology provides crucial context for evaluating the strength and applicability of the conclusions. Identify the key cases, statutes, regulations, or legal principles that form the foundation of the analysis, noting how the author uses these authorities to support their arguments.\n\nSynthesize the author's conclusions and recommendations with precision, distinguishing between findings supported by the analysis and normative proposals for legal reform or practice changes. Highlight any novel contributions to legal scholarship, including new interpretations of existing law, identification of gaps in current doctrine, proposed frameworks for analysis, or empirical findings that challenge conventional wisdom.\n\n## Critical Elements to Address\n\nYour summary should capture the article's significance within its field by noting how it relates to existing scholarship, whether it challenges prevailing views, fills gaps in the literature, or opens new avenues for research. When the article addresses practical implications, clearly articulate how the analysis might affect legal practice, judicial decision-making, legislative action, or regulatory policy. If the author identifies limitations in their analysis or areas requiring further research, include these acknowledgments as they demonstrate scholarly rigor and point toward future developments in the field.\n\nConsider the intended audience of the original article and ensure your summary remains accessible to that same audience while eliminating unnecessary jargon. For highly technical articles, provide brief explanations of specialized concepts that are essential to understanding the core argument, but avoid oversimplification that would distort the author's meaning.\n\n## Format and Presentation Standards\n\nStructure your summary to be readable in three to five minutes, typically ranging from 500 to 800 words depending on the complexity and length of the original article. Use clear section headings that guide the reader through the summary's organization. Begin with a brief introduction that provides the article's citation information, author credentials if relevant to the analysis, and the publication venue. Follow with sections addressing the thesis and research question, methodology and approach, major arguments and findings, key authorities and precedents, conclusions and recommendations, and significance and implications.\n\nMaintain objectivity by presenting the author's arguments faithfully without inserting your own opinions or critiques, unless specifically requested to provide evaluative commentary. Use precise legal terminology consistent with the original article while ensuring clarity for your intended audience. When quoting directly from the article, do so sparingly and only when the author's exact phrasing is particularly significant or eloquent.\n\n## Quality and Accuracy Considerations\n\nVerify that your summary accurately represents the article's content by cross-referencing major points with the original text. Ensure that you have not inadvertently mischaracterized nuanced arguments or overlooked important qualifications the author placed on their conclusions. Pay particular attention to the author's use of modal language such as \"may,\" \"might,\" \"could,\" or \"suggests,\" which indicates tentative conclusions rather than definitive findings.\n\nPreserve the intellectual integrity of the work by maintaining the balance and emphasis the author placed on different aspects of their analysis. If the author devoted substantial attention to addressing counterarguments or alternative interpretations, your summary should reflect this engagement rather than presenting only the affirmative case for their thesis.\n\nYour final summary should enable a legal professional to understand the article's core contribution, evaluate its relevance to their work or research, and engage in informed discussion about its implications\u2014all without necessarily having read the full article. This requires balancing brevity with comprehensiveness, accessibility with precision, and objectivity with insight.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": []
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:01:20.646299Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Planning skill rewrite and metadata**
+
+I'm deciding on a concise, descriptive slug "legal-article-summary" and gathering relevant metadata like practice areas, document types, and skill modes for the skill. Next, I'll outline a structured, neutral, and compact SKILL.md with clear sections, guidelines, and prerequisites using flat lists and minimal fluff.
+thinking
+**Drafting detailed skill markdown**
+
+I'm structuring the SKILL.md to start with YAML front matter including concise description and metadata with capitalized fields. The body will have clear titled sections for purpose, prerequisites, output structure (with a table, checklist, and code block template), and guidelines emphasizing neutrality, jurisdiction noting, quoting limits, and empirical/theoretical distinctions. I'll keep it concise, flat lists only, and include trigger keywords in description as specified.
+codex
+---
+name: legal-article-summary
+description: Produces structured summaries of legal scholarship (law review articles, journal articles, case notes) capturing thesis, methodology, key authorities, arguments, conclusions, and significance for rapid research triage. Use when drafting legal article summaries, law review summaries, journal note summaries, scholarship reviews, or literature review intake for research, case preparation, or CLE.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Legal Article Summary
+
+Deliver a concise, structured summary that preserves the article’s analytical spine and practical significance.
+
+## Prerequisites
+
+1. Full article text or stable excerpts with page/section markers.
+2. Citation data if available: author, title, journal, year, volume/issue, page range, DOI/URL.
+3. Reader goal and length target (default 500–800 words unless specified).
+4. Jurisdiction or doctrinal focus if not explicit in the article.
+
+## Output Structure / Process
+
+Section checklist (include only what exists in the article):
+
+| Section | Must Include |
+| --- | --- |
+| Citation | Author, title, journal, year, volume/issue, pages; add DOI/URL if provided |
+| Thesis / Question | One sentence statement of the central claim or research question |
+| Methodology / Approach | Doctrinal analysis, empirical study, comparative research, theoretical framework, or policy critique |
+| Major Arguments | 3–6 key points in the author’s sequence, each 1–3 sentences |
+| Key Authorities | Statutes, cases, regulations, or doctrines the author relies on |
+| Counterarguments / Limits | Acknowledged limitations, caveats, or addressed counterpoints |
+| Conclusions / Recommendations | Findings and any normative proposals, separated clearly |
+| Significance / Implications | Contribution to scholarship and practical impact |
+| Future Research | Only if the author explicitly flags open questions |
+
+Extraction checklist (do this before writing):
+
+1. Identify the thesis and list the article’s section headings.
+2. Capture methodology details, including dataset, sample size, timeframe, and method if empirical.
+3. Extract the top authorities cited as foundations, not merely examples.
+4. Flag modal language (may/might/could/suggests) and preserve it.
+5. Note any explicit limitations or boundary conditions.
+6. Record any proposed reforms or practice changes.
+
+Template (edit to fit the article):
+
+```markdown
+**Citation:** {Author}, "{Title}," {Journal} {Year}, {Vol}({Issue}) {Pages}. {DOI/URL if provided}
+
+**Thesis / Question:** {One sentence}
+
+**Methodology / Approach:** {Doctrinal/empirical/comparative/theoretical; key details}
+
+**Major Arguments / Findings:**
+1. {Point}
+2. {Point}
+3. {Point}
+
+**Key Authorities:** {Cases/statutes/regulations/doctrines}
+
+**Counterarguments / Limitations:** {If any}
+
+**Conclusions / Recommendations:** {Findings vs. proposals}
+
+**Significance / Implications:** {Why it matters to scholarship and practice}
+
+**Future Research:** {If stated}
+```
+
+## Guidelines
+
+- Stay neutral and descriptive; do not add your own critique unless requested.
+- Preserve the author’s emphasis and sequencing; do not reorder to improve rhetoric.
+- Use plain legal prose; avoid jargon not present in the article.
+- Quote sparingly and only if the exact phrasing is decisive; keep quotes short.
+- Separate empirical results from normative recommendations.
+- If jurisdiction is ambiguous, state it; default to U.S. only when clearly implied.
+- If the article is theoretical, specify the framework and assumptions instead of empirical details.
+- If the article contains a literature review, summarize the author’s positioning in 1–2 sentences.
+- Flag uncertainty about any citation with `[VERIFY]`.
+tokens used
+3,598

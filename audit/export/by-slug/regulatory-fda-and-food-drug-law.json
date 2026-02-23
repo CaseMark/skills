@@ -1,0 +1,23 @@
+{
+  "id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "slug": "regulatory-fda-and-food-drug-law",
+  "name": "fda and food drug law",
+  "summary": "Skills related to fda and food drug law within regulatory practice.",
+  "content": "# fda and food drug law\n\nThis is a sub-category under regulatory practice containing specialized skills.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

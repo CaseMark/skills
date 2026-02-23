@@ -1,0 +1,43 @@
+{
+  "id": "b4dab25d-27e0-41b8-a539-1cfc6188fc92",
+  "slug": "youth-offender-case-summaries",
+  "name": "Youth Offender Case Summaries",
+  "summary": "Generates comprehensive summaries of youth offender cases in the juvenile justice system, covering charges, factual circumstances, youth background, interventions, and outcomes. This skill provides objective, readable insights for stakeholders like judges, probation officers, and attorneys to evaluate interventions and inform decisions during hearings and reviews. It emphasizes rehabilitative focus, developmental considerations, and confidentiality.",
+  "content": "# Youth Offender Case Summary Generation\n\nYou are tasked with creating a comprehensive case summary for a youth offender matter within the juvenile justice system. This summary serves as a critical tool for judges, probation officers, social workers, defense attorneys, prosecutors, and other stakeholders who need to understand the complete trajectory of a juvenile case, evaluate intervention effectiveness, and make informed decisions about future case management and systemic improvements.\n\n## Purpose and Context\n\nYouth offender case summaries differ fundamentally from adult criminal case summaries due to the rehabilitative focus of juvenile justice systems, confidentiality requirements, and the developmental considerations that must inform every aspect of case handling. These summaries are used during disposition hearings, case reviews, transfer hearings, program placement decisions, and systemic evaluations of juvenile justice practices. They must balance thoroughness with readability, ensuring that busy professionals can quickly grasp the essential facts while having access to detailed information when needed.\n\n## Required Analysis and Content\n\nBegin by conducting a thorough review of all available case documentation, including intake reports, police reports, court filings, psychological evaluations, educational records, family assessments, and any prior case histories. Search through uploaded documents to extract concrete facts about the charges, dates, involved parties, and procedural history. If multiple documents are involved and you need to extract consistent information across them, analyze each document systematically to ensure no relevant details are overlooked.\n\nYour summary must include a clear statement of the current charges and any prior adjudications, presented in plain language that explains both the legal terminology and the underlying conduct. Describe the factual circumstances that led to the current case, including the date and location of the alleged offense, any victims or co-defendants, and the youth's role in the incident. This narrative should be factual and objective, avoiding judgmental language while providing sufficient detail for stakeholders to understand the seriousness and nature of the conduct.\n\nDocument the youth's background and circumstances comprehensively, as these factors are central to juvenile justice decision-making. Include age, grade level, school attendance and performance, family structure and stability, any history of trauma or abuse, mental health diagnoses or concerns, substance use issues, and prior involvement with child welfare or juvenile justice systems. Present this information with sensitivity to privacy concerns while recognizing that stakeholders need a complete picture to make appropriate recommendations.\n\nDetail all interventions, services, and programs that have been provided or ordered, including diversion programs, counseling services, educational support, substance abuse treatment, family therapy, community service, probation supervision, or residential placement. For each intervention, note the dates of participation, the youth's level of engagement and compliance, any progress or setbacks observed, and the outcomes or current status. This intervention history is essential for evaluating what approaches have been effective and what additional services may be needed.\n\nSummarize the procedural history of the case, including the date of arrest or referral, detention decisions, court appearances, plea negotiations or adjudication proceedings, disposition hearings, and any modifications to orders or conditions. Present this chronology clearly so readers can understand the case timeline and any significant delays or procedural issues.\n\n## Legal and Ethical Considerations\n\nMaintain strict adherence to confidentiality requirements governing juvenile records. The summary should be prepared with the understanding that juvenile records are generally not public and that disclosure is limited to authorized parties with a legitimate need to know. Avoid including unnecessary identifying information about victims, witnesses, or family members beyond what is essential for case understanding.\n\nUse person-first, developmentally appropriate language that recognizes the youth's capacity for growth and change. Refer to the individual as a \"youth\" or \"juvenile\" rather than using stigmatizing terms. Frame the summary within the rehabilitative philosophy of juvenile justice, emphasizing assessment of needs and risks rather than purely punitive considerations.\n\nBe mindful of implicit bias and ensure that your summary presents facts objectively without allowing assumptions based on race, ethnicity, socioeconomic status, or other protected characteristics to color the narrative. When describing family circumstances or community context, focus on relevant factors that inform case planning rather than stereotypes.\n\n## Output Format and Structure\n\nPresent the summary in a clear, professional format with distinct sections that allow readers to locate specific information quickly. Use headings such as Youth Information, Current Charges and Allegations, Factual Background, Prior History, Family and Social Context, Educational and Mental Health Information, Interventions and Services, Case Chronology, Current Status, and Recommendations or Next Steps as appropriate to the specific case.\n\nWrite in clear, accessible prose that can be understood by professionals from various disciplines, avoiding unnecessary legal jargon while maintaining precision. When legal terms are necessary, provide brief explanations. Use a tone that is professional and objective while remaining mindful of the human dimensions of the case.\n\nInclude specific dates, names of programs or service providers, and quantifiable information about outcomes whenever possible. If the youth has been in a residential program for six months, note attendance rates, behavioral incidents, educational progress, and staff observations. If family therapy was ordered, document the number of sessions attended and any reported improvements in family functioning.\n\nConclude with a section that synthesizes the key information and identifies critical issues or decisions pending. This might include upcoming hearings, pending evaluations, program transitions, or systemic concerns that the case illustrates. If you are preparing this summary for a specific purpose such as a disposition hearing or transfer evaluation, ensure that the summary addresses the relevant legal standards and factors that decision-makers must consider.\n\nThe final summary should be comprehensive yet concise, typically ranging from three to six pages depending on case complexity. It should serve as a standalone document that provides a complete picture of the case while also directing readers to supporting documentation for additional detail. Every assertion should be grounded in the case record, with sources clearly indicated so that readers can verify information or seek additional context as needed.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "Criminal_Defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

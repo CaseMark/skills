@@ -1,0 +1,44 @@
+{
+  "id": "b174bda2-1727-476a-85d8-776ae8d182ab",
+  "slug": "elder-law-summaries",
+  "name": "Elder Law Summaries",
+  "summary": "Generates comprehensive, accessible summaries of elder law issues including estate planning, elder abuse, healthcare rights, Medicaid eligibility, and guardianship. Analyzes uploaded documents to identify risks, gaps in protections, and recommended actions while structuring output for both legal professionals and families. Use this skill for overviews of elderly client matters requiring jurisdiction-specific insights and immediate action items.",
+  "content": "# Elder Law Summary: Comprehensive Legal Overview for Elderly Client Matters\n\nYou are tasked with creating a thorough, accessible summary of legal issues affecting an elderly individual or group of elderly clients. This summary should serve as a comprehensive resource for legal professionals, family members, and caregivers to understand the full landscape of legal considerations relevant to elder care, protection, and planning.\n\nBegin by identifying and analyzing all relevant legal domains that impact the elderly client's situation. Your summary should address estate planning considerations including wills, trusts, powers of attorney, and advance healthcare directives. Examine potential elder abuse concerns, whether financial exploitation, physical abuse, neglect, or emotional harm, and outline the legal protections and remedies available. Cover healthcare rights comprehensively, including Medicare and Medicaid eligibility, long-term care planning, nursing home rights, and end-of-life decision-making authority. Additionally, consider guardianship and conservatorship issues, Social Security and pension benefits, housing rights, age discrimination protections, and any other legal matters specific to the client's circumstances.\n\nWhen documents have been provided, conduct a complete review to extract all relevant facts, dates, relationships, financial information, medical conditions, and existing legal arrangements. Identify any red flags such as suspicious financial transactions, signs of undue influence, capacity concerns, or gaps in legal protection. Search through uploaded materials systematically to ensure no critical information is overlooked, and cite specific documents when referencing facts or concerns.\n\nStructure your summary to be both comprehensive for legal professionals and understandable for family members who may lack legal training. Open with an executive overview that captures the most pressing legal issues and immediate action items. Then provide detailed sections for each relevant legal domain, explaining the current status, applicable laws and regulations, potential risks or vulnerabilities, and recommended next steps. Include jurisdiction-specific information where relevant, as elder law varies significantly by state, particularly regarding Medicaid planning, guardianship procedures, and elder abuse reporting requirements.\n\nFor estate planning matters, assess whether current documents are adequate, properly executed, and reflect the client's current wishes and circumstances. Identify any assets that may not be properly titled or designated. For healthcare decision-making, verify that advance directives are current, legally valid, and accessible to healthcare providers and family members. If elder abuse is suspected or confirmed, outline the legal obligations for reporting, available protective orders or interventions, and potential civil or criminal remedies.\n\nWhen addressing Medicaid planning and long-term care, explain the complex interplay between asset protection strategies, look-back periods, and eligibility requirements in clear terms. If the client is already receiving care or benefits, verify that all arrangements comply with applicable regulations and that the client's rights are being protected. For clients with diminished capacity, evaluate whether guardianship or conservatorship may be necessary, appropriate, or should be avoided in favor of less restrictive alternatives.\n\nThroughout your summary, maintain sensitivity to the dignity and autonomy of the elderly client while acknowledging the practical realities of aging, potential vulnerability, and the need for protective legal structures. Balance thoroughness with clarity, ensuring that complex legal concepts are explained in accessible language without oversimplification. Highlight time-sensitive matters that require immediate attention, such as upcoming Medicaid application deadlines, statute of limitations concerns for abuse claims, or urgent need for incapacity planning documents.\n\nConclude with a prioritized action plan that identifies immediate steps, short-term objectives, and long-term planning considerations. Specify which actions require attorney involvement, which can be handled by family members or caregivers, and which may require coordination with financial advisors, healthcare providers, or social services agencies. Include relevant contact information for state agencies, elder law resources, and reporting hotlines where appropriate.\n\nYour summary should empower families and legal professionals to make informed decisions that protect the elderly client's legal rights, financial security, healthcare autonomy, and personal dignity while ensuring compliance with all applicable laws and regulations.",
+  "parent_skill_id": "8bedabb0-a0e4-4136-9d06-540d72094eac",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "review"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "formation"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "estate_planning"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

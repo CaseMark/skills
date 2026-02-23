@@ -1,0 +1,505 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-1846-7fb1-95a3-1a443859a344
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "47336bdd-700d-41ff-8cb0-e0438c9108d9",
+  "slug": "draft-snda-subordination-non-disturbance-attornment-agreement",
+  "name": "Subordination, Non-Disturbance, and Attornment Agreement (SNDA)",
+  "summary": "Drafts a comprehensive Subordination, Non-Disturbance, and Attornment Agreement (SNDA) for commercial real estate transactions involving leases and financing. Reviews underlying lease and loan documents to extract key terms, structures recitals, and balances interests of landlords, tenants, and lenders to protect tenant rights in foreclosure scenarios. Use when new financing or refinancing requires subordinating tenant leases to lender liens while ensuring non-disturbance protections.",
+  "content": "# Enhanced SNDA Drafting Workflow\n\nYou are a specialized commercial real estate attorney tasked with drafting a comprehensive Subordination, Non-Disturbance, and Attornment Agreement (SNDA). This tri-party agreement is a cornerstone document in commercial real estate financing that carefully balances the competing interests of landlords, tenants, and lenders while establishing clear priority of interests and protecting tenant occupancy rights in foreclosure scenarios.\n\n## Initial Information Gathering and Document Review\n\nBegin by conducting a thorough review of all transaction documents that have been provided. Examine the underlying lease agreement in detail, extracting critical information including the complete legal names and addresses of the landlord and tenant, the precise description of the leased premises, the lease commencement and expiration dates, any renewal or extension options, rent amounts and payment schedules, and any amendments or modifications that have been executed. Pay particular attention to any existing subordination provisions, non-disturbance language, or references to future financing that may already exist within the lease.\n\nNext, review the loan documentation including the promissory note, mortgage or deed of trust, and loan agreement. Extract the lender's complete legal name and address, the principal loan amount, the interest rate and payment terms, the legal description of the mortgaged property, and the recording information if the mortgage has already been recorded. Determine whether this is new financing, a refinancing of existing debt, or a modification of an existing loan, as this chronological relationship between the lease and the loan will affect the subordination analysis.\n\nVerify the legal description of the property across all documents to ensure consistency. Confirm that the leased premises described in the lease falls within the property encumbered by the mortgage. If you identify any discrepancies in party names, property descriptions, or material terms across the documents, note these issues for clarification before proceeding with the draft.\n\n## Structuring the Agreement Framework\n\nDraft detailed recitals that establish the complete factual and legal foundation for the three-party relationship. The recitals should identify each party with precision, using their exact legal names as they appear in the underlying documents, along with their principal business addresses. Provide both the common address and the complete legal description of the property, including the assessor's parcel number and the county and state where the property is located.\n\nReference the lease by its execution date, the parties to the lease, and provide a brief description of the leased premises including the suite or unit number, approximate square footage, and the lease term including commencement and expiration dates. Note any recorded memorandum of lease with its recording information. Similarly, reference the loan documents by execution date, identify the principal amount of the loan, and provide the recording information for the mortgage or deed of trust including the book and page number or instrument number, recording date, and the office of the recorder where it was filed.\n\nCritically, establish in the recitals whether the lease was executed before or after the mortgage was recorded, as this chronological relationship determines whether subordination is necessary for the lender to achieve priority. Include a recital stating that the lender has required, as a condition of making or continuing the loan, that the tenant subordinate the lease to the mortgage and that the tenant has requested non-disturbance protections as consideration for providing such subordination. Conclude the recitals with a statement that the parties desire to set forth their respective rights, obligations, and priorities with respect to the property and to provide for the continuation of the lease in the event of foreclosure.\n\n## Drafting Comprehensive Subordination Provisions\n\nArticulate the subordination with precision and clarity, stating that the lease and all rights, options, liens, and interests of the tenant under the lease are and shall remain subject and subordinate in all respects to the lien and security interest of the mortgage and to all advances made or to be made under the loan documents. Specify that this subordination extends to any renewals, modifications, consolidations, replacements, extensions, and increases of the mortgage, including any future advances whether obligatory or optional.\n\nAddress the scope of subordination by confirming that it applies to the full amount of the loan as it may be increased from time to time, including principal, interest, fees, costs, and expenses secured by the mortgage. Clarify that the subordination is effective regardless of whether the lease was executed before or after the mortgage was recorded, and that it shall remain effective even if the lease is amended, extended, or renewed, provided that any such modification does not materially increase the tenant's obligations or materially decrease the tenant's rights without the lender's prior written consent.\n\nInclude language addressing the tenant's acknowledgment that the subordination is given as a material inducement to the lender to make or continue the loan and that the lender is relying upon the subordination in extending credit to the landlord. If the transaction involves multiple parcels or phases of development, address whether the subordination applies to the entire mortgaged property or only to specific portions, and clarify the tenant's rights if the lender releases portions of the property from the lien.\n\nConsider whether the subordination should be self-executing or conditioned upon the lender's execution of the non-disturbance covenant. In most modern commercial transactions, the subordination is conditioned upon and becomes effective simultaneously with the lender's non-disturbance covenant, creating a true bargained-for exchange. Draft language making this relationship explicit if that is the parties' intent.\n\n## Establishing Robust Non-Disturbance Protections\n\nDraft the lender's non-disturbance covenant with careful attention to the conditions and limitations that protect both the tenant's occupancy rights and the lender's ability to enforce its security. State that the lender covenants and agrees that if the lender or any successor in interest to the lender acquires title to the property through foreclosure, deed in lieu of foreclosure, or other enforcement of the mortgage, the lender shall not disturb, terminate, or modify the tenant's possession, use, and enjoyment of the leased premises or any of the tenant's rights under the lease, provided that the tenant is not then in default under the lease beyond any applicable notice and cure periods.\n\nDefine with specificity what constitutes a default that would vitiate the non-disturbance protection. Typically, this includes the tenant's failure to pay rent or other monetary obligations when due and the tenant's failure to perform material non-monetary obligations under the lease, in each case where such failure continues beyond any applicable notice and cure periods. Clarify that the tenant's right to non-disturbance is conditioned upon the tenant's recognition of and attornment to the lender or its successor as landlord and the tenant's agreement to perform all of the tenant's obligations under the lease for the benefit of the new landlord.\n\nAddress the critical issue of the lender's liability for the prior landlord's defaults and obligations. Include clear language stating that the lender and any successor landlord shall not be liable for any act or omission of any prior landlord, including the original landlord, nor bound by any payment of rent or additional rent for more than the current month, nor subject to any offsets, defenses, or counterclaims that the tenant may have against any prior landlord. Specify that the lender shall not be required to make any payment or perform any obligation that was required to be made or performed by the prior landlord prior to the lender's succession to the landlord's interest, except for ongoing obligations that run with the land or are necessary to maintain the tenant's quiet enjoyment.\n\nInclude provisions addressing the tenant's security deposit, typically requiring the lender to honor the security deposit to the extent it is actually turned over to the lender by the prior landlord or to the extent the lender receives a credit for the security deposit in the foreclosure or acquisition. Address whether the lender assumes responsibility for tenant improvement allowances, free rent periods, or other economic concessions that may not have been fully performed by the original landlord.\n\nClarify that the non-disturbance covenant runs with the land and binds the lender's successors and assigns, including any purchaser at foreclosure sale, any grantee under a deed in lieu of foreclosure, and any subsequent transferee of the property. State that the lease shall continue in full force and effect as a direct lease between the successor landlord and the tenant in accordance with its terms, subject only to the limitations and modifications expressly set forth in the SNDA.\n\n## Crafting Effective Attornment Provisions\n\nEstablish the tenant's unconditional agreement to attorn to and recognize as the tenant's landlord any party that acquires title to the property through foreclosure, deed in lieu of foreclosure, or other enforcement of the mortgage, or any subsequent transferee of such party. Specify that such attornment shall be effective and self-operative immediately upon the successor landlord's acquisition of title or succession to the landlord's interest under the lease, without the necessity of the execution of any further instruments.\n\nInclude the tenant's covenant to execute, acknowledge, and deliver within a specified period (typically ten to thirty days) any instrument that the successor landlord may reasonably request to evidence and confirm such attornment, provided that such instrument is consistent with the terms of the lease and the SNDA and does not increase the tenant's obligations or decrease the tenant's rights. Clarify that the tenant's failure to execute such confirmation shall not affect the validity or effectiveness of the automatic attornment.\n\nAddress the tenant's obligations following attornment, including the requirement to pay all rent and other charges to the successor landlord at such address as the successor landlord may designate and to perform all other obligations of the tenant under the lease for the benefit of the successor landlord. Specify that upon attornment, the lease shall continue in full force and effect as a direct lease between the successor landlord and the tenant upon all of the terms, covenants, and conditions set forth in the lease, except as modified by the express provisions of the SNDA.\n\nInclude language confirming that the attornment shall not operate to modify, amend, or alter any of the terms, covenants, conditions, or provisions of the lease except as specifically provided in the SNDA, and that all of the tenant's rights, options, and privileges under the lease shall continue in favor of the tenant, subject to the limitations set forth in the non-disturbance provisions regarding the successor landlord's liability.\n\n## Including Essential Representations, Warranties, and Covenants\n\nDraft comprehensive representations and warranties from the landlord addressing the status and enforceability of the lease. The landlord should represent and warrant that the lease is in full force and effect without modification except as specifically disclosed in an attached schedule, that the landlord has full power and authority to enter into the SNDA and that such execution has been duly authorized by all necessary corporate or partnership action, that there are no existing defaults by either the landlord or the tenant under the lease, that all rent and additional rent due under the lease has been paid through the current period and no rent has been paid more than one month in advance except as disclosed, and that the landlord has not assigned its interest in the lease or the rents except to the lender.\n\nInclude representations and warranties from the tenant regarding the lease and the tenant's interest in the premises. The tenant should represent and warrant that the lease, together with any amendments identified in an attached schedule, constitutes the entire agreement between the landlord and tenant concerning the leased premises and that there are no other agreements, written or oral, affecting the tenant's use or occupancy. The tenant should confirm that it has no defenses, offsets, or counterclaims against the payment of rent or the performance of its other obligations under the lease, that it has accepted possession of the premises and that the premises comply with the requirements of the lease including any tenant improvement obligations, and that the tenant has not assigned the lease or sublet any portion of the premises except as disclosed.\n\nThe tenant should also represent that it has received no notice of any prior assignment of the lease or the rents except to the lender, that all conditions precedent to the effectiveness of the lease have been satisfied, and that any tenant improvement allowance, free rent period, or other economic concession has been fully performed or, if not, the specific remaining obligations are identified. Include a representation regarding the tenant's organizational status and authority to enter into the SNDA.\n\nDraft the lender's representations to confirm its authority to enter into the agreement and its status as the holder or beneficiary of the mortgage. The lender should represent that it has full power and authority to execute the SNDA and to grant the non-disturbance covenant contained therein.\n\nInclude critical covenants from the tenant regarding notice and cure rights for the lender. The tenant should covenant and agree that if the landlord defaults in the performance of any of its obligations under the lease, the tenant shall provide written notice of such default to the lender at the address specified in the notice provisions, simultaneously with or promptly after providing notice to the landlord. Specify that the tenant shall not terminate the lease or exercise any offset, deduction, or reduction of rent on account of any landlord default unless the tenant has provided such notice to the lender and the lender has failed to cure the default within a specified period.\n\nEstablish reasonable cure periods for the lender that extend beyond the landlord's cure period under the lease. For monetary defaults, provide the lender with an additional period of typically thirty days after the expiration of the landlord's cure period to cure the default. For non-monetary defaults, provide the lender with a reasonable additional period to cure, typically sixty to ninety days, or such longer period as may be reasonably necessary if the cure requires possession of the premises or cannot be completed without such possession, provided the lender commences the cure within the initial period and diligently pursues it to completion.\n\nAddress the lender's right to enter the premises to cure defaults, typically providing that the lender may, but is not obligated to, enter the premises to perform the landlord's obligations or cure the landlord's defaults, and that the tenant shall permit such entry and shall cooperate with the lender's efforts to cure. Clarify that the lender's cure of any default shall not constitute an assumption of the lease or any ongoing obligation to perform the landlord's duties unless and until the lender succeeds to the landlord's interest.\n\n## Addressing Modifications and Amendments to the Lease\n\nInclude provisions restricting the landlord's and tenant's ability to modify the lease without the lender's consent. State that the landlord and tenant covenant that they will not, without the prior written consent of the lender, modify, amend, or terminate the lease, or accept a surrender of the premises, or reduce the rent or other charges payable under the lease, or extend the time for payment of rent, or grant any offset, deduction, or reduction of rent except as expressly provided in the original lease. Specify exceptions for modifications that do not materially affect the lender's interests, such as ministerial amendments or modifications that increase the tenant's obligations or improve the lender's security position.\n\nClarify the consequences of any modification made without the lender's consent, typically providing that any such modification shall be void and of no effect as against the lender and that the lease shall continue in full force and effect in accordance with its original terms for the benefit of the lender and any successor landlord. Address whether certain routine modifications such as the exercise of renewal options, expansion rights, or contraction rights expressly granted in the original lease require lender consent or are permitted without consent.\n\n## Establishing Notice Requirements and Administrative Provisions\n\nDraft detailed notice provisions specifying the complete address for each party where notices, demands, and other communications shall be sent. Include the street address, city, state, and zip code, and identify a specific person or department to whose attention notices should be directed. Specify acceptable methods of delivery including personal delivery with receipt, certified or registered mail with return receipt requested, nationally recognized overnight courier service with tracking capability, and, if the parties agree, electronic mail to a specified email address with confirmation of receipt.\n\nEstablish when notice shall be deemed given under each method of delivery, typically providing that notices are effective upon actual receipt or refusal to accept delivery, or if mailed, three business days after deposit in the United States mail with proper postage and addressing. Include provisions allowing any party to change its notice address by providing written notice to the other parties in accordance with the notice provisions.\n\nSpecify the governing law for the agreement, which should be the law of the state where the property is located, as this jurisdiction has the most significant relationship to the transaction and the property rights being addressed. Include a submission to jurisdiction clause providing that any action or proceeding arising out of or relating to the SNDA shall be brought exclusively in the state or federal courts located in the county where the property is situated, and that each party consents to the personal jurisdiction of such courts and waives any objection based on improper venue or forum non conveniens.\n\nAddress execution mechanics by including provisions that the agreement may be executed in any number of counterparts, each of which shall be deemed an original and all of which together shall constitute one and the same instrument. Specify that signatures delivered by facsimile transmission or by electronic mail in PDF format shall have the same force and effect as original signatures and that the parties may rely upon such signatures as binding.\n\nInclude a provision addressing amendments and modifications, stating that the SNDA may not be amended, modified, or supplemented except by a written instrument executed by all three parties. Clarify that no waiver of any provision shall be effective unless in writing and signed by the party against whom the waiver is sought to be enforced, and that no waiver shall constitute a continuing waiver or a waiver of any other provision.\n\nDraft a severability clause providing that if any provision of the SNDA is held to be invalid, illegal, or unenforceable under applicable law, such provision shall be ineffective only to the extent of such invalidity, illegality, or unenforceability, without affecting or impairing the validity, legality, and enforceability of the remaining provisions. Include a reformation provision stating that if any provision is held to be overly broad, it shall be reformed and construed by limiting and reducing it to the extent necessary to render it valid and enforceable.\n\nAddress the relationship between the SNDA and the lease by including a provision stating that in the event of any conflict between the terms of the lease and the terms of the SNDA, the terms of the SNDA shall control as between the parties to the SNDA with respect to the matters addressed in the SNDA. Clarify that except as expressly modified by the SNDA, all terms and provisions of the lease remain in full force and effect.\n\nInclude standard provisions addressing successors and assigns, stating that the SNDA shall be binding upon and inure to the benefit of the parties and their respective successors and assigns, including any successor landlord and any successor or assign of the lender. Address recordation by including a provision stating that the SNDA may be recorded in the official records of the county where the property is located at the request of any party, and that each party agrees to cooperate in the recordation and to execute any additional documents reasonably necessary to effect recordation.\n\n## Finalizing the Document with Proper Execution\n\nConclude the agreement with appropriate signature blocks for all three parties, ensuring that each signature block includes a line for the signature, the printed name of the signatory, the title or capacity in which the person is signing, and the date of execution. For parties that are entities rather than individuals, include proper corporate acknowledgments or certificates of authority as required by the law of the governing jurisdiction.\n\nIf the landlord is a corporation, the signature block should include signature lines for authorized officers (typically the president or vice president and the secretary or assistant secretary) with the corporate seal affixed, or alternatively, a single signature line with a certificate that the signatory has authority to bind the corporation. If the landlord is a limited liability company, include a signature line for a manager or member with authority to bind the company, along with a statement of such authority. If the landlord is a partnership, include signature lines for general partners with authority to bind the partnership.\n\nApply the same principles to the tenant's signature block, ensuring that the signatory has appropriate authority and that such authority is evidenced in the signature block. For the lender, include signature blocks appropriate to its organizational form, which is typically a bank, insurance company, or other institutional lender organized as a corporation or limited liability company.\n\nIf the SNDA will be recorded, include notarial acknowledgments for each party's signature in the form required by the law of the state where the property is located. Ensure that the acknowledgment language complies with the specific statutory requirements of that jurisdiction, as improper acknowledgments can prevent recordation or affect the enforceability of the document.\n\nFormat the final document in a professional manner with clear section headings, consistent numbering, appropriate spacing and margins, and a table of contents if the document exceeds ten pages. Use defined terms consistently throughout the document, with initial capitalization to distinguish defined terms from common usage. Include a cover page identifying the document title, the parties, the property address, and the date of execution. Ensure that all cross-references to sections, exhibits, and schedules are accurate and that any exhibits or schedules referenced in the body of the agreement are attached and properly labeled.\n\nReview the completed draft for internal consistency, ensuring that party names are used consistently, that all defined terms are properly defined before use, that cross-references are accurate, and that the provisions work together coherently to achieve the intended legal and commercial objectives of protecting the tenant's occupancy rights while giving the lender the priority and control necessary to protect its security interest in the property.",
+  "parent_skill_id": "854fb913-3c97-4d99-b8ca-a54297d746e4",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "commercial_real_estate"
+    ],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "commercial_real_estate"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:55:31.821718Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Identifying skill-creator for rewriting skill task**
+
+Determined that rewriting a skill aligns with skill creation/updating, so the skill-creator is the relevant skill to use next by reading its SKILL.md file.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Reading skill-creator file**
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving metadata conflict by prioritizing user format**
+
+User instructions override the skill-creator's frontmatter rules, so I'll strictly follow the user's required SKILL.md metadata format without adding imperative style, and simplify the slug by dropping practice-area prefixes, selecting "snda-agreement" for clarity and conciseness.
+thinking
+---
+name: snda-agreement
+description: Drafts a commercial real estate Subordination, Non-Disturbance, and Attornment Agreement (SNDA) aligning lease and loan priority, non-disturbance protections, and attornment duties; use when drafting SNDAs for new financing, refinancing, or lender requests for subordination, non-disturbance, or attornment in commercial leases, foreclosure protections, or lease priority negotiations.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Subordination, Non-Disturbance, and Attornment Agreement (SNDA)
+
+Draft a tri-party SNDA that subordinates the lease to the lender, protects tenant possession on foreclosure, and requires attornment to the successor landlord.
+
+## Prerequisites
+
+1. Executed lease, including all amendments and any memorandum of lease.  
+2. Loan documents: promissory note, mortgage or deed of trust, loan agreement, recorded documents.  
+3. Property legal description and address; confirm leased premises lie within mortgaged property boundaries.  
+4. Legal names of all parties, entity types, notice addresses, and signatory authority details.  
+5. Status facts: tenant defaults, rent paid-through date, security deposit held, tenant improvement allowance, free rent periods, and option to renew or extend.  
+6. Jurisdictional recording requirements and applicable notary forms.
+
+## Output Structure / Process
+
+- **A. Extract Facts Table**
+
+| Term                         | Populate From            | Notes                                           |
+|------------------------------|--------------------------|------------------------------------------------|
+| Tenant Name                  | Lease                    | Confirm legal entity and address                |
+| Lender Name                  | Loan Documents           | Use recorded lender info                         |
+| Property Description         | Legal Description        | Verify accuracy and boundaries                   |
+| Lease Premises               | Lease                    | Must be within property subject to mortgage     |
+| Security Deposit Amount      | Lease                    | Confirm handling per SNDA provisions             |
+| Tenant Default Status        | Lease Notices/Records    | Note any existing defaults or disputes           |
+| Loan Documents Recorded Date | Public Records           | To verify priority status                         |
+
+- **B. Draft Structure Table**
+
+| Clause Section               | Must Include             | Options / Limits                                |
+|------------------------------|--------------------------|------------------------------------------------|
+| Recitals                    | Parties, Lease, Loan      | Include mortgage priority statement             |
+| Definitions                 | Key terms (e.g., SNDA)   | Use consistent terminology                       |
+| Subordination              | Lease subordinated       | Effective date, conditions                       |
+| Non-Disturbance            | Tenant protection        | Exceptions, cure periods                          |
+| Attornment                 | Tenant attorns to lender | Successor landlord duties                         |
+| Representations & Warranties | Parties' authority       | Confirm signatory and existence                  |
+| Lender Right to Cure       | Notice, cure periods     | Specify timing and methods                        |
+| Lease Modification Limits  | Limits on tenant changes | Require lender consent                            |
+| Notices                    | Addresses, delivery      | Include form and timing                           |
+| Miscellaneous              | Governing law, venue     | Recording, execution, successor rights           |
+
+- [ ] Confirm lease priority relative to mortgage.  
+- [ ] Verify subordination is effective only upon fulfillment of non-disturbance conditions.  
+- [ ] Ensure tenant’s security deposit and TI allowances are protected.  
+- [ ] Check cure periods for tenant defaults and lender’s rights to cure.  
+- [ ] Confirm attornment will be self-operative upon landlord transfer or foreclosure.  
+- [ ] Verify governing law matches property's jurisdiction.  
+- [ ] Confirm recording and notary requirements are met per local jurisdiction.  
+
+```markdown
+# Subordination, Non-Disturbance, and Attornment Agreement (SNDA)
+
+## Recitals
+
+- Parties: landlord, tenant, lender
+- Lease description and date
+- Loan description and recording info
+- Purpose: subordinate lease to mortgage, protect tenant on foreclosure, require tenant attornment
+
+## Definitions
+
+- "Lease" means the lease agreement dated ____
+- "Lender" means the holder of the loan secured by the mortgage
+- "SNDA" means this agreement
+
+## Subordination
+
+- Tenant agrees lease is subordinate to lender mortgage
+- Subordination effective only upon non-disturbance conditions met
+
+## Non-Disturbance
+
+- Lender agrees tenant may remain in possession if lender forecloses
+- Tenant’s rights and obligations continue unchanged
+- Security deposit and TI allowances protected
+
+## Attornment
+
+- Tenant agrees to attorn to successor landlord after foreclosure or transfer
+- Attornment effective automatically upon transfer
+
+## Representations and Warranties
+
+- Parties have authority to execute
+- Lease and loan documents are valid and enforceable
+
+## Lender’s Rights to Cure
+
+- Tenant to provide notice of default
+- Lender allowed cure period of __ days to remedy defaults
+
+## Lease Modification Limits
+
+- Tenant may not modify the lease without lender consent
+
+## Notices
+
+- All notices sent to designated addresses by certified mail or courier
+
+## Miscellaneous
+
+- Governing law: state of ____
+- Venue: courts of ____
+- This agreement binding upon successors and assigns
+- Agreement to be recorded where lease and mortgage are recorded
+```
+
+## Guidelines
+
+- Do not expand tenant rights beyond the lease without lender consent; do not waive lender protections beyond usual standards.  
+- Verify handling of security deposits consistent with lease and lender policies; protect tenant funds accordingly.  
+- Ensure SNDA provisions only override conflicting lease terms, not entire lease obligations.  
+- Confirm cure periods are adequate and enforceable under local law.  
+- Use governing law of the property’s state; check state-specific recording and notary requirements.  
+- Mark any uncertain citations or requirements with [VERIFY].  
+- If lease is already subordinated, consider drafting nondisturbance and attornment provisions only.  
+- Treat attornment as self-operative upon landlord transfers or foreclosure events.
+codex
+---
+name: snda-agreement
+description: Drafts a commercial real estate Subordination, Non-Disturbance, and Attornment Agreement (SNDA) that aligns lease priority with lender liens, grants non-disturbance protections, and enforces tenant attornment duties. Use when drafting or negotiating SNDAs for new financing, refinancing, lender-required subordination, foreclosure protection, or lease priority disputes in commercial leases.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Subordination, Non-Disturbance, and Attornment Agreement (SNDA)
+
+Draft a tri-party SNDA that subordinates the lease to the lender, protects tenant possession on foreclosure, and requires attornment to the successor landlord.
+
+## Prerequisites
+
+1. Executed lease and all amendments, plus any recorded memorandum of lease.
+2. Loan documents: note, mortgage or deed of trust, loan agreement, and recording data if recorded.
+3. Property legal description and common address; confirm leased premises are within mortgaged property.
+4. Party legal names, entity types, notice addresses, and signatory authority.
+5. Status facts: defaults, rent paid-through date, security deposit amount, TI allowance, free rent, options.
+6. Governing law and recording/notary requirements for the property state.
+
+## Output Structure / Process
+
+### 1) Populate Core Facts
+
+| Item | Source | Required Notes |
+| --- | --- | --- |
+| Landlord, tenant, lender names | Lease, loan docs | Use exact legal names and entity types |
+| Premises description | Lease, legal description | Include suite/unit, square footage if used |
+| Lease term | Lease | Start, end, renewal options |
+| Loan info | Loan docs | Principal, lender, recording info |
+| Priority timing | Lease vs mortgage dates | State whether lease predates mortgage |
+
+Checklist:
+- [ ] Confirm lease vs mortgage priority and whether subordination is required.
+- [ ] Confirm any existing lease subordination or non-disturbance language.
+- [ ] Confirm security deposit handling and any unperformed landlord concessions.
+- [ ] Confirm tenant defaults and landlord defaults status.
+
+### 2) Draft the Agreement Body
+
+Use this section order and include all required clauses.
+
+| Clause | Must Include | Options / Notes |
+| --- | --- | --- |
+| Recitals | Parties, property, lease, loan, priority timing | Include recording data if available |
+| Subordination | Lease and tenant rights subordinate to mortgage and advances | Address renewals, increases, future advances |
+| Non-disturbance | Lender will not disturb if tenant not in default | Tie to notice and cure periods |
+| Attornment | Tenant attorns to successor landlord | Self-operative; confirm execution on request |
+| Successor landlord limits | No liability for prior landlord acts | Address offsets, prepaid rent, TI, free rent |
+| Notice and cure for lender | Tenant must notify lender of landlord default | Provide lender extended cure periods |
+| Lease modification limits | No amendments without lender consent | Carve out ministerial or pro-lender changes |
+| Notices | Full addresses and delivery methods | Include deemed receipt rules |
+| Governing law and venue | Property state | Exclusive venue in property county |
+| Miscellaneous | Counterparts, amendments, conflicts, successors | Recordation optional if requested |
+
+Checklist:
+- [ ] Condition subordination on lender non-disturbance if intended.
+- [ ] Include lender reliance statement and tenant acknowledgment.
+- [ ] Clarify security deposit transfer and limitation to amounts actually received.
+- [ ] State that SNDA controls on conflict with lease for covered topics.
+- [ ] Bind successors and assigns, including foreclosure purchasers.
+
+### 3) Use This Drafting Skeleton
+
+```text
+SUBORDINATION, NON-DISTURBANCE, AND ATTORNMENT AGREEMENT (SNDA)
+
+Parties:
+- Landlord: [Legal Name]
+- Tenant: [Legal Name]
+- Lender: [Legal Name]
+
+Property:
+- Address: [Street, City, State, ZIP]
+- Legal Description: [Exhibit A]
+
+Recitals:
+A. Lease dated [date] between Landlord and Tenant for [premises].
+B. Mortgage/deed of trust dated [date] securing [loan amount] recorded [recording data].
+C. Lease [predates/is junior to] mortgage; lender requires subordination; tenant requests non-disturbance.
+
+1. Subordination.
+2. Non-Disturbance Covenant.
+3. Attornment.
+4. Successor Landlord Limitations.
+5. Representations and Warranties (Landlord/Tenant/Lender).
+6. Notice of Landlord Default; Lender Cure Rights.
+7. Lease Amendments and Termination Restrictions.
+8. Notices.
+9. Governing Law; Venue.
+10. Miscellaneous (counterparts, amendments, conflicts, successors, recordation).
+
+Signatures and Notary Acknowledgments.
+```
+
+### 4) Draft Required Representations
+
+Use concise representations for each party; include only what is supported by the record.
+
+Landlord:
+- Lease in full force and effect; amendments listed.
+- No defaults; rent paid-through date.
+- Authority to sign; no assignment except lender.
+
+Tenant:
+- Lease is entire agreement; amendments listed.
+- No defenses, offsets, or counterclaims.
+- Possession accepted; TI obligations status.
+- No assignment or sublease except disclosed.
+- Authority to sign.
+
+Lender:
+- Holder/beneficiary of mortgage.
+- Authority to sign and grant non-disturbance.
+
+### 5) Cure Periods
+
+Provide lender cure rights beyond landlord cure periods.
+
+Suggested language structure:
+- Monetary default: additional 30 days after landlord cure period.
+- Non-monetary default: additional 60 to 90 days, extendable if lender commences and diligently pursues cure.
+
+## Guidelines
+
+- Use property state law and venue; adjust for local recordation or notary forms.
+- Keep tenant rights limited to existing lease terms unless lender expressly agrees.
+- Do not allow lease amendments, rent reductions, or terminations without lender consent unless expressly carved out.
+- Ensure non-disturbance is conditioned on tenant not being in default after notice and cure.
+- Limit successor landlord liability to obligations arising after succession; specify treatment of prepaid rent and security deposit.
+- If recording is intended, include recordation clause and confirm form of acknowledgment for the jurisdiction.
+- Add [VERIFY] to any statutory citations or state-specific forms not confirmed.
+tokens used
+18,120

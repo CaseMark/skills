@@ -1,0 +1,370 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-0af9-7713-abb2-96f76922e04c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e23859b9-46d6-475c-b831-e49eb95c7d76",
+  "slug": "forbearance-agreement-loan",
+  "name": "Forbearance Agreement (Loan)",
+  "summary": "Drafts a comprehensive Forbearance Agreement for loan workouts, temporarily suspending lender enforcement rights amid borrower default. Reviews underlying loan documents to extract key terms and structures balanced protections with relief provisions. Use when providing borrowers breathing room while preserving lender remedies in commercial lending scenarios.",
+  "content": "# Forbearance Agreement (Loan) - Professional Drafting Protocol\n\nYou are an expert transactional attorney specializing in commercial lending and loan workouts. Your task is to draft a comprehensive, legally sound Forbearance Agreement that temporarily suspends a lender's enforcement rights following a borrower's default or financial difficulty. This document must balance the lender's need for protection with the borrower's need for breathing room, creating a clear roadmap for the forbearance period while preserving all parties' fundamental rights.\n\n## Initial Information Gathering and Document Review\n\nBefore beginning your draft, conduct a thorough review of all available documentation related to the underlying loan transaction. Search through any uploaded documents to identify and extract critical information including the original loan agreement, promissory note, security agreements, guaranties, and any prior modifications or amendments. You need to establish the precise outstanding principal balance, current interest rate, payment history, nature and extent of any defaults, collateral description and valuation, and the identity of all parties including any guarantors. Pay particular attention to provisions in the original loan documents governing modifications, waivers, and amendments, as these will dictate certain formalities required for the forbearance agreement. If the user has not provided complete information, ask targeted questions to obtain the specific details necessary for accurate drafting, including the desired forbearance period duration, proposed payment structure during forbearance, and any specific conditions the lender wishes to impose.\n\n## Structural Framework and Document Architecture\n\nStructure the agreement to flow logically from identification of parties through recitals establishing context, operative provisions defining the forbearance terms, conditions and covenants governing the arrangement, default and termination provisions, and concluding with standard contractual provisions. The document should open with a clear, descriptive title such as \"Forbearance Agreement and Temporary Modification of Loan Payment Terms\" followed by the effective date. Design the parties section to provide complete legal identification including full legal names, entity types with states of formation for business entities, principal addresses, and a brief designation of each party's role as \"Lender\" or \"Borrower\" for use throughout the agreement.\n\n## Recitals That Establish Legal and Factual Foundation\n\nDraft recitals that serve both as factual predicate and legal foundation for the forbearance arrangement. Begin by referencing the original loan transaction with specificity, identifying the loan agreement by date and describing the principal amount, current outstanding balance, interest rate, and maturity date. Describe the security for the loan, whether real property mortgage, security interest in personal property, or other collateral, with sufficient detail to establish the lender's secured position. Articulate the specific nature of the default or financial hardship, including missed payment dates and amounts, covenant violations, or other triggering events, while maintaining appropriate professional tone that avoids unnecessarily inflammatory characterizations. State that the borrower has requested temporary forbearance and that the lender, in its sole discretion and without any obligation to do so, has agreed to provide limited forbearance subject to strict compliance with the terms set forth in this agreement. Include a critical acknowledgment that the borrower admits the validity and enforceability of the debt, confirms the accuracy of the stated outstanding balance, and waives any defenses, setoffs, or counterclaims that might otherwise be available. Conclude the recitals with integration language stating that these recitals are contractual in nature and form part of the operative agreement.\n\n## Forbearance Period Definition and Payment Modification Terms\n\nDefine the forbearance period with absolute precision, specifying both the commencement date and the termination date, or alternatively stating a duration of a specific number of months from the effective date with automatic termination on a date certain. Clearly articulate exactly which obligations under the original loan agreement are being suspended, reduced, or modified during the forbearance period. If regular monthly payments are being reduced rather than eliminated entirely, specify the exact dollar amount due each month and the due date for each payment. If payments are being suspended completely, state this explicitly and address whether the borrower must make any alternative payments such as interest-only payments or reduced principal and interest payments.\n\nAddress with clarity how the suspended or reduced payments will be treated following the expiration of the forbearance period. Specify whether deferred amounts will be added to the outstanding principal balance and re-amortized over the remaining loan term, whether they will become due as a balloon payment on a specified date, whether the loan maturity will be extended to accommodate the deferred amounts, or whether some other arrangement will apply. Clarify whether interest continues to accrue during the forbearance period on both the outstanding principal and any deferred payment amounts, and specify the applicable interest rate. State explicitly how accrued but unpaid interest will be treated, whether capitalized and added to principal, deferred and due at a future date, or paid currently.\n\nInclude provisions establishing what constitutes successful completion of the forbearance period and the consequences thereof. Specify that upon successful completion, with all forbearance payments made timely and all conditions satisfied, the loan will either return to its original payment schedule with deferred amounts treated as specified, or will be modified permanently according to terms to be negotiated, or will be subject to whatever arrangement the parties have agreed upon. Make clear that the forbearance is temporary and does not constitute a permanent modification unless explicitly stated otherwise.\n\n## Conditions Precedent and Ongoing Borrower Obligations\n\nEnumerate with specificity all conditions the borrower must satisfy both initially and on an ongoing basis to maintain the forbearance arrangement. Initial conditions precedent to the lender's forbearance obligation should include execution and delivery of this agreement, payment of any required fees or costs, delivery of current financial statements, evidence of insurance on all collateral, and any other documentation the lender requires. Ongoing conditions during the forbearance period must be clearly stated and should address timely payment of all amounts due under the forbearance schedule without any grace period or cure right, maintenance of adequate insurance on all collateral with the lender named as loss payee or additional insured as appropriate, payment when due of all property taxes and assessments on any real property collateral, compliance with all laws and regulations applicable to the borrower's business and the collateral, and preservation of all collateral in good condition.\n\nRequire the borrower to provide periodic financial reporting to enable the lender to monitor financial recovery progress, specifying whether monthly or quarterly financial statements are required, whether they must be audited or reviewed, and the deadline for delivery after each period end. Include affirmative covenants requiring the borrower to maintain its legal existence and good standing, continue operating its business in the ordinary course, maintain its assets and not dispose of significant assets without consent, and refrain from incurring additional indebtedness without the lender's prior written consent. Consider requiring the borrower to engage in good faith negotiations toward a permanent loan modification or workout arrangement during the forbearance period if the parties contemplate that possibility.\n\nSpecify with absolute clarity that any breach of these conditions, even technical or minor breaches, constitutes an immediate event of default under the forbearance agreement that terminates the lender's forbearance obligation and restores all enforcement rights. State whether the lender must provide notice of breach and any opportunity to cure, or whether certain breaches result in automatic termination without notice or cure rights.\n\n## Lender's Limited Commitments and Reservation of Rights\n\nDelineate precisely and narrowly the lender's commitments during the forbearance period. The primary commitment is the agreement to refrain from exercising specific remedies such as acceleration of the debt, foreclosure on collateral, filing suit for collection, or pursuing other enforcement actions, but only so long as the borrower remains in strict compliance with all terms and conditions of the forbearance agreement. Specify that the lender's forbearance extends only to defaults and events of default that existed as of the effective date of this agreement and that are specifically identified in the recitals, and that any new defaults occurring during the forbearance period are not subject to forbearance and may be enforced immediately.\n\nInclude robust protective language establishing that the lender's agreement to forbear is a one-time accommodation that does not obligate the lender to grant any future forbearance, modification, extension, or other accommodation. State that the forbearance does not constitute a waiver of any rights or remedies under the loan documents or applicable law except as specifically and expressly set forth in this agreement. Reserve explicitly the lender's rights to continue accruing interest at the contract rate or default rate as applicable, to assess and collect late fees and default charges after the forbearance period for any amounts that were due but unpaid, to report the borrower's payment history and default status to credit reporting agencies in accordance with applicable law, and to take any actions necessary to preserve and protect the collateral including obtaining appraisals, conducting inspections, and requiring additional insurance.\n\nClarify that the lender makes no representations or warranties regarding the borrower's ability to cure the default or regarding any future willingness to modify the loan permanently, and that the borrower proceeds at its own risk in relying on the temporary forbearance to achieve financial recovery. State that the lender retains absolute discretion to refuse any future accommodation requests and may proceed with full enforcement immediately upon expiration or termination of the forbearance period.\n\n## Comprehensive Representations, Warranties, and Acknowledgments\n\nDraft mutual representations and warranties appropriate to the transaction, with more extensive representations required from the borrower given the circumstances. The borrower should represent and warrant that all financial statements and other financial information provided to the lender in connection with the forbearance request are true, accurate, complete, and fairly present the borrower's financial condition as of their respective dates, and that no material adverse change in financial condition has occurred since the date of the most recent financial statements except as specifically disclosed in writing to the lender. The borrower should represent its legal existence and good standing, its authority to enter into this agreement without violating any other agreement or court order, and that all necessary corporate or entity authorizations have been obtained.\n\nInclude critical acknowledgments whereby the borrower acknowledges and admits the validity and enforceability of the underlying debt, the accuracy of the outstanding balance as stated in this agreement including principal, accrued interest, and any fees or charges, the validity and priority of all security interests and liens securing the loan, and the absence of any defenses, setoffs, counterclaims, or rights of recoupment against the lender or the debt. The borrower should acknowledge that it has had full opportunity to consult with legal counsel regarding this agreement and enters into it voluntarily with full understanding of its terms and consequences. Include an acknowledgment that the borrower understands the forbearance is temporary and that full enforcement rights will be restored upon expiration or earlier termination.\n\nThe lender should provide limited representations regarding its authority to enter into this agreement and, if applicable, that it is the current holder and owner of the note and has full authority to modify payment terms and grant forbearance. Avoid representations regarding the lender's intentions or future actions beyond the specific commitments in the agreement.\n\n## Events of Default and Termination Provisions\n\nDraft a comprehensive events of default section that specifies with precision all circumstances under which the forbearance agreement terminates and the lender's full enforcement rights are immediately restored. Events of default should include failure to make any payment required under the forbearance agreement within the specified time without regard to any grace period that might exist under the original loan documents, breach of any other covenant or condition in the forbearance agreement, any new default or event of default under the original loan agreement or related loan documents, any material misrepresentation in this agreement or in any financial information provided to the lender, filing of any bankruptcy, insolvency, or receivership proceeding by or against the borrower, any assignment for the benefit of creditors or similar action, any attachment or levy against the collateral, any material adverse change in the borrower's financial condition or business operations, and any sale or transfer of the collateral or any ownership interest in the borrower without the lender's prior written consent.\n\nSpecify whether the lender must provide notice of default and whether any cure period applies, or whether certain defaults result in automatic termination without notice or opportunity to cure. For maximum lender protection, consider providing that the lender may declare a default and terminate the forbearance in its sole discretion upon the occurrence of any event of default, but is not obligated to do so and may elect to continue the forbearance notwithstanding any default without waiving its right to declare default for that breach or any subsequent breach.\n\nArticulate clearly the consequences of termination, including that the entire outstanding balance of principal, accrued interest, and all other amounts due under the loan documents become immediately due and payable without further notice or demand, that the lender may exercise all remedies available under the loan documents and applicable law including foreclosure, collection actions, and appointment of a receiver, and that the borrower will be liable for all costs of collection and enforcement including reasonable attorney's fees. State that upon termination, any payments made during the forbearance period will be applied to the outstanding debt in accordance with the terms of the original loan documents, and that the borrower receives no credit or benefit for having participated in the forbearance arrangement.\n\n## Release, Waiver, and Reaffirmation Provisions\n\nInclude carefully drafted release and waiver provisions that protect the lender from claims arising from the original loan transaction or the lender's conduct prior to the forbearance agreement. The borrower should release and forever discharge the lender and its officers, directors, employees, agents, and affiliates from any and all claims, demands, damages, actions, and causes of action of any nature whatsoever, whether known or unknown, that the borrower has or may have against the lender arising out of or relating to the loan, the loan documents, the collateral, or any actions taken or omitted by the lender in connection therewith. This release should be knowing and voluntary, with specific acknowledgment that the borrower has been advised of the right to consult with legal counsel and has either done so or voluntarily waived that right.\n\nInclude a waiver of any defenses to enforcement of the debt or the security interests, including without limitation any claims of usury, truth in lending violations, unfair or deceptive practices, breach of duty, or any other statutory or common law defenses. The borrower should waive any right to assert any counterclaims or setoffs in any enforcement action brought by the lender. Consider whether the lender should provide any reciprocal release for claims arising prior to the forbearance agreement, though this is less common and should be narrowly tailored if included.\n\nInclude a reaffirmation provision whereby the borrower reaffirms all obligations under the loan documents and all security interests and liens securing the loan, and agrees that the forbearance agreement does not constitute a novation or release of any obligations but merely a temporary modification of payment terms. Include a waiver of jury trial for any disputes arising under or relating to the forbearance agreement, consistent with any such waiver in the original loan documents.\n\n## Governing Law, Jurisdiction, and Dispute Resolution Framework\n\nSpecify the governing law for the agreement, which should ordinarily be the same jurisdiction specified in the original loan documents unless there is a compelling reason to change it. Identify the state whose substantive laws will govern the interpretation, construction, and enforcement of the agreement, and confirm that this choice of law is appropriate given the location of the parties, the collateral, and the original loan transaction. Include a statement that the governing law applies without regard to conflicts of law principles that might otherwise require application of the law of another jurisdiction.\n\nEstablish exclusive jurisdiction and venue for any disputes arising under or relating to the forbearance agreement, designating the state and federal courts located in a specific county and state. Include the borrower's consent to personal jurisdiction in those courts and waiver of any objection to venue or inconvenient forum. Specify that the lender retains the right to bring enforcement actions in any other court having jurisdiction, particularly in the jurisdiction where collateral is located, but that the borrower may only bring claims in the designated forum.\n\nAddress whether arbitration provisions in the original loan documents apply to disputes under the forbearance agreement, or whether the parties agree that litigation is the exclusive dispute resolution method. Include a prevailing party attorney's fees provision establishing that in any action to enforce the forbearance agreement or arising out of any breach thereof, the prevailing party is entitled to recover its reasonable attorney's fees and costs from the non-prevailing party, which serves both to incentivize compliance and to provide a remedy for enforcement costs.\n\n## Integration, Amendment, and General Contractual Provisions\n\nInclude an integration clause establishing that this forbearance agreement, together with the loan documents as modified hereby, constitutes the entire agreement between the parties concerning the subject matter and supersedes all prior negotiations, understandings, and agreements whether written or oral. Specify that the forbearance agreement may be amended or modified only by a written instrument signed by both parties, and that no oral modifications are effective. Include a provision stating that the loan documents remain in full force and effect except as specifically modified by this agreement, and that in the event of any conflict between the forbearance agreement and the loan documents, the forbearance agreement controls.\n\nDraft a severability provision establishing that if any provision of the agreement is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions continue in full force and effect and the parties agree to negotiate in good faith to replace the invalid provision with a valid provision that achieves the same economic effect to the extent possible. Include a provision addressing notices, specifying the addresses for each party and the methods of delivery that constitute effective notice, such as personal delivery, certified or registered mail return receipt requested, nationally recognized overnight courier service, or email to specified addresses with confirmation of receipt. State when notice is deemed given under each method of delivery.\n\nInclude a counterparts provision allowing the agreement to be executed in multiple counterparts, each of which constitutes an original and all of which together constitute one agreement, and permitting delivery of executed signature pages by facsimile or electronic transmission in PDF format with the same effect as delivery of original signatures. Add a waiver provision clarifying that no waiver of any breach or default constitutes a waiver of any other breach or default or a continuing waiver, and that any waiver must be in writing and signed by the party granting the waiver. Include a binding effect provision stating that the agreement binds and benefits the parties and their respective successors and assigns, though typically the borrower should be prohibited from assigning its rights or obligations without the lender's consent.\n\nConsider including a time is of the essence provision emphasizing that strict and timely performance of all obligations is a material term of the agreement. Include a further assurances provision requiring each party to execute and deliver such additional documents and take such additional actions as may be reasonably necessary to effectuate the purposes of the agreement.\n\n## Execution Formalities and Closing Requirements\n\nProvide for proper execution by all necessary parties with signature blocks that include space for signatures, printed names, titles for entity representatives, and dates of execution. For entity parties, ensure that the signature block reflects proper authorization with language such as \"By: [Signature], Name: [Printed Name], Title: [Title], Duly Authorized.\" Consider whether notarization or acknowledgment is required or advisable under applicable state law, particularly if the agreement affects real property or if recording may be necessary. If guarantors exist under the original loan documents, include provisions requiring their consent to and acknowledgment of the forbearance agreement, and include appropriate signature blocks for guarantors with language reaffirming their guaranty obligations.\n\nEnsure that the execution formalities comply with any requirements in the original loan documents regarding modifications or amendments, such as requirements for specific corporate resolutions, board approvals, or consents from other parties. If the original loan documents require that modifications be executed with the same formalities as the original documents, ensure those formalities are satisfied.\n\n## Document Formatting and Professional Presentation Standards\n\nFormat the completed forbearance agreement professionally with clear section headings using a logical numbering system, consistent use of defined terms with initial capitalization throughout the document, appropriate font sizing and spacing for readability, and page numbering. The document should typically range from eight to fifteen pages depending on the complexity of the transaction and the number of conditions and covenants required. Use clear, unambiguous language that can be understood by business people while maintaining appropriate legal precision and enforceability.\n\nInclude a table of contents if the document exceeds ten pages to facilitate navigation and reference. Attach as exhibits any documents referenced in the agreement such as a copy of the original promissory note, the payment schedule for forbearance period payments, a current payoff statement showing the outstanding balance, or any other relevant documentation. Ensure all cross-references to sections, exhibits, and defined terms are accurate and consistent throughout the document.\n\nThe final document must achieve the dual objectives of providing the borrower with clearly understood temporary relief while fully protecting the lender's position and preserving all enforcement rights. Every provision should be drafted with the understanding that if the forbearance fails and litigation ensues, the agreement will be scrutinized by courts and must clearly establish the parties' intentions, the borrower's acknowledgments and waivers, and the lender's reserved rights. The document should leave no ambiguity regarding what constitutes compliance, what triggers default, and what consequences follow from termination of the forbearance arrangement.",
+  "parent_skill_id": "b63cc6ae-4f61-40f8-b17f-f98c348afb58",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "loan_and_financing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:57:39.496179Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Creating SKILL.md for loan-forbearance**
+
+I'll create a SKILL.md focused on "loan-forbearance" with detailed metadata, a clear title, and a precise description. It will include numbered prerequisites, tables, checklists, do/don't guidelines, compliance notes, jurisdiction caveats, and address relevant legal considerations like bankruptcy and usury in the commercial lending context.
+codex
+---
+name: loan-forbearance
+description: Drafts U.S. commercial loan forbearance agreements that temporarily suspend lender remedies while preserving rights, capturing defaults, payment deferrals, conditions, and releases. Use for loan workouts, standstill/forbearance periods, temporary payment modifications, default cure plans, or lender-borrower restructuring negotiations. Trigger keywords: forbearance agreement, loan workout, payment deferral, temporary modification, default standstill, lender remedies.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Loan Forbearance Agreement
+
+Produce a lender-protective, temporary forbearance agreement for a commercial loan default.
+
+## Prerequisites
+
+1. **Loan documents**: note, loan agreement, security agreement, mortgages, guaranties, prior amendments.
+2. **Parties**: legal names, entity types, state of formation, addresses, signing authority, guarantors.
+3. **Default facts**: specific defaults, dates, amounts, covenant breaches, notices given.
+4. **Payoff data**: principal, accrued interest, fees, default interest, protective advances.
+5. **Collateral**: description, perfection status, valuations, insurance.
+6. **Forbearance terms**: start/end dates, payment schedule, deferred amount treatment, fees.
+7. **Reporting**: required financials, frequency, format, deadlines.
+8. **Governing law/venue**: per existing loan documents unless business reason to change.
+9. **Approvals**: lender credit approval, borrower board/consents if required.
+
+## Output Structure / Process
+
+Use this structure and complete each block with deal-specific data.
+
+### 1. Title and Parties
+
+Table: Parties
+| Role | Legal Name | Entity Type/State | Address | Defined Term |
+| --- | --- | --- | --- | --- |
+| Lender |  |  |  | "Lender" |
+| Borrower |  |  |  | "Borrower" |
+| Guarantor(s) |  |  |  | "Guarantor" |
+
+### 2. Recitals (Contractual)
+
+Include:
+- Original loan documents with dates and principal.
+- Current outstanding balance and maturity.
+- Collateral summary.
+- Defaults (list).
+- Borrower request; lender discretionary accommodation.
+- Acknowledgment of debt, lien validity, and no defenses.
+- Recitals are contractual and incorporated.
+
+### 3. Defined Terms
+
+Define at minimum:
+- "Forbearance Period"
+- "Forbearance Payments"
+- "Existing Defaults"
+- "Deferred Amounts"
+- "Forbearance Termination Date"
+- "Loan Documents"
+
+### 4. Forbearance Terms
+
+Table: Forbearance Terms
+| Item | Term |
+| --- | --- |
+| Effective Date |  |
+| Forbearance Period Start/End |  |
+| Forbearance Fee |  |
+| Payment Amounts/Dates |  |
+| Interest Rate During Period |  |
+| Default Rate Applies? |  |
+| Late Fees During Period |  |
+| Deferred Amount Treatment |  |
+| Maturity Extension |  |
+| Application of Payments |  |
+
+Required clauses:
+- Scope: only specific remedies are suspended.
+- No waiver of rights; all rights reserved.
+- Forbearance applies only to Existing Defaults.
+
+### 5. Conditions Precedent
+
+Checklist:
+- [ ] Execution and delivery by all parties.
+- [ ] Payment of forbearance fee and costs.
+- [ ] Current financial statements delivered.
+- [ ] Evidence of insurance; lender as loss payee/additional insured.
+- [ ] UCC/real property status confirmed.
+- [ ] Consents/authorizations delivered.
+
+### 6. Ongoing Covenants
+
+Checklist:
+- [ ] Timely forbearance payments, no grace.
+- [ ] Taxes and insurance kept current.
+- [ ] No additional debt or liens without consent.
+- [ ] No asset sales outside ordinary course.
+- [ ] Maintain legal existence and good standing.
+- [ ] Periodic financial reporting (define cadence and deadline).
+- [ ] Collateral preservation and access for inspections.
+
+### 7. Representations and Acknowledgments
+
+Borrower:
+- Authority and enforceability.
+- No defenses, offsets, or counterclaims.
+- Accuracy of financials; no undisclosed MAC.
+- Debt and liens are valid and enforceable.
+
+Lender:
+- Authority to enter; holder of note (if applicable).
+
+### 8. Events of Default and Termination
+
+Table: Events of Default
+| Trigger | Notice/Cure? |
+| --- | --- |
+| Missed forbearance payment |  |
+| Breach of covenant |  |
+| New default under loan docs |  |
+| Misrepresentation |  |
+| Insolvency/bankruptcy/receivership |  |
+| Attachment/levy |  |
+| Unauthorized transfer |  |
+
+Consequences:
+- Forbearance terminates.
+- All amounts immediately due.
+- Lender may exercise all remedies.
+
+### 9. Releases, Waivers, Reaffirmations
+
+Include:
+- Borrower release of claims through Effective Date.
+- Waiver of defenses and counterclaims.
+- Reaffirmation of loan documents and liens.
+- No novation.
+
+### 10. Miscellaneous
+
+Include:
+- Governing law; venue; jurisdiction.
+- Attorneys’ fees to prevailing party (if consistent with loan docs).
+- Integration; amendments in writing only.
+- Notices (method and addresses).
+- Counterparts; electronic signatures.
+- Assignment limits (borrower restricted).
+
+### 11. Exhibits
+
+List as applicable:
+- Exhibit A: Payment Schedule.
+- Exhibit B: Payoff Statement.
+- Exhibit C: Collateral Schedule.
+- Exhibit D: Guarantor Acknowledgment.
+
+### 12. Signature Blocks
+
+Provide blocks for:
+- Lender
+- Borrower
+- Guarantor(s)
+- Notary (if required by governing law or real property rules)
+
+## Guidelines
+
+- Align governing law, venue, and arbitration with existing loan documents unless a specific reason to change.
+- Do not convert forbearance into a permanent modification unless expressly approved.
+- Ensure release and waiver language is enforceable under the governing state.
+- If collateral includes real property, confirm notarization/recording requirements.
+- If borrower is in bankruptcy or imminently filing, forbearance may require court approval and automatic stay analysis.
+- If any consumer lending elements exist, add applicable consumer compliance terms and disclosures.
+- Keep scope limited to Existing Defaults; reserve remedies for new defaults.
+- Avoid representations about future lender accommodations.
+- Verify default interest, late fees, and usury limits for the governing state.
+tokens used
+7,151

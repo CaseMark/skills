@@ -1,0 +1,23 @@
+{
+  "id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "slug": "litigation-real-estate-litigation",
+  "name": "Real  Estate  Litigation",
+  "summary": "Skills related to real  estate  litigation within litigation practice.",
+  "content": "# Real  Estate  Litigation\n\nThis is a sub-category under litigation practice containing specialized skills.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "real-estate-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

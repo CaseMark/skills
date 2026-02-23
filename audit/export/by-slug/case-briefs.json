@@ -1,0 +1,44 @@
+{
+  "id": "2396907f-f45c-437a-a1fc-5916a1462f13",
+  "slug": "case-briefs",
+  "name": "Case Briefs",
+  "summary": "Generates structured case briefs that distill judicial opinions into essential components including case caption, procedural posture, facts, issues, holding, reasoning, and significance. Use it for quick reference in legal education, analysis, or incorporation into memoranda, motions, and arguments during litigation. Produces concise, objective summaries suitable for attorneys, students, and professionals.",
+  "content": "# Case Brief Generation Prompt\n\nYou are tasked with creating a comprehensive case brief that distills a legal opinion into its essential components for quick reference and analysis. A case brief is a fundamental tool in legal practice and education, enabling attorneys, law students, and legal professionals to efficiently understand and reference the key elements of judicial decisions.\n\nYour objective is to produce a structured summary that captures the complete analytical framework of the case while remaining concise and accessible. The brief should serve as both a standalone reference document and a foundation for deeper legal analysis or citation in legal memoranda, motions, and arguments.\n\n## Analysis Requirements\n\nBegin by thoroughly reviewing the source material, whether it is a full judicial opinion, a published case reporter entry, or court documentation. Extract and organize the following essential elements in a clear, logical structure:\n\n**Case Caption and Procedural Posture**: Identify the full case name with proper party designations (plaintiff, defendant, appellant, appellee), the court that issued the opinion, the date of decision, and the citation if available. Describe how the case reached this court, including the lower court's decision and the basis for appeal or review.\n\n**Statement of Facts**: Synthesize the relevant facts that gave rise to the legal dispute, distinguishing between background facts, operative facts that triggered the legal issues, and procedural facts. Present these chronologically and objectively, focusing on facts the court deemed material to its decision. Avoid unnecessary details while ensuring sufficient context for understanding the legal issues.\n\n**Legal Issues Presented**: Articulate the specific legal questions the court addressed, framed as precise questions that can be answered yes or no, or that identify the legal standard or rule to be applied. Each issue should be stated clearly enough that a reader unfamiliar with the case can understand what legal principle or application is at stake.\n\n**Holding and Disposition**: State the court's answer to each legal issue and the ultimate outcome of the case. Distinguish between the narrow holding (the specific rule applied to these facts) and any broader legal principles announced. Include whether the court affirmed, reversed, remanded, or otherwise disposed of the lower court's decision.\n\n**Reasoning and Analysis**: Explain the court's legal reasoning, including the doctrines, statutes, precedents, and policy considerations the court relied upon. Identify the analytical framework or test applied, how the court interpreted relevant legal authorities, and how it applied law to facts. Note any concurring or dissenting opinions and their key points of departure from the majority.\n\n**Significance and Implications**: Assess the case's importance within its area of law, including whether it establishes new precedent, clarifies existing doctrine, or represents a significant application of established principles. Consider its potential impact on future cases and legal practice.\n\n## Format and Presentation\n\nStructure the brief using clear headings for each component, ensuring that a legal professional can quickly locate specific information. Use precise legal terminology while maintaining clarity. When referencing legal standards, tests, or doctrines, use the exact language from the opinion where appropriate. Maintain an objective, analytical tone throughout.\n\nThe final brief should typically range from one to three pages depending on the complexity of the case, balancing comprehensiveness with conciseness. Every statement should be supported by the source material, and any direct quotations from the opinion should be clearly marked and used strategically to capture key language or reasoning.\n\nIf the source material is incomplete or ambiguous on any essential element, note this limitation rather than speculating. If multiple issues are addressed in a single opinion, organize the brief to address each issue systematically, maintaining clarity about which reasoning applies to which holding.\n\nThis case brief will serve as a reliable reference tool for legal research, case preparation, and understanding the development of legal doctrine within its subject area. Ensure that it provides sufficient detail for a legal professional to understand the case's significance without needing to immediately consult the full opinion, while also facilitating efficient citation and further research when needed.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "junior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial",
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.532403",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

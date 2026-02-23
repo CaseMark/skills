@@ -1,0 +1,309 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-e669-7fc3-a227-902008c49751
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "58ffcf0d-7897-440c-9391-23193cf21a3c",
+  "slug": "corporate-governance-board-meeting-summaries",
+  "name": "Board Meeting Summaries",
+  "summary": "Generates comprehensive, objective summaries of corporate board meetings, capturing metadata like attendees and quorum, discussions on agenda items, resolutions with vote details, and significant actions such as approvals of financials, dividends, or mergers. Ensures compliance with governance requirements by documenting decisions, committee reports, and conflicts of interest clearly. Use it to create official records for stakeholders, officers, and regulators after board meetings.",
+  "content": "# Board Meeting Summaries Prompt\n\nYou are tasked with creating a comprehensive summary of a corporate board meeting. This workflow is essential for maintaining accurate corporate records, ensuring compliance with governance requirements, and providing clear documentation of board decisions and deliberations for shareholders, officers, and regulatory bodies.\n\nBegin by thoroughly reviewing all provided board meeting materials, including meeting minutes, presentations, resolutions, discussion notes, and any supporting documents. Your analysis should capture the complete scope of the meeting while distilling complex discussions into clear, actionable summaries that serve both legal compliance and business communication purposes.\n\nYour summary must open with essential meeting metadata: the date, time, and location of the meeting, whether it was held in person or virtually, and a complete list of attendees including directors present, directors absent (noting whether absences were excused), officers in attendance, and any guests or advisors who participated. Document whether a quorum was present and note any conflicts of interest that were disclosed at the outset of the meeting.\n\nThe substantive portion of your summary should organize board activities into logical sections. For each agenda item discussed, provide a concise overview of the matter presented, key points of discussion and debate among directors, any concerns or questions raised, and the ultimate decision or action taken. When resolutions were passed, include the specific resolution language or a precise summary, the vote count showing how many directors voted for, against, or abstained, and note whether the resolution was unanimous. Identify any matters that were tabled for future consideration or referred to committees for further review.\n\nPay particular attention to significant corporate actions that carry legal weight. These include approval of financial statements and audit reports, declaration of dividends or other distributions, authorization of major contracts or transactions, approval of stock issuances or repurchases, election or removal of officers, amendments to bylaws or corporate policies, approval of mergers, acquisitions, or significant asset sales, and authorization of borrowing or financing arrangements. For each such action, clearly state what was approved and any conditions or limitations placed on the authorization.\n\nDocument any committee reports presented during the meeting, summarizing the key findings and recommendations from audit, compensation, nominating, governance, or special committees. Note whether the board accepted committee recommendations and what follow-up actions were directed.\n\nYour summary should maintain an objective, professional tone appropriate for corporate records while being accessible to readers who may not have attended the meeting. Use clear, precise language and avoid ambiguity, particularly when describing board decisions and authorizations. Where discussions involved complex financial, legal, or strategic matters, provide sufficient context for the decision without reproducing entire presentations or debates.\n\nConclude your summary with any announcements made, the date scheduled for the next board meeting, and a note of when the meeting was adjourned. If executive sessions were held, note their occurrence and general subject matter without disclosing privileged attorney-client communications or other confidential deliberations unless specifically instructed to do so.\n\nThe final summary should be formatted as a professional corporate document suitable for inclusion in the company's minute book and corporate records. It should be comprehensive enough to satisfy legal requirements for documenting board actions while remaining concise enough to serve as an effective communication tool for stakeholders who need to understand what the board accomplished during the meeting.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:50:56.937662Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Defining skill metadata and structure**
+
+Decided on the slug "board-meeting-summary" and a concise title. Planning metadata with practice areas, document types, skill modes, and a numbered prerequisites list. The skill will focus on summarizing key corporate governance meeting elements with clear sections, templates, and trigger keywords, avoiding nested bullets and fluff.
+thinking
+**Drafting final skill content structure**
+
+Planning the skill to include YAML front matter with a concise description, detailed prerequisite numbered list, and output sections featuring clearly labeled tables and checklists without nested bullets. The summary will emphasize objective tone, avoid privileged details, note executive session limits, and caution on jurisdiction compliance, using plain markdown code blocks with placeholders.
+codex
+---
+name: board-meeting-summary
+description: Produces a structured, objective summary of corporate board meetings with required metadata, quorum, attendance, conflicts, agenda discussions, resolutions with vote counts, committee reports, and significant corporate actions. Use for board meeting summary, board minutes summary, corporate governance record, director meeting recap, or post-meeting record for officers, shareholders, or regulators.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Board Meeting Summary
+
+Create an official, concise board meeting summary suitable for the corporate minute book.
+
+## Prerequisites
+
+1. **Meeting materials** — agenda, minutes or notes, presentations, written reports.
+2. **Attendance list** — directors present/absent (excused or not), officers, guests/advisors.
+3. **Quorum/notice facts** — quorum count, notice method, any waivers.
+4. **Resolutions & votes** — text or precise summary, counts for/against/abstain/recused.
+5. **Committee reports** — audit, compensation, governance, special committees.
+6. **Action items** — approvals, authorizations, follow-ups, next meeting details.
+
+## Output Structure / Process
+
+Use the following structure and populate every section. If information is missing, mark as `UNKNOWN` and flag in the Issues list.
+
+**1) Meeting Metadata (Table)**
+
+| Field | Value |
+|---|---|
+| Date | |
+| Time (start/end) | |
+| Location | |
+| Format (in-person/virtual/hybrid) | |
+| Notice/Waiver | |
+| Quorum (required/present) | |
+| Chair | |
+| Secretary/Recorder | |
+
+**2) Attendance (Table)**
+
+| Role | Name | Status | Notes |
+|---|---|---|---|
+| Director | | Present/Absent (Excused/Unexcused) | |
+| Officer | | Present | |
+| Guest/Advisor | | Present | |
+
+**3) Conflicts & Recusals (Table)**
+
+| Person | Matter | Disclosure | Recusal | Notes |
+|---|---|---|---|---|
+| | | Yes/No | Yes/No | |
+
+**4) Agenda Items (Table)**
+
+| Item | Topic | Summary of Discussion | Decision/Outcome | Follow-up |
+|---|---|---|---|---|
+| 1 | | | | |
+
+**5) Resolutions (Table)**
+
+| Resolution | Summary (or text if provided) | Vote (For/Against/Abstain/Recused) | Result |
+|---|---|---|---|
+| 1 | | | Approved/Denied/Tabled |
+
+**6) Significant Corporate Actions (Checklist)**
+
+- [ ] Approval of financial statements/audit reports
+- [ ] Dividends or distributions
+- [ ] Major contracts/transactions
+- [ ] Stock issuance/repurchase
+- [ ] Officer election/removal
+- [ ] Bylaw or policy amendments
+- [ ] M&A or asset sales
+- [ ] Financing/borrowing authorization
+- [ ] Litigation or claims decisions
+- [ ] Other material actions
+
+For each checked item, add a short action summary and any conditions or limits.
+
+**7) Committee Reports (Table)**
+
+| Committee | Key Findings/Recommendations | Board Action |
+|---|---|---|
+| Audit | | Accepted/Modified/Deferred |
+
+**8) Executive Session**
+
+Provide occurrence and general subject only. Do not disclose privileged content unless explicitly instructed.
+
+**9) Closing**
+
+Include announcements, next meeting date/time (if set), and adjournment time.
+
+**10) Issues / Missing Information (Checklist)**
+
+- [ ] Missing quorum/notice detail
+- [ ] Missing vote counts
+- [ ] Missing resolution text/summary
+- [ ] Missing attendance confirmations
+- [ ] Other: ___
+
+## Guidelines
+
+- Maintain neutral tone; do not editorialize or speculate.
+- Use precise vote counts and identify abstentions/recusals.
+- Summarize discussion; do not reproduce presentations verbatim.
+- Confirm recordkeeping requirements against the company’s bylaws and governing law; do not state compliance unless verified.
+- Preserve privilege: exclude attorney-client content or legal strategy unless specifically directed.
+tokens used
+2,682

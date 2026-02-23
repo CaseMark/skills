@@ -1,0 +1,43 @@
+{
+  "id": "81d4253f-a1a5-452c-827f-10f41b472d74",
+  "slug": "litigation-class-action-settlement-agreement",
+  "name": "Class Action Settlement Agreement",
+  "summary": "Drafts a comprehensive Class Action Settlement Agreement to resolve class action lawsuits, including recitals, settlement fund terms, class definitions, and broad releases while ensuring compliance with FRCP 23(e) fairness standards. Balances interests of class members and defendants based on case materials and negotiations. Use it during settlement phases of class action litigation for court approval.",
+  "content": "# Class Action Settlement Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Class Action Settlement Agreement that will resolve a class action lawsuit subject to court approval. This is a critical litigation document that must balance the interests of the class members, defendant(s), and satisfy judicial scrutiny for fairness, reasonableness, and adequacy under Federal Rule of Civil Procedure 23(e) or applicable state equivalents.\n\n## Document Research and Context Gathering\n\nBegin by thoroughly reviewing all available case materials to understand the underlying litigation, claims asserted, class definition, and negotiation history. Search through uploaded documents to identify key facts including: the nature of the claims and causes of action; the defined class and any subclasses; prior settlement negotiations or term sheets; damages theories and calculations; any objections or concerns raised during negotiations; and relevant court orders regarding class certification or settlement procedures. Extract specific details such as party names, case numbers, jurisdictional information, monetary amounts discussed, and any unique terms already agreed upon.\n\nIf the user references specific settlement terms, monetary amounts, or allocation methodologies, locate these details in the source documents and incorporate them with proper attribution. Understanding the factual and procedural background is essential to drafting provisions that accurately reflect the parties' agreement and the litigation context.\n\n## Core Settlement Agreement Structure\n\nDraft a formal settlement agreement that opens with comprehensive recitals establishing the litigation background, class certification status, the parties' desire to resolve the matter, and the defendant's denial of liability while agreeing to settle to avoid further litigation costs and uncertainty. These recitals provide critical context for judicial review.\n\n**Settlement Fund and Payment Terms**: Establish a total, non-reversionary common fund amount that the defendant(s) agree to pay to resolve all class claims. Specify the exact dollar amount, payment schedule, and account details for the qualified settlement fund. Address whether the fund is inclusive or exclusive of attorney's fees and costs, and detail any tax treatment considerations. Include provisions for fund administration, investment of settlement proceeds pending distribution, and clear timelines for defendant payment obligations.\n\n**Class Definition and Release Scope**: Precisely define the settlement class using the same or refined language from the class certification order. The release provisions must comprehensively describe all claims being released, including those actually asserted and those that could have been asserted arising from the same facts or transactions. Draft the release broadly enough to provide meaningful peace to the defendant while ensuring it's not overly broad to risk court rejection. Specify that the release binds all class members except those who timely and validly opt out, and address treatment of unknown claims with appropriate statutory language if required by jurisdiction.\n\n**Plan of Allocation and Claims Process**: Develop a detailed, objective formula for distributing the settlement fund among class members who submit valid claims. The allocation methodology should be based on legally relevant factors such as the strength of individual claims, damages suffered, or pro rata distribution principles. Describe the claims administration process including: claim form requirements and submission procedures; documentation class members must provide; deadlines for claim submission; the claims administrator's role and authority; procedures for validating, accepting, or rejecting claims; and the dispute resolution process for contested claims. Address how unclaimed funds will be handled, whether through cy pres distribution to appropriate charitable organizations or pro rata reallocation to participating class members.\n\n**Attorney's Fees, Costs, and Incentive Awards**: Specify the maximum amount or percentage of the settlement fund that class counsel may petition the court to award for attorney's fees and reimbursement of litigation costs. Detail the legal basis for the fee request, whether percentage-of-fund or lodestar methodology. Include provisions for any incentive or service awards to class representatives, subject to court approval, acknowledging their time and effort in prosecuting the litigation.\n\n**Notice Program and Opt-Out Procedures**: Establish a comprehensive notice plan that satisfies due process requirements, describing the form and content of class notice, methods of dissemination (mail, email, publication, internet), and timeline for notice distribution. Create clear opt-out procedures allowing class members to exclude themselves from the settlement, including the required content of opt-out requests, submission deadlines, and where requests must be sent. Specify that class members who opt out are not bound by the settlement or release but forfeit any right to settlement benefits.\n\n**Court Approval Contingencies**: Make the entire settlement expressly contingent upon the court granting preliminary approval, final approval after a fairness hearing, and entry of a final judgment. Include provisions addressing what occurs if the court declines approval or materially modifies the settlement terms, typically giving parties the right to withdraw. Establish the schedule for seeking preliminary approval, providing class notice, conducting the fairness hearing, and obtaining final approval.\n\n## Additional Essential Provisions\n\nAddress the defendant's denial of liability and wrongdoing, making clear the settlement is a compromise to avoid litigation risks and expenses. Include mutual non-disparagement or confidentiality provisions if negotiated. Establish the effective date of the settlement and conditions precedent. Create provisions for settlement administration including appointment of a claims administrator, their duties and compensation, and oversight mechanisms.\n\nInclude standard contract provisions such as: governing law and jurisdiction; integration clause confirming this agreement supersedes all prior negotiations; amendment procedures requiring court approval for material changes; severability provisions; and authorization representations from all parties and counsel. Address tax reporting obligations and clarify that each party bears responsibility for their own tax liabilities.\n\n## Formatting and Professional Standards\n\nStructure the agreement with numbered articles and sections for easy reference. Use defined terms consistently throughout, with initial definitions in all capitals. Include signature blocks for all parties, their counsel, and class representatives. Attach as exhibits: the proposed class notice; claim form; preliminary approval order; and final approval order and judgment.\n\nThe final document should be professionally formatted, legally precise, and comprehensive enough to withstand judicial scrutiny while clearly communicating the settlement terms to class members. Every provision should serve the dual purpose of memorializing the parties' agreement and satisfying the court's obligation to protect absent class members' interests.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

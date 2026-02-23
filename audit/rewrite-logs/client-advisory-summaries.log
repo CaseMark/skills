@@ -1,0 +1,335 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-bfbf-79a3-8674-f3775463b7f3
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "291aa447-f573-403a-9097-13a4b40ba6c5",
+  "slug": "client-advisory-summaries",
+  "name": "Client Advisory Summaries",
+  "summary": "Generates comprehensive client advisory summaries that inform clients about recent legal developments, upcoming law changes, or specific advisory content impacting their business or personal legal affairs. Translates complex legal information into clear, actionable guidance with tailored impact analysis, proper Bluebook citations, and recommendations for compliance or strategic planning. Use this skill when preparing proactive updates to keep clients informed and ahead of regulatory shifts.",
+  "content": "# Client Advisory Summary Prompt\n\nYou are tasked with preparing a comprehensive Client Advisory Summary that informs clients about recent legal developments, upcoming changes in law, or specific advisory content relevant to their business or personal legal affairs. This summary should be clear, actionable, and tailored to help clients understand how legal changes may impact their operations, compliance obligations, or strategic planning.\n\n## Objective and Scope\n\nYour primary goal is to create a concise yet thorough advisory document that translates complex legal developments into practical guidance. The summary should identify relevant legal changes, explain their significance, assess their impact on the client's specific circumstances, and provide clear recommendations for action or consideration. This advisory serves as both an informational resource and a proactive risk management tool, demonstrating the firm's value in keeping clients ahead of regulatory and legal changes.\n\n## Research and Information Gathering\n\nBegin by conducting comprehensive research into recent legal developments relevant to the client's industry, jurisdiction, and specific legal concerns. Search for recent case law, statutory amendments, regulatory updates, administrative guidance, and pending legislation that may affect the client. When researching, prioritize authoritative sources including official government websites, court databases, regulatory agency publications, and reputable legal news sources. Verify all legal citations and ensure that any cases, statutes, or regulations referenced are accurately identified with proper Bluebook citations. Cross-reference multiple sources to confirm the accuracy and current status of any legal development you plan to include.\n\nIf the client has provided background documents, contracts, policies, or prior advisories, thoroughly review these materials to understand their existing legal framework and identify specific areas where new developments may create conflicts, opportunities, or compliance gaps. Extract relevant facts, dates, obligations, and provisions that may be affected by the legal changes you've identified.\n\n## Structure and Content Requirements\n\nThe advisory summary should open with a clear executive summary that highlights the most critical developments and their immediate implications in two to three paragraphs. This section should be accessible to non-lawyers while maintaining professional precision. Following the executive summary, organize the body of the advisory into logical sections based on topic area, regulatory domain, or impact category. Each section should identify the specific legal development, provide context about its origin and purpose, explain the substantive changes or new requirements, and analyze how these changes affect the client's current practices, obligations, or rights.\n\nThroughout the advisory, maintain a balance between legal accuracy and practical clarity. Avoid excessive legal jargon, but do not oversimplify to the point of losing important nuance. When technical legal concepts are necessary, provide brief explanations or context. Include specific examples or scenarios that illustrate how the legal change might apply to the client's actual business operations or personal circumstances.\n\n## Impact Analysis and Recommendations\n\nFor each legal development discussed, provide a clear assessment of its relevance and potential impact on the client. Categorize impacts as immediate, short-term, or long-term, and indicate whether they present compliance obligations, strategic opportunities, or potential risks. Your analysis should consider both direct legal requirements and indirect business implications, such as competitive effects, operational changes, or reputational considerations.\n\nConclude each section with specific, actionable recommendations. These may include steps to ensure compliance, suggested policy or contract revisions, timing considerations for implementation, areas requiring further legal review, or opportunities to leverage the legal change for competitive advantage. Be explicit about any deadlines, effective dates, or time-sensitive actions the client should consider.\n\n## Professional Standards and Tone\n\nMaintain a professional yet accessible tone throughout the advisory. The document should reflect the firm's expertise while being client-focused and service-oriented. Use clear headings and subheadings to enhance readability and allow clients to quickly locate information relevant to their specific concerns. Where appropriate, include visual elements such as timelines, comparison tables, or flowcharts to illustrate complex changes or decision points.\n\nEnsure that all factual assertions are supported by reliable sources and that all legal citations are accurate and complete. Include footnotes or endnotes for detailed citations while keeping the main text flowing and readable. If certain developments require assumptions about the client's circumstances or if the analysis depends on facts not yet confirmed, clearly identify these limitations and suggest follow-up discussions or information gathering.\n\n## Deliverable Format\n\nThe final Client Advisory Summary should be formatted as a professional memorandum or letter, typically ranging from two to five pages depending on the complexity and number of developments covered. Include appropriate firm branding, the date of preparation, identification of the client and matter, and clear attribution of authorship. Close with an invitation for the client to discuss the advisory in greater detail and provide contact information for follow-up questions. The document should be polished, proofread, and ready for immediate distribution to the client without further editing.\n\nYour advisory should position the law firm as a trusted advisor that not only monitors legal developments but also translates them into strategic guidance that protects and advances the client's interests.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis",
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.667035",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:48:35.962431Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Selecting appropriate skill**
+
+The task involves rewriting a skill into SKILL.md, which matches the "skill-creator" scope, so I'll proceed using that skill to comply with instructions.
+thinking
+**Confirming instruction adherence**
+
+Noting user style conflicts with system and developer tones; will prioritize professionalism and conciseness while proceeding to open skill-creator SKILL.md.
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Finalizing skill slug and SKILL.md format**
+
+I've chosen the slug "client-advisory-summary" to keep it descriptive without prefixes, and I'll construct the SKILL.md with proper front matter and capitalizations per instructions, ensuring alignment with the user's strict format.
+thinking
+**Outlining detailed SKILL.md content structure**
+
+I've planned a concise SKILL.md with a clear Prerequisites section, a stepwise Output Structure featuring checklists, templates, and tables, plus Guidelines covering citations, impact categories, timelines, disclaimers, and formatting rules. The description will emphasize client advisory utility with Bluebook citation instructions, U.S. jurisdiction focus, and trigger keywords, all fitting within 400 characters.
+codex
+---
+name: client-advisory-summary
+description: Produces U.S. regulatory client advisory summaries that translate legal developments into actionable impacts and recommendations, with effective-date tracking and Bluebook citations. Use for client advisories, regulatory updates, compliance memos, law-change summaries, or industry alerts. Trigger keywords: client advisory, regulatory update, regulatory alert, compliance update, legal development summary, law change memo.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Drafting
+    - Analysis
+    - Research
+    - Summarization
+---
+
+# Client Advisory Summary
+
+Deliver a client-ready advisory that explains recent legal developments and concrete actions.
+
+## Prerequisites
+
+1. Client profile: industry, products/services, geography, size/thresholds.
+2. Jurisdiction(s) and scope (federal, state, agency, court).
+3. List of developments with sources (cases, statutes, regs, guidance, pending bills).
+4. Client materials if tailoring is required (policies, contracts, compliance programs).
+5. Output format preference (memo vs. letter) and branding requirements.
+
+## Output Structure / Process
+
+**Research Intake Checklist**
+- Confirm status: enacted, final rule, proposed, guidance, or case decision.
+- Capture controlling authority, citation, and publication date.
+- Identify effective date, compliance date, phase-in, retroactivity.
+- Verify applicability thresholds (industry, size, activity, geography).
+- Note conflicts or overlaps with prior law or guidance.
+- Cross-check with at least two authoritative sources.
+
+**Advisory Outline Template**
+```text
+Client Advisory Summary
+Client: [Client Name]
+Matter/Topic: [Topic]
+Date: [Date]
+Prepared by: [Author(s)]
+
+Executive Summary (2–3 paragraphs)
+- Top 2–4 developments
+- Immediate implications and deadlines
+
+Developments and Impact
+1. [Development Title]
+   - Authority & Status:
+   - Key Changes:
+   - Effective/Compliance Dates:
+   - Applicability:
+   - Client Impact (Immediate / Short-term / Long-term):
+   - Recommended Actions:
+   - Citations (Bluebook):
+
+2. [Next Development] ...
+
+Open Questions / Info Needed
+- [Assumptions, missing facts, client inputs]
+
+Recommended Next Steps
+- [Priority actions + timelines]
+
+Contact
+- [Relationship partner / team]
+```
+
+**Development Analysis Table**
+| Field | Required Content |
+| --- | --- |
+| Authority & Status | Statute/reg/decision/guidance + final/proposed + issuing body |
+| Key Changes | Plain-language summary of what changed |
+| Dates | Effective date, compliance date, enforcement date |
+| Applicability | Who is covered; thresholds; exclusions |
+| Impact | Immediate / Short-term / Long-term; Compliance / Operational / Strategic / Reputational |
+| Actions | конкретні steps; owner; suggested timeline |
+
+**Impact Tags**
+- Timing: `Immediate`, `Short-term`, `Long-term`
+- Type: `Compliance`, `Operational`, `Strategic`, `Reputational`
+- Risk: `High`, `Medium`, `Low`
+
+**Citation Rules**
+- Use Bluebook format for cases, statutes, regs, and guidance.
+- If a citation is uncertain, mark `[VERIFY]` and flag in Open Questions.
+
+**Formatting Rules**
+- Executive summary must be readable by non-lawyers.
+- Use tables or timelines when multiple changes or deadlines exist.
+- Provide concrete, client-specific examples where possible.
+- Keep to 2–5 pages unless instructed otherwise.
+
+## Guidelines
+
+- Do focus on client applicability; do not restate generic law without impact analysis.
+- Do include effective and compliance dates; do not omit deadlines.
+- Do distinguish final vs. proposed changes; do not treat proposals as binding.
+- Do state assumptions explicitly; do not infer client facts without source.
+- Do use authoritative sources; avoid relying solely on secondary news.
+- Do keep tone professional and actionable; avoid jargon unless necessary.
+- Jurisdiction caveat: default to U.S. law; if non-U.S. or multi-jurisdictional, create separate sections by jurisdiction and label clearly.
+tokens used
+8,269

@@ -1,0 +1,45 @@
+{
+  "id": "9511cfc9-67ee-456e-9428-94fd1fe691b2",
+  "slug": "medical-malpractice-summary-analysis",
+  "name": "Medical Malpractice summary",
+  "summary": "Analyzes medical records and documentation to produce a comprehensive summary for medical malpractice cases in personal injury litigation. Identifies chronological care narratives, potential breaches of standard of care, causation chains, damages, and legal considerations like expert needs and statutes of limitations. Use it when evaluating negligence claims, preparing for litigation, or assessing case merits during pre-filing or discovery phases.",
+  "content": "# Medical Malpractice Summary Analysis\n\nYou are tasked with conducting a comprehensive analysis of medical records and related documentation to produce a detailed medical malpractice summary. This workflow is essential for attorneys evaluating potential medical negligence claims, preparing for litigation, or assessing the merits of existing cases.\n\nBegin by thoroughly reviewing all uploaded medical records, hospital charts, physician notes, diagnostic reports, laboratory results, imaging studies, operative reports, and any other healthcare documentation provided. Your analysis should extract and synthesize information across the entire medical timeline to identify potential deviations from the standard of care, causation issues, and resulting damages.\n\n## Core Analysis Requirements\n\nYour summary must establish a clear chronological narrative of the patient's medical care, beginning with the initial presentation or underlying condition and continuing through all relevant treatment episodes. Identify each healthcare provider involved, their specialty, and their specific role in the patient's care. Document all diagnoses made, treatments rendered, medications prescribed, procedures performed, and clinical outcomes observed throughout the care continuum.\n\nPay particular attention to identifying potential breaches of the standard of care. This includes analyzing whether appropriate diagnostic tests were ordered and interpreted correctly, whether treatment decisions aligned with accepted medical protocols, whether informed consent was properly obtained, whether there were delays in diagnosis or treatment, and whether complications were recognized and managed appropriately. Note any inconsistencies between different providers' documentation, gaps in the medical record, or alterations to documentation that may be legally significant.\n\nExamine the causation chain carefully by tracing how any identified deviations from the standard of care may have directly contributed to the patient's injuries or adverse outcomes. Distinguish between harm caused by alleged negligence versus harm resulting from the natural progression of the underlying medical condition or unavoidable complications of necessary treatment.\n\n## Damages and Impact Assessment\n\nDocument all injuries, complications, disabilities, or adverse outcomes experienced by the patient. Quantify the extent of medical treatment required to address these harms, including additional surgeries, extended hospitalizations, rehabilitation services, ongoing medication needs, and future medical care requirements. Assess the impact on the patient's quality of life, functional capacity, ability to work, and life expectancy where relevant.\n\n## Legal and Evidentiary Considerations\n\nYour analysis should identify key medical experts who may need to be consulted based on the specialties involved. Flag any statute of limitations concerns based on the dates of treatment and discovery of potential negligence. Note whether the medical records contain any admissions, apologies, or acknowledgments of error by healthcare providers. Identify any relevant hospital policies, clinical practice guidelines, or medical literature that may establish the applicable standard of care.\n\nPresent your findings in a clear, organized format that enables legal professionals to quickly understand the medical facts, assess liability and damages, and make informed decisions about case strategy. Use plain language explanations alongside medical terminology to ensure accessibility for attorneys and other non-medical professionals who will rely on this summary. Include specific citations to page numbers, dates, and document sources for all factual assertions to facilitate verification and use in legal proceedings.\n\nYour summary should be objective and comprehensive, presenting both strengths and weaknesses of the potential claim. This balanced approach allows attorneys to provide candid advice to clients and make strategic decisions about case development, settlement negotiations, or trial preparation.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.973696",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

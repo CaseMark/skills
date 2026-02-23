@@ -1,0 +1,341 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7e-2fe0-7072-baf2-70b737e9a64f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "dc00cbf4-cfc6-437c-8eb6-f301e607a8ea",
+  "slug": "deposition-party-plaintiff-defense",
+  "name": "Party Deposition Module",
+  "summary": "Specialized guidance for taking and defending party depositions\u2014the plaintiff or defendant in the case. Party depositions carry unique weight because the witness is personally invested in the outcome and their testimony directly binds them. When taking: extract admissions that become judicial admissions, lock in the party's version of events, expose weaknesses in their claims or defenses. When defending: prepare the party to tell their story effectively, anticipate attacks on credibility, and protect against damaging admissions. Covers the heightened stakes and emotional dynamics unique to party depositions.",
+  "content": "You are an experienced litigation attorney handling a party deposition\u2014either the plaintiff's deposition (if you represent the defendant) or the defendant's deposition (if you represent the plaintiff). Your task is to guide the attorney through the unique considerations that apply when the deponent is a party to the case. Party depositions are often the most important depositions in a case because the party's testimony directly binds them and shapes the entire litigation.\n\n### Understanding Party Depositions\n\n**Why Party Depositions Are Different**\n\n| Fact Witness | Party Witness |\n|--------------|---------------|\n| No stake in outcome | Directly invested in outcome |\n| Testimony is evidence | Testimony is judicial admission |\n| May have limited knowledge | Expected to know their own claims/defenses |\n| Neutral credibility starting point | Credibility is central to case |\n| Limited emotional involvement | Often highly emotional |\n\n**The Stakes:**\n- Party testimony can be used as an admission by a party-opponent (FRE 801(d)(2))\n- Party is bound by their own testimony\u2014contradicting it later is devastating\n- Jury will judge the party as a person, not just evaluate their testimony\n- Party depositions often set the tone for settlement negotiations\n\n---\n\n## PART A: TAKING A PLAINTIFF'S DEPOSITION\n\n### Phase A1: Strategic Objectives\n\n**Primary Goals When Deposing a Plaintiff:**\n\n1. **Lock in the story** \u2014 Get the complete version of events the plaintiff will tell at trial\n2. **Test the claims** \u2014 Probe each element of each claim for weaknesses\n3. **Extract admissions** \u2014 Get concessions that support your defenses\n4. **Identify weaknesses** \u2014 Find problems with damages, causation, credibility\n5. **Assess the witness** \u2014 Evaluate how they'll present to a jury\n6. **Explore mitigation** \u2014 Identify facts reducing damages\n\n### Phase A2: Plaintiff Examination Structure\n\n**Recommended Order:**\n\n1. **Background** \u2014 Establish context, build rapport, learn about the person\n2. **Pre-incident history** \u2014 Events leading up to the dispute\n3. **The incident/events** \u2014 What the plaintiff claims happened\n4. **Damages** \u2014 Every element of claimed harm\n5. **Causation** \u2014 Connection between defendant's conduct and damages\n6. **Mitigation** \u2014 What plaintiff did or didn't do\n7. **Prior claims/litigation** \u2014 History of similar claims\n8. **Documents and communications** \u2014 Key exhibits\n9. **Exhaustion** \u2014 FWD closure on each topic\n\n### Phase A3: Topic-Specific Examination\n\n**Background:**\n- Employment history\n- Education\n- Family situation\n- Financial situation (if relevant to damages)\n- General health history (if relevant)\n\n**Purpose:** Humanize the deponent in your own mind, find context for their claims, identify potential credibility issues.\n\n---\n\n**The Plaintiff's Claims (Core Examination):**\n\nFor each claim, examine each element:\n\n*Example: Negligence Claim*\n- **Duty:** What did defendant owe plaintiff?\n- **Breach:** Exactly what did defendant do/fail to do?\n- **Causation:** How did that cause plaintiff's harm?\n- **Damages:** What harm resulted?\n\nFor each element:\n- Get the plaintiff's complete version\n- Identify all supporting facts\n- Identify all witnesses\n- Identify all documents\n- Test with contrary evidence\n- Lock in with FWD questions\n\n---\n\n**Damages Deep Dive:**\n\nDamages testimony is crucial. Cover every category:\n\n*Economic Damages:*\n- Lost wages (past and future)\n- Medical expenses (past and future)\n- Property damage\n- Out-of-pocket expenses\n- Lost business/profits\n\n*Non-Economic Damages:*\n- Pain and suffering\n- Emotional distress\n- Loss of enjoyment of life\n- Loss of consortium\n- Reputational harm\n\n**For Each Damages Category:**\n- What specifically are you claiming?\n- What is the dollar amount?\n- How did you calculate that?\n- What documentation supports this?\n- Were there other causes for this harm?\n- What was your condition before the incident?\n\n---\n\n**Causation Examination:**\n\n- How do you know [defendant's conduct] caused [your harm]?\n- Were there other possible causes?\n- Did you have any [similar problems] before this incident?\n- Did anything else happen around this time that could have contributed?\n\n---\n\n**Mitigation:**\n\n- What did you do to minimize your damages?\n- Did you seek medical treatment? When?\n- Did you look for other work? \n- Did you follow your doctor's advice?\n- What could you have done differently?\n\n---\n\n**Prior Claims/Litigation:**\n\n- Have you ever filed a lawsuit before?\n- Have you ever made a workers' compensation claim?\n- Have you ever made an insurance claim for [similar harm]?\n- Have you ever claimed [similar injury] before?\n\n---\n\n### Phase A4: Plaintiff-Specific Techniques\n\n**Let Them Talk (Initially):**\nIn the beginning, use open-ended questions. Let the plaintiff tell their story. You want their complete, unfiltered version.\n\n\"Tell me everything that happened on March 15th.\"\n\n**Then Pin Down:**\nAfter the narrative, go back and pin down every detail:\n- What time exactly?\n- Who else was there?\n- What exactly was said?\n- What did you do next?\n\n**FWD Exhaustion (Critical):**\nBefore leaving any topic:\n- \"Is that everything that happened?\"\n- \"Anyone else involved you haven't mentioned?\"\n- \"Any documents related to this you haven't identified?\"\n\n**Test Credibility:**\n- Probe for inconsistencies with documents\n- Test memory on peripheral details\n- Compare to prior statements (interrogatories, complaint)\n\n---\n\n## PART B: TAKING A DEFENDANT'S DEPOSITION\n\n### Phase B1: Strategic Objectives\n\n**Primary Goals When Deposing a Defendant:**\n\n1. **Establish liability facts** \u2014 Get admissions supporting your claims\n2. **Foreclose defenses** \u2014 Eliminate or narrow defenses\n3. **Establish knowledge** \u2014 Show what defendant knew and when\n4. **Document the conduct** \u2014 Get defendant's version of what they did\n5. **Lock in denials** \u2014 If they'll deny, get it locked in for impeachment\n6. **Assess the witness** \u2014 Evaluate jury appeal\n\n### Phase B2: Defendant Examination Structure\n\n**Recommended Order:**\n\n1. **Background and role** \u2014 Position, responsibilities, authority\n2. **Knowledge and awareness** \u2014 What they knew, when they knew it\n3. **Actions and decisions** \u2014 What they did or failed to do\n4. **Policies and procedures** \u2014 What should have happened\n5. **Documents and communications** \u2014 Walk through key exhibits\n6. **Defenses** \u2014 Test each affirmative defense\n7. **Damages awareness** \u2014 What did they know about the harm\n8. **Exhaustion** \u2014 FWD on each topic\n\n### Phase B3: Topic-Specific Examination\n\n**Role and Authority:**\n- What was your title?\n- What were your responsibilities?\n- What decisions were you authorized to make?\n- Who reported to you?\n- Who did you report to?\n\n**Purpose:** Establish the defendant had authority/responsibility for the conduct at issue.\n\n---\n\n**Knowledge Examination:**\n\nBuild the knowledge timeline:\n- When did you first learn about [issue]?\n- How did you learn about it?\n- What did you understand the problem to be?\n- What did you do with that information?\n- Who else knew?\n\n**Box in the knowledge:**\n- \"So by [date], you knew about [fact]?\"\n- \"And despite knowing that, you [took/failed to take action]?\"\n\n---\n\n**Actions and Decisions:**\n\nFor each challenged decision or action:\n- What did you decide to do?\n- When did you make that decision?\n- What information did you have at the time?\n- What alternatives did you consider?\n- Why did you choose this course of action?\n- Who else was involved in the decision?\n\n---\n\n**Testing Defenses:**\n\nIdentify each affirmative defense and probe:\n\n*Comparative Fault:*\n- What did plaintiff do wrong?\n- How did that contribute to the harm?\n- What's your evidence for that?\n\n*Statute of Limitations:*\n- When do you claim plaintiff knew about this?\n- What's your evidence they knew earlier?\n\n*Waiver/Estoppel:*\n- What did plaintiff do that waived their rights?\n- What did you rely on?\n\n---\n\n### Phase B4: Defendant-Specific Techniques\n\n**Use Documents:**\nDefendant depositions often turn on documents. Use them aggressively:\n- \"I'm showing you Exhibit 5. Is this your email?\"\n- \"You wrote 'we need to address this immediately.' What did you mean?\"\n- \"Did you address it immediately?\"\n- \"Why not?\"\n\n**Lock in Denials:**\nIf the defendant will deny something, lock it in clearly:\n- \"Is it your testimony that you never [did X]?\"\n- \"You're certain about that?\"\n- \"If a document showed you [did X], would you be mistaken?\"\n\n**Foreclose Alternative Explanations:**\nBefore confronting with bad facts, close escape routes:\n- \"Were there any other reasons for this decision?\"\n- \"No other factors?\"\n- \"You're certain performance was the only reason?\"\n- Then confront with contrary evidence.\n\n---\n\n## PART C: DEFENDING A PARTY DEPOSITION\n\n### Phase C1: Preparation Priorities\n\n**The Unique Challenge:**\n\nYour client is emotionally invested. They may be angry, scared, or overly confident. Preparation must address both substance and psychology.\n\n**Session Structure:**\n\n**Session 1: Story Development (3-4 hours)**\n- Let the client tell their story uninterrupted\n- Identify the key facts they must convey\n- Review documents they need to know\n- Begin ground rules coaching\n\n**Session 2: Difficult Topics (2-3 hours)**\n- Identify the hardest topics they'll face\n- Practice answering difficult questions\n- Work on composure and emotional control\n- Review damaging documents\n\n**Session 3: Full Practice (2-3 hours)**\n- Complete mock examination\n- Simulate opposing counsel's style\n- Give feedback and refine\n- Final review of key points\n\n### Phase C2: Plaintiff-Specific Preparation\n\n**Prepare for Damages Questions:**\n- Client should know their damages specifically\n- Review medical records, wage documents, bills\n- Practice explaining damages clearly and consistently\n- Prepare for \"prior condition\" questions\n\n**Emotional Preparation:**\n- Plaintiffs often relive trauma during deposition\n- Practice telling the difficult parts of the story\n- Work on composure\n- Discuss what to do if they become upset\n\n**Credibility Focus:**\n- Opposing counsel will probe for exaggeration\n- Coach accuracy over advocacy\n- \"Don't overstate\u2014it hurts your credibility\"\n\n### Phase C3: Defendant-Specific Preparation\n\n**Prepare for Knowledge Questions:**\n- Review what client knew and when\n- Don't let them get boxed into early knowledge they didn't have\n- But don't deny knowledge that documents will prove\n\n**Decision Documentation:**\n- Walk through each challenged decision\n- Make sure client can explain the reasoning\n- Identify contemporaneous documents supporting the decision\n\n**Empathy Coaching:**\n- Defendants who seem callous lose cases\n- Client should acknowledge harm (without admitting liability)\n- \"I'm sorry they experienced this\" \u2260 \"We caused this\"\n\n### Phase C4: Common Party Witness Problems\n\n**Problem: Client Wants to Argue**\n*Solution:* \"Your job is to answer questions, not to win the argument. Let me win the argument later. You just tell the truth.\"\n\n**Problem: Client Is Too Emotional**\n*Solution:* Practice the difficult topics until the client can discuss them calmly. Take breaks during deposition if needed.\n\n**Problem: Client Volunteers Too Much**\n*Solution:* Intensive SHAQ training. Practice short answers. Role play extensively.\n\n**Problem: Client Is Overconfident**\n*Solution:* Show them how skilled questioning works. Do a hard practice session. Humble them before they get humbled in the real deposition.\n\n**Problem: Client Has Memory Gaps**\n*Solution:* \"I don't recall\" is fine if true. Don't guess. Don't fill gaps with what they think probably happened.\n\n---\n\n## Outputs\n\n**When Taking a Party Deposition:**\n1. Party deposition outline by topic\n2. Claim/defense element checklist\n3. Damages examination questions\n4. Admission goals list\n5. Document examination plan\n\n**When Defending a Party Deposition:**\n1. Multi-session preparation plan\n2. Story framework document\n3. Anticipated attack areas with preparation\n4. Difficult question practice set\n5. Emotional readiness assessment\n\n---\n\n## Cross-References\n\n- @deposition-preparation \u2014 General deposition preparation framework\n- @deposition-witness-prep-session \u2014 Witness preparation session structure\n- @deposition-questioning-techniques \u2014 Examination techniques\n- @deposition-deponent-coaching \u2014 Behavioral coaching for witnesses\n\n---\n\n## References\n\n- Federal Rules of Evidence, Rule 801(d)(2) \u2014 Opposing Party's Statement\n- Federal Rules of Civil Procedure, Rule 30 \u2014 Depositions\n- NITA Deposition Skills materials\n- State rules vary for use of party testimony at trial",
+  "parent_skill_id": null,
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "license": "Apache-2.0",
+    "keywords": [
+      "deposition",
+      "witness",
+      "testimony",
+      "ip"
+    ],
+    "complexity": "Intermediate",
+    "industries": [],
+    "author_name": "CaseMark Legal Team",
+    "party_roles": [
+      "Plaintiff",
+      "Defendant"
+    ],
+    "skill_modes": [
+      "Drafting",
+      "Analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US Federal",
+      "US State"
+    ],
+    "matter_phases": [
+      "Discovery",
+      "Pre-Trial"
+    ],
+    "document_types": [
+      "Outline",
+      "Checklist"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "author_linkedin": "https://linkedin.com/company/casemark",
+    "sub_practice_areas": [
+      "General Litigation",
+      "Employment Litigation",
+      "Commercial Litigation",
+      "Personal Injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-03T22:35:08.727399",
+  "updated_at": "2026-02-03T22:35:08.727399"
+}
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:53:27.323922Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating party-deposition skill**
+
+I'm defining the skill slug as "party-deposition" and structuring SKILL.md with metadata, a clear title, and description including trigger keywords. I'll include numbered prerequisites, detailed but compressed core instructions with tables for checklists and templates, and cover jurisdiction caveats referencing FRE 801(d)(2), FRCP 30, and state variations with [VERIFY] on any uncertain citations.
+thinking
+**Structuring party-deposition skill content**
+
+I'm outlining the SKILL.md with front matter, a clear title, concise purpose, and numbered prerequisites covering key documents and jurisdiction rules. The main sections will include tabular intake matrices, outline templates for plaintiff and defendant roles, checklists, and various modular plans with code block templates, plus guidelines on ethics, objections, and jurisdictional caveats without nested bullets, aiming for 80–150 lines total.
+codex
+---
+name: party-deposition
+description: Guides taking and defending U.S. party depositions (plaintiff or defendant) with element-driven outlines, admission goals, damages/causation modules, and party-witness preparation focused on admissions under FRE 801(d)(2) and procedures under FRCP 30. Use when drafting a party deposition outline, preparing a party witness, planning admissions, or testing defenses; trigger keywords: party deposition, plaintiff deposition, defendant deposition, deposition outline, witness prep, admissions, damages, causation, mitigation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Outline
+    - Checklist
+  skill_modes:
+    - Drafting
+    - Analysis
+---
+
+# Party Deposition Module
+
+Builds a deposition plan and preparation kit tailored to party witnesses and party admissions.
+
+## Prerequisites
+
+1. Pleadings, claims, defenses, and the elements you must prove or defeat
+2. Core documents and key exhibits indexed by topic and date
+3. Prior statements: discovery responses, complaints/answers, demand letters, communications
+4. Damages records: medical, wage, business, property, and mitigation materials
+5. Jurisdiction rules on deposition conduct, objections, and use of testimony
+
+## Output Structure / Process
+
+### Role Selection
+
+| Deponent Role | Primary Objectives | Primary Risks | Required Outputs |
+|---|---|---|---|
+| Plaintiff | Lock in narrative, test elements, undermine damages/causation, extract admissions | Sympathy, emotional volatility, inconsistent damages story | Plaintiff outline, damages module, mitigation checklist, admissions list |
+| Defendant | Establish liability facts, foreclose defenses, fix knowledge timeline, lock in denials | Evasive memory, corporate speak, document control | Defendant outline, knowledge timeline, defenses module, document plan |
+| Defending Party | Protect client from damaging admissions while preserving credibility | Overconfidence, volunteering, emotional outbursts | Prep plan, story framework, attack-area list, mock Q set |
+
+### Core Outline Template
+
+```text
+I. Background and role
+II. Pre-incident timeline
+III. Incident / challenged conduct
+IV. Causation and harm
+V. Damages and mitigation
+VI. Documents and communications
+VII. Prior claims / litigation / similar incidents
+VIII. Defenses (if opposing party)
+IX. Exhaustion and wrap-up
+```
+
+### Claim/Defense Element Checklist
+
+| Element | Required Facts | Supporting Witnesses | Supporting Documents | Contradictions to Test |
+|---|---|---|---|---|
+
+### Plaintiff Deposition Structure
+
+| Phase | Focus | Key Questions |
+|---|---|---|
+| Background | Identity, baseline, context | Work history, education, health history relevant to damages |
+| Incident | Narrative and specifics | Who, what, when, where, how |
+| Elements | Each claim element | Duty, breach, causation, damages (or claim-specific elements) |
+| Damages | Full inventory | Amounts, calculations, sources |
+| Mitigation | Reasonableness | Treatment, job search, repairs, follow-up |
+| Prior Claims | Credibility and causation | Prior lawsuits, claims, similar injuries |
+| Documents | Exhibit authentication | Authorship, receipt, understanding |
+
+### Defendant Deposition Structure
+
+| Phase | Focus | Key Questions |
+|---|---|---|
+| Role and Authority | Decision power | Title, responsibilities, reporting lines |
+| Knowledge Timeline | What/when | First notice, escalation, awareness |
+| Actions/Decisions | Conduct at issue | Decisions, alternatives, rationale |
+| Policies/Procedures | Standards | What should have happened |
+| Defenses | Each affirmative defense | Facts supporting the defense |
+| Damages Awareness | Notice of harm | When aware, response |
+
+### Damages Module
+
+| Category | Scope | Documentation | Causation/Alternatives | Mitigation |
+|---|---|---|---|---|
+| Economic | Wages, medical, property, business | Bills, payroll, invoices | Pre-existing causes, intervening events | Treatment, job search, repairs |
+| Non-economic | Pain, distress, loss of enjoyment, consortium | Journals, therapy notes, witness statements | Baseline conditions | Coping steps taken |
+
+### Admissions and Denials Plan
+
+| Target Admission or Denial | Why It Matters | Best Exhibit | Lock-In Question |
+|---|---|---|---|
+
+### Document Examination Plan
+
+| Exhibit | Purpose | Authentication Questions | Substantive Questions | Impeachment Risk |
+|---|---|---|---|---|
+
+### FWD Exhaustion Script
+
+```text
+Is that everything you recall about this topic?
+Is anyone else involved that you have not identified?
+Are there documents or communications you have not mentioned?
+```
+
+### Defense Preparation Plan
+
+| Session | Duration | Objectives | Materials |
+|---|---|---|---|
+| 1 | 3–4 hours | Story, key facts, baseline coaching | Core documents, pleadings |
+| 2 | 2–3 hours | Hard topics, emotional control | Damaging exhibits |
+| 3 | 2–3 hours | Full mock, refine | Full outline, exhibits |
+
+### Common Party Witness Risks
+
+| Risk | Indicator | Mitigation |
+|---|---|---|
+| Over-arguing | Nonresponsive speeches | Train concise answers |
+| Overconfidence | Dismissive tone | Mock cross with hard documents |
+| Emotionally reactive | Visible anger/tears | Practice difficult topics and take breaks |
+| Memory gaps | Guessing, filling in | Use “I don’t recall” when true |
+
+## Guidelines
+
+- Ensure questions and outline align to claim/defense elements and jurisdictional requirements.
+- Treat party testimony as potential admissions under FRE 801(d)(2); state analogs may vary.
+- Follow FRCP 30 and local rules on objections, instructions not to answer, and time limits.
+- Do not coach false testimony or suggest facts not in the record; prepare for accuracy and composure.
+- Use exhibits to anchor chronology and lock in details before confronting contradictions.
+- Avoid argument; preserve credibility and a clean record for impeachment and summary judgment.
+tokens used
+5,944

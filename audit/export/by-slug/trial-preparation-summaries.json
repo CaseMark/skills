@@ -1,0 +1,42 @@
+{
+  "id": "bb226b92-5e05-4456-9fe5-c54c3274acbb",
+  "slug": "trial-preparation-summaries",
+  "name": "Trial Preparation Summaries",
+  "summary": "Generates comprehensive trial preparation summaries that synthesize critical case information, including procedural history, facts, legal issues, evidence, witnesses, and strategies, into a quick-reference document for trial counsel. Organizes content for rapid access during courtroom proceedings, with citations, exhibit references, and strategic assessments. Use it in pre-trial and trial phases of commercial litigation to support examination, cross-examination, and arguments.",
+  "content": "# Trial Preparation Summary\n\nYou are tasked with creating a comprehensive trial preparation summary that synthesizes all critical case information into a strategic document for trial counsel. This summary serves as the central reference point during trial proceedings, enabling attorneys to quickly access key facts, legal arguments, evidence, and procedural history while in the courtroom.\n\nBegin by conducting a thorough review of all uploaded case documents, including pleadings, discovery materials, depositions, expert reports, motions, and correspondence. Extract and organize the essential factual narrative, identifying the chronology of events, key witnesses, disputed facts, and undisputed facts. Pay particular attention to evidentiary materials that support or undermine each party's claims and defenses.\n\nStructure the summary to include distinct sections covering the procedural history, factual background, legal issues and applicable law, evidence inventory with exhibit references, witness summaries with anticipated testimony, and strategic considerations. For each legal issue, identify the governing statutes and case law, articulate the elements that must be proven, and map the available evidence to each element. When referencing legal authorities, ensure proper citation format and verify that sources are current and applicable to the jurisdiction.\n\nAnalyze the strengths and weaknesses of both your client's position and the opposing party's case. Identify potential impeachment material for adverse witnesses, highlight favorable testimony from depositions, and note any evidentiary challenges or motions in limine that may affect what can be presented at trial. Include a section on damages or relief sought, with specific calculations, supporting documentation, and legal basis.\n\nThe summary should anticipate the flow of trial, organizing information in a manner that allows counsel to locate critical details quickly during examination, cross-examination, and argument. Include references to specific page numbers, exhibit numbers, and deposition testimony line citations where applicable. Flag any procedural deadlines, pending motions, or unresolved discovery issues that could impact trial strategy.\n\nConsider the practical aspects of trial presentation, noting which documents may require authentication, which witnesses need to be subpoenaed, and what demonstrative exhibits or technology may enhance the presentation of complex information. If expert testimony is involved, summarize each expert's opinions, methodology, and the basis for their conclusions, along with any Daubert or similar challenges.\n\nConclude with a strategic assessment that synthesizes the case theory, identifies the most persuasive arguments and evidence, and highlights potential risks or contingencies that may arise during trial. This assessment should reflect a clear understanding of the burden of proof, the likely jury instructions, and the narrative that will resonate most effectively with the fact-finder.\n\nThroughout the summary, maintain objectivity while providing candid analysis that enables trial counsel to make informed tactical decisions. The document should be detailed enough to serve as a comprehensive reference yet organized in a way that permits rapid consultation during the dynamic environment of trial proceedings.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

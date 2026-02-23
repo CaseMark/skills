@@ -1,0 +1,23 @@
+{
+  "id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "slug": "regulatory-energy-law",
+  "name": "energy law",
+  "summary": "Skills related to energy law within regulatory practice.",
+  "content": "# energy law\n\nThis is a sub-category under regulatory practice containing specialized skills.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "energy-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,200 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-55ad-7433-968e-919faed03967
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "4065e58e-334a-4ca6-92c7-b593911e9fe5",
+  "slug": "litigation-family-law-petition-for-adoption",
+  "name": "Petition for Adoption",
+  "summary": "Drafts a comprehensive Petition for Adoption to initiate formal adoption proceedings in family law courts. Ensures compliance with state-specific jurisdictional requirements, statutory eligibility criteria, and demonstration of the child's best interests. Use this skill when preparing to file an adoption petition for stepparent, relative, agency, or independent adoptions.",
+  "content": "**PETITION FOR ADOPTION - ENHANCED LEGAL WORKFLOW PROMPT**\n\nYou are tasked with drafting a comprehensive Petition for Adoption that initiates formal adoption proceedings in compliance with applicable state laws and court rules. This critical litigation document must present a compelling case demonstrating that the proposed adoption serves the best interests of the child while satisfying all procedural and substantive legal requirements. The petition should be professionally formatted, legally sound, and ready for filing upon completion.\n\n**Initial Information Gathering and Document Review**\n\nBegin by conducting a thorough review of all available documents and information related to the adoption. Search through any uploaded materials to identify and extract essential facts including the full legal names of all parties, relevant dates, addresses, prior court orders, consent documents, home study reports, and any other supporting documentation. Pay particular attention to identifying the type of adoption being pursued\u2014whether stepparent, relative, agency, or independent adoption\u2014as this classification fundamentally affects jurisdictional requirements and procedural pathways. Extract specific details about the child's background, the petitioners' relationship with the child, the duration of their caregiving role, and the status of biological parents' rights. Document any references to completed background checks, pre-adoption education, financial information, and assessments by social workers or adoption agencies.\n\n**Jurisdictional Research and Statutory Compliance**\n\nConduct comprehensive legal research to identify the specific statutory framework governing adoptions in the relevant jurisdiction. Locate and verify the applicable adoption code sections, procedural rules, and any mandatory judicial council forms or local court requirements. Research the specific residency requirements for establishing subject matter jurisdiction, which typically mandate that either the petitioner or the child has resided in the state for a specified period ranging from six months to one year. Identify all statutory eligibility criteria that must be addressed, including age requirements for petitioners, marital status considerations, mandatory waiting periods following consent or termination of parental rights, and any state-specific prerequisites such as completion of pre-adoption education programs. Verify the consent requirements applicable to the specific type of adoption, including who must consent, the proper form and execution of consents, and any statutory exceptions to consent requirements based on abandonment, failure to support, or unfitness.\n\n**Caption and Preliminary Sections**\n\nDraft a complete and properly formatted caption that establishes jurisdiction and venue. The caption should include the full legal name of the court with county and judicial district, a case number designation or indication that one will be assigned upon filing, and a case title formatted according to local requirements, typically styled as \"In the Matter of the Adoption of [Child's Full Legal Name]\" or as otherwise required by jurisdiction-specific rules. Research and apply any specialized caption formatting requirements that distinguish adoption petitions from other civil proceedings, and incorporate any mandatory form numbers or designations. Position the document title \"Petition for Adoption\" prominently below the caption in accordance with local formatting conventions.\n\n**Comprehensive Party Identification**\n\nProvide detailed identifying information for all parties to the adoption proceeding with precision and completeness. For each petitioner, include their full legal name as it appears on official identification, date of birth, current residential address with sufficient detail to establish residency, marital status, specific relationship to the child, and the exact length of time they have resided in the jurisdiction. When identifying the adoptee, include the child's full current legal name, date of birth, present residence, the duration of time the child has been in the petitioners' care, and any proposed name change with both current and proposed names clearly stated. Identify all biological parents and legal guardians by their full legal names and last known addresses, explicitly noting their current legal status regarding parental rights and whether those rights remain intact, have been voluntarily relinquished, or have been involuntarily terminated. Clearly designate the classification of the adoption as stepparent, relative, agency, or independent, as this designation carries significant procedural implications.\n\n**Jurisdictional Allegations and Statutory Authority**\n\nArticulate with specificity the factual basis for the court's subject matter jurisdiction over the adoption proceeding. Allege facts demonstrating compliance with the state's residency requirements by stating the exact dates when the petitioner or child established residency in the jurisdiction and calculating the duration of that residency to show it meets or exceeds the statutory minimum. Address personal jurisdiction over any parties whose consent or rights termination is required by identifying their connection to the forum state. Reference the precise statutory authority under which the petition is filed, citing the specific code sections of your state's adoption statutes that govern the particular type of adoption being pursued. If the jurisdiction has enacted the Uniform Adoption Act or similar model legislation, cite to those provisions as applicable.\n\n**Relationship, Intent, and Caregiving History**\n\nDevelop a compelling narrative describing the petitioners' relationship with the child, emphasizing the depth, quality, and permanence of the bond that has formed. Describe in specific detail how the child came to reside with the petitioners, including the date placement began, the circumstances that led to the placement, and whether the placement was facilitated by an agency, through foster care, or by private arrangement. Articulate the petitioners' sincere and unwavering intent to establish a permanent legal parent-child relationship through adoption, demonstrating their commitment through concrete examples of their caregiving, emotional investment, and long-term planning for the child's future. Describe the daily realities of their relationship, the child's integration into the family unit, participation in family activities and traditions, and the development of secure attachment. Present this narrative in a way that conveys both the legal sufficiency of the relationship and its emotional authenticity.\n\n**Eligibility and Fitness Allegations**\n\nPresent comprehensive factual allegations addressing all statutory eligibility criteria for adoption in your jurisdiction. Detail the child's current age, health status including any special medical needs or conditions, educational placement and progress, developmental status, and any relevant history including prior placements, custody arrangements, or involvement with child welfare systems. Establish the petitioners' eligibility by alleging facts that satisfy age requirements, typically that petitioners are at least eighteen years old and, in some jurisdictions, a specified number of years older than the adoptee. Address marital status in relation to any statutory requirements or preferences, and allege completion of all mandatory prerequisites such as pre-adoption education courses, home study evaluations, or foster care licensing if applicable. Demonstrate the petitioners' fitness for adoptive parenthood by describing their financial stability and employment situation with sufficient detail to show ability to provide for the child's needs without disclosing sensitive financial information inappropriately. Describe their housing situation, emphasizing stability, adequacy of space, and suitability for raising a child. Reference completion of required background checks, including criminal history and child abuse registry clearances, and the favorable results of any home study conducted by a licensed agency or qualified social worker.\n\n**Consent Status and Parental Rights Termination**\n\nAddress with precision and completeness the status of all necessary consents and any termination of parental rights proceedings. If written consents to the adoption have been obtained from biological parents, legal guardians, or authorized adoption agencies, identify each consent by the date it was executed, the identity of the person who gave consent, the manner of execution including whether it was witnessed or acknowledged before a judicial officer as required by statute, and an assertion of its legal sufficiency under applicable law. If parental rights have been previously terminated through involuntary proceedings, reference the specific court order with its case number, the court that issued it, the date of the order, and the grounds upon which termination was granted. When consent is not required from a biological parent due to statutory exceptions, allege specific facts establishing the applicable exception with particularity. Common exceptions include abandonment, which typically requires showing a specific period of time without contact or support; failure to provide support for a statutory period; legal unfitness as defined by statute; or previous termination of parental rights. Reference the controlling statutory provision for each exception claimed and provide factual allegations sufficient to satisfy each element. If termination proceedings are pending, identify the case number, court, current status, and anticipated timeline. Address whether any mandatory waiting periods following consent or termination have elapsed, as many jurisdictions require a specific period to pass before an adoption can be finalized.\n\n**Best Interests Analysis and Supporting Evidence**\n\nDevelop a thorough, persuasive, and evidence-based argument demonstrating that the proposed adoption serves the child's best interests, which is the paramount consideration in all adoption proceedings. Present specific, concrete facts showing the emotional, psychological, educational, and developmental benefits the child has experienced while in the petitioners' care and will continue to experience through permanent adoption. Reference any home study reports prepared by licensed agencies or qualified social workers, psychological evaluations of the child or family system, developmental assessments, educational progress reports, or medical evaluations that support the conclusion that adoption is in the child's best interests. Describe the stability of the home environment, the nurturing and supportive parenting the petitioners provide, the opportunities for education and enrichment available to the child, and the quality of the child's relationships within the adoptive family and broader community. If the child is of sufficient age and maturity to express a preference regarding the adoption\u2014typically age twelve or older, though this varies by jurisdiction\u2014describe the child's wishes and the weight that should be accorded to them based on the child's age, maturity, and understanding. Discuss the quality and security of the attachment between the petitioners and child, supported by observations from professionals, teachers, or other qualified individuals who have observed their interactions. Address the child's integration into the petitioners' extended family, community, religious or cultural institutions, and peer groups. If the child has special needs, whether medical, educational, developmental, or emotional, describe in detail how the petitioners are uniquely qualified to meet those needs through their training, experience, resources, or personal characteristics. Address the preservation or enhancement of important relationships with siblings, whether they are also being adopted by the petitioners, will maintain contact through agreed arrangements, or have other connections that will be supported.\n\n**Prayer for Relief and Specific Requests**\n\nConclude the petition with a comprehensive and specific prayer for relief that requests all necessary court orders to finalize the adoption and establish the legal parent-child relationship. Request that the court grant the petition and enter a final decree of adoption that establishes the legal parent-child relationship between the petitioners and the adoptee with all attendant rights, privileges, and responsibilities as if the child had been born to the petitioners. If a name change is sought for the child, include a specific request that the court order the child's legal name changed from the current name to the proposed new name, stating both names clearly. Request that the court order the state registrar of vital statistics to issue a new birth certificate reflecting the adoptive parents as the child's legal parents, removing the biological parents' names, and incorporating any name change ordered by the court. Request that the court seal the adoption records as required or permitted by state law to protect the privacy of all parties. Ask for any other relief the court deems just, proper, and equitable under the circumstances. Ensure that the prayer encompasses all forms of relief necessary to complete the adoption under your state's statutory framework and to address any unique circumstances of the case.\n\n**Verification, Execution, and Documentary Support**\n\nInclude a verification section wherein the petitioner or petitioners swear or affirm under penalty of perjury that they have read the petition, know its contents, and believe all allegations contained therein to be true and correct to the best of their knowledge and belief. Provide signature lines for all petitioners with spaces for printed names and dates of execution. Include a properly formatted notary acknowledgment block that complies with your state's notary requirements, with spaces for the notary public's signature, official seal, printed name, commission number, and commission expiration date. Prepare a comprehensive list of all supporting documentation that must be attached to or filed with the petition, which may include certified copies of the child's original birth certificate, marriage certificate of the petitioners if applicable, divorce decrees if either petitioner was previously married, written consents to adoption executed by biological parents or guardians, certified copies of any court orders terminating parental rights, the complete home study report prepared by a licensed agency or qualified evaluator, results of criminal background checks and child abuse registry clearances for all adult household members, financial statements or affidavits demonstrating ability to support the child, medical reports or health assessments for the child and petitioners, educational records, psychological evaluations if any were conducted, photographs documenting the family relationship, and any other documents required by statute, court rule, or local practice. Create an exhibit list if multiple attachments are included, with each exhibit clearly labeled and referenced in the body of the petition.\n\n**Document Assembly, Formatting, and Quality Control**\n\nAssemble the complete Petition for Adoption ensuring professional formatting that complies with all applicable court rules regarding margins, spacing, font size and style, and pagination. Include a caption on each page with abbreviated case information as required by local rules. Apply line numbering if required by the jurisdiction's rules of court. Organize the petition logically with clear section headings that guide the reader through the jurisdictional basis, party identification, factual background, consent and termination issues, best interests analysis, and prayer for relief. Ensure that every statutory requirement specific to your jurisdiction has been addressed with appropriate factual allegations and legal citations. Review the document for internal consistency, ensuring that names, dates, and other facts are stated identically throughout. Verify that all cross-references to exhibits and supporting documents are accurate. Check that the tone is appropriately formal and respectful while remaining persuasive and compelling. Confirm that the document presents a complete legal and factual basis for granting the adoption without requiring the court to infer essential facts or legal conclusions. The final petition should be a polished, comprehensive legal document that presents a compelling case for adoption while satisfying all procedural and substantive legal requirements, ready for review by the petitioners and their attorney, signature, notarization, and filing with the appropriate court.\n\n**Output Format and Deliverable**\n\nGenerate the complete Petition for Adoption as a properly formatted legal document ready for filing. The document should include all necessary sections in proper order: caption, introductory paragraph identifying the petitioners and the nature of the petition, numbered paragraphs containing all jurisdictional allegations, party identifications, factual background, eligibility criteria, consent and termination status, best interests analysis, and any other required allegations, followed by the prayer for relief, verification section, signature blocks, and notary acknowledgment. Format the document with appropriate spacing and professional appearance consistent with court filing requirements. If specific information needed to complete certain sections is not available in the provided materials, indicate clearly what information is needed and where it should be inserted, using bracketed placeholders such as [INSERT CASE NUMBER WHEN ASSIGNED] or [ATTACH CERTIFIED COPY OF BIRTH CERTIFICATE AS EXHIBIT A]. Provide guidance on any jurisdiction-specific variations that may apply and note any areas where local court rules or practices may require modification of the standard format.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:41.416885Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:41.817846Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:43.023851Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:43.928790Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e509aec74aad-SJC)
+2026-02-23T21:42:44.968226Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5104848cf11-SJC)
+2026-02-23T21:42:46.363232Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5193f03b625-SJC)
+2026-02-23T21:42:48.650054Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e526ee336802-SJC)
+2026-02-23T21:42:52.379006Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e53eb9a94c7c-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-family-law-petition-for-adoption-8hwk8b21.md
+
+STDOUT:
+

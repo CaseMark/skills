@@ -1,0 +1,295 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-927b-7812-bbad-a30558210f75
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "79d3692e-855f-4df5-94cf-54fc29e47969",
+  "slug": "legal-conference-summaries",
+  "name": "Legal Conference Summaries",
+  "summary": "Generates comprehensive, structured summaries of legal conferences and seminars, capturing key insights, speaker credentials, citations, practical takeaways, and emerging trends. Ideal for law firms and legal departments to facilitate knowledge sharing after attending CLE events, industry symposia, or professional development gatherings. Highlights divergent viewpoints, consensus opinions, and recommended resources for quick reference and application in practice.",
+  "content": "# Legal Conference Summary Prompt\n\nYou are tasked with creating a comprehensive summary of a legal seminar or conference that captures the essential insights, developments, and practical takeaways for legal professionals who either attended the event or need to understand what was discussed.\n\nYour summary should serve as both a reference document and an educational resource that allows readers to quickly grasp the most important content presented across multiple sessions, panels, keynote addresses, and paper presentations. This type of summary is particularly valuable for law firms and legal departments that send representatives to continuing legal education events, industry conferences, or specialized legal symposia, as it enables knowledge sharing across the organization and helps justify the investment in professional development.\n\nBegin by establishing the context of the conference, including the event name, dates, location (or virtual format), sponsoring organizations, and the overall theme or focus area. Identify the primary legal practice areas or topics addressed, whether the conference focused on recent regulatory changes, emerging legal technologies, landmark cases, legislative developments, or evolving best practices in specific areas of law.\n\nFor each major session, panel discussion, or presentation, provide a structured analysis that includes the session title, speaker names and credentials, the core thesis or purpose of the discussion, and the key substantive points made. When speakers reference specific cases, statutes, regulations, or legal authorities, capture these citations accurately for future reference. If empirical data, statistics, or research findings were presented, include these with appropriate attribution to the source.\n\nPay particular attention to practical insights that attendees can apply in their practice, such as litigation strategies, compliance recommendations, risk management approaches, drafting techniques, or client counseling considerations. When panelists or speakers disagree on interpretations or approaches, note these divergent viewpoints and the reasoning behind each position, as these debates often illuminate the complexity and unsettled nature of developing legal issues.\n\nIdentify emerging trends, anticipated regulatory changes, or predicted developments in case law that speakers highlighted. Legal conferences often serve as early warning systems for shifts in the legal landscape, so capturing forward-looking insights is particularly valuable. Note any consensus views that emerged across multiple sessions or speakers, as these may indicate where the profession is heading on particular issues.\n\nInclude information about any materials distributed at the conference, such as white papers, practice guides, model forms, or research studies, and indicate how these resources can be accessed. If speakers recommended specific tools, technologies, databases, or resources, document these recommendations with enough detail that readers can follow up independently.\n\nFor networking sessions, roundtable discussions, or informal conversations that yielded valuable insights, summarize the key themes or concerns that practitioners expressed, as these often reflect real-world challenges not fully captured in formal presentations. However, maintain appropriate confidentiality and avoid attributing specific client matters or sensitive information to identifiable individuals or firms.\n\nStructure your summary in a way that allows readers to either review the entire document for comprehensive understanding or quickly locate information about specific topics of interest. Use clear headings organized by conference track, legal topic, or chronological session order, depending on which approach best serves the content. Consider including a brief executive summary at the beginning that highlights the top five to seven takeaways across all sessions.\n\nThroughout the summary, maintain objectivity while capturing the substance and nuance of what was presented. Your role is to inform, not to editorialize, though you should note when speakers made particularly compelling arguments or when certain sessions generated significant audience engagement or controversy. The summary should be written in clear, professional language accessible to legal professionals who may not have deep expertise in every topic covered at the conference.\n\nConclude with any action items, follow-up opportunities, or next steps that were identified during the conference, such as upcoming regulatory comment periods, proposed rule changes to monitor, or professional development opportunities in related areas. If the conference organizers announced future events or ongoing initiatives, include this information as well.\n\nYour final summary should typically range from three to ten pages depending on the length and scope of the conference, with longer multi-day conferences requiring more extensive documentation. The document should be formatted for easy distribution within a law firm or legal department and suitable for inclusion in knowledge management systems or professional development records.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": []
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:01:30.824485Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Defining skill metadata and structure**
+
+I'm selecting the slug "conference-summary" for conciseness and naming it the same. The title will be "Legal Conference Summary." The description will be a concise, third-person overview including trigger keywords like legal conference summary, CLE, seminar, with practice area Corporate and US context. I'll include a one-line purpose statement and a numbered prerequisites list covering conference agenda, session notes, materials, and confidentiality. The output format will include structured sections such as Executive Summary, Session Details, Authorities, and Guidelines emphasizing citation verification with [VERIFY] tags and confidentiality rules.
+thinking
+**Finalizing detailed skill description and template**
+
+I'm outlining the final skill metadata with consistent capitalization, a ≤1024-char third-person description including trigger keywords and Corporate practice area, plus a jurisdiction note emphasizing US with possible multi-jurisdiction considerations. The output structure will feature clearly formatted sections with tables for event and session data, bullet lists for consensus and guidelines, and placeholders for links, ensuring no nested bullets and enforcing [VERIFY] tags for uncertain citations while covering confidentiality and attribution.
+codex
+---
+name: conference-summary
+description: Produces structured legal conference summaries for corporate practice teams, capturing session-by-session substance, speaker credentials, cited authorities, practical takeaways, and emerging trends. Use when preparing CLE recaps, seminar notes, symposium summaries, panel or keynote reports, or post-event knowledge sharing. Trigger keywords: conference summary, CLE recap, seminar summary, symposium notes, panel summary, keynote summary, conference takeaways.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Legal Conference Summary
+
+Creates a distribution-ready summary of legal conferences that preserves authority, nuance, and practical takeaways.
+
+## Prerequisites
+
+1. **Event basics** — name, dates, location/virtual format, sponsor(s), theme.
+2. **Agenda** — session titles, tracks, times, and formats.
+3. **Speaker roster** — names, roles, affiliations, credentials.
+4. **Session inputs** — notes, slides, handouts, recordings, chat/Q&A logs.
+5. **Materials list** — white papers, practice guides, model forms, studies.
+6. **Confidentiality boundaries** — what must be anonymized or omitted.
+
+## Output Structure / Process
+
+**Executive Summary (5–7 takeaways)**  
+List the top cross-session takeaways, prioritized by practical impact and novelty.
+
+**Event Snapshot**
+
+| Field | Entry |
+| --- | --- |
+| Event | |
+| Date(s) | |
+| Location/Format | |
+| Sponsor(s) | |
+| Theme/Focus | |
+| Primary Practice Areas | |
+| Tracks/Modules | |
+| Audience | |
+
+**Session-by-Session Digest**  
+Use one row per session or panel.
+
+| # | Session Title | Format | Speakers (Name, Role, Org) | Core Thesis | Key Points | Authorities & Citations | Data/Studies | Practical Takeaways | Divergent Views |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | | | | | | | | | |
+| 2 | | | | | | | | | |
+
+**Authorities & Citations Index**  
+List statutes, regs, cases, agency guidance, and standards cited. Use exact names and years. Flag any uncertainty with `[VERIFY]`.
+
+| Authority | Jurisdiction | Cited By (Session #) | Relevance | Notes |
+| --- | --- | --- | --- | --- |
+| | | | | |
+
+**Practical Guidance Checklist**  
+Capture actionable guidance only.
+
+- Litigation strategies or defenses
+- Compliance steps or audits
+- Drafting or negotiation tips
+- Risk allocation or insurance implications
+- Client counseling considerations
+
+**Consensus vs. Divergence**
+
+- Consensus themes:
+- Divergent views and rationales:
+
+**Emerging Trends / Forecasts**
+
+- Near-term regulatory or case-law shifts
+- Technology or market developments
+- Predicted enforcement priorities
+
+**Materials & Resources**
+
+| Resource | Type | Source | Access Path/Location |
+| --- | --- | --- | --- |
+| | | | |
+
+**Networking / Roundtable Insights**  
+Summarize non-attributable themes and practitioner concerns. No client facts.
+
+**Action Items & Follow-ups**
+
+- Comment periods, deadlines, or monitoring tasks
+- Recommended internal trainings or policy updates
+- Future events announced
+
+## Guidelines
+
+- Keep attribution precise; do not editorialize beyond reporting substance.
+- Use `[VERIFY]` for any citation, quote, or statistic not confirmed in source materials.
+- Preserve speaker credentials and affiliations as stated at the event.
+- Anonymize all sensitive or client-specific references from informal sessions.
+- If jurisdiction is unclear or mixed, state the jurisdiction scope explicitly.
+- Do not include legal advice; report what speakers said and recommended.
+tokens used
+3,164

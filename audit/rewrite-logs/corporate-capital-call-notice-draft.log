@@ -1,0 +1,346 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-3cc9-71e2-9302-f6af5af5fcec
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2acf51ab-6a0d-4152-88e6-bead4def420a",
+  "slug": "corporate-capital-call-notice-draft",
+  "name": "Capital Call Notice",
+  "summary": "Drafts a comprehensive Capital Call Notice for venture capital or private equity funds, ensuring legal precision, compliance with governing agreements, and clear demands for investor contributions. Structures the document with formal headers, references to specific provisions, and context on the business purpose. Use when general partners need to formally demand unfunded capital commitments from limited partners.",
+  "content": "# Capital Call Notice - Professional Legal Workflow\n\nYou are a specialized corporate finance attorney tasked with drafting a comprehensive Capital Call Notice. This critical document serves as a formal demand for capital contributions from limited partners or members in a private equity fund, venture capital fund, or limited liability company. The notice must be legally precise, commercially practical, and structured to ensure timely compliance while minimizing potential disputes.\n\n## Understanding the Legal and Commercial Context\n\nBefore drafting, establish the complete factual foundation by thoroughly reviewing all relevant governing documents and transaction materials. Search through the user's uploaded documents to identify the specific Limited Partnership Agreement, Operating Agreement, or Subscription Agreement that governs this capital call, along with any amendments or side letters that may affect investor obligations. Extract key provisions including the minimum notice period required (typically 10 to 30 days), the calculation methodology for pro-rata allocations, permitted purposes for capital calls, and available remedies for investor default. Identify the total fund size, each investor's capital commitment, previous contributions made, and remaining unfunded commitments to ensure accurate calculations.\n\nUnderstand the specific business purpose driving this capital call, whether it involves a new portfolio investment, follow-on funding for an existing investment, payment of fund expenses, establishment of reserves, or other authorized uses. If the capital relates to a specific investment opportunity, gather sufficient details about the transaction to provide meaningful context to investors while respecting confidentiality obligations. Verify the authority of the signatory who will execute the notice, confirming their title and role as general partner, managing member, or authorized representative.\n\n## Structuring the Document Header and Legal Foundation\n\nOpen the Capital Call Notice with a formal header that immediately establishes its legal authority and purpose. Present the complete legal name of the fund or entity issuing the call, the date of issuance, and clear identification of the recipients. In the opening paragraph, reference the specific governing document by its full title and execution date, citing the precise section numbers that authorize capital calls and establish the procedure being followed. This foundation is essential because it connects the current demand to the investors' contractual obligations undertaken when they committed capital to the fund.\n\nFrame the notice in language that is simultaneously legally precise and commercially respectful, acknowledging the business partnership while clearly articulating the mandatory nature of the obligation. The introduction should orient sophisticated investors to their legal duty without unnecessary complexity, using clear declarative statements that leave no ambiguity about what is being requested and why the fund has the authority to make this demand.\n\n## Presenting Capital Call Calculations with Precision\n\nArticulate the financial specifications of the capital call with mathematical precision and complete transparency. State the total aggregate amount being called across all investors, then break down each investor's individual obligation based on their pro-rata share of total commitments. When addressing multiple investors, present this information in a clear tabular format showing each investor's total capital commitment, cumulative contributions to date, remaining unfunded commitment, percentage ownership, and the specific amount due under this call.\n\nExplain the calculation methodology in sufficient detail to demonstrate compliance with the governing agreement's allocation formulas, particularly if the agreement provides for different allocation methods depending on the purpose of the call or the timing within the fund's lifecycle. If certain investors have different commitment amounts, preferential rights, or modified obligations under side letters, ensure the calculations accurately reflect these variations while maintaining appropriate confidentiality.\n\nProvide meaningful context about the purpose and use of the called capital. If funding a specific investment, describe the opportunity in terms that allow investors to understand the strategic rationale and how it aligns with the fund's investment thesis, while being mindful of confidentiality restrictions and competitive sensitivities. If the call covers fund expenses or reserves, categorize these appropriately and ensure they fall within the permitted uses defined in the governing agreement. This transparency serves both legal compliance and investor relations objectives.\n\n## Establishing Clear Payment Mechanics\n\nSpecify unambiguous payment instructions that eliminate any possibility of confusion or processing delays. State the exact due date as a specific calendar date rather than a relative timeframe, while noting that this provides the minimum advance notice required under the governing agreement. Confirm the timezone applicable to the deadline to avoid disputes over timeliness, particularly when investors are geographically dispersed.\n\nProvide complete wire transfer instructions with all information necessary for successful payment processing. Include the beneficiary bank's full name and address, ABA routing number for domestic transfers, account name and number, any reference codes or identifiers required for proper crediting, and SWIFT code if international transfers are anticipated. If the governing agreement permits alternative payment methods such as checks or ACH transfers, specify these options along with any different deadlines or procedures they require.\n\nDirect investors to provide confirmation of their wire transfer, specifying whether this should be sent by email to a designated fund representative and what information should be included in the confirmation. If any accompanying documentation is required, such as a signed acknowledgment or investor certification, clearly describe these requirements and provide any necessary forms or templates.\n\n## Addressing Default Provisions Appropriately\n\nArticulate the consequences of failure to timely fund the capital call as specifically provided in the governing agreement, striking a careful balance between clarity about serious implications and maintaining the professional investor relationship. This section must accurately reflect the remedies available under the partnership or operating agreement without overstating or understating the fund's rights.\n\nAddress the potential consequences systematically, referencing the specific agreement sections that authorize each remedy. These may include dilution of the defaulting investor's ownership interest through a formula specified in the agreement, assessment of default interest at the contractual rate from the due date until payment is received, suspension of the defaulting investor's distribution rights until the default is cured, potential forfeiture of previously contributed capital under certain circumstances, or the fund's right to arrange a forced sale of the defaulting investor's interest to a third party or other investors.\n\nIf the governing agreement provides for a cure period or requires a separate notice of default before remedies can be exercised, clearly explain this procedural framework. The tone should be professionally firm, emphasizing that these provisions exist to protect the fund and complying investors from the consequences of one investor's failure to meet obligations, while implicitly encouraging voluntary compliance. Avoid threatening language while ensuring investors understand that default provisions will be enforced according to the agreement's terms.\n\n## Incorporating Legal Formalities and Closing Elements\n\nConclude the document with appropriate legal formalities that protect the fund's interests and ensure enforceability. Include standard notices regarding governing law and jurisdiction as specified in the partnership or operating agreement, confirming that the capital call and any disputes arising from it will be governed by the same legal framework that governs the underlying investment relationship.\n\nProvide clear contact information for questions or concerns, designating the specific representative of the general partner or fund manager who can address investor inquiries about the capital call, payment processing, or related matters. Include both email and telephone contact information to facilitate efficient communication.\n\nIf applicable regulatory disclosures are required or if the governing agreement mandates specific investor notices be included with capital calls, incorporate these elements appropriately. Confirm that the method of delivery for this notice complies with the notice provisions in the governing agreement, whether that requires email to specified addresses, certified mail, electronic delivery through a secure portal, or some combination of methods.\n\nThe signature block should identify the authorized signatory by full name and complete title, demonstrating their authority to bind the fund or general partner to this capital call. If the fund structure requires co-signatures or if the governing agreement specifies particular individuals who must execute capital calls, ensure the signature block reflects these requirements.\n\n## Formatting for Professional Presentation\n\nFormat the final Capital Call Notice as a formal business letter on appropriate fund letterhead, using clear section headings that guide readers through the document logically. The presentation should reflect the serious legal and financial nature of the document while facilitating efficient processing by recipients and their financial operations teams.\n\nExpress all monetary amounts with precision, using both numerals and words where appropriate to prevent ambiguity. Present dates unambiguously using the full month name rather than numerical abbreviations that could be misinterpreted across different date format conventions. Ensure all cross-references to agreement sections are accurate and complete, including article, section, and subsection numbers as applicable.\n\nThe completed document should typically span two to four pages depending on complexity, striking a balance between comprehensive coverage of all necessary elements and concise presentation that respects the time of sophisticated investors. Use precise legal terminology where necessary for accuracy, but maintain overall readability for business professionals who may not be attorneys. Every calculation should be verified for accuracy, every deadline clearly stated, and every reference to governing documents precise and complete, producing a document ready for review by fund counsel and execution by the authorized representative without requiring substantial revision.",
+  "parent_skill_id": "ab63d5b1-bd0b-450d-a7a7-36572e5e9d27",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "venture capital",
+      "private equity"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "venture_capital_and_private_equity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:50:15.409847Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Preparing to use skill-creator**
+
+Identified that rewriting a skill aligns with the skill-creator task, so I'll read the SKILL.md file from the skill-creator directory to proceed with the update.
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Preparing skill documentation plan**
+
+I'm defining the skill slug as "capital-call-notice" and setting the name/title accordingly. The document will include purpose, prerequisites, process, guidelines, metadata for practice areas and skill modes, and structured sections covering key domain elements and jurisdiction, formatted in plain markdown without nested bullets.
+thinking
+**Finalizing comprehensive skill markdown**
+
+I'm fully drafting the SKILL.md content with flat bullet lists, frontmatter including metadata and trigger keywords, a detailed prerequisites section, structured output/process with tables and templates, and clear guidelines—strictly following user instructions to omit nested bullets, skill-use announcements, and code fences around the full document.
+codex
+---
+name: capital-call-notice
+description: Drafts U.S. capital call notices for private equity, venture capital, or fund-managed LLCs, aligned to LPA/operating agreement procedures and side letters, with investor-specific contribution amounts, payment instructions, deadlines, and default remedies. Use for capital call notice, drawdown notice, capital contribution demand, unfunded commitment, limited partner notice, GP/manager capital call.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Capital Call Notice
+
+Formal notice demanding capital contributions under the governing agreement with precise calculations and payment mechanics.
+
+## Prerequisites
+
+1. Governing agreement(s): LPA/LLC operating agreement, subscription agreements, amendments, side letters.
+2. Notice provisions: authorized purposes, notice period, delivery method, cure/default process, governing law.
+3. Fund/entity details: legal name, GP/manager name, signatory authority, address, letterhead.
+4. Investor schedule: commitments, contributions to date, remaining unfunded, ownership percentage.
+5. Capital call purpose: investment or expense description, amount breakdown, compliance with permitted uses.
+6. Payment instructions: beneficiary, bank, ABA/SWIFT, account number, reference codes, alternate methods.
+7. Contact details for questions and payment confirmation routing.
+
+## Output Structure / Process
+
+**Intake Checklist**
+
+| Item | Required Detail | Source |
+| --- | --- | --- |
+| Governing document citation | Full title, execution date, section numbers authorizing calls and remedies | LPA/Operating Agreement |
+| Notice period | Minimum days, delivery method, timing rule | Notice clause |
+| Allocation method | Pro rata or specified formula, side-letter deviations | Capital call provisions |
+| Call purpose | Investment/expense/reserve and permitted use basis | Investment memo/budget |
+| Default remedies | Interest rate, dilution/forfeiture, suspension, cure period | Default clause |
+| Wire instructions | Bank name, address, ABA, SWIFT, account name/number | Treasury |
+
+**Capital Call Schedule (attach as exhibit or appendix)**
+
+| Investor | Commitment | Contributed to Date | Unfunded Commitment | Ownership % | Amount Due | Notes/Side Letter |
+| --- | --- | --- | --- | --- | --- | --- |
+| {Investor Name} | {$$} | {$$} | {$$} | {%%} | {$$} | {If any} |
+
+**Calculation Statement**
+
+Use one paragraph that states the formula and confirms compliance with the agreement (e.g., pro rata based on commitments unless modified by side letters). Include aggregate amount called and total fund commitment base.
+
+**Letter Template**
+
+```text
+[Fund Letterhead]
+
+Date: {Month DD, YYYY}
+
+To: {Investor Legal Name}
+Attn: {Contact Name/Title}
+Address: {Address}
+
+Re: Capital Call Notice under {Agreement Title} dated {Agreement Date}
+
+Dear {Investor Name}:
+
+Pursuant to Section {##} of the {Agreement Title} dated {Agreement Date} (the "Agreement"), the General Partner/Manager hereby issues this Capital Call Notice for the Fund's authorized purposes described below.
+
+1. Aggregate Call Amount: {Total Amount}.
+2. Your Pro Rata Amount Due: {Investor Amount}.
+
+Purpose of Call: {Brief purpose aligned with permitted uses; include high-level investment/expense categories without disclosing restricted confidential details}.
+
+Payment Due Date: {Month DD, YYYY} by {Time} {Time Zone}. This notice provides not less than the minimum notice period required under Section {##} of the Agreement.
+
+Payment Instructions:
+Beneficiary: {Account Name}
+Bank: {Bank Name}, {Bank Address}
+ABA/Routing: {ABA}
+SWIFT: {SWIFT}
+Account No.: {Account Number}
+Reference: {Reference Code / Investor ID}
+
+Please email wire confirmation to {Email} with {Required details}.
+
+Default Remedies: Failure to fund by the due date may result in the remedies set forth in Section {##} of the Agreement, including {list exact remedies and any cure period, if applicable}.
+
+Questions: {Contact Name}, {Title}, {Phone}, {Email}.
+
+Sincerely,
+
+{Authorized Signatory}
+{Title}
+{General Partner/Manager Entity}
+```
+
+**Default Remedies Matrix (insert exact terms)**
+
+| Remedy | Trigger | Source Section | Notes |
+| --- | --- | --- | --- |
+| Default interest | Late payment | §{##} | Rate and accrual start date |
+| Dilution/forfeiture | Failure to cure | §{##} | Formula and timing |
+| Distribution suspension | Default status | §{##} | Duration |
+| Forced transfer | Continued default | §{##} | Process and valuation |
+
+**Delivery Method**
+
+State the delivery method required by the notice clause and confirm delivery address or email on record.
+
+## Guidelines
+
+- Match every citation to the governing agreement; do not paraphrase section numbers.
+- Use full month names for dates and specify time zone for the deadline.
+- Do not exceed authorized purposes; tie each use to the agreement.
+- Reflect side letter modifications only for the applicable investor and keep other terms confidential.
+- State remedies exactly as written; include cure periods or required follow-up notices.
+- Verify signatory authority and entity names against formation and management docs.
+- Include only necessary investment context; avoid disclosing non-public deal terms unless permitted.
+- Confirm delivery method and addresses comply with notice provisions and any electronic delivery requirements.
+- Mirror the governing law and jurisdiction clause; do not introduce new law terms.
+- Keep amounts consistent across letter body and schedule; re-check arithmetic.
+tokens used
+8,890

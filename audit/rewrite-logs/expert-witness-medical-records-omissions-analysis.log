@@ -1,0 +1,395 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-6198-76b1-b0f5-bf6e18eb9473
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "1781cf16-232b-4fec-8c66-208e77ad220c",
+  "slug": "expert-witness-medical-records-omissions-analysis",
+  "name": "Expert witness omissions from medical records",
+  "summary": "Analyzes expert witness testimony, reports, and depositions to identify omissions, inconsistencies, or gaps in the review of medical records. Evaluates the significance of overlooked records that may undermine expert credibility in personal injury or medical malpractice litigation. Generates a structured report with citations, patterns of bias, and strategic recommendations for cross-examination, motions to exclude, and rebuttal experts.",
+  "content": "# Expert Witness Medical Records Omissions Analysis\n\nYou are conducting a comprehensive analysis of expert witness testimony and reports to identify potential omissions, inconsistencies, or gaps in their review of medical records. This analysis is critical for litigation strategy, cross-examination preparation, and evaluating the credibility and thoroughness of expert opinions in medical malpractice, personal injury, or other cases involving medical evidence.\n\nBegin by thoroughly examining all expert witness reports, depositions, and testimony transcripts provided in the case materials. Cross-reference the expert's stated review of medical records against the complete medical record set available in the case file. Your analysis should identify any medical records, test results, clinical notes, imaging reports, or other documentation that exists in the case file but was not mentioned, cited, or apparently considered by the expert witness.\n\nFor each identified omission, evaluate its potential significance to the expert's conclusions. Consider whether the omitted record contains information that contradicts the expert's opinion, provides alternative explanations for the patient's condition, documents pre-existing conditions, reveals treatment decisions the expert failed to address, or otherwise undermines the foundation of the expert's testimony. Assess whether these omissions appear inadvertent or potentially strategic, and whether they rise to the level of affecting the reliability or admissibility of the expert opinion under applicable evidentiary standards such as Daubert or Frye.\n\nYour analysis should also examine the expert's methodology for reviewing medical records. Note whether the expert provided a comprehensive list of materials reviewed, whether the expert's chronology of events aligns with the actual medical timeline, and whether the expert addressed or explained any apparent gaps in their review. Identify instances where the expert made factual assertions about the medical care or patient condition that are contradicted by records they claim to have reviewed, as these discrepancies can be powerful impeachment material.\n\nOrganize your findings into a structured report that categorizes omissions by type and significance. For high-priority omissions, provide specific citations to both the expert's statements and the overlooked medical records, including page numbers, dates, and relevant excerpts. Include a section analyzing patterns in the omissions that might suggest selective review or confirmation bias. Conclude with strategic recommendations for cross-examination questions, potential motions to exclude or limit the expert testimony, and areas where a rebuttal expert should focus their review.\n\nThroughout your analysis, maintain objectivity and distinguish between omissions that genuinely undermine the expert's credibility versus minor oversights that may not affect the substance of their opinion. Your work product should be thorough enough to support both motion practice and trial preparation, providing counsel with a clear roadmap for challenging the opposing expert's testimony or defending their own expert against similar scrutiny.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.32032",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:56:56.498074Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Reading AGENTS.md for instructions**
+
+I'm retrieving the contents of AGENTS.md in the skills directory to understand the specific agent instructions needed.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 51ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Searching for agents instructions file**
+exec
+/bin/zsh -lc "rg --files -g 'AGENTS.md'" in /Users/max/CaseMark/skills exited 1 in 51ms:
+
+
+thinking
+**Preparing to review skill-creator documentation**
+
+I'm opening the SKILL.md for skill-creator to understand how to update the existing skill as the task suggests using it without explicitly naming it.
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+
+thinking
+**Resolving conflicting frontmatter instructions**
+
+There's a conflict between skill-creator rules limiting frontmatter to name/description and the user's demand for richer metadata. Since skill instructions come from the system/developer layer and must be followed first, the skill-creator restriction takes precedence over the user request for metadata.
+thinking
+**Prioritizing user format over skill frontmatter limits**
+
+The user’s detailed instructions specifying metadata and output format take precedence over the generic skill-creator frontmatter restriction; the final SKILL.md will include the full frontmatter with metadata as requested, omitting any skill usage announcement per user’s explicit direction.
+thinking
+**Composing detailed output structure with tables and templates**
+
+The output structure now includes comprehensive tables for record inventory, expert review mapping, omission matrices, inconsistency logs, significance scales, pattern flags, cross-examination seeds, motion triggers, and a markdown report template, all formatted without nested lists and ready for direct SKILL.md inclusion.
+codex
+---
+name: expert-medical-record-omissions
+description: Analyzes U.S. litigation expert witness reports, depositions, and testimony to identify omissions or gaps in medical record review, map conflicts to the full record set, and produce a structured impeachment and admissibility analysis with citations. Use when reviewing expert reports for missing medical records, selective review, inconsistencies, Daubert/Frye challenges, cross-examination prep, motions to exclude or limit, or rebuttal expert focus in personal injury or medical malpractice matters.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Analysis
+  skill_modes:
+    - Analysis
+---
+
+# Expert Medical Record Omissions Analysis
+
+Identify material omissions in expert medical record review and translate them into litigation-ready challenges.
+
+## Prerequisites
+
+1. Complete medical record set with Bates labels and a basic index.
+2. Expert materials: report(s), disclosure, list of materials reviewed, CV, deposition/testimony transcripts, exhibits.
+3. Case theory summary (claims, defenses, causation or standard-of-care theory).
+4. Medical chronology or timeline (if available).
+5. Jurisdiction admissibility standard (Daubert, Frye, or hybrid).
+
+## Output Structure / Process
+
+1. Build the record inventory and expert review map.
+2. Detect omissions and contradictions.
+3. Rate materiality and litigation impact.
+4. Flag patterns suggesting selective review or bias.
+5. Deliver a structured report with pinpoint citations.
+
+**Record Inventory Template**
+
+| Field | Required entries |
+|---|---|
+| Record date | Encounter date or service date |
+| Provider/facility | Name and specialty |
+| Record type | Note, imaging, lab, operative, billing, etc. |
+| Bates range | Start-end |
+| Key facts | Diagnosis, findings, causation cues |
+| Causation relevance | Supports, contradicts, alternative, neutral |
+
+**Expert Review Map**
+
+| Item | Source | Citation |
+|---|---|---|
+| "Materials reviewed" list | Expert report or disclosure | Page/paragraph |
+| Records cited in opinions | Report | Page/paragraph |
+| Deposition admissions about records | Transcript | Page/line |
+| Any limitations or exclusions stated | Report/depo | Page/line |
+
+**Omission Matrix**
+
+| Omitted record | Date | Provider | Bates | Expert statement that should have addressed it | Conflict or gap | Significance |
+|---|---|---|---|---|---|---|
+| [Record name] | [ ] | [ ] | [ ] | [Report/Depo cite] | [Contradiction/Alternative/Context] | High/Med/Low |
+
+**Inconsistency Log**
+
+| Expert assertion | Claimed source | Contradicting record | Citation | Impact |
+|---|---|---|---|---|
+| [Assertion] | [Cite] | [Record] | [Bates + page/line] | [Material/Moderate/Minor] |
+
+**Significance Scale**
+
+| Level | Definition | Typical use |
+|---|---|---|
+| High | Directly undermines key opinion or reliability | Admissibility, motion practice |
+| Medium | Alters weight but not core opinion | Cross-exam, rebuttal focus |
+| Low | Peripheral or cumulative | Background, limited impeachment |
+
+**Pattern Flags Checklist**
+
+- [ ] Repeated omission of pre-existing conditions
+- [ ] Omission of alternative causation records
+- [ ] Omission of treating provider notes that conflict with opinion
+- [ ] Omission of diagnostic imaging or labs central to timeline
+- [ ] Chronology inconsistencies versus record dates
+- [ ] Mischaracterization of records listed as reviewed
+- [ ] Selective inclusion of favorable records only
+
+**Cross-Examination Seeds**
+
+| Theme | Anchor omission | Objective |
+|---|---|---|
+| Record completeness | [Record] | Establish incomplete review |
+| Methodology | [Omitted category] | Show unreliable process |
+| Alternative causation | [Record] | Expose unaddressed cause |
+| Timeline accuracy | [Record] | Undermine chronology |
+
+**Motions / Strategy Triggers**
+
+- Incomplete data set or failure to consider key facts relevant to causation or standard of care.
+- Methodology not reliably applied to the full record set.
+- Opinions based on inaccurate timeline or mischaracterized records.
+- Expert failed to review materials they claim to have reviewed.
+
+**Report Template**
+
+```markdown
+# Expert Medical Record Omissions Analysis
+Matter:
+Expert:
+Prepared for:
+Date:
+
+## 1. Scope and Materials
+- Record set scope:
+- Expert materials reviewed:
+- Admissibility standard:
+
+## 2. Omission Summary
+- High-significance omissions:
+- Medium-significance omissions:
+- Low-significance omissions:
+
+## 3. Omission Matrix
+[Insert table]
+
+## 4. Inconsistency Log
+[Insert table]
+
+## 5. Pattern Analysis
+- Indicators observed:
+- Alternative explanations for omissions:
+
+## 6. Strategic Recommendations
+- Cross-examination themes:
+- Motion practice targets:
+- Rebuttal expert focus areas:
+```
+
+## Guidelines
+
+- Distinguish omission from mere disagreement; only label omissions where the record exists and was not addressed.
+- Confirm record completeness before concluding a gap is material.
+- Use pinpoint citations for every omission and contradiction (Bates plus page/line).
+- Separate weight attacks from admissibility challenges; note which standard applies in the jurisdiction.
+- Maintain neutrality; avoid advocacy language in the analysis itself.
+- Protect PHI and comply with applicable confidentiality rules.
+- Flag any missing record categories that could change the analysis.
+tokens used
+23,074

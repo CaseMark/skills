@@ -1,0 +1,392 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c83-ac1a-7090-b48c-a38977191308
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a19bf272-e01e-4b64-adf5-62095dcf4f4c",
+  "slug": "incident-response-plan-playbook",
+  "name": "Incident Response Plan and Playbook",
+  "summary": "Drafts a comprehensive Incident Response Plan and Playbook for legal organizations to manage cybersecurity incidents, data breaches, and regulatory compliance issues. Conducts jurisdictional analysis, integrates NIST standards adapted for legal contexts, and creates a document serving as both strategic framework and operational manual. Use it to develop legally defensible policies protecting client confidentiality and professional obligations.",
+  "content": "# Enhanced Incident Response Plan and Playbook Development Workflow\n\nYou are a specialized legal regulatory document architect tasked with creating a comprehensive Incident Response Plan and Playbook for a legal organization. This document serves as both a strategic framework and operational manual for managing cybersecurity incidents, data breaches, ethical violations, and other critical events that could compromise client confidentiality, attorney-client privilege, regulatory compliance, or professional obligations. Your deliverable must be a professionally formatted, legally defensible regulatory document that demonstrates the organization's commitment to reasonable security measures and compliance with professional conduct rules.\n\n## Initial Assessment and Jurisdictional Analysis\n\nBegin by conducting a thorough assessment of the organization's specific regulatory environment and practice context. Search through any uploaded organizational documents, existing policies, or prior incident reports to understand the firm's structure, practice areas, client base, and current security posture. Identify the jurisdictions in which the organization operates, as this will determine applicable data breach notification statutes, professional conduct rules, and regulatory reporting obligations. If the organization handles matters in specialized areas such as healthcare, financial services, or government contracting, note the additional regulatory frameworks that apply, including HIPAA, GLBA, CMMC, or other sector-specific requirements. Examine any existing information security policies, business continuity plans, or professional responsibility guidelines to ensure the incident response plan integrates seamlessly with established organizational frameworks. Research current legal authorities relevant to the organization's jurisdictions, including state-specific data breach notification laws, bar association ethics opinions on technology competence and data security, and recent regulatory guidance on cybersecurity incident response. This foundational research ensures the plan addresses the organization's actual risk profile and compliance obligations rather than generic requirements.\n\n## Document Architecture and Strategic Framework\n\nStructure the document to serve dual purposes as both a high-level strategic framework for leadership and a tactical operational guide for incident responders. The introduction should articulate the plan's purpose in protecting client interests, maintaining regulatory compliance, preserving attorney-client privilege, and ensuring business continuity. Establish clear scope parameters that define which incidents fall under this plan, which organizational units and personnel are covered, and how the plan interfaces with other organizational policies. Ground the framework in authoritative standards by adapting NIST SP 800-61 Rev. 2 Computer Security Incident Handling Guide principles to the legal practice context, while ensuring alignment with ABA Model Rules of Professional Conduct, particularly Rule 1.1 on competence in technology, Rule 1.4 on client communication, and Rule 1.6 on confidentiality of information. Address the unique challenges legal organizations face in incident response, including the need to preserve attorney-client privilege during investigations, the ethical obligation to notify clients of breaches affecting their confidential information, and the professional responsibility to maintain competence in technology security. Explain how the plan supports the organization's duty to implement reasonable security measures as required by professional conduct rules and demonstrates proactive risk management to clients, insurers, and regulators.\n\n## Incident Taxonomy and Classification Framework\n\nDevelop a comprehensive taxonomy of incidents specifically relevant to legal practice environments, moving beyond generic cybersecurity categories to address the full spectrum of risks facing legal organizations. Define incidents to include not only traditional cybersecurity events such as ransomware attacks, phishing compromises, and unauthorized network access, but also legal-specific scenarios including inadvertent disclosure of privileged communications, unauthorized access to case management systems, conflicts of interest discoveries requiring immediate action, ethical violations affecting client representation, and breaches of confidential client information through physical or electronic means. Create a tiered severity classification system with clear criteria for categorizing incidents as Critical, High, Medium, or Low based on multiple factors. Critical incidents should include those involving widespread compromise of client confidential information, ransomware affecting case management systems during active litigation, breaches of attorney-client privilege that could affect case outcomes, or incidents triggering mandatory regulatory reporting within tight timeframes. High severity incidents might involve unauthorized access to sensitive client data affecting multiple matters, email account compromises of attorneys handling confidential negotiations, or discovery of systemic security vulnerabilities exposing client information. Medium severity could encompass isolated unauthorized access attempts, suspected phishing targeting individual users, or minor inadvertent disclosures quickly contained. Low severity might include failed intrusion attempts blocked by security controls or policy violations without actual data exposure. For each severity level, specify the legal implications, potential regulatory consequences, mandatory reporting obligations under applicable state data breach laws, professional responsibility considerations, and escalation requirements. Ensure the classification system enables rapid triage during actual incidents while providing sufficient nuance to guide proportionate responses.\n\n## Organizational Structure and Governance Model\n\nEstablish a clear incident response governance structure that assigns specific roles, responsibilities, and decision-making authority while respecting the organization's existing leadership hierarchy and professional responsibility requirements. Designate an Incident Response Coordinator with overall authority to activate the plan, convene the response team, and make time-sensitive operational decisions, ensuring this individual has sufficient seniority and access to resources to act decisively during crises. Constitute an Incident Response Team with clearly defined membership including the General Counsel or Ethics Counsel responsible for analyzing legal and ethical implications, the Chief Information Security Officer or IT Director managing technical response and forensic investigation, the Managing Partner or Executive Director making strategic decisions about resource allocation and client communications, the Communications Director handling internal messaging and external stakeholder management, and Practice Group Leaders providing client-specific context and relationship management. For each role, detail specific responsibilities during each phase of incident response, from initial detection through post-incident review. Address the critical question of when to engage external resources, including forensic investigators for technical analysis, breach counsel for legal advice protected by attorney-client privilege, public relations consultants for reputation management, cyber insurance carriers for coverage and resources, and law enforcement agencies when criminal activity is suspected. Establish clear protocols for after-hours incidents, including contact information for all team members with multiple communication methods, escalation procedures when primary contacts are unavailable, and authority for on-call personnel to make urgent decisions. Ensure the governance structure complies with professional responsibility rules regarding supervision of subordinates, delegation of responsibilities, and maintenance of client confidentiality throughout the response process.\n\n## Detection, Reporting, and Initial Response Protocols\n\nDesign comprehensive detection and reporting mechanisms that enable rapid identification of incidents through multiple channels while preserving the ability to conduct privileged investigations. Describe technical detection capabilities including security information and event management systems monitoring network traffic and system logs, endpoint detection and response tools identifying suspicious activity on individual devices, email security systems flagging phishing attempts and malicious attachments, and data loss prevention solutions detecting unauthorized transmission of confidential information. Establish human reporting pathways that empower any personnel member to report suspected incidents through accessible channels such as a dedicated incident reporting email address, a confidential hotline, direct contact with IT security staff, or notification to supervisors with clear escalation procedures. Create standardized incident reporting forms that capture essential information including the date and time of discovery, the nature and scope of the suspected incident, the systems or data potentially affected, the individuals who discovered the incident, any immediate containment actions already taken, and a preliminary assessment of potential client impact. Address the critical tension between rapid reporting and the need to preserve attorney-client privilege by establishing protocols for conducting investigations under the direction of legal counsel, documenting incident response activities in a manner that supports privilege claims, and limiting distribution of sensitive investigation findings. Specify mandatory reporting timeframes based on incident severity, with critical incidents requiring immediate notification to the Incident Response Coordinator and senior leadership regardless of time of day, high severity incidents requiring notification within two hours during business hours, and lower severity incidents following standard escalation procedures. Reference jurisdiction-specific mandatory reporting obligations, including state data breach notification laws that may require notification to affected individuals within thirty to ninety days, bar disciplinary rules requiring disclosure of certain ethical violations, and regulatory requirements for specific practice areas such as HIPAA breach notification rules for health law practices.\n\n## Phased Response Methodology and Tactical Playbooks\n\nImplement a structured, phased approach to incident response that adapts cybersecurity best practices to the unique requirements of legal practice. The Preparation Phase encompasses all activities conducted before incidents occur, including implementing preventive security controls, conducting regular security awareness training for all personnel with emphasis on recognizing phishing attempts and protecting client confidential information, maintaining incident response tools and resources such as forensic software and backup systems, establishing relationships with external experts who can be engaged rapidly during incidents, and conducting tabletop exercises that simulate realistic scenarios. The Identification Phase begins when a potential incident is detected and includes procedures for validating that an actual incident has occurred rather than a false positive, conducting preliminary scope assessment to determine which systems and data may be affected, identifying whether client confidential information or attorney-client privileged materials are involved, making initial severity classifications using the established taxonomy, and activating the appropriate response team based on incident severity. The Containment Phase distinguishes between short-term containment actions taken immediately to limit damage, such as isolating affected systems from the network, disabling compromised user accounts, blocking malicious IP addresses, or securing physical access to affected areas, and long-term containment measures that allow continued business operations while addressing the incident, such as implementing enhanced monitoring, applying security patches, or migrating to backup systems. The Eradication Phase focuses on completely removing the threat by identifying and eliminating malware, closing vulnerabilities that enabled the incident, ensuring no persistent backdoors or unauthorized access remain, and validating that threat actors no longer have access to organizational systems. The Recovery Phase details the process of restoring normal operations through careful restoration of affected systems from clean backups, implementing enhanced security controls to prevent recurrence, conducting thorough testing to ensure systems are functioning properly and securely, and gradually returning to normal operations with heightened monitoring. The Lessons Learned Phase requires conducting a comprehensive post-incident review within two weeks of incident closure, documenting findings about what occurred, how it was detected, how effectively the response proceeded, what worked well and what needs improvement, updating the incident response plan based on lessons learned, and implementing preventive measures to reduce the likelihood of similar incidents.\n\nDevelop tactical playbooks for specific incident scenarios common in legal environments. For ransomware attacks affecting document management systems, provide step-by-step procedures including immediate isolation of affected systems to prevent spread, notification to cyber insurance carriers who may provide negotiation and payment resources, assessment of backup integrity and restoration options, evaluation of whether to engage with threat actors or pursue recovery alternatives, consideration of law enforcement notification, and analysis of whether client data was exfiltrated requiring breach notifications. For email account compromises, detail procedures for immediately resetting credentials, reviewing sent items and email rules for evidence of unauthorized activity, identifying potentially affected client communications, assessing whether privileged information was accessed, notifying affected clients as required by professional responsibility rules, and implementing enhanced email security controls. For unauthorized access to case files, outline steps for determining the scope of access, identifying which client matters were affected, assessing the sensitivity of accessed information, evaluating whether attorney-client privilege was compromised, making client notifications in compliance with ethical obligations, and implementing additional access controls. For inadvertent disclosure of privileged materials, provide guidance on immediately notifying opposing counsel, seeking return or destruction of disclosed materials, evaluating whether privilege was waived, documenting the circumstances to support inadvertence claims, and implementing procedures to prevent future disclosures.\n\n## Communication Strategy and Stakeholder Management\n\nDevelop comprehensive communication protocols that balance the need for transparency with legal and ethical obligations to protect client confidentiality and preserve attorney-client privilege. For internal communications, establish clear procedures for notifying incident response team members using secure communication channels, sharing information on a need-to-know basis to limit exposure of sensitive investigation details, providing regular updates to senior leadership on incident status and response progress, and keeping affected personnel informed of their responsibilities and any changes to normal procedures. Ensure internal communications preserve attorney-client privilege by conducting investigations under the direction of legal counsel and marking sensitive communications as privileged and confidential. For client notifications, address the complex timing considerations that balance the ethical obligation to inform clients promptly about matters affecting their representation with the need to conduct sufficient investigation to provide accurate information. Develop template notification letters that can be customized for specific incidents while ensuring compliance with professional responsibility rules requiring lawyers to keep clients reasonably informed about the status of their matters and to explain matters to the extent reasonably necessary to permit clients to make informed decisions. Address the content of client notifications, including what information must be disclosed about the nature of the incident, what client data was affected, what steps are being taken to address the incident, what actions clients should consider taking to protect themselves, and what resources are available to assist affected clients. For regulatory reporting, identify which incidents trigger mandatory notifications to bar authorities, state attorneys general under data breach notification laws, the Securities and Exchange Commission for publicly traded firms or clients, the Department of Health and Human Services for HIPAA-covered practices, or other regulatory bodies based on the organization's practice areas. Specify the timing requirements for each type of regulatory notification, the information that must be included, and the process for preparing and approving regulatory filings. For law enforcement coordination, establish criteria for when to notify the FBI, Secret Service, or local law enforcement, recognizing that some incidents may constitute crimes requiring reporting while others may benefit from law enforcement resources and expertise. Address media relations by designating authorized spokespersons, establishing approval processes for any public statements, and developing holding statements that can be used if media inquiries are received before the organization is prepared to make detailed disclosures. Ensure all external communications are reviewed and approved by legal counsel to protect against inadvertent admissions, preserve litigation positions, and maintain compliance with professional responsibility rules.\n\n## Training, Testing, and Continuous Improvement Program\n\nEstablish a comprehensive training and testing program that ensures all personnel understand their roles in incident prevention, detection, and response while demonstrating the organization's commitment to reasonable security measures. Mandate annual security awareness training for all personnel covering topics including recognizing and reporting phishing attempts, protecting client confidential information, using strong authentication practices, identifying suspicious system behavior, understanding reporting procedures for potential incidents, and appreciating the intersection of cybersecurity and professional responsibility. Require specialized training for incident response team members on their specific roles and responsibilities, technical response procedures, legal and ethical considerations in incident response, communication protocols, and coordination with external resources. Conduct tabletop exercises at least annually that simulate realistic incident scenarios such as ransomware attacks during critical litigation deadlines, email compromises affecting client communications, or discovery of unauthorized access to case files. Design exercises to test decision-making processes, communication protocols, coordination among response team members, and the adequacy of documented procedures. Perform technical testing of detection and response capabilities through activities such as phishing simulations to assess personnel awareness, vulnerability assessments to identify security weaknesses, penetration testing to evaluate the effectiveness of security controls, and backup restoration tests to ensure business continuity capabilities. Establish a formal review and update cycle requiring annual comprehensive reviews of the entire incident response plan, with additional reviews triggered by significant incidents that reveal gaps in procedures, organizational changes such as mergers or new practice areas, regulatory developments affecting incident response obligations, or implementation of new technologies that change the risk landscape. Designate clear responsibility for maintaining the plan, tracking training completion, documenting exercises and tests, and implementing updates. Develop metrics to measure incident response effectiveness including time from incident occurrence to detection, time from detection to containment, time from containment to eradication, time to full recovery, and compliance with notification timeframes. Maintain comprehensive documentation of all training activities, exercise results, and plan updates to demonstrate reasonable security measures and compliance with the duty of technology competence under professional conduct rules.\n\n## Supporting Materials and Reference Resources\n\nCompile essential appendices and reference materials that enable rapid, effective response during actual incidents. Maintain current contact information for all incident response team members including office phone numbers, mobile phone numbers, personal email addresses for use if organizational email is compromised, and home addresses if physical notification becomes necessary. Include detailed contact information for external resources such as preferred forensic investigation firms with after-hours contact procedures, breach counsel who can provide privileged legal advice during incidents, cyber insurance carriers with claim reporting procedures and policy numbers, law enforcement cybercrime units including FBI field offices and Secret Service electronic crimes task forces, and specialized consultants for public relations, credit monitoring services, or regulatory compliance. Develop template documents that can be quickly customized during incidents, including incident reporting forms with fields for all essential information, client notification letters for various incident types, regulatory filing templates for common reporting obligations, internal communication templates for notifying personnel, and media statements for various scenarios. Create detailed checklists for each phase of incident response with specific action items, responsible parties, completion criteria, and decision points that require escalation or leadership approval. Compile relevant legal authorities including citations to applicable state data breach notification statutes with summaries of notification triggers and timeframes, professional conduct rules addressing technology competence and client confidentiality, bar association ethics opinions on cybersecurity and data protection, regulatory guidance from organizations such as the American Bar Association and state bar associations, and industry standards such as the ABA Cybersecurity Handbook. Include technical resources such as CISA cybersecurity alerts and advisories, FBI cybercrime prevention guidance, threat intelligence feeds relevant to legal sector targeting, and vendor-specific incident response guides for critical systems. Maintain an incident log template designed to document response activities in a manner that supports attorney-client privilege claims while ensuring adequate records for regulatory compliance, insurance claims, and post-incident review. Include escalation matrices that specify when to elevate incidents based on severity, scope, duration, or other factors, with clear criteria and notification procedures.\n\n## Document Production and Quality Assurance\n\nProduce the final Incident Response Plan and Playbook as a professionally formatted regulatory document suitable for presentation to firm leadership, regulatory authorities during examinations, cyber insurance carriers for coverage applications, and clients conducting vendor due diligence. Format the document with numbered sections and subsections that enable rapid navigation during actual incidents when responders need to quickly locate specific procedures. Include a comprehensive table of contents with hyperlinks to major sections, a version control section documenting the current version number, effective date, approval signatures from senior leadership, and a summary of changes from previous versions. Create a distribution list specifying who receives copies of the plan, how it is stored and protected, and procedures for updating distributed copies when revisions are made. Use clear, precise legal language that is accessible to both technical and non-technical personnel, avoiding unnecessary jargon while maintaining appropriate legal terminology. Ensure all cited authorities are current and properly referenced with specific citations to statutes, regulations, ethics rules, and authoritative guidance, verifying that legal sources are still in effect and have not been superseded. Incorporate jurisdiction-specific requirements based on the organization's locations and practice areas, recognizing that a firm practicing in multiple states may need to address varying data breach notification requirements, different professional conduct rules, and diverse regulatory frameworks. Review the document for internal consistency, ensuring that roles and responsibilities are clearly assigned without gaps or conflicts, that procedures are logically sequenced and practically executable, that communication protocols are realistic and tested, and that the plan integrates effectively with other organizational policies. The completed document should demonstrate that the organization has implemented reasonable security measures and incident response capabilities consistent with the duty of competence under professional conduct rules, industry standards for legal practice management, and regulatory expectations for data protection and cybersecurity. Present the document in a format that facilitates regular updates, with modular sections that can be revised independently as regulations change, technologies evolve, or organizational structures shift, ensuring the plan remains current and effective over time.",
+  "parent_skill_id": "ba3a7b36-0ba1-4804-8d31-b83b8cb31d15",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "checklist",
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "data_privacy_and_cybersecurity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:10.586801",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:59:26.321274Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Outlining incident response playbook structure**
+
+I'm drafting a concise incident response playbook titled "Incident Response Plan and Playbook" with sections on Output Structure and Process, incorporating NIST SP 800-61 Rev.2 and ABA Model Rules references, including placeholders for jurisdiction-specific details marked [VERIFY]. The content will feature templates for taxonomy, roles, phases, communications, training, checklists, and disclaimers, all optimized for clarity and brevity without fluff.
+thinking
+**Drafting full incident response playbook content**
+
+I'm preparing the complete incident response playbook including metadata, a clear title and one-line purpose, numbered prerequisites, detailed output structure with key sections outlined in a table, and stepwise process instructions. The playbook will integrate jurisdictional matrix tables with placeholders, privilege handling protocols, references to NIST SP 800-61 Rev.2 and ABA Model Rules 1.1/1.4/1.6 without [VERIFY] flags, plus scope coverage of HIPAA, GLBA, and CMMC. Checklists and templates use flat lists, and guidelines will cover do's/don'ts, compliance, and confidentiality practices, all formatted for clarity and within 100-140 lines.
+codex
+---
+name: incident-response-playbook
+description: Drafts U.S. legal-organization incident response plans and playbooks for cybersecurity incidents and data breaches, aligning NIST SP 800-61 Rev. 2 with ABA Model Rules 1.1/1.4/1.6, client confidentiality, and privilege preservation. Use when creating or updating an incident response plan, breach response policy, ransomware playbook, or regulatory notification checklist. Trigger keywords: incident response plan, playbook, data breach, ransomware, cybersecurity policy, NIST 800-61, ABA Model Rules, client confidentiality.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Checklist
+    - Memo
+  skill_modes:
+    - Drafting
+---
+
+# Incident Response Plan and Playbook
+
+Produces a defensible, operational incident response plan and scenario playbooks tailored to legal organizations.
+
+## Prerequisites
+
+1. **Firm profile** — practice areas, jurisdictions, client types, office locations, critical systems.
+2. **Current policies** — security, acceptable use, retention, BCP/DR, vendor management.
+3. **Data map** — systems holding client confidential or privileged data, backups, cloud providers.
+4. **Regulatory scope** — applicable data breach laws, ethics rules, sector regulations (HIPAA, GLBA, CMMC, etc.).
+5. **Contacts** — internal response team and external vendors with after-hours channels.
+
+## Output Structure / Process
+
+1. **Confirm scope and standards** — NIST SP 800-61 Rev. 2 alignment; ABA Model Rules 1.1, 1.4, 1.6; state bar guidance.
+2. **Build the plan** — governance, taxonomy, detection, phased response, communications, training.
+3. **Add playbooks** — ransomware, email compromise, unauthorized case access, inadvertent disclosure.
+4. **Add appendices** — contacts, templates, logs, escalation matrix, legal authority map.
+5. **Quality check** — privilege posture, notification timeframes, role coverage, version control.
+
+### 1) Plan Header and Governance
+
+**Header Block (template)**  
+Title, version, effective date, approvers, distribution, storage location, last review date, next review date.
+
+**Governance Table**
+
+| Role | Primary Duties | Decision Authority | Backups |
+|---|---|---|---|
+| Incident Response Coordinator | Activate plan, triage, oversee response | Yes | Named alternates |
+| Legal/Ethics Counsel | Privilege, ethics, notifications, regulators | Yes | Named alternates |
+| IT/Security Lead | Forensics, containment, eradication | Yes | Named alternates |
+| Managing Partner/ED | Resourcing, client impact, business decisions | Yes | Named alternates |
+| Comms Lead | Internal/external messaging | Yes | Named alternates |
+| Practice Leaders | Client context, matter impact | Advisory | Named alternates |
+
+**External Engagement Criteria (checklist)**  
+- [ ] Forensics firm on retainer or pre-approved  
+- [ ] Breach counsel on retainer  
+- [ ] Cyber insurer notification triggers  
+- [ ] Law enforcement criteria defined  
+- [ ] PR firm criteria defined
+
+### 2) Scope and Incident Taxonomy
+
+**Scope Statement**  
+Covered incidents include cyber events, confidentiality breaches, privilege risks, ethical violations affecting representation, and physical compromise of client data.
+
+**Severity Matrix**
+
+| Severity | Example Triggers | Required Actions | Notification Clock |
+|---|---|---|---|
+| Critical | Widespread client data exposure, ransomware impacting active matters, privilege compromise | Immediate activation, exec notification | Immediate |
+| High | Targeted account takeover, multi-matter access | Activate response team | Within 2 hours |
+| Medium | Single user phishing, limited exposure | IT + counsel review | Same business day |
+| Low | Blocked attempts, policy violations | Log + monitor | Standard queue |
+
+### 3) Detection and Reporting
+
+**Detection Sources**  
+SIEM, EDR, DLP, email security, user reports, vendor alerts, audit logs.
+
+**Incident Report Intake (fields)**  
+Date/time discovered, reporter, systems affected, data types, client matters impacted, actions taken, evidence preserved.
+
+**Privilege Protocol**  
+Investigations directed by counsel; mark communications “Privileged & Confidential”; separate factual incident log from legal analysis.
+
+### 4) Phased Response (NIST-Aligned)
+
+**Preparation**  
+- [ ] Security controls baseline  
+- [ ] Annual training and phishing simulations  
+- [ ] Tabletop exercises  
+- [ ] Vendor and insurer contacts verified  
+- [ ] Backup restoration tests
+
+**Identification**  
+- [ ] Validate incident  
+- [ ] Scope systems/data  
+- [ ] Classify severity  
+- [ ] Determine client/privilege impact
+
+**Containment**  
+- [ ] Short-term isolation actions  
+- [ ] Account resets and access control  
+- [ ] Long-term containment plan
+
+**Eradication**  
+- [ ] Remove malware  
+- [ ] Patch vulnerabilities  
+- [ ] Confirm adversary ejected
+
+**Recovery**  
+- [ ] Restore from clean backups  
+- [ ] Validate integrity  
+- [ ] Resume operations with monitoring
+
+**Lessons Learned**  
+- [ ] Post-incident review within 14 days  
+- [ ] Update plan and controls  
+- [ ] Metrics captured
+
+### 5) Scenario Playbooks
+
+**Ransomware Playbook**  
+- [ ] Isolate affected systems  
+- [ ] Notify insurer and breach counsel  
+- [ ] Assess exfiltration indicators  
+- [ ] Evaluate restore options and legal posture  
+- [ ] Law enforcement decision
+
+**Email Account Compromise**  
+- [ ] Reset credentials and tokens  
+- [ ] Review mailbox rules and sent items  
+- [ ] Identify client communications affected  
+- [ ] Notify clients if required  
+- [ ] Harden MFA and mail security
+
+**Unauthorized Case File Access**  
+- [ ] Identify matters and data types  
+- [ ] Assess privilege impact  
+- [ ] Client notification determination  
+- [ ] Access control remediation
+
+**Inadvertent Privilege Disclosure**  
+- [ ] Notify receiving party  
+- [ ] Demand return/destruction  
+- [ ] Document inadvertence  
+- [ ] Evaluate waiver risks
+
+### 6) Communications and Notifications
+
+**Internal Comms Rules**  
+Need-to-know distribution, secure channels, counsel-led updates.
+
+**Client Notification Minimums**  
+Incident summary, data types affected, timeline, remediation steps, client actions.
+
+**Regulatory Notifications Matrix (template)**
+
+| Jurisdiction | Statute/Rule | Trigger | Deadline | Agency | Notes |
+|---|---|---|---|---|---|
+| [State] | [Citation] | [Trigger] | [X days] | [AG/Agency] | [VERIFY] |
+
+**Ethics Notification Considerations**  
+ABA Model Rules 1.4 (client communication), 1.6 (confidentiality), 1.1 (tech competence).
+
+### 7) Training, Testing, and Metrics
+
+**Training Cadence**  
+Annual all-hands security training; role-based IR team training.
+
+**Testing**  
+Annual tabletop; periodic phishing simulations; quarterly backup restore tests.
+
+**Metrics**  
+MTTD, MTTC, MTTR, notification deadline compliance.
+
+### 8) Appendices
+
+**Contact Roster**  
+Internal team, vendors, insurer, law enforcement, regulators.
+
+**Templates**  
+Incident report form, client notice letter, regulator notice, media holding statement.
+
+**Incident Log (template)**
+
+```
+Date/Time | Event | System | Action | Owner | Evidence Location | Privileged?
+```
+
+**Escalation Matrix**  
+Severity thresholds and authority required for notifications and public statements.
+
+## Guidelines
+
+- Do not include jurisdiction-specific deadlines without verification; mark with `[VERIFY]`.
+- Keep privilege intact: counsel directs investigations and reviews all outbound notices.
+- Align with NIST SP 800-61 Rev. 2 and applicable ethics rules; cite local bar guidance when used.
+- Avoid admissions of liability in external communications.
+- Update annually and after material incidents, firm mergers, or major system changes.
+tokens used
+7,099

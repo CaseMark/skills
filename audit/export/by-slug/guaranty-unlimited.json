@@ -1,0 +1,42 @@
+{
+  "id": "c42157fd-6128-4c90-b790-3818b70495a1",
+  "slug": "guaranty-unlimited",
+  "name": "Guaranty (Unlimited)",
+  "summary": "Drafts a comprehensive Unlimited Guaranty agreement for loan and financing transactions, establishing the guarantor's absolute and unconditional liability for all borrower obligations without caps. Includes waivers of defenses, subrogation rights subordination, and guarantees of payment over collection. Use this skill in commercial lending to provide lenders with strong credit enhancement and direct recourse.",
+  "content": "# Unlimited Guaranty Drafting Workflow\n\nYou are tasked with drafting a comprehensive Unlimited Guaranty agreement, a critical transactional document in loan and financing arrangements where a guarantor assumes full, unconditional liability for a borrower's obligations to a lender.\n\n## Context and Purpose\n\nAn unlimited guaranty is a binding commitment where the guarantor agrees to be personally liable for all present and future obligations of the borrower without any cap or limitation on the amount. This document must be drafted with precision to ensure enforceability while clearly establishing the guarantor's absolute and unconditional obligations. The guaranty serves as a critical credit enhancement tool, providing the lender with recourse beyond the primary borrower.\n\n## Drafting Instructions\n\nBegin by establishing the document title as \"UNLIMITED GUARANTY\" and clearly identify all parties: the Guarantor (the party providing the guaranty), the Borrower (the primary obligor), and the Lender (the beneficiary of the guaranty). Search the user's documents for any existing loan agreements, credit facilities, or related transaction documents that define the underlying obligations being guaranteed, as these will inform the scope and terms of the guaranty.\n\nDraft the core guaranty provision to state that the Guarantor absolutely and unconditionally guarantees the prompt payment and performance of all Obligations of Borrower to Lender, whether now existing or hereafter arising, including but not limited to principal, interest, fees, costs, expenses, and any other amounts due under the underlying credit documents. Emphasize that this is a guaranty of payment and not merely of collection, meaning the Lender may proceed directly against the Guarantor without first exhausting remedies against the Borrower or any collateral.\n\nInclude a comprehensive waivers section that strengthens the Lender's position by having the Guarantor waive all rights and defenses that could delay or prevent enforcement. Specifically, the Guarantor should waive presentment, demand for payment, protest, notice of dishonor, notice of acceptance of the guaranty, notice of the existence or creation of new or additional obligations, notice of any action or non-action on the part of the Borrower or Lender, and any requirement that the Lender proceed first against the Borrower or exhaust any security or collateral. The Guarantor should also waive any defense based on modifications, extensions, renewals, or amendments to the underlying obligations, and consent in advance to any such changes without notice.\n\nAddress subrogation and reimbursement rights by providing that until all Obligations are indefeasibly paid in full, the Guarantor subordinates and waives any right of subrogation to the Lender's rights against the Borrower, any right of reimbursement from the Borrower, and any right to participate in any security held by the Lender. This prevents the Guarantor from competing with the Lender for recovery and ensures the Lender's priority position.\n\nIncorporate provisions regarding financial transparency if the Lender requires ongoing monitoring of the Guarantor's creditworthiness. This may include requirements for the Guarantor to provide annual financial statements, notice of material adverse changes in financial condition, or other financial information upon the Lender's reasonable request. Consider whether the guaranty should include affirmative and negative covenants similar to those imposed on the Borrower.\n\nSpecify the governing law jurisdiction, which should typically align with the governing law of the underlying loan or credit agreement to ensure consistency in interpretation and enforcement. Include a submission to jurisdiction clause and waiver of jury trial if appropriate for the transaction.\n\nDraft a professional signature block that includes spaces for the Guarantor's signature, printed name, title (if signing in a representative capacity), and date. If the Guarantor is an entity, ensure the signature block reflects proper corporate authority with appropriate officer titles and, if required, a corporate seal attestation.\n\n## Output Format\n\nGenerate a complete, professionally formatted Unlimited Guaranty agreement suitable for execution. The document should be organized with clear section headings, numbered provisions for easy reference, and defined terms capitalized throughout for consistency. Use formal legal drafting conventions appropriate for commercial lending transactions. The final document should be ready for attorney review and customization based on the specific transaction terms and party negotiations.\n\nEnsure all provisions work together cohesively to create an enforceable, comprehensive guaranty that provides maximum protection to the Lender while clearly establishing the Guarantor's unlimited obligations and waiver of defenses.",
+  "parent_skill_id": "b63cc6ae-4f61-40f8-b17f-f98c348afb58",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "loan_and_financing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

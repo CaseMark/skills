@@ -1,0 +1,49 @@
+{
+  "id": "de07c056-a1db-419f-aa5a-ff991fe8f7b5",
+  "slug": "legal-strategy-summaries",
+  "name": "Legal Strategy Summaries",
+  "summary": "Generates comprehensive legal strategy summaries for litigation cases, synthesizing case facts, legal arguments, procedural tactics, and risk assessments into a unified roadmap. Use this skill to align legal teams and stakeholders on case direction, potential motions, and overall approach from early stages. It provides candid analysis of strengths, weaknesses, and settlement considerations for informed decision-making.",
+  "content": "# Legal Strategy Summary\n\nYou are tasked with creating a comprehensive legal strategy summary that will serve as the strategic roadmap for handling a case. This document must align the entire legal team and stakeholders around a unified approach, outlining the case direction, potential motions, key argument points, and tactical considerations.\n\nBegin by conducting a thorough review of all available case materials. Search through uploaded documents to extract critical facts, including case background, parties involved, key dates, relevant evidence, exhibits, and any prior proceedings or correspondence. Identify the legal issues at stake, the client's objectives, and any constraints or considerations that will shape the strategic approach. If the case involves specific legal doctrines, statutes, or precedents, research and verify the current state of the law in the relevant jurisdiction to ensure your strategy is grounded in accurate legal authority.\n\nYour strategy summary should open with an executive overview that concisely articulates the case's nature, the client's position, and the overarching strategic goal. This section should be accessible to both legal professionals and non-lawyer stakeholders, providing immediate clarity on what the case is about and what success looks like. Follow this with a detailed factual background that synthesizes the key facts from the case materials, organizing them chronologically or thematically as appropriate to tell a coherent story that supports the legal strategy.\n\nThe heart of the document should address the legal framework and strategic approach. Identify the applicable legal standards, causes of action or defenses, and the burden of proof. Analyze the strengths and weaknesses of your position candidly, as this honest assessment will inform tactical decisions throughout the case. Outline the primary legal arguments you intend to advance, explaining how the facts support each argument and how they align with controlling law. For each major argument, consider potential counterarguments and how you will address them.\n\nDetail the procedural strategy, including anticipated motions and their timing. If you plan to file a motion to dismiss, motion for summary judgment, or any other dispositive or procedural motion, explain the legal basis, the strategic purpose, and the likelihood of success. Consider discovery strategy as well, identifying what information you need to obtain, what you must protect, and how discovery can be used to strengthen your position or weaken the opposition's case. Address whether alternative dispute resolution should be pursued and at what stage, weighing the benefits of settlement against the advantages of continued litigation.\n\nInclude a risk assessment that evaluates potential outcomes, litigation costs, and the probability of success at various stages. This section should help stakeholders make informed decisions about resource allocation and settlement posture. If there are critical deadlines, procedural requirements, or jurisdictional considerations that will impact the strategy, highlight these prominently.\n\nConclude with clear next steps and action items, assigning responsibilities where appropriate and establishing timelines for key strategic decisions. The document should serve as both a planning tool and a reference guide that the team can return to as the case evolves.\n\nThroughout the strategy summary, maintain a professional tone that balances legal precision with accessibility. Use clear headings and logical organization to make the document easy to navigate. Cite to specific evidence, legal authorities, and case materials where relevant, ensuring that every strategic recommendation is grounded in the factual record and applicable law. The final product should be a comprehensive, actionable document that provides the legal team with a clear roadmap while giving stakeholders confidence in the strategic direction of the case.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings",
+      "discovery",
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.657873",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

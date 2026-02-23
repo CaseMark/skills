@@ -1,0 +1,196 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c73-b5df-71d1-a8ea-858a39b8896c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e76f3b02-6cb4-46cd-9ba5-170e6b111844",
+  "slug": "financial-analysis-summary-commercial-litigation",
+  "name": "Financial Analysis Summaries in Legal Contexts",
+  "summary": "Generates comprehensive summaries of financial analyses for legal proceedings in economic damages, financial disputes, or business valuations within commercial litigation. Translates complex financial data, methodologies, and expert findings into clear, accessible formats suitable for attorneys, judges, and juries while retaining technical rigor. Use this skill to distill forensic accounting reports and economic analyses for litigation support.",
+  "content": "# Financial Analysis Summary for Legal Proceedings\n\nYou are tasked with creating a comprehensive financial analysis summary for use in legal proceedings involving economic damages, financial disputes, or business valuations. This summary must translate complex financial data and analysis into a clear, accessible format that attorneys, judges, and juries can readily understand while maintaining the technical rigor required for legal scrutiny.\n\n## Understanding the Context and Purpose\n\nFinancial analysis summaries serve as critical bridge documents in litigation, translating detailed financial investigations into actionable legal narratives. These summaries are typically prepared after extensive financial analysis has been conducted by forensic accountants, financial experts, or economic consultants, and they must distill that analysis into a format suitable for legal proceedings. The summary should enable legal professionals to quickly grasp the financial issues at stake, understand the methodology employed, and evaluate the strength of financial claims or defenses.\n\nBegin by thoroughly reviewing all available financial documentation, expert reports, accounting records, financial statements, and related materials that form the basis of the financial analysis. Search through uploaded documents to identify key financial data points, expert opinions, calculation methodologies, and supporting evidence. Extract specific figures, dates, transaction details, and analytical conclusions that will form the foundation of your summary.\n\n## Structuring the Financial Analysis Summary\n\nYour summary should open with an executive overview that concisely states the nature of the financial dispute or valuation question, the time period under examination, and the principal financial conclusions reached. This section should immediately orient the reader to the core financial issues without requiring them to wade through technical details.\n\nThe methodology section must clearly explain the analytical approaches employed, whether discounted cash flow analysis, comparable company analysis, lost profits calculations, damage multipliers, or other financial techniques. Describe each methodology in plain language while maintaining technical accuracy, explaining why particular approaches were selected and how they apply to the specific legal context. Address any industry-standard practices or generally accepted accounting principles that guided the analysis.\n\nPresent the key financial findings in a logical sequence that builds the financial narrative. For economic damages cases, trace the causal chain from the alleged wrongful act through the financial impact, showing how damages were calculated and what assumptions underlie those calculations. For business valuations, explain the factors considered in determining value, including market conditions, company performance, industry comparables, and future projections. For financial disputes, clearly delineate the competing financial positions and the evidence supporting each interpretation.\n\n## Critical Elements and Legal Considerations\n\nInclude detailed discussion of the data sources relied upon, addressing their reliability, completeness, and any limitations that may affect the analysis. Courts scrutinize the foundation of expert financial opinions, so your summary must demonstrate that the analysis rests on credible, verifiable information. Identify any gaps in the financial record and explain how those gaps were addressed or how they might affect the conclusions.\n\nAddress alternative scenarios and sensitivity analyses that test the robustness of the financial conclusions. Legal proceedings often involve competing expert opinions, so your summary should acknowledge areas of uncertainty, explain the range of possible outcomes, and demonstrate that the analysis has considered alternative interpretations of the financial data. This transparency strengthens credibility and prepares legal teams for cross-examination or opposing expert challenges.\n\nIncorporate visual elements where they enhance understanding\u2014charts showing financial trends over time, tables comparing actual versus projected performance, diagrams illustrating complex financial relationships, or graphs depicting damage calculations under different scenarios. Financial concepts that might require pages of text to explain can often be conveyed more effectively through well-designed visual presentations.\n\n## Compliance and Professional Standards\n\nEnsure the summary addresses relevant legal standards for the admission of expert financial testimony, including the Daubert or Frye standards as applicable in the jurisdiction. The analysis should demonstrate that the methodologies employed are generally accepted in the financial and accounting professions and have been reliably applied to the facts of the case. Reference authoritative sources, professional standards, and relevant case law that support the analytical approaches used.\n\nConsider the specific legal context in which the summary will be used. Summaries prepared for settlement negotiations may emphasize different aspects than those prepared for trial testimony or appellate review. Tailor the level of detail, technical language, and presentation style to the intended audience while ensuring the summary can withstand rigorous legal scrutiny.\n\n## Deliverable Format and Presentation\n\nStructure your final summary as a professional document suitable for inclusion in legal filings, expert reports, or trial exhibits. Use clear headings and subheadings that allow readers to navigate quickly to specific topics. Number all tables, charts, and exhibits consistently and reference them clearly in the text. Include appropriate citations to source documents, expert reports, and financial records that support each conclusion.\n\nConclude with a summary of opinions section that restates the principal financial conclusions in clear, definitive language suitable for legal proceedings. This section should provide attorneys with quotable statements that can be incorporated into briefs, settlement demands, or examination questions. Ensure all dollar amounts, percentages, and financial metrics are stated with appropriate precision and include relevant time periods and qualifications.\n\nThroughout the summary, maintain objectivity and professional tone while presenting the financial analysis in the most persuasive light consistent with the evidence. The summary should empower legal professionals to confidently present complex financial issues to courts and opposing parties, knowing that the underlying analysis can withstand scrutiny and that the presentation makes sophisticated financial concepts accessible to legal decision-makers.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:00.395656Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:00.721281Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:01.773907Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:02.525396Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4075d20ee14-SJC)
+2026-02-23T21:42:03.602426Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e40e2ad3c79e-SJC)
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-financial-analysis-summary-commercial-litigation-ggwe3g87.md
+
+STDOUT:
+

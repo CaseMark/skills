@@ -1,0 +1,42 @@
+{
+  "id": "b78a183a-38d4-470f-8461-179f9514d446",
+  "slug": "legal-project-management-summaries",
+  "name": "Legal Project Management Summaries",
+  "summary": "Generates comprehensive summaries of ongoing legal projects, covering objectives, resources, timelines, status, and key developments. Provides stakeholders with actionable overviews to manage complex matters like multi-phase litigation, transactions, and regulatory compliance efficiently. Use it for law firms and corporate legal departments to track progress, identify risks, and allocate resources.",
+  "content": "# Legal Project Management Summary\n\nYou are tasked with creating a comprehensive legal project management summary that provides stakeholders with a clear, actionable overview of an ongoing legal project's status, objectives, resources, timelines, and key developments.\n\n## Purpose and Context\n\nLegal project management summaries serve as essential communication and coordination tools for law firms, corporate legal departments, and litigation teams managing complex matters. These summaries enable attorneys, project managers, clients, and other stakeholders to quickly understand project status, identify potential risks or delays, allocate resources effectively, and make informed decisions about next steps. They are particularly valuable for multi-phase litigation, large-scale transactions, regulatory compliance initiatives, and matters involving multiple team members or external counsel.\n\n## Required Analysis and Output Structure\n\nBegin by gathering all relevant project documentation, including matter files, correspondence, task lists, budget reports, court filings, and any previous status reports. Search through uploaded documents to extract concrete information about project objectives, deliverables, deadlines, team assignments, budget allocations, and completed milestones. If the project involves ongoing litigation or regulatory matters, identify key dates such as filing deadlines, hearing dates, discovery cutoffs, and trial dates.\n\nYour summary should open with a concise executive overview that captures the project's current status in two to three sentences, highlighting any critical issues requiring immediate attention. Follow this with a detailed section on project objectives that articulates both the overarching goals and specific deliverables, ensuring alignment with the client's business objectives or legal strategy. When describing objectives, reference specific contractual obligations, regulatory requirements, or litigation outcomes the project aims to achieve.\n\nThe resources section must provide a comprehensive accounting of the team composition, including lead counsel, associates, paralegals, subject matter experts, and any external consultants or co-counsel. For each key team member, specify their role, current workload allocation, and primary responsibilities within the project. Include budget information showing original budget, current expenditures, projected costs to completion, and any variance explanations. If budget concerns exist, identify specific cost drivers and propose mitigation strategies.\n\nYour timeline analysis should present both backward-looking accomplishments and forward-looking projections. Create a clear chronology of completed milestones with actual completion dates, then outline upcoming deliverables with target dates and dependencies. Identify any timeline risks, such as pending court rulings, third-party delays, or resource constraints that could impact the schedule. For each critical path item, note the responsible party and any contingency plans.\n\nThe status assessment must provide an honest evaluation of project health across multiple dimensions: schedule adherence, budget compliance, quality of work product, team performance, client satisfaction, and risk management. Use a consistent framework such as red-yellow-green indicators or percentage completion metrics to enable quick comprehension. When issues arise, describe not only the problem but also the root cause analysis and proposed corrective actions with assigned owners and deadlines.\n\n## Legal and Professional Considerations\n\nEnsure all information presented maintains attorney-client privilege and work product protection. Clearly mark any sections containing privileged analysis, litigation strategy, or confidential client information. When the summary will be shared with clients or external parties, carefully review to ensure no inadvertent disclosures of privileged communications or attorney mental impressions occur.\n\nConsider the audience for each summary and adjust the level of technical detail accordingly. Summaries for clients should emphasize business impact and strategic considerations while minimizing legal jargon, whereas internal team summaries may include more granular task-level detail and legal analysis. For matters involving multiple stakeholders with different information access rights, you may need to create tiered versions with varying levels of detail.\n\nAddress risk management proactively by identifying potential obstacles, conflicts of interest, ethical considerations, or malpractice exposure areas. For litigation matters, note any adverse developments, unfavorable rulings, or emerging legal theories that could impact case strategy. For transactional work, highlight regulatory changes, market conditions, or counterparty issues that may affect deal timing or structure.\n\n## Actionable Recommendations and Next Steps\n\nConclude each summary with specific, actionable recommendations and clearly defined next steps. Each action item should identify the responsible party, target completion date, required resources, and success criteria. Prioritize recommendations based on urgency and impact, distinguishing between items requiring immediate attention and longer-term strategic initiatives.\n\nWhen appropriate, propose process improvements or efficiency measures based on lessons learned during the project. This might include recommendations for technology adoption, workflow optimization, team restructuring, or scope adjustments. Support recommendations with data from the project's performance metrics and concrete examples of where improvements could yield measurable benefits.\n\nYour final output should be formatted as a professional document suitable for distribution to senior stakeholders, with clear section headings, consistent formatting, proper citations to source materials, and an appropriate level of formality. The summary should stand alone as a complete record of project status while also serving as a reference document for future project reviews and post-matter analysis.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Litigation",
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate-governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

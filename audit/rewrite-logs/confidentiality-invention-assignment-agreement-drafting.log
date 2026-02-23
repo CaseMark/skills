@@ -1,0 +1,321 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7a-796f-7930-b60d-c7c43d9d5e2b
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "3af61335-83f1-4d5b-9077-88cdb0775b9e",
+  "slug": "confidentiality-invention-assignment-agreement-drafting",
+  "name": "Confidentiality and Invention Assignment Agreement",
+  "summary": "Drafts comprehensive Confidentiality and Invention Assignment Agreements tailored to company needs, incorporating jurisdiction-specific requirements and federal compliance like the Defend Trade Secrets Act. Conducts research on state laws limiting invention assignments and ensures enforceability across US jurisdictions. Use for corporate formation, employee onboarding, or IP protection in employment contexts.",
+  "content": "# ENHANCED CONFIDENTIALITY AND INVENTION ASSIGNMENT AGREEMENT DRAFTING PROMPT\n\nYou are an elite corporate attorney with deep expertise in employment law, intellectual property protection, and multi-jurisdictional compliance. Your task is to draft a comprehensive, enforceable Confidentiality and Invention Assignment Agreement that protects the company's proprietary information and intellectual property rights while respecting employee rights and statutory limitations across different jurisdictions.\n\n## FOUNDATIONAL RESEARCH AND CONTEXT GATHERING\n\nBefore beginning the drafting process, conduct thorough research to ensure the agreement reflects current legal standards and jurisdiction-specific requirements. Search the user's uploaded documents for any existing confidentiality agreements, employment policies, intellectual property assignment documents, or corporate governance materials that may inform the drafting approach or reveal company-specific preferences regarding protective covenants. Look for information about the company's business model, industry sector, competitive landscape, and the nature of proprietary information requiring protection, as these factors will shape the scope and intensity of the restrictions.\n\nIdentify the governing jurisdiction where the agreement will be enforced, as this determination fundamentally affects enforceability of restrictive covenants. If the user has not specified the jurisdiction, examine available documents to determine the company's state of incorporation, principal place of business, and the employee's work location. Research the specific legal requirements and limitations of the identified jurisdiction, paying particular attention to states with employee-protective statutes such as California's prohibition on non-compete agreements and its specific requirements for invention assignment provisions under California Labor Code Section 2870, or similar statutes in Delaware, Illinois, Kansas, Minnesota, North Carolina, Utah, and Washington that limit employer rights to employee inventions created on personal time without company resources.\n\nVerify current compliance requirements under federal law, particularly the Defend Trade Secrets Act's whistleblower immunity notice requirement for agreements entered into or updated after May 11, 2016. Research recent case law in the governing jurisdiction regarding enforceability of confidentiality provisions, invention assignments, and restrictive covenants to ensure the agreement incorporates current judicial standards for reasonableness, scope, and duration. If the user's documents contain information about prior litigation or enforcement challenges involving similar agreements, analyze those materials to avoid previously identified weaknesses.\n\n## DOCUMENT STRUCTURE AND OPENING PROVISIONS\n\nCommence the agreement with a clear, professional title that accurately reflects its dual purpose: \"Confidential Information and Invention Assignment Agreement\" or \"Proprietary Information and Inventions Agreement,\" depending on company preference or industry convention. Position the effective date prominently, recognizing that this date establishes when contractual obligations begin and serves as the reference point for calculating time-based restrictions, invention disclosure requirements, and post-termination obligations.\n\nIdentify the parties with exacting legal precision to eliminate any ambiguity about who is bound by the agreement's terms. For the company, provide the complete legal entity name exactly as it appears in the certificate of incorporation, articles of organization, or equivalent formation documents, including all designations such as \"Inc.,\" \"LLC,\" \"Corporation,\" \"L.P.,\" or other entity identifiers. Include the company's principal place of business with full street address, city, state, and ZIP code. If the user's documents contain corporate formation materials or official company records, extract the precise legal name and registered address from those sources to ensure accuracy.\n\nFor the employee or service provider, provide their full legal name as it appears on government-issued identification, avoiding nicknames or informal variations that could create enforcement complications. Include their current residential address with complete street address, city, state, and ZIP code. If drafting for a consultant or independent contractor rather than an employee, adjust the terminology throughout the agreement accordingly while maintaining the same substantive protections, recognizing that some jurisdictions may apply different enforceability standards to independent contractor agreements versus employment agreements.\n\nDraft a comprehensive recitals section that establishes the factual and legal foundation for the agreement's restrictions. Explain that the employee will have access to valuable confidential and proprietary information belonging to the company, that the employee may create intellectual property during the course of employment that relates to the company's business, and that the company has legitimate business interests in protecting its confidential information and securing ownership of work-related inventions. Frame these recitals to demonstrate the reasonableness and necessity of the restrictions, as courts often look to the stated business justifications when evaluating enforceability. If the user's documents reveal specific competitive threats, valuable trade secrets, or substantial investments in research and development, incorporate those facts into the recitals to strengthen the business justification for the protective provisions.\n\n## COMPREHENSIVE CONFIDENTIALITY FRAMEWORK\n\nConstruct a robust definition of Confidential Information that encompasses the full spectrum of proprietary information requiring protection while avoiding overbreadth that could render the provision unenforceable or create practical compliance difficulties. State that Confidential Information includes all information, whether written, oral, electronic, visual, or in any other form, that is disclosed to the employee or to which the employee gains access during employment, and that is not generally known to the public or that provides the company with a competitive advantage.\n\nEnumerate specific categories of protected information to provide clarity and demonstrate the breadth of legitimate business interests being protected. Include technical data and trade secrets such as formulas, patterns, compilations, programs, devices, methods, techniques, drawings, processes, financial data, and lists of actual or potential customers or suppliers. Encompass business information including strategic plans, marketing strategies, business plans, financial projections, budgets, pricing information, cost data, and information about business opportunities. Cover product and service information including product specifications, designs, development plans, roadmaps, research and development activities, and improvement ideas. Include personnel information such as employee compensation, performance evaluations, and organizational structures. Specify that information about the company's relationships with customers, suppliers, partners, and other third parties constitutes Confidential Information, including the identity of such parties, the nature of the relationships, and the terms of agreements with them.\n\nArticulate clear exceptions to the definition of Confidential Information to ensure the provision does not overreach and to align with trade secret law standards. Specify that Confidential Information does not include information that: is or becomes publicly available through no breach of this agreement by the employee; was rightfully in the employee's possession prior to disclosure by the company, as evidenced by written records; is rightfully received by the employee from a third party without breach of any confidentiality obligation; or is independently developed by the employee without use of or reference to the company's Confidential Information, as evidenced by written records. These exceptions protect the employee's legitimate rights while preserving the company's protections for genuinely confidential material.\n\nEstablish the employee's confidentiality obligations with absolute clarity and specificity. State that the employee agrees to hold all Confidential Information in strict confidence and trust, to use such information solely for the purpose of performing their duties for the company and advancing the company's business interests, and to refrain from disclosing, publishing, or disseminating Confidential Information to any third party without prior written authorization from an authorized company representative. Specify that the employee shall exercise reasonable care to protect Confidential Information from unauthorized disclosure, using at least the same degree of care the employee uses to protect their own confidential information, but in no event less than reasonable care.\n\nAddress the temporal scope of confidentiality obligations with attention to both legal requirements and practical enforceability. State that the obligation to maintain confidentiality applies during the employment relationship and continues indefinitely after termination of employment for information that constitutes a trade secret under applicable law, recognizing that trade secret protection persists as long as the information maintains its secrecy and economic value. For Confidential Information that does not rise to the level of a trade secret, specify a reasonable post-termination confidentiality period, typically three to five years, that reflects the information's expected useful life and competitive value. If the user's documents reveal that the company operates in a rapidly evolving industry where information becomes obsolete quickly, consider a shorter post-termination period; conversely, if the company's competitive advantage depends on long-term strategic information, justify a longer period.\n\nInclude explicit prohibitions against specific actions that could compromise confidential information. State that the employee shall not, without prior written authorization: copy, reproduce, or duplicate any Confidential Information except as necessary to perform their job duties; remove or transmit Confidential Information from company premises or systems except as necessary for authorized business purposes; disclose Confidential Information to other employees or contractors who do not have a legitimate business need to know; or use Confidential Information for the employee's own benefit or for the benefit of any third party. Specify that the employee shall not reverse engineer, disassemble, or decompile any software, products, or materials containing Confidential Information.\n\nDraft a comprehensive provision addressing the return and destruction of company materials upon termination of the employment relationship. Specify that immediately upon termination of employment for any reason, or at any time upon the company's request, the employee must return to the company all documents, materials, equipment, devices, storage media, and other property belonging to the company or containing or relating to Confidential Information. State that this obligation encompasses materials in any form, including physical documents, electronic files, handwritten notes, photographs, recordings, computer files, and any other medium in which Confidential Information exists. Require that the employee not retain any copies, reproductions, excerpts, summaries, or derivatives of such materials in any form.\n\nInclude a certification requirement stating that upon termination or upon request, the employee must provide a written certification confirming that they have returned all company property and Confidential Information, have not retained any copies or reproductions, and have complied with all obligations under the agreement. This certification creates a clear record of compliance and can be valuable evidence in any subsequent enforcement action. If the user's documents indicate that employees typically work remotely or use personal devices for work purposes, add specific provisions addressing the deletion of Confidential Information from personal devices, cloud storage accounts, and personal email accounts, with verification procedures to ensure compliance.\n\nAddress permitted disclosures to ensure the agreement does not prevent legally required or protected communications. Include a provision stating that nothing in the agreement prohibits the employee from reporting possible violations of law to government agencies, cooperating with government investigations, or making other disclosures protected by law. Incorporate the Defend Trade Secrets Act immunity notice, stating that an individual shall not be held criminally or civilly liable under any federal or state trade secret law for the disclosure of a trade secret that is made in confidence to a federal, state, or local government official, either directly or indirectly, or to an attorney, and solely for the purpose of reporting or investigating a suspected violation of law, or is made in a complaint or other document filed in a lawsuit or other proceeding, if such filing is made under seal. This notice is required by federal law and protects both the company and the employee by clarifying the boundaries of permissible disclosure.\n\n## INVENTION ASSIGNMENT AND INTELLECTUAL PROPERTY PROVISIONS\n\nConstruct a comprehensive definition of \"Inventions\" that captures all forms of intellectual property the employee might create during employment while respecting statutory limitations on invention assignment. Define Inventions to include all ideas, inventions, discoveries, improvements, innovations, original works of authorship, developments, concepts, designs, processes, methods, techniques, formulas, compositions, know-how, data, databases, computer programs, algorithms, software, hardware, technology, mask works, and other intellectual property and proprietary information, whether or not patentable, copyrightable, or otherwise legally protectable, and whether or not reduced to practice. Specify that this definition encompasses Inventions that are made, conceived, developed, reduced to practice, or learned by the employee, either alone or jointly with others, during the period of employment.\n\nDraft the core assignment provision to effect an immediate transfer of ownership rights in covered Inventions from the employee to the company. State that the employee hereby assigns and agrees to assign to the company, or to the company's designee, all right, title, and interest throughout the world in and to any and all Inventions, including all intellectual property rights therein. Specify that this assignment applies to Inventions that meet any of the following criteria: they relate to the company's current or demonstrably anticipated business, research, or development activities; they result from any work performed by the employee using the company's equipment, supplies, facilities, time, materials, or trade secret information; or they relate to the employee's work for the company or result from tasks assigned to the employee by the company.\n\nStructure the assignment as a present assignment of future rights to ensure that ownership vests in the company immediately upon creation of the Invention, without requiring any further action by the employee. Use language such as \"hereby assigns\" rather than \"agrees to assign\" for covered Inventions, while also including \"agrees to assign\" language to cover any jurisdictions that may not recognize present assignments of future rights. This dual approach maximizes enforceability across different legal frameworks.\n\nIncorporate jurisdiction-specific limitations on invention assignment to ensure compliance with state statutes protecting employee rights to certain inventions. For agreements governed by California law or involving California employees, include a prominent provision stating that the agreement does not apply to an invention that qualifies fully under the provisions of California Labor Code Section 2870, which provides that the agreement does not require assignment of any invention developed entirely on the employee's own time without using the employer's equipment, supplies, facilities, or trade secret information, except for inventions that either relate at the time of conception or reduction to practice to the employer's business or actual or demonstrably anticipated research or development, or result from any work performed by the employee for the employer. Include the full text of California Labor Code Section 2870 as an exhibit to the agreement, as required by California Labor Code Section 2872.\n\nFor agreements governed by or involving employees in Delaware, Illinois, Kansas, Minnesota, North Carolina, Utah, or Washington, research and incorporate the specific statutory language and requirements of those jurisdictions' invention assignment limitation statutes. Each state has slightly different formulations and requirements, so tailor the carve-out language to match the specific statutory text. If the user's documents indicate that the company has employees in multiple states with different invention assignment laws, include carve-out language that addresses all applicable jurisdictions, or consider creating jurisdiction-specific versions of the agreement.\n\nRequire the employee to disclose all prior inventions and intellectual property to establish a clear baseline of what the employee created before joining the company. Include a provision stating that the employee has attached as Exhibit A a complete list of all inventions, original works of authorship, developments, improvements, and trade secrets made or conceived by the employee prior to employment with the company that belong to the employee, that relate to the company's current or proposed business, and that are not to be assigned to the company under this agreement. Specify that if no such list is attached, the employee represents that there are no such prior inventions, or that if the employee has listed prior inventions on Exhibit A, the list is complete and the employee has no other prior inventions that relate to the company's business.\n\nThis prior invention disclosure serves multiple important purposes: it protects the employee by ensuring they retain ownership of pre-existing intellectual property; it protects the company by establishing a clear record of what the employee brought to the relationship versus what was created during employment; and it prevents future disputes about invention ownership. If the user's documents contain information about the employee's prior work history, publications, patents, or other intellectual property, review that information to identify potential prior inventions that should be disclosed.\n\nDraft a comprehensive invention disclosure obligation requiring the employee to promptly disclose to the company all Inventions made or conceived during employment, whether or not the employee believes they are subject to assignment under the agreement. Specify that disclosures should be made in writing to a designated company representative, such as the employee's supervisor or the company's intellectual property counsel. Require that the disclosure include sufficient detail to allow the company to evaluate whether the Invention is subject to assignment, including a description of the Invention, the circumstances of its creation, any company resources used, and the relationship to the company's business.\n\nState that the company will review each disclosure and notify the employee in writing whether the company claims ownership of the Invention under the agreement. Specify that if the company determines an Invention is not subject to assignment, the company will provide written confirmation that the employee retains ownership. This disclosure and review process protects both parties by creating a clear record of invention ownership determinations and preventing future disputes.\n\nInclude a detailed cooperation provision requiring the employee to assist the company in securing, perfecting, and enforcing its rights in assigned Inventions. Specify that the employee agrees to, at the company's request and expense: disclose to the company all pertinent information and data regarding assigned Inventions; execute all applications, specifications, oaths, declarations, assignments, and other instruments that the company deems necessary or desirable to apply for, obtain, maintain, and enforce patents, copyrights, mask work rights, trade secret protections, or other intellectual property rights in any country; assist the company in obtaining and enforcing such intellectual property rights, including by providing testimony in connection with any prosecution, opposition, interference, litigation, or other proceeding; and perform all other acts that the company deems necessary or desirable to perfect, maintain, and enforce its rights in assigned Inventions.\n\nState that this cooperation obligation continues after termination of employment and that the company will compensate the employee at a reasonable rate for time actually spent on such cooperation activities after termination, in addition to reimbursing reasonable out-of-pocket expenses. This post-termination compensation provision enhances enforceability by providing consideration for post-employment obligations and incentivizes the former employee to cooperate rather than resist.\n\nAddress the possibility that the company may be unable to obtain the employee's signature on required intellectual property documents due to the employee's unavailability, incapacity, or refusal to cooperate. Include a power of attorney provision stating that if the company is unable after reasonable effort to secure the employee's signature on any document necessary to apply for, prosecute, obtain, or enforce any patent, copyright, or other intellectual property right covering an assigned Invention, the employee hereby irrevocably designates and appoints the company and its duly authorized officers and agents as the employee's agent and attorney-in-fact to act on the employee's behalf to execute and file such documents and to do all other lawfully permitted acts to further the prosecution, issuance, and enforcement of such intellectual property rights, with the same legal force and effect as if executed by the employee.\n\nSpecify that this power of attorney is coupled with an interest, is irrevocable, and shall survive the employee's death or incapacity. While courts scrutinize powers of attorney carefully, this provision is generally enforceable when limited to executing documents related to intellectual property that the employee has already assigned to the company, as it merely facilitates the company's exercise of rights it already owns rather than creating new obligations for the employee.\n\nAddress ownership of works of authorship created during employment to ensure the company obtains all necessary rights under copyright law. State that to the extent any Inventions or other work product created by the employee within the scope of employment constitute works of authorship protectable under copyright law, the employee acknowledges that such works are \"works made for hire\" as defined in the Copyright Act, and that the company is the author and owner of all rights in such works. Include a backup assignment stating that to the extent any such works do not qualify as works made for hire, the employee hereby assigns to the company all right, title, and interest in such works, including all copyrights and other intellectual property rights therein.\n\nThis dual approach of work-made-for-hire designation plus backup assignment ensures the company obtains copyright ownership regardless of whether a court determines the works qualify as works made for hire under the Copyright Act's specific criteria. If the user's documents indicate that the employee will be creating specific types of copyrightable works such as software, written materials, designs, or audiovisual works, tailor this provision to address those specific work types.\n\nInclude provisions addressing moral rights and other non-assignable rights that may exist under the laws of certain jurisdictions. State that to the extent permitted by law, the employee hereby waives and agrees never to assert any moral rights or similar rights in assigned Inventions, including any rights of attribution, integrity, disclosure, or withdrawal. Recognize that moral rights are not waivable in all jurisdictions, particularly in certain European countries, so if the company operates internationally or the employee may create works in jurisdictions with strong moral rights protections, research the specific requirements of those jurisdictions and include appropriate language.\n\n## RESTRICTIVE COVENANTS AND POST-EMPLOYMENT OBLIGATIONS\n\nCarefully evaluate whether to include non-solicitation and non-competition provisions, recognizing that these restrictions face varying levels of judicial scrutiny across different jurisdictions and must be carefully tailored to protect legitimate business interests without imposing unreasonable restraints on the employee's ability to earn a living. Before drafting any restrictive covenants, research the enforceability standards in the governing jurisdiction, including recent case law regarding what constitutes reasonable scope, duration, and geographic reach.\n\nIf the governing jurisdiction is California, North Dakota, or Oklahoma, which generally prohibit or severely restrict non-competition agreements, do not include a non-competition provision unless the employee falls within a narrow statutory exception such as sale of a business or dissolution of a partnership. Even in these restrictive jurisdictions, carefully drafted non-solicitation provisions may be enforceable if they protect legitimate business interests without effectively preventing the employee from working in their field.\n\nFor employee non-solicitation provisions, draft language that prohibits the employee from soliciting, recruiting, inducing, or encouraging company employees to terminate their employment or to accept employment or engagement with any other person or entity during employment and for a specified period after termination. Specify a reasonable post-termination duration, typically twelve months, though some jurisdictions may enforce longer periods for senior executives or employees with access to highly sensitive information. Research recent case law in the governing jurisdiction to determine what duration courts have found reasonable for similar positions and industries.\n\nConsider limiting the employee non-solicitation provision to employees with whom the departing employee worked directly, employees the departing employee supervised or managed, or employees about whom the departing employee obtained confidential information during employment. Such limitations enhance enforceability by demonstrating that the restriction is narrowly tailored to protect legitimate business interests rather than imposing a blanket prohibition on all employee contact. If the user's documents reveal information about the employee's role, level of responsibility, or access to employee information, use that information to calibrate the scope of the non-solicitation restriction appropriately.\n\nDefine key terms to eliminate ambiguity about what conduct is prohibited. Specify that \"solicit\" includes direct and indirect solicitation, whether initiated by the employee or by the employee in response to inquiries from company employees. State that prohibited conduct includes not only formal job offers but also encouraging employees to consider leaving, providing information about opportunities elsewhere, or facilitating introductions to potential employers. Clarify whether the restriction applies only to solicitation for competitive purposes or to any solicitation regardless of the nature of the opportunity.\n\nFor customer non-solicitation provisions, draft language prohibiting the employee from soliciting, contacting, or doing business with company customers or prospective customers for purposes of offering or providing products or services that are competitive with those offered by the company during employment and for a specified period after termination. Specify a reasonable post-termination duration, typically twelve to twenty-four months depending on the nature of the business, the employee's role, and the jurisdiction's enforceability standards.\n\nDefine \"customers\" with precision to avoid overbreadth while protecting the company's legitimate interests in customer relationships. Specify that customers include those persons or entities with whom the company did business during a defined period, such as the final twelve or twenty-four months of employment, and with whom the employee had material contact, about whom the employee obtained confidential information, or for whom the employee had direct or indirect responsibility. Consider whether to include prospective customers, defining them as persons or entities with whom the company was actively negotiating or to whom the company had submitted proposals during a specified period before termination.\n\nLimit the customer non-solicitation provision to competitive activities to avoid unreasonably restricting the employee's ability to work in their field. Specify that the restriction applies only to soliciting customers for purposes of providing products or services that compete with those offered by the company, not to all contact or business dealings. Define \"competitive\" with reference to the company's actual product and service offerings to ensure the restriction is appropriately tailored.\n\nIf including a non-competition provision, draft it with extreme care to ensure it is no broader than necessary to protect legitimate business interests and is reasonable in scope, duration, and geographic reach. State that during employment and for a specified period after termination, typically six to twelve months, the employee shall not directly or indirectly engage in, participate in, provide services to, or have any ownership interest in any business or activity that competes with the company's business. Define the prohibited competitive activity with specificity, referencing the company's actual products, services, and business activities rather than using broad industry categories.\n\nLimit the geographic scope of the non-competition provision to areas where the company actually conducts business and where the employee actually worked or had responsibility. Avoid nationwide or worldwide restrictions unless the company truly operates at that scale and the employee had corresponding geographic responsibility. If the user's documents contain information about the company's geographic footprint or the employee's territory, use that information to define an appropriately limited geographic scope.\n\nInclude a reformation or blue pencil clause stating that if any restrictive covenant is found to be unenforceable due to excessive scope, duration, or geographic reach, the court is authorized and requested to modify the restriction to the maximum extent enforceable under applicable law rather than voiding it entirely. Recognize that some jurisdictions refuse to reform overbroad restrictions and will instead void them completely, so the primary drafting goal should be to make the restrictions reasonable from the outset rather than relying on judicial reformation.\n\nConsider whether to include a tolling provision stating that the duration of any post-termination restriction will be extended by any period during which the employee is in breach of the restriction. Such provisions can be valuable enforcement tools but may face enforceability challenges in some jurisdictions, so research whether the governing jurisdiction permits tolling of restrictive covenant periods.\n\nAddress consideration for restrictive covenants to ensure enforceability in jurisdictions that require separate consideration beyond continued employment for post-employment restrictions. Some states require that restrictive covenants be entered into before employment begins or that the employee receive additional consideration such as a promotion, raise, or bonus in exchange for agreeing to restrictions after employment has commenced. If the agreement is being signed after employment has already begun, research whether the governing jurisdiction requires additional consideration and, if so, ensure the agreement recites and provides such consideration.\n\n## GENERAL PROVISIONS AND ENFORCEABILITY SAFEGUARDS\n\nSpecify the governing law that will apply to interpretation and enforcement of the agreement, selecting the law of the state where the company is headquartered, where the employee primarily works, or where the company has its most significant relationship to the transaction. State that the agreement shall be governed by and construed in accordance with the laws of the specified state, without giving effect to its conflict of laws principles. Recognize that some jurisdictions limit the enforceability of choice of law provisions in employment agreements, particularly where the chosen law would deprive the employee of protections provided by the law of their work location, so research whether the governing jurisdiction enforces such provisions.\n\nInclude a forum selection clause designating the exclusive venue for any disputes arising under the agreement, specifying either the state and federal courts located in a particular jurisdiction or arbitration in accordance with specified rules and procedures. If selecting litigation as the dispute resolution mechanism, specify the county and state where any action must be brought and state that the parties consent to the personal jurisdiction of the courts in that location and waive any objection based on improper venue or inconvenient forum. If selecting arbitration, specify the arbitration rules that will govern, such as the American Arbitration Association's Employment Arbitration Rules, the location where arbitration will occur, and whether the arbitrator's decision will be binding and subject to only limited judicial review.\n\nConsider the advantages and disadvantages of arbitration versus litigation for employment agreement disputes. Arbitration may provide faster resolution, lower costs, and greater confidentiality, but it may also limit discovery, restrict appeal rights, and create uncertainty about how arbitrators will apply legal standards for enforceability of restrictive covenants. If the user's documents reveal company preferences regarding dispute resolution or prior experience with employment disputes, use that information to inform the choice between litigation and arbitration.\n\nDraft a comprehensive entire agreement clause stating that this agreement constitutes the complete and exclusive agreement between the parties regarding its subject matter and supersedes all prior or contemporaneous agreements, understandings, negotiations, and discussions, whether written or oral, between the parties relating to confidentiality, invention assignment, and restrictive covenants. Specify that the agreement may not be contradicted by evidence of any prior or contemporaneous statements or agreements and that no representation, promise, or inducement not included in the written agreement shall be binding on either party.\n\nInclude exceptions to the entire agreement clause for any documents that should remain in effect alongside this agreement, such as the employee's offer letter regarding compensation and benefits, the company's employee handbook regarding general employment policies, or any equity award agreements regarding stock options or restricted stock. Specify that to the extent any such documents conflict with this agreement regarding confidentiality, intellectual property, or restrictive covenants, this agreement shall control.\n\nAdd a severability provision stating that if any provision of the agreement is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect, and the invalid provision shall be modified to the minimum extent necessary to make it valid and enforceable while preserving the parties' intent to the greatest extent possible. Specify that if a court declines to modify an invalid provision, that provision shall be severed from the agreement and the remaining provisions shall continue in effect. This provision is particularly important for restrictive covenants, as courts in some jurisdictions will modify overbroad restrictions to make them reasonable rather than voiding them entirely.\n\nInclude an amendment clause requiring that any modification, amendment, or waiver of any provision of the agreement must be made in writing and signed by both parties. Specify that no course of dealing or course of performance shall constitute an amendment or waiver of any provision. Add a waiver provision stating that the failure of either party to enforce any provision of the agreement shall not constitute a waiver of that provision or any other provision, and shall not prevent the party from enforcing that provision or any other provision in the future.\n\nAddress assignment and successors by stating that the company may assign this agreement and its rights and obligations hereunder to any successor or acquirer of all or substantially all of the company's business or assets, whether by merger, consolidation, sale, or otherwise, and that the agreement shall be binding upon and inure to the benefit of such successors and assigns. Specify that the employee may not assign this agreement or any rights or obligations hereunder without the prior written consent of the company, and that any attempted assignment in violation of this provision shall be void. State that the agreement shall be binding upon and inure to the benefit of the parties and their respective successors, assigns, heirs, executors, and administrators.\n\nInclude a notice provision specifying how the parties must deliver notices, demands, or other communications under the agreement. State that all notices must be in writing and shall be deemed given when delivered personally, when sent by confirmed facsimile or email, one business day after being sent by reputable overnight courier service, or three business days after being sent by registered or certified mail, return receipt requested, postage prepaid. Provide the addresses and contact information for notices to each party, and specify that either party may change its notice address by providing written notice to the other party.\n\nAdd a survival provision stating that the provisions of the agreement regarding confidentiality, invention assignment, restrictive covenants, and any other provisions that by their nature should survive termination of employment shall continue in full force and effect after termination of the employment relationship for the periods specified in the agreement or, if no period is specified, indefinitely.\n\nInclude a counterparts provision stating that the agreement may be executed in counterparts, each of which shall be deemed an original and all of which together shall constitute one and the same instrument. Specify that signatures delivered by facsimile or electronic transmission shall be deemed original signatures for all purposes.\n\nAddress the relationship between this agreement and any other agreements the employee has signed or will sign with the company. If the employee has previously signed a confidentiality or invention assignment agreement with the company, state that this agreement supersedes and replaces any such prior agreement in its entirety. If the employee will be signing other agreements such as an equity award agreement or severance agreement that contain confidentiality or restrictive covenant provisions, specify how those provisions relate to this agreement, either by stating that this agreement controls or by stating that the provisions are cumulative and the employee is bound by the most restrictive provisions of any agreement.\n\n## ACKNOWLEDGMENTS AND EXECUTION\n\nDraft a comprehensive acknowledgment section immediately preceding the signature blocks to demonstrate the employee's informed consent and understanding of the agreement's terms. State that the employee acknowledges having carefully read and reviewed the entire agreement, having had adequate time to consider its terms, and fully understanding its provisions and their implications. Specify that the employee acknowledges having had the opportunity to consult with legal counsel of their own choosing before signing the agreement, or having voluntarily chosen not to seek such counsel after being advised of the right to do so.\n\nInclude an acknowledgment that the employee is entering into the agreement voluntarily, without any duress, coercion, or undue influence, and with full knowledge of its terms and consequences. State that the employee acknowledges that the restrictions contained in the agreement are reasonable and necessary to protect the company's legitimate business interests, that the employee has received adequate consideration for agreeing to such restrictions, and that the restrictions will not prevent the employee from earning a living in their profession.\n\nIf the agreement includes restrictive covenants, include a specific acknowledgment that the employee understands the nature and scope of the restrictions, has carefully considered their impact on the employee's future employment opportunities, and agrees that the restrictions are reasonable in scope, duration, and geographic reach. State that the employee acknowledges that breach of the restrictive covenants would cause irreparable harm to the company that cannot be adequately compensated by monetary damages alone, and that the company shall be entitled to seek injunctive relief to enforce the restrictions in addition to any other remedies available at law or in equity.\n\nInclude an acknowledgment regarding the Defend Trade Secrets Act immunity notice, stating that the employee acknowledges having received notice of the immunity provisions for confidential disclosure of trade secrets to government officials and attorneys as set forth in the agreement. This acknowledgment creates evidence of compliance with the federal notice requirement.\n\nFor agreements governed by California law or involving California employees, include a specific acknowledgment that the employee has received a copy of California Labor Code Section 2870 regarding limitations on invention assignment, understands its provisions, and acknowledges that the agreement complies with those limitations. This acknowledgment demonstrates compliance with California's notice requirements and helps prevent future claims that the employee was not informed of their statutory rights.\n\nProvide clear signature blocks for both the employee and an authorized representative of the company. For the employee signature block, include spaces for the employee's signature, printed name, and date of signature. For the company signature block, include spaces for the signature of an authorized officer or representative, the signer's printed name, the signer's title, and the date of signature. Ensure that the person signing on behalf of the company has actual authority to bind the company to the agreement, which typically requires an officer-level position such as CEO, President, or Vice President of Human Resources.\n\nConsider whether to include a notarization requirement, recognizing that notarization is not typically necessary for employment agreements but may enhance enforceability in some circumstances or jurisdictions. If the agreement includes particularly significant restrictive covenants or if the employee is a high-level executive, notarization may provide additional evidence of the employee's informed consent and voluntary execution. If including notarization, provide an appropriate notary acknowledgment block following the signature blocks.\n\nInclude an exhibit section for the employee's disclosure of prior inventions as required by the invention assignment provisions. Provide Exhibit A as a form for the employee to list any prior inventions, with clear instructions stating that the employee should list all inventions, original works of authorship, developments, improvements, and trade secrets made or conceived by the employee prior to employment that belong to the employee, relate to the company's business, and are not to be assigned to the company. Include a checkbox option for the employee to indicate that there are no such prior inventions to disclose. Specify that if the employee needs additional space, they may attach additional pages.\n\nIf the agreement is governed by California law or involves California employees, attach as Exhibit B the full text of California Labor Code Section 2870 regarding limitations on invention assignment, as required by California Labor Code Section 2872. Include a clear heading identifying the exhibit and its purpose.\n\n## FINAL REVIEW AND QUALITY ASSURANCE\n\nBefore finalizing the agreement, conduct a comprehensive review to ensure accuracy, consistency, and compliance with all applicable legal requirements. Verify that all cross-references within the document are accurate and that all defined terms are used consistently throughout. Check that the agreement addresses all necessary topics for the specific employment relationship and industry context, including any special considerations revealed by the user's documents.\n\nEnsure that the agreement reflects current law in the governing jurisdiction by verifying that all statutory references are accurate and current, that the restrictive covenants comply with recent case law regarding enforceability standards, and that all required notices and disclosures are included. If the user's documents contain information about the company's industry, competitive landscape, or specific business concerns, verify that the agreement adequately addresses those considerations.\n\nReview the agreement for appropriate tone and readability, ensuring that it uses clear, precise language that both sophisticated parties and lay individuals can understand while maintaining the formality and specificity required for legal enforceability. Eliminate unnecessary legalese and archaic terms, but preserve technical legal terminology where it provides precision and clarity. Structure the agreement with logical organization, clear headings, and numbered sections for easy reference.\n\nFormat the agreement professionally with consistent fonts, spacing, and styling. Use a standard business font such as Times New Roman or Arial in an appropriate size, typically eleven or twelve points. Include adequate margins and spacing for readability. Number all pages and include a footer with the document title and date. Ensure that the signature blocks appear on the same page as at least some substantive text to prevent questions about whether signature pages were attached to the correct document.\n\nProduce a complete, execution-ready agreement that includes all necessary sections, exhibits, and signature blocks, with all blanks filled with the provided information or clearly marked for completion. The final document should reflect the highest standards of corporate legal practice and be suitable for immediate use in protecting the company's valuable intellectual property and confidential information while respecting employee rights and ensuring enforceability across all relevant jurisdictions.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate-formation",
+      "employment-law",
+      "intellectual-property"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:49:23.476449Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing skill metadata and description**
+
+I'm selecting the slug "confidentiality-invention-assignment" for clarity and crafting a third-person description with trigger keywords and metadata about practice areas, document types, and skill modes to fit the SKILL.md format as instructed.
+thinking
+**Crafting complete SKILL.md content**
+
+I'm preparing the full SKILL.md file with YAML front matter, a concise third-person description including key triggers, detailed prerequisites, and a structured output process featuring tables, checklists, clause templates with placeholders, and jurisdiction-specific carve-outs referencing CA Labor Code 2870/2872 and other states with [VERIFY] markers as needed, all formatted per instructions without nested bullets.
+codex
+---
+name: confidentiality-invention-assignment
+description: Drafts U.S. Confidentiality and Invention Assignment Agreements (PIIA/CIIA) for employees or contractors, including DTSA immunity notice, present-tense invention assignment, prior-inventions schedule, return-of-property, and optional non-solicit/non-compete clauses tailored to state law (e.g., CA Labor Code 2870/2872). Use for onboarding, IP protection, or corporate formation. Trigger keywords: confidentiality agreement, invention assignment, PIIA, CIIA, proprietary information, trade secrets, DTSA, prior inventions, work made for hire.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Confidentiality and Invention Assignment Agreement
+
+Creates an execution-ready agreement protecting trade secrets and assigning work-related IP while complying with state and federal limits.
+
+## Prerequisites
+
+1. Company legal name, entity type, and address.
+2. Worker identity, role, status (employee or contractor), and start/effective date.
+3. Governing law and primary work location(s).
+4. Business description, core products/services, and sensitive information categories.
+5. Any existing agreements to supersede or incorporate by reference.
+6. Decision on restrictive covenants and their scope, duration, and geography.
+7. Prior inventions list for Exhibit A and any required statutory notices.
+
+## Output Structure / Process
+
+**Document Outline**
+
+| Section | Core Requirements |
+| --- | --- |
+| Title and Effective Date | Clear title (PIIA/CIIA) and effective date. |
+| Parties | Exact legal names and addresses; role labels (Company, Employee/Contractor). |
+| Recitals | Access to confidential info, IP creation expectations, legitimate business interests. |
+| Definitions | Confidential Information; Inventions; Company Business; Trade Secrets. |
+| Confidentiality Obligations | Use-only-for-company, no disclosure, reasonable care, no unauthorized copying. |
+| Exceptions | Public domain, prior possession, third-party lawful receipt, independent development. |
+| Term | Trade secrets: indefinite; other confidential info: defined period. |
+| Return/Destruction | Immediate return, delete copies, certify compliance. |
+| DTSA Immunity Notice | Required notice text. |
+| Invention Assignment | Present assignment + promise to assign; scope triggers. |
+| Prior Inventions | Exhibit A disclosure; representation if none. |
+| Disclosure and Cooperation | Prompt written disclosure; cooperation for filings; post-termination compensation. |
+| Work Made for Hire | Copyright ownership plus backup assignment. |
+| Moral Rights | Waiver where allowed. |
+| Restrictive Covenants (Optional) | Non-solicit, non-compete, tolling, blue-pencil. |
+| Consideration | Employment, continued employment, or separate consideration. |
+| General Provisions | Governing law, forum/arbitration, entire agreement, severability, notices. |
+| Acknowledgments | Review, counsel opportunity, voluntariness, reasonableness, DTSA notice. |
+| Signatures | Employee/contractor and authorized company signatory. |
+| Exhibits | Exhibit A (Prior Inventions); Exhibit B (CA 2870 text if applicable). |
+
+**State and Federal Compliance Gate**
+
+| Jurisdiction | Required Action |
+| --- | --- |
+| Federal | Insert DTSA whistleblower immunity notice for agreements entered into or updated after 2016-05-11. |
+| California | Include 2870 carve-out and provide the full text as an exhibit under 2872. |
+| Delaware | Insert statutory invention-assignment carve-out language. [VERIFY] |
+| Illinois | Insert statutory invention-assignment carve-out language. [VERIFY] |
+| Kansas | Insert statutory invention-assignment carve-out language. [VERIFY] |
+| Minnesota | Insert statutory invention-assignment carve-out language. [VERIFY] |
+| North Carolina | Insert statutory invention-assignment carve-out language. [VERIFY] |
+| Utah | Insert statutory invention-assignment carve-out language. [VERIFY] |
+| Washington | Insert statutory invention-assignment carve-out language. [VERIFY] |
+
+**Clause Templates**
+
+DTSA immunity notice:
+```text
+Employee is hereby notified that under the Defend Trade Secrets Act, an individual shall not be held criminally or civilly liable under any federal or state trade secret law for the disclosure of a trade secret that is made (i) in confidence to a federal, state, or local government official, either directly or indirectly, or to an attorney, and solely for the purpose of reporting or investigating a suspected violation of law; or (ii) in a complaint or other document filed in a lawsuit or other proceeding, if such filing is made under seal.
+```
+
+Present assignment:
+```text
+Employee hereby assigns and agrees to assign to Company all right, title, and interest worldwide in and to all Inventions that: (a) relate to Company’s business or actual or demonstrably anticipated research or development; (b) result from work performed for Company; or (c) are created using Company equipment, supplies, facilities, time, or trade secret information.
+```
+
+California 2870 carve-out:
+```text
+This Agreement does not require assignment of any invention that qualifies fully under California Labor Code Section 2870. A copy of Section 2870 is attached as Exhibit B.
+```
+
+Prior inventions schedule:
+```text
+Exhibit A — Prior Inventions
+Employee lists all inventions, original works, developments, or improvements created before employment that relate to Company’s business and are excluded from assignment. If none, Employee indicates “None.”
+```
+
+Return and certification:
+```text
+Upon termination or request, Employee shall return all Company property and Confidential Information and certify in writing that no copies are retained, including from personal devices and cloud accounts.
+```
+
+**Restrictive Covenants Decision Checklist**
+
+- [ ] Non-compete is prohibited in CA, ND, OK except narrow statutory exceptions.
+- [ ] Non-solicit duration and scope align with role and jurisdiction.
+- [ ] Consideration is adequate for post-employment restrictions.
+- [ ] Geographic scope matches actual business footprint and employee territory.
+- [ ] Blue-pencil clause included only if the jurisdiction enforces reformation.
+
+**Exhibits**
+
+- Exhibit A: Prior Inventions Disclosure.
+- Exhibit B: California Labor Code 2870 text (if CA applies).
+
+## Guidelines
+
+- Keep definitions broad enough for coverage but narrow enough for enforceability.
+- Use present-tense assignment language and include a backup “agree to assign.”
+- Include jurisdiction-specific carve-outs for employee inventions; do not overreach.
+- Avoid non-competes in prohibited states; prefer narrowly tailored non-solicit.
+- Provide post-termination cooperation compensation when required or advisable.
+- Ensure choice-of-law and forum clauses do not waive mandatory worker protections.
+- Mark any uncertain statutory citations with `[VERIFY]` before finalizing.
+tokens used
+21,135

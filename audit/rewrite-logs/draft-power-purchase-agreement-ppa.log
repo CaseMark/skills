@@ -1,0 +1,344 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7f-7eb0-77c0-8252-c4a3beb9c2f9
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "1fc552cb-928e-4767-b5dc-88615ae34c5e",
+  "slug": "draft-power-purchase-agreement-ppa",
+  "name": "Power Purchase Agreement (PPA)",
+  "summary": "Drafts a comprehensive Power Purchase Agreement (PPA) governing the sale and purchase of electrical power between generators and offtakers. Ensures legal soundness, commercial balance, and compliance with energy regulations and industry standards like NREL and EFET. Use for regulatory energy law matters involving renewable or power generation projects.",
+  "content": "# Power Purchase Agreement (PPA) Drafting Workflow\n\nYou are tasked with drafting a comprehensive Power Purchase Agreement (PPA), a critical regulatory document governing the sale and purchase of electrical power between a generator (seller) and an offtaker (buyer). This agreement must be legally sound, commercially balanced, and compliant with applicable energy regulations and industry standards.\n\n## Document Preparation and Research Strategy\n\nBegin by conducting thorough research to gather all necessary information for the agreement. Search the user's uploaded documents to identify specific project details, party information, technical specifications, and any existing agreements or correspondence that may inform the PPA structure. Look for concrete facts including company names, addresses, project capacity, location details, pricing discussions, and timeline information.\n\nSupplement document-specific information with authoritative external sources. Research current industry standards and best practices from recognized authorities including the National Renewable Energy Laboratory (NREL), World Bank PPA templates, International Emissions Trading Association (IETA), European Federation of Energy Traders (EFET), and the International Swaps and Derivatives Association (ISDA). Verify legal requirements and standard clauses through state bar association resources and energy regulatory authorities.\n\n## Core Agreement Structure and Content\n\n**Parties and Recitals**: Establish the legal foundation by precisely identifying the buyer (offtaker) and seller (generator) with complete legal names, registered addresses, jurisdiction of incorporation, and designated roles under the agreement. Draft comprehensive recitals that provide essential background including the project description, generation facility specifications, the commercial purpose of the agreement, regulatory context, and the effective date. Ensure the recitals create a clear narrative that supports the operative provisions.\n\n**Definitions and Interpretation**: Create a robust definitions section that establishes precise meanings for all technical, commercial, and legal terms used throughout the agreement. Essential definitions must include Capacity (measured in MW or kW), Energy (measured in MWh or kWh), Net Output, Delivered Energy, Contract Price, Force Majeure, Commercial Operation Date, Scheduled Maintenance, and Availability. Reference industry-standard definitions from EFET, ISDA, or relevant grid codes to ensure consistency with market practice and regulatory expectations.\n\n**Term and Conditions Precedent**: Specify the agreement duration, typically ranging from 10 to 25 years for renewable energy projects, with clear commencement and expiration dates. Detail all conditions precedent that must be satisfied before the agreement becomes effective, which may include obtaining necessary permits and licenses, achieving financial close, securing grid connection agreements, completing construction milestones, and obtaining required insurance coverage. Establish realistic deadlines for satisfying conditions precedent and consequences for failure to meet them.\n\n**Purchase and Sale Obligations**: Articulate the seller's absolute obligation to generate and deliver electrical energy to the delivery point, and the buyer's corresponding obligation to purchase all or a specified portion of the delivered energy. Address capacity obligations, minimum and maximum delivery quantities, scheduling and dispatch procedures, and curtailment rights. Ensure the obligations reflect the specific project type (baseload, intermittent renewable, dispatchable) and any regulatory requirements such as renewable energy certificate (REC) delivery or carbon attribute transfer.\n\n**Pricing, Payment, and Invoicing**: Establish a clear and comprehensive pricing mechanism that may be structured as fixed pricing (cents per kWh), indexed pricing (tied to inflation or commodity indices), time-of-delivery pricing (varying by time of day or season), or capacity payments plus energy payments. Detail the complete payment process including billing cycles (typically monthly), invoice requirements and supporting documentation, payment due dates (commonly 30 days from invoice), late payment interest calculations, and payment methods. Address tax treatment, including which party bears responsibility for various taxes and how tax changes will be handled.\n\n**Metering, Measurement, and Verification**: Specify technical requirements for metering equipment including accuracy standards (typically \u00b10.5% or better), testing and calibration schedules (often quarterly or annually), and compliance with relevant grid codes or ISO standards. Establish procedures for meter reading, data collection and transmission, dispute resolution regarding meter accuracy, and replacement of faulty equipment. Address energy loss calculations and allocation between the delivery point and the point of interconnection.\n\n**Representations, Warranties, and Covenants**: Include comprehensive representations and warranties from both parties covering corporate authority and capacity to enter the agreement, due authorization and enforceability, absence of conflicts with other agreements or court orders, compliance with applicable laws and regulations, possession of necessary permits and licenses, and financial capability to perform obligations. Add ongoing covenants requiring maintenance of permits, compliance with laws, maintenance of insurance, and provision of regular operational and financial reports.\n\n**Performance Standards and Liquidated Damages**: Establish clear performance metrics including minimum availability requirements (often 90-95% annually), capacity factor targets for renewable projects, and energy delivery guarantees. Specify liquidated damages or performance penalties for failure to meet these standards, ensuring they represent a genuine pre-estimate of loss rather than a penalty. Include cure periods and force majeure exceptions to performance obligations.\n\n**Events of Default and Remedies**: Comprehensively define events of default including payment defaults (typically after a cure period of 5-10 business days), material breach of representations or covenants, bankruptcy or insolvency proceedings, failure to maintain required insurance or security, abandonment of the facility, and cross-default to project financing agreements. Specify remedies available to the non-defaulting party including termination rights, damages calculations (cover damages, replacement power costs, or termination payments), and rights to step-in or cure defaults. Ensure remedy provisions comply with applicable law regarding penalty clauses and liquidated damages.\n\n**Force Majeure**: Define force majeure events that excuse performance, typically including natural disasters, acts of God, war, terrorism, strikes, changes in law, and grid or transmission system failures beyond the party's control. Specify that force majeure events must be unforeseeable, beyond reasonable control, and not caused by the claiming party's negligence. Establish notice requirements, mitigation obligations, and the effect on payment and delivery obligations during force majeure periods. Address extended force majeure scenarios that may give rise to termination rights if the event persists beyond a specified period (commonly 6-12 months).\n\n**Insurance and Security**: Detail insurance requirements for both parties including commercial general liability, property insurance for the facility, business interruption insurance, and professional indemnity coverage. Specify minimum coverage amounts, required endorsements, and proof of insurance delivery requirements. Address security requirements such as letters of credit, parent guarantees, or cash deposits to secure performance obligations, particularly during construction or for creditworthy concerns.\n\n**Termination and Consequences**: Establish termination rights beyond default scenarios, including termination for convenience (if applicable), regulatory change making performance illegal or commercially impracticable, and mutual agreement. Specify notice periods for termination (typically 30-90 days depending on the termination type) and calculate termination payments that may include unpaid amounts, breakage costs, and either positive or negative market value adjustments. Detail post-termination obligations including final meter readings, final invoicing, return of security, and survival of certain provisions such as confidentiality and indemnification.\n\n**Dispute Resolution and Governing Law**: Designate the governing law, typically the law of the jurisdiction where the facility is located or where the buyer is headquartered. Establish a multi-tiered dispute resolution process beginning with good faith negotiations between senior executives, followed by mediation, and ultimately binding arbitration under recognized rules (ICC, AAA, or LCIA) or litigation in specified courts. Address interim relief, expert determination for technical disputes, and confidentiality of dispute proceedings.\n\n**General Provisions**: Include standard but essential miscellaneous provisions covering assignment rights (typically restricted without consent), amendment procedures (requiring written agreement), notice provisions with specified addresses and methods, entire agreement and merger clauses, severability to preserve the agreement if provisions are found invalid, waiver provisions, counterpart execution, and survival of obligations beyond termination. Address confidentiality obligations, public announcements, and regulatory reporting requirements.\n\n## Document Assembly and Quality Control\n\nOnce all necessary information has been gathered and verified through document research and authoritative external sources, create a comprehensive, professionally formatted Power Purchase Agreement document. The document should be structured with clear hierarchical numbering, cross-references between related provisions, and defined terms consistently capitalized throughout. Include a table of contents, signature blocks for authorized representatives, and schedules or exhibits for technical specifications, pricing tables, form notices, and other detailed information that would otherwise interrupt the flow of the main agreement.\n\nEnsure the final document reflects current market practice, balances the interests of both parties fairly, and complies with applicable regulatory requirements in the relevant jurisdiction. The agreement should be sufficiently detailed to minimize future disputes while remaining clear and accessible to both legal and commercial stakeholders.",
+  "parent_skill_id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "energy"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "energy_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.935829",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: case-dev-docs ready
+2026-02-23T21:54:54.031082Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing skill metadata and description**
+
+I'm selecting the slug "power-purchase-agreement" for clarity and crafting a concise third-person description with key trigger words related to PPAs and energy law, along with appropriate metadata and a clear one-line purpose statement.
+thinking
+**Outlining PPA prerequisites and structure**
+
+I'm organizing a numbered prerequisites list covering key contract elements and planning tables for sections like definitions, pricing, and conditions precedent, plus checklists and flat lists for schedules and guidelines to keep the SKILL.md clear, concise, and U.S.-focused with appropriate placeholders and [VERIFY] flags for regulatory references.
+codex
+---
+name: power-purchase-agreement
+description: Drafts U.S. power purchase agreements (PPAs) between generators and offtakers with complete terms for delivery, pricing, metering, performance, credit support, RECs/carbon attributes, defaults, and remedies. Use when drafting a PPA, renewable energy offtake, utility power sale, or long-term energy supply agreement; triggers: "PPA", "power purchase agreement", "offtaker", "generator", "REC", "net output", "interconnection", "capacity", "energy payment".
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Power Purchase Agreement (PPA)
+
+Drafts a commercially balanced, regulation-aware PPA for sale and purchase of electric energy.
+
+## Prerequisites
+
+1. **Parties and authority** — legal names, jurisdictions, signatory authority, affiliates/guarantors.
+2. **Project specifics** — facility type, location, capacity (MW), technology, COD targets, interconnection status.
+3. **Delivery framework** — delivery point, ISO/RTO or utility service territory, scheduling/dispatch model.
+4. **Commercial terms** — term length, pricing model, escalators, payment cycle, taxes.
+5. **Attributes** — RECs/carbon attributes ownership, transfer mechanics, certification requirements.
+6. **Risk allocation** — curtailment, force majeure, change in law, credit support, insurance.
+7. **Operational data** — metering standards, testing cadence, data interfaces.
+8. **Finance constraints** — lender requirements, step-in rights, consent rights.
+
+## Output Structure / Process
+
+### 1) Agreement Outline (use as table of contents)
+
+| Section | Required Content |
+| --- | --- |
+| Parties/Recitals | Project purpose, facility description, regulatory context, effective date. |
+| Definitions/Interpretation | Technical, pricing, performance, metering, default terms. |
+| Term/Conditions Precedent | Start date, COD, satisfaction deadlines, consequences. |
+| Sale/Purchase Obligations | Quantity, delivery point, scheduling, curtailment. |
+| Pricing/Payment | Price type, invoicing, late fees, taxes. |
+| Metering/Measurement | Meter specs, testing, data disputes. |
+| RECs/Attributes | Ownership, delivery, retirement, replacement. |
+| Performance/LDs | Availability, output guarantees, LDs, cure. |
+| Representations/Covenants | Authority, compliance, permits, reporting. |
+| Defaults/Remedies | Cure periods, termination, damages. |
+| Force Majeure | Events, notice, mitigation, duration. |
+| Insurance/Security | Coverage, limits, proof, credit support. |
+| Disputes/Governing Law | Escalation, arbitration/litigation, venue. |
+| Miscellaneous | Assignment, confidentiality, notices, entire agreement. |
+| Exhibits/Schedules | Technical, pricing, notices, credit forms. |
+
+### 2) Definitions Checklist (include as table)
+
+| Term | Required Definition Points |
+| --- | --- |
+| Contract Capacity | MW/kW, net of parasitic load. |
+| Energy/Delivered Energy | kWh/MWh at delivery point. |
+| Net Output | Adjustments for losses/auxiliary load. |
+| Commercial Operation Date | Objective tests and certification. |
+| Force Majeure | Scope and exclusions. |
+| Scheduled Maintenance | Notice windows, limits. |
+| Availability | Calculation method and exclusions. |
+| REC/Environmental Attributes | Registry, certification, transfer. |
+
+### 3) Conditions Precedent (checklist with deadlines)
+
+- [ ] Permits/licenses obtained and in force.
+- [ ] Interconnection agreement executed and effective.
+- [ ] Construction milestones met; COD evidence.
+- [ ] Insurance in place with required endorsements.
+- [ ] Credit support posted and accepted.
+- [ ] Regulatory approvals obtained (if required).
+
+### 4) Pricing Model Selector (choose and fully specify)
+
+| Model | Key Inputs |
+| --- | --- |
+| Fixed energy price | `$/MWh`, escalator, pricing start date. |
+| Indexed price | Index, reset frequency, floor/ceiling. |
+| Time-of-delivery | Peak/off-peak bands, seasonal tables. |
+| Capacity + energy | Capacity payment, availability test. |
+| Pay-as-produced | Output-based with curtailment rules. |
+
+### 5) Metering and Data
+
+- Meter accuracy requirement (e.g., ±0.5%).
+- Testing/calibration frequency and standards.
+- Data delivery method and timing.
+- Meter dispute process and true-up timeline.
+- Loss factor allocation between POI and delivery point.
+
+### 6) Performance and Liquidated Damages
+
+| Metric | Standard | Measurement | Remedy |
+| --- | --- | --- | --- |
+| Availability | `%` annual | Defined formula | LDs per shortfall |
+| Energy guarantee | MWh/period | Net Delivered | LDs or make-whole |
+| COD delay | Days late | Milestone dates | LDs per day |
+
+### 7) Default/Remedy Framework
+
+- Cure periods by default type (payment, non-monetary, insolvency).
+- Termination rights and effective date mechanics.
+- Damages framework: cover costs, replacement power, termination payment.
+- Step-in or cure rights for lenders (if applicable).
+
+### 8) Drafting Skeleton (core clause headers)
+
+```text
+1. Parties; Recitals
+2. Definitions and Interpretation
+3. Term; Conditions Precedent
+4. Sale and Purchase; Delivery; Scheduling
+5. Pricing; Invoicing; Taxes
+6. Metering; Measurement; Data
+7. Environmental Attributes
+8. Representations and Warranties
+9. Covenants; Reporting; Compliance
+10. Performance Standards; Liquidated Damages
+11. Events of Default; Remedies
+12. Force Majeure
+13. Insurance; Credit Support
+14. Termination; Consequences
+15. Dispute Resolution; Governing Law
+16. Miscellaneous
+Exhibits A–E
+```
+
+### 9) Exhibits/Schedules (minimum set)
+
+- Exhibit A: Facility description; POI; single-line diagram.
+- Exhibit B: Pricing tables; escalation; example invoices.
+- Exhibit C: Metering specs; testing protocol; data format.
+- Exhibit D: Form notices; designated recipients.
+- Exhibit E: Credit support forms (LOC/guarantee).
+
+## Guidelines
+
+- Confirm jurisdiction-specific regulatory approvals, ISO/RTO tariffs, and interconnection rules before finalizing [VERIFY].
+- Align REC/carbon attribute transfer language with registry requirements and buyer compliance targets.
+- Ensure LDs are a reasonable pre-estimate of loss, not a penalty.
+- Keep curtailment rights symmetrical or clearly allocated to avoid implied take-or-pay conflicts.
+- Tie COD, availability, and performance tests to objective, auditable criteria.
+- Avoid contradictory delivery point definitions across main body and exhibits.
+- Ensure confidentiality and public announcement clauses match financing and regulatory disclosure obligations.
+- Include lender consent/step-in rights only if finance structure requires it.
+tokens used
+4,883

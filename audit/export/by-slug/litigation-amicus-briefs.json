@@ -1,0 +1,42 @@
+{
+  "id": "76df7b55-7501-42c9-b84a-38c40344a8ba",
+  "slug": "litigation-amicus-briefs",
+  "name": "Amicus Briefs",
+  "summary": "Drafts and analyzes amicus curiae briefs submitted by non-parties to provide courts with additional perspectives, expertise, or arguments in appellate matters. Ensures briefs complement litigants' positions while adhering to court rules, Bluebook citations, and jurisdictional requirements. Use when representing organizations, experts, or interest groups influencing case outcomes without direct party involvement.",
+  "content": "# Amicus Brief Drafting and Analysis\n\nYou are tasked with drafting or analyzing an amicus curiae brief\u2014a \"friend of the court\" submission filed by non-litigants who seek to provide the court with additional perspectives, expertise, or arguments relevant to pending litigation. Amicus briefs serve a unique function in the judicial process by introducing viewpoints, data, or legal analysis that may not be fully developed by the parties themselves, often representing broader public interests, industry concerns, or specialized knowledge.\n\nWhen drafting an amicus brief, begin by thoroughly understanding the underlying case, including the parties' positions, the legal questions presented, and the procedural posture. Search through any case documents, pleadings, or court filings that have been provided to extract key facts, legal issues, and arguments already raised by the litigants. This foundational research ensures your brief complements rather than duplicates the parties' submissions and identifies gaps where additional perspective would be most valuable.\n\nYour brief should open with a concise summary that crystallizes your client's or organization's interest in the case and the core position being advanced. This summary must be accessible to judges who may review dozens of amicus submissions, clearly articulating why this particular perspective matters and what unique contribution it makes to the court's understanding. The introduction should establish your amicus's standing or interest\u2014whether as an industry association, advocacy organization, academic institution, government entity, or group of concerned citizens\u2014and explain how the court's decision may impact constituencies beyond the immediate parties.\n\nThe argument section must be meticulously researched and supported by authoritative legal sources. Conduct comprehensive legal research to identify relevant case law, statutes, regulations, and secondary sources that support your position. When citing legal authorities, ensure all citations conform to Bluebook standards with proper formatting and verification of source accuracy. Your analysis should demonstrate how existing legal principles apply to the questions before the court, potentially highlighting consequences, policy implications, or practical considerations that deserve judicial attention. If your amicus represents specialized expertise\u2014such as scientific knowledge, industry practice, or historical context\u2014integrate this substantive information seamlessly with legal argument, providing proper attribution and supporting documentation.\n\nStructure the brief according to the court's rules and conventions, typically including a table of contents, table of authorities, statement of interest, summary of argument, detailed argument with headings, and conclusion. Pay careful attention to jurisdictional requirements regarding page limits, filing deadlines, consent requirements, and formatting specifications. Many courts require consent from the parties or leave of court before accepting amicus briefs, so verify procedural prerequisites before finalizing the document.\n\nWhen analyzing an existing amicus brief, evaluate its effectiveness by examining whether it provides genuinely new information or perspectives distinct from the parties' briefs, assesses the quality and persuasiveness of its legal reasoning and citation support, considers the credibility and relevance of the amicus's stated interest, and determines whether the brief's structure and writing facilitate judicial comprehension. Extract and summarize the brief's core arguments, supporting authorities, and policy contentions in a format that allows quick reference and comparison with other submissions in the case.\n\nThroughout this process, maintain the highest standards of legal writing: precision in language, clarity in organization, and rigor in analysis. An effective amicus brief respects the court's time by being focused and well-crafted while providing genuinely useful assistance to judicial decision-making. The final product should reflect both legal sophistication and strategic awareness of how this submission fits within the broader litigation landscape and advances the interests it represents.",
+  "parent_skill_id": "6656102b-326d-43b3-a8eb-6cbe182c81c6",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "appeal"
+    ],
+    "document_types": [
+      "brief"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "appeals"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

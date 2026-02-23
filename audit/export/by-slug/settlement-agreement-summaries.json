@@ -1,0 +1,42 @@
+{
+  "id": "83b84600-4b44-4b73-92f6-ac829ec711d4",
+  "slug": "settlement-agreement-summaries",
+  "name": "Settlement Agreement Summaries",
+  "summary": "Generates comprehensive, chronological summaries of settlement negotiations and agreements from documents like correspondence, drafts, and term sheets. Extracts key terms including settlement amounts, releases, confidentiality, and concessions, while noting legal considerations like tax implications and enforceability. Use it in commercial litigation to document negotiation progress and final outcomes for attorneys and stakeholders.",
+  "content": "# Settlement Agreement Summaries\n\nYou are tasked with creating a comprehensive summary of settlement negotiations and agreements. This workflow is essential for legal teams managing dispute resolution, tracking negotiation progress, and documenting final settlement terms. Your summary will serve as a critical reference document for attorneys, clients, and stakeholders who need to understand the key terms, concessions, and outcomes of settlement discussions without reviewing lengthy correspondence and draft agreements.\n\nBegin by thoroughly reviewing all settlement-related documents provided, including correspondence between parties, draft settlement agreements, term sheets, negotiation notes, mediation summaries, and any executed final agreements. Search through the uploaded documents to identify and extract concrete information such as settlement amounts, payment terms, release provisions, confidentiality clauses, party names, key dates, and specific obligations undertaken by each party.\n\nYour summary should be organized chronologically to show the evolution of negotiations, starting with initial demands and offers, progressing through counteroffers and key negotiation milestones, and concluding with final agreed terms. For each stage of negotiation, identify what each party sought, what concessions were made, and what factors influenced movement toward agreement. Pay particular attention to disputed issues that required significant negotiation, creative solutions that broke impasses, and any conditions precedent to the settlement becoming effective.\n\nThe final settlement terms section must comprehensively detail all material provisions including monetary consideration with exact amounts and payment schedules, mutual releases and their scope, confidentiality and non-disclosure obligations, non-admission of liability clauses, dismissal procedures for any pending litigation, indemnification provisions, and any ongoing obligations or future performance requirements. When multiple drafts exist, clearly indicate which terms changed between versions and highlight any provisions that remained contentious until final execution.\n\nInclude relevant legal considerations such as tax implications of settlement payments, enforceability concerns, compliance with applicable rules of civil procedure or court approval requirements, and any regulatory considerations specific to the subject matter. If the settlement involves structured payments, class action administration, or complex release provisions, provide additional context about how these mechanisms function and what risks or benefits they present.\n\nFor matters involving insurance coverage, identify which portions of the settlement are covered by insurance versus paid directly by parties, any reservation of rights, and how the settlement affects future coverage. When confidentiality provisions exist, note what information can and cannot be disclosed, and to whom disclosure is permitted.\n\nYour summary should be written in clear, professional language accessible to both legal professionals and clients. Use precise legal terminology where appropriate but explain complex concepts in plain language. Organize the document with clear headings and subheadings that allow readers to quickly locate specific information. The tone should be objective and factual, presenting the settlement terms and negotiation history without advocacy or editorial commentary.\n\nConclude with a brief assessment of any post-settlement obligations requiring monitoring, upcoming deadlines for performance or payment, and any conditions that could affect the settlement's finality. If certain terms remain subject to future agreement or court approval, clearly identify these contingencies and their potential impact on the settlement's effectiveness.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement",
+      "negotiation"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

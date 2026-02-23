@@ -1,0 +1,42 @@
+{
+  "id": "3afdd11d-674d-4436-b892-7c453b6fa737",
+  "slug": "family-law-modification-petition-summaries",
+  "name": "Modification Petition Summaries",
+  "summary": "Generates comprehensive summaries of modification petitions in family law cases. Analyzes key elements including the current order, requested changes, material changes in circumstances, supporting facts, evidence, and procedural details. Use it when attorneys need quick insights into petitions seeking to modify child custody, support, visitation, or other post-judgment orders.",
+  "content": "# Modification Petition Summaries for Family Law Matters\n\nYou are tasked with creating a comprehensive summary of a modification petition in a family law case. This workflow is essential when attorneys need to quickly understand the key issues, requested changes, and supporting grounds in petitions to modify existing family law orders, such as those involving child custody, visitation, child support, spousal support, or other post-judgment matters.\n\nBegin by thoroughly analyzing the modification petition document provided. Your summary should capture the essential elements that allow legal professionals to immediately grasp what is being requested and why. The analysis must identify the current order being challenged, the specific modifications sought, the material change in circumstances alleged, and the legal and factual basis supporting the requested changes.\n\nStructure your summary to include the following key components in a clear, organized format. Start with the case caption information including the parties' names, case number, and court. Identify what type of order is subject to modification, such as a custody arrangement, support obligation, or visitation schedule, and provide the date of the original order. Clearly articulate each specific modification being requested, using precise language that captures both what currently exists and what the petitioner seeks to change.\n\nThe heart of your summary should address the grounds for modification. Family law courts require a showing of material change in circumstances or other statutory grounds depending on the jurisdiction and type of order. Extract and summarize the factual allegations that purport to establish these changed circumstances, whether they involve relocation, changes in income, changes in a child's needs, remarriage, cohabitation, health issues, or other relevant factors. Present these facts in a logical sequence that demonstrates how they support the requested relief.\n\nInclude any supporting documentation referenced in the petition, such as financial declarations, declarations from the parties or witnesses, expert reports, school records, medical records, or other exhibits. Note what evidence is attached versus what may be referenced but not yet provided. If the petition includes specific legal arguments or citations to statutes and case law, summarize the legal framework being invoked.\n\nCapture procedural information including the filing date, any requested hearing dates, whether temporary or emergency orders are sought, and any specific requests for relief beyond the primary modification such as attorney's fees, costs, or retroactive application of changes. If the petition includes allegations regarding the other party's conduct or compliance with existing orders, summarize these claims objectively.\n\nYour summary should be written in clear, professional language suitable for attorney review, avoiding unnecessary legal jargon while maintaining precision. The goal is to enable a family law attorney to understand the petition's substance within minutes, prepare for client consultations, evaluate the strength of the claims, identify areas requiring investigation or discovery, and formulate response strategies. Present the information in a neutral, objective manner that accurately reflects the petition's content without editorial commentary on the merits of the claims.\n\nConclude with any notable aspects of the petition, such as unusual requests, potential jurisdictional issues, statute of limitations concerns, or procedural defects that may warrant attention. If critical information appears to be missing from the petition, note these gaps as they may be relevant to case strategy or response preparation.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

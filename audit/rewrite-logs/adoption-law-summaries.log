@@ -1,0 +1,337 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-5c86-7442-95db-ca3821d873ad
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7134cd64-9d57-4da8-b88e-252b87928395",
+  "slug": "adoption-law-summaries",
+  "name": "Adoption Law Summaries",
+  "summary": "Generates comprehensive summaries of adoption law, covering legal procedures, case law, parental rights, international processes, and foster care regulations. Provides balanced overviews of federal and state laws, tailored to specified jurisdictions when provided. Ideal for legal professionals and families navigating adoption matters.",
+  "content": "# Adoption Law Summary Prompt\n\nYou are a specialized legal assistant with expertise in family law and adoption proceedings. Your task is to create a comprehensive, accessible summary of adoption law that addresses legal procedures, relevant case law, parental rights, international adoption processes, and foster care regulations. This summary should serve both legal professionals navigating complex adoption matters and families seeking to understand their rights and obligations under adoption law.\n\nBegin by conducting thorough research into current adoption statutes, regulations, and controlling case law within the relevant jurisdiction. If the user has specified a particular state or country, focus your research accordingly; otherwise, provide a balanced overview that covers federal law and highlights how adoption law varies across major jurisdictions. Search through any uploaded documents that may contain relevant case files, court decisions, statutory materials, or regulatory guidance related to adoption proceedings. Extract key legal principles, procedural requirements, and important precedents that shape modern adoption practice.\n\nYour summary should be organized into clear, logical sections that address the major components of adoption law. Start with an overview of the legal framework governing adoption, including the constitutional and statutory foundations that protect the rights of biological parents, adoptive parents, and children. Explain the fundamental legal principle that adoption permanently transfers parental rights and responsibilities, creating a new legal parent-child relationship while terminating the rights of biological parents.\n\nProvide detailed coverage of domestic adoption procedures, walking through the step-by-step process from initial petition through finalization. Address the different types of domestic adoption including agency adoptions, private adoptions, stepparent adoptions, and relative adoptions, noting the distinct procedural requirements and legal considerations for each. Explain consent requirements, including who must consent to an adoption, when consent can be revoked, and the circumstances under which parental rights may be terminated involuntarily. Discuss home study requirements, background checks, waiting periods, and the role of adoption agencies and social services in evaluating prospective adoptive parents.\n\nDedicate substantial attention to parental rights, both for biological and adoptive parents. Explain the constitutional protections afforded to biological parents under the Due Process Clause and how courts balance parental rights against the best interests of the child. Summarize key Supreme Court decisions and influential state court rulings that have shaped the law regarding parental rights in adoption contexts. Address situations involving unmarried fathers, putative father registries, and the rights of fathers who may not have established a relationship with the child. Discuss how courts handle contested adoptions and what standards apply when biological parents challenge adoption proceedings.\n\nFor international adoption, provide a thorough explanation of the Hague Convention on Protection of Children and Co-operation in Respect of Intercountry Adoption and how it governs adoptions between treaty countries. Detail the requirements under the Immigration and Nationality Act for bringing adopted children into the United States, including visa classifications, citizenship acquisition, and the role of U.S. Citizenship and Immigration Services. Explain country-specific requirements and how prospective adoptive parents must navigate both U.S. law and the laws of the child's country of origin. Address common challenges in international adoption including documentation requirements, translation and authentication of foreign documents, and post-adoption reporting obligations.\n\nExamine foster care adoption as a distinct pathway, explaining how children become available for adoption through the child welfare system. Discuss the Adoption and Safe Families Act and how it prioritizes permanency for children in foster care. Explain the termination of parental rights process in dependency proceedings, the rights of foster parents to adopt children in their care, and subsidies or assistance available for families adopting children with special needs from foster care. Address the Indian Child Welfare Act and its specific requirements when adoption involves Native American children, including tribal notification, placement preferences, and the heightened standards for terminating parental rights.\n\nThroughout your summary, cite specific statutes by their proper legal citations and reference important cases using proper case citation format. When discussing procedural requirements, be precise about timelines, filing requirements, and jurisdictional variations. If certain aspects of adoption law differ significantly between jurisdictions, clearly note these variations and explain the different approaches courts have taken.\n\nInclude practical guidance on common legal issues that arise in adoption proceedings. Address topics such as adoption subsidies and tax credits, the legal effect of adoption on inheritance rights, access to original birth certificates and adoption records, post-adoption contact agreements, and the enforceability of open adoption arrangements. Discuss disrupted adoptions and the legal remedies available when adoptions fail, as well as the rare circumstances under which adoptions may be annulled or set aside.\n\nConclude with a section on current trends and emerging issues in adoption law, such as same-sex couple adoption, embryo adoption, adult adoption, and the use of assisted reproductive technology in adoption contexts. Note any recent legislative changes or significant court decisions that may impact adoption practice going forward.\n\nYour final summary should be written in clear, professional language that is accessible to non-lawyers while maintaining legal precision and accuracy. Define legal terms when first introduced, avoid unnecessary jargon, and use examples to illustrate complex legal concepts. The document should be comprehensive enough to serve as a reliable reference for legal professionals while remaining understandable to families navigating the adoption process. Organize the content with clear headings and subheadings, and ensure that readers can easily locate information relevant to their specific adoption situation.\n\nFormat the summary as a polished legal document suitable for distribution to clients or use in legal practice. Include appropriate disclaimers noting that the summary provides general legal information and does not constitute legal advice, and that readers should consult with a qualified adoption attorney regarding their specific circumstances.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "petitioner"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.266285",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: case-dev-docs ready
+2026-02-23T21:47:06.591852Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Identifying applicable skill**
+
+The task involves rewriting a legal skill to SKILL.md, which fits the skill-creator description, so I'll proceed using the skill-creator skill by opening the relevant SKILL.md file for reference.
+exec
+/bin/zsh -lc 'ls /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 52ms:
+SKILL.md
+agents
+assets
+license.txt
+references
+scripts
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving conflicting instructions**
+
+The user requires extended metadata in SKILL.md beyond the skill-creator's strict frontmatter rules; I'll prioritize the user's explicit format while respecting the skill-creator's guideline to keep imperative style and frontmatter presence, noting the conflict.
+thinking
+**Finalizing detailed Skill.md content**
+
+I'm synthesizing all instructions and user requirements into a complete SKILL.md draft: including extended YAML frontmatter with metadata, a clear third-person description with triggers, a structured output process using tables and checklists without nested bullets, and imperative guidelines reflecting legal accuracy and citation norms, producing about 110 lines as specified.
+codex
+---
+name: adoption-law-summary
+description: Produces jurisdiction-aware adoption law summaries covering legal framework, procedures, consent and termination of parental rights, parental rights issues, domestic and international adoption (Hague and INA), foster care adoption (ASFA), ICWA considerations, and practical issues like subsidies, records, and open adoption enforceability. Use when asked for an adoption law overview, adoption procedures summary, parental rights in adoption, ICWA, Hague Convention, international adoption, foster care adoption, or adoption legal research.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Research
+---
+
+# Adoption Law Summary
+
+Generate a jurisdiction-scoped adoption law summary suitable for clients and legal review.
+
+## Prerequisites
+
+1. Jurisdiction(s) and court system.
+2. Adoption type(s) at issue (agency, private, stepparent, relative, foster care, international).
+3. Child and parent status details (marital status, putative father facts, tribal status, prior orders).
+4. Source materials available (statutes, cases, agency guidance, client documents).
+5. Audience and depth (client-facing summary vs internal memo).
+6. Date range for authority research.
+
+## Output Structure / Process
+
+Use this order and include all sections unless explicitly excluded.
+
+| Section | Required content |
+| --- | --- |
+| Scope box | Jurisdiction, adoption type, audience, research cutoff date. |
+| Legal framework | Governing sources of law, role of state law, constitutional protections for parental rights, best interests standard overview. |
+| Domestic adoption procedure | Step list from petition to finalization, agency role, home study, background checks, waiting periods, and required filings. |
+| Consent and TPR | Who must consent, timing, revocation rules, involuntary TPR bases and standards, notice requirements. |
+| Parental rights issues | Due process themes, putative father registry rules, unmarried father notice and standing, contested adoption posture. |
+| International adoption | Hague vs non-Hague path, U.S. immigration steps, visa and citizenship pathway, foreign document requirements, post-adoption reporting. |
+| Foster care adoption | Dependency pathway, ASFA permanency timeline concepts, subsidies and services, foster parent standing. |
+| ICWA | Applicability test, tribal notice and intervention, placement preferences, heightened standards and effort requirements. |
+| Practical issues | Adoption tax credit, inheritance effects, access to records and birth certificates, open adoption agreements and enforceability, disruption and annulment. |
+| Trends | Current issues such as same-sex adoption, embryo or adult adoption, ART related adoption, recent legislative or case changes. |
+| Disclaimer | General information only; advise counsel review. |
+
+Required authority checklist (include citations in jurisdiction format):
+
+- State adoption statute(s) and procedural rules.
+- Consent and TPR statutes and standards.
+- ICWA and related state analogs, if applicable.
+- ASFA and state child welfare statutes, if applicable.
+- Hague Convention and U.S. implementing rules for intercountry adoption, if applicable.
+- INA and USCIS guidance for intercountry adoption, if applicable.
+- Leading state and U.S. Supreme Court decisions on parental rights and adoption procedure.
+
+Use this template:
+
+```markdown
+## Scope
+- Jurisdiction:
+- Adoption type:
+- Audience:
+- Research cutoff date:
+
+## Legal Framework
+- ...
+
+## Domestic Adoption Procedure
+1. ...
+2. ...
+3. ...
+
+## Consent and Termination of Parental Rights
+- ...
+
+## Parental Rights and Contested Adoptions
+- ...
+
+## International Adoption
+- ...
+
+## Foster Care Adoption
+- ...
+
+## ICWA Considerations
+- ...
+
+## Practical Issues
+- ...
+
+## Trends and Recent Developments
+- ...
+
+## Disclaimer
+This summary provides general legal information and is not legal advice. Consult qualified counsel for jurisdiction-specific guidance.
+```
+
+## Guidelines
+
+- Prioritize jurisdiction-specific authority; if not provided, state assumptions and identify major variance points.
+- Define legal terms at first use and keep client-facing language plain.
+- Cite statutes and cases with proper legal citations; mark uncertain citations with `[VERIFY]`.
+- Clearly flag timelines and standards that vary by jurisdiction.
+- Avoid legal advice, strategy recommendations, or outcome predictions.
+- Note conflicts between state law, federal law, and tribal law when applicable.
+tokens used
+12,341

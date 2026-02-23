@@ -1,0 +1,302 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-c020-7e33-a205-eceee88c5a1d
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e52897be-56b6-4702-9e88-7613a0909815",
+  "slug": "corporate-mergers-and-acquisitions-letter-of-intent-loi",
+  "name": "Letter of Intent LOI",
+  "summary": "Drafts a professional Letter of Intent (LOI) for corporate transactions, particularly mergers and acquisitions. It outlines key terms, transaction structure, conditions precedent, and balances binding and non-binding provisions based on provided context or user input. Use this skill to create preliminary documents formalizing parties' intentions before definitive agreements.",
+  "content": "# Enhanced Letter of Intent (LOI) Drafting Workflow\n\nYou are drafting a corporate Letter of Intent (LOI), a preliminary document that outlines the key terms and understanding between parties contemplating a business transaction. Your goal is to create a professional, comprehensive LOI that clearly communicates the parties' intentions while appropriately balancing binding and non-binding provisions.\n\n## Understanding the Transaction Context\n\nBegin by thoroughly reviewing any documents the user has provided related to this transaction. Extract critical information including the full legal names of all parties involved, the nature of the proposed transaction (acquisition, merger, partnership, real estate purchase, etc.), key financial terms, proposed timelines, and any specific conditions or contingencies that have been discussed. Pay particular attention to any prior correspondence, term sheets, or meeting notes that reveal the parties' intentions and negotiated points.\n\nIf the user's documents don't contain sufficient detail, engage in a focused dialogue to gather essential information: What type of transaction is contemplated? Who are the parties and what are their roles? What are the primary economic terms including purchase price or investment amount? What is the proposed timeline for due diligence and closing? Are there any critical contingencies such as financing, regulatory approval, or third-party consents? Understanding these fundamentals will ensure the LOI accurately reflects the deal structure.\n\n## Structuring the Letter of Intent\n\nDraft the LOI with a professional business letter format that includes a clear header with the current date, the recipient's name and address, and a descriptive subject line such as \"Letter of Intent \u2013 Proposed [Type of Transaction].\" The opening paragraph should immediately identify all parties by their full legal names and briefly state the purpose of the letter in clear, direct language that leaves no ambiguity about what transaction is being contemplated.\n\nThe transaction overview section should provide a concise but complete description of the proposed deal. Describe what is being acquired, invested in, or partnered on, including any relevant assets, business units, or equity interests. Frame this description in business terms that both legal and non-legal readers can understand, while maintaining the precision necessary for a legal document. Reference any attachments or exhibits that provide additional detail about the transaction scope.\n\n## Articulating Key Terms and Conditions\n\nThe heart of the LOI lies in its enumeration of principal terms. Present these terms in a clear, organized manner that addresses purchase price or investment amount, payment structure and timing, proposed closing date with any flexibility or conditions, allocation of transaction costs and expenses, key representations and warranties expected in definitive agreements, material conditions precedent to closing, and any post-closing obligations such as earn-outs or employment agreements. Each term should be specific enough to demonstrate serious intent while acknowledging that definitive agreements will contain more detailed provisions.\n\nFor each major term, consider whether current market practice or legal standards should inform the language. While you should draft original content tailored to this specific transaction, understanding how similar provisions are typically structured in comparable deals will ensure the LOI meets professional standards and reduces the likelihood of misunderstanding.\n\n## Addressing Binding and Non-Binding Provisions\n\nInclude a clear statement regarding the binding nature of the LOI. The standard approach is to specify that the LOI itself is non-binding and does not create enforceable obligations to complete the transaction, except for certain specific provisions that the parties intend to be legally binding. Typically binding provisions include confidentiality obligations, exclusivity or no-shop periods, responsibility for costs and expenses, and governing law and dispute resolution.\n\nDraft a confidentiality provision that obligates the parties to maintain the confidential nature of the transaction discussions and any proprietary information exchanged during due diligence. Specify the scope of confidential information, permitted uses and disclosures, the duration of the confidentiality obligation, and the return or destruction of confidential materials if the transaction doesn't proceed. If the parties have already executed a separate non-disclosure agreement, reference it and clarify how it relates to this LOI.\n\nIf the parties have negotiated an exclusivity period, clearly define its scope and duration. Specify that during the exclusivity period (typically 30 to 90 days), the seller or target company will not solicit, encourage, or engage in discussions with other potential buyers or investors. Include any exceptions to exclusivity and the consequences of breach, noting that exclusivity provisions are typically among the binding portions of an LOI.\n\n## Finalizing Governing Provisions and Execution\n\nSpecify the governing law that will apply to the LOI and any disputes arising from it, typically the law of the state where the target business is located or where the transaction will primarily occur. Include a statement about the parties' intention to negotiate definitive agreements in good faith, with a target date for execution of those agreements. Address what happens if the parties cannot reach agreement on definitive documents, making clear that neither party will have liability to the other except for breach of the binding provisions.\n\nConclude with a professional signature block that provides space for authorized representatives of each party to sign and date the LOI. Include typed names and titles beneath each signature line to clearly identify the signatories. If the LOI will be executed in counterparts or via electronic signature, include appropriate language authorizing those execution methods.\n\n## Document Generation and Quality Control\n\nOnce you have gathered all necessary information from the user's documents and any supplemental questions, synthesize this information into a complete, professionally formatted Letter of Intent. The final document should read as a cohesive business letter that clearly communicates the parties' preliminary understanding while appropriately protecting their interests through binding confidentiality and exclusivity provisions. Ensure consistent terminology throughout, proper legal formatting, and a tone that is professional yet accessible. The LOI should position the parties to move forward efficiently toward definitive agreements while preserving their flexibility to negotiate final terms.",
+  "parent_skill_id": "dff94cd3-1513-4427-8bbe-6d4721e158d9",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "mergers_and_acquisitions"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:40:58.107509Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:40:58.343868Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:40:59.567943Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:41:00.418708Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e2827c18fa5e-SJC)
+2026-02-23T21:41:01.361315Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e288fea42516-SJC)
+2026-02-23T21:41:02.782301Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e2916e9eddff-SJC)
+codex
+---
+name: letter-of-intent-loi
+description: Drafts U.S. corporate transaction Letters of Intent (LOI) for mergers, acquisitions, investments, and strategic alliances. Use to convert deal terms into a litigation-ready preliminary document, define deal structure and key economics, and separate non-binding intent from enforceable obligations. Trigger terms: LOI, letter of intent, M&A LOI, merger term sheet, no-shop period, exclusivity, confidentiality.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Letter of Intent (LOI)
+
+Drafts and outputs a transaction LOI that advances execution while preserving negotiating flexibility.
+
+## Prerequisites
+
+1. Verified party identities, legal entity forms, and governing jurisdictions.
+2. Transaction type and structure (asset sale, stock sale, merger, investment, JV, option).
+3. Agreed economics: purchase/investment amount, payment schedule, earn-outs, escrows, caps.
+4. Commercial milestones: signing target, exclusivity window, due diligence period, closing date.
+5. Conditions precedent list and responsibility allocation (regulatory approvals, financing, consents).
+6. Desired binding terms and non-binding defaults (confidentiality, no-shop, expenses, governing law).
+7. Known constraints: antitrust, sector regulations, lender or board approvals, approvals committees.
+8. Preferred execution method (wet signature vs electronic, counterparts).
+
+## Output Structure / Process
+
+Use this sequence and produce an audit-ready LOI in business-letter format.
+
+### 1) Deal Intake Validation
+
+- [ ] Party names and addresses complete and consistent.
+- [ ] Transaction purpose stated in one sentence with no ambiguity.
+- [ ] Economic terms fully defined and internally consistent.
+- [ ] Timeline and sequencing mapped to CPs.
+- [ ] Definitive documents identified (stock purchase agreement, merger agreement, ancillary docs).
+- [ ] Binding clause set explicitly chosen by user.
+- [ ] Default legal governing law selected and jurisdictional basis confirmed.
+
+### 2) Clause Matrix
+
+| Section | Required | Purpose | Binding?
+|---|---|---|---|
+| Date / Parties / Purpose | Required | Identify transaction and intent | Non-binding |
+| Transaction Overview | Required | Define target, structure, included/excluded assets | Non-binding |
+| Principal Terms | Required | Price, structure, adjustments, timing, conditions | Non-binding unless stated |
+| Conditions Precedent | Required | Due diligence, approvals, financing, third-party consents | Non-binding |
+| Definitive Agreement Process | Required | Negotiate and execute within target date | Mixed |
+| Exclusivity / No-Shop | Optional | Prevent other buyer/investor talks | Usually binding |
+| Confidentiality | Optional/Required | Protect information and process | Usually binding |
+| Expenses / Costs | Optional | Allocation of diligence/transaction fees | Usually binding |
+| Liability Limitation / No-Action Clause | Optional | Clarify no commitment absent closing | Usually binding |
+| Governing Law / Disputes | Required | Choice of law and forum | Binding |
+| Signatures / Counterparts | Required | Execution mechanics | Binding as specified |
+
+### 3) Drafting Rules
+
+- Default rule: treat LOI as non-binding except explicitly designated provisions.
+- Required always include:
+  - A plain-language binding-effect section.
+  - Explicitly carved-out binding clauses list.
+  - No-liability clause for failure to close.
+  - Good-faith negotiation language for definitive agreements.
+- Keep CPs objective, verifiable, and assignable to each side.
+- Do not embed tax opinions; add a placeholder for tax allocations.
+
+### 4) Template Output
+
+```text
+[Date]
+[Party A Name]
+[Party B Name]
+
+RE: Letter of Intent – Proposed [Transaction Type]
+
+[Opening: parties + transaction purpose]
+
+1. Transaction Overview
+2. Transaction Structure
+3. Principal Terms
+4. Conditions Precedent
+5. Binding Commitments (Confidentiality / Exclusivity / Costs / Governing Law)
+6. Definitive Agreements and Timeline
+7. Termination and Liability
+8. Miscellaneous (integration, notices, counsel, no assignment)
+9. Signature Blocks
+```
+
+### 5) Quality Gate Before Finalizing
+
+- Check defined terms glossary for consistency (Transaction, Closing Date, Effective Date, CPs).
+- Ensure all amounts have currency, basis, and payment schedule.
+- Confirm non-compete references are only included if jurisdictionally supportable and requested.
+- Verify any public-company-sensitive language has legal/compliance review placeholder.
+
+## Guidelines
+
+- Use clean drafting style; avoid overcommitment language in non-binding portions.
+- Preserve negotiation flexibility: definitive agreement controls if conflict.
+- Do not omit remedies for breach of expressly binding clauses.
+- For heavily regulated sectors, require counsel review notes on approvals and filing requirements.
+- For cross-border transactions, flag foreign-law and conflict-of-laws risk for localized counsel review.
+- If anti-circumvention concern exists, add explicit carve-outs and enforcement language for exclusivity.
+- Preserve separate NDA references and hierarchy (if already signed, state LOI is supplemental).
+tokens used
+4,906

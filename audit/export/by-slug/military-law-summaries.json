@@ -1,0 +1,45 @@
+{
+  "id": "549df0bb-52ca-4a79-a55e-171d293f310d",
+  "slug": "military-law-summaries",
+  "name": "Military Law Summaries",
+  "summary": "Generates comprehensive summaries of significant military law issues, court-martial cases, disciplinary actions, and regulations under the UCMJ and MCM. Analyzes precedents from CAAF, service courts, and procedural frameworks for military justice. Use for JAG officers, command staff, and practitioners needing references on military personnel conduct and legal standards.",
+  "content": "# Military Law Summary Generation Prompt\n\nYou are tasked with creating a comprehensive military law summary that analyzes and synthesizes significant legal issues, cases, and regulatory matters affecting military personnel. This summary serves as a critical reference document for military legal practitioners, JAG officers, command staff, and legal advisors who need to understand precedent, disciplinary frameworks, and evolving legal standards within the military justice system.\n\nBegin by thoroughly examining all provided source materials, which may include court-martial decisions, appellate opinions from the Court of Appeals for the Armed Forces (CAAF), service-specific regulations, Uniform Code of Military Justice (UCMJ) provisions, Manual for Courts-Martial (MCM) guidance, and administrative disciplinary records. Search through these documents systematically to identify the core legal issues, factual circumstances, procedural posture, and ultimate holdings or outcomes. Pay particular attention to jurisdictional questions, as military law operates within a unique framework that intersects with civilian legal systems while maintaining distinct procedural and substantive rules.\n\nYour summary should open with a clear statement of the primary legal issue or issues presented, followed by relevant background information about the military context. This includes identifying the service branch involved, the rank and status of personnel, the nature of any alleged offenses under the UCMJ, and whether the matter proceeded through non-judicial punishment under Article 15, summary court-martial, special court-martial, or general court-martial. When analyzing court-martial cases, detail the charges brought, the findings of guilt or innocence, the sentence imposed, and any appellate review that occurred. For regulatory matters, explain how the rules govern military personnel conduct, readiness standards, administrative separations, or other aspects of military service.\n\nIncorporate relevant legal standards and precedent by identifying controlling authority from the CAAF, the Court of Criminal Appeals for each service branch, and applicable Supreme Court decisions that impact military justice. When discussing disciplinary actions, explain the procedural protections afforded to service members, including rights to counsel, the standard of proof required, and any unique aspects of military due process. Address how the summary connects to broader themes in military law, such as command authority, good order and discipline, the balance between military necessity and individual rights, or the application of constitutional protections in the military context.\n\nStructure the summary to include distinct sections covering the factual background, procedural history, legal analysis, and practical implications. Within the legal analysis section, examine how courts or reviewing authorities applied relevant UCMJ articles, MCM provisions, service regulations, and case law precedent. Discuss any dissenting opinions, concurrences, or alternative legal theories that were considered. Highlight any novel legal questions, changes to established precedent, or areas where military law diverges from civilian criminal law principles.\n\nFor cases involving specific offenses, provide context about the elements of the offense, the evidence presented, and how the trier of fact evaluated credibility and sufficiency of proof. When summarizing administrative matters such as characterization of discharge, security clearance revocations, or fitness-for-duty determinations, explain the applicable standards and the deference afforded to military decision-makers. Address any collateral consequences of the legal action, including impact on benefits, veteran status, or future employment.\n\nConclude with a section on practical implications and takeaways for military legal practitioners. This should identify how the case or regulatory development affects future practice, what guidance it provides for commanders and legal advisors, and whether it signals any shift in military justice policy or interpretation. Note any unresolved questions or areas where further legal development is anticipated.\n\nThroughout the summary, maintain precise legal terminology appropriate to military law practice while ensuring the document remains accessible to readers who may have varying levels of familiarity with military justice procedures. Use proper citation format for military legal authorities, including UCMJ articles (e.g., Article 32, Article 120), MCM references, and military case citations following the standard format for CAAF and service court decisions. Verify all citations and legal references for accuracy, and when possible, provide direct links to authoritative sources.\n\nThe final summary should serve as a standalone reference document that captures the essential legal principles, factual circumstances, and practical significance of the military law matter, enabling readers to quickly understand the issue and apply the lessons to their own practice or decision-making responsibilities within the military legal system.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial",
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

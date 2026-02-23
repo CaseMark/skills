@@ -1,0 +1,43 @@
+{
+  "id": "a8cbba06-4ebd-460a-b2d6-4a02215e1237",
+  "slug": "convertible-note-purchase-agreement",
+  "name": "Convertible Note Purchase Agreement",
+  "summary": "Drafts a comprehensive Convertible Note Purchase Agreement for corporate venture capital financings involving convertible debt securities. It gathers deal-specific details from documents to structure preambles, purchase terms, representations and warranties, conditions to closing, and note mechanics. Use this skill for company-side drafting in early-stage private equity transactions.",
+  "content": "# Convertible Note Purchase Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Convertible Note Purchase Agreement for a corporate financing transaction. This is a critical legal document that governs the sale of convertible debt securities from a company to investors, and it must be precise, legally sound, and tailored to the specific transaction at hand.\n\n## Understanding the Transaction Context\n\nBegin by gathering all essential deal-specific information from the user's uploaded documents and matter files. You need to identify the parties involved (the issuing company and the purchasing investors), the principal amount being raised, the purchase price, key economic terms such as interest rate, maturity date, conversion mechanics, any valuation cap, and discount rate. Search through corporate records, term sheets, board resolutions, and any preliminary agreements to extract concrete facts including exact legal entity names, jurisdiction of incorporation, authorized signatories, and the specific business purpose for the financing. This foundational information will inform every section of the agreement and ensure the document reflects the actual commercial deal.\n\n## Drafting the Core Agreement Structure\n\nThe agreement should open with a formal preamble that identifies all parties by their complete legal names, states the agreement date, and articulates the purpose of the transaction. Draft the Purchase and Sale of Notes section to precisely describe the convertible notes being sold, specifying the aggregate principal amount, the purchase price per note, the closing date and mechanics, and the delivery requirements for both the notes and the purchase funds. This section must be unambiguous about what is being exchanged and when.\n\nDevelop comprehensive Representations and Warranties of the Company that address the company's legal existence and good standing, its corporate authority to enter into the transaction, its current capitalization structure including all outstanding equity and debt securities, compliance with applicable laws and regulations, the absence of conflicts with existing agreements, and the accuracy of any financial statements or disclosure materials provided to investors. These representations serve as the foundation for investor due diligence and provide grounds for indemnification if breached. Similarly, draft Representations and Warranties of the Purchaser covering the investor's status as an accredited investor under securities laws, their investment intent and understanding that the notes are restricted securities, their financial sophistication and ability to bear the economic risk, and their acknowledgment that they have conducted independent investigation of the investment.\n\n## Defining Conditions, Covenants, and Note Terms\n\nSpecify the Conditions to Closing that must be satisfied before the transaction can be consummated, including completion of satisfactory due diligence, delivery of legal opinions from counsel, execution of ancillary documents, and any required corporate approvals or third-party consents. Detail the Covenants of the Company that will govern the company's conduct following the closing, particularly restrictions on use of proceeds, ongoing financial reporting obligations to noteholders, limitations on incurring additional debt or making distributions, and requirements to maintain corporate existence and comply with laws.\n\nThe Terms of the Notes section is the economic heart of the agreement and requires particular precision. Describe the interest rate and whether interest accrues or is paid currently, the maturity date when the principal becomes due, the specific conversion mechanics including what triggers conversion (qualified financing, maturity, or optional conversion), how the conversion price is calculated, any valuation cap that sets a maximum conversion price, any discount rate applied to the next round pricing, and anti-dilution protections. Search for market-standard convertible note terms from startup financing resources and angel investor associations to ensure the terms are commercially reasonable and properly structured.\n\n## Protecting Parties and Finalizing Terms\n\nDraft Events of Default and Remedies provisions that specify what constitutes a default under the notes, including failure to pay principal or interest when due, breach of covenants or representations, bankruptcy or insolvency events, and material adverse changes to the business. Detail the remedies available to noteholders upon default, such as acceleration of the maturity date, increased interest rates, or immediate conversion rights. Include an Indemnification section providing that the company will indemnify and hold harmless the purchasers from losses arising from breaches of the company's representations, warranties, or covenants, and specify the procedures for making and resolving indemnification claims.\n\nConclude with Miscellaneous provisions covering the governing law and jurisdiction for disputes, the method and addresses for providing notices under the agreement, severability of invalid provisions, amendment procedures requiring written consent, the entire agreement clause superseding prior negotiations, and counterpart execution provisions. Verify that all boilerplate language is current and appropriate for the governing jurisdiction.\n\n## Research and Verification Standards\n\nThroughout the drafting process, research and incorporate market-standard language and best practices for convertible note financings. When addressing securities law compliance, investor qualifications, or disclosure obligations, find and verify the applicable legal authorities including relevant Securities Act provisions, state blue sky laws, and SEC regulations. Ensure that all legal citations are accurate and that the agreement complies with current law. Cross-reference similar agreements from reputable legal resources to confirm that your drafting aligns with professional standards.\n\nOnce you have gathered all necessary transaction-specific information, researched applicable legal standards, and drafted all required sections with appropriate detail and precision, create the complete Convertible Note Purchase Agreement document for the user's review. The final document should be professionally formatted, internally consistent, and ready for legal review and negotiation.",
+  "parent_skill_id": "ab63d5b1-bd0b-450d-a7a7-36572e5e9d27",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "venture_capital_and_private_equity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

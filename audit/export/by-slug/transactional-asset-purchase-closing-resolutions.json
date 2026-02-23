@@ -1,0 +1,44 @@
+{
+  "id": "30722c72-df25-4d9a-930d-b95c185c58eb",
+  "slug": "transactional-asset-purchase-closing-resolutions",
+  "name": "Closing Resolutions of Buyer and Seller",
+  "summary": "Drafts comprehensive closing resolutions for the buyer or seller in an asset purchase transaction. These resolutions authorize execution and performance of the Asset Purchase Agreement and ancillary documents, evidencing proper corporate governance approval. Use this skill for formal closing deliverables in US asset purchase deals.",
+  "content": "# Enhanced Prompt: Closing Resolutions of Buyer and Seller\n\nYou are tasked with drafting comprehensive closing resolutions for either a buyer or seller entity in connection with an asset purchase transaction. These resolutions serve as formal corporate authorization documents that evidence the approval by the governing body (board of directors or members) to enter into and consummate the transaction contemplated by the Asset Purchase Agreement.\n\n## Document Purpose and Context\n\nThe closing resolutions you draft must demonstrate that the entity's governing body has properly authorized the transaction in accordance with applicable corporate governance requirements and the entity's organizational documents. These resolutions are critical closing deliverables that provide legal assurance to the counterparty that the transaction has been duly authorized by all necessary corporate action. The resolutions should be comprehensive enough to cover not only the primary Asset Purchase Agreement but also all ancillary documents, certificates, instruments, and actions necessary to complete the transaction.\n\n## Header Section Requirements\n\nBegin by creating an appropriate document title that clearly identifies this as an action by unanimous written consent of the governing body. The title should specify whether this is the board of directors (for a corporation) or members/managers (for an LLC), and must include the exact legal name of the entity as it appears in the organizational documents and the Asset Purchase Agreement. Include a specific effective date for the resolutions, which typically corresponds to the closing date of the transaction or the date the last required signature is obtained.\n\n## Recitals Development\n\nDraft detailed recitals that provide essential background and context for the resolutions. The recitals should clearly state whether the company is acting as the buyer or seller in the transaction, identify the counterparty by exact legal name, and describe the nature of the assets being purchased or sold with sufficient specificity to align with the Asset Purchase Agreement. Include a recital establishing that the governing body has reviewed the terms of the transaction, considered the business rationale, and determined that entering into the transaction is in the best interests of the company and its stakeholders. If applicable, reference any fairness opinions, financial analyses, or other materials that informed the governing body's decision-making process.\n\n## Resolution Provisions\n\nStructure the operative resolutions in a clear, sequential manner that comprehensively addresses all necessary authorizations. The first resolution should specifically approve the Asset Purchase Agreement by name, including the date of the agreement if executed prior to the resolutions, and authorize the company to execute, deliver, and perform all obligations under the agreement. Ensure this resolution is sufficiently broad to encompass any amendments or modifications to the agreement that may occur prior to or at closing, provided such changes do not materially alter the transaction.\n\nThe second resolution must address all ancillary documents and transaction documents beyond the primary Asset Purchase Agreement. This should include, but not be limited to: bills of sale, assignment and assumption agreements, transition services agreements, non-competition agreements, employment agreements, escrow agreements, opinion letters, certificates of authority, good standing certificates, and any other instruments contemplated by or necessary to consummate the transaction. Rather than listing each document individually, use comprehensive language that captures all transaction-related documentation while maintaining flexibility for documents that may be added to the closing checklist.\n\nInclude a resolution that provides clear authorization to the company's officers to execute and deliver all transaction documents on behalf of the company. This authorization should extend to taking any and all actions that such officers, in their discretion, deem necessary, appropriate, or advisable to effectuate the transaction and carry out the intent of the resolutions. Specify that the execution and delivery of any document by an authorized officer shall constitute conclusive evidence of the approval of such document and the actions taken therein. Consider whether specific officers should be named or whether the authorization should extend to all officers of the company.\n\nDraft a ratification resolution that validates and approves all actions previously taken by officers, employees, or agents of the company in furtherance of the transaction. This resolution serves as important protection by curing any potential defects in prior authorizations and confirming that all preliminary steps, negotiations, due diligence activities, and preparatory actions are hereby adopted and approved by the governing body.\n\n## Execution and Signature Requirements\n\nConclude with appropriate execution provisions that address the mechanics of obtaining the required consents. Include language confirming that this action is being taken by unanimous written consent in lieu of a meeting, as permitted by the entity's organizational documents and applicable law. State that the consent may be executed in any number of counterparts, each of which shall be deemed an original and all of which together shall constitute one and the same instrument. Specify that delivery of executed signature pages by facsimile or electronic transmission (including PDF) shall be effective as delivery of manually executed counterparts.\n\nCreate signature blocks for all members of the governing body who must consent to the resolutions. For corporations, this typically includes all directors unless the organizational documents permit action by less than unanimous written consent. For LLCs, determine whether member approval, manager approval, or both are required based on the operating agreement. Each signature block should include a line for signature, printed name, title (if applicable), and date of execution.\n\n## Legal and Practical Considerations\n\nThroughout the resolutions, maintain consistency with the defined terms used in the Asset Purchase Agreement and other transaction documents. Ensure that the scope of authority granted is appropriate for the transaction size and complexity, and consider whether any limitations or conditions should be included based on the entity's governance requirements or stakeholder concerns. Verify that the form of authorization aligns with any requirements specified in the Asset Purchase Agreement regarding the delivery of corporate resolutions or secretary's certificates at closing. The resolutions should be drafted to satisfy both the internal governance requirements of the entity and the closing conditions imposed by the counterparty, while providing officers with sufficient flexibility to address issues that may arise during the closing process.",
+  "parent_skill_id": "6c2a6ddd-651e-44f1-a53d-233c0addcfe5",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "asset_purchase"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.604328",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

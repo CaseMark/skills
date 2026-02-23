@@ -1,0 +1,429 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7a-1af0-7d12-8549-ff7792bc1dd0
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "1e94faf6-21ec-42f1-bc00-161d6bbf2af7",
+  "slug": "cognovit-promissory-note-drafting",
+  "name": "Cognovit Promissory Note",
+  "summary": "Drafts a comprehensive Cognovit Promissory Note with confession of judgment provisions, including exhaustive jurisdictional enforceability research and precise party identification. Advises on legal risks and recommends alternatives like guarantees or security agreements if cognovit clauses are prohibited or restricted. Use for transactional loan and financing documents in jurisdictions permitting such instruments.",
+  "content": "# Enhanced Cognovit Promissory Note Drafting Workflow\n\nYou are an expert transactional attorney tasked with drafting a comprehensive Cognovit Promissory Note, a specialized financial instrument containing a confession of judgment provision that allows a creditor to obtain judgment against a debtor without traditional litigation. This document requires exceptional precision, thorough jurisdictional analysis, and careful attention to enforceability concerns given the controversial nature of cognovit clauses in modern commercial law.\n\n## Jurisdictional Enforceability Analysis and Preliminary Research\n\nBefore drafting any provision of this document, you must conduct exhaustive research into whether cognovit clauses are legally enforceable in the relevant jurisdiction. Begin by searching for current statutes, regulations, and recent appellate decisions in the governing state that address confession of judgment provisions. Many jurisdictions, including Ohio, Illinois, Pennsylvania, and numerous others, have either completely prohibited cognovit notes in consumer transactions or imposed substantial restrictions even in commercial contexts. Your research should identify the specific statutory provisions governing these instruments, any recent case law interpreting enforceability requirements, and any bar association ethics opinions addressing attorney participation in cognovit proceedings.\n\nIf your research reveals that the jurisdiction prohibits or substantially restricts cognovit provisions for the type of transaction involved, you must immediately advise the user of this finding and recommend alternative security mechanisms such as personal guarantees, security agreements with collateral, or standard acceleration clauses in conventional promissory notes. Document your research findings comprehensively, including specific citations to controlling authority, and explain the legal risks associated with attempting to enforce an invalid cognovit clause, which may include unenforceability of the entire note, potential sanctions, or ethical violations.\n\n## Comprehensive Party Identification and Transaction Framework\n\nEstablish the complete legal identity and relevant background information for both the lender and borrower with precision that will withstand judicial scrutiny. For individual parties, include full legal names as they appear on government-issued identification, complete residential addresses, and any additional identifying information such as date of birth or social security number if appropriate for the transaction type. For entity parties, specify the exact legal name as registered with the secretary of state, the type of entity (corporation, limited liability company, partnership, etc.), the state of formation or organization, the principal place of business, and the registered agent information. Search any uploaded transaction documents to extract accurate party information, including prior agreements, corporate resolutions, or identification documents that may have been provided.\n\nClearly designate the execution date of the promissory note and specify whether this differs from the effective date or the date of loan disbursement. Include recitals that establish the business purpose of the loan, the relationship between the parties, and any prior course of dealing that provides context for the transaction. If the borrower is signing in a representative capacity on behalf of an entity, ensure that the signature blocks clearly reflect this relationship and that you have verified the signatory's authority through corporate resolutions, operating agreements, or certificates of incumbency. Research standard party identification provisions from authoritative transactional form sources to ensure your language meets professional standards and includes all necessary identifying details.\n\n## Principal Amount, Interest Structure, and Usury Compliance\n\nState the principal loan amount with absolute clarity by expressing it in both numerical figures and written words, following the convention that written amounts control in case of discrepancy. Specify whether the principal amount represents the full loan proceeds or whether any amounts have been deducted for fees, points, or other charges, as this distinction may affect usury calculations in certain jurisdictions. Establish the annual interest rate with precision, indicating whether it is fixed for the entire loan term or variable based on a specified index or benchmark rate.\n\nFor variable rate notes, provide a complete description of the adjustment mechanism, including the specific index to be used (such as the Wall Street Journal Prime Rate or the Secured Overnight Financing Rate), the margin to be added to the index, the frequency of rate adjustments, any caps or floors on rate changes, and the method for determining the index value on adjustment dates. Detail the interest calculation methodology with mathematical precision, specifying whether interest accrues on a simple or compound basis, the accrual period (daily, monthly, or annually), whether calculations will use a 360-day or 365-day year convention, and the exact formula for computing interest charges. Address the application of partial payments by specifying whether payments will be applied first to accrued interest and then to principal, or according to another allocation method.\n\nConduct thorough research into the usury laws of the governing jurisdiction to verify that your stated interest rate, when combined with any fees or charges that may be deemed interest equivalents, does not exceed the maximum lawful rate. Search for current statutes establishing usury limits, any exemptions for commercial transactions or loans above certain thresholds, and recent case law interpreting what charges constitute interest for usury purposes. If the transaction involves a corporate borrower or exceeds statutory thresholds that exempt it from usury limitations, document this analysis explicitly. Be aware that some states impose criminal penalties for usurious lending, making this verification critically important.\n\n## Payment Terms, Repayment Schedule, and Application of Funds\n\nConstruct a detailed and unambiguous repayment schedule that specifies the exact amount of each payment, the due date for each installment, and the total number of payments required to fully satisfy the obligation. Indicate whether the note follows an amortizing structure with equal periodic payments, an interest-only period followed by a balloon payment, or another payment configuration. If providing an amortization schedule, consider including it as an exhibit to the note for absolute clarity, or provide the mathematical formula that generates the payment amounts so that the parties can independently verify the calculations.\n\nSpecify with precision the acceptable methods of payment, which may include personal or business checks, wire transfers with specific bank routing and account information, ACH transfers, or other electronic payment methods. Designate the physical address or electronic destination to which payments must be directed and specify the time of day by which payments must be received to be considered timely (for example, stating that payments received after 5:00 PM Eastern Time will be credited as of the following business day). Address the treatment of payments received on non-business days, typically providing that such payments will be credited as of the next business day without penalty.\n\nEstablish clear rules for the application of payments among principal, interest, late charges, and any other amounts that may be due under the note. The standard approach applies payments first to any late charges or fees, then to accrued interest, and finally to principal, but alternative allocation methods may be specified if appropriate for the transaction. Include provisions addressing prepayment rights, specifying whether the borrower may prepay the note in whole or in part without penalty, or whether prepayment premiums or yield maintenance charges will apply. If prepayment penalties are included, ensure they comply with state law limitations on such charges and are structured as reasonable liquidated damages rather than unenforceable penalties. Research authoritative transactional practice guides and form books to ensure your payment provisions reflect current best practices and include all necessary details to prevent future disputes.\n\n## Confession of Judgment Provision with Required Disclosures\n\nDraft the cognovit clause as the centerpiece of this document, ensuring it complies with all technical requirements for enforceability in the governing jurisdiction while providing clear notice to the borrower of the extraordinary rights being waived. The confession of judgment provision must state with absolute clarity that the borrower irrevocably authorizes and empowers any attorney at law, whether selected by the lender or appointed by any court, to appear in any court of competent jurisdiction at any time after default and confess judgment against the borrower for the entire unpaid principal balance, all accrued and unpaid interest, late charges, costs of collection, and reasonable attorney's fees, all without prior notice to the borrower and without the opportunity for hearing or presentation of defenses.\n\nSpecify the scope and limitations of the confession authority with precision. Indicate whether the confession may be exercised immediately upon any default or only after expiration of specified cure periods. Identify the specific courts in which judgment may be confessed, which typically includes any state or federal court of competent jurisdiction in the state designated in the governing law provision, but may be limited to courts in specific counties or judicial districts. Detail the procedural rights being waived by the borrower, including the right to notice of the confession proceeding, the right to a hearing before judgment is entered, the right to present defenses or counterclaims, the right to discovery, and potentially the right to appeal the confessed judgment.\n\nInclude prominent disclosure language that satisfies any statutory warning requirements in the governing jurisdiction. Research current state statutes to determine whether specific cautionary language must appear in the note, and whether such language must be presented in a particular format such as bold typeface, capital letters, or a minimum font size. Some jurisdictions require a separate acknowledgment signed by the borrower confirming understanding of the cognovit provision. If the borrower is a consumer rather than a sophisticated commercial entity, note that many jurisdictions impose additional restrictions or outright prohibitions on cognovit clauses in consumer transactions, and verify whether any such limitations apply to this transaction.\n\nSearch for recent American Bar Association guidance, state bar ethics opinions, and current case law addressing the enforceability of confession of judgment provisions. Document any jurisdictional requirements regarding the attorney who may confess judgment, as some states require that the attorney be admitted to practice in that jurisdiction or that the attorney not have a prior relationship with the lender. Be aware that courts increasingly scrutinize cognovit provisions for procedural fairness and may refuse to enforce them if the borrower did not have meaningful opportunity to negotiate the terms or receive independent legal advice.\n\n## Events of Default, Acceleration Rights, and Remedies\n\nDefine with exhaustive specificity each circumstance that will constitute an event of default under the promissory note, ensuring that the borrower has clear notice of all conduct or conditions that could trigger the lender's remedies including confession of judgment. The primary event of default is failure to make any payment of principal or interest when due, but you should specify whether any grace period applies before such failure constitutes a default (commonly three to five business days for commercial notes). Include cross-default provisions that trigger default under this note if the borrower defaults under any other agreement with the lender or with third-party creditors, specifying any materiality thresholds for third-party defaults.\n\nAdditional events of default typically include the borrower's bankruptcy filing or the commencement of involuntary bankruptcy proceedings against the borrower that remain undismissed for a specified period (commonly sixty to ninety days), the borrower's insolvency or inability to pay debts as they become due, any material misrepresentation in the loan application or related documents, the death or dissolution of the borrower if an individual or entity respectively, and any material adverse change in the borrower's financial condition. If the note is secured by collateral, include defaults related to impairment of the collateral, failure to maintain required insurance, or unauthorized transfer or encumbrance of the security.\n\nEstablish the lender's acceleration rights upon default, providing that the lender may, at its option and without notice (or with such notice as may be required by applicable law), declare the entire unpaid principal balance, all accrued interest, and any other amounts due under the note immediately due and payable. Specify that acceleration is optional rather than automatic, preserving the lender's flexibility to waive defaults or negotiate workout arrangements. Detail the full range of remedies available to the lender upon default, prominently including the right to confess judgment pursuant to the cognovit clause, but also encompassing the right to pursue any other legal or equitable remedies, engage collection agencies, report the default to credit bureaus, and recover all costs of collection.\n\nAddress default interest rates if applicable, specifying the increased rate that will apply to overdue amounts, while ensuring such rate does not exceed usury limitations or constitute an unenforceable penalty. Include provisions for late charges on overdue payments, typically structured as a percentage of the overdue payment (commonly four to five percent) or a flat fee, whichever is less, and verify that such charges comply with state law limitations. Research current case law distinguishing enforceable liquidated damages provisions from unenforceable penalty clauses to ensure your default provisions will withstand judicial scrutiny.\n\n## Governing Law, Jurisdiction, Venue, and Procedural Waivers\n\nDesignate with precision the state law that will govern the interpretation, enforcement, and validity of the promissory note, recognizing that this choice of law provision is particularly critical for cognovit notes given the wide variation in state law regarding enforceability of confession of judgment clauses. The governing law should be the law of a state where cognovit provisions are enforceable and where the lender can practically pursue collection remedies. Consider whether the chosen state has sufficient connection to the transaction, the parties, or the collateral to make the choice of law enforceable, as courts may refuse to apply the law of a jurisdiction with no reasonable relationship to the transaction.\n\nEstablish the exclusive jurisdiction for any legal proceedings related to the note, specifying that the state and federal courts located in a particular state or judicial district shall have exclusive jurisdiction over all disputes. In a cognovit note, this jurisdiction provision works in tandem with the confession of judgment clause to designate where the lender may confess judgment against the borrower. Include a consent to jurisdiction provision in which the borrower affirmatively submits to the personal jurisdiction of the designated courts and waives any objection based on improper venue, inconvenient forum, or lack of personal jurisdiction.\n\nDesignate the specific venue where proceedings must be initiated, typically identifying the county or judicial district where the lender is located or where the confession of judgment will be entered. Consider including a waiver of jury trial provision, which is standard in commercial loan documentation and provides that all disputes will be resolved by a judge rather than a jury. Such waivers must be conspicuous and knowing to be enforceable, so present this provision in a manner that draws attention, such as a separate paragraph in capital letters or bold typeface.\n\nResearch bar association guidance, recent appellate decisions, and legal commentary regarding the enforceability of choice of law and forum selection clauses in promissory notes, particularly when the parties or the transaction have connections to multiple states. Be aware that some consumer protection statutes may override choice of law provisions that would deprive consumers of substantive protections, and verify whether any such limitations apply to this transaction. Search for any uploaded documents that may indicate the parties' locations, the location of collateral, or other factors relevant to determining the appropriate governing law and jurisdiction.\n\n## Execution Formalities, Acknowledgments, and Evidentiary Requirements\n\nProvide clearly formatted signature blocks for all parties that include designated spaces for handwritten signatures, printed or typed names, titles if the signatory is acting in a representative capacity, and the date of execution. Research the execution requirements for cognovit notes in the governing jurisdiction to determine whether witnesses are required for enforceability. Some states require that confession of judgment provisions be witnessed by one or more disinterested parties who can attest to the voluntary nature of the borrower's execution, and failure to comply with such requirements may render the cognovit clause unenforceable.\n\nDetermine whether notarization is required or advisable for the promissory note or specifically for the confession of judgment provision. While notarization is not universally required for promissory notes to be enforceable, many jurisdictions require notarial acknowledgment of cognovit clauses, and notarization provides strong evidence of authenticity and voluntary execution that can be critical if the borrower later challenges the note. If notarization is required, include appropriate acknowledgment language that complies with the notary statutes of the governing jurisdiction, and ensure that separate acknowledgments are provided for each signatory.\n\nIf the borrower is an entity rather than an individual, verify that the person signing on behalf of the entity has proper authority to bind the entity to the confession of judgment provision. Request and review corporate resolutions, certificates of authority, operating agreement provisions, or partnership agreements that demonstrate the signatory's authority. Consider whether to require that such authority documents be attached as exhibits to the note or maintained in the lender's files. Some jurisdictions require specific entity authorization procedures for confession of judgment provisions, such as unanimous board approval or member consent, so research these requirements carefully.\n\nInclude any required acknowledgment, verification, or affidavit language that may be necessary under state law for confession of judgment provisions to be enforceable. Some jurisdictions require that the borrower execute a separate affidavit acknowledging understanding of the cognovit clause and confirming that execution is voluntary and informed. Others require specific warning language immediately preceding the signature block. Search for current statutory requirements and recent case law interpreting execution formalities to ensure full compliance.\n\n## Document Assembly, Quality Control, and Compliance Verification\n\nAfter completing all substantive provisions with appropriate research and verification of jurisdictional requirements, assemble the document in a logical, professional format that follows standard conventions for commercial promissory notes. Begin with a clear title identifying the document as a \"Cognovit Promissory Note\" to provide immediate notice of its nature. Include introductory recitals that identify the parties, the date of execution, and the basic transaction structure. Organize the operative provisions in a logical sequence, typically proceeding from the promise to pay, to payment terms, to default provisions, to the confession of judgment clause, and finally to general provisions regarding governing law, notices, and miscellaneous matters.\n\nEnsure that all cross-references within the document are accurate and that defined terms are used consistently throughout. Review the document for internal consistency, verifying that payment amounts, interest rates, and dates are stated identically wherever they appear. Check that all exhibits, schedules, or attachments referenced in the body of the note are actually attached and properly labeled. Common exhibits include amortization schedules, collateral descriptions if the note is secured, and corporate authority documents.\n\nConduct a final compliance review focusing particularly on the enforceability of the cognovit provision in the specified jurisdiction. Verify that all statutory requirements for confession of judgment clauses have been satisfied, including any required warning language, execution formalities, or procedural prerequisites. Confirm that the interest rate and any fees or charges comply with usury limitations and that default provisions are structured as enforceable liquidated damages rather than penalties. Review the entire document for compliance with any applicable consumer protection statutes, truth-in-lending requirements, or other regulatory constraints.\n\nPrepare a comprehensive memorandum documenting your research regarding the enforceability of cognovit provisions in the governing jurisdiction, the authority supporting each major provision of the note, and any legal risks or concerns that the lender should consider before accepting this document. Include specific citations to controlling statutes and cases, and provide clear recommendations regarding any additional documentation or procedures that should be implemented to maximize enforceability. If any aspect of the transaction raises enforceability concerns or ethical issues, address these explicitly and recommend appropriate modifications or alternative approaches.",
+  "parent_skill_id": "b63cc6ae-4f61-40f8-b17f-f98c348afb58",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "loan_and_financing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:48:59.346882Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+---
+Slug: cognovit-promissory-note
+Title: Cognovit Promissory Note
+Description: Provides drafting, research, and analysis skills for creating a cognovit promissory note, a negotiable instrument that includes a confession of judgment authorized by the signer. Covers transactional practice areas and agreement document types, emphasizing jurisdictional enforceability and compliance considerations.
+Keywords: cognovit, promissory note, negotiable instrument, confession of judgment, debt acknowledgment, secured debt, enforceability, consumer restrictions, drafting, research, analysis
+Metadata:
+  Practice_Areas: Transactional
+  Document_Types: Agreement
+  Skill_Modes: Drafting, Research, Analysis
+
+Prerequisites:
+1. Understand applicable jurisdiction laws regarding cognovit clauses.
+2. Verify the legal permissibility of confession of judgment provisions in the relevant state.
+3. Confirm consumer protection laws and restrictions apply or do not apply.
+4. Ensure all parties consent and acknowledge the legal effect explicitly.
+5. Identify and document the debt obligations clearly and unambiguously.
+
+Sections:
+1. Overview
+   - Definition and purpose of a cognovit promissory note.
+   - Legal implications of confession of judgment.
+   - Jurisdictional variations in enforceability.
+
+2. Compliance Considerations
+   - Restrictions under consumer protection statutes.
+   - Prohibitions or limitations on cognovit clauses.
+   - Requirements for clear disclosure and consent.
+
+3. Drafting Guidelines
+   - Required elements including debt details, payment terms, and confession language.
+   - Formatting recommendations to enhance clarity and enforceability.
+   - Avoidance of nested or complex bulleting in clause structures.
+
+4. Research and Analysis Tips
+   - Resources for verifying current jurisdictional rules [VERIFY].
+   - Considerations for updating documents to comply with recent case law.
+   - Assessing the risk of enforcement challenges.
+
+5. Template
+   - Presents a standardized cognovit promissory note draft with placeholders.
+   - Code block included for ease of adaptation and integration.
+
+Template:
+
+```
+COGNOVIT PROMISSORY NOTE
+
+Date: ____________________
+
+Principal Amount: $____________________
+
+FOR VALUE RECEIVED, the undersigned (the "Maker") promises to pay to the order of ______________________ ("Payee") the principal sum stated above, together with interest at the rate of _______% per annum, payable as follows: ______________________.
+
+CONFESSION OF JUDGMENT
+
+The Maker hereby irrevocably authorizes any attorney or clerk of any court of record within the jurisdiction to appear for the Maker and confess judgment against the Maker for the entire unpaid balance of this note, including principal, interest, and any costs of collection or attorney's fees, without prior notice or hearing.
+
+GOVERNING LAW
+
+This Note shall be governed by and construed in accordance with the laws of the State of ____________________, without regard to conflict of laws.
+
+ACKNOWLEDGMENTS
+
+The Maker acknowledges that:
+
+1. The confession of judgment clause is enforceable under applicable law.
+
+2. The Maker has reviewed and understands the terms of this Note.
+
+3. The Maker consents to the confession of judgment provision voluntarily and without coercion.
+
+(Signature of Maker) ______________________    Date: _______________
+
+(Signature of Witness) _____________________   Date: _______________
+```
+
+6. Additional Notes
+   - Emphasize the importance of legal review before execution.
+   - Highlight that consumer debt cognovit clauses may be void or restricted.
+   - Advise clear, conspicuous presentation of confession language.
+
+Checklists:
+
+| Drafting Step                      | Completed (Y/N) |
+|-----------------------------------|----------------|
+| Verify jurisdictional compliance  |                |
+| Confirm consumer restriction laws |                |
+| Obtain explicit party consent     |                |
+| Draft clear confession language   |                |
+| Review governing law clause       |                |
+| Include witness signature line    |                |
+
+| Compliance Item                   | Status (Y/N)   |
+|---------------------------------|----------------|
+| Consumer protection compliance   |                |
+| Disclosure requirements met      |                |
+| Enforceability confirmed         |                |
+
+---
+codex
+---
+name: cognovit-promissory-note
+description: Drafts a U.S. cognovit promissory note with confession of judgment provisions, jurisdictional enforceability checks, and execution formalities. Use when preparing commercial loan notes that may include a cognovit clause, confession of judgment language, or waiver of notice/hearing rights. Trigger keywords: cognovit, confession of judgment, promissory note, commercial loan, warrant of attorney, waiver of defenses.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+    - Research
+    - Analysis
+---
+
+# Cognovit Promissory Note
+
+Draft a cognovit promissory note that is enforceable, properly disclosed, and compliant with governing law.
+
+## Prerequisites
+
+1. **Governing law and forum** — proposed state law and venue for enforcement
+2. **Parties** — full legal names, entity types, formation states, addresses, authorized signers
+3. **Loan terms** — principal, interest type, rate, term, payment schedule, fees, prepayment
+4. **Transaction type** — commercial vs consumer classification and any statutory exemptions
+5. **Authority docs** — resolutions, incumbency certificates, or member/partner consents
+6. **Collateral/guaranties** — if secured or guaranteed, summary of related documents
+
+## Output Structure / Process
+
+**1) Enforceability Gate (Do first)**
+| Check | Action | Output |
+| --- | --- | --- |
+| Cognovit permitted for this transaction type? | Research statutes + recent case law for the governing state. | Allow/deny with citations or `[VERIFY]`. |
+| Consumer restriction? | Confirm borrower classification and any consumer protections. | If consumer or mixed-use, treat as prohibited unless clearly permitted. |
+| Required warnings/format? | Identify mandatory warning language, font size, capitalization, separate acknowledgment. | Insert exact statutory warning or `[VERIFY]`. |
+| Execution formalities? | Check witness/notary/affidavit or attorney requirements. | Add signature formalities and exhibits. |
+
+If prohibited or materially restricted: output alternative structure (standard note + guaranty + security agreement) and stop before drafting a cognovit clause.
+
+**2) Party and Authority Block**
+| Field | Required |
+| --- | --- |
+| Lender legal name | Entity type, formation state, address, signatory title |
+| Borrower legal name | Entity type or individual, address, signatory title |
+| Authority evidence | Resolution/consent, incumbency, power/authority certification |
+
+**3) Core Economic Terms**
+| Term | Required Details |
+| --- | --- |
+| Principal | Numeric and words; fees/points treatment |
+| Interest | Fixed/variable; index, margin, caps/floors; accrual method; day-count |
+| Payments | Amounts, dates, schedule type, grace period |
+| Application | Order of application: fees, interest, principal (or specified alternative) |
+| Prepayment | Allowed? Penalty? Formula and compliance check |
+
+**4) Confession of Judgment Clause**
+Include all of the following:
+- **Authority grant**: borrower authorizes any attorney to confess judgment after default
+- **Scope**: principal, interest, fees, costs, attorney fees
+- **Timing**: immediately upon default or after cure period
+- **Forum**: courts permitted; tie to governing law and venue clause
+- **Waivers**: notice, hearing, defenses, discovery, jury trial (if allowed)
+- **Statutory warning**: required text and formatting
+
+**5) Defaults and Remedies**
+| Category | Include |
+| --- | --- |
+| Monetary default | failure to pay, grace period |
+| Cross-default | if applicable, specify thresholds |
+| Insolvency events | bankruptcy, insolvency, assignment for benefit |
+| Misrepresentation | material statements |
+| Collateral events | if secured, impairment/transfer/insurance failures |
+| Remedies | acceleration, confession of judgment, collection costs |
+
+**6) Governing Law, Jurisdiction, Venue**
+- Governing law with substantial relationship
+- Consent to jurisdiction and venue
+- Waiver of forum non conveniens (if allowed)
+- Jury trial waiver (conspicuous)
+
+**7) Execution and Acknowledgments**
+- Signature blocks with titles and entity capacity
+- Witness and notary blocks if required
+- Separate cognovit acknowledgment if required
+
+**8) Exhibits (Optional but common)**
+| Exhibit | Purpose |
+| --- | --- |
+| Amortization schedule | verify payment amounts |
+| Authority documents | show signatory power |
+| Collateral schedule | if secured |
+
+**Template Skeleton**
+```text
+COGNOVIT PROMISSORY NOTE
+
+Date: [Date]
+Principal Amount: $[Numeric] ([Words])
+
+FOR VALUE RECEIVED, [Borrower], a [Entity Type] organized under the laws of [State], with its principal place of business at [Address] (“Borrower”), promises to pay to the order of [Lender], a [Entity Type] organized under the laws of [State], with its principal place of business at [Address] (“Lender”), the Principal Amount plus interest as set forth below.
+
+1. Interest. [Fixed/Variable; rate; index; margin; caps; accrual; day-count; compounding].
+2. Payments. [Schedule, due dates, grace period, payment methods].
+3. Application of Payments. [Fees → interest → principal].
+4. Prepayment. [Permitted/penalty; formula].
+5. Events of Default. [List].
+6. Remedies; Acceleration. [Optional acceleration; costs; attorneys’ fees].
+7. Confession of Judgment. [Full clause + statutory warning + waivers].
+8. Governing Law; Jurisdiction; Venue. [State; court; consent].
+9. Jury Trial Waiver. [Conspicuous].
+10. Notices. [Addresses and method].
+11. Miscellaneous. [Severability, amendments, counterparts, integration].
+
+BORROWER:
+[Name]
+By: ______________________
+Name/Title:
+Date:
+
+LENDER:
+[Name]
+By: ______________________
+Name/Title:
+Date:
+
+[Notary / Witness Blocks if required]
+```
+
+## Guidelines
+
+- Do not draft a cognovit clause unless enforceability is confirmed for the transaction type in the governing state.
+- Consumer or mixed-use transactions: treat cognovit clauses as prohibited unless a clear statutory exception exists.
+- Required warning language must be exact, conspicuous, and placed per statute; use `[VERIFY]` if unsure.
+- Ensure the confession clause and forum selection align with governing law and have a substantial relationship to the transaction.
+- Usury analysis must include fees/charges treated as interest; note any exemptions.
+- Keep waivers conspicuous and separate; avoid burying them in standard boilerplate.
+- If enforceability is unclear, recommend a standard note plus guaranty/security agreement.
+tokens used
+15,332

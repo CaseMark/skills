@@ -1,0 +1,41 @@
+{
+  "id": "298bbcdf-b37c-452a-ada8-fc3dd94f8752",
+  "slug": "litigation-criminal-defense-plea-agreement-summaries",
+  "name": "Plea Agreement Summaries",
+  "summary": "Generates comprehensive summaries of plea agreements in criminal law matters for quick reference by attorneys, clients, and court personnel. It extracts key elements including charges, factual basis, sentencing recommendations, waivers, and collateral consequences while distinguishing original and plea charges. Use it to create concise, structured overviews without reviewing the full agreement.",
+  "content": "# Plea Agreement Summary for Criminal Law Matters\n\nYou are tasked with creating a comprehensive summary of a plea agreement in a criminal law matter. This summary should serve as a quick-reference document for attorneys, clients, and court personnel to understand the essential terms and conditions of the negotiated resolution without reading the entire agreement.\n\nBegin by thoroughly reviewing the plea agreement document to extract all critical information. Your summary should capture the fundamental elements of the plea bargain while maintaining accuracy and legal precision. The document should be structured to allow readers to quickly grasp the charges, admissions, sentencing recommendations, and obligations undertaken by the defendant.\n\nYour summary must include the defendant's identifying information and the specific charges to which they are pleading guilty or no contest. Clearly distinguish between original charges filed and the charges accepted under the plea agreement, noting any charges that are being dismissed or reduced as part of the negotiation. Include the statutory citations for each offense and the potential maximum penalties that could have been imposed absent the agreement.\n\nDetail the factual basis for the plea, summarizing the defendant's admissions and the conduct that forms the foundation of the guilty plea. This section should be concise but sufficient to demonstrate that there is a factual predicate for the plea. Include any specific stipulations regarding the facts of the case, particularly those that may impact sentencing or restitution obligations.\n\nOutline the sentencing recommendations and agreements reached between the prosecution and defense. Specify whether the agreement includes a joint sentencing recommendation, a cap on the sentence, or leaves sentencing to the court's discretion. Include details about incarceration terms (including whether sentences run concurrently or consecutively), probation periods, fines, restitution amounts, community service requirements, and any special conditions such as substance abuse treatment, mental health counseling, or geographic restrictions. Note whether the agreement is binding on the court or merely advisory.\n\nAddress any collateral consequences explicitly acknowledged in the agreement, including immigration consequences for non-citizens, sex offender registration requirements, firearm restrictions, professional licensing impacts, or other civil disabilities. Summarize the defendant's waivers, particularly the waiver of trial rights, appeal rights, and any agreements regarding post-conviction relief or habeas corpus petitions.\n\nInclude provisions regarding cooperation with law enforcement or testimony in other proceedings if applicable. Detail any protection agreements, immunity grants, or use limitations on the defendant's statements. If the agreement contains breach provisions, summarize the circumstances that would constitute a breach and the remedies available to the prosecution.\n\nConclude with any unique or non-standard provisions specific to this agreement, such as deferred adjudication arrangements, diversion programs, or conditional dismissal provisions. Note important deadlines, including sentencing dates, restitution payment schedules, or compliance reporting requirements.\n\nPresent this summary in a clear, professional format using plain language where possible while maintaining legal accuracy. The document should be accessible to clients while remaining sufficiently detailed for legal professionals. Organize the information logically with clear headings and ensure that all monetary amounts, dates, and statutory references are precisely stated. This summary will serve as a critical reference document throughout the case and should enable quick retrieval of key terms without consulting the full agreement.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

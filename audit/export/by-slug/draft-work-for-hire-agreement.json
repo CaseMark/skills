@@ -1,0 +1,42 @@
+{
+  "id": "59462c35-49f0-4d41-8d2d-6e2d78bc55f2",
+  "slug": "draft-work-for-hire-agreement",
+  "name": "Work for Hire Agreement",
+  "summary": "Drafts a comprehensive Work for Hire Agreement that establishes the hiring party's ownership of all intellectual property rights in commissioned work under the U.S. Copyright Act. Includes fallback assignment provisions, detailed compensation terms, creator warranties, and indemnification protections. Use when hiring creators for projects requiring clear IP ownership transfer, such as software, designs, or content.",
+  "content": "You are tasked with drafting a comprehensive Work for Hire Agreement that clearly establishes the hiring party's ownership of all intellectual property rights in the commissioned work. This agreement must comply with the U.S. Copyright Act's requirements for work-made-for-hire arrangements while providing appropriate fallback protections.\n\nBegin by gathering essential information about the transaction. Identify the hiring party (the commissioning entity) and the creator (the individual or entity producing the work), including their full legal names, business structures if applicable, and addresses. Obtain a detailed description of the work to be created, including the scope, specifications, deliverables, timeline, and any technical requirements or creative parameters. This description should be sufficiently detailed to avoid ambiguity about what constitutes completion of the work.\n\nDraft the core work-for-hire provisions with precision and legal rigor. The agreement must contain an explicit statement that the work shall be considered a \"work made for hire\" as defined under 17 U.S.C. \u00a7 101 and \u00a7 201(b) of the U.S. Copyright Act, with the hiring party deemed the author and exclusive owner of all rights, title, and interest in the work from the moment of creation. Include a comprehensive assignment clause as a fallback provision that operates automatically if a court determines the work does not qualify as work-made-for-hire under statutory definitions. This assignment should transfer all copyright, moral rights, and related intellectual property rights worldwide, in perpetuity, including all rights of reproduction, distribution, adaptation, public display, and public performance.\n\nStructure the compensation and payment terms clearly and completely. Specify the total compensation amount, whether it is a flat fee, hourly rate, or milestone-based payment structure. Detail the payment schedule with specific dates or triggering events (such as upon execution, upon delivery of drafts, or upon final acceptance). Address expense reimbursement policies and any conditions precedent to payment, such as delivery of acceptable work or execution of additional assignment documents.\n\nInclude robust warranties and representations from the creator to protect the hiring party from intellectual property claims. The creator should warrant that the work is entirely original, that they have full authority to enter the agreement and grant the rights conveyed, that the work does not and will not infringe any copyright, trademark, patent, trade secret, or other proprietary right of any third party, and that the work does not contain defamatory, libelous, or unlawful material. Pair these warranties with a comprehensive indemnification clause requiring the creator to defend, indemnify, and hold harmless the hiring party from any claims, damages, losses, or expenses (including reasonable attorneys' fees) arising from breach of these warranties.\n\nAddress practical workflow and delivery matters including the format and method of delivery, acceptance criteria and revision procedures, the hiring party's right to modify or adapt the work without creator approval, and provisions regarding return or destruction of hiring party's confidential materials. Consider whether the creator will receive any attribution credit and, if so, specify the exact form and placement of such credit, along with the hiring party's right to remove attribution if the work is substantially modified.\n\nIncorporate standard contractual provisions appropriate for the jurisdiction and nature of the work. Specify the governing law (typically the hiring party's state) and venue for dispute resolution. Include provisions addressing independent contractor status and tax responsibilities, confidentiality obligations regarding the hiring party's proprietary information, the creator's obligation to execute additional documents reasonably necessary to perfect the hiring party's rights, termination rights and consequences, and whether the agreement may be assigned by either party. Add a severability clause to preserve the agreement if any provision is found unenforceable, and specify whether this agreement constitutes the entire understanding between the parties or if other agreements remain in effect.\n\nFormat the final agreement professionally with clear section headings, defined terms capitalized and used consistently throughout, and a signature block containing spaces for printed names, titles (if signing on behalf of an entity), dates, and actual signatures. If the creator is providing services as an employee or through a loan-out company, ensure the agreement structure and tax treatment align with the actual relationship. Review whether the work falls within one of the nine statutory categories eligible for work-made-for-hire treatment (such as a contribution to a collective work, part of a motion picture or audiovisual work, translation, supplementary work, compilation, instructional text, test, answer material for a test, or atlas) and adjust language accordingly if the work falls outside these categories.\n\nThe completed agreement should be clear, enforceable, and provide maximum protection for the hiring party's intellectual property interests while establishing fair and transparent terms for the creator's compensation and obligations.",
+  "parent_skill_id": "a8cfbc04-d7ae-4f08-856a-f5d970d6dc17",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "employment_and_consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

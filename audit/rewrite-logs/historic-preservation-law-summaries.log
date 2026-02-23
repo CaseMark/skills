@@ -1,0 +1,302 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c83-6647-78f3-ac48-0b93e3a2a6fc
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2b0d6120-9e68-4981-9bc2-4b906152de5a",
+  "slug": "historic-preservation-law-summaries",
+  "name": "Historic Preservation Law Summaries",
+  "summary": "Generates comprehensive, thematically organized summaries of historic preservation laws and cases, covering federal statutes like the National Historic Preservation Act, landmark decisions such as Penn Central Transportation Co. v. New York City, and state-local variations. Provides executive overviews and detailed analyses on designation, regulatory authority, takings challenges, and intersections with zoning for developers, agencies, and advocates. Use this skill for quick, authoritative insights into preservation jurisprudence without deep primary research.",
+  "content": "# Historic Preservation Law Summary Prompt\n\nYou are a specialized legal research assistant with expertise in historic preservation law. Your task is to create a comprehensive, well-organized summary of cases and laws related to the preservation of historic sites and buildings. This summary will serve developers, government agencies, preservation advocates, and legal professionals who need to understand the legal framework governing historic preservation.\n\nBegin by conducting thorough legal research to identify the most relevant and authoritative sources in historic preservation law. Your research should encompass federal statutes such as the National Historic Preservation Act, relevant state and local preservation ordinances, landmark Supreme Court decisions like Penn Central Transportation Co. v. New York City, and recent appellate court rulings that have shaped preservation jurisprudence. Search for both primary legal sources and any uploaded documents that may contain relevant case law, regulatory guidance, or preservation-related legal materials.\n\nStructure your summary to provide maximum utility for diverse audiences. Open with an executive overview that distills the core principles of historic preservation law, including the balance between property rights and public interest in preservation, the regulatory framework at federal, state, and local levels, and the key legal mechanisms such as designation processes, review procedures, and enforcement mechanisms. This overview should be accessible to non-lawyers while maintaining legal precision.\n\nIn the main body of your summary, organize the material thematically rather than chronologically. Address major legal topics including designation criteria and procedures for historic landmarks and districts, the scope of regulatory authority over alterations and demolitions, takings challenges and the constitutional limits of preservation restrictions, tax incentives and economic considerations in preservation law, enforcement mechanisms and remedies for violations, and the intersection of preservation law with environmental review, zoning, and land use regulations. For each topic, synthesize the relevant statutory provisions and case law, explaining how courts have interpreted and applied these principles in real-world disputes.\n\nWhen discussing cases, provide sufficient factual context to illustrate the legal principles at stake. Include the parties involved, the nature of the historic property in question, the specific preservation restriction or requirement challenged, the court's reasoning and holding, and the practical implications for future preservation efforts. Ensure all case citations conform to Bluebook standards and verify that each cited source is authoritative and accessible.\n\nPay particular attention to jurisdictional variations, as historic preservation law operates at multiple governmental levels with significant state-by-state differences. Highlight where federal law preempts local regulation, where states have enacted model preservation statutes, and where local ordinances provide the primary regulatory framework. Note any circuit splits or unresolved legal questions that may affect how preservation law is applied in different regions.\n\nAddress practical considerations that legal professionals and stakeholders must navigate. Discuss procedural requirements such as notice provisions, hearing procedures, and administrative appeal processes. Explain the evidentiary standards applied in preservation disputes, including how courts evaluate historical significance, architectural integrity, and economic hardship claims. Identify common pitfalls in preservation compliance and litigation strategies that have proven successful or unsuccessful in reported decisions.\n\nConclude your summary with forward-looking analysis. Identify emerging trends in historic preservation law, such as the application of preservation principles to mid-century modern architecture, the treatment of culturally significant sites beyond traditional architectural landmarks, and the integration of climate change and sustainability considerations into preservation frameworks. Note any pending legislation or cases that may reshape the legal landscape.\n\nThroughout your summary, maintain objectivity while acknowledging the competing interests at stake in preservation disputes. Recognize that developers may view preservation restrictions as impediments to economic development, government agencies must balance preservation goals against other public interests, and preservation advocates seek to protect irreplaceable cultural resources. Your summary should equip all stakeholders with the legal knowledge necessary to navigate these tensions effectively.\n\nFormat the final summary as a professional legal memorandum with clear headings, subheadings, and proper citation format. The document should be comprehensive enough to serve as a standalone reference while remaining concise and well-organized. Ensure that every legal assertion is supported by appropriate authority and that the summary reflects the current state of the law as of the most recent available sources.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.914247",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:59:08.461526Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Outlining skill rewrite**
+
+Decided on slug "historic-preservation-law-summary" and will create a third-person description with metadata including Regulatory practice area and Summary document type. The skill will cover research and summarization modes, include trigger keywords, prerequisites, likely inputs, and a structured output with key thematic sections and relevant legal references.
+thinking
+**Finalizing skill content and structure**
+
+Planning to produce the full skill markdown including YAML front matter with metadata, a concise third-person description, trigger keywords, and a detailed output structure with explicit numbered prerequisites and templated sections in markdown code blocks. Citations will be flagged with [VERIFY] where needed, and clear guidelines on scope, do's/don'ts, and jurisdiction notes will be included.
+codex
+---
+name: historic-preservation-law-summary
+description: Produces a structured U.S. historic preservation law summary with federal, state, and local authorities, key cases (e.g., Penn Central), takings analysis, designation and review procedures, enforcement, and zoning intersections. Use when asked for historic preservation law summary, NHPA, Section 106, preservation ordinance, landmark designation, demolition review, takings challenge, or Penn Central analysis.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Research
+    - Summarization
+---
+
+# Historic Preservation Law Summary
+
+Delivers a thematic, jurisdiction-aware legal summary of historic preservation statutes, cases, and regulatory frameworks.
+
+## Prerequisites
+
+1. **Jurisdiction scope** — federal only, specific state(s), and/or specific locality(ies)
+2. **Audience and purpose** — developer, agency, advocate, counsel, court submission, or internal memo
+3. **Time horizon** — include recent developments or fixed cutoff date
+4. **Source set** — uploaded materials, known ordinances, prior memos, or request to locate authorities
+5. **Focus topics** — designation, takings, enforcement, incentives, zoning/land use, environmental review
+
+## Output Structure / Process
+
+1. **Scope Header**
+   - Jurisdictions covered
+   - Coverage period
+   - Source list (uploaded + publicly available)
+
+2. **Executive Overview**
+   - 4–8 bullets summarizing core principles and practical effects
+
+3. **Authority Map (table)**
+   - Populate for each jurisdiction
+
+| Level | Authority | Citation | Core Function | Notes |
+| --- | --- | --- | --- | --- |
+| Federal | National Historic Preservation Act | [VERIFY] | Framework for identification and review | Section 106 process |
+| Federal | Tax incentive statute(s) | [VERIFY] | Credits/deductions | Eligibility triggers |
+| State | State preservation statute | [VERIFY] | Enables/sets standards | Preemption or delegation |
+| Local | Landmark ordinance | [VERIFY] | Designation + review | Demolition/alterations |
+
+4. **Thematic Analysis (table)**
+   - Provide short, authority-backed synthesis for each topic
+
+| Topic | Rule/Standard | Leading Authority | Practical Implication |
+| --- | --- | --- | --- |
+| Designation criteria | Criteria for historic significance | Local ordinance; state statute | Threshold for landmarking |
+| Review of alterations/demolition | Certificate of appropriateness or similar | Local ordinance | Scope of agency discretion |
+| Takings limits | Regulatory takings framework | Penn Central Transp. Co. v. NYC, 438 U.S. 104 (1978) | Balancing test constraints |
+| Economic hardship | Hardship standard and proof | Ordinance/case law | Basis for relief |
+| Enforcement | Injunctions, penalties, permits | Ordinance/statute | Compliance leverage |
+| Incentives | Credits/grants | Federal/state programs | Offsets compliance cost |
+| Zoning/land use overlap | Zoning approvals vs. preservation | Local code | Sequencing risks |
+| Environmental review | NEPA/State equivalents | [VERIFY] | Additional review layer |
+
+5. **Case Digest (table)**
+   - Include 5–12 cases across levels; add parentheticals
+
+| Case | Court/Year | Issue | Holding | Practical Takeaway |
+| --- | --- | --- | --- | --- |
+| Penn Central Transp. Co. v. NYC | U.S. 1978 | Landmark restrictions and takings | No taking under multi-factor test | Use for takings analysis |
+
+6. **Procedure Checklist**
+   - For the relevant jurisdiction, list the procedural steps
+   - Use short, directive items
+
+Checklist:
+- Identify applicable designation criteria
+- Confirm notice and hearing requirements
+- Document administrative record standards
+- Map appeal routes and timelines
+- Verify permit sequencing with zoning/building
+
+7. **Evidentiary Standards**
+   - Summarize how agencies/courts assess:
+   - Historical significance
+   - Architectural integrity
+   - Economic hardship
+   - Alternatives analysis
+
+8. **Jurisdiction Variations**
+   - Compare state/local differences
+   - Note preemption, delegation, or home-rule impacts
+
+9. **Open Questions / Splits**
+   - Highlight unresolved issues or regional splits
+   - Mark items that require updated research
+
+10. **Forward-Looking Trends**
+   - Emerging categories (e.g., mid-century, cultural sites)
+   - Climate/adaptation pressures
+   - Pending legislation or notable docket items
+
+## Guidelines
+
+- Use Bluebook citations for every legal assertion.
+- Mark uncertain authority with `[VERIFY]`.
+- Separate federal, state, and local rules; do not conflate.
+- Summarize holdings neutrally; avoid advocacy tone.
+- Flag jurisdiction-specific procedural traps (notice, appeals, record).
+- Note constitutional constraints on preservation restrictions.
+- Avoid legal advice; provide informational analysis only.
+- If local ordinance text is missing, state the gap explicitly and request it.
+tokens used
+3,326

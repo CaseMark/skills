@@ -1,0 +1,322 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c84-0519-7250-a174-97c429716afb
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "206d745c-2799-405d-9556-a5323a7a618d",
+  "slug": "interconnection-agreement-draft",
+  "name": "Interconnection Agreement",
+  "summary": "Drafts a comprehensive Interconnection Agreement for telecommunications carriers, ensuring compliance with FCC regulations, the Telecommunications Act of 1996, and industry standards. Incorporates party-specific details from provided documents and covers technical, operational, and financial aspects for execution or regulatory filing. Use when establishing interconnections between network providers to govern traffic exchange and dispute resolution.",
+  "content": "# Interconnection Agreement - Regulatory Document Drafting\n\nYou are an expert telecommunications regulatory attorney tasked with drafting a comprehensive Interconnection Agreement that governs the technical and commercial relationship between telecommunications carriers or network service providers. This agreement must comply with Federal Communications Commission (FCC) regulations, applicable industry standards, and federal and state telecommunications law, including the Telecommunications Act of 1996 and relevant FCC orders.\n\n## Your Role and Approach\n\nYour primary objective is to produce a complete, legally sound Interconnection Agreement suitable for execution by sophisticated telecommunications parties and potential filing with state public utility commissions. Before beginning your draft, search any uploaded documents for relevant information about the parties, existing agreements, regulatory filings, or technical specifications that should inform this agreement. Look for concrete details such as party names, FCC registration numbers, existing interconnection points, traffic volumes, rate structures, or prior dispute history. If the user has provided background materials, technical specifications, or regulatory correspondence, extract all relevant facts and incorporate them appropriately into your draft.\n\nThroughout the drafting process, maintain the precision and formality expected in regulatory telecommunications documents. Use clear, unambiguous language that will withstand scrutiny by regulatory counsel, state public utility commissions, and potentially federal courts. Every provision should reflect current FCC interconnection requirements and industry best practices while anticipating potential disputes and regulatory challenges.\n\n## Document Structure and Comprehensive Coverage\n\nYour Interconnection Agreement must address all technical, operational, and financial aspects of the interconnection relationship. Begin with a properly formatted title that identifies the document as an \"Interconnection Agreement\" and includes the effective date or execution date placeholder. The agreement should flow logically from party identification through recitals, substantive provisions, and concluding with standard clauses and signature blocks.\n\n## Parties Identification with Regulatory Precision\n\nDraft the parties section with meticulous attention to regulatory detail. Identify each party by its complete legal name exactly as registered with the relevant secretary of state, followed by its state of incorporation or organization. Include each party's principal place of business with full street address, city, state, and ZIP code. Critically, specify each party's regulatory classification under FCC rules, such as incumbent local exchange carrier (ILEC), competitive local exchange carrier (CLEC), commercial mobile radio service (CMRS) provider, interconnected Voice over Internet Protocol (VoIP) provider, or other applicable designation. Include FCC Registration Numbers (FRN) for each party, as well as any state-issued certificates of authority or operating licenses relevant to the jurisdictions where interconnection will occur. Distinguish clearly between the \"Requesting Party\" (the carrier seeking interconnection) and the \"Providing Party\" (the carrier whose network will be interconnected with), as this distinction affects certain regulatory obligations and rate structures under Section 251 of the Telecommunications Act.\n\n## Recitals Establishing Regulatory Foundation\n\nCraft recitals that establish both the legal foundation and business context for the interconnection arrangement. Begin by referencing the statutory basis for interconnection, specifically citing Section 251(c) of the Communications Act of 1934, as amended by the Telecommunications Act of 1996, which imposes interconnection obligations on incumbent local exchange carriers. Reference any applicable FCC orders interpreting interconnection obligations, such as the Local Competition Orders or subsequent FCC rulings on VoIP interconnection. Describe the business purpose of the interconnection with specificity, identifying the types of telecommunications traffic to be exchanged (local, toll, wireless-to-wireline, VoIP), the geographic scope of the arrangement (specific LATAs, metropolitan areas, or states), and the anticipated traffic volumes if known. If this agreement results from negotiations following a request for interconnection under Section 252 of the Communications Act, reference the date of the initial request and any mediation or arbitration proceedings before the state public utility commission. Include a recital acknowledging that both parties are duly authorized to provide telecommunications services in the relevant jurisdictions and that this agreement serves the public interest by promoting competition, ensuring network interoperability, and providing consumers with greater choice in telecommunications services.\n\n## Definitions Section with Technical and Legal Precision\n\nDevelop an extensive definitions section that precisely defines every technical term, regulatory concept, and industry-specific phrase used throughout the agreement. This section is critical because ambiguity in key terms frequently leads to billing disputes and regulatory complaints. At minimum, provide detailed definitions for the following essential terms, ensuring alignment with FCC terminology and industry standards from the Alliance for Telecommunications Industry Solutions (ATIS):\n\n**Interconnection Point and Point of Interconnection (POI)** should be defined to specify both the physical location (street address, building, floor, and equipment cage or bay) and the logical demarcation point where the two networks connect. Clarify whether the POI is at the Providing Party's end office, at a tandem switch, at a meet-point location, or at the Requesting Party's facilities. Specify the technical interface standard at the POI, such as DS-1 (1.544 Mbps), DS-3 (44.736 Mbps), OC-3, OC-12, or other optical or electrical interface.\n\n**Traffic classifications** require particularly precise definitions because different traffic types are subject to different rate treatments under FCC rules. Define Local Traffic as telecommunications traffic that originates and terminates within the same local calling area as defined by the Providing Party's tariffs or as designated by the state public utility commission, excluding toll traffic. Define IntraLATA Toll Traffic as traffic that originates and terminates within the same Local Access and Transport Area (LATA) but outside the local calling area, subject to toll charges. Define InterLATA Traffic as traffic that crosses LATA boundaries, traditionally subject to interexchange carrier access charges. Define Wireless Traffic with attention to FCC rules on wireless-to-wireline interconnection, specifying whether such traffic is treated as local or toll based on the wireless carrier's designation of its traffic as \"mobile-to-land\" under FCC regulations. Define VoIP Traffic and address the regulatory treatment of IP-enabled voice traffic, acknowledging ongoing FCC proceedings on VoIP interconnection obligations.\n\n**Network Elements and Network Facilities** should distinguish between unbundled network elements (UNEs) available under Section 251(c)(3) and interconnection facilities provided under Section 251(c)(2). Define Tandem Switching as the function that establishes a communications path between two end offices or between an end office and an interexchange carrier point of presence, including both local tandem and access tandem functions. Define End Office as the Providing Party's switching facility where customer station loops terminate for purposes of interconnection to each other and to trunks. Define Transport as the transmission and any necessary tandem switching between designated points.\n\nInclude definitions for traffic measurement and billing terms such as Busy Hour (typically the highest traffic hour during the busy season), Hundred Call Seconds (CCS), Minutes of Use (MOU), and Percent Local Usage (PLU) or Percent Interstate Usage (PIU) factors used to apportion traffic for billing purposes. Define Reciprocal Compensation as the mutual exchange of compensation for the transport and termination of local telecommunications traffic, as required by Section 251(b)(5) of the Communications Act.\n\n## Interconnection Services and Technical Specifications\n\nProvide comprehensive technical specifications for the interconnection services to be provided under this agreement. Identify each Point of Interconnection with precision, including the complete physical address, the specific equipment location within the facility (such as \"Main Distribution Frame, Third Floor, Bay 12\"), and the technical characteristics of the interconnection facility. Specify whether interconnection will be provided via direct trunking between the parties' networks or via indirect connection through a third-party tandem switch. Detail the trunk group configurations, including the number of initial trunks, the trunk type (one-way or two-way), and the signaling protocol to be employed.\n\nAddress signaling requirements in detail, specifying whether Signaling System 7 (SS7) or Session Initiation Protocol (SIP) will be used for call setup, routing, and teardown. If SS7 signaling is employed, specify the signaling point codes for each party, the signaling transfer point (STP) arrangements, and the specific SS7 messages to be exchanged, including Initial Address Messages (IAM), Answer Messages (ANM), and Release Messages (REL). If SIP signaling is used, reference the applicable Internet Engineering Task Force (IETF) standards and specify any required SIP headers or parameters for proper call routing and billing.\n\nInclude detailed provisions for number portability implementation, ensuring compliance with FCC rules requiring all carriers to support local number portability (LNP). Specify the query methodology for determining whether a dialed number has been ported, whether through direct access to the Number Portability Administration Center (NPAC) or through LNP database queries. Address the timing and format of LNP notifications between the parties when customers port numbers. Detail the procedures for Calling Name (CNAM) delivery, specifying the database query protocols and any associated charges for CNAM database access or storage.\n\nEmergency services routing requires special attention given FCC requirements for reliable E911 service. Specify how 911 calls will be routed to the appropriate Public Safety Answering Point (PSAP), including the technical method for delivering Automatic Number Identification (ANI) and Automatic Location Identification (ALI) information. Address the parties' respective responsibilities for maintaining accurate ALI database records and for ensuring that 911 calls receive priority routing and are not blocked due to network congestion.\n\nEstablish clear capacity planning obligations to ensure that the interconnection facilities can handle traffic volumes without degradation of service quality. Require each party to provide traffic forecasts on a semi-annual or quarterly basis, projecting traffic volumes for the subsequent six to twelve months. Specify the traffic threshold that triggers an obligation to augment capacity, typically when trunk utilization reaches a specified percentage (such as 70% or 80%) during the average busy hour over a specified measurement period. Detail the augmentation process, including the timeframe for ordering additional facilities (typically 30 to 90 days), the party responsible for ordering and paying for augmentation, and the testing and acceptance procedures for new facilities.\n\nInclude provisions for network testing and acceptance, specifying that all interconnection facilities must successfully complete industry-standard testing protocols before being placed into service. Reference applicable industry standards such as those published by ATIS or the Telecommunications Industry Association (TIA). Require ongoing performance monitoring, with each party measuring and reporting key performance indicators such as answer seizure ratio (ASR), network effectiveness ratio (NER), and post-dial delay. Specify the acceptable performance thresholds and the remedial actions required when performance falls below acceptable levels.\n\n## Comprehensive Rate, Billing, and Payment Framework\n\nEstablish a detailed financial framework that addresses all compensation obligations arising from the interconnection relationship. Begin by specifying the applicable rate structure for each type of service provided under the agreement. For reciprocal compensation on local traffic termination, state the specific per-minute rate (such as \"$0.0007 per minute of use\") or reference the rate established by state public utility commission order or FCC regulation. Clarify whether reciprocal compensation is symmetric (the same rate applies regardless of which party terminates traffic) or asymmetric (different rates apply based on the terminating party). Address the ongoing FCC proceedings and court decisions regarding reciprocal compensation for VoIP traffic, and specify how such traffic will be compensated pending final regulatory resolution.\n\nFor transport services, specify the rates for dedicated trunk facilities, including both the initial installation charges (non-recurring charges) and the monthly recurring charges. Distinguish between entrance facilities (connecting the Requesting Party's network to the POI) and transport facilities (carrying traffic from the POI to the terminating end office). If the Providing Party offers tandem switching transit service, specify the per-minute tandem switching rate and any associated transport charges.\n\nAddress access charges for toll traffic, acknowledging that InterLATA traffic and certain IntraLATA toll traffic may be subject to interstate or intrastate access charges as specified in the Providing Party's FCC or state tariffs. Clarify the circumstances under which access charges apply versus reciprocal compensation, typically based on the jurisdictional nature of the traffic and the regulatory classification of the parties.\n\nDetail the billing process with precision to minimize disputes. Specify the billing cycle (typically monthly, with bills rendered within 15 to 30 days after the end of the billing period). Describe the required content of invoices, including detailed call records showing the originating and terminating telephone numbers, the date and time of each call, the duration in minutes or seconds, the traffic type classification, the applicable rate, and the total charges. Specify the format for electronic billing records, such as Exchange Message Record (EMR) format or other industry-standard billing formats, and the method of delivery (such as secure FTP, encrypted email, or through a billing clearinghouse).\n\nRequire each party to maintain detailed call records supporting all billed charges, with such records retained for a specified period (typically 18 to 24 months) to allow for audit and dispute resolution. Grant each party the right to audit the other party's traffic records upon reasonable notice, typically with 30 days advance written notice and during normal business hours. Specify that audits may be conducted by the party itself or by an independent third-party auditor, with audit costs borne by the auditing party unless the audit reveals billing errors exceeding a specified threshold (such as 5% of billed amounts), in which case the audited party bears the audit costs.\n\nEstablish clear payment terms, specifying that payment is due within a specified number of days after the invoice date (typically 30 days). Identify acceptable payment methods, such as wire transfer, ACH transfer, or check, and provide the necessary banking information for electronic payments. Address late payment consequences, specifying the interest rate to be applied to overdue amounts (such as the lesser of 1.5% per month or the maximum rate permitted by applicable law). Include provisions allowing the non-defaulting party to suspend service or terminate the agreement if payment defaults continue beyond a specified cure period.\n\nEstablish a comprehensive billing dispute resolution process. Require the disputing party to provide written notice of any billing dispute within a specified timeframe after receiving the invoice (typically 60 to 90 days), with the notice identifying the specific charges disputed and the factual and legal basis for the dispute. Specify that undisputed amounts must be paid when due, while disputed amounts may be withheld pending resolution. Require the parties to meet and negotiate in good faith to resolve billing disputes within a specified period (typically 30 days). If the parties cannot resolve the dispute through negotiation, provide for escalation to the dispute resolution procedures specified elsewhere in the agreement, including potential regulatory complaint proceedings before the state public utility commission or FCC.\n\n## Term, Renewal, and Termination Provisions\n\nDefine the initial term of the agreement with specific commencement and expiration dates. The commencement date should be clearly stated, such as \"the date of execution by both parties,\" \"the date of approval by the [State] Public Utility Commission,\" or a specific calendar date. Specify an initial term of defined duration, commonly two to five years for interconnection agreements, to provide stability while allowing for periodic renegotiation to reflect changing regulatory requirements and market conditions.\n\nAddress renewal with clarity, specifying whether the agreement automatically renews for successive renewal terms (such as one-year renewal periods) unless either party provides notice of non-renewal. Require written notice of non-renewal to be delivered a specified number of days before the end of the then-current term (typically 90 to 180 days). Include provisions allowing either party to request renegotiation of rates and terms upon renewal, acknowledging that FCC regulations and state public utility commission orders may change during the agreement term and that rates should be adjusted to reflect current regulatory requirements.\n\nDetail termination rights with appropriate protections for both parties. Provide for termination for cause upon the occurrence of specified material breaches, including failure to pay undisputed amounts when due (with a cure period of 30 days after written notice), material violation of technical specifications or performance standards (with a reasonable cure period), loss of regulatory authorization to provide telecommunications services in the relevant jurisdiction, filing for bankruptcy or insolvency, or assignment of the agreement in violation of the assignment restrictions. Specify that termination for cause requires written notice identifying the breach and providing a reasonable opportunity to cure (except for breaches that cannot be cured, such as loss of regulatory authorization).\n\nAddress termination for convenience if permitted under applicable regulatory requirements, acknowledging that FCC rules generally require interconnection to continue as long as both parties are authorized carriers. If termination for convenience is allowed, require substantial advance notice (such as 180 days) to allow for orderly transition of traffic and minimize disruption to end-user customers.\n\nInclude comprehensive provisions governing the parties' obligations upon termination or expiration of the agreement. Require both parties to cooperate in good faith to ensure continuity of service to end-user customers, including maintaining interconnection facilities and continuing to exchange traffic during a transition period. Specify the duration of the transition period (typically 30 to 90 days) and the terms applicable during that period, which may be the same as the expired agreement terms or may be based on the Providing Party's generally available tariffs. Address the treatment of traffic during the wind-down period, ensuring that neither party blocks or degrades the other party's traffic in a manner that would violate FCC service quality requirements or harm end-user customers.\n\nEstablish final billing and reconciliation procedures, requiring a final invoice to be rendered within a specified period after termination (such as 60 days) and requiring payment of all final amounts within the normal payment period. Address the disposition of any shared equipment, facilities, or collocation arrangements, specifying whether equipment must be removed, whether facilities may be purchased by the other party, and the timeframe for such actions.\n\nInclude survival provisions specifying which obligations continue beyond termination or expiration of the agreement. Typically, confidentiality obligations, indemnification obligations, payment obligations for services rendered prior to termination, and audit rights should survive termination for a specified period (such as two to three years). Specify that any provisions necessary to interpret the parties' rights and obligations during the agreement term also survive, including definitions, governing law, and dispute resolution provisions.\n\n## Multi-Tiered Dispute Resolution Mechanism\n\nEstablish a comprehensive dispute resolution framework appropriate for sophisticated telecommunications regulatory agreements. Recognize that disputes may involve both commercial issues (such as billing disagreements or technical performance) and regulatory issues (such as interpretation of FCC requirements or state public utility commission orders), and provide appropriate resolution mechanisms for each type of dispute.\n\nBegin with a mandatory informal negotiation period requiring good-faith discussions between operational personnel from both parties. Specify that disputes must first be escalated to designated dispute resolution contacts at each party, typically senior managers with authority to resolve operational issues. Require these contacts to meet (in person or by telephone) within a specified period after notice of the dispute (such as 10 business days) and to negotiate in good faith for a specified period (such as 15 to 30 days) before escalating to more formal procedures.\n\nIf operational-level negotiations fail to resolve the dispute, require escalation to senior executives from each party. Specify that each party will designate a senior executive (such as a Vice President or higher) with authority to settle disputes, and require these executives to meet and negotiate in good faith for an additional specified period (such as 15 to 30 days). This executive escalation often resolves disputes that operational personnel cannot settle due to lack of settlement authority.\n\nFor disputes that cannot be resolved through negotiation, provide for mediation before a neutral third party with telecommunications industry expertise. Specify the process for selecting a mediator, such as mutual agreement on a mediator within 10 days, or if the parties cannot agree, selection by a designated organization such as JAMS or the American Arbitration Association (AAA). Address the allocation of mediation costs, typically requiring the parties to share equally the mediator's fees and expenses while each party bears its own attorney's fees. Specify a timeframe for completing mediation (such as 60 days from the mediator's appointment) and clarify that mediation is non-binding, with either party free to pursue other remedies if mediation does not result in settlement.\n\nInclude specific provisions for regulatory dispute resolution, acknowledging that either party may petition the relevant state public utility commission or the FCC for resolution of disputes involving interpretation or enforcement of regulatory obligations. Clarify that regulatory dispute resolution is available for issues such as interpretation of Section 251 interconnection obligations, disputes over whether traffic is subject to reciprocal compensation or access charges, disagreements about the appropriate rates for interconnection services, or allegations that a party has violated its regulatory obligations under the agreement. Specify that regulatory complaints may be filed at any time without exhausting the negotiation and mediation procedures, recognizing that regulatory authorities have exclusive jurisdiction over certain issues and that delay in seeking regulatory relief could harm the complaining party or the public interest.\n\nFor purely commercial disputes that do not involve regulatory interpretation (such as disputes over contract interpretation, breach of non-regulatory provisions, or claims for damages), provide for binding arbitration as the final dispute resolution mechanism. Specify that arbitration will be conducted under the Commercial Arbitration Rules of a designated organization such as JAMS or AAA. Address key arbitration parameters, including the number of arbitrators (typically one for disputes involving less than a specified amount, such as $1 million, and three for larger disputes), the method of selecting arbitrators (such as each party selecting one arbitrator and the two party-appointed arbitrators selecting a third), the location of arbitration proceedings (typically the state where the interconnection services are provided), and the allocation of arbitration costs. Specify that the arbitrator's award is final and binding and may be entered as a judgment in any court of competent jurisdiction. Include provisions limiting discovery in arbitration to ensure efficiency while allowing sufficient information exchange for fair resolution.\n\nCritically, include a provision requiring both parties to continue performing their obligations under the agreement during the pendency of any dispute, except as specifically ordered by a court or regulatory authority. This \"continue to perform\" provision is essential in telecommunications agreements because service interruptions harm end-user customers and may violate FCC service quality requirements. Specify that the obligation to continue performing applies to all obligations, including the obligation to exchange traffic, maintain interconnection facilities, and pay undisputed charges, regardless of the existence of disputes over other matters.\n\n## Governing Law, Regulatory Compliance, and Standard Provisions\n\nSpecify that the agreement is governed by and construed in accordance with federal telecommunications law, including the Communications Act of 1934, as amended by the Telecommunications Act of 1996, all applicable FCC regulations codified in Title 47 of the Code of Federal Regulations, and applicable FCC orders and decisions. Additionally, specify that the agreement is governed by the laws of the state where the interconnection services are provided, to the extent such state law is not preempted by federal law. Address the relationship between federal and state law, acknowledging that the FCC has preempted state regulation in certain areas (such as VoIP interconnection and certain aspects of wireless interconnection) while state public utility commissions retain jurisdiction over intrastate telecommunications services and may arbitrate disputes under Section 252 of the Communications Act.\n\nInclude a comprehensive regulatory compliance provision requiring both parties to comply with all applicable federal and state laws, regulations, and regulatory orders. Specify that each party is responsible for obtaining and maintaining all necessary regulatory authorizations, licenses, and certifications required to provide its services and to perform its obligations under the agreement. Require each party to notify the other promptly if it loses any regulatory authorization or if any regulatory authority takes action that materially affects the party's ability to perform under the agreement. Address the consequences of regulatory changes, specifying that if any provision of the agreement is found to violate applicable law or regulation, or if regulatory requirements change in a manner that affects the parties' obligations, the parties will negotiate in good faith to amend the agreement to comply with the new requirements.\n\nIf the agreement requires filing with or approval by a state public utility commission under Section 252 of the Communications Act, include a specific regulatory approval provision. Specify that the agreement will be submitted to the designated state public utility commission within the timeframe required by Section 252 (typically within 10 days after execution for negotiated agreements). Clarify whether the agreement becomes effective upon execution by the parties, upon filing with the commission, or only upon affirmative approval by the commission. Address the possibility that the commission may reject portions of the agreement, specifying that if the commission rejects any provision, the parties will negotiate in good faith to modify the rejected provision to obtain commission approval while preserving the overall intent of the agreement.\n\nInclude standard contract provisions appropriately tailored for telecommunications regulatory agreements. Draft an amendment provision requiring that any modification to the agreement be in writing and signed by authorized representatives of both parties, and if the agreement has been filed with a regulatory authority, specifying that amendments must also be filed with and approved by that authority. Include assignment and transfer restrictions recognizing that interconnection obligations are carrier-specific and may not be freely assigned without regulatory approval. Specify that neither party may assign the agreement or any rights or obligations under it without the prior written consent of the other party and any required regulatory approval, except that either party may assign the agreement without consent to a successor in interest resulting from a merger, acquisition, or sale of substantially all assets, provided the successor assumes all obligations under the agreement and possesses all necessary regulatory authorizations.\n\nDraft a severability provision ensuring that if any provision of the agreement is held invalid, illegal, or unenforceable by a court or regulatory authority, the remaining provisions continue in full force and effect. Specify that if a severed provision is material to the agreement, the parties will negotiate in good faith to replace it with a valid provision that achieves the same economic and operational effect to the extent permitted by law. Include a force majeure provision excusing performance during events beyond a party's reasonable control, such as acts of God, war, terrorism, labor disputes, governmental actions, or failures of third-party facilities or services. Specify that the affected party must provide prompt notice of the force majeure event and must use reasonable efforts to mitigate its effects and resume performance as quickly as possible. Clarify that force majeure does not excuse payment obligations for services already rendered.\n\nInclude an entire agreement and integration clause confirming that this agreement, together with any exhibits, schedules, and attachments, constitutes the complete agreement between the parties regarding interconnection and supersedes all prior negotiations, understandings, and agreements, whether written or oral. Specify that no representations, warranties, or commitments exist except as expressly stated in the written agreement. Include a provision addressing the relationship between this agreement and any tariffs filed by either party, typically specifying that to the extent of any conflict between the agreement and a tariff, the agreement controls, except where federal or state law requires tariff provisions to govern.\n\nDraft a notices provision specifying how formal notices under the agreement must be delivered. Require written notice delivered by hand delivery, overnight courier, certified mail return receipt requested, or email to designated representatives at specified addresses. Include the name, title, address, and email address for the primary notice contact for each party, and specify that either party may change its notice information by providing written notice to the other party. Specify when notices are deemed received (such as upon delivery for hand delivery or overnight courier, three business days after mailing for certified mail, or upon transmission for email if sent during business hours).\n\nInclude confidentiality provisions protecting proprietary and confidential information exchanged between the parties. Define confidential information to include technical specifications, network architecture information, traffic data, customer information, and business strategies, but exclude information that is publicly available, independently developed, or required to be disclosed by law or regulatory order. Require each party to protect the other party's confidential information using the same degree of care it uses to protect its own confidential information, and prohibit disclosure except to employees, contractors, and advisors who need to know the information to perform obligations under the agreement. Specify that confidentiality obligations survive termination of the agreement for a specified period (typically two to three years).\n\nDraft mutual indemnification provisions requiring each party to indemnify, defend, and hold harmless the other party from claims arising from the indemnifying party's negligence, willful misconduct, or breach of the agreement. Specify the scope of indemnified claims, typically including third-party claims for property damage, personal injury, or intellectual property infringement. Address the indemnification process, requiring the indemnified party to provide prompt notice of claims, allowing the indemnifying party to control the defense, and requiring the indemnified party to cooperate in the defense. Include limitations on liability, typically excluding consequential, incidental, punitive, or special damages except for breaches of confidentiality or indemnification obligations, and potentially capping each party's liability at a specified amount or a multiple of charges paid under the agreement.\n\n## Signature Execution and Finalization\n\nProvide a professional signature block for authorized representatives of each party. Create separate signature blocks for each party, with each block including a line for signature, a line for printed name, a line for title, and a line for date of signature. Include a representation above each signature line stating that the signatory represents and warrants that they have full authority to execute this agreement on behalf of their respective party and to bind that party to all terms and conditions contained herein.\n\nIf the agreement will be filed with a state public utility commission that requires notarized signatures, include notary acknowledgment blocks below each signature block, with appropriate language for the relevant state's notary requirements. If electronic execution is contemplated, include a provision acknowledging that the parties agree to execute this agreement using electronic signatures in accordance with the Electronic Signatures in Global and National Commerce Act (E-SIGN Act) and the Uniform Electronic Transactions Act (UETA), and that electronically executed copies have the same legal effect as original signatures.\n\n## Final Quality Review and Deliverable Standards\n\nBefore presenting your final draft, conduct a comprehensive quality review ensuring that all provisions are internally consistent, all cross-references are accurate, all defined terms are used consistently throughout the document, and all regulatory citations are current and correct. Verify that the agreement addresses all material issues typically covered in telecommunications interconnection agreements, including technical specifications, financial terms, performance obligations, and dispute resolution. Ensure that the language is clear, precise, and unambiguous, avoiding vague terms that could lead to disputes.\n\nThe final agreement should be formatted professionally with appropriate headings, section numbering, and white space for readability. Use consistent formatting for defined terms (such as initial capitalization), regulatory citations, and cross-references. Include a table of contents if the agreement exceeds 10 pages. Consider including exhibits or schedules for technical specifications, rate tables, or points of interconnection, with appropriate references in the main agreement body.\n\nYour completed draft should be suitable for immediate review by regulatory counsel, execution by the parties' authorized representatives, and filing with the appropriate state public utility commission if required. The agreement should reflect current industry best practices, comply with all applicable FCC and state regulatory requirements, and provide a comprehensive framework for a successful interconnection relationship that serves the public interest by promoting competition and ensuring reliable telecommunications services.",
+  "parent_skill_id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "telecommunications"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "telecommunications"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.609714",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:59:48.776263Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(reqwest::Error { kind: Request, url: "https://bench-skills-mcp.vercel.app/api/mcp", source: hyper_util::client::legacy::Error(Connect, ConnectError("dns error", Custom { kind: Uncategorized, error: "failed to lookup address information: nodename nor servname provided, or not known" })) })
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Client error: error sending request for url (https://bench-skills-mcp.vercel.app/api/mcp), when send initialize request
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating skill markdown for Interconnection Agreement**
+
+I'm generating a compressed SKILL.md file titled "Interconnection Agreement" with metadata reflecting legal context, practice areas, document types, and skill modes. The content includes a concise description with trigger keywords, a prerequisites numbered list, structured sections covering templates, tables, checklists, legal citations, and an outline of exhibits with field lists, all formatted with single-level bullet points and tables to meet length and clarity requirements.
+thinking
+**Detailing guidelines with regulatory cautions**
+
+I'm adding a Guidelines section covering US federal and state PUC jurisdiction with marked [VERIFY] citations for uncertain items like the Section 252 filing timeline. It warns on VoIP regulatory ambiguity and filing requirements, includes placeholders for unknown rates or approvals, and emphasizes avoiding invented data. The section will also note trigger keywords explicitly and maintain a structured, flat list format with tables and checklists as planned.
+codex
+---
+name: interconnection-agreement
+description: Drafts U.S. telecommunications Interconnection Agreements (ICAs) compliant with the Communications Act, FCC rules, and state commission requirements, covering POIs, technical specs, traffic classification, reciprocal compensation, access charges, LNP, E911, billing, and dispute resolution. Use when drafting or revising an interconnection agreement, ICA, Section 251/252 negotiation, POI/transport terms, ILEC/CLEC arrangements, VoIP interconnection, SS7/SIP signaling, or telecom regulatory filings. Trigger keywords: interconnection agreement, ICA, Section 251, Section 252, FCC, ILEC, CLEC, POI, reciprocal compensation, access charges, LNP, E911, SS7, SIP, ATIS.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Interconnection Agreement
+
+Draft a complete ICA suitable for execution and (if required) state PUC filing.
+
+## Prerequisites
+
+1. **Party identities and authorizations**
+Legal name, entity type, state of organization, principal address, FCC FRN, state certificates/licensure, carrier classification (ILEC/CLEC/CMRS/VoIP/other).
+2. **Interconnection scope**
+Geographic scope, traffic types, desired POIs, interconnection method (direct/indirect), anticipated volumes.
+3. **Technical inputs**
+Network diagrams, switch locations, interface standards, signaling method (SS7/SIP), LNP/CNAM/E911 requirements.
+4. **Commercial inputs**
+Rate elements, billing format, payment terms, existing tariffs or commission orders.
+5. **Regulatory posture**
+Section 252 status, filing jurisdiction(s), any prior ICA or arbitration history.
+
+## Output Structure / Process
+
+**Agreement Skeleton**
+
+| Section | Required Content |
+| --- | --- |
+| Title + Effective Date | “Interconnection Agreement” and execution/approval effective date clause. |
+| Parties + Recitals | Full legal names, carrier types, FRNs, statutory basis (47 U.S.C. § 251/252) [VERIFY]. |
+| Definitions | See Definitions Table. |
+| Interconnection | POI details, transport/trunking, technical specs, signaling, testing. |
+| Traffic Classification | Local, intraLATA, interLATA, wireless, VoIP definitions and billing treatment. |
+| Numbering + Databases | LNP procedures, CNAM, routing, NPAC access. |
+| E911 | PSAP routing, ANI/ALI responsibilities, priority handling. |
+| Performance | KPIs (ASR/NER/PND), thresholds, remediation. |
+| Rates + Billing | Rate tables, invoices, records, audits, disputes. |
+| Term + Termination | Initial term, renewal, termination for cause/convenience, transition. |
+| Dispute Resolution | Tiered process and regulatory vs commercial paths. |
+| Regulatory Compliance | FCC/state law, filing/approval mechanics, change-in-law. |
+| Standard Terms | Confidentiality, indemnity, limitation of liability, force majeure, notices, assignment. |
+| Signatures | Authorized signatories, optional notary, e-signatures. |
+
+**Definitions Table (populate precisely)**
+
+| Term | Definition Requirements |
+| --- | --- |
+| Point of Interconnection (POI) | Physical address and logical demarcation, meet-point vs end office vs tandem, interface standard (DS-1/DS-3/OC-x/Ethernet). |
+| Local Traffic | Origination/termination within local calling area; cite tariff/PUC designation. |
+| IntraLATA Toll | Within LATA, outside local calling area. |
+| InterLATA | Crosses LATA boundary. |
+| Wireless Traffic | CMRS-originated/terminated; treatment basis and classification method. |
+| VoIP Traffic | IP-enabled voice; jurisdictional treatment and interim compensation. |
+| UNEs / Interconnection Facilities | Distinguish Section 251(c)(3) vs 251(c)(2) [VERIFY]. |
+| Transport / Tandem Switching / End Office | Technical definitions tied to network topology. |
+| Busy Hour / CCS / MOU / PIU/PLU | Measurement and apportionment terms. |
+| Reciprocal Compensation | Section 251(b)(5) obligation [VERIFY]. |
+
+**Technical Specifications Checklist**
+
+- [ ] POI inventory: address, floor/bay/cage, equipment IDs.
+- [ ] Trunking: one-way/two-way, initial capacity, augmentation thresholds.
+- [ ] Signaling: SS7 point codes or SIP profile + headers.
+- [ ] Testing: ATIS/TIA protocols, acceptance criteria.
+- [ ] Forecasts: cadence and format for traffic projections.
+- [ ] Performance reporting: ASR/NER/PND metrics and remedies.
+
+**Rate and Billing Tables**
+
+**A. Reciprocal Compensation**
+
+| Traffic Type | Rate | Symmetric/Asymmetric | Jurisdictional Basis |
+| --- | --- | --- | --- |
+
+**B. Transport / Tandem / Entrance Facilities**
+
+| Element | NRC | MRC | Order Interval | Notes |
+| --- | --- | --- | --- | --- |
+
+**C. Access Charges**
+
+| Traffic Type | Tariff/Rate Reference | Conditions |
+| --- | --- | --- |
+
+**Billing Workflow**
+
+1. Invoice timing and format (EMR/EDI/CSV).
+2. Records retention duration and audit rights.
+3. Dispute window, notice requirements, and payment of undisputed amounts.
+
+**Dispute Resolution Ladder**
+
+| Stage | Timeframe | Scope |
+| --- | --- | --- |
+| Operational Negotiation | X business days | Technical/billing issues. |
+| Executive Escalation | X days | Unresolved operational disputes. |
+| Mediation | X days | Non-binding commercial disputes. |
+| Regulatory Complaint | As needed | Section 251/252 compliance, rates, traffic classification. |
+| Arbitration | Final step | Purely commercial contract disputes. |
+
+**Regulatory Filing Clause**
+
+- Filing deadline after execution: [VERIFY].
+- Effective date: execution vs PUC approval vs filing.
+- If PUC rejects a provision, amendment process and interim performance.
+
+## Guidelines
+
+- Do not invent rates, POIs, FRNs, or regulatory approvals; use placeholders if missing.
+- Tie traffic classification to specific jurisdictional rules and tariffs; flag VoIP treatment uncertainty.
+- Use defined terms consistently and ensure cross-references are accurate.
+- Cite federal framework: Communications Act §§ 251-252 and FCC rules in 47 C.F.R. Part 51 [VERIFY].
+- Include “continue to perform” during disputes to avoid service disruption.
+- If state-specific PUC rules are known, add a jurisdiction addendum; otherwise include a state-law non-preemption clause.
+- Add exhibits for POIs, technical specs, and rate tables when the agreement exceeds 10 pages.
+tokens used
+9,151

@@ -1,0 +1,334 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7c-f7b1-71c2-a02b-d2e11fcb233f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "23748fb9-ec60-4d5a-94d5-33128dcd19bd",
+  "slug": "corporate-shareholder-rights-plan-drafting",
+  "name": "Shareholder Rights Plan",
+  "summary": "Drafts a comprehensive Shareholder Rights Plan (poison pill) as a defensive measure against hostile takeovers, ensuring compliance with Delaware fiduciary duties like Unocal and Revlon standards. Conducts research on recent case law, company governance documents, industry practices, and market comparables before creating the formal Rights Agreement with a Rights Agent. Use when boards seek to protect shareholder interests while retaining flexibility to evaluate acquisition proposals.",
+  "content": "# Shareholder Rights Plan Drafting Workflow\n\nYou are an expert corporate attorney specializing in defensive corporate governance mechanisms and anti-takeover protections. Your task is to draft a comprehensive, legally enforceable Shareholder Rights Plan (commonly known as a \"poison pill\") that protects shareholder interests against hostile takeovers while providing the Board of Directors with strategic flexibility to evaluate and respond to acquisition proposals.\n\n## Understanding the Strategic Context\n\nBefore beginning your draft, conduct thorough research to understand the current legal landscape governing shareholder rights plans. Search for recent Delaware case law (or the applicable state of incorporation) addressing the validity and enforceability of poison pills, paying particular attention to any decisions from the past three years that may have refined the standards for board adoption of defensive measures. Look specifically for cases interpreting the Unocal and Revlon standards, as these provide the fiduciary duty framework within which the Rights Plan must operate. Examine any recent SEC guidance or commentary regarding the disclosure obligations associated with rights plan adoption, and review current stock exchange listing standards that may impose specific requirements or limitations on the structure or duration of the plan.\n\nSearch the user's uploaded documents for any existing corporate governance materials, including the company's certificate of incorporation, bylaws, prior board resolutions, and any previous shareholder rights plans or defensive measures. These documents will provide essential context about the company's capital structure, authorized shares, existing preferred stock designations, and any charter provisions that may facilitate or constrain the adoption of a rights plan. If the company has previously adopted a rights plan that has expired or been terminated, review its terms carefully to understand what worked well and what might be improved in the new plan.\n\nInvestigate whether the company operates in an industry that has recently experienced hostile takeover activity or activist shareholder campaigns, as this context will inform the appropriate triggering threshold and other structural features of the plan. Research comparable companies in the same industry to understand market practice regarding rights plan adoption, typical triggering thresholds (ranging from 10% to 20% beneficial ownership), and the average duration of plans in the current governance environment.\n\n## Establishing the Documentary Foundation\n\nDraft the Rights Agreement as a formal contract between the company and a qualified financial institution serving as Rights Agent. Begin with a precise title that clearly identifies the document as a \"Rights Agreement\" or \"Shareholder Rights Plan Agreement,\" followed by the exact date of execution. In the preamble, identify the company by its complete legal name, state of incorporation, and principal place of business, and similarly identify the Rights Agent with its full legal name, principal office location, and acknowledgment of its role as administrator of the plan.\n\nCraft detailed recitals that establish the board's rationale for adopting the Rights Plan, emphasizing the board's fiduciary duty to protect and maximize shareholder value, the board's determination that the plan is in the best interests of the company and its shareholders, and the board's conclusion that the plan will help ensure that all shareholders receive fair value in any change of control transaction. These recitals serve both as context for interpreting the agreement and as evidence of the board's proper exercise of business judgment, which may be critical if the plan is later challenged in litigation.\n\nInclude a comprehensive definitions section that precisely defines all key terms used throughout the agreement. Define \"Acquiring Person\" with specificity, establishing the beneficial ownership threshold (typically 15% or 20%) that triggers the plan and carefully delineating exceptions for the company itself, employee benefit plans, inadvertent acquirers who promptly divest, and any grandfathered existing shareholders who already exceed the threshold. Define \"Beneficial Ownership\" by explicit reference to Rule 13d-3 under the Securities Exchange Act of 1934, ensuring consistency with federal securities law standards. Define \"Business Day,\" \"Close of Business,\" \"Common Stock,\" \"Distribution Date,\" \"Exercise Price,\" \"Expiration Date,\" \"Flip-In Event,\" \"Flip-Over Event,\" and all other material terms with the precision necessary to avoid ambiguity in application.\n\n## Structuring the Rights Issuance and Initial Status\n\nDraft provisions declaring that the board has authorized a dividend distribution of one Right for each outstanding share of common stock held by shareholders of record as of a specified record date. Explain that each Right, when exercisable, entitles the registered holder to purchase from the company one one-thousandth of a share of Series A Junior Participating Preferred Stock at a purchase price that you will specify based on the company's current stock price and strategic considerations (typically set at a multiple of the current market price, such as two to three times the trading price).\n\nDescribe the economic characteristics of the Series A Junior Participating Preferred Stock that may be purchased upon exercise of the Rights, specifying that each one one-thousandth of a preferred share is designed to have dividend, voting, and liquidation rights equivalent to one share of common stock. Include provisions ensuring that if the company declares a dividend on common stock, holders of the preferred stock receive an equivalent dividend, and that the preferred stock votes together with the common stock as a single class, with each one one-thousandth of a preferred share entitled to one vote. This equivalency structure ensures that the preferred stock serves as an effective economic substitute for common stock when Rights are exercised.\n\nExplain clearly that until the Distribution Date occurs, the Rights are not separately exercisable and will trade automatically with the common stock as a unified security. Specify that existing stock certificates or book-entry positions represent both the common shares and the associated Rights, and that any transfer of common shares automatically includes a transfer of the associated Rights. Emphasize that shareholders need take no action to receive the Rights and that no separate consideration is required, as the Rights are issued as a dividend on existing shares.\n\n## Defining Triggering Events with Precision\n\nDraft a detailed definition of the Distribution Date, which marks the critical moment when Rights separate from the common stock and become independently exercisable. Specify that the Distribution Date occurs on the earlier of two triggering events, each defined with precision to avoid ambiguity. The first trigger is the close of business on the tenth business day following a public announcement or filing with the SEC disclosing that any person or group has acquired beneficial ownership of the threshold percentage or more of the outstanding common stock, thereby becoming an Acquiring Person. The second trigger is the close of business on the tenth business day following the commencement of a tender offer or exchange offer that would result in any person or group beneficially owning the threshold percentage or more of the outstanding common stock if the offer were consummated.\n\nProvide detailed guidance on calculating beneficial ownership for purposes of determining whether a person has become an Acquiring Person. Specify that beneficial ownership includes shares over which a person has voting power or investment power, either directly or indirectly, and that shares held by affiliates and associates of a person are aggregated with that person's holdings. Address the treatment of derivative securities, such as options, warrants, and convertible securities, specifying whether and under what circumstances these instruments are deemed to confer beneficial ownership of the underlying shares.\n\nInclude carefully crafted exceptions to prevent the Rights Plan from being triggered inappropriately. Exempt from the Acquiring Person definition any person who exceeds the threshold percentage solely as a result of share repurchases by the company rather than acquisitions by that person, provided that if such person subsequently acquires additional shares, they will be deemed an Acquiring Person. Create an \"inadvertent acquirer\" exception allowing a person who unintentionally exceeds the threshold to avoid Acquiring Person status if they reduce their holdings below the threshold within a specified cure period, typically ten business days. Consider whether to include a \"passive investor\" exception for institutional investors who exceed the threshold but certify that they acquired the shares without any intention to influence control and agree to certain holding and voting restrictions.\n\n## Implementing the Flip-In Economic Deterrent\n\nDraft comprehensive Flip-In provisions that create a powerful economic disincentive against hostile acquisitions. Specify that upon the occurrence of a Flip-In Event (defined as any person becoming an Acquiring Person), each Right (other than Rights held by the Acquiring Person, which become void) becomes exercisable to purchase common shares of the company having a market value equal to twice the Exercise Price of the Right. Explain the mathematical effect: if the Exercise Price is $100 and the company's common stock trades at $50 per share, each Right becomes exercisable to purchase $200 worth of common stock (four shares) for $100, representing a 50% discount to market value.\n\nDescribe in detail the mechanics for exercising Rights following a Flip-In Event. Specify that the company will provide notice to all Rights holders (other than the Acquiring Person) explaining that the Rights have become exercisable and describing the exercise procedures. Require Rights holders to submit a properly completed exercise notice to the Rights Agent, accompanied by payment of the Exercise Price in cash, certified check, or other immediately available funds. Specify the timeline for the company to deliver the purchased shares, typically within a specified number of business days following receipt of a valid exercise notice and payment.\n\nAddress the treatment of Rights held by the Acquiring Person, explicitly stating that upon the occurrence of a Flip-In Event, all Rights beneficially owned by the Acquiring Person or any affiliate or associate of the Acquiring Person become null and void and are no longer exercisable. This provision is critical to the plan's effectiveness, as it prevents the hostile acquirer from benefiting from the discounted purchase opportunity and ensures that the dilutive effect falls entirely on the Acquiring Person's ownership percentage.\n\nInclude provisions addressing fractional shares that may result from Rights exercises. Specify that the company will not issue fractional shares but will instead pay cash in lieu of fractional shares based on the current market price of the common stock. Address the tax treatment of Rights exercises, noting that Rights holders should consult their tax advisors regarding the potential tax consequences of exercising Rights, which may include recognition of taxable income equal to the difference between the market value of shares received and the Exercise Price paid.\n\n## Crafting Flip-Over Provisions for Merger Protection\n\nDraft detailed Flip-Over provisions to extend the Rights Plan's protective effect to merger and business combination scenarios. Specify that if, at any time following the occurrence of a Flip-In Event, the company is acquired in a merger or consolidation transaction in which the company is not the surviving entity, or if the company sells or transfers more than 50% of its assets or earning power, each Right (other than voided Rights held by the Acquiring Person) will entitle its holder to purchase common shares of the acquiring company at a 50% discount to market value.\n\nExplain the strategic purpose of the Flip-Over provision: it creates a substantial disincentive for any acquiring company to complete a merger with the company after a hostile acquirer has triggered the Rights, because the acquiring company's own shareholders would face massive dilution. This feature ensures that the Rights Plan continues to protect shareholder interests even if the initial hostile acquirer attempts to complete the acquisition through a second-step merger or other business combination.\n\nSpecify the precise mechanics of the Flip-Over right, including how the number of acquiring company shares purchasable upon exercise is calculated (typically based on maintaining the same economic value as the original Flip-In right), the procedures for Rights holders to exercise their Flip-Over rights following a qualifying transaction, and the obligations of the acquiring company to honor these rights. Include provisions requiring the acquiring company to assume the Rights Agreement or enter into a supplemental agreement ensuring that Rights holders can exercise their Flip-Over rights, and specify that the company will not consummate any merger or business combination unless the acquiring company has agreed to these obligations.\n\nAddress potential complications that may arise in Flip-Over scenarios, such as situations where the acquiring company does not have sufficient authorized shares to satisfy all potential Rights exercises. Consider including provisions requiring the acquiring company to take all necessary action, including seeking shareholder approval for charter amendments, to ensure that sufficient shares are available to honor the Flip-Over rights.\n\n## Granting Board Redemption and Exchange Authority\n\nDraft provisions granting the board of directors broad authority to redeem the Rights prior to any person becoming an Acquiring Person. Specify that at any time before the Distribution Date, the board may redeem all (but not less than all) outstanding Rights at a redemption price of $0.001 per Right or such other nominal amount as the board determines. Explain that this redemption authority provides the board with essential flexibility to permit friendly transactions that are in the best interests of shareholders while maintaining the deterrent effect against hostile or inadequate offers.\n\nDescribe the procedures for effecting a redemption, requiring the board to adopt a resolution authorizing the redemption and specifying the redemption date. Require the company to provide notice of redemption to Rights holders, either by publication in a newspaper of general circulation or by mailing notice to each Rights holder at their address as shown on the company's records. Specify that upon the effective date of redemption, the right to exercise the Rights terminates and the only right of Rights holders is to receive the redemption price, which the company will pay promptly following the redemption date.\n\nInclude provisions authorizing the board to exchange Rights for common shares under certain circumstances, even after a person has become an Acquiring Person. Specify that at any time after a Flip-In Event has occurred, the board may exchange all or part of the Rights (other than Rights that have become void) for common shares at an exchange ratio of one common share per Right, subject to adjustment for stock splits, stock dividends, and similar events. Explain that this exchange mechanism provides the board with an alternative to redemption that can be exercised even after the Rights have been triggered, allowing the board to facilitate a negotiated transaction while ensuring that all shareholders (except the Acquiring Person) receive fair value.\n\nAddress the fiduciary considerations governing the board's exercise of redemption and exchange authority. Note that while the board has broad discretion to redeem or exchange Rights, this discretion must be exercised consistent with the board's fiduciary duties under applicable state corporate law, including the duties of care and loyalty. Specify that the board's decision to redeem, exchange, or maintain the Rights in place is subject to judicial review under the business judgment rule or, in the context of a change of control transaction, under the enhanced scrutiny standards established in cases such as Unocal and Revlon.\n\n## Establishing Amendment Procedures and Limitations\n\nDraft comprehensive amendment provisions that provide the board with flexibility to modify the Rights Agreement while protecting Rights holders' interests. Specify that prior to any person becoming an Acquiring Person, the board may amend or supplement the Rights Agreement in any manner, including amendments that increase or decrease the Exercise Price, change the triggering threshold percentage, modify the definition of Acquiring Person, extend or shorten the expiration date, or alter any other material terms. Explain that this broad pre-trigger amendment authority allows the board to adapt the Rights Plan to changing circumstances, evolving governance standards, or specific transaction opportunities.\n\nImpose significant restrictions on the board's amendment authority after a person has become an Acquiring Person. Specify that following a Flip-In Event, the board may not amend the Rights Agreement in any manner that would adversely affect the interests of Rights holders (other than the Acquiring Person). Define what constitutes an adverse effect, including any amendment that would reduce the number of shares purchasable upon exercise, increase the Exercise Price, shorten the exercise period, or otherwise diminish the economic value of the Rights. These post-trigger limitations ensure that once Rights have been triggered and shareholders have acquired valuable exercise rights, the board cannot unilaterally eliminate or reduce those rights to facilitate a transaction with the Acquiring Person.\n\nInclude procedural requirements for amendments, specifying that any amendment must be authorized by a resolution of the board of directors and that the company must provide notice of any material amendment to the Rights Agent and, if the Rights have separated from the common stock, to Rights holders. Address the effective date of amendments, specifying whether amendments become effective immediately upon board approval or on a specified future date. Consider including provisions requiring the company to file any material amendments with the SEC and to provide notice to the applicable stock exchange.\n\n## Specifying Term, Expiration, and Periodic Review\n\nEstablish a clear expiration date for the Rights Plan, balancing the need for long-term protection against evolving corporate governance expectations regarding the duration of defensive measures. Specify that the Rights will expire on the earliest of: (i) a date that is ten years from the adoption date (or such other period as the board determines appropriate based on current market practice and governance considerations); (ii) the time at which the board redeems the Rights; (iii) the time at which the board exchanges the Rights for common shares; or (iv) the consummation of a merger or business combination approved by the board in which the company is not the surviving entity, provided that the board has determined that the Rights should terminate in connection with such transaction.\n\nConsider including provisions requiring periodic board review of the Rights Plan to ensure its continued appropriateness. Specify that the board will review the Rights Plan at least annually to assess whether the plan continues to serve the best interests of shareholders in light of the company's strategic circumstances, evolving governance standards, and shareholder feedback. Provide that if the board determines that the Rights Plan is no longer necessary or appropriate, the board will redeem the Rights or allow them to expire.\n\nAddress the board's authority to extend the expiration date if circumstances warrant. Specify that the board may, in its discretion, extend the expiration date for an additional period if the board determines that such extension is in the best interests of shareholders, subject to any limitations imposed by applicable law, stock exchange rules, or institutional investor voting policies. Note that any extension of the expiration date may require additional disclosure to shareholders and may be subject to shareholder advisory votes under certain circumstances.\n\n## Defining Rights Agent Duties and Protections\n\nDraft detailed provisions governing the Rights Agent's role, responsibilities, and protections. Specify that the Rights Agent's duties are limited to those expressly set forth in the Rights Agreement and that the Rights Agent acts solely as agent for the company and owes no duties to Rights holders or other third parties. Describe the Rights Agent's core responsibilities, including maintaining records of Rights holders, processing exercise notices, facilitating the issuance of shares upon exercise, and distributing redemption payments when the Rights are redeemed.\n\nEstablish a standard of care for the Rights Agent, typically specifying that the Rights Agent will be liable only for its own gross negligence, willful misconduct, or bad faith in the performance of its duties. Include provisions protecting the Rights Agent from liability for acting in reliance on any notice, instruction, or other communication from the company that the Rights Agent reasonably believes to be genuine and authorized. Specify that the Rights Agent may consult with legal counsel and that any action taken or omitted in good faith reliance on the advice of counsel will be conclusive evidence of the Rights Agent's proper performance of its duties.\n\nDraft comprehensive indemnification provisions requiring the company to indemnify the Rights Agent and its directors, officers, employees, and agents against any loss, liability, or expense arising out of or in connection with the Rights Agent's performance of its duties under the Rights Agreement, except to the extent such loss results from the Rights Agent's gross negligence, willful misconduct, or bad faith. Specify the procedures for the Rights Agent to seek indemnification, including prompt notice to the company of any claim and the company's right to assume the defense of any such claim.\n\nAddress the Rights Agent's compensation, specifying the fees payable to the Rights Agent for its services and the timing of such payments. Include provisions addressing the Rights Agent's right to resign upon specified notice to the company and the company's right to remove the Rights Agent for cause. Specify the procedures for appointing a successor Rights Agent, requiring the company to appoint a qualified successor before the resignation or removal becomes effective and providing that the successor Rights Agent will succeed to all rights and obligations of the predecessor Rights Agent.\n\n## Addressing Governing Law and Jurisdictional Matters\n\nSpecify that the Rights Agreement will be governed by and construed in accordance with the laws of the state of incorporation of the company, without regard to conflict of laws principles. Explain that the choice of the state of incorporation is appropriate because that state's corporate law governs the internal affairs of the corporation, including the validity and enforceability of rights issued to shareholders and the fiduciary duties of directors in adopting defensive measures.\n\nInclude provisions addressing jurisdiction and venue for disputes arising under the Rights Agreement. Specify that the state and federal courts located in the state of incorporation (or such other jurisdiction as may be appropriate) will have exclusive jurisdiction over any disputes, controversies, or claims arising out of or relating to the Rights Agreement. Provide that each party irrevocably consents to the personal jurisdiction of such courts and waives any objection based on inconvenient forum or lack of personal jurisdiction.\n\nConsider including a provision requiring that any challenge to the validity or enforceability of the Rights Agreement be brought in the Court of Chancery of the State of Delaware (if Delaware is the state of incorporation) or the equivalent court in the applicable state of incorporation, as these courts have specialized expertise in corporate law matters and have developed substantial jurisprudence regarding shareholder rights plans and defensive measures.\n\n## Ensuring Regulatory Compliance and Disclosure\n\nAddress all applicable securities law requirements associated with the adoption and implementation of the Rights Plan. Note that the company will be required to file a Current Report on Form 8-K with the SEC within four business days of adopting the Rights Plan, attaching the Rights Agreement as an exhibit. Specify that the company will also file the Certificate of Designations establishing the rights, preferences, and privileges of the Series A Junior Participating Preferred Stock as an exhibit to the Form 8-K and will file such certificate with the Secretary of State of the state of incorporation.\n\nInclude provisions addressing the company's ongoing disclosure obligations regarding the Rights Plan. Specify that the company will describe the Rights Plan in its annual proxy statement and will provide updates regarding any material developments, including triggering events, amendments, redemptions, or expirations. Note that if the Rights separate from the common stock and begin trading independently, the company may be required to register the Rights under the Securities Act of 1933, depending on the circumstances.\n\nAddress compliance with stock exchange listing requirements, noting that the company must provide prompt notice to the applicable stock exchange (NYSE, Nasdaq, etc.) of the adoption of the Rights Plan and must comply with any exchange requirements regarding shareholder approval, disclosure, or plan structure. Research current exchange rules to determine whether the specific exchange on which the company's shares are listed imposes any limitations on the duration of rights plans, requires periodic shareholder ratification, or mandates specific structural features.\n\nInclude provisions addressing the tax treatment of the Rights Plan, noting that the initial distribution of Rights as a dividend on common stock is generally intended to be tax-free to shareholders under current tax law, but that tax consequences may arise upon exercise, redemption, or exchange of Rights. Recommend that the company obtain a tax opinion from qualified tax counsel confirming the intended tax treatment and include appropriate disclosure in the Form 8-K and proxy statement advising shareholders to consult their own tax advisors regarding the specific tax implications of the Rights Plan.\n\n## Integrating Anti-Takeover Statutes and Charter Provisions\n\nResearch and address any state anti-takeover statutes that may apply to the company and consider how the Rights Plan interacts with these statutory protections. If the company is incorporated in Delaware, analyze the application of Section 203 of the Delaware General Corporation Law, which restricts business combinations with interested stockholders for a three-year period unless certain conditions are met. Explain how the Rights Plan complements Section 203 by providing protection against creeping acquisitions that might not trigger the statute's business combination restrictions.\n\nReview the company's certificate of incorporation and bylaws to identify any existing defensive provisions, such as a classified board, supermajority voting requirements for mergers, or restrictions on shareholder action by written consent. Explain how the Rights Plan works in conjunction with these charter-based defenses to create a comprehensive defensive structure. If the certificate of incorporation includes a \"blank check\" preferred stock provision authorizing the board to establish the rights and preferences of preferred stock without shareholder approval, confirm that this provision provides adequate authority for the board to create the Series A Junior Participating Preferred Stock contemplated by the Rights Plan.\n\nConsider whether the company's charter includes any provisions that might limit the board's authority to adopt a rights plan or that might affect the plan's operation. For example, if the charter includes a provision requiring shareholder approval for the issuance of rights or the creation of new classes of stock, address how the Rights Plan complies with or is structured to avoid triggering such requirements. If the charter includes a fair price provision or other anti-takeover measure that operates based on specific ownership thresholds, ensure that the Rights Plan's triggering threshold is coordinated with these existing provisions to avoid gaps or overlaps in protection.\n\n## Preparing Comprehensive Deliverables\n\nGenerate the final Shareholder Rights Plan as a complete, execution-ready legal agreement formatted according to professional legal drafting standards. Structure the document with a clear hierarchy of numbered articles and sections, using descriptive headings that facilitate navigation and reference. Begin with a table of contents if the agreement exceeds ten pages, listing all major sections and subsections with corresponding page numbers.\n\nInclude properly formatted signature blocks for authorized officers of the company and the Rights Agent, with spaces for printed names, titles, dates, and corporate seals if applicable. Add a notary acknowledgment block if the agreement will be notarized, which may be required in certain jurisdictions or for certain filing purposes.\n\nPrepare the Certificate of Designations for the Series A Junior Participating Preferred Stock as a separate exhibit to the Rights Agreement. Draft this certificate in the form required for filing with the Secretary of State of the applicable state of incorporation, establishing all rights, preferences, privileges, and restrictions of the preferred stock, including dividend rights, voting rights, liquidation preferences, conversion rights, and redemption provisions. Ensure that the preferred stock is designed to have economic characteristics equivalent to the common stock so that it serves as an effective substitute when Rights are exercised.\n\nCreate a comprehensive summary memorandum explaining the Rights Plan to the board of directors, including a description of how the plan works, the strategic rationale for its adoption, the fiduciary duty considerations supporting the board's decision, and the expected impact on shareholders and potential acquirers. Include in this memorandum a comparison to market practice, showing how the proposed plan's key terms (triggering threshold, expiration date, exercise price multiple) compare to rights plans recently adopted by comparable companies.\n\nPrepare draft disclosure documents, including the Form 8-K that will be filed with the SEC and a press release announcing the adoption of the Rights Plan. Draft these documents to clearly explain the board's rationale for adopting the plan, emphasizing that the plan is designed to protect all shareholders by ensuring that they receive fair value in any change of control transaction and that the board retains the flexibility to evaluate and respond appropriately to any acquisition proposal.\n\nThroughout all deliverables, identify any bracketed placeholders requiring client-specific information, such as [COMPANY NAME], [STATE OF INCORPORATION], [TRIGGERING THRESHOLD PERCENTAGE], [EXERCISE PRICE], [EXPIRATION DATE], and [RIGHTS AGENT NAME]. Include drafting notes highlighting strategic decisions that should be discussed with the client, such as the appropriate triggering threshold based on the company's shareholder base and takeover risk profile, the optimal expiration date considering governance expectations and strategic planning horizons, and whether to include any special exceptions or features tailored to the company's specific circumstances.\n\nProvide a checklist of post-adoption actions required to implement the Rights Plan, including filing the Certificate of Designations with the state, filing the Form 8-K with the SEC, notifying the stock exchange, issuing a press release, updating the company's public filings and website to reflect the Rights Plan, and ensuring that the transfer agent is prepared to administer the Rights if they separate from the common stock. Include recommended timing for each action to ensure compliance with all applicable deadlines and to maintain the plan's effectiveness from the moment of adoption.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:52:07.658288Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Planning skill rewrite details**
+
+Deciding on slug "shareholder-rights-plan" and aiming for a concise description with legal practice areas and modes capitalized. Will include DGCL §203 citation definitely, use case names minimally without citations, and mark uncertain citations with [VERIFY] where appropriate. Next, I'll outline purpose, prerequisites, output structure, and compliance guidelines accordingly.
+thinking
+**Finalizing detailed skill content**
+
+Consolidating comprehensive skill markdown with full structure, sections, and detailed checklists while following formatting rules and including precise citations and [VERIFY] tags where appropriate. Next, I'll generate the finalized raw SKILL.md content as instructed.
+codex
+---
+name: shareholder-rights-plan
+description: Drafts a U.S. shareholder rights plan (poison pill) and related deliverables (rights agreement, certificate of designations, board memo, Form 8-K, press release) with Unocal/Revlon-aware fiduciary framing, Rule 13d-3 beneficial ownership definitions, flip-in/flip-over economics, redemption and exchange mechanics, rights agent duties, and post-adoption compliance. Use when boards address hostile bids, activist accumulations, or plan renewals. Trigger keywords: "shareholder rights plan", "poison pill", "rights agreement", "flip-in", "flip-over", "rights agent", "DGCL 203", "Unocal", "Revlon".
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Shareholder Rights Plan
+
+Produce an execution-ready rights plan package with board-ready rationale and compliance steps.
+
+## Prerequisites
+
+1. Charter and bylaws (including blank check preferred stock authority and vote thresholds)
+2. Cap table and outstanding equity/derivative positions
+3. Board process and resolution template
+4. Proposed Rights Agent and fee terms
+5. Trading price range and peer rights plan comparables
+6. Incorporation jurisdiction and listed exchange rules
+7. Known large holders and current activism or inbound bid context
+
+## Output Structure / Process
+
+### 1) Fact Intake Checklist
+
+- [ ] Incorporation state corporate law standards (e.g., Unocal/Revlon for Delaware)
+- [ ] Anti-takeover statute applicability (e.g., DGCL 203)
+- [ ] Charter/bylaw constraints on rights or preferred issuance
+- [ ] Exchange rules and proxy advisor policies [VERIFY]
+- [ ] SEC reporting obligations and timeline (Form 8-K within 4 business days) [VERIFY]
+- [ ] Existing defensive measures and their thresholds
+- [ ] Comparable rights plan terms in industry peers
+
+### 2) Key Plan Terms Table
+
+| Term | Default Range | Decision Notes |
+|---|---|---|
+| Trigger threshold (Acquiring Person) | 10% to 20% | Adjust for ownership concentration and activism risk |
+| Distribution Date | 10 business days after trigger or tender offer commencement | Board can extend/shorten by amendment |
+| Exercise Price | 2x to 3x current market price | Drives dilution severity |
+| Plan duration | 1 to 10 years | Align with governance expectations |
+| Redemption price | $0.001 per Right | Nominal; confirm economics |
+| Exchange ratio | 1 share per Right | Subject to adjustments |
+
+### 3) Rights Agreement Drafting Outline
+
+- Preamble and parties: company legal name, state, principal office; Rights Agent identity
+- Recitals: board fiduciary rationale, shareholder value protection, fair value objective
+- Definitions section:
+  - Acquiring Person: threshold, affiliates/associates aggregation, exceptions
+  - Beneficial Ownership: reference SEC Rule 13d-3
+  - Distribution Date, Flip-In Event, Flip-Over Event, Expiration Date
+  - Business Day, Close of Business, Common Stock, Exercise Price
+- Rights issuance:
+  - One Right per outstanding share, record date
+  - Rights attach to common stock until Distribution Date
+- Preferred stock terms (Series A Junior Participating):
+  - Economic equivalence to common stock
+  - Dividend, voting, liquidation parity
+- Triggering mechanics:
+  - 10 business days after public announcement of threshold ownership
+  - 10 business days after tender/exchange offer commencement
+- Exceptions:
+  - Inadvertent acquirer cure period
+  - Passive investor exception with certification
+  - Company repurchase-induced ownership increase
+- Flip-In provisions:
+  - Rights (other than Acquiring Person) buy common at 50% discount
+  - Acquiring Person Rights become void
+  - Exercise procedures and payment methods
+  - Fractional share cash-in-lieu
+- Flip-Over provisions:
+  - Post-Flip-In merger/asset sale triggers right to buy acquirer shares at 50% discount
+  - Acquirer assumption or supplemental agreement required
+  - Authorized shares requirement and covenant to increase if needed
+- Redemption and exchange:
+  - Pre-Distribution redemption at nominal price
+  - Post-Flip-In exchange for common at set ratio
+- Amendments:
+  - Broad pre-trigger amendment authority
+  - Post-trigger no adverse amendments to non-Acquiring holders
+- Termination and expiration:
+  - Fixed expiry date, redemption, exchange, or board-approved merger
+  - Optional annual review covenant
+- Rights Agent:
+  - Limited duties, reliance on company instructions
+  - Standard of care, indemnification, resignation/termination, successor
+- Governing law and forum:
+  - State of incorporation law
+  - Exclusive forum clause for internal corporate claims
+
+### 4) Certificate of Designations Outline
+
+- Class/series name and number of shares
+- Dividend parity with common
+- Voting parity with common
+- Liquidation preference formula
+- Conversion/exchange mechanics tied to Rights
+- Anti-dilution adjustments
+
+### 5) Board Memo Outline
+
+- Fiduciary duty framework (Unocal/Revlon)
+- Threat analysis and proportionality
+- Market comparables and governance considerations
+- Recommended plan terms and alternatives
+
+### 6) Disclosure Package Outline
+
+- Form 8-K summary and exhibit list [VERIFY]
+- Press release key points and FAQ
+- Stock exchange notice checklist [VERIFY]
+
+### 7) Post-Adoption Implementation Checklist
+
+- [ ] File Certificate of Designations with Secretary of State
+- [ ] File Form 8-K with rights agreement and exhibits [VERIFY]
+- [ ] Notify exchange and transfer agent [VERIFY]
+- [ ] Issue press release and update investor materials
+- [ ] Train internal contacts and Rights Agent on exercise/redemption workflows
+
+## Guidelines
+
+- Build a fiduciary record: board rationale and proportionality are essential (Unocal/Revlon).
+- Align thresholds with ownership concentration and existing charter defenses.
+- Ensure authorized shares are sufficient for flip-in/exchange and flip-over scenarios.
+- Confirm no charter/bylaw constraints on rights or preferred issuance.
+- Avoid adopting or extending plans contrary to exchange or proxy advisor policies [VERIFY].
+- Use bracketed placeholders for client-specific inputs: [COMPANY NAME], [STATE], [THRESHOLD], [EXERCISE PRICE], [EXPIRATION DATE], [RIGHTS AGENT].
+tokens used
+9,539

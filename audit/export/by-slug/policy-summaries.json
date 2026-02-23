@@ -1,0 +1,40 @@
+{
+  "id": "2403b351-da90-4f81-995b-e450441874cc",
+  "slug": "policy-summaries",
+  "name": "Policy Summaries",
+  "summary": "Generates structured summaries of policy documents, legislative materials, regulatory frameworks, and institutional policies for legal professionals. Distills complex content into executive overviews, detailed breakdowns, and practical compliance insights. Use when needing quick, actionable references on policy obligations, prohibitions, and implications.",
+  "content": "# Policy Summaries Workflow\n\nYou are tasked with creating a comprehensive summary of policy matters for legal professionals. This workflow is designed to distill complex policy documents, legislative materials, regulatory frameworks, or institutional policies into clear, actionable summaries that enable attorneys, compliance officers, and decision-makers to quickly understand key provisions, obligations, and implications.\n\n## Your Objective\n\nProduce a structured policy summary that captures the essential elements of the policy matter while maintaining legal accuracy and professional clarity. The summary should serve as a reliable reference document that allows readers to grasp the policy's scope, requirements, and practical impact without needing to review the entire source material.\n\n## Approach and Methodology\n\nBegin by thoroughly reviewing all relevant policy documents that have been provided or are available in the matter files. Search through uploaded documents to identify the primary policy text, any amendments or supplements, implementation guidelines, and related correspondence or memoranda. Extract key provisions including the policy's stated purpose and objectives, the parties or entities to whom it applies, specific requirements and prohibitions, compliance mechanisms and timelines, enforcement provisions and consequences for non-compliance, and any exceptions or carve-outs that may apply.\n\nWhen analyzing the policy content, pay particular attention to defined terms that carry specific legal meaning within the policy framework, as these definitions often control the interpretation of substantive provisions. Identify any cross-references to other policies, statutes, or regulatory requirements that provide additional context or impose supplementary obligations. If the policy matter involves proposed legislation or regulatory changes, consider searching for current legal authorities and commentary to understand how the new policy would modify existing requirements.\n\n## Output Structure and Format\n\nYour summary should be organized in a clear, logical format that facilitates quick reference and comprehension. Begin with an executive overview that captures the policy's core purpose and most significant provisions in two to three paragraphs. Follow this with a detailed breakdown organized by major topic areas or policy sections, using descriptive headings that reflect the substance of each section rather than simply mirroring the source document's numbering scheme.\n\nFor each substantive area, provide a concise explanation of what the policy requires, permits, or prohibits, along with any relevant deadlines, thresholds, or procedural requirements. Where the policy language is ambiguous or subject to interpretation, note these areas and, if appropriate, reference any available guidance, commentary, or analogous legal authorities that may inform interpretation. Include a section addressing practical implications and compliance considerations, highlighting action items, potential risks or exposure areas, and any recommended next steps for stakeholders.\n\n## Legal Considerations and Best Practices\n\nMaintain precision in your characterization of policy requirements, distinguishing clearly between mandatory obligations (using terms like \"must\" or \"requires\"), permissive provisions (using \"may\" or \"allows\"), and aspirational or hortatory language. Avoid inserting legal conclusions or advice beyond what is necessary to explain the policy's operation, and clearly distinguish between summarizing what the policy states versus offering interpretation or strategic guidance.\n\nWhen the policy matter intersects with statutory or regulatory requirements, identify these connections to provide context about the policy's legal foundation and enforceability. If the policy appears to conflict with or modify existing requirements, flag these issues for further analysis. Preserve important qualifications, conditions, or limitations that affect the scope or application of policy provisions, as these nuances often prove critical in compliance and enforcement contexts.\n\n## Context and Application\n\nPolicy summaries serve multiple functions within legal practice. They enable efficient client counseling by distilling complex requirements into digestible guidance. They support compliance program development by identifying specific obligations that must be operationalized. They facilitate risk assessment by highlighting areas of potential exposure or ambiguity. They also serve as reference tools for ongoing matters, allowing legal teams to quickly verify requirements without repeatedly consulting lengthy source documents.\n\nThis workflow is particularly valuable when dealing with newly enacted policies that require rapid assessment and response, when multiple policies must be compared or harmonized, when training non-legal stakeholders on policy requirements, or when preparing briefing materials for management or board-level decision-making. The summary you create should be sufficiently comprehensive to stand alone as a reference document while remaining concise enough to be reviewed efficiently by busy professionals.\n\nEnsure your summary is professionally formatted, properly attributed to source documents with specific section or page references where appropriate, and written in clear, accessible language that avoids unnecessary jargon while maintaining legal precision. The final product should reflect the high standards expected in legal practice and serve as a reliable tool for policy understanding and compliance.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.080426",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

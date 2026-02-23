@@ -1,0 +1,42 @@
+{
+  "id": "e13569ed-7e73-4249-af34-eaf3c7b83e0a",
+  "slug": "litigation-family-law-custody-evaluations-summary",
+  "name": "Custody Evaluations",
+  "summary": "Generates a comprehensive, structured summary of custody evaluation reports and related materials in family law proceedings. It extracts evaluator credentials, methodology, key findings on parental strengths and concerns, and specific recommendations for custody and parenting time. Use it for attorneys, judges, or professionals needing quick clarity on evaluations in contested parenting cases.",
+  "content": "# Custody Evaluations Summary\n\nYou are tasked with preparing a comprehensive summary of custody evaluation materials for family law proceedings. This summary serves as a critical tool for attorneys, judges, and mental health professionals to quickly understand the key findings, recommendations, and evidentiary basis of custody evaluations in contested parenting matters.\n\nBegin by thoroughly reviewing all available custody evaluation reports, psychological assessments, home study documents, and related materials in the case file. Search through uploaded documents to identify and extract the evaluator's credentials and qualifications, the methodology employed in the evaluation process, all interviews conducted with parents and children, any psychological testing administered, home visit observations, collateral source interviews, and the evaluator's ultimate recommendations regarding legal custody, physical custody, and parenting time arrangements.\n\nYour summary should be structured to provide immediate clarity on the most critical aspects of the evaluation. Open with the evaluator's identity, professional credentials, and the date range of the evaluation process. Follow with a concise overview of the family structure, including the names and ages of all children subject to the custody determination, the parents' current living situations, and any other household members relevant to the custody analysis.\n\nPresent the evaluator's findings in a clear, organized manner that addresses each parent's strengths and concerns as identified through the evaluation process. Include specific observations from home visits, results from psychological testing if administered, statements from the children that are age-appropriate and relevant, and input from collateral sources such as teachers, therapists, pediatricians, or other individuals with relevant knowledge of the family dynamics. Pay particular attention to any findings related to parental fitness, mental health concerns, substance abuse issues, domestic violence history, the quality of the parent-child relationship, each parent's ability to meet the children's physical and emotional needs, and willingness to facilitate the other parent's relationship with the children.\n\nClearly articulate the evaluator's specific recommendations regarding custody and parenting time arrangements. Detail whether joint or sole legal custody is recommended, the proposed primary physical custodian if applicable, the recommended parenting time schedule including regular weekday and weekend arrangements, holiday and vacation schedules, and any recommended conditions or restrictions such as supervised visitation, therapeutic interventions, co-parenting counseling, or substance abuse monitoring. If the evaluator has provided alternative recommendations or contingency plans, include these as well.\n\nAddress the best interests factors that form the legal foundation for custody determinations in the relevant jurisdiction. While these factors vary by state, they typically include considerations such as the child's adjustment to home, school, and community; the mental and physical health of all parties; the capacity of each parent to provide love, affection, and guidance; the child's reasonable preference if of sufficient age and maturity; any history of domestic violence or abuse; and each parent's willingness to encourage a relationship with the other parent. Map the evaluator's findings to these statutory factors to demonstrate how the recommendations align with the legal standard.\n\nIdentify any areas of agreement or disagreement between the evaluator's recommendations and the positions advocated by each parent. Note any significant concerns raised by either parent about the evaluation process, methodology, or conclusions, as these may form the basis for challenges to the evaluation's admissibility or weight. If there are multiple evaluations or conflicting expert opinions in the case, provide a comparative analysis highlighting the key differences in methodology, findings, or recommendations.\n\nConclude your summary with a section on implementation considerations and next steps. This should address any immediate safety concerns requiring urgent court intervention, recommended timelines for transitioning to new custody arrangements, suggested therapeutic or support services for the family, and any follow-up evaluation or monitoring recommended by the evaluator. If the evaluation identifies specific triggers or circumstances that would warrant modification of the custody arrangement, document these clearly.\n\nThroughout your summary, maintain objectivity and present the evaluator's findings accurately without advocacy or editorial commentary. Use direct quotations from the evaluation report when capturing particularly significant observations or conclusions, and ensure all factual assertions are properly attributed to their source documents. The summary should be comprehensive enough to serve as a standalone reference document while remaining concise enough to be reviewed quickly in preparation for hearings, settlement negotiations, or trial.\n\nFormat the final summary as a professional legal memorandum with clear headings, subheadings, and logical organization that allows readers to locate specific information efficiently. The document should be suitable for filing with the court, sharing with opposing counsel, or using as a reference tool during client consultations and court proceedings.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

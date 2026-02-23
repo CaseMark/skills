@@ -1,0 +1,41 @@
+{
+  "id": "718e8636-ce3a-4b69-8032-84f691fbebf0",
+  "slug": "litigation-class-action-motion-final-settlement-approval",
+  "name": "Motion for Final Approval of Settlement",
+  "summary": "Drafts a comprehensive Motion for Final Approval of Settlement in class action litigation, including caption, procedural history, settlement terms, notice documentation, and fairness analysis under Rule 23(e) or state equivalents. It extracts details from uploaded case documents and researches jurisdictional standards to demonstrate the settlement's fairness, reasonableness, and adequacy. Use this skill after preliminary approval to seek final court endorsement.",
+  "content": "# Motion for Final Approval of Settlement - Enhanced Workflow\n\nYou are drafting a comprehensive Motion for Final Approval of Settlement, a critical litigation document that seeks the court's final endorsement of a negotiated resolution. This motion must demonstrate that the settlement is fair, reasonable, and adequate under applicable law, while addressing all procedural requirements and potential objections.\n\n## Document Structure and Content Requirements\n\nBegin with a complete caption that includes the court name, case number, all parties, and the full title: \"Motion for Final Approval of Settlement and Memorandum of Points and Authorities in Support Thereof.\" Search through all uploaded case documents to extract accurate case details, party names, and jurisdictional information to ensure the caption precisely matches court records.\n\nThe introduction should immediately establish the motion's purpose by referencing the court's preliminary approval order (including its date and any specific directives), summarizing the settlement's key benefits, and explicitly requesting final approval. Research the applicable procedural rules governing settlement approval in this jurisdiction\u2014for federal class actions, this means Federal Rule of Civil Procedure 23(e), while state court matters require identification of the relevant state-specific standards. Your research should locate authoritative sources from official court websites, federal judiciary resources, or state bar associations that explain the approval criteria.\n\n## Background and Settlement Context\n\nDevelop a thorough background section that chronicles the litigation from inception through settlement. Search all uploaded pleadings, discovery materials, and case management documents to construct a detailed procedural history with specific dates, key filings, and significant rulings. This narrative should demonstrate the strength of the claims, the risks of continued litigation, and the informed nature of the settlement decision. Extract and cite specific docket entry numbers for major procedural milestones to provide the court with a clear roadmap of the case's progression.\n\nWhen presenting the settlement terms, provide a comprehensive yet accessible explanation of all material provisions. Analyze the uploaded settlement agreement to extract the precise relief being provided\u2014whether monetary compensation, injunctive relief, or structural changes\u2014along with the distribution methodology, claims process, and any release provisions. Compare these terms against settlement best practices by researching similar cases in your jurisdiction and reviewing guidance from legal practice resources to contextualize whether the relief is substantial and appropriate.\n\n## Notice, Objections, and Fairness Analysis\n\nThe notice section requires meticulous documentation of how class members were informed of the settlement. Search uploaded notice materials, proof of publication records, and claims administrator reports to detail the notice methods used, the reach achieved, and the response rate. Calculate and present the opt-out rate, the number and nature of any objections received, and the claims submission rate. Research the jurisdiction's notice requirements from official court resources to confirm compliance with constitutional due process standards and any local rules governing settlement communications.\n\nYour fairness analysis forms the heart of the motion and must address each factor courts consider when evaluating settlements. Research and cite controlling case law that establishes the multi-factor test in your jurisdiction\u2014this typically includes factors such as the strength of the plaintiff's case, the complexity and expense of further litigation, the amount of discovery completed, the stage of the proceedings, the risks of establishing liability and damages, the ability of defendants to withstand a greater judgment, and the range of reasonableness of the settlement in light of the best possible recovery. For each factor, apply the specific facts from your case documents and explain why the settlement satisfies the standard. Locate and verify citations to binding precedent from your circuit or state supreme court, as well as persuasive authority from other jurisdictions with similar settlement approval frameworks.\n\n## Fee Request and Supporting Materials\n\nAddress the attorneys' fees, costs, and expenses with complete transparency and legal support. If requesting a percentage-of-the-fund award, research the prevailing rate in your jurisdiction and cite cases approving similar percentages. If using the lodestar method, search your firm's time records to calculate the total hours and rates, then explain any multiplier requested. Research judicial opinions and bar association guidelines on fee awards in settlement contexts to demonstrate that your request falls within accepted parameters. Include the total litigation costs incurred and provide sufficient detail to show these expenses were necessary and reasonable.\n\nConclude with a clear and specific prayer for relief that requests final approval of the settlement, approval of the plan of allocation, approval of attorneys' fees and costs, entry of final judgment dismissing the action with prejudice, and retention of jurisdiction to enforce the settlement terms. Use standard language consistent with approved settlements in your jurisdiction, which you should locate through research of recent settlement orders from the same court or similar courts.\n\n## Supporting Documentation\n\nPrepare to attach comprehensive supporting materials including declarations from class counsel detailing the litigation efforts and settlement negotiations, declarations from the class representative endorsing the settlement, expert declarations if applicable to valuation or fairness issues, and a complete set of exhibits. Search all uploaded documents to identify and properly reference the settlement agreement, preliminary approval order, notice materials, claims administrator reports, and any objection documents. Research the court's local rules regarding exhibit formatting, declaration requirements, and page limits to ensure full compliance.\n\nThroughout the document, maintain a persuasive yet objective tone that demonstrates respect for the court's gatekeeping role while advocating for approval. Every factual assertion should be supported by citations to the record, and every legal argument should be grounded in verified authority from official legal sources. When you have gathered all necessary information from the uploaded documents and completed all required legal research to support each section with proper citations, create a polished, court-ready motion that presents a compelling case for final approval.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "motion"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,326 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7f-0bb4-78d3-8732-af8a583414a0
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d20a9981-5e55-4e31-9e62-e9605d378a2e",
+  "slug": "draft-limited-partnership-agreement-lpa",
+  "name": "Limited Partnership Agreement LPA",
+  "summary": "Drafts a comprehensive, institutional-quality Limited Partnership Agreement for private equity and venture capital funds. Guides through information gathering on fund structure, terms, and strategy, then structures the document with formal articles covering formation, capital commitments, allocations, governance, and dissolution. Use this skill when forming funds to establish governance between General Partners and Limited Partners over a 10-12 year lifecycle.",
+  "content": "# Enhanced Limited Partnership Agreement Drafting Workflow\n\nYou are an expert corporate attorney specializing in private equity and venture capital fund formation. Your task is to draft a comprehensive, institutional-quality Limited Partnership Agreement that will govern the relationship between the General Partner and Limited Partners throughout the fund's entire lifecycle, typically spanning 10-12 years including extensions.\n\n## Initial Information Gathering and Context\n\nBefore beginning the drafting process, gather all essential information about the fund structure and terms. Search through any uploaded documents to identify key details including the fund's legal name, target size, investment strategy, management fee structure, carried interest arrangements, and any specific investor requirements or side letter provisions that must be incorporated. Review any term sheets, marketing materials, or preliminary agreements that establish the economic and governance framework. If critical information is missing, ask the user to provide specific details about the fund's jurisdiction of formation, target capital commitments, investment period duration, preferred return percentage, carried interest percentage, management fee calculation methodology, and any key person provisions.\n\n## Document Structure and Professional Formatting\n\nDraft the agreement with a formal structure that reflects institutional standards for private fund documentation. Begin with a comprehensive title that reads \"Amended and Restated Agreement of Limited Partnership of [Fund Name], L.P.\" followed by the execution date. Include a detailed table of contents with article and section numbering that allows readers to navigate the document efficiently. Organize the agreement into logical articles covering formation and purpose, definitions, capital commitments and contributions, allocations and distributions, management and governance, transfer restrictions, dissolution and liquidation, and general provisions. Ensure every defined term is capitalized consistently throughout the document and that all cross-references are accurate and functional.\n\n## Formation, Purpose, and Term Provisions\n\nDraft the formation article to establish that the limited partnership is formed pursuant to the applicable state's Revised Uniform Limited Partnership Act or equivalent statute, specifying the exact statutory authority. Articulate the fund's complete legal name with the \"L.P.\" designation clearly identifying it as a limited partnership. Develop a comprehensive purpose clause that precisely describes the fund's investment mandate, including target industry sectors, geographic focus areas, company development stages, typical investment sizes, and any specific investment thesis or strategy limitations. When establishing the partnership term, specify both the initial term measured from the final closing date and the extension mechanism, clearly stating that the General Partner may extend the term for up to two additional one-year periods subject to approval by the Limited Partner Advisory Committee or a specified percentage of Limited Partners. Address the commencement of the investment period and its duration, typically five years or until a specified percentage of capital commitments have been called and invested.\n\n## Capital Commitment and Contribution Framework\n\nEstablish that each Limited Partner's capital commitment represents the maximum amount they are obligated to contribute to the partnership, with the specific commitment amounts set forth in individual Subscription Agreements incorporated by reference. Draft detailed capital call provisions granting the General Partner authority to issue capital calls on a pro rata basis according to each partner's unfunded commitment percentage, specifying the minimum notice period required before payment is due, typically ranging from ten to thirty calendar days. Describe acceptable methods of contribution including wire transfer instructions and any requirements for accompanying documentation. Include comprehensive default provisions that create meaningful consequences for Partners who fail to satisfy capital calls within the specified timeframe. These consequences should include charging default interest at a specified rate from the due date until payment is received, reducing the defaulting partner's capital commitment and corresponding economic interest on a proportional basis, potentially forfeiting all or a portion of previously contributed capital, and authorizing the General Partner to force the sale of the defaulting partner's interest to other partners or third parties at a discount to fair market value. Specify the procedural requirements for declaring a default, providing cure periods, and implementing remedies, ensuring the provisions are enforceable while providing adequate protection for partners facing temporary liquidity constraints.\n\n## Economic Allocation and Distribution Waterfall Architecture\n\nDraft allocation provisions establishing that profits and losses will be allocated among partners in a manner designed to maintain tax capital accounts consistent with the distribution waterfall, ensuring compliance with Section 704(b) of the Internal Revenue Code and applicable Treasury Regulations. Provide an exceptionally detailed description of the distribution waterfall that governs the priority and sequence of distributing proceeds from portfolio company exits, dividend payments, and other fund income. Structure the waterfall in clearly delineated tiers that institutional investors can readily understand and model. The first tier should provide for return of capital, distributing one hundred percent of available proceeds to Limited Partners until they have received aggregate distributions equal to their total contributed capital. The second tier should establish the preferred return, distributing one hundred percent of remaining proceeds to Limited Partners until they have received a cumulative annual return on their contributed capital, typically eight percent calculated on a compounding or simple interest basis as specified. The third tier should create the General Partner catch-up, distributing proceeds to the General Partner until it has received an amount equal to its carried interest percentage of all distributions made in the preferred return and catch-up tiers combined, effectively allowing the GP to \"catch up\" to its ultimate profit share. The fourth tier should establish the carried interest split, distributing all remaining proceeds with a specified percentage to Limited Partners and the remainder to the General Partner as carried interest, typically an eighty-twenty split.\n\nAddress whether the waterfall operates on a deal-by-deal basis with individual investment tracking or on a whole-fund basis with aggregate performance measurement, as this structural choice significantly impacts the timing and amount of carried interest distributions to the General Partner. If using a deal-by-deal structure, include provisions for interim clawback obligations and escrow arrangements. Specify whether distributions are mandatory upon receipt of proceeds or discretionary subject to reserves for fund expenses, follow-on investments, and contingent liabilities. Include provisions addressing the tax characterization of distributions and any gross-up obligations if the partnership must withhold taxes on distributions to certain partners.\n\n## Management Authority, Governance Structure, and Fee Arrangements\n\nEstablish that the General Partner possesses exclusive and complete authority to manage, control, and conduct all aspects of the partnership's business and affairs without requirement for Limited Partner approval except as specifically provided in the agreement. This authority encompasses making all investment decisions including initial investments and follow-on capital, determining position sizing and portfolio construction, managing relationships with portfolio companies including board representation and governance rights, deciding the timing and terms of exit transactions, engaging service providers and negotiating their compensation, establishing valuation policies and procedures, and determining the timing and amount of distributions subject to the waterfall provisions. Identify the General Partner entity by its complete legal name and organizational form, and specify any key person provisions that condition the GP's continued authority on the active participation of named individuals in the fund's investment activities. Draft these key person provisions to define what constitutes a key person event, such as death, disability, retirement, or voluntary or involuntary departure of specified individuals, and establish the consequences including suspension of new investment activity and potential Limited Partner withdrawal rights.\n\nDraft comprehensive management fee provisions specifying that the partnership shall pay the General Partner an annual management fee as compensation for investment management services. Structure the fee calculation to provide for a specified percentage, typically two percent, of aggregate capital commitments during the investment period, then transitioning after the investment period concludes to the same percentage applied to either the cost basis of remaining investments or their fair market value as determined by the partnership's valuation policy. Specify the frequency of fee payments, typically quarterly in advance, and address how the fee is calculated and adjusted following the final closing date, during any suspension period following a key person event, and after portfolio companies are exited. Include provisions addressing fee offsets or rebates for transaction fees, monitoring fees, directors' fees, and other compensation received by the General Partner or its affiliates from portfolio companies, specifying what percentage of such fees must be offset against the management fee or contributed to partnership capital.\n\nEstablish a Limited Partner Advisory Committee as a governance mechanism providing Limited Partners with consultation rights on specific matters while preserving the General Partner's ultimate decision-making authority. Specify the LPAC's composition, typically consisting of three to seven representatives elected by Limited Partners holding a majority of capital commitments, with provisions addressing term lengths, removal and replacement procedures, and meeting frequency requirements. Clearly articulate that the LPAC serves in an advisory capacity only and that its recommendations are not binding on the General Partner except where the agreement specifically requires LPAC consent. Enumerate the specific matters on which the General Partner must consult the LPAC or obtain its approval, including potential conflicts of interest involving General Partner co-investments or transactions with affiliates, related party transactions, material amendments to the partnership agreement, changes to valuation policies and procedures, removal of the partnership's auditors, and decisions regarding fund term extensions beyond the initial term.\n\n## General Partner Obligations and Limited Partner Protections\n\nInclude a comprehensive clawback provision creating a personal obligation of the General Partner to return previously distributed carried interest to the extent necessary to ensure that, measured as of the final liquidation and dissolution of the partnership, the Limited Partners have received aggregate distributions equal to their contributed capital plus their full preferred return before the General Partner retains any carried interest. Specify that the clawback calculation shall be performed on an after-tax basis, meaning the General Partner's repayment obligation is grossed up to account for taxes previously paid on the carried interest distributions being returned. Address the mechanics of the clawback through either an escrow arrangement where a portion of carried interest distributions are held in reserve until final liquidation, or through a personal guaranty from the General Partner or its principals supported by maintaining specified net worth requirements or obtaining third-party insurance.\n\nDraft clear provisions establishing that each Limited Partner's liability for partnership obligations is limited to the amount of their unfunded capital commitment, providing the fundamental limited liability protection that makes the limited partnership structure attractive to passive investors. Include customary carve-outs from this limited liability protection for situations where a Limited Partner participates in control of the partnership's business in a manner that would cause them to lose their limited liability status under applicable law, or where a Limited Partner makes misrepresentations in their Subscription Agreement regarding their investor qualifications or regulatory status.\n\nEstablish comprehensive transfer restrictions prohibiting Limited Partners from transferring, assigning, pledging, encumbering, or otherwise disposing of their partnership interests or any portion thereof without obtaining the prior written consent of the General Partner, which consent may be withheld in the General Partner's sole and absolute discretion. Include customary exceptions permitting transfers without consent to affiliates controlled by the transferring Limited Partner, to other Limited Partners in the fund, or pursuant to estate planning to trusts or family entities for the benefit of the Limited Partner or their family members, provided that in each case the transferee agrees in writing to be bound by all terms of the partnership agreement, satisfies all regulatory and tax qualification requirements applicable to Limited Partners, and the transfer does not result in a termination of the partnership for federal income tax purposes or require registration of partnership interests under securities laws.\n\n## Tax Provisions and Regulatory Compliance\n\nDraft comprehensive tax provisions addressing the partnership's status as a pass-through entity for federal income tax purposes, with all items of income, gain, loss, deduction, and credit allocated to partners and reported on their individual tax returns. Include provisions requiring the partnership to furnish Schedule K-1 forms to all partners within the timeframe required for partners to timely file their tax returns, typically by March 15th for calendar year partnerships. Address tax elections including the election under Section 754 of the Internal Revenue Code to adjust the basis of partnership property following transfers of partnership interests or distributions, and specify the General Partner's authority to make or revoke this and other tax elections in its discretion. Include provisions addressing the treatment of partnership expenses and organizational costs, the allocation of partnership liabilities among partners for purposes of determining their outside basis, and procedures for handling tax audits under the centralized partnership audit regime established by the Bipartisan Budget Act of 2015.\n\nAddress regulatory compliance requirements including representations from Limited Partners regarding their status as accredited investors under Regulation D, qualified purchasers under the Investment Company Act of 1940, or other applicable investor qualification standards. Include provisions requiring Limited Partners to provide tax forms including IRS Form W-9 for U.S. persons or appropriate Form W-8 for non-U.S. persons, and authorizing the General Partner to withhold taxes from distributions as required by federal, state, or foreign tax laws. Draft provisions addressing compliance with the Bank Secrecy Act and anti-money laundering regulations, requiring Limited Partners to provide information necessary for the partnership to satisfy customer identification and beneficial ownership requirements.\n\n## Dissolution, Liquidation, and Final Distribution\n\nEstablish the events that will trigger dissolution of the partnership, including expiration of the partnership term including any extensions, election by the General Partner to dissolve the partnership, withdrawal or removal of the General Partner if no successor is appointed within the timeframe specified, or entry of a judicial decree of dissolution. Specify the procedures for winding up the partnership's affairs following a dissolution event, including the General Partner's authority and obligation to liquidate partnership assets in an orderly manner to maximize value for the partners, pay or provide for all partnership liabilities and obligations, establish reasonable reserves for contingent or unforeseen liabilities, and distribute remaining assets to partners in accordance with their positive capital account balances as adjusted to reflect the distribution waterfall provisions.\n\nAddress the final accounting and reconciliation process, requiring the General Partner to prepare and deliver to all Limited Partners a final accounting showing all partnership assets, liabilities, income, expenses, and distributions for the partnership's entire existence, along with a calculation demonstrating that the distribution waterfall has been properly applied and any clawback obligations have been satisfied. Specify that this final accounting is subject to review and approval by the partnership's independent auditors and that Limited Partners have a specified period, typically ninety days, to object to the final accounting before it becomes binding and conclusive.\n\n## Output Format and Quality Standards\n\nProduce a complete Limited Partnership Agreement that meets institutional quality standards and is suitable for execution following review and negotiation by sophisticated legal counsel representing both the General Partner and Limited Partners. The agreement should be drafted in clear, precise legal language that accurately reflects current market standards for private equity and venture capital fund formation while remaining accessible to the sophisticated audience of institutional investors, family offices, and their advisors who will review and negotiate the terms. Ensure the document is professionally formatted with consistent fonts, spacing, and styling, includes a comprehensive table of contents with hyperlinked section references, uses defined terms consistently throughout with initial capitalization, and contains accurate cross-references to other sections and exhibits. The final agreement should be comprehensive enough to govern the partnership throughout its entire lifecycle while remaining clear and organized enough that readers can readily locate and understand specific provisions addressing their concerns.",
+  "parent_skill_id": "ab63d5b1-bd0b-450d-a7a7-36572e5e9d27",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "venture_capital_and_private_equity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:54:23.116889Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating Limited Partnership Agreement skill**
+
+I'm creating the Limited Partnership Agreement (LPA) skill with slug "limited-partnership-agreement," including metadata from legal_context, and focusing on US jurisdiction. The skill will cover key domain points like formation, capital calls, waterfall tiers, tax provisions, and compliance, structured with a numbered drafting workflow, inputs table, section outline, checklists, and clause templates.
+thinking
+**Structuring clauses with tables and checklists**
+
+I'm organizing key clauses using article/include/notes tables and creating detailed checklists for capital calls, defaults, and waterfall tiers, including a waterfall distribution table. The prerequisites will be a numbered list, and guidelines will cover compliance and jurisdiction caveats, aiming for about 120 lines of markdown with targeted trigger keywords in the description.
+codex
+---
+name: limited-partnership-agreement
+description: Drafts U.S. private equity and venture capital Limited Partnership Agreements (LPAs) for fund formation, capturing GP/LP governance, capital commitments, allocations, distribution waterfalls, fees, key person, LPAC, transfer restrictions, tax provisions, and dissolution mechanics. Use when drafting or revising a fund LPA, partnership agreement, or term-sheet-to-LPA conversion. Trigger keywords: limited partnership agreement, LPA, private equity fund, venture capital fund, fund formation, capital calls, carried interest, waterfall, GP, LP.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Limited Partnership Agreement (LPA)
+
+Drafts an institutional-quality LPA governing GP/LP economics, governance, and lifecycle from formation through liquidation.
+
+## Prerequisites
+
+1. Fund name, jurisdiction, and entity structure (LP, GP, manager/adviser entities).
+2. Term sheet or economics summary (commitments, fees, carry, pref return, waterfall type).
+3. Strategy parameters (sector, geography, stage, concentration limits).
+4. Investor eligibility and regulatory profile (Reg D, qualified purchaser, ERISA).
+5. Key person list, investment period, and term/extension mechanics.
+
+## Output Structure / Process
+
+1. **Input Capture Table**  
+| Field | Required | Notes |
+| --- | --- | --- |
+| Fund legal name | Yes | Include “L.P.” |
+| Jurisdiction | Yes | State LP statute; cite in formation article |
+| Term and extensions | Yes | Initial term + extension mechanics |
+| Investment period | Yes | Duration + early termination triggers |
+| Capital commitments | Yes | By LP; via Subscription Agreements |
+| Management fee | Yes | Rate, base, step-down, timing |
+| Preferred return | Yes | Rate, compounding, calculation |
+| Carry and catch-up | Yes | % split, catch-up mechanics |
+| Waterfall basis | Yes | Whole-fund vs deal-by-deal |
+| Key person | Yes | Event definition + suspension |
+| LPAC | If used | Composition + consent matters |
+| Transfer restrictions | Yes | Consent + permitted transfers |
+| Tax elections | Yes | Section 754 election, audit regime |
+| Clawback | Yes | After-tax basis + escrow/guaranty |
+| Dissolution triggers | Yes | Term, GP removal, judicial decree |
+
+2. **Document Skeleton**  
+| Article | Include | Notes |
+| --- | --- | --- |
+| Definitions | Defined terms list | Consistent capitalization |
+| Formation & Purpose | Statute citation, purpose, term | State LP act |
+| Capital Commitments | Subscription Agreements | Binding commitments |
+| Capital Calls | Notice, timing, default | Remedies + cure |
+| Allocations | 704(b) capital accounts | Tax compliance |
+| Distributions | Waterfall tiers | Whole-fund vs deal-by-deal |
+| Management | GP authority | Fiduciary standard if applicable |
+| Fees & Expenses | Management fee + offsets | Transaction/monitoring offsets |
+| Key Person | Event + consequences | Suspension/LP remedies |
+| LPAC | Advisory role + consents | Non-binding except specified |
+| Transfers | Consent + conditions | No tax termination |
+| Exculpation/Indemnity | GP/affiliate | Standard of conduct |
+| Tax Matters | Elections, audit | BBA regime |
+| Reports/Records | K-1 timing | Annual audit |
+| Dissolution | Triggers + wind-up | Final accounting |
+| Miscellaneous | Amendments, notices | Governing law |
+
+3. **Capital Call & Default Checklist**  
+- Notice period (10–30 days).  
+- Pro rata draw by unfunded commitment.  
+- Accepted payment methods and wiring details.  
+- Cure period and default declaration procedure.  
+- Default remedies:  
+  - Default interest rate.  
+  - Loss/reduction of capital account.  
+  - Forced sale at discount.  
+  - Forfeiture of distributions or voting rights.
+
+4. **Waterfall Table**  
+| Tier | Recipient | Amount |
+| --- | --- | --- |
+| 1 | LPs | 100% until return of contributed capital |
+| 2 | LPs | 100% until preferred return satisfied |
+| 3 | GP | Catch-up to achieve carry % on tiers 2–3 |
+| 4 | LPs/GP | Split per carry (e.g., 80/20) |
+
+5. **Whole-Fund vs Deal-by-Deal**  
+- Whole-fund: carry only after aggregate return of capital and preferred return.  
+- Deal-by-deal: interim carry permitted; add clawback + escrow.
+
+6. **Fee Mechanics Template**  
+- During investment period: `% of commitments`.  
+- Post-investment period: `% of cost basis or FMV`.  
+- Paid quarterly in advance.  
+- Fee offsets for transaction/monitoring/director fees.
+
+7. **LPAC Consent Matters Checklist**  
+- Related-party or affiliate transactions.  
+- Conflicts and co-investments.  
+- Valuation policy changes.  
+- Auditor removal or replacement.  
+- Term extensions beyond initial period.  
+- Material amendments where LP consent required.
+
+8. **Clawback Mechanics**  
+- After-tax clawback calculation.  
+- Escrow reserve or GP guaranty.  
+- Timing for final true-up at liquidation.
+
+9. **Tax & Regulatory Provisions**  
+- Pass-through allocations; Schedule K-1 delivery deadline.  
+- Section 754 election authority.  
+- Centralized partnership audit regime (BBA 2015).  
+- Withholding authority (U.S. and non-U.S. partners).  
+- Investor representations: accredited investor, qualified purchaser.  
+- AML/KYC information and certifications.
+
+10. **Dissolution & Final Accounting**  
+- Triggers: term expiry, GP withdrawal/removal, judicial decree.  
+- Wind-up authority and liquidation process.  
+- Final accounting and objection window.
+
+## Guidelines
+
+- Use the governing state LP statute and confirm exact citation.  
+- Align defined terms, cross-references, and exhibit references.  
+- Ensure allocation and distribution provisions are consistent with tax capital accounts and the waterfall.  
+- If deal-by-deal carry is used, include escrow and clawback protections.  
+- Include transfer restrictions that avoid tax termination and securities registration issues.  
+- Confirm regulatory representations match fund strategy and investor base.  
+- Flag any nonstandard provisions or investor-specific side-letter carve-outs.
+tokens used
+5,420

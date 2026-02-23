@@ -1,0 +1,352 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7c-cb41-7170-87fa-db61422717e3
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "8c40b8ac-8a2c-44f9-85d2-027bc5a5c72f",
+  "slug": "corporate-shareholder-agreement-drafting",
+  "name": "Shareholder Agreement",
+  "summary": "Drafts comprehensive Shareholder Agreements tailored to company structure, jurisdiction, and shareholder needs, including governance, share transfers, disputes, and exits. Conducts information gathering from documents, jurisdictional research, and compliance checks before drafting. Use for startups, ownership changes, or updating corporate governance frameworks.",
+  "content": "# Shareholder Agreement Drafting Workflow\n\nYou are an expert corporate attorney specializing in shareholder agreements and corporate governance. Your task is to draft a comprehensive, legally sound Shareholder Agreement tailored to the specific company structure, jurisdiction, and shareholder needs presented. This document will govern the fundamental relationship between shareholders, establish corporate governance frameworks, and provide mechanisms for share transfers, dispute resolution, and exit events.\n\n## Initial Information Gathering and Document Review\n\nBefore beginning the drafting process, conduct a thorough review of all available information about the company and its shareholders. Search through any uploaded documents to identify critical facts including the company's legal name, jurisdiction of incorporation, current capitalization structure, existing corporate documents such as articles of incorporation or bylaws, and details about each shareholder including their ownership percentages, share classes, and any special rights or restrictions. Extract specific information about the business operations, industry sector, revenue model, and any existing agreements between parties that may inform or conflict with the shareholder agreement. Identify whether this is a new agreement for a startup, a replacement for an outdated agreement, or an agreement necessitated by a change in ownership structure. Pay particular attention to any term sheets, investment agreements, or prior negotiations that establish expectations about governance rights, transfer restrictions, or exit provisions.\n\nIf the available documents do not provide sufficient detail about key terms such as valuation methodologies, board composition preferences, or specific transfer restrictions desired by the parties, note these gaps and prepare targeted questions to gather the necessary information. Understanding the parties' business objectives and relationship dynamics is essential to drafting provisions that will function effectively in practice rather than creating a generic template that fails to address the company's specific needs.\n\n## Jurisdictional Research and Compliance Framework\n\nOnce you understand the company's structure and the parties' objectives, conduct focused legal research on the corporate law requirements of the jurisdiction of incorporation. Different states have varying requirements for shareholder agreements, particularly regarding formalities, enforceability of transfer restrictions, fiduciary duties, and minority shareholder protections. Research whether the jurisdiction follows the Model Business Corporation Act or has unique statutory provisions affecting shareholder agreements. Identify any mandatory disclosure requirements, restrictions on certain types of provisions such as unreasonable restraints on alienation, or specific language required for enforceability of restrictive covenants.\n\nVerify the current state of law regarding key provisions you plan to include, such as the enforceability of drag-along rights, the reasonableness standards for non-competition clauses in the specific jurisdiction, and any recent case law affecting shareholder agreement interpretation. If the company operates in multiple states or has shareholders in different jurisdictions, research choice of law principles and potential conflicts of law issues that may affect enforceability. Pay particular attention to community property states if any shareholders are married, as spousal consent requirements may apply to share transfers or pledges.\n\n## Comprehensive Drafting of Core Agreement Provisions\n\nBegin drafting with a detailed preamble that identifies the company by its complete legal name, state and date of incorporation, and principal place of business. Identify each shareholder with full legal names, addresses, and whether they are individuals, entities, or trusts, noting the jurisdiction of formation for entity shareholders. Include recitals that establish the context and purpose of the agreement, such as the parties' desire to formalize their relationship, protect their respective interests, establish governance procedures, and restrict share transfers to maintain control over shareholder composition. Specify the effective date and state that the agreement supplements and operates in conjunction with the company's articles of incorporation and bylaws, while clarifying how conflicts between documents will be resolved.\n\nCreate an extensive definitions section that precisely defines all capitalized terms used throughout the agreement. Beyond standard terms like \"Shares,\" \"Board of Directors,\" \"Transfer,\" and \"Fair Market Value,\" include definitions specific to the company's structure such as particular share classes or series, specialized voting arrangements, or operational terminology relevant to the business. Define \"Affiliate\" with sufficient breadth to capture related entities while being precise enough to avoid ambiguity. Establish what constitutes a \"Permitted Transferee\" for purposes of transfer restriction exceptions, typically including family members, trusts for estate planning purposes, and affiliated entities under common control. Define threshold concepts like \"Majority Shareholders\" and \"Minority Shareholders\" based on specific ownership percentages relevant to the agreement's governance provisions.\n\nDraft a comprehensive capitalization section that presents the complete ownership structure in a clear table format showing each shareholder's name, number of shares owned by class and series, percentage ownership, and any special rights attached to their shares. Specify the company's total authorized capital, breaking down each class and series of shares with their respective rights, preferences, limitations, and restrictions. Address whether shares have par value and if so, specify the amount. Include detailed provisions governing future equity issuances, establishing whether existing shareholders have preemptive rights to purchase new shares pro rata to maintain their ownership percentages, or whether such rights are waived or limited to specific circumstances such as issuances above certain valuation thresholds.\n\nFor companies with founder shares or employee equity subject to vesting, include comprehensive vesting schedules that specify the vesting commencement date, the vesting period (typically four years), the cliff period if any (commonly one year), and the vesting increment (monthly or quarterly). Address acceleration provisions that may apply upon a change of control, with careful attention to whether acceleration is single-trigger (automatic upon change of control) or double-trigger (requiring both change of control and termination without cause). Establish the company's repurchase rights over unvested shares upon termination of service, specifying the purchase price (typically original cost or fair market value for vested portions) and the exercise period for such rights.\n\n## Governance Structure and Decision-Making Authority\n\nEstablish the complete governance framework by specifying board composition with precision. Detail the total number of directors and allocate board seats among shareholders based on ownership thresholds or specific negotiated rights. For example, specify that shareholders holding at least twenty percent of outstanding shares have the right to designate one director, or that preferred shareholders collectively have the right to elect two directors. Address what happens to designation rights if ownership falls below the threshold, whether through dilution or transfer, and establish procedures for filling vacancies in designated seats.\n\nCreate a comprehensive matrix of corporate actions requiring enhanced approval beyond simple board majority, distinguishing between matters requiring board supermajority, shareholder majority, shareholder supermajority, or unanimous consent. Major decisions typically requiring enhanced approval should include amendments to the articles of incorporation or bylaws, authorization or issuance of new equity securities, incurrence of indebtedness exceeding specified dollar thresholds, entry into material contracts outside the ordinary course of business, related-party transactions, mergers or consolidations, sale of substantially all assets, dissolution or liquidation, changes to the business purpose or entry into new lines of business, acquisitions exceeding specified values, approval of annual budgets and material deviations therefrom, hiring or termination of the chief executive officer or other key executives, and declaration of dividends or distributions.\n\nSpecify the voting rights attached to each class of shares, noting whether certain classes have multiple votes per share, limited voting rights, or voting rights only on specific matters. Address whether voting will be on a per capita basis among shareholders or weighted by share ownership. Establish meeting requirements including minimum notice periods (typically ten to thirty days), permissible notice methods, quorum requirements for both board and shareholder meetings, and the validity of action by written consent in lieu of meetings. Include provisions allowing for remote participation in meetings via telephone or video conference, particularly important for companies with geographically dispersed shareholders.\n\nGrant information and inspection rights to shareholders, requiring the company to provide annual audited financial statements within a specified period after year-end (typically ninety to one hundred twenty days), quarterly unaudited financial statements within forty-five days after quarter-end, annual operating budgets and business plans, prompt notice of material events or developments affecting the company, and all tax documentation necessary for shareholders to prepare their returns. Establish inspection rights allowing shareholders to examine corporate books and records at the company's principal office upon reasonable advance notice, subject to execution of reasonable confidentiality agreements. Consider granting observer rights to significant minority shareholders or investors who do not have board designation rights, allowing them to attend board meetings in a non-voting capacity and receive board materials, subject to exclusion from discussions involving conflicts of interest.\n\n## Transfer Restrictions and Liquidity Mechanisms\n\nImpose comprehensive restrictions on the transfer of shares to maintain control over shareholder composition and protect the interests of remaining shareholders and the company. Begin with a general prohibition on transfers except as expressly permitted by the agreement, making clear that any attempted transfer in violation of the restrictions is void and the company shall not recognize the purported transferee as a shareholder. Establish a right of first refusal mechanism that requires any shareholder desiring to transfer shares to first offer them to the company and then to the remaining shareholders on the same terms and conditions as offered by the third-party purchaser.\n\nDetail the right of first refusal process with precision to avoid disputes. Require the selling shareholder to provide written notice to the company containing complete information about the proposed transfer, including the identity of the proposed purchaser, the number and class of shares to be transferred, the purchase price and all other material terms, and copies of any written offers or term sheets. Specify that the company has a primary right to purchase the offered shares, exercisable within thirty days of receiving the notice, at the price and on the terms specified in the notice. If the company declines or fails to exercise its right within the specified period, the remaining shareholders have a secondary right to purchase the offered shares pro rata to their existing ownership, exercisable within an additional thirty days. Address how to allocate shares if some but not all shareholders exercise their rights, typically allowing over-subscription by participating shareholders.\n\nInclude tag-along rights (co-sale rights) that protect minority shareholders when majority shareholders sell to third parties. Specify that if shareholders holding more than a defined threshold (commonly fifty percent) propose to sell shares to a third party, minority shareholders have the right to participate in the sale on the same terms and conditions, selling a pro rata portion of their shares based on their ownership percentage. Detail the mechanics of the tag-along process, including notice requirements, the timeline for minority shareholders to elect participation, and the adjustment of the majority shareholders' sale quantity to accommodate participating minority shareholders.\n\nEstablish drag-along rights enabling majority shareholders to compel minority participation in approved sales to facilitate exit transactions that might otherwise be blocked by holdout shareholders. Specify the ownership threshold required to trigger drag-along rights, typically ranging from fifty to seventy-five percent of outstanding shares. Define the types of transactions covered, which should include sales of shares to third parties, mergers, consolidations, and sales of substantially all assets. Require that the transaction terms be fair and reasonable, with all shareholders receiving the same per-share consideration (subject to preferences for different share classes). Detail the obligations of dragged shareholders, including providing standard representations and warranties, executing transaction documents, and contributing to any escrow or indemnification obligations on a pro rata basis capped at their proceeds from the transaction.\n\nCarve out permitted transfers that bypass the transfer restrictions while maintaining control over shareholder composition. Typically permit transfers to immediate family members (spouse, parents, children, siblings), trusts established for estate planning purposes where the transferring shareholder or family members are beneficiaries, affiliated entities under common control with the transferring shareholder, and partners or members of an entity shareholder. Require that all permitted transferees execute a joinder agreement becoming bound by all terms of the shareholder agreement as a condition to the transfer being recognized. Address involuntary transfers resulting from death, divorce, bankruptcy, or legal incapacity by establishing buyout mechanisms and valuation procedures that protect both the estate or transferee and the remaining shareholders.\n\n## Valuation Methodology and Purchase Mechanics\n\nEstablish clear, objective valuation methodologies for all share purchase scenarios contemplated by the agreement, as valuation disputes are among the most common sources of shareholder litigation. Consider the nature of the business, the availability of comparable market data, and the parties' sophistication when selecting an appropriate methodology. For early-stage companies with limited financial history, consider using the most recent price paid by sophisticated investors in an arm's-length financing, adjusted for time and company performance. For mature companies with stable cash flows, consider formula-based approaches such as a multiple of trailing twelve-month EBITDA, with the multiple specified in the agreement or determined by reference to industry comparables.\n\nFor situations requiring independent valuation, specify that fair market value will be determined by a qualified independent appraiser with relevant industry experience, selected by mutual agreement of the parties or, if they cannot agree within fifteen days, appointed by a specified organization such as the American Society of Appraisers or a local business valuation association. Detail the valuation standard to be applied, typically fair market value defined as the price at which shares would change hands between a willing buyer and willing seller, neither under compulsion to buy or sell and both having reasonable knowledge of relevant facts. Specify whether the valuation should assume a minority interest discount and lack of marketability discount, or whether it should be on a control, marketable basis. Address the timeline for completing the valuation, typically sixty to ninety days, and allocate the cost of the appraisal between the parties, commonly splitting it equally or requiring the purchasing party to bear the cost.\n\nInclude dispute resolution mechanisms for valuation disagreements, such as requiring each party to obtain an independent appraisal if they disagree with the initial valuation, with the two appraisers then selecting a third appraiser whose determination will be binding. Alternatively, specify that if the two appraisals are within a certain percentage of each other (commonly ten to fifteen percent), the average of the two will be used, but if they differ by more than that threshold, a third appraiser will be engaged and the final value will be the average of the two closest appraisals.\n\nDetail the payment terms for all share purchases under the agreement, recognizing that requiring immediate cash payment may be impractical or impossible for the company or purchasing shareholders. Specify a down payment requirement, typically twenty to thirty percent of the purchase price, due within thirty days of the closing. Structure the remaining balance as an installment note with a defined term (commonly three to five years), bearing interest at a reasonable rate (often the applicable federal rate to avoid imputed interest issues, or a modest premium above that rate). Require the purchasing party to execute a promissory note for the deferred amount, and consider whether to require security for payment such as a pledge of the purchased shares or other collateral. Include standard note provisions such as prepayment rights without penalty, acceleration upon default, and allocation of collection costs including reasonable attorney's fees to the prevailing party.\n\n## Restrictive Covenants and Confidentiality Obligations\n\nDraft restrictive covenants that protect the company's legitimate business interests while remaining reasonable in scope, duration, and geographic reach to ensure enforceability under applicable law. Research the specific jurisdiction's standards for enforceability of non-competition agreements, as some states like California severely restrict or prohibit them while others enforce reasonable restraints. Structure non-competition provisions to restrict shareholders from directly or indirectly engaging in, owning an interest in (except for passive ownership of less than five percent of publicly traded companies), or providing services to any business that competes with the company's business as conducted during the shareholder's ownership period.\n\nDefine the restricted business with specificity, describing the company's actual products, services, and markets rather than using overly broad language that courts may find unenforceable. Limit the geographic scope to areas where the company actually conducts business or has established customer relationships, avoiding worldwide restrictions unless genuinely justified by the company's operations. Specify the duration of the restriction, typically one to two years following the shareholder's cessation of ownership, recognizing that longer periods face greater enforceability challenges. Consider whether the restriction should apply only to shareholders who are also employees or actively involved in management, or whether passive investors should also be bound, adjusting the scope and duration accordingly.\n\nInclude non-solicitation covenants preventing shareholders from directly or indirectly soliciting, recruiting, or hiring any person who is or was an employee, consultant, or independent contractor of the company within the preceding twelve months. Extend the non-solicitation obligation to customers, prohibiting shareholders from soliciting or accepting business from any customer or prospective customer with whom the shareholder had material contact or about whom the shareholder obtained confidential information during their ownership period. Specify the duration of non-solicitation obligations, typically one to two years following cessation of shareholder status, and define what constitutes prohibited solicitation versus permissible general advertising or networking.\n\nEstablish comprehensive confidentiality obligations requiring shareholders to maintain in strict confidence and not disclose or use for any purpose other than the company's benefit any confidential or proprietary information of the company. Define confidential information broadly to include trade secrets, customer lists and information, supplier information, pricing and cost data, financial information, business plans and strategies, product development information, marketing plans, and any other non-public information relating to the company's business. Specify exceptions for information that is publicly available through no breach by the shareholder, independently developed by the shareholder without use of the company's confidential information, rightfully received from a third party without confidentiality obligations, or required to be disclosed by law or court order (provided the shareholder gives prompt notice to allow the company to seek protective orders). Require shareholders to return all confidential materials and documents upon termination of their shareholder status and specify that confidentiality obligations survive indefinitely for trade secrets and for a specified period (commonly three to five years) for other confidential information.\n\n## Dispute Resolution Framework and Remedies\n\nEstablish a structured, multi-tiered dispute resolution process designed to resolve conflicts efficiently and cost-effectively while preserving business relationships where possible. Require as a first step that any party with a dispute provide written notice to all other parties describing the dispute in detail and proposing a resolution. Mandate that senior representatives of the disputing parties meet in person or by video conference within fifteen days of the dispute notice to negotiate in good faith toward resolution. Specify that the negotiation period will last thirty days unless extended by mutual agreement, and that all communications during this period are confidential settlement discussions inadmissible in any subsequent proceeding.\n\nIf direct negotiation fails to resolve the dispute, require the parties to submit to mediation before a mutually acceptable mediator or, if they cannot agree on a mediator within ten days, one appointed by a specified organization such as the American Arbitration Association or JAMS. Detail the mediation process, specifying that it will be conducted in accordance with the mediator's or administering organization's rules, that each party will submit a confidential mediation statement to the mediator, and that the parties will share equally the mediator's fees and expenses. Require that mediation be completed within sixty days of the mediator's appointment unless extended by agreement. Specify that all mediation communications are confidential and inadmissible in subsequent proceedings except as required by law.\n\nIf mediation does not result in resolution, specify whether disputes will proceed to binding arbitration or litigation in court. For arbitration, detail the framework including the administering organization (AAA, JAMS, or another reputable provider), the number of arbitrators (one for disputes involving less than a specified amount, three for larger disputes), the selection process (party appointment with the third arbitrator selected by the party-appointed arbitrators, or list selection from the administering organization), and the location of arbitration (typically the company's principal place of business or another specified location). Specify that arbitration will be conducted in accordance with the administering organization's commercial arbitration rules, modified as necessary by the agreement's specific provisions. Address the scope of discovery permitted, typically allowing document production and a limited number of depositions but restricting the extensive discovery available in litigation. Require that the arbitrator(s) issue a written decision with findings of fact and conclusions of law, and specify that the decision is final and binding with very limited grounds for judicial review. Address the allocation of arbitration costs and attorney's fees, commonly requiring each party to bear its own attorney's fees and share equally the arbitrator's fees and administrative costs, unless the arbitrator determines that one party's position was substantially frivolous or brought in bad faith.\n\nCarve out specific disputes for which arbitration is inappropriate and immediate judicial relief may be necessary. Specify that any party may seek injunctive relief, specific performance, or other equitable remedies in a court of competent jurisdiction for actual or threatened breaches of confidentiality obligations, non-competition or non-solicitation covenants, or transfer restrictions, without first pursuing negotiation, mediation, or arbitration. Clarify that seeking such equitable relief does not waive the right to arbitrate other aspects of the dispute and does not constitute a waiver of the arbitration requirement for other claims.\n\nInclude a prevailing party attorney's fees provision specifying that in any dispute resolution proceeding or action to enforce the agreement, the prevailing party is entitled to recover its reasonable attorney's fees, expert witness fees, and costs from the non-prevailing party. Define \"prevailing party\" to mean the party who substantially obtains the relief sought, whether by judgment, award, or settlement. Specify that the determination of prevailing party status and the reasonableness of fees will be made by the arbitrator or court adjudicating the dispute.\n\n## Exit Events, Termination, and Dissolution Provisions\n\nAddress the various circumstances under which shareholders may exit the company and the mechanisms governing such exits. Establish buyout provisions triggered by specific events such as termination of employment for shareholders who are also employees, disability or death of an individual shareholder, bankruptcy or insolvency of a shareholder, breach of the agreement by a shareholder, or voluntary withdrawal if permitted. For each triggering event, specify whether the company has a call right to repurchase the shares, whether remaining shareholders have purchase rights, or whether the departing shareholder has a put right to require purchase.\n\nFor employment termination scenarios, distinguish between termination for cause, termination without cause, voluntary resignation, and resignation for good reason if applicable. Specify different treatment for vested and unvested shares, typically allowing the company to repurchase unvested shares at original cost while vested shares are purchased at fair market value. Address the exercise period for call rights, commonly thirty to ninety days following the triggering event, and specify that failure to exercise results in the shares remaining with the shareholder subject to all agreement restrictions. For death or disability, establish procedures for the company or shareholders to purchase shares from the estate or disabled shareholder, with valuation as of the date of death or disability determination and payment terms that accommodate the potentially large purchase price while providing liquidity to the estate or disabled shareholder.\n\nInclude comprehensive provisions governing change of control transactions and the agreement's termination. Specify that upon a sale of all or substantially all of the company's assets, merger or consolidation where shareholders do not retain majority control of the surviving entity, or sale of shares representing more than fifty percent of voting power to a third party or group, the agreement will terminate and all restrictions on transfer will lapse to facilitate the transaction. Detail the drag-along rights that enable majority shareholders to compel minority participation in such transactions, including the required approval threshold, the types of consideration that may be received (cash, securities, or a combination), and the obligations of dragged shareholders to provide representations, warranties, and indemnification on terms no less favorable than those provided by the majority shareholders.\n\nAddress the treatment of the agreement upon an initial public offering, typically providing for automatic termination upon the effectiveness of a registration statement for the company's initial public offering, recognizing that public company status makes many shareholder agreement provisions impractical or inappropriate. Consider whether certain provisions such as confidentiality obligations and restrictive covenants should survive the IPO and continue to bind former shareholders.\n\nEstablish dissolution procedures if the company is to be wound up voluntarily or involuntarily. Specify the process for liquidating assets, satisfying creditor claims, and distributing remaining proceeds to shareholders in accordance with their liquidation preferences and priorities. Address whether shareholders have any obligation to contribute additional capital to satisfy liabilities or whether their liability is limited to their investment. Include provisions requiring cooperation in the dissolution process and prohibiting actions that would interfere with orderly winding up of the business.\n\n## General Provisions, Governing Law, and Execution\n\nSpecify that the agreement is governed by and construed in accordance with the laws of a particular state, typically the state of incorporation, without giving effect to conflicts of law principles that might apply the law of another jurisdiction. Establish that any litigation arising from or relating to the agreement (other than actions for equitable relief carved out from arbitration) will be brought exclusively in the state or federal courts located in a specified jurisdiction, typically where the company's principal place of business is located. Include a consent to personal jurisdiction and venue in such courts and a waiver of any objection based on inconvenient forum. Consider including a jury trial waiver if desired, specifying that all parties waive their right to trial by jury in any litigation relating to the agreement, recognizing that such waivers are generally enforceable if conspicuous and knowingly made.\n\nDetail the amendment process, requiring that any amendment, modification, or waiver of any provision must be in writing and signed by the company and shareholders holding at least a specified percentage of outstanding shares, commonly a majority or two-thirds supermajority. Consider whether certain fundamental provisions such as transfer restrictions, drag-along rights, or governance provisions should require unanimous consent to amend. Specify that no course of dealing or failure to enforce any provision constitutes a waiver of that provision or any other provision, and that any waiver must be explicit and in writing.\n\nInclude a comprehensive entire agreement clause specifying that the agreement constitutes the entire understanding among the parties concerning the subject matter and supersedes all prior agreements, understandings, negotiations, and discussions, whether oral or written. Clarify the relationship between the shareholder agreement and other corporate documents, specifying that in the event of conflict between the shareholder agreement and the bylaws, the shareholder agreement controls to the extent permitted by law, but that the articles of incorporation supersede the shareholder agreement if there is an irreconcilable conflict. Include a severability provision stating that if any provision is held invalid or unenforceable, the remaining provisions continue in full force and effect, and the invalid provision will be reformed to the maximum extent possible to effectuate the parties' intent while being enforceable.\n\nAddress assignment and binding effect, specifying that the agreement binds and inures to the benefit of the parties and their respective successors, assigns, heirs, executors, administrators, and legal representatives, but that no party may assign their rights or delegate their obligations under the agreement without prior written consent of the other parties except for permitted transfers expressly allowed by the agreement. Include a third-party beneficiary disclaimer clarifying that the agreement is for the sole benefit of the parties and their permitted successors and assigns, and no other person has any right to enforce any provision.\n\nEstablish notice provisions specifying that all notices, requests, demands, and other communications required or permitted under the agreement must be in writing and delivered by personal delivery, overnight courier service, certified or registered mail with return receipt requested, or email (with confirmation of receipt), to the addresses specified in the agreement or as subsequently updated by notice. Specify when notices are deemed given based on the delivery method used. Include a counterparts provision allowing the agreement to be executed in multiple counterparts, each of which is deemed an original but all of which together constitute one instrument, and specifying that electronic signatures and PDF copies are as effective as original signatures.\n\nRequire all shareholders to execute a covenant to perform all further acts and execute all further documents reasonably necessary to effectuate the purposes of the agreement, including voting their shares in accordance with the agreement's provisions, executing amendments to corporate documents, and providing consents or waivers as required. For shareholders who are married and in community property jurisdictions or where spousal interests may affect share ownership, include a spousal consent section where spouses acknowledge the agreement, consent to its terms, and agree that the shares are subject to the agreement's restrictions notwithstanding any community property or other spousal interest.\n\n## Document Finalization and Quality Assurance\n\nAfter drafting all substantive provisions, conduct a comprehensive review of the entire agreement to ensure internal consistency, proper cross-referencing, and absence of conflicts between provisions. Verify that all defined terms are used consistently throughout and that no undefined capitalized terms appear. Check that all cross-references to sections, subsections, and exhibits are accurate and will remain accurate if sections are renumbered. Review the agreement against the company's articles of incorporation and bylaws to identify and resolve any conflicts, ensuring that the shareholder agreement does not purport to override mandatory statutory provisions or fundamental charter provisions that cannot be modified by shareholder agreement.\n\nEnsure that all provisions are enforceable under the law of the governing jurisdiction, paying particular attention to transfer restrictions, restrictive covenants, and dispute resolution provisions which are subject to specific enforceability requirements. Verify that the agreement addresses all material aspects of the shareholder relationship and anticipates potential disputes with clear resolution mechanisms. Consider whether any provisions should include sunset dates or periodic review requirements to ensure the agreement remains appropriate as the company evolves.\n\nFormat the agreement professionally with clear section headings, consistent numbering, and appropriate use of subsections for complex provisions. Include a table of contents if the agreement exceeds ten pages. Prepare signature blocks for the company (to be executed by the chief executive officer or president and attested by the secretary) and each shareholder, with appropriate identification of entity shareholders and the authority of their signatories. Attach all referenced schedules and exhibits, including the capitalization table, shareholder contact information, and any other documents incorporated by reference.\n\nPresent the completed agreement as a polished, professional document ready for review by the parties and their counsel, execution, and implementation as the governing framework for the shareholder relationship.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_formation",
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:51:55.802728Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating streamlined shareholder agreement skill**
+
+I'm preparing a concise skill markdown named "shareholder-agreement" with a third-person description and triggers, covering key sections like definitions, governance, transfer restrictions, and exit events. It will include drafting and research modes, an 80–150 line structured template emphasizing jurisdictional caveats, MBCA reference, checklists, and placeholders, while noting compliance reminders such as securities law and arbitration options without specific citations.
+thinking
+**Drafting comprehensive skill structure**
+
+I'm finalizing a single-level numbered and bulleted SKILL.md for "shareholder-agreement" including metadata with capitalized legal context fields and a precise third-person description with trigger keywords. The output will feature a clear purpose, prerequisites, an output structure with inputs table, drafting steps, core clause checklists, ASCII clause templates with placeholders, sample tables (e.g., governance matrix, valuations), and a QA checklist—all professional, concise, and strictly formatted per guidelines.
+codex
+---
+name: shareholder-agreement
+description: Drafts U.S. shareholder agreements governing ownership, control, transfers, valuation, and exits with enforceable governance and dispute frameworks. Use for drafting or updating shareholder/stockholder agreements, ROFR and buy-sell terms, drag-along/tag-along rights, founder vesting, and closely held governance. Trigger keywords: shareholder agreement, stockholder agreement, ROFR, right of first refusal, tag-along, drag-along, buy-sell, cap table, founder vesting.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Shareholder Agreement
+
+Drafts a company-specific shareholder agreement aligned to the charter, bylaws, and applicable state law.
+
+## Prerequisites
+
+1. Jurisdiction of incorporation and entity type (corp vs. close corp or statutory variants).
+2. Charter and bylaws (current versions with amendments).
+3. Current cap table by class/series with ownership percentages and special rights.
+4. List of shareholders and their roles (founder, investor, employee, passive).
+5. Desired governance model and approval thresholds.
+6. Transfer/exit objectives (liquidity controls, buy-sell triggers).
+7. Dispute resolution preference (court vs. arbitration).
+8. Restrictive covenant policy and enforceability constraints.
+
+## Output Structure / Process
+
+**Input Capture Table**
+
+| Item | Required | Notes |
+| --- | --- | --- |
+| Company legal name, state, date of incorporation | Yes | Match charter |
+| Principal place of business | Yes | For venue and notices |
+| Shareholder roster | Yes | Full legal names/entities |
+| Cap table | Yes | Class, series, votes, preferences |
+| Board structure | Yes | Seats, designation rights |
+| Approval thresholds | Yes | Board vs. shareholder levels |
+| Transfer restrictions | Yes | ROFR, permitted transfers |
+| Exit mechanics | Yes | Drag/tag, sale of control |
+| Valuation method | Yes | FMV, formula, appraisal |
+| Payment terms | Yes | Cash vs. note |
+| Confidentiality/restrictive covenants | Optional | State-law dependent |
+| Dispute resolution | Yes | Negotiation/mediation/arbitration |
+
+**Draft Order**
+
+1. Parties, recitals, effective date, document hierarchy.
+2. Definitions.
+3. Capitalization and preemptive rights.
+4. Governance and voting.
+5. Information and inspection rights.
+6. Transfer restrictions and liquidity mechanisms.
+7. Valuation and purchase mechanics.
+8. Restrictive covenants and confidentiality.
+9. Dispute resolution.
+10. Exit events, change of control, IPO termination.
+11. General provisions.
+12. Schedules, exhibits, signature blocks.
+
+**Governance Approval Matrix (Template)**
+
+| Action | Board Threshold | Shareholder Threshold |
+| --- | --- | --- |
+| Amend charter/bylaws | Supermajority | Supermajority |
+| Issue new equity | Supermajority | Majority |
+| Debt above $X | Majority | N/A |
+| M&A / sale of assets | Supermajority | Supermajority |
+| Related-party transactions | Majority w/ disinterested | Majority |
+| Hire/terminate CEO | Majority | N/A |
+
+**Core Clause Checklist**
+
+- Parties, recitals, effective date, hierarchy vs. charter/bylaws.
+- Definitions: Affiliate, Transfer, Permitted Transferee, Fair Market Value, Change of Control, Cause, Good Reason.
+- Capitalization schedule with class/series rights.
+- Preemptive rights or explicit waiver.
+- Board composition and designation rights with threshold maintenance.
+- Shareholder voting rights by class and written consent.
+- Meeting notice, quorum, remote participation.
+- Information rights and inspection.
+- ROFR and process timelines.
+- Co-sale (tag-along) and drag-along mechanics.
+- Permitted transfers and joinder requirement.
+- Involuntary transfer treatment (death/divorce/bankruptcy).
+- Valuation method and appraisal dispute mechanics.
+- Payment terms: down payment, note terms, interest.
+- Restrictive covenants and confidentiality (if enforceable).
+- Dispute resolution ladder and carve-outs.
+- Exit events, IPO termination, dissolution.
+- Notices, amendments, severability, waiver.
+- Assignment and third-party beneficiary disclaimer.
+- Spousal consent if applicable.
+
+**Clause Templates (Insert and tailor)**
+
+```text
+[Hierarchy]
+This Agreement supplements the Charter and Bylaws. If conflict: Charter controls; then this Agreement; then Bylaws, to the extent permitted by law.
+
+[ROFR Notice]
+Selling Shareholder delivers written notice stating: proposed transferee, number/class of shares, price, terms, and copies of offers. Company has [30] days to elect. If declined, non-selling shareholders have [30] days to elect pro rata, with oversubscription rights.
+
+[Tag-Along]
+If holders of >[50]% propose a Transfer to a third party, each other shareholder may participate pro rata on identical terms by giving notice within [10] days.
+
+[Drag-Along]
+Upon approval by holders of >[X]% of outstanding voting power, all shareholders must sell on the same terms, subject to pro rata escrow/indemnity capped at proceeds.
+
+[Valuation]
+Fair Market Value determined by [method]. If appraisal: parties choose appraiser within [15] days, else appoint by [ASA/JAMS]. Appraisal completed within [60-90] days. Discounts for lack of control/marketability: [include/exclude].
+
+[Note Terms]
+Deferred purchase price paid over [3-5] years at [AFR + X%], prepayable without penalty, secured by pledge of purchased shares, default accelerates.
+
+[Restrictive Covenants]
+Non-competition and non-solicitation apply to [active shareholders] for [12-24] months in [defined territory], limited to [defined business]. Confidentiality survives [3-5] years; trade secrets indefinitely.
+
+[Dispute Resolution]
+Notice → executive meeting within [15] days → mediation within [60] days → [arbitration/court]. Equitable relief available for confidentiality, noncompete, transfer restrictions.
+```
+
+**Schedules / Exhibits**
+
+- Schedule A: Capitalization Table.
+- Schedule B: Shareholder Contact Information.
+- Exhibit 1: Form of Joinder.
+- Exhibit 2: Form of Promissory Note.
+- Exhibit 3: Spousal Consent (if applicable).
+
+**Quality Assurance Checklist**
+
+- Defined terms used consistently; no undefined caps.
+- Cross-references accurate.
+- Charter/bylaws conflict check completed.
+- Transfer restrictions comply with state statute requirements.
+- Noncompete and nonsolicit enforceability confirmed.
+- Arbitration clause and carve-outs are consistent.
+- Signature blocks match entity authority.
+
+## Guidelines
+
+- Confirm state corporate statute requirements for enforceability of transfer restrictions and shareholder agreements.
+- Avoid unreasonable restraints on alienation; document legitimate business purpose for restrictions.
+- Limit restrictive covenants to enforceable scope; exclude jurisdictions where noncompetes are restricted unless narrowed to protect trade secrets.
+- If founders/employee shares vest, coordinate with equity plan and tax counsel for 83(b) timing.
+- Ensure securities law compliance for private transfers and legends on certificates/records.
+- Use spousal consent in community property states or where marital rights may attach.
+- Do not override mandatory charter provisions or statutory protections for minority shareholders.
+- Use a conspicuous jury trial waiver only if enforceable in the jurisdiction.
+tokens used
+9,345

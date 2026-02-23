@@ -1,0 +1,349 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-5fa6-73a2-8ce3-a976f85c362c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "9a829b72-fb78-4d95-b2b9-a943c95b2fd0",
+  "slug": "bankruptcy-interest-calculation-reference",
+  "name": "Interest Calculation Reference (Bankruptcy Claims)",
+  "summary": "Reference guide for calculating pre-petition interest on bankruptcy claims. Covers simple interest formulas, daily accrual calculations, interest rate source hierarchy, and common calculation errors. Use this skill when preparing the interest component of a proof of claim, calculating claim amounts, or verifying interest calculations on creditor claims. Essential companion to proof of claim drafting that ensures accurate, defensible interest calculations.",
+  "content": "You are assisting with interest calculations for bankruptcy claims. Your task is to help calculate pre-petition interest accurately and document the calculation in a manner suitable for inclusion in or attachment to a Proof of Claim.\n\n### Standard Calculation Methods\n\n**Simple Interest (Most Common)**\n\nMost commercial and consumer debts use simple interest:\n\n```\nInterest = Principal \u00d7 Rate \u00d7 Time\n\nWhere:\n- Principal = Outstanding balance as of last payment or accrual date\n- Rate = Annual interest rate expressed as a decimal (e.g., 8.5% = 0.085)\n- Time = Days elapsed \u00f7 365 (or \u00f7 360 for some commercial loans)\n```\n\n**Daily Accrual Calculation**\n\nFor precision, calculate the per diem rate and multiply by days:\n\n```\nPer Diem = (Principal \u00d7 Annual Rate) \u00f7 365\nPre-Petition Interest = Per Diem \u00d7 Days from Last Payment to Petition Date\n```\n\n### Example Calculation\n\nGiven:\n- Principal Balance: $50,000.00\n- Annual Interest Rate: 8.5%\n- Last Payment Date: January 15, 2024\n- Petition Date: June 1, 2024\n- Days Elapsed: 138 days\n\nCalculation:\n```\nPer Diem = ($50,000.00 \u00d7 0.085) \u00f7 365\nPer Diem = $4,250.00 \u00f7 365\nPer Diem = $11.64\n\nPre-Petition Interest = $11.64 \u00d7 138 days\nPre-Petition Interest = $1,606.32\n\nTotal Claim = $50,000.00 + $1,606.32 = $51,606.32\n```\n\n### Interest Rate Source Hierarchy\n\nWhen determining the applicable interest rate, use this priority order:\n\n| Priority | Source | Notes |\n|----------|--------|-------|\n| 1 | Contract rate | Express provision in loan, credit agreement, or promissory note |\n| 2 | Judgment rate | If claim based on pre-petition judgment, use rate specified in judgment |\n| 3 | State statutory rate | Applicable state's statutory prejudgment interest rate |\n| 4 | Federal rate | 28 U.S.C. \u00a7 1961 post-judgment rate (Treasury bill rate) |\n\nAlways cite the source of the interest rate in the Proof of Claim and attach supporting documentation.\n\n### Post-Petition Interest Rules\n\n**Unsecured Claims:**\n- Generally NOT entitled to post-petition interest\n- Calculate interest only through the petition date\n- Exception: Solvent debtor cases (rare)\n\n**Secured Claims:**\n- Entitled to post-petition interest only if oversecured under 11 U.S.C. \u00a7 506(b)\n- Oversecured = Collateral value exceeds total debt (principal + interest + fees)\n- Post-petition interest accrues only to the extent of the \"equity cushion\"\n\n**Priority Claims:**\n- Generally not entitled to post-petition interest\n\n### Late Fees and Other Charges\n\nInclude late fees and charges only if:\n\n1. **Contractually permitted**: Express provision in the agreement authorizes the fee\n2. **Actually incurred**: Fee was assessed pre-petition, not prospectively\n3. **Reasonable**: Fee is not punitive or unconscionable under applicable law\n\nWhen including fees, cite the specific contract provision (e.g., \"Per Section 5.2 of the Credit Agreement\") and attach the relevant contract pages.\n\n### Attorney Fees\n\nInclude attorney fees only if:\n\n1. **Contract contains fee-shifting provision**, OR\n2. **Statute authorizes recovery** (e.g., certain consumer protection statutes)\n\nRequired documentation:\n- Contract provision or statutory citation authorizing fees\n- Itemized statement of fees incurred pre-petition\n- Hourly rates and hours expended\n- Description of work performed\n\nNote: Only pre-petition attorney fees may be included in the claim amount. Post-petition collection fees are generally not recoverable.\n\n### Interest Calculation Worksheet Template\n\nGenerate a worksheet suitable for attachment to the Proof of Claim:\n\n```\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n              INTEREST CALCULATION WORKSHEET\n              \nCase: [Debtor Name], Case No. [XX-XXXXX]\nCreditor: [Creditor Name]\nAccount/Reference No.: [Number]\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n\nPRINCIPAL CALCULATION\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nOriginal Debt Amount:                              $______________\nLess: Payments Received:                          ($______________)\nPrincipal Balance as of [Last Payment Date]:       $______________\n\nINTEREST CALCULATION\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nPrincipal Balance:                                 $______________\nAnnual Interest Rate:                              ______________%\nRate Source: [ ] Contract \u00a7 ___  [ ] Judgment  [ ] Statutory  [ ] Federal\n\nAccrual Period:\n  From: [Last Payment Date / Contract Date]        ______________\n  To:   [Petition Date]                            ______________\n  Days: [Calculate]                                ______________\n\nCalculation:\n  Per Diem = ($________ \u00d7 ____%) \u00f7 365 =          $______________\n  Interest = $________ \u00d7 _____ days =              $______________\n\nPRE-PETITION INTEREST TOTAL:                       $______________\n\nOTHER CHARGES\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nLate Fees (per Contract \u00a7 ___):                    $______________\nNSF/Returned Check Fees:                           $______________\nAttorney Fees (see itemization):                   $______________\nOther: _____________________:                      $______________\n\nOTHER CHARGES TOTAL:                               $______________\n\nCLAIM SUMMARY\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nPrincipal:                                         $______________\nPre-Petition Interest:                             $______________\nOther Charges:                                     $______________\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nTOTAL CLAIM AS OF PETITION DATE:                   $______________\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n\nPrepared by: ____________________  Date: ______________\n```\n\n### Common Calculation Errors to Avoid\n\n| Error | Correct Approach |\n|-------|------------------|\n| Including post-petition interest for unsecured claims | Stop calculation at petition date |\n| Using 360-day year when contract specifies 365 | Follow contract terms exactly |\n| Compounding when contract specifies simple interest | Match contract methodology |\n| Including fees not authorized by contract | Only include contractually permitted charges |\n| Miscalculating days | Use actual calendar days; verify with date calculator |\n| Using wrong principal balance | Start from balance after last payment credited |\n| Omitting rate source | Always cite contract section or statutory authority |\n\n### Day Count Conventions\n\nDifferent loan types may use different day count conventions:\n\n| Convention | Calculation | Common Usage |\n|------------|-------------|--------------|\n| Actual/365 | Actual days \u00f7 365 | Consumer loans, mortgages |\n| Actual/360 | Actual days \u00f7 360 | Commercial loans, some credit facilities |\n| 30/360 | Assumes 30-day months | Bonds, some commercial paper |\n\nCheck the underlying agreement for the specified convention. If not specified, Actual/365 is the default.\n\n---\n\n## Cross-References\n\n- @bankruptcy-proof-of-claim \u2014 Main proof of claim drafting skill\n- @bankruptcy-collateral-valuation-reference \u2014 Collateral valuation for secured claims\n- @bankruptcy-objection-to-proof-of-claim \u2014 Challenging interest calculations\n- @commercial-loan-analysis \u2014 Commercial loan documentation review\n\n---\n\n## References\n\n- 11 U.S.C. \u00a7 502(b) (Allowance of Claims\u2014Interest Limitations)\n- 11 U.S.C. \u00a7 506(b) (Post-Petition Interest for Oversecured Claims)\n- 28 U.S.C. \u00a7 1961 (Federal Post-Judgment Interest Rate)\n- Federal Reserve Statistical Release H.15 (Treasury Bill Rates)\n- Uniform Commercial Code \u00a7 1-303 (Course of Dealing and Usage of Trade)",
+  "parent_skill_id": "addcaec6-ecc8-4c88-b6de-88e135ef28b3",
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "license": "Apache-2.0",
+    "keywords": [
+      "bankruptcy",
+      "proof of claim",
+      "creditor",
+      "interest",
+      "claim"
+    ],
+    "complexity": "Basic",
+    "industries": [],
+    "author_name": "CaseMark Legal Team",
+    "party_roles": [
+      "Creditor",
+      "Creditor's Counsel"
+    ],
+    "skill_modes": [
+      "Analysis",
+      "Calculation"
+    ],
+    "court_systems": [
+      "US Bankruptcy Court"
+    ],
+    "jurisdictions": [
+      "US Federal"
+    ],
+    "matter_phases": [
+      "Post-Petition",
+      "Claims Administration"
+    ],
+    "document_types": [
+      "Reference",
+      "Worksheet"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Bankruptcy"
+    ],
+    "author_linkedin": "https://linkedin.com/company/casemark",
+    "sub_practice_areas": [
+      "Bankruptcy Litigation",
+      "Creditor Rights",
+      "Commercial Litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-05T01:11:46.693573",
+  "updated_at": "2026-02-05T01:11:46.693573"
+}
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:40:34.206345Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+codex
+---
+name: interest-calculation-reference
+description: Calculates and validates U.S. bankruptcy claim interest for creditor-side filing and review. Use for drafting or auditing a Proof of Claim, preparing objections/rebuts, generating attachment-ready worksheets, or estimating claim value using triggers like "proof of claim", "pre-petition interest", "bankruptcy claim", "interest worksheet", and "claim amount".
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+    - Bankruptcy
+  document_types:
+    - Reference
+    - Worksheet
+  skill_modes:
+    - Analysis
+    - Calculation
+---
+
+# Bankruptcy Interest Calculation Reference
+
+Reference workflow for pre-petition interest calculations and charge inclusion decisions for creditor proofs of claim.
+
+## Prerequisites
+
+1. Case context: petition date and case number.
+2. Governing loan/credit document set.
+3. Payment history and balance ledger (chronological).
+4. Contract or judgment terms for rate and accrual method.
+5. State law source for prejudgment statutory rates (if no contract/judgment rate).
+6. Collateral valuation and lien status if claim is secured.
+7. Copies of fee provisions and statutory fee authorities.
+8. Date calculator or verified date diff method (actual calendar days).
+
+## Output Structure / Process
+
+### 1) Core Inputs
+| Field | Capture |
+|---|---|
+| Principal Balance | Outstanding principal as of last payment or cutoff date |
+| Last Payment/Accrual Date | Date of last payment or latest principal application |
+| Petition Date | Petition filing date |
+| Annual Rate | Decimal or percentage |
+| Rate Source | Contract / Judgment / State statutory / Federal |
+| Day-Count Basis | 365, 360, or 30/360 |
+| Claim Type | Unsecured, Secured, Priority |
+| Charges Included | Late fees, NSF/returned-item fees, attorney fees, other |
+
+### 2) Formula
+- `Interest = Principal × Rate × (Days / Day-Count-Basis)`
+- `Pre-petition Interest = Principal × Rate × (Accrual Days ÷ Day-Count-Basis)`
+- `Per Diem = (Principal × Rate) ÷ Day-Count-Basis`
+- `Total Claim = Principal + Pre-petition Interest + Allowed Other Charges`
+
+### 3) Rate Source Priority
+| Priority | Source | Use Rule |
+|---|---|---|
+| 1 | Contract | Use exact contractual rate and stated methodology |
+| 2 | Judgment | Use judgment rate where claim is based on pre-petition judgment |
+| 3 | State statutory prejudgment rate | Use applicable state rate only if higher-priority source absent |
+| 4 | Federal 28 U.S.C. §1961 | Use only when judgment-rate path points to it as governing fallback |
+
+### 4) Post-Petition Interest Entitlement
+| Claim Type | Default Rule | Notes |
+|---|---|---|
+| Unsecured | No post-petition interest | Stop at petition date; include solvent-debtor exception only if affirmatively supported [VERIFY] |
+| Secured | Allowable only if oversecured under 11 U.S.C. §506(b) | Limited by equity cushion (collateral value above claim) |
+| Priority | Usually no post-petition interest | Confirm specific statutory priority language |
+
+### 5) Charge Inclusion Gate
+- Late/penalty charges: include only if contract-authorized, accrued pre-petition, and reasonable/non-punitive.
+- NSF/returned-item/admin fees: include only if actually assessed pre-petition and authorized.
+- Attorney fees: include only if contract or statute authorizes pre-petition recovery.
+- Always attach supporting documentation to each charge line item.
+
+### 6) Worksheet Template
+```text
+-----------------------------------------------
+BANKRUPTCY INTEREST CALCULATION WORKSHEET
+-----------------------------------------------
+Debtor: ____________   Case No.: ____________
+Creditor: ____________  Account No.: __________
+
+1) Principal Section
+Original principal:          $ ________
+Payments to cutoff:         -$ ________
+Principal as of [Last Payment/Accrual Date]: $ ________
+
+2) Interest Section
+Annual rate:               ________%
+Rate source: [ ] Contract [ ] Judgment [ ] State [ ] Federal
+Day-count basis: [ ] Actual/365 [ ] Actual/360 [ ] 30/360
+Accrual period: [From] __ / [To] __ / Days ____
+
+Per diem:                  $ ________
+Pre-petition interest:     $ ________
+
+3) Other Charges (include only if supported)
+Late fees:                 $ ________
+NSF/other fees:            $ ________
+Attorney fees (pre-petition): $ ________
+Other allowed charges:      $ ________
+Other charges total:        $ ________
+
+4) Claim Summary
+Principal:                 $ ________
+Pre-petition interest:     $ ________
+Other charges:             $ ________
+Total claim at petition:   $ ________
+
+Documentation checklist:
+[ ] Contract/judgment rate clause
+[ ] Payment ledger
+[ ] Day-count rationale
+[ ] Charge authorization
+[ ] Signature/date
+```
+
+### 7) Validation Checklist (run before filing)
+| Error Pattern | Required Fix |
+|---|---|
+| Using wrong principal baseline | Reconcile to balance after last credited payment |
+| Wrong day-count basis | Use contract/more favorable documented basis |
+| Wrong compounding method | Match contract (simple unless explicitly stated otherwise) |
+| Including unauthorized fees | Remove and note authority required |
+| Missing rate source | Document section/article/statute or contract paragraph |
+| Calculating beyond petition date | Cap unsecured and general claims at petition date |
+
+### 8) Cross-References
+- `@bankruptcy-proof-of-claim`
+- `@bankruptcy-collateral-valuation-reference`
+- `@bankruptcy-objection-to-proof-of-claim`
+- `@commercial-loan-analysis`
+
+## Guidelines
+
+- Always preserve units: convert percentages to decimals only inside formulas.
+- Prefer plain-text audit trail: list each numeric input, assumption, and source.
+- Do not mix post-petition accrual into pre-petition totals.
+- Treat federal post-judgment rate as a fallback path, not a first principle for non-judgment debt.
+- State-law prejudgment rates vary by state and date; verify current statute/case law in that jurisdiction before relying on them.
+- For uncertain statutory applications (e.g., solvent-debtor interest treatment), flag and [VERIFY] with venue-specific authority.
+
+## References
+- 11 U.S.C. §502(b)(2) (unmatured interest treatment)
+- 11 U.S.C. §506(b) (post-petition interest for oversecured claims)
+- 28 U.S.C. §1961 (post-judgment interest benchmarks)
+- Applicable state prejudgment interest statute (case-specific; verify citation)
+tokens used
+8,848

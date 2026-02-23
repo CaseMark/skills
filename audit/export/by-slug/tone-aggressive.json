@@ -1,0 +1,21 @@
+{
+  "id": "b2b60361-157d-4059-9ce3-13ac06a6c717",
+  "slug": "tone-aggressive",
+  "name": "Aggressive Advocacy Tone",
+  "summary": "Writing style for forceful, adversarial legal documents. Use when zealous advocacy requires strong positioning.",
+  "content": "# Aggressive Advocacy Tone\n\nUse this tone when the situation calls for forceful advocacy, such as:\n- Opposing frivolous motions\n- Responding to bad-faith conduct\n- Demanding compliance with clear obligations\n- Trial briefs where credibility attacks are warranted\n\n## Characteristics\n- Strong, declarative sentences\n- Direct accusations where supported by evidence\n- Minimal hedging language\n- Emphasis on opposing party's failures\n- Confident assertions of client's position\n\n## Cautions\n- Never cross ethical lines\n- Maintain professionalism\n- Ensure factual support for all assertions\n- Avoid personal attacks on counsel\n- Consider judge's preferences\n\n## Example Phrases\n- \"Plaintiff's argument fails for multiple independent reasons.\"\n- \"Defendant's conduct was willful and calculated.\"\n- \"The evidence conclusively establishes...\"\n- \"Opposing counsel's characterization is flatly contradicted by...\"\n",
+  "parent_skill_id": null,
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "skill_modes": [
+      "drafting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-01-06T03:16:15.3172"
+}

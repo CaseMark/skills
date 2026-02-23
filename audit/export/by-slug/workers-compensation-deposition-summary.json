@@ -1,0 +1,41 @@
+{
+  "id": "7c5e7ea2-edc8-4033-887f-a9a6bdb7fd21",
+  "slug": "workers-compensation-deposition-summary",
+  "name": "Workers Compensation Deposition Summary",
+  "summary": "Generates a comprehensive, thematically organized summary of workers' compensation deposition transcripts, capturing key testimony on injury mechanisms, medical opinions, employment history, and admissions. It provides an executive overview and detailed sections for attorneys, claims adjusters, and case managers to reference without reading full transcripts. Use it during discovery in employment litigation to assess claim value and liability efficiently.",
+  "content": "# Workers Compensation Deposition Summary\n\nYou are tasked with creating a comprehensive summary of workers compensation deposition proceedings. This summary will serve as a critical reference document for attorneys, claims adjusters, and case managers who need to quickly understand the key testimony, admissions, and factual developments from deposition transcripts without reviewing hundreds of pages of testimony.\n\nBegin by thoroughly analyzing the complete deposition transcript to ensure no critical testimony is overlooked. Your analysis should capture the full scope of the witness's statements, including direct examination, cross-examination, and any redirect or recross examination. Pay particular attention to testimony regarding the nature and extent of the workplace injury, the circumstances surrounding the incident, the claimant's medical treatment history, work restrictions, functional limitations, and any pre-existing conditions that may be relevant to causation or apportionment.\n\nStructure your summary to provide both a high-level overview and detailed substantive content. Start with identifying information including the deponent's name, date of deposition, case caption, and the deponent's role (claimant, treating physician, employer representative, expert witness, etc.). Follow with a concise executive summary that captures the most significant testimony in two to three paragraphs, highlighting any admissions, inconsistencies, or testimony that materially impacts the claim's value or liability exposure.\n\nThe body of your summary should be organized thematically rather than chronologically, covering essential topics in workers compensation cases. Address the mechanism of injury with specific details about how, when, and where the incident occurred, including any witness accounts or safety violations. Summarize medical testimony comprehensively, including diagnoses, treatment modalities, causation opinions, maximum medical improvement status, permanent disability ratings, and future medical needs. Document employment history, job duties, physical demands of the position, and any modified duty or return-to-work attempts. Capture testimony regarding wage loss, earning capacity, and vocational rehabilitation if discussed.\n\nWhen summarizing expert witness depositions, clearly distinguish between the expert's qualifications, the materials reviewed, methodology employed, opinions rendered, and the basis for those opinions. Note any challenges to the expert's credentials or methodology that emerged during cross-examination. For treating physician depositions, identify the treatment relationship timeline, frequency of visits, diagnostic testing performed, and the physician's opinions on causation, apportionment to pre-existing conditions, and permanent disability.\n\nThroughout your summary, preserve important verbatim quotes when the exact language is legally significant, particularly regarding admissions, contradictions to prior statements, or testimony that may be used for impeachment. Include specific page and line citations for all key testimony to enable quick reference to the transcript. Flag any inconsistencies between the deposition testimony and prior written discovery responses, medical records, or other witness statements.\n\nAddress credibility considerations by noting the witness's demeanor, responsiveness, any evasiveness, memory gaps, or reliance on documents to refresh recollection. Identify exhibits marked during the deposition and summarize their significance, ensuring each exhibit is properly referenced with its deposition exhibit number.\n\nConclude with a strategic assessment section that evaluates the deposition's impact on the case. Identify strengths and weaknesses revealed through the testimony, potential impeachment opportunities, areas requiring follow-up discovery, and any testimony that supports or undermines specific legal theories or damages claims. This assessment should provide actionable insights for case strategy, settlement evaluation, or trial preparation.\n\nYour summary should be written in clear, professional language accessible to both legal professionals and insurance claims personnel. Maintain objectivity while ensuring the summary serves as an effective advocacy tool by highlighting favorable testimony and identifying vulnerabilities in opposing positions. The final document should be comprehensive enough to minimize the need to review the full transcript while remaining concise enough to be reviewed efficiently during case evaluation or trial preparation.",
+  "parent_skill_id": "22a32815-94e1-4019-82f5-f958b8a9672a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "employment-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

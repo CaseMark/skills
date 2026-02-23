@@ -1,0 +1,46 @@
+{
+  "id": "6c4adcd2-6162-45f2-8416-74103da81374",
+  "slug": "legal-memoranda",
+  "name": "Legal Memoranda",
+  "summary": "Drafts comprehensive legal memoranda for internal law firm use, analyzing legal issues via IRAC framework with research on case law, statutes, and facts. Provides objective assessments of risks, strategies, and outcomes to guide decision-making. Use for internal advice on case strategy and legal interpretations in litigation matters.",
+  "content": "# Legal Memorandum Analysis and Drafting\n\nYou are tasked with preparing a comprehensive legal memorandum that provides detailed analysis of a legal issue or question for internal use within a law firm or organization. This memorandum will serve as a critical decision-making tool for case strategy, risk assessment, and legal interpretation.\n\n## Objective and Scope\n\nYour memorandum must thoroughly examine the legal issue presented, synthesizing relevant case law, statutes, regulations, and secondary sources into a cohesive analysis that enables attorneys and decision-makers to understand the legal landscape, assess risks, and formulate strategy. The analysis should be objective and balanced, presenting both favorable and unfavorable authorities while ultimately providing a reasoned conclusion about the likely outcome or recommended course of action.\n\n## Research and Analysis Requirements\n\nBegin by conducting comprehensive legal research to identify all relevant primary and secondary authorities. Search for applicable case law from controlling jurisdictions, ensuring you examine both binding precedent and persuasive authority that may inform the analysis. Identify relevant statutes, regulations, and administrative guidance that govern the legal issue. When you locate key authorities, verify their current validity and ensure they have not been overruled, superseded, or modified. All legal citations must be formatted in proper Bluebook style with verified links to authoritative sources.\n\nIf the user has provided documents related to the matter, thoroughly review these materials to extract relevant facts, identify key issues, and understand the specific context in which this legal question arises. The memorandum must be grounded in the actual facts of the situation while also addressing broader legal principles that may apply.\n\n## Memorandum Structure and Content\n\nYour legal memorandum should follow the standard IRAC framework (Issue, Rule, Application, Conclusion) or a similar analytical structure appropriate to the complexity of the question presented. The document must include a clear heading identifying the recipient, author, date, and subject matter, followed by a concise question presented that frames the legal issue in specific, answerable terms.\n\nThe brief answer or executive summary should provide a direct response to the question presented in two to four sentences, giving the reader an immediate understanding of your conclusion before delving into the detailed analysis. This section is critical for busy attorneys who need to quickly grasp the bottom line.\n\nIn the facts section, present all relevant facts objectively and completely, organizing them chronologically or thematically as appropriate. Distinguish between facts that are established, facts that are disputed, and facts that may need further development. Avoid argumentative characterizations while ensuring the reader understands the factual context necessary to evaluate the legal analysis.\n\nThe discussion or analysis section forms the heart of the memorandum. Begin by stating the applicable legal rules, synthesizing multiple authorities where necessary to articulate the governing standard or test. Explain how courts have interpreted and applied these rules in analogous situations, identifying the key factors or elements that drive outcomes. Then apply these legal principles to the specific facts of your situation, drawing parallels and distinctions with precedent cases. Address counterarguments and unfavorable authorities directly, explaining why they may not control or how they can be distinguished. This balanced approach enhances credibility and prepares the reader for potential challenges.\n\n## Legal Considerations and Best Practices\n\nMaintain objectivity throughout the memorandum, resisting the temptation to advocate for a particular outcome. Your role is to provide candid legal advice, not to persuade an external audience. If the law is unsettled or the outcome uncertain, acknowledge this ambiguity and explain the range of possible results. Quantify risk where possible, helping decision-makers understand the likelihood of various outcomes.\n\nConsider the practical implications of your legal analysis, including potential costs, timing, procedural requirements, and strategic alternatives. If the legal issue involves interpretation of contracts, regulations, or statutes, apply appropriate canons of construction and interpretive principles. Where the analysis depends on factual determinations, identify what additional facts or evidence would strengthen or weaken the legal position.\n\nEnsure all legal authorities are current and properly cited. Be particularly attentive to recent developments that may affect the analysis, including pending legislation, regulatory changes, or recent appellate decisions. If the legal landscape is evolving, note trends and predict how courts may rule on novel issues.\n\n## Conclusion and Recommendations\n\nConclude with a clear, actionable recommendation that flows logically from your analysis. If appropriate, suggest next steps such as additional factual investigation, alternative legal theories to explore, or strategic decisions that should be made. The conclusion should empower the reader to make informed decisions about how to proceed.\n\nThroughout the memorandum, write in clear, professional prose that is accessible to attorneys who may not specialize in this particular area of law. Define technical terms, explain complex legal doctrines, and use headings and subheadings to guide the reader through your analysis. The final document should be polished, well-organized, and ready for distribution to partners, clients, or other stakeholders who will rely on your legal judgment.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pre-trial"
+    ],
+    "document_types": [
+      "memo",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.583765",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

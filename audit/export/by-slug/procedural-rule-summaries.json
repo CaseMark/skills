@@ -1,0 +1,48 @@
+{
+  "id": "9e8b88dc-c4a7-4551-abcc-59cf8d6f9fce",
+  "slug": "procedural-rule-summaries",
+  "name": "Procedural Rule Summaries",
+  "summary": "Generates concise, structured summaries of procedural rules from federal, state, local, or administrative sources for quick reference by legal professionals. Organizes content by procedural stages, detailing actions, deadlines, responsibilities, and non-compliance consequences to ensure adherence during litigation or hearings. Use it for case preparation, motion practice, or procedural planning to avoid errors in complex processes.",
+  "content": "# Procedural Rule Summary Generation\n\nYou are tasked with creating a comprehensive yet concise summary of procedural rules for legal professionals who need quick reference materials to ensure compliance with court or administrative procedures. This workflow is essential for attorneys, paralegals, and legal staff who must navigate complex litigation processes, administrative hearings, or regulatory proceedings while adhering to strict procedural requirements.\n\n## Your Objective\n\nGenerate a clear, actionable summary of the specified procedural rules that enables legal professionals to quickly understand the requirements, deadlines, steps, and compliance obligations without needing to parse through lengthy rule texts or statutes. The summary should serve as a reliable quick-reference guide that can be consulted during case preparation, motion practice, or procedural planning.\n\n## Research and Information Gathering\n\nBegin by identifying the specific procedural rules that need to be summarized. This may include Federal Rules of Civil Procedure, Federal Rules of Criminal Procedure, state-specific court rules, local rules for particular courts, administrative procedure rules, or specialized tribunal procedures. Search for the most current and authoritative versions of these rules from official sources such as government websites, court websites, or official legal databases. Verify that you are working with the current version of the rules, as procedural requirements frequently change through amendments.\n\nIf the user has provided documents containing procedural rules or court orders, search those documents thoroughly to extract the relevant procedural requirements, deadlines, and compliance steps. When multiple sources are available, cross-reference them to ensure accuracy and identify any conflicts or variations between different jurisdictions or rule sets.\n\n## Structure and Content Requirements\n\nYour summary should be organized in a logical, easy-to-navigate format that mirrors how legal professionals actually use procedural rules in practice. Begin with a brief overview that identifies the jurisdiction, the type of proceeding, and the scope of the rules being summarized. Then organize the content by procedural stage or topic area, such as pleadings, discovery, motions, trial procedures, or appeals.\n\nFor each procedural requirement, clearly state what action must be taken, who is responsible for taking it, when it must be completed (including specific deadlines and how they are calculated), and what format or method must be used. Highlight any mandatory versus discretionary requirements, and note any exceptions or special circumstances that modify the standard procedure. Include information about consequences for non-compliance, such as waiver of rights, sanctions, or dismissal.\n\nPay particular attention to timing requirements, as these are critical for compliance. Specify whether deadlines are measured in days, business days, or calendar days, and note any rules about how to calculate deadlines when they fall on weekends or holidays. Identify any opportunities to extend deadlines or seek relief from procedural requirements, including the standards that courts apply when considering such requests.\n\n## Legal Considerations and Best Practices\n\nEnsure your summary reflects current law and practice by citing to specific rule numbers, subsections, and any relevant amendments or effective dates. When procedural rules have been interpreted or clarified by case law, include brief references to key holdings that affect how the rules are applied in practice. Note any areas where courts have discretion or where practice varies between different judges or divisions within the same court system.\n\nAddress common pitfalls and areas where practitioners frequently make procedural errors. This might include confusion about service requirements, miscalculation of deadlines, failure to meet and confer requirements, or improper formatting of filings. Provide practical guidance that helps legal professionals avoid these mistakes while maintaining strict compliance with the rules.\n\nIf the procedural rules interact with other rules or statutes, such as evidence rules, local court orders, or standing orders from individual judges, note these connections and explain how they work together. Legal professionals need to understand not just isolated rules but how the entire procedural framework operates as a system.\n\n## Format and Presentation\n\nPresent the summary in a format that facilitates quick reference and easy scanning. Use clear headings and subheadings that allow readers to quickly locate the specific procedural requirement they need. Consider organizing information in a way that matches the chronological flow of a typical case or proceeding, so users can follow the procedural path from initiation through resolution.\n\nWhere appropriate, include checklists or step-by-step sequences that break down complex procedures into manageable tasks. For rules with multiple requirements or conditions, consider using structured formats that clearly show what must be satisfied and in what order. However, maintain a professional tone and ensure that simplified presentations do not sacrifice accuracy or omit critical nuances.\n\nConclude with any additional resources, cross-references to related rules, or notes about where to find more detailed guidance on complex or frequently litigated procedural issues. Your summary should empower legal professionals to act confidently while knowing when they need to consult the full text of the rules or seek additional guidance on particularly complex procedural questions.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings",
+      "discovery",
+      "pre-trial",
+      "trial",
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.696292",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

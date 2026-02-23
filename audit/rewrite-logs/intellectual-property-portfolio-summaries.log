@@ -1,0 +1,281 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c83-f2c2-7062-a40f-9fdc74a75d35
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "45c3236e-ea94-41d6-8f2f-9f5de52fe075",
+  "slug": "intellectual-property-portfolio-summaries",
+  "name": "Intellectual Property (IP) Portfolio Summaries",
+  "summary": "Generates comprehensive, structured summaries of a company's intellectual property portfolio, cataloging patents, trademarks, copyrights, and trade secrets with status details, strategic assessments, and actionable insights. Analyzes geographic coverage, competitive positioning, risks, and opportunities to support IP management decisions. Use this skill for executive briefings, due diligence, licensing strategies, or portfolio optimization in corporate settings.",
+  "content": "# Intellectual Property Portfolio Summary Generation\n\nYou are tasked with creating a comprehensive summary of a company's intellectual property portfolio. This summary serves as a strategic management tool for executives, in-house counsel, investors, and business development teams to understand the scope, strength, and status of the organization's IP assets. The portfolio summary should provide both high-level insights and sufficient detail to support informed decision-making regarding IP strategy, licensing opportunities, enforcement actions, and portfolio optimization.\n\n## Objective and Scope\n\nGenerate a structured IP portfolio summary that catalogs and analyzes all intellectual property assets across patents, trademarks, copyrights, and trade secrets. The summary must present current status information, strategic value assessments, and actionable insights. This document should enable stakeholders to quickly understand what IP the company owns, the protection status of each asset, geographic coverage, competitive positioning, and potential risks or opportunities within the portfolio.\n\n## Required Analysis and Content\n\nBegin by conducting a thorough review of all available IP documentation, including patent applications and grants, trademark registrations, copyright registrations, licensing agreements, and any existing IP audit materials. Search through uploaded documents to extract concrete information about registration numbers, filing dates, grant dates, expiration dates, jurisdictions, inventors or creators, and current legal status for each asset.\n\nFor patents, identify and summarize each patent or patent application including the patent number or application number, title, filing date, grant date if applicable, expiration date, jurisdictions where protection exists, named inventors, technology classification, and current status such as pending, granted, abandoned, or expired. Assess the strategic importance of each patent by considering its relationship to core products or services, potential licensing value, and whether it provides meaningful competitive advantage or freedom to operate.\n\nFor trademarks, catalog each registered mark and pending application with details including the mark itself whether word, design, or combination, registration number or application number, filing and registration dates, renewal dates, classes of goods and services covered, jurisdictions of registration, and current status. Evaluate the strength of each mark considering factors such as distinctiveness, market recognition, enforcement history, and alignment with current branding strategy.\n\nFor copyrights, document registered works including the nature of the work such as software, documentation, marketing materials, or creative content, registration numbers and dates, authorship information, and term of protection. Consider whether unregistered copyrights in significant works should be identified and potentially registered for enhanced protection.\n\nAnalyze the portfolio holistically to identify patterns, gaps, and strategic considerations. Assess geographic coverage to determine whether protection aligns with current and planned markets, identify technology areas or product lines that may be under-protected, evaluate the age distribution of patents to anticipate upcoming expirations, and consider whether the portfolio supports the company's business strategy and competitive positioning.\n\n## Output Format and Structure\n\nPresent the summary in a clear, professional format organized into distinct sections. Begin with an executive summary that provides key statistics such as total number of patents, trademarks, and copyrights, highlights the most strategically important assets, identifies critical upcoming deadlines or expirations, and notes any significant risks or opportunities requiring immediate attention.\n\nFollow with detailed sections for each IP category. Within each section, present assets in a logical order such as by importance, technology area, or chronologically, and include all relevant identifying information and status details. Use tables or structured lists where appropriate to enhance readability and enable quick reference.\n\nInclude a strategic analysis section that discusses portfolio strengths and weaknesses, alignment with business objectives, competitive positioning based on the IP portfolio, potential monetization opportunities through licensing or sale, and recommendations for portfolio optimization such as abandoning low-value assets or pursuing additional protection in key areas.\n\nConclude with an action items section that identifies upcoming maintenance deadlines, renewal dates, and response deadlines for office actions, recommends specific filings or registrations to address gaps, suggests enforcement actions if infringement has been identified, and proposes portfolio management improvements.\n\n## Legal and Professional Considerations\n\nEnsure all information is current and accurate by verifying status information against the most recent documentation available. Maintain confidentiality and clearly mark the summary as privileged attorney work product if prepared by or under the direction of counsel. Use precise legal terminology when describing IP rights and status, but ensure the summary remains accessible to non-legal business stakeholders.\n\nConsider jurisdictional variations in IP law when assessing rights and making recommendations, as patent, trademark, and copyright protection varies significantly across countries. Note any pending litigation, opposition proceedings, or disputes involving portfolio assets. Identify any assets that may be subject to third-party rights such as joint ownership, licenses granted to others, or security interests.\n\nFlag maintenance and renewal deadlines with sufficient advance notice to ensure timely action, as failure to pay maintenance fees or file renewals can result in loss of rights. When assessing strategic value, consider both offensive value for excluding competitors and licensing, and defensive value for freedom to operate and cross-licensing negotiations.\n\nThis IP portfolio summary should serve as a living document that is updated regularly to reflect new filings, grants, registrations, expirations, and changes in business strategy. The summary enables proactive IP management rather than reactive responses to deadlines or competitive threats, supporting the company's innovation strategy and protecting its competitive advantages in the marketplace.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance",
+      "intellectual-property"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:59:44.547150Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Composing skill markdown spec**
+
+I'm defining a new skill markdown with slug "ip-portfolio-summary," scoped to the Corporate practice area and document types Summary and Analysis. The skill will include a concise one-line title, numbered prerequisites, and a detailed output structure using single-level lists and ASCII tables or checklists, following strict formatting rules with no nested bullets and presence of trigger keywords.
+thinking
+**Drafting detailed skill markdown**
+
+I'm including key triggers like "portfolio summary," "IP audit," and practice area metadata scoped to U.S. Corporate IP context covering patents, trademarks, copyrights, and trade secrets. The output structure will feature labeled sections and detailed tables with placeholders but no nested bullets. I'm specifying prerequisites as a numbered list and guidelines addressing verification, privilege, jurisdiction, and documentation standards while keeping length within 80-150 lines for the final SKILL.md.
+codex
+---
+name: ip-portfolio-summary
+description: Produces a U.S. corporate intellectual property portfolio summary and analysis covering patents, trademarks, copyrights, and trade secrets with status, coverage, and strategic assessment. Use for IP portfolio summary, IP audit, due diligence, licensing strategy, M&A review, executive briefing, or portfolio optimization.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Summary
+    - Analysis
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# IP Portfolio Summary
+
+Summarizes and analyzes a company's IP assets for executive and legal decision-making.
+
+## Prerequisites
+
+1. **Source materials** — patent docket, trademark docket, copyright records, trade secret inventories, licensing agreements, and prior IP audits.
+2. **Business context** — current products/services, planned markets, and strategic priorities.
+3. **Jurisdiction scope** — confirm U.S.-only or include foreign portfolios.
+
+## Output Structure / Process
+
+**1. Executive Summary**
+- Total counts by asset type and status
+- Top 5 strategically critical assets
+- Key deadlines in next 6–12 months
+- Immediate risks and opportunities
+
+**2. Portfolio Inventory (by asset type)**
+
+Patents
+| Asset ID | Title | Jurisdiction | Filing Date | Grant Date | Expiration | Status | Inventors | Tech Area | Product Link | Strategic Value |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+Trademarks
+| Mark | Type | Jurisdiction | App/Reg No. | Filing Date | Reg Date | Renewal | Classes | Status | Brand Importance | Enforcement Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+Copyrights
+| Work | Type | Reg No. | Reg Date | Author/Owner | Term | Status | Commercial Use | Registration Gap |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+Trade Secrets
+| Asset | Description | Business Owner | Protection Measures | Access Controls | Risk Level | Core Product Link |
+| --- | --- | --- | --- | --- | --- | --- |
+
+**3. Status & Deadline Tracker**
+- Maintenance fees (patents)
+- Trademark renewals / declarations of use
+- Office action response deadlines
+- Upcoming expirations
+
+**4. Strategic Analysis**
+- Coverage vs. current and planned markets
+- Portfolio age distribution and cliff risks
+- Gaps by product line or technology
+- Defensive vs. offensive value
+- Licensing / monetization opportunities
+- Competitive positioning summary
+
+**5. Risks, Disputes, and Encumbrances**
+- Litigation, oppositions, cancellations
+- Joint ownership, licenses granted, security interests
+- Invalidity or non-use risks
+
+**6. Action Items**
+- Specific filings / registrations to close gaps
+- Assets to abandon or consolidate
+- Enforcement or watch actions
+- Portfolio management improvements
+
+## Guidelines
+
+- Verify status and dates against the most current source documents.
+- Mark the report **Privileged & Confidential / Attorney Work Product** when applicable.
+- Separate facts from assessments; label any assumptions.
+- Note jurisdictional scope and do not generalize beyond it.
+- Flag missing source data and request it explicitly.
+- Do not opine on validity or infringement without supporting evidence.
+- Use consistent status labels: `pending`, `granted/registered`, `abandoned`, `expired`, `lapsed`.
+tokens used
+3,182

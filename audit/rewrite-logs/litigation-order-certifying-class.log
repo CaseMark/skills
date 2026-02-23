@@ -1,0 +1,202 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-742b-7ee2-ab5a-a31460b13f7c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d876ad9f-236b-411c-9fcf-05f0810bf410",
+  "slug": "litigation-order-certifying-class",
+  "name": "Order Certifying Class",
+  "summary": "Drafts a comprehensive court order certifying a class in class action litigation, including procedural recitals, detailed findings of fact on numerosity, commonality, typicality, and adequacy, and administrative provisions. This skill ensures the order meets rigorous legal standards for appellate review and provides clear guidance on class scope and management. Use it after granting a motion for class certification to formalize the class action proceeding.",
+  "content": "# Order Certifying Class - Enhanced Legal Workflow Prompt\n\nYou are tasked with drafting a comprehensive Order Certifying Class, a critical litigation document that formally recognizes a group of plaintiffs as a certified class for purposes of class action litigation. This order must meet rigorous legal standards and withstand appellate scrutiny while providing clear guidance to all parties regarding the scope and administration of the class action.\n\n## Document Structure and Requirements\n\nBegin with a properly formatted court caption that includes the full name of the court (district and division if federal), the complete case title listing all named plaintiffs and defendants, the civil action or docket number, and a clear document title. The caption must conform to the specific formatting requirements of the jurisdiction, whether federal or state court. Federal courts follow formats prescribed by local rules supplementing the Federal Rules of Civil Procedure, while state courts may have distinct requirements based on their rules of civil procedure.\n\n## Introduction and Procedural Recitals\n\nDraft an introduction that establishes the procedural posture of the case by identifying the motion for class certification under consideration, the date it was filed, and the parties who filed it. Provide a concise procedural history that includes the filing date of the complaint, any amendments to the complaint, the date of the class certification motion, any opposition or reply briefs filed, and whether oral argument was held. Summarize the nature of the underlying claims and the relief sought by the putative class. This section should reference specific pleadings and filings by date and docket number to create a clear record. Include recitals indicating that the court has reviewed all submitted materials, considered the arguments of counsel, and examined the evidentiary record including declarations, expert reports, and documentary evidence.\n\n## Findings of Fact\n\nDevelop detailed findings of fact that establish the evidentiary foundation for class certification. Address the numerosity requirement by providing specific findings regarding the size of the putative class, explaining why joinder of all members is impracticable, and citing evidence such as defendant's records, databases, or statistical analyses that support the class size estimate. For commonality, identify the common questions of law or fact that unite the class members, describing how these questions arise from the same course of conduct or practice by the defendant. \n\nAddress typicality by making findings that the named plaintiffs' claims are typical of the class members' claims, noting similarities in the legal theories, factual circumstances, and injuries suffered. For adequacy of representation, make findings regarding the named plaintiffs' ability to fairly and adequately protect class interests, their lack of conflicts with other class members, and the qualifications and experience of proposed class counsel in handling class actions and the subject matter at issue. Each finding should reference specific evidence in the record, including exhibit numbers, deposition testimony, expert declarations, or documentary evidence that supports the conclusion.\n\n## Conclusions of Law\n\nProvide a thorough legal analysis demonstrating that the proposed class satisfies all requirements of Rule 23(a) and the applicable subsection of Rule 23(b) (whether (b)(1), (b)(2), or (b)(3)). For Rule 23(a), explain how the court concludes that numerosity, commonality, typicality, and adequacy are satisfied based on the findings of fact and applicable legal standards. Cite controlling circuit precedent and Supreme Court authority, particularly landmark cases such as Wal-Mart Stores, Inc. v. Dukes and Comcast Corp. v. Behrend, explaining how this case aligns with or is distinguishable from those precedents.\n\nFor Rule 23(b) certification, provide detailed analysis of the specific subsection under which certification is sought. If certifying under Rule 23(b)(3), analyze whether questions of law or fact common to class members predominate over individual questions, and whether a class action is superior to other available methods for fairly and efficiently adjudicating the controversy. Address the four factors specified in Rule 23(b)(3): class members' interests in individually controlling separate actions, the extent and nature of any litigation already begun by class members, the desirability of concentrating the litigation in the particular forum, and the likely difficulties in managing a class action. If certifying under Rule 23(b)(2) for injunctive or declaratory relief, explain why the defendant has acted or refused to act on grounds generally applicable to the class, making final injunctive or declaratory relief appropriate.\n\n## Class Certification Order\n\nIssue a clear and definitive order certifying the class action. Provide a precise class definition that identifies who is included and excluded from the class, using objective criteria that can be applied without extensive factual inquiry into individual circumstances. Define the class period by specifying the beginning and ending dates during which class members must have been affected by the defendant's conduct. Formally appoint the named plaintiffs as class representatives, identifying them by name and explaining that they satisfy the adequacy requirement. Appoint class counsel pursuant to Rule 23(g), identifying the law firm(s) and lead attorneys by name, and making findings that appointed counsel will fairly and adequately represent the interests of the class based on their work in identifying and investigating potential claims, their experience in handling class actions and complex litigation, their knowledge of the applicable law, and the resources they will commit to representing the class.\n\n## Notice and Administration Provisions\n\nIf certifying a Rule 23(b)(3) class, order that the best notice practicable under the circumstances be provided to all class members who can be identified through reasonable effort. Specify the form and content of the notice, which must clearly and concisely state in plain, easily understood language: the nature of the action, the definition of the class certified, the class claims and defenses, that a class member may enter an appearance through counsel, that the court will exclude from the class any member who requests exclusion, and the binding effect of a class judgment on members. Establish deadlines for class members to opt out of the class or to object to the certification, the proposed settlement if applicable, or the adequacy of representation. Designate a claims administrator if appropriate and outline the process for notice distribution, whether by direct mail, publication, email, or other means.\n\n## Finality and Implementation\n\nAddress whether the certification order is a final appealable order or whether it is subject to modification. Note that class certification orders are generally subject to revision before final judgment under Rule 23(c)(1)(C). Include any case management provisions necessary to administer the class action efficiently, such as scheduling orders for discovery, motion practice, or settlement discussions. If appropriate, establish protocols for communication with class members, procedures for handling individual opt-outs or objections, and mechanisms for resolving disputes regarding class membership.\n\n## Conclusion and Judicial Authentication\n\nConclude with formal language ordering and adjudging the certification of the class as defined in the order. Include the date of entry of the order and provide a signature block for the presiding judge, including the judge's full name and title. Ensure the signature block conforms to the court's local rules and customary practice. The order should be drafted on official court letterhead or formatted according to the court's electronic filing requirements if applicable.\n\nThroughout the entire order, maintain a formal judicial tone appropriate for a court order, use precise legal terminology, ensure internal consistency in referring to parties and class members, and organize the content logically to facilitate understanding by class members, counsel, and reviewing courts. The order must be sufficiently detailed to provide clear guidance for the administration of the class action while being concise enough to avoid unnecessary complexity. Every factual finding should be supported by citation to the record, and every legal conclusion should be grounded in applicable statutes, rules, and precedent.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:49.273320Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:49.357481Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:50.433720Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:51.291497Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e537fdaa38c7-SJC)
+2026-02-23T21:42:52.332113Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e53ebb90232b-SJC)
+2026-02-23T21:42:53.752202Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e547ab27f993-SJC)
+2026-02-23T21:42:55.884324Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e554be8b7396-SJC)
+2026-02-23T21:42:59.463680Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e56a9eb4c52c-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-order-certifying-class-a3ud95a_.md
+
+STDOUT:
+

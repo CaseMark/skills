@@ -1,0 +1,508 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-f3d3-71e2-a937-134bf018d5c2
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "89a40a34-f837-4a32-8e78-3d1e741d8983",
+  "slug": "litigation-class-action-claim-form-class-members",
+  "name": "Claim Form for Class Members",
+  "summary": "Drafts a comprehensive Claim Form for class members in class action litigation, enabling eligible claimants to submit claims for settlement compensation or relief. Balances plain language for laypersons with legal precision to ensure compliance with FRCP 23, court orders, and settlement agreements. Use this skill during the settlement phase to create official, enforceable forms verified by administrators and courts.",
+  "content": "# Enhanced Prompt: Claim Form for Class Members\n\nYou are tasked with drafting a comprehensive Claim Form for Class Members in a class action litigation matter. This document serves as the critical mechanism through which class members assert their rights to participate in a settlement or judgment, and it must balance accessibility for lay claimants with legal precision and enforceability.\n\n## Document Purpose and Context\n\nThis Claim Form must enable eligible class members to submit claims for compensation or other relief while protecting the integrity of the settlement process. The form should be written in plain language accessible to non-lawyers while maintaining all necessary legal formalities. It must comply with Federal Rule of Civil Procedure 23 (or applicable state class action rules), court orders governing the settlement, and any specific requirements established by the settlement agreement. Consider that this document will be reviewed by the settlement administrator, may be subject to challenge by opposing counsel, and could be scrutinized by the court if disputes arise regarding claim validity.\n\n## Header and Case Identification Section\n\nBegin with a clear, prominent title identifying this as an \"Official Claim Form\" for the specific class action. Include the complete case caption with the full names of all named plaintiffs and defendants, the court name and jurisdiction, and the complete case number. Provide the settlement administrator's complete contact information, including mailing address, email, phone number, and website if applicable. Include the claim submission deadline prominently, using bold or larger font, and specify the postmark rule or other timing requirements. Add a brief introductory paragraph explaining the purpose of the form and who is eligible to submit it, written in plain language that a layperson can understand. Reference the settlement agreement date and any court order approving the settlement, providing sufficient detail for class members to verify they are completing the correct form for their case.\n\n## Claimant Information and Identification\n\nDesign this section to collect all information necessary to verify class membership and process payment or other relief. Request the claimant's full legal name as it appeared during the class period, current legal name if different, complete current mailing address, email address, and telephone number. Include fields for alternative contact information to ensure the claimant can be reached if questions arise. If the class definition includes specific criteria (such as purchase dates, account numbers, or employment periods), create clear fields for this information with instructions explaining why it is needed. For claims involving deceased class members, estates, or legal representatives, include appropriate fields for executor/administrator information and require documentation of authority. Consider privacy concerns by including a statement about how personal information will be used and protected, and ensure compliance with applicable privacy laws. If the settlement involves minors or legally incapacitated persons, provide clear instructions for guardians or representatives and specify required supporting documentation.\n\n## Claim Details and Supporting Documentation\n\nThis section must elicit sufficient information to evaluate claim validity and calculate appropriate compensation under the settlement terms. Clearly explain the types of claims covered by the settlement and provide checkboxes or fields for claimants to identify which category applies to them. For each claim type, specify the time period during which the relevant conduct or transaction must have occurred. Create fields for claimants to provide specific details such as:\n\n- Dates of purchase, transaction, or relevant events\n- Amounts paid or damages incurred\n- Account numbers, transaction identifiers, or other reference information\n- Description of harm suffered or basis for the claim\n- Calculation of claimed amount if the settlement requires claimants to compute their own recovery\n\nProvide clear instructions about supporting documentation, specifying whether documents must be submitted with the claim form or retained for possible later verification. List acceptable forms of documentation (receipts, account statements, contracts, correspondence, etc.) and explain whether copies or originals are required. If the settlement allows claims without documentation under certain circumstances, clearly explain the threshold amounts or conditions. Include a statement that submission of false information may result in claim denial, civil penalties, or criminal prosecution.\n\n## Certification, Attestation, and Release Provisions\n\nDraft a certification section that requires the claimant to affirm, under penalty of perjury, that all information provided is true, accurate, and complete to the best of their knowledge. The certification should specifically state that the claimant meets the class definition, has not previously released these claims, and has not received compensation for these claims through other means. Include language confirming that the claimant understands they are bound by the settlement terms and any court orders or judgments entered in the case.\n\nIncorporate a comprehensive release clause that clearly explains what claims the claimant is releasing by submitting this form. The release should identify the released parties (defendants, related entities, officers, directors, etc.) and describe the scope of released claims with sufficient specificity to be enforceable while remaining comprehensible to lay readers. If the release includes unknown claims, include the required statutory language (such as California Civil Code Section 1542 waiver language if applicable). Explain the consequences of submitting the claim form, including that the claimant will be bound by the settlement and any judgment, will give up the right to sue separately, and will be bound by any appeals or challenges to the settlement. Use clear headings and consider a separate acknowledgment checkbox for the release to ensure claimants understand this critical provision.\n\n## Signature Block and Submission Instructions\n\nCreate a signature section that includes a line for the claimant's handwritten or electronic signature (as appropriate), printed name, title or relationship to the claim if applicable, and date of signature. If the form may be submitted electronically, include language confirming that electronic signatures are acceptable and legally binding. For claims submitted on behalf of entities, estates, or by legal representatives, require identification of the signatory's authority and relationship to the claimant.\n\nProvide comprehensive submission instructions that specify all acceptable methods of filing (mail, email, online portal, etc.) and the complete address or URL for each method. Clearly state the submission deadline using both a specific date and time (including time zone) and explain whether the postmark date, receipt date, or upload date controls. Include instructions for obtaining confirmation of receipt and what to do if the claimant does not receive confirmation within a specified timeframe. Provide contact information for the settlement administrator and specify the hours when assistance is available. Include a statement about what happens after submission, including the approximate timeline for claim review, when claimants can expect to receive notice of claim approval or denial, and the process for challenging a claim denial. Add a reminder to retain copies of the completed claim form and all supporting documentation for the claimant's records.\n\n## Final Document Assembly\n\nEnsure the completed Claim Form is formatted professionally with consistent fonts, clear section headings, and adequate white space for readability. Number all pages and include the case name and number in a header or footer on each page. If the form exceeds two pages, consider adding a table of contents or checklist on the first page. Include any required legal notices, such as statements that submission of a claim form does not guarantee payment, that the settlement is subject to court approval, or that attorneys' fees will be deducted from the settlement fund. Verify that all language complies with court orders, the settlement agreement, and applicable rules of civil procedure. The final document should be available in formats accessible to individuals with disabilities and should be translatable if the class includes non-English speakers.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:03:01.533111Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Selecting concise slug and structuring skill output**
+
+I'll use "class-claim-form" as the new slug to keep it descriptive yet concise, and focus the response on the SKILL.md content with a structured checklist, sections, and legal compliance notes as specified.
+thinking
+---
+name: class-claim-form
+description: Drafts U.S. class action settlement claim forms for class members, balancing plain-language claimant instructions with FRCP 23 compliance, court approval orders, and settlement agreement requirements. Use when preparing official class member claim forms, settlement administrator packets, or online claim workflows; triggers: claim form, class action, settlement, FRCP 23, class member, settlement administrator.
+metadata:
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+
+# Class Member Claim Form
+
+Provides a standardized claim form template and guidance to aid class members in submitting settlement claims accurately and complying with legal and administrative requirements.
+
+## Prerequisites
+
+1. Settlement agreement and preliminary or final approval order  
+2. Court details: caption, case number, judge, venue  
+3. Class definition and class period  
+4. Claim categories, eligibility criteria, and payment formulas  
+5. Claim submission deadline, applicable time zone, postmark vs received rule, and submission methods  
+6. Settlement administrator contact information and portal URLs  
+7. Required documentation and any eligibility thresholds waiving documentation  
+8. Privacy notice, data retention, and E-SIGN policy compliance  
+9. Accessibility and language translation requirements
+
+## Output Structure / Process
+
+### Section Checklist
+
+| Section                 | Must Include                          | Notes                                               |
+|-------------------------|-------------------------------------|----------------------------------------------------|
+| Case Information        | Caption, case number, court name    | Match official court documents                      |
+| Claimant Information     | Full name, contact, representative  | Include guardian info if claimant is minor          |
+| Class Criteria          | Eligibility requirements             | Reference class definition                           |
+| Claim Categories         | Detailed claim options               | Include payment categories and formulas             |
+| Documentation           | Required supporting documents        | Specify when documentation is waived                 |
+| Certification & Release | Certifications, signature lines     | Include perjury warnings and applicable waivers [VERIFY] |
+| Submission Instructions | Deadlines, methods, addresses        | Specify time zone and postmark vs received rule     |
+| Administrator Use       | Internal tracking fields             | Optional, for settlement admin use only              |
+
+### Field Rules
+
+| Field                  | Required? | Format / Validation                          |
+|------------------------|-----------|---------------------------------------------|
+| Case caption           | Yes       | Must exactly match court caption             |
+| Claimant full name     | Yes       | Alphabetic characters, allow spaces          |
+| Contact info           | Yes       | Phone number, email format                     |
+| Date fields            | Yes       | MM/DD/YYYY, clarify time zone if relevant     |
+| Signature              | Yes       | Printed name + signature + date                |
+| Claim category         | Yes       | Select listed category; no custom input       |
+
+### Documentation Requirements
+
+| Claim Type            | Required Documents                         | Alternatives / Notes                            |
+|-----------------------|--------------------------------------------|------------------------------------------------|
+| Minor claimant        | Guardian authorization paperwork            | Submit estate or representative proof if applicable |
+| Estate claimant       | Death certificate and estate letters         |                                                |
+| Representative claim  | Power of attorney or court appointment       |                                                |
+| General claim         | Proof of class membership                     | May waive if low payment threshold               |
+
+## Certification and Release Checklist
+
+- [ ] Include statement certifying truthfulness under penalty of perjury  
+- [ ] Include waiver language per settlement agreement and court order  
+- [ ] Add Cal. Civ. Code § 1542 waiver if state-specific release applies  
+- [ ] Require signature and date for claimant or authorized representative  
+- [ ] Include privacy acknowledgment and data use consent  
+
+## Template Skeleton
+
+```text
+# Case Information  
+- Case Caption: [Insert Case Caption]  
+- Case Number: [Insert Case Number]  
+- Court: [Insert Court Name]  
+- Settlement Approval Order Date: [Insert Date]  
+
+# Claimant Information  
+- Full Name: [Insert Full Name]  
+- Contact Information: [Phone, Email, Address]  
+- Representative Name (if any): [Insert Name]  
+- Relationship to Claimant: [Insert Relationship]  
+
+# Class Action Eligibility Criteria  
+- Class Definition Summary: [Insert Summary]  
+- Relevant Dates and Periods: [Insert Dates]  
+
+# Claim Categories and Payment Options  
+- Category 1: [Description and Eligibility]  
+- Category 2: [Description and Eligibility]  
+- Other Categories: [As Applicable]  
+
+# Documentation Checklist  
+[List all required docs for categories]  
+
+# Certification and Release Agreement  
+I certify under penalty of perjury that the information provided is truthful and complete.  
+I acknowledge and agree to the release terms as set forth in the settlement agreement.  
+[If applicable] I waive rights under Cal. Civ. Code § 1542. [VERIFY]  
+
+Signature: ___________________________ Date: ________________  
+
+# Submission Instructions  
+- Submit claims by: [Deadline Date and Time Zone]  
+- Acceptable submission methods: [Mail, Email, Online Portal, etc.]  
+- Postmark vs Received Date Rule: [Specify]  
+- Settlement Administrator Contact: [Insert Contact Info]  
+
+# For Settlement Administrator Use Only  
+- Date Received: __________  
+- Reviewer Initials: __________  
+- Notes: ___________________  
+```
+
+## Guidelines
+
+- Use plain language consistent with the settlement notice and court approval order  
+- Do not guarantee claim payment; all payments are subject to fund availability and approval  
+- Conform precisely to class eligibility and claim categories as defined in the settlement  
+- Include accessible formats and options per ADA and Section 508 requirements  
+- Provide for translation if required by settlement or jurisdiction  
+- For minors or estate claims, require appropriate legal authority documentation  
+- Respect privacy laws and limit collection of sensitive personal data unless court-ordered  
+- Ensure submission methods accommodate E-SIGN compliance for electronic claims  
+- Reminder: Claim submission deadlines must specify applicable time zones and postmark vs received date rules  
+- Include the settlement administrator’s contact information prominently  
+- If any state-specific release applies, specifically include Cal. Civ. Code § 1542 waiver language (mark as [VERIFY] if uncertain)  
+- Use flat lists only; avoid nested bullet points per formatting standards  
+- Maintain consistency with all official court and settlement documents  
+- Do not provide legal advice or interpret settlement terms beyond stated guidance  
+
+## Compliance Notes
+
+- Federal Rules of Civil Procedure Rule 23 governs class action requirements  
+- Settlement agreement and court approval order must drive all claim form content  
+- Privacy policies must align with applicable privacy laws and E-SIGN regulations  
+- Time zone and deadlines must be clear to avoid waiver of rights due to late submission  
+- Make forms ADA accessible and provide reasonable accommodations for persons with disabilities  
+- Translation requirements apply if class members include non-English speakers  
+- Confirm all citations and waiver text accuracy; mark uncertain items with [VERIFY]
+
+# End of Skill Content
+codex
+---
+name: class-claim-form
+description: Drafts U.S. class action settlement claim forms for class members, balancing plain-language claimant instructions with FRCP 23 compliance, court approval orders, and settlement agreement requirements. Use when preparing official class member claim forms, settlement administrator packets, or online claim workflows; triggers: claim form, class action, settlement, FRCP 23, class member, settlement administrator.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Class Member Claim Form
+
+Creates a court-compliant claim form that enables class members to submit settlement claims with verifiable eligibility and documentation.
+
+## Prerequisites
+
+1. Final or preliminary approval order and settlement agreement.
+2. Full case caption, court, judge, and case number.
+3. Class definition and class period dates.
+4. Claim categories, eligibility criteria, and payment formula or tiers.
+5. Submission deadline, time zone, and rule for postmark vs receipt.
+6. Settlement administrator name, address, email, phone, and portal URL.
+7. Documentation requirements and any no-doc thresholds.
+8. Privacy notice, data retention, and secure transmission policy.
+9. E-sign acceptance policy and accessibility or translation requirements.
+
+## Output Structure / Process
+
+1. Build case header and deadline block.
+2. Draft claimant identification fields aligned to the class definition.
+3. Draft claim details section tied to compensation formula.
+4. Add documentation rules and fraud warning.
+5. Add certification, release, and acknowledgments.
+6. Add signature block and submission instructions.
+7. Add administrator use section and required notices.
+
+Section checklist:
+
+| Section | Must Include | Notes |
+| --- | --- | --- |
+| Title and Header | "Official Claim Form", case caption, court, case no. | Match caption exactly |
+| Administrator Contact | Mailing address, email, phone, site | Single source of truth |
+| Deadline Block | Specific date, time, time zone | State postmark/receipt rule |
+| Eligibility Summary | Plain-language class definition | Reference class period |
+| Claimant Info | Name(s), address, email, phone | Include alternate contact |
+| Class Criteria Fields | Purchase dates, account IDs, employment dates | Tailor to class definition |
+| Claim Details | Claim type, dates, amounts, identifiers | Tie to formula |
+| Documentation | List acceptable proof | Copies vs originals |
+| Certification | Perjury attestation | Include class membership |
+| Release | Released parties and claims | Separate acknowledgment box |
+| Signature | Signature, printed name, date | E-sign language if allowed |
+| Submission | Mail, email, portal instructions | Confirmation process |
+| Post-Submission | Review timeline, denial appeal | Administrator contact |
+
+Field rules:
+
+| Field | Required | Validation |
+| --- | --- | --- |
+| Full legal name during class period | Yes | Text, no initials only |
+| Current name (if different) | If applicable | Text |
+| Mailing address | Yes | USPS format |
+| Email | If available | Email format |
+| Phone | If available | 10 digits |
+| Class period dates | Yes | Date format, within class period |
+| Transaction or account ID | If applicable | Alphanumeric |
+| Claim amount | If claimant-calculated | Numeric, currency |
+| Representative authority | If applicable | Upload or attach proof |
+
+Documentation matrix:
+
+| Claim Type | Required Proof | Alternatives |
+| --- | --- | --- |
+| Purchase-based | Receipts, invoices, bank or card statements | Affidavit if allowed |
+| Account-based | Account statements, confirmations | Admin verification |
+| Employment-based | Pay stubs, HR records | Employer verification |
+
+Required notices checklist:
+
+- [ ] Submission does not guarantee payment.
+- [ ] Settlement subject to court approval or finality.
+- [ ] Attorneys' fees and costs will be deducted if applicable.
+- [ ] False statements may lead to denial and penalties.
+- [ ] Privacy and data use statement included.
+- [ ] ADA/accessibility and translation availability.
+
+Release options:
+
+- If the settlement includes unknown claims waiver, include required state language, e.g., Cal. Civ. Code § 1542 waiver text [VERIFY].
+- Use a separate checkbox: "I understand and agree to the Release."
+
+Template skeleton:
+
+```text
+OFFICIAL CLAIM FORM
+[Case Caption]
+[Court Name], [Case No.]
+Settlement Administrator: [Name, Address, Email, Phone, Website]
+DEADLINE: [Month Day, Year, Time, Time Zone] (Postmark/Received rule)
+
+1. Who can file
+[Plain-language eligibility and class period]
+
+2. Claimant Information
+Full legal name during class period:
+Current name (if different):
+Mailing address:
+Email:
+Phone:
+Alternate contact (optional):
+
+3. Eligibility Details
+[Fields tied to class definition]
+- Purchase/transaction dates:
+- Account or transaction ID:
+- Employment dates (if applicable):
+
+4. Claim Details
+Claim type (check one or more):
+[ ] Type A
+[ ] Type B
+Provide details:
+Dates:
+Amounts:
+Description:
+
+5. Documentation
+Attach: [list]
+No-document claims allowed if: [threshold/conditions]
+
+6. Certification and Release
+I certify under penalty of perjury that:
+- I am a class member as defined.
+- The information is true and complete.
+- I have not been paid for these claims elsewhere.
+I understand I am releasing the claims described in the Settlement.
+
+[ ] I agree to the Release.
+
+7. Signature
+Signature:
+Printed name:
+Relationship to claimant (if representative):
+Date:
+Electronic signature acceptance statement (if applicable).
+
+8. Submission
+Mail: [address]
+Email: [address]
+Online: [URL]
+Confirmation: [how/when]
+If no confirmation within [X days], contact [phone/email].
+
+9. What happens next
+Claim review timeline:
+Approval/denial notice:
+Appeal or cure process:
+```
+
+## Guidelines
+
+- Mirror settlement agreement definitions and terminology; do not invent eligibility criteria.
+- Keep plain language and define any legal terms used.
+- Align with court orders and class notice language.
+- Do not promise payment or specific amounts unless mandated.
+- Require authority documents for estates, minors, or representatives.
+- Avoid collecting SSNs unless required by order; if required, request last 4 only.
+- Ensure E-SIGN compliance for electronic submissions.
+- Provide accessible formats and translation options when required.
+- If not a federal class action, adapt to the applicable state class action rule.
+tokens used
+6,279

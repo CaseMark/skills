@@ -1,0 +1,365 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c73-247b-7310-9ff9-aa3fcd5147bf
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "60e41bef-7ff9-41d6-9833-cce1dbf2b4ad",
+  "slug": "draft-confidentiality-severance-agreement-employment-litigation",
+  "name": "Confidentiality and Severance Agreement",
+  "summary": "Drafts comprehensive Confidentiality and Severance Agreements for terminating employment relationships in litigation contexts. Balances employer protections like confidentiality and restrictive covenants with employee fairness and jurisdictional enforceability requirements. Use when concluding employment to secure post-termination obligations while mitigating discrimination or wage claims.",
+  "content": "# Enhanced Confidentiality and Severance Agreement Drafting Prompt\n\nYou are an expert employment attorney tasked with drafting a comprehensive Confidentiality and Severance Agreement that balances employer protection with employee fairness while ensuring full legal enforceability. This agreement serves the critical dual purpose of formally concluding the employment relationship with appropriate compensation while securing ongoing confidentiality and other post-employment obligations. Your draft must be legally sound, jurisdiction-appropriate, and precisely tailored to the specific circumstances of this separation.\n\n## Initial Information Gathering and Document Review\n\nBefore beginning your draft, conduct a thorough review of all available information about this employment relationship and separation. Search through any uploaded documents to identify critical facts including the employee's full legal name, position title, department, hire date, termination date, salary and compensation history, any existing employment agreements or offer letters, prior confidentiality or non-compete agreements, documented performance issues or misconduct if relevant, and the business reasons for separation. Extract specific details about any equity compensation, bonus structures, benefits enrollment, and accrued paid time off balances. Identify whether this is an individual termination or part of a reduction in force, as this affects statutory notice requirements under the Older Workers Benefit Protection Act.\n\nReview the employer's standard severance policies, past practices with similarly situated employees, and any relevant employee handbook provisions to ensure consistency and avoid discrimination claims. Determine the applicable state and local laws governing employment termination, restrictive covenants, and severance agreements in the jurisdiction where the employee worked and currently resides. Pay particular attention to states with heightened restrictions on non-compete agreements such as California, Colorado, or Massachusetts, and states requiring separate consideration for restrictive covenants beyond severance pay.\n\n## Parties Identification and Preliminary Provisions\n\nDraft a precise identification section that eliminates any ambiguity about the parties bound by this agreement. Include the employer's complete legal name as registered with the Secretary of State, its principal business address, and any relevant corporate structure details. If the employer operates through a parent company, subsidiaries, or affiliated entities that should receive the benefit of the release and restrictive covenants, identify them specifically or through a defined term such as \"Company Affiliates\" that encompasses all related entities. For the employee, use their full legal name exactly as it appears on tax documents, along with their residential address for notice purposes.\n\nEstablish an effective date for the agreement that is distinct from the employment termination date to accommodate the statutory consideration and revocation periods required under federal law. The termination date should reflect the employee's last day of active work, while the effective date should be calculated as the day after the revocation period expires, assuming the employee has not exercised their right to revoke. This temporal distinction is essential for determining when severance payments commence and when the release becomes binding and irrevocable.\n\n## Contextual Recitals\n\nCraft recitals that professionally acknowledge the employment relationship and its conclusion without creating unnecessary litigation exposure or assigning fault in ways that could undermine the agreement's purpose. Reference the employee's position, general responsibilities, and tenure with the company in neutral terms that establish the context for the separation. Frame the recitals to support the adequacy of consideration by acknowledging that the severance benefits exceed any amounts owed for work performed and represent valuable consideration for the employee's commitments under this agreement.\n\nInclude a recital confirming that the employee has been advised of their right to consult with legal counsel before signing this agreement and has been given sufficient time to do so. If the employee is age forty or older, specifically reference the twenty-one day consideration period required under the Older Workers Benefit Protection Act, or the forty-five day period if this is part of a group termination or exit incentive program. Acknowledge the parties' mutual desire to resolve all matters arising from the employment relationship amicably and to avoid the expense and uncertainty of litigation. Ensure the recitals create a foundation for enforceability without including admissions of wrongdoing or liability by either party.\n\n## Comprehensive Severance Compensation Package\n\nDetail every component of the severance package with mathematical precision to avoid any ambiguity about what the employee will receive and when. Specify the total severance payment amount, whether it will be paid as a lump sum or in installments following the company's regular payroll schedule, and the timing of the first payment relative to the agreement's effective date. Address the tax treatment of severance payments, confirming that all applicable federal, state, and local taxes will be withheld and that the employee is responsible for all tax consequences of the payments received.\n\nCalculate and specify the payment for any accrued but unused paid time off in accordance with state law requirements, which may mandate immediate payment upon termination regardless of company policy. Address any prorated bonus payments, clarifying whether the employee is entitled to a portion of annual or quarterly bonuses based on time worked during the performance period and whether such bonuses are contingent on company or individual performance metrics. For employees with equity compensation, detail the treatment of vested and unvested stock options, restricted stock units, or other equity awards according to the governing plan documents, including any acceleration of vesting or extension of exercise periods being offered as part of the severance package.\n\nSpecify the duration and terms of any benefits continuation being provided. Detail whether the company will subsidize COBRA premiums for health insurance coverage and for how long, typically ranging from three to twelve months depending on the employee's tenure and level. Address the treatment of life insurance, disability coverage, and any other benefits, clarifying which terminate immediately upon separation and which continue during a transition period. If outplacement services or career transition assistance are being provided, identify the vendor, the duration of services, and the maximum value of such services. Include provisions for the return of all company property including laptops, mobile devices, access badges, keys, company credit cards, and any other equipment or materials, with a deadline for return and consequences for failure to return items.\n\nStructure the severance payments to be explicitly contingent upon the employee's execution of this agreement, expiration of any revocation period without revocation, and ongoing compliance with all post-employment obligations including confidentiality, non-disparagement, and any restrictive covenants. Include a clawback provision specifying that if the employee materially breaches any provision of this agreement, the company may cease any remaining installment payments and seek return of payments already made to the extent permitted by applicable wage payment laws.\n\n## Broad Release of Claims with Statutory Compliance\n\nDraft a comprehensive general release that encompasses all potential claims the employee might assert against the employer and related parties, while carefully complying with federal and state law requirements that govern the enforceability of such releases. The release should cover the employer, its parent companies, subsidiaries, affiliates, predecessors, successors, and assigns, as well as all current and former officers, directors, shareholders, partners, members, employees, agents, attorneys, and representatives of these entities.\n\nSpecify that the release covers all claims, demands, causes of action, obligations, damages, and liabilities of any kind, whether known or unknown, suspected or unsuspected, arising from or relating to the employee's employment or the termination of that employment. Enumerate specific categories of potential claims to ensure comprehensive coverage, including claims under federal statutes such as Title VII of the Civil Rights Act, the Americans with Disabilities Act, the Age Discrimination in Employment Act, the Family and Medical Leave Act, the Fair Labor Standards Act, and Section 1981 of the Civil Rights Act. Include state law claims for wrongful discharge, breach of contract, breach of implied covenant of good faith and fair dealing, fraud, misrepresentation, defamation, invasion of privacy, intentional or negligent infliction of emotional distress, and violation of state wage and hour laws, discrimination statutes, and whistleblower protection laws.\n\nFor employees age forty or older, incorporate language that specifically complies with the Older Workers Benefit Protection Act requirements for a knowing and voluntary waiver of Age Discrimination in Employment Act claims. This must include a specific reference to ADEA rights, an advisement that the employee should consult with an attorney, a statement that the employee has been given at least twenty-one days to consider the agreement (or forty-five days for group terminations), and a clear explanation that the employee has seven days after signing to revoke the agreement. Include a prominent acknowledgment section where the employee confirms understanding of these rights and the consideration and revocation periods.\n\nCarve out appropriate exceptions to the release for claims that cannot be waived as a matter of law or public policy. Specifically exclude workers' compensation claims, unemployment insurance benefits, claims for vested benefits under ERISA-governed plans, rights to indemnification under corporate bylaws or separate indemnification agreements, and claims that arise after the date the agreement is executed. Include savings language confirming that nothing in this agreement prevents the employee from filing a charge with or participating in an investigation conducted by the Equal Employment Opportunity Commission, National Labor Relations Board, Securities and Exchange Commission, or other government agency, though the employee waives the right to monetary recovery in any proceeding brought by the employee or on the employee's behalf, except where such waiver is prohibited by law.\n\nAddress the treatment of unknown claims by including language that the employee waives any rights under statutes that limit the release of unknown claims, such as California Civil Code Section 1542 or similar provisions in other states. Include the statutory language verbatim and have the employee specifically acknowledge waiving the protection of such statutes. Ensure the release language is sufficiently broad to accomplish its protective purpose while avoiding overreach that could render it unenforceable under applicable law.\n\n## Confidentiality and Proprietary Information Protection\n\nEstablish robust and enforceable confidentiality obligations that survive the termination of employment and protect the employer's legitimate business interests in its proprietary information and trade secrets. Define \"Confidential Information\" comprehensively to include all information, whether written, oral, electronic, or visual, that is not generally known to the public and that the employee learned or had access to during employment. Enumerate specific categories such as trade secrets, proprietary business information, customer and client lists and information, supplier and vendor information, pricing and cost information, financial data and projections, marketing and sales strategies and plans, business plans and forecasts, product development information, technical data and specifications, software and source code, employee information, and any other information designated as confidential or that a reasonable person would understand to be confidential.\n\nSpecify that the employee's confidentiality obligations continue indefinitely for information that constitutes trade secrets under applicable law, and for a specified period such as five years for other confidential information that does not rise to the level of trade secrets. Clarify that these obligations are in addition to and not in lieu of any confidentiality obligations under separate agreements signed during employment, such as proprietary information and inventions agreements, and that the employee remains bound by all such prior agreements.\n\nDetail the employee's obligations regarding the return and destruction of confidential materials. Require the employee to immediately return all documents, files, data, equipment, and other materials containing or relating to confidential information, whether in physical or electronic form, including all copies, excerpts, and summaries. Require the employee to delete or destroy all confidential information stored on any personal devices, personal email accounts, cloud storage services, or other locations not owned by the company, and to certify in writing that all such materials have been returned or destroyed. Include a provision allowing the company to remotely wipe company data from any personal devices if the employee fails to comply with return obligations.\n\nInclude standard exceptions to the confidentiality obligations that are necessary for enforceability and compliance with public policy. Exclude information that is or becomes publicly available through no breach by the employee, information that the employee can demonstrate was in their possession prior to employment without confidentiality restrictions, information that is independently developed by the employee after termination without use of or reference to the company's confidential information, and information that the employee is required to disclose by law, court order, or government regulation. For legally compelled disclosures, require the employee to provide prompt written notice to the company to allow the company to seek a protective order or other appropriate relief, unless such notice is prohibited by law.\n\nInclude specific provisions addressing the employee's obligations under federal whistleblower protection statutes. Incorporate the required notice language under the Defend Trade Secrets Act of 2016, which provides immunity from liability for confidential disclosure of trade secrets to government officials or attorneys for the purpose of reporting or investigating suspected legal violations. Include the verbatim statutory language to ensure compliance and avoid potential penalties for failure to provide this notice.\n\n## Mutual Non-Disparagement Obligations\n\nDraft carefully balanced non-disparagement provisions that protect both parties' reputations while complying with National Labor Relations Board standards and avoiding restrictions on protected employee rights. For the employee, prohibit the making of any negative, critical, disparaging, or defamatory statements, whether written or oral, about the company, its affiliates, or any of their respective products, services, business practices, officers, directors, employees, or agents. Specify that this restriction applies to statements made to any person or entity, including but not limited to current or former employees, customers, clients, suppliers, vendors, competitors, media representatives, or on social media platforms or other public forums.\n\nFor the employer, limit the non-disparagement obligation to specific individuals who are most likely to be contacted for references or to make public statements about the employee, such as officers of the company, members of the human resources department, and the employee's former direct supervisors. Require these individuals to refrain from making negative, critical, disparaging, or defamatory statements about the employee to any third party. Consider whether to include a provision requiring the company to designate a single point of contact for employment verification and reference requests to ensure consistency.\n\nInclude essential carve-outs to ensure the non-disparagement provisions do not violate the National Labor Relations Act or other laws protecting employee rights. Specifically provide that nothing in the agreement prevents either party from making truthful statements when required by law, court order, subpoena, or government investigation, or when exercising rights protected by law such as filing charges with government agencies, participating in agency investigations, or engaging in protected concerted activity. Clarify that the non-disparagement provisions prohibit malicious, knowingly false, or gratuitously negative statements, but do not prevent truthful testimony in legal proceedings or honest responses to direct questions from government investigators.\n\nConsider including a provision addressing social media specifically, given the prevalence of online platforms for sharing opinions and experiences. Clarify that the non-disparagement obligations extend to posts, comments, reviews, and other content shared on platforms such as LinkedIn, Twitter, Facebook, Glassdoor, Indeed, or any other social media or review sites. Balance this restriction with appropriate exceptions for protected activity and truthful statements.\n\n## Restrictive Covenants Tailored to Jurisdiction and Role\n\nCarefully evaluate whether to include non-compete and non-solicitation provisions based on the employee's role, access to confidential information and customer relationships, and the enforceability standards in the applicable jurisdiction. Conduct jurisdiction-specific research to determine the requirements for enforceable restrictive covenants in the state where the employee worked and will reside post-employment, as standards vary dramatically from states like California that void virtually all non-compete agreements to states that enforce reasonable restrictions.\n\nIf including a non-compete provision, ensure it is reasonable in temporal scope, geographic scope, and the scope of prohibited activities. Limit the duration to the minimum period necessary to protect the employer's legitimate business interests, typically twelve to twenty-four months depending on the industry and the employee's level of access to confidential information. Define the restricted geographic area based on where the employee actually worked, where the employer conducts business, or where the employer's customers are located, avoiding overly broad nationwide or worldwide restrictions unless genuinely necessary and supportable. Specify the prohibited activities with precision, focusing on activities that directly compete with the employer's actual business rather than broadly prohibiting all work in the industry.\n\nDraft non-solicitation provisions that prohibit the employee from soliciting or servicing the company's customers or clients for a reasonable period, typically twelve to twenty-four months. Define \"customers\" or \"clients\" specifically as those with whom the employee had material contact, about whom the employee obtained confidential information, or who were serviced by the employee during a specified period such as the final twelve to twenty-four months of employment. Specify what constitutes prohibited \"solicitation,\" such as directly or indirectly contacting, communicating with, or attempting to divert business from the company's customers, whether on the employee's own behalf or on behalf of any competing business.\n\nInclude employee non-solicitation provisions prohibiting the employee from recruiting, soliciting, or inducing any of the company's employees to leave their employment or to work for any competing business. Define the scope of covered employees, such as those who were employed by the company at any time during the employee's final twelve months of employment, or limit it to employees with whom the departing employee worked directly or supervised. Consider whether to include a provision prohibiting the employee from hiring company employees, even if not actively solicited, or to limit the restriction to solicitation only.\n\nAddress whether the jurisdiction requires consideration beyond the severance payment to support restrictive covenants. Some states require separate, additional consideration for non-compete agreements signed after employment begins, while others allow the severance payment to serve as adequate consideration. If separate consideration is required or advisable, specify an additional payment amount designated specifically as consideration for the restrictive covenants, or structure the severance payment to allocate a portion explicitly to the restrictive covenants.\n\nInclude a reformation or blue pencil clause authorizing a court to modify any restrictive covenant found to be unenforceable due to excessive scope, duration, or geographic reach, reducing it to the maximum enforceable extent rather than voiding it entirely. Specify that the restrictive covenants are severable from the remainder of the agreement, such that if any restrictive covenant is found unenforceable, the other provisions of the agreement remain in full force and effect.\n\n## Dispute Resolution and Governing Law Framework\n\nSpecify the governing law for interpretation and enforcement of the agreement, typically the law of the state where the employee worked or where the employer is headquartered. Include a choice of law provision that is reasonable and has a substantial relationship to the parties or the transaction to ensure enforceability. Consider whether the chosen state's law is favorable to the employer's interests regarding the enforceability of releases, restrictive covenants, and other key provisions.\n\nInclude a mandatory arbitration provision requiring that any dispute, claim, or controversy arising out of or relating to this agreement or the breach, termination, enforcement, interpretation, or validity thereof be resolved exclusively through final and binding arbitration rather than litigation in court. Specify the arbitration rules that will govern, such as the Employment Arbitration Rules of the American Arbitration Association or JAMS, and identify the location where arbitration will be conducted, typically the city where the employee worked or the employer's headquarters.\n\nAddress the allocation of arbitration costs and fees, specifying whether the employer will pay all arbitrator fees and administrative costs or whether costs will be split between the parties. Consider applicable law requirements that may prohibit requiring employees to pay arbitration fees as a condition of pursuing claims. Include a provision addressing whether the arbitrator may award attorneys' fees and costs to the prevailing party or whether each party will bear their own fees regardless of outcome.\n\nDetermine whether to include a class action waiver requiring that all claims be brought in an individual capacity only and prohibiting class, collective, or representative actions in arbitration or court. Be aware that class action waivers in employment agreements face enforceability challenges under the National Labor Relations Act and various state laws, and ensure any such waiver complies with applicable legal standards.\n\nInclude a critical carve-out from the arbitration requirement for claims seeking injunctive or equitable relief for breaches of confidentiality, non-disparagement, or restrictive covenant provisions. Specify that either party may seek temporary restraining orders, preliminary injunctions, or permanent injunctions in a court of competent jurisdiction to prevent or remedy breaches of these provisions, as the harm from such breaches may be immediate and irreparable and arbitration may not provide an adequate remedy. Designate the specific courts that will have jurisdiction over such equitable claims, typically the state and federal courts located in the county where the employer's headquarters is located or where the employee worked.\n\nInclude a provision requiring that any party seeking to compel arbitration or to confirm, vacate, or modify an arbitration award may do so in the designated courts. Specify that by entering into this agreement, both parties consent to the personal jurisdiction of the designated courts and waive any objection to venue in those courts.\n\n## Cooperation and Transition Obligations\n\nInclude a cooperation clause requiring the employee to reasonably cooperate with the company in connection with any pending or future litigation, arbitration, investigation, or regulatory proceeding in which the company is or may become involved and about which the employee has relevant knowledge or information. Specify that cooperation includes making oneself available for interviews, depositions, and testimony, providing truthful information and documents, and assisting the company's counsel in understanding relevant facts and issues.\n\nAddress the compensation for cooperation, typically providing that the company will reimburse the employee for reasonable out-of-pocket expenses incurred in providing cooperation and will compensate the employee at a reasonable hourly rate for time spent cooperating after the employment relationship has ended, unless the employee is subpoenaed or otherwise legally compelled to participate. Require the employee to provide reasonable advance notice of availability and to make good faith efforts to accommodate the company's scheduling needs.\n\nInclude provisions addressing the employee's obligations during any transition period between the termination date and the effective date of the agreement. Specify whether the employee is required to be available to answer questions, train replacement personnel, or assist with the transfer of responsibilities, and whether such assistance will be compensated beyond the severance package. Address the return of company property and the transfer of work product, files, and information to designated company personnel.\n\n## Representations, Warranties, and Acknowledgments\n\nInclude comprehensive representations and warranties by the employee to support the enforceability of the agreement and to establish the employee's understanding of its terms and consequences. Have the employee represent and warrant that they have read the agreement carefully, understand its terms and effects, have had sufficient time to review and consider it, and have been advised to consult with an attorney before signing. Include a representation that the employee is entering into the agreement voluntarily, without coercion or duress, and with full knowledge of its significance.\n\nHave the employee represent that they have returned all company property and confidential information in their possession or control, or will do so by a specified deadline, and that they have not retained any copies, excerpts, or summaries of confidential information. Include a representation that the employee has not filed any claims, charges, or complaints against the company with any court or administrative agency, or if any such filings exist, require disclosure of the details.\n\nInclude a representation that the employee has been paid all wages, bonuses, commissions, and other compensation owed for work performed through the termination date, and that the employee has no claims for unpaid compensation except as may be provided in this agreement. Have the employee acknowledge that the severance benefits provided under this agreement exceed any amounts owed for work performed and represent valuable consideration for the employee's commitments.\n\nAddress the employee's acknowledgment regarding the tax treatment of payments under the agreement. Include a statement that the employee understands that all payments are subject to applicable tax withholding, that the employee is responsible for all tax consequences of the agreement, and that the employee has been advised to consult with a tax advisor regarding the tax treatment of the severance payments and benefits.\n\n## Integration, Amendment, and Severability Provisions\n\nInclude a comprehensive integration clause establishing that this agreement constitutes the entire agreement between the parties concerning the subject matter hereof and supersedes all prior or contemporaneous negotiations, understandings, agreements, representations, and warranties, whether written or oral. Specify that this agreement may not be modified, amended, or supplemented except by a written document signed by both parties. Clarify that this agreement does not supersede or modify any obligations under separate agreements that are intended to survive termination of employment, such as proprietary information and inventions agreements, stock option agreements, or indemnification agreements, unless specifically stated otherwise.\n\nInclude a severability clause providing that if any provision of this agreement is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions will continue in full force and effect to the maximum extent permitted by law. Specify that any invalid, illegal, or unenforceable provision will be deemed modified to the minimum extent necessary to make it valid, legal, and enforceable while preserving the parties' original intent, or if such modification is not possible, the provision will be severed from the agreement without affecting the validity or enforceability of the remaining provisions.\n\nInclude standard miscellaneous provisions such as a provision stating that this agreement will be binding upon and inure to the benefit of the parties and their respective heirs, executors, administrators, successors, and assigns. Specify that the employee may not assign any rights or obligations under this agreement without the company's prior written consent, but that the company may assign its rights and obligations to any successor or affiliate. Include a provision stating that the failure of either party to enforce any provision of this agreement will not constitute a waiver of that provision or of the right to enforce it in the future.\n\nAddress notice requirements by specifying the addresses to which any notices, demands, or other communications required or permitted under this agreement must be sent, and the methods of delivery that will be deemed effective, such as personal delivery, certified mail return receipt requested, or overnight courier service. Include a provision stating that either party may change their notice address by providing written notice to the other party.\n\n## Non-Admission of Liability\n\nInclude a prominent provision stating that this agreement and the payments and benefits provided hereunder do not constitute and shall not be construed as an admission of liability, wrongdoing, or violation of any law, regulation, or duty by either party. Specify that the company specifically denies any liability or wrongdoing and enters into this agreement solely to avoid the expense, inconvenience, and uncertainty of litigation and to facilitate an amicable separation. Clarify that this agreement may not be used as evidence in any proceeding except in a proceeding to enforce its terms.\n\n## Execution, Consideration Period, and Revocation Rights\n\nProvide clear signature blocks for both the employee as an individual and for the company through an authorized representative whose title must be specified to demonstrate authority to bind the company. Include separate date lines for each signature to establish when the agreement was executed by each party. Ensure the format provides clear evidence of execution and allows for remote signing if necessary.\n\nFor employees age forty or older, include a separate acknowledgment section immediately above the signature block where the employee confirms specific understandings required under the Older Workers Benefit Protection Act. Have the employee acknowledge that they have been advised to consult with an attorney before signing this agreement, that they have been given at least twenty-one days to consider the agreement (or forty-five days if this is part of a group termination program), that they understand they have seven days after signing to revoke the agreement, and that the agreement will not become effective or enforceable until the seven-day revocation period has expired without revocation.\n\nSpecify the procedure for revocation, including that any revocation must be in writing and must be delivered to a designated company representative at a specified address by a specified method such as hand delivery, certified mail, or overnight courier, and must be received by the company within seven days after the employee signs the agreement. Clarify that if the employee revokes the agreement, it will be null and void and the employee will not be entitled to any of the severance benefits provided herein.\n\nInclude instructions for the employee to return the signed agreement to a designated company representative by a specified deadline, typically within the twenty-one or forty-five day consideration period. Specify that if the employee does not return the signed agreement by the deadline, the offer of severance benefits will expire and the company will have no obligation to provide any severance payments or benefits. Clarify that severance payments will not commence until the agreement becomes effective and irrevocable, which occurs on the day after the seven-day revocation period expires without revocation, or if the employee is under age forty, on the date the employee signs the agreement or a specified number of days thereafter.\n\n## Final Review and Quality Assurance\n\nBefore finalizing the agreement, conduct a comprehensive review to ensure compliance with all applicable federal, state, and local laws governing employment termination, severance agreements, releases of claims, and restrictive covenants. Verify that all required notices and disclosures have been included, particularly those required under the Older Workers Benefit Protection Act, the Defend Trade Secrets Act, and any applicable state laws. Confirm that the consideration and revocation periods are correctly calculated and clearly stated.\n\nReview the agreement for internal consistency, ensuring that all defined terms are used consistently throughout, that cross-references are accurate, and that there are no contradictory provisions. Verify that all monetary amounts, dates, and time periods are correctly stated and mathematically accurate. Ensure that the agreement is tailored to the specific facts of this employment relationship and separation, and that any bracketed language or optional provisions have been appropriately selected or deleted.\n\nConsider the overall tone and presentation of the agreement, ensuring it is professional, clear, and balanced enough to encourage the employee to sign while protecting the employer's interests. Avoid unnecessarily harsh or one-sided language that might discourage the employee from executing the agreement or that might undermine the adequacy of consideration for the release. Ensure the document is well-organized with clear headings, appropriate formatting, and sufficient white space to enhance readability.\n\nThroughout the drafting process, maintain focus on creating an agreement that accomplishes the employer's core objectives of obtaining a comprehensive release of claims, protecting confidential information, preventing competitive harm, and facilitating an amicable separation, while providing the employee with valuable severance benefits and a clear understanding of their rights and obligations. The final document should be capable of withstanding legal scrutiny, enforceable under applicable law, and effective in achieving a clean break between the parties that minimizes future disputes and litigation risk.",
+  "parent_skill_id": "22a32815-94e1-4019-82f5-f958b8a9672a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "employment-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:41:23.284236Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+codex
+---
+name: confidentiality-severance-agreement
+description: Drafts U.S. employment litigation-ready confidentiality and severance agreements that combine separation compensation, broad claim releases, post-employment restrictions, and enforcement architecture in a single settlement document. Use for severance terminations, termination letters with release packages, and amicable exits requiring claim waivers, confidentiality protection, non-disparagement, non-compete/non-solicit tailoring, OWBPA timing, and DTA-compliant notice logic. Trigger keywords: severance, separation, release, waiver, confidentiality, non-compete, non-solicit, non-disparagement, OWBPA, arbitration, DTA notice.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Confidentiality and Severance Agreement
+
+Drafts a complete termination settlement agreement that secures confidentiality, claim release, and post-employment conduct obligations while maintaining enforceability across U.S. jurisdictions.
+
+## Prerequisites
+
+1. Confirm employee details: full legal name, position, tenure, age, start and separation dates, work location, and governing domicile/residence.
+2. Gather compensation inputs: salary, bonus formula, PTO/unused leave, equity treatment, benefits continuation, and any prior unpaid compensation disputes.
+3. Collect governing documents: handbook, offer letter, prior non-compete/confidentiality/IP agreements, equity/benefit plans, prior settlement patterns, and company policies for similarly situated terminations.
+4. Identify legal constraints: jurisdiction(s) of employment, state law on non-competes/non-solicitation, wage payment rules, arbitration enforceability, required disclosures, and statutory claims that may not be waived.
+5. Confirm process prerequisites: employer signatory authority, execution method, consideration amount, and post-signature revocation workflow for OWBPA-eligible employees.
+
+## Output Structure / Process
+
+Use this deterministic build order for consistent output.
+
+| Stage | Section | Mandatory Deliverable |
+|---|---|---|
+| 1 | Party and date block | Legal names, addresses, termination date, effective date, execution date model |
+| 2 | Recitals | Neutral background, consideration framing, counsel-notice paragraph, no-fault framing |
+| 3 | Severance mechanics | Amounts, schedule, tax and withholding, benefit continuation, return of property |
+| 4 | Release | Broad waiver + carve-outs + ADEA/OWBPA flow + retaliation/protected disclosures savings language |
+| 5 | Confidentiality | Definition, survival, return/destruction, statutory exceptions, DTSA notice |
+| 6 | Non-disparagement | Mutual scope with protected-activity carve-outs |
+| 7 | Restrictive covenants | Non-compete and non-solicit only if jurisdiction and role justify; include reformation + severability |
+| 8 | Dispute framework | Governing law, forum/arbitration design, equitable relief carve-out, fee/cost handling |
+| 9 | Acknowledgments | Voluntary execution, legal/tax advisories, truthfulness/warranty, integration, notices, signatures |
+
+### Party and jurisdiction capture (required fields)
+
+- Employer legal name, entity type, state of organization, principal address
+- Covered entities / affiliates scope defined
+- Employee legal name, home address, title
+- Termination date (last day worked)
+- Offer date and acceptance deadline (revocation timing for age 40+ tracked separately)
+- Governing state law and any chosen arbitration seat
+- Whether group termination / incentive program applies
+
+### Compliance checklist before drafting clauses
+
+- [ ] Verify employee age 40+ and start of OWBPA clock
+- [ ] Verify all consideration items are lawful and payable
+- [ ] Flag prohibited-forbidden waivers (e.g., certain wage, workers’ comp, unemployment rights)
+- [ ] Confirm any restrictive covenant needs and permitted scope in applicable state
+- [ ] Confirm statutory notices are required and placed with prominence (OWBPA, DTA, unknown-claims waiver language)
+- [ ] Confirm no self-created admission of liability language beyond acknowledgment/recitals
+
+### Core clause matrix
+
+| Topic | Required components | Optional components |
+|---|---|---|
+| Severance | Gross/severance net-of-withholding amounts, payment schedule, tax clause, contingency on performance, return of property | PTO conversion, bonus proration, COBRA stipend windows |
+| Release | Corporate affiliates, officers/directors/agents, known+unknown claims, federal + state anti-discrimination/wage claims | ERISA vesting clarifications, fraud/misrepresentation carve-through |
+| Confidentiality | Definition, return/destruction, survival periods, carve-outs, remote wipe rights | Social media specifics if needed |
+| Restrictive covenants | Tailored scope by role/customer exposure, duration/geography/activities limits | Separate consideration if required under chosen state law |
+| Disputes | Binding arbitration + carve-outs for injunctive relief | Class/collective waiver with strict legal screening |
+
+## Drafting templates
+
+Use the following section order and placeholder map:
+
+```text
+AGREEMENT HEADER
+1. Parties + Addresses
+2. Recitals
+3. Consideration and Severance Package
+4. Representations for Return/No-Dispute
+5. Release of Claims
+6. Confidentiality and Proprietary Information
+7. Non-Disparagement (Mutual)
+8. Restrictive Covenants (if enforceable in applicable state)
+9. Dispute Resolution (Arbitration + Equity carve-outs)
+10. Compliance Notices (OWBPA/DTA/unknown claims)
+11. Miscellaneous + Integration + Assignment + Waiver + Notices
+12. Execution and Signature Blocks
+```
+
+```text
+[PLACEHOLDER] Employee Name
+[PLACEHOLDER] Separation Date
+[PLACEHOLDER] OWBPA-Eligible? Yes/No
+[PLACEHOLDER] Severance Amount: $
+[PLACEHOLDER] Payment Method: Lump / Payroll Installments
+[PLACEHOLDER] Non-Compete Duration / Geography / Activities
+[PLACEHOLDER] Non-Solicit Duration / Protected Customer Scope
+[PLACEHOLDER] Arbitration Forum and Venue
+[PLACEHOLDER] Revocation Deadline (if applicable)
+```
+
+## Clauses to include (compressed legal requirements)
+
+1. **Temporal framework**
+   - Separation Date = last day of employment.
+   - Effective/Enforceability Date = after revocation period (if applicable) and execution conditions.
+
+2. **Severance**
+   - Explicit amount, timing, payroll mechanics, tax withholding statement, and condition that non-payment occurs on default/ breach where law allows.
+
+3. **Release**
+   - Cover employee and all potential claims linked to employment/termination.
+   - Explicitly enumerate discrimination, wage/hour, retaliation, contract, tort, and privacy categories.
+   - Include savings clauses for non-waivable rights, post-execution claims, whistleblower reporting channels, agency participation.
+
+4. **Older Workers Benefit Protection Act flow**
+   - 21-day consideration minimum; 45 days for group/incentive separations.
+   - 7-day revocation period post-signature.
+   - Attorney-consultation acknowledgment and effective-date condition.
+
+5. **Confidentiality**
+   - Broad definition of confidential/proprietary information with list-based examples.
+   - Return, deletion, certification, and forensics access protocol.
+   - Standard exceptions: publicly available, pre-existing, independently developed, legal subpoena/government compelled.
+
+6. **DTSA notice**
+   - Include statutory warning language for trade secret disclosure immunity per federal law [VERIFY].
+
+7. **Non-disparagement**
+   - Balanced mutual covenant; excludes truthful testimony, legal rights exercise, whistleblowing, protected concerted activity.
+   - Carve-out for truthful statements required by law/subpoena.
+
+8. **Non-compete / non-solicit**
+   - Include only if supported by role/jurisdiction.
+   - Use minimum necessary duration and geographic/activity limits.
+   - Add blue-pencil/reformation and severability defaults for restrictive covenant sections.
+   - Add separate consideration if required by state law or prudent under local risk profile.
+
+9. **Dispute governance**
+   - Governing law tied to related substantial relationship.
+   - Arbitration framework with fee allocation and enforceability-safe injunctive relief carve-out for confidentiality/non-compete breaches.
+   - Confirm venue/ forum clauses align with jurisdictional fairness doctrines.
+
+10. **Execution block**
+    - Separate employee and employer signature lines, date confirmation for each signatory.
+    - Return method (mail/courier/delivery) and revocation address/proof requirements.
+
+11. **Final controls**
+    - Non-admission of liability clause.
+    - No waiver from non-enforcement behavior.
+    - No waiver of separate surviving agreements unless expressly superseded.
+
+## Jurisdiction and statute controls
+
+- Assume OWBPA timing only for U.S. federal age-discrimination claims; verify all state supplements.
+- Validate non-compete enforceability against local anti-restriction statutes and reasonableness tests.
+- Mark all non-waivable items and public-policy exceptions for the selected jurisdictions.
+- For unknown claims waivers, include California Civil Code Section 1542 where applicable and equivalent-state equivalents [VERIFY].
+- Include DTA immunity notice language exactly as required [VERIFY].
+
+## Guidelines
+
+- Do and keep:
+  - Balanced language: enforceable but not coercive.
+  - Clear separation of consideration, release, and restrictive obligations.
+  - Explicit acknowledgment of legal counsel advisories.
+  - Precise cross-references and defined terms consistency.
+
+- Do not:
+  - Add extra-ordinary nationwide restraints without factual support.
+  - Draft punitive language that implies admission of liability.
+  - Omit revocation mechanics for age-40+ employees.
+  - Forget statute-specific non-waivable carve-outs.
+
+- Compliance notes:
+  - Validate all amounts and timing under wage-payment rules and federal/state discrimination statutes.
+  - Reconcile every clause with actual documents and facts before finalization.
+  - Flag uncertain jurisdictional calls and insert explicit [VERIFY] markers where statutory citations or thresholds are state-specific and not fully confirmed.
+tokens used
+10,908

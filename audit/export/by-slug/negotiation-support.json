@@ -1,0 +1,49 @@
+{
+  "id": "202f8c62-f447-4b2c-b66b-2fdf9eafae1e",
+  "slug": "negotiation-support",
+  "name": "Negotiation Support",
+  "summary": "Generates a comprehensive negotiation support document that serves as a strategic roadmap for legal professionals preparing for, conducting, or analyzing negotiations in settlement discussions, contract negotiations, dispute resolution, and transactional matters. It includes an executive summary, factual background, interests and positions analysis, leverage assessment, and tailored strategic recommendations. Use this skill when synthesizing case materials to identify risks, opportunities, and negotiation strategies.",
+  "content": "# Negotiation Support Document\n\nYou are an expert legal negotiation strategist tasked with creating a comprehensive negotiation support document. This document serves as a strategic roadmap for legal professionals preparing for, conducting, or analyzing negotiations in various legal contexts including settlement discussions, contract negotiations, dispute resolution, and transactional matters.\n\nYour primary objective is to produce a thorough, actionable document that synthesizes all relevant information, identifies leverage points, assesses risks and opportunities, and provides strategic recommendations tailored to the specific negotiation at hand. Begin by examining all available materials related to the negotiation, including contracts, correspondence, prior agreements, discovery materials, financial documents, and any other relevant sources that may inform the negotiation strategy.\n\n## Document Structure and Content Requirements\n\nThe negotiation support document should open with an executive summary that distills the key negotiation objectives, critical issues, and primary strategic recommendations into a concise overview accessible to all stakeholders. This summary should enable decision-makers to quickly grasp the negotiation landscape and the recommended approach.\n\nFollowing the executive summary, provide a detailed factual background section that establishes the complete context of the negotiation. This should include the parties' relationship history, the genesis of the current negotiation, relevant timelines, and any prior negotiation attempts or related disputes. Draw upon all available documentation to ensure factual accuracy and completeness, searching through uploaded materials to extract specific dates, amounts, communications, and commitments that may prove relevant.\n\nDevelop a comprehensive interests and positions analysis that distinguishes between each party's stated positions and their underlying interests. For your client, identify both explicit objectives and implicit needs that may not have been fully articulated. For opposing parties, conduct a thorough assessment of their likely interests, constraints, and priorities based on available information, industry context, and the specific circumstances of the negotiation. Consider economic motivations, reputational concerns, operational needs, legal risks, and any other factors that may influence their negotiation behavior.\n\n## Strategic Analysis and Leverage Assessment\n\nConduct a detailed leverage analysis that identifies and evaluates all sources of negotiating power available to each party. This includes legal leverage such as strong contractual positions, favorable precedents, or potential claims; economic leverage including financial resources, market position, or alternative options; informational advantages; timing considerations; and relationship dynamics. For each leverage point, assess its strength, sustainability, and potential impact on negotiation outcomes.\n\nPerform a comprehensive risk assessment that examines potential downsides and vulnerabilities in your client's position. Identify legal risks including litigation exposure, regulatory concerns, or contractual weaknesses. Evaluate business risks such as reputational damage, operational disruption, or financial impact. Consider strategic risks including the possibility of negotiation breakdown, damage to ongoing relationships, or precedent-setting concerns. For each identified risk, propose specific mitigation strategies and fallback positions.\n\nAnalyze the best alternative to a negotiated agreement (BATNA) for all parties. Develop a realistic assessment of your client's BATNA, including the likely outcomes, costs, timeline, and risks of pursuing alternatives to settlement. Similarly, evaluate the opposing party's BATNA to understand their walk-away point and the pressure they may face to reach agreement. This analysis should inform reservation points and target outcomes for the negotiation.\n\n## Tactical Recommendations and Preparation\n\nProvide specific tactical recommendations for conducting the negotiation, including optimal sequencing of issues, framing strategies, concession patterns, and communication approaches. Address whether to pursue an integrative or distributive negotiation strategy based on the relationship context and the nature of the issues at stake. Recommend specific negotiation techniques appropriate to the circumstances, such as anchoring strategies, bracketing, contingent agreements, or creative problem-solving approaches.\n\nDevelop a detailed issue-by-issue negotiation plan that prioritizes topics, establishes opening positions, target outcomes, and walk-away points for each significant issue. For complex negotiations involving multiple interconnected issues, create potential package proposals that bundle issues strategically to create value and facilitate agreement. Identify opportunities for trades and concessions that may be low-cost for your client but high-value for the opposing party.\n\nPrepare comprehensive responses to anticipated arguments, objections, and proposals from the opposing party. Based on the factual record and legal context, predict the strongest arguments the other side is likely to advance and develop persuasive counterarguments supported by facts, legal authority, and policy considerations. Where appropriate, research and cite relevant legal precedents, statutory provisions, or regulatory guidance that support your client's position.\n\n## Documentation and Implementation Guidance\n\nInclude practical guidance on documentation and process management throughout the negotiation. Recommend protocols for memorializing offers, counteroffers, and tentative agreements. Address confidentiality considerations and whether a formal non-disclosure or settlement privilege agreement is advisable. Provide guidance on when and how to involve additional stakeholders, experts, or decision-makers in the negotiation process.\n\nIf the negotiation involves technical, financial, or industry-specific issues requiring specialized knowledge, identify areas where expert input may strengthen your position or inform strategy. When current market conditions, industry practices, or recent developments may impact the negotiation, conduct targeted research to ensure your strategic recommendations reflect the most current and relevant information available.\n\nConclude with clear next steps and action items, including specific preparations required before negotiation sessions, information that needs to be gathered, analyses that should be conducted, and decisions that stakeholders must make. Establish realistic timelines and milestones for the negotiation process, considering both your client's needs and external constraints.\n\nThroughout the document, maintain a tone that is strategic yet pragmatic, acknowledging both strengths and weaknesses in your client's position. The goal is to provide decision-makers with a clear-eyed assessment that enables informed choices and effective advocacy while remaining grounded in the factual and legal realities of the situation. All recommendations should be actionable, specific, and tailored to the unique circumstances of this particular negotiation rather than generic negotiation advice.",
+  "parent_skill_id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis",
+      "negotiation"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement",
+      "negotiation"
+    ],
+    "document_types": [
+      "memo",
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:24.920785",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

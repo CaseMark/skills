@@ -1,0 +1,44 @@
+{
+  "id": "4ac85783-4c25-47ee-8b39-fc7bcd29e44e",
+  "slug": "summary-judgment-summarization",
+  "name": "Summary Judgments",
+  "summary": "Analyzes summary judgment motions, orders, or decisions to produce clear, concise summaries capturing the court's ruling, legal and factual basis, and practical implications. Distills complex legal reasoning into accessible insights for legal professionals. Use it to quickly grasp court decisions without reviewing full documents in commercial litigation matters.",
+  "content": "# Summary Judgment Analysis and Summarization\n\nYou are tasked with analyzing a summary judgment motion, order, or decision and creating a comprehensive summary that captures the court's ruling, the legal and factual basis for the decision, and the practical implications for the parties involved.\n\n## Your Objective\n\nProduce a clear, concise summary of the summary judgment that enables legal professionals to quickly understand the court's decision without reading the entire document. Your summary should distill complex legal reasoning into accessible insights while maintaining technical accuracy and preserving critical legal nuances.\n\n## Analysis Framework\n\nBegin by thoroughly reviewing the summary judgment document to identify the moving party, the responding party, the claims or defenses at issue, and the ultimate disposition. Extract the court's statement of undisputed material facts, noting which facts the court deemed established and which, if any, remain in genuine dispute. Identify the legal standard applied by the court and the substantive law governing the claims, including any statutes, regulations, or precedential cases cited as authority.\n\nAnalyze the court's legal reasoning by tracing how the judge applied the law to the undisputed facts. Pay particular attention to the court's analysis of whether the moving party met its initial burden and whether the non-moving party raised genuine issues of material fact sufficient to defeat summary judgment. Note any evidentiary rulings, including excluded evidence or credibility determinations that influenced the outcome.\n\nExamine procedural aspects including whether the motion was granted in whole or in part, whether any claims survive for trial, and any conditions or limitations imposed by the court. Identify the relief granted, such as dismissal of claims, entry of judgment, or award of costs and fees.\n\n## Output Structure and Content\n\nYour summary should open with a concise executive overview stating the case caption, the nature of the motion, and the court's ultimate ruling in two to three sentences. Follow with a section on factual background that presents the undisputed material facts as found by the court, organized chronologically or thematically as appropriate to the case.\n\nPresent the legal analysis section by identifying the claims or defenses addressed, the applicable legal standards, and the court's reasoning for granting or denying summary judgment on each claim. Use clear topic sentences and logical transitions to guide the reader through complex legal arguments. When the court relies on specific precedent, identify the key cases and explain their relevance to the decision.\n\nInclude a section on practical implications that explains what the ruling means for the parties going forward. Address whether the case proceeds to trial on any remaining issues, whether the judgment is final and appealable, and any immediate obligations imposed on the parties such as payment of damages or compliance with injunctive relief.\n\n## Legal Considerations and Best Practices\n\nMaintain strict accuracy when characterizing the court's findings and reasoning. Distinguish clearly between facts the court found undisputed and legal conclusions the court reached. Avoid inserting your own legal opinions or predictions about appeal prospects unless specifically requested. When the court's reasoning is ambiguous or potentially subject to multiple interpretations, acknowledge this uncertainty rather than imposing a definitive reading.\n\nPreserve important procedural details that may affect subsequent litigation strategy, including the standard of review applied, burdens of proof discussed, and any procedural defects or irregularities noted by the court. If the summary judgment was granted with leave to amend or subject to conditions, clearly explain these limitations.\n\nUse precise legal terminology appropriate to the jurisdiction and practice area, but explain technical concepts when necessary for clarity. When citing to specific portions of the summary judgment order, reference page numbers or paragraph numbers to enable quick verification.\n\n## Context and Application\n\nSummary judgment decisions represent critical inflection points in litigation where courts resolve cases or narrow issues without the time and expense of trial. Your summary serves multiple audiences and purposes: it enables litigation teams to quickly assess the strength of their position, helps clients understand case outcomes in accessible terms, supports strategic decision-making about settlement or appeal, and provides institutional knowledge for future similar cases.\n\nThis workflow is particularly valuable when managing multiple cases with similar legal issues, conducting post-decision case analysis, preparing appeal evaluations, or briefing clients and stakeholders on case developments. The summary you create should be suitable for inclusion in case management systems, litigation reports, and client communications with minimal additional editing.\n\nYour analysis should reflect an understanding that summary judgment practice varies by jurisdiction, with some courts applying more stringent standards for granting such motions than others. Be attentive to whether the court applied federal or state procedural rules and note any jurisdiction-specific standards that influenced the outcome.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "motion",
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

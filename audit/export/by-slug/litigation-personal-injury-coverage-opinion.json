@@ -1,0 +1,46 @@
+{
+  "id": "fd1cb3b4-68f7-41ed-8840-91c13c18f9d6",
+  "slug": "litigation-personal-injury-coverage-opinion",
+  "name": "Coverage Opinion",
+  "summary": "Drafts structured coverage opinions for insurance carriers in personal injury litigation, analyzing duty to defend and duty to indemnify based on policy language, complaint allegations, and state law. Provides executive summary, factual background, policy provisions, exclusions, and legal conclusions to guide carrier decisions on defense and reservation of rights. Use this skill when a carrier receives a claim or lawsuit to assess coverage obligations.",
+  "content": "Purpose: Analyze whether there is insurance coverage, the duty to defend, or whether there should be a reservation of rights and be able to provide that coverage opinion to the carriers alleged insured. \n\nUnderstanding Your Assignment\nFirst, understand what you're being asked to do:\nThe carrier gets sued or receives a claim\nThey need to know: \"Do we have to defend this case?\" and \"Do we have to pay if there's a judgment?\"\nDuty to Defend vs. Duty to Indemnify - these are separate analyses, and duty to defend is much broader\nThe carrier makes business decisions based on your opinion - reservation of rights, coverage denial, settlement authority\nRemember: You represent the carrier, not the insured. Your analysis protects the carrier's interests.\n\nStep 1: Gather Your Materials\nNever start writing until you have:\nThe insurance policy (all relevant pages - declarations, coverage forms, endorsements)\nThe complaint or claim documents\nAny additional factual materials (police reports, claim files, etc.)\nRelevant state law on insurance coverage (this varies significantly by jurisdiction)\nPro tip: Print everything out. You'll be cross-referencing constantly.\n\nStep 2: Structure Your Opinion\nA. Executive Summary\nWrite this LAST, but put it first. One paragraph maximum: \"Based on our analysis of the [Policy Type] policy and the allegations in the complaint, [Carrier] has [no duty to defend/a duty to defend subject to a reservation of rights/a clear duty to defend and indemnify] because [primary reason].\"\nB. Factual Background\nStick to facts alleged in the complaint or established in the claim file\nDon't speculate or add your own interpretation\nFocus on facts relevant to coverage - don't retell the entire story\nBe neutral in tone - you're not advocating for either side yet\nC. Policy Analysis\nThis is the meat of your opinion. Break it down systematically:\n1. Applicable Coverage Provisions\nQuote the exact policy language - never paraphrase\nIdentify the specific coverage section that might apply (CGL Coverage A, Professional Liability, etc.)\n2. Exclusions Analysis\nList every potentially applicable exclusion\nQuote the exact exclusion language\nThis is usually where coverage is defeated\n3. Conditions and Other Provisions\nNotice requirements, cooperation clauses, etc.\nOften overlooked but can be coverage killers\n\nStep 3: Legal Analysis - The Critical Part\nDuty to Defend Analysis\nRemember the \"Eight Corners Rule\" (in most states):\nLook only at the four corners of the complaint and the four corners of the policy\nDon't look at external evidence (unless state law allows it)\nThe duty to defend is triggered if there's any possibility of coverage\n\"When in doubt, defend\" - the standard heavily favors finding a duty to defend\nYour analysis should be:\nElement by Element: Does the complaint allege facts that could trigger coverage under each element?\nExclusion by Exclusion: Does any exclusion clearly and unambiguously bar coverage?\nDuty to Indemnify Analysis\nThis is narrower - based on actual facts, not just allegations\nUsually can't be determined until the case is resolved\nOften you'll conclude: \"The duty to indemnify cannot be determined at this time\"\n\nStep 4: State Law Considerations\nThis is where junior attorneys often screw up:\nInsurance law varies dramatically by state\nResearch the controlling jurisdiction's rules on: \nEight corners rule vs. extrinsic evidence\nAmbiguity interpretation (pro-insured in most states)\nSpecific coverage interpretations\nCite recent cases - this area of law moves quickly\n\nStep 5: Writing Tips\nTone and Style:\nObjective and analytical - you're not advocating, you're analyzing\nClear and concise - claims adjusters will read this, not just lawyers\nDefinitive when possible - \"The policy does not provide coverage\" vs. \"It appears coverage may not be available\"\nCommon Phrases to Use:\n\"Based on the allegations in the complaint...\"\n\"The policy language unambiguously states...\"\n\"Under [State] law, exclusions are interpreted narrowly...\"\n\"The duty to defend is broader than the duty to indemnify...\"\nWhat to Avoid:\nNever say \"probably\" or \"might\" - be definitive\nDon't advocate for the insured against your client\nDon't ignore unfavorable authority\nDon't add facts not in the complaint\n\nStep 6: Conclusion and Recommendations\nBe crystal clear about your conclusions:\nIf No Coverage: \"[Carrier] has no duty to defend or indemnify this action because [exclusion] unambiguously bars coverage for the alleged conduct.\"\nIf Questionable Coverage: \"[Carrier] should defend under a reservation of rights because [reason], while simultaneously investigating [specific coverage issues].\"\nIf Clear Coverage: \"[Carrier] has a duty to defend and likely a duty to indemnify based on the allegations.\"\nAlways include practical recommendations:\nShould carrier send a reservation of rights letter?\nWhat additional investigation is needed?\nAre there coverage defenses to preserve?\nTimeline considerations?\n\nStep 7: The Reservation of Rights Discussion\nWhen in doubt, recommend a reservation:\nExplain what specific rights the carrier is reserving\nNote that defending under a reservation protects the carrier's ability to later deny coverage\nInclude language for the reservation letter if appropriate\n\nCritical Mistakes to Avoid:\nDon't be a coverage advocate for the insured - you represent the carrier\nDon't ignore clear exclusion language because you feel bad for the insured\nDon't assume facts not alleged in the complaint\nDon't confuse duty to defend with duty to indemnify - they're different standards\nDon't cite outdated cases - insurance law evolves rapidly\nDon't hedge excessively - the carrier needs definitive guidance when possible\n\nFinal Practical Notes:\nTiming:\nGet these done quickly - coverage decisions affect litigation strategy\nIf you need more time, communicate with the carrier immediately\nFollow-up:\nExpect questions from claims adjusters\nBe prepared to update your opinion as facts develop\nKeep detailed time records - carriers scrutinize coverage opinion bills\nQuality Control:\nDouble-check all policy citations\nVerify you're analyzing the right policy period\nRemember: The carrier is relying on your legal judgment to make business decisions that could involve millions of dollars. Be thorough, be accurate, and be confident in your analysis. When you're genuinely unsure, it's better to recommend defending under a reservation of rights than to guess wrong about coverage. It must be objective because the carrier does not want to wrongfully deny coverage and the insured does not want to be wrongfully denied. \n",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "pre-trial"
+    ],
+    "document_types": [
+      "memo",
+      "analysis",
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:04.546264",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

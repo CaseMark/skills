@@ -1,0 +1,42 @@
+{
+  "id": "e5a9c576-ed93-446f-9088-38c3d03a3b15",
+  "slug": "judgment-summaries",
+  "name": "Judgment Summaries",
+  "summary": "Generates structured summaries of court judgments, distilling final decisions into sections covering case caption, procedural history, facts, legal issues, holdings, precedent treatment, and practical implications. This skill enables lawyers and scholars to quickly grasp case outcomes, rationale, and significance without reading full opinions. It is ideal for litigation research, analysis, and strategic planning post-trial or on appeal.",
+  "content": "# Judgment Summary Generation Prompt\n\nYou are tasked with creating a comprehensive judgment summary that distills a court's final decision into a clear, actionable document for legal professionals. This summary must capture the essential elements of the judicial decision while maintaining the precision and nuance required for legal analysis and citation.\n\nBegin by thoroughly analyzing the complete court opinion or judgment document provided. Your analysis should encompass every section of the decision, from the procedural history through the final disposition, ensuring no critical detail is overlooked. Pay particular attention to the court's reasoning, the legal standards applied, and how the court distinguished or applied precedent.\n\n## Structure and Content Requirements\n\nYour judgment summary must be organized into distinct sections that allow readers to quickly locate specific information. Start with a case caption that includes the full case name, court, docket number, decision date, and judge or panel. Follow this with a concise one-paragraph synopsis that captures the core holding and its practical significance in no more than 150 words.\n\nThe procedural history section should trace the case's journey through the legal system, identifying the lower court decisions, the basis for appeal or review, and the standard of review applied. This context is essential for understanding the scope and limitations of the court's decision.\n\nDedicate substantial attention to the facts section, distinguishing between background facts, legally significant facts, and disputed facts. Present these in a narrative format that enables readers to understand the controversy without referring to the full opinion. Identify which facts the court deemed material to its decision and note any factual disputes that remain unresolved.\n\n## Legal Analysis and Holdings\n\nThe heart of your summary must articulate the legal issues presented and the court's resolution of each issue. For each issue, identify the applicable legal standard, explain the court's reasoning, and state the holding with precision. When the court applies a multi-factor test or balancing analysis, enumerate each factor and explain how the court weighed them. If the decision creates, modifies, or clarifies a legal rule, state that rule explicitly in language that could be cited in future briefs.\n\nAddress how the court treated precedent, noting which cases were followed, distinguished, or overruled. If the decision creates a circuit split or resolves one, highlight this prominently as it signals potential Supreme Court review. Similarly, identify any concurring or dissenting opinions and summarize their key points of departure from the majority, as these often illuminate areas of legal uncertainty or future development.\n\n## Practical Implications and Disposition\n\nConclude with a section on practical implications that translates the legal holdings into actionable guidance. Explain how this decision affects pending cases, future litigation strategy, transactional planning, or compliance obligations. If the decision establishes new procedural requirements, evidentiary standards, or safe harbors, describe these clearly. Consider the decision's impact across different practice areas and jurisdictions.\n\nState the final disposition precisely, including any remand instructions, the allocation of costs, or conditions imposed on the parties. If the court's order requires specific actions by a date certain, include these deadlines.\n\nThroughout the summary, maintain objectivity and avoid advocacy or editorial commentary. Use clear, professional language accessible to both litigators and transactional attorneys. When technical legal terms are necessary, ensure they are used precisely and consistently with the court's usage. Provide pinpoint citations to specific pages or paragraphs of the opinion for key holdings, critical facts, and notable reasoning, enabling readers to locate and verify important passages quickly.\n\nYour final summary should typically range from 1,500 to 3,000 words depending on the complexity of the decision, striking a balance between comprehensiveness and conciseness. The document must stand alone as a reliable reference that allows legal professionals to understand the case's significance, cite it accurately, and apply its holdings without necessarily reading the full opinion.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.511323",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

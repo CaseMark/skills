@@ -1,0 +1,358 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-5783-7e81-83a3-5c284af945d7
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "cb847d17-fb16-471f-930e-db21be15e367",
+  "slug": "criminal-case-summaries",
+  "name": "Criminal Case Summaries",
+  "summary": "Generates comprehensive, objective summaries of criminal cases, detailing charges, evidence, procedural history, trial proceedings, and outcomes including verdicts and sentencing. Use it to create concise reference documents for legal professionals reviewing criminal defense matters from initiation to resolution.",
+  "content": "# Criminal Case Summary Workflow\n\nYou are tasked with creating a comprehensive summary of a criminal case that captures all essential aspects of the proceedings from initiation through resolution. This summary should serve as a concise yet thorough reference document for legal professionals who need to quickly understand the case's trajectory, key evidence, procedural history, and outcome.\n\nBegin by thoroughly reviewing all available case documents, court filings, transcripts, and related materials. Your analysis should extract and organize information across multiple dimensions of the criminal proceeding. First, identify and clearly articulate all charges brought against the defendant, including the specific criminal statutes cited, the degree or classification of each offense, and any amendments or modifications to charges that occurred during the proceedings. Note whether charges were filed as felonies or misdemeanors, and document any enhancement allegations or special circumstances.\n\nNext, systematically catalog the evidence presented by both prosecution and defense. This includes physical evidence, documentary evidence, witness testimony, expert opinions, forensic analysis results, and any demonstrative exhibits. For each category of evidence, note its relevance to specific charges and how it was characterized by each party. Pay particular attention to key pieces of evidence that were contested, excluded, or deemed particularly persuasive. Document any evidentiary rulings made by the court, including motions to suppress and their outcomes.\n\nProvide a chronological narrative of the trial proceedings that captures the procedural posture of the case. This should include pretrial motions and their disposition, jury selection details if applicable, opening statements, the sequence of witness examinations, significant objections and rulings, closing arguments, jury instructions, and deliberation timeline. Note any unusual procedural developments, continuances, mistrials, or other significant events that shaped the course of the proceedings. If the case was resolved through plea agreement rather than trial, detail the negotiation process, terms of the plea, and the factual basis provided.\n\nDocument the verdict or outcome with precision, specifying which charges resulted in conviction, which in acquittal, and whether any charges were dismissed. For each conviction, note the specific findings and whether the jury or judge made any special findings regarding enhancements or aggravating factors. Include sentencing information, detailing the sentence imposed for each count, whether sentences run concurrently or consecutively, any custody credits applied, terms of probation or supervised release, fines and restitution ordered, and conditions imposed.\n\nThroughout your summary, maintain strict objectivity and accuracy. Use clear, professional legal language while ensuring the document remains accessible to readers who may not have reviewed the underlying case files. Organize the information logically with clear section headings that allow readers to quickly locate specific aspects of the case. When referencing specific documents, testimony, or exhibits, provide sufficient detail to allow verification while maintaining conciseness.\n\nYour final summary should provide a complete picture of the criminal case that enables a legal professional to understand the charges, evaluate the strength of the evidence, follow the procedural history, and comprehend the final disposition without needing to review hundreds of pages of case materials. This document serves as both a reference tool and a foundation for further legal analysis, appeals consideration, or case strategy development in related matters.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial",
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:52:31.989271Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Defining SKILL.md for criminal case summaries**
+
+I'm specifying the skill metadata and instructions for a "criminal-case-summary" skill, including trigger keywords, description, required inputs, structured output with checklists and tables, and concise guidelines emphasizing objectivity and verification notes.
+thinking
+**Outlining full SKILL.md content structure**
+
+I'm planning a concise 120-line SKILL.md starting and ending with YAML delimiters and no code fences, including sections on pretrial, trial vs plea, appeal, outcomes, and post-trial motions. I'll use flat lists and tables for evidence and timeline, embed checklists, note unknowns, and clarify skill_type as form: summarization.
+codex
+---
+name: criminal-case-summary
+description: Produces structured U.S. criminal case summaries covering charges, statutes, evidence, procedural history, trial or plea, verdict, and sentencing. Use when summarizing criminal defense or prosecution files, preparing case overviews, drafting status memos, or compiling procedural histories. Trigger keywords: criminal case summary, charges, statute, evidence summary, procedural history, trial summary, plea summary, verdict, sentencing.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Criminal Case Summary
+
+Generate a neutral, verifiable summary of a criminal case from initiation through disposition.
+
+## Prerequisites
+
+1. **Charging documents** — complaint, information, indictment, superseding filings
+2. **Docket or case timeline** — key dates, hearings, rulings
+3. **Motions and orders** — suppression, discovery, continuances, evidentiary rulings
+4. **Transcripts** — hearings, trial, plea, sentencing
+5. **Evidence inventory** — exhibits, reports, forensic results, witness lists
+6. **Disposition records** — verdict forms, plea agreement, judgment, sentencing order
+
+## Output Structure / Process
+
+Use the following structure and fill every section. If a section is not applicable, state “Not applicable” and explain why.
+
+### 1) Case Header
+
+| Field | Value |
+|---|---|
+| Court / Jurisdiction | |
+| Case No. | |
+| Parties | |
+| Judge | |
+| Prosecutor | |
+| Defense Counsel | |
+| Defendant Status | in custody / out / pretrial supervision |
+
+### 2) Charges
+
+List all charges, including amended or dismissed counts.
+
+| Count | Statute | Charge Name | Level | Enhancements / Special Allegations | Disposition |
+|---|---|---|---|---|---|
+| | | | felony / misdemeanor | | pending / dismissed / convicted / acquitted |
+
+Notes:
+- Include statute citations. If not fully verified, mark with `[VERIFY]`.
+- Note charging changes with dates and authority (e.g., superseding indictment).
+
+### 3) Core Facts (Neutral)
+
+Provide a concise, non-argumentative fact narrative.
+
+Checklist:
+- Key incident date(s)
+- Alleged conduct tied to each count
+- Victim and witness identifiers (use initials if privacy-sensitive)
+- Arrest or charging basis
+- Any relevant context needed to understand the charges
+
+### 4) Evidence Summary
+
+Summarize both prosecution and defense evidence.
+
+| Evidence Item | Source | Relevance to Count(s) | Admitted / Excluded | Ruling / Notes |
+|---|---|---|---|---|
+| | | | | |
+
+Checklist:
+- Physical evidence
+- Documentary evidence
+- Digital evidence
+- Witness testimony
+- Expert testimony
+- Forensic analysis
+- Demonstrative exhibits
+- Suppression issues and rulings
+
+### 5) Procedural History
+
+Chronological timeline of material events.
+
+| Date | Event | Outcome / Ruling | Citation |
+|---|---|---|---|
+| | | | |
+
+Include:
+- Arraignment
+- Pretrial motions and dispositions
+- Discovery disputes
+- Continuances or mistrials
+- Trial dates or plea hearings
+
+### 6) Trial Summary (If Tried)
+
+| Phase | Key Points |
+|---|---|
+| Jury selection | |
+| Openings | |
+| Prosecution case | |
+| Defense case | |
+| Rebuttal | |
+| Closing arguments | |
+| Jury instructions | |
+| Deliberations | |
+
+Include significant objections and rulings only if outcome-relevant.
+
+### 7) Plea Summary (If Plea)
+
+| Item | Details |
+|---|---|
+| Plea type | |
+| Counts pled | |
+| Dismissed counts | |
+| Factual basis | |
+| Sentencing terms | |
+| Waivers | |
+
+### 8) Verdict / Findings
+
+| Count | Verdict | Special Findings | Notes |
+|---|---|---|---|
+| | | | |
+
+### 9) Sentencing
+
+| Count | Sentence | Concurrent / Consecutive | Credits | Fines / Restitution | Supervision Conditions |
+|---|---|---|---|---|---|
+| | | | | | |
+
+Include:
+- Total custodial term
+- Probation or supervised release
+- Conditions (mandatory and special)
+
+### 10) Post-Trial / Post-Conviction
+
+Checklist:
+- Motions for new trial
+- Appeals filed and status
+- Post-conviction relief petitions
+- Sentence modifications
+
+### 11) Open Issues / Unknowns
+
+List missing documents or unresolved factual or procedural gaps.
+
+## Guidelines
+
+- Maintain strict neutrality; no advocacy or opinion.
+- Tie evidence and facts to specific counts where possible.
+- Use citations to docket entries, transcripts, or exhibits when available.
+- Flag uncertain statutory citations or procedural points with `[VERIFY]`.
+- Respect jurisdictional variations in terminology (e.g., information vs indictment).
+- Do not infer facts not supported by the record.
+tokens used
+2,737

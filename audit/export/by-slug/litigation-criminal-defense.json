@@ -1,0 +1,23 @@
+{
+  "id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "slug": "litigation-criminal-defense",
+  "name": "Criminal  Defense",
+  "summary": "Skills related to criminal  defense within litigation practice.",
+  "content": "# Criminal  Defense\n\nThis is a sub-category under litigation practice containing specialized skills.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

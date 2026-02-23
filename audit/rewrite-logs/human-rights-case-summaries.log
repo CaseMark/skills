@@ -1,0 +1,394 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c83-a043-7e73-a5ba-71799da5d5da
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "c3698877-09d3-4ca8-86b6-06c4297bd1a8",
+  "slug": "human-rights-case-summaries",
+  "name": "Human Rights Case Summaries",
+  "summary": "Generates comprehensive, structured summaries of significant human rights cases, covering case identification, factual background, legal arguments, verdicts, and broader social implications. Use this skill to create accessible resources for NGOs, governments, international organizations, and advocates analyzing key human rights precedents.",
+  "content": "# Human Rights Case Summary Workflow\n\nYou are tasked with creating a comprehensive summary of a significant human rights case that will serve as a critical resource for NGOs, governments, international organizations, and human rights advocates. This summary must capture not only the legal mechanics of the case but also its broader implications for human rights law and social justice.\n\n## Understanding the Assignment\n\nWhen a user provides a human rights case for summarization, your role is to produce a thorough, professionally structured document that distills complex legal proceedings into an accessible yet authoritative overview. The summary should serve multiple audiences\u2014from legal practitioners who need precise doctrinal analysis to policy makers who require insight into the case's practical implications for human rights protection and advocacy.\n\nBegin by gathering all available information about the case. If the user has provided case documents, examine them thoroughly to extract factual details, legal arguments, procedural history, and outcomes. When documents are insufficient or unavailable, conduct targeted research to locate the official case decision, relevant court filings, and authoritative secondary sources that discuss the case's significance. Verify all legal citations and ensure you're working with the most accurate and complete version of the court's decision.\n\n## Structural Framework and Content Requirements\n\nYour summary should open with essential case identification information, including the full case name, court or tribunal, decision date, and relevant citation information formatted according to appropriate legal citation standards. Provide immediate context by identifying the human rights instruments, constitutional provisions, or statutory frameworks at the center of the dispute.\n\nThe factual background section must present a clear narrative of the events that gave rise to the legal challenge. Describe the parties involved, the alleged human rights violations, and the circumstances that led to litigation. This narrative should be detailed enough to allow readers unfamiliar with the case to understand what happened, who was affected, and why the matter warranted judicial intervention. Pay particular attention to the human dimension\u2014the real-world impact on individuals and communities\u2014while maintaining professional objectivity.\n\nIn analyzing the legal arguments, present both the petitioners' claims and the respondents' defenses with equal clarity and precision. Identify the specific human rights allegedly violated, the legal theories advanced by each side, and the interpretive questions the court was asked to resolve. This section should demonstrate how the parties framed the legal issues, what precedents they invoked, and how they distinguished or analogized to prior cases. When multiple legal claims were presented, address each substantively while showing how they interconnected within the overall litigation strategy.\n\nThe court's decision and reasoning deserve the most detailed treatment. Explain not just what the court decided but why it reached that conclusion. Analyze the interpretive methodology the court employed, the weight it gave to various sources of law, and how it balanced competing rights or interests. If the decision involved multiple judges, note any concurring or dissenting opinions and explain how they differed from the majority view. Highlight any novel legal interpretations, extensions of existing doctrine, or departures from previous precedent. When the court's reasoning relies on international human rights instruments, comparative constitutional law, or evolving standards of human dignity, explain these foundations clearly.\n\n## Broader Implications and Practical Impact\n\nBeyond the immediate legal outcome, your summary must address the case's significance for human rights law and practice. Consider how the decision affects the interpretation and enforcement of specific rights, whether it expands or contracts protections, and what obligations it imposes on state or non-state actors. Analyze the precedential value of the ruling\u2014which courts or jurisdictions it binds, and how persuasive it might be in other contexts.\n\nExamine the social and political implications with nuance and depth. How does this decision affect vulnerable populations, marginalized communities, or specific groups whose rights were at issue? What practical changes might result in government policy, institutional practices, or social norms? If the case addresses systemic issues like discrimination, access to justice, or state accountability, discuss how the ruling might catalyze or impede broader reform efforts. Consider both intended consequences and potential unintended effects.\n\nFor cases decided by international or regional human rights bodies, address questions of implementation and compliance. What remedies did the court order, and what mechanisms exist to ensure they're carried out? How have relevant governments responded to the decision? If the case is recent, note any ongoing developments in its implementation or any subsequent litigation it has spawned.\n\n## Professional Standards and Presentation\n\nThroughout the summary, maintain a tone that is authoritative yet accessible, legally precise yet comprehensible to non-specialists. Avoid unnecessary jargon, but don't oversimplify complex legal concepts. When technical terms are essential, provide brief explanations that allow readers from diverse backgrounds to follow the analysis.\n\nSupport all factual assertions and legal interpretations with proper citations to primary sources. Every quote from the court's opinion, reference to a legal provision, or citation to secondary commentary should be attributed accurately. Ensure that readers can trace your analysis back to authoritative sources and verify the information independently.\n\nThe final document should be structured with clear headings and logical flow, allowing readers to navigate easily between sections. Consider including a brief executive summary at the beginning for readers who need a quick overview, while ensuring the full analysis provides the depth required for serious research and advocacy work.\n\nYour summary should stand as a reliable, comprehensive resource that captures both the legal technicalities and the human significance of the case, serving the diverse needs of those working to advance human rights protection worldwide.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.778693",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:59:23.341912Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+# Human Rights Case Summary
+
+## Slug  
+human-rights-case-summary
+
+## Description  
+This skill enables summarization, analysis, and research of human rights case summaries. It supports identifying key facts, legal issues, holdings, reasoning, dissents, remedies, and broader impacts. Triggers include terms related to human rights litigation, case summaries, judgments, and legal analyses. Designed for litigation contexts with case documents and summaries.
+
+## Metadata
+
+| Field           | Value                         |
+|-----------------|-------------------------------|
+| Practice Areas  | Litigation                    |
+| Document Types  | Summary                      |
+| Skill Modes     | Summarization, Analysis, Research |
+| Jurisdictions   | US, International Bodies     |
+
+## Purpose Statement  
+Provide clear and concise summaries of human rights cases to support legal analysis and research.
+
+## Prerequisites  
+
+1. Basic understanding of human rights law  
+2. Familiarity with legal case structures  
+3. Ability to interpret legal reasoning and holdings  
+4. Awareness of relevant jurisdictions and international bodies
+
+## Guidelines  
+
+- Do summarize key elements following the structured template.  
+- Avoid inserting unverified citations; mark uncertain references with [VERIFY].  
+- Include jurisdictional context, especially US and international bodies.  
+- Use concise language for clarity and precision.  
+- Do not include verbose background information unrelated to legal issues.  
+- Ensure summaries are balanced and factual.  
+- Cite sources cautiously; placeholders are preferred when unsure.  
+- Review for compliance with jurisdiction-specific rules.
+
+## Executive Summary (Optional)  
+
+Provide a brief overview capturing the case’s essence, holdings, and significance.
+
+## Structured Template Sections  
+
+| Section           | Description                                                         |
+|-------------------|---------------------------------------------------------------------|
+| Case ID           | Unique identifier or reference for the case                         |
+| Instruments       | Relevant treaties, laws, or instruments applied                     |
+| Facts             | Key facts and background relevant to the case                       |
+| Procedure         | Procedural history and court progression                            |
+| Issues            | Legal questions the case addresses                                  |
+| Holdings          | Court’s decisions on the issues                                     |
+| Reasoning         | Judicial rationale supporting the holdings                          |
+| Dissents          | Summary of dissenting opinions if any                               |
+| Remedies          | Remedies or relief granted                                          |
+| Implementation    | How the decision was or can be implemented                           |
+| Impact            | Broader legal, social, or policy implications                      |
+| Precedential Value| The case’s authority as precedent                                  |
+| Open Questions    | Outstanding or unresolved legal questions                           |
+| Sources           | References and citations (use placeholders or [VERIFY] if uncertain)|
+
+## Verification Checklist  
+
+- Confirm accuracy and relevance of facts and holdings.  
+- Verify applicable instruments and legal frameworks.  
+- Check for jurisdictional compliance.  
+- Ensure reasoning aligns with case texts.  
+- Review dissents and remedies for completeness.  
+- Confirm impact and precedential notes are supported.  
+- Mark or remove uncertain citations.
+
+## Additional Notes  
+
+- This skill supports cases primarily from the US jurisdiction and recognized international human rights bodies.  
+- Adapt summaries according to jurisdictional nuances and legal standards.
+thinking
+**Refining description and structure**
+
+The description is being sharpened to fit within 1024 characters and include specific trigger keywords related to human rights treaties and tribunals. The output structure will use clear section headers with tables specifying required content, avoiding nested bullets, and including checklists where appropriate. Instructions will require full official citations and note missing data as "Unknown" with a list of needed sources. The date format will be Month Day, Year. I'll focus on imperative phrasing and omit skill-type references. Next, I'll finalize the output template in code block form and the process checklist accordingly.
+codex
+---
+name: human-rights-case-summary
+description: Produces structured summaries of human rights cases, covering case identification, facts, procedural history, issues, holdings, reasoning, remedies, implementation, and social impact. Use for human rights decision summaries, NGO briefs, policy analysis, or precedent reviews. Trigger keywords: human rights case summary, tribunal decision summary, ICCPR, ICESCR, ICERD, CAT, CRC, ACHR, ECHR, African Charter, UN treaty body, regional human rights court, inter-American, European Court of Human Rights.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+    - Research
+---
+
+# Human Rights Case Summary
+
+Deliver a structured, citation-ready summary that captures legal reasoning and practical impact.
+
+## Prerequisites
+
+1. Primary decision text or official record (judgment, opinion, order, or treaty body views).
+2. Procedural posture and outcome (trial, appeal, enforcement, compliance stage).
+3. Parties, forum, decision date, and citation data.
+4. Relevant human rights instruments or constitutional/statutory provisions.
+5. If primary materials are missing, list required sources before drafting.
+
+## Output Structure / Process
+
+Use the following template and keep each section concise but complete.
+
+```text
+Case Identification
+- Case name:
+- Forum/Court/Tribunal:
+- Decision date (Month Day, Year):
+- Citation:
+- Jurisdiction(s):
+- Parties and roles:
+- Procedural posture:
+- Human rights instruments/provisions at issue:
+
+Executive Summary (3–6 sentences)
+- Outcome:
+- Core legal holding:
+- Key human rights principle clarified or expanded:
+- Practical consequence:
+
+Facts
+- Chronology of key events:
+- Alleged violations and affected groups:
+- Government/actor conduct:
+
+Claims and Defenses
+- Petitioner/applicant claims:
+- Respondent defenses:
+- Jurisdiction/admissibility issues:
+
+Legal Issues
+- Issue 1:
+- Issue 2:
+- Issue 3:
+
+Holdings
+- Holding for each issue:
+
+Reasoning
+- Interpretive method (textual, purposive, proportionality, margin of appreciation, etc.):
+- Use of precedent or comparative law:
+- Treatment of evidence and burden:
+- Balancing of competing rights/interests:
+
+Separate Opinions
+- Concurrences:
+- Dissents:
+- Key points of divergence:
+
+Remedies and Orders
+- Relief ordered:
+- Compliance deadlines:
+- Monitoring/enforcement mechanism:
+
+Implementation Status
+- Government response:
+- Compliance actions:
+- Ongoing litigation or follow-on cases:
+
+Precedential Value
+- Binding scope:
+- Persuasive influence:
+- Doctrinal shift or novelty:
+
+Social and Policy Impact
+- Effects on affected communities:
+- Institutional or legislative changes:
+- Unintended consequences:
+
+Open Questions
+- Doctrinal gaps:
+- Unresolved factual/legal issues:
+
+Sources
+- Primary decision:
+- Key filings:
+- Authoritative secondary sources:
+```
+
+Quality checks (complete all before finalizing):
+
+1. All facts tied to a source or marked as “Unknown” with a source request.
+2. Instruments and provisions cited accurately; use `[VERIFY]` if unsure.
+3. Holdings and reasoning separated and not conflated.
+4. Remedies and compliance status clearly distinguished.
+5. Dates in Month Day, Year format.
+
+## Guidelines
+
+- Prefer primary sources; cite secondary sources only for context or implementation updates.
+- Separate legal analysis from policy impact; do not blur the two.
+- Identify admissibility and jurisdictional thresholds explicitly.
+- Use neutral tone; avoid advocacy phrasing.
+- If the forum is international or regional, specify enforcement limits and compliance mechanisms.
+- If the case is U.S.-jurisdictional, note federal/state posture and standard of review when relevant.
+- If information is missing, list required sources before drafting the affected section.
+tokens used
+3,101

@@ -1,0 +1,41 @@
+{
+  "id": "6dd054ad-6578-4044-b726-46d4b9f3abf8",
+  "slug": "immigration-support-letter",
+  "name": "Immigration support letter",
+  "summary": "Drafts a formal immigration support letter from the perspective of employers, family members, or community supporters to corroborate facts in USCIS petitions, asylum claims, or removal proceedings. It structures the letter with writer credibility, specific details on relationships or employment, and professional tone. Use it to provide testimonial evidence for family-based, employment-based, or hardship waiver applications.",
+  "content": "# Immigration Support Letter\n\nYou are tasked with drafting a comprehensive immigration support letter to accompany an immigration application or petition. This document serves as a critical piece of evidence to demonstrate the relationship, character, employment, or other relevant circumstances of the immigration applicant to immigration authorities such as USCIS, immigration courts, or consular offices.\n\n## Purpose and Context\n\nImmigration support letters are formal documents written by employers, family members, friends, colleagues, religious leaders, or community members to corroborate facts stated in an immigration application and to provide testimonial evidence of the applicant's character, qualifications, relationships, or circumstances. These letters may support various immigration matters including family-based petitions, employment-based applications, asylum claims, hardship waivers, naturalization applications, or removal defense proceedings.\n\n## Document Requirements\n\nBegin by gathering essential information about the immigration matter at hand. Determine the specific type of immigration benefit being sought, the relationship between the letter writer and the applicant, and the key facts that need to be established. If the user has uploaded supporting documents such as the immigration petition, application forms, or previous correspondence with immigration authorities, search those documents thoroughly to extract relevant dates, relationships, employment details, and other factual information that should be referenced in the letter.\n\nThe support letter must be written on letterhead when appropriate, particularly for employment verification letters or letters from organizations. Include the complete contact information of the letter writer, including their full legal name, address, telephone number, and email address. The letter should be addressed to the appropriate immigration authority or may use a general salutation such as \"To Whom It May Concern\" when the specific adjudicating officer is unknown.\n\n## Content and Structure\n\nDraft the letter in a professional, formal tone using first-person narrative from the perspective of the letter writer. The opening paragraph should clearly identify the writer, their relationship to the applicant, and the purpose of the letter. Establish the writer's credibility by briefly explaining their position, qualifications, or basis of knowledge regarding the applicant.\n\nThe body of the letter should provide specific, detailed factual information relevant to the immigration matter. For employment letters, include the applicant's job title, dates of employment, job duties, salary, work performance, and future employment prospects. For relationship letters supporting family-based petitions, describe how the writer knows both the petitioner and beneficiary, the nature and duration of their relationship, specific examples of their life together, and observations that demonstrate the bona fide nature of the relationship. For character reference letters, provide concrete examples and anecdotes that illustrate the applicant's good moral character, community involvement, family ties, and positive contributions.\n\nInclude specific dates, locations, and circumstances whenever possible to add credibility and detail. Immigration adjudicators value specificity over generalities. Rather than stating the applicant is \"hardworking,\" describe specific instances that demonstrate their work ethic. Rather than claiming a relationship is \"genuine,\" provide detailed observations of interactions, shared experiences, and knowledge of personal details that only someone with genuine knowledge would possess.\n\n## Legal Considerations and Best Practices\n\nEnsure all statements in the letter are truthful and based on the writer's personal knowledge. Immigration fraud, including false statements in support letters, carries serious legal consequences including criminal penalties. The letter should acknowledge the writer's understanding that the statements are made under penalty of perjury under the laws of the United States, and include an appropriate declaration statement such as \"I declare under penalty of perjury that the foregoing is true and correct to the best of my knowledge.\"\n\nThe letter must be signed and dated by the writer. For letters from organizations or employers, ensure the signatory has proper authority to make statements on behalf of the entity. Consider whether the letter should be notarized, as some immigration applications benefit from notarized support letters even when not strictly required, as notarization adds an additional layer of credibility.\n\nTailor the content to address specific eligibility requirements or evidentiary standards for the particular immigration benefit being sought. If the matter involves demonstrating extreme hardship, the letter should focus on specific hardships that would result from denial. If supporting an employment-based petition, emphasize the specialized skills, qualifications, and the employer's genuine need for the applicant's services.\n\n## Formatting and Presentation\n\nPresent the final letter in a clean, professional format using standard business letter conventions. Use a readable font such as Times New Roman or Arial in 11 or 12-point size. Include appropriate spacing and margins. The letter should typically be one to three pages in length\u2014long enough to provide meaningful detail but concise enough to maintain the reader's attention.\n\nConclude the letter with a clear statement of support for the immigration application and an offer to provide additional information if needed. Include the writer's contact information again in the closing and ensure the signature block provides space for an original signature. If you identify any gaps in the information needed to complete the letter effectively, ask the user for clarification regarding the specific immigration benefit sought, the relationship between the writer and applicant, key dates and facts to be included, and whether any particular issues or eligibility criteria need to be addressed in the letter.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "immigration"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.828163",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

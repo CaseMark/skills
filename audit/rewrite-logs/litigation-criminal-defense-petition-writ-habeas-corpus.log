@@ -1,0 +1,200 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-2792-70c0-a296-929f5da58e14
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "42948707-de58-4be8-b291-f80114fbb624",
+  "slug": "litigation-criminal-defense-petition-writ-habeas-corpus",
+  "name": "Petition for Writ of Habeas Corpus",
+  "summary": "Drafts a comprehensive Petition for Writ of Habeas Corpus to challenge the lawfulness of a petitioner's detention or imprisonment on constitutional grounds. This skill produces professionally formatted documents compliant with federal or state court requirements, including caption, parties, and grounds for relief. Use it in criminal defense matters seeking post-conviction habeas relief.",
+  "content": "# Petition for Writ of Habeas Corpus - Enhanced Drafting Protocol\n\nYou are tasked with drafting a comprehensive Petition for Writ of Habeas Corpus, a critical litigation document challenging the lawfulness of a person's detention or imprisonment. This petition must meet exacting legal standards while presenting a compelling case for relief. Your draft must be professionally formatted, legally sound, and persuasive in advocating for the petitioner's constitutional rights.\n\n## Document Foundation and Caption\n\nBegin by establishing the proper caption and heading that identifies the court, parties, and case. The caption must include the full legal name of the court with proper jurisdiction (federal district court or state court of competent jurisdiction), the petitioner's complete legal name and current custody status, the respondent's official title and name (typically the warden, superintendent, or custodial authority), and the case number if one has been assigned. If this is an initial filing, indicate \"Case No. To Be Assigned\" or follow local court rules. Research the specific caption format required by the jurisdiction where you are filing, as federal courts and state courts have distinct formatting requirements. The caption should conform to local rules regarding font, spacing, and margin requirements.\n\n## Introductory Statement and Petition Purpose\n\nCraft a clear and direct introduction that immediately establishes the petitioner's identity, current custodial status, location of confinement, and the fundamental purpose of this petition. State the petitioner's full legal name, any aliases or prior names, current location of detention or imprisonment, the authority under which they are being held, and the specific relief being sought through this petition. The introduction should be concise yet comprehensive, providing the court with an immediate understanding of who is petitioning, why they are in custody, and what constitutional or legal violations form the basis of their challenge. Include the date of conviction or detention order, the charges or offenses involved, and the sentence imposed if applicable. This section sets the tone for the entire petition and must convey both the seriousness of the constitutional issues and the petitioner's entitlement to relief.\n\n## Identification of All Parties\n\nProvide complete identification of all parties involved in this proceeding, ensuring accuracy in names, titles, and roles. The petitioner section must include full legal name, prisoner identification number if applicable, current address of confinement, and any relevant demographic information required by court rules. The respondent is typically the warden, superintendent, or other custodial official who has immediate physical custody of the petitioner\u2014identify this individual by proper official title and full name. If there are real parties in interest (such as the prosecuting attorney, attorney general, or the state itself), identify them appropriately according to jurisdictional requirements. For federal habeas petitions under 28 U.S.C. \u00a7 2254, the proper respondent is usually the state officer having custody, while \u00a7 2241 petitions may name different respondents depending on the nature of the custody challenge.\n\n## Jurisdictional Basis and Venue Propriety\n\nEstablish the court's subject matter jurisdiction and explain why venue is proper in this particular court. For federal habeas corpus petitions, cite the specific statutory authority: 28 U.S.C. \u00a7 2254 for state prisoners challenging state court convictions, 28 U.S.C. \u00a7 2241 for federal prisoners or challenges to execution of sentence, or 28 U.S.C. \u00a7 2255 for federal prisoners challenging their federal convictions. State the constitutional foundation for habeas relief, typically the Suspension Clause of Article I, Section 9, and relevant constitutional amendments. Explain venue by identifying the judicial district where the petitioner is confined or where the conviction occurred, citing 28 U.S.C. \u00a7 2241(d) or applicable state venue statutes. Address any potential jurisdictional issues proactively, such as custody requirements, timeliness under AEDPA's one-year statute of limitations (28 U.S.C. \u00a7 2244(d)), or successive petition restrictions. Demonstrate that this court has both the authority and the proper venue to grant the relief requested.\n\n## Comprehensive Statement of Facts\n\nPresent a detailed, chronological narrative of all facts relevant to the petitioner's detention, conviction, and the constitutional violations alleged. This factual statement must be thorough yet organized, beginning with the circumstances leading to arrest, proceeding through trial or plea proceedings, sentencing, and any post-conviction proceedings. Include specific dates, locations, and individuals involved in key events. Describe the criminal charges, the nature of the proceedings (jury trial, bench trial, or guilty plea), the evidence presented, any procedural irregularities, and the outcome at each stage. Detail any appeals filed, their outcomes, and the reasoning provided by appellate courts. Present facts objectively and accurately, as this section establishes the foundation for your legal arguments. Organize the facts to highlight the constitutional violations you will later argue, but maintain a neutral, factual tone. Include relevant facts about:\n\n- The arrest and any Fourth Amendment issues\n- Pre-trial proceedings and any Fifth or Sixth Amendment concerns\n- Trial proceedings, including jury selection, evidence presentation, and verdict\n- Sentencing proceedings and any Eighth Amendment issues\n- Direct appeals and their disposition\n- Any state post-conviction proceedings and their outcomes\n\n## Specific Grounds for Habeas Relief\n\nArticulate each distinct ground for relief as a separate, clearly identified claim, explaining how each ground constitutes a violation of federal constitutional rights or federal law. Common grounds for habeas relief include ineffective assistance of counsel under Strickland v. Washington (466 U.S. 668), violations of the right to confrontation under Crawford v. Washington (541 U.S. 36), prosecutorial misconduct, judicial bias, insufficient evidence to support conviction, improper jury instructions, violations of Brady v. Maryland (373 U.S. 83) regarding disclosure of exculpatory evidence, and violations of the right against self-incrimination. For each ground, provide a clear heading, a concise statement of the constitutional right violated, specific facts supporting the claim, and the legal standard applicable to that claim. Number each ground sequentially and ensure each is sufficiently distinct to constitute an independent basis for relief. Avoid combining multiple constitutional violations into a single ground, as this can create confusion and weaken the petition's analytical clarity.\n\n## Exhaustion of State Remedies\n\nDemonstrate compliance with the exhaustion requirement by detailing all state court proceedings undertaken to present these claims. Under 28 U.S.C. \u00a7 2254(b), a federal habeas petition cannot be granted unless the petitioner has exhausted available state court remedies by presenting the federal constitutional claims to the highest state court capable of reviewing them. Provide a complete procedural history including:\n\n- Direct appeal to the state intermediate appellate court (with case number and decision date)\n- Petition for review to the state supreme court (with case number and disposition)\n- Any state post-conviction relief motions or petitions (with case numbers, courts, and outcomes)\n- Any subsequent appeals of post-conviction proceedings\n\nIf any claims were not exhausted, explain why exhaustion should be excused (such as the absence of available state corrective process, ineffectiveness of the available process, or the presence of circumstances rendering the process ineffective to protect the petitioner's rights). If you are presenting a mixed petition containing both exhausted and unexhausted claims, address this issue directly and consider whether to proceed only with exhausted claims or invoke the \"total exhaustion\" requirement of Rose v. Lundy (455 U.S. 509).\n\n## Legal Argument and Analysis\n\nDevelop a comprehensive legal argument for each ground for relief, applying relevant constitutional principles, statutory provisions, and controlling case law to the facts of this case. For each ground, begin with the applicable legal standard, cite controlling Supreme Court precedent and relevant circuit court decisions, apply the law to the specific facts of this case, and explain why relief is warranted. Under AEDPA's deferential standard of review (28 U.S.C. \u00a7 2254(d)), you must demonstrate that the state court's adjudication resulted in a decision that was contrary to, or involved an unreasonable application of, clearly established federal law as determined by the Supreme Court, or was based on an unreasonable determination of the facts. Structure your argument to address:\n\n- The clearly established federal law governing this claim\n- How the state court's decision was contrary to or an unreasonable application of that law\n- Why the error was not harmless and had a substantial and injurious effect on the verdict\n- The prejudice suffered by the petitioner as a result of the constitutional violation\n\nSupport each argument with specific citations to the record, trial transcripts, appellate decisions, and relevant legal authorities. Distinguish any contrary authority and explain why it does not control or why this case presents distinguishable facts warranting a different outcome.\n\n## Prayer for Relief\n\nConclude with a specific, well-crafted prayer for relief that requests the precise remedies appropriate to the constitutional violations alleged. Request that the court issue a writ of habeas corpus directing the respondent to release the petitioner from unlawful custody unless the state takes specific corrective action within a reasonable time. Alternative or additional relief may include:\n\n- An order granting a new trial free from constitutional error\n- An order granting a new sentencing hearing\n- An order for an evidentiary hearing to develop facts necessary to resolve the petition\n- An order vacating the conviction or sentence\n- Any other relief the court deems just and proper\n\nBe specific about the relief sought and ensure it corresponds logically to the grounds alleged and the violations proven.\n\n## Verification, Declaration, and Signature\n\nInclude a verification section wherein the petitioner declares under penalty of perjury under the laws of the United States that the facts stated in the petition are true and correct to the best of their knowledge, information, and belief. This verification must comply with 28 U.S.C. \u00a7 2254(a) and be signed by the petitioner personally. Include the date and location where the verification is executed. If the petition is prepared by counsel, include appropriate signature blocks for both the attorney of record (with bar number, address, telephone, and email) and the petitioner. Ensure compliance with local rules regarding electronic filing and signatures if applicable.\n\n## Exhibits and Supporting Documentation\n\nCompile and properly reference all exhibits and attachments that support the petition, including relevant portions of trial transcripts, appellate briefs and decisions, state post-conviction pleadings and orders, affidavits or declarations supporting factual allegations, and any documentary evidence demonstrating constitutional violations. Each exhibit should be clearly labeled (Exhibit A, Exhibit B, etc.) and referenced in the body of the petition where relevant. Ensure all exhibits are legible, properly authenticated, and comply with court rules regarding format and filing. Create an index of exhibits for ease of reference.\n\n---\n\n**Drafting Standards**: This petition must be drafted in formal legal writing style, using proper legal citation format (Bluebook or local court rules), maintaining objective and professional tone throughout, organizing arguments logically with clear headings and subheadings, and ensuring all factual assertions are supported by record evidence or proper exhibits. The final document should be thoroughly proofread for accuracy, completeness, and compliance with all applicable court rules and filing requirements.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "petitioner"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:29.561771Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:42:29.842410Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:31.009312Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:31.864273Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4be5a2115d2-SJC)
+2026-02-23T21:42:32.931627Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c47c1834c3-SJC)
+2026-02-23T21:42:34.354368Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4ce49240b82-SJC)
+2026-02-23T21:42:36.446908Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4db6a51ebe5-SJC)
+2026-02-23T21:42:40.143939Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4f26d2f3493-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-criminal-defense-petition-writ-habeas-corpus-8j1w13cj.md
+
+STDOUT:
+

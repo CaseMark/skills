@@ -1,0 +1,319 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-39af-7373-a244-d04a2a038010
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "5cab742d-50d7-4cfb-aaf4-2764a4b782ae",
+  "slug": "environmental-indemnity-agreement-transactional",
+  "name": "Environmental Indemnity Agreement (Transactional)",
+  "summary": "Drafts comprehensive Environmental Indemnity Agreements for transactional real estate and lending deals. Protects lenders and secured parties from environmental liabilities, including contamination, remediation costs, and regulatory violations on properties. Use when allocating environmental risks in commercial transactions to align with primary deal documents.",
+  "content": "# Environmental Indemnity Agreement (Transactional) - Enhanced Drafting Protocol\n\nYou are tasked with drafting a comprehensive Environmental Indemnity Agreement for a transactional matter. This agreement serves as a critical risk allocation instrument in commercial real estate and lending transactions, protecting lenders and secured parties from environmental liabilities associated with contaminated or potentially contaminated properties.\n\n## Document Purpose and Context\n\nBegin by thoroughly understanding the transaction context. Search through all uploaded documents to identify the parties involved, the underlying loan or acquisition transaction, property details, and any existing environmental assessments or Phase I/II reports. The indemnity agreement must align precisely with the commercial terms of the primary transaction documents, so extract key dates, loan amounts, property descriptions, and any environmental conditions or contingencies already negotiated.\n\n## Structural Requirements and Drafting Approach\n\n**Party Identification and Recitals**: Clearly define the Indemnitor (typically the borrower, property owner, or guarantor) and the Indemnitee (usually the lender, secured party, or their successors and assigns). Include complete legal names, entity types, and jurisdictions of formation. The recitals should provide essential background including the nature of the financing or acquisition, the property's location and legal description, any known environmental conditions, and the parties' intent to allocate environmental risks. Review uploaded transaction documents to ensure consistency with defined terms and party designations used throughout the deal documentation.\n\n**Indemnification Provisions**: Draft robust indemnification language covering all environmental claims, liabilities, losses, damages, costs, and expenses arising from or related to the property. This must encompass pre-existing contamination, releases of hazardous substances during the indemnitor's ownership or operations, violations of environmental laws, and all remediation costs regardless of when discovered. The indemnification should extend to regulatory enforcement actions, third-party claims, natural resource damages, and diminution in property value. Specify that the indemnity covers both known and unknown conditions, and survives regardless of the indemnitee's knowledge or due diligence findings. Research current environmental indemnity standards to ensure the scope reflects market practice for similar transactions.\n\n**Representations, Warranties, and Covenants**: Include comprehensive representations regarding environmental compliance history, absence of known violations or pending investigations, no undisclosed releases or contamination, and full disclosure of all environmental reports and assessments. Representations should address permits, underground storage tanks, asbestos, lead-based paint, and hazardous materials storage or use. Draft ongoing covenants requiring continued compliance with all environmental laws, immediate notice of any violations or governmental communications, maintenance of necessary permits, cooperation with investigations, and granting access for environmental assessments. If uploaded documents contain site-specific environmental data or Phase I findings, incorporate appropriate qualifications or disclosures while maintaining the indemnitor's liability.\n\n**Survival, Duration, and Enforcement Mechanisms**: Specify that all indemnification obligations survive the closing of the underlying transaction and continue until the later of loan repayment, property transfer, or completion of any required remediation. Environmental liabilities can emerge decades after a transaction, so the survival period should reflect the long-tail nature of environmental risks. Address whether the indemnity is absolute and unconditional, independent of any loan default, and enforceable regardless of bankruptcy or insolvency proceedings. Include provisions for direct payment of remediation costs, establishment of escrows or reserves if contamination is discovered, and the indemnitee's right to undertake remediation and seek reimbursement.\n\n**Governing Law and Dispute Resolution**: Designate the governing law, typically the state where the property is located, as environmental regulations are primarily state-specific and courts in the property's jurisdiction will be most familiar with applicable environmental statutes. Specify exclusive jurisdiction and venue in courts located in that state. Consider whether arbitration is appropriate for environmental disputes, noting that some environmental claims may require judicial resolution or regulatory involvement. Research jurisdictional best practices for environmental indemnities to ensure enforceability.\n\n**Standard Provisions and Execution**: Include essential boilerplate provisions addressing severability (ensuring the agreement remains enforceable if any provision is invalidated), amendment procedures (typically requiring written consent of all parties), notice requirements with specific addresses and methods of delivery, assignment rights (particularly the indemnitee's right to assign to loan participants or successors), and counterpart execution. Ensure signature blocks accommodate entity signatories with appropriate authority recitals and, if applicable, compliance with electronic signature requirements under ESIGN and UETA.\n\n## Final Document Assembly\n\nOnce you have gathered all necessary information from uploaded documents, researched applicable environmental indemnity standards, and confirmed jurisdictional requirements, create a complete Environmental Indemnity Agreement that is internally consistent, aligned with the underlying transaction, and provides comprehensive protection for the indemnitee while clearly defining the indemnitor's obligations. The final document should be suitable for immediate review by transaction counsel and ready for negotiation and execution.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.80346",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: bench-skills starting
+2026-02-23T21:56:45.998881Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Retrieving skill-creator SKILL.md**
+
+I'm locating and reading the SKILL.md file from the skill-creator directory to produce the required content while respecting the read-only environment.
+exec
+/bin/zsh -lc 'ls /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 52ms:
+SKILL.md
+agents
+assets
+license.txt
+references
+scripts
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+
+thinking
+**Resolving format conflict in skill frontmatter**
+
+The user’s explicit format with extended metadata overrides the generic skill-creator instruction to include only name and description in frontmatter, so I’ll produce the SKILL.md with the full metadata per user spec.
+thinking
+**Crafting detailed SKILL.md content with structured sections**
+
+The description will include trigger keywords and fit under 1024 chars. I'll use the user’s exact format with frontmatter, "# Environmental Indemnity Agreement" title, and "## Prerequisites" plus "## Output Structure / Process" sections with numbered lists and tables, avoiding nested bullets. I’ll include checklists, disclaimers, and statute references marked as needed, respecting developer formatting rules while prioritizing the user’s explicit content structure.
+thinking
+**Structuring output with numbered steps and flat checklists**
+
+I’m organizing the output structure as a numbered step list without nested bullets, followed by flat bullet checklists and a document outline table, ensuring clarity and compliance with all formatting constraints.
+codex
+---
+name: environmental-indemnity-agreement
+description: Drafts U.S. environmental indemnity agreements for regulatory/transactional real estate and lending deals, allocating contamination and environmental law liability to protect lenders, secured parties, or buyers. Covers indemnity scope, reps/warranties, covenants, remediation rights, escrows, insurance, survival, and assignment aligned to the loan or acquisition documents. Use when drafting or revising an environmental indemnity agreement, environmental liability allocation, lender environmental rider, or Phase I/II ESA-driven risk terms. Trigger keywords: environmental indemnity, hazardous substances, contamination, remediation, Phase I, Phase II, ESA, lender liability.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Environmental Indemnity Agreement
+
+Allocate environmental risk and remediation liability in a transaction while aligning with core deal documents.
+
+## Prerequisites
+
+1. **Primary transaction documents** — loan/acquisition agreement, security instruments, guarantees, and any environmental riders
+2. **Property details** — legal description, address, APN, current and historical uses, tenant/occupant list
+3. **Environmental diligence** — Phase I/II ESA reports, remediation plans, agency correspondence, permits
+4. **Risk allocation terms** — indemnity scope, caps or exclusions, escrows/holdbacks, insurance requirements
+5. **Parties and authority** — full legal names, entity type, formation jurisdiction, signatory authority
+6. **Governing law/venue** — usually the property state; confirm venue requirements and local practice
+
+## Output Structure / Process
+
+1. **Intake and alignment** — confirm deal structure, parties, property, governing law, and map defined terms to the primary deal documents.
+2. **Assemble using the outline** — follow the section table below and keep defined terms consistent across documents.
+3. **Populate core protections** — apply the indemnity/covenant checklist below to ensure full coverage.
+4. **Add schedules/exhibits** — attach property description and environmental disclosure materials.
+5. **QA pass** — confirm survival, assignment, enforcement, and consistency with the transaction documents.
+
+**Document Outline**
+
+| Section | Required Content |
+| --- | --- |
+| Parties and Recitals | Identify indemnitor/indemnitee, transaction background, property description, and intent to allocate environmental risk |
+| Definitions | Environmental Laws, Hazardous Substances, Release, Losses, Remediation, Governmental Authority, Property |
+| Indemnity | Scope covering pre-existing and ongoing contamination, regulatory actions, third-party claims, costs/fees, NRD, and property value impacts |
+| Reps and Warranties | Compliance status, permits, notices/claims, known conditions, disclosure of reports and site conditions |
+| Covenants | Ongoing compliance, notice obligations, cooperation/access, maintenance of permits, no new releases |
+| Remediation Rights | Indemnitee rights to investigate/remediate and recover costs; escrow/holdback mechanics if applicable |
+| Insurance/Financial Assurance | Coverage types, limits, additional insured/loss payee status if required |
+| Survival and Enforcement | Survival period, independence from loan default, remedies and reimbursement rights |
+| Assignment | Indemnitee assignment rights to successors, participants, and affiliates |
+| Governing Law/Venue | Property-state law and exclusive venue, unless deal terms dictate otherwise |
+| Miscellaneous | Notices, amendments, counterparts, severability, waiver, electronic signatures |
+
+**Indemnity and Covenant Checklist**
+
+- Cover losses arising from pre-closing, current, and future releases or violations connected to the property or operations.
+- Include regulatory actions, third-party claims, penalties, investigation costs, response/remediation costs, and attorneys’ fees.
+- State indemnity applies regardless of indemnitee knowledge or diligence results, unless the deal expressly carves out.
+- Require prompt notice of violations, agency communications, and releases.
+- Require cooperation and access for sampling, testing, and response actions.
+
+**Schedules / Exhibits**
+
+- Property legal description and map or survey reference.
+- Environmental reports and assessments list.
+- Known conditions and disclosure schedule.
+
+**QA Checklist**
+
+- Defined terms match the loan/acquisition documents.
+- Survival language addresses long-tail liability and completion of remediation.
+- Assignment clause aligns with lender participation or sale rights.
+- Notice addresses and methods match the main deal documents.
+- Remedies are cumulative and do not limit statutory rights.
+
+## Guidelines
+
+- Keep the indemnity scope as broad as the deal permits; narrow only by explicit, negotiated carveouts.
+- Tie governing law and venue to the property state unless the deal mandates a different forum.
+- Avoid contradicting representations or covenants in the primary transaction documents.
+- If escrows or reserves are required, state funding triggers, release conditions, and control rights.
+- Confirm the agreement survives closing, repayment, and transfer unless the transaction expressly limits survival.
+- Do not include jurisdiction-specific statutory citations unless verified for the property state.
+- Use disclosure schedules to capture known conditions without reducing indemnitor liability beyond negotiated terms.
+tokens used
+11,443

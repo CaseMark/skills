@@ -1,0 +1,43 @@
+{
+  "id": "95dc5b76-0616-4a9b-9d42-791871735536",
+  "slug": "employee-dispute-summaries",
+  "name": "Employee Dispute Summaries",
+  "summary": "Generates comprehensive, objective summaries of employee disputes, distilling allegations, responses, procedural history, resolutions, and contextual factors from various documents. Designed for HR departments and legal advisors to quickly understand key elements and status of employment conflicts like discrimination, harassment, or wrongful termination. Use it when reviewing complex litigation or internal investigations for actionable insights.",
+  "content": "# Employee Dispute Summary Prompt\n\nYou are tasked with creating a comprehensive summary of an employee dispute for use by HR departments and legal advisors. This summary must distill complex employment-related conflicts into a clear, actionable document that enables quick understanding of the dispute's key elements and current status.\n\nBegin by thoroughly reviewing all available documentation related to the employee dispute. This includes complaint letters, witness statements, investigation reports, correspondence between parties, disciplinary records, employment agreements, company policies, and any formal legal filings. Extract and organize information across five critical dimensions: the allegations made, the responses provided by all parties, the procedural history and current status, any resolutions or settlements reached, and relevant contextual factors.\n\nWhen documenting the allegations, identify the specific claims being made, including the nature of the dispute (discrimination, harassment, wrongful termination, wage and hour violations, breach of contract, or other employment-related matters). Specify who is making each allegation, the dates and locations of alleged incidents, any witnesses identified, and the legal or policy violations claimed. Present these allegations objectively without making credibility determinations, using precise language that captures the substance of each claim while avoiding inflammatory characterizations.\n\nFor responses, summarize how each party has addressed the allegations. Include the employer's position, any defenses raised, the employee's rebuttals to employer arguments, and positions taken by any third parties such as union representatives or co-workers. Note where parties agree on facts and where material disputes exist. Document any admissions, denials, or affirmative defenses that have legal significance.\n\nThe procedural status section should provide a clear timeline of the dispute's progression. Note when the initial complaint was filed, what internal processes have been followed (such as HR investigations, grievance procedures, or mediation attempts), whether any external agencies are involved (EEOC, state labor boards, arbitration forums), the current stage of any formal proceedings, upcoming deadlines or hearings, and what procedural steps remain. This chronology enables readers to understand both what has occurred and what actions may be required going forward.\n\nIf any resolution has been reached, document its terms comprehensively. Include whether the matter was resolved through settlement, arbitration award, administrative decision, or other means. Specify any monetary compensation, non-monetary remedies such as reinstatement or policy changes, confidentiality provisions, non-admission clauses, and ongoing obligations for either party. Note whether the resolution is final or subject to appeal or further review.\n\nThroughout the summary, maintain strict objectivity and avoid legal conclusions unless they have been formally determined by a court, arbitrator, or administrative body. Use clear, professional language accessible to both legal and HR professionals. Identify any gaps in documentation or areas where additional investigation may be needed. Flag potential legal risks, including exposure to litigation, regulatory violations, or precedent-setting implications for company policy.\n\nStructure the summary to enable quick reference, with clear section headings and concise paragraphs. Begin with an executive overview that captures the essential nature of the dispute in two to three sentences. Include a parties section identifying all individuals and entities involved with their roles. Present the substantive sections on allegations, responses, procedure, and resolution in logical order. Conclude with a section on outstanding issues, next steps, and recommendations for HR or legal counsel consideration.\n\nEnsure all factual assertions are supported by reference to specific source documents. When quoting from documents, use quotation marks and cite the source. Where information is based on witness statements or interviews, attribute accordingly. If certain facts are disputed or unclear, note this explicitly rather than presenting one party's version as established fact.\n\nConsider the practical needs of your audience. HR professionals require clarity on policy implications, employee relations concerns, and operational impacts. Legal advisors need sufficient detail to assess litigation risk, regulatory compliance, and strategic options. Your summary should serve both audiences by providing the factual foundation they need while highlighting the most significant legal and business considerations.\n\nThe final document should be comprehensive yet concise, typically ranging from two to five pages depending on the complexity of the dispute. It should enable a reader unfamiliar with the matter to quickly understand what happened, what the current status is, and what decisions or actions may be required. This summary becomes a critical reference document for decision-making, settlement negotiations, litigation strategy, and organizational learning about employment practices.",
+  "parent_skill_id": "22a32815-94e1-4019-82f5-f958b8a9672a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "Employment_Litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

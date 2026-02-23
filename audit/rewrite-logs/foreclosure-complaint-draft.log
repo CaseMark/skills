@@ -1,0 +1,317 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-1abc-75b1-ae9f-70d7f3b39511
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "19e2c202-7d03-4758-b1b4-150bbc9cebfe",
+  "slug": "foreclosure-complaint-draft",
+  "name": "Foreclosure Complaint",
+  "summary": "Drafts a comprehensive, court-ready Foreclosure Complaint to initiate judicial foreclosure proceedings. Extracts key facts from uploaded loan documents, verifies chain of title and plaintiff standing, and ensures strict compliance with jurisdiction-specific statutes, rules, and procedural requirements. Use when a lender or assignee seeks to foreclose on a defaulted mortgage in real estate litigation.",
+  "content": "# Enhanced Foreclosure Complaint Drafting Prompt\n\nYou are an expert foreclosure litigation attorney with deep knowledge of mortgage law, real estate finance, and civil procedure. Your task is to draft a comprehensive, court-ready Foreclosure Complaint that initiates judicial foreclosure proceedings while establishing a legally sufficient basis for relief and ensuring strict compliance with all applicable federal and state laws, court rules, and procedural requirements.\n\n## Initial Document Investigation and Information Gathering\n\nBegin by conducting a thorough examination of all uploaded documents to extract every factual detail necessary for a complete and accurate complaint. Search systematically through loan documents, mortgage instruments, assignment records, payment histories, default notices, and correspondence to identify the specific parties, exact loan terms, property description, default history, and current amounts due. Your investigation should uncover the original loan date and amount, interest rate and payment schedule, complete legal description and street address of the property, recording information for the mortgage, precise dates and amounts of missed payments, and the total arrearage broken down by principal, interest, late fees, and any advances made by the lender.\n\nPay particular attention to establishing the plaintiff's standing to foreclose by tracing the complete chain of title for both the promissory note and mortgage. When the current plaintiff is not the original lender, you must identify each assignment with specific dates, recording information, and the parties to each transfer. Verify that all assignments were properly executed and recorded in the county land records where the property is located, as defects in the chain of title represent one of the most common and successful foreclosure defenses.\n\nResearch the specific foreclosure statutes and procedural requirements for the jurisdiction where the property is located, recognizing that foreclosure law varies significantly by state. Identify the statutory basis for judicial foreclosure, any mandatory pre-suit notice requirements including right-to-cure periods or mediation programs, the proper venue for filing, verification requirements for the complaint, and whether deficiency judgments are permitted. Understanding these jurisdictional requirements is critical because foreclosure is a creature of statute requiring strict compliance with procedural mandates, and even technical deficiencies can result in dismissal.\n\n## Drafting the Caption and Preliminary Sections\n\nConstruct a properly formatted caption that complies with local court rules for the specific jurisdiction. The caption must identify the court of proper jurisdiction with precision, including the judicial district or county, and list all parties with their complete legal names exactly as they appear in the loan documents. Designate the plaintiff with its full legal name, entity type, state of organization, and capacity as the current holder or servicer of the note and mortgage. Name as defendants the borrower or borrowers as identified in the mortgage, along with any guarantors, junior lienholders, homeowners associations, or other parties who may claim an interest in the property that must be foreclosed to convey clear title.\n\nResearch the specific formatting requirements mandated by local court rules, which often dictate precise specifications for margins, font type and size, line spacing, and caption structure. Some jurisdictions require specific case type designations, color-coded filing covers for foreclosure actions, or mandatory cover sheets with detailed case information. Include the case number if one has been assigned, or leave appropriate space for the clerk to assign a number upon filing.\n\n## Establishing Jurisdiction, Venue, and Conditions Precedent\n\nDraft a comprehensive jurisdictional statement that establishes the court's subject matter jurisdiction over foreclosure actions by citing the specific state statute granting such authority. Assert that the amount in controversy exceeds any minimum jurisdictional threshold if your jurisdiction imposes such requirements. Demonstrate proper venue by alleging that the subject real property is located within the territorial boundaries of the county or judicial district where you are filing, citing the applicable venue statute that typically requires foreclosure actions to be brought where the property is situated.\n\nCritically important to your jurisdictional allegations are assertions regarding compliance with all conditions precedent to filing the foreclosure action. Allege with specificity that the plaintiff has satisfied all pre-suit notice requirements mandated by state statute or the mortgage terms, including acceleration notices, right-to-cure notices, breach letters, and any required participation in foreclosure mediation or settlement conferences. Provide the dates these notices were sent, the method of delivery, and reference copies as exhibits. Many jurisdictions impose strict pre-suit notice requirements with specific content and timing mandates, and failure to comply can result in dismissal of the action or provide the borrower with additional cure opportunities that delay the foreclosure process.\n\n## Presenting the Factual Foundation\n\nDevelop a detailed factual narrative that chronologically presents the loan transaction and establishes the mortgage lien. Begin with allegations regarding the execution of the promissory note, stating the date of execution, the original principal amount, the interest rate including whether it is fixed or adjustable, the payment amount and frequency, the maturity date, and any other material terms such as prepayment provisions or balloon payments. Allege that the borrower executed the note as an unconditional promise to repay the loan according to its terms, creating a personal obligation to pay the debt.\n\nNext, describe the mortgage or deed of trust that secures the promissory note, alleging the date of execution, the parties to the instrument, and that it grants the lender a lien on the real property as security for the borrower's obligations under the note. Provide the complete legal description of the property exactly as it appears in the recorded mortgage, and include the street address for identification purposes. Allege that the mortgage was properly executed, acknowledged, and recorded in the official records of the county where the property is located, providing the specific book and page number or instrument number and recording date. This recording information establishes the priority of the lien and provides constructive notice to all subsequent purchasers and encumbrancers.\n\nWhen the plaintiff is not the original lender, you must establish standing through detailed allegations regarding the chain of assignments. For each assignment in the chain, allege the date of the assignment, the assignor and assignee, that the assignment transferred both the note and mortgage, and the recording information including book and page or instrument number and date of recording. Reference certified copies of all assignments as exhibits to the complaint. Some jurisdictions require that the plaintiff possess the original promissory note or provide an explanation for its absence, so address note possession explicitly in your allegations. If the note has been lost or destroyed, you may need to include a separate count for reformation or enforcement of a lost note, supported by an affidavit establishing the note's terms and the circumstances of its loss.\n\nInclude allegations regarding any loan modifications, forbearance agreements, or other changes to the original loan terms, providing dates and describing the material terms of such agreements. If the loan was modified, ensure your default allegations and amounts due reflect the modified terms rather than the original note provisions. Failure to properly account for modifications can provide the borrower with defenses based on the plaintiff's breach of the modification agreement or improper calculation of the amount due.\n\n## Detailing the Default and Acceleration\n\nAllege the defendant's default with precision and specificity, as this is the foundation for your foreclosure claim. State the exact date of the first missed payment and describe the nature of the default, which typically involves non-payment of principal and interest but may also include failure to maintain hazard insurance, pay property taxes, maintain the property free from waste, or other covenant breaches specified in the mortgage. Provide a payment history showing the last payment received and the total amount of arrearages, broken down by missed payment dates and amounts. This level of detail demonstrates that the default is not a minor or technical breach but a material failure to perform the borrower's obligations.\n\nAssert that the default has continued unremedied despite the passage of any cure period provided in the mortgage or required by statute, and that all conditions precedent to acceleration have been satisfied. Allege that the plaintiff properly accelerated the entire unpaid balance of the loan pursuant to the acceleration clause in the mortgage, making all future installments immediately due and payable. Specify the date and method by which the acceleration notice was provided to the borrower, and reference a copy of the acceleration notice as an exhibit. The acceleration notice must comply with any specific requirements in the mortgage or state law regarding content, timing, and method of delivery.\n\nCalculate and allege the total amount now due and owing, providing a detailed breakdown that includes the unpaid principal balance as of a specific date, accrued and unpaid interest calculated through that date at the contract rate, any late charges or default interest if provided for in the note, advances made by the plaintiff for property taxes, hazard insurance, property preservation costs, or other protective advances authorized by the mortgage, and attorney's fees and costs if the loan documents provide for recovery of such amounts. Provide a per diem interest rate so that interest continuing to accrue after the filing date can be calculated. Ensure all calculations are accurate and current, as errors in the amount due can delay the foreclosure process or provide grounds for defense. Some jurisdictions require that the complaint include an itemized statement of the debt with specific categories, so research local requirements carefully.\n\n## Structuring Causes of Action for Complete Relief\n\nOrganize your complaint into separate, clearly labeled causes of action that collectively seek all relief to which the plaintiff is entitled. Your primary cause of action should be for foreclosure of the mortgage, alleging that the mortgage constitutes a valid and enforceable first lien on the subject property, that the defendant has defaulted on the obligations secured by the mortgage, that the plaintiff has complied with all conditions precedent to foreclosure, and that the plaintiff is entitled to foreclosure and judicial sale of the property to satisfy the debt. Cite the specific state statute authorizing judicial foreclosure and incorporate by reference all prior factual allegations to avoid unnecessary repetition while ensuring each count is legally sufficient.\n\nInclude a separate cause of action for breach of the promissory note, alleging the defendant's promise to pay according to the note's terms, the defendant's failure to make required payments constituting a material breach, and the plaintiff's entitlement to judgment for the full accelerated amount due. This count establishes the personal liability of the borrower and provides the basis for any deficiency judgment if permitted in your jurisdiction. The foreclosure count addresses the in rem proceeding against the property, while the breach of note count addresses the in personam liability of the borrower.\n\nIf your jurisdiction allows deficiency judgments and the loan documents do not waive such recovery, include appropriate allegations supporting a deficiency claim. Be aware that some states prohibit or limit deficiency judgments, particularly for purchase money mortgages or residential properties, and some require separate proceedings or impose fair value requirements that limit the deficiency to the difference between the debt and the property's fair market value rather than the foreclosure sale price. Research your jurisdiction's law carefully to ensure compliance with any special requirements for deficiency claims.\n\nConsider additional causes of action as warranted by the specific circumstances of your case. If the defendant is occupying the property, include a claim for possession of the premises to ensure the successful bidder can obtain immediate possession after the sale. If there are junior lienholders or other parties claiming interests in the property, include counts to establish the priority of the plaintiff's lien and to foreclose and extinguish subordinate interests. If the defendant has committed waste or violated other mortgage covenants beyond payment default, include separate counts for such breaches. Each cause of action should incorporate the factual allegations by reference, cite applicable legal authority, and conclude with a statement that the plaintiff is entitled to relief on that claim.\n\n## Requesting Comprehensive and Specific Relief\n\nDraft a prayer for relief that requests all forms of relief necessary to fully resolve the foreclosure action and satisfy the plaintiff's claims. Demand a money judgment against the defendant-borrower for the total amount due under the promissory note, including the unpaid principal balance, interest accrued through the date of judgment and continuing to accrue thereafter at the contract rate until paid, late charges and default interest if applicable, all advances made by the plaintiff for taxes, insurance, or property preservation, and reasonable attorney's fees and costs if authorized by the note, mortgage, or state statute.\n\nRequest that the court enter an order of foreclosure directing the sale of the subject property according to the procedures specified by state law. Specify whether the sale should be conducted as a public auction, judicial sale, or other method required by your jurisdiction's foreclosure statutes. Request that the proceeds of the sale be applied first to the costs of sale including advertising, auctioneer fees, and title charges, then to the plaintiff's judgment amount in order of priority. Some jurisdictions have specific statutory requirements regarding the order of application of sale proceeds, so ensure your prayer conforms to these requirements.\n\nIf seeking a deficiency judgment, explicitly request that any deficiency remaining after application of the sale proceeds be entered as a personal judgment against the defendant, enforceable through post-judgment collection remedies. Cite the specific contractual or statutory basis for attorney's fees and costs, as courts will only award such amounts if clearly authorized. Some jurisdictions require that attorney's fees be reasonable and necessary, and may require submission of detailed fee affidavits or evidence of the fees incurred.\n\nRequest that all junior liens, encumbrances, and claims of interest held by other defendants be foreclosed, extinguished, and forever barred, subject to any statutory redemption rights that may exist in your jurisdiction. Some states provide post-sale redemption periods during which the borrower or other parties may reclaim the property by paying the sale price plus costs, so your prayer should acknowledge such rights if applicable. Include a general request for such other and further relief as the court deems just and proper, which provides flexibility for the court to grant additional appropriate relief not specifically enumerated.\n\n## Executing Proper Verification, Signature, and Certifications\n\nConclude the complaint with all required signature blocks, verifications, and certifications mandated by your jurisdiction. Include the attorney's signature block with the attorney's full name, bar number, law firm name, complete address, telephone number, fax number if applicable, email address, and designation as counsel for the plaintiff. Date the signature block with the date of execution.\n\nDetermine whether your jurisdiction requires verification of foreclosure complaints, as many states mandate that the complaint be verified by the plaintiff or an authorized representative with personal knowledge of the facts alleged. If verification is required, include a separate verification section following the signature block, with appropriate oath language stating that the affiant has read the complaint, knows its contents, and that the facts alleged are true and correct to the best of the affiant's knowledge, information, and belief. The verification must be executed before a notary public with proper notarial certificate including the notary's signature, seal, commission expiration date, and acknowledgment language.\n\nIf the plaintiff is a corporation or other entity, ensure that the verification is executed by an authorized officer or representative who has personal knowledge of the facts, such as a loan servicer employee familiar with the account. Some jurisdictions have specific requirements regarding corporate verification or require affidavits of amounts due executed by custodians of records. The affiant should have direct access to the loan file and payment records to ensure the verification is based on personal knowledge rather than mere belief.\n\nInclude any certifications required by state law or local court rules, such as a certificate of compliance with pre-suit notice requirements, a good faith certification regarding attempts to resolve the matter without litigation, or certifications regarding service of process. Some jurisdictions require foreclosure plaintiffs to certify participation in loss mitigation efforts or mediation programs before filing suit, and failure to include such certifications can result in dismissal or delay.\n\n## Ensuring Quality, Accuracy, and Professional Excellence\n\nThroughout the drafting process, maintain the highest standards of legal writing with precise, formal language appropriate for litigation documents. Avoid conclusory allegations and instead plead specific facts that, if proven, would establish each element of your claims. Ensure absolute consistency in party designations, dates, monetary amounts, and property descriptions throughout the entire document. Any inconsistency can provide grounds for defense or delay, and courts may view inconsistencies as evidence of sloppy work or lack of knowledge of the facts.\n\nReference all essential documents as exhibits to the complaint, including a copy of the promissory note marked to show any endorsements, the mortgage or deed of trust, all assignments in the chain of title, the payment history or account statement, copies of all default notices and acceleration letters, and any loan modification agreements. Ensure that exhibits are properly labeled, referenced in the body of the complaint, and certified as true and correct copies if required by local rules. Some jurisdictions require that exhibits be attached to the complaint at filing, while others allow them to be filed separately or produced during discovery.\n\nVerify that all monetary calculations are accurate and current, including the principal balance, accrued interest calculations using the correct interest rate and calculation method, per diem interest rates for post-filing accrual, and any advances or fees. Mathematical errors in the amount due can significantly delay the foreclosure process and may require amended pleadings, which can restart notice periods or provide the borrower with additional time to cure or raise defenses.\n\nCross-reference all applicable foreclosure statutes to ensure strict compliance with procedural requirements, as courts typically require substantial compliance with statutory foreclosure procedures and may dismiss actions that fail to meet technical requirements. Review local court rules for any additional requirements specific to foreclosure actions in that jurisdiction, such as mandatory case management procedures, special filing requirements, required cover sheets or case information statements, and filing fees or deposits for publication costs.\n\nConsider the defensive postures the defendant may assert and ensure your complaint adequately addresses potential defenses. Common foreclosure defenses include lack of standing due to defects in the chain of assignments, failure to comply with notice requirements, improper calculation of amounts due, violations of loan modification obligations, predatory lending claims, and violations of the Real Estate Settlement Procedures Act or Truth in Lending Act. By anticipating these defenses and pleading facts that negate them, you strengthen the complaint and position the case for efficient resolution through summary judgment or uncontested foreclosure.\n\nYour completed Foreclosure Complaint should be a comprehensive, legally sufficient pleading that establishes all elements necessary for foreclosure relief while complying with every applicable procedural requirement. The document should be immediately ready for filing upon review and approval by the supervising attorney, requiring no substantive revisions to meet court standards. The complaint should demonstrate thorough knowledge of the loan file, mastery of foreclosure law and procedure, and professional excellence in legal drafting that will withstand scrutiny from opposing counsel, the court, and any appellate review.",
+  "parent_skill_id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "real-estate-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:07.983116",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:57:43.720401Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Drafting foreclosure complaint skill**
+
+I'm composing a concise SKILL.md for "Foreclosure Complaint" using metadata for practice area, document type, and drafting skill mode. It will include a clear title, one-line purpose, numbered prerequisites, structured output guidance with tables and checklists, jurisdictional placeholders, and detailed sections like parties, property, loan terms, defaults, and prayer for relief—formatted with flat bullets and markdown tables, adhering strictly to length and style requirements.
+thinking
+**Refining skill content and structure**
+
+I'm finalizing the foreclosure complaint skill with precise trigger terms and placeholders for jurisdiction-specific rules. The structure will include sections for prerequisites, detailed outputs like input tables, pleading checklists, required allegations, amounts, prayers, verification, and exhibits—using flat lists and markdown tables to meet formatting rules and length targets.
+codex
+---
+name: foreclosure-complaint
+description: Drafts U.S. judicial foreclosure complaints that plead standing, chain of title, default, and amounts due with jurisdiction-specific compliance and exhibit control. Use when preparing a foreclosure complaint, mortgage foreclosure pleading, note-and-mortgage enforcement action, or default-based real estate litigation. Trigger keywords: foreclosure complaint, judicial foreclosure, note and mortgage, chain of title, standing, default notice, acceleration, lost note.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Foreclosure Complaint
+
+Produces a court-ready foreclosure complaint with verified standing, default, and relief.
+
+## Prerequisites
+
+1. **Loan documents** — promissory note, mortgage/deed of trust, riders, endorsements/allonges
+2. **Assignment chain** — each transfer of note/mortgage with dates and recording data
+3. **Payment history** — last paid installment, default date, arrearage detail
+4. **Pre-suit notices** — breach/acceleration/right-to-cure and proof of service
+5. **Property data** — legal description, parcel ID, address, recording info
+6. **Jurisdiction rules** — venue statute, foreclosure statute, verification/affidavit requirements
+7. **Parties with interests** — borrower(s), guarantors, junior liens, HOA/condo, tenants in possession
+
+## Output Structure / Process
+
+**Inputs Table**
+| Field | Required | Notes |
+| --- | --- | --- |
+| Court/County | Yes | Must match property location and venue statute |
+| Plaintiff identity | Yes | Entity type, state of formation, capacity (holder/servicer) |
+| Defendant list | Yes | All parties with record or claimed interests |
+| Note terms | Yes | Date, principal, rate, payment schedule, maturity |
+| Mortgage terms | Yes | Date, recording book/page or instrument no. |
+| Property legal description | Yes | Exact as recorded; include street address |
+| Default date | Yes | First missed payment date |
+| Amounts due | Yes | Principal, interest, fees, advances, per diem |
+| Notices | Yes | Dates, method, content compliance |
+| Standing facts | Yes | Chain of assignments and note possession |
+| Modifications | If any | Dates, material terms, recalculated amounts |
+
+**Pleading Outline Checklist**
+- [ ] Caption (court, parties, case type, case no. placeholder)
+- [ ] Jurisdiction and venue
+- [ ] Parties and interest allegations
+- [ ] Loan transaction allegations (note + mortgage)
+- [ ] Recording and lien priority
+- [ ] Standing and chain of title
+- [ ] Conditions precedent and notice compliance
+- [ ] Default and acceleration
+- [ ] Amounts due with per diem interest
+- [ ] Causes of action
+- [ ] Prayer for relief
+- [ ] Verification/affidavit (if required)
+- [ ] Signature block and certificates
+- [ ] Exhibits list
+
+**Required Allegations Table**
+| Topic | Must Allege | Notes |
+| --- | --- | --- |
+| Standing | Holder or authorized agent; note possession; assignments | Address lost note if applicable |
+| Mortgage validity | Execution, consideration, recording | Provide recording data |
+| Default | Date and nature of breach | Include last payment date |
+| Notice compliance | Statutory and contractual notices | Include dates/methods |
+| Acceleration | Date and method of acceleration | Cite clause if needed |
+| Amount due | Itemized totals | Include per diem rate |
+| Priority | Lien priority vs. junior interests | Identify subordinate liens |
+| Venue | Property located in county | Cite venue statute |
+| Conditions precedent | Compliance pleaded with specificity | Attach notices as exhibits |
+
+**Amounts Due Template**
+```
+Unpaid principal balance (as of [DATE]): $[AMOUNT]
+Accrued interest through [DATE] at [RATE]%: $[AMOUNT]
+Late charges / default interest: $[AMOUNT]
+Advances (taxes/insurance/preservation): $[AMOUNT]
+Other fees/costs authorized by loan docs: $[AMOUNT]
+Total due as of [DATE]: $[AMOUNT]
+Per diem interest: $[AMOUNT]/day
+```
+
+**Causes of Action**
+1. Foreclosure of mortgage/deed of trust
+2. Breach of promissory note
+3. Deficiency judgment (if permitted)
+4. Possession/writ of assistance (if needed)
+5. Priority and extinguishment of junior interests (as applicable)
+
+**Prayer for Relief Checklist**
+- [ ] Money judgment for total indebtedness with per diem interest
+- [ ] Foreclosure judgment and order of sale
+- [ ] Application of sale proceeds per statute
+- [ ] Deficiency judgment (if allowed)
+- [ ] Extinguishment of junior interests, subject to redemption rights
+- [ ] Attorneys’ fees and costs (if authorized)
+- [ ] Other relief deemed just and proper
+
+**Exhibits List**
+- [ ] Note (with endorsements/allonges)
+- [ ] Mortgage/deed of trust
+- [ ] Assignments (each link in chain)
+- [ ] Payment history/accounting
+- [ ] Default/breach and acceleration notices with proof of service
+- [ ] Loan modification/forbearance agreements (if any)
+- [ ] Affidavit of amounts due (if required)
+- [ ] Lost note affidavit (if applicable)
+
+## Guidelines
+
+- Use exact party names from loan docs and land records; keep consistent throughout.
+- Identify all parties with recorded or claimed interests to clear title post-sale.
+- Plead standing with note possession and assignments; address lost note via affidavit if needed.
+- Itemize amounts due and provide a per diem interest rate.
+- Include dates and service methods for every required notice and condition precedent.
+- Confirm jurisdiction-specific requirements for verification, mediation, and pre-suit certifications.
+- Do not request a deficiency judgment if barred or limited by state law.
+- Flag any state-specific statutory citations you cannot confirm with `[VERIFY]`.
+- Avoid conclusory allegations; plead facts tied to exhibits.
+tokens used
+6,338

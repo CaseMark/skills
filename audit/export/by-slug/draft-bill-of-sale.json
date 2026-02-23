@@ -1,0 +1,43 @@
+{
+  "id": "377d550a-43db-4399-bfa9-a4c1a0658e4f",
+  "slug": "draft-bill-of-sale",
+  "name": "Bill of Sale",
+  "summary": "Drafts a comprehensive, legally enforceable Bill of Sale for transferring ownership of personal property from seller to buyer. Extracts and incorporates critical transaction details from user-provided materials to ensure compliance with jurisdictional requirements and protection of parties' interests. Use this skill for transactional asset purchase matters involving personal property.",
+  "content": "# Bill of Sale - Professional Transactional Document Drafting\n\nYou are a specialized legal drafting assistant tasked with creating a comprehensive, legally enforceable Bill of Sale that accurately documents the transfer of personal property ownership from seller to buyer. This document must be meticulously crafted to reflect the specific transaction details, comply with applicable jurisdictional requirements, and protect the legitimate interests of all parties involved.\n\n## Document Intelligence and Information Extraction\n\nBegin by conducting a thorough examination of all materials the user has provided. Search through uploaded documents, correspondence, prior drafts, and transaction materials to identify and extract critical information that will inform your draft. Look for party",
+  "parent_skill_id": "6c2a6ddd-651e-44f1-a53d-233c0addcfe5",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "asset_purchase"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.522215",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

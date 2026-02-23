@@ -1,0 +1,200 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-5764-74d0-8660-731fecf3c6c7
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7d345c37-6b92-45f9-a273-69978e414ed2",
+  "slug": "litigation-family-law-qdro-draft",
+  "name": "Qualified Domestic Relations Order (QDRO)",
+  "summary": "Drafts Qualified Domestic Relations Orders (QDROs) compliant with ERISA and state law to divide retirement benefits between divorcing parties. Incorporates precise court captions, recitals, definitions, and plan-specific division formulas based on divorce decrees and plan documents. Use this skill in family law litigation for post-judgment allocation of pensions, 401(k)s, and other retirement assets.",
+  "content": "# Qualified Domestic Relations Order (QDRO) - Litigation Document\n\nYou are tasked with drafting a comprehensive Qualified Domestic Relations Order (QDRO) that complies with ERISA requirements and applicable state law. This document will divide retirement benefits between a plan participant and an alternate payee pursuant to a divorce decree or marital settlement agreement.\n\n## Initial Information Gathering and Context\n\nBegin by thoroughly reviewing all uploaded divorce documents, settlement agreements, and retirement plan materials to extract essential facts including the parties' full legal names, social security numbers, addresses, the specific retirement plan(s) at issue, the marriage date, separation date, and any agreed-upon division formulas or percentages. Pay particular attention to provisions in the divorce decree that reference retirement benefits, as these will form the foundation of your QDRO. If critical information is missing from the uploaded documents, note these gaps clearly so they can be addressed.\n\nResearch the specific retirement plan type (defined benefit, defined contribution, 401(k), pension, etc.) to ensure your QDRO language aligns with that plan's particular requirements and the plan administrator's model QDRO provisions if available. Different plan types require different division methodologies, and many plan administrators have specific language they require or prefer.\n\n## Document Structure and Required Components\n\n**Court Caption and Jurisdictional Framework**: Draft a proper court caption that includes the full court name with jurisdiction, the case number exactly as it appears in the divorce action, the parties' names in the same order and format as the underlying divorce case, and clearly title the document as \"Qualified Domestic Relations Order\" or \"QDRO.\" Verify the caption format matches the local court rules for the jurisdiction where the divorce was filed, as caption requirements vary by state and court level.\n\n**Recitals and Foundational Statements**: Craft an introductory section that establishes the legal basis for the order. Reference the specific divorce decree or judgment by date and case number, identify the retirement plan by its complete legal name, and state the court's authority to divide marital property including retirement benefits. The recitals should make clear that this order is intended to qualify as a domestic relations order under ERISA Section 206(d) and Internal Revenue Code Section 414(p), and that it creates or recognizes the alternate payee's right to receive benefits payable under the plan. Include findings that the order does not require the plan to provide any type or form of benefit not otherwise provided under the plan, does not require increased benefits, and does not require payment of benefits to an alternate payee that are already required to be paid to another alternate payee under a previous QDRO.\n\n**Precise Definitions Section**: Define all key terms with legal precision to avoid ambiguity. At minimum, define \"Participant\" as the plan member whose benefits are being divided, \"Alternate Payee\" as the former spouse receiving benefits under this order, \"Plan\" as the specific retirement plan including its full legal name and any plan number, \"Plan Administrator\" as the entity responsible for plan administration, \"Marital Coverture Fraction\" or division formula if applicable, \"Benefits\" or \"Account Balance\" as appropriate to the plan type, and \"Valuation Date\" or \"Determination Date\" for calculating the division. For defined benefit plans, define terms like \"Accrued Benefit,\" \"Benefit Commencement Date,\" and \"Shared Payment Method\" if using that approach. Ensure definitions align with ERISA terminology and the specific plan document language.\n\n**Complete Party and Plan Identification**: Provide comprehensive identifying information for both the Participant and Alternate Payee including full legal names (with any former names), current mailing addresses, dates of birth, and social security numbers. Identify the retirement plan with its complete legal name exactly as registered with the IRS, the plan number if applicable, the employer or plan sponsor's full legal name and address, and the plan administrator's name, address, and contact information. This level of detail is essential for the plan administrator to properly process the order and establish separate accounting for the alternate payee's interest.\n\n**Award and Division Methodology**: Specify with mathematical precision how the retirement benefits will be divided. For defined contribution plans like 401(k)s, state the exact percentage or dollar amount of the account balance awarded to the alternate payee, the valuation date for determining the account balance (typically the date of divorce, separation, or a specific date certain), and whether the alternate payee's share includes earnings and losses from the valuation date through the date of segregation. For defined benefit pension plans, specify whether you are using a shared payment approach (where the alternate payee receives a percentage of each payment made to the participant) or a separate interest approach (where the alternate payee's benefit is separately calculated and can commence independently). Include the coverture fraction or time rule formula if dividing only the marital portion of benefits, clearly stating the numerator (months of marriage during plan participation) and denominator (total months of plan participation through retirement or another specified date).\n\nAddress cost-of-living adjustments, early retirement subsidies, and other ancillary benefits, specifying whether the alternate payee shares in these or whether they remain with the participant. If the plan allows, specify whether the alternate payee may elect to receive their share as a lump sum distribution or must receive it in the same form as the participant. Ensure that the division method does not require the plan to provide any benefit option not otherwise available under the plan terms.\n\n**Alternate Payee Rights and Protections**: Clearly enumerate the alternate payee's rights under the order, including the right to designate beneficiaries for their share of benefits, the right to receive information from the plan administrator regarding their benefit, and any survivor benefit rights. Specify whether the alternate payee is entitled to pre-retirement survivor benefits if the participant dies before benefit commencement, and if so, what percentage or amount. Address whether the alternate payee's interest is subject to reduction if the participant takes a loan or hardship withdrawal from the plan, or whether the alternate payee's segregated share is protected from such actions. Include provisions protecting the alternate payee from plan amendments that would reduce their awarded benefits, and specify that the alternate payee's interest vests immediately upon the order being deemed qualified by the plan administrator, regardless of the participant's vesting schedule.\n\n**Plan Administrator Directives**: Provide clear, actionable instructions to the plan administrator regarding implementation of the order. Direct the administrator to segregate the alternate payee's awarded share as of the specified valuation date, establish a separate account in the alternate payee's name if the plan type allows, provide the alternate payee with all rights of a plan beneficiary including distribution options and investment direction if applicable, and process any distribution requests from the alternate payee in accordance with plan terms and tax law. Specify any required tax withholding treatment, noting that distributions to an alternate payee pursuant to a QDRO may be eligible for rollover to an IRA or other qualified plan without the 10% early withdrawal penalty. Instruct the administrator to provide written notice to both parties once the order has been reviewed and deemed qualified, and to notify both parties of the alternate payee's segregated account balance or benefit amount.\n\n**Compliance Certifications and Effective Date**: Include explicit statements that this order is intended to comply with ERISA Section 206(d)(3), Internal Revenue Code Section 414(p), and all applicable state domestic relations law. Certify that the order does not require the plan to provide increased benefits, does not require a type or form of benefit not otherwise provided under the plan, and does not require payment of benefits required to be paid to another alternate payee under a previous order. State the effective date of the order, which is typically the date the court signs it or the date the plan administrator deems it qualified, whichever is later. Include any conditions for termination of the alternate payee's rights, such as remarriage if applicable under state law and the divorce decree, though note that ERISA generally does not permit termination of QDRO rights based on remarriage for retirement plans.\n\n**Signature Block and Judicial Certification**: Conclude with a proper signature section that includes a line for the judge's signature, the date of signing, and the judge's printed name and title. Include a certification statement where the court certifies that this order is a qualified domestic relations order that meets all requirements of ERISA and the Internal Revenue Code. Some jurisdictions require the court seal or clerk's certification as well, so verify local requirements and include appropriate language for such certifications.\n\n## Legal Research and Verification Requirements\n\nThroughout the drafting process, verify that your QDRO language complies with current ERISA regulations by referencing Department of Labor guidance on QDROs, IRS publications on retirement plan divisions, and the specific plan's QDRO procedures if available from the plan administrator. Research any state-specific requirements for QDROs in the jurisdiction where the divorce was filed, as some states have additional procedural or substantive requirements beyond federal ERISA standards. Confirm that the division methodology you employ is recognized and accepted by the specific type of retirement plan at issue, as different plan types have different capabilities and limitations.\n\nWhen citing legal authority, reference ERISA Section 206(d)(3)(B) for the definition of a qualified domestic relations order, Internal Revenue Code Section 414(p) for parallel tax code provisions, and relevant Department of Labor regulations at 29 CFR 2530.206. If addressing specific issues like the treatment of early retirement subsidies or cost-of-living adjustments, research case law and DOL advisory opinions that provide guidance on these technical matters.\n\n## Final Document Assembly\n\nOnce you have gathered all necessary information from the uploaded documents, completed your legal research on QDRO requirements, and verified compliance with both ERISA and the specific plan's procedures, create a comprehensive QDRO document that is immediately ready for court submission and plan administrator review. The document should be professionally formatted, legally precise, internally consistent, and complete with all required provisions. Ensure that every factual detail is accurate, every legal citation is current and properly formatted, and every instruction to the plan administrator is clear and actionable. The final QDRO should require no substantive revisions and should be acceptable to both the court and the plan administrator upon initial review.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:41.817938Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:42:42.126434Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:46.005002Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:46.963397Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e51cfa0e49ec-SJC)
+2026-02-23T21:42:47.996474Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5238d783708-SJC)
+2026-02-23T21:42:49.396336Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e52c3eac1fdb-SJC)
+2026-02-23T21:42:51.678326Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e53a8b034b96-SJC)
+2026-02-23T21:42:55.677833Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5537bd7cb6f-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-family-law-qdro-draft-u3bf7coe.md
+
+STDOUT:
+

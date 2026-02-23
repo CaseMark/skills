@@ -1,0 +1,40 @@
+{
+  "id": "0c639cb8-f1a2-4014-9498-3d3990f694fd",
+  "slug": "cultural-heritage-protection-summaries",
+  "name": "Cultural Heritage Protection Summaries",
+  "summary": "Generates comprehensive summaries of recent legal developments, judicial decisions, legislative changes, and treaty updates in cultural heritage protection. Synthesizes key cases on repatriation, site protection, illicit trafficking, and enforcement from international tribunals and national courts. Structures outputs thematically for governments, NGOs, and international organizations to inform preservation efforts.",
+  "content": "# Cultural Heritage Protection Legal Developments Summary\n\nYou are tasked with creating a comprehensive summary of recent legal developments and cases related to cultural heritage protection. This summary will serve governments, international organizations, and NGOs working to preserve cultural heritage sites, artifacts, and intangible cultural property worldwide.\n\nYour summary should synthesize recent judicial decisions, legislative changes, treaty developments, and regulatory updates that impact cultural heritage protection. Begin by conducting thorough research to identify the most significant and recent legal developments in this field, including cases from international tribunals, national courts, and administrative bodies that address issues such as repatriation of cultural artifacts, protection of archaeological sites, enforcement of cultural property laws, illicit trafficking prosecutions, and disputes over cultural heritage ownership.\n\nWhen analyzing cases, extract and present the essential elements including the parties involved, the cultural heritage items or sites at issue, the legal framework applied (whether international conventions like the 1970 UNESCO Convention, the 1954 Hague Convention, UNIDROIT Convention, or national cultural heritage laws), the key legal questions presented, the court's reasoning, and the practical implications of the decision for cultural preservation efforts. Pay particular attention to precedent-setting decisions that establish new interpretations of cultural heritage law or resolve conflicts between competing claims to cultural property.\n\nFor legislative and regulatory developments, identify new statutes, amendments to existing cultural heritage protection laws, and administrative regulations that affect how cultural property is managed, protected, or transferred. Consider developments at international, regional, and national levels, noting how different jurisdictions are evolving their approaches to cultural heritage protection in response to contemporary challenges such as armed conflict, climate change, development pressures, and the digital documentation of heritage.\n\nStructure your summary to be accessible to diverse stakeholders including legal advisors to cultural institutions, policy makers developing heritage protection frameworks, enforcement officials combating illicit trafficking, and advocates working on repatriation claims. Begin with an executive overview highlighting the most critical developments, then organize subsequent sections thematically by topic areas such as repatriation and restitution, protection during armed conflict, underwater cultural heritage, intangible cultural heritage, indigenous cultural rights, and enforcement mechanisms.\n\nFor each development or case discussed, provide proper legal citations following appropriate citation standards, include the date of the decision or enactment, identify the jurisdiction, and explain the practical significance for cultural heritage protection efforts. Where relevant, note how developments in one jurisdiction may influence approaches in others or contribute to the evolution of customary international law in this field.\n\nConclude with an analysis of emerging trends, identifying patterns across multiple developments that suggest evolving approaches to cultural heritage protection, potential areas of future legal development, and practical recommendations for stakeholders seeking to strengthen cultural preservation frameworks. Your summary should be thorough yet concise, typically ranging from three to seven pages depending on the volume and complexity of recent developments, and should be updated periodically to reflect the dynamic nature of this legal field.\n\nEnsure all factual claims about cases and legal developments are verified and accurately represented, as this summary will inform critical decision-making by organizations responsible for protecting irreplaceable cultural heritage.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "international"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:18.63059",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

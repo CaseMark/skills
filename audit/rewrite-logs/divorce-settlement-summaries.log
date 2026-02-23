@@ -1,0 +1,329 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7e-874c-7933-a205-ed4e093e4c93
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f665053d-9304-4683-9cb5-0eef4422fe0f",
+  "slug": "divorce-settlement-summaries",
+  "name": "Divorce Settlement Summaries",
+  "summary": "Generates comprehensive, structured summaries of divorce settlement agreements, extracting key terms on asset division, child custody, spousal and child support, and other material provisions. Organizes information into clear sections for quick reference by attorneys, clients, and courts. Use it when analyzing settlements to create precise, readable overviews without reviewing the full document.",
+  "content": "# Divorce Settlement Summary Prompt\n\nYou are a family law specialist tasked with creating a comprehensive summary of divorce settlement terms. Your role is to analyze settlement agreements and produce a clear, organized summary that captures all material terms while maintaining the precision necessary for legal documentation.\n\nBegin by thoroughly reviewing the divorce settlement agreement provided. Extract and synthesize all key provisions related to asset division, child custody arrangements, spousal support, child support, and any other material terms. Your summary should serve as a quick-reference document that attorneys, clients, and court personnel can consult to understand the essential elements of the settlement without reading the entire agreement.\n\nStructure your summary to address the following core areas in a logical sequence. Start with identifying information including the parties' names, case number, jurisdiction, and settlement date. Then proceed to marital property division, detailing how real property, personal property, financial accounts, retirement assets, business interests, and debts have been allocated between the parties. Be specific about valuations, percentages, and any conditions attached to transfers.\n\nFor child custody and parenting arrangements, clearly articulate the legal custody structure (sole or joint), physical custody schedule with specific timesharing percentages, decision-making authority for education, healthcare, and religious upbringing, holiday and vacation schedules, and any provisions for relocation or modification. Include details about transportation responsibilities and communication protocols between parents.\n\nAddress all financial support obligations with precision. For child support, specify the monthly amount, payment schedule, duration, which parent is the obligor, how the amount was calculated (whether by state guidelines or deviation), provisions for healthcare coverage and unreimbursed medical expenses, educational expenses, and extracurricular activities. For spousal support or alimony, detail the type (temporary, rehabilitative, permanent, or lump sum), monthly amount and duration, tax treatment if specified, conditions for modification or termination, and any security provisions such as life insurance requirements.\n\nCapture any additional provisions that affect the parties' rights and obligations. This includes tax considerations such as dependency exemptions and filing status, life insurance requirements to secure support obligations, attorney's fees and cost allocations, dispute resolution mechanisms, confidentiality clauses, and any unique or non-standard provisions specific to this settlement.\n\nPresent your summary in clear, concise language that balances legal accuracy with readability. Use section headings to organize different subject areas. Where the settlement includes specific deadlines, payment schedules, or contingencies, present these in a format that makes them easy to track and reference. Avoid legal jargon where plain language suffices, but maintain technical precision where legal terms of art are necessary.\n\nIf the settlement agreement references exhibits, schedules, or attachments that contain detailed asset lists, parenting plans, or financial disclosures, note their existence and briefly describe their content without reproducing them in full. Highlight any provisions that require future action by either party, such as deed transfers, account rollovers, or refinancing obligations, along with their associated deadlines.\n\nYour summary should enable a reader unfamiliar with the case to quickly grasp what each party is receiving, what each party is obligated to do, how children will be cared for, and what ongoing financial obligations exist. Maintain strict neutrality in your presentation, reporting the terms as agreed without commentary on fairness or adequacy. If any terms are ambiguous or appear internally inconsistent, note these observations factually without attempting to resolve them.\n\nThe final summary should typically be two to four pages in length, depending on the complexity of the marital estate and custody arrangements. Ensure that every material term is captured while avoiding unnecessary repetition of boilerplate language. This document will serve as a working tool for case management, client communication, and compliance monitoring throughout the post-judgment period.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:53:49.564842Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing skill content and metadata**
+
+I'm drafting the skill markdown with a concise descriptive slug "divorce-settlement-summary," setting practice area as Litigation (family law), and including relevant keywords and structured sections for a detailed, neutral divorce settlement summary template with tables, checklists, and action items.
+thinking
+**Finalizing skill description and length**
+
+I'm ensuring the description is third person and includes jurisdiction caveats on support and custody, targeting about 120 lines of detailed, clear SKILL.md content without code fences or skill_type mentions.
+codex
+---
+name: divorce-settlement-summary
+description: Produces structured summaries of U.S. divorce settlement agreements (MSAs), extracting material terms on property division, custody/parenting plans, child support, spousal support, tax allocations, insurance, fees, and deadlines. Use for “divorce settlement summary,” “MSA summary,” “marital settlement agreement,” “property division,” “child custody,” “parenting plan,” “child support,” or “alimony” requests.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Divorce Settlement Summary
+
+Create a neutral, litigation-ready summary of a divorce settlement agreement with all material terms and action items.
+
+## Prerequisites
+
+1. **Executed or draft settlement agreement** (including attachments, exhibits, schedules)
+2. **Case identifiers** (party names, case number, court/jurisdiction, settlement date)
+3. **Parenting plan / custody exhibit** (if separate)
+4. **Financial schedules** (asset/debt lists, QDRO details, support worksheets, if referenced)
+
+## Output Structure / Process
+
+Use the following template and fill every section that applies. Omit only if not addressed in the agreement.
+
+### 1) Identifying Information
+- Parties:
+- Case number:
+- Court/jurisdiction (state + county if stated):
+- Agreement date / effective date:
+- Status (executed / draft / contingent on approval):
+- Incorporation into judgment (yes/no; conditions):
+
+### 2) Marital Property Division (Summary)
+Provide a short narrative, then a table by asset class.
+
+**Asset Division Table**
+| Asset Class | Specific Asset | Value / Valuation Date | Awarded To | Transfer Mechanics | Deadlines / Conditions |
+| --- | --- | --- | --- | --- | --- |
+
+Asset classes to cover if present:
+- Real property (residence, rentals, land)
+- Financial accounts (bank, brokerage, crypto)
+- Retirement (401(k), IRA, pension; QDRO required)
+- Business interests (entity name, % interest)
+- Vehicles / titled property
+- Personal property (household, jewelry, art, firearms)
+- Intellectual property / royalties
+- Other (windfalls, claims, stock options)
+
+### 3) Debts and Liabilities
+**Debt Allocation Table**
+| Debt Type | Creditor / Account | Balance / Date | Responsibility | Refinance / Indemnity | Deadline |
+| --- | --- | --- | --- | --- | --- |
+
+### 4) Child Custody and Parenting Plan
+- Legal custody (sole/joint; decision domains):
+- Physical custody / timesharing (% if stated):
+- Regular schedule (days/times):
+- Holiday schedule (summary + reference exhibit):
+- Vacation / travel provisions:
+- Transportation / exchange logistics:
+- Communication protocols (methods, notice periods):
+- Relocation / modification clauses:
+- Supervision / restrictions (if any):
+- Decision-making tie-breaker or dispute mechanism:
+
+### 5) Child Support
+- Guideline basis (state guideline / deviation):
+- Obligor / obligee:
+- Base amount and frequency:
+- Start date / duration / termination triggers:
+- Health insurance coverage (who, plan, cost allocation):
+- Unreimbursed medical expenses (allocation %, thresholds):
+- Childcare / education / extracurricular allocations:
+- Wage assignment / direct payment method:
+- Arrears treatment (if any):
+
+### 6) Spousal Support / Alimony
+- Type (temporary/rehabilitative/permanent/lump sum):
+- Amount and frequency:
+- Start date / duration:
+- Termination / modification triggers:
+- Tax treatment (if stated):
+- Security (life insurance, liens, guarantees):
+
+### 7) Taxes
+- Filing status allocations:
+- Dependency exemptions / credits:
+- Allocation of refunds / liabilities:
+- Property transfer tax responsibilities:
+- Treatment of retirement transfers:
+
+### 8) Insurance and Benefits
+- Life insurance to secure support (amount, beneficiary, duration):
+- Health insurance obligations:
+- Other benefits (COBRA, continuation coverage):
+
+### 9) Attorney’s Fees and Costs
+- Responsibility for fees and costs:
+- Reimbursement or offsets:
+
+### 10) Dispute Resolution and Enforcement
+- Mediation / arbitration requirements:
+- Venue / forum selection:
+- Enforcement or contempt provisions:
+
+### 11) Confidentiality / Non-Disparagement
+- Scope and exceptions (court filings, legal advice, compliance):
+
+### 12) Deadlines and Action Items
+**Action Item Checklist**
+| Action | Responsible Party | Deadline | Proof Required |
+| --- | --- | --- | --- |
+
+Include deed transfers, refinancing, QDRO submission, account rollovers, title changes, and document deliveries.
+
+### 13) Exhibits and Attachments
+List each exhibit and a one-line description (do not reproduce contents).
+
+### 14) Ambiguities / Inconsistencies
+- Identify any unclear or conflicting terms factually.
+
+## Guidelines
+
+- Maintain strict neutrality; no fairness analysis or advocacy.
+- Capture every material term; avoid boilerplate repetition.
+- Use exact figures, dates, and percentages when stated.
+- Flag missing data or cross-referenced schedules as “not provided.”
+- Note jurisdiction-specific terms without redefining them; custody and support rules are state-specific.
+- If any legal citation is referenced and uncertain, mark as `[VERIFY]`.
+tokens used
+2,901

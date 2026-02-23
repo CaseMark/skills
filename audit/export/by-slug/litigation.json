@@ -1,0 +1,20 @@
+{
+  "id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "slug": "litigation",
+  "name": "Litigation Practice",
+  "summary": "Root skill for all litigation-related legal work including civil, criminal, and administrative proceedings.",
+  "content": "# Litigation Practice\n\nThis is the parent category for all litigation skills. Litigation involves representing clients in legal disputes through the court system.\n\n## Sub-areas\n- Commercial Litigation\n- Personal Injury\n- Employment Litigation\n- Intellectual Property Litigation\n- Family Law\n- Criminal Defense\n- Appeals\n- Bankruptcy Litigation\n- Class Actions\n- Real Estate Litigation\n\n## Key Principles\n- Zealous advocacy within ethical bounds\n- Thorough case investigation and discovery\n- Strategic motion practice\n- Effective negotiation and settlement evaluation\n- Trial preparation and execution\n",
+  "parent_skill_id": null,
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

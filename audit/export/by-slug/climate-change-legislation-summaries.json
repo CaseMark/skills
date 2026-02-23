@@ -1,0 +1,42 @@
+{
+  "id": "634951ad-3864-45c6-b688-8a913f76c99e",
+  "slug": "climate-change-legislation-summaries",
+  "name": "Climate Change Legislation Summaries",
+  "summary": "Generates structured, concise summaries of climate change legislation, covering key provisions like carbon pricing, emission targets, compliance obligations, enforcement, and business impacts. Use this skill for quick reference by environmental policymakers, compliance officers, and legal counsel navigating regulatory obligations in mitigation and adaptation strategies.",
+  "content": "# Climate Change Legislation Summary Prompt\n\nYou are tasked with creating a comprehensive yet concise summary of climate change legislation. This summary should serve as an essential reference tool for environmental policy makers, corporate compliance officers, sustainability directors, and legal counsel advising businesses on environmental regulatory obligations.\n\nYour analysis should begin by identifying and examining the specific legislation, regulation, or international agreement provided. Search available documents thoroughly to extract all relevant provisions, and supplement with current authoritative sources when necessary to ensure accuracy and completeness. Focus on legislation addressing climate change mitigation strategies such as carbon pricing mechanisms, greenhouse gas emission reduction targets, renewable energy mandates, and climate adaptation requirements.\n\nStructure your summary to include the following essential components presented in clear, accessible language. Begin with the full legal citation and jurisdictional scope, identifying whether this is federal, state, provincial, or international law, and specify the enacting authority and effective dates. Provide a concise executive overview that captures the legislation's primary purpose, key regulatory mechanisms, and intended environmental outcomes in no more than three to four sentences.\n\nDetail the core substantive provisions with particular attention to regulatory thresholds, compliance obligations, and enforcement mechanisms. When addressing carbon tax laws, specify the tax rate structure, covered emissions sources, exemptions, revenue allocation mechanisms, and any border adjustment provisions. For emission regulations, identify the regulated entities by sector or size, emission reduction targets with baseline years and compliance deadlines, monitoring and reporting requirements, and available compliance pathways including offset mechanisms or emissions trading provisions. When summarizing international agreements, clarify binding versus voluntary commitments, nationally determined contributions or equivalent mechanisms, financial and technology transfer provisions, and compliance review processes.\n\nAnalyze the practical business implications by identifying which industry sectors face the most significant compliance burdens, estimating potential financial impacts where quantifiable, noting transition periods or phase-in schedules, and highlighting any incentive programs, tax credits, or funding mechanisms available to support compliance. Address enforcement provisions including penalty structures, regulatory oversight bodies, and any citizen suit or private right of action provisions.\n\nIdentify critical implementation details such as required permits or registrations, mandatory reporting deadlines and formats, third-party verification or audit requirements, and any pending regulatory guidance or rulemaking that may affect interpretation. Note significant legal considerations including preemption of state or local laws, interaction with existing environmental regulations, constitutional or legal challenges that have been filed or are anticipated, and any sunset provisions or mandatory legislative reviews.\n\nConclude with forward-looking context by noting anticipated regulatory developments, proposed amendments under consideration, and how this legislation fits within the broader climate policy landscape at the relevant jurisdictional level. Where applicable, compare the stringency and approach of this legislation to similar laws in other jurisdictions to provide useful benchmarking context.\n\nThroughout your summary, maintain precise legal terminology while ensuring accessibility for non-lawyer stakeholders who need to understand compliance obligations. Cite specific statutory sections, regulatory provisions, and official guidance documents using proper legal citation format. When referencing technical terms such as carbon dioxide equivalent, scope one through three emissions, or additionality requirements, provide brief clarifying explanations. Your summary should be sufficiently detailed to inform strategic business planning and policy development while remaining concise enough to serve as a quick reference guide, typically ranging from two to four pages depending on the legislation's complexity.\n\nVerify all factual assertions about regulatory requirements, dates, and numerical targets against authoritative sources, and clearly distinguish between enacted law, proposed legislation, and regulatory guidance. If certain implementation details remain subject to future rulemaking, explicitly note this uncertainty and identify the responsible agency and anticipated timeline for clarification.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "energy"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.428776",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

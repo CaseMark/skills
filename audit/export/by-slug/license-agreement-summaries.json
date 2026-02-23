@@ -1,0 +1,43 @@
+{
+  "id": "db08e0d1-61ba-48ba-a945-875e1ed5a92c",
+  "slug": "license-agreement-summaries",
+  "name": "License Agreement Summaries",
+  "summary": "Generates comprehensive summaries of intellectual property license agreements, extracting core elements like parties, licensed IP details, exclusivity, financial terms, obligations, restrictions, risks, and termination provisions. Enables legal professionals to quickly grasp key terms and risks without reviewing the full document. Use for transactional IP licensing reviews by attorneys, in-house counsel, and stakeholders.",
+  "content": "# License Agreement Summary Prompt\n\nYou are tasked with creating a comprehensive summary of a license agreement for intellectual property matters. This workflow is essential for legal professionals who need to quickly understand the key terms, obligations, and risks within licensing arrangements without reading the entire agreement. Your summary will serve as a critical reference tool for attorneys, in-house counsel, and business stakeholders making decisions about IP licensing transactions.\n\nBegin by thoroughly analyzing the complete license agreement document to ensure no critical provisions are overlooked. Your analysis must capture every substantive term, as licensing agreements often contain crucial details buried in standard clauses that can significantly impact the parties' rights and obligations.\n\n## Core Elements to Extract and Summarize\n\nYour summary must identify and clearly present the fundamental structure of the license agreement. Start with the parties involved, specifying the licensor and licensee with their full legal names and any relevant jurisdictional information. Identify the licensed intellectual property with precision, including patent numbers, trademark registrations, copyright details, or trade secret descriptions as applicable. Clearly state whether this is an exclusive, non-exclusive, or sole license, and define the scope of the grant including any field of use restrictions, territorial limitations, or time-bound constraints.\n\nAddress the financial terms comprehensively, including upfront fees, running royalties, minimum royalties, milestone payments, and any equity considerations. Note the royalty calculation methodology, payment schedules, audit rights, and any provisions for royalty adjustments or reductions. Identify any sublicensing rights and the associated revenue sharing arrangements.\n\n## Critical Obligations and Restrictions\n\nExamine and summarize the performance obligations of both parties. For the licensee, this includes development milestones, commercialization timelines, diligence requirements, and any minimum sales or performance thresholds. For the licensor, identify obligations regarding patent maintenance, prosecution support, technology transfer, or ongoing technical assistance. Highlight any restrictions on the licensee's use of the IP, including limitations on modifications, improvements ownership, competitive restrictions, or non-compete provisions.\n\n## Risk Factors and Termination Provisions\n\nIdentify the term and termination structure, including the initial term, renewal options, and conditions for early termination by either party. Summarize termination rights for breach, insolvency, or convenience, and critically analyze the consequences of termination including wind-down periods, sell-off rights, and the fate of sublicenses. Note any survival provisions that extend beyond termination.\n\nAssess liability allocation by identifying indemnification obligations, warranty provisions (or disclaimers), liability caps, and insurance requirements. Flag any unusual or particularly favorable or unfavorable risk allocation terms that deviate from market standards.\n\n## Strategic and Operational Considerations\n\nHighlight provisions affecting business operations, including quality control requirements, marking obligations, enforcement rights and obligations regarding third-party infringement, and the handling of improvements or derivative works. Note any most-favored-nations clauses, rights of first refusal, or other strategic provisions that could impact future business decisions.\n\nPresent your summary in a clear, organized format that allows readers to quickly locate specific information while understanding the agreement's overall structure and implications. Use precise legal terminology while ensuring the summary remains accessible to business stakeholders. Where terms are ambiguous or potentially problematic, flag these issues with brief explanatory notes about the potential implications or risks. Your summary should enable the reader to understand the commercial deal, assess compliance requirements, identify key dates and obligations, and spot potential legal or business risks without referring to the full agreement for routine matters.",
+  "parent_skill_id": "5b460232-3c68-43e5-be24-101410c162fd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "summary",
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "intellectual_property_licensing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

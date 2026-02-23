@@ -1,0 +1,48 @@
+{
+  "id": "540a163c-9dbd-4552-82f4-a130b9cc89e9",
+  "slug": "litigation-settlement-proposals",
+  "name": "Settlement Proposals",
+  "summary": "Generates a comprehensive chronological document summarizing settlement negotiations, proposals, and agreements in litigation matters. Extracts key terms from case documents, analyzes strategic context including trial risks, and details executed agreements with material provisions. Use to create records for attorneys, clients, or courts during settlement discussions.",
+  "content": "# Settlement Proposals Document Generation\n\nYou are tasked with creating a comprehensive settlement proposals document that captures the full scope of settlement negotiations and agreements in a legal matter. This document serves as a critical record for attorneys, clients, and potentially courts to understand the evolution of settlement discussions, the terms proposed and considered, and the final resolution (if reached).\n\nBegin by searching all available case documents to identify and extract key information about settlement communications, including demand letters, offer letters, counteroffers, mediation summaries, email exchanges discussing settlement terms, and any executed settlement agreements. Pay particular attention to monetary amounts, payment terms, release provisions, confidentiality clauses, and any non-monetary considerations such as injunctive relief, behavioral commitments, or structural changes.\n\nThe document should be organized chronologically to show the progression of negotiations, starting with initial demands and moving through each substantive proposal and counteroposal. For each settlement communication, include the date, the party making the proposal, the key terms offered, any conditions or contingencies, and the response received. When monetary settlements are involved, clearly distinguish between gross settlement amounts, attorney's fees, costs, and net recovery to the client. If the settlement includes structured payments, detail the payment schedule, interest rates if applicable, and any security or guarantees for future payments.\n\nAddress the legal and strategic context surrounding the settlement discussions. Note any significant developments that influenced the negotiations, such as court rulings on motions, discovery revelations, expert opinions, or changes in the strength of either party's position. If mediation or other alternative dispute resolution processes were used, summarize the mediator's involvement, any mediator's proposals, and the dynamics of those sessions to the extent they are documented and not subject to mediation privilege.\n\nInclude a section analyzing the strengths and weaknesses of the settlement terms compared to the likely outcomes at trial. This analysis should consider the probability of success on the merits, the range of potential damages or other relief, the costs and risks of continued litigation, the time value of money, and any non-economic factors such as publicity, business relationships, or emotional toll on the client. When relevant, reference comparable settlements in similar cases or jurisdictions to provide context for evaluating the reasonableness of the proposed terms.\n\nFor executed settlement agreements, provide a detailed summary of all material terms including the parties' obligations, deadlines for performance, dispute resolution mechanisms for any post-settlement issues, and the scope of releases and dismissals. Highlight any unusual or particularly favorable provisions, as well as any potential concerns or ambiguities that may require future attention. If the settlement remains confidential, clearly mark the document as such and ensure all references comply with confidentiality obligations.\n\nThroughout the document, maintain precise citations to source materials, including the date and type of each communication, the document name in the case file, and specific page or paragraph references where key terms appear. This attribution is essential for verification and for allowing readers to review the underlying materials if needed. When summarizing complex provisions, consider including relevant excerpts or quotations to preserve the exact language used by the parties.\n\nThe final document should serve multiple audiences and purposes. It must be sufficiently detailed for the attorney handling the matter to understand the complete negotiation history and to advise the client on whether to accept or reject proposals. It should be clear enough for the client to understand what has been offered, what it means in practical terms, and what decisions need to be made. It may also need to withstand scrutiny from courts reviewing the fairness of settlements in class actions or cases involving minors or incapacitated persons, or from insurance carriers evaluating coverage for settlement payments.\n\nFormat the document professionally with clear headings, subheadings, and logical organization. Use tables or charts where appropriate to compare multiple proposals or to illustrate payment schedules. Ensure that all monetary amounts are clearly stated with proper currency symbols and that dates follow a consistent format. The tone should be objective and analytical, presenting facts and terms without advocacy, though the strategic analysis section may appropriately discuss the relative merits of different options.\n\nIf the settlement negotiations are ongoing, conclude with a section outlining next steps, pending decisions, upcoming deadlines, and recommendations for the client's consideration. If the matter has been fully resolved, include information about implementation of the settlement terms, any post-settlement obligations that remain outstanding, and the status of case dismissal or other final disposition.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.733784",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "868a6767-c869-4c96-8a76-6216edb29315",
+  "slug": "litigation-abstract-of-judgment",
+  "name": "Abstract of Judgment",
+  "summary": "Drafts a comprehensive Abstract of Judgment to create a lien on a judgment debtor's real property in commercial litigation. Extracts key details from case documents, verifies party information, and ensures compliance with state-specific jurisdictional requirements. Use post-judgment to enforce monetary awards by recording with the county recorder.",
+  "content": "# Abstract of Judgment - Enhanced Legal Workflow\n\nYou are tasked with drafting a comprehensive Abstract of Judgment, a critical litigation document used to create a lien against a judgment debtor's real property. This document must comply with all applicable state-specific requirements and contain precise information to ensure enforceability.\n\n## Understanding the Document's Purpose and Context\n\nAn Abstract of Judgment serves as a formal summary of a court's monetary judgment that, when recorded with the county recorder, creates a judgment lien on the debtor's real property within that county. Begin by thoroughly reviewing all case materials to understand the underlying judgment, including the complaint, judgment order, and any post-judgment motions. Search through uploaded case documents to extract essential facts about the litigation, parties, and judgment terms. The abstract must be accurate and complete, as errors can render the lien unenforceable or subject to challenge.\n\n## Court and Case Information Requirements\n\nEstablish the foundational jurisdictional details by identifying the exact court name, location (including department or division if applicable), case number, and the date the judgment was entered. Research the specific formatting and content requirements for your jurisdiction, as these vary significantly by state and sometimes by county. Some jurisdictions require specific court seal placements, particular caption formats, or mandatory statutory language. Verify current requirements through official state judicial council resources, local court rules, and bar association practice guides to ensure compliance with the most recent procedural standards.\n\n## Identifying and Verifying Party Information\n\nAccurately identify all judgment creditors (plaintiffs) and judgment debtors (defendants) with their complete legal names as they appear in the judgment. Extract current addresses for all parties from case filings, with particular attention to the judgment debtor's last known address, as this information is crucial for enforcement. When multiple parties are involved, clearly distinguish between individual debtors and any business entities, including proper corporate designations. Search case documents systematically to verify spelling, middle initials, suffixes, and any aliases or DBAs (doing business as names) that may affect the lien's scope and priority.\n\n## Judgment Details and Legal Basis\n\nProvide a precise summary of the judgment including the exact date of entry, the type of judgment (default, summary judgment, jury verdict, bench trial, etc.), and the specific relief granted. Reference the judgment order directly and include any relevant findings of fact or conclusions of law that support the monetary award. If the judgment has been amended, supplemented, or modified by subsequent orders, incorporate those changes and note the dates of modification. Research and apply the controlling statutes that govern abstracts of judgment in your jurisdiction, citing the specific code sections that authorize the creation of judgment liens.\n\n## Calculating and Stating Monetary Components\n\nDetail the complete financial breakdown of the judgment with precision: the principal amount awarded, costs of suit, attorney fees (if awarded), and any other monetary components specified in the judgment. Calculate post-judgment interest according to the applicable state statute, clearly stating the interest rate, whether it is simple or compound, and the date from which interest begins to accrue. Research current state law regarding statutory judgment interest rates, as these can change and may differ from the rate specified in contracts or other agreements. Present all monetary figures in both numerical and written form to prevent ambiguity, and specify the total amount due as of the date the abstract is prepared.\n\n## Certification, Execution, and Filing Requirements\n\nInclude the clerk's certification section with appropriate language affirming that the abstract is a true and correct summary of the judgment on file with the court. Verify the specific certification language required by your jurisdiction and ensure it includes all mandatory elements such as the clerk's signature line, court seal placement, and date of certification. Research whether your jurisdiction requires notarization of the abstract or any additional authentication procedures. If the judgment creditor intends immediate execution, include relevant execution details such as writ of execution information, though note that the abstract itself is typically a prerequisite to, rather than a component of, execution proceedings.\n\n## Final Document Assembly and Quality Control\n\nOnce all necessary information has been gathered and verified through comprehensive document review and legal research, compile the abstract in the format required by your jurisdiction. Ensure the document follows any mandatory forms or templates prescribed by statute or local rule. Cross-reference every fact stated in the abstract against source documents to confirm accuracy. Verify that all monetary calculations are correct and that the legal descriptions of any property (if required in your jurisdiction) are accurate. The completed abstract must be suitable for immediate filing with the court clerk and subsequent recording with the county recorder to perfect the judgment lien.\n\nWhen you have completed your research, gathered all necessary information from case documents, verified jurisdictional requirements, and confirmed all calculations, create a comprehensive Abstract of Judgment document that incorporates all findings and complies with applicable legal standards.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

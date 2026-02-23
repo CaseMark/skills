@@ -1,0 +1,43 @@
+{
+  "id": "d09893a9-9d50-4776-ba0d-6334dd95e73e",
+  "slug": "succession-planning-summaries",
+  "name": "Succession Planning Summaries",
+  "summary": "Generates comprehensive summaries of estate succession plans by synthesizing wills, trusts, beneficiary designations, powers of attorney, and other documents into a unified, accessible narrative. Provides clear overviews of asset distributions, trust structures, fiduciary appointments, special provisions, and timelines for executors, trustees, and beneficiaries. Use it in estate planning to bridge complex legal instruments with practical implementation.",
+  "content": "# Succession Planning Summary Prompt\n\nYou are tasked with creating a comprehensive succession planning summary for estate planning purposes. This document serves as a critical bridge between complex estate planning instruments and the individuals who will implement them, providing executors, trustees, and beneficiaries with a clear, accessible overview of the decedent's wishes and the mechanisms established to fulfill them.\n\nYour summary should synthesize information from wills, trust documents, beneficiary designations, powers of attorney, healthcare directives, and any other estate planning instruments to create a unified narrative of the succession plan. Begin by identifying all relevant estate planning documents and extracting key information about asset distribution schemes, trust structures, fiduciary appointments, and special provisions or conditions attached to bequests.\n\nThe document should open with an executive overview that captures the fundamental structure of the estate plan, including the primary beneficiaries, major asset categories, and the overall distribution philosophy. Follow this with detailed sections addressing specific components of the plan. For asset distribution, clearly identify what assets pass through probate versus non-probate transfers, specify percentage allocations or specific bequests to named beneficiaries, and explain any contingent beneficiary arrangements. When describing trust arrangements, detail the type of each trust (revocable living trust, irrevocable life insurance trust, special needs trust, charitable remainder trust, etc.), identify trustees and successor trustees, explain the purpose and terms of each trust, describe distribution standards and timing, and clarify the relationship between trusts and the probate estate.\n\nAddress fiduciary appointments comprehensively by naming executors, trustees, guardians for minor children, agents under powers of attorney, and healthcare proxies, while explaining the scope of authority and any limitations placed on these roles. Highlight any special provisions that require particular attention, such as conditions precedent to inheritance, specific bequests of personal property with sentimental value, business succession arrangements, charitable giving intentions, or tax planning strategies embedded in the structure. Include a timeline section that outlines the expected sequence of events following death, from immediate notifications through final distributions, helping executors understand the procedural roadmap ahead.\n\nThroughout the summary, translate legal terminology into plain language while maintaining precision. When technical terms are necessary, provide brief explanations in parentheses. Organize information logically with clear headings and subheadings that allow readers to quickly locate specific information. Use tables or charts where appropriate to illustrate complex distribution schemes or trust structures visually. Cross-reference related provisions to help readers understand how different components of the estate plan interact with one another.\n\nPay particular attention to potential areas of confusion or conflict. If the estate plan contains provisions that might seem contradictory or that override earlier documents, explain these clearly. If certain assets are subject to multiple layers of planning (such as retirement accounts with beneficiary designations that fund trusts), clarify the complete chain of distribution. Alert readers to time-sensitive actions that must be taken, such as disclaimers that must be filed within nine months or elections that affect tax treatment.\n\nInclude practical guidance for executors and trustees about their immediate responsibilities, such as securing assets, notifying financial institutions, filing necessary court documents, and communicating with beneficiaries. While this summary should not serve as a substitute for legal counsel, it should empower fiduciaries to ask informed questions and understand the landscape they are navigating.\n\nConclude with a section identifying any gaps, ambiguities, or potential challenges in the estate plan that may require legal interpretation or court guidance. Note any assets or situations not clearly addressed by the existing documents. This proactive identification of issues allows fiduciaries to seek appropriate counsel early in the administration process.\n\nThe final document should be comprehensive yet accessible, typically ranging from five to fifteen pages depending on estate complexity. It should serve as the primary reference document that executors consult throughout the administration process and that beneficiaries review to understand their interests in the estate. Format the summary professionally with a table of contents for longer documents, consistent formatting for easy navigation, and clear attribution to the underlying source documents from which information was derived.",
+  "parent_skill_id": "8bedabb0-a0e4-4136-9d06-540d72094eac",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "estate_planning"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

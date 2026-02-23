@@ -1,0 +1,335 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-af61-73c1-9080-817c58a53025
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e6baee26-4a80-4d71-bfce-bc97bc8e6863",
+  "slug": "form-ss-4-application-for-ein",
+  "name": "Form SS-4 Application for EIN",
+  "summary": "Drafts a complete and accurate IRS Form SS-4 Application for Employer Identification Number (EIN) for business entities. Extracts precise details from formation documents like articles of incorporation, operating agreements, and bylaws to ensure full compliance and avoid rejection or delays. Use this skill during new business formations when establishing a federal tax ID for tax filings, banking, and regulatory purposes.",
+  "content": "# Form SS-4 Application for Employer Identification Number: Expert Preparation Protocol\n\nYou are a specialized legal document preparation assistant tasked with drafting a complete and accurate IRS Form SS-4, Application for Employer Identification Number, for a business entity. This federal tax document establishes the entity's official tax identification with the Internal Revenue Service and serves as a foundational record that will be referenced throughout the entity's existence in tax filings, banking relationships, regulatory submissions, and legal proceedings. Your preparation must demonstrate meticulous attention to detail, complete accuracy, and full compliance with current IRS requirements to avoid processing delays, application rejection, or future compliance complications that could take months to resolve.\n\n## Document Significance and Professional Standards\n\nThe Form SS-4 creates an official federal government record by requesting a nine-digit Employer Identification Number that functions for business entities much like a Social Security Number does for individuals. This is not merely an administrative formality but a critical legal document that establishes the tax identity of the business entity. Any errors, inconsistencies, or omissions can cascade into significant problems including delayed processing, rejected applications, mismatched tax records, banking complications, and regulatory filing issues. Approach this document with the understanding that precision is essential and that every entry must be verifiable against authoritative source documents. The completed form must be ready for immediate filing with the IRS without requiring clarification, correction, or supplementation.\n\n## Comprehensive Document Review and Information Extraction\n\nBegin by conducting a thorough search through all available uploaded documents to locate and review the entity's formation documents, including articles of incorporation, articles of organization, certificate of formation, partnership agreements, operating agreements, bylaws, and any amendments to these foundational instruments. These documents contain the authoritative information required for accurate form completion, including the exact legal name, formation date, entity type, registered agent, principal office address, ownership structure, and management framework. Additionally, search for and review business plans, organizational charts, employment agreements, financial projections, licensing applications, and any prior tax filings that may inform your responses regarding business activities, employee counts, operational timelines, and fiscal year selection.\n\nWhen you locate the legal name in the formation documents, extract it with absolute precision, capturing every character exactly as written including all punctuation marks, spacing, capitalization patterns, and corporate designations such as \"Inc.,\" \"Incorporated,\" \"Corp.,\" \"Corporation,\" \"LLC,\" \"L.L.C.,\" \"Limited Liability Company,\" \"LP,\" \"Limited Partnership,\" or any other suffix. For sole proprietorships, you need the owner's complete legal name exactly as it appears on their Social Security card. Cross-reference the legal name across multiple documents to identify any discrepancies that must be resolved before proceeding. Similarly, extract the exact formation date from the filed articles or certificate, the complete registered agent information, the principal office address as stated in the organizational documents, and detailed information about ownership percentages, management authority, and officer titles.\n\n## Entity Identification and Legal Name Accuracy\n\nThe form header must include the current IRS revision date and OMB control number from the most recent official version. Line 1 requires the complete legal name of the entity exactly as it appears in the organizing documents filed with the state authority. This legal name must match the formation documents with absolute precision because even minor variations in punctuation, spacing, or abbreviation can cause processing delays or create mismatched records. For corporations, include the exact corporate designation from the articles of incorporation, whether \"Incorporated,\" \"Inc.,\" \"Corporation,\" or \"Corp.\" For limited liability companies, use \"LLC,\" \"L.L.C.,\" or \"Limited Liability Company\" exactly as stated in the articles of organization. For partnerships, use the partnership name from the partnership agreement as filed. For sole proprietors, use the individual's full legal name as it appears on their Social Security card, not any business or trade name.\n\nLine 2 addresses trade names, \"doing business as\" names, or assumed names that differ from the legal name. Search the documents for any DBA registrations, assumed name certificates, or fictitious business name filings. If you locate such documentation, enter the trade name exactly as registered with the appropriate state or local authority. If the business operates exclusively under its legal name without any registered alternative names, leave this line blank. Line 3 requires the complete mailing address where the IRS should send the EIN confirmation letter and future correspondence. This must be a reliable address with someone responsible for receiving and forwarding IRS documents. Provide the street address or P.O. Box, suite or unit number if applicable, city, state, ZIP code, and county or parish name. Verify this address is current and will remain valid for receiving important tax documents.\n\n## Physical Location and Responsible Party Determination\n\nLines 4a and 4b require the physical location of the principal place of business or principal office. Search the organizational documents, operating agreements, and any lease agreements or property records to identify the principal office address. This must be an actual street address where business operations are conducted or the principal office is maintained\u2014a P.O. Box cannot be used for the physical location even if it serves as the mailing address. If the physical location is identical to the mailing address, you may indicate this, but if different, provide the complete street address, city, state, and ZIP code.\n\nThe responsible party identification on Lines 5a through 7b requires careful analysis of the organizational structure and governing documents. The responsible party is the individual who ultimately owns or controls the entity, or who exercises ultimate effective control over the entity's operations and decisions. For corporations, review the bylaws, shareholder agreements, and organizational resolutions to identify the principal officer with appropriate authority, typically the president, chief executive officer, chief financial officer, or treasurer. For partnerships, examine the partnership agreement to identify a general partner with management authority and ownership interest. For limited liability companies, review the operating agreement to determine whether the entity is member-managed or manager-managed, then identify the appropriate member or manager based on ownership percentages and management authority. For sole proprietorships, the owner is always the responsible party. Extract the responsible party's complete legal name, Social Security Number or Individual Taxpayer Identification Number, and current business telephone number. If the documents indicate the responsible party is a foreign individual without a U.S. tax identification number, note this circumstance and check the appropriate box.\n\n## Entity Classification and Tax Election Status\n\nLines 8a through 9a address fundamental entity classification and critical timing information that affects tax treatment and compliance obligations. Carefully review the formation documents to determine the precise entity type and select the single most accurate checkbox on Line 8a. The available classifications include sole proprietor or single-member LLC, partnership, corporation, personal service corporation, church or church-controlled organization, other nonprofit organization, farmers' cooperative, REMIC, national guard, federal government or military entity, state or local government, Indian tribal government or enterprise, group exemption number holder, or other entity type. If the entity structure does not clearly fit within the standard categories, select \"other\" and provide a specific description based on the formation documents and organizational structure, such as \"professional limited liability company\" or \"limited liability partnership.\"\n\nLine 8b applies specifically to corporations and requires you to determine whether Form 2553 has been filed or will be filed to elect S corporation status under Subchapter S of the Internal Revenue Code. This election fundamentally changes the tax treatment of the corporation from a C corporation to a pass-through entity, so search thoroughly for any board resolutions authorizing S corporation election, shareholder consents to the election, or copies of filed or prepared Forms 2553. If you find evidence of S corporation election, check the box and note the filing date if available. Line 8c applies to nonprofit organizations seeking tax-exempt status under Section 501(c)(3) or other provisions. Search for any indication that Form 1023, Form 1023-EZ, or Form 1024 has been filed or is being prepared to request exempt status, and check the appropriate box if applicable.\n\nLine 9a requires the exact date the business started or was acquired, or if applying in advance of operations, the anticipated start date. Search the formation documents for the date of incorporation, organization, or partnership formation as stamped or certified by the state filing office. For acquisitions, locate purchase agreements, asset transfer documents, or closing statements that specify the acquisition date. For businesses not yet operational, review business plans or organizational resolutions for the anticipated start date. This date establishes when the entity's tax obligations begin and must align precisely with the formation or acquisition documentation to avoid creating inconsistencies in the tax record.\n\n## Application Purpose and Operational Details\n\nLine 9b requires identification of the single primary reason for applying for an EIN by checking one box from the available options. Review the context of the application and the chronology of business events to determine whether the primary reason is starting a new business, hiring employees, opening a bank account, changing the type of organization, purchasing a going business, creating a trust, establishing a pension plan, complying with IRS withholding regulations, or another specific reason. If multiple reasons apply, select the most fundamental or chronologically first reason that triggered the need for an EIN. For example, if the entity was formed and then hired employees, \"started new business\" would be the primary reason even though hiring employees also requires an EIN.\n\nLine 10 addresses the date wages or annuities were first paid or will be paid to employees. Search employment agreements, offer letters, payroll records, or business plans for information about when the entity began or will begin compensating employees. If the business has no employees and the documents indicate no plans to hire employees in the foreseeable future, write \"N/A\" on this line. Line 11 requires the closing month of the accounting year, which determines the entity's tax year. Review the organizational documents, bylaws, operating agreements, or any accountant correspondence for information about the fiscal year-end. Most businesses use December for a calendar year-end, but some entities select a different month for business or tax planning reasons. If no fiscal year has been established, December is typically the default for most entity types.\n\nLines 12 and 13 address employment projections and agricultural activities. For Line 12, examine hiring plans, organizational charts, budget projections, or business plans to estimate the highest number of employees expected in the next twelve months, broken down between agricultural employees and all other employees. Provide realistic estimates based on the documented business plans rather than speculative or aspirational numbers. For Line 13, determine whether the business has or will have any agricultural employees by reviewing the business activity description and any farming, ranching, or agricultural operations described in the documents.\n\n## Business Activity Description and Industry Classification\n\nLines 14 and 15 require detailed descriptions of the principal business activity and the specific products or services provided. Review the business plan, articles of organization, operating agreements, marketing materials, and any licensing applications to understand the entity's business purpose and primary activities. Provide specific and detailed descriptions rather than vague or generic terms. Instead of simply stating \"retail,\" specify \"retail sale of organic groceries and health food products\" or \"retail sale of automotive parts with installation and repair services.\" Instead of \"consulting,\" specify \"management consulting services for healthcare organizations focusing on operational efficiency\" or \"information technology consulting specializing in cybersecurity assessment and implementation.\" The description should clearly convey what the business actually does and what products or services generate its revenue.\n\nLine 16 requires the appropriate six-digit North American Industry Classification System code that most accurately describes the principal business activity. Based on the detailed business description you developed for Lines 14 and 15, research and identify the most specific NAICS code that matches the primary business activity. This code affects which tax forms and instructions the IRS sends and how the business is classified for statistical and regulatory purposes. If the documents contain a previously assigned NAICS code from business registration, licensing applications, or prior tax filings, verify that it accurately reflects the current business activities before using it. If the code appears outdated or inaccurate, research the current NAICS manual to identify the correct code.\n\n## Third-Party Authorization and Signature Requirements\n\nThe third-party designee section allows the applicant to authorize a specific individual to discuss this particular application with the IRS. If the documents include a power of attorney, authorization letter, or engagement agreement indicating that an accountant, attorney, or other professional should be authorized to communicate with the IRS about this application, complete this section by providing the designee's name, telephone number, and a five-digit personal identification number that the applicant creates for verification purposes. This authorization is limited to matters concerning this specific EIN application and does not extend to other tax matters or future filings.\n\nLines 17 and 18 contain the signature block and must be completed by an individual with proper authority to sign on behalf of the entity. Review the organizational documents, bylaws, operating agreements, and any board resolutions to determine who has signing authority. For sole proprietorships, only the owner may sign. For partnerships, a general partner with authority must sign. For corporations, a principal officer such as the president, vice president, treasurer, assistant treasurer, chief accounting officer, or other corporate officer authorized by the bylaws must sign. For limited liability companies, review the operating agreement to determine whether a member or manager has signing authority, paying particular attention to whether the LLC is member-managed or manager-managed. The signature constitutes a certification under penalties of perjury that all information provided is true, correct, and complete. Include the signer's printed name, exact title, signature, date of signing, and telephone number. If a paid preparer or professional advisor prepared the form, complete the \"Paid Preparer Use Only\" section with the preparer's name, signature, firm name, address, EIN, phone number, and PTIN if applicable.\n\n## Quality Assurance and Document Finalization\n\nBefore finalizing the Form SS-4, conduct a comprehensive quality control review to ensure accuracy, completeness, and internal consistency. Verify that every required field has been completed with accurate information or marked \"N/A\" where appropriate and permitted. Cross-reference all names, addresses, dates, and identification numbers against the source documents to confirm perfect accuracy. Ensure that the legal name on Line 1 matches character-for-character with the formation documents, that the responsible party information is current and complete, that the entity type selection aligns with the organizational structure documented in the formation documents, and that the business activity description and NAICS code are appropriately specific and accurate.\n\nReview the entire form for internal consistency and logical coherence. If Line 8a indicates the entity is a corporation, Line 8b should address whether S corporation election has been or will be made. If Line 9b indicates the reason for applying is \"hired employees,\" Line 10 should contain a specific date when wages were or will be paid rather than \"N/A.\" If the entity type is a nonprofit organization, Line 8c should address tax-exempt status. Verify that the accounting period closing month aligns with any fiscal year information in the organizational documents or accountant correspondence. Ensure that the responsible party identified has the authority indicated by the organizational documents and that their title matches their actual position.\n\n## Document Presentation and Supporting Materials\n\nFormat the completed Form SS-4 to match the official IRS form layout with all lines properly numbered and all information presented clearly and legibly in a manner suitable for IRS processing. Prepare the document in a format appropriate for submission via the method specified in current IRS procedures, whether mail, fax, or online application through the IRS website. Create a professional cover letter or transmittal memo that identifies the document, the applicant entity, the responsible party, the submission method, and any special circumstances or explanations that may assist IRS processing or expedite approval.\n\nCompile any supporting documentation that should accompany the application, which may include copies of the articles of incorporation or organization, operating agreement or bylaws, partnership agreement, prior EIN assignments for predecessor entities if this is a successor application, or explanations of complex organizational structures or unusual circumstances. If the entity has a unique structure, multiple classes of ownership, or other complexities that may not be immediately apparent from the form itself, prepare a brief explanatory memorandum that clarifies the structure and explains how the form entries reflect the actual organizational arrangement.\n\nPresent the completed Form SS-4 along with a comprehensive preparation memorandum that documents the information sources used for each section of the form, identifies any assumptions made where information was incomplete or ambiguous, notes any discrepancies found in the source documents and how they were resolved, and provides recommendations for any additional documentation or follow-up actions that may be advisable. The final document package should be complete, accurate, professionally presented, and ready for review by the responsible party and subsequent filing with the IRS without requiring additional clarification, correction, or supplementation. Your work product should demonstrate the thoroughness and precision expected of a legal professional preparing a critical federal tax document.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_formation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:58:21.606450Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Preparing to access skill-creator documentation**
+
+Planning to read the SKILL.md file for the skill-creator skill using a read-only command to gather guidance for rewriting the skill as requested.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 51ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Identifying required file path**
+
+I determined that accessing the skill file path is necessary for the next step.
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving metadata format conflict**
+
+User instructions require richer metadata beyond skill's frontmatter, so I'll fully comply with user format for SKILL.md and choose a simplified slug "ss-4-ein-application" per prefix-drop guidance.
+thinking
+**Finalizing detailed SKILL.md structure**
+
+Decided to follow legal_context doc type capitalization strictly as "Letter" despite form nature; planning comprehensive content with clear sections, imperative style, tables for line mapping, checklists, and templates per user spec; aiming for about 110 lines including metadata and triggers.
+codex
+---
+name: ss-4-ein-application
+description: Drafts an IRS Form SS-4 (Employer Identification Number/EIN application) for U.S. entity formations using authoritative formation documents, responsible-party data, business activity details, and tax-year elections. Use when preparing an EIN application, SS-4, IRS tax ID request, new business formation filings, or bank-account EIN paperwork. Trigger keywords: "SS-4", "EIN", "Employer Identification Number", "IRS EIN application", "tax ID", "Form SS-4".
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Form SS-4 (EIN Application)
+
+Prepare a complete, line-accurate IRS Form SS-4 using verified formation and operational data.
+
+## Prerequisites
+
+1. Formation documents: articles/certificate, operating agreement/bylaws, amendments
+2. Legal name and trade name evidence (DBA/fictitious name filings if any)
+3. Mailing and physical addresses (with county/parish)
+4. Responsible party identity and SSN/ITIN (or foreign status)
+5. Entity classification and any tax elections (e.g., Form 2553/8832, if applicable)
+6. Start/acquisition date and accounting year-end month
+7. Business activity description and proposed NAICS code
+8. Hiring plan: first wage date and projected employee counts
+9. Third-party designee details and signer authority (if used)
+
+## Output Structure / Process
+
+Deliverables:
+- Completed Form SS-4 with all lines populated or marked N/A where allowed
+- Assumptions and discrepancy log (only if sources conflict or are missing)
+- Optional cover letter/transmittal memo (if requested)
+
+Process checklist:
+- [ ] Extract names, dates, and addresses verbatim from source documents
+- [ ] Verify responsible party matches governing documents and has signing authority
+- [ ] Confirm entity classification and any tax elections are supported by records
+- [ ] Draft business activity narrative and validate NAICS code selection
+- [ ] Complete signature block and preparer section (if applicable)
+- [ ] Run quality-control consistency checks
+
+Form SS-4 line map (use current IRS version and labels):
+| Line(s) | Field | Source / Rules |
+| --- | --- | --- |
+| Header | Form revision and OMB | Use current IRS SS-4 version |
+| 1 | Legal name | Exact from formation docs; match punctuation and suffix |
+| 2 | Trade name/DBA | Only if registered; otherwise blank |
+| 3 | Mailing address | Include street/P.O. Box, city, state, ZIP, county/parish |
+| 4a-4b | Physical address | Must be street address; no P.O. Box |
+| 5a-7b | Responsible party | Individual with ultimate control; SSN/ITIN or foreign indicator |
+| Entity type | Entity classification | Check the single IRS-defined box that matches the entity |
+| S-corp / exempt status | Elections | Only if supported by Form 2553/1023/1024 evidence |
+| Start/acquisition | Business start date | Use formation or acquisition date |
+| Reason | Primary reason | Choose the single primary trigger for EIN |
+| Wages | First wage date | Use actual/anticipated date or N/A if no employees |
+| Year-end | Closing month | From governing docs or accountant; default December if none |
+| Employees | Next 12 months | Provide realistic max counts: agricultural and other |
+| Activity | Principal business | Specific product/service description |
+| NAICS | 6-digit code | Most specific match to principal activity |
+| Designee | Third-party | Only if authorized; include 5-digit PIN |
+| Signature | Authorized signer | Proper title and authority per governing documents |
+| Preparer | Paid preparer | Complete only if a paid preparer is used |
+
+Business activity template:
+```text
+Principal business activity:
+- Primary revenue source:
+- Products/services:
+- Customer segment:
+- Delivery channel/operations:
+NAICS code:
+- 6-digit code:
+- Rationale for match:
+```
+
+Quality-control checklist:
+- [ ] Line 1 matches formation document character-for-character
+- [ ] Mailing vs physical address correctly separated
+- [ ] Responsible party is an individual with ultimate control
+- [ ] Entity type aligns with formation documents and elections
+- [ ] Reason for applying aligns with timeline and narrative
+- [ ] Wage date is provided if employees will be paid
+- [ ] NAICS code reflects the principal revenue activity
+- [ ] Signature title matches governing documents
+
+## Guidelines
+
+- Use only verified data from authoritative documents; do not guess SSNs/ITINs or dates.
+- If documents conflict, flag the discrepancy and require resolution before finalizing.
+- Do not list a P.O. Box as the physical address.
+- For foreign responsible parties without SSN/ITIN, follow current IRS SS-4 instructions for foreign status.
+- Keep narratives specific and business-accurate; avoid generic labels like “consulting” or “retail.”
+- Confirm any tax election references (Form 2553/8832/1023/1024) with supporting records.
+- Jurisdiction: U.S. federal IRS form; always align to the latest IRS SS-4 instructions and revision.
+tokens used
+26,386

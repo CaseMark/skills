@@ -1,0 +1,306 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-e2ad-7950-8b98-23a19681095c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "495ab00a-9c47-458c-b720-9a87f0ecae5e",
+  "slug": "employee-handbook-and-acknowledgement",
+  "name": "Employee Handbook and Acknowledgement",
+  "summary": "Drafts a comprehensive Employee Handbook and Acknowledgement Form for companies to establish workplace policies and employment expectations. Ensures compliance with federal and state laws while prominently disclaiming at-will employment to provide legal protections. Use for employee onboarding, policy communication, or handbook updates in transactional employment matters.",
+  "content": "# Enhanced Prompt: Employee Handbook and Acknowledgement\n\nYou are an expert employment law attorney tasked with drafting a comprehensive Employee Handbook and accompanying Acknowledgement Form for a client company. This is a critical transactional document that establishes the employment relationship framework, communicates company policies, and provides legal protections for the employer while ensuring compliance with federal and state employment laws.\n\n## Document Purpose and Legal Context\n\nThe Employee Handbook serves multiple essential functions: it communicates workplace expectations and policies to employees, establishes consistent standards across the organization, demonstrates the employer's commitment to legal compliance, and provides evidentiary support in potential employment disputes. The handbook must strike a careful balance between being comprehensive enough to provide meaningful guidance while avoiding language that could inadvertently create an employment contract or undermine at-will employment status.\n\nBefore drafting, search the client's uploaded documents for any existing employment policies, prior handbook versions, company organizational documents, or relevant employment agreements that may inform the handbook's content. Review any jurisdiction-specific requirements based on where the company operates and where employees are located, as state and local employment laws vary significantly regarding required policies, leave entitlements, and employee protections.\n\n## Drafting the Handbook Introduction\n\nBegin with a welcoming yet professional introduction that sets the appropriate tone. The welcome statement should reflect the company's culture and values while clearly establishing that the handbook is an informational guide, not a binding contract. Draft a comprehensive at-will employment disclaimer that explicitly states employment may be terminated by either party at any time, with or without cause or notice, and that no provision in the handbook alters this at-will relationship. This disclaimer is critical for legal protection and should be prominently placed, clearly worded, and repeated in the acknowledgement form.\n\nInclude a clear statement of the handbook's purpose, emphasizing that it provides a summary of current policies that may be modified at the company's discretion. Specify that the handbook supersedes all prior policies, practices, and communications, and that only a written agreement signed by an authorized company officer can modify the at-will employment relationship.\n\n## Key Policies Section\n\nDraft comprehensive yet accessible policy statements covering all essential employment areas. The Equal Employment Opportunity policy must affirm the company's commitment to non-discrimination based on all protected characteristics under federal law (race, color, religion, sex, national origin, age, disability, genetic information) and include any additional protected classes under applicable state and local laws. Specify that this policy applies to all employment decisions including hiring, promotion, compensation, training, and termination.\n\nThe Anti-Harassment and Anti-Discrimination Policy requires particular attention given current legal standards. Define prohibited conduct with specific examples, establish multiple reporting channels, outline the investigation process, and commit to non-retaliation. Include clear statements that harassment or discrimination will not be tolerated and may result in disciplinary action up to and including termination. Reference any applicable state-specific requirements for harassment prevention training or posting requirements.\n\nDevelop a Code of Conduct that addresses workplace behavior expectations, conflicts of interest, use of company property and technology, social media guidelines, and professional standards. The Confidentiality and Data Security Policy should protect proprietary information, trade secrets, and customer data while complying with applicable privacy laws. Clearly define what constitutes confidential information and specify obligations that survive employment termination.\n\nFor Leave Policies, provide accurate summaries of all applicable leave entitlements including the Family and Medical Leave Act (FMLA) for eligible employers, state-mandated sick leave, paid time off or vacation policies, parental leave, bereavement leave, jury duty, and military leave. Ensure compliance with state and local paid sick leave ordinances where applicable. Clearly explain eligibility requirements, accrual methods, request procedures, and any use-it-or-lose-it provisions that comply with state wage and hour laws.\n\nThe Compensation and Performance Review section should outline pay periods, timekeeping requirements, overtime policies consistent with the Fair Labor Standards Act, performance evaluation processes, and any bonus or incentive programs. Avoid language that could be construed as guaranteeing continued employment or specific compensation levels.\n\n## Additional Essential Policies\n\nInclude policies addressing workplace safety and compliance with OSHA requirements, drug and alcohol policies (including any drug testing programs), attendance and punctuality expectations, dress code or appearance standards, technology and communication systems usage, document retention, and procedures for reporting concerns or grievances. If the company has specific industry requirements or operates in regulated sectors, incorporate relevant compliance policies.\n\nAddress disciplinary procedures while maintaining management flexibility and at-will employment status. Avoid creating a progressive discipline system that could be interpreted as limiting the company's right to terminate employment. Instead, indicate that the company may take appropriate corrective action in its discretion, which may include coaching, warnings, suspension, or immediate termination depending on the circumstances.\n\n## Employee Acknowledgement Form\n\nDraft a separate, standalone Acknowledgement Form that employees will sign upon receiving the handbook. This document serves as critical evidence that the employee received the handbook, understands its contents, and agrees to comply with company policies. The acknowledgement must reinforce the at-will employment relationship and the handbook's non-contractual nature.\n\nThe acknowledgement statement should include several key elements: confirmation of receipt of the handbook, acknowledgment of responsibility to read and understand all policies, agreement to comply with handbook policies, understanding that the handbook is not an employment contract, reaffirmation of at-will employment status, acknowledgment that policies may be modified at the company's discretion, and agreement that the handbook supersedes all prior communications regarding employment policies.\n\nInclude clear signature blocks for the employee's printed name, signature, and date. Consider adding a section for the employee's department and supervisor for record-keeping purposes. The form should be designed for easy filing in the employee's personnel file and should be retained for the duration of employment and for the applicable statute of limitations period thereafter.\n\n## Formatting and Accessibility\n\nStructure the handbook with a clear table of contents, numbered sections for easy reference, and consistent formatting throughout. Use plain language that is accessible to all employees while maintaining legal precision where necessary. Consider including a glossary of terms for technical or legal language. Ensure the document is available in formats accessible to employees with disabilities and in languages spoken by your workforce where required by law.\n\n## Final Review and Compliance Verification\n\nBefore finalizing the handbook, verify compliance with all applicable federal, state, and local employment laws based on the company's locations and workforce distribution. Cross-reference policies against current legal requirements, as employment law evolves frequently. Consider whether any industry-specific regulations apply. Ensure consistency between the handbook and actual company practices, as courts may enforce policies as written even if not consistently applied.\n\nThe final deliverable should include both the complete Employee Handbook formatted as a professional, branded document suitable for distribution to employees, and the separate Employee Acknowledgement Form ready for signature collection. Both documents should be provided in editable format to allow for future updates as laws and company policies change.",
+  "parent_skill_id": "a8cfbc04-d7ae-4f08-856a-f5d970d6dc17",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "employment-and-consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:56:23.808289Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing employee handbook skill**
+
+I'm consolidating the handbook and acknowledgement into a single "employee-handbook" skill with clear metadata, prerequisites, structured content including policies and acknowledgement template, and noting compliance guidelines with [VERIFY] where citations might be uncertain.
+thinking
+**Crafting detailed employee handbook skill content**
+
+I'm preparing SKILL.md with frontmatter metadata and a third-person description including trigger keywords, then crafting a structured employee handbook and acknowledgement outline with clear sections, required policies, templates, an acknowledgement form, compliance checklist, and guidelines focused on US jurisdiction and multi-state considerations, all within length and formatting constraints.
+codex
+---
+name: employee-handbook
+description: Drafts a U.S. employee handbook and acknowledgement form for transactional employment matters, covering at-will disclaimers, required workplace policies, leave and wage-hour rules, conduct standards, and compliance notices. Use for onboarding, policy rollouts, handbook updates, and acknowledgement form creation. Trigger keywords: employee handbook, acknowledgement form, at-will disclaimer, workplace policies, onboarding, HR policies.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Employee Handbook and Acknowledgement
+
+Creates a compliant, non-contractual handbook with a standalone acknowledgement form that preserves at-will status.
+
+## Prerequisites
+
+1. **Company profile** — legal entity name, locations, industry, size, exempt/non-exempt mix
+2. **Jurisdictions** — all states and localities where employees work
+3. **Existing policies** — prior handbooks, manuals, offer letters, contracts, CBAs if any
+4. **Leave programs** — PTO, sick, parental, bereavement, jury, military, disability
+5. **Pay practices** — pay periods, timekeeping, overtime, bonuses, expense reimbursements
+6. **IT/security** — acceptable use, monitoring, data handling, device/BYOD rules
+7. **Safety** — OSHA program, incident reporting, workplace violence policy
+8. **Complaint process** — reporting channels, investigation owner, anti-retaliation stance
+9. **Benefits summary** — health/retirement eligibility and plan references
+10. **Languages/accessibility** — required translations or ADA accommodations
+
+## Output Structure / Process
+
+**Handbook build order**
+
+| Section | Required Elements | Notes |
+| --- | --- | --- |
+| Cover + TOC | Company name, effective date, revision date | Include version control |
+| Introduction | Welcome, purpose, scope | No contractual language |
+| At-Will + No Contract | At-will disclaimer, modification clause | Repeat in acknowledgement |
+| Equal Opportunity | Federal protected classes + state/local add-ons | Include hiring, pay, promotion, termination |
+| Anti-Harassment | Definitions, examples, reporting, investigation, non-retaliation | Include multiple reporting paths |
+| Accommodations | Disability and religious accommodations process | Provide contact point |
+| Wage/Hour | FLSA compliance, timekeeping, overtime, meal/rest if required | State/local rules addendum |
+| Leave | FMLA summary if covered; state/local paid sick; PTO rules | Include eligibility and request steps |
+| Benefits | Plan references + disclaimer | Do not restate plan terms |
+| Performance | Reviews discretionary, no guarantees | Avoid promissory tone |
+| Conduct | Code of conduct, conflicts, gifts, ethics | Keep flexible |
+| Confidentiality | Definition, trade secrets, IP, survival | Align with NLRA Section 7 limits |
+| Technology/Privacy | Acceptable use, monitoring, security, social media | Include no expectation of privacy |
+| Remote/Hybrid | Eligibility, security, timekeeping | Optional |
+| Safety | OSHA, incident reporting, emergency | Include workplace violence policy |
+| Drugs/Alcohol | Prohibited conduct, testing if used | State law carve-outs |
+| Attendance | Punctuality, reporting absences | Avoid rigid progressive discipline |
+| Discipline | Management discretion, no fixed steps | Preserve at-will |
+| Complaint/Grievance | Open-door, hotline, HR contact | Non-retaliation |
+| Records | Document retention, personnel file access | State-specific rules |
+| Closing | Right to amend, supersedes prior policies | Date and signature line for company |
+
+**Required disclaimers (include verbatim concepts)**
+
+- The handbook is not a contract and does not create contractual rights.
+- Employment is at-will; either party may end employment at any time, with or without notice or cause.
+- Only a written agreement signed by an authorized officer can change at-will status.
+- Policies may be modified, revoked, or added at the company’s discretion.
+
+**Jurisdiction addenda checklist**
+
+- [ ] State/local paid sick leave rules
+- [ ] Meal and rest break requirements
+- [ ] Final pay timing and accrued PTO payout rules
+- [ ] Wage theft prevention notices (if required)
+- [ ] Domestic violence or safe leave mandates
+- [ ] Predictive scheduling or fair workweek rules
+- [ ] Marijuana/cannabis accommodation limits and testing rules
+- [ ] Non-compete or non-solicit notice restrictions
+
+**Acknowledgement form template**
+
+```text
+EMPLOYEE HANDBOOK ACKNOWLEDGEMENT
+
+I acknowledge receipt of the [Company Name] Employee Handbook dated [Effective Date].
+I understand I am responsible for reading and complying with all policies.
+I understand the Handbook is not a contract and does not create contractual rights.
+I understand my employment is at-will and may be terminated by me or the Company at any time, with or without cause or notice.
+I understand only a written agreement signed by an authorized officer can modify at-will status.
+I understand the Company may change, interpret, or discontinue policies at its discretion.
+
+Employee Name (print):
+Employee Signature:
+Date:
+Department:
+Supervisor:
+```
+
+**Delivery format**
+
+- Provide two files: Handbook + Acknowledgement Form.
+- Include version/date footer on each page.
+- Insert placeholders for company logo, addresses, and contact channels.
+
+## Guidelines
+
+- Do not promise job security, minimum hours, or guaranteed pay/bonus.
+- Avoid mandatory “progressive discipline” steps; keep corrective action discretionary.
+- Ensure confidentiality and social media rules do not restrict lawful concerted activity under NLRA Section 7.
+- Keep benefits descriptions high-level; defer to plan documents.
+- Align policies with actual practices; inconsistencies are litigation risk.
+- Include accommodation process under ADA and applicable state laws.
+- If multi-state, use addenda rather than one-size-fits-all rules.
+- Add translations or accessible formats when required by workforce demographics or law.
+tokens used
+3,995

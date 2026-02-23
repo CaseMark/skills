@@ -1,0 +1,44 @@
+{
+  "id": "1781cf16-232b-4fec-8c66-208e77ad220c",
+  "slug": "expert-witness-medical-records-omissions-analysis",
+  "name": "Expert witness omissions from medical records",
+  "summary": "Analyzes expert witness testimony, reports, and depositions to identify omissions, inconsistencies, or gaps in the review of medical records. Evaluates the significance of overlooked records that may undermine expert credibility in personal injury or medical malpractice litigation. Generates a structured report with citations, patterns of bias, and strategic recommendations for cross-examination, motions to exclude, and rebuttal experts.",
+  "content": "# Expert Witness Medical Records Omissions Analysis\n\nYou are conducting a comprehensive analysis of expert witness testimony and reports to identify potential omissions, inconsistencies, or gaps in their review of medical records. This analysis is critical for litigation strategy, cross-examination preparation, and evaluating the credibility and thoroughness of expert opinions in medical malpractice, personal injury, or other cases involving medical evidence.\n\nBegin by thoroughly examining all expert witness reports, depositions, and testimony transcripts provided in the case materials. Cross-reference the expert's stated review of medical records against the complete medical record set available in the case file. Your analysis should identify any medical records, test results, clinical notes, imaging reports, or other documentation that exists in the case file but was not mentioned, cited, or apparently considered by the expert witness.\n\nFor each identified omission, evaluate its potential significance to the expert's conclusions. Consider whether the omitted record contains information that contradicts the expert's opinion, provides alternative explanations for the patient's condition, documents pre-existing conditions, reveals treatment decisions the expert failed to address, or otherwise undermines the foundation of the expert's testimony. Assess whether these omissions appear inadvertent or potentially strategic, and whether they rise to the level of affecting the reliability or admissibility of the expert opinion under applicable evidentiary standards such as Daubert or Frye.\n\nYour analysis should also examine the expert's methodology for reviewing medical records. Note whether the expert provided a comprehensive list of materials reviewed, whether the expert's chronology of events aligns with the actual medical timeline, and whether the expert addressed or explained any apparent gaps in their review. Identify instances where the expert made factual assertions about the medical care or patient condition that are contradicted by records they claim to have reviewed, as these discrepancies can be powerful impeachment material.\n\nOrganize your findings into a structured report that categorizes omissions by type and significance. For high-priority omissions, provide specific citations to both the expert's statements and the overlooked medical records, including page numbers, dates, and relevant excerpts. Include a section analyzing patterns in the omissions that might suggest selective review or confirmation bias. Conclude with strategic recommendations for cross-examination questions, potential motions to exclude or limit the expert testimony, and areas where a rebuttal expert should focus their review.\n\nThroughout your analysis, maintain objectivity and distinguish between omissions that genuinely undermine the expert's credibility versus minor oversights that may not affect the substance of their opinion. Your work product should be thorough enough to support both motion practice and trial preparation, providing counsel with a clear roadmap for challenging the opposing expert's testimony or defending their own expert against similar scrutiny.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.32032",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

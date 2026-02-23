@@ -1,0 +1,45 @@
+{
+  "id": "f13b1ca7-32ad-4bf5-b395-f54843d1e934",
+  "slug": "investigational-new-drug-ind-application",
+  "name": "Investigational New Drug (IND) Application",
+  "summary": "Drafts a comprehensive Investigational New Drug (IND) Application compliant with FDA regulations under 21 CFR Part 312, including Form 1571, Investigator's Brochure, clinical protocols, and CMC sections. This skill is used by sponsors to seek FDA authorization for initiating human clinical trials. It ensures precise structure, scientific rigor, and adherence to current FDA guidance and eCFR requirements.",
+  "content": "# Investigational New Drug (IND) Application - Enhanced Workflow\n\nYou are tasked with drafting a comprehensive Investigational New Drug (IND) Application that complies with FDA regulations under 21 CFR Part 312. This is a critical regulatory submission that must meet exacting standards for content, format, and scientific rigor. Your document will serve as the foundation for FDA authorization to begin clinical trials in human subjects.\n\n## Document Structure and Regulatory Framework\n\nBegin by establishing the proper regulatory foundation. The IND application must strictly adhere to the structure outlined in 21 CFR 312.23, which specifies the required content and organization. Search for the current FDA Form 1571 template and instructions directly from fda.gov to ensure you're using the most recent version. Verify the complete regulatory framework by consulting the FDA's electronic Code of Federal Regulations (eCFR) for Part 312, as this governs all IND submissions. Your table of contents must precisely mirror the regulatory requirements, with each section clearly delineated and properly numbered.\n\n## Cover Sheet and Introductory Materials\n\nThe cover sheet requires FDA Form 1571, which must include complete sponsor information, the investigational drug's name (including any code designations), the proposed clinical trial phase, and authorized signatures. Search official FDA resources to locate the current form version and completion instructions. Following the cover sheet, draft an introductory statement that provides a clear scientific rationale for the investigation. This statement should articulate the drug's therapeutic purpose, the medical need it addresses, the scientific basis for believing it may be effective, and a high-level overview of the general investigational plan. Consult FDA guidance documents on best practices for presenting investigational plans in a manner that facilitates regulatory review.\n\n## Clinical and Scientific Documentation\n\nThe Investigator's Brochure serves as the comprehensive reference document for all study personnel and must synthesize all available information about the drug's safety profile, potential efficacy, pharmacological properties, and known risks. Search for and cite the FDA's guidance on Investigator's Brochure content to ensure completeness. When drafting clinical protocols, provide meticulous detail on study design, primary and secondary objectives, patient selection criteria, dosing regimens, safety monitoring procedures, and statistical analysis plans. Search through any uploaded protocol documents to extract relevant facts, data points, and methodological details, then verify this content against the requirements specified in 21 CFR 312.23(a)(6).\n\n## Chemistry, Manufacturing, and Controls (CMC)\n\nThe CMC section demands rigorous technical detail about the drug substance and drug product. Document the complete chemical composition, structural formula, manufacturing process with flow diagrams, quality control procedures, stability data under various storage conditions, and specifications for raw materials and finished product. Search for FDA CMC templates and guidance documents that outline the specific data elements required for your drug's phase of development. Early-phase INDs may provide less extensive CMC data than later-phase applications, but all submissions must demonstrate adequate controls to ensure product quality, purity, and consistency.\n\n## Nonclinical and Clinical Data\n\nPresent all pharmacology and toxicology data from nonclinical studies, including pharmacokinetic profiles, mechanism of action studies, acute and chronic toxicity results, reproductive toxicity assessments, and any genotoxicity or carcinogenicity data. Each study summary should identify the testing facility, study dates, species used, dose levels, and key findings. Cite specific FDA IND guidance documents to verify that your nonclinical package addresses all required safety endpoints for the proposed clinical trial. If any previous human experience exists with this drug or related compounds, provide a comprehensive summary of prior clinical data, including results from foreign clinical trials, published literature, or investigational use. Search clinical trial registries and medical databases to identify and incorporate all relevant prior human exposure data.\n\n## Environmental and Supplementary Requirements\n\nAddress environmental considerations by conducting an environmental assessment as required under 21 CFR Part 25, or alternatively, document the basis for claiming a categorical exclusion from environmental assessment requirements. Most IND applications qualify for categorical exclusion, but you must explicitly reference the applicable regulatory provision. In the additional information section, include documentation of Institutional Review Board (IRB) approvals or approval plans, informed consent documents, investigator qualifications (CVs and Form FDA 1572), clinical laboratory certifications, and any other supporting materials. Search FDA resources and relevant bar association guidance for best practices in compiling these supplementary materials.\n\n## Quality Assurance and Finalization\n\nThroughout the drafting process, maintain strict attention to regulatory citation accuracy, internal cross-referencing, and document version control. Every scientific claim should be supported by data, every regulatory requirement should be explicitly addressed, and every section should facilitate efficient FDA review. Before finalizing, conduct a comprehensive quality check against the IND checklist provided in FDA guidance documents to ensure no required elements are omitted.\n\nOnce you have gathered all necessary information from FDA resources, uploaded documents, clinical databases, and regulatory references, create a complete IND application document that integrates all sections into a cohesive, professionally formatted submission ready for FDA filing. The final document should demonstrate scientific rigor, regulatory compliance, and a clear commitment to patient safety in the proposed clinical investigation.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "pharmaceuticals",
+      "biotechnology"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:13.929943",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

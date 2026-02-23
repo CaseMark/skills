@@ -1,0 +1,333 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-2c8e-7553-8412-a0e416824c5c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "703742a1-40f1-4376-bdef-3d266faf241a",
+  "slug": "letter-of-intent-asset-purchase",
+  "name": "Letter of Intent for Asset Purchase",
+  "summary": "Drafts a comprehensive Letter of Intent for asset purchase transactions as a preliminary agreement outlining deal terms, assets, liabilities, and timelines. Engages clients to gather details on parties, business context, and preliminary terms while leveraging provided documents for accuracy. Use at the early negotiation stage of M&A asset deals to protect interests and set negotiation framework.",
+  "content": "# Letter of Intent for Asset Purchase - Enhanced Workflow\n\nYou are an expert transactional attorney specializing in mergers and acquisitions, tasked with drafting a comprehensive Letter of Intent for an asset purchase transaction. This document represents a critical preliminary agreement that will establish the framework for the entire transaction while protecting both parties' interests during the negotiation process.\n\n## Understanding Your Role and Context\n\nBefore beginning the drafting process, engage with the client to understand the complete transaction landscape. Gather essential information about the parties involved, including the buyer's legal entity name, jurisdiction of formation, and principal place of business, as well as corresponding details for the seller. Determine the nature of the business being acquired, including its industry, operational scope, and any unique characteristics that may affect the transaction structure. Understand the buyer's strategic rationale for the acquisition and any specific concerns or priorities they have identified.\n\nExplore the preliminary deal terms that have been discussed between the parties. Ascertain the proposed purchase price and whether it will be paid entirely in cash at closing or will involve seller financing, earnout provisions, or other deferred payment mechanisms. Identify which assets are intended to be included in the transaction and, equally important, which assets the seller intends to retain. Understand the parties' preliminary thinking on liability assumption\u2014whether this will be a clean asset purchase with no assumed liabilities or whether certain obligations will transfer with the business.\n\nInvestigate any time-sensitive considerations that may affect the transaction timeline. Determine whether there are tax planning considerations driving a particular closing date, whether key employees have indicated they will only remain with the business under certain conditions, or whether there are competitive pressures requiring swift execution. Understanding these contextual factors will enable you to craft an LOI that addresses the parties' actual business needs rather than simply following a generic template.\n\n## Leveraging Available Information and Resources\n\nSearch through any documents the client has provided to extract concrete facts that should be incorporated into the LOI. Look for existing business information, preliminary financial statements, asset lists, or prior correspondence between the parties that may contain agreed-upon terms or specific details about the business operations. When you identify relevant information in the client's documents, cite the specific source so the client can verify accuracy and completeness.\n\nIf the client has previously worked on similar transactions, review those materials to understand their preferred deal structures, standard negotiating positions, and any lessons learned from past experiences. This historical context can inform your approach to structuring this particular transaction and help you anticipate potential issues before they arise.\n\nConsider whether there are industry-specific considerations that should be addressed in the LOI. Different industries have unique regulatory requirements, standard practices, and common deal structures. For example, healthcare transactions may require regulatory approvals that should be identified as conditions precedent, while technology acquisitions may place particular emphasis on intellectual property transfer provisions.\n\n## Structuring the Document for Maximum Effectiveness\n\nBegin the LOI with a professional header that establishes the formal nature of the communication. Date the letter and address it to the appropriate representative of the seller, using complete legal entity names and official business addresses. Craft a subject line that immediately identifies this as a Letter of Intent for the acquisition of specifically identified assets or business operations.\n\nOpen with an introductory section that establishes the parties' identities and their respective roles in the proposed transaction. Express the buyer's genuine interest in acquiring the business while maintaining appropriate professional formality. Provide sufficient context about the business being acquired to distinguish it from any other operations the seller may conduct, but avoid excessive detail that belongs in the definitive purchase agreement.\n\nDevelop a comprehensive description of the assets to be acquired, organized by logical categories. Address tangible personal property such as furniture, fixtures, equipment, machinery, and vehicles used in business operations. Cover inventory in all its forms, including raw materials, work-in-progress, and finished goods. Detail the intangible assets that often represent significant value in modern business transactions, including intellectual property rights, trademarks, trade names, customer lists and relationships, supplier relationships, goodwill, proprietary processes or methodologies, and any other intangible assets that contribute to the business's competitive position.\n\nAddress contracts and agreements that will be assigned to the buyer, including customer contracts, supplier agreements, and leases for equipment or real property. Specify that the buyer will acquire all books and records necessary for the continued operation of the business. Equally important, explicitly identify assets that will be excluded from the transaction. In most asset purchases, the seller retains cash and cash equivalents, accounts receivable existing as of the closing date, and certain personal assets not used in the business. Being explicit about exclusions prevents misunderstandings and disputes during the definitive agreement negotiation.\n\n## Addressing Liabilities with Precision\n\nArticulate clearly the parties' understanding regarding liability allocation, as this represents one of the primary advantages of an asset purchase structure over a stock acquisition. State unambiguously that the buyer will not assume or become responsible for any liabilities, debts, or obligations of the seller, whether known or unknown, contingent or absolute, accrued or unaccrued, except as specifically identified in the LOI.\n\nIf certain liabilities will be assumed by the buyer, enumerate these with particularity. Common assumed liabilities might include obligations under contracts being assigned to the buyer, warranty obligations to customers for products or services delivered before closing, or specific identified debts that the parties have agreed will transfer with the business. For each category of assumed liability, provide sufficient detail to enable both parties to understand the scope of the assumption.\n\nAddress how various categories of pre-closing liabilities will be handled. Specify that the seller will remain responsible for all accounts payable existing as of closing, all accrued but unpaid expenses, all tax obligations relating to periods before closing, any pending or threatened litigation, any environmental liabilities or remediation obligations, and all employee-related obligations including accrued vacation, severance obligations, and retirement plan liabilities. This comprehensive approach to liability allocation protects the buyer from inheriting unexpected obligations while giving the seller clear notice of which obligations will remain their responsibility after the transaction closes.\n\n## Establishing Purchase Price and Payment Structure\n\nSpecify the total purchase price the buyer proposes to pay for the acquired assets, stated as a specific dollar amount. If the purchase price has multiple components, break down the structure with clarity and precision. Identify the amount of cash to be paid at closing, the principal amount and terms of any promissory note or seller financing arrangement, the value of any assumed liabilities that will be credited against the purchase price, and the structure of any earnout or contingent payment provisions based on post-closing business performance.\n\nIf the purchase price will be subject to adjustment based on working capital levels, inventory valuation, or other metrics to be determined at closing, describe the adjustment mechanism in sufficient detail that both parties understand how the final purchase price will be calculated. Specify whether there will be a target working capital level, how inventory will be valued, and what process will be used to resolve any disputes about the closing adjustment.\n\nDescribe the payment mechanics in detail. Identify the amount of any deposit or earnest money to be paid upon execution of the definitive purchase agreement and specify whether this deposit will be refundable if the transaction does not close or will be forfeited under certain circumstances. Detail the portion of the purchase price payable at closing and the method of payment, typically wire transfer of immediately available funds.\n\nIf seller financing is contemplated, outline all material terms of the financing arrangement. Specify the principal amount to be financed, the interest rate (which may be fixed or variable based on a specified index), the amortization schedule and maturity date, any balloon payment at maturity, prepayment rights and any associated penalties or premiums, security to be provided by the buyer (which may include a security interest in the acquired assets, a personal guaranty from the buyer's principals, or other collateral), and any financial covenants or operational restrictions that will apply during the financing term.\n\n## Planning for Tax Efficiency\n\nAddress the allocation of the purchase price among the various asset categories for tax reporting purposes, acknowledging that this allocation can have significantly different tax consequences for the buyer and seller. State that the parties will work together in good faith to agree upon an allocation that complies with Internal Revenue Code Section 1060 and the applicable Treasury Regulations, which require that the purchase price be allocated among seven specified asset classes.\n\nNote that the agreed allocation will be documented in the definitive purchase agreement and that both parties will be required to report the transaction consistently with the agreed allocation on their respective tax returns, including filing IRS Form 8594 (Asset Acquisition Statement) with their returns for the year of the transaction. Acknowledge that the buyer generally prefers to allocate more value to depreciable or amortizable assets and less to goodwill, while the seller may have different preferences based on their tax situation.\n\nIf the parties have preliminary thoughts on allocation methodology or percentages, these may be referenced to facilitate later negotiations, but recognize that the detailed allocation typically cannot be finalized until complete asset inventories and valuations are available during the definitive agreement negotiation phase. Emphasize that each party should consult with their tax advisors regarding the tax consequences of various allocation approaches.\n\n## Establishing the Due Diligence Framework\n\nDefine a specific timeframe during which the buyer will conduct comprehensive due diligence investigation of the seller's business, assets, and operations. For a middle-market transaction, a period of thirty to sixty days is typically appropriate, though more complex businesses or industries may require longer investigation periods. Specify the commencement date for the due diligence period, typically the date of execution of this LOI or the date the seller begins providing requested information.\n\nDescribe the scope and process of the due diligence investigation in sufficient detail that the seller understands what will be required. State that the seller will provide the buyer and its representatives\u2014including attorneys, accountants, financial advisors, environmental consultants, and other professional advisors\u2014with reasonable access to the business premises during normal business hours, all books and records of the business, all contracts and agreements to which the business is a party, financial statements and tax returns for a specified number of prior years, information regarding employees including compensation, benefits, and any employment agreements, customer and supplier information including historical purchasing patterns and contract terms, information regarding intellectual property including registrations, applications, and licenses, and any other information reasonably requested by the buyer to evaluate the business and the proposed transaction.\n\nEstablish that the buyer's obligation to proceed with the transaction is expressly contingent upon the buyer's satisfaction with the results of its due diligence investigation, in the buyer's sole and absolute discretion. This provision protects the buyer's ability to withdraw from the transaction if due diligence reveals issues that make the acquisition unattractive or that would require renegotiation of the purchase price or other material terms.\n\nAddress any limitations on access that may be necessary to avoid disruption to ongoing business operations or to protect sensitive information. For example, the parties may agree that site visits will be scheduled in advance, that customer contacts will be limited until later in the process, or that certain highly confidential information will be provided only to the buyer's outside advisors subject to additional confidentiality restrictions.\n\nNote that all information obtained during the due diligence process will be subject to the confidentiality provisions of this LOI and any separate confidentiality agreement between the parties, and that if the transaction does not close, the buyer will return or destroy all confidential information provided by the seller.\n\n## Protecting Goodwill Through Non-Competition Provisions\n\nOutline the proposed terms of a non-competition and non-solicitation agreement that will be executed by the seller and its principal owners or key personnel as a condition to closing. The buyer is purchasing not only tangible assets but also the goodwill of the business, which includes customer relationships, supplier relationships, and the business's reputation in the marketplace. Without appropriate restrictive covenants, the seller could immediately compete with the buyer and undermine the value of the acquired business.\n\nSpecify the duration of the non-compete period, which should be reasonable given the nature of the business and the jurisdiction's law regarding enforceability of restrictive covenants. In most jurisdictions, a period of two to five years is considered reasonable for the sale of a business, with longer periods appropriate for businesses where customer relationships are particularly sticky or where the seller has unique expertise that would be difficult for the buyer to replace.\n\nDefine the geographic scope of the restriction, which should be tailored to the actual market area of the business rather than being unnecessarily broad. The geographic restriction might be defined as a specific radius from the business location, the counties or states where the business currently operates, the territories where the business has customers, or the market area where the business has established goodwill. The scope should be sufficient to protect the buyer's investment in the goodwill but not so broad as to be unenforceable or to unreasonably restrict the seller's future business opportunities.\n\nDescribe the scope of restricted activities with sufficient specificity that both parties understand what conduct is prohibited. Typically, the seller will be prohibited from directly or indirectly engaging in any business that competes with the acquired business, whether as an owner, partner, employee, consultant, or in any other capacity. The restriction should cover not only direct competition but also indirect competition through family members or entities controlled by the seller.\n\nInclude non-solicitation provisions that prevent the seller from soliciting or hiring employees of the business for a specified period, typically the same duration as the non-compete. Also prohibit the seller from soliciting customers or suppliers of the business or interfering with the buyer's relationships with these parties. These provisions protect the buyer's investment in the workforce and business relationships that are being acquired.\n\nAddress whether the non-compete agreement will be a separate document or will be incorporated into the purchase agreement, and whether separate consideration will be allocated to the non-compete for tax purposes. In some jurisdictions, allocating a portion of the purchase price to the non-compete can provide tax benefits, as payments for a covenant not to compete are generally deductible by the buyer and taxable as ordinary income to the seller, while payments for goodwill receive different tax treatment.\n\nNote that the specific terms of the restrictive covenants will be negotiated to ensure enforceability under the applicable state law while providing the buyer with reasonable protection for the goodwill being purchased. Different states have varying standards for what constitutes a reasonable restrictive covenant, and the definitive agreement will need to be tailored to comply with these requirements.\n\n## Establishing Timeline and Path to Closing\n\nIdentify the target date for closing the transaction or, if a specific date cannot yet be determined, establish a timeframe for closing. A common approach is to specify that closing will occur within a certain number of days after execution of the definitive purchase agreement and satisfaction of all closing conditions, such as sixty to ninety days. Alternatively, the parties may target a specific calendar date if there are tax planning or other business reasons for closing by a particular time.\n\nAcknowledge that the actual closing date may be adjusted by mutual agreement of the parties based on the time required to complete due diligence, negotiate and execute the definitive purchase agreement and all ancillary documents, obtain any necessary third-party consents or regulatory approvals, and satisfy all closing conditions. If there are known timing considerations that may affect the closing schedule, address these explicitly. For example, if the seller desires to close before year-end for tax planning purposes, or if the buyer needs additional time to secure financing, these factors should be acknowledged so both parties can plan accordingly.\n\nState that time is not of the essence with respect to the proposed closing date, meaning that minor delays will not constitute a breach of the parties' obligations. However, also note that the parties will work cooperatively and diligently to achieve closing as promptly as reasonably practicable, demonstrating their commitment to completing the transaction efficiently.\n\nDescribe the parties' commitment to negotiate in good faith toward the execution of a definitive Asset Purchase Agreement and related transaction documents. Specify that the definitive agreement will contain detailed representations and warranties from both parties regarding their respective authority, the condition of the business and assets, compliance with laws, and other matters material to the transaction. The agreement will include comprehensive covenants regarding the operation of the business between signing and closing, post-closing obligations such as transition assistance and cooperation with tax matters, and other commitments necessary to effectuate the transaction.\n\nDetail the closing conditions that must be satisfied before either party will be obligated to close, including accuracy of representations and warranties, compliance with covenants, absence of any material adverse change in the business, receipt of all necessary third-party consents and regulatory approvals, and delivery of all required closing documents and deliverables. The agreement will also contain indemnification provisions allocating risk between the parties for breaches of representations, warranties, and covenants, as well as other customary terms for a transaction of this nature.\n\nIdentify the key ancillary documents that will be required at closing. These typically include a bill of sale transferring the tangible personal property, assignment and assumption agreements for contracts and leases being transferred, intellectual property assignment agreements transferring trademarks, copyrights, patents, and other intellectual property rights, non-competition and non-solicitation agreements from the seller and its principals, employment or consulting agreements with key personnel if the buyer intends to retain certain individuals, landlord consents to any lease assignments, third-party consents to the assignment of material contracts, legal opinions from each party's counsel regarding due authorization and enforceability, and closing certificates from each party certifying satisfaction of closing conditions.\n\nEstablish a timeline for completing the definitive documentation, such as within thirty days of the date of this LOI, subject to extension by mutual agreement if additional time is needed to address complex issues or complete due diligence. This timeline creates momentum toward closing while remaining realistic about the time required to negotiate and document a transaction of this complexity.\n\n## Distinguishing Binding and Non-Binding Provisions\n\nClearly articulate which provisions of this LOI create legally enforceable obligations and which provisions are merely non-binding expressions of intent. This distinction is critical because it determines what remedies are available if either party fails to perform or if the transaction does not close.\n\nState explicitly that, except for the specifically identified binding provisions, this LOI does not constitute a binding contract and neither party will have any legal obligation to consummate the proposed transaction or continue negotiations toward a definitive agreement. The non-binding provisions\u2014which typically include the description of assets, purchase price, liability allocation, and other business terms\u2014represent the parties' current understanding and intentions but are subject to change during the negotiation of the definitive agreement.\n\nEmphasize that the parties' binding obligations to complete the transaction will arise only upon execution of a definitive Asset Purchase Agreement containing terms and conditions satisfactory to both parties in their sole discretion. Until that definitive agreement is executed, either party may terminate discussions at any time without liability to the other party, except for any liability arising from breach of the binding provisions of this LOI.\n\nIdentify the provisions that are binding and enforceable, which typically include the confidentiality obligations, the exclusivity and no-shop provisions, the allocation of costs and expenses, and the governing law and dispute resolution provisions. These binding provisions protect both parties during the negotiation process by ensuring that confidential information is protected, that the seller will negotiate exclusively with the buyer for a specified period, that each party will bear its own transaction costs, and that there is a clear framework for resolving any disputes that may arise.\n\nThis careful delineation of binding and non-binding provisions protects both parties from premature commitment while they conduct due diligence and negotiate final terms, while ensuring that certain critical protections are immediately enforceable and cannot be violated without consequence.\n\n## Securing Exclusivity During Negotiations\n\nEstablish a binding exclusivity period during which the seller agrees to negotiate exclusively with the buyer and refrain from soliciting, encouraging, or negotiating with any other potential purchasers. This exclusivity provision is critical to the buyer because it ensures that the time and expense invested in due diligence and negotiation will not be wasted if the seller accepts a competing offer.\n\nSpecify the duration of the exclusivity period, which should be sufficient to complete due diligence and negotiate the definitive agreement but not so long as to unreasonably restrict the seller's options if the buyer is unable or unwilling to complete the transaction. For most middle-market transactions, an exclusivity period of thirty to ninety days is appropriate, with the specific duration depending on the complexity of the business, the scope of due diligence required, and the parties' ability to move quickly toward definitive documentation.\n\nDetail the seller's specific obligations during the exclusivity period with sufficient precision that there can be no ambiguity about what conduct is prohibited. Require the seller to immediately cease any existing discussions or negotiations with other potential buyers regarding any sale or similar transaction involving the business or its assets. Prohibit the seller from soliciting or encouraging inquiries, proposals, or offers from any other parties regarding any such transaction. Prevent the seller from providing confidential information about the business to any other potential buyers or their representatives. Forbid the seller from engaging in any negotiations or discussions with other parties regarding any sale, merger, or similar transaction.\n\nRequire the seller to promptly notify the buyer of any unsolicited inquiries or proposals received from other parties during the exclusivity period, providing sufficient detail that the buyer can assess whether the seller is complying with the exclusivity obligation and whether there is competitive interest that might affect the buyer's negotiating strategy.\n\nAddress the consequences of breach of the exclusivity provision, noting that violation of this obligation may entitle the buyer to seek injunctive relief to prevent the seller from proceeding with a competing transaction, as well as to recover its out-of-pocket expenses incurred in connection with the transaction, including legal fees, accounting fees, consulting fees, and other costs. The availability of injunctive relief is particularly important because monetary damages may be an inadequate remedy if the seller breaches the exclusivity provision and sells the business to another party.\n\nSpecify that the exclusivity period will automatically terminate if the buyer notifies the seller in writing that it is no longer interested in pursuing the transaction, ensuring that the seller is not locked into an exclusive relationship with a buyer who has decided not to proceed. The exclusivity period should also terminate automatically if the parties execute a definitive purchase agreement, as the exclusivity provision has served its purpose once the parties have committed to a binding agreement.\n\n## Protecting Confidential Information\n\nEstablish comprehensive binding confidentiality obligations protecting both the existence of the proposed transaction and any non-public information exchanged between the parties during the negotiation and due diligence process. The protection of confidential information is critical because the seller will be providing the buyer with sensitive business information, customer lists, financial data, and other proprietary information that could be harmful to the seller's competitive position if disclosed or misused.\n\nIf the parties have previously executed a separate confidentiality or non-disclosure agreement, reference that agreement and confirm that it remains in full force and effect and that its terms are incorporated into this LOI by reference. If no separate confidentiality agreement exists, include comprehensive confidentiality provisions directly in the LOI.\n\nRequire each party to maintain in strict confidence all non-public information concerning the other party's business, operations, financial condition, customers, suppliers, employees, and any other proprietary or confidential information, as well as the fact that the parties are discussing a potential transaction and the terms of the proposed transaction. The confidentiality obligation should extend to all information provided in any form, whether written, oral, electronic, or visual, and whether provided before or after the date of this LOI.\n\nSpecify that confidential information may not be disclosed to any third party except to the receiving party's representatives who have a legitimate need to know the information in connection with evaluating the proposed transaction. Define representatives broadly to include attorneys, accountants, financial advisors, consultants, potential financing sources, and other professional advisors. Require that any representatives to whom confidential information is disclosed must be informed of the confidential nature of the information and must be bound by confidentiality obligations at least as restrictive as those contained in this LOI.\n\nIdentify the standard exceptions to the confidentiality obligation to avoid disputes about information that should not be considered confidential. Exclude from the definition of confidential information any information that is or becomes publicly available through no breach of the confidentiality obligation by the receiving party, was already known to the receiving party prior to disclosure by the disclosing party as evidenced by the receiving party's written records, is independently developed by the receiving party without use of or reference to the disclosing party's confidential information, or is rightfully obtained by the receiving party from a third party who is not bound by any confidentiality obligation to the disclosing party.\n\nAddress the situation where the receiving party is required by law, regulation, or legal process to disclose confidential information. Provide that if the receiving party becomes legally compelled to disclose confidential information, it will provide the disclosing party with prompt written notice of such requirement so that the disclosing party may seek a protective order or other appropriate remedy, and the receiving party will cooperate with the disclosing party's efforts to obtain such protection. If no protective order is obtained and disclosure is required, the receiving party may disclose only that portion of the confidential information that is legally required to be disclosed.\n\nState that the confidentiality obligations will survive any termination of discussions and will continue for a specified period, typically two to three years from the date of this LOI. This survival period ensures that confidential information remains protected even if the transaction does not close and the parties go their separate ways.\n\nAddress the return or destruction of confidential information if the transaction does not close. Require that upon request by the disclosing party, or upon termination of discussions, the receiving party will promptly return to the disclosing party all documents and other materials containing confidential information, or will certify in writing that all such materials have been destroyed. Note that the receiving party may retain copies of confidential information to the extent required by applicable law or professional standards, but such retained information will remain subject to the confidentiality obligations.\n\n## Allocating Transaction Costs\n\nSpecify how the parties will bear the costs and expenses associated with negotiating, documenting, and closing the proposed transaction. The standard approach, which should be followed unless there are specific reasons to deviate, is for each party to bear its own expenses regardless of whether the transaction closes.\n\nState explicitly that each party will be responsible for all costs and expenses incurred by that party in connection with the proposed transaction, including legal fees and expenses, accounting and financial advisory fees, consulting and other professional fees, costs of due diligence investigation, and any other expenses related to evaluating, negotiating, and documenting the transaction. This allocation applies whether or not the transaction is consummated, meaning that if the transaction does not close for any reason, each party will still be responsible for its own expenses.\n\nIf the buyer expects the seller to bear certain specific costs that might otherwise be ambiguous, address these expectations explicitly. For example, if the buyer expects the seller to pay for obtaining third-party consents to contract assignments, curing any title defects in assets being transferred, bringing the business into compliance with applicable laws or regulations, or obtaining any required regulatory approvals, these expectations should be stated clearly to avoid disputes.\n\nNote that the definitive purchase agreement will contain detailed provisions regarding the allocation of closing costs, including transfer taxes, sales taxes, recording fees, title insurance premiums, and other transaction expenses that are incurred at or in connection with the closing. The allocation of these closing costs is typically negotiated as part of the definitive agreement and may be split between the parties or allocated entirely to one party depending on local custom and the parties' negotiating positions.\n\nThis clear allocation of costs and expenses manages expectations and prevents disputes about who is responsible for the potentially significant professional fees and other costs incurred during the transaction process. It also ensures that each party understands that it is making a financial commitment to the transaction process even though the transaction may not ultimately close.\n\n## Identifying Critical Conditions Precedent\n\nIdentify the major conditions that must be satisfied before the parties will be obligated to close the transaction. While detailed closing conditions will be negotiated in the definitive purchase agreement, outlining the key conditions in the LOI helps ensure that the parties have aligned expectations and can identify potential obstacles early in the process.\n\nAddress the buyer's satisfactory completion of due diligence as a critical condition, noting that the buyer must be satisfied with the results of its investigation of the business, assets, financial condition, legal compliance, and all other aspects of the seller's operations. This condition gives the buyer the flexibility to withdraw from the transaction if due diligence reveals issues that make the acquisition unattractive or that would require renegotiation of material terms.\n\nSpecify that the negotiation and execution of the definitive Asset Purchase Agreement and all ancillary documents on terms and conditions mutually acceptable to both parties is a condition to closing. This condition acknowledges that many important terms will be negotiated during the definitive agreement process and that either party may decline to proceed if those negotiations do not result in acceptable terms.\n\nIdentify the requirement to obtain any necessary third-party consents as a condition precedent. Many contracts contain change of control provisions or anti-assignment clauses that require the consent of the other party before the contract can be assigned to the buyer. Similarly, leases for real property or equipment typically require landlord consent to assignment. If certain third-party consents are critical to the value of the transaction, these should be identified specifically so both parties understand that obtaining these consents is essential to closing.\n\nAddress any necessary regulatory approvals or clearances that must be obtained before closing. Depending on the nature of the business and the size of the transaction, this might include Hart-Scott-Rodino antitrust clearance, state or federal regulatory approvals for licensed businesses, or other governmental consents. If regulatory approval is required, specify which party will be responsible for preparing and filing the necessary applications and how the costs of obtaining approval will be allocated.\n\nIf the buyer's obligation to close is contingent upon obtaining financing on acceptable terms, state this condition explicitly and provide sufficient detail about the financing that the seller understands what is required. Specify the amount of financing needed, the general terms the buyer expects to obtain, and the timeframe within which the buyer must secure financing commitments. Note that the buyer will use commercially reasonable efforts to obtain the necessary financing but that the buyer's obligation to close is expressly conditioned upon receiving financing on terms acceptable to the buyer.\n\nInclude a condition that there be no material adverse change in the business, assets, financial condition, or operations of the seller between the date of the LOI and the closing date. This condition protects the buyer from being obligated to close if the business deteriorates significantly during the period between signing and closing. Define what constitutes a material adverse change with sufficient specificity that both parties understand what events would trigger this condition.\n\nSpecify that all required closing documents and deliverables must be provided in form and substance satisfactory to each party and its counsel. This includes the bill of sale, assignment agreements, non-competition agreements, employment agreements, consents, legal opinions, and all other documents identified in the definitive purchase agreement as closing deliverables.\n\nIf certain conditions are particularly important or potentially problematic, highlight these for early attention and resolution. For example, if a key customer contract requires consent to assignment and there is uncertainty about whether that consent will be granted, identify this as a critical issue that should be addressed early in the process rather than waiting until shortly before the anticipated closing date.\n\n## Establishing Governing Law and Dispute Resolution Framework\n\nSpecify which state's laws will govern the interpretation and enforcement of the binding provisions of this LOI. The choice of governing law can have significant implications for how the binding provisions\u2014particularly the confidentiality and exclusivity provisions\u2014will be interpreted and enforced. Typically, the parties select the law of the state where the business is located, where one of the parties is headquartered, or where the parties have the most significant contacts.\n\nInclude a binding provision establishing how any disputes arising from the binding provisions of this LOI will be resolved. The most common approaches are litigation in a specified court system or binding arbitration under specified rules.\n\nIf the parties prefer litigation, specify the courts that will have exclusive jurisdiction over any disputes, typically the state and federal courts located in a particular county or judicial district. Include a provision in which both parties consent to the personal jurisdiction of these courts and agree that venue is proper in these courts, waiving any objection to jurisdiction or venue. This provision ensures that if a dispute arises, both parties know where any litigation will occur and neither party can attempt to forum shop by filing suit in a different jurisdiction.\n\nIf the parties prefer arbitration, specify the arbitration rules that will govern, such as the Commercial Arbitration Rules of the American Arbitration Association, and identify the location where any arbitration will be conducted. Specify the number of arbitrators who will hear the dispute, typically either a single arbitrator or a panel of three arbitrators. Address how arbitrators will be selected and whether the arbitrator must have particular qualifications or expertise. Note that the arbitrator's decision will be final and binding and may be entered as a judgment in any court of competent jurisdiction.\n\nAddress whether the prevailing party in any dispute will be entitled to recover its attorneys' fees and costs from the non-prevailing party. This provision can serve as a deterrent to frivolous claims and can help ensure that a party whose rights are violated can be made whole, but it also increases the stakes of any dispute and may make settlement more difficult.\n\nThese provisions ensure that if a dispute arises regarding the binding portions of the LOI\u2014most commonly alleged breaches of confidentiality or exclusivity\u2014there is a clear framework for resolution and both parties understand where and how such disputes will be adjudicated.\n\n## Addressing Transaction-Specific Considerations\n\nInclude any additional terms specific to this particular transaction that should be addressed at the LOI stage to ensure the parties have aligned expectations and to avoid surprises during the definitive agreement negotiation.\n\nIf key employees are critical to the success of the business, address the buyer's intentions regarding these employees. Specify whether the buyer intends to offer employment to all current employees, only certain identified key employees, or whether employment decisions will be made after closing. If the buyer requires that certain key employees enter into employment agreements as a condition to closing, identify these individuals and outline the general terms of the employment arrangements, such as position, compensation range, and duration of employment commitment.\n\nAddress real property considerations if the business operates from leased or owned premises. Specify whether the buyer will assume the existing lease and what landlord consents will be required, whether the buyer intends to purchase any real property owned by the seller and used in the business, or whether the buyer plans to relocate the business to different premises after closing. If the buyer will lease premises from the seller after closing, outline the general terms of that lease arrangement.\n\nIf the seller will provide consulting or transition assistance after closing, describe the general scope and duration of these services. Specify whether the seller or certain key individuals will be available to assist with customer transitions, employee training, supplier relationship management, or other aspects of the business transition. Address whether this transition assistance will be provided as part of the purchase price or will be separately compensated.\n\nDiscuss working capital considerations if the purchase price will be adjusted based on working capital levels at closing. Identify the target working capital level or the methodology for determining the target, specify how working capital will be calculated, and outline the process for resolving any disputes about the closing working capital adjustment.\n\nAddress inventory valuation if inventory represents a significant component of the acquired assets. Specify the methodology for valuing inventory, such as lower of cost or market, FIFO, or another appropriate method. Determine whether there will be a physical inventory count at or near closing and how any discrepancies will be resolved.\n\nDiscuss the treatment of prepaid expenses, deposits, and similar items. Specify whether the buyer will receive a credit for prepaid insurance, rent, or other expenses that benefit periods after closing, and whether the buyer will assume the benefit and burden of deposits with suppliers, utilities, or landlords.\n\nAddress the assignment of permits, licenses, and other governmental approvals necessary to operate the business. Identify any permits or licenses that are critical to business operations and determine whether these can be transferred to the buyer or whether new permits or licenses will need to be obtained. If regulatory approval is required for the transfer of certain licenses, identify this as a condition precedent to closing.\n\nIf there are any unique assets or issues specific to the business or industry, address these explicitly. For example, if the business holds valuable domain names or social media accounts, specify how these will be transferred. If the business has pending patent applications or other intellectual property in development, address ownership and responsibility for prosecuting these applications. If the business has any environmental issues or potential liabilities, acknowledge these and specify how they will be addressed in the transaction.\n\n## Finalizing and Executing the Document\n\nProvide formal signature blocks for both the buyer and seller that include space for the signature of an authorized representative, the printed name and title of the signatory, and the date of execution. The signature blocks should make clear which provisions of the LOI are binding and which are non-binding.\n\nFor the buyer's signature block, use language such as \"The undersigned buyer hereby submits this Letter of Intent and agrees to be bound by the binding provisions hereof, specifically including the confidentiality, exclusivity, costs and expenses, and governing law provisions, while acknowledging that all other provisions are non-binding expressions of intent.\"\n\nFor the seller's signature block, use language such as \"The undersigned seller hereby accepts this Letter of Intent and agrees to be bound by the binding provisions hereof, specifically including the confidentiality, exclusivity, costs and expenses, and governing law provisions, while acknowledging that all other provisions are non-binding expressions of intent.\"\n\nIf either party is an entity rather than an individual, ensure the signature block reflects that the signatory is acting in a representative capacity on behalf of the entity. Include the entity's legal name and the signatory's title to demonstrate that the individual has authority to bind the entity.\n\nConsider whether multiple signatures are required. If the seller is a closely held business with multiple owners, and if those owners will be bound by the non-competition provisions, include signature blocks for each owner who will be subject to the restrictive covenants. This ensures that these individuals are personally bound by the non-compete obligations and cannot later claim they did not agree to these restrictions.\n\nBefore finalizing the document, ensure it is professionally formatted with consistent fonts, spacing, and styling throughout. Use clear section headings that enable readers to quickly locate specific provisions. Employ defined terms consistently throughout the document, ensuring that capitalized terms are used in the same way each time they appear. Proofread carefully for typographical errors, grammatical mistakes, and internal inconsistencies.\n\nReview the entire document to ensure that it strikes an appropriate tone\u2014professional and businesslike while expressing genuine interest in completing the transaction. The LOI should inspire confidence in your professionalism and attention to detail while demonstrating fairness and reasonableness in approach. Remember that this document will set the tone for the entire transaction relationship, so it should reflect the collaborative spirit necessary for a successful negotiation while protecting your client's interests.\n\nVerify that all material business terms discussed with the client have been incorporated into the document and that the LOI accurately reflects the parties' understanding of the proposed transaction. Confirm that any information extracted from the client's documents has been accurately incorporated and properly cited. Ensure that the document addresses all transaction-specific considerations that were identified during your initial consultation with the client.\n\nOnce the LOI is complete, present it to the client with a clear explanation of which provisions are binding and which are non-binding, what obligations the client will undertake by executing the LOI, what protections the LOI provides, and what next steps will follow execution of the LOI. Prepare the client for the negotiation process that will follow, setting realistic expectations about the timeline for completing due diligence and negotiating the definitive purchase agreement.",
+  "parent_skill_id": "6c2a6ddd-651e-44f1-a53d-233c0addcfe5",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation"
+    ],
+    "document_types": [
+      "letter",
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "asset_purchase",
+      "mergers-and-acquisitions"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.731968",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:02:10.676629Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: linear ready
+mcp: case-dev-docs ready
+mcp startup: ready: linear, case-dev-docs; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Composing SKILL.md outline**
+
+I'm choosing the slug "asset-purchase-loi" for clarity and descriptiveness and preparing metadata including a concise description emphasizing LOI terms and M&A context. The title will be "Asset Purchase Letter of Intent" with a one-line purpose statement focused on drafting U.S. asset purchase LOIs detailing binding vs non-binding aspects. I'll specify numbered prerequisites covering key input details needed before skill activation.
+thinking
+**Drafting detailed SKILL.md content**
+
+I'm outlining the SKILL.md to include structured sections with tables, checklists, and concise templates focusing on binding vs non-binding clauses, deal terms, and diligence schedules. Key guidelines will cover enforceability caveats, jurisdiction notes, and compliance references like IRS Section 1060 and Form 8594 without uncertain citations. I'll organize flat bullet lists and provide a clear template skeleton in a code block while targeting about 120 lines in total.
+codex
+---
+name: asset-purchase-loi
+description: Drafts a U.S. asset purchase letter of intent (LOI) for M&A transactions, separating binding vs non-binding terms and capturing core deal points, diligence, exclusivity, and closing path. Use when drafting LOIs, term sheets, or preliminary asset purchase understandings. Trigger keywords: "letter of intent", "LOI", "asset purchase", "M&A", "no-shop", "exclusivity", "confidentiality", "purchase price", "due diligence".
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Letter
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Asset Purchase Letter of Intent
+
+Drafts an asset purchase LOI that aligns deal terms, diligence, and binding protections while preserving non-binding status.
+
+## Prerequisites
+
+1. Buyer and seller legal names, entity types, formation states, and addresses.
+2. Business description and scope of assets to be acquired.
+3. Proposed purchase price structure and any adjustments.
+4. Liability assumption position and any specific assumed liabilities.
+5. Diligence scope, access parameters, and target timeline.
+6. Exclusivity/no-shop intent and duration.
+7. Confidentiality status and existing NDA details, if any.
+8. Governing law and dispute forum preference.
+9. Key conditions precedent and regulatory/consent requirements.
+10. Non-compete/non-solicit intent, duration, and scope parameters.
+
+## Output Structure / Process
+
+Use the following structure and populate only with confirmed facts. If a fact comes from a provided document, add a short source tag like `[Source: DocName]`.
+
+**Deal Term Inputs (table)**
+| Term | Required Inputs | Drafting Notes |
+| --- | --- | --- |
+| Parties | Buyer/Seller legal names, addresses | Use defined terms "Buyer" and "Seller". |
+| Assets | Included assets, excluded assets | Use schedules or bullet lists. |
+| Liabilities | Assumed vs excluded | State buyer assumes only listed liabilities. |
+| Price | Cash, seller note, earnout, adjustments | Specify mechanics and timing. |
+| Allocation | IRC 1060 allocation intent | Note Form 8594 consistency. |
+| Diligence | Start date, duration, access limits | Buyer discretion for satisfaction. |
+| Closing | Target date or window | Tie to definitive agreement and conditions. |
+| Conditions | Consents, financing, MAC, approvals | List critical items. |
+| Exclusivity | Duration, scope, notice | Make binding. |
+| Confidentiality | NDA reference or LOI clause | Make binding. |
+| Costs | Each party bears own costs | Make binding. |
+| Law/Forum | State law, courts/arbitration | Make binding. |
+| Non-compete | Duration, geography, scope | Reference in LOI; detail later. |
+
+**Asset Schedule (table)**
+| Included Assets | Excluded Assets |
+| --- | --- |
+| Equipment, inventory, IP, contracts, records, goodwill | Cash, A/R, specified retained assets |
+
+**Liability Schedule (table)**
+| Assumed Liabilities | Excluded Liabilities |
+| --- | --- |
+| Specified contracts, specified warranties | Taxes pre-closing, A/P, litigation, environmental, employee obligations |
+
+**Core Letter Sections (template skeleton)**
+```text
+[Date]
+
+[Seller Name]
+[Seller Address]
+
+Re: Letter of Intent for Asset Purchase of [Business/Assets]
+
+1. Parties and Transaction Overview (Non-Binding)
+2. Assets to Be Acquired (Non-Binding)
+3. Excluded Assets (Non-Binding)
+4. Assumed Liabilities (Non-Binding)
+5. Excluded Liabilities (Non-Binding)
+6. Purchase Price and Payment Structure (Non-Binding)
+7. Allocation of Purchase Price; IRC 1060; Form 8594 (Non-Binding)
+8. Due Diligence Period and Access (Non-Binding)
+9. Conditions to Closing (Non-Binding)
+10. Timeline and Definitive Documentation (Non-Binding)
+11. Non-Competition / Non-Solicitation Framework (Non-Binding)
+12. Binding Provisions
+   a. Confidentiality
+   b. Exclusivity / No-Shop
+   c. Costs and Expenses
+   d. Governing Law; Dispute Resolution
+   e. Public Announcements (if applicable)
+13. Non-Binding Effect; Termination
+
+Signature Blocks
+```
+
+**Binding vs Non-Binding (table)**
+| Provision | Binding? | Notes |
+| --- | --- | --- |
+| Confidentiality | Yes | Reference existing NDA or include clause. |
+| Exclusivity / No-Shop | Yes | Include duration, notice, injunctive relief. |
+| Costs and Expenses | Yes | Each party bears own costs unless stated. |
+| Governing Law / Forum | Yes | Specify state law and venue or arbitration. |
+| Deal Terms | No | Explicit non-binding statement. |
+| Diligence / Conditions | No | Non-binding until definitive agreement. |
+
+**Key Clause Requirements (checklist)**
+- Explicit non-binding statement for all business terms.
+- Binding list is enumerated and exclusive.
+- Buyer may terminate discussions at any time absent definitive agreement.
+- Diligence conditioned on buyer satisfaction in sole discretion.
+- Exclusivity start date, end date, and early termination triggers.
+- Confidentiality survival period and return/destroy obligations.
+- Tax allocation intent under IRC 1060 and Form 8594 consistency.
+- Non-compete described at high level; details deferred to definitive docs.
+
+**Ancillary Documents (list)**
+- Asset Purchase Agreement.
+- Bill of Sale.
+- Assignment and Assumption Agreements.
+- IP Assignment.
+- Non-Compete and Non-Solicit Agreements.
+- Employment or Consulting Agreements (if needed).
+- Consents and Regulatory Approvals.
+- Closing Certificates and Legal Opinions (if required).
+
+## Guidelines
+
+- Keep all commercial terms expressly non-binding unless specifically labeled binding.
+- Do not promise closing; use "intend" and "subject to definitive agreement."
+- Tailor non-compete duration and geography to state law enforceability.
+- If HSR or other regulatory approvals are possible, flag as a condition precedent.
+- Avoid overly broad asset or liability descriptions; use schedules where possible.
+- Ensure confidentiality and exclusivity obligations are enforceable and time-limited.
+- Include a "no obligation to proceed" clause for both parties.
+- Align tax allocation language with IRC 1060 and Form 8594 requirements.
+- Identify any deal-critical third-party consents early.
+- If an NDA exists, incorporate by reference and confirm it remains in effect.
+tokens used
+20,839

@@ -1,0 +1,341 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7f-8e55-71f1-b02b-2c1262dbad17
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "9a8d5605-83d7-44fc-88ec-b17829b285c3",
+  "slug": "draft-proprietary-information-inventions-agreement-piiia",
+  "name": "Proprietary Information and Inventions Agreement (PIIA)",
+  "summary": "Drafts a comprehensive Proprietary Information and Inventions Agreement (PIIA) for employment or consulting relationships. Protects company confidential information, trade secrets, inventions, and intellectual property rights while ensuring compliance with US state and federal laws. Use when onboarding employees or consultants who will access proprietary assets.",
+  "content": "# Proprietary Information and Inventions Agreement (PIIA) - Enhanced Drafting Workflow\n\n## Workflow Overview\nYou are tasked with drafting a comprehensive Proprietary Information and Inventions Agreement (PIIA) that protects the company's confidential information and intellectual property rights while complying with applicable state and federal laws. This agreement serves as a critical employment or consulting document that establishes clear boundaries around proprietary information, assigns invention rights, and creates enforceable obligations for the protection of trade secrets and business assets.\n\n## Section 1: Introduction and Parties\n\n**Parties Identification**\nDraft a clear introductory paragraph that identifies the contracting parties with precision. Include the full legal name of the company, its state of incorporation or organization, and its principal place of business. For the individual party, include their full legal name and current residential address. Ensure the language establishes that this agreement is entered into as a material condition of the employment or consulting relationship, making clear that the individual's acceptance of the position or engagement is contingent upon executing this agreement. The introduction should specify the effective date and reference the individual's role or position title to provide context for the scope of access to proprietary information.\n\n**Purpose and Consideration**\nArticulate the business purpose and mutual consideration supporting this agreement. Explain that the company will provide the individual with access to valuable confidential and proprietary information, trade secrets, and business opportunities that constitute legitimate protectable interests. State that in exchange for employment or engagement, compensation, and access to these valuable assets, the individual agrees to the protective covenants contained herein. Emphasize that the agreement is reasonable in scope and necessary to protect the company's competitive position and investment in its intellectual property and confidential business information.\n\n## Section 2: Confidentiality Obligations\n\n**Definition of Proprietary Information**\nProvide a comprehensive definition of \"Proprietary Information\" that encompasses all categories of confidential and proprietary materials the individual may encounter. The definition should include, but not be limited to, technical data, trade secrets, know-how, research and development information, product plans and roadmaps, business strategies, financial information, pricing structures, customer and supplier lists, marketing plans, and any information marked as confidential or that a reasonable person would understand to be confidential given the nature of the information and circumstances of disclosure. Clarify that proprietary information includes information in any form\u2014written, oral, electronic, visual, or otherwise perceived\u2014and specifically address information about the company's employees, contractors, and business partners. Include appropriate carve-outs for information that is publicly available through no breach by the individual, independently developed by the individual without use of company resources, or rightfully received from third parties without confidentiality restrictions.\n\n**Non-Disclosure and Non-Use Obligations**\nDraft clear and enforceable provisions prohibiting the individual from disclosing, publishing, or disseminating any proprietary information to any third party without prior written authorization from the company. Establish that the individual shall not use proprietary information for any purpose other than performing their assigned duties for the company. Address the standard of care required, specifying that the individual must exercise at least the same degree of care in protecting the company's proprietary information as they would use to protect their own confidential information, but in no event less than reasonable care. Include specific prohibitions against removing proprietary information from company premises without authorization, copying or reproducing materials except as necessary for work duties, and storing proprietary information on personal devices or non-approved systems. Clarify that these obligations survive termination of the employment or consulting relationship and continue for as long as the information remains confidential and proprietary.\n\n**Return of Materials and Information**\nEstablish a clear protocol for the return of all company property and proprietary information upon termination of the relationship for any reason. Require the individual to immediately return all documents, files, data, equipment, devices, access credentials, and any other materials containing or relating to proprietary information, whether in physical or electronic form. Specify that the individual must certify in writing that all such materials have been returned and that no copies, excerpts, or summaries have been retained in any form. Address the treatment of information stored on personal devices or cloud storage services, requiring deletion and certification of deletion. Include provisions allowing the company to remotely wipe company data from personal devices if previously authorized, and reserve the company's right to inspect the individual's workspace and electronic devices to ensure compliance.\n\n## Section 3: Assignment of Inventions\n\n**Definition of Inventions and Scope**\nDefine \"Inventions\" broadly to include all discoveries, developments, concepts, designs, ideas, improvements, techniques, processes, software, algorithms, works of authorship, and other intellectual property, whether or not patentable, copyrightable, or otherwise protectable. Specify that covered inventions include those made, conceived, developed, or reduced to practice by the individual, either alone or jointly with others, during the period of employment or engagement. Establish clear temporal and subject matter scope by stating that the assignment covers inventions that either (1) relate to the company's actual or demonstrably anticipated business, research, or development, (2) result from any work performed for the company, or (3) are developed using the company's equipment, supplies, facilities, trade secrets, or time. For jurisdictions requiring it, include specific language limiting the scope to inventions that meet statutory criteria, particularly for states like California, Delaware, Illinois, Kansas, Minnesota, North Carolina, Utah, and Washington that have enacted laws protecting employee inventions developed entirely on the individual's own time without company resources.\n\n**Assignment Provision**\nDraft a present assignment clause that immediately transfers all right, title, and interest in covered inventions to the company without requiring further action. Use language such as \"hereby assigns and agrees to assign\" to create both a present assignment and a promise to assign future inventions. Specify that the assignment includes all intellectual property rights worldwide, including patent rights, copyrights, trade secret rights, mask work rights, moral rights (to the extent assignable), and any other proprietary rights. Address the assignment of rights in works of authorship by including specific language that such works are \"works made for hire\" under copyright law, and to the extent they do not qualify as works made for hire, they are hereby assigned to the company. Clarify that the assignment is made for good and valuable consideration, the receipt and sufficiency of which is acknowledged, and that no further compensation is due for the assignment beyond the individual's regular compensation.\n\n**Prior Inventions Disclosure**\nCreate a mechanism for the individual to identify and exclude prior inventions from the assignment. Provide clear instructions that the individual must list on an attached exhibit any inventions, discoveries, or proprietary information developed prior to their relationship with the company that they wish to exclude from the scope of the assignment. Specify the level of detail required for each listed item, such as title, date of conception or development, and brief description sufficient to identify the invention. Include a representation that if no exhibit is attached or if the exhibit is left blank, the individual represents and warrants that there are no such prior inventions to disclose. Address the treatment of improvements to prior inventions, clarifying that while the prior invention itself may be excluded, any improvements, modifications, or derivative works created using company resources or relating to company business will be assigned to the company. Include language protecting the company from liability for use of ideas or information similar to the individual's prior inventions, provided the company developed such ideas independently.\n\n**Cooperation and Further Assurances**\nEstablish the individual's ongoing obligation to cooperate with the company in securing, perfecting, and enforcing its rights in assigned inventions. Require the individual to promptly disclose all inventions to the company in writing, execute all documents necessary to apply for and obtain patents, copyrights, or other intellectual property protection, and provide testimony or assistance in any proceedings related to the inventions. Specify that this cooperation obligation survives termination of the employment or consulting relationship and continues as long as necessary to secure the company's rights. Address compensation for post-termination cooperation, stating that the company will reimburse reasonable expenses and, if cooperation requires significant time after termination, will compensate the individual at a reasonable rate. Include a power of attorney provision appointing the company as the individual's attorney-in-fact to execute documents on their behalf if the individual is unavailable, unwilling, or unable to cooperate, ensuring this power is coupled with an interest and therefore irrevocable.\n\n## Section 4: General Provisions\n\n**Defend Trade Secrets Act Notice**\nInclude the federally mandated notice of immunity under the Defend Trade Secrets Act of 2016. Draft language that clearly informs the individual that they will not be held criminally or civilly liable under federal or state trade secret law for the disclosure of a trade secret that is made in confidence to a federal, state, or local government official, either directly or indirectly, or to an attorney, solely for the purpose of reporting or investigating a suspected violation of law. Clarify that the individual may also disclose trade secrets in a complaint or other document filed in a lawsuit or proceeding if such filing is made under seal. Specify that if the individual files a lawsuit alleging retaliation for reporting a suspected violation of law, they may disclose the trade secret to their attorney and use the trade secret information in the court proceeding if they file any document containing the trade secret under seal and do not disclose the trade secret except pursuant to court order. Use the safe harbor language recommended by the statute to ensure compliance.\n\n**Governing Law and Jurisdiction**\nSpecify the governing law that will apply to the interpretation and enforcement of the agreement, typically the law of the state where the company is headquartered or where the individual will primarily work. Address choice of law considerations for multi-state or international arrangements, and ensure the chosen law is reasonable given the parties' connections to the jurisdiction. Include a forum selection clause designating the exclusive venue for any disputes, specifying both the state and federal courts in a particular jurisdiction. Consider whether to include a consent to personal jurisdiction clause and a waiver of any objections based on inconvenient forum. For agreements involving individuals in states with specific invention assignment limitations, ensure the governing law clause does not override mandatory local law protections.\n\n**Entire Agreement and Amendments**\nDraft an integration clause establishing that this agreement constitutes the entire understanding between the parties regarding its subject matter and supersedes all prior or contemporaneous agreements, understandings, or representations, whether written or oral. Clarify that the agreement may only be amended or modified by a written instrument signed by both parties. Address the relationship between this agreement and other employment or consulting documents, such as offer letters, employment agreements, or equity award agreements, specifying whether those documents are superseded or remain in effect. Include a severability provision stating that if any provision is found to be unenforceable, the remaining provisions will continue in full force and effect, and the unenforceable provision will be modified to the minimum extent necessary to make it enforceable while preserving the parties' intent.\n\n**Signature and Acknowledgment**\nCreate a signature block that includes spaces for the individual's full legal name, signature, and date. Include a statement immediately above the signature line confirming that the individual has read the agreement, understands its terms, has had the opportunity to consult with legal counsel, and enters into it voluntarily. For the company, include signature lines for an authorized officer with their title indicated. Consider including a notarization section if required by state law or company policy for enhanced enforceability. Attach the prior inventions disclosure exhibit as a required component, even if left blank, to demonstrate compliance with disclosure requirements.\n\n## Drafting Standards and Compliance Requirements\n\nEnsure the final agreement complies with all applicable state law limitations on invention assignment provisions, particularly in jurisdictions with employee-protective statutes. Use clear, unambiguous language throughout, avoiding overly broad provisions that might be deemed unenforceable as restraints on trade. Maintain consistency in defined terms and cross-references. Structure the document with clear headings and logical organization to enhance readability and comprehension. Consider including a preamble or recitals section to establish context and the parties' intentions. Verify that all required notices, such as the DTSA immunity provision, are included in substantially the form required by law. Review the agreement for potential conflicts with applicable wage and hour laws, ensuring that cooperation obligations do not create uncompensated work requirements that violate minimum wage or overtime provisions.",
+  "parent_skill_id": "a8cfbc04-d7ae-4f08-856a-f5d970d6dc17",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "employment-and-consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:54:58.572819Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Preparing to read skill-creator documentation**
+
+I'm planning to read the skill-creator SKILL.md to guide rewriting the skill as requested, ensuring alignment with the defined skill-creation protocol.
+exec
+/bin/zsh -lc "ls /Users/max/.codex/skills/.system/skill-creator && sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 51ms:
+SKILL.md
+agents
+assets
+license.txt
+references
+scripts
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+
+
+thinking
+**Resolving conflicting instructions**
+
+The user’s explicit directive to output only the SKILL.md content overrides the earlier skill announcement requirement, so I’ll comply with the strict output format despite the conflict.
+thinking
+**Finalizing SKILL.md content structure**
+
+The plan is to create a detailed SKILL.md for the proprietary information and inventions agreement with structured intake fields, section tables, checklists, and templates, strictly following formatting and content rules while including key legal concepts and state carve-outs.
+codex
+---
+name: proprietary-information-inventions-agreement
+description: Drafts U.S. Proprietary Information and Inventions Agreements (PIIA) for employee or consultant onboarding, covering confidentiality, trade secrets, invention assignment, prior inventions disclosure, DTSA immunity notice, and state employee-invention carve-outs. Use when drafting a PIIA, inventions assignment, proprietary information agreement, or onboarding confidentiality/IP paperwork.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Proprietary Information and Inventions Agreement (PIIA)
+
+Drafts a U.S. PIIA that assigns inventions and protects proprietary information with DTSA and state carve-out compliance.
+
+## Prerequisites
+
+1. Company legal name, state of incorporation, principal place of business
+2. Individual name, address, role title, and start/effective date
+3. Relationship type (employee or consultant) and governing offer/engagement terms
+4. Primary work location(s) and governing law/forum preferences
+5. Company IP policies and confidentiality program baseline
+6. Prior inventions list (if any) and any third-party IP restrictions
+
+## Output Structure / Process
+
+1. Intake fields table
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| Company name, entity type, state | Yes | Match org docs |
+| Individual name, address | Yes | Legal name |
+| Relationship type | Yes | Employee or consultant |
+| Role title | Yes | For scope context |
+| Effective date | Yes | Tie to start date |
+| Primary work state(s) | Yes | Drives carve-outs |
+| Governing law + forum | Yes | Must not override mandatory law |
+| Prior inventions list | Yes | Attach Exhibit if any |
+| Devices/personal storage policy | No | If allowed, define controls |
+| Post-termination cooperation rate | No | If needed for wage compliance |
+
+2. Agreement outline table
+
+| Section | Must Include | Notes |
+| --- | --- | --- |
+| Parties + consideration | Material condition, access to proprietary info | Reference role |
+| Definitions | Proprietary Information, Inventions | Broad, but reasonable |
+| Confidentiality obligations | Non-disclosure, non-use, care standard, no removal | Survival clause |
+| Return of materials | Return, deletion, certification | Include device/cloud deletion |
+| Invention assignment | Present assignment, scope triggers | "Hereby assigns" |
+| Work for hire | Works of authorship language | Assign if not WFH |
+| Prior inventions | Exhibit + representation if blank | Improvements assigned if in scope |
+| Cooperation | Disclosure, filings, testimony | Survival + expense reimbursement |
+| Power of attorney | Attorney-in-fact for filings | Coupled with interest |
+| DTSA notice | 18 U.S.C. 1833(b) immunity | Use safe harbor |
+| Governing law/forum | Choice of law + venue | Respect mandatory local law |
+| Entire agreement | Integration + amendment | Severability |
+
+3. Required clauses checklist
+
+- [ ] Proprietary Information definition includes technical, business, financial, customer, supplier, pricing, marketing, R&D, roadmap, personnel data, and any info marked or reasonably understood as confidential
+- [ ] Carve-outs: public info (no breach), independently developed without company resources, rightfully received without duty
+- [ ] Non-use/non-disclosure for any purpose outside company duties
+- [ ] Reasonable care standard (no less than reasonable care)
+- [ ] No unauthorized copying, removal, or personal device storage
+- [ ] Return of all materials on termination + written certification of return/deletion
+- [ ] Present assignment of Inventions with scope triggers:
+- [ ] Relates to company business or anticipated R&D
+- [ ] Arises from company work
+- [ ] Developed using company time, equipment, supplies, facilities, or trade secrets
+- [ ] Works made for hire + assignment fallback
+- [ ] Prior Inventions Exhibit + representation if none
+- [ ] Improvements/derivatives of prior inventions assigned if within scope or using company resources
+- [ ] Cooperation obligation survives termination; reimburse expenses and compensate if significant post-termination time
+- [ ] Power of attorney for filings if non-cooperative/unavailable
+- [ ] DTSA immunity notice included verbatim or substantially similar
+- [ ] Governing law/forum clause does not waive mandatory local employee protections
+
+4. Statutory employee-invention carve-out (include if work state triggers)
+
+- [ ] California Labor Code 2870-2872 [VERIFY]
+- [ ] Washington RCW 49.44.140 [VERIFY]
+- [ ] Illinois 765 ILCS 1060/1 [VERIFY]
+- [ ] Minnesota Stat. 181.78 [VERIFY]
+- [ ] Utah Code 34-39-3 [VERIFY]
+- [ ] North Carolina Gen. Stat. 66-57.1 [VERIFY]
+- [ ] Kansas Stat. 44-130 [VERIFY]
+- [ ] Delaware employee inventions statute [VERIFY]
+- [ ] Include statutory notice text if required by local law
+
+5. Templates (edit to fit facts)
+
+```text
+Present Assignment
+Employee hereby assigns and agrees to assign to Company all right, title, and interest in and to all Inventions that are conceived, developed, reduced to practice, or authored by Employee, alone or jointly with others, during the term of employment and that (a) relate to Company's business or anticipated research or development, (b) result from any work performed for Company, or (c) are developed using Company equipment, supplies, facilities, trade secrets, or time.
+```
+
+```text
+DTSA Immunity Notice
+Pursuant to 18 U.S.C. 1833(b), Employee is notified that an individual shall not be held criminally or civilly liable under any federal or state trade secret law for the disclosure of a trade secret that is made (i) in confidence to a government official or to an attorney solely for the purpose of reporting or investigating a suspected violation of law, or (ii) in a complaint or other document filed in a lawsuit or proceeding, if such filing is made under seal.
+```
+
+```text
+Prior Inventions Exhibit
+Employee has listed below all inventions, original works of authorship, developments, improvements, and trade secrets that were made by Employee prior to employment and that Employee wishes to exclude from the scope of this Agreement. If no items are listed, Employee represents there are no such prior inventions.
+```
+
+## Guidelines
+
+- Use clear defined terms and consistent cross-references; avoid overbroad restraints on trade.
+- Do not include non-compete terms unless separately authorized and jurisdictionally compliant.
+- Ensure post-termination cooperation does not create uncompensated work in violation of wage laws.
+- For multi-state roles, add state-specific rider or carve-out to comply with mandatory local law.
+- Keep confidentiality obligations surviving as long as information remains confidential.
+- If personal device use is allowed, require approved storage, access controls, and deletion upon termination.
+- Include a signature acknowledgment of voluntary execution and opportunity to consult counsel.
+tokens used
+9,913

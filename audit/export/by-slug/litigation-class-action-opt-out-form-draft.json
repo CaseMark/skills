@@ -1,0 +1,41 @@
+{
+  "id": "d31a333d-c039-4fa7-b4ef-bacf36c67dbf",
+  "slug": "litigation-class-action-opt-out-form-draft",
+  "name": "Opt-Out Form",
+  "summary": "Drafts a comprehensive Opt-Out Form for class action lawsuits, arbitration agreements, settlements, or collective proceedings. Ensures legal sufficiency, clear identification of the opting-out party, and compliance with procedural rules like FRCP 23 or statutes such as CCPA. Use when clients need to formally withdraw from class participation within specified deadlines.",
+  "content": "# Opt-Out Form Drafting Prompt\n\nYou are tasked with drafting a comprehensive Opt-Out Form for litigation purposes. This document allows an individual or entity to formally withdraw from participation in a class action lawsuit, arbitration agreement, settlement, or other collective legal proceeding. The form must be legally sufficient, clearly worded, and compliant with applicable procedural rules and substantive law.\n\n## Document Purpose and Context\n\nBegin by understanding the specific context of the opt-out. Determine whether this form relates to a class action settlement under Federal Rule of Civil Procedure 23, an arbitration clause opt-out under consumer protection statutes, a data privacy opt-out under regulations like CCPA or GDPR, or another legal mechanism. The purpose statement should clearly articulate what the individual is opting out of, the legal basis for their right to opt out, and the consequences of exercising this right. Review any court orders, settlement agreements, or contractual provisions that govern the opt-out process to ensure the form complies with specified deadlines, formatting requirements, and submission procedures.\n\n## Header and Identifying Information\n\nThe document header must establish proper jurisdiction and context. Include the full case caption if this relates to pending litigation, including the court name, case number, and party names. For non-litigation opt-outs, identify the entity or program from which the individual is opting out. The header should display the document title \"Opt-Out Form\" or \"Notice of Opt-Out\" prominently, along with the date of execution. If the opt-out must be submitted by a specific deadline, reference that deadline clearly in the header section to ensure the user understands the time-sensitive nature of the document.\n\n## Personal Information and Identification Section\n\nThis section must collect all information necessary to identify the opting-out party and verify their eligibility to opt out. At minimum, include:\n\n- Full legal name of the individual or entity opting out, exactly as it appears in relevant records\n- Complete mailing address and email address for correspondence and confirmation\n- Telephone number for contact purposes\n- Any claim number, account number, case reference number, or other identifying information that links the party to the class action, settlement, or agreement\n- For class actions, any proof of class membership such as purchase dates, transaction numbers, or account identifiers\n\nEnsure the form requests sufficient detail to prevent confusion or rejection due to incomplete identification. If the opt-out relates to a consumer transaction, include fields for relevant dates and transaction details that establish standing to opt out.\n\n## Opt-Out Declaration and Legal Effect\n\nDraft a clear, unambiguous statement of the individual's election to opt out. The declaration should state: \"I hereby elect to opt out of [specify the class action settlement, arbitration agreement, or other proceeding] and exclude myself from any settlement, judgment, or collective resolution.\" Provide checkbox options or clear yes/no selections to eliminate ambiguity. Include a brief explanation of the legal consequences, such as: \"By opting out, I understand that I will not be bound by any settlement or judgment in this matter, will not receive any benefits from the settlement, and retain my right to pursue individual legal claims.\" \n\nEnsure the language meets enforceability standards by using definitive, first-person statements of intent. If applicable law requires specific opt-out language (such as under certain consumer protection statutes or court orders), incorporate that exact language. Address any waiver of rights that occurs through opting out, and confirm that the individual understands they are forfeiting participation in the collective proceeding.\n\n## Signature and Execution Requirements\n\nThe signature block must comply with applicable formality requirements. Include a line for handwritten or electronic signature, printed name, and date of execution. Determine whether the opt-out form requires notarization, witness signatures, or other authentication based on the governing rules or agreement. If electronic signatures are acceptable under the E-SIGN Act or applicable state law, include language confirming that electronic execution is valid and binding.\n\nFor opt-outs submitted on behalf of minors, incapacitated persons, or entities, include appropriate representative signature blocks with titles and authority statements. Add a certification statement where the signatory affirms under penalty of perjury that the information provided is true and correct to the best of their knowledge.\n\n## Submission Instructions and Deadline Compliance\n\nConclude the form with clear, specific instructions for submission. Specify the exact mailing address, email address, or online portal where the opt-out form must be submitted. State the deadline for submission explicitly, including the date and time if applicable, and note whether the deadline is based on postmark date or receipt date. Include language such as: \"This Opt-Out Form must be postmarked no later than [DATE] and mailed to [ADDRESS]\" or \"This form must be submitted electronically through [PORTAL] by 11:59 PM [TIME ZONE] on [DATE].\"\n\nAdvise the user to retain a copy of the completed form for their records and to obtain proof of mailing or electronic submission confirmation. If the governing court order or agreement specifies particular formatting requirements (such as specific paper size, font requirements, or filing procedures), incorporate those specifications into the instructions.\n\n## Output Format and Finalization\n\nProduce a complete, ready-to-execute Opt-Out Form in a professional legal document format. Use clear headings, adequate spacing, and a readable font appropriate for legal documents. Ensure all required fields are clearly marked and that the document flows logically from identification through declaration to execution. The final document should be suitable for immediate use by the client, requiring only the insertion of personal information and signature to be legally effective.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

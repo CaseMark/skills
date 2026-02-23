@@ -1,0 +1,199 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-847e-7800-9af2-f828b3aa163c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7eb2a57d-c058-44a8-9686-2a451665f117",
+  "slug": "litigation-personal-injury-legal-memorandum",
+  "name": "Legal Memorandum",
+  "summary": "Drafts a structured legal memorandum analyzing specific legal questions in personal injury litigation. Guides through headers, questions presented, brief answers, and objective statement of facts for internal use by attorneys or clients. Use during pre-trial phases to provide clear, persuasive legal analysis.",
+  "content": "Overview\nA legal memorandum is an analytical document that examines a specific legal question and provides reasoned conclusions. Whether writing to a senior attorney, client, or colleague, follow these systematic steps to create a clear, persuasive memo. Most often, depending on the audience, the memorandum is objective. It is either internal to an attorney or to the client. \nSTEP 1: HEADER AND PRELIMINARY INFORMATION\nWhat to Include:\nMEMORANDUM\nDATE: [Current date]\n\nTO: [Recipient name and title]\nFROM: [Your name and title]\n\nRE: [Brief, specific subject line describing the legal issue]\nInstructions:\nSubject Line: Make it specific and informative (e.g., \"Likelihood of Success on Motion to Dismiss - Contract Formation Issues in Smith v. ABC Corp\")\nKeep it concise: One line that captures the essence of the legal question\nUse client matter number: If applicable, include case or matter reference number\nSTEP 2: QUESTIONS PRESENTED\nPurpose:\nFrame the specific legal questions you're analyzing in a way that can be answered \"yes\" or \"no\" or with a short, definitive response.\nInstructions:\n2.1 Identify the Core Legal Issues\nReview all facts and determine what legal questions need resolution\nPrioritize questions by importance to the client's objectives\nTypically limit to 1-3 questions to maintain focus\n2.2 Draft Each Question Using the \"Under-Does-When\" Format:\nUnder [relevant law/statute/rule]\nDoes/Is/Can [legal conclusion sought]\nWhen [key facts that drive the analysis]\nExample:\n\"Under New York contract law, is a contract formed when the plaintiff sent a purchase order via email but the defendant responded with materially different terms in their acknowledgment form?\"\n2.3 Review and Refine:\nEnsure questions are legally precise\nInclude enough factual context to understand the issue\nAvoid conclusory language or leading questions\nSTEP 3: BRIEF ANSWER \nPurpose:\nProvide immediate, concise answers to busy readers who need quick guidance.\nInstructions:\n3.1 Answer Each Question Directly\nStart with \"Yes,\" \"No,\" or \"Probably\" followed by explanation\nLimit to 2-3 sentences per question\nInclude the most critical reasoning\n3.2 Structure:\nBrief Answer\n\n1. Probably not. Under New York's \"battle of forms\" doctrine, no contract was formed because the defendant's acknowledgment contained material terms that differed from plaintiff's purchase order, and plaintiff never assented to the modified terms.\nSTEP 4: STATEMENT OF FACTS\nPurpose:\nPresent relevant facts objectively and persuasively while maintaining credibility.\nInstructions:\n4.1 Organize Chronologically or Topically\nChronological: Best for transaction-based or procedural issues\nTopical: Better for complex cases with multiple legal theories\n4.2 Include Only Legally Relevant Facts\nFacts that impact legal analysis\nBackground context necessary for understanding\nProcedural history if relevant\nOmit irrelevant details that distract from legal issues\n4.3 Write Objectively But Strategically\nState facts accurately without editorial commentary\nUse active voice when favorable, passive when unfavorable\nEmphasize favorable facts through placement and detail\nDon't hide unfavorable facts\u2014address them directly\nMake sure to include that the analysis is only based on the facts that are presented and could change should additional facts be discovered. \n4.4 Source Your Facts\nReference specific documents, depositions, or evidence\nUse citations or footnotes for verification\nNote when facts are disputed or unclear\nExample Structure:\nFacts\n\nOn March 15, 2024, plaintiff ABC Manufacturing sent defendant XYZ Corp a purchase order via email requesting 1,000 widgets at $50 each, with delivery by May 1, 2024. (Purchase Order, Ex. A.) The purchase order specified that acceptance must be \"on the exact terms stated herein.\"\n\nDefendant responded three days later with an acknowledgment form that... [continue chronologically]\n\nSTEP 5: ANALYSIS/DISCUSSION\nPurpose:\nThis is the heart of your memo\u2014provide thorough legal analysis that leads logically to your conclusions.\nInstructions:\n5.1 Structure Using CREAC Method for Each Issue:\nC - Conclusion: State your conclusion upfront for each issue R - Rule: Articulate the applicable legal rule E - Explanation: Explain how courts have applied this rule A - Application: Apply the rule to your client's facts\nC - Conclusion: Restate your conclusion\n5.2 Begin Each Section with Your Conclusion\nABC Manufacturing likely cannot enforce a contract against XYZ Corp because no valid contract was formed under New York law.\n5.3 State the Legal Rule Clearly\nUse controlling jurisdiction's law\nCite primary authority (statutes, regulations, case law)\nQuote key language when precise wording matters\nExplain any exceptions or nuances\nUnder New York law, contract formation requires offer, acceptance, and consideration. N.Y. Gen. Oblig. Law \u00a7 5-1103. An acceptance must be a \"mirror image\" of the offer; any material variance constitutes a counteroffer rather than acceptance. See Ardente v. Horan, 366 A.2d 162 (R.I. 1976).\n5.4 Explain the Rule Through Case Law\nUse cases with similar facts when possible\nExplain the court's reasoning, not just the holding\nShow how different factual scenarios affect outcomes\nDistinguish unfavorable cases\n5.5 Apply Law to Your Facts\nDraw direct parallels between case precedents and client facts\nAddress counterarguments proactively\nExplain why certain factors are more/less important\nBe honest about weaknesses in your position\n5.6 Handle Complex Issues\nBreak down multi-part tests into separate sub-analyses\nUse headers and subheaders for organization\nCross-reference related issues\nMaintain logical flow between sections\nSTEP 6: CONCLUSION\nPurpose:\nSummarize your analysis and provide clear recommendations.\nInstructions:\n6.1 Restate Your Legal Conclusions\nAnswer each question presented directly\nSummarize key reasoning briefly\nAvoid introducing new arguments\n6.2 Provide Strategic Recommendations\nWhat actions should the client take?\nWhat risks should they consider?\nAre there alternative approaches?\nWhat additional information might change the analysis?\n6.3 Discuss Next Steps\nImmediate actions required\nDeadlines to consider\nFurther research needed\nLitigation/negotiation strategy\nExample:\nConclusion\n\nABC Manufacturing cannot enforce a contract against XYZ Corp because XYZ's response constituted a counteroffer rather than acceptance under New York's mirror image rule. The material differences in delivery terms and price escalation clauses prevent contract formation.\n\nI recommend that ABC either (1) accept XYZ's counteroffer terms explicitly, (2) negotiate modified terms, or (3) seek alternative suppliers. If ABC proceeds with XYZ, all terms should be clearly documented in a signed agreement to avoid future disputes.\n\nSTEP 7: FINAL REVIEW AND EDITING\nInstructions:\n7.1 Substantive Review\nDoes the analysis answer all questions presented?\nIs the reasoning logical and well-supported?\nHave you addressed obvious counterarguments?\nAre recommendations practical and actionable?\n7.2 Organization and Clarity\nIs the structure easy to follow?\nAre transitions smooth between sections?\nDo headers accurately reflect content?\nIs the tone appropriate for the audience?\n7.3 Citation and Sources\nAre all legal authorities properly cited?\nHave you used the required citation format?\nAre factual assertions supported by evidence?\nDo you need permission to cite confidential materials?\n7.4 Proofreading\nGrammar, spelling, and punctuation\nConsistent formatting\nProper legal terminology\nProfessional presentation\n\nADDITIONAL TIPS FOR SUCCESS\nKnow Your Audience\nSenior Attorney: Focus on sophisticated analysis and strategic implications\nClient: Emphasize practical consequences and business impact\nCommon Pitfalls to Avoid\nBurying conclusions in lengthy explanations\nFailing to address obvious counterarguments\nOver-relying on secondary sources\nWriting in overly complex or pompous language\nNeglecting to provide practical recommendations\nQuality Control Checklist\nQuestions presented are specific and answerable\nFacts include all legally relevant information\nAnalysis follows logical structure (CREAC)\nConclusions directly answer questions presented\nCitations are complete and accurate\nWriting is clear, concise, and professional\n",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pre-trial"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.770481",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:53.367611Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:42:53.696413Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:54.736755Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:55.568477Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e552bbe6eb25-SJC)
+2026-02-23T21:42:56.564654Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e558beeffaba-SJC)
+2026-02-23T21:42:58.109699Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e561da3ffada-SJC)
+2026-02-23T21:43:00.399298Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e571182e67d0-SJC)
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-personal-injury-legal-memorandum-xz9ijgmp.md
+
+STDOUT:
+

@@ -1,0 +1,311 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c87-6973-7b41-93c6-aae6c5d83672
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "94c79955-7592-44d7-a575-6e7e54afa395",
+  "slug": "litigation-commercial-pre-trial-statement-report",
+  "name": "Pre-Trial Statement/Report",
+  "summary": "Drafts a comprehensive Pre-Trial Statement/Report for commercial litigation cases in US courts. Outlines stipulated facts, contested issues of law and fact, witness lists, and exhibit lists to provide the judge with a clear roadmap for trial management. Use this skill during pre-trial preparations, often jointly with opposing counsel, to crystallize parties' positions and ensure procedural efficiency.",
+  "content": "# Enhanced Pre-Trial Statement/Report Preparation Workflow\n\n## Your Role and Document Purpose\n\nYou are a skilled litigation attorney tasked with preparing a comprehensive Pre-Trial Statement/Report that will serve as the definitive roadmap for trial proceedings. This critical court filing crystallizes the parties' positions by delineating stipulated facts, identifying contested issues of both law and fact, and cataloging witnesses and exhibits. The statement enables the presiding judge to efficiently manage trial proceedings, understand the scope of disputed matters, and allocate courtroom time appropriately. Your preparation must reflect both strategic legal thinking and meticulous attention to procedural requirements, as this document will likely be the judge's primary reference throughout trial.\n\n## Initial Document Review and Information Gathering\n\nBegin by conducting a comprehensive review of all available case materials to establish a complete factual and strategic foundation. Search through all uploaded documents to locate and extract the Case Strategy Plan, which serves as your foundational strategic document and must guide every position articulated in the pre-trial statement. Identify and compile the complete List of Stipulated Facts, which should reflect agreements reached during discovery and any pre-trial conferences with opposing counsel. Extract the Witness List containing all individuals either party intends to call at trial, with appropriate designations for expert versus fact witnesses. Locate the Exhibit List that comprehensively catalogs all documentary and physical evidence to be introduced, with proper identification numbers or letters. Search for and review the applicable Local Court Rules governing your jurisdiction, which will dictate formatting requirements, page limitations, filing deadlines, and any jurisdiction-specific content requirements for pre-trial statements.\n\nAs you review these materials, create a working outline that captures key information from each source document. Extract specific names, dates, amounts, and factual assertions that will form the basis of your stipulated facts section. Note any discrepancies or gaps in the materials that may require clarification from the supervising attorney. If critical documents are missing or incomplete, identify these deficiencies clearly so they can be addressed before proceeding with drafting.\n\n## Document Structure and Strategic Framework\n\nDevelop a comprehensive structural outline that organizes the pre-trial statement into its essential components while maintaining strategic coherence with your overall case theory. The document should open with appropriate caption information including case name, number, and court designation, followed by a clear title identifying it as a Pre-Trial Statement or Joint Pre-Trial Report as required by local practice. Structure the body into six primary sections: Stipulated Facts, Contested Issues of Law, Contested Issues of Fact, Witness List, Exhibit List, and Procedural Matters or Estimated Trial Length if required by local rules.\n\nBefore drafting any substantive content, cross-reference your Case Strategy Plan to ensure that the positions you articulate in each section advance your litigation theory and do not inadvertently concede important ground. Consider how the judge will read and use this document\u2014it should tell a coherent story that frames the case favorably while maintaining the objectivity and professionalism expected in a court filing. Each section must be clearly delineated with appropriate headings that facilitate judicial review and allow the court to quickly locate specific information during trial.\n\n## Drafting Stipulated Facts with Precision\n\nDraft the Stipulated Facts section with meticulous precision and completeness, recognizing that these admissions will bind the parties at trial and narrow the scope of evidence required. Search through all stipulation documents, settlement conference minutes, and discovery materials to identify every fact that has been agreed upon by the parties. Present each stipulated fact as a separate numbered paragraph using clear, declarative sentences that avoid ambiguity or qualification. Transcribe agreed-upon facts verbatim from source documents to ensure accuracy and prevent disputes about what was actually agreed.\n\nOrganize stipulated facts in a logical sequence that creates a coherent narrative foundation\u2014chronologically for events-based cases, topically for complex commercial disputes, or by element of the claims for straightforward liability matters. Each fact should be stated affirmatively and should not contain argumentative language or characterizations that might be disputed. Where stipulated facts involve technical matters, dates, amounts, or measurements, verify accuracy against source documents by searching for the specific information in your case files. For example, if stipulating to a contract date, search the actual contract document to confirm the precise date rather than relying on memory or secondary sources.\n\nRemember that comprehensive stipulations serve judicial efficiency and may favorably influence the court's perception of counsel's professionalism. However, be vigilant not to stipulate to facts that are actually contested or that contain subtle characterizations favoring opposing counsel's theory. If you encounter proposed stipulations that seem problematic, flag them for discussion with the supervising attorney before including them in the final document.\n\n## Articulating Contested Issues of Law\n\nArticulate the Contested Issues of Law with analytical precision, framing each legal dispute as a discrete question that requires judicial resolution. Review your Case Strategy Plan to ensure that the legal issues identified align with your overall litigation theory and that you have not inadvertently conceded important legal arguments. Frame each contested legal issue as a specific question rather than a general topic area\u2014for example, \"Whether the economic loss doctrine bars plaintiff's negligence claim where the parties operated under a written contract governing the subject matter of the alleged negligent conduct\" rather than simply \"Economic loss doctrine applicability.\"\n\nFor each legal issue, provide sufficient context for the court to understand the dispute without transforming this section into a brief or memorandum of law. Search your case documents for relevant statutory provisions, constitutional clauses, or leading cases that frame the legal controversy, and reference these authorities where appropriate to demonstrate the substantive nature of the dispute. Ensure that your characterization of legal issues does not prematurely concede ground or frame questions in ways that favor opposing counsel's position. The legal issues identified should correspond to anticipated motions in limine, jury instruction disputes, or other legal determinations the court will need to make before or during trial.\n\nConsider the strategic implications of how you frame each legal issue. A well-framed legal question can subtly guide the court toward your preferred analysis, while a poorly framed question may inadvertently highlight weaknesses in your position. If the pre-trial statement is being filed jointly with opposing counsel, expect negotiation over the precise wording of contested legal issues, and be prepared to advocate for formulations that do not prejudice your client's position.\n\n## Developing Contested Issues of Fact\n\nDevelop the Contested Issues of Fact section to clearly delineate the factual disputes that will require evidentiary resolution at trial. Each contested factual issue should be stated neutrally and objectively, avoiding argumentative characterizations while still providing sufficient specificity for the court to understand what facts remain in dispute. Search through depositions, interrogatory responses, and other discovery materials to identify genuine factual disputes where the parties have taken inconsistent positions on material facts.\n\nOrganize factual issues logically, typically by claim or defense, by chronological sequence, or by thematic grouping. For each contested factual issue, consider whether supporting citations to deposition testimony, discovery responses, or other record evidence would be helpful or required by local rules. Frame factual issues at an appropriate level of granularity\u2014neither so broad as to be meaningless (\"Whether defendant was negligent\") nor so minutely detailed as to overwhelm the court with trivial disputes (\"Whether the traffic light was red or yellow at 3:47 PM versus 3:48 PM\").\n\nCross-reference your Case Strategy Plan to ensure that the factual issues identified support your theory of the case and that you have not overlooked critical factual disputes that will require proof at trial. Where factual issues involve technical or specialized subject matter, provide sufficient explanatory context for a judge who may not have domain expertise. For example, in a medical malpractice case, rather than simply stating \"Whether defendant breached the standard of care,\" you might frame the issue as \"Whether defendant's decision to discharge plaintiff without ordering a CT scan fell below the standard of care for emergency medicine physicians treating patients presenting with severe headache and altered mental status.\"\n\n## Compiling the Witness List\n\nCompile the Witness List with comprehensive detail, recognizing that this list may limit your ability to call witnesses at trial unless you obtain court permission to supplement. Search through your case files to identify every witness disclosed during discovery, every individual mentioned in depositions or interrogatory responses who has relevant knowledge, and every expert retained to provide opinion testimony. Create a structured table or formatted list that includes each witness's full legal name, city and state of residence, and a concise description of the subject matter of their anticipated testimony.\n\nDesignate witnesses appropriately as fact witnesses or expert witnesses, and if required by local rules, indicate whether each witness is a party witness or an adverse witness. For expert witnesses, include their area of expertise and the general subject of their expected opinions, drawing this information from expert reports and disclosures in your case files. Organize the witness list in the order you anticipate calling witnesses at trial, or alternatively, group witnesses by category such as occurrence witnesses, investigating officers, treating physicians, liability experts, and damages experts.\n\nVerify that every witness on your list is genuinely necessary to your case presentation and that you have disclosed all witnesses you might reasonably call, as courts typically disfavor trial-time surprises. If you identify potential witnesses who have not been properly disclosed during discovery, flag this issue immediately for the supervising attorney to address through supplemental disclosures or motions for leave to add witnesses. For each witness, consider whether you have sufficient information to describe their anticipated testimony accurately\u2014if descriptions are vague or speculative, search depositions and witness statements to develop more specific testimony summaries.\n\n## Preparing the Comprehensive Exhibit List\n\nPrepare the Exhibit List as a comprehensive catalog of all documentary, physical, and demonstrative evidence you intend to introduce at trial. Search through all case documents to identify every exhibit that has been marked during depositions, referenced in discovery responses, or identified in expert reports. Structure the exhibit list as a table with columns for exhibit number or letter, description of the exhibit, identification of the offering party, and potentially columns for stipulated admission or objections if required by local practice.\n\nAssign exhibit numbers or letters according to local court convention and any agreements with opposing counsel regarding numbering systems. Describe each exhibit with sufficient specificity that the court and opposing counsel can identify it, but avoid unnecessarily lengthy descriptions. For example, \"Email from John Smith to Mary Jones dated March 15, 2023, regarding proposed contract modifications (Bates Nos. DEF 00145-00147)\" provides clear identification without excessive detail. Organize exhibits logically, whether numerically, chronologically, or by topic, and maintain consistency with any exhibit numbering used during discovery.\n\nFor voluminous exhibits such as medical records or business records, consider whether to list them as a single exhibit with sub-parts or as multiple separate exhibits, taking into account both clarity and local court preferences. Verify that you have properly identified all exhibits and that physical exhibits are appropriately preserved and available for trial. If certain exhibits are subject to pending motions in limine or evidentiary objections, consider whether to note this status in the exhibit list or address it in a separate section on anticipated evidentiary disputes.\n\n## Ensuring Court Rule Compliance and Professional Formatting\n\nFormat the entire document in strict accordance with the Local Court Rules governing pre-trial statements in your jurisdiction. Search the local rules carefully to identify all formatting requirements, including margins (typically one inch on all sides), font selection (typically Times New Roman or similar serif font), font size (usually 12-point for body text), and line spacing (often double-spaced for narrative sections). Apply consistent formatting throughout using appropriate heading styles for major sections, standard body text formatting for narrative content, and table styles for witness and exhibit lists.\n\nImplement proper page numbering in the location specified by court rules, and include any required header or footer information such as case number or document title. Verify compliance with any page limitations, and if the statement exceeds permitted length, either seek leave to file an oversized document or edit content to comply with the limitation. Pay particular attention to signature block requirements, which may specify format, required certifications, or whether electronic signatures are permitted. If filing jointly with opposing counsel, ensure the signature block accommodates all required signatures and that the document reflects genuine agreement on stipulated portions.\n\n## Conducting Comprehensive Quality Assurance\n\nConduct a comprehensive quality assurance review proceeding through multiple validation layers to ensure the document meets the highest professional standards. First, verify input completeness by confirming that all required source materials have been incorporated and that no sections remain incomplete or contain placeholder text. Search the document for any bracketed text, highlighting, or comments that indicate incomplete drafting. Second, perform a meticulous grammar, spelling, and citation check, recognizing that errors in a court filing undermine credibility and professionalism.\n\nThird, execute a legal consistency review by cross-referencing the contested issues of law and fact against your Case Strategy Plan to ensure strategic alignment. Verify that stipulated facts have been accurately transcribed without inadvertent modifications by comparing them against source stipulation documents. Fourth, conduct a formatting compliance audit by systematically checking each formatting requirement in the local rules against your document. Fifth, validate that all cross-references, exhibit numbers, and witness identifications are accurate and consistent throughout the document by searching for each referenced exhibit or witness to confirm it appears in the appropriate list.\n\n## Attorney Review and Final Approval Process\n\nOnce you have completed a polished draft incorporating all required elements and passing your quality assurance review, prepare the document for submission to the supervising attorney for substantive review. Include a cover memorandum that highlights any strategic decisions made during drafting, identifies any areas where information was incomplete or required assumptions, and flags any issues that may require discussion with opposing counsel if filing jointly. Provide sufficient time for thoughtful analysis rather than rushed approval, recognizing that the supervising attorney may identify strategic concerns or substantive issues requiring revision.\n\nThe reviewing attorney should evaluate whether the stipulated facts are appropriately comprehensive without conceding disputed matters, whether contested issues are framed advantageously and completely, whether the witness and exhibit lists are strategic and sufficient, and whether the overall document positions the case favorably for trial. Document all revision requests systematically and incorporate them with careful attention to maintaining internal consistency throughout the document. Once all substantive revisions are complete, prepare the final document by accepting all tracked changes, removing comments, and ensuring that formatting remains compliant with court rules.\n\n## Delivering Final Work Product\n\nGenerate the final Pre-Trial Statement/Report in Word format that adheres precisely to the local court's template and formatting requirements, suitable for filing and for the court's working use. Simultaneously create a PDF version that is print-ready and formatted for electronic filing through the court's case management system, ensuring that all fonts are embedded, all hyperlinks function correctly if included, and the document displays identically across different viewing platforms. Verify that the PDF conversion has not introduced formatting errors, corrupted tables, or altered pagination.\n\nIf filing jointly with opposing counsel, coordinate to ensure both parties are executing the same final version and that all required signatures are obtained before filing. Retain working drafts and version history in accordance with your firm's document retention policies, as you may need to reference the development of positions taken in the pre-trial statement during trial or post-trial proceedings. Provide the supervising attorney with both the filed version and any supporting materials that document the basis for positions taken in the statement.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:03:31.423553Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Composing concise pretrial statement skill**
+
+I'm creating a "pretrial-statement" skill with a third-person description under 1024 chars, legal metadata normalized (Litigation, Pleading, Drafting), and US jurisdiction focus. It will have numbered prerequisites, instructive checklists for stipulated facts, issues, witnesses, exhibits, and procedural matters, plus templates and placeholders. The content avoids argument in stipulated facts, notes compliance, and flags uncertain citations with [VERIFY]. It uses ASCII, fits 80-150 lines, and covers local rules, deadlines, formatting, plus joint/separate statement guidance.
+thinking
+**Drafting detailed pretrial statement skill content**
+
+I'm preparing a structured markdown skill for US pretrial statements with clear sections, concise tables for stipulated facts, contested issues (law and fact), witness and exhibit lists, plus trial management topics. It includes an input completeness checklist, guidance on joint vs disputed points, formatting and citation notes, and local rule references. The output fits 80-150 short lines, uses no nested bullets, and emphasizes compliance with deadlines and judge orders.
+codex
+---
+name: pretrial-statement
+description: Drafts U.S. commercial litigation pre-trial statements/reports (often joint) that present stipulated facts, contested issues of law and fact, witness lists, exhibit lists, and trial management items under local rules and judge orders. Use for pre-trial statements, joint pretrial reports/orders, pretrial conference filings, trial readiness submissions, or when compiling trial witnesses/exhibits. Trigger keywords: pre-trial statement, joint pretrial report, pretrial order, trial readiness, witness list, exhibit list, stipulated facts.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Trial Statement / Report
+
+Create a court-compliant pre-trial statement/report that narrows issues and provides the trial roadmap.
+
+## Prerequisites
+
+1. **Local rules and judge order** for pre-trial statements and formatting.
+2. **Case posture summary** with claims, defenses, and key rulings.
+3. **Stipulated facts** agreed with opposing counsel (if joint).
+4. **Contested issues list** (law and fact) aligned to trial themes.
+5. **Witness disclosures** and expert reports.
+6. **Exhibit inventory** with identifiers (Bates, exhibit numbers).
+7. **Trial management inputs** (trial length, jury/bench, motions in limine status).
+
+## Output Structure / Process
+
+1. **Caption + Title**
+2. **Introductory paragraph** describing filing type (joint/individual) and governing order.
+3. **Stipulated Facts**
+4. **Contested Issues of Law**
+5. **Contested Issues of Fact**
+6. **Witness List**
+7. **Exhibit List**
+8. **Procedural / Trial Management Matters**
+9. **Signature block(s)** per local rule
+
+### Stipulated Facts (numbered, non-argumentative)
+
+Use verbatim agreed wording where possible. One fact per number.
+
+| No. | Stipulated Fact (verbatim) | Source / Record Cite | Notes |
+|---|---|---|---|
+
+### Contested Issues of Law (questions for decision)
+
+Frame each as a discrete question the court must decide.
+
+| No. | Legal Issue (question) | Authority (statute/case/rule) | Impact on Trial |
+|---|---|---|---|
+
+Template phrasing:
+- “Whether [legal standard] applies to [claim/defense] where [key fact]…”
+- “Whether [doctrine] bars [claim] given [contract/statute]…”
+
+### Contested Issues of Fact (neutral, material disputes)
+
+State neutrally, at meaningful granularity.
+
+| No. | Factual Issue (neutral) | Key Evidence Sources | Notes |
+|---|---|---|---|
+
+Template phrasing:
+- “Whether [party] represented [fact] on [date].”
+- “Whether [event] caused [harm/damages].”
+
+### Witness List
+
+Include only properly disclosed witnesses. Flag any proposed additions.
+
+| Order | Witness Name | Type (Fact/Expert) | City/State | Subject of Testimony | Disclosure / Report |
+|---|---|---|---|---|---|
+
+### Exhibit List
+
+Follow local numbering convention and joint numbering rules.
+
+| Exh No. | Description | Bates / ID | Offered By | Objection / Stipulation |
+|---|---|---|---|---|
+
+### Procedural / Trial Management Matters
+
+Include only items required by local rule or judge order.
+
+Checklist:
+- Trial type: jury or bench.
+- Estimated trial length (days).
+- Damages categories and amounts (if required).
+- Motions in limine list and status.
+- Deposition designations and counter-designations.
+- Technology / courtroom needs.
+- Proposed jury instructions or verdict form issues (if required).
+- Bifurcation / sequencing proposals.
+- ADR history or settlement status (if allowed by rule).
+
+### Signature Block
+
+- Include counsel signatures per local rule.
+- If joint, include signatures for all parties.
+
+## Guidelines
+
+- Use local rules and judge orders as controlling authority for required sections and formatting.
+- Stipulated facts must be purely factual, non-argumentative, and actually agreed.
+- Do not concede contested elements in stipulated facts or issue framing.
+- Align issues with claims/defenses and anticipated jury instructions or pretrial rulings.
+- Ensure every witness and exhibit is already disclosed; flag any gaps.
+- Use consistent numbering and labels across the document.
+- If the court requires citations or record references, include them.
+- Confirm page limits, font, spacing, and header/footer requirements.
+- Flag missing inputs or unresolved joint wording for attorney review.
+tokens used
+5,724

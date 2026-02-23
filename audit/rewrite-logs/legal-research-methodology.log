@@ -1,0 +1,269 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-066c-76b1-bd8a-757b7b1d62fb
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "3032f3b0-389c-4862-afac-9bb2c2515c7f",
+  "slug": "legal-research-methodology",
+  "name": "Legal Research Methodology",
+  "summary": "Systematic approach to legal research including primary sources, secondary sources, and verification.",
+  "content": "# Legal Research Methodology\n\n## Research Hierarchy\n1. **Binding Authority** (must follow)\n   - Statutes in jurisdiction\n   - Regulations in jurisdiction\n   - Case law from controlling courts\n\n2. **Persuasive Authority** (may follow)\n   - Case law from other jurisdictions\n   - Secondary sources\n   - Restatements\n\n## Research Process\n1. Identify the legal issue\n2. Determine jurisdiction\n3. Find controlling statutes/regulations\n4. Find binding case law\n5. Expand to persuasive authority if needed\n6. Verify currency (Shepardize/KeyCite)\n7. Update before filing\n\n## Source Evaluation\n- Check if still good law\n- Note any negative treatment\n- Distinguish unfavorable authority\n- Document your research trail\n\n## Common Databases\n- Westlaw\n- LexisNexis\n- Bloomberg Law\n- Google Scholar (for initial research)\n- Court websites (for local rules)\n",
+  "parent_skill_id": null,
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "skill_modes": [
+      "research"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-01-06T03:16:15.3172"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:02:00.497592Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+
+thinking
+**Deciding skill slug and metadata**
+
+I'm choosing "legal-research" as a concise descriptive slug without practice-area prefixes and considering including practice_areas and document_types with "General" to align with the spec despite missing explicit context.
+thinking
+**Finalizing skill content and structure**
+
+I've clarified metadata with empty practice_areas and document_types lists per spec and crafted a detailed methodology skill including prerequisites, process steps, authority hierarchy table, checklists, templates, and guidelines—ensuring strict format, no nested bullets, and about 90 lines.
+thinking
+**Preparing final SKILL.md content**
+
+The final SKILL.md will include full metadata, detailed methodology with trigger keywords including Shepardize/KeyCite, and use [VERIFY] for uncertain citations, strictly following format and content rules.
+codex
+---
+name: legal-research
+description: Provides a legal research methodology checklist and process guide for any practice area, covering authority hierarchy, jurisdiction scoping, source evaluation, and currency verification (Shepardize/KeyCite). Use when planning or auditing legal research, building a research trail, or updating research before filing; trigger keywords: legal research, research methodology, binding authority, persuasive authority, Shepardize, KeyCite, good law, negative treatment, research trail.
+metadata:
+  author: casemark
+  practice_areas: []
+  document_types: []
+  skill_modes:
+    - Research
+---
+
+# Legal Research Methodology
+
+Execute a repeatable workflow that prioritizes controlling authority and verifies currency.
+
+## Prerequisites
+
+1. Legal issue framed as a single research question.
+2. Jurisdiction(s) and controlling court level(s).
+3. Known governing instruments or statutes, if any.
+4. Access to primary sources or a research database.
+5. Deadline or filing/hearing date for currency checks.
+
+## Output Structure / Process
+
+1. Issue framing: state the question, elements, and desired relief.
+2. Jurisdiction scoping: identify applicable law by forum, venue, and court hierarchy.
+3. Primary authority search: find statutes, regulations, and controlling case law.
+4. Persuasive authority expansion: review non-controlling cases and secondary sources.
+5. Treatment validation: Shepardize/KeyCite all controlling authorities.
+6. Synthesis: produce rule statements, element checklists, and analogies.
+7. Update pass: re-run key citations immediately before filing.
+
+| Authority Level | What to Use | Notes |
+| --- | --- | --- |
+| Binding | Statutes and regulations in jurisdiction; controlling court decisions; local rules | Must follow; resolve conflicts by hierarchy and recency. |
+| Persuasive | Other jurisdictions; restatements; treatises; law reviews; practice guides | Use to fill gaps or support interpretation. |
+
+Update protocol:
+
+1. Re-run citator on all controlling cases.
+2. Re-check statutes and regulations for amendments since last update.
+3. Reconfirm local rules and standing orders.
+4. Record update date in the research trail.
+
+Common sources:
+
+| Source Type | Examples | Use |
+| --- | --- | --- |
+| Commercial databases | Westlaw, LexisNexis, Bloomberg Law | Comprehensive case law and citators. |
+| Public sources | Google Scholar; official court websites | Initial survey; local rules and orders. |
+
+Research trail log template:
+
+| Date | Query | Database/Source | Jurisdiction | Result | Treatment | Next Step |
+| --- | --- | --- | --- | --- | --- | --- |
+
+Source evaluation checklist:
+
+- [ ] Authority is within the correct jurisdiction and court level.
+- [ ] Statutory or regulatory text is current and not superseded.
+- [ ] Case law has no negative or overruling treatment.
+- [ ] Unfavorable authority is identified and distinguished.
+- [ ] Local rules are pulled from official court sources.
+- [ ] Research trail records the query, source, and date.
+
+Research output outline:
+
+```text
+Issue:
+Jurisdiction and Court Level:
+Primary Authority:
+Persuasive Authority:
+Rule Statement:
+Element Checklist:
+Fact Analogies:
+Risks/Negative Treatment:
+Open Questions:
+Last Updated:
+```
+
+## Guidelines
+
+- Prefer primary sources over secondary sources.
+- Verify currency for every controlling authority before filing.
+- Document all negative treatment and avoid selective omission.
+- If jurisdiction is unclear, treat as multi-jurisdiction and flag the ambiguity.
+- Use [VERIFY] on any citation or rule that is uncertain.
+- Do not rely on Google Scholar alone for final verification.
+- Keep a dated research trail suitable for disclosure or handoff.
+tokens used
+5,429

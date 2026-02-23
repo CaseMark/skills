@@ -1,0 +1,20 @@
+{
+  "id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "slug": "corporate",
+  "name": "Corporate Practice",
+  "summary": "Root skill for corporate governance, formation, and organizational legal matters.",
+  "content": "# Corporate Practice\n\nThis is the parent category for all corporate skills. Corporate work involves entity formation, governance, and organizational structure.\n\n## Sub-areas\n- Corporate Formation\n- Corporate Governance\n- Corporate Finance\n- Securities & Capital Markets\n- Mergers & Acquisitions\n- Venture Capital & Private Equity\n- Non-Profit Organizations\n- Corporate Dissolution\n\n## Key Principles\n- Fiduciary duty awareness\n- Shareholder/stakeholder balance\n- Compliance with corporate formalities\n- Strategic business counsel\n- Risk management\n",
+  "parent_skill_id": null,
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Corporate"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

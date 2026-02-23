@@ -1,0 +1,43 @@
+{
+  "id": "e808ec54-814b-4cf8-9028-4926bfa90f87",
+  "slug": "digital-media-law-summaries",
+  "name": "Digital Media Law Summaries",
+  "summary": "Generates comprehensive summaries of evolving digital media law, covering copyright and IP rights, privacy and data protection, and content liability frameworks. Analyzes recent cases, regulations, and trends with executive overviews, detailed case breakdowns, and practical implications for platforms, creators, and compliance teams. Use it to track landmark developments and legal uncertainties in the digital sphere.",
+  "content": "# Digital Media Law Summary Prompt\n\nYou are tasked with creating a comprehensive legal summary that tracks and analyzes the rapidly evolving landscape of digital media law. This summary should serve as an authoritative reference document for legal professionals, content creators, platform operators, and compliance teams navigating the complex intersection of technology, media, and law.\n\nYour summary must address three core pillars of digital media law: copyright and intellectual property rights in the digital sphere, privacy and data protection regulations affecting digital platforms, and content liability frameworks governing online speech and platform responsibility. The digital media environment changes constantly, with new court decisions, regulatory actions, and legislative developments emerging regularly, so your analysis should reflect the most current legal landscape while providing historical context for how we arrived at the present state of the law.\n\nBegin by conducting thorough research into recent case law, statutory developments, and regulatory guidance across all three core areas. Search for landmark decisions from the past twelve to eighteen months that have shaped digital media law, including cases involving major platforms, content creators, and users. Pay particular attention to circuit splits, emerging legal theories, and cases that signal potential shifts in judicial interpretation. For copyright matters, examine cases involving fair use in digital contexts, DMCA safe harbor provisions, platform liability for user-generated content, NFTs and digital ownership, and AI-generated content. In the privacy domain, investigate developments in data protection laws, cookie consent requirements, biometric data collection, cross-border data transfers, and platform obligations under regulations like GDPR, CCPA, and emerging state privacy laws. For content liability, analyze Section 230 jurisprudence, defamation claims involving online speech, platform moderation decisions, government regulation of social media, and the evolving distinction between publisher and distributor liability.\n\nStructure your summary to provide both breadth and depth. Open with an executive overview that captures the most significant developments across all three areas, highlighting trends, emerging risks, and areas of legal uncertainty. This overview should be accessible to non-specialists while maintaining legal precision. Follow with dedicated sections for each core area, organized chronologically within thematic subsections. For each significant case or regulatory development, provide the full citation, a concise statement of facts, the legal issue presented, the holding and reasoning, and most importantly, the practical implications for digital media stakeholders. Explain not just what the court or regulator decided, but why it matters and how it affects platform operations, content creation, and user rights.\n\nYour analysis should identify patterns and connections across cases. When multiple courts address similar issues, compare their approaches and note any conflicts or consensus. Highlight how statutory frameworks like the DMCA, Section 230, and various privacy laws are being interpreted and applied in novel digital contexts. Address the tension between free expression, platform autonomy, user privacy, and intellectual property protection that runs through much of digital media law. Consider how technological developments\u2014such as algorithmic content moderation, blockchain-based ownership, generative AI, and encrypted communications\u2014are challenging existing legal frameworks and prompting courts and regulators to adapt traditional doctrines.\n\nInclude a forward-looking section that identifies unresolved questions and predicts likely areas of future litigation and regulation. What issues are percolating in lower courts that may reach appellate review? What regulatory initiatives are under consideration? Where are existing legal frameworks proving inadequate to address new technologies or business models? This predictive analysis should be grounded in current trends and expert commentary, not speculation.\n\nThroughout the summary, maintain strict citation standards using Bluebook format for all legal authorities. Every case, statute, regulation, and secondary source must be properly cited with verified links to authoritative sources. Distinguish between binding precedent and persuasive authority, and clearly indicate the jurisdictional scope of each development. When discussing regulatory guidance or agency positions, note whether they carry the force of law or represent interpretive guidance that courts may or may not defer to.\n\nThe tone should be analytical and objective, presenting multiple perspectives on controversial issues without advocacy. Where courts or commentators disagree about the proper interpretation or application of law, present both sides fairly. However, do identify which view appears to be gaining traction or represents the majority position. Use clear, professional language that avoids unnecessary jargon while maintaining legal precision. Define technical terms when first introduced, as your audience may include both legal specialists and business professionals who need to understand the legal landscape.\n\nPay special attention to international and comparative dimensions where relevant. Digital media operates globally, and developments in EU law, UK law, and other major jurisdictions often influence U.S. legal thinking or create compliance obligations for U.S.-based platforms. Note significant international developments and explain their potential impact on domestic law and practice.\n\nConclude with practical guidance for legal professionals advising clients in the digital media space. What risk areas require immediate attention? What compliance measures should platforms implement in light of recent developments? What contractual provisions should content creators and platforms include in their agreements? This practical section should translate legal developments into actionable recommendations.\n\nThe final document should be comprehensive yet accessible, serving as both a reference tool for quick consultation and a substantive analysis for deeper research. It should be formatted with clear headings, subheadings, and organizational structure that allows readers to quickly locate information on specific topics. Consider including a table of contents for summaries exceeding ten pages and a table of authorities listing all cases, statutes, and regulations discussed. The summary should stand as a authoritative snapshot of digital media law at this moment in time while acknowledging the dynamic nature of this legal field and the certainty that continued evolution lies ahead.",
+  "parent_skill_id": "f8ab0cf8-ccfa-4543-a5d9-4d2f4c705ba5",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "intellectual_property_licensing",
+      "data_privacy_and_cybersecurity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:18.425822",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

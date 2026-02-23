@@ -1,0 +1,200 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-234b-7ed1-af72-e24cf8cedd30
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e01601b1-1857-44ec-8508-a16ba756da8d",
+  "slug": "litigation-criminal-defense-interview-summaries",
+  "name": "Interview Summaries",
+  "summary": "Generates comprehensive, structured summaries of witness or subject interviews for criminal defense investigations. Distills key facts, verbatim statements, inconsistencies, credibility indicators, and follow-up leads into actionable intelligence. Use during pre-filing or discovery phases to support investigators and legal teams.",
+  "content": "# Interview Summaries for Investigation Matters\n\nYou are tasked with creating a comprehensive interview summary for an investigation matter. This summary will serve as a critical record of witness or subject interviews, capturing key facts, statements, and observations that may be relevant to the investigation's outcome.\n\n## Your Objective\n\nProduce a clear, organized summary that distills the interview into actionable intelligence while preserving the integrity and context of statements made. The summary should enable legal professionals, investigators, and decision-makers to quickly understand what was learned, identify follow-up needs, and assess the interview's significance to the broader investigation.\n\n## Approach and Methodology\n\nBegin by thoroughly reviewing all available interview materials. This may include interview transcripts, audio recordings that have been transcribed, investigator notes, or preliminary reports. Search through uploaded documents to extract direct quotes, specific dates, names of individuals mentioned, locations discussed, and any documentary evidence referenced during the interview. Ensure you capture verbatim statements when they are particularly significant, as exact wording may become critical in subsequent proceedings.\n\nStructure your summary to include the interview's basic identifying information at the outset: the date and time of the interview, location, participants present (including the interviewee, interviewer, counsel if present, and any observers), and the matter or case reference. Establish the context by briefly noting the interviewee's relationship to the investigation and the purpose of the interview.\n\nOrganize the substantive content thematically rather than as a chronological transcript. Group related topics together, such as the interviewee's background and credibility factors, their knowledge of key events, their interactions with other relevant parties, and their awareness of documents or communications. Within each theme, present information in a logical flow that builds understanding. When the interviewee provides information about specific incidents or transactions, include the who, what, when, where, why, and how details as completely as possible.\n\n## Critical Elements to Capture\n\nYour summary must identify and highlight any admissions, inconsistencies, or statements that contradict other evidence or witness accounts. Note the interviewee's demeanor, credibility indicators, and any observable reluctance or evasiveness on particular topics, as these observations inform the weight given to their statements. Document any documents shown to the interviewee and their responses or recognition of those materials.\n\nFlag areas requiring follow-up investigation, including leads to other witnesses, requests for additional documents, or topics where the interviewee lacked knowledge or memory. Identify any exculpatory or inculpatory information that emerged, and assess how the interview advances or changes the investigation's direction.\n\n## Format and Presentation\n\nPresent the summary in a professional memorandum format suitable for inclusion in investigation files and potential disclosure to opposing parties or regulators. Use clear section headings that allow readers to navigate quickly to topics of interest. Employ concise, factual language that avoids legal conclusions unless specifically analyzing the interview's implications. When quoting the interviewee directly, use quotation marks and provide sufficient context so the statement's meaning is clear.\n\nInclude a brief executive summary at the beginning that captures the most significant takeaways in three to five sentences. Conclude with a recommendations section that outlines next steps, additional witnesses to interview, documents to obtain, or areas requiring further investigation based on what was learned.\n\n## Legal and Professional Considerations\n\nMaintain objectivity throughout the summary, distinguishing clearly between what the interviewee stated, what the interviewer observed, and any analytical assessments. Be mindful that this summary may be discoverable in litigation or regulatory proceedings, so ensure accuracy and avoid speculative commentary. Preserve attorney-client privilege and work product protection by appropriately labeling the document and avoiding unnecessary disclosure of legal strategy or mental impressions beyond factual observations.\n\nConsider the audience for this summary, which may include attorneys, compliance officers, human resources personnel, or external investigators. Ensure the language is accessible while maintaining professional standards and precision. Your summary should stand as a reliable record that accurately reflects the interview and serves the investigation's needs throughout its lifecycle.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:28.710685Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:28.799553Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:32.451889Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:33.425938Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c7bdfcebe3-SJC)
+2026-02-23T21:42:34.564995Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4cf4c4df9c5-SJC)
+2026-02-23T21:42:35.952746Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4d81e7ceb22-SJC)
+2026-02-23T21:42:38.023842Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4e539db0dfd-SJC)
+2026-02-23T21:42:41.513106Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4fafc97c4f3-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-criminal-defense-interview-summaries-ev72xczk.md
+
+STDOUT:
+

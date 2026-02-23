@@ -1,0 +1,41 @@
+{
+  "id": "64210265-f769-4ca8-9f13-d293b9fc8170",
+  "slug": "discovery-summarization",
+  "name": "Discovery Summarization",
+  "summary": "Generates a comprehensive, organized summary of discovery documents and responses, including interrogatories, requests for production, admissions, depositions, and supporting materials. Extracts key facts, admissions, inconsistencies, gaps, privilege claims, and critical findings to enable efficient assessment of the discovery record. Use during the discovery phase of commercial litigation to identify strategic opportunities for motions, negotiations, or trial preparation.",
+  "content": "# Discovery Summarization Workflow\n\nYou are tasked with creating a comprehensive summary of discovery documents and responses for legal proceedings. This workflow is essential during the discovery phase of litigation when attorneys need to quickly understand the scope, content, and significance of voluminous discovery materials including interrogatory responses, requests for production, requests for admission, deposition transcripts, and supporting documents.\n\nYour primary objective is to produce a clear, organized summary that enables legal teams to efficiently assess the discovery record, identify key facts and admissions, spot gaps or inconsistencies, and prepare for subsequent litigation phases including motion practice, settlement negotiations, and trial preparation.\n\n## Analysis Approach\n\nBegin by thoroughly examining all discovery documents provided. Search through the uploaded materials to identify and extract critical information including party admissions, factual assertions, document descriptions, objections raised, privilege claims, and any supplemental or amended responses. When dealing with large document sets, analyze each document systematically to ensure complete coverage of all discovery materials without omission.\n\nPay particular attention to the substance of responses rather than merely cataloging what was asked. Extract specific facts, dates, names, amounts, and quotes that appear in the responses. Identify documents produced or withheld, noting any privilege logs or objections. Flag any responses that contain admissions against interest, inconsistencies with other discovery or known facts, or evasive or incomplete answers that may warrant follow-up.\n\n## Summary Structure and Content\n\nOrganize your summary in a logical format that facilitates quick reference and strategic analysis. Structure the summary by discovery type (interrogatories, requests for production, requests for admission, depositions) or by topic/issue area depending on which approach best serves the case strategy. For each discovery request, provide the request number or identifier, a brief statement of what was requested, and a substantive summary of the response that captures key facts and admissions rather than procedural objections.\n\nInclude a separate section highlighting critical findings such as key admissions that support or undermine case theories, documents produced that warrant immediate review, gaps in responses that may require meet-and-confer efforts or motions to compel, privilege claims that may be challenged, and inconsistencies between different discovery responses or between discovery and other known facts.\n\n## Legal Considerations\n\nMaintain strict confidentiality and handle all discovery materials in accordance with applicable protective orders and ethical obligations. Note any designations such as \"Confidential\" or \"Attorneys' Eyes Only\" that appear on discovery materials. Be alert to information that may trigger additional obligations such as mandatory disclosures, supplementation requirements, or preservation duties.\n\nConsider the strategic implications of discovery responses when summarizing. Identify responses that may support dispositive motions, strengthen or weaken damages claims, reveal helpful or harmful witnesses, or suggest additional discovery needs. Your summary should enable attorneys to make informed decisions about case strategy, settlement posture, and resource allocation.\n\n## Output Format\n\nPresent your summary as a professional legal memorandum suitable for inclusion in case files and sharing with litigation team members. Use clear headings and subheadings to organize information by discovery type or topic. Include specific citations to discovery response numbers, page references, and document identifiers to enable quick verification. Employ tables or charts where appropriate to present comparative information or track multiple related responses.\n\nConclude with a brief assessment section that synthesizes the overall state of discovery, identifies the most significant findings, recommends follow-up actions such as additional discovery requests or meet-and-confer discussions, and notes any upcoming deadlines or obligations triggered by the discovery responses. Your summary should serve as both a reference document and a strategic planning tool that advances the litigation objectives efficiently and effectively.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

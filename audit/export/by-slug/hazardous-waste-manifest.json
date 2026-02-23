@@ -1,0 +1,40 @@
+{
+  "id": "4c72037a-baca-4e48-892e-9da6e6e548c6",
+  "slug": "hazardous-waste-manifest",
+  "name": "Hazardous Waste Manifest",
+  "summary": "Drafts a comprehensive Hazardous Waste Manifest to ensure compliance with federal and state environmental laws, including RCRA, EPA, and DOT requirements. It compiles detailed generator, transporter, and designated facility information to create a chain of custody for hazardous waste shipments from generation to disposal. Use this skill when preparing regulatory tracking documents for hazardous materials transportation.",
+  "content": "# Hazardous Waste Manifest - Enhanced Legal Workflow Prompt\n\nYou are tasked with drafting a comprehensive Hazardous Waste Manifest, a critical regulatory document that ensures legal compliance with federal and state environmental laws governing the transportation and disposal of hazardous materials. This manifest serves as a tracking document from the point of waste generation through transportation to final disposal, creating a complete chain of custody that satisfies EPA and DOT requirements under the Resource Conservation and Recovery Act (RCRA).\n\n## Generator Information Section\n\nBegin by compiling complete generator identification details that establish the legal origin point of the hazardous waste shipment. You must include the generator's full legal business name, complete physical address of the generation site, EPA identification number assigned under 40 CFR Part 262, primary contact telephone number, and a 24-hour emergency response contact. Reference EPA Form 8700-22 instructions and the official EPA guidance documents to ensure all generator information meets current regulatory standards. The generator information must be sufficiently detailed to allow regulatory agencies to trace the waste back to its source and to enable emergency responders to contact appropriate personnel in case of incident during transport.\n\n## Transporter Information Section\n\nDocument all transporter entities involved in the shipment chain, recognizing that hazardous waste may pass through multiple carriers before reaching its final destination. For each transporter, provide the company's legal name, business address, EPA identification number, DOT registration information, and designated signature lines for acknowledgment of receipt. Verify that all listed transporters hold valid permits and certifications required under both EPA regulations (40 CFR Part 263) and Department of Transportation Hazardous Materials Regulations (49 CFR Parts 171-180). Cross-reference any existing shipment records or contracts to ensure consistency with the manifest entries, and confirm that transporter information aligns with current federal and applicable state requirements for hazardous waste carriers.\n\n## Designated Facility Information Section\n\nIdentify the designated treatment, storage, or disposal facility (TSDF) authorized to receive the specific type of hazardous waste being shipped. Include the facility's complete legal name, physical address, EPA identification number, and any state-specific facility permits or authorization numbers. Consult the Federal Register and relevant state environmental agency databases\u2014such as California's Department of Toxic Substances Control (DTSC) or equivalent state authorities\u2014to verify that the designated facility is properly permitted to accept the waste types and quantities specified in the manifest. Ensure the facility designation complies with the land disposal restrictions and treatment standards applicable to the waste being shipped, as improper facility designation can result in significant regulatory violations and liability.\n\n## Waste Description Section\n\nProvide a precise and legally compliant description of the hazardous waste being transported, including the proper shipping name as required by DOT regulations, the applicable EPA hazardous waste codes (using the four-digit codes from 40 CFR Part 261), the total quantity expressed in both weight and volume, and a detailed description of container types and counts. Specify the physical and chemical form of the waste, any special handling requirements, and applicable hazard class and packing group under DOT classification standards. Reference EPA's hazardous waste identification rules and official manifest completion instructions to ensure waste characterization is accurate and complete. The waste description must be sufficiently detailed to inform all handlers of potential risks and to enable the receiving facility to confirm the waste matches their permit limitations and acceptance criteria.\n\n## Emergency Response and Certifications Section\n\nInclude comprehensive emergency response information and all required certification statements that establish legal accountability for the waste shipment. Provide the 24-hour emergency response telephone number (such as CHEMTREC or a company-specific emergency line), special handling instructions for emergency responders, and any additional precautionary information relevant to the specific waste being shipped. Incorporate the generator certification statement required by 40 CFR 262.23, which attests that the generator has a program in place to reduce waste volume and toxicity, and that the selected treatment, storage, or disposal method minimizes present and future threats to human health and the environment. Ensure all certification language precisely tracks the regulatory text to maintain legal validity and enforceability of the manifest as a compliance document.\n\n## Signatures and Discrepancy Reports Section\n\nEstablish clear signature blocks and acknowledgment procedures for all parties in the waste handling chain, creating a legally binding record of custody transfer at each stage. Include designated signature lines for the generator's authorized representative, each transporter who takes custody of the waste, and the receiving facility operator, along with corresponding dates of signature. Provide space for discrepancy reporting as required by 40 CFR 264.72 and 265.72, allowing the receiving facility to document any differences between the waste described on the manifest and the waste actually received. Reference Federal Register notices and EPA guidance on manifest discrepancy procedures to ensure the document includes appropriate fields for noting quantity variations, container damage, or other irregularities that may trigger additional regulatory reporting obligations.\n\n## Final Document Assembly\n\nUpon gathering all required information and verifying compliance with applicable federal and state regulations, assemble the complete Hazardous Waste Manifest ensuring all sections are fully populated, all required certifications are included, and the document format conforms to EPA's Uniform Hazardous Waste Manifest requirements under 40 CFR Part 262, Subpart B. The final manifest must be prepared in sufficient copies to provide one for the generator's records, one for each transporter, one for the designated facility, and one to be returned to the generator as proof of delivery and proper disposal.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.87786",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

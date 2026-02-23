@@ -1,0 +1,266 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-dc09-74c2-9be3-0219fa034c83
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d1ec71ef-dda0-4994-96f8-ae42533fe0fc",
+  "slug": "fda-establishment-registration-and-device-listing",
+  "name": "Establishment Registration and Device Listing",
+  "summary": "Drafts comprehensive FDA Establishment Registration and Device Listing documents compliant with 21 CFR Part 807 for medical device manufacturers. Structures filings with establishment details, owner information, and device inventories using current FDA forms and guidance. Use for initial registrations, renewals, or updates to ensure regulatory compliance.",
+  "content": "# Enhanced Prompt: Establishment Registration and Device Listing\n\nYou are tasked with drafting a comprehensive Establishment Registration and Device Listing document that complies with FDA regulatory requirements under 21 CFR Part 807. This document serves as a critical regulatory filing for medical device manufacturers and must meet all federal compliance standards while accurately representing the establishment's operations and device portfolio.\n\n## Research and Information Gathering\n\nBegin by conducting thorough research to ensure the document reflects current regulatory requirements and best practices. Search for the most recent FDA Form 2830 templates and official guidance documents from FDA.gov, paying particular attention to any updates in registration requirements or format specifications. Examine the user's uploaded documents to extract all relevant establishment information, device specifications, and corporate details that will form the foundation of this registration. Cross-reference your findings with authoritative legal resources to verify that the document structure and content align with accepted industry standards for medical device registration.\n\n## Document Structure and Content Requirements\n\n**Document Header and Identification Section**: Establish the document's regulatory context by creating a comprehensive header that includes the document title, preparation date, and explicit references to applicable FDA regulations, particularly 21 CFR Part 807. Incorporate the appropriate FDA form numbers and ensure all regulatory citations are current and accurately formatted according to federal standards.\n\n**Establishment Information Section**: Provide complete and accurate details about the registering establishment, including the legal owner name, complete physical and mailing addresses, all relevant contact information, the FDA Establishment Identifier (FEI) number, and a detailed description of all business activities conducted at the facility. Ensure that the business activities are described using FDA-recognized terminology and that all information matches official corporate records and previous FDA submissions.\n\n**Owner and Operator Details Section**: Document comprehensive information about the establishment's ownership and operational leadership, including full legal names, official titles, signature authority designations, and complete contact details for all responsible parties. Verify that the individuals listed have the legal authority to bind the establishment in regulatory matters and that their roles align with FDA expectations for responsible parties in device registration.\n\n**Device Listing Section**: Create a detailed inventory of all devices manufactured, prepared, propagated, compounded, or processed at the establishment. For each device, provide the FDA product code, device classification (Class I, II, or III), a clear description of the intended use, and the device listing number if previously assigned. Ensure that device descriptions are technically accurate, align with FDA classification databases, and clearly communicate the medical purpose and application of each device. Include any relevant predicate device information or 510(k) numbers where applicable.\n\n**Compliance and Certifications Section**: Draft comprehensive compliance statements that affirm the establishment's adherence to all applicable FDA regulations, including Quality System Regulation (QSR) requirements where relevant. If the establishment is foreign, include complete information about the designated U.S. agent, including their name, address, phone number, and email address. Document any claimed exemptions with specific regulatory citations and justifications. Include certifications regarding the accuracy of the information provided and acknowledgment of the legal obligations associated with device registration.\n\n**Signatures and Attestations Section**: Provide properly formatted signature blocks for all required signatories, including the establishment owner or operator and any other responsible officials. Include clear attestation language that confirms the accuracy and completeness of the information provided, acknowledges the legal consequences of false statements, and affirms the signatory's authority to bind the establishment. Ensure signature requirements comply with both FDA regulations and general legal standards for executed documents.\n\n## Quality Assurance and Finalization\n\nBefore finalizing the document, verify that all information is internally consistent, that all required sections are complete, and that the document adheres to professional legal drafting standards. Ensure that all regulatory citations are accurate and current, that contact information is complete and properly formatted, and that the document presents a clear and comprehensive picture of the establishment's operations and device portfolio. The final document should be suitable for immediate submission to the FDA and should withstand regulatory scrutiny.\n\nOnce you have gathered all necessary information from uploaded documents, conducted appropriate regulatory research, and structured the content according to FDA requirements, create the complete Establishment Registration and Device Listing document with all sections properly formatted and all required information accurately presented.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "formation"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:13.733368",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:57:27.539978Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Selecting concise slug and metadata for SKILL.md**
+
+I'm deciding on the slug "establishment-registration-device-listing" for clarity and brevity. The title will be "FDA Establishment Registration and Device Listing," with metadata including Regulatory practice area and "Memo" document type, plus relevant trigger keywords and skill modes for drafting and research.
+thinking
+**Outlining SKILL.md content with structured sections**
+
+I'm planning SKILL.md with a concise purpose, prerequisites as a numbered list, and a detailed Output Structure/Process section featuring checklist items and tables for filing sections and device listings. The description will include trigger keywords and emphasize FDA Form 2830/FURLS context, with necessary [VERIFY] tags for changing or uncertain info.
+codex
+---
+name: establishment-registration-device-listing
+description: Drafts FDA establishment registration and medical device listing packages under 21 CFR Part 807, covering establishment details, owner/operator authority, device inventories, and compliance attestations. Use for Form 2830/FURLS submissions, initial registration, annual renewal, or updates to device listings; trigger keywords: FDA establishment registration, device listing, 21 CFR Part 807, Form 2830, FEI, product code, class I/II/III, U.S. agent.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# FDA Establishment Registration and Device Listing
+
+Produces a submission-ready registration and device listing package aligned to 21 CFR Part 807.
+
+## Prerequisites
+
+1. **Entity profile** — legal name, ownership structure, addresses, contacts, FEI (if assigned)
+2. **Business activities** — manufacturer/contract manufacturer/specification developer/repackager/relabeller, etc.
+3. **Responsible official** — name, title, authority to sign, contact details
+4. **Device inventory** — product codes, device names, classification, regulation numbers, intended use
+5. **Regulatory history** — prior listing numbers, 510(k)/PMA/De Novo references, exemptions with citations
+6. **Foreign establishments** — U.S. agent details (name, address, email, phone)
+7. **Source documents** — prior FDA submissions, labeling, IFUs, QMS scope, corporate records
+
+## Output Structure / Process
+
+**Process Checklist**
+- Validate current FDA registration window, fees, and submission portal requirements (FURLS/DRLM). [VERIFY]
+- Confirm product codes and classifications against FDA Product Classification database. [VERIFY]
+- Verify all identifiers (FEI, listing numbers, premarket submission IDs) against source records.
+
+**Document Structure**
+
+| Section | Required Content |
+| --- | --- |
+| Header | Title, preparation date, regulatory basis (21 CFR Part 807), submission context (initial/annual/update) |
+| Establishment Details | Legal owner name, FEI, physical/mailing address, phone/email, website, DUNS/identifier if used |
+| Business Activities | FDA-recognized activity types, per-site activity mapping if multiple facilities |
+| Owner/Operator | Responsible official(s), title, authority basis, contact info |
+| Device Listing Summary | Total devices listed, device family/grouping logic, prior listing references |
+| Compliance Statements | QSR applicability, exemption claims with citations, certification of accuracy |
+| Foreign Establishment | U.S. agent details and acknowledgment (if applicable) |
+| Signatures | Attestation language, signatory blocks, date |
+
+**Device Listing Table Template**
+
+| Device Name | Product Code | Regulation # | Class | Intended Use (1–2 lines) | Listing # (if any) | 510(k)/PMA/De Novo | Exemption Basis |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+**Compliance/Attestation Language Template**
+
+- Certify information is true and complete; acknowledge legal consequences of false statements.
+- Confirm authority of signatory to bind establishment.
+- Identify any exemptions and cite regulatory basis. [VERIFY]
+- If foreign, confirm designation of U.S. agent and provide contact details.
+
+## Guidelines
+
+- Do not invent product codes, classifications, or regulatory IDs; mark unknowns as `TBD`.
+- Intended use must align with labeling and premarket submissions; avoid new claims.
+- If listing exemptions are claimed, cite the exact regulation and rationale. [VERIFY]
+- Keep activity descriptions consistent with FDA-defined terminology.
+- Use consistent entity naming across all sections; match corporate records.
+- Flag any discrepancies between source documents and provided data for client confirmation.
+tokens used
+3,140

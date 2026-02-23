@@ -1,0 +1,43 @@
+{
+  "id": "f92ddf27-02eb-4bda-939d-03fa41ae519c",
+  "slug": "litigation-personal-injury-mediation-statement",
+  "name": "Mediation Statement",
+  "summary": "Drafts a comprehensive mediation statement for personal injury litigation cases, guiding users through pre-drafting considerations, header, executive summary, factual background, liability analysis, party testimony, and medical records review. Structures the document persuasively to highlight favorable facts, law, and evidence while addressing opponent arguments. Use this skill to prepare professional statements submitted 7-10 days before mediation to facilitate settlement negotiations.",
+  "content": "Step-by-Step Instructions for Drafting a Mediation Statement\nPre-Drafting Considerations\nConfidentiality: Confirm whether the mediation statement will be shared with opposing counsel or kept confidential to the mediator\nLength: Aim for 5-15 pages depending on case complexity\nDeadline: Submit 7-10 days before mediation (or per mediator's requirements)\nFormat: Professional, single-spaced, with clear headings and numbered exhibits\n\nStep 1: Header and Introduction\nDraft a professional opening that includes:\nCase caption (Party v. Party, Case No.)\nDate of mediation\nMediator's name\nThank you statement: \"Thank you for agreeing to mediate this matter on [date]. We look forward to working with you to reach a resolution.\"\n\nStep 2: Executive Summary/Case Overview\nWrite 2-3 sentences maximum:\nType of case (e.g., \"This premises liability case involves disputed liability and damages\")\nKey issue in one sentence\nYour client's position in broad terms\nExample: \"This case involves a slip and fall at defendant's store where liability is clear but plaintiff's claimed injuries are grossly exaggerated and unsupported by objective medical evidence.\"\n\nStep 3: Factual Background\nPresent facts chronologically and persuasively:\nStart with favorable context for your client\nInclude key dates, times, locations\nHighlight favorable witness statements\nReference and attach key photos, documents, or evidence as exhibits\nUse active/passive voice strategically (active for opponent's bad acts, passive for your client's)\nSpin technique: Focus on facts that support your theory while accurately presenting unfavorable facts in context\nIf applicable and just for example, If Plaintiff: Emphasize dangerous conditions, lack of warnings, defendant's knowledge For Defense: Emphasize plaintiff's actions, obvious hazards, proper maintenance. In sum, facts in the light most favorable to your client for the purposes of negotiation. \n\nStep 4: Liability Analysis\nStructure this section with:\nApplicable legal standard (cite relevant statutes/case law)\nElement-by-element analysis showing why law favors your client\nDistinguish adverse authority if necessary\nAddress opponent's likely arguments and explain why they fail\nHighlight strongest liability arguments\nExample elements for premises liability: Duty, breach, causation, comparative fault\n\nStep 5: Party Testimony and Discovery Analysis\nAnalyze key testimony/discovery responses:\nHighlight favorable admissions from opposing party\nPoint out contradictions in opponent's story\nEmphasize credibility issues (changing stories, implausible explanations \u2013 a jury hates a lying witness)\nNote gaps in opponent's discovery responses or lies.\nReference specific deposition testimony with page citations (if available or summary if that is available, without the need for citations). \nAttach key deposition excerpts as exhibits or deposition summary by Casemark linked to the transcript.\n\nStep 6: Medical Records/Injury Analysis\nFor Personal Injury Cases:\nPre-incident medical history: Frame favorably for your client\nPost-incident treatment: Analyze what records actually show vs. what's claimed\nCausation issues: Medical evidence linking/not linking injuries to incident\nObjective vs. subjective findings: Emphasize objective evidence\nTreatment gaps or inconsistencies\nReturn to normal activities: Evidence of exaggeration\nFor Non-PI Cases:\nDocument analysis: What business records, contracts, communications actually show\nQuantification support: Whether claimed damages have proper documentation\n\nStep 7: Damages Analysis\nBreak down claimed damages:\nMedical bills: Reasonable and necessary vs. excessive/unrelated\nLost wages: Properly documented vs. speculative\nPain and suffering: Objective support vs. subjective claims\nProperty damage: Actual vs. inflated repair costs\nEconomic losses: Properly calculated vs. speculative\nExpert testimony: Reliability and basis of opponent's expert opinions\nProvide an analysis as to the credibility of these alleged damages in the light most favorable to the client. \n\nStep 8: Expert Witness Analysis\nAddress expert testimony:\nYour expert's qualifications and opinions\nOpponent's expert weaknesses (qualifications, methodology, bias)\nHow expert testimony will play at trial\n\nStep 9: Trial Outlook and Strategic Considerations\nPaint picture of likely trial outcome:\nJury appeal: Which party will jury favor and why\nPending motions: Summary judgment, motions in limine, etc.\nEvidence problems: What opponent won't be able to prove/get admitted\nWitnesses: Credibility issues opponent will face\nCosts and fees: Attorney's fees, expert costs if recoverable\nAppeal risks: Likelihood of reversal if opponent wins\n\nStep 10: Settlement History\nChronologically list all settlement communications:\nDates of offers/demands\nAmounts demanded/offered\nMovement in positions over time\nReasonableness analysis: Why opponent's position is unrealistic\nExample: \"On 3/15/24, plaintiff demanded $500,000. On 4/1/24, defendant offered $25,000. Obviously the parties are significantly a part in the analysis of this case\u201d. \n\nStep 11: Settlement Recommendations \u2013 How can we settle this case?\nEnd with clear path forward:\nWhat opponent must do: \"Plaintiff must recognize the weakness of their case and reduce demands significantly\"\nConsequences of non-settlement: Costs, time, risk for opponent\nDo not propose an actual settlement number. Rather, discuss things that the other side needs to do in order to reach a resolution. Example: Plaintiff has further to drop than defendant. Defendant must realize this case involves a child in a plaintiff friendly jurisdiction. Even on Plaintiff\u2019s best day, she will not be likely awarded more than X. The judge is focused more on one side than the other so it will be an uphill battle. Whatever the issues may be that are impeding settlement, it must should be described here and briefly why they are wrong and it will not work out for them. \n\nStep 12: Exhibits and Appendices\nAttach key documents as exhibits:\nKey deposition excerpts, if important, but we do not want to bombard the mediator. \nMedical chronologies by Caremark.\nExpert reports\nRelevant contracts/documents\nKeep it to the documents that are the most important and/or documents that the mediator can us during the mediation. If you provide too much, it could get lost. The report is meant to highlight the most important information for negotiations. \n\nFinal Review Checklist\nPersuasive tone throughout while remaining professional\nClient's position clearly articulated\nOpponent's weaknesses highlighted\nA settlement path provided\nProofread for grammar, spelling, formatting\nMediator's name and mediation date correct\nRemember: The goal is to educate the mediator about your case's strengths while positioning for favorable settlement discussions. Be persuasive but don\u2019t be so persuasive to lack credibility through inaccurate statements that the other side can easily disprove.  Look reasonble, but advocate, hard.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "brief"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.934163",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

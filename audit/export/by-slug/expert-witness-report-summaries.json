@@ -1,0 +1,43 @@
+{
+  "id": "f2e5fd45-bcba-41eb-943e-952e2444c6bb",
+  "slug": "expert-witness-report-summaries",
+  "name": "Expert Witness Report Summaries",
+  "summary": "Generates concise, structured summaries of expert witness reports, distilling key qualifications, assignment, methodology, findings, opinions, assumptions, and limitations into accessible formats. This skill is ideal for trial preparation, depositions, hearings, and reference in commercial litigation proceedings. Ensures accuracy and objectivity while preserving the expert's credibility and precision.",
+  "content": "# Expert Witness Report Summary Prompt\n\nYou are tasked with creating a comprehensive yet concise summary of an expert witness report for use in legal proceedings. Your objective is to distill complex technical or specialized findings into a clear, accessible format that preserves the expert's key opinions, methodologies, and conclusions while making the information readily usable during depositions, hearings, and trial preparation.\n\nBegin by thoroughly reviewing the complete expert witness report to understand the expert's qualifications, the scope of their engagement, their methodology, and their ultimate opinions. Your summary should capture the essence of the expert's analysis while maintaining the precision and credibility necessary for legal proceedings. The summary must be accurate, objective, and faithful to the expert's actual statements and conclusions.\n\nStructure your summary to include the following essential components in a clear, organized format. First, identify the expert witness by name, credentials, and relevant qualifications that establish their authority to offer opinions in this matter. Include their educational background, professional experience, certifications, and any specialized training that relates directly to the issues in the case. This section should be brief but sufficient to establish the expert's credibility.\n\nNext, provide a concise statement of the expert's assignment or the questions they were asked to address. Clearly articulate what the retaining party requested the expert to analyze, investigate, or opine upon. This contextualizes the entire report and helps readers understand the boundaries of the expert's engagement.\n\nDescribe the expert's methodology and the materials they reviewed or relied upon in forming their opinions. This should include documents examined, tests conducted, site inspections performed, interviews conducted, industry standards consulted, and any other investigative steps taken. Present this information in a way that demonstrates the thoroughness and reliability of the expert's approach without overwhelming the reader with excessive technical detail.\n\nSummarize the expert's key findings and opinions in clear, direct language. This is the heart of your summary and should capture each significant conclusion the expert reached, organized logically and presented in order of importance to the case. Where the expert provides multiple opinions or addresses several distinct issues, separate these clearly and ensure each is fully captured. Use the expert's own terminology for critical concepts, but provide brief explanations of highly technical terms that may not be familiar to all legal professionals involved in the case.\n\nInclude any assumptions or limitations the expert identified in their analysis. Expert opinions often depend on certain factual assumptions or are subject to qualifications, and these must be clearly noted as they may be critical during cross-examination or when evaluating the weight to give the expert's testimony. Similarly, note any areas where the expert declined to offer an opinion or indicated that additional information would be needed for a complete analysis.\n\nIf the expert's report includes quantitative findings such as damage calculations, statistical analyses, or measurements, present these figures clearly and accurately. Ensure that any ranges, margins of error, or alternative scenarios the expert discussed are properly reflected in your summary.\n\nWhen the expert's opinion directly supports or contradicts specific legal theories, claims, or defenses in the case, make these connections explicit. Your summary should help legal team members quickly identify how the expert's testimony will advance their litigation strategy or counter opposing arguments.\n\nConclude with any recommendations the expert made, if applicable, and note whether the expert indicated availability for deposition or trial testimony. If the report references exhibits, appendices, or supporting documentation, provide a brief inventory of these materials so they can be easily located when needed.\n\nThroughout your summary, maintain objectivity and avoid characterizing the strength or weakness of the expert's opinions\u2014present the information neutrally so attorneys can make their own strategic assessments. Use clear headings and logical organization to make the summary easy to navigate during the fast-paced environment of legal proceedings. The final summary should typically be between two to five pages depending on the complexity of the expert's report, striking a balance between comprehensiveness and accessibility.\n\nYour summary should be formatted as a professional legal document with proper citations to specific pages or sections of the original expert report where key opinions appear, enabling quick reference back to the source material when detailed review becomes necessary. This summary will serve as a critical reference tool throughout litigation, so clarity, accuracy, and usability are paramount.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

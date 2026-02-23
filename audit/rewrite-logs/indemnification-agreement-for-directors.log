@@ -1,0 +1,449 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c83-ba88-70e1-ae7a-ec0b44c2d236
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f02ce07b-9e69-446a-bdce-974c9eb8ee52",
+  "slug": "indemnification-agreement-for-directors",
+  "name": "Indemnification Agreement for Directors",
+  "summary": "Drafts a comprehensive Indemnification Agreement between a corporation and its directors, providing contractual protection against personal liability from suits, investigations, and claims. Ensures enforceability under the state of incorporation's corporate law while incorporating procedures for expense advancement and indemnification determinations. Use during corporate formation or governance to meet directors' demands for protections exceeding bylaws.",
+  "content": "# Indemnification Agreement for Directors - Enhanced Workflow\n\nYou are tasked with drafting a comprehensive Indemnification Agreement between a corporation and one of its directors. This document serves as a critical risk management instrument that provides contractual protection to directors who face increasing personal liability exposure in today's litigious corporate environment. The agreement must balance maximum legal protection for the director with appropriate safeguards that comply with applicable state corporate law and public policy limitations.\n\n## Understanding the Document's Purpose and Legal Context\n\nThis indemnification agreement creates binding contractual rights that typically exceed the protections provided in a company's bylaws or articles of incorporation. Directors increasingly demand these agreements as a condition of service because they face substantial personal risk from shareholder derivative suits, regulatory investigations, securities litigation, and third-party claims. The agreement must be drafted with precision to ensure enforceability under the corporation's state of incorporation while providing clear procedures for both advancement of defense expenses and ultimate determination of indemnification entitlement.\n\nBefore beginning the drafting process, you should search the user's uploaded documents for any existing corporate governance materials, including the company's certificate of incorporation, bylaws, prior indemnification agreements, board resolutions authorizing indemnification, or directors and officers liability insurance policies. These materials will inform the scope of permissible indemnification under the company's governing documents and help ensure consistency with existing corporate policies. If the user has uploaded sample indemnification agreements or templates from prior transactions, review these carefully to understand the company's preferred drafting style and any specific provisions that have been negotiated in the past.\n\n## Gathering Essential Information from the User\n\nBegin by collecting comprehensive information about both parties to the agreement. For the corporation, you need the complete legal name exactly as it appears in the articles of incorporation, including the proper entity designation such as \"Inc.\" or \"Corporation.\" The state of incorporation is critically important because it determines which corporate law statutes govern the scope and limitations of permissible indemnification. Delaware law generally provides the most expansive indemnification protections, while some states impose more restrictive limitations on what conduct can be indemnified. You should also obtain the company's principal place of business for notice purposes.\n\nFor the director who will receive indemnification protection, obtain the individual's full legal name and exact title or titles within the corporation. If the individual serves in multiple capacities such as both Director and Chief Financial Officer, all positions should be identified to ensure comprehensive coverage. Determine whether the agreement should extend to service in related capacities, such as when the director serves on behalf of the company as a representative of subsidiary entities, affiliated companies, employee benefit plans, or joint ventures. Ask about the date of the director's initial appointment or election, as this helps establish the temporal scope of coverage and whether retroactive protection for prior service periods is needed.\n\nInquire about the effective date of the agreement and whether it should coincide with the director's commencement of service or the date of board approval. Confirm that the board of directors has authorized entering into this agreement, and ask whether formal board resolutions should be attached as an exhibit or referenced in the recitals. For public companies or those with significant governance requirements, you may need to include specific representations about proper board authorization to ensure enforceability.\n\n## Drafting the Document Header and Recitals\n\nThe agreement should begin with a formal title that clearly identifies it as an indemnification agreement, such as \"Indemnification Agreement\" or \"Director Indemnification Agreement.\" The opening paragraph should identify both parties with their complete legal names and establish the effective date using standard legal format. This introductory section sets the professional tone for the entire document and provides essential identifying information that will be referenced throughout the agreement.\n\nThe recitals section establishes the factual and legal foundation for the contractual arrangement through a series of \"WHEREAS\" clauses. These recitals should explain that the company's governing documents authorize or require indemnification of directors to the extent permitted by applicable state law, and that the company recognizes the substantial risks faced by directors in today's legal environment. Articulate that qualified individuals are increasingly reluctant to serve as directors without contractual assurance of maximum indemnification protection and advancement of defense costs, and that the company desires to attract and retain the most capable persons available for board service.\n\nThe recitals should establish that providing this indemnification agreement is essential to recruiting and retaining qualified directors, and that the director is willing to serve or continue serving in reliance upon the agreement's protections. If the director has already been serving, note that this agreement confirms and memorializes indemnification rights for both past and future service. Conclude the recitals by stating that both parties have negotiated this agreement in good faith and that the company has determined that entering into the agreement serves a valid corporate purpose and is in the company's best interests. The recitals should then transition to the operative provisions with \"NOW, THEREFORE\" language that introduces the binding contractual terms.\n\n## Establishing Comprehensive Indemnification Coverage\n\nThe core substantive provisions must establish the company's obligation to indemnify the director to the maximum extent permitted under the law of the state of incorporation. Define \"Expenses\" with exceptional breadth to encompass all costs, charges, and expenses of any type or nature whatsoever. This definition should explicitly include attorneys' fees and disbursements, court costs, transcript costs, fees of experts and witnesses, travel expenses, duplicating and printing costs, telephone charges, postage, delivery service fees, and all other disbursements or expenses reasonably incurred in connection with any proceeding. Expand the definition beyond mere defense costs to include judgments, fines, penalties, excise taxes assessed under ERISA or other regulatory schemes, and amounts paid in settlement of any proceeding.\n\nDefine \"Proceeding\" with equal expansiveness to encompass any threatened, pending, or completed action, suit, arbitration, alternate dispute resolution mechanism, investigation, inquiry, administrative hearing, or any other actual, threatened, or completed proceeding. Specify that this includes proceedings brought in the right of the company (derivative suits), proceedings brought by third parties, and proceedings of a civil, criminal, administrative, or investigative nature. The definition should capture formal litigation, informal investigations by regulatory agencies, internal company investigations, and even threatened proceedings that never materialize into formal claims but nonetheless require the director to incur defense costs.\n\nEstablish the causal connection required for indemnification by specifying that coverage applies when the director is made or threatened to be made a party to or participant in any proceeding by reason of the fact that the director is or was serving in an official corporate capacity. Define this capacity broadly to include service as a director, officer, employee, or agent of the company, or service at the request of the company as a director, officer, employee, trustee, or agent of another corporation, partnership, joint venture, trust, employee benefit plan, or other enterprise. This \"service at the request of the company\" language is critical for covering situations where directors serve on the boards of subsidiaries, joint ventures, or industry associations at the company's request.\n\nAddress the standard of conduct required for indemnification eligibility, which typically requires that the director acted in good faith and in a manner the director reasonably believed to be in or not opposed to the best interests of the company. For criminal proceedings, the standard usually requires that the director had no reasonable cause to believe the conduct was unlawful. These standards derive from state corporate law statutes and represent the outer boundaries of permissible indemnification. For proceedings by or in the right of the company (derivative suits), specify that indemnification is available for expenses but not for amounts paid in settlement unless the settlement is approved by the court, as required by most state corporate law statutes.\n\n## Providing for Mandatory Advancement of Expenses\n\nThe advancement of expenses provision is often the most valuable protection for directors because it ensures they receive financial assistance to fund their defense before the conclusion of lengthy litigation. Establish the company's obligation to advance all expenses incurred by the director in defending any proceeding in advance of the final disposition of such proceeding. Specify that advancement shall be made promptly and in any event within a specific timeframe, typically thirty days after receipt by the company of a written request for advancement together with reasonably detailed documentation of expenses incurred.\n\nAddress the undertaking requirement by stating that the director must execute and deliver to the company an undertaking to repay any amounts advanced if it is ultimately determined by final judicial decision from which there is no further right to appeal that the director is not entitled to be indemnified for such expenses. Clarify that this undertaking shall be an unlimited general obligation of the director but need not be secured and shall be accepted without reference to the director's financial ability to make repayment. This unsecured, unlimited undertaking is typically required by state corporate law statutes as a condition for advancement, but the practical effect is that directors rarely have to repay advanced amounts because most proceedings either result in favorable outcomes or are settled with the director receiving indemnification.\n\nEstablish that the company's obligation to advance expenses is independent of the ultimate determination of entitlement to indemnification, and that the company shall not deny advancement based on a preliminary determination that the director has not met the applicable standard of conduct. This independence is critical because it prevents the company from withholding advancement while the director's conduct is being evaluated, which would defeat the purpose of providing prompt financial assistance. Specify that the company may advance expenses on such terms and conditions as the board of directors deems appropriate, but clarify that the company may not impose conditions that would frustrate the purpose of providing prompt advancement or that would effectively deny the director access to necessary defense funds.\n\n## Establishing Fair Procedures for Determining Indemnification Entitlement\n\nCreate a clear, fair procedure for determining whether the director has met the applicable standard of conduct and is entitled to indemnification after a proceeding has concluded. Specify that the determination shall be made by one of several alternative methods, listed in order of preference. The first option should be a majority vote of disinterested directors, meaning directors who are not parties to the proceeding in question, even if the disinterested directors constitute less than a quorum. The second option should be a committee of disinterested directors designated by majority vote of disinterested directors, again even if less than a quorum.\n\nIf there are no disinterested directors or if the disinterested directors so direct, the determination should be made by independent legal counsel in a written opinion. Define \"independent legal counsel\" as a law firm or attorney that has not represented the company or the director within a specified period, typically five years, and that is not otherwise affiliated with either party. Establish that the company shall pay all expenses of independent legal counsel in making the determination. The fourth alternative should be determination by the shareholders, excluding shares held by directors who are parties to the proceeding.\n\nSpecify a timeframe for making the determination, typically requiring that it be made within sixty days after receipt of the director's written request for indemnification. Establish a presumption that the director has met the applicable standard of conduct unless the person or persons making the determination shall have determined otherwise by clear and convincing evidence. This presumption in favor of indemnification is critical to protect directors and reflects the policy judgment that directors should not bear the burden of proving their entitlement to contractually promised protection.\n\nProvide that if the determination is not made within the specified timeframe, the director shall be deemed to have met the applicable standard of conduct and shall be entitled to indemnification, unless prohibited by law. This deemed approval provision prevents the company from delaying indefinitely and forces a timely resolution of indemnification claims. Address the director's right to challenge an adverse determination by seeking a judicial determination of entitlement to indemnification. Specify that in any such judicial proceeding, the company shall have the burden of proving by clear and convincing evidence that the director is not entitled to indemnification, and that the company shall advance all expenses incurred by the director in connection with such judicial proceeding, subject to the undertaking to repay.\n\n## Addressing Notice Requirements and Defense Coordination\n\nEstablish clear procedures for the director to notify the company of any proceeding for which indemnification or advancement may be sought. Require the director to notify the company in writing promptly upon being served with any summons, citation, subpoena, complaint, indictment, information, or other document relating to any proceeding that may be subject to indemnification or advancement. The written notice should describe the nature of the proceeding and the basis for the director's involvement. Clarify that failure to notify the company shall not relieve the company of any liability it may have to the director unless the company's ability to defend is materially and adversely affected by such failure, which protects directors from losing coverage due to technical notice violations.\n\nAddress the company's right to assume the defense of any proceeding, including the right to select counsel subject to the director's consent, which shall not be unreasonably withheld. Specify that if the company assumes the defense, it shall not be liable for any legal fees or expenses subsequently incurred by the director independently in connection with the defense, except that if the director reasonably determines that a conflict of interest exists between the company and the director, the director may retain separate counsel at the company's expense. Define what constitutes a conflict of interest sufficient to justify separate counsel, such as when the company is also a party to the proceeding, when the company and director have differing legal positions or defenses, or when the same counsel cannot adequately represent both parties due to actual or potential conflicts.\n\nEstablish the director's obligation to cooperate with the company in the defense of any proceeding, including making available to the company all pertinent information and documents. Clarify that the director shall not settle any proceeding without the company's prior written consent if the company is advancing expenses or has assumed the defense, unless the settlement includes an unconditional release of the director and does not include any admission of liability. This settlement approval requirement protects the company's interests while ensuring that directors are not prevented from accepting reasonable settlements that fully resolve their exposure.\n\n## Protecting Against Retroactive Diminution of Rights\n\nDraft language establishing that the rights to indemnification and advancement of expenses provided by this agreement are not exclusive of any other rights to which the director may be entitled under the company's certificate of incorporation, bylaws, any other agreement, any vote of shareholders or disinterested directors, applicable law, or otherwise. This non-exclusivity provision ensures that directors can benefit from multiple sources of indemnification protection and can choose the most favorable source for any particular claim.\n\nEstablish that the indemnification and advancement provided under this agreement shall continue as to the director even after the director has ceased to serve in any capacity with the company, and shall inure to the benefit of the director's heirs, executors, and administrators. This survival provision is essential because claims against directors often arise years after they have left the board, and the director's estate may need indemnification protection if the director has died before the proceeding is resolved.\n\nInclude a critical vested rights provision establishing that any amendment, alteration, or repeal of this agreement or any provision hereof shall not adversely affect any right or protection of the director existing at the time of such amendment with respect to any acts or omissions occurring prior to such amendment. This provision ensures that directors cannot have their indemnification protection retroactively diminished after they have relied upon it in agreeing to serve, which would undermine the fundamental purpose of providing contractual certainty about indemnification rights.\n\n## Coordinating with Directors and Officers Liability Insurance\n\nAddress the relationship between this agreement and any directors and officers liability insurance maintained by the company. Establish that this agreement is primary and that any insurance shall be excess to the company's obligations hereunder, which means the company must indemnify the director first and can then seek reimbursement from insurance carriers. Clarify that the director's rights under this agreement are not contingent upon the availability or adequacy of insurance coverage, so that directors are protected even if insurance is unavailable, insufficient, or denied.\n\nEstablish the company's obligation to maintain directors and officers liability insurance covering the director to the extent the company maintains such insurance for any of its directors or officers. Specify that the director shall be covered by such policies in accordance with their terms to the maximum extent of the coverage available for any director or officer of the company. Address what happens if the company fails to maintain insurance, either requiring the company to maintain such insurance or establishing that the failure to maintain insurance does not diminish the company's indemnification obligations under this agreement.\n\nSpecify that the company shall provide the director with copies of all directors and officers liability insurance policies and shall notify the director of any material changes to such policies. Consider establishing the director's right to review and comment on any proposed changes to insurance coverage that would materially adversely affect the director's coverage. Address the allocation of insurance proceeds between the company and the director, typically providing that the director shall be entitled to proceeds before the company in respect of any proceeding covered by this agreement.\n\n## Providing for Contribution and Partial Indemnification\n\nEstablish a contribution provision that applies if the indemnification provided for in this agreement is unavailable to the director for any reason. Specify that in such event, the company, in lieu of indemnifying the director, shall contribute to the amount of expenses, judgments, fines, and amounts paid in settlement actually and reasonably incurred and paid or payable by the director in such proportion as is deemed fair and reasonable in light of all the circumstances. Address the factors to be considered in determining the appropriate contribution, including the relative benefits received by the company and the director as a result of the events or transactions giving rise to the proceeding, and the relative fault of the company and the director in connection with such events or transactions.\n\nEstablish that if full indemnification is not available because the total amount of expenses and liabilities exceeds the amount the company is permitted to pay under applicable law, the company shall indemnify the director to the maximum extent permitted by law. Specify the order of priority for partial indemnification, typically providing that expenses shall be paid before judgments, fines, or settlement amounts, because reimbursement of defense costs is generally subject to fewer legal restrictions than indemnification for judgments or settlements.\n\n## Including Essential General Contractual Provisions\n\nSpecify that this agreement shall be governed by and construed in accordance with the laws of the state of incorporation of the company, without regard to conflicts of law principles. This choice of law provision ensures that the agreement is interpreted consistently with the corporate law statutes that authorize and limit indemnification. Establish that any dispute arising under this agreement shall be subject to the exclusive jurisdiction of the courts of the state of incorporation or the federal courts located in that state, and that both parties consent to personal jurisdiction and venue in such courts.\n\nEstablish the term of this agreement, specifying that it shall continue until and terminate upon the later of a specified period after the director ceases to serve the company, typically ten years, or the final termination of all proceedings in respect of which the director is granted rights of indemnification or advancement of expenses hereunder and of any proceeding commenced by the director to enforce or interpret this agreement. This extended term is necessary because claims against directors often arise years after the underlying conduct and may take many years to resolve through trial and appeals.\n\nClarify that the company's obligations under this agreement constitute continuing obligations that survive any merger, consolidation, or transfer of all or substantially all of the company's assets, and that the company shall require any successor entity to expressly assume and agree to perform this agreement. This successor obligation provision is critical to protect directors when the company undergoes transformative transactions that might otherwise allow a successor to disclaim indemnification obligations.\n\nInclude a severability provision establishing that if any provision of this agreement is held to be invalid, illegal, or unenforceable, the validity, legality, and enforceability of the remaining provisions shall not be affected or impaired. Specify that if any provision is held invalid, illegal, or unenforceable, such provision shall be reformed to the minimum extent necessary to make it valid, legal, and enforceable while preserving the intent of the parties.\n\nEstablish that the director shall be entitled to recover from the company all expenses, including attorneys' fees, incurred by the director in successfully enforcing or interpreting any right to indemnification or advancement under this agreement. This fee-shifting provision is critical to ensure that directors are not deterred from enforcing their contractual rights by the cost of litigation against the company.\n\nSpecify that this agreement may not be amended, modified, or waived except by a written instrument signed by both parties. Establish that no failure or delay by the director in exercising any right, power, or privilege hereunder shall operate as a waiver thereof, nor shall any single or partial exercise preclude any other or further exercise or the exercise of any other right, power, or privilege.\n\nEstablish the procedure for providing notices under this agreement, specifying that all notices shall be in writing and shall be deemed given when delivered personally, sent by confirmed facsimile or email, sent by overnight courier service, or mailed by certified or registered mail, return receipt requested, to the addresses specified in the agreement or such other addresses as either party may designate by notice to the other. Include specific notice addresses for both the company and the director.\n\n## Formatting the Final Document\n\nThe final indemnification agreement should be formatted as a formal legal contract with a clear hierarchical structure. Begin with a document header containing the title, effective date, and identification of both parties. Follow with a recitals section using numbered \"WHEREAS\" clauses that establish the background and purpose, concluding with \"NOW, THEREFORE\" language that introduces the operative provisions.\n\nOrganize the operative provisions into numbered articles or sections, each with descriptive headings that clearly identify the subject matter. Major topics such as indemnification coverage, advancement of expenses, procedures for determination, additional rights and protections, and general provisions should each constitute a separate article. Within each article, use subsections with appropriate numbering or lettering to organize related provisions logically.\n\nInclude a definitions section, either as a separate article at the beginning of the operative provisions or integrated into the substantive sections where terms are first used. All defined terms should be capitalized throughout the document and used consistently. Number all sections and subsections systematically for easy reference, and include appropriate cross-references between related provisions to help readers navigate the document.\n\nConclude with a formal signature block providing for execution by both parties. For the company, include signature lines for an authorized officer, typically the Chief Executive Officer, President, or Secretary, with spaces for the officer's printed name, title, and date of execution. Include a representation that the officer has authority to bind the company and that the agreement has been duly authorized by the board of directors. For the director, include signature lines with spaces for the director's printed name, signature, and date of execution.\n\nInclude a provision stating that this agreement may be executed in one or more counterparts, each of which shall be deemed an original and all of which together shall constitute one and the same instrument. Specify that execution and delivery of this agreement may be evidenced by facsimile or electronic transmission, and that such facsimile or electronic signatures shall have the same force and effect as original signatures.\n\nThe document should use clear, precise legal language appropriate for a binding contract while remaining comprehensible to business professionals. Avoid unnecessary legalese, but maintain the formality and precision required for enforceability. The final document should be comprehensive enough to provide maximum protection to the director while remaining enforceable under applicable law, and should anticipate and address potential disputes or ambiguities that might arise in the context of indemnification claims.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate_formation",
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:59:30.681636Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Extracting skill content**
+
+The user requests rewriting a skill into SKILL.md format, matching the skill-creator role. I'll read the existing skill-creator SKILL.md content and output it exactly as required without commentary, following the user’s instructions.
+exec
+/bin/zsh -lc 'ls -la /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 52ms:
+total 64
+drwxr-xr-x@ 8 max  staff    256 Feb 11 10:23 .
+drwxr-xr-x@ 5 max  staff    160 Feb 11 10:23 ..
+-rw-r--r--@ 1 max  staff  18664 Feb 11 10:23 SKILL.md
+drwxr-xr-x@ 3 max  staff     96 Feb 11 10:23 agents
+drwxr-xr-x@ 4 max  staff    128 Feb 11 10:23 assets
+-rw-r--r--@ 1 max  staff  11358 Feb 11 10:23 license.txt
+drwxr-xr-x@ 3 max  staff     96 Feb 11 10:23 references
+drwxr-xr-x@ 5 max  staff    160 Feb 11 10:23 scripts
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Deciding SKILL.md slug and frontmatter structure**
+
+Prioritizing user instructions over skill-creator defaults, I'll include full frontmatter with name, description, and metadata fields. For the slug, I'll choose a concise yet descriptive form—likely "director-indemnification-agreement" to reflect specificity and type.
+thinking
+---
+name: director-indemnification-agreement
+description: Drafts U.S. director indemnification agreements that maximize protection within the corporation's state corporate law, including advancement of expenses, indemnification standards, and determination procedures. Use when drafting director indemnification agreements, onboarding directors, updating governance protections beyond bylaws, or aligning with D&O coverage. Trigger keywords: indemnification agreement, director, advancement, corporate governance, D&O, DGCL 145.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Director Indemnification Agreement
+
+Draft a director indemnification agreement that is enforceable under the state of incorporation and provides clear advancement and indemnification procedures.
+
+## Prerequisites
+
+1. State of incorporation and applicable corporate statute.  
+2. Certificate of incorporation and bylaws (indemnification and advancement provisions).  
+3. Board authorization status and any resolutions to attach or reference.  
+4. Director name, titles, service start date, and covered capacities (subsidiaries, affiliates, benefit plans).  
+5. Effective date and term expectations (including post-service survival period).  
+6. D&O insurance policies and desired coordination terms.  
+7. Notice addresses and preferred notice methods.  
+8. Any prior indemnification agreements or house style template.  
+
+## Output Structure / Process
+
+### Intake Checklist
+
+- [ ] Confirm governing law is the state of incorporation.  
+- [ ] Identify whether coverage is for director only or also officer/employee roles.  
+- [ ] Confirm whether coverage is retroactive to prior service.  
+- [ ] Decide advancement timing (e.g., 30 days from request).  
+- [ ] Decide indemnification determination method order and timelines.  
+- [ ] Decide if presumption in favor of indemnification applies.  
+- [ ] Decide whether fee shifting applies to enforcement actions.  
+- [ ] Decide whether insurance is primary or excess to company obligation.  
+- [ ] Decide term and survival period.  
+
+### Required Definitions
+
+| Term               | Drafting Notes                                                                                                         |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------|
+| Agreement          | This agreement, including exhibits.                                                                                   |
+| Company            | Full legal name and jurisdiction.                                                                                     |
+| Director           | Named individual and any covered capacities.                                                                          |
+| Proceeding         | Any threatened, pending, or completed civil, criminal, administrative, investigative, arbitration, or alternative dispute matter. |
+| Expenses           | All fees, costs, charges, and disbursements, including attorneys, experts, witnesses, travel, transcripts, and permitted settlements. |
+| Indemnifiable Event| Being made a party or participant by reason of service to the Company or at the Company's request.                     |
+| Independent Counsel| Disinterested counsel meeting independence criteria.                                                                  |
+
+### Core Sections and Minimum Clauses
+
+| Section          | Required Clauses                                                                                                                    |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Recitals         | State corporate authorization to indemnify to the fullest extent permitted by law; state director reliance on the agreement to serve. |
+| Indemnification  | Indemnify to the maximum extent permitted by applicable law; tie standard of conduct to statute (good faith, best interests, no unlawful conduct); limit derivative action indemnification and require court approval if needed. |
+| Advancement      | Require prompt advancement after written request; set deadline (e.g., 30 days); require undertaking to repay if indemnification denied; advancement not conditioned on initial conduct determination. |
+| Indemnification Determination | Provide ordered decision makers (disinterested directors, committee, independent counsel, shareholders); impose timeline (e.g., 60 days); presumption favoring indemnification unless prohibited; deem granted if no timely determination. |
+| Enforcement      | Allow judicial review if denied; fee shifting to Company for successful enforcement; place burden of proof on Company by clear and convincing evidence. |
+| Notice and Defense | Require prompt written notice; failure to notify does not relieve Company unless materially prejudiced; allow Company to assume defense with consent; permit separate counsel at Company expense for conflicts; require cooperation; Company consent for settlements with carveouts. |
+| Non-Exclusivity and Survival | Rights in addition to bylaws and charter; survival for heirs and successors; prohibit retroactive impairment of rights.                  |
+| Insurance        | Company obligations primary and not conditioned on insurance; provide equal coverage if Company maintains D&O; notify material policy changes if requested. |
+| Contribution and Partial Indemnification | Provide equitable contribution if full indemnification unavailable; prioritize payment order where permitted.                      |
+| General Provisions | Governing law (state of incorporation); forum selection; term and survival period (commonly 6 to 10 years post-service or until end of proceedings); successors assume obligations; severability; amendment requirements; counterparts; notice mechanics. |
+
+### Clause Skeleton
+
+```text
+1. Definitions
+2. Indemnification
+3. Advancement of Expenses
+4. Procedure for Advancement Requests
+5. Procedure for Indemnification Determinations
+6. Presumptions and Burdens
+7. Enforcement; Fee Shifting
+8. Notice of Proceedings; Defense and Settlement
+9. Non-Exclusivity; Subrogation; Survival
+10. Insurance
+11. Contribution; Partial Indemnification
+12. Term; Successors
+13. Governing Law; Forum
+14. Severability; Amendment; Notices; Counterparts
+```
+
+### Decision Matrix
+
+| Issue              | Default             | Alternatives                |
+|--------------------|---------------------|-----------------------------|
+| Advancement deadline| 30 days             | 15 - 45 days                |
+| Determination deadline | 60 days          | 30 - 90 days                |
+| Presumption        | Director favored     | No presumption (higher risk) |
+| Insurance priority | Company primary      | Insurance primary (rare)    |
+
+## Guidelines
+
+- Verify governing corporate statute and use its terminology for conduct standards and indemnification limits; flag citations with [VERIFY] if unsure (e.g., DGCL 145 [VERIFY]).  
+- Do not promise indemnification for acts prohibited by law, bad faith, or improper personal benefit.  
+- Align with charter and bylaws; avoid conflicts with exculpation or indemnification limits.  
+- Use consistent defined terms and cross-references; avoid silent variations.  
+- Maintain advancement independence from ultimate entitlement.  
+- Include retroactivity rule if covering prior service.  
+- For public or regulated companies, include required board or committee approvals and securities law constraints.  
+- Avoid waivers of privilege or cooperation clauses that undermine defense strategy.
+codex
+---
+name: director-indemnification-agreement
+description: Drafts U.S. director indemnification agreements that maximize protection within the corporation's state corporate law, including advancement of expenses and indemnification determination procedures. Use when drafting a director indemnification agreement, onboarding directors, updating governance protections beyond bylaws, or aligning with D&O coverage. Trigger keywords: indemnification agreement, director, advancement, corporate governance, D&O, DGCL 145.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Director Indemnification Agreement
+
+Draft a director indemnification agreement that is enforceable under the state of incorporation and provides clear advancement and indemnification procedures.
+
+## Prerequisites
+
+1. State of incorporation and applicable corporate statute.
+2. Certificate of incorporation and bylaws (indemnification and advancement provisions).
+3. Board authorization status and any resolutions to attach or reference.
+4. Director name, titles, service start date, and covered capacities (subsidiaries, affiliates, benefit plans).
+5. Effective date and term expectations (including post-service survival period).
+6. D&O insurance policies and desired coordination terms.
+7. Notice addresses and preferred notice methods.
+8. Any prior indemnification agreements or house style template.
+
+## Output Structure / Process
+
+### Intake Checklist
+
+- [ ] Confirm governing law is the state of incorporation.
+- [ ] Identify whether coverage is for director only or also officer or employee roles.
+- [ ] Confirm whether coverage is retroactive to prior service.
+- [ ] Decide advancement timing (e.g., 30 days from request).
+- [ ] Decide indemnification determination method order and timelines.
+- [ ] Decide if a presumption in favor of indemnification applies.
+- [ ] Decide whether fee shifting applies to enforcement actions.
+- [ ] Decide whether insurance is primary or excess to company obligation.
+- [ ] Decide term and survival period.
+
+### Required Definitions
+
+| Term | Drafting Notes |
+| --- | --- |
+| Agreement | This agreement, including exhibits. |
+| Company | Full legal name and jurisdiction. |
+| Director | Named individual and any covered capacities. |
+| Proceeding | Any threatened, pending, or completed civil, criminal, administrative, investigative, arbitration, or alternative dispute matter. |
+| Expenses | All fees, costs, charges, and disbursements, including attorneys, experts, witnesses, travel, transcripts, and settlements where permitted. |
+| Indemnifiable Event | Being made a party or participant by reason of service to the Company or at the Company's request. |
+| Independent Counsel | Disinterested counsel meeting independence criteria. |
+
+### Core Sections and Minimum Clauses
+
+| Section | Required Clauses |
+| --- | --- |
+| Recitals | Corporate authority to indemnify to the fullest extent permitted; director reliance to serve or continue serving. |
+| Indemnification Grant | Maximum extent permitted by law; statutory standard of conduct; derivative action limitations on settlement amounts if required by statute. |
+| Advancement of Expenses | Prompt advancement on written request; fixed payment deadline; undertaking to repay after final, non-appealable denial; advancement not conditioned on initial conduct determination. |
+| Indemnification Determination | Ordered decision makers; Company pays independent counsel; deadline for decision; presumption in favor of indemnification unless prohibited; deemed approval if no timely determination. |
+| Enforcement | Judicial determination right; fee shifting for successful enforcement; Company bears burden by clear and convincing evidence when contesting entitlement. |
+| Notice and Defense | Prompt written notice; no forfeiture absent material prejudice; Company right to assume defense with director consent to counsel; separate counsel at Company expense for conflicts; settlement consent with carveout for unconditional release without admissions. |
+| Non-Exclusivity and Survival | Rights in addition to charter, bylaws, and other agreements; survival for heirs and estates; no retroactive impairment of accrued rights. |
+| Insurance | Company obligations primary and not conditioned on insurance; equal coverage with other directors if D&O maintained; notice of material policy changes if requested. |
+| Contribution and Partial Indemnity | Equitable contribution if indemnity unavailable; prioritize payment of Expenses before judgments or settlements where permitted. |
+| General Provisions | Governing law of state of incorporation; forum in that state; term and survival period; successors assume obligations; severability and reformation; amendment only in writing; counterparts and electronic signatures; notice mechanics and addresses. |
+
+### Clause Skeleton
+
+```text
+1. Definitions
+2. Indemnification
+3. Advancement of Expenses
+4. Procedure for Advancement Requests
+5. Procedure for Indemnification Determinations
+6. Presumptions and Burdens
+7. Enforcement; Fee Shifting
+8. Notice of Proceedings; Defense and Settlement
+9. Non-Exclusivity; Subrogation; Survival
+10. Insurance
+11. Contribution; Partial Indemnification
+12. Term; Successors
+13. Governing Law; Forum
+14. Severability; Amendment; Notices; Counterparts
+```
+
+### Decision Matrix
+
+| Issue | Default | Alternatives |
+| --- | --- | --- |
+| Advancement deadline | 30 days | 15 to 45 days |
+| Determination deadline | 60 days | 30 to 90 days |
+| Presumption | Director favored | No presumption (higher risk) |
+| Insurance priority | Company primary | Insurance primary (rare) |
+
+## Guidelines
+
+- Verify state statute and use its terminology for standards of conduct and limits; flag citations with [VERIFY] if unsure (e.g., DGCL 145 [VERIFY]).
+- Do not promise indemnification for acts prohibited by law, bad faith, or improper personal benefit.
+- Align with charter and bylaws; do not conflict with exculpation or indemnification limitations.
+- Keep advancement independent from ultimate entitlement.
+- Include a clear retroactivity rule if covering past service.
+- If the Company is public or regulated, add any required board or committee approvals and securities law constraints.
+- Avoid cooperation clauses that undermine defense strategy or waive privilege.
+tokens used
+15,309

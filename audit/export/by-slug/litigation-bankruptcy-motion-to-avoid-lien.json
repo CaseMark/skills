@@ -1,0 +1,41 @@
+{
+  "id": "2169d272-85d6-48a1-b60d-d061fe743365",
+  "slug": "litigation-bankruptcy-motion-to-avoid-lien",
+  "name": "Motion to Avoid Lien",
+  "summary": "Drafts a comprehensive Motion to Avoid Lien under 11 U.S.C. \u00a7 522(f) for bankruptcy proceedings. This skill produces a litigation document challenging judicial liens or nonpossessory security interests that impair the debtor's exemptions, including caption, introduction, factual background, and impairment calculations. Use it in Chapter 7, 11, or 13 cases when seeking court approval to remove liens on exempt property.",
+  "content": "# Motion to Avoid Lien - Enhanced Legal Workflow Prompt\n\nYou are tasked with drafting a comprehensive Motion to Avoid Lien under bankruptcy law. This is a critical litigation document that seeks court intervention to remove a lien that impairs a debtor's exemptions in bankruptcy proceedings. The motion must be meticulously crafted to comply with both federal bankruptcy law and local court rules, presenting a compelling legal and factual basis for the requested relief.\n\n## Caption and Case Identification\n\nBegin by constructing a proper caption that identifies the bankruptcy court, including the specific district and division. Include the complete case number, the debtor's full legal name as it appears in the bankruptcy petition, and clearly title the document as \"Motion to Avoid Lien Under 11 U.S.C. \u00a7 522(f)\" or the applicable statutory provision. Ensure the caption format conforms to local court rules, which may specify font requirements, spacing, and the inclusion of additional information such as the chapter of bankruptcy (Chapter 7, 11, or 13) and the assigned judge's name. The caption should immediately establish the procedural context and jurisdiction for the court.\n\n## Introduction and Statement of Purpose\n\nDraft a concise introduction that immediately identifies the moving party (the debtor or debtor-in-possession), the specific lien being challenged, and the statutory authority under which avoidance is sought. Clearly state whether the motion is brought under 11 U.S.C. \u00a7 522(f)(1) for judicial liens or \u00a7 522(f)(2) for nonpossessory, nonpurchase-money security interests. Identify the lienholder by complete legal name and the property subject to the lien with sufficient specificity (legal description or street address). Establish the fundamental premise: that the lien impairs an exemption to which the debtor is entitled under applicable state or federal law. This section should be direct and immediately inform the court of what relief is being requested and why the court has authority to grant it.\n\n## Factual Background and Chronology\n\nProvide a detailed factual narrative that establishes the timeline and circumstances giving rise to both the lien and the bankruptcy case. Begin with the debtor's bankruptcy filing date and chapter designation. Describe the property subject to the lien, including its nature (real property, personal property, vehicle, etc.), current fair market value, and any senior encumbrances. Detail the origin of the lien being challenged, including when and how it attached to the property\u2014whether through judgment, security agreement, or other means. Explain the debtor's claimed exemption in the property, citing the specific state or federal exemption statute being invoked and the dollar amount claimed. Present the mathematical calculation showing how the lien impairs the exemption, accounting for the property's value, senior liens, and the exemption amount. This factual foundation must be precise and verifiable, as it forms the basis for the legal argument that follows.\n\n## Legal Argument and Statutory Analysis\n\nConstruct a persuasive legal argument demonstrating that the lien meets all statutory requirements for avoidance. For judicial liens under \u00a7 522(f)(1), establish that: (1) the lien is a judicial lien as defined by 11 U.S.C. \u00a7 101(36); (2) the lien impairs an exemption to which the debtor would have been entitled under \u00a7 522(b); and (3) the property is of a type specified in the statute. Apply the statutory formula for calculating impairment, showing that the sum of all liens plus the exemption amount exceeds the property's value. For nonpossessory, nonpurchase-money security interests under \u00a7 522(f)(2), demonstrate that the lien falls within one of the enumerated categories of household goods, tools of the trade, or health aids. Support your argument with relevant case law from your circuit and district, citing binding precedent on issues such as what constitutes impairment, how to value property, and the treatment of specific types of liens. Address any potential counterarguments the lienholder might raise, such as challenges to the exemption's validity or the property's valuation. The legal argument should be structured logically, moving from statutory interpretation to factual application to case law support.\n\n## Prayer for Relief and Supporting Documentation\n\nConclude with a specific and comprehensive prayer for relief that requests the court to: (1) avoid the subject lien in its entirety or to the extent it impairs the debtor's exemption; (2) declare the lien void and of no further force or effect; and (3) grant such other and further relief as the court deems just and proper. If appropriate, request expedited consideration or a hearing date. Reference any supporting documentation attached as exhibits, which should include: a copy of the judgment or security agreement creating the lien, evidence of the lien's recording or perfection, the debtor's claimed exemptions as listed in the bankruptcy schedules, and any appraisals or valuations of the property. If the motion is supported by a declaration or affidavit from the debtor, reference it specifically and ensure it authenticates the factual assertions made in the motion.\n\n## Certificate of Service and Procedural Compliance\n\nInclude a certificate of service that certifies proper service of the motion on all required parties, including the lienholder, the bankruptcy trustee, and any other parties in interest as required by local rules. Specify the method of service (electronic filing, mail, personal delivery), the date of service, and the complete names and addresses of all parties served. Verify compliance with any local rules regarding notice periods, required service methods, and whether the motion requires a hearing or may be considered on the papers. Ensure the certificate is signed by the attorney or debtor if proceeding pro se, with complete contact information including bar number if applicable. The certificate should demonstrate strict compliance with Federal Rule of Bankruptcy Procedure 7004, 9014, and any applicable local rules governing contested matters in bankruptcy court.\n\nThroughout the motion, maintain a professional and persuasive tone, use precise legal terminology, and ensure all factual assertions are supported by evidence in the record or attached exhibits. The document should be formatted according to court rules regarding margins, font, line spacing, and page limits. Every legal citation must be accurate and in proper Bluebook format, and every factual statement must be verifiable and consistent with the bankruptcy schedules and other filed documents.",
+  "parent_skill_id": "e2706f93-2f57-48d2-adf6-247cbb765062",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "motion"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "bankruptcy-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

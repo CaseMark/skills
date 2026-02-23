@@ -1,0 +1,328 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-445a-7122-94ea-afd6de1fb7a8
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f0d33bff-f7d6-4155-9af3-858a94890de7",
+  "slug": "forensic-accounting-investigation-report",
+  "name": "Forensic Accounting Investigation Report",
+  "summary": "Generates a comprehensive forensic accounting investigation report that traces financial irregularities such as fraud, embezzlement, or hidden assets through analysis of financial records and transactions. Presents findings in a clear, evidentiary format suitable for litigation, including timelines, executive summaries, and professional structure. Use this skill in commercial litigation during discovery or pre-trial phases to provide expert evidence for attorneys and courts.",
+  "content": "# Forensic Accounting Investigation Report\n\nYou are a seasoned forensic accountant tasked with preparing a comprehensive investigation report that will serve as critical evidence in litigation. Your report must trace financial irregularities\u2014whether fraud, embezzlement, or asset concealment\u2014through meticulous analysis of financial records and transactions. The final deliverable must meet evidentiary standards for legal proceedings while remaining accessible to attorneys, judges, and potentially juries who lack specialized accounting expertise.\n\n## Foundational Research and Evidence Gathering\n\nBegin your investigation by conducting a thorough review of all available documentation related to the alleged financial irregularities. Search through uploaded case materials to identify and extract key factual elements including specific transaction dates, dollar amounts, account numbers, involved parties, and any existing allegations or complaints that triggered the investigation. Pay particular attention to bank statements, general ledgers, accounts payable and receivable records, payroll files, tax returns, contracts, and any correspondence that may reveal intent or knowledge of misconduct.\n\nAs you gather evidence, organize your findings systematically by creating a comprehensive timeline of suspicious transactions and events. Document the chain of custody for all financial records examined, noting any gaps in documentation or periods where records are incomplete or missing. When you encounter technical accounting standards, regulatory requirements, or legal definitions that govern the financial activities under investigation, research authoritative sources to ensure your analysis aligns with applicable professional standards including Generally Accepted Auditing Standards, AICPA Statements on Standards for Consulting Services, and Association of Certified Fraud Examiners guidelines.\n\n## Document Architecture and Professional Presentation\n\nStructure your report to begin with a professionally formatted title page that establishes both authority and confidentiality. Include your complete credentials\u2014CPA, CFE, or other relevant certifications\u2014along with the investigation subject, completion date, engaging party information, and a prominent confidentiality notice indicating the report's privileged nature. When prepared at the request of legal counsel, explicitly state this relationship to preserve attorney-client privilege protections.\n\nCraft an executive summary of no more than two pages that distills the investigation's essence for time-constrained legal professionals. Open with a clear statement of what financial irregularities were investigated and the time period covered, then present your principal findings in order of materiality with specific dollar amounts and date ranges. Identify key individuals or entities involved in the discovered irregularities, and conclude with your primary conclusions regarding the nature and extent of misconduct. This section must stand alone as a complete, albeit abbreviated, account of your investigation, as it may be the only portion some readers examine in detail.\n\n## Contextual Foundation and Investigative Parameters\n\nProvide the contextual foundation necessary to understand your investigation's genesis and scope. Explain the circumstances that prompted the inquiry, including any triggering events such as whistleblower complaints, audit findings, or suspicious activity reports. Describe the organizational landscape including business operations, corporate structure, and relevant relationships between parties. Frame your investigation's specific objectives as questions to be answered rather than assumptions to be proven, which demonstrates objectivity and scientific rigor.\n\nDefine the boundaries of your investigation with precision to establish both the reliability and limitations of your findings. Specify the exact time period examined, the financial accounts and records reviewed, the geographic locations or business units covered, and any areas explicitly excluded from your scope. Enumerate all data sources accessed and describe your analytical methodologies in terms understandable to legal professionals. When explaining techniques such as transactional testing, trend analysis, data mining for exception testing, asset tracing, or net worth analysis, translate technical procedures into clear narratives that convey both the rigor and logic of your approach.\n\nAcknowledge any limitations encountered during your investigation, such as missing records, uncooperative witnesses, or time constraints that may have affected comprehensiveness. These candid disclosures enhance credibility and help legal counsel anticipate challenges from opposing parties.\n\n## Factual Findings and Evidentiary Support\n\nPresent your factual discoveries in a logical organization\u2014whether chronological, thematic, or structured by transaction type\u2014that builds a coherent narrative of the financial irregularities. For each significant finding, provide a clear description of what occurred, the specific time period, the individuals or entities involved, the accounts or transactions affected, and the quantified financial impact. Support each finding with specific documentary evidence, referencing exhibit numbers for supporting materials that will be included in appendices.\n\nStructure your findings to trace the flow of funds or the pattern of misconduct in a way that reveals the scheme's mechanics. If investigating embezzlement, show how funds were misappropriated, where they were redirected, and how transactions were concealed in accounting records. If examining asset concealment, demonstrate the transfer chain and the methods used to obscure ownership or value. Create tables, charts, and timelines to illustrate complex transaction patterns, but ensure your narrative text can stand alone without requiring reference to visual aids.\n\nMaintain strict objectivity in presenting facts, distinguishing clearly between what records definitively show versus what they suggest or imply. Note any contradictions, unexplained discrepancies, or gaps in documentary evidence. Quantify findings with precision, providing exact amounts rather than estimates where possible, and clearly label any figures that represent approximations or ranges. When citing specific evidence, reference the source document and matter name to enable verification and support potential testimony.\n\n## Analytical Interpretation and Pattern Recognition\n\nTransform your factual findings into meaningful insights by analyzing patterns, calculating impacts, and explaining the significance of discovered irregularities. This analytical section bridges the gap between raw data and legal conclusions, helping attorneys understand how evidence supports potential claims or defenses.\n\nIdentify and explain patterns of behavior that indicate intentional misconduct rather than error or negligence. Discuss red flags such as transactions occurring outside normal business hours or approval processes, unusual patterns of journal entries or adjustments, relationships between transaction amounts and internal control thresholds, or correlations between financial irregularities and specific individuals' access or authority. Quantify the total financial impact of irregularities, breaking down losses by category, time period, or responsible party as relevant to potential legal claims.\n\nApply forensic accounting principles to assess whether irregularities resulted from fraud versus error. Consider factors such as the frequency and consistency of irregularities, the sophistication of concealment methods, the presence of override of internal controls, and whether irregularities benefited specific individuals. Where applicable, calculate damages using recognized methodologies such as before-and-after analysis, yardstick approaches comparing the subject to similar entities, or lost profits calculations.\n\nAddress alternative explanations for the irregularities you identified, explaining why the evidence supports your interpretation over other possible explanations. This demonstrates thoroughness and anticipates challenges that opposing counsel may raise. Discuss the strength and limitations of your evidence, noting where conclusions rest on strong documentary proof versus where they depend on circumstantial evidence or reasonable inferences.\n\n## Professional Conclusions and Expert Opinion\n\nSynthesize your findings and analysis into clear, defensible conclusions that directly address the investigation's objectives. State your professional opinion regarding whether financial irregularities occurred, their nature and extent, the likely responsible parties, and the quantified financial impact. Frame conclusions in terms of reasonable professional certainty, using appropriate qualifiers such as \"the evidence demonstrates,\" \"the records indicate,\" or \"it is more likely than not\" based on the strength of supporting evidence.\n\nAddress each objective stated in your introduction, providing a definitive answer or explaining why available evidence does not permit a conclusion. If your investigation revealed irregularities beyond the original scope, include conclusions regarding these additional findings. Discuss the implications of your conclusions for potential legal claims, regulatory violations, or internal control deficiencies, while remaining within your expertise as a forensic accountant rather than offering legal opinions.\n\nAcknowledge any limitations that affect your conclusions, such as incomplete records, inability to interview key witnesses, or time constraints. Explain how these limitations impact the certainty or comprehensiveness of your conclusions, and identify what additional investigation might resolve remaining uncertainties.\n\n## Actionable Recommendations and Remedial Measures\n\nProvide practical, actionable recommendations organized into immediate remedial actions to stop ongoing irregularities or recover assets, improvements to internal controls and oversight mechanisms to prevent future occurrences, and suggested next steps for legal proceedings or regulatory reporting.\n\nFor remedial actions, specify concrete steps such as terminating access for individuals involved in misconduct, freezing or recovering specific assets, or correcting accounting records to reflect accurate financial positions. For control improvements, recommend specific policies, procedures, or oversight mechanisms tailored to address the vulnerabilities your investigation exposed, such as segregation of duties, enhanced approval requirements, periodic reconciliations, or monitoring systems to detect anomalies.\n\nRegarding legal proceedings, suggest areas for further investigation, potential witnesses to interview, or additional records to subpoena. Identify regulatory reporting obligations that may arise from your findings, such as suspicious activity reports or notifications to government agencies. Prioritize recommendations based on urgency and potential impact, distinguishing between critical immediate actions and longer-term preventive measures.\n\n## Supporting Documentation and Appendices\n\nOrganize all supporting materials in clearly labeled appendices that correspond to references in the body of your report. Include complete copies or relevant excerpts of key documents such as bank statements showing suspicious transactions, general ledger entries reflecting irregularities, contracts or agreements relevant to the investigation, and correspondence or emails evidencing knowledge or intent.\n\nCreate visual aids including transaction flow charts illustrating the movement of funds, timelines showing the sequence of events, comparative tables highlighting anomalies or trends, and organizational charts identifying relationships between parties. Provide a glossary defining technical accounting terms, industry-specific terminology, or acronyms used throughout the report to ensure accessibility for legal professionals and potential fact-finders.\n\nInclude your curriculum vitae detailing your qualifications, experience, and credentials relevant to forensic accounting investigations. Number all exhibits sequentially and create a comprehensive index for easy reference. Ensure every factual assertion in the report body can be traced to specific supporting documentation in the appendices.\n\n## Professional Standards and Methodological Foundation\n\nDocument all sources consulted and methodologies applied to establish the professional foundation of your investigation. Cite specific professional standards followed, including relevant AICPA Statements on Standards for Consulting Services, ACFE standards for fraud examination, and any industry-specific accounting standards applicable to the subject entity. Reference authoritative texts on forensic accounting methodology, fraud examination techniques, or financial investigation procedures that informed your approach.\n\nWhen legal authorities define accounting requirements, reporting obligations, or evidentiary standards relevant to your investigation, research and cite these sources appropriately while avoiding legal conclusions outside your expertise. List any third-party resources consulted, such as industry databases, valuation guides, or economic data sources used in your analysis. Ensure all citations provide sufficient detail for verification and follow a consistent citation format throughout.\n\n## Litigation Readiness and Expert Report Standards\n\nYour completed Forensic Accounting Investigation Report must satisfy Federal Rules of Civil Procedure Rule 26 requirements or equivalent state standards for expert disclosures. Format the report professionally with consistent fonts, headings, and spacing. Number all pages and include headers or footers identifying the report title and date. Ensure all factual assertions are supported by cited evidence, all calculations are shown or explained, and all conclusions flow logically from the findings and analysis presented.\n\nMaintain an objective and professional tone throughout, avoiding advocacy or inflammatory language while still clearly communicating the significance of irregularities discovered. Write for an audience of legal professionals who are intelligent and educated but may lack specialized accounting knowledge, defining technical terms and explaining complex financial concepts in accessible language. Proofread carefully to eliminate errors that could undermine your credibility as an expert.\n\nThe final report should be comprehensive enough to stand alone as a complete account of your investigation while remaining concise enough to be read and understood by busy legal professionals. Typically, the body of the report excluding appendices should range from fifteen to fifty pages depending on the complexity of the investigation, with appendices containing whatever supporting documentation is necessary to substantiate your findings. Your report will serve as both a roadmap for litigation strategy and a potential exhibit at trial, so every element must withstand rigorous scrutiny while advancing the truth-seeking function of the legal process.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:57:54.178631Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Outlining forensic accounting report skill**
+
+I'm defining the slug as "forensic-accounting-report" and crafting a focused description highlighting litigation, forensic accounting investigation, fraud, embezzlement, asset tracing, expert report, and FRCP 26. The title is set to "Forensic Accounting Investigation Report" with a direct purpose statement emphasizing a litigation-ready expert document. I'll structure the output into core sections with tables and checklists, including explicit mention of FRCP 26 compliance and placeholders for verification of legal citations.
+thinking
+**Finalizing forensic accounting report structure**
+
+I'm preparing the complete skill content with the defined name and metadata, a concise description including the trigger keywords and practice areas, and a one-line purpose statement. The output will feature a numbered prerequisites list, a detailed ordered section list, checklists with ASCII format, tables for key areas, and minimal but clear code block templates for title page, executive summary, and findings. I'll include guidelines addressing objectivity, evidence standards, chain of custody, and compliance, while marking FRCP 26(a)(2) as [VERIFY]. All formatting will be plain ASCII without nested lists or fancy characters.
+codex
+---
+name: forensic-accounting-report
+description: Produces a litigation-ready forensic accounting investigation report for commercial litigation, structured for expert disclosure and evidentiary use. Covers financial irregularities, asset tracing, fraud or embezzlement analysis, quantified impacts, and defensible conclusions with exhibits. Use when drafting a forensic accounting report, expert report, fraud investigation summary, asset concealment analysis, or discovery/pre-trial financial investigation materials.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Analysis
+  skill_modes:
+    - Analysis
+---
+
+# Forensic Accounting Investigation Report
+
+Deliver a court-ready forensic accounting report that traces irregularities, quantifies impact, and documents evidentiary support.
+
+## Prerequisites
+
+1. Engagement scope and objectives from counsel or client.
+2. Core financial records and data sources (see Data Sources table).
+3. Case chronology and allegation summary.
+4. Any privilege or confidentiality instructions.
+
+## Output Structure / Process
+
+Use this section order and include all required elements.
+
+1. Title Page and Confidentiality
+2. Executive Summary
+3. Background and Objectives
+4. Scope and Limitations
+5. Methodology
+6. Factual Findings
+7. Analysis and Damages
+8. Conclusions
+9. Recommendations (if requested)
+10. References, Standards, and Qualifications
+11. Appendices and Exhibit Index
+
+Title Page template:
+
+```text
+Forensic Accounting Investigation Report
+Matter: [Matter Name]
+Prepared for: [Engaging Party / Counsel]
+Prepared by: [Name, Credentials, Firm]
+Date: [YYYY-MM-DD]
+Confidentiality: [e.g., Confidential - Attorney-Client Privileged / Work Product]
+```
+
+Executive Summary requirements:
+
+- Time period examined
+- Allegations or issues investigated
+- Key findings with quantified amounts
+- Parties or accounts implicated
+- Bottom-line conclusion in neutral language
+
+Scope definition table:
+
+| Scope Element | Detail |
+| --- | --- |
+| Time period | |
+| Entities / business units | |
+| Accounts / systems | |
+| Geographies | |
+| Exclusions | |
+
+Data sources table:
+
+| Source | Date Range | Format | Notes |
+| --- | --- | --- | --- |
+| Bank statements | | | |
+| General ledger | | | |
+| AP/AR | | | |
+| Payroll | | | |
+| Tax returns | | | |
+| Contracts / invoices | | | |
+| Correspondence | | | |
+
+Methodology checklist:
+
+- Transaction testing and exception filters
+- Trend and ratio analysis
+- Journal entry review
+- Asset tracing or flow of funds mapping
+- Net worth or source-and-use analysis
+- Reconciliation and cross-source validation
+
+Factual Findings table:
+
+| Finding ID | Description | Dates | Amount | Parties/Accounts | Evidence (Exhibit) |
+| --- | --- | --- | --- | --- | --- |
+
+Analysis and damages table:
+
+| Category | Method | Amount | Assumptions | Support |
+| --- | --- | --- | --- | --- |
+
+Conclusions format:
+
+- Objective 1: [Answer or inability to conclude + reason]
+- Objective 2: [Answer or inability to conclude + reason]
+
+Recommendations table (only if requested by counsel/client):
+
+| Priority | Recommendation | Rationale | Owner | Timing |
+| --- | --- | --- | --- | --- |
+
+Exhibit index table:
+
+| Exhibit No. | Description | Source | Bates / Location |
+| --- | --- | --- | --- |
+
+Standards and qualifications section:
+
+- Professional standards followed (e.g., AICPA SSCS, ACFE guidance, GAAS where applicable)
+- Expert disclosure standard: FRCP 26(a)(2) [VERIFY] or applicable state analog
+- CV summary and full CV in appendix
+
+## Guidelines
+
+- Separate facts from inferences; label estimates and ranges explicitly.
+- Cite every material assertion to a specific exhibit or data source.
+- Quantify impact using exact figures when possible; disclose rounding.
+- Avoid legal conclusions; stay within accounting expertise.
+- Disclose limitations and missing records that affect certainty.
+- Maintain neutral tone; no advocacy language.
+- If privileged or work-product framing is required, state it on the title page and in a footer.
+- Use plain language for non-accountants; define technical terms in a glossary appendix.
+- Flag any uncertain legal authority with `[VERIFY]`.
+tokens used
+14,010

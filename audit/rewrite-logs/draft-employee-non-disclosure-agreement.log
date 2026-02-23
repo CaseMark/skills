@@ -1,0 +1,325 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7e-e1e0-7453-9a3c-7fa0c92b83b4
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "9ecd16d5-de74-42a6-93b9-0095480ba7ac",
+  "slug": "draft-employee-non-disclosure-agreement",
+  "name": "Non-Disclosure Agreement (NDA) for Employee",
+  "summary": "Drafts a comprehensive and enforceable Non-Disclosure Agreement for employees to protect employer confidential information. Incorporates current legal standards, precise definitions, and reasonable restrictions to withstand judicial scrutiny while balancing business interests and employee mobility rights. Use when onboarding employees requiring access to proprietary data in transactional employment matters.",
+  "content": "# Employee Non-Disclosure Agreement: Comprehensive Drafting Instructions\n\nYou are tasked with drafting a legally sound and enforceable Non-Disclosure Agreement between an employer and employee. This transactional document must protect the employer's legitimate confidential business information while remaining reasonable in scope, compliant with current employment law principles, and capable of withstanding judicial scrutiny. The agreement should be professionally formatted, written in clear language accessible to both legal and business professionals, and ready for execution without further revision.\n\n## Strategic Context and Drafting Philosophy\n\nBefore beginning the draft, conduct thorough research to ensure the agreement reflects current legal standards and best practices. Search available documents for any existing NDA templates, company-specific confidential information categories, or prior agreements that may inform this draft. Review recent case law and statutory developments regarding the enforceability of employee confidentiality agreements in the relevant jurisdiction, paying particular attention to any recent decisions that have narrowed or expanded the scope of permissible restrictions.\n\nThe agreement must strike a careful balance between the employer's legitimate business interests in protecting proprietary information and the employee's fundamental right to future employment and the ability to earn a livelihood. Courts increasingly scrutinize employment agreements that appear to restrict an employee's mobility or ability to use general skills and knowledge acquired during employment. Your draft should demonstrate this balance through precise definitions, reasonable temporal limitations, and clear exclusions that protect both parties' interests.\n\nConsider the specific industry context when drafting. A technology company's confidential information differs substantially from that of a professional services firm or manufacturing business. If the employer's industry or business model is known, tailor the definitions and examples accordingly. If this information is not provided, draft the agreement with sufficient flexibility to accommodate various business types while maintaining specificity where possible.\n\n## Document Structure and Opening Provisions\n\nBegin with a clear, professional title that identifies the document as an \"Employee Non-Disclosure Agreement\" or \"Employee Confidentiality Agreement.\" Include a subtitle or reference line indicating the parties' names for easy identification. The opening paragraph should identify both parties with complete legal precision: the employer by its full legal name, entity type, state of formation, and principal place of business; the employee by full legal name and residential address.\n\nDraft recitals that establish the factual and legal foundation for the agreement. These recitals should explain that the employee will be employed in a position requiring access to confidential and proprietary business information, that the employer has invested substantial time and resources in developing this information, and that the employer has a legitimate business interest in protecting such information from unauthorized disclosure or misuse. The recitals should also establish the consideration supporting the agreement, which may include the employment relationship itself, access to confidential information, specialized training, compensation, or other valuable benefits provided to the employee.\n\nInclude language in the recitals confirming that the employee acknowledges the value of the confidential information, understands the competitive harm that could result from unauthorized disclosure, and voluntarily agrees to the restrictions contained in the agreement. This acknowledgment can be crucial evidence of informed consent if the agreement's enforceability is later challenged.\n\n## Defining Confidential Information with Precision and Reasonableness\n\nThe definition of \"Confidential Information\" represents the most critical provision of the agreement and requires careful drafting to ensure both comprehensiveness and enforceability. Begin with a general statement that Confidential Information includes all non-public information relating to the employer's business, whether disclosed in written, oral, electronic, visual, or other form. Then provide specific categories that reflect the actual confidential assets of the employer's business.\n\nThese categories should include trade secrets as defined by applicable state law and the Defend Trade Secrets Act, proprietary business methods and processes, customer and client lists with associated contact information and preferences, supplier and vendor relationships, financial information including pricing structures and profit margins, marketing and sales strategies, product development plans and roadmaps, technical specifications and documentation, software source code and algorithms, research and development projects, business plans and strategic initiatives, employee compensation and organizational information, and any information marked or designated as confidential by the employer.\n\nStructure the definition to encompass information in all forms of disclosure. Confidential Information should include information disclosed directly to the employee, information the employee develops or contributes to during employment, information observed or learned through access to the employer's facilities or systems, and information received from third parties under obligations of confidentiality that the employer is bound to protect. However, ensure the definition contains clear boundaries to prevent it from being deemed unreasonably broad.\n\nThe definition must explicitly exclude certain categories of information to ensure enforceability and fairness. Information should not be considered confidential if it was known to the employee prior to employment as evidenced by written records, is or becomes publicly available through no breach of this agreement, is rightfully received from a third party without confidentiality restrictions, or is independently developed by the employee without reference to the employer's confidential information. These exclusions are not merely protective of the employee; they are often legally required for the agreement to be enforceable.\n\nCritically, include language distinguishing protectable confidential information from the general skills, knowledge, experience, and industry expertise that the employee may acquire during employment. Courts consistently hold that employers cannot restrict an employee's use of general knowledge and skills, even if those capabilities were enhanced or developed during the employment relationship. This distinction should be stated explicitly to demonstrate the agreement's reasonableness and to avoid claims that it impermissibly restricts the employee's future employment opportunities.\n\n## Employee Obligations and Prohibited Conduct\n\nArticulate the employee's specific duties regarding confidential information with clarity and precision. The employee must agree to maintain all Confidential Information in strict confidence, using at least the same degree of care used to protect the employee's own confidential information, but in no event less than reasonable care under the circumstances. This standard provides flexibility while establishing a minimum threshold of protection.\n\nThe employee must be prohibited from disclosing Confidential Information to any third party without prior written authorization from an authorized representative of the employer. Include specific exceptions for disclosures required by law, regulation, or valid court order, but require the employee to provide prompt advance notice to the employer when legally permissible to allow the employer to seek protective measures. This exception is essential for enforceability and protects the employee from being placed in an impossible position when faced with legal disclosure obligations.\n\nProhibit the employee from using Confidential Information for any purpose other than performing assigned duties for the employer. This prohibition should extend to use for personal benefit, use for the benefit of any competitor or other third party, and use in any other employment or business venture. The restriction should be clear that it applies both during employment and after the employment relationship terminates.\n\nAddress the practical handling of confidential information by requiring the employee to limit access to those with a legitimate business need to know, to maintain reasonable physical and electronic security measures, to avoid discussing confidential matters in public places or unsecured communications, and to immediately report any unauthorized disclosure or suspected security breach to designated company personnel.\n\nInclude detailed provisions governing the employee's obligations upon termination of employment, regardless of the reason for termination. Require the immediate return or certified destruction of all materials containing or reflecting Confidential Information, including documents, electronic files, notes, memoranda, reports, computer files, and any copies or derivatives thereof. Specify that the employee must provide written certification that all such materials have been returned or destroyed and that no copies have been retained in any form. Make explicit that the confidentiality obligations survive termination of employment and continue for the duration specified in the agreement.\n\n## Statutory Compliance and Required Notices\n\nEnsure the agreement complies with all applicable statutory requirements, particularly the Defend Trade Secrets Act immunity provision that must be included in agreements entered into or updated after May 11, 2016. Include the following required notice in substantially this form: \"An individual shall not be held criminally or civilly liable under any Federal or State trade secret law for the disclosure of a trade secret that (A) is made (i) in confidence to a Federal, State, or local government official, either directly or indirectly, or to an attorney; and (ii) solely for the purpose of reporting or investigating a suspected violation of law; or (B) is made in a complaint or other document filed in a lawsuit or other proceeding, if such filing is made under seal.\"\n\nThis notice should be prominently placed in the agreement, either as a separate section or as a clearly identified subsection within the confidentiality obligations. Failure to include this notice can result in the employer being unable to recover exemplary damages or attorney fees in a trade secret misappropriation action, making this provision essential rather than optional.\n\nResearch and incorporate any state-specific requirements that may apply based on the jurisdiction governing the agreement. Some states require specific language regarding the employee's right to consult with counsel, waiting periods before execution, or disclosures about the agreement's impact on future employment. Verify compliance with any industry-specific regulations that may impose additional requirements on confidentiality agreements, such as those in healthcare, financial services, or government contracting.\n\n## Temporal Scope and Duration Provisions\n\nSpecify the effective date of the agreement with precision, typically the date of execution or the employee's first day of employment, whichever occurs first. Clearly state that the confidentiality obligations extend beyond the termination of employment for a specified period that is reasonable given the nature of the information and industry standards.\n\nThe duration of post-employment obligations requires careful consideration and should be tailored to the type of information being protected. For trade secrets, the obligation to maintain confidentiality continues as long as the information qualifies as a trade secret under applicable law, which may be indefinite. For other proprietary information that does not rise to the level of trade secrets, specify a definite post-employment period that courts in the relevant jurisdiction have found reasonable, typically ranging from two to five years depending on the industry and the nature of the information.\n\nConsider whether different categories of information warrant different protection periods. For example, customer lists might require protection for two years post-employment, while technical specifications might warrant three to five years, and trade secrets receive indefinite protection. If implementing tiered durations, clearly specify which categories of information are subject to which time periods to avoid ambiguity.\n\nInclude language confirming that the agreement remains in effect regardless of changes in the employee's position, title, responsibilities, or compensation during employment. Specify that the obligations survive any termination of employment, whether voluntary or involuntary, with or without cause, and whether initiated by the employer or employee. Clarify that these obligations are independent of any other agreements between the parties and will continue even if other agreements terminate or expire.\n\n## Remedies, Enforcement Mechanisms, and Equitable Relief\n\nEstablish the full range of remedies available to the employer in the event of breach or threatened breach. Begin with findings that support the availability of equitable relief: the employee acknowledges that the Confidential Information is valuable, unique, and proprietary; that the employer would suffer irreparable harm from unauthorized disclosure or use that cannot be adequately compensated by monetary damages alone; and that the restrictions contained in the agreement are reasonable and necessary to protect the employer's legitimate business interests.\n\nBased on these acknowledgments, specify that the employer is entitled to seek immediate equitable relief, including temporary restraining orders, preliminary injunctions, and permanent injunctions to prevent or remedy any breach or threatened breach of the agreement. Importantly, include language that the employer may seek such relief without the requirement to post a bond or prove actual damages, as the harm from disclosure of confidential information is presumed to be irreparable. This provision can be critical in obtaining swift court intervention when confidential information is at risk.\n\nClarify that equitable remedies are cumulative and in addition to, not in lieu of, any other remedies available at law or in equity. The employer retains all rights to seek monetary damages, including compensatory damages for actual losses sustained, consequential damages, disgorgement of any profits or benefits obtained through breach, and where permitted by law, punitive or exemplary damages. Include a provision for recovery of reasonable attorneys' fees and costs incurred in enforcing the agreement, though consider whether this should be mutual or unilateral based on the jurisdiction and relative bargaining positions.\n\nAddress the employee's acknowledgments that support enforceability: that the employee has carefully read and fully understands all terms of the agreement, has had adequate opportunity to consult with legal counsel of the employee's choosing, has asked any questions and received satisfactory answers, and enters into the agreement voluntarily without duress or coercion. These acknowledgments can be powerful evidence of informed consent if the agreement is later challenged.\n\n## Governing Law, Jurisdiction, and Dispute Resolution\n\nDesignate the governing law that will apply to the interpretation, construction, and enforcement of the agreement. This should typically be the law of the state where the employee primarily performs work or where the employer maintains its principal place of business. Be aware that choice of law provisions in employment agreements may be subject to limitations, and some states will apply their own law to certain employment-related issues regardless of the parties' chosen governing law, particularly regarding public policy matters.\n\nSpecify the exclusive jurisdiction and venue for any legal proceedings arising from or relating to the agreement. This may designate the state and federal courts located in a particular county and state, or it may provide for alternative dispute resolution. If selecting a forum selection clause, ensure it is reasonable and has some logical connection to the parties or the employment relationship, as courts may refuse to enforce forum selection clauses that are unreasonable or unduly burdensome to the employee.\n\nConsider carefully whether to include an arbitration provision. While arbitration can provide a more streamlined and confidential dispute resolution process, it may be less suitable for obtaining the immediate injunctive relief that is often necessary in confidentiality breach cases. If including arbitration, specify the arbitration rules that will govern (such as the American Arbitration Association's Employment Arbitration Rules), the location where arbitration will be conducted, whether a single arbitrator or panel will decide the dispute, how the arbitrator will be selected, and how the costs of arbitration will be allocated between the parties.\n\nIf including arbitration, consider carving out exceptions for claims seeking equitable relief, allowing either party to seek immediate injunctive relief from a court of competent jurisdiction while other claims proceed to arbitration. This hybrid approach can provide the benefits of arbitration for damages claims while preserving access to courts for time-sensitive injunctive relief.\n\n## Administrative and Boilerplate Provisions\n\nInclude comprehensive notice provisions specifying how all notices, demands, or other communications under the agreement must be delivered. Specify acceptable methods of delivery, which typically include personal delivery, certified or registered mail with return receipt requested, overnight courier service, and email to designated addresses. Provide the specific addresses for each party where notices should be sent and include a mechanism for updating these addresses through written notice.\n\nDraft an integration or entire agreement clause confirming that this agreement, together with any other written employment agreements specifically referenced, constitutes the complete agreement between the parties regarding confidentiality and supersedes all prior negotiations, understandings, or agreements, whether written or oral, on this subject. This provision prevents the employee from later claiming that oral promises or prior drafts modified the terms of the executed agreement.\n\nInclude a severability clause providing that if any provision of the agreement is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions will continue in full force and effect. Importantly, include reformation language authorizing the court to modify any unenforceable provision to the minimum extent necessary to make it enforceable while preserving the parties' intent, rather than simply striking the provision entirely. This reformation authority can be crucial in jurisdictions that apply a \"blue pencil\" or modification approach to overbroad restrictive covenants.\n\nAdd a waiver provision clarifying that the failure of either party to enforce any provision of the agreement will not constitute a waiver of that provision or the right to enforce it in the future. Specify that any waiver must be in writing and signed by the party against whom the waiver is sought to be enforced. Include language that no single or partial exercise of any right or remedy precludes any other or further exercise thereof or the exercise of any other right or remedy.\n\nDraft an amendment provision requiring that any modification or amendment to the agreement must be in writing and signed by both parties. This prevents claims that the agreement was orally modified or that conduct constituted an implied amendment. Include an assignment clause specifying that the employee may not assign or transfer any rights or obligations under the agreement without the employer's prior written consent, while the employer may assign the agreement in connection with a merger, acquisition, sale of assets, or other business transfer.\n\n## Professional Formatting and Execution\n\nStructure the final document with clear hierarchical headings using a consistent numbering system. Use defined terms consistently throughout, capitalizing them when used in their defined sense and ensuring each defined term is used at least twice to justify its definition. Number all pages and include a header or footer with the document title, parties' names, and date for easy identification.\n\nPresent the agreement in a professional format with appropriate margins, spacing, and font selection. Use section breaks and white space to enhance readability. Ensure the document is completely free of typographical errors, grammatical mistakes, inconsistent formatting, or other defects that could undermine its professional appearance or create ambiguity.\n\nConclude with a properly formatted signature block providing for execution by both parties. For the employer, include signature lines for an authorized representative with spaces for printed name, title, and date. Ensure the signatory has actual authority to bind the employer to contractual obligations. For the employee, include a signature line with spaces for printed name and date.\n\nConsider including an acknowledgment statement immediately above the employee's signature where the employee affirms having read the entire agreement, understanding its terms and consequences, having had the opportunity to consult with legal counsel, and voluntarily agreeing to be bound by all provisions. This acknowledgment provides additional evidence of informed consent and can be valuable if the agreement's enforceability is later challenged.\n\nIf the agreement will be executed electronically, ensure compliance with the Electronic Signatures in Global and National Commerce Act and any applicable state electronic signature laws. Include any required disclosures or consents related to electronic execution and ensure the execution process creates a reliable record of authentication.\n\nBefore finalizing the document, conduct a final review for compliance with all applicable legal requirements. Verify that the agreement complies with the employment laws of the relevant jurisdiction, particularly regarding enforceability standards for restrictive covenants. Confirm that all required statutory notices have been included. Ensure the agreement serves the employer's legitimate business interests while respecting the employee's rights and does not contain provisions that could be deemed unconscionable or contrary to public policy.\n\nThe completed Non-Disclosure Agreement should be a comprehensive, standalone document that clearly establishes the parties' rights and obligations regarding confidential information, is enforceable under applicable law, protects the employer's legitimate business interests, and respects the employee's fundamental rights to future employment and the use of general skills and knowledge acquired during the employment relationship.",
+  "parent_skill_id": "a8cfbc04-d7ae-4f08-856a-f5d970d6dc17",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "employment_and_consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:54:12.850744Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Preparing to read skill file**
+
+I'm going to read the SKILL.md file from the skill-creator directory to access the skill content needed for rewriting.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Reading skill-creator documentation**
+
+I'm opening the skill-creator markdown file to understand its content and how it might guide the next steps in skill creation or customization.
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Reconciling skill instructions with user requirements**
+
+The user’s metadata needs override the skill-creator’s strict YAML frontmatter rules, so I’ll follow the user’s extended format while noting this deviation. I’ll maintain imperative wording where reasonable but prioritize the user’s formatting and instructions.
+thinking
+**Preparing detailed SKILL.md content**
+
+I clarified all required metadata, structure, and precise content elements for the employee NDA skill, including slug, description with trigger keywords, section map tables, checklists, and statutory notices with [VERIFY] where appropriate, ensuring imperative tone and strict formatting per user instructions.
+codex
+---
+name: employee-nda
+description: Drafts U.S. employee non-disclosure/confidentiality agreements to protect employer confidential information and trade secrets while preserving employee mobility and general skills. Use when drafting or updating an employee NDA, employee confidentiality agreement, onboarding confidentiality clause, or pre-employment NDA; trigger keywords: employee NDA, confidentiality agreement, non-disclosure, trade secret protection, proprietary information.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Employee Non-Disclosure Agreement
+
+Draft an enforceable employee confidentiality agreement that protects proprietary information without operating as a noncompete.
+
+## Prerequisites
+
+1. Employer legal name, entity type, state of formation, principal address.
+2. Employee legal name and address.
+3. Position, start date, and access level to sensitive systems/data.
+4. Governing law and forum or arbitration preferences.
+5. Confidential information inventory and industry context.
+6. Third-party confidentiality obligations that bind the employer.
+7. Duration targets for trade secrets and non-trade-secret information.
+8. Notice addresses and execution method (wet or electronic).
+9. Related policies or agreements to reference or incorporate.
+
+## Output Structure / Process
+
+Use this section map and fill each element.
+
+| Section | Required Content |
+| --- | --- |
+| Title + Parties | Identify document as Employee Non-Disclosure Agreement; name parties; define Effective Date. |
+| Recitals | State role and access to confidential info; employer investment and legitimate interest; consideration; employee acknowledgement of value and harm. |
+| Definitions | Define Confidential Information; include form of disclosure; include information developed during employment; include third-party info; add exclusions and skills carve-out. |
+| Employee Obligations | Non-disclosure; non-use beyond duties; reasonable care standard; restrict access to need-to-know; security practices; prompt breach reporting. |
+| Compelled Disclosure | Allow disclosure when required by law; require prompt notice and cooperation for protective order unless prohibited. |
+| Return/Destruction | Require return or certified destruction of all materials on separation; confirm no copies retained. |
+| Term/Survival | State effective date; survival after termination; separate duration for trade secrets vs other info. |
+| Statutory Notices | Include DTSA immunity notice for U.S. agreements executed or updated after 2016-05-11; add state-specific notices if required [VERIFY]. |
+| Remedies | Acknowledge irreparable harm; permit injunctive relief; cumulative remedies; attorneys' fees allocation per jurisdiction. |
+| Governing Law + Venue | Choose state law and venue with nexus to employment; consider public policy limits. |
+| Dispute Resolution | If arbitration, specify rules, seat, arbitrator selection, costs; carve out injunctive relief as needed. |
+| Boilerplate | Entire agreement; amendment in writing; severability/blue-pencil; waiver; assignment; notices; counterparts; e-sign. |
+| Signatures | Employer authorized signatory with title; employee signature; optional employee acknowledgement paragraph. |
+
+Define Confidential Information using this checklist.
+
+- [ ] Scope statement: non-public information about the business in any form.
+- [ ] Categories: trade secrets; customer/client data; pricing and financials; marketing/sales strategies; product plans/roadmaps; technical specs; source code/algorithms; R&D; business plans; vendor/supplier terms; HR/compensation data; security measures; information labeled confidential.
+- [ ] Coverage: information disclosed, observed, accessed, or developed during employment; derivatives and notes; third-party confidential info.
+- [ ] Exclusions: prior knowledge with evidence; public domain without breach; rightfully received without duty; independently developed without use.
+- [ ] Skills carve-out: exclude general skills, knowledge, and experience acquired through employment.
+
+Use this duration matrix unless instructed otherwise.
+
+| Category | Duration |
+| --- | --- |
+| Trade secrets | For so long as information remains a trade secret under applicable law. |
+| Other Confidential Information | Fixed term reasonable for the industry and jurisdiction, commonly 2-5 years [VERIFY]. |
+
+Insert DTSA notice in a standalone section.
+
+```text
+[VERIFY] Defend Trade Secrets Act Immunity Notice (18 U.S.C. 1833(b)):
+An individual shall not be held criminally or civilly liable under any Federal or State trade secret law for the disclosure of a trade secret that (A) is made (i) in confidence to a Federal, State, or local government official, either directly or indirectly, or to an attorney; and (ii) solely for the purpose of reporting or investigating a suspected violation of law; or (B) is made in a complaint or other document filed in a lawsuit or other proceeding, if such filing is made under seal.
+```
+
+If arbitration is included, add an injunctive relief carve-out.
+
+```text
+Either party may seek temporary, preliminary, or permanent injunctive relief in a court of competent jurisdiction to prevent or remedy a breach or threatened breach of this Agreement.
+```
+
+## Guidelines
+
+- Keep scope tied to legitimate business interests; avoid restrictions that function as noncompetes.
+- Use precise, role-specific categories; avoid catch-all definitions without exclusions.
+- Include compelled-disclosure notice and cooperation language.
+- Ensure consideration is stated clearly and matches the timing of execution.
+- Use venue and choice-of-law with a real nexus to the employment relationship.
+- Make attorneys' fees provisions compliant with local law and bargaining norms [VERIFY].
+- Keep formatting consistent, defined terms capitalized, and signature authority verified.
+tokens used
+19,735

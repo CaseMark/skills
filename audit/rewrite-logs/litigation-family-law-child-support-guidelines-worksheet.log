@@ -1,0 +1,202 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-4e71-71f2-8cb6-3e90546da53e
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "3da8e817-48d8-49bc-a83b-995dca99f22e",
+  "slug": "litigation-family-law-child-support-guidelines-worksheet",
+  "name": "Child Support Guidelines Worksheet",
+  "summary": "Drafts a comprehensive Child Support Guidelines Worksheet for family law litigation cases. Extracts financial data from case documents, conducts jurisdictional research, and calculates support obligations per state guidelines for court filing. Use when preparing precise child support calculations compliant with applicable statutes.",
+  "content": "**ENHANCED PROMPT: CHILD SUPPORT GUIDELINES WORKSHEET**\n\nYou are tasked with drafting a comprehensive Child Support Guidelines Worksheet, a critical litigation document that calculates child support obligations in accordance with applicable state law. This worksheet must be precise, legally compliant, and suitable for filing with the court. Your analysis should be thorough, methodical, and grounded in the specific jurisdiction's child support statutes and guidelines.\n\n**Document Review and Information Gathering**\n\nBegin by conducting a comprehensive review of all available case documents to extract relevant financial information, party details, and existing court orders. Search through uploaded materials to identify income documentation such as pay stubs, tax returns, W-2 forms, 1099 statements, financial affidavits, and business records. Extract specific figures including gross wages, self-employment income, bonuses, commissions, rental income, investment returns, retirement distributions, and any other income sources. Locate identifying information for both parents including full legal names, dates of birth, Social Security numbers, current addresses, and employment details. Identify all children subject to the support order by documenting their full names, dates of birth, current residence, and any special needs or medical conditions that may affect support calculations. Review any existing custody orders, parenting plans, or separation agreements to establish the current custody arrangement, parenting time percentages, and any provisions affecting financial responsibilities. When information is missing or unclear, note these gaps specifically so you can request clarification or additional documentation from the user.\n\n**Jurisdictional Research and Guideline Application**\n\nConduct thorough legal research to identify the applicable child support guidelines, statutes, and calculation methodologies for the relevant jurisdiction. Determine whether the state follows an income shares model, percentage of income model, or another approach, and locate the current child support schedule or formula. Research recent statutory amendments or case law that may affect calculation methods, deviation criteria, or treatment of specific income types. Verify the effective date of the guidelines being applied, as many jurisdictions update their schedules periodically. For high-income cases where combined income exceeds the guideline schedule, research the jurisdiction's extrapolation methodology or standards for judicial discretion. Investigate specific rules governing treatment of self-employment income, bonus income, overtime, imputed income for voluntary unemployment, and other specialized income scenarios relevant to your case. Examine the jurisdiction's standards for allowable deductions, including which tax withholdings, insurance premiums, and other expenses may reduce gross income for support purposes. Research how the jurisdiction treats additional expenses such as childcare, extraordinary medical costs, private school tuition, and extracurricular activities, including whether these are added to the basic obligation or treated separately.\n\n**Income Calculation and Documentation**\n\nCalculate the gross monthly income for each parent with meticulous attention to all income sources recognized under the jurisdiction's child support guidelines. For employment income, convert all wages, salaries, commissions, tips, bonuses, and overtime pay to monthly amounts using appropriate averaging methods, typically based on year-to-date figures or the most recent tax year. When dealing with irregular income such as seasonal work, variable commissions, or fluctuating self-employment earnings, apply the jurisdiction's averaging methodology, which may require calculating a multi-year average or using other smoothing techniques. For self-employed parents, carefully analyze business income by starting with gross receipts and subtracting only ordinary and necessary business expenses that would be recognized by the court, excluding personal expenses disguised as business deductions, excessive depreciation, or one-time capital expenditures. Document each income source with specific citations to the supporting evidence, noting the document name, page number, and relevant figures. When a parent appears to be voluntarily unemployed or underemployed, research the jurisdiction's standards for income imputation and determine whether income should be imputed based on the parent's earning capacity, work history, education level, or prevailing wages for comparable positions in the local job market.\n\n**Deductions and Adjusted Income**\n\nIdentify and calculate all allowable deductions that reduce gross income to arrive at adjusted gross income for child support purposes. Calculate federal income tax withholding based on the parent's actual filing status, number of dependents, and current tax rates, using the appropriate tax tables or withholding calculators. Compute state income tax withholding according to the applicable state's tax structure and rates. Calculate Social Security and Medicare (FICA) contributions at the current statutory rates, noting that self-employed individuals pay both the employee and employer portions. Identify mandatory retirement contributions that are required as a condition of employment, distinguishing these from voluntary contributions which most jurisdictions do not permit as deductions. Document health insurance premiums paid by each parent, separately calculating the portion attributable to covering the children subject to this support order, as this amount typically receives special treatment in the final calculation. Identify any pre-existing child support or spousal support obligations with specific case numbers, payment amounts, and verification that payments are current, as these obligations generally reduce available income for the present calculation. Ensure that all deductions are properly documented and fall within the categories permitted by the jurisdiction's guidelines, as courts strictly limit which expenses may reduce income for support purposes.\n\n**Basic Support Obligation Determination**\n\nApply the jurisdiction's child support guidelines to determine the basic support obligation based on the combined adjusted gross income of both parents and the number of children subject to the order. Locate the applicable child support schedule, which may be presented as a detailed table with income ranges and corresponding support amounts, or as a mathematical formula that calculates support as a function of income and number of children. Input the combined monthly adjusted gross income of both parents and cross-reference this figure with the number of children to determine the total basic support obligation. This amount represents what both parents together would spend on the children's basic needs\u2014including housing, food, clothing, transportation, and ordinary medical care\u2014if the family were living in an intact household. Verify that you are using the current version of the guidelines by checking the effective date and researching whether any updates have been implemented since the most recent version in your materials. If the combined parental income exceeds the highest income level shown in the guideline schedule, research and apply the jurisdiction's extrapolation method, which may involve extending the schedule using the same percentage increase, applying a flat percentage to income above the schedule, or exercising judicial discretion based on the children's reasonable needs.\n\n**Additional Expenses and Allocations**\n\nBeyond the basic support obligation, identify and allocate additional child-related expenses that are typically shared between parents in proportion to their respective incomes. Document work-related childcare expenses that are necessary to enable a parent to maintain employment or attend job training or education, including the provider's name, monthly cost, and verification that the expense is reasonable and necessary. Identify extraordinary medical expenses not covered by insurance, such as ongoing therapy, orthodontic treatment, specialized medical equipment, or significant uninsured portions of medical bills, documenting each expense with provider information and monthly or annual costs. Evaluate whether educational expenses for private school, tutoring, special educational services, or other academic support should be included based on the children's needs, the family's historical spending patterns, and the parents' financial capacity to maintain such expenses. Consider extracurricular activity costs, summer camp fees, music lessons, sports participation, and other child enrichment expenses that may be appropriate given the family's circumstances and the jurisdiction's standards for including such costs. Calculate each parent's proportionate share of these additional expenses by determining each parent's percentage of the combined adjusted gross income and applying that percentage to each expense category. Research whether your jurisdiction adds these expenses to the basic obligation before apportioning between parents, or treats them as separate add-ons to be shared in proportion to income.\n\n**Proportionate Share and Final Calculation**\n\nDetermine each parent's proportionate share of the total child support obligation by calculating their percentage of the combined adjusted gross income. Divide each parent's adjusted gross income by the total combined adjusted gross income to determine their respective percentages, ensuring these percentages total one hundred percent. Apply each parent's percentage to the total support obligation (basic support plus additional expenses) to determine their individual share of the children's financial support. In most cases, the parent with the greater parenting time receives support from the other parent, though some jurisdictions use offset methods when parenting time is relatively equal or apply shared custody adjustments when each parent has the children for a substantial percentage of time. Calculate the monthly support payment amount by determining the difference between what the non-custodial parent owes and what they are presumed to spend directly during their parenting time. Specify the paying parent, receiving parent, payment amount, payment frequency (typically monthly), due date (often the first of the month), and payment method or location as required by local rules.\n\n**Deviation Analysis and Justification**\n\nEvaluate whether any deviations from the guideline amount are warranted based on factors recognized by the jurisdiction's deviation criteria. Research the specific grounds for deviation permitted in your jurisdiction, which commonly include extraordinary disparities in income between parents, special needs of the children requiring additional support, significant differences in parenting time that affect direct expenditures, extraordinary debt assumed for the benefit of the children, independent financial resources of the children, or other circumstances that would make application of the guideline amount unjust or inappropriate. If recommending a deviation, provide detailed factual justification supported by specific evidence from the case documents, explaining how the deviation factor applies to this case and why the guideline amount would be unjust. Calculate the proposed deviated amount and explain the methodology used to arrive at this figure, ensuring the deviation is reasonable and supported by substantial evidence. Cite relevant statutory provisions and case law supporting the deviation, as courts generally presume the guideline amount is correct and require clear and convincing evidence to justify departure from the guidelines. Document any stipulations or agreements between the parties regarding deviation, noting that some jurisdictions permit parties to agree to amounts different from the guidelines within certain parameters.\n\n**Health Insurance and Medical Expense Allocation**\n\nAddress the allocation of health insurance coverage and uninsured medical expenses as required by the jurisdiction's guidelines and statutory requirements. Identify which parent currently maintains health insurance coverage for the children, the monthly premium cost, and the portion of that premium attributable to the children's coverage as opposed to the parent's individual coverage. Determine whether the parent providing coverage should receive a credit or reimbursement for the other parent's proportionate share of the premium, or whether this cost is factored into the overall support calculation. Research whether the jurisdiction requires the parent providing insurance to be designated in the support order, or whether the court may order a parent to obtain coverage if it is available through employment at reasonable cost. Specify how uninsured medical, dental, and vision expenses will be shared between the parents, typically in proportion to their respective incomes, and establish a threshold amount below which expenses need not be shared (such as the first $250 per year). Address the procedure for reimbursement of shared medical expenses, including time limits for submitting claims, documentation requirements, and payment deadlines. Determine the allocation of tax dependency exemptions for the children if this is relevant to the overall support arrangement and permitted under current tax law, noting that recent federal tax changes have eliminated the dependency exemption deduction but that state tax benefits may still apply.\n\n**Document Preparation and Compliance**\n\nPrepare the Child Support Guidelines Worksheet in the format required by the jurisdiction, using the official form if one is mandated or creating a comprehensive worksheet that includes all required elements if no official form exists. Organize the worksheet with clear sections for party information, income calculations, deductions, basic support obligation, additional expenses, proportionate shares, and final support amount. Include a case caption with the court name, case number, parties' names, and document title as required by local court rules. Present all calculations in a clear, logical sequence that allows the court and opposing party to verify each step of the analysis. Include citations to the specific guideline provisions, statutory sections, and schedule pages used in the calculation. Attach supporting documentation as exhibits, including income verification, tax returns, pay stubs, childcare invoices, medical expense documentation, and any other evidence supporting the figures used in the worksheet. Prepare signature blocks for both parents and their attorneys if represented, including date lines and any required certifications or declarations under penalty of perjury attesting to the accuracy and completeness of the financial information provided. Research whether the jurisdiction requires notarization of the worksheet or if simple signatures suffice. Verify local court rules regarding filing procedures, number of copies required, and whether the worksheet must be filed as a standalone document or attached to another pleading such as a motion for child support or proposed order. Ensure the completed worksheet complies with all applicable rules of court, statutory requirements, and local practice standards to avoid rejection or delay in processing.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "respondent",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pre-trial"
+    ],
+    "document_types": [
+      "checklist"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:39.553861Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:39.612621Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:40.997599Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:41.892858Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4fd6e22f31f-SJC)
+2026-02-23T21:42:42.977194Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5036bd7ad84-SJC)
+2026-02-23T21:42:44.442154Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e50cbe23f9f5-SJC)
+2026-02-23T21:42:46.539032Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e51a2b2614c7-SJC)
+2026-02-23T21:42:50.545375Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e532cb662db6-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-family-law-child-support-guidelines-worksheet-vc2dx1wx.md
+
+STDOUT:
+

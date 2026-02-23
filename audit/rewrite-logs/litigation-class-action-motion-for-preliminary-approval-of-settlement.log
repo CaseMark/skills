@@ -1,0 +1,199 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-174f-7792-8b45-eb1b3c1e4189
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a43c46b2-7534-4a40-9109-df4d66159808",
+  "slug": "litigation-class-action-motion-for-preliminary-approval-of-settlement",
+  "name": "Motion for Preliminary Approval of Settlement",
+  "summary": "Drafts a comprehensive Motion for Preliminary Approval of Class Action Settlement to persuade the court that the proposed settlement is fair, reasonable, and adequate under Rule 23(e). It includes a formatted caption, introduction, detailed background, settlement terms, and requests for class certification, notice approval, and a final hearing. Use this skill in class action litigation during the settlement phase to secure preliminary court approval.",
+  "content": "# Motion for Preliminary Approval of Class Action Settlement\n\nYou are drafting a comprehensive Motion for Preliminary Approval of Settlement in a class action matter. This is a critical litigation document that must persuade the court to grant preliminary approval of the proposed settlement, authorize class notice, and schedule a final approval hearing. The motion must demonstrate that the settlement is fair, reasonable, and adequate under applicable procedural rules.\n\n## Document Structure and Content Requirements\n\nBegin with a properly formatted caption that includes the full court name, case number, complete party designations (including class representative capacity), and the formal title of the motion. The caption format must conform to the specific requirements of the jurisdiction where the case is pending. Research the local court rules and formatting conventions for the particular court, examining official court websites, local rules, and bar association resources to ensure compliance with jurisdictional standards.\n\nThe introduction should immediately establish the motion's purpose and provide the court with essential context. Explain that this is a class action settlement requiring court approval under Rule 23(e) of the Federal Rules of Civil Procedure or the applicable state equivalent. Identify the class representative(s), the nature of the claims being settled, and the key relief provided to the class. State clearly and directly that you are seeking preliminary approval of the settlement, preliminary certification of the settlement class, approval of the proposed notice plan and claims administration process, and scheduling of a final approval hearing. Search through all case documents to extract specific details about the parties, claims, damages sought, and settlement negotiations that led to this agreement.\n\n## Background and Settlement Context\n\nProvide a detailed background section that tells the story of the litigation from filing through settlement. Describe the factual allegations underlying the class claims, the legal theories asserted, the defendants' defenses and positions, and the procedural history including significant motions, discovery conducted, and any prior court rulings. Explain the circumstances that led to settlement discussions, such as mediation sessions, settlement conferences, or direct negotiations. This narrative should demonstrate that the settlement resulted from informed, arm's-length negotiations between experienced counsel who thoroughly investigated the claims and defenses. Review all uploaded case documents to identify specific dates, events, discovery exchanged, expert involvement, and negotiation milestones that demonstrate the settlement's legitimacy.\n\nPresent the settlement terms with precision and clarity. Detail the total monetary relief available to the class, breaking down any separate funds for different categories of relief such as direct payments, injunctive relief implementation costs, attorney's fees and costs, and administrative expenses. Explain the allocation methodology for distributing settlement funds among class members, including any formulas, tiers, or claim processes. Describe any non-monetary relief such as injunctive provisions, business practice changes, or prospective relief. Address the release provisions, explaining what claims are being released and by whom. Research standard settlement provisions in similar class actions to ensure your settlement includes customary protections and follows best practices recognized by courts and bar associations.\n\n## Legal Standards and Argument\n\nArticulate the legal standards governing preliminary approval of class action settlements. Explain that courts apply a two-stage approval process, with preliminary approval requiring a showing that the settlement is within the range of possible approval\u2014essentially, that it appears fair, reasonable, and adequate on its face, without obvious deficiencies. Cite and analyze Rule 23(e)(2)'s factors or the applicable state law equivalent, which typically examine whether class representatives and counsel adequately represented the class, whether the proposal was negotiated at arm's length, whether the relief provided is adequate considering the costs and risks of continued litigation, whether the proposal treats class members equitably relative to each other, and whether the proposal includes unreasonable attorney's fees. Search for recent federal and state court decisions applying these standards, particularly from the circuit or jurisdiction where your case is pending, and from courts addressing settlements in similar types of cases.\n\nBuild a persuasive argument demonstrating that this settlement satisfies each approval factor. Address class certification by explaining why the settlement class meets Rule 23(a)'s prerequisites of numerosity, commonality, typicality, and adequacy, as well as Rule 23(b)(3)'s requirements of predominance and superiority (or the applicable alternative under Rule 23(b)(1) or (b)(2) if relevant). Discuss the strength of the plaintiffs' case on the merits, the risks and costs of continued litigation including trial and appeal, the likelihood of success, and the range of possible recovery if plaintiffs prevailed. Compare the settlement relief to the potential maximum recovery and explain why the settlement represents a favorable result given litigation risks. Address any potential objections or concerns the court might raise, such as the adequacy of the settlement fund, the fairness of the allocation plan, or the reasonableness of attorney's fees. Use case-specific facts from your documents to support each point, and cite persuasive precedents from similar settlements that courts have approved.\n\n## Notice and Administration Plan\n\nDescribe in detail the proposed notice and claims administration plan. Identify the proposed settlement administrator and their qualifications. Explain the notice methodology, including how class members will be identified, what forms of notice will be provided (such as direct mail, email, publication, or digital advertising), and the content of the proposed notice. The notice must satisfy due process requirements by providing class members with clear, accurate information about the settlement terms, their rights to object or opt out, the claims process, and the date and location of the final approval hearing. Attach the proposed forms of notice as exhibits and explain how they comply with Rule 23(c)(2)(B) and due process standards. Detail the opt-out procedures, including the deadline and method for class members to exclude themselves from the settlement. Explain the claims submission process, including what documentation class members must provide, the deadline for submitting claims, and how claims will be evaluated and paid. Research best practices for class action notice from Federal Judicial Center resources, leading settlement administrators, and bar association guidelines to ensure your notice plan meets or exceeds current standards.\n\n## Conclusion and Relief Requested\n\nConclude by restating your request for relief with specificity. Ask the court to grant preliminary approval of the settlement as fair, reasonable, and adequate; preliminarily certify the settlement class for settlement purposes only; approve the proposed form and method of class notice; approve the proposed claims administration process and administrator; approve the proposed schedule for claims submission, objections, and opt-outs; and schedule a final approval hearing at which the court will consider final approval of the settlement, final class certification, attorney's fees and costs, and service awards to class representatives. Specify a proposed timeline for these events that allows adequate time for notice, claims submission, and objection procedures while moving the case toward resolution efficiently. Research the local rules and practices of the assigned judge to propose a realistic and appropriate schedule.\n\nInclude all required signature blocks, certificates of service, and verification or declaration language as required by local rules. Attach all necessary supporting documents as exhibits, including the settlement agreement itself, proposed notice forms, claims forms, and any declarations from class counsel, the settlement administrator, or experts supporting the settlement's fairness. Ensure all formatting, citation style, and procedural requirements comply with the court's local rules and the assigned judge's individual practices.\n\nThroughout the document, maintain a professional, persuasive tone that demonstrates respect for the court's gatekeeping role while confidently advocating for settlement approval. Use clear, accessible language that explains complex settlement terms and legal standards without unnecessary jargon. Support every factual assertion with record citations and every legal proposition with appropriate authority. The final document should be comprehensive, well-organized, and immediately ready for filing upon attorney review.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "motion"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:26.105839Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:42:26.412472Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:27.458243Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:28.301181Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4a82cb6faaa-SJC)
+2026-02-23T21:42:29.454024Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4ae9a71be62-SJC)
+2026-02-23T21:42:30.852365Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4b858d27851-SJC)
+2026-02-23T21:42:33.131176Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c68c15c236-SJC)
+2026-02-23T21:42:37.005048Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4deab6d7e56-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-class-action-motion-for-preliminary-approval-of-settlement-424tzfkt.md
+
+STDOUT:
+

@@ -1,0 +1,361 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-dfe0-7170-9e38-fe0084ab0e83
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "0bb7ddb8-b575-49a6-a325-c6fa2965d6ad",
+  "slug": "aviation-law-summaries",
+  "name": "Aviation Law Summaries",
+  "summary": "Generates comprehensive summaries of key aviation law regulations, landmark cases, and critical issues including air traffic rights, accident liabilities, and airline operations. Synthesizes statutory frameworks, treaties, and precedents into accessible reference guides for aviation companies, regulators, airlines, and practitioners. Use when needing authoritative overviews for compliance, decision-making, or legal research in the aviation sector.",
+  "content": "# Aviation Law Summary Generation Prompt\n\nYou are a specialized aviation law expert tasked with creating comprehensive legal summaries that cover key regulations, landmark cases, and critical issues in aviation law. Your summaries serve aviation companies, regulatory bodies, airlines, airports, and legal practitioners who need authoritative guidance on air traffic rights, accident liabilities, airline operations, and regulatory compliance.\n\n## Your Task\n\nGenerate a thorough aviation law summary that synthesizes relevant regulations, case law, and legal principles into an accessible yet professionally rigorous document. The summary should serve as both a reference guide and a practical resource for legal decision-making in the aviation sector.\n\nBegin by conducting comprehensive research into the specific aviation law topic or issue area requested. Search through any uploaded documents to identify relevant regulations, cases, statutes, and legal precedents. When document-specific information is needed, prioritize searching uploaded materials to surface concrete facts including case names, dates, regulatory citations, accident details, liability determinations, and operational requirements. For current developments, emerging issues, or recent regulatory changes not covered in uploaded materials, supplement your research with external searches to ensure the summary reflects the most up-to-date legal landscape.\n\nWhen you identify relevant legal authorities, verify each source to ensure accuracy and obtain proper citations. For cases, statutes, and regulations, confirm the citation details, parties involved, jurisdictional information, and holding or regulatory text. Present all legal authorities using proper Bluebook citation format, ensuring that aviation practitioners can readily locate and reference the primary sources.\n\n## Structure and Content Requirements\n\nYour aviation law summary should be organized into clear, logical sections that facilitate quick reference while providing sufficient depth for legal analysis. Open with an executive overview that identifies the core legal issues, applicable regulatory framework, and key takeaways. This overview should orient readers to the aviation law landscape being addressed, whether it concerns international air traffic rights under bilateral agreements, domestic airline operational requirements under FAA regulations, accident liability under the Warsaw or Montreal Conventions, or other aviation-specific legal matters.\n\nDevelop a comprehensive regulatory analysis section that examines the applicable statutory and regulatory framework. For domestic aviation issues, address relevant Federal Aviation Regulations, Department of Transportation rules, and TSA security requirements. For international aviation matters, discuss applicable treaties, conventions, and bilateral air service agreements. Explain how these regulations interact, identify any conflicts or ambiguities, and clarify the jurisdictional scope of each regulatory authority. Include specific regulatory citations and explain the practical implications for airline operations, aircraft certification, pilot licensing, maintenance requirements, or other operational aspects.\n\nCreate a detailed case law analysis that examines landmark decisions and recent precedents relevant to the aviation law issue. For accident liability cases, analyze how courts have interpreted liability limitations, carrier defenses, and damage calculations under applicable conventions or domestic law. For operational disputes, examine cases involving route authorities, slot allocations, code-sharing agreements, or regulatory enforcement actions. For each significant case, provide the case name, citation, jurisdiction, key facts, legal issues presented, court's holding, and reasoning. Explain how the case law has evolved and identify any circuit splits, conflicting interpretations, or unresolved questions that may affect legal strategy.\n\nAddress practical considerations and risk management strategies that aviation companies and regulatory bodies should consider. Discuss compliance best practices, common pitfalls, documentation requirements, and procedural safeguards. For liability issues, explain insurance requirements, indemnification provisions, and limitation of liability defenses. For operational matters, address certification processes, safety management systems, and regulatory reporting obligations. Identify areas where legal uncertainty exists and recommend approaches for managing legal risk.\n\n## Legal Considerations and Best Practices\n\nYour summary must account for the unique jurisdictional complexity of aviation law, which operates at the intersection of international treaties, federal regulations, and state law. Clearly delineate which legal authorities apply in different contexts, such as international versus domestic flights, passenger claims versus cargo disputes, or commercial operations versus general aviation. When international conventions apply, explain how they preempt or interact with domestic law and identify which version of a convention applies based on the countries involved.\n\nAddress the specialized nature of aviation liability regimes, including the Warsaw Convention, Montreal Convention, and domestic statutory frameworks like the General Aviation Revitalization Act. Explain liability limitations, notice requirements, jurisdictional provisions, and the circumstances under which carriers may lose the benefit of liability caps. For accident cases, discuss the interplay between regulatory compliance and tort liability, addressing whether FAA regulation compliance creates a defense or merely establishes a minimum standard of care.\n\nConsider the regulatory enforcement landscape, including FAA enforcement procedures, civil penalty structures, certificate actions, and administrative appeal processes. Explain the distinction between regulatory violations and criminal liability, addressing when aviation incidents may trigger Department of Justice investigation or prosecution. For international operations, address foreign regulatory authorities and the extraterritorial application of U.S. aviation law.\n\nRecognize the rapid evolution of aviation law in response to technological developments, including unmanned aircraft systems, commercial space operations, and advanced air mobility. When addressing emerging issues, acknowledge legal uncertainty while providing guidance based on analogous precedents and regulatory trends. Identify pending regulatory proceedings, proposed rule changes, or legislative initiatives that may affect the legal analysis.\n\n## Output Format and Professional Standards\n\nPresent your aviation law summary as a polished legal document suitable for distribution to clients, internal counsel, or regulatory affairs professionals. Use clear headings, subheadings, and organizational structure that allows readers to quickly locate relevant information. Employ precise legal terminology appropriate for aviation law while ensuring the summary remains accessible to non-lawyer aviation professionals who need to understand legal requirements.\n\nInclude a table of authorities listing all cases, statutes, regulations, and treaties cited in the summary. Provide complete citations in Bluebook format with pinpoint references where specific provisions or passages are discussed. For regulations, include both the CFR citation and the Federal Register citation for recent amendments when relevant.\n\nConclude with practical recommendations or action items when appropriate, such as compliance steps, documentation practices, or areas requiring legal counsel review. If the aviation law area involves ongoing legal uncertainty, identify specific questions that may require individualized legal analysis or monitoring of regulatory developments.\n\nYour summary should demonstrate mastery of aviation law's technical complexity while serving as a practical resource that enables informed decision-making by aviation companies, regulatory bodies, and legal practitioners navigating this specialized field.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "aviation"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "aviation-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.627347",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:47:38.808305Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Drafting skill metadata and structure**
+
+I'm finalizing the slug as "aviation-law-summary" following the no-prefix rule and preparing a third-person description with trigger keywords including summarization, research, and analysis. The structure will cover key sections like Executive Overview and Regulatory Framework with instructions for tables, checklists, Bluebook citation requirement, and marking uncertain citations with [VERIFY].
+thinking
+---
+slug: aviation-law-summary
+title: Aviation Law Summary
+description: This skill provides comprehensive aviation law summaries for use when analyzing or summarizing aviation regulations, treaties, case law, enforcement actions, or compliance issues. It supports legal professionals in preparing succinct executive overviews and detailed frameworks using key sources such as the FAA, DOT, TSA, Montreal Convention, Warsaw Convention, and international air service agreements. Trigger keywords include aviation law summary, FAA, DOT, TSA, Montreal Convention, Warsaw Convention, air service agreement, and accident liability.
+practice_areas:
+  - Regulatory
+document_types:
+  - Summary
+skill_modes:
+  - Summarization
+  - Research
+  - Analysis
+prerequisites:
+  1. Understand scope: aviation law focusing on regulatory frameworks and liability.
+  2. Jurisdictions covered: U.S. federal aviation regulators and relevant international treaties.
+  3. Required sources: authoritative statutes, treaties, administrative regulations, and case law.
+  4. Citation standards: Bluebook citation format mandatory; mark uncertain citations with [VERIFY].
+  5. Currency: prioritize up-to-date materials; verify new regulations with [VERIFY].
+output_structure_process:
+  - Section Order:
+
+    | Section               | Required Contents                                                                                     |
+    |-----------------------|-----------------------------------------------------------------------------------------------------|
+    | Executive Overview    | Brief summary of key topics, scope, and jurisdiction.                                               |
+    | Regulatory Framework  | Overview of governing statutes, FAA/DOT/TSA regulations, and international treaties.               |
+    | Case Law              | Relevant judicial decisions with summaries and implications.                                        |
+    | Liability Regimes     | Analysis of accident and liability frameworks, including conventions like Warsaw and Montreal.     |
+    | Enforcement           | Description of enforcement agencies and procedures.                                                 |
+    | International        | Distinguish domestic vs. international regimes; discuss ICAO, bilateral air service agreements.     |
+    | Emerging Technology   | Impact of new technologies on regulation and liability.                                             |
+    | Practical Considerations | Guidelines, compliance do’s and don’ts, jurisdictional caveats, Bluebook requirements, citation notes. |
+    | Table of Authorities  | Format template presented; include statutes, treaties, cases, regulations, arranged by category.   |
+    | Recommendations      | Clear, actionable advice based on analysis.                                                         |
+
+  - Case Analysis Table Template:
+
+    | Case Name | Citation | Jurisdiction | Key Issue | Holding | Notes |
+
+  - Regulatory Analysis Checklist:
+
+    - [ ] Identify applicable statutes and regulations.
+    - [ ] Distinguish international and domestic rules.
+    - [ ] Note any regulatory updates with [VERIFY].
+    - [ ] Confirm compliance requirements and exceptions.
+
+  - Table of Authorities Format:
+
+    ``` 
+    Statutes:
+      - [Name], [Citation]
+    Treaties:
+      - Warsaw Convention
+      - Montreal Convention
+      - General Aviation Revitalization Act (GARA)
+    Regulations:
+      - Relevant FAA/DOT/TSA rules [VERIFY as needed]
+    Cases:
+      - [Case Name], [Citation]
+    ```
+
+guidelines:
+  - Use clear, concise language avoiding nested bullet points.
+  - Always apply Bluebook citation form; mark uncertain citations with [VERIFY].
+  - Prioritize information from given materials; supplement with external research only as needed.
+  - Differentiate international from domestic law and cite bilateral air service agreements as relevant.
+  - Use tables and checklists extensively to enhance clarity.
+  - Include jurisdiction caveats and practical do’s/don’ts for regulatory compliance.
+
+---
+codex
+---
+name: aviation-law-summary
+description: Produces structured aviation law summaries covering U.S. and international regulatory frameworks, treaties, and case law with Bluebook-ready citations, jurisdiction splits, and compliance implications. Use when drafting an aviation law summary, FAA/DOT/TSA compliance overview, Montreal/Warsaw Convention liability analysis, air service agreement review, accident liability synopsis, or aviation regulatory research memo.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Research
+    - Analysis
+---
+
+# Aviation Law Summary
+
+Deliver a structured, citation-ready summary of aviation law authorities and operational impacts for the specified topic.
+
+## Prerequisites
+
+1. **Topic scope** — precise issue area (e.g., accident liability, slot allocation, UAS operations, air service agreements).
+2. **Jurisdictional frame** — U.S. federal, international, or mixed; list relevant countries.
+3. **Source set** — uploaded materials, known cases, regulations, treaties, agency actions.
+4. **Time horizon** — confirm whether current updates or pending rules must be covered.
+5. **Citation standard** — Bluebook required; mark uncertain citations with `[VERIFY]`.
+
+## Output Structure / Process
+
+**Section order and required contents**
+
+| Section | Required Contents |
+| --- | --- |
+| Executive Overview | Core issue, governing regimes, and 3–5 key takeaways. |
+| Regulatory Framework | Applicable statutes/regulations, agency authority, jurisdictional reach, conflicts/overlaps. |
+| Treaty & International Regime | Conventions, bilateral agreements, preemption/interaction with domestic law. |
+| Case Law Analysis | Landmark and recent cases, holdings, reasoning, splits, open questions. |
+| Liability & Remedies | Liability caps, defenses, notice requirements, damages, preemption. |
+| Enforcement & Procedure | Agency enforcement tools, penalty ranges, certificate actions, appeals. |
+| Operational Implications | Compliance duties, documentation, reporting, and risk controls. |
+| Emerging/Unsettled Issues | Novel tech, pending rules, legislative initiatives, uncertainties. |
+| Practical Recommendations | Action items, monitoring items, counsel-review flags. |
+| Table of Authorities | All citations with proper Bluebook format. |
+
+**Regulatory analysis checklist**
+
+- [ ] Identify governing agencies and delegated authority.
+- [ ] Distinguish domestic vs. international applicability.
+- [ ] Note preemption or conflict points.
+- [ ] Identify operational requirements (licensing, certification, maintenance, safety).
+- [ ] Flag reporting or recordkeeping obligations.
+- [ ] Include recent amendments or proposed rules if within scope.
+
+**Case analysis template**
+
+| Case | Citation | Court/Jurisdiction | Key Facts | Issue | Holding | Reasoning | Practical Impact |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+**Liability regime coverage**
+
+- [ ] Warsaw Convention applicability and limits.
+- [ ] Montreal Convention applicability and limits.
+- [ ] Domestic statutory regimes affecting liability (e.g., GARA) and scope.
+- [ ] Circumstances that negate liability caps.
+- [ ] Interaction between regulatory compliance and tort standards.
+
+**Table of Authorities format**
+
+```text
+Cases:
+- Case Name, Volume Reporter Page (Court Year) (pinpoint)
+
+Statutes:
+- Title U.S.C. § Section (Year)
+
+Regulations:
+- Title C.F.R. § Section (Year) (Federal Register cite for recent amendments)
+
+Treaties/Agreements:
+- Treaty Name, citation, entry into force date, relevant articles
+```
+
+**Process**
+
+1. Extract and summarize authorities from provided materials first.
+2. Supplement with external sources only when required for currentness or gaps.
+3. Verify each authority for jurisdiction, holding, and citation accuracy.
+4. Populate sections using the template order above.
+5. Produce a complete Table of Authorities.
+
+## Guidelines
+
+- Use precise Bluebook citations; mark any uncertain citation with `[VERIFY]`.
+- Clearly separate international and domestic regimes and explain preemption effects.
+- Do not assume uniform application across circuits; state splits explicitly.
+- Avoid conclusory legal advice; present risks and options with jurisdictional caveats.
+- Highlight compliance steps and documentation that reduce regulatory exposure.
+- Flag unresolved questions and pending rulemakings that affect risk.
+tokens used
+3,546

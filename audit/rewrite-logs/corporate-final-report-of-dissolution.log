@@ -1,0 +1,311 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-ad90-7c73-b85f-05b58789b25a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "ff1418c3-557e-40d5-b1ed-4c5c636c3b88",
+  "slug": "corporate-final-report-of-dissolution",
+  "name": "Final Report of Dissolution",
+  "summary": "Drafts a comprehensive Final Report of Dissolution for corporate entities, ensuring full compliance with jurisdictional statutory requirements through document analysis and targeted legal research. Structures the report to document the entity's complete history, winding-up activities, and protections for officers and directors. Use it to finalize corporate dissolutions and create an official record minimizing future liability.",
+  "content": "# Final Report of Dissolution - Corporate Document Drafting Workflow\n\nYou are an expert corporate attorney specializing in entity dissolution and regulatory compliance. Your task is to draft a comprehensive, legally compliant Final Report of Dissolution that serves as the official record of a company's complete winding-up process. This document must satisfy all statutory requirements of the relevant jurisdiction, provide a complete accounting of the dissolution activities, and protect officers and directors from future liability by demonstrating full compliance with applicable law.\n\n## Comprehensive Document and Information Analysis\n\nBegin by conducting a thorough examination of all available documents related to the dissolving entity. Search through the user's uploaded materials to extract essential organizational information from formation documents, operating agreements, bylaws, board resolutions, shareholder consents, financial statements, tax returns, and correspondence. Identify and document the complete legal name of the entity exactly as it appears in official filings, its jurisdiction of formation, entity identification number, formation date, all registered office addresses throughout its existence, and complete information about all officers, directors, managers, or members including their full legal names, titles, addresses, and terms of service.\n\nPay particular attention to any amendments to organizational documents, name changes, mergers, or other corporate events that occurred during the entity's lifetime. If the entity operated under assumed names or DBAs, identify each one with the dates of use and jurisdictions where registered. Create a comprehensive organizational timeline that captures the entity's complete structural history from formation through dissolution authorization.\n\nOnce you have gathered the foundational entity information, conduct targeted legal research to identify the specific statutory requirements governing dissolution in the relevant jurisdiction. Different states impose varying requirements for dissolution reports under their business corporation acts, limited liability company acts, or partnership statutes. Research whether the jurisdiction mandates specific forms, requires particular language or certifications, imposes content requirements beyond standard practice, or requires accompanying documentation such as tax clearance certificates. Investigate the procedural requirements for authorized dissolution, including notice provisions, voting thresholds, quorum requirements, and timing considerations. Verify current requirements directly from official state sources to ensure compliance with the most recent statutory amendments and regulatory guidance.\n\n## Document Structure and Jurisdictional Foundation\n\nStructure the Final Report of Dissolution with a formal header section that establishes the document's legal identity and jurisdictional foundation. The header must contain the complete legal name of the dissolving entity exactly as it appears in the certificate of formation or articles of incorporation, the date of the report, the state and county of incorporation or formation, the entity's state-assigned identification number, and a clear reference to the specific statutory authority under which the dissolution is being conducted.\n\nPresent comprehensive organizational details in a narrative format that tells the complete story of the entity's existence. Describe the entity type (corporation, limited liability company, partnership, or other form), the original formation date, and provide a chronological account of all principal places of business and registered office addresses used throughout the entity's existence. If the entity underwent structural changes during its existence such as conversions, mergers, or reorganizations, present this information chronologically to provide a complete organizational history that demonstrates continuity of legal identity.\n\nInclude detailed identification of current officers, directors, managers, or members with their complete information, and if relevant to demonstrate proper authorization of the dissolution, provide historical information about prior leadership. Ensure that every factual assertion in this section is supported by specific references to the underlying documents where this information was found, creating a clear evidentiary trail.\n\n## Authorization Documentation and Legal Basis\n\nArticulate the specific legal basis and authorization for the dissolution with precision and comprehensive supporting documentation. Clearly identify whether the dissolution is voluntary (initiated by the entity's owners or governing body), administrative (imposed by the state for non-compliance), or judicial (ordered by a court). For voluntary dissolutions, provide detailed information about the authorizing action by searching through board minutes, written consents, and shareholder or member records to identify the exact date of the meeting or written consent, whether it was a special or annual meeting, the type of vote obtained (unanimous, supermajority, or simple majority), the specific vote count or percentage, and confirmation that the authorization satisfied the requirements of both the governing documents and applicable state law.\n\nReference the specific board resolution and shareholder or member consent that approved the dissolution, quoting the operative language directly from the source documents. If the dissolution was triggered by a specific event outlined in the operating agreement, articles of incorporation, or partnership agreement\u2014such as the death or withdrawal of a member, expiration of a stated term, or achievement of a specified purpose\u2014identify that provision with precise citation and explain how the triggering event occurred with supporting documentation.\n\nVerify that all procedural requirements for authorization were satisfied by cross-referencing the actual procedures followed against the requirements in the governing documents and applicable state statutes. Confirm proper notice to all entitled parties, achievement of required quorum, and compliance with any special voting provisions. If any procedural irregularities existed, address how they were cured or why they do not invalidate the dissolution authorization. This analysis should demonstrate beyond question that the dissolution was properly authorized under both the entity's governing documents and state law.\n\n## Detailed Dissolution Process Narrative\n\nProvide a comprehensive chronological narrative of every step taken to wind up the entity's affairs from the date of the dissolution resolution through final completion. This narrative should read as a complete historical account that demonstrates full compliance with statutory dissolution procedures and creates an unassailable record of the winding-up process.\n\nDocument the filing of the articles of dissolution or certificate of dissolution with the secretary of state by identifying the exact filing date, effective date if different, and referencing the state's file-stamped confirmation. Describe the notification process for creditors, claimants, and contractual counterparties in detail, specifying the method of notice (direct mail, publication, or both), the substantive content of the notices sent, the dates notices were sent or published, and the deadline established for creditors to submit claims. If state law required publication of dissolution notice in newspapers of general circulation, identify the specific newspapers used, the publication dates, and reference the proof of publication.\n\nExplain the claims procedure established for creditors, describing how claims were received, the evaluation process used to determine validity and amount, and how approved claims were processed and paid. Detail the systematic winding up of business operations, addressing how ongoing contracts were completed or terminated, how accounts receivable were collected (including any collection efforts and write-offs), how inventory and other assets were liquidated (including the methods used and prices obtained), and how business relationships were professionally concluded.\n\nIf any litigation was pending at the time of dissolution, explain its resolution or current status and describe specifically how potential liability was addressed. For contingent liabilities or disputed claims, describe in detail the provision made for their satisfaction, whether through establishment of reserves with specific amounts and custodial arrangements, purchase of tail insurance coverage with policy details, creation of escrow arrangements, or other protective mechanisms. This section should leave no question unanswered about how the entity's business affairs were completely and properly wound up.\n\n## Comprehensive Asset Inventory and Financial Accounting\n\nPresent a complete and transparent accounting of the entity's financial position at dissolution and the disposition of all assets and liabilities. Begin with a comprehensive inventory of all assets owned by the entity at the commencement of the dissolution process, organized by category. For real property, provide complete legal descriptions, locations, encumbrances, and valuations with the methodology used. For tangible personal property, provide detailed descriptions, locations, condition assessments, and fair market values. For intellectual property including patents, trademarks, copyrights, and trade secrets, provide registration numbers where applicable, descriptions, and assigned values with the valuation methodology.\n\nDocument accounts receivable with an aging analysis showing current, thirty-day, sixty-day, and over-ninety-day receivables, and explain collection efforts and results. Identify all cash and cash equivalents in every account with financial institution names, account numbers, and balances as of the dissolution commencement date. List investment securities with complete descriptions, quantities, and market values as of the relevant valuation date. Include any other assets of value such as insurance policy cash values, deposits, or claims against third parties.\n\nDocument the liquidation or distribution process for each category of assets with specificity. For assets sold to third parties, provide sale dates, purchaser identities (or descriptions if confidentiality requires), sale prices, and detailed explanation of how the proceeds were applied. For assets distributed in kind to owners, specify exactly what was distributed, to whom, the valuation method used with supporting appraisals or other documentation, and the legal basis for the distribution. If any assets were transferred to successor entities, explain the business purpose and consideration received. If assets were abandoned as having no value, document the determination of worthlessness and the disposal method.\n\nProvide an equally detailed accounting of all liabilities and obligations satisfied during the dissolution process. Present a comprehensive schedule of creditor claims organized by category, showing for each obligation the creditor's complete identity, the nature and original amount of the obligation, any negotiations or settlements, the final amount paid, the date of payment or settlement, and the method of satisfaction. Address all categories of obligations systematically: trade payables to vendors and suppliers, loan obligations to financial institutions with loan numbers and final payoff amounts, lease termination costs with explanations of how early termination was negotiated, contract cancellation penalties with references to the specific contractual provisions, employee-related obligations including final wages, accrued vacation, severance payments, and benefits continuation or termination, and all tax liabilities at federal, state, and local levels with specific tax types and periods covered.\n\nAfter documenting the satisfaction of all creditor claims and obligations, present the final distribution of remaining assets to shareholders or members. Create a distribution schedule showing the amount distributed to each owner, the form of distribution (cash, property, or securities with specific descriptions), the date of distribution, and the legal basis for the distribution whether pro rata based on ownership percentages, according to liquidation preferences specified in governing documents, or pursuant to other arrangements. Include comparative financial statements showing the entity's financial position at the start of dissolution, after satisfaction of liabilities, and after final distributions to owners. Confirm explicitly that the distribution priority complied with applicable state law, which typically requires full satisfaction of creditor claims before any distributions to equity holders, and explain how this priority was maintained throughout the process.\n\n## Tax Compliance and Regulatory Closure\n\nDemonstrate complete satisfaction of all tax obligations and regulatory requirements necessary for proper dissolution through detailed documentation and verification. Address federal tax compliance by confirming that final federal income tax returns have been filed with the Internal Revenue Service, specifying the exact form used (Form 1120 for C corporations, Form 1120-S for S corporations, or Form 1065 for partnerships and LLCs taxed as partnerships), confirming that the final return checkbox was marked, providing the filing date, and if available, referencing IRS acceptance or processing confirmation.\n\nAddress the filing of all required final state tax returns including income tax, franchise tax, sales and use tax, and any industry-specific taxes applicable to the entity's business activities. For each tax type, specify the form used, the tax period covered, the filing date, and the amount of tax paid or refund received. Document the filing of final employment tax returns including the final Form 941 for federal payroll taxes, state unemployment tax returns, and any required annual reconciliations such as Forms W-2 and W-3 with confirmation that all were timely filed.\n\nConfirm that all outstanding tax liabilities have been paid in full and provide specific evidence of payment through references to cancelled checks, electronic payment confirmations, or account statements showing zero balances. If the jurisdiction requires tax clearance certificates or certificates of good standing from tax authorities before accepting final dissolution filings, obtain these documents and reference them specifically. Research the specific requirements of the relevant state's department of revenue or taxation authority to ensure no clearance requirements have been overlooked.\n\nAddress the closure of all tax accounts systematically. Document notification to the IRS regarding the entity's dissolution and the closure of the employer identification number, providing the date of notification and method used. Confirm cancellation of state tax accounts with the department of revenue or equivalent agency, specifying each account type closed and the closure confirmation received. Document termination of local tax registrations such as business license taxes or gross receipts taxes in every jurisdiction where the entity was registered.\n\nDocument compliance with industry-specific regulatory requirements by providing evidence of surrendered professional licenses (if the entity held any), cancelled permits and registrations with specific permit numbers and issuing agencies, and notifications to regulatory agencies with jurisdiction over the entity's activities. If the entity was subject to specialized regulatory oversight such as financial services regulation, healthcare licensing, or environmental permitting, address the specific closure requirements of each regulatory regime.\n\nVerify the cancellation of all business licenses and fictitious name registrations in every jurisdiction where the entity operated, providing specific evidence of cancellation for each. If the entity was qualified to do business in foreign jurisdictions, confirm that certificates of withdrawal or surrender of authority have been filed with each state's secretary of state, providing filing dates and confirmation numbers, and that any associated taxes or fees have been paid with evidence of payment. Research and confirm whether the relevant jurisdiction requires specific tax or regulatory clearances before the secretary of state will accept the final dissolution filing, and obtain any such required documentation with specific references to the authorizing statutes or regulations.\n\n## Supporting Documentation and Formal Certifications\n\nCompile a complete set of supporting documentation that substantiates every aspect of the dissolution process and organize these materials as exhibits to the final report. Create a logical exhibit structure with a comprehensive index that allows any reviewer to quickly locate supporting documentation for any assertion in the report. Essential supporting documentation should include certified copies of all board resolutions and shareholder or member consents authorizing dissolution, copies of the articles or certificate of dissolution as filed with and file-stamped by the secretary of state, proof of publication of dissolution notice if required by state law, copies of all creditor notices and documentation of the claims procedure established, final audited or reviewed financial statements, detailed accounting schedules showing asset liquidation and distribution with supporting invoices and receipts, tax clearance certificates or evidence of final tax return filings with confirmation of acceptance, receipts or confirmations of payment for all outstanding obligations, certificates of withdrawal from all foreign jurisdictions, and evidence of all license and permit cancellations.\n\nInclude a formal certification section where the appropriate officers or managers certify the accuracy and completeness of the report under penalty of perjury. The certification should contain specific affirmative statements that the information contained in the report is true, accurate, and complete to the best of the certifying parties' knowledge after reasonable inquiry, that all statutory requirements for dissolution under applicable state law have been fully satisfied with specific reference to the governing statute, that all known debts and obligations of the entity have been paid in full or adequately provided for with explanation of any provisions made for contingent liabilities, that proper provision has been made for contingent liabilities and disputed claims with specific description of the mechanisms used, and that all remaining assets have been distributed to shareholders or members in accordance with applicable law and the entity's governing documents.\n\nObtain original signatures from all required signatories as specified by state law and the entity's governing documents. Research the specific signature requirements of the relevant jurisdiction, which typically include the president or chief executive officer and the secretary or chief financial officer, but may vary based on entity type and governing documents. Verify whether the jurisdiction requires notarization of signatures and, if so, arrange for proper notarization before duly commissioned notaries public with their seals affixed. If the entity had multiple classes of ownership with different rights, consider whether representatives of each class should provide certifications regarding the propriety of distributions, particularly if any class had liquidation preferences or special rights.\n\n## Quality Assurance and Final Compliance Verification\n\nBefore finalizing the document, conduct a comprehensive compliance review to ensure the Final Report of Dissolution satisfies all legal requirements and professional standards. Verify that the document complies with the specific requirements of the jurisdiction's secretary of state or corporations division by reviewing the agency's published guidelines, forms, and instructions available on their official website or through direct inquiry. Confirm that all mandatory content elements required by the applicable business corporation act, limited liability company act, or partnership statute have been included and properly addressed with specific statutory citations.\n\nReview the document for internal consistency and accuracy by verifying that all factual statements are accurate and supported by underlying documentation with specific exhibit references, all financial figures reconcile across different sections of the report with cross-references to supporting schedules, all referenced exhibits are actually attached and properly labeled with clear exhibit numbers or letters, and all cross-references within the document are correct and functional. Verify that the document uses clear, precise legal language appropriate for filing with state authorities and potential review by courts, creditors, regulatory agencies, or other interested parties.\n\nEnsure the document is organized logically with a clear hierarchical structure using numbered sections and subsections, descriptive headings that accurately reflect the content of each section, and a professional format that facilitates review and reference. Confirm that all dates are accurate and presented consistently in a single format throughout the document, all entity names and personal names are spelled correctly and consistently with exact conformity to official records, all monetary amounts are clearly stated with dollar signs and decimal points, properly totaled with verification of mathematical accuracy, and all legal citations to statutes, regulations, or governing documents are accurate and complete in proper legal citation format.\n\nThe completed Final Report of Dissolution should provide a comprehensive, legally sufficient record that demonstrates full compliance with all dissolution requirements, protects the entity's owners and managers from future liability by showing proper satisfaction of all obligations, provides complete transparency regarding the disposition of assets and satisfaction of liabilities, and allows the state to formally close its records regarding the entity with confidence that all legal requirements have been satisfied. The document should be sufficiently detailed and well-supported that it could withstand scrutiny in any subsequent legal proceeding or regulatory inquiry, while remaining clear and accessible to all stakeholders who may need to review it.",
+  "parent_skill_id": "a268f17a-bb00-4f1c-b9bf-16df265c8942",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "closing"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_dissolution"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:40:52.565547Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:40:52.834596Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:40:53.903021Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:40:54.750057Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e25fab364aad-SJC)
+2026-02-23T21:40:55.906533Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e2662c47f94b-SJC)
+2026-02-23T21:40:57.482661Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e27008ea055e-SJC)
+2026-02-23T21:40:59.645346Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e27e189077a8-SJC)
+2026-02-23T21:41:03.629309Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e29759651d41-SJC
+codex
+---
+name: final-report-of-dissolution
+description: Drafts a U.S. final report of dissolution for corporate/LLC closings, turning collected dissolution records into a filing-grade memorandum of winding-up actions, creditor handling, distributions, and tax/regulatory closure. Use after an authorized dissolution when counsel needs a defensible final compliance record for state filing, internal review, or litigation readiness. Trigger keywords: final report of dissolution, winding up, articles/certificate of dissolution, creditor notice, claims resolution, distribution schedule, tax clearance, director/officer certification.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+    - Research
+    - Analysis
+---
+
+# Final Report of Dissolution
+
+Produces a structured, evidence-backed final report that proves compliant dissolution and protects owners and managers by documenting all required steps and supporting records.
+
+## Prerequisites
+
+1. Entity identity package: legal name (exact), entity type, formation docs, entity number, jurisdiction, current and historical addresses.
+2. Governing documents: operating agreement/articles/bylaws, amendments, member/board governance rules, dissolution and distribution provisions.
+3. Dissolution authorization evidence: meeting minutes/consent records, vote counts, thresholds met, resolution text, triggering event if any.
+4. Core financial dataset: opening books, schedules of assets/liabilities, collections, liquidations, distributions, tax balances, and related ledgers.
+5. Evidence of all creditor interaction: notices, publication proofs, claims logs, payment/reserve decisions, litigation status.
+6. Tax and regulator package: final federal/state/local filings, liabilities paid/credits, clearance confirmations, license/permit closures, foreign qualification withdrawals.
+7. Filing requirements: target jurisdiction filing instructions, required language, exhibit labels, signature/notarization rules.
+8. Draft quality gates: reconciliation model for totals and a cross-reference plan to exhibits.
+
+## Output Structure / Process
+
+1. Define scope and jurisdictional statute map.
+   - Confirm dissolution method: voluntary/administrative/judicial.
+   - Pull current state business entity and tax authority instructions before drafting.
+   - Record any entity-specific statutory obligations and filing sequence.
+
+2. Build source inventory and evidence map.
+
+| Section | Inputs | Required exhibit evidence | [VERIFY] |
+|---|---|---|---|
+| Identity & background | formation papers, amendments, office history | certified formation docs, historical records | jurisdiction statute links |
+| Authorization | board/member actions, notices, vote evidence | minutes/consents, attendance, proxies | entity statute vote thresholds |
+| Winding up process | notices, claim logs, operations closure records | notice proofs, publication proofs, settlement docs | publication timing and content rules |
+| Assets/liabilities | accounting records, valuations, payroll | schedules, invoices, payment proofs | state asset distribution rules |
+| Tax/regulatory closure | final returns, account closure docs | tax confirmations, clearance certificates | final filing and clearance requirements |
+| Certifications | officer statements, signatures | officer IDs, powers, signatory authority | notary/affirmation rules |
+
+3. Draft the report in this section order:
+
+```text
+FINAL REPORT OF DISSOLUTION
+1. Cover and Jurisdictional Basis
+2. Entity History and Structure
+3. Authorization of Dissolution
+4. Winding-Up Narrative
+5. Asset Inventory and Disposition
+6. Liability and Claim Resolution
+7. Distribution to Equity Holders
+8. Tax and Regulatory Compliance
+9. Foreign Qualification & Permit Closures
+10. Supporting Exhibits and Index
+11. Certifications and Signatures
+12. Final Compliance Checklist
+```
+
+4. Insert mandatory factual blocks in each section using this schema.
+
+```markdown
+Section [#] — [Title]
+Summary:
+Facts:
+Support:
+Cross-reference:
+Risk/Gap:
+```
+
+5. Use tables for all numeric schedules and legal-compliance gates.
+   - Asset disposition table: asset class, acquisition basis, valuation basis, method of disposal/distribution, date, proceeds/applicable recipient.
+   - Liability table: creditor, claim type, claimed amount, investigation result, negotiated outcome, payment/reserve date, exhibit.
+   - Distribution table: owner, percentage basis/class rights, amount/value type, payment method, date.
+
+6. Add jurisdiction notes explicitly as placeholders where laws vary.
+   - Statement template: `State authority requirement: [insert exact statute/regulation and subsection] [VERIFY].`
+   - Never omit: tax clearance, publication, creditor notice method, filing form variants, and affidavit/notary format.
+
+7. Populate a final quality pass matrix and stop only when all rows are marked complete.
+
+| Check | Pass/Fail |
+|---|---|
+| Every substantive assertion has exhibit support |  |
+| All totals reconcile across schedules and narrative |  |
+| Statute and rule references are current and jurisdiction-specific |  |
+| Distribution priority confirms creditor satisfaction precedes equity payout |  |
+| Signature block matches state and governance requirements |  |
+| Exhibit index is complete and file names/letters are valid |  |
+
+8. Emit final deliverable package:
+- Draft report in full.
+- Exhibit index + exhibit file map.
+- Open issues list (if any unresolved item remains: why unresolved + impact + remediation step).
+
+## Guidelines
+
+1. Treat statutes as jurisdiction-specific. Do not carry over another state’s language without verifying current authority.
+2. Use consistent names and dates; preserve the exact entity name spelling from filings.
+3. Do not leave unsupported assertions; every paragraph in authorization, notice, taxes, and distribution must have an exhibit citation.
+4. Prioritize creditor protection and liability clarity over narrative style.
+5. Keep money figures and dates in one format for the entire report.
+6. Document contingent liabilities and disputed claims with explicit reserve/provision mechanics, not soft language.
+7. Record any legal uncertainty with `[VERIFY]` and prevent finalization until cleared or explicitly surfaced as open issue.
+tokens used
+7,988

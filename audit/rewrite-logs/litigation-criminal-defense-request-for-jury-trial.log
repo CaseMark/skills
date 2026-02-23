@@ -1,0 +1,200 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-29cc-7332-909e-62c281eaac84
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "68d866fb-2bc7-441e-bb84-017a97d730a9",
+  "slug": "litigation-criminal-defense-request-for-jury-trial",
+  "name": "Request for Jury Trial",
+  "summary": "Drafts a formal Request for Jury Trial document to invoke constitutional rights under the Sixth or Seventh Amendments in criminal or civil litigation. Ensures compliance with federal and state procedural rules, including timely filing deadlines to avoid waiver. Used during pleadings or pre-trial phases to elect jury over bench trial.",
+  "content": "# Request for Jury Trial - Professional Legal Workflow\n\nYou are tasked with drafting a formal Request for Jury Trial, a critical litigation document through which a party exercises their constitutional right to have their case adjudicated by a jury rather than by a judge alone. This document must be precise, professionally formatted, and compliant with both federal constitutional requirements and applicable jurisdictional procedural rules.\n\n## Understanding the Legal Context and Purpose\n\nThe Request for Jury Trial is a foundational procedural document that invokes constitutional rights under the Sixth Amendment to the United States Constitution in criminal matters, and the Seventh Amendment in civil cases, along with corresponding state constitutional provisions. This demand must be timely filed according to jurisdictional rules, as failure to properly request a jury trial within statutory deadlines may result in waiver of this fundamental right. The document serves as formal notice to the court and opposing parties that the requesting party elects jury trial over bench trial, triggering specific procedural consequences including jury selection processes, different evidentiary considerations, altered trial preparation timelines, and potential jury fee requirements.\n\nBefore drafting, you should thoroughly review any case file documents that have been provided to extract essential information including the exact court name and jurisdiction, complete case caption with proper party designations, assigned case number, nature of the action (criminal or civil), and any relevant procedural history that might affect timing requirements. Search through uploaded pleadings, court orders, and correspondence to identify the filing deadline for the jury demand, which varies significantly by jurisdiction and case type. In federal civil cases, Rule 38 of the Federal Rules of Civil Procedure typically requires the demand within 14 days after service of the last pleading directed to the issue, while state courts may have different timeframes ranging from the initial responsive pleading to 10 days before trial.\n\n## Essential Document Components and Structure\n\nThe document must begin with a complete and properly formatted caption that identifies the court of jurisdiction with its full formal name, the case number exactly as assigned by the clerk, and the complete legal names of all parties with their proper designations as plaintiff, defendant, petitioner, respondent, or other applicable titles. The caption formatting should conform to local court rules, which typically require centered text with party names in all capital letters, though some jurisdictions have specific electronic filing templates that must be followed.\n\nThe title of the document should be clear and unambiguous, typically styled as \"DEFENDANT'S REQUEST FOR JURY TRIAL\" or \"DEMAND FOR JURY TRIAL\" depending on jurisdictional preference and whether the party is plaintiff or defendant. Some courts prefer \"demand\" language while others accept \"request,\" so verify local practice through the court's rules or recent filings in similar cases.\n\nThe body of the document should contain a clear, unequivocal demand for jury trial that references the applicable constitutional and statutory authority. In criminal cases, cite the Sixth Amendment to the United States Constitution and the corresponding state constitutional provision. In civil cases, reference the Seventh Amendment for federal court or the applicable state constitutional and statutory provisions for state court. The language must be formal and declarative, stating that the party \"hereby demands trial by jury on all issues so triable\" or similar definitive phrasing. Avoid conditional, tentative, or ambiguous language that might be construed as anything less than an absolute invocation of this right.\n\nDetermine whether the jurisdiction requires specification of particular issues for jury determination or whether a general demand suffices. Some courts require parties to specify whether they demand a jury on all triable issues or only certain claims, particularly in complex civil litigation involving both legal and equitable claims. If the case involves multiple claims or parties, consider whether a blanket demand covers all issues or whether specific designation is prudent to preserve all jury trial rights.\n\n## Jurisdictional Compliance and Procedural Requirements\n\nResearch and incorporate the specific procedural requirements of the jurisdiction where the case is pending by examining the court's local rules, standing orders, and any case-specific scheduling orders that may affect the jury demand. Different courts impose varying deadlines for filing jury demands, ranging from the initial appearance or responsive pleading to specific days before trial. Federal courts follow the Federal Rules of Civil Procedure Rule 38 or Federal Rules of Criminal Procedure Rule 23, but local rules may impose additional requirements such as mandatory cover sheets, specific document titles, or electronic filing category selections.\n\nVerify whether the jurisdiction requires payment of a jury fee contemporaneously with filing the demand, as many courts condition the jury trial right on timely payment of statutory fees that can range from nominal amounts to several hundred dollars. Some jurisdictions allow fee waivers for indigent parties, which may require a separate motion and supporting affidavit. Determine if the fee must be paid at the time of filing or within a specified period thereafter, and include appropriate instructions or notations about fee payment in your final document preparation notes.\n\nConfirm the service requirements for the jury demand, as most jurisdictions require service on all parties of record. Some courts require the demand to be filed as a separate standalone document, while others permit it to be included within the answer, responsive pleading, or other filing. If separate filing is required, prepare a certificate of service that specifies the method of service (electronic, mail, hand delivery), the date of service, and the names and addresses of all parties served. For electronic filing systems, ensure the document is served through the court's electronic service system if mandatory, or through traditional methods if permitted or required.\n\n## Professional Formatting and Style Standards\n\nFormat the document in professional legal style using standard court-approved fonts, typically Times New Roman, Courier, or Arial in 12-point size, with appropriate margins of one inch on all sides unless local rules specify otherwise. Use double-spacing for the body text in most jurisdictions, though some courts require 1.5 spacing or have different requirements for electronic filings. Number all pages except the first page, typically in the footer, and include a footer with the abbreviated case name and number on each page for easy identification.\n\nThe signature block must contain complete attorney information including the attorney's full name, state bar number, firm name and address, telephone number, fax number if applicable, email address, and designation as \"Attorney for [Party Name].\" Leave appropriate space for physical signature if filing in paper format, or include electronic signature notation such as \"/s/ [Attorney Name]\" for electronic filings in compliance with E-Sign Act requirements and local electronic filing rules. Add a date line that will reflect when the document is executed and filed, which may be critical for calculating subsequent deadlines.\n\nThe tone throughout must be formal, respectful, and befitting a court filing that becomes part of the permanent record. Avoid colloquialisms, contractions, informal language, or argumentative statements, as this is a procedural demand rather than a persuasive brief. Every statement should be direct and purposeful, using clear legal terminology without unnecessary verbosity. The document should convey professionalism and competence while remaining accessible to all participants in the judicial process.\n\n## Quality Assurance and Final Deliverable\n\nThe final document should be a court-ready filing that can be immediately submitted to the clerk's office either through the electronic filing system or in paper format according to court requirements. It must be complete with all required elements, properly formatted according to applicable court rules, and free from typographical, grammatical, or formatting errors that could undermine its professional presentation or legal effectiveness. The document should typically be one to two pages in length, as brevity and clarity are highly valued in procedural filings, though complex cases with multiple parties or claims may require additional length for proper specification.\n\nBefore finalizing, verify that all case-specific information has been accurately incorporated, including correct spelling of all party names, accurate case number with proper formatting, and precise court designation. Confirm that the filing deadline has been met with adequate margin for any technical filing issues, and that all prerequisite conditions such as fee payment or prior pleading requirements have been satisfied. Double-check that the document complies with any page limits, formatting requirements, or content restrictions imposed by local rules or standing orders.\n\nPrepare the document for filing by saving it in the required file format, typically PDF for electronic filing, with appropriate naming conventions that include the case number and clear document description such as \"2024-CV-12345_Jury_Demand.pdf\" or according to the court's specified naming protocol. Include all necessary metadata for electronic filing systems such as document type designation, party filing the document, and any required category selections from dropdown menus. If the court requires a proposed order or any accompanying documents, prepare those as well with appropriate cross-references.\n\nProvide a brief filing checklist or instruction note that identifies any additional steps required after document preparation, such as jury fee payment procedures, service requirements, or courtesy copy obligations to the assigned judge. This ensures that the attorney or staff member handling the filing has complete information to properly effectuate the jury demand and preserve the client's constitutional right to jury trial.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "pre-trial"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:30.507372Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:30.704613Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:31.858326Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:32.590168Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c33d9b3708-SJC)
+2026-02-23T21:42:33.562406Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c92f1642ae-SJC)
+2026-02-23T21:42:35.038415Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4d26d17c52e-SJC)
+2026-02-23T21:42:37.183844Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4dfde8212a1-SJC)
+2026-02-23T21:42:41.193285Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4f8ffd0df5d-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-criminal-defense-request-for-jury-trial-tz9wt5wg.md
+
+STDOUT:
+

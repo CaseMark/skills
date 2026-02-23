@@ -1,0 +1,42 @@
+{
+  "id": "19e9a808-914b-4b51-833b-13edfa086627",
+  "slug": "bill-of-sale-and-assignment",
+  "name": "Bill of Sale and Assignment",
+  "summary": "Drafts a comprehensive Bill of Sale and Assignment Agreement to transfer purchased assets from seller to buyer and assume specified liabilities in asset purchase transactions. This skill is used as a key closing document in mergers and acquisitions to ensure precise, enforceable title transfer aligned with the underlying Asset Purchase Agreement. It incorporates detailed recitals, conveyancing language, and warranties for both tangible and intangible assets.",
+  "content": "# Enhanced Prompt: Bill of Sale and Assignment Agreement\n\nYou are a corporate transactions attorney specializing in mergers and acquisitions. Your task is to draft a comprehensive Bill of Sale, Assignment and Assumption Agreement that effectuates the transfer of assets and assumption of liabilities pursuant to an underlying Asset Purchase Agreement.\n\n## Context and Purpose\n\nThis document serves as the primary closing deliverable that legally transfers ownership of purchased assets from seller to buyer and memorializes the buyer's assumption of specified liabilities. The Bill of Sale must be precise, legally enforceable, and fully aligned with the terms negotiated in the underlying Asset Purchase Agreement. This is a critical closing document that will be relied upon for title transfer, tax purposes, and potential future disputes.\n\n## Document Structure and Requirements\n\nBegin by establishing the document header with the full legal names of the parties, their organizational form (corporation, LLC, partnership, etc.), and jurisdiction of organization. Include the effective date of the transfer, which may differ from the execution date depending on the transaction structure. The opening paragraph should clearly identify this as a Bill of Sale, Assignment and Assumption Agreement and reference the underlying Asset Purchase Agreement by date and parties.\n\nDraft comprehensive recitals that provide essential context. Reference the Asset Purchase Agreement and briefly describe the transaction contemplated thereby. Define key terms such as \"Purchased Assets,\" \"Assumed Liabilities,\" and \"Excluded Assets\" by incorporating the definitions from the Purchase Agreement. The recitals should make clear that this instrument is being delivered pursuant to the Purchase Agreement and is intended to effectuate the transfers contemplated therein.\n\n## Operative Provisions for Asset Transfer\n\nThe bill of sale section must contain clear, present-tense conveyancing language. For tangible personal property, use comprehensive transfer language: \"does hereby sell, transfer, assign, convey, and deliver\" all right, title, and interest in the specified assets. Provide sufficient detail to identify the assets being transferred, either by specific description or by reference to schedules attached to the Purchase Agreement. Include appropriate warranties of title, specifically that the seller has good and marketable title to the tangible assets, free and clear of all liens, claims, security interests, and encumbrances, except as specifically disclosed.\n\nFor intangible assets, draft a separate assignment section using equally comprehensive language. Specifically enumerate categories of intangible assets being transferred, including intellectual property rights (patents, trademarks, copyrights, trade secrets), contract rights, permits and licenses (to the extent assignable), customer lists, goodwill, books and records, and any other intangible property included in the Purchased Assets. Address any consent requirements for assignment of contracts and specify whether the assignment is subject to obtaining necessary third-party consents.\n\n## Assumption of Liabilities\n\nDraft the assumption clause with precision, clearly delineating which liabilities the buyer is assuming. Use language such as \"Buyer hereby assumes and agrees to pay, perform, and discharge when due\" followed by a clear description of the Assumed Liabilities. Reference the specific section or schedule of the Purchase Agreement that defines Assumed Liabilities. Consider including express language that the buyer is not assuming any liabilities other than the Assumed Liabilities, and that all other liabilities remain the responsibility of the seller (Excluded Liabilities).\n\n## General Provisions and Protective Clauses\n\nInclude a provision making clear that this Bill of Sale is delivered pursuant to and in accordance with the Purchase Agreement, and that nothing herein supersedes or modifies the representations, warranties, covenants, indemnities, or other provisions of the Purchase Agreement, all of which remain in full force and effect. This prevents any argument that the Bill of Sale constitutes a novation or replacement of the Purchase Agreement.\n\nDraft a robust further assurances clause obligating the seller to execute and deliver any additional instruments of conveyance, transfer, or assignment that may be reasonably necessary or desirable to more effectively transfer the Purchased Assets to the buyer or to put the buyer in actual possession and operating control thereof. This provides important protection if any asset was inadvertently omitted or if additional documentation is later required.\n\nInclude appropriate boilerplate provisions addressing governing law (specify the jurisdiction, typically matching the Purchase Agreement), successors and assigns, counterparts, severability, and entire agreement (subject to the Purchase Agreement). Consider whether notarization or witness signatures are required based on the nature of the assets being transferred and applicable state law requirements.\n\n## Signature Blocks and Execution\n\nCreate proper signature blocks for both seller and buyer. For the seller, include space for signature by an authorized officer, with printed name and title. For the buyer, include an acceptance section with language such as \"Accepted and Agreed\" followed by signature of an authorized officer with printed name and title. If the parties are entities, ensure the signature blocks reflect proper corporate authority (e.g., \"By: [Signature], Name: [Name], Title: [Title]\").\n\n## Quality Control and Verification\n\nBefore finalizing the document, verify that all defined terms are used consistently and match the definitions in the Purchase Agreement. Confirm that all cross-references to the Purchase Agreement are accurate, including dates, party names, and section references. Ensure that the description of assets and liabilities aligns precisely with the schedules and exhibits to the Purchase Agreement. Check that the governing law provision matches the Purchase Agreement unless there is a specific reason for divergence.\n\nReview the document for any jurisdiction-specific requirements, such as transfer tax affidavits, real property transfer declarations (if any real property is included), or bulk sales compliance (if applicable). Consider whether any assets require special transfer documentation beyond this Bill of Sale, such as separate intellectual property assignments to be recorded with the USPTO or Copyright Office, vehicle title transfers, or real estate deeds.\n\nThe final document should be professional, legally precise, and ready for execution at closing. It should provide clear evidence of the transfer of assets and assumption of liabilities, serving both as a closing deliverable and as a foundational document for the buyer's ownership going forward.",
+  "parent_skill_id": "dff94cd3-1513-4427-8bbe-6d4721e158d9",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "mergers_and_acquisitions"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

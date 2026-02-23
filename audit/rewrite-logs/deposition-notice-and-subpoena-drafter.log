@@ -1,0 +1,304 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7e-14ff-7812-a76e-20cfc3e10691
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d89350fa-c4ec-4689-811c-a87f5a81e4d3",
+  "slug": "deposition-notice-and-subpoena-drafter",
+  "name": "Deposition Notice and Subpoena Drafter",
+  "summary": "This skill guides drafting and initiating federal deposition notices under FRCP 30(b)(1) and 30(b)(6) and deposition and document subpoenas under FRCP 45. It emphasizes enforceability, proportionality, and adversarial defensibility, covering procedural vehicle selection, the reasonable particularity standard for 30(b)(6) topics, Rule 45 territorial limits and service requirements, and ESI and confidentiality handling. The skill embeds professional responsibility constraints and practical timing traps (including Rule 34's 30-day response period for document requests accompanying deposition notices) and requires attorney verification for all local-rule and jurisdiction-specific variations before use.",
+  "content": "# Deposition Notice and Subpoena Drafter (FRCP 30(b)(1), 30(b)(6), and Rule 45)\n\n## 1. Opening Context\n\nThis skill produces court-ready deposition notices under Federal Rule of Civil Procedure 30(b)(1) (individual depositions) and 30(b)(6) (organization depositions), and deposition subpoenas\u2014including subpoenas duces tecum\u2014under Federal Rule of Civil Procedure 45. These documents are the procedural \"start signal\" for a deposition: they define the who, what, when, where, and how of the examination, create enforceable obligations, and shape everything that follows in the deposition lifecycle.\n\nIn competent practice, a well-drafted notice or subpoena does not merely schedule a witness. It anticipates objections, preserves leverage for motion practice, and reduces downstream discovery disputes. Poor execution, by contrast, creates avoidable risk. Overbroad or vague 30(b)(6) topics invite objections, meet-and-confer delays, protective orders, and unusable testimony. Improper Rule 45 service, a flawed place-of-compliance selection, or an unreasonably short return date can render a subpoena unenforceable, waste the deposition slot, and trigger sanctions or fee shifting. A failure to specify video recording in the notice can result in an objection that forces postponement.\n\nGood execution looks like this: a notice or subpoena that tracks the governing rules and local practice; scoped requests tailored to claims, defenses, and proportionality limits; enforceability through proper issuance, service, and compliance location; and an evidentiary record that supports follow-on motions to compel, for a protective order, or for sanctions if needed. This work is governed primarily by FRCP 26, 30, 37, and 45, and by any applicable court scheduling order and local rules, with ethical constraints arising from the ABA Model Rules of Professional Conduct.\n\nScope boundaries: This skill covers drafting and procedural initiation\u2014notice and subpoena language, compliance mechanics, and defensibility. It does not cover witness examination outlines, deposition conduct rules, privilege log preparation, protective order drafting, or full motion-to-compel briefing, though it instructs how to draft in a way that supports those next steps.\n\n## 2. Understanding the Context and Purpose\n\nA deposition notice or subpoena is not an administrative formality; it is a strategic discovery instrument. The notice defines the examination event and\u2014especially in a 30(b)(6) setting\u2014defines the organization's duty to designate, prepare, and present binding testimony on designated topics. The subpoena, by contrast, is the mechanism that compels a nonparty's attendance, testimony, and production, carrying specific enforcement and protection features that differ materially from party discovery.\n\nThese documents play a role early in the deposition lifecycle and shape everything downstream: preparation time, meet-and-confer posture, motion practice, sequencing of witnesses, and the evidentiary record for dispositive motions or trial. While the immediate recipients are opposing counsel, the witness, and any court reporter or videographer, judges and magistrate judges often become the ultimate readers when the parties dispute scope, burdens, or compliance. Drafting choices should assume a skeptical third party will evaluate whether the discovery sought is relevant and proportional, whether the subpoena imposes undue burden, whether the place and manner of compliance are proper, and whether counsel engaged in reasonable, cooperative discovery conduct.\n\nStrategically, competent attorneys use these instruments to lock in testimony tied to elements of claims and defenses, authenticate documents, explore damages and defenses, identify custodians and systems, and preserve impeachment material. For 30(b)(6) depositions, the goal is often to secure \"organizational knowledge\" that cannot be evaded by presenting an unprepared witness, but the tradeoff is that topics must be drafted with enough specificity to be enforceable and fair. For Rule 45 subpoenas, the goal is often to obtain third-party records or testimony efficiently, but the tradeoff is stricter protections for nonparties and precise compliance mechanics.\n\nAttorneys must also weigh whether to include a request for production of documents with the notice. Under Rule 30(b)(2), if a party is asked to bring documents to a deposition, the procedures of Rule 34 apply, including the 30-day response period. This timing discrepancy often requires strategic planning to ensure documents are received and reviewed before the witness sits in the chair. A common trap for newer practitioners is noticing a deposition for 14 days out and including a document request\u2014the party can legally appear without the documents because Rule 34's 30-day response period has not elapsed.\n\n## 3. Prerequisites and Information Gathering\n\nBefore drafting, the LLM must assemble the procedural and factual foundation that makes the notice or subpoena enforceable and strategically aligned. If any required information is missing, the LLM must pause and ask targeted follow-up questions rather than guess.\n\nThe minimum required inputs are as follows. First, the case caption and court information: the exact court name, case number, party designations, and assigned judge or magistrate. Second, deponent details: the full legal name of the individual (verified against the record) or the exact legal name of the entity (as it appears in Secretary of State records or the docket, distinguishing \"LLC\" from \"Inc.\" and similar variations). For nonparties, a physical address for personal service is mandatory. Third, the deponent's status: whether the witness is a party, a current employee of a party, a former employee, or an unaffiliated nonparty. This classification determines the correct procedural vehicle and service method. Fourth, scheduling logistics: the proposed date, time (with time zone for remote depositions), specific location (physical address or remote platform and login details), and proposed duration. Fifth, the recording method: stenographic only, or stenographic and audiovisual\u2014critical under Rule 30(b)(3)(A), because the noticing party bears the recording cost and a failure to specify video in the notice can result in an objection to the videographer's presence. Sixth, if the deponent is an entity, a list of proposed matters for examination (30(b)(6) topics) with sufficient detail to support the reasonable particularity standard. Seventh, any document requests to accompany the notice or subpoena (\"Schedule A\"). Eighth, the court's current scheduling order, including discovery cutoff dates, deposition limits, and any sequencing requirements. Ninth, any existing protective order or confidentiality stipulation. Tenth, prior discovery served and received that bears on the deposition topics, including interrogatory responses and document productions.\n\nFor Rule 45 subpoenas specifically, gather the physical location where compliance will be required, the witness's residence or place of employment or regular place of business, whether documents will be produced electronically or in hard copy, and the applicable witness fee and mileage amount under 28 U.S.C. \u00a7 1821.\n\nSubstantively, the drafter needs a clear mapping between claims or defenses and the intended testimony or document categories. The LLM should ask the user\u2014or infer from the pleadings and confirm\u2014the top five to ten factual propositions to prove or negate, and which witness or entity is most likely to have knowledge. For a 30(b)(6) notice, collect proposed topic areas and the business functions likely to hold responsive information.\n\nDo not guess local rule deadlines, minimum notice periods, or service quirks. If local rules are unavailable, flag the gap for attorney verification.\n\n## 4. Step-by-Step Process\n\n### Step 1: Classify the Deposition Mechanism and Select the Correct Instrument\n\nBegin by determining which procedural vehicle applies. For party individuals, use Rule 30(b)(1). A deposition notice served on party counsel is sufficient to compel attendance; no subpoena is required. For party entities, use Rule 30(b)(6). The notice must name the entity as the deponent and include the required matters for examination described with reasonable particularity. The entity then has the duty to designate one or more appropriate persons to testify. For nonparties, you must use Rule 45 to issue a subpoena. A simple notice is legally insufficient to compel a nonparty's attendance. The subpoena must be personally served, and attendance fees (witness fee and mileage) must be tendered at the time of service as required by 28 U.S.C. \u00a7 1821 and Rule 45(b)(1). A combination of instruments is common\u2014for instance, noticing a party entity under 30(b)(6) while also issuing a Rule 45 subpoena to a nonparty custodian who holds relevant records.\n\nA critical and frequently litigated classification issue involves former employees. A former employee of a party is typically a nonparty. You cannot notice a former CFO under Rule 30(b)(1) if they are no longer employed by the party; you must subpoena them under Rule 45. Similarly, do not issue a Rule 45 subpoena to a represented party\u2014this can trigger unnecessary motion practice and signals unfamiliarity with the rules.\n\nExecute this step by writing a single sentence stating the purpose of the deposition\u2014for example, \"to obtain binding organizational testimony on Policy X, System Y, and Decision Z,\" or \"to examine Witness A about firsthand negotiations and contemporaneous communications.\" If you cannot write that sentence, the deposition is not ready to notice, because a bloated or unfocused notice will invite proportionality objections under Rule 26(b)(1).\n\nAdversarial awareness: opposing counsel will exploit any mismatch between tool and target. A vague 30(b)(6) notice will be met with a demand to narrow topics and a threat of a protective order. An improperly served subpoena will be ignored until the deposition window closes.\n\n### Step 2: Confirm Timing, Sequencing, and Logistical Constraints\n\nAnchor the deposition in the case schedule and the rules' procedural constraints. Under Rule 30(d)(1), the default deposition duration is one day of seven hours unless otherwise stipulated or ordered. Confirm the numerical limit of ten depositions per side under Rule 30(a)(2)(A)(i) and whether leave of court is required. Under Rule 45, confirm the time needed for service, the objection window, and compliance.\n\nRule 30 does not specify a minimum number of days for notice, requiring only \"reasonable notice in writing.\" In practice, at least ten to fourteen days is generally considered reasonable in federal courts, though complexity, witness location, and local rules may dictate longer periods. Some districts impose specific minimum notice periods\u2014the LLM must verify the applicable local rule before finalizing the date.\n\nIf the notice includes a document request under Rule 30(b)(2), remember that Rule 34's 30-day response period applies. This means you must either serve the notice at least 30 days before the deposition or sequence the document production separately.\n\nFor Rule 45 subpoenas commanding document production, build in adequate time for the nonparty to receive the subpoena, review for privilege and confidentiality, object if warranted (within 14 days of service under Rule 45(d)(2)(B)), and produce. The drafting should demonstrate that you have taken reasonable steps to avoid imposing undue burden or expense on the person subject to the subpoena, as required by Rule 45(d)(1).\n\nBuild a mini-timeline: desired deposition date, latest feasible service date, time for objections and negotiations, and fallback motion deadlines before discovery cutoff. If local deadlines cannot be confirmed, flag them for attorney verification.\n\nAdversarial awareness: opposing counsel may agree to a date in principle but later claim inadequate notice or unavailability. Protect against this by documenting date conferrals in writing.\n\n### Step 3: Draft the Rule 30(b)(1) Deposition Notice\n\nA Rule 30(b)(1) notice must state the time and place of the deposition and, if known, the deponent's name and address. Competent drafting also specifies the method of recording under Rule 30(b)(3). Use a caption matching the court's docket; identify the noticing party; specify date, time, and time zone; identify the location (physical address or remote platform); identify the deposition officer or state that the deposition will be before a duly authorized officer; and specify the recording method.\n\nIf you intend to use video testimony at trial, you must state in the notice that the deposition will be recorded by audiovisual means. Omitting this language is a waiver that opposing counsel can exploit by objecting to the videographer's presence on the day of the deposition.\n\nThe following is illustrative example language: \"PLEASE TAKE NOTICE that, pursuant to Federal Rule of Civil Procedure 30(b)(1), Plaintiff will take the deposition upon oral examination of John Doe on March 15, 2026, at 10:00 a.m. Eastern Time, at [physical address] [or via remote videoconference using Zoom, with access details to follow]. The deposition will be recorded by stenographic and audiovisual means and conducted before a duly authorized officer. The deposition will proceed from day to day until completed.\"\n\nCommon mistakes include omitting the time zone for remote depositions, failing to specify the recording method, selecting an ambiguous \"place\" for remote depositions without clarifying the platform and access, and failing to consider whether Rule 30(a)(2) leave is required because the deposition limit has been reached.\n\nAdversarial awareness: a notice that appears designed to harass\u2014inconvenient timing, an unnecessarily distant location\u2014can support a protective order motion under Rule 26(c). Choose reasonable logistics and be prepared to justify them under proportionality and burden principles.\n\n### Step 4: Draft Rule 30(b)(6) Topics with Enforceable Precision\n\nThe 30(b)(6) notice is most effective when it reads like a well-constructed outline of the organization's relevant knowledge, not a catch-all. The rule requires the notice to \"describe with reasonable particularity the matters for examination,\" and the organization must then designate one or more persons to testify and must prepare them to testify about information known or reasonably available to the organization.\n\nThe legal and strategic challenge is satisfying the \"reasonable particularity\" standard. Topics that are too broad\u2014such as \"all facts supporting your defenses\" or \"the facts and circumstances alleged in the Complaint\"\u2014will be struck by courts as failing the particularity test. Topics that are too narrow may miss critical testimony or allow the organization to cabin its preparation.\n\nDraft topics that satisfy three criteria: they are tied to pleaded claims or defenses and to Rule 26(b)(1) relevance and proportionality; they are limited by defined time period, product line, geography, or transaction; and they are written at a level that a designee can prepare from documents and interviews.\n\nA strong approach drafts topic sets in layers. Start with foundational topics\u2014organizational structure, key personnel roles, and document retention systems. Move to event-specific topics\u2014the transaction, incident, or policy decision at issue. Then address damages and remediation topics if relevant and non-privileged. Where privilege is likely implicated\u2014legal advice, internal investigations\u2014draft around it by focusing on underlying facts, non-privileged communications, and actions taken, while acknowledging privilege boundaries.\n\nAvoid using \"including but not limited to\" to define the scope of a topic, as courts have found this formulation can violate the reasonable particularity requirement. That phrase is appropriate when listing examples within a defined topic but not when it effectively makes the topic open-ended.\n\nThe following are illustrative example topics:\n\n\"Topic 4: The negotiation, execution, and performance of the Supply Agreement dated April 2, 2024 between Acme Corp. and Beta LLC, including (a) the identities and roles of participants in negotiations, (b) the timeline of draft exchanges, (c) non-privileged communications regarding pricing and delivery terms, and (d) the bases for Acme Corp.'s contention that delivery deadlines were modified, limited to the period January 1, 2024 through December 31, 2024.\"\n\n\"Topic 7: Acme Corp.'s document retention and electronic-messaging preservation practices applicable to the Procurement Department for the period January 1, 2023 through present, including systems used, retention periods, and steps taken to preserve documents relevant to this litigation.\"\n\nCommon mistakes include copying interrogatory language verbatim into 30(b)(6) topics, failing to define key terms (\"Product,\" \"Incident,\" \"Customer\"), omitting time boundaries, and including topics that demand legal conclusions rather than facts.\n\nAdversarial awareness: opposing counsel may designate an underprepared witness and later argue the topics were unclear. Draft topics so that a judge can see they are clear and manageable. Build a record: send a meet-and-confer letter offering to clarify topics and identifying the connection to the pleadings and prior discovery. If the entity fails to prepare an adequate designee after receiving a properly drafted notice, the noticing party may be entitled to attorney's fees and a second deposition under the court's inherent authority and Rule 37.\n\n### Step 5: Draft the Rule 45 Subpoena for Testimony and Documents\n\nA Rule 45 subpoena must be issued from the court where the action is pending, state the court and title of the action, include the civil-action number, and command each person to whom it is directed to attend and testify, produce documents or ESI, or permit inspection. The subpoena must set out the text of Rule 45(d) and (e) as required by Rule 45(a)(1)(A)(iv). Use the AO 88A form for testimony subpoenas and the AO 88B form for document-only subpoenas where required or customary.\n\nFirst, decide whether the subpoena is for a deposition appearance, records only, or both. If you seek both documents and testimony, consider sequencing: demanding extensive production \"at the deposition\" can be burdensome and invites objections. It is often more effective to command production in advance by a specified date and then schedule the deposition after reviewing the documents.\n\nSecond, ensure the place of compliance is lawful. Rule 45(c) imposes mandatory territorial limits that are commonly litigated and frequently dispositive in enforcement disputes. A subpoena may command a person to attend a deposition only within 100 miles of where the person resides, is employed, or regularly transacts business in person. For document-only production, Rule 45(c)(2) permits commanding production at a place within 100 miles of where the person resides, is employed, or regularly transacts business. For remote depositions, the \"place\" is generally considered to be where the deponent is physically located when they participate. Explicitly state that appearance is permitted remotely from the witness's residence or place of business, and confirm that the court and counsel accept remote compliance for this witness and scenario.\n\nThird, draft document requests that are facially proportional. Tie each request to specific issues, use date ranges, avoid untethered \"any and all documents\" phrasing, and provide ESI specifications. If you need metadata or native format, ask for it explicitly. Provide a reasonable production format and reference the existing protective order or propose confidentiality treatment. Include instructions for privilege assertions and redactions. Remember that courts are particularly sensitive to nonparty burden under Rule 45(d); your subpoena should read as though it was written by someone who expects judicial review.\n\nThe following is illustrative example subpoena request language:\n\n\"Documents sufficient to show all payments made by Defendant to Vendor X relating to Project Y, including invoices, purchase orders, and payment confirmations, for the period January 1, 2023 through December 31, 2024.\"\n\n\"Non-privileged communications between Vendor X and Defendant concerning shipment delays for Product Z, limited to March 1, 2024 through October 31, 2024.\"\n\nFourth, under Rule 45(a)(4), if the subpoena commands the production of documents, electronically stored information, or tangible things, a notice and a copy of the subpoena must be served on each party before it is served on the nonparty person. This pre-service notice to parties is a commonly overlooked requirement.\n\nCommon mistakes include commanding compliance outside Rule 45(c) limits, failing to include the required Rule 45(d) and (e) text, selecting an unreasonably short return date, serving a subpoena without tendering required witness fees and mileage under 28 U.S.C. \u00a7 1821, and issuing overly broad party-style discovery to a nonparty.\n\nAdversarial awareness: recipients and opposing counsel will test enforceability at the weakest point\u2014service defects, compliance location, and undue burden. Draft with motion-to-quash scrutiny in mind. Preempt challenges by narrowing scope, offering cost-shifting discussions where appropriate, and referencing protective-order treatment.\n\n### Step 6: Service, Notice to Parties, and Proof of Service\n\nFor party depositions noticed under Rule 30, service is through counsel under Rule 5, typically via the court's electronic filing system. For nonparty subpoenas, service must comply with Rule 45(b)(1), which requires delivering a copy to the named person and tendering the fees for one day's attendance and the mileage allowed by law (currently set by 28 U.S.C. \u00a7 1821). Personal service is required; you must provide instructions for a process server.\n\nYour draft package for a Rule 45 subpoena should include the subpoena itself (on the AO 88A or 88B form), any attached schedule of document requests and definitions, a notice of deposition if commanding testimony, a certificate or affidavit of service form for the process server, and a cover letter that frames burden-reducing options and confidentiality protections.\n\nThe following is illustrative cover-letter positioning: \"We have limited the requests by date range and subject matter to reduce burden. If you prefer to produce electronically via secure link, or if there are categories that are difficult to retrieve, please contact us within seven days so we can discuss reasonable modifications and, if appropriate, cost allocation consistent with Rule 45(d).\"\n\nCommon mistakes include treating service as an afterthought and losing the ability to enforce, failing to document meet-and-confer efforts, and drafting an aggressive cover letter that undermines later arguments that counsel took reasonable steps to avoid undue burden.\n\nAdversarial awareness: if enforcement becomes necessary, the judge will often look at whether counsel acted reasonably and cooperatively. The drafting and service record should demonstrate proportionality and professionalism.\n\n### Step 7: Integrate Protective Order, Confidentiality, and ESI Handling\n\nDeposition notices and subpoenas frequently implicate confidential business information, trade secrets, personal data, and protected health information. The drafting should incorporate any existing protective order by reference and specify how confidential materials will be handled at deposition\u2014designations on the record, sealing procedures where applicable, and exhibit handling. If no protective order exists and sensitive material is likely, the draft should flag the need to negotiate one before production or deposition.\n\nFor ESI, specify reasonable production formats and reduce friction: define whether emails should include attachments, whether deduplication is permitted, whether search terms are proposed, and whether a metadata load file is required. Avoid rigid demands that a nonparty cannot meet without significant expense; under Rule 45(d), courts may quash or modify subpoenas that impose undue burden.\n\nCommon mistakes include ignoring applicable privacy regimes\u2014such as state employee-privacy laws, HIPAA, or financial-services regulations\u2014and requiring production of privileged internal-investigation materials.\n\n## 5. Critical Legal Standards and Compliance\n\nThis workflow implicates several overlapping legal standards and professional responsibility obligations.\n\nRule 26(g) certification is significant: by signing the notice or subpoena, the attorney certifies that the discovery request is consistent with the rules, not interposed for any improper purpose (such as harassment or unnecessary delay), and not unreasonable or unduly burdensome or expensive considering the needs of the case. Violations of Rule 26(g) can lead to mandatory sanctions.\n\nThe 30(b)(6) duty to educate is an affirmative obligation. If the notice is properly drafted with reasonably particularized topics and the entity designates an unprepared witness, the noticing party may be entitled to attorney's fees and a second deposition. This duty is the core enforcement mechanism of 30(b)(6), and well-drafted topics are a prerequisite to invoking it.\n\nModel Rule 1.1 (Competence) requires understanding the procedural mechanics of depositions and subpoenas, including limits on deposition count and duration, Rule 45 compliance constraints, and local practice. Model Rule 1.3 (Diligence) requires calendaring and executing service and sequencing in time to secure testimony and documents before deadlines. Model Rule 3.4 (Fairness to Opposing Party and Counsel) is implicated when using discovery tools; do not use deposition notices or subpoenas to harass, seek privileged material without basis, or impose disproportionate burdens. Model Rule 4.3 (Dealing with Unrepresented Person) is particularly relevant when communicating with nonparty witnesses via subpoena; the attorney must avoid any suggestion that the attorney represents the witness or that the witness cannot consult their own counsel. Model Rule 4.4 (Respect for Rights of Third Persons) applies to Rule 45 subpoenas; subpoenas should not impose undue burden or seek irrelevant private information.\n\nWhen subpoenaing current or former employees of represented parties, avoid communications that could be construed as improper contact with represented persons under Model Rule 4.2. Service and coordination should route through counsel when required.\n\nConfidentiality and privilege: Model Rule 1.6 requires preserving client confidences. When drafting 30(b)(6) topics and document requests, avoid requiring disclosure of attorney-client privileged communications or attorney work product. Draft to seek underlying facts and non-privileged materials, and be explicit that privileged communications are not sought. If privileged material is received inadvertently, applicable rules (such as Rule 26(b)(5)(B) and Fed. R. Evid. 502) and any existing protective order may require sequestering and notification.\n\nMalpractice risk areas include missing discovery cutoffs, serving an unenforceable subpoena (wrong court, wrong compliance location, improper service), drafting vague or overbroad 30(b)(6) topics leading to unusable testimony, and failing to account for protective-order or ESI requirements. Mitigation requires early timeline planning, strict adherence to Rule 45(c) and (d), and attorney verification of local rules and judge-specific requirements.\n\nAll outputs from this skill must be reviewed by a licensed attorney in the relevant jurisdiction before use and do not constitute legal advice.\n\n## 6. Quality Control and Review\n\nReview the draft from two perspectives: as opposing counsel preparing a motion to quash or protective order, and as the judge deciding it on a discovery letter brief.\n\nStart with rule compliance. Confirm the correct caption, issuing court, case number, and that the document includes all elements required by the relevant rule. For notices, confirm compliance with Rule 30(b)(1) and (b)(3). For subpoenas, confirm compliance with Rule 45(a)(1), including the required text of Rule 45(d) and (e). Confirm you have not exceeded the deposition limit or duration without leave. Confirm the compliance location is lawful under Rule 45(c). Confirm that witness fees and mileage are being tendered.\n\nNext, test factual grounding and proportionality. Every topic or request should map to a pleaded claim or defense or a credibility or damages issue and should be explainable in one sentence. If you cannot justify a topic or request succinctly, narrow or remove it. Check that defined terms are consistent with the pleadings and prior discovery definitions. Ensure date ranges are present where appropriate.\n\nThen test enforceability under adversarial conditions. Ask: if the recipient ignores this, can we compel? Do we have proof of service? Is the time to comply reasonable? Did we take reasonable steps to reduce burden on a nonparty under Rule 45(d)(1)? Is there a clear mechanism for handling confidentiality and ESI? Does the notice or subpoena invite a legitimate privilege objection that could have been avoided by reframing?\n\nVerify specific details: is the entity name exactly as it appears in the docket or Secretary of State records? Is the deposition date a business day that does not conflict with known court dates? Is the word \"video\" present if a videographer is intended? Do the 30(b)(6) topics satisfy the reasonable particularity standard with time and subject-matter limitations? Is the AO 88A or 88B form used for nonparty subpoenas? Has the user been reminded to prepare witness fee and mileage for nonparty subpoenas?\n\nFinally, validate citations and authorities. The rules cited in this skill should be verified against current versions. If case law or jurisdiction-specific requirements are added, the LLM must either verify them via web research and provide a URL or clearly flag the statement for attorney confirmation. Do not invent local rule numbers, minimum notice periods, or case citations.\n\nAttorney review requirement: treat the LLM's output as a draft for counsel's revision. Before use, an attorney must confirm local rules, judge-specific procedures, subpoena form requirements, witness fee and tender rules, and any special protections for regulated or sensitive data.\n\n## 7. Jurisdiction-Specific Adaptations\n\nThis skill is written for federal civil litigation governed by the Federal Rules of Civil Procedure. Adaptations are commonly required in three categories: local rules and judge-specific discovery procedures, subpoena practice details, and state-court overlays.\n\nLocal rules and individual judicial practices frequently alter the operational reality of depositions. Some judges require discovery disputes to be presented by letter brief, require pre-motion conferences, impose specific minimum notice periods (10 days in many districts, 20 or more in others), or require specific formatting for deposition-related filings. The LLM must prompt the user to provide\u2014or authorize counsel to confirm\u2014the district's local rules and the assigned judge's discovery procedures before finalizing dates and enforcement assumptions.\n\nRule 45 has built-in jurisdictional structure that must be respected. The subpoena must issue from the court where the action is pending under Rule 45(a)(2), but motions to quash or compel are generally brought in the court for the district where compliance is required under Rule 45(d)(3), with potential transfer to the issuing court under Rule 45(f) for exceptional circumstances. In practice, this means the choice of compliance location influences not only burden but also the enforcement venue and the likely decision-maker. In multi-district or nationwide disputes, this is a strategic consideration that should be surfaced to the attorney.\n\nFor state-court matters, requirements differ materially, and this skill should not be applied without modification. The following are illustrative examples of major state variations:\n\nIn California, under CCP \u00a7 2025.220, a deposition notice must be served at least 10 days before the deposition (plus additional time for mailing or electronic service). If documents are requested, the notice must be served at least 20 days prior. California also requires specific language regarding the use of the deposition at trial.\n\nIn New York, under CPLR 3107, at least 20 days' notice is generally required. New York has specific Uniform Rules for the Conduct of Depositions (22 NYCRR Part 221) that impose additional requirements on notice content and deposition conduct.\n\nIn Texas, Rule of Civil Procedure 199.2 requires a \"reasonable time\" for deposition notice, but if the witness is to be compelled by subpoena, the subpoena must be served at least 10 days before the deposition.\n\nIf the user indicates the matter is in state court, the LLM should stop and request the state, the court level, the governing civil procedure rules, and any mandatory subpoena form, then either switch to a state-specific skill or proceed only with clearly marked placeholders for state law that require attorney verification.",
+  "parent_skill_id": null,
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "generated_from": "evolution_approved",
+    "parent_skill_id": "7924f77b-1423-42ba-8dbd-a76bf2bcec57"
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-15T19:34:49.976925",
+  "updated_at": "2026-02-16T04:49:12.000757"
+}
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:53:20.009484Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Choosing skill slug and metadata**
+
+I'm selecting a concise slug "deposition-notice-subpoena" and preparing a third-person description with triggers and keywords. Since legal_context is missing practice areas and other metadata, I'll infer reasonable defaults like "Litigation" for practice areas, and "Notice" plus "Subpoena" for document types to fulfill requirements.
+thinking
+**Composing detailed skill content**
+
+I'm structuring a comprehensive skill file for drafting federal deposition notices and Rule 45 subpoenas, including front matter with inferred metadata, a one-line purpose, prerequisites, an output structure with templates and checklists, detailed guidelines noting key rules (marking uncertain state rules with [VERIFY]), and tables for decision-making and timelines—all formatted with clear numbered lists, code blocks, and markdown tables, targeting around 120 lines without nested lists.
+codex
+---
+name: deposition-notice-subpoena
+description: Drafts federal civil deposition notices under FRCP 30(b)(1) and 30(b)(6) and Rule 45 subpoenas for testimony and/or documents, with enforceable logistics, proportional scope, Rule 45(c) compliance locations, Rule 34 timing for document requests, and ESI/confidentiality handling. Use when drafting deposition notices, 30(b)(6) topic lists, subpoenas duces tecum, AO 88A/88B packages, or pre-service notice to parties. Trigger keywords: deposition notice, 30(b)(1), 30(b)(6), Rule 45, subpoena, subpoena duces tecum, nonparty deposition, Schedule A.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Notice
+    - Subpoena
+  skill_modes:
+    - Drafting
+---
+
+# Deposition Notice and Subpoena
+
+Produce enforceable federal deposition notices and Rule 45 subpoenas with defensible scope and timing.
+
+## Prerequisites
+
+1. Case caption, court, civil action number, judge or magistrate.
+2. Deponent identity and status: party individual, party entity, current employee, former employee, nonparty.
+3. Scheduling order: discovery cutoff, deposition limits, sequencing, any stipulations.
+4. Proposed date, time, time zone, location or remote platform and access plan.
+5. Recording method: stenographic only or stenographic plus audiovisual.
+6. 30(b)(6) topic list with defined terms and time ranges if entity deposition.
+7. Document requests (Schedule A) and desired production format.
+8. Existing protective order or confidentiality stipulation.
+9. Rule 45 compliance details: service address, compliance location, witness fee and mileage (28 U.S.C. § 1821).
+10. Prior discovery tie-in: pleadings, interrogatory responses, key productions.
+
+## Output Structure / Process
+
+**1. Select the instrument**
+
+| Deponent type | Instrument | Service | Key rules |
+| --- | --- | --- | --- |
+| Party individual | Rule 30(b)(1) notice | Serve counsel under Rule 5 | Rule 30(b)(3) recording method; Rule 30(d)(1) 7-hour limit; Rule 30(a)(2)(A)(i) deposition limits |
+| Party entity | Rule 30(b)(6) notice | Serve counsel under Rule 5 | Topics must be reasonably particular; entity must designate and prepare |
+| Nonparty | Rule 45 subpoena | Personal service + fees | Rule 45(b)(1) tender fees; Rule 45(c) compliance limits; Rule 45(a)(4) pre-service notice to parties |
+| Former employee | Rule 45 subpoena | Personal service + fees | Treat as nonparty |
+
+**2. Build the timeline**
+
+1. If requesting documents with a notice, serve at least 30 days before deposition to satisfy Rule 34 response period.
+2. If subpoenaing documents, allow 14 days for objections under Rule 45(d)(2)(B).
+3. Reserve time for meet-and-confer and motion practice before the discovery cutoff.
+
+**3. Draft Rule 30(b)(1) notice (template)**
+
+```text
+[Caption]
+
+NOTICE OF DEPOSITION OF [NAME]
+
+PLEASE TAKE NOTICE that, pursuant to Fed. R. Civ. P. 30(b)(1), [Noticing Party] will take the deposition upon oral examination of [Deponent], on [Date], at [Time] [Time Zone], at [Address] or via [Remote Platform] (access details to follow). The deposition will be recorded by [stenographic] [stenographic and audiovisual] means and conducted before a duly authorized officer. The deposition will proceed from day to day until completed.
+```
+
+**4. Draft Rule 30(b)(6) topics**
+
+Use a topic table and avoid open-ended phrasing. Tie each topic to a claim or defense, add time limits, and define key terms.
+
+| Topic No. | Subject | Time range | Limits/definitions | Source anchors |
+| --- | --- | --- | --- | --- |
+| 1 | [Business function or transaction] | [Start-End] | [Define Product, Incident, Project] | [Pleadings, RFPs, Interrogatory responses] |
+
+Rules:
+- No "all facts" or "entire complaint" topics.
+- Avoid "including but not limited to" as scope expansion.
+- Aim for prepared testimony from documents and interviews, not legal conclusions.
+
+**5. Draft Rule 45 subpoena**
+
+Use AO 88A (testimony) or AO 88B (documents). Include Rule 45(d) and (e) text as required by Rule 45(a)(1)(A)(iv). Ensure issuing court is the court where the action is pending under Rule 45(a)(2).
+
+**Deposition subpoena addendum (if testimony commanded):**
+- Deposition date, time, time zone.
+- Place of compliance within Rule 45(c) limits.
+- Remote appearance language if permitted.
+
+**6. Schedule A request template**
+
+```text
+Schedule A - Document Requests
+
+1. Documents sufficient to show [specific fact], limited to [date range].
+2. Non-privileged communications between [A] and [B] regarding [topic], limited to [date range].
+3. Records of [payments/shipments/transactions] for [Project], limited to [date range].
+```
+
+**ESI and format table**
+
+| Item | Requirement |
+| --- | --- |
+| Format | Native for spreadsheets; PDF/TIFF for images |
+| Metadata | Include standard email metadata fields |
+| Deduplication | Allowed; explain method if used |
+| Attachments | Produce with parent emails |
+| Privilege | Log withheld material; use Rule 26(b)(5)(A) format |
+
+**7. Service packet checklist**
+
+- AO 88A/88B subpoena with Schedule A.
+- Notice of deposition (if testimony).
+- Pre-service notice to parties for document subpoenas (Rule 45(a)(4)).
+- Witness fee and mileage tender (28 U.S.C. § 1821).
+- Proof of service form for process server.
+- Cover letter offering burden-reduction and confidentiality handling.
+
+**8. Quality control checklist**
+
+- Caption, court, case number match docket.
+- Recording method stated; "audiovisual" included if video intended.
+- Compliance location fits Rule 45(c) 100-mile limit.
+- Document requests tie to claims/defenses and have time limits.
+- Rule 30 limits complied with or leave obtained.
+- Rule 45(d)(1) undue burden analysis documented.
+- Protective order referenced or flagged if needed.
+
+## Guidelines
+
+- Do not notice nonparties under Rule 30; use Rule 45.
+- Do not subpoena represented parties directly; serve counsel.
+- Do not guess local-rule notice periods; flag for attorney verification.
+- Rule 34 applies to document requests in notices; plan for 30-day response.
+- Rule 45 objections are due within 14 days; build into the schedule.
+- Avoid legal conclusions and privileged subject matter in 30(b)(6) topics.
+- State court matters require new rules: stop and request state and court level.
+- State examples: California CCP § 2025.220 [VERIFY], New York CPLR 3107 and 22 NYCRR Part 221 [VERIFY], Texas R. Civ. P. 199.2 [VERIFY].
+- Ethics: comply with Model Rules 1.1, 1.3, 3.4, 4.2, 4.3, 4.4, and 1.6.
+- Attorney review required before use; confirm local rules, judge-specific procedures, and subpoena form requirements.
+tokens used
+11,929

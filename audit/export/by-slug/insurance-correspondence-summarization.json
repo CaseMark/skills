@@ -1,0 +1,44 @@
+{
+  "id": "8d2f94c9-8a84-4323-953d-863c403cc3a6",
+  "slug": "insurance-correspondence-summarization",
+  "name": "Insurance Correspondence Summarization",
+  "summary": "This skill generates comprehensive summaries of insurance-related documents, claims correspondence, coverage letters, and denial letters. It extracts key facts, chronological claims history, coverage positions, and liability exposure for insurance defense attorneys, coverage counsel, and claims adjusters. Use it to quickly assess evolving claim status and urgent coverage issues across multiple communications.",
+  "content": "# Insurance Correspondence Summarization\n\nYou are tasked with creating a comprehensive summary of insurance-related documents and claims correspondence. This workflow is essential for insurance defense attorneys, coverage counsel, claims adjusters, and in-house legal teams who need to quickly understand the key facts, positions, and developments across multiple insurance communications.\n\nYour objective is to analyze all insurance correspondence, claim files, coverage letters, reservation of rights letters, denial letters, demand letters, and related communications to produce a clear, organized summary that captures the essential information a legal professional needs to assess coverage issues, liability exposure, and claim status.\n\n## Analysis Approach\n\nBegin by thoroughly reviewing all uploaded insurance documents to identify and extract critical information. Search through the documents systematically to locate key facts including the insured party's identity, policy numbers and coverage periods, the nature and date of the underlying incident or claim, amounts demanded or reserved, coverage positions taken by the insurer, any reservations of rights or coverage denials, settlement demands and negotiations, and relevant policy provisions cited in the correspondence.\n\nWhen multiple documents are present, analyze each sequentially to build a chronological understanding of how the claim and coverage positions have evolved. Pay particular attention to any shifts in the insurer's position, new information that emerged during the claims process, or disputes between the insured and insurer regarding coverage scope or obligations.\n\n## Summary Structure and Content\n\nYour summary should be organized to provide maximum utility for legal decision-making. Open with an executive overview that captures the claim type, current status, key parties, and any urgent coverage or liability issues requiring immediate attention. This overview should enable a reader to understand the fundamental situation within two to three paragraphs.\n\nFollowing the overview, provide a detailed factual background section that describes the underlying incident or occurrence that triggered the insurance claim. Include specific dates, locations, parties involved, and the nature of any alleged injury, damage, or loss. Distinguish clearly between undisputed facts and allegations that remain contested.\n\nCreate a comprehensive coverage analysis section that identifies the relevant insurance policies, including policy numbers, coverage types, limits, deductibles, and policy periods. Summarize the insurer's coverage position, including any coverage grants, reservations of rights, or denials. Quote specific policy language when it has been cited in correspondence as a basis for coverage decisions. Identify any coverage disputes or ambiguities that may require further legal analysis or judicial resolution.\n\nDocument the claims history and correspondence chronologically, highlighting significant communications such as initial claim notices, coverage position letters, reservation of rights letters, demands for settlement or payment, responses to demands, and any coverage litigation or alternative dispute resolution proceedings. For each significant communication, note the date, sender, recipient, and key substantive points.\n\nIf settlement negotiations are documented in the correspondence, summarize all demands made, offers extended, and the current settlement posture. Include specific dollar amounts and any conditions attached to settlement proposals. Note whether settlement discussions are ongoing, stalled, or concluded.\n\n## Legal Considerations and Best Practices\n\nThroughout your analysis, maintain strict attention to potential coverage defenses, policy exclusions, and conditions precedent that may affect the insurer's obligations. Flag any statute of limitations issues, notice requirements, cooperation clause concerns, or other procedural matters that could impact coverage or the insured's rights.\n\nBe alert to bad faith concerns or potential extra-contractual liability issues. Note any circumstances where the insurer's handling of the claim might expose it to allegations of unreasonable delay, inadequate investigation, or wrongful denial of coverage. Similarly, identify any conduct by the insured that might constitute breach of policy conditions or lack of cooperation.\n\nWhen insurance correspondence references underlying litigation, clearly distinguish between the coverage matter and the underlying liability case. Summarize the status of any underlying lawsuit, including court, case number, parties, claims asserted, and procedural posture, but maintain focus on how these developments affect coverage analysis.\n\n## Output Format and Presentation\n\nPresent your summary in a clear, professional format using descriptive headings and subheadings that allow readers to quickly locate specific information. Use precise legal terminology appropriate for insurance coverage practice. When quoting from correspondence or policy language, use quotation marks and provide attribution including the document name and date.\n\nOrganize information logically rather than simply document-by-document. Synthesize related information from multiple sources into coherent sections. For example, if reservation of rights is discussed in three separate letters, consolidate that information into a single coverage position section rather than repeating it three times.\n\nInclude a section identifying any missing information or documents that would be helpful for complete coverage analysis, such as the full insurance policy, additional correspondence, underlying pleadings, or expert reports referenced but not provided.\n\nConclude with a brief assessment of next steps or action items that appear necessary based on the correspondence reviewed, such as responding to coverage demands, conducting additional investigation, seeking declaratory relief, or engaging in settlement negotiations.\n\nYour summary should be thorough enough to serve as a briefing document for coverage counsel, claims management, or litigation strategy sessions, while remaining concise enough to be reviewed efficiently. Aim for clarity and precision that enables informed decision-making about coverage obligations, litigation strategy, and risk management.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

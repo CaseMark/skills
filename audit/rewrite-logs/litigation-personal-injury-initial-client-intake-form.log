@@ -1,0 +1,199 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-80aa-7100-8d01-75193fbce50d
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "c9ce1709-8803-4f3c-9e6c-283810c2d2d0",
+  "slug": "litigation-personal-injury-initial-client-intake-form",
+  "name": "Initial Client Intake Form",
+  "summary": "Drafts a comprehensive Initial Client Intake Form tailored for personal injury litigation matters. Gathers essential client identification, background, contact details, and other information for conflict checking, case evaluation, and establishing the attorney-client relationship in compliance with professional rules. Use at the outset of potential representations to build a strong foundational record.",
+  "content": "# Initial Client Intake Form for Litigation Matters\n\nYou are tasked with drafting a comprehensive Initial Client Intake Form specifically designed for litigation matters. This document serves as the foundational tool for gathering essential client information at the outset of potential representation, enabling thorough conflict checking, case evaluation, and establishment of the attorney-client relationship in full compliance with professional responsibility requirements.\n\n## Purpose and Strategic Importance\n\nThe intake form you create must serve multiple critical functions simultaneously. It should systematically collect all information necessary to evaluate whether the firm can and should accept the representation, identify any conflicts of interest that would preclude engagement, assess the viability and value of the potential litigation matter, establish clear expectations regarding the scope and terms of representation, and create a comprehensive record that satisfies bar association requirements for client intake procedures. The form should be professionally designed to inspire client confidence while remaining accessible to individuals unfamiliar with legal processes, and it must incorporate all required privacy notices and consent provisions mandated by applicable state bar rules and data protection regulations.\n\n## Client Identification and Background Information\n\nBegin the intake form with a comprehensive section capturing the prospective client's complete identifying information. This section should request the client's full legal name as it appears on government-issued identification, any former names or aliases that might be relevant for conflict checking purposes, date of birth, Social Security number with appropriate privacy and security notices explaining how this sensitive information will be protected, current residential address and mailing address if different, citizenship or immigration status if potentially relevant to the matter, marital status and spouse's name, and information about any dependents or other household members whose interests might intersect with the representation. Before finalizing this section, examine any documents the client has already provided to identify information that can pre-populate fields or inform the structure of questions. Additionally, review current best practices from established legal practice management platforms and state bar association model intake forms to ensure your document captures all standard identification fields in a format that facilitates efficient data entry into case management systems.\n\n## Contact Information and Communication Protocols\n\nDevelop a detailed contact section that goes beyond basic phone and email collection to establish clear communication protocols from the outset of the relationship. Request primary and secondary telephone numbers with designation of which are mobile versus landline, personal and work email addresses, preferred method of communication with specific options for phone, email, text message, or secure client portal, preferred days and times for contact, any numbers or addresses where the client should not be contacted for confidentiality reasons, and emergency contact information for situations requiring urgent client consultation. Include specific questions about whether the client consents to communication via text message or email with appropriate warnings about the security limitations of these methods, whether anyone else is authorized to receive information about the case, and any special circumstances affecting communication such as hearing impairment, language barriers requiring interpretation services, or concerns about confidentiality due to domestic situations. This section should also capture the client's availability for meetings, depositions, and court appearances to facilitate early scheduling assessments.\n\n## Detailed Matter Description and Factual Background\n\nCreate a comprehensive section designed to elicit a complete narrative of the legal dispute and all relevant factual circumstances. This portion should begin with clear categorization questions identifying the general type of litigation such as contract dispute, personal injury, employment matter, business tort, real estate conflict, or other category, followed by structured fields for the client to provide a detailed chronological narrative of the events giving rise to the claim or defense. Guide the client to identify all key dates including when the dispute arose, when the client first became aware of potential legal issues, any applicable deadlines or statutes of limitation the client is aware of, and dates of any formal demands or communications with opposing parties. Request comprehensive identification of all parties involved including full names and contact information for opposing parties, potential co-plaintiffs or co-defendants, material witnesses with knowledge of relevant facts, and any entities or individuals with related interests in the matter. Before finalizing this section, carefully review any documents the client has uploaded such as contracts, correspondence, demand letters, or prior pleadings to extract specific names, dates, amounts, and factual allegations that should be incorporated into the intake form or used to create targeted follow-up questions. The matter description section should also include fields for the client to identify their desired outcome, any settlement discussions that have already occurred, and their assessment of the opposing party's likely position and resources.\n\n## Prior Legal Representation and Related Matters\n\nDesign a thorough section to uncover any previous legal representation or related litigation that might affect the current matter or create potential conflicts. Ask the client to identify any attorneys who have previously represented them in this specific dispute or in related matters, including the attorney's name, firm, dates of representation, and reason the representation ended. Inquire about any other pending or prior litigation involving the client within the past ten years, including case names, court and case numbers, nature of the dispute, and current status or outcome. Request information about any settlements, judgments, or arbitration awards involving the client that might be relevant to the current matter or affect their credibility or litigation history. Include specific questions designed to identify potential conflicts such as whether any family members have matters with the firm, whether the client has business relationships with any parties the firm represents, and whether any opposing parties or witnesses have previous relationships with the firm. Review authoritative guidance from the American Bar Association and your jurisdiction's professional responsibility rules regarding the scope of conflict checking obligations to ensure your intake form captures all information necessary for comprehensive conflict analysis including positional conflicts and issue conflicts in addition to direct adversity.\n\n## Financial Assessment and Fee Structure Discussion\n\nIncorporate a carefully designed financial section that gathers information necessary to assess the client's ability to fund the litigation and establish appropriate fee arrangements while maintaining sensitivity to privacy concerns and avoiding premature commitments. Request information about the client's current employment status and occupation, general income range using bracketed options rather than requiring precise disclosure, any insurance coverage that might apply to the matter including liability insurance, legal expense insurance, or umbrella policies that could provide coverage or reimbursement for legal fees. Ask about the client's understanding of legal fee structures and preferences regarding hourly billing, flat fee arrangements, contingency fee agreements, or hybrid structures. Include fields for the client to indicate their budget expectations for legal fees, their ability to pay an initial retainer, and any financial constraints or hardships that should be considered in structuring the engagement. Review standard financial intake sections from established legal practice management systems to ensure comprehensive coverage while incorporating appropriate disclaimers that the intake form does not constitute a fee agreement and that final fee arrangements will be established through a separate written engagement letter. This section should also explore potential fee-shifting provisions, cost advancement issues, and whether the matter might qualify for alternative fee arrangements or limited scope representation.\n\n## Authorizations, Consents, and Required Disclosures\n\nConclude the intake form with all necessary authorization and consent provisions required by professional responsibility rules and applicable privacy regulations. This final section should include a clear informed consent provision explaining that completion of the intake form does not establish an attorney-client relationship and that the firm will conduct conflict checks and case evaluation before determining whether to accept the representation. Incorporate authorization language permitting the firm to obtain relevant records from third parties including medical providers, employers, financial institutions, and prior counsel, with appropriate HIPAA-compliant language for medical authorizations. Include consent to the firm's standard fee structure and billing practices with acknowledgment that the client will receive a detailed written fee agreement before representation commences. If applicable to your jurisdiction and practice, include carefully drafted conflict waiver provisions for situations where informed consent might permit representation despite identified conflicts, ensuring such provisions comply with ethical rules and are presented in clear, understandable language. Provide comprehensive data privacy notices explaining how client information will be collected, stored, used, and protected in compliance with applicable state privacy laws and any relevant federal regulations. Research the specific professional responsibility rules in your jurisdiction, particularly rules governing client intake, scope of representation discussions, mandatory disclosures about fee arrangements and potential conflicts, and requirements for written consent to representation terms. Include signature blocks for both the prospective client and the intake attorney with date fields, and consider adding a separate acknowledgment section where clients confirm they have read and understood key provisions regarding the preliminary nature of the intake process.\n\n## Document Format and Usability Standards\n\nThe final intake form should be professionally formatted with clear section headings, logical flow from general identification through specific matter details to concluding authorizations, and consistent visual design that reflects the firm's branding while maintaining readability and accessibility. Use plain language throughout while maintaining legal precision, avoiding unnecessary jargon that might confuse clients unfamiliar with legal terminology. Design the form to be easily completed either electronically through fillable PDF fields or practice management software, or in hard copy with adequate space for handwritten responses. Include brief instructions at the beginning of each major section to guide clients in providing complete and accurate information, and consider adding a cover sheet with general instructions about the intake process and what the client should expect following submission of the form. Ensure the document is formatted for standard letter-size paper, uses readable font sizes of at least 11 points for body text, and incorporates sufficient white space to avoid overwhelming clients with dense text.\n\nWhen you have gathered all necessary information from available resources, researched applicable professional responsibility standards and bar association requirements, and incorporated relevant details from any documents the client has provided, create the complete Initial Client Intake Form. The final document should be immediately usable by litigation attorneys for client intake purposes and should facilitate efficient case evaluation, comprehensive conflict checking, and streamlined engagement processes while ensuring full compliance with ethical obligations and creating a strong foundation for the attorney-client relationship.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "junior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "checklist"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.441422",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:52.318805Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:42:52.648183Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:53.562269Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:54.410350Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e54b3dcef457-SJC)
+2026-02-23T21:42:55.461681Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e551d9a42157-SJC)
+2026-02-23T21:42:57.032402Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e55b4a9567a5-SJC)
+2026-02-23T21:42:59.333529Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e56a695d98ce-SJC)
+2026-02-23T21:43:02.917637Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e580ad40152b-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-personal-injury-initial-client-intake-form-hnhg_ppx.md
+
+STDOUT:
+

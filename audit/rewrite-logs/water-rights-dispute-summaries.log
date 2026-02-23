@@ -1,0 +1,201 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c76-63e9-71d1-a12c-fd9317c21dd6
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f6ce8ecd-a9c6-409e-b4d1-5aa4b61d1aa7",
+  "slug": "water-rights-dispute-summaries",
+  "name": "Water Rights Dispute Summaries",
+  "summary": "Generates comprehensive summaries of water rights disputes and related legislation, covering doctrines like prior appropriation, riparian rights, and groundwater allocation. Essential for agricultural, industrial, or residential water users to assess legal risks, understand precedents, and navigate regulatory requirements in the US. Provides structured overviews with key facts, court holdings, and applicable statutes.",
+  "content": "# Water Rights Dispute Summaries\n\nYou are tasked with creating a comprehensive summary of water rights disputes and related legislation for entities involved in agricultural, industrial, or residential water use. This summary serves as a critical resource for understanding the legal landscape of water access, allocation, and usage rights, enabling stakeholders to assess risks, understand precedents, and navigate regulatory requirements.\n\n## Objective and Scope\n\nYour primary objective is to produce a detailed, well-organized summary that captures the essential elements of water rights disputes and applicable legislation. The summary should provide actionable intelligence for legal counsel, water resource managers, agricultural operators, industrial facilities, and municipal water authorities who need to understand their rights, obligations, and potential exposure in water-related legal matters.\n\nBegin by identifying and analyzing relevant water rights disputes, including cases involving prior appropriation doctrine, riparian rights, groundwater allocation, interstate water compacts, federal reserved water rights, and conflicts between competing uses. Search for current and historical disputes that establish important precedents or illustrate common conflict patterns in the relevant jurisdiction. Pay particular attention to disputes involving similar water sources, geographic regions, or use categories as those relevant to your client's situation.\n\n## Research and Analysis Framework\n\nConduct thorough research to identify applicable federal and state legislation governing water rights, including statutes, regulations, administrative codes, and constitutional provisions. This includes the Clean Water Act, Safe Drinking Water Act, state water codes, groundwater management acts, and any special legislation governing specific water basins or regions. Examine how courts have interpreted these statutes in the context of allocation disputes, environmental protection requirements, and competing beneficial uses.\n\nWhen analyzing disputes, extract and summarize the key facts including the parties involved, the water source at issue, the nature of the competing claims, the legal theories advanced by each party, and the court's reasoning and holding. Identify the specific water rights doctrines applied, whether prior appropriation, riparian rights, correlative rights for groundwater, or hybrid systems. Note any quantification of water rights, priority dates, beneficial use requirements, or conditions imposed on water use permits.\n\n## Content Structure and Essential Elements\n\nYour summary should begin with an executive overview that provides context about the water rights regime in the relevant jurisdiction, highlighting whether it follows prior appropriation, riparian rights, or a mixed system. Explain the fundamental principles that govern water allocation and the hierarchy of rights that courts recognize.\n\nOrganize the dispute summaries chronologically or thematically, depending on which approach provides greater clarity for the intended audience. For each significant dispute, provide the case citation in proper Bluebook format, the jurisdiction and court level, the date of decision, and a concise statement of the legal issue presented. Describe the factual background with sufficient detail to understand the context, including the type of water source, the competing users and their respective claims, and any relevant historical or environmental factors.\n\nAnalyze the legal reasoning employed by the court, including the statutory provisions and precedents relied upon, the balancing tests or analytical frameworks applied, and how the court resolved conflicts between competing policy objectives such as economic development, environmental protection, and equity among users. Highlight any significant procedural aspects, such as the burden of proof, evidentiary standards, or administrative exhaustion requirements that affected the outcome.\n\n## Legislative and Regulatory Context\n\nProvide detailed summaries of relevant legislation, organized by jurisdiction and topic. For each statute or regulation, include the official citation, the enacting authority, the effective date, and any significant amendments. Explain the statute's purpose, scope of application, and key substantive provisions. Identify permit requirements, allocation mechanisms, priority systems, beneficial use standards, conservation mandates, and enforcement provisions.\n\nAddress how legislation interacts with common law water rights, noting whether statutes have modified or superseded traditional doctrines. Explain any grandfather clauses, transition provisions, or recognition of pre-existing rights. Discuss administrative procedures for obtaining water rights permits, adjudicating competing claims, or challenging agency decisions.\n\n## Practical Implications and Risk Assessment\n\nThroughout your summary, highlight practical implications for water users in the relevant sector. For agricultural users, address issues such as irrigation rights, stock watering, seasonal variations, and the impact of drought or shortage declarations. For industrial users, examine cooling water rights, discharge limitations, water quality requirements, and the interplay between water rights and environmental permits. For residential and municipal users, consider domestic use priorities, public trust obligations, and the tension between growth and water availability.\n\nIdentify emerging trends in water rights litigation, such as increased scrutiny of environmental impacts, recognition of instream flow rights, tribal water rights claims, or climate change adaptation measures. Note any legislative reforms under consideration or recent regulatory changes that may affect the stability of existing water rights.\n\nConclude your summary with a risk assessment section that identifies potential vulnerabilities, areas of legal uncertainty, and recommended protective measures. This should enable stakeholders to make informed decisions about water resource planning, investment in water infrastructure, acquisition of water rights, and strategies for resolving or avoiding disputes.\n\nYour final deliverable should be a polished, professionally formatted document that serves as both a reference guide and a strategic planning tool, written in clear, accessible language while maintaining legal precision and accuracy in all citations and legal analysis.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "agriculture"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:13.413444",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:44:55.861329Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:44:56.095693Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:44:57.220014Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:44:58.152530Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e8504e70ce70-SJC)
+2026-02-23T21:44:59.328349Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e85818fecfc8-SJC)
+2026-02-23T21:45:00.653291Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e860bd0dbe62-SJC)
+2026-02-23T21:45:02.979621Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e86ebcb4c6bb-SJC)
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-water-rights-dispute-summaries-n4tceb8v.md
+
+STDOUT:
+

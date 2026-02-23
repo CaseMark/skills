@@ -1,0 +1,398 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c84-06f6-7163-9df8-ddabaaceb5a1
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d695a26d-bb40-4b4c-8881-7498ce292eed",
+  "slug": "intercreditor-agreement-lien-priority",
+  "name": "Intercreditor Agreement (Lien Priority)",
+  "summary": "Drafts a comprehensive Intercreditor Agreement establishing absolute lien priority between first lien and second lien creditors over shared collateral. Incorporates market-standard language from LSTA and ABA resources, precise definitions, and subordination provisions tailored to specific credit facilities. Use this skill in loan and financing transactions requiring clear governance of senior and junior creditor relationships.",
+  "content": "# Intercreditor Agreement (Lien Priority) - Enhanced Drafting Workflow\n\nYou are tasked with drafting a comprehensive Intercreditor Agreement establishing lien priority between first lien and second lien creditors sharing common collateral. This is a critical transactional document that governs the relationship between senior and subordinated secured creditors and must reflect current market standards while protecting the interests of all parties.\n\n## Document Scope and Context\n\nBegin by establishing the foundational context of the agreement. The introduction and recitals should clearly articulate the commercial relationship between the parties, identify the underlying credit facilities (both first lien and second lien), and describe the shared collateral that secures both sets of obligations. Search for and incorporate standard recital language from authoritative sources including the Loan Syndications and Trading Association (LSTA) model First Lien/Second Lien Intercreditor Agreement and American Bar Association (ABA) Commercial Finance Committee resources. These recitals must establish the business purpose for the subordination arrangement and reference the specific credit agreements, security agreements, and other loan documents that govern the parties' relationships with the borrower.\n\n## Definitions and Key Terms\n\nDevelop a comprehensive definitions section that precisely delineates the scope of obligations and collateral covered by the agreement. At minimum, define \"First Lien Obligations,\" \"Second Lien Obligations,\" \"Collateral,\" \"Lien Priority,\" \"Standstill Period,\" \"Discharge of First Lien Obligations,\" and \"Insolvency Proceeding.\" Search the user's uploaded transaction documents to extract specific details about the obligations, loan amounts, maturity dates, and collateral descriptions that must be incorporated into these definitions. Supplement this document-specific information by researching standard market definitions from legal research platforms such as Lexology, Practical Law, and Thomson Reuters to ensure the definitions align with current market practice and case law interpretations. Each defined term should be drafted with sufficient precision to avoid ambiguity in enforcement scenarios.\n\n## Lien Priority and Subordination Framework\n\nDraft detailed provisions establishing the absolute priority of the first lien over the second lien on all shared collateral, regardless of the time, order, or method of attachment or perfection of either lien. This section forms the commercial heart of the agreement and must be unequivocal. Research current market standards for lien subordination provisions by examining LSTA model agreements, ABA Commercial Finance Committee publications, and recent precedent transactions. The subordination must be comprehensive, covering not only the principal amount of the obligations but also interest (including post-petition interest in bankruptcy), fees, expenses, and all other amounts that may become due. Address how the priority operates in various scenarios including voluntary payments, enforcement actions, bankruptcy proceedings, and collateral dispositions. Specify that the subordination is a continuing agreement that remains effective until the first lien obligations are discharged in full according to the agreement's terms.\n\n## Enforcement Rights, Remedies, and Standstill Provisions\n\nArticulate the exclusive enforcement rights of the first lien holders and the corresponding restrictions on second lien holder actions during the standstill period. The first lien holders must have the unrestricted right to enforce their remedies against the collateral, accept or reject proposed debtor-in-possession financing, vote on reorganization plans, and otherwise exercise all rights available to secured creditors without obtaining consent from or providing notice to the second lien holders, subject only to limitations expressly stated in the agreement. Conversely, impose a comprehensive standstill on the second lien holders that prohibits them from accelerating their obligations, exercising remedies against collateral, objecting to first lien enforcement actions, or taking any action that would interfere with first lien rights. Research and incorporate best practices from ABA Commercial Finance Committee guidelines, Nolo legal resources, and recent court decisions interpreting standstill provisions to ensure enforceability. Define the standstill period with precision, typically extending for a specified number of days (commonly 180 days) following the occurrence of a payment default or other event of default under the first lien documents, and address what actions, if any, the second lien holders may take after the standstill period expires if the first lien holders have not completed enforcement.\n\n## Payment Waterfall, Distributions, and Turnover Obligations\n\nEstablish clear rules governing the application of all payments, proceeds, and distributions from the collateral or the borrower. All recoveries from collateral, whether through foreclosure, bankruptcy distributions, or otherwise, must be applied first to discharge the first lien obligations in full before any amount is distributed to second lien holders. Include mandatory turnover provisions requiring second lien holders to immediately remit to the first lien agent any payments or proceeds they receive in violation of the priority scheme, whether such payments come directly from the borrower, from collateral proceeds, or from any other source. Research market standards for waterfall distribution provisions in intercreditor agreements to ensure the payment mechanics align with current practice. Address specific scenarios including cash collateral use in bankruptcy, adequate protection payments, and distributions under confirmed reorganization plans. Specify that turnover obligations apply regardless of whether the second lien holder had knowledge of the priority violation and that turned-over amounts will be held by the first lien holders as proceeds of their collateral.\n\n## Representations, Warranties, and Due Authorization\n\nInclude mutual representations and warranties from both the first lien holders and second lien holders addressing their due organization, authority to enter into the agreement, absence of conflicts with organizational documents or other agreements, and the validity and enforceability of their respective liens on the collateral. Each party should represent that its security interest has been duly perfected in accordance with applicable law and that it has taken all actions necessary to establish and maintain the priority of its lien as contemplated by the agreement (subject to the subordination provisions). Search authoritative sources including Thomson Reuters Practical Law, National Venture Capital Association (NVCA) model documents, and ABA model agreements to identify standard representations appropriate for intercreditor agreements. Verify that the representations align with the specific transaction structure by reviewing the user's uploaded credit agreements and security documents. Include representations regarding the absence of any side agreements or arrangements that would contradict or undermine the priority scheme established in the intercreditor agreement.\n\n## Ongoing Covenants and Operational Provisions\n\nDraft covenants that govern the ongoing relationship between the lien holders and preserve the integrity of the priority arrangement. Require each party to provide prompt notice to the other of any amendments to their respective credit agreements that could materially affect the collateral, the obligations, or the relative rights of the parties. Prohibit amendments to the second lien credit documents that would increase the principal amount of the obligations, accelerate maturity dates, increase interest rates beyond specified thresholds, or impose additional restrictions on the borrower's ability to satisfy the first lien obligations. Address how the parties will coordinate in bankruptcy proceedings, including provisions governing the filing of proofs of claim, voting on reorganization plans, and consent to debtor-in-possession financing or asset sales. Search for best practices in lien priority covenants from commercial finance industry publications and recent market precedents. Include covenants requiring each party to maintain the perfection of its security interest and to cooperate in executing additional documents necessary to effectuate the priority arrangement. Specify notice requirements with precise delivery addresses, methods, and timing.\n\n## Bankruptcy and Insolvency Provisions\n\nAddress the treatment of the lien priority in bankruptcy and other insolvency proceedings with specificity. Confirm that the subordination is effective before, during, and after any bankruptcy case and constitutes a \"subordination agreement\" under Section 510(a) of the Bankruptcy Code. Provide that the second lien holders will not oppose any motion by the first lien holders for relief from the automatic stay, for adequate protection, or for use of cash collateral. Grant the first lien holders the exclusive right to propose, vote on, and consent to any debtor-in-possession financing or use of cash collateral, and prohibit the second lien holders from objecting to such proposals or seeking adequate protection for their interests unless the first lien holders are receiving adequate protection. Address the treatment of post-petition interest and the application of the \"equities of the case\" exception under Section 510(c) of the Bankruptcy Code. Specify that the agreement will be enforceable against any bankruptcy trustee or debtor-in-possession.\n\n## Miscellaneous and Boilerplate Provisions\n\nComplete the agreement with comprehensive miscellaneous provisions that address governing law (specifying the jurisdiction whose law will govern interpretation and enforcement), amendment procedures (typically requiring written consent of all parties), severability of invalid provisions, integration (confirming the agreement supersedes all prior understandings), and execution mechanics including counterpart signature pages and electronic delivery. Research standard boilerplate clauses from bar association resources and model intercreditor agreements to ensure completeness. Include provisions addressing successor and assign rights, third-party beneficiary status (or lack thereof), waiver of jury trial, submission to jurisdiction, and service of process. Specify that notices must be in writing and provide detailed delivery instructions for each party. Address whether the agreement may be amended without borrower consent and under what circumstances the agreement terminates.\n\n## Document Generation and Quality Control\n\nOnce you have gathered all necessary information from the user's uploaded transaction documents, researched applicable market standards and legal authorities, and developed comprehensive content for each section, generate the complete Intercreditor Agreement as a formal legal document. The final document should be professionally formatted with appropriate article and section numbering, defined terms properly capitalized throughout, and all cross-references accurately stated. Ensure internal consistency in terminology, verify that all defined terms are actually used in the operative provisions, and confirm that the priority scheme is clearly and unambiguously established. The document should be suitable for execution by sophisticated commercial parties and their counsel with minimal revision.",
+  "parent_skill_id": "b63cc6ae-4f61-40f8-b17f-f98c348afb58",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "loan_and_financing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: context7 starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:59:49.595059Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing to rewrite skill as SKILL.md**
+
+I'm clarifying that the task is to convert the content into a SKILL.md file with specific structured sections and formatting, including computing a new slug and crafting the description, triggers, title, and purpose based on the intercreditor agreement lien priority context.
+thinking
+---
+name: intercreditor-lien-priority
+description: Drafts U.S. intercreditor agreements that set first lien vs second lien priority over shared collateral with standstill, enforcement control, payment waterfall, turnover, and bankruptcy 510(a) subordination mechanics. Use for first lien/second lien financings, refinancing, or intercreditor negotiations where lien priority and remedies governance are required. Trigger keywords: intercreditor, lien priority, first lien, second lien, standstill, turnover, payment waterfall, cash collateral, adequate protection, subordination agreement.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Intercreditor Agreement (Lien Priority)
+
+**Purpose:**  
+Drafts a lien-priority intercreditor agreement allocating collateral control, remedies, and payment rights between first lien and second lien creditors.
+
+**Prerequisites:**  
+1. First lien credit agreement, security agreement, collateral description, and debt terms  
+2. Second lien credit agreement, security documents, and collateral descriptions  
+3. Parties list including agents, lenders, borrower, and notice addresses  
+4. Negotiated business points such as standstill length, enforcement control, DIP/363 positions, permitted payments, maturity limits, and amendment thresholds  
+5. Governing law and forum selection  
+6. Any applicable intercreditor term sheet or precedent  
+
+## Output Structure / Process
+
+**Intake Table**
+
+| Field                       | Source                    | Notes                                |
+|-----------------------------|---------------------------|-------------------------------------|
+| First Lien Credit Agreement  | Borrower/Agent            | Include executed copies              |
+| Second Lien Credit Agreement | Borrower/Agent            | Include executed copies              |
+| Collateral Description       | Security Agreements       | Confirm perfection status            |
+| Debt Terms                  | Credit Agreements         | Principal amounts, maturity dates   |
+| Parties                     | Transaction documents     | Agents, lenders, borrower details   |
+| Notice Addresses            | Credit Agreements, Notices| Confirm current contact info        |
+| Negotiated Terms            | Term Sheets, Emails       | Standstill period, enforcement rights|
+| Governing Law               | Parties Agreement         | Usually NY or DE                     |
+
+**Key Elections Table**
+
+| Election                  | Options / Values                         | Notes                                          |
+|--------------------------|-----------------------------------------|------------------------------------------------|
+| Standstill Period         | [__] days (often 180)                   | Placeholder; verify market practice             |
+| Enforcement Control       | First Lien Exclusive / Shared Consent   | Define scope                                    |
+| Cash Collateral Use       | Permitted Payments Allowed / Not Allowed| Specify conditions                              |
+| Amendment Thresholds      | Increase in Principal, Maturities       | Define junior lien restrictions                  |
+| Bankruptcy Protections    | Waive Adequate Protection / Limited     | Optional; see Section 510(a)                    |
+| Governing Law             | NY / DE / Other                         | State law governs lien and bankruptcy issues   |
+
+**Drafting Outline**
+
+Article I - Definitions  
+Article II - Lien Priority and Subordination  
+Article III - Enforcement and Standstill  
+Article IV - Payment Waterfall and Turnover  
+Article V - Bankruptcy and Insolvency  
+Article VI - Amendments and Restrictions  
+Article VII - Representations and Warranties  
+Article VIII - Covenants  
+Article IX - Miscellaneous Provisions  
+
+**Core Clauses Checklist**
+
+Include these clauses:  
+- Definitions of “First Lien Obligations,” “Second Lien Obligations,” “Collateral,” “Lien,” “Standstill Period,” “Enforcement Action,” “Insolvency Proceeding,” “Permitted Payments,” “Collateral Agent,” “Proceeds,” “Cash Collateral,” and “Adequate Protection”  
+- Lien Priority: absolute priority regardless of perfection time, continuing until discharge of first lien obligations  
+- Payment Waterfall: all collateral proceeds to first lien obligations first; turnover of misdirected payments with holding in trust if necessary  
+- Standstill: second lien holders prohibited from enforcement, acceleration, or contesting first lien during standstill; carve-outs allow proofs of claim, protective actions, and notice rights  
+- Enforcement Rights: first lien holder exclusive remedies control; second lien consent requirements and non-contest provisions  
+- Bankruptcy: subordination agreement under 11 U.S.C. § 510(a); waiver or limitation of rights to adequate protection; inclusion of credit bid, DIP financing treatment  
+- Amendments: restrictions on junior lien increases in principal, liens, maturity extensions  
+- Notices: email and physical address specifications  
+- Governing Law and Jury Waiver: choice of state law, waiver of jury trial  
+- Termination: upon discharge of first lien obligations; survival of payment turnover provisions  
+- Representations and Warranties: authority, enforceability, no conflicts, lien perfection confirmation  
+- Covenants: cooperation to maintain perfection and priority  
+- Subordination of Liens: clarify distinction from payment subordination except for turnover provisions  
+
+**Template Snippets**
+
+```
+Standstill Period: [__] days after First Lien Agent delivers written notice of a First Lien Event of Default.
+
+Second Lien Secured Parties shall not, prior to expiration of the Standstill Period, take any Enforcement Action against the Collateral or Borrower.
+
+All proceeds of Collateral shall be applied first to the satisfaction of the First Lien Obligations, and any misdirected payments shall be promptly turned over to the First Lien Agent for application accordingly.
+```
+
+**Guidelines**
+
+- Confirm this is lien subordination, not payment subordination except as limited by turnover provisions  
+- Use consistent defined terms throughout the agreement  
+- Define “Discharge of First Lien Obligations” to exclude contingent obligations until cash collateral is secured  
+- Include permitted payment carve-outs for scheduled interest and fees subject to limits and default status  
+- Allow standstill carve-outs for protective actions such as proofs of claim and notice to first lien parties  
+- Ensure compliance with 11 U.S.C. § 510(a) without [VERIFY]; add [VERIFY] for citations related to § 552(b)(1) post-petition proceeds  
+- Confirm UCC perfecting filings and collateral description accuracy  
+- Adapt provisions appropriately for unitranche or split-lien structures  
+- State law governs perfection and bankruptcy issues; note usual jurisdictions NY or DE  
+- Avoid referencing external market sources explicitly, but incorporate standard market language where appropriate  
+- Use flat lists without nested bullets in drafting  
+- Maintain all text ASCII-only; use hyphens instead of en dashes  
+
+[VERIFY] markers should accompany any uncertain legal citations or market practices requiring confirmation.
+codex
+---
+name: intercreditor-lien-priority
+description: Drafts U.S. intercreditor agreements that establish first lien vs second lien priority over shared collateral, including standstill, enforcement control, payment waterfall/turnover, and bankruptcy 11 U.S.C. 510(a) subordination mechanics. Use for first lien/second lien financings, refinancing, or intercreditor negotiations where lien priority and remedies governance are required. Trigger keywords: intercreditor, lien priority, first lien, second lien, standstill, turnover, payment waterfall, cash collateral, adequate protection, subordination agreement.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Intercreditor Agreement (Lien Priority)
+
+Allocate collateral control, remedies, and payment rights between first lien and second lien creditors.
+
+## Prerequisites
+
+1. First lien credit agreement and security documents, including collateral description and obligations schedule.
+2. Second lien credit agreement and security documents, including collateral description and obligations schedule.
+3. Parties list (agents, lenders, borrower), execution blocks, and notice addresses.
+4. Negotiated business points for standstill length, enforcement control, DIP/cash collateral positions, permitted payments, and amendment thresholds.
+5. Governing law, forum, and service of process preferences.
+
+## Output Structure / Process
+
+**Intake Table**
+
+| Field | Source | Notes |
+| --- | --- | --- |
+| Parties and roles | Deal term sheet | Identify agents, lenders, borrower, guarantors |
+| Collateral scope | Security agreements | Confirm shared vs excluded collateral |
+| Obligations scope | Credit agreements | Include principal, interest, fees, hedging, LCs |
+| Standstill period | Term sheet | Insert exact days and triggers |
+| Permitted payments | Term sheet | Allowed payments to second lien, if any |
+| Bankruptcy positions | Term sheet | DIP, cash collateral, 363 sale, plan voting |
+| Governing law | Term sheet | Commonly NY or DE |
+
+**Key Elections**
+
+| Election | Options | Insert |
+| --- | --- | --- |
+| Standstill trigger | First lien EoD notice or occurrence | [INSERT] |
+| Standstill length | Fixed days | [__] days |
+| Permitted payments to second lien | None or limited | [INSERT] |
+| Second lien enforcement after standstill | Allowed or restricted | [INSERT] |
+| Borrower party | Signatory or acknowledgment | [INSERT] |
+| Discharge definition | Cash pay + cash collateralize | [INSERT] |
+
+**Article Outline**
+
+1. Article I - Definitions and construction.
+2. Article II - Lien priority and subordination.
+3. Article III - Enforcement rights and standstill.
+4. Article IV - Payment waterfall and turnover.
+5. Article V - Bankruptcy and insolvency.
+6. Article VI - Amendments and restrictions on second lien documents.
+7. Article VII - Representations and warranties.
+8. Article VIII - Covenants and cooperation.
+9. Article IX - Miscellaneous (governing law, jurisdiction, notices, waiver of jury trial, successors).
+
+**Required Clauses Checklist**
+
+- Absolute priority of first lien over all shared collateral, regardless of timing of perfection.
+- Subordination is continuing until Discharge of First Lien Obligations.
+- Exclusive enforcement control by first lien agent during standstill.
+- Turnover obligation for any junior receipts.
+- Proceeds applied first to first lien obligations, then second lien.
+- Prohibition on junior objections to first lien enforcement actions, subject to negotiated carve-outs.
+- Bankruptcy subordination under 11 U.S.C. 510(a).
+- Restrictions on amendments to second lien documents that worsen senior position.
+- Notice mechanics and amendment consent requirements.
+
+**Template Snippets**
+
+```text
+"Standstill Period" means the period beginning on the date the First Lien Agent delivers written notice of a First Lien Event of Default and ending [__] days thereafter.
+
+During the Standstill Period, the Second Lien Secured Parties shall not take any Enforcement Action with respect to the Collateral or contest any Enforcement Action taken by the First Lien Secured Parties.
+```
+
+```text
+Any payment or distribution received by any Second Lien Secured Party in violation of this Agreement shall be held in trust and immediately turned over to the First Lien Agent for application in accordance with the Payment Waterfall.
+```
+
+## Guidelines
+
+- Use lien subordination language unless the parties also intend debt subordination; align the waterfall and turnover accordingly.
+- Define "Discharge of First Lien Obligations" to include cash collateralization or backstop of contingent LC/hedging exposure.
+- Keep defined terms consistent across the agreement and cross-reference credit documents precisely.
+- If permitting junior payments, limit to scheduled interest and fees when no first lien default exists.
+- In bankruptcy provisions, confirm 11 U.S.C. 510(a) enforceability and address cash collateral, DIP financing, relief from stay, and plan voting rights.
+- Address post-petition interest and proceeds allocation with correct statutory references (e.g., 11 U.S.C. 552(b)(1) [VERIFY]).
+- Confirm UCC Article 9 perfection status and whether after-acquired property and proceeds are included.
+- If borrower is a party, include covenants not to direct payments contrary to the waterfall.
+- Confirm whether junior creditors may file proofs of claim or seek adequate protection after standstill expiry, and draft carve-outs narrowly.
+- Ensure notices, amendment consent, and assignment provisions match the deal structure and agent roles.
+tokens used
+6,730

@@ -1,0 +1,44 @@
+{
+  "id": "3a964b6d-44ba-4d62-bea6-f5d4abf24b7b",
+  "slug": "certificate-of-withdrawal-foreign-corp",
+  "name": "Certificate of Withdrawal (Foreign Corp)",
+  "summary": "Drafts a comprehensive Certificate of Withdrawal for a foreign corporation ceasing business operations in a specific US jurisdiction. Incorporates state-specific statutory requirements, corporate entity details, and necessary research on filing guidelines. Use when formally terminating a foreign corporation's authority to transact business in a state.",
+  "content": "# Certificate of Withdrawal for Foreign Corporation - Enhanced Workflow\n\nYou are tasked with drafting a comprehensive Certificate of Withdrawal for a foreign corporation ceasing business operations in a specific jurisdiction. This is a formal corporate document that must comply with state-specific filing requirements and serve as the official record of the corporation's withdrawal from doing business in the jurisdiction.\n\n## Document Purpose and Legal Context\n\nBegin by understanding that a Certificate of Withdrawal is a statutory filing required when a foreign corporation (one incorporated in another state or country) wishes to formally cease conducting business in a jurisdiction where it was previously authorized. This document has significant legal implications: it terminates the corporation's authority to transact business, releases the registered agent from further obligations, and establishes the effective date for tax and regulatory purposes. The withdrawal does not absolve the corporation of existing liabilities or obligations incurred while doing business in the state.\n\n## Research and Information Gathering\n\nStart by searching the user's uploaded documents for essential corporate information including the exact legal name of the foreign corporation, its state or country of incorporation, the date it was originally authorized to transact business in the withdrawal jurisdiction, current registered agent details, principal office address, and any relevant corporate resolutions authorizing the withdrawal. Extract specific facts such as entity identification numbers, dates of authorization, and officer names with their titles.\n\nConduct thorough research on the specific state's requirements for certificates of withdrawal by examining official Secretary of State websites, administrative codes, and filing guidelines. Each jurisdiction has unique requirements regarding format, required statements, filing fees, tax clearances, and supporting documentation. Identify whether the state requires specific statutory language, particular attestations about ceased business activities, tax clearance certificates, certificates of good standing from the home jurisdiction, or final tax returns. Verify current filing fees and processing procedures.\n\n## Document Structure and Required Elements\n\n**Header and Jurisdictional Information**: Draft a formal header identifying the document as a \"Certificate of Withdrawal\" and clearly stating both the jurisdiction where the withdrawal is being filed and the corporation's home jurisdiction of incorporation. Include the complete legal name of the foreign corporation exactly as it appears in the original certificate of authority, along with any alternate names or DBAs under which it conducted business.\n\n**Corporate Identity and Authorization Details**: Present comprehensive entity information including the corporation's complete legal name, jurisdiction of incorporation, date of incorporation if relevant to state requirements, the date the corporation was granted authority to transact business in the withdrawal state (with reference to the certificate of authority number if applicable), the corporation's principal office address in its home jurisdiction, and complete registered agent information including name and address in the withdrawal state.\n\n**Withdrawal Declaration and Compliance Statements**: Draft clear, unambiguous statements declaring the corporation's intent to withdraw from conducting business in the jurisdiction and surrender its certificate of authority. Include affirmative representations that the corporation has ceased transacting business in the state, that all taxes and fees owed to the state have been paid or adequately provided for, that all known debts and obligations in the state have been satisfied or adequate provision has been made for their payment, and that the corporation consents to service of process in any proceeding arising from business conducted in the state while authorized. If the state requires specific statutory language regarding post-withdrawal service of process, include the exact required text and designate the appropriate agent or official for such service.\n\n**Effective Date and Supporting Documentation**: Specify the requested effective date of withdrawal, noting whether it is upon filing or a future date if permitted by state law. Reference all required attachments including tax clearance certificates from the state department of revenue, certificates of good standing or compliance from the home jurisdiction if required, evidence of publication if the state mandates newspaper notice of withdrawal, and any final tax returns or reports. Ensure each attachment is properly labeled and corresponds to state-specific requirements.\n\n**Execution and Certification**: Conclude with proper execution blocks for authorized corporate officers, typically requiring the signature of the president, vice president, or other authorized officer as specified by state law and the corporation's governing documents. Include typed names and titles beneath signature lines. If the state requires notarization, provide a complete notary acknowledgment block with appropriate language for the jurisdiction. Some states may require corporate seal attestation or secretary certification\u2014include these elements if mandated.\n\n## Quality Assurance and Finalization\n\nBefore finalizing the document, verify that all state-specific requirements have been addressed, including any unique statutory language, required attachments, proper execution formalities, and filing fee information. Ensure consistency between the corporate name as used throughout the document and as it appears in official records. Confirm that all dates are accurate and that the effective date complies with state timing requirements. Cross-reference the withdrawal certificate against the original certificate of authority to ensure all required information is addressed.\n\nCreate the final Certificate of Withdrawal as a formal legal document with professional formatting, appropriate spacing and margins for filing, clear section headings, and proper legal citation format for any referenced statutes or regulations. The document should be immediately suitable for execution and filing with the appropriate state authority.",
+  "parent_skill_id": "a268f17a-bb00-4f1c-b9bf-16df265c8942",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_dissolution"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

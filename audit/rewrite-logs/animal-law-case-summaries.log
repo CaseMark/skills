@@ -1,0 +1,379 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-5c86-7741-9191-aa1aa31437b8
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "1c30ad22-92c9-472b-bc0c-6582eace8644",
+  "slug": "animal-law-case-summaries",
+  "name": "Animal Law Case Summaries",
+  "summary": "This skill guides an LLM to produce verifiable, litigation-grade animal law case summaries that connect record evidence to legal elements, procedural posture, and realistic remedies across the full spectrum of animal law disputes\u2014including cruelty, ownership, dangerous animal designations, veterinary malpractice, and accommodation matters. It emphasizes exhibit-level factual timelines, jurisdiction-specific legal research with anti-hallucination controls, adversarial analysis, and dual-layer readability for both attorneys and lay stakeholders, with explicit ethics, privilege, and attorney-review guardrails.",
+  "content": "# Animal Law Case Summary and Strategic Analysis\n\n## 1. Opening Context\n\nThis skill produces a practitioner-grade animal law case summary designed for use in litigation, administrative proceedings, advocacy, and client counseling. Animal law sits at a sophisticated intersection of property doctrine, criminal enforcement, administrative regulation, landlord\u2013tenant and disability accommodation law, consumer protection, tort liability, and\u2014in a growing number of jurisdictions\u2014emerging \"best interest of the animal\" standards. A good animal-law summary does more than retell facts. It identifies the legally dispositive issues, maps governing law to record evidence, surfaces procedural posture and near-term deadlines, and provides a candid assessment of strengths and weaknesses so the reader can act.\n\nDone poorly, an animal case summary becomes either a moral narrative untethered to legal standards or a dry legal recitation that misses critical factual predicates\u2014ownership indicia, veterinary evidence, statutory definitions of neglect or cruelty, seizure and forfeiture procedures, or accommodation documentation. Either failure can lead to bad advice, missed remedies, adverse rulings, or avoidable ethical exposure. While animals are historically classified as personal property, the legal landscape in many jurisdictions is shifting toward a \"property-plus\" status that recognizes sentient interests, particularly in custody-like disputes and damages calculations. This summary must bridge that gap, providing rigorous legal analysis while acknowledging the unique emotional and welfare considerations inherent in these cases.\n\nProfessional standards for this work product include competence and thoroughness, truthful and supportable factual presentation, and careful handling of confidential information. The summary must be written in a way that could withstand scrutiny from opposing counsel, the court, an administrative agency, or an auditor of a nonprofit's practices. When the summary includes legal authorities, citations must be verifiable. Any case law, statutes, or regulations not directly provided by the user must be confirmed via web research or flagged as [VERIFY] for attorney confirmation before reliance. All outputs require attorney review before any filing, negotiation, or external sharing.\n\n## 2. Understanding the Context and Purpose\n\nAnimal law disputes span several distinct litigation postures, each governed by different legal frameworks and requiring different analytical approaches. The primary archetypes include ownership and custody disputes, where the traditional replevin model is increasingly challenged by statutory \"best interest\" standards; cruelty and neglect prosecutions and associated seizure or forfeiture proceedings, where constitutional due process intersects with state police powers; dangerous animal designations, which carry their own procedural requirements and tight statutory timelines; veterinary malpractice and tortious injury to animals, where the core tension lies in the calculation of damages (market value versus intrinsic or companionship value); service animal and assistance animal accommodation disputes under the ADA and FHA; and wildlife, exotic animal, and agricultural animal regulatory matters governed by overlapping federal and state schemes.\n\nThe summary's strategic role varies by matter stage, forum, and audience. In a criminal cruelty case, the summary should help counsel evaluate charging exposure, defenses (necessity, lack of mens rea, statutory exceptions), evidentiary sufficiency, and seizure or forfeiture posture; it should also inform negotiations about diversion, treatment, restitution, and animal disposition. In a civil ownership dispute\u2014often proceeding as replevin, conversion, declaratory relief, breach of contract, or equitable claims\u2014the summary should clarify title and possession evidence, the operative contract documents (adoption agreements, microchip registrations, veterinary invoices, receipts), available equitable doctrines, and the remedy most likely to be awarded. In service or assistance animal matters, the summary must align facts to the precise definitions and processes under the ADA and FHA and anticipate \"direct threat,\" \"fundamental alteration,\" or \"undue burden\" positions. In veterinary malpractice claims, the summary must identify the applicable standard of care, causation issues, and the jurisdiction's approach to damages.\n\nReaders and their expectations differ materially. A supervising attorney wants a court-ready factual record map with citations to exhibits and a candid assessment of weak points. A pet owner or nonprofit wants plain-language explanation of what matters legally and what happens next, without overpromising. A court or agency will expect neutral presentation, careful distinctions between allegations and findings, and precise reference to the procedural posture. The LLM must ask the user to identify the intended audience because tone, privilege handling, and the level of strategic candor change accordingly.\n\nScope boundary: this skill produces a case summary, not a full legal memorandum, motion, demand letter, or press statement. It can include a tightly framed issues-and-law section, but it should not substitute for jurisdiction-specific motion practice, jury instructions, or sentencing analysis without further research.\n\n## 3. Prerequisites and Information Gathering\n\nBefore drafting, the LLM must obtain and review the core record. The minimum record varies by matter type, but the summary should not begin until the model has\u2014or has requested\u2014enough information to avoid guessing. The LLM should collect and, where possible, quote and cite primary sources rather than secondary recollections.\n\nFor litigation matters, the LLM should obtain the complaint or petition and its exhibits, the answer and any counterclaims, any temporary restraining order or preliminary injunction papers or emergency custody and seizure filings, all relevant court orders (including warrants, seizure orders, impound orders, forfeiture orders, protective orders, and no-contact orders), key discovery responses or disclosures, deposition transcripts or declarations and affidavits, expert materials (veterinary reports, behaviorist opinions) and foundational materials supporting them, and the scheduling order and upcoming deadlines.\n\nFor criminal cruelty or dangerous animal proceedings, the LLM should also obtain the charging instrument, the probable cause affidavit, incident reports and body camera or video footage, chain-of-custody documentation for physical evidence, animal control and shelter intake and disposition logs, veterinary necropsy reports if applicable, and any diversion or probation conditions or prior orders.\n\nFor service or assistance animal disputes, the LLM should obtain the lease or HOA rules or public accommodation policy, the accommodation request and all correspondence, any third-party verification submitted and what it does or does not say, incident reports or complaints about the animal if any, and any internal decision records.\n\nFor veterinary malpractice or tortious injury matters, the LLM should obtain the complete veterinary medical records from all treating and defendant veterinarians, any expert opinions on the standard of care, purchase or adoption documentation establishing the animal's value, and documentation of economic and non-economic losses.\n\nFoundational factual inputs the LLM must ask the user to confirm include jurisdiction (state and county), forum (state or federal; trial or appellate; administrative body), procedural posture, identity of parties and their relationship to the animal, the animal's identifying information (species, breed, microchip number, license number), current location and custody of the animal, the relief sought, and the intended audience for the summary (attorney internal work product versus client-facing versus public educational). If any required document or fact is missing, the LLM must pause and ask targeted follow-up questions rather than infer. Where the user cannot provide a document, the LLM should request a detailed description and mark the resulting content as \"based on user description\" with [VERIFY] flags.\n\n## 4. Step-by-Step Process\n\n### Step 1: Classify the Matter and Lock the Procedural Posture\n\nBegin by classifying the case into one or more common animal-law archetypes because the classification determines the legal elements, burden of proof, and the evidence to emphasize. Typical archetypes include criminal cruelty or neglect, civil forfeiture or impound challenge, dangerous animal designation, ownership or title dispute (replevin, conversion, declaratory relief), veterinary malpractice or consumer protection, landlord\u2013tenant or HOA pet dispute, service animal (ADA Title III) or assistance animal (FHA) accommodation dispute, wildlife or exotics possession and permitting, agricultural animal welfare enforcement, and animal-related torts (bite, nuisance, premises liability). Avoid the common mistake of applying general property law to a jurisdiction that has adopted specific animal-welfare-based exceptions. For example, if the case is in California, the analysis must note the shift under Family Code \u00a7 2605, which allows courts to consider the \"well-being\" of the pet in dissolution proceedings rather than treating it solely as a community property asset (https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2605.&lawCode=FAM) [VERIFY].\n\nThen, lock procedural posture with precision. Identify whether this is pre-suit intake, pleadings stage, TRO or preliminary injunction, discovery, summary judgment, trial, sentencing or disposition, or appeal. In a cruelty case, specify whether animals were seized under a warrant and whether forfeiture is pending. In an ownership dispute, specify whether temporary possession orders exist. In an accommodation case, specify whether there is an administrative complaint (such as a HUD complaint) or a civil action.\n\nWrite a caption block paragraph near the top of the summary identifying the court or agency, case number, judge or ALJ (if known), filing date, and current next date (hearing, mediation, trial). This anchors the document and reduces later confusion. For example: \"This matter is a state criminal prosecution for alleged animal neglect arising from a seizure of multiple dogs from Defendant's residence on [date]. The case is pending in [Court] under No. [____]. The parties are currently at the pretrial motion stage; a forfeiture and disposition hearing regarding the seized animals is scheduled for [date], and the criminal trial is set for [date].\"\n\nCommon mistakes at this stage include collapsing allegations into findings (stating \"the defendant abused the dog\" when the record shows only allegations), failing to identify whether the animal is currently in shelter custody or has been returned, and omitting deadlines that drive strategy. In dangerous dog cases, for instance, the window for an administrative appeal may be as short as five to ten days [VERIFY], and missing that deadline can be dispositive.\n\n### Step 2: Build a Record-Grounded Factual Timeline with Exhibit-Level Citations\n\nConstruct a chronological timeline that is explicitly tied to record sources. The goal is not narrative flourish but rather a fact map that supports element-by-element legal analysis and lets a reader quickly locate proof. Use neutral, observable descriptions (for example, veterinary body condition scores, dehydration indicators, environmental conditions) rather than conclusory characterizations.\n\nFor each key event, include the date and time, who observed or did what, what document supports it (police report, veterinary record, photograph, text message), and any disputes about the fact. If quoting directly, provide a pinpoint cite to the page, paragraph, or Bates range of the document. If page numbers are unavailable, note \"pinpoint unavailable\" and recommend adding them.\n\nFor example: \"On March 4, 2025, Animal Control Officer Rivera conducted a welfare check after a neighbor complaint regarding odor and barking (ACO Report, p. 2). Officer Rivera reports observing 'no visible water source' and 'feces accumulation in multiple rooms' (id.). That same day, Dr. Chen documented Dog A with body condition score 2/9, alopecia, and flea infestation (Vet Exam Record, p. 1). Defendant disputes that the animals lacked water and states bowls were refilled daily (Def. Decl. \u00b6 6).\"\n\nIn animal law cases, the timeline must address the animal as both a piece of property\u2014to satisfy standing and jurisdictional requirements\u2014and a sentient subject\u2014to address welfare, damages, and any \"best interest\" analysis. This means detailing not just the \"chain of title\" (who bought or adopted the animal) but also the \"chain of care\" (who provided daily maintenance, medical oversight, and social bonding). This dual lens is critical because courts increasingly consider care history when resolving ambiguous ownership claims and when assessing credibility in welfare cases.\n\nCommon mistakes include summarizing without citations, mixing sources in a way that implies the same witness observed everything, failing to include exculpatory facts (recent veterinary visit, food purchase receipts, third-party caregiving) that the other side will highlight, and omitting chain-of-custody issues for photographs, samples, or necropsy materials.\n\n### Step 3: Identify Claims or Charges, Elements, Burdens, and Remedies\u2014Then Map Facts to Each\n\nConvert the timeline into a legal map. Identify each claim, charge, or administrative violation and list its elements, then map which facts and exhibits support or undermine each element. This is where animal-law work most frequently fails: a summary that never connects distressing facts to statutory elements is not litigation-useful.\n\nFor each cause of action or charge, state the legal standard and burden (beyond a reasonable doubt for criminal matters; preponderance of the evidence for most civil actions; clear and convincing evidence for certain injunctive or equitable relief in some jurisdictions [VERIFY]), the key disputed elements, the best evidence available, and the most likely defenses.\n\nFor example: \"Count 1 alleges neglect under [State Statute \u00a7 __] [VERIFY]. The prosecution must prove (1) Defendant owned or had custody or control of the animal, (2) Defendant failed to provide necessary food, water, shelter, or veterinary care, and (3) the failure was knowing, reckless, or negligent as defined by the statute [VERIFY]. Evidence supporting Element (2) includes Dr. Chen's examination findings (Vet Record pp. 1\u20133) and shelter intake photographs (Ex. 12). Evidence undermining Element (3) includes receipts for dog food purchases (Ex. 20) and Defendant's text messages seeking low-cost veterinary care (Bates DEF00045\u2013DEF00052).\"\n\nIn dog bite and dangerous animal cases, the LLM must identify whether the jurisdiction applies strict liability or a negligence standard and must address applicable defenses such as provocation, trespass, or assumption of risk. Some states, such as Florida under Statute \u00a7 767.04, impose strict liability with specific provocation defenses [VERIFY]. In cruelty prosecutions, the LLM must identify the mental state requirement (which varies among intent, recklessness, negligence, and strict liability depending on the jurisdiction and the grade of offense) and any statutory exemptions (veterinary practice, accepted agricultural practices, hunting and wildlife activities, scientific research).\n\nAdversarial awareness is critical here. Anticipate the other side's strongest \"element attack.\" In ownership disputes, expect the opponent to focus on title documents, microchip records, and credibility. In cruelty cases, expect attacks on mens rea, causation, and alternative explanations for the animal's medical condition. In accommodation matters, expect \"direct threat\" or \"insufficient documentation\" arguments. In veterinary malpractice, expect challenges to causation and expert qualifications.\n\n### Step 4: Research and Verify Governing Law with Anti-Hallucination Controls\n\nWhen the summary includes legal authority, it must be verifiable. The LLM must not fabricate citations. Use web research to confirm the current version of the relevant state statute, municipal ordinance, federal statute, and regulation, and to confirm any case law propositions.\n\nFor federal frameworks commonly implicated in animal law, confirm and cite the controlling text. The Animal Welfare Act is codified at 7 U.S.C. \u00a7 2131 et seq. (https://uscode.house.gov/view.xhtml?path=/prelim@title7/chapter54&edition=prelim). The Endangered Species Act is codified at 16 U.S.C. \u00a7 1531 et seq. (https://uscode.house.gov/view.xhtml?path=/prelim@title16/chapter35&edition=prelim). The ADA Title III implementing regulation includes the DOJ definition of \"service animal\" at 28 C.F.R. \u00a7 36.104 (https://www.ecfr.gov/current/title-28/chapter-I/part-36/section-36.104) and the general nondiscrimination rule at 28 C.F.R. \u00a7 36.302(c) (https://www.ecfr.gov/current/title-28/chapter-I/part-36/section-36.302). The FHA disability discrimination regulations include reasonable accommodation provisions at 24 C.F.R. \u00a7 100.204 (https://www.ecfr.gov/current/title-24/subtitle-A/part-100/section-100.204). HUD issued a notice on assistance animals in January 2020, FHEO-2020-01, which provides important guidance on documentation requirements and breed-based restrictions (https://www.hud.gov/sites/dfiles/PA/documents/HUDAsstAnimalNC1-28-2020.pdf) [VERIFY current applicability]. For air travel, the DOT's Air Carrier Access Act regulations at 14 C.F.R. Part 382 now align closely with ADA definitions, effectively excluding emotional support animals from ACAA protections [VERIFY].\n\nFor each authority, provide a short parenthetical of what it stands for and why it matters to the case. If the user needs Bluebook formatting, produce it, but also include a verification URL so another lawyer can quickly confirm.\n\nFor example: \"Under DOJ's ADA Title III regulation, a 'service animal' is limited to a dog trained to do work or perform tasks for an individual with a disability, with limited exceptions for miniature horses (28 C.F.R. \u00a7 36.104, https://www.ecfr.gov/current/title-28/chapter-I/part-36/section-36.104). This definition is central because Plaintiff's request involves an emotional support animal rather than a task-trained service dog, which may be protected under the FHA but not under ADA Title III [VERIFY].\"\n\nState statutes require particular care because animal law is heavily state- and local-specific. The LLM must locate the exact state cruelty statute, dangerous dog statute, pet custody statute (if any), and relevant municipal ordinances via web research. For pet custody in particular, several states have enacted statutes allowing courts to consider the animal's well-being in divorce or separation contexts. Confirmed examples include California Family Code \u00a7 2605 (https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2605.&lawCode=FAM) [VERIFY] and provisions in New York, Illinois, and Alaska [VERIFY each]. The summary must not assume such a statute exists without confirming it for the specific jurisdiction.\n\nCommon mistakes include citing outdated versions of statutes, citing secondary summaries without primary authority, and hallucinating case citations. If a case is important, the LLM must either locate it via web research and include the URL to an authoritative source, or mark the citation [VERIFY] and describe the proposition without falsely attributing it. Municipal codes change frequently, and this is a high-risk area for error; always confirm ordinance text and effective dates.\n\n### Step 5: Analyze Evidence Quality\u2014Veterinary, Behavioral, Digital, and Witness Evidence\n\nAnimal-law matters frequently turn on expert and quasi-expert evidence: veterinary opinions, necropsy findings, animal behavior assessments, shelter medicine notes, and animal control officer observations. The summary should evaluate not just what the evidence says but whether it is admissible and persuasive.\n\nIdentify each expert or professional witness, their qualifications as stated in the record, their methods, and any contested assumptions. In federal court and many state courts, expert admissibility is governed by the Daubert standard (Daubert v. Merrell Dow Pharmaceuticals, Inc., 509 U.S. 579 (1993) [VERIFY]) and Federal Rule of Evidence 702 (https://www.law.cornell.edu/rules/fre/rule_702). Some states still apply the older Frye \"general acceptance\" standard [VERIFY for jurisdiction]. The LLM should use the applicable admissibility framework to evaluate whether the opposition's behavioral expert is relying on peer-reviewed methodology or subjective assessments. If the case involves lay witness observations (odor, barking, visible ribs), distinguish those from medical conclusions.\n\nFor digital evidence such as text messages about rehoming, social media posts, and adoption listings, address authenticity, date stamps, and completeness. For photographs of conditions, note whether they have metadata, who took them, and whether they fairly depict the scene. Chain-of-custody issues for physical evidence, necropsy samples, and photographs are frequently litigated in cruelty and dangerous animal cases and should be flagged explicitly.\n\nIn veterinary malpractice cases, the standard of care analysis must identify what a reasonably prudent veterinarian in the relevant locality would have done, drawing on the treating records, the defendant's documentation, and any expert opinions in the record. The LLM should flag whether the expert reviewed all relevant prior medical history, diagnostic results, and treatment records.\n\nFor example: \"Dr. Chen's opinion that the condition was 'consistent with chronic neglect' may face cross-examination on alternative etiologies (parasites, endocrine disorders, recent rescue history). The summary should flag whether Dr. Chen reviewed prior medical history, diet logs, and parasite tests (Vet Record pp. __) and whether those materials are in evidence.\"\n\nCommon mistakes include treating shelter notes as final medical conclusions without foundation, failing to note alternative explanations for the animal's condition, and omitting mitigation evidence such as owner efforts to obtain care or the animal's pre-existing conditions.\n\n### Step 6: Address Remedies, Damages, Collateral Consequences, and Settlement Posture\n\nA litigation-useful summary must tell the reader what can happen next and what outcomes are legally available. Animal cases often have remedies beyond the immediate dispute: forfeiture, restitution for care costs, bans on animal ownership, injunctive relief, mandatory insurance or containment requirements, and collateral consequences affecting housing, professional licenses, or immigration status.\n\nTie each requested or likely remedy to a legal mechanism. In an ownership dispute, explain whether the operative remedy is replevin or claim-and-delivery, conversion damages, or injunctive relief. In cruelty cases, separate criminal penalties from animal disposition orders and cost-of-care reimbursement regimes, which are state-specific [VERIFY]. In accommodation matters, separate injunctive relief (allow the animal, stop enforcement) from damages and fees.\n\nThe damages question is particularly important in animal law because animals often have low market value but high sentimental value. The LLM must determine whether the jurisdiction allows recovery beyond fair market value. Some jurisdictions permit \"intrinsic value\" or \"loss of companionship\" damages in tort actions involving animals (for example, certain decisions in Illinois and Tennessee) [VERIFY for each jurisdiction]. If the jurisdiction strictly limits recovery to fair market value, the summary must explain this limitation clearly to manage client expectations. The LLM should also consider whether statutory damages, punitive damages, or attorney's fees are available under the applicable statute.\n\nFor example: \"Near-term leverage centers on the animal's current placement. If the shelter seeks forfeiture, the statutory hearing date and bond options (if any) are critical [VERIFY]. If Defendant cannot post a bond, settlement may focus on a stipulated transfer with a limited ownership ban rather than litigating the criminal count to verdict.\"\n\nIn dangerous dog cases, the LLM must address whether euthanasia is mandatory upon designation under the applicable statute, whether alternatives such as behavioral requirements, muzzling, insurance, and confinement are available, and whether a stay of euthanasia pending appeal can be obtained [VERIFY]. In animal law, \"justice delayed is justice denied\" in a very literal sense: the animal's health, behavior, or life may be at stake during the pendency of proceedings, and suggesting a motion for temporary custody or a stay of euthanasia is a critical strategic inclusion.\n\nCommon mistakes include overpromising about custody outcomes (\"the court will award the dog to whoever loves it more\"), ignoring that many jurisdictions still treat animals as property in civil disputes, and overlooking the cost and timing realities of expert workups and extended shelter stays.\n\n### Step 7: Draft the Final Summary with Dual-Layer Readability\n\nWrite the final document with headings that track how lawyers and non-lawyers read: \"Overview,\" \"Parties and Animals,\" \"Procedural Posture,\" \"Key Facts (Timeline),\" \"Claims/Charges and Governing Law,\" \"Evidence Strengths and Weaknesses,\" \"Key Disputes,\" \"Remedies and Risk Assessment,\" and \"Next Steps and Deadlines.\" Keep the narrative neutral and clearly labeled: allegations versus findings versus stipulations.\n\nInclude a short \"Key Takeaways\" paragraph that is non-advocacy but action-oriented\u2014for example, what issues are dispositive, what evidence is missing, what deadline drives the next step, and what realistic outcomes exist. Use plain-language explanations for emotionally charged topics while maintaining legal rigor.\n\nFor example: \"Although the case centers on the dog's welfare, the legal question the court must decide at the upcoming hearing is narrower: whether the statutory criteria for forfeiture are met and whether Defendant received required notice [VERIFY].\"\n\nThe summary must clearly state the animal's legal status in the jurisdiction. For example: \"While the client views the animal as a family member, under [State] law, the animal is currently classified as personal property, subject to the [specific statute] exception for [custody/welfare/valuation] purposes [VERIFY].\" This grounding is essential for managing expectations and framing legal arguments accurately.\n\nAvoid overloading the summary with statutory text, failing to state what is unknown, or writing in a tone that sounds like a press release or advocacy piece. Assume the document could be discoverable if shared broadly. If preparing an internal attorney work product, label it as privileged and work product where appropriate and avoid unnecessary editorializing.\n\n## 5. Critical Legal Standards and Compliance\n\nThis work product implicates core professional responsibility duties. The LLM must draft in a way that supports compliance, but it cannot replace attorney judgment.\n\nCompetence and diligence under Model Rule 1.1 and Model Rule 1.3 require accurate statement of law and careful treatment of deadlines and procedural posture. A common malpractice vector in animal cases is missing fast statutory deadlines for impound or forfeiture challenges, dangerous dog designation appeals (often five to ten days [VERIFY]), or emergency hearing requests. The summary must surface these dates and explicitly flag any deadline uncertainty. Animal law requires knowledge of diverse fields\u2014criminal, civil, regulatory, disability\u2014and the competence standard demands that any area outside the practitioner's expertise be identified and addressed through research or referral.\n\nConfidentiality and privilege under Model Rule 1.6 require protecting confidential client information. If the summary is client-facing, avoid including unnecessary sensitive facts (mental health details in an assistance animal matter, addresses, microchip numbers) unless needed. If the summary is internal, include sensitive facts only as needed and label the document appropriately. Summaries involving veterinary records may also implicate state-specific veterinarian-client privilege, which in some jurisdictions is analogous to physician-patient privilege [VERIFY]. The LLM should ask whether the user intends to share the summary outside counsel; if yes, it should propose a version that redacts confidential details.\n\nCandor and truthfulness under Model Rule 3.3 (candor toward the tribunal) and Model Rule 4.1 (truthfulness in statements to others) are implicated whenever the summary might be shared with a court or opposing party. The summary must not misrepresent what the record contains. The LLM must distinguish among allegations, admissible evidence, findings or orders, and the LLM's own inference. Any uncertain fact must be labeled as such.\n\nUnauthorized practice of law considerations apply when the intended audience includes non-lawyers. The summary should provide legal information and procedural orientation, not individualized legal advice. Include a clear attorney-review requirement and avoid directives like \"you should file X\" unless framed as \"counsel typically considers X; consult a lawyer.\"\n\nConflicts under Model Rule 1.7 may be relevant if a nonprofit or clinic represents multiple parties or has relationships with shelters, rescues, or municipalities. The summary should note any apparent conflict facts, such as an organization that both housed the animal and is a party or witness.\n\nDefamation and reputational risk deserve attention because animal disputes can become public quickly. The summary should avoid unnecessary accusations, stick to record-supported facts, and caution against publication without counsel review.\n\nEvery final output must include the following disclaimer or a substantially equivalent statement: \"THIS SUMMARY REQUIRES INDEPENDENT ATTORNEY VERIFICATION OF ALL CITATIONS, LOCAL CODES, AND FACTUAL ASSERTIONS, AND DOES NOT CONSTITUTE LEGAL ADVICE.\"\n\n## 6. Quality Control and Review\n\nReview the summary the way a supervising attorney or opposing counsel would, using the following audit framework.\n\nFirst, audit factual integrity. Every material factual assertion should be traceable to a record cite (document name plus page, paragraph, or Bates number). Where a fact is based on user narrative rather than a document, label it explicitly and consider it provisional. Ensure allegations are not presented as findings. Confirm dates, spellings, and animal identifiers are consistent across the document.\n\nSecond, audit legal accuracy. Confirm the controlling statutes and regulations are current using official or reputable sources\u2014eCFR for federal regulations, the U.S. Code official viewer for federal statutes, and official state legislature websites for state statutes\u2014and include verification URLs. For case law, do not rely on memory; verify the case exists and stands for the proposition via web research, or mark it [VERIFY]. Do not overstate trend claims (such as \"courts now treat pets as children\") without jurisdiction-specific authority.\n\nThird, audit structure and usefulness. The summary should answer: What is the case about? What must the tribunal decide next? What facts matter to that decision? What law governs? What evidence is strong and what is weak? What are the near-term deadlines? And what realistic outcomes exist?\n\nFourth, audit adversarial resilience. Identify the top three vulnerabilities in the client's position and state them candidly. Then identify what additional evidence or legal research would most directly reduce those vulnerabilities. Has the LLM identified at least two ways the opposition will challenge standing, ownership, or the key elements?\n\nFifth, audit the \"property clause.\" Does the summary clearly state the animal's legal status in the jurisdiction? This foundational determination affects everything from standing to remedies to damages, and omitting it is a frequent quality failure.\n\nFinally, audit citations and formatting. Ensure Bluebook citations (if requested) are internally consistent, and always include a parallel verification URL for non-paywalled checking. If a citation cannot be verified, label it [VERIFY] and do not present it as settled.\n\n## 7. Jurisdiction-Specific Adaptations\n\nBecause animal law is largely state and local, the skill must adapt rather than generalize. The following are illustrative adaptations; the LLM must always confirm the current law for the specific jurisdiction.\n\nFor state cruelty, neglect, and dangerous dog matters, the LLM must locate the exact state statute and any controlling municipal ordinance and summarize the definitions, mental state requirements, defenses and exemptions, and procedural steps for seizure, impound, designation hearings, forfeiture, and appeals. Many jurisdictions embed critical procedure\u2014notice requirements, hearing timelines, bond and cost-of-care mechanisms\u2014in local code or agency regulations [VERIFY]. For example, Texas has unique dangerous dog appellate procedures under Health and Safety Code Chapter 822 [VERIFY], while other states may impose different notice, hearing, and appeal requirements. The summary must identify these provisions explicitly or flag them as research gaps.\n\nFor civil pet custody disputes, the LLM must determine whether the jurisdiction treats the dispute strictly as a property matter (replevin or conversion) or has enacted statutes allowing consideration of an animal's well-being. Confirmed or reported examples include California Family Code \u00a7 2605 (https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2605.&lawCode=FAM) [VERIFY], New York Domestic Relations Law \u00a7 236 [VERIFY], and statutes in Illinois and Alaska [VERIFY each]. If such a statute exists, the summary should explain what factors courts may consider and whether the statute applies outside marital dissolution.\n\nFor ADA service animal disputes, the LLM should anchor analysis to DOJ's Title III regulation definitions and permissible inquiry limits for public accommodations (28 C.F.R. \u00a7 36.104 and \u00a7 36.302(c)). For FHA assistance animal disputes, the LLM should anchor to the FHA reasonable accommodation regulation (24 C.F.R. \u00a7 100.204) and the HUD 2020 guidance on assistance animals (https://www.hud.gov/sites/dfiles/PA/documents/HUDAsstAnimalNC1-28-2020.pdf) [VERIFY current applicability]. The summary must clearly separate ADA \"service animals\" (task-trained dogs, with limited miniature horse exceptions) from FHA \"assistance animals\" (which may include emotional support animals of various species) and must not conflate the two frameworks. For air travel, note the DOT's alignment of ACAA regulations with ADA definitions under 14 C.F.R. Part 382 [VERIFY].\n\nFor wildlife, exotics, and AWA matters, federal law may preempt or layer onto state permitting. The summary should identify which agency has jurisdiction (USDA APHIS for AWA licensing; U.S. Fish and Wildlife Service for ESA enforcement) and cite the governing statute text, but should avoid describing licensing thresholds or exemptions without a confirmed regulatory citation [VERIFY].\n\nWhen the case is in federal court, apply the Federal Rules of Civil Procedure and Evidence as the baseline and then adapt to local rules and judge-specific practices. For dispositive motions, note that a statement of undisputed material facts with record citations is typically required by local rule [VERIFY for the specific district]. Do not assume uniformity across districts.\n\nFor states with notable or evolving animal law provisions, illustrative examples include New York's consideration of best interest factors in certain pet custody disputes (Dom. Rel. Law \u00a7 236) [VERIFY], Florida's strict liability dog bite statute with provocation defense (Fla. Stat. \u00a7 767.04) [VERIFY], and states with \"pet lemon laws\" or adoption contract enforceability rules that may affect rescue organization right-of-reverter clauses [VERIFY]. These are examples only; the LLM must research the specific jurisdiction in every case.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "discovery",
+      "pre-trial",
+      "trial",
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 2,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.492899",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:47:06.066759Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Selecting skill-creator for rewriting skill**
+
+The task matches the "skill-creator" guide, so I’ll proceed using this skill to rewrite the skill content into SKILL.md as instructed.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 51ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Reading skill file**
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving frontmatter format conflict and slug choice**
+
+The user’s explicit SKILL.md format instructions override the skill-creator’s frontmatter rules, so I’ll follow the user’s metadata requirements exactly. I’ll create a concise slug by dropping the practice-area prefix “animal-law” and yield “animal-case-summary” for clarity and descriptiveness. The title and description will be aligned accordingly with relevant triggers and summary constraints.
+thinking
+**Crafting detailed skill output plan**
+
+The chunk fully develops the intended SKILL.md content structure and metadata, detailing precise frontmatter, title, purpose, prerequisites, output structure with tables and checklists, authority anchors with citations marked [VERIFY], and guidelines with formatting rules and disclaimers to meet user requirements while ensuring citation caution. Next step is to produce the final SKILL.md text per these clarified specifications.
+codex
+---
+name: animal-case-summary
+description: Produces litigation-grade U.S. animal law case summaries that map record evidence to legal elements, procedural posture, deadlines, and remedies across cruelty or neglect, ownership or custody disputes, dangerous animal designations, veterinary malpractice, service or assistance animal accommodations, wildlife or exotics regulation, and animal-related torts. Emphasizes exhibit-cited timelines, verified authority, adversarial weaknesses, and dual-audience readability. Use when asked for animal law case summaries, case intake summaries, litigation updates, evidence-to-element matrices, or strategic analysis of animal-related disputes.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Animal Law Case Summary
+
+Generate a record-grounded animal law case summary with verified authority, element mapping, and realistic remedies.
+
+## Prerequisites
+
+1. **Jurisdiction and forum** — state/county, court or agency, case number, judge/ALJ, posture, next dates.
+2. **Parties and animal identifiers** — legal names, roles, species/breed, microchip/license, current custody/location.
+3. **Core filings and orders** — complaint/charging instrument, answers, TRO/PI/seizure/impound/forfeiture orders, scheduling order.
+4. **Evidence set** — veterinary records, ACO/police reports, photos/video/bodycam, shelter intake/disposition, chain of custody, witness declarations, expert reports.
+5. **Matter-specific records** — lease/HOA/policy and accommodation correspondence; adoption/ownership documents; insurance/containment logs.
+6. **Requested relief and audience** — relief sought, internal attorney vs client-facing vs public, confidentiality constraints.
+
+## Output Structure / Process
+
+1. **Intake gate**
+- Ask targeted questions for any missing prerequisite.
+- Do not infer missing facts; label user-described facts as "based on user description."
+
+2. **Classify matter and lock posture**
+- Identify archetype(s): cruelty/neglect, forfeiture/impound, dangerous animal, ownership/custody, vet malpractice, accommodation (ADA/FHA), wildlife/exotics, animal torts.
+- State burden of proof and current stage.
+
+| Field | Entry |
+| --- | --- |
+| Archetype(s) | |
+| Forum | |
+| Posture | |
+| Burden/Standard | |
+| Next Date/Deadline | |
+
+3. **Caption block**
+```text
+Court/Agency:
+Case No.:
+Judge/ALJ:
+Parties:
+Filing Date:
+Posture:
+Next Date(s):
+```
+
+4. **Timeline with exhibit cites**
+- Include date/time, actor, event, source cite, and disputes.
+
+| Date/Time | Event | Source Cite | Dispute/Notes |
+| --- | --- | --- | --- |
+
+5. **Claims/Charges and element map**
+- List each claim/charge/violation and map elements to evidence and defenses.
+
+| Claim/Charge | Elements | Supporting Evidence | Weakness/Defense |
+| --- | --- | --- | --- |
+
+6. **Governing law verification**
+- Use primary sources; include verification URLs in code.
+- Mark any uncertain authority with [VERIFY].
+
+| Topic | Primary Authority | Use |
+| --- | --- | --- |
+| AWA | `7 U.S.C. § 2131 et seq.` `https://uscode.house.gov/view.xhtml?path=/prelim@title7/chapter54&edition=prelim` [VERIFY] | Federal animal welfare baseline |
+| ESA | `16 U.S.C. § 1531 et seq.` `https://uscode.house.gov/view.xhtml?path=/prelim@title16/chapter35&edition=prelim` [VERIFY] | Wildlife protections |
+| ADA Title III service animal | `28 C.F.R. § 36.104` `https://www.ecfr.gov/current/title-28/chapter-I/part-36/section-36.104` [VERIFY] | Definition |
+| ADA public accommodation rules | `28 C.F.R. § 36.302(c)` `https://www.ecfr.gov/current/title-28/chapter-I/part-36/section-36.302` [VERIFY] | Permissible inquiries/exclusions |
+| FHA reasonable accommodation | `24 C.F.R. § 100.204` `https://www.ecfr.gov/current/title-24/subtitle-A/part-100/section-100.204` [VERIFY] | Assistance animals |
+| HUD 2020 guidance | `https://www.hud.gov/sites/dfiles/PA/documents/HUDAsstAnimalNC1-28-2020.pdf` [VERIFY] | Documentation standards |
+| ACAA | `14 C.F.R. Part 382` [VERIFY] | Air travel |
+| FRE 702 | `https://www.law.cornell.edu/rules/fre/rule_702` [VERIFY] | Expert admissibility |
+| Daubert | `509 U.S. 579 (1993)` [VERIFY] | Expert reliability |
+| State cruelty statute | [VERIFY] | Elements, mens rea, defenses |
+| Dangerous animal statute | [VERIFY] | Notice, hearing, appeal window |
+
+7. **Evidence quality review**
+- Separate lay observations from medical or expert conclusions.
+
+| Evidence Type | Reliability Checks | Admissibility Standard |
+| --- | --- | --- |
+| Veterinary/necropsy | Qualifications, methods, alternative causes | Daubert/Frye [VERIFY] |
+| Behavioral assessments | Methodology, bias, prior history | Daubert/Frye [VERIFY] |
+| Photos/video | Authenticity, metadata, chain of custody | FRE 901 analog [VERIFY] |
+| Digital messages | Authorship, completeness, timestamps | FRE 901/803 [VERIFY] |
+
+8. **Remedies, damages, collateral consequences**
+- Tie each remedy to statute or rule.
+
+| Remedy | Authority | Conditions/Notes |
+| --- | --- | --- |
+| Forfeiture/impound | [VERIFY] | Bond/cost-of-care deadlines |
+| Injunction/custody | [VERIFY] | Standard for relief |
+| Damages | [VERIFY] | Market vs intrinsic/companionship |
+| Ownership bans | [VERIFY] | Statutory prerequisites |
+
+9. **Draft the summary with required headings**
+- Overview
+- Parties and Animals
+- Procedural Posture and Deadlines
+- Key Facts (Timeline)
+- Claims/Charges and Governing Law
+- Evidence Strengths and Weaknesses
+- Key Disputes
+- Remedies and Risk Assessment
+- Next Steps and Deadlines
+- Key Takeaways
+
+10. **QC audit**
+- Every material fact has a record cite.
+- Allegations vs findings are clearly labeled.
+- Property status statement is explicit for the jurisdiction.
+- Top 3 vulnerabilities and missing proof are stated.
+- Deadlines are surfaced with dates and [VERIFY] if uncertain.
+
+11. **Required footer**
+- Include: "THIS SUMMARY REQUIRES INDEPENDENT ATTORNEY VERIFICATION OF ALL CITATIONS, LOCAL CODES, AND FACTUAL ASSERTIONS, AND DOES NOT CONSTITUTE LEGAL ADVICE."
+
+## Guidelines
+
+- Use neutral tone; avoid advocacy or moral framing.
+- Distinguish allegations, evidence, findings, and inferences.
+- Separate ADA service animal analysis from FHA assistance animal analysis.
+- Flag local codes and municipal ordinances as high-risk for staleness.
+- Do not fabricate citations; mark uncertain items with [VERIFY].
+- If audience is non-lawyer, provide legal information only and recommend attorney review.
+- Label privileged or work-product versions when intended for internal use.
+tokens used
+17,633

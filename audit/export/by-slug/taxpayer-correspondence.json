@@ -1,0 +1,43 @@
+{
+  "id": "38e242ba-6081-4ba7-a15d-78f23a195cef",
+  "slug": "taxpayer-correspondence",
+  "name": "Taxpayer Correspondence",
+  "summary": "Generates a comprehensive taxpayer correspondence document summarizing tax records and financial information, including income, deductions, credits, and tax positions. Used for responding to IRS or state tax authority inquiries, preparing clients for audits, supporting tax filings, or facilitating advisor-client communications. Ensures organized presentation of data with references to supporting documents and compliance analysis.",
+  "content": "# Taxpayer Correspondence - Tax Records and Financial Information Summary\n\nYou are tasked with preparing a comprehensive taxpayer correspondence document that summarizes tax records and financial information for a specific taxpayer or entity. This document serves as a critical communication tool between tax professionals and their clients, tax authorities, or other relevant parties, providing a clear and organized overview of tax-related data.\n\n## Purpose and Context\n\nTaxpayer correspondence documents are essential in tax practice for multiple scenarios: responding to IRS or state tax authority inquiries, preparing clients for audits, documenting tax positions, supporting tax return filings, or facilitating communication between tax advisors and clients. These summaries must be accurate, well-organized, and present complex financial information in an accessible format while maintaining professional standards and compliance with tax regulations.\n\n## Document Requirements and Structure\n\nBegin by gathering all relevant tax records and financial documents from the available sources. Search through uploaded documents to identify tax returns, W-2s, 1099s, financial statements, receipts, deductions documentation, correspondence from tax authorities, and any other pertinent financial records. Extract concrete facts including specific dollar amounts, dates, tax years, filing statuses, income sources, deductions claimed, credits applied, and any adjustments or amendments.\n\nThe correspondence should open with a clear identification section that includes the taxpayer's name, taxpayer identification number (or the last four digits for privacy), relevant tax years being addressed, and the purpose of the correspondence. Follow this with a comprehensive summary of income from all sources, organized by category such as wages and salaries, self-employment income, investment income, retirement distributions, and other income types. For each category, provide specific amounts and supporting documentation references.\n\nNext, detail all deductions and credits claimed or available to the taxpayer. This section should distinguish between standard and itemized deductions, explain significant deduction categories such as mortgage interest, state and local taxes, charitable contributions, and business expenses, and identify any tax credits including child tax credits, education credits, or energy credits. Present this information with clear dollar amounts and explanations of eligibility or limitations.\n\n## Tax Position and Compliance Analysis\n\nAddress the taxpayer's overall tax position by calculating or summarizing total tax liability, payments made through withholding or estimated taxes, any refunds due or amounts owed, and the status of prior year returns or outstanding issues. If the correspondence relates to a tax authority inquiry or audit, specifically address the items in question with supporting documentation and legal authority for the positions taken.\n\nInclude a section on compliance matters that discusses filing status and its appropriateness, estimated tax payment requirements and whether they have been met, any penalties or interest that may apply, and recommendations for future tax planning or compliance improvements. When relevant tax law provisions, regulations, or guidance support the positions taken, reference these authorities appropriately to strengthen the correspondence.\n\n## Financial Information Integration\n\nIntegrate financial information beyond tax returns when relevant to provide complete context. This may include bank statements showing income deposits or deductible expenses, investment account statements demonstrating capital gains or losses, business financial statements for self-employed taxpayers or business entities, and documentation of major financial transactions such as property sales, retirement account distributions, or significant charitable contributions.\n\nPresent this financial information in a manner that directly connects to tax implications. For example, when discussing business income, tie gross receipts from financial statements to Schedule C reporting, or when addressing investment income, reconcile brokerage statements to Form 1099 reporting and Schedule D calculations.\n\n## Professional Tone and Accuracy\n\nMaintain a professional, objective tone throughout the correspondence that instills confidence while remaining accessible to the intended audience. Avoid unnecessary jargon when communicating with clients, but use precise tax terminology when addressing tax authorities or other professionals. Every figure, date, and fact must be verified against source documents, with clear attribution to supporting documentation.\n\nWhen uncertainties exist or when professional judgment has been applied to ambiguous situations, acknowledge these areas transparently and explain the reasoning behind the positions taken. If additional information is needed to complete the analysis or if certain documents are missing, clearly identify these gaps and request the necessary materials.\n\n## Recommendations and Next Steps\n\nConclude the correspondence with actionable recommendations and clear next steps. This might include specific actions the taxpayer should take, deadlines for responses or filings, documents that need to be gathered or provided, estimated tax payments that should be made, or tax planning strategies to consider for future years. Ensure that any time-sensitive matters are prominently highlighted with specific dates and consequences of missing deadlines.\n\nThe final document should serve as both a comprehensive record of the taxpayer's tax situation and a practical guide for moving forward, whether that involves responding to tax authority inquiries, preparing for upcoming filings, or implementing tax planning strategies. All information should be organized logically with clear headings, and complex calculations or multi-year comparisons should be presented in tables or structured formats for easy reference.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary",
+      "letter"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "tax"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.200739",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

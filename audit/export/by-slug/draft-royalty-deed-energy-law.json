@@ -1,0 +1,43 @@
+{
+  "id": "6daa418f-2c5a-4ed3-b7a4-a63b4ab798c3",
+  "slug": "draft-royalty-deed-energy-law",
+  "name": "Royalty Deed",
+  "summary": "Drafts comprehensive Royalty Deeds conveying non-executive royalty interests in oil, gas, and minerals from specified lands. Ensures compliance with state property laws, recording statutes, and energy industry standards to avoid ambiguity in title chains. Use for permanent transfers of production proceeds without leasing rights in regulatory energy law matters.",
+  "content": "# Enhanced Royalty Deed Drafting Prompt\n\nYou are tasked with drafting a comprehensive Royalty Deed, a critical regulatory document in energy law that conveys a royalty interest in oil, gas, and mineral rights from a Grantor to a Grantee. This instrument must comply with applicable state property law, recording statutes, and industry standards while clearly establishing the nature and extent of the conveyed interest.\n\n## Document Purpose and Legal Context\n\nA Royalty Deed serves as a permanent conveyance of a fractional interest in minerals produced from specified lands. Unlike a mineral deed, this instrument typically conveys only the right to receive proceeds from production without granting executive rights or the ability to participate in leasing decisions. The document must be drafted with precision to avoid ambiguity regarding the extent of the interest conveyed, the lands affected, and the rights and obligations of the parties. Consider that this deed will be recorded in the county land records and will affect the chain of title for the subject property, potentially impacting future transactions and title examinations.\n\n## Section 1: Conveyance Provisions\n\nBegin by identifying the parties to the transaction with complete legal names and addresses. The Grantor must be identified as the current owner of the royalty interest being conveyed, and you should verify their capacity to convey such interest. The Grantee should be identified with equal specificity, including any designation as trustee, corporation, or other entity type that may affect how title is held.\n\nDraft the granting language using clear, unambiguous terms that specify the exact nature of the interest being conveyed. The standard formulation provides that the Grantor grants, bargains, sells, and conveys unto Grantee a specified fractional royalty interest in and to all of the oil, gas, and other minerals produced and saved from the described lands. You must specify the precise fraction or percentage of the royalty interest being conveyed, such as \"an undivided one-eighth (1/8th) of eight-eighths (8/8ths) royalty interest\" or whatever fraction accurately reflects the parties' agreement. Consider whether the conveyance includes all minerals or is limited to specific substances, and whether it applies to existing leases, future leases, or both.\n\nProvide a complete and accurate legal description of the lands from which the royalty will be derived. This description must be sufficient to identify the property with certainty and should be taken from a current title commitment, deed, or survey. Include the county and state where the lands are located, and reference any applicable surveys, plats, or government survey systems. If the conveyance affects only a portion of a larger tract, ensure the description clearly delineates the affected portion. Consider attaching the legal description as an exhibit if it is lengthy or complex, but ensure the deed itself contains sufficient reference to incorporate the exhibit by reference.\n\n## Section 2: Nature of the Interest\n\nClearly specify the type of royalty interest being conveyed, as this determination affects the rights and obligations of the Grantee. If conveying a non-participating royalty interest, state explicitly that the interest conveyed is \"a perpetual, non-participating royalty interest\" and clarify that the Grantee shall have no right to execute oil, gas, or mineral leases, no right to receive bonus or delay rental payments, no right to pool or unitize the lands, and no other executive rights in the minerals. If instead conveying a participating royalty or other interest type, describe those rights with equal specificity.\n\nAddress the warranty of title that the Grantor is providing to the Grantee. Determine whether the Grantor will provide a general warranty of title, defending against all claims and encumbrances; a special warranty, defending only against claims arising by, through, or under the Grantor; or a quitclaim conveyance without warranty. The warranty provision should state clearly the scope of the Grantor's obligations and should be consistent with the consideration paid and the parties' negotiations. Include appropriate language such as \"Grantor hereby binds Grantor and Grantor's heirs, executors, administrators, successors, and assigns to warrant and forever defend the interest hereby conveyed unto Grantee against every person whomsoever lawfully claiming or to claim the same or any part thereof\" if providing a general warranty.\n\nConsider including provisions addressing how the royalty will be calculated and paid, whether the interest is subject to any existing encumbrances or preferential rights, and whether there are any limitations on the substances covered or the depth of the conveyance. Address whether the royalty is to be calculated at the wellhead or after deduction of post-production costs, as this can significantly affect the value of the interest. If the conveyance is subject to any reservations, exceptions, or conditions, state these clearly and unambiguously.\n\n## Section 3: Execution and Acknowledgment\n\nEnsure proper execution of the deed by the Grantor with a signature that matches the name in which the Grantor holds title. If the Grantor is married and the property is located in a community property or marital property state, consider whether joinder of the spouse is necessary or advisable. If the Grantor is an entity such as a corporation, limited liability company, or partnership, ensure that the signatory has proper authority and that the execution includes any required corporate seals or certificates of authority.\n\nInclude a proper notarial acknowledgment that complies with the laws of the state where the property is located, as this is essential for recording the deed in the public records. The acknowledgment should identify the Grantor, confirm that the Grantor appeared before the notary and acknowledged executing the instrument, and include the notary's signature, seal, commission expiration date, and any other information required by state law. Verify that the form of acknowledgment is current and complies with any recent statutory changes, as recording requirements vary by jurisdiction and are subject to periodic revision.\n\n## Additional Drafting Considerations\n\nThroughout the document, maintain consistency in the use of defined terms, ensure that all cross-references are accurate, and verify that the deed complies with any applicable recording statutes regarding formatting, font size, margins, and cover page requirements. Consider whether any additional provisions are necessary based on the specific circumstances, such as proportionate reduction clauses, depth limitations, or provisions addressing horizontal versus vertical wells. Review the deed for compliance with any title company requirements if title insurance will be issued in connection with the transaction, and ensure that all exhibits referenced in the deed are properly attached and incorporated.",
+  "parent_skill_id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "energy"
+    ],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "energy_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.201908",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

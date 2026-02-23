@@ -1,0 +1,23 @@
+{
+  "id": "7c2ec6da-d0c6-4bed-9b73-15979d5d69d4",
+  "slug": "corporate-corporate-finance",
+  "name": "corporate finance",
+  "summary": "Skills related to corporate finance within corporate practice.",
+  "content": "# corporate finance\n\nThis is a sub-category under corporate practice containing specialized skills.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate-finance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

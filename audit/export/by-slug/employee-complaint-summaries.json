@@ -1,0 +1,43 @@
+{
+  "id": "99e58505-cd90-4369-8b42-59a3be12c0b0",
+  "slug": "employee-complaint-summaries",
+  "name": "Employee Complaint Summaries",
+  "summary": "Generates structured summaries of employee complaints in employment litigation by analyzing documents to extract key parties, chronological timelines, allegations, legal claims, and supporting evidence. Distills complex workplace grievances into actionable formats for quick case assessment and strategy development. Use this skill when reviewing initial complaints, investigations, or personnel files to identify risks and inconsistencies.",
+  "content": "# Employee Complaint Summary Workflow\n\nYou are tasked with creating a comprehensive summary of an employee complaint in an employment law matter. This workflow is designed to distill complex workplace grievances, allegations, and supporting documentation into a clear, actionable summary that enables attorneys to quickly understand the nature of the complaint, assess legal risks, and formulate response strategies.\n\n## Your Objective\n\nAnalyze all available documentation related to the employee complaint and produce a structured summary that captures the essential facts, legal claims, key parties, timeline of events, and potential areas of concern. The summary should serve as a foundational document for case assessment, client counseling, and litigation strategy development.\n\n## Analysis Approach\n\nBegin by thoroughly reviewing all uploaded documents related to the complaint. This may include the formal complaint letter, internal investigation reports, witness statements, email correspondence, personnel files, performance reviews, and any other relevant materials. Search through these documents systematically to identify concrete facts including specific dates, names of individuals involved, quoted statements, referenced policies, and documentary evidence.\n\nWhen multiple documents are present, analyze each one to extract relevant information about the allegations, the complainant's account of events, any responses from the accused party or management, witness observations, and documentary support for either side's position. Pay particular attention to inconsistencies, corroborating evidence, and gaps in the factual record that may require further investigation.\n\n## Required Summary Components\n\nYour summary must address the following elements in a clear, organized format. First, identify all key parties including the complainant, accused individuals, witnesses, supervisors, HR personnel, and any other relevant actors. Include their titles, departments, and roles in the events at issue.\n\nSecond, construct a detailed chronological timeline of events beginning with the earliest relevant incident and continuing through the filing of the complaint. Each entry should include the specific date (or approximate timeframe if exact dates are unavailable), a description of what occurred, who was involved, and the source document supporting that fact.\n\nThird, articulate the specific allegations and legal claims raised in the complaint. Identify whether the complaint involves discrimination (and on what protected basis), harassment, retaliation, wage and hour violations, wrongful termination, breach of contract, or other employment-related claims. Quote relevant portions of the complaint that describe the alleged misconduct and explain how the complainant characterizes the harm suffered.\n\nFourth, summarize the supporting evidence and documentation referenced or provided by the complainant. This includes witness statements, emails, text messages, performance evaluations, medical records, or other materials that the complainant relies upon to substantiate the allegations.\n\nFifth, identify any employer responses, defenses, or contrary evidence that appears in the documentation. This may include statements from the accused party, alternative explanations for employment actions, evidence of legitimate business reasons, or documentation of progressive discipline or performance issues.\n\n## Legal Considerations and Risk Assessment\n\nEvaluate the complaint through the lens of applicable employment law frameworks. Consider whether the allegations, if proven, would establish violations of federal statutes such as Title VII of the Civil Rights Act, the Americans with Disabilities Act, the Age Discrimination in Employment Act, the Family and Medical Leave Act, the Fair Labor Standards Act, or analogous state and local laws. Note any procedural requirements such as EEOC filing deadlines, administrative exhaustion requirements, or contractual grievance procedures that may be relevant.\n\nAssess the strength of the complaint based on the available evidence. Identify factual disputes that will likely be central to the case, credibility issues that may arise, and any particularly damaging or helpful evidence for either side. Flag any potential exposure areas such as punitive damages eligibility, pattern and practice evidence, or systemic issues that could expand the scope of liability.\n\n## Format and Presentation\n\nPresent your summary in a professional memorandum format suitable for attorney review. Use clear section headings, maintain objective and neutral language while accurately representing each party's position, and cite specific source documents for all factual assertions. When quoting from documents, include the document name and relevant page or section reference.\n\nThe summary should be comprehensive enough to provide a complete picture of the complaint yet concise enough to be reviewed efficiently. Aim for a length that captures all material facts and legal issues without unnecessary repetition. Use your judgment to emphasize the most significant aspects of the complaint while ensuring no critical details are omitted.\n\nIf the available documentation is incomplete or raises questions that cannot be answered from the existing record, identify these gaps explicitly and suggest what additional information or investigation may be needed to fully assess the complaint. This forward-looking analysis helps attorneys develop an investigation plan and discovery strategy.\n\nYour summary serves as a critical tool for case evaluation, settlement discussions, and litigation preparation. It should enable any attorney unfamiliar with the matter to quickly understand what happened, what is alleged, what evidence exists, and what legal and practical issues the case presents.",
+  "parent_skill_id": "22a32815-94e1-4019-82f5-f958b8a9672a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "employment-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

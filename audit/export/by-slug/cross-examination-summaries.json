@@ -1,0 +1,45 @@
+{
+  "id": "ec1ef773-58a3-4ee8-bd19-2386a10868c5",
+  "slug": "cross-examination-summaries",
+  "name": "Cross-Examination Summaries",
+  "summary": "Generates structured thematic summaries of witness testimony from depositions, prior statements, and discovery materials, highlighting inconsistencies, contradictions, impeachable admissions, and strategic cross-examination opportunities with precise citations. Organizes content to facilitate quick reference for trial counsel during preparation and proceedings. Use this skill in litigation to analyze witness credibility and develop effective questioning strategies.",
+  "content": "# Cross-Examination Summaries for Trial Preparation\n\nYou are tasked with creating a comprehensive cross-examination summary to support trial preparation and courtroom proceedings. This summary serves as a critical strategic tool for attorneys preparing to cross-examine witnesses, enabling them to quickly reference key testimony, identify inconsistencies, and develop effective questioning strategies during trial.\n\n## Objective and Scope\n\nYour primary objective is to analyze deposition transcripts, prior testimony, witness statements, and related discovery materials to produce a structured summary that highlights the most relevant and impeachable aspects of a witness's testimony. This summary should enable trial counsel to conduct effective cross-examination by organizing testimony thematically, identifying contradictions or weaknesses, and cross-referencing supporting documentary evidence.\n\nBegin by thoroughly reviewing all available materials related to the witness, including deposition transcripts, interrogatory responses, prior sworn statements, affidavits, and any informal statements or communications. Search through the uploaded documents to extract specific testimony, quotes, admissions, and factual assertions made by the witness. Pay particular attention to statements that contradict other evidence, reveal bias or motive, undermine the witness's credibility, or support your client's theory of the case.\n\n## Structure and Content Requirements\n\nOrganize your summary into clear thematic sections that correspond to the key issues in the case rather than simply following the chronological order of testimony. For each major topic area, provide the witness's testimony in concise but accurate form, including specific page and line citations to the source transcript or document. When the witness has made statements on the same topic at different times, present these statements together to facilitate comparison and identification of inconsistencies.\n\nFor each significant statement or admission, include the exact quote when it is particularly damaging or when precise wording matters for impeachment purposes. Follow each quote with the specific citation format including document name, page number, and line numbers. When testimony contradicts other evidence, explicitly note the contradiction and cite to the conflicting source, whether it is another portion of the same witness's testimony, a different witness's statement, or a documentary exhibit.\n\nIdentify and highlight areas where the witness lacks personal knowledge, relies on hearsay, provides evasive answers, or demonstrates bias. Note instances where the witness's demeanor, hesitation, or qualification of answers may be significant for credibility assessment. Flag any testimony that appears rehearsed or suspiciously aligned with counsel's interests.\n\n## Strategic Analysis Components\n\nBeyond mere summarization, provide strategic analysis that assists trial counsel in developing cross-examination strategy. Identify the strongest impeachment opportunities, including prior inconsistent statements, contradictions with physical evidence or documents, implausible testimony, and admissions that support your case theory. For each impeachment opportunity, briefly note the foundation required and suggest the most effective approach for confronting the witness.\n\nHighlight concessions and favorable admissions that should be elicited or confirmed during cross-examination. These may include facts the witness cannot dispute, limitations on their knowledge or perception, or acknowledgments that support your narrative. Organize these strategically so counsel can secure favorable testimony early in the examination before moving to more confrontational impeachment.\n\nCross-reference relevant exhibits, documents, and physical evidence that should be used during cross-examination. For each referenced document, note its exhibit number or identification, the relevant portions, and how it relates to the witness's testimony. This enables counsel to seamlessly integrate documentary evidence into the examination flow.\n\n## Practical Considerations for Trial Use\n\nFormat the summary for maximum utility during trial. Use clear headings, subheadings, and visual organization that allows counsel to quickly locate specific topics during examination. Consider that this document will be used in the courtroom under time pressure, so clarity and accessibility are paramount.\n\nInclude a brief introductory section that provides essential background on the witness, including their relationship to the parties, their role in the events at issue, and any significant credibility concerns or biases. This context helps orient counsel and provides a foundation for understanding the testimony that follows.\n\nConclude with a strategic overview section that synthesizes the key themes for cross-examination, identifies the three to five most critical impeachment opportunities, and suggests an overall approach or sequence for the examination. This section should reflect an understanding of trial advocacy principles, including the importance of starting and ending strong, controlling the witness, and maintaining a clear narrative thread.\n\nThroughout the summary, maintain objectivity while focusing on information most useful for cross-examination. Avoid argumentative characterizations, but do note when testimony strains credulity or conflicts with common sense. Your analysis should empower trial counsel with organized, accessible information that transforms raw testimony into an effective cross-examination tool.\n\nWhen multiple witnesses will be cross-examined on related topics, note opportunities for using one witness's testimony to impeach another, creating a comprehensive impeachment strategy across multiple examinations. This comparative analysis adds significant strategic value beyond individual witness summaries.\n\nEnsure all citations are precise and verifiable, as counsel may need to quickly locate the referenced testimony during trial. Double-check page and line numbers for accuracy, and maintain consistent citation format throughout the document. The credibility of your summary depends on the reliability of these references.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.686181",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

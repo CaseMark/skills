@@ -1,0 +1,426 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-90f9-7573-8171-dc75386d02df
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "4d7c943e-1606-4115-bf9d-66a962137e8f",
+  "slug": "litigation-appeals-bill-of-costs-on-appeal",
+  "name": "Bill of Costs on Appeal",
+  "summary": "Drafts a comprehensive Bill of Costs on Appeal for the prevailing party to recover allowable appellate expenses. Ensures compliance with Federal Rule of Appellate Procedure 39 or equivalent state rules, including itemized lists of record preparation, briefs, filing fees, and bonds. Use immediately after entry of appellate judgment to file within the prescribed timeframe.",
+  "content": "# Bill of Costs on Appeal - Enhanced Specification\n\nYou are tasked with drafting a comprehensive Bill of Costs on Appeal, which is the formal document filed by the prevailing party in an appellate proceeding to recover allowable costs from the losing party. This document must comply with applicable court rules, typically Federal Rule of Appellate Procedure 39 or corresponding state appellate rules, and must be filed within the time prescribed by the court (generally 14 days after entry of judgment).\n\n## Purpose and Legal Context\n\nThe Bill of Costs on Appeal serves as an itemized accounting of expenses that the prevailing party necessarily incurred during the appellate process. Unlike attorney's fees, which are generally not recoverable absent statutory authorization or contractual agreement, certain costs are recoverable as a matter of right under court rules. These recoverable costs are strictly limited by rule and typically include only specific categories of expenses directly related to the appeal itself. The document must be precise, verifiable, and supported by documentation, as the opposing party has the right to object to any claimed costs within a specified period.\n\n## Required Components and Structure\n\nBegin the document with a caption identifying the court, case name, case number, and title of the document. Include a clear statement identifying the party seeking costs and the basis for the request, specifically noting that this party is the prevailing party entitled to costs under the applicable appellate rule.\n\n### Itemized Statement of Costs\n\nPrepare a detailed, itemized list of all costs being claimed. Each entry must specify the nature of the cost, the date incurred, the amount claimed, and sufficient detail to allow the court and opposing counsel to verify the expense. Recoverable costs on appeal are generally limited to the following categories, though you should verify the specific limitations under the applicable court rules:\n\nThe cost of preparing and transmitting the record on appeal, including the cost of the reporter's transcript and clerk's record. Specify the number of pages, the per-page rate charged, and the total cost for each component of the record. If multiple copies were required, itemize each copy separately and note whether the court rules authorize recovery for multiple copies.\n\nThe cost of preparing and filing briefs, including printing or reproduction costs. Detail the number of copies filed, the number of pages per copy, and the per-page reproduction cost. Note that some jurisdictions limit recovery to the number of copies required by court rule, while others may allow recovery for additional copies served on multiple parties.\n\nThe docketing fee or filing fee paid to the appellate court. State the exact amount paid and the date of payment, and attach a receipt or other proof of payment if available.\n\nPremiums paid for any supersedeas bond or cost bond required during the pendency of the appeal. Include the bond amount, the premium rate, and the total premium paid, along with documentation from the surety.\n\nAny other costs specifically authorized by the applicable court rules, which may include costs for preparation of appendices, costs of serving documents, or other expenses directly related to prosecuting or defending the appeal. Each such cost must be specifically identified and justified with reference to the authorizing rule.\n\n### Calculation and Presentation\n\nAfter itemizing each cost, provide a clear subtotal for each category of costs and a grand total representing the full amount claimed. Present this information in a table or structured format that allows for easy review and verification. Ensure that all amounts are stated in the appropriate currency format and that mathematical calculations are accurate.\n\n### Verification and Certification\n\nConclude the Bill of Costs with a verification statement executed under penalty of perjury. This verification must be signed by the party seeking costs or by counsel with personal knowledge of the facts. The verification should state that the affiant has reviewed the itemized costs, that each cost claimed was necessarily incurred in the appeal, that the amounts stated are correct and accurate, and that the costs are authorized by the applicable court rules. Include the date and place of execution, and provide space for the signature and printed name of the person verifying the document.\n\n### Supporting Documentation\n\nWhile not always required to be filed with the initial Bill of Costs, be prepared to provide supporting documentation for each claimed cost, including receipts, invoices, court filing receipts, and bond premium statements. Many courts require that such documentation be available for inspection or be filed in response to any objection raised by the opposing party.\n\n### Procedural Compliance\n\nEnsure that the Bill of Costs is filed within the time period specified by the applicable court rules, is served on all parties, and includes a certificate of service documenting the date and method of service. Failure to timely file or properly serve the Bill of Costs may result in waiver of the right to recover costs. Review the local rules of the specific appellate court to ensure compliance with any additional formatting, filing, or procedural requirements that may apply.",
+  "parent_skill_id": "6656102b-326d-43b3-a8eb-6cbe182c81c6",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "respondent",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "appeal",
+      "post-trial"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "appeals"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: linear starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:02:36.560843Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating skill content draft**
+
+I'm preparing the complete SKILL.md content titled "Bill of Costs on Appeal" with concise slug, appropriate YAML front matter including metadata and triggers, a clear purpose statement, prerequisites, and structured core instructions covering FRAP 39 categories of taxable costs for both court of appeals and district court.
+thinking
+---
+name: bill-of-costs-on-appeal
+description: Drafts a U.S. appellate Bill of Costs on Appeal for the prevailing party, itemizing taxable costs (record preparation, transcripts, briefs/appendix, filing fees, bond premiums) and aligning with FRAP 39 or state analogs and local rules. Use when preparing costs on appeal, taxing appellate costs, or filing a bill of costs after appellate judgment. Trigger keywords: "bill of costs on appeal", "FRAP 39", "appellate costs", "tax costs", "costs on appeal".
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Bill of Costs on Appeal
+
+Creates an itemized, verified bill of appellate costs for taxation after judgment under FRAP 39 or state equivalents.
+
+## Prerequisites
+
+1. Appellate judgment or order with date of entry and prevailing party determination.  
+2. Applicable appellate rules and local rules, including deadlines, form requirements, and service instructions.  
+3. Invoices and receipts for record preparation, reporter's transcripts, briefs/appendix, filing fees, bond premiums, and allowable service costs.  
+4. Case caption, appellate docket number, and lower court case number.  
+5. Service list and filing method (e.g., CM/ECF or paper filing).  
+
+## Output Structure / Process
+
+1. Caption and Title: Prepare case caption and document title.  
+2. Basis/Authority Paragraph: Include a sample paragraph confirming prevailing party status and filing under relevant rule or local authority.  
+3. Itemized Costs Table: Use a table to list costs with columns: Line, Category, Description, Date, Units/Rate, Amount, Rule Authority, Evidence.  
+4. Category Guidance Table: List common categories with notes and typical proof requirements.  
+5. Subtotals and Total: Calculate totals for all taxable costs.  
+6. Verification Declaration: Provide a template verifying accuracy under penalty of perjury.  
+7. Certificate of Service: Include a template for service declaration.  
+8. Attachments/Exhibits List: Checklist for supporting documents submitted with the bill.
+
+---
+
+## Basis/Authority Paragraph (Example)
+
+_Prevailing Party, pursuant to applicable appellate rules and local procedures, submits this verified Bill of Costs for taxation following entry of appellate judgment. Costs are claimed consistent with FRAP 39 and applicable state or local rules._
+
+---
+
+## Itemized Costs Table Template
+
+| Line | Category             | Description                      | Date       | Units/Rate   | Amount    | Rule Authority         | Evidence          |
+|-------|---------------------|---------------------------------|------------|--------------|-----------|------------------------|-------------------|
+| 1     | Record Preparation   | Preparation and transmission    | YYYY-MM-DD | [e.g., pages] | $XXX.XX   | FRAP 39 or local rules | Invoice #1234     |
+| 2     | Reporter’s Transcript| Transcript of proceedings       | YYYY-MM-DD | [e.g., hours]| $XXX.XX   | FRAP 39 or local rules | Transcript receipt|
+| 3     | Briefs/Appendix      | Printing briefs and appendix    | YYYY-MM-DD | [e.g., pages]| $XXX.XX   | FRAP 39 or local rules | Invoice           |
+| 4     | Filing Fees          | Filing fee for appeal           | YYYY-MM-DD | N/A          | $XXX.XX   | FRAP 39 or local rules | Receipt           |
+| 5     | Bond Premiums        | Supersedeas or preservation bond| YYYY-MM-DD | N/A          | $XXX.XX   | FRAP 39 or local rules | Bond receipt      |
+
+---
+
+## Typical Taxable Cost Categories
+
+| Category             | Notes and Limits                                    |
+|----------------------|----------------------------------------------------|
+| Record Preparation   | Costs for preparing and transmitting the record.   |
+| Reporter’s Transcript| Transcripts necessary for the appeal.              |
+| Briefs and Appendix  | Printing and binding costs.                         |
+| Filing Fees          | Fees charged for filing the notice of appeal.      |
+| Bond Premiums        | Supersedeas bond premiums or bonds to preserve rights pending appeal. Often taxed in district court. |
+
+*Check local rules for variations and additional allowable costs.*
+
+---
+
+## Guidelines and Compliance Notes
+
+- Follow all applicable appellate rules, local rules, and required forms; if conflicts arise, local rules prevail.  
+- Do not claim attorney’s fees, overhead, travel, or expert fees unless specifically authorized.  
+- If judgment has mixed results, apply the allocation as ordered or follow the default rule that costs generally fall on the appellant if affirmed, appellee if reversed.  
+- File within the required deadline, often 14 days after judgment entry (check your local rules).  
+- Match all amounts exactly with receipts and invoices; round only if allowed.  
+- Identify costs taxable in the appellate court versus those taxable only in the district court (e.g., bond premiums). Include notes or separate filings if necessary.  
+- Include a certificate of service per local rules, verifying proper service of the bill of costs.  
+- Maintain and be prepared to produce supporting documentation if challenged.
+
+---
+
+## Verification Declaration Template
+
+```
+I declare under penalty of perjury under the laws of [State or Federal Jurisdiction] that the foregoing is true and correct to the best of my knowledge and belief.
+
+Executed on [Date] at [City, State].
+
+_____________________________  
+[Name], [Title or Role]  
+[Contact Information]
+```
+
+---
+
+## Certificate of Service Template
+
+```
+I hereby certify that on [Date] a true and correct copy of this Bill of Costs was served on all counsel of record via [method of service].
+
+_____________________________  
+[Name]  
+[Contact Information]
+```
+
+---
+
+## Attachments/Exhibits Checklist
+
+- Itemized invoices and receipts for costs claimed.  
+- Copies of applicable appellate rules and local rule excerpts if relevant.  
+- Proof of service documents.  
+- Copies of appellate judgment or order showing prevailing party and entry date.  
+- Any local forms required by the court for bill of costs submissions.
+
+---
+
+*If local rules require use of specific appellate court bill of costs forms (e.g., AO forms), follow those formats.*
+codex
+---
+name: bill-of-costs-on-appeal
+description: Drafts a U.S. appellate Bill of Costs on Appeal for the prevailing party, itemizing taxable costs (record preparation, transcripts, briefs or appendix, filing fees, bond premiums) and aligning with FRAP 39 or state analogs and local rules. Use when preparing costs on appeal, taxing appellate costs, or filing a bill of costs after appellate judgment. Trigger keywords: bill of costs on appeal, FRAP 39, appellate costs, tax costs, costs on appeal.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Bill of Costs on Appeal
+
+Creates an itemized, verified bill of appellate costs for taxation after judgment under FRAP 39 or state equivalents.
+
+## Prerequisites
+
+1. Appellate judgment or order with entry date and prevailing party designation
+2. Applicable appellate rules and local rules, including deadline, form, and taxing court
+3. Proof of costs: invoices, receipts, clerk fee records, bond premium statements
+4. Case caption, appellate docket number, and lower court case number
+5. Service list and filing method requirements
+
+## Output Structure / Process
+
+1. **Caption and Title**
+   Use the appellate court caption and docket number.
+   Title: `Bill of Costs on Appeal` or court-required form name.
+
+2. **Authority and Prevailing Party Statement**
+   Use this template:
+   ```text
+   [Prevailing Party], pursuant to [FRAP 39 or state rule citation], submits this verified Bill of Costs on Appeal. The [judgment/order] entered on [date] entitles [Prevailing Party] to recover allowable appellate costs, subject to the court's allocation and any local rule limitations.
+   ```
+
+3. **Itemized Costs Table**
+   Provide an itemized table with support references.
+   ```text
+   | Line | Category | Description | Date Incurred | Units/Rate | Amount | Rule Authority | Evidence |
+   |------|----------|-------------|---------------|------------|--------|----------------|----------|
+   | 1    | Record   | Clerk's record preparation and transmission | [date] | [pages x rate] | $[ ] | [Rule] | Exh. A |
+   | 2    | Transcript | Reporter transcript needed for appeal | [date] | [pages x rate] | $[ ] | [Rule] | Exh. B |
+   | 3    | Briefs/Appendix | Printing or reproduction | [date] | [copies x pages x rate] | $[ ] | [Rule] | Exh. C |
+   | 4    | Filing Fees | Appellate docketing fee | [date] | N/A | $[ ] | [Rule] | Exh. D |
+   | 5    | Bond Premium | Supersedeas or cost bond premium | [date] | [premium] | $[ ] | [Rule] | Exh. E |
+   | 6    | Other Authorized | [Describe, if allowed] | [date] | [units x rate] | $[ ] | [Rule] | Exh. F |
+   ```
+
+4. **Category Guidance**
+   ```text
+   | Category | Typical Allowance | Notes |
+   |----------|-------------------|-------|
+   | Record preparation/transmission | Often taxable | Include clerk or court invoices |
+   | Reporter transcripts | Taxable if needed for the appeal | Identify transcript portions used |
+   | Briefs and appendix reproduction | Taxable for required copies | Follow copy limits in local rules |
+   | Appellate filing or docketing fee | Taxable | Attach receipt |
+   | Bond premiums | Taxable in some courts or in the trial court | Confirm taxing court and rule |
+   | Other costs | Only if expressly authorized | Cite specific rule |
+   ```
+
+5. **Subtotals and Total**
+   Provide subtotals by category and a grand total:
+   ```text
+   Subtotal - Record: $[ ]
+   Subtotal - Transcript: $[ ]
+   Subtotal - Briefs/Appendix: $[ ]
+   Subtotal - Filing Fees: $[ ]
+   Subtotal - Bond Premiums: $[ ]
+   Subtotal - Other Authorized: $[ ]
+   TOTAL COSTS: $[ ]
+   ```
+
+6. **Verification**
+   Include a verification under penalty of perjury:
+   ```text
+   I, [Name], declare under penalty of perjury that I have reviewed the foregoing Bill of Costs; the costs claimed were necessarily incurred in the appeal; the amounts are correct; and the costs are authorized by the applicable rules.
+
+   Date: [ ]
+   Place: [ ]
+   Signature: ______________________
+   Name and Title: [ ]
+   ```
+
+7. **Certificate of Service**
+   ```text
+   I certify that on [date], I served this Bill of Costs on all parties via [method], as reflected on the service list.
+
+   Signature: ______________________
+   ```
+
+8. **Exhibits**
+   List or attach supporting documents as required by local rule:
+   ```text
+   Exhibit A - Clerk record invoice
+   Exhibit B - Reporter transcript invoice
+   Exhibit C - Printing or reproduction invoice
+   Exhibit D - Appellate filing fee receipt
+   Exhibit E - Bond premium statement
+   ```
+
+## Guidelines
+
+- Follow the local appellate rules and any mandatory bill-of-costs form.
+- File within the rule deadline, often 14 days after entry of judgment under FRAP 39(d) [VERIFY], unless a different deadline applies.
+- Do not include attorney fees, travel, postage, or overhead unless a rule, statute, or contract expressly authorizes them.
+- If the appellate outcome is mixed, apply the court's allocation of costs or the default allocation rule in the governing appellate rule.
+- Identify which court taxes each category and file in the correct court.
+- Keep amounts exact and consistent with invoices and receipts.
+- Be prepared to produce supporting documentation if an objection is filed.
+tokens used
+5,196

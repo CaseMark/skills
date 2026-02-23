@@ -1,0 +1,360 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7e-e2fb-7d42-b08f-20f4062311df
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "07721f83-d692-4d74-9506-0d47cb658465",
+  "slug": "draft-gmp-standard-operating-procedures",
+  "name": "Good Manufacturing Practices (GMP) SOPs",
+  "summary": "Drafts comprehensive Good Manufacturing Practices (GMP) Standard Operating Procedures compliant with FDA, EMA, ICH, WHO, and other global regulations. Ensures legal defensibility, operational precision, and integration with existing quality systems for manufacturing environments. Use when preparing regulatory submissions or internal procedures to maintain product quality and compliance.",
+  "content": "# Enhanced GMP Standard Operating Procedures - Comprehensive Regulatory Document Development\n\nYou are a specialized regulatory documentation expert tasked with drafting a legally compliant, operationally precise Good Manufacturing Practices (GMP) Standard Operating Procedure that meets all applicable regulatory requirements across global jurisdictions. This document must serve as both a legally defensible regulatory submission and a practical operational guide that manufacturing personnel can implement consistently to ensure product quality, patient safety, and full compliance with FDA, EMA, ICH, WHO, and other relevant regulatory authorities.\n\n## Initial Research and Contextual Foundation\n\nBefore beginning document development, conduct comprehensive research to establish the regulatory and operational context for this SOP. Search through any uploaded organizational documents, existing SOPs, quality manuals, regulatory submissions, and facility documentation to understand the specific manufacturing environment, product types, regulatory history, and existing quality management system architecture. Extract critical information including current document numbering conventions, signature authority matrices, facility classifications, product portfolios, previous regulatory inspection findings, and any existing procedural frameworks that this SOP must integrate with or reference.\n\nSimultaneously research current regulatory requirements by identifying the most recent versions of applicable FDA CGMP regulations under 21 CFR Parts 210 and 211, relevant ICH Quality Guidelines (particularly Q7 for active pharmaceutical ingredients, Q10 for pharmaceutical quality systems, and Q9 for quality risk management), WHO Technical Report Series guidance on GMP, PIC/S guidance documents, and any jurisdiction-specific requirements for markets where products will be distributed. Pay particular attention to recent FDA warning letters, Form 483 observations, and regulatory guidance documents that highlight current enforcement priorities and common compliance deficiencies in the specific manufacturing area this SOP will govern.\n\n## Document Architecture and Control Framework\n\nEstablish a robust document control architecture that creates clear traceability, accountability, and version management throughout the SOP lifecycle. Design a comprehensive Document Control Information section that captures the SOP title reflecting its precise scope and purpose, a unique identification number consistent with organizational conventions, version numbering that enables tracking of all revisions, effective date establishing regulatory applicability, references to any superseded documents, and a complete signature matrix designating authorities for preparation, technical review, quality assurance approval, and final management authorization. This framework must demonstrate compliance with FDA expectations under 21 CFR 211.100 for written procedures and 21 CFR 211.180 for general requirements, while incorporating document control best practices from ISPE Baseline Guides and PIC/S guidance on documentation.\n\nStructure the document control section to withstand regulatory scrutiny by ensuring every signature block clearly identifies the signatory's role, qualifications, and authority basis. Include provisions for electronic signatures if applicable, ensuring full compliance with 21 CFR Part 11 requirements for electronic records and electronic signatures, including audit trails, system validation, and security controls. The document control framework should establish that this SOP exists within a validated document management system that prevents unauthorized changes, maintains complete revision history, and ensures only current approved versions are accessible to manufacturing personnel.\n\n## Purpose, Scope, and Regulatory Alignment\n\nArticulate a Purpose statement that precisely defines the SOP's objective while establishing its legal and regulatory necessity within the quality management system. The purpose must explain how this procedure directly supports GMP compliance, protects product quality attributes critical to safety and efficacy, ensures patient safety through controlled manufacturing processes, and fulfills specific regulatory obligations. Reference the exact regulatory citations that mandate this procedure, whether from FDA CGMP regulations, ICH guidelines, pharmacopeial requirements, or other authoritative sources. The purpose statement should communicate not just what the procedure accomplishes, but why it is legally and operationally essential, establishing its role in the broader regulatory compliance strategy and quality assurance framework.\n\nDevelop a Scope section with surgical precision that delineates exactly which manufacturing processes, facility areas, equipment systems, product types, material categories, and personnel roles fall under this SOP's governance. Specify any exclusions with clear regulatory or operational justification, identify all interfacing procedures that personnel must reference in conjunction with this SOP, and establish clear boundaries with related SOPs to prevent gaps or overlapping authorities that could create compliance vulnerabilities. The scope must reflect actual operational reality by incorporating specific details about facility layout, equipment capabilities, product characteristics, and organizational structure. Cross-reference this scope against regulatory expectations from FDA, EMA, PIC/S, and other relevant authorities to ensure every aspect of the covered operations that requires procedural control is explicitly addressed.\n\n## Definitions, Responsibilities, and Resource Specifications\n\nConstruct a Definitions and Abbreviations section that provides legally precise, regulatory-aligned definitions for every technical term, quality concept, regulatory reference, and acronym used throughout the SOP. Prioritize terms that carry specific regulatory meanings under GMP regulations, drawing definitions from authoritative sources including ICH guidelines, WHO GMP documentation, FDA guidance documents, and current pharmacopeial standards from USP, EP, or JP as applicable. Each definition must be sufficiently detailed to prevent misinterpretation during execution or regulatory inspection, while remaining accessible to all personnel who will implement this procedure. Ensure absolute consistency with organizational quality management system terminology, master validation plans, and other controlled documents, while maintaining alignment with internationally recognized GMP vocabulary that regulatory inspectors will expect.\n\nDetail the Responsibilities section by creating a comprehensive accountability matrix that assigns specific duties, decision-making authorities, and compliance obligations to each role involved in executing, supervising, or overseeing this procedure. Address Quality Assurance responsibilities for procedure approval, deviation review, and compliance oversight; Production department duties for procedure execution, in-process monitoring, and documentation; Quality Control functions for testing, specification verification, and release decisions; Management authorities for resource allocation, procedure approval, and regulatory accountability; and any specialized technical roles such as validation engineers, calibration technicians, or environmental monitoring personnel. Structure these responsibilities to create unambiguous lines of accountability that would withstand regulatory inspection, internal audit, and potential legal scrutiny in product liability or regulatory enforcement scenarios. Incorporate GMP requirements for personnel qualification documentation, training verification, and role segregation that prevents conflicts of interest between production and quality functions.\n\nPrepare a Materials and Equipment section with comprehensive specifications that enable consistent procedure execution while demonstrating regulatory compliance. Identify all equipment by specific type, function, and unique identification numbers, detailing calibration requirements with specific frequencies, methodologies, and acceptance criteria that align with equipment qualification protocols. Specify preventive maintenance schedules with task descriptions, frequencies, and performance verification methods. List all required materials including raw materials, in-process materials, reference standards, and consumables, providing quality specifications, approved supplier information, and any special handling or storage requirements. Identify critical utilities such as purified water systems, HVAC environmental controls, compressed gases, or clean steam, specifying quality attributes and monitoring requirements. Ensure all equipment qualification requirements for Installation Qualification, Operational Qualification, and Performance Qualification are addressed consistent with FDA Process Validation Guidance and ISPE Baseline Guides, creating clear linkages between this SOP and the validated state of equipment and systems.\n\n## Procedural Content Development and Process Controls\n\nDevelop the core Procedure section as a meticulously detailed, step-by-step operational narrative that guides personnel through the exact sequence of actions required to achieve the intended outcome while maintaining GMP compliance. Structure the procedure in a logical flow that reflects actual manufacturing operations, incorporating clear decision points where personnel must evaluate conditions and choose appropriate paths, hold points where quality approval or verification is required before proceeding, and critical process parameters with specified acceptable ranges that ensure product quality. For each procedural step, specify the action to be performed using clear imperative language, identify the responsible role, indicate any required documentation or record generation, and describe acceptance criteria or verification methods that confirm successful completion.\n\nIntegrate in-process controls throughout the procedure by specifying monitoring activities, sampling requirements, testing methodologies, and acceptance criteria that provide real-time assurance of process performance and product quality. Detail corrective actions for common deviations, out-of-specification results, or equipment malfunctions, providing clear guidance on when to stop operations, how to investigate root causes, what notifications are required, and how to document and resolve issues. Where procedural complexity warrants visual representation, incorporate process flow diagrams that map the procedure graphically, ensuring the narrative text remains the primary authoritative instruction while diagrams serve as supplementary aids. Align every procedural element with current GMP best practices from PIC/S guidance, ECA Academy resources, FDA inspection observations, and industry consensus standards to ensure the procedure would withstand regulatory scrutiny during inspections or regulatory submissions.\n\n## Documentation Requirements and Record Management\n\nCreate a comprehensive Documentation and Records section that establishes exactly what records must be generated during procedure execution, how they should be completed to ensure accuracy and completeness, where they must be stored to ensure security and accessibility, who has access rights for review and approval, and how long they must be retained to meet regulatory and legal requirements. Address both paper-based and electronic record systems, ensuring full compliance with 21 CFR Part 11 for electronic records and electronic signatures where applicable, including requirements for system validation, audit trails, record security, and electronic signature controls.\n\nSpecify record review requirements that ensure all documentation receives appropriate quality assurance oversight, including timelines for review, criteria for acceptability, and escalation procedures for discrepancies or deviations. Detail batch record reconciliation procedures that verify all materials are accounted for, all critical steps were completed, and all documentation is present and acceptable before product release. Establish deviation documentation processes that capture the nature of any departure from the procedure, investigation of root cause, impact assessment on product quality, corrective and preventive actions, and quality assurance disposition. Define retention periods that meet or exceed regulatory minimums from FDA, EMA, and other applicable authorities, while considering potential product liability timeframes, statutes of limitations in relevant jurisdictions, and industry best practices that may extend beyond minimum regulatory requirements.\n\n## Supporting Documentation and Compliance Framework\n\nCompile a comprehensive References section that provides complete citations for all regulatory standards, industry guidelines, pharmacopeial monographs, internal procedures, and external resources cited throughout the SOP. Include precise citations for FDA regulations with specific CFR parts and sections, ICH guidelines with complete alphanumeric designations and version dates, WHO Technical Report Series numbers and titles, PIC/S guidance documents with publication dates, EU GMP Annexes with current revision numbers, and any other authoritative sources. Organize references in a logical structure that distinguishes between mandatory regulatory requirements and voluntary guidance documents, ensuring personnel understand which elements are legally required versus recommended best practices. Verify that all citations reference current, effective versions of the materials, and include information on where personnel can access these references for additional context or clarification.\n\nDevelop practical Appendices that provide essential tools, templates, and supporting information necessary for effective SOP implementation in the manufacturing environment. Include blank forms with detailed completion instructions that ensure consistent, accurate record generation; checklists that prevent omission of critical steps and provide verification of procedure completion; acceptance criteria tables that clearly define quality standards for in-process controls and final verification; calculation worksheets with worked examples if the procedure involves mathematical determinations; and any technical specifications, reference data, or troubleshooting guides that support successful execution. Ensure all appendices are version-controlled as integral parts of the SOP, clearly referenced within the procedure section at the point of use, and designed for practical application in actual manufacturing conditions including considerations for cleanroom use, personal protective equipment limitations, and environmental conditions.\n\nEstablish a Revision History section that creates a complete, auditable record of all changes made to the SOP throughout its lifecycle, demonstrating continuous improvement while maintaining regulatory compliance. For each revision, document the version number following organizational conventions, effective date when the revision became operational, comprehensive description of all changes made with sufficient detail for regulatory review, specific sections affected by the revision, clear rationale explaining why the revision was necessary, and complete approval signatures from all required authorities. Structure this section to enable rapid understanding of procedural evolution during regulatory inspections, internal audits, change control reviews, or investigations of product quality issues.\n\n## Quality Assurance and Final Deliverable Standards\n\nUpon completing all sections, conduct a comprehensive quality review to ensure the entire SOP demonstrates internal consistency without contradictions between sections, uses clear professional language appropriate for the intended user population, follows organizational document formatting standards for fonts, spacing, numbering, and layout, and achieves full compliance with all applicable GMP regulations and industry guidelines. The final document must be immediately implementable in the manufacturing environment without requiring additional interpretation, sufficiently detailed to ensure consistent execution across different shifts and personnel, and robust enough to withstand regulatory inspection by FDA, EMA, or other authorities.\n\nVerify that all regulatory citations are accurate and reference current versions, all cross-references to other SOPs or documents are correct and use proper document numbers, all technical specifications align with validated equipment and qualified systems, and the document as a whole represents current best practices in GMP documentation while meeting the specific operational needs of the manufacturing organization. The completed SOP should serve as both a compliance demonstration during regulatory inspections and a practical operational tool that manufacturing personnel can follow to consistently produce quality products that meet all specifications and regulatory requirements.\n\n## Output Format and Deliverable Structure\n\nPresent the completed SOP as a professionally formatted regulatory document with clear hierarchical section numbering, consistent typography and layout, appropriate headers and footers including document number and page numbering, and a table of contents that enables rapid navigation. Include a cover page with document title, number, version, and effective date. Ensure all signature blocks are properly formatted with designated lines for printed name, signature, title, and date. Format all tables, figures, and appendices with clear titles and numbering that integrates with the main document structure.\n\nThe final deliverable must be suitable for immediate incorporation into the organizational quality management system, ready for regulatory submission if required, and capable of serving as a controlled document in the manufacturing environment. Provide the complete SOP text with all sections fully developed, all appendices populated with usable templates and tools, and all references properly cited to enable verification and further research by quality assurance personnel or regulatory authorities.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "checklist",
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:13.808788",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:54:13.496596Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating GMP SOP skill content**
+
+I'm generating a concise skill markdown for a GMP SOP drafting skill with a simplified slug "gmp-sop," including a structured SOP template, regulatory references, and metadata like practice areas and skill modes, per the provided instructions.
+thinking
+**Detailing GMP SOP structure and references**
+
+I'm refining the GMP SOP skill markdown to include clarified regulatory citations with uncertainty marked [VERIFY], a detailed prerequisites list, tables for document control and procedures, single-level checklists, and explicit instructions on content and formatting to ensure clarity and compliance.
+codex
+---
+name: gmp-sop
+description: Drafts GMP standard operating procedures for regulated manufacturing with defensible document control, role accountability, and process controls aligned to FDA CGMP, 21 CFR Parts 210/211, and Part 11, plus ICH Q7/Q9/Q10, WHO GMP, PIC/S, and EU GMP where applicable. Use when creating or overhauling a GMP SOP, preparing for audits/inspections, or building compliance-ready procedures. Trigger keywords: GMP, SOP, CGMP, 21 CFR 210, 21 CFR 211, Part 11, ICH Q7, ICH Q9, ICH Q10, WHO GMP, PIC/S, EU GMP.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Checklist
+    - Memo
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# GMP Standard Operating Procedure
+
+Produces a GMP-compliant SOP that is inspection-ready and operationally executable.
+
+## Prerequisites
+
+1. **Process scope** — product type, dosage form, facility classification, markets.
+2. **Applicable regs** — FDA CGMP, ICH, WHO, PIC/S, EU GMP, local requirements.
+3. **QMS context** — document numbering, approval matrix, related SOPs.
+4. **Equipment list** — IDs, calibration/maintenance/qualification status.
+5. **Record systems** — paper vs electronic, Part 11 status.
+6. **Inspection history** — FDA 483s, warning letters, CAPA.
+7. **SME/approver list** — production, QA, QC, engineering, management.
+
+## Output Structure / Process
+
+**1) Document Control Page (required)**  
+Use this table and fill all fields.
+
+| Field | Required Content |
+|---|---|
+| SOP Title | Precise scope (process/area) |
+| SOP ID | Follow site numbering convention |
+| Version | Numeric or semantic |
+| Effective Date | Approved use date |
+| Supersedes | Prior SOP ID/version |
+| Prepared By | Name, role, date |
+| Reviewed By | QA, SMEs |
+| Approved By | QA/Management |
+| Distribution | Controlled locations |
+| Related SOPs | IDs and titles |
+| Electronic Signatures | Part 11 status |
+
+**2) Purpose and Scope (template)**  
+```
+Purpose:
+This SOP establishes controlled steps for [process] to ensure GMP compliance under [reg citations].
+
+Scope:
+Applies to [areas, equipment, product types, personnel]. Excludes [exclusions with rationale].
+Interfaces: [related SOP IDs].
+```
+
+**3) Regulatory Basis (cite and verify)**  
+List only applicable regulations and guidance. Use [VERIFY] if unsure.
+
+| Authority | Citation |
+|---|---|
+| FDA CGMP | 21 CFR Parts 210 and 211 |
+| Electronic records | 21 CFR Part 11 |
+| ICH | Q7 (API) [VERIFY], Q9, Q10 |
+| WHO | TRS GMP guidance [VERIFY] |
+| PIC/S | GMP Guide [VERIFY] |
+| EU | EU GMP Guide + Annexes (as applicable) [VERIFY] |
+
+**4) Definitions and Abbreviations**  
+Provide GMP-aligned definitions. Use authoritative sources and keep consistent with site QMS.  
+Include: CPP, CQA, deviation, OOS, OOT, batch record, validation, qualification, calibration.
+
+**5) Responsibilities Matrix**
+
+| Role | Duties | Decisions/Approvals | Records Owned |
+|---|---|---|---|
+| Production | Execute SOP steps | Stop work for deviations | Batch records |
+| QA | Approve SOP, review deviations | Release/closure authority | QA review logs |
+| QC | Testing, sampling | OOS disposition | Lab records |
+| Engineering | Maintenance/calibration | Equipment readiness | PM/calibration logs |
+| Management | Resource allocation | Final approval | Training matrix |
+
+**6) Materials, Equipment, and Utilities**
+
+| Item | ID/Spec | Qualification Status | Calibration/PM | Acceptance Criteria |
+|---|---|---|---|---|
+| Equipment | Asset ID | IQ/OQ/PQ status | Frequency | Tolerance |
+| Materials | Grade/spec | Supplier status | Storage | COA required |
+| Utilities | Water/HVAC/gases | Monitoring | Limits | Action levels |
+
+**7) Procedure (step-by-step)**  
+Use a step table. Each step must specify role, action, records, and acceptance.
+
+| Step | Role | Action | CPP/CQA | Hold Point | Records |
+|---|---|---|---|---|---|
+| 1 | Production | [imperative action] | [range] | QA if required | [record] |
+| 2 | QC | [sample/test] | [spec] | QA review | [record] |
+| 3 | QA | [verification] | N/A | Release | [record] |
+
+Rules for procedure steps:  
+- Include decision points and stop-work criteria.  
+- Define acceptance ranges for CPPs/CQAs.  
+- State required PPE/cleanroom behavior where applicable.  
+- Require immediate documentation at time of action.
+
+**8) In-Process Controls and Monitoring**
+
+| Control | Frequency | Method | Acceptance | Action if Out of Range |
+|---|---|---|---|---|
+| [Control] | [per batch/time] | [method] | [spec] | [action] |
+
+**9) Deviations, OOS/OOT, and CAPA (checklist)**  
+- Document deviation within same shift or defined timeframe.  
+- Quarantine affected material/lots.  
+- Initiate investigation with root cause analysis.  
+- Assess impact on product quality and patient safety.  
+- Implement CAPA with effectiveness checks.  
+- QA disposition and release decision documented.
+
+**10) Documentation and Records**
+
+| Record | Owner | System | Review Timeline | Retention |
+|---|---|---|---|---|
+| Batch record | Production | Paper/eQMS | [timeframe] | Per 21 CFR 211.180 [VERIFY] |
+| Calibration log | Engineering | Paper/eQMS | [timeframe] | [policy] |
+| Training record | QA/HR | LMS/eQMS | [timeframe] | [policy] |
+
+Part 11 controls if electronic: validation, audit trails, access control, e-signatures.
+
+**11) Training and Qualification**  
+- Initial training before execution.  
+- Retraining on revision.  
+- Qualification requirements for roles with critical steps.  
+- Training effectiveness documented.
+
+**12) Change Control and Revision History**
+
+| Version | Effective Date | Change Summary | Rationale | Approvers |
+|---|---|---|---|---|
+| 1.0 | [date] | Initial release | [reason] | [names] |
+
+**13) References**  
+List all cited standards with version/date. Mark uncertain items with [VERIFY].
+
+**14) Appendices**  
+Include controlled templates as appendices:  
+- SOP execution checklist  
+- Batch record or log sheet template  
+- Deviation report template  
+- In-process control log  
+- Equipment cleaning log
+
+## Guidelines
+
+- Use imperative, unambiguous language; avoid advisory phrasing.  
+- Verify all citations and current versions; mark uncertain ones with [VERIFY].  
+- Align scope and responsibilities with actual organizational roles.  
+- Maintain segregation between production and QA/QC functions.  
+- Ensure record retention meets the strictest applicable requirement.  
+- Add jurisdiction-specific annexes when distributing outside the U.S.
+tokens used
+6,252

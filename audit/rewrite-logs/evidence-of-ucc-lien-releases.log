@@ -1,0 +1,379 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-4177-7381-ae04-96368413d373
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "8fc6e0f4-699e-445d-9886-de313d996260",
+  "slug": "evidence-of-ucc-lien-releases",
+  "name": "Evidence of UCC Lien Releases",
+  "summary": "Drafts a comprehensive Evidence of UCC Lien Release document that formally demonstrates the termination of security interests perfected under the Uniform Commercial Code. It reviews uploaded documents to extract key details such as UCC-1 filing numbers, party information, and collateral descriptions for precise, compliant drafting. Use this skill in asset purchase transactions to provide proof of clear title and unencumbered ownership of collateral.",
+  "content": "# Evidence of UCC Lien Releases - Enhanced Legal Workflow\n\nYou are tasked with drafting a comprehensive Evidence of UCC Lien Release document that formally demonstrates the termination and release of security interests previously perfected under the Uniform Commercial Code. This critical transactional document serves as definitive proof that a secured party has released its claim on collateral, enabling the debtor to demonstrate clear title and unencumbered ownership. Your work must be precise, legally compliant, and suitable for filing with relevant authorities or presentation in commercial transactions.\n\n## Initial Information Gathering and Document Review\n\nBegin by conducting a thorough review of all available documentation related to the UCC lien that is being released. Search through the user's uploaded documents to identify and extract key information including the original UCC-1 financing statement file number, filing date, filing jurisdiction, secured party details, debtor information, and collateral descriptions. Locate any UCC-3 amendments, continuation statements, or assignment records that may have modified the original filing. Extract specific details such as principal debt amounts, security agreement dates, payment records, and any correspondence between the parties regarding satisfaction of the obligation. If the user has provided a UCC-3 termination statement or filing confirmation, retrieve the termination file number and filing date. Verify that all party names, addresses, and entity identifications are consistent across documents, noting any discrepancies that may need clarification. This comprehensive document review establishes the factual foundation necessary to draft an accurate and complete release document.\n\n## Document Header and Party Identification\n\nCreate a professional document header that clearly identifies the nature and purpose of the release. Title the document \"Evidence of UCC Lien Release\" or \"Certificate of UCC Lien Termination\" and include the current date of preparation. Identify all parties with their complete legal names exactly as they appear in the original UCC-1 financing statement, including any \"doing business as\" designations. For the secured party, include the full legal entity name, entity type (corporation, LLC, partnership, etc.), jurisdiction of organization, and complete address. For the debtor, provide identical detail including any co-debtors or guarantors who were named in the original filing. Prominently display the original UCC-1 financing statement file number, the exact filing date, and the specific filing office (including the Secretary of State and state jurisdiction). If the financing statement was filed in multiple jurisdictions or if there were continuation statements or amendments, reference each filing with its corresponding file number and date. This precise identification ensures that the release can be definitively matched to the correct public record and prevents any ambiguity regarding which security interest is being terminated.\n\n## Comprehensive Description of the Original Secured Transaction\n\nProvide a detailed narrative description of the original secured transaction that gave rise to the UCC-1 financing statement. Describe the underlying business relationship between the parties, the nature of the debt or obligation that was secured, and the original principal amount if applicable. Reference the security agreement by its execution date and identify it as the governing document that created the security interest. Describe the collateral that was subject to the security interest with sufficient specificity to clearly identify it, using language that mirrors or closely tracks the collateral description in the original UCC-1 filing. Address the UCC Article 9 collateral classifications that apply, such as equipment, inventory, accounts receivable, chattel paper, instruments, general intangibles, or other categories. If the security interest covered after-acquired property, proceeds, or products of the original collateral, acknowledge this expanded scope. Note any subsequent modifications to the secured obligation, including amendments to the security agreement, increases or decreases in the debt amount, or changes to the collateral coverage. This comprehensive description establishes the complete context of what security interest existed and what is now being released.\n\n## Unambiguous Release and Termination Statement\n\nDraft clear, definitive language that effectuates the full release and termination of the security interest. The release statement should affirmatively declare that the secured party hereby releases, terminates, and fully discharges all security interests, liens, and claims in the described collateral. State explicitly that all obligations secured by the UCC-1 financing statement have been fully satisfied, performed, and discharged, and that the secured party claims no further interest in the collateral or any proceeds thereof. Specify the effective date of the release, which may be the date of document execution, the date of final payment, or another specifically identified date agreed upon by the parties. Confirm that the secured party has filed or will file a UCC-3 termination statement with the appropriate filing office to remove the public record of the financing statement, and provide the termination filing details if already completed. If the release is partial rather than complete\u2014covering only certain collateral items or specific obligations while leaving others intact\u2014clearly delineate what is being released and what security interests, if any, remain in effect. The language must be sufficiently clear and comprehensive to provide the debtor with unambiguous evidence of release that can be relied upon by third parties, including subsequent lenders, purchasers, title companies, and other interested parties conducting due diligence.\n\n## Supporting Documentation and Evidentiary Record\n\nCompile and reference all supporting documentation that substantiates the lien release and provides a complete evidentiary chain. Identify the filed UCC-3 termination statement by its file number and filing date, and note whether a file-stamped copy from the Secretary of State is attached as an exhibit. Reference any written confirmation or acknowledgment letters from the secured party confirming the release, payoff statements showing satisfaction of the underlying debt, and wire transfer confirmations or canceled checks evidencing final payment. If the release resulted from a court order, bankruptcy discharge, settlement agreement, or other legal proceeding, reference the specific document, case number, and date. Include copies of the original UCC-1 financing statement and any UCC-3 amendments to provide complete historical context for the security interest being terminated. For complex transactions involving multiple amendments or partial releases, provide a chronological summary table that lists all UCC filings in sequence with their file numbers, filing dates, and purposes. Organize all supporting exhibits with clear labels, tab numbers if appropriate, and consistent formatting to facilitate easy verification and review by any party examining the release documentation.\n\n## Execution Provisions and Authentication Requirements\n\nConclude the document with proper execution provisions that satisfy legal requirements and commercial best practices for authenticated releases. Provide signature lines for the secured party, to be executed by an authorized officer, manager, or representative whose title and authority are clearly indicated. If the secured party is a corporation, ensure compliance with corporate formalities by having the document signed by an officer with actual authority to release security interests. For limited liability companies, confirm that the signatory is a manager or member with authority under the operating agreement. Include a notary acknowledgment block if required by state law, if the document will be recorded with a land records office, or if notarization is customary in the jurisdiction for UCC-related releases. The notary block should contain all required elements including the notary's name, commission expiration date, official seal impression area, and proper acknowledgment language conforming to the state's statutory requirements. If debtor acknowledgment is customary or required in your jurisdiction, provide signature lines for the debtor as well, though this is typically not necessary for a unilateral release by the secured party. Consider including a certification statement in which the secured party affirms that all information in the document is true and accurate, that all obligations have been fully satisfied, and that no further amounts are owed or claimed. Date all signatures clearly and ensure that the executed original is maintained in accordance with the parties' document retention policies and applicable legal requirements for commercial records.\n\n## Final Document Assembly and Quality Control\n\nPrepare the final document using professional formatting standards appropriate for a formal transactional release. If you represent the secured party, use the firm's or company's letterhead; if preparing the document as neutral evidence or on behalf of the debtor, use clean, professional formatting with clear section headings and consistent typography. Number all pages sequentially and include a footer containing the document title, date, and page numbering. Ensure that all exhibits and attachments are properly labeled with exhibit letters or numbers, referenced in the body of the document, and physically attached in the correct order. Conduct a final verification review to confirm that all party names, file numbers, dates, jurisdictional references, and collateral descriptions are accurate and internally consistent throughout the document. Cross-reference the information against the original UCC filings to ensure perfect alignment. The completed Evidence of UCC Lien Release should be suitable for inclusion in transaction closing binders, due diligence packages, loan files, or presentation to title insurance companies, and must provide clear, unambiguous, and legally sufficient proof that the security interest has been properly terminated and released. The document should inspire confidence in any reviewing party that the collateral is free from the released encumbrance and that the debtor has clear and unencumbered rights to the property.",
+  "parent_skill_id": "6c2a6ddd-651e-44f1-a53d-233c0addcfe5",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "asset_purchase"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.689526",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:56:48.114513Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Preparing to use skill-creator**
+
+The task to rewrite SKILL.md matches the skill-creator's purpose of creating or updating skills, so I'll open the existing SKILL.md file in the skill-creator directory for reading and rewriting.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Requesting open skill file**
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving metadata and slug conflicts**
+
+I'm reconciling user instructions demanding extended metadata with skill-creator's minimalist frontmatter by adapting to the user format while noting skill-creator use. I'm choosing the slug "ucc-lien-release-evidence" for clarity and preparing a detailed description including doc type, practice area capitalization, and trigger keywords as required.
+thinking
+**Preparing detailed SKILL.md plan**
+
+I'm outlining a comprehensive SKILL.md with frontmatter, a clear imperative-purpose statement, numbered prerequisites, structured output instructions including tables and checklists, plus a template code block. I'll avoid nested bullets, keep lists flat, include usage guidelines referencing UCC Article 9 generally, and ensure consistent naming and data validation, all fitting around 120 lines as required.
+codex
+---
+name: ucc-lien-release-evidence
+description: Drafts an Evidence of UCC Lien Release (certificate or letter evidencing termination of a UCC-1 financing statement) for U.S. transactional matters. Use when documenting UCC-3 termination, secured party release, payoff, or clear title in asset purchases, financings, or closing deliverables. Trigger keywords: "UCC-1", "UCC-3 termination", "lien release", "secured party release", "clear title", "payoff letter", "closing binder".
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Evidence of UCC Lien Release
+
+Produce a formal Evidence of UCC Lien Release suitable for closing and due diligence.
+
+## Prerequisites
+
+1. Original UCC-1 financing statement details (file number, filing date, filing office, jurisdiction)
+2. Debtor and secured party legal names and addresses as filed
+3. Collateral description from the UCC-1 (and any amendments)
+4. Security agreement date and governing documents
+5. Evidence of satisfaction (payoff statement, wire confirmation, release letter, settlement, or order)
+6. UCC-3 termination statement details if filed (file number, date, stamped copy)
+7. Scope of release (full or partial) and effective date
+8. Any continuation, assignment, or amendment filings tied to the same collateral
+
+## Output Structure / Process
+
+1. Build the source data table and resolve inconsistencies before drafting.
+2. Create a UCC filing chronology table when multiple filings exist.
+3. Draft the document using the section checklist and template.
+4. Assemble exhibits and verify cross-references.
+
+**Source Data Table**
+
+| Field | Required | Source | Notes |
+| --- | --- | --- | --- |
+| Debtor legal name | Yes | UCC-1 | Use exact spelling, punctuation, entity suffix |
+| Secured party legal name | Yes | UCC-1 | Use exact spelling, punctuation, entity suffix |
+| Filing office + jurisdiction | Yes | UCC-1 | Secretary of State or equivalent |
+| UCC-1 file number | Yes | UCC-1 | Include filing date |
+| Collateral description | Yes | UCC-1 | Mirror language verbatim where possible |
+| Security agreement date | Yes | Security agreement | Identify governing document |
+| Release scope | Yes | Instructions | Full vs partial; list retained collateral |
+| Effective date | Yes | Instructions | Execution date or payoff date |
+| UCC-3 termination file number | If filed | UCC-3 | Include date and stamped copy |
+| Satisfaction evidence | Yes | Payoff/letters | Cite exhibit numbers |
+
+**UCC Filing Chronology (use when more than one filing exists)**
+
+| Filing No. | Type | Filing Office | Filing Date | Purpose |
+| --- | --- | --- | --- | --- |
+|  | UCC-1 |  |  | Original financing statement |
+|  | UCC-3 |  |  | Amendment/continuation/assignment/termination |
+
+**Section Checklist**
+
+| Section | Required Content | Notes |
+| --- | --- | --- |
+| Title + Date | Evidence of UCC Lien Release; date of document | Use exact title |
+| Parties | Debtor and secured party details | Match UCC-1 |
+| Filing Identification | UCC-1 file number, filing office, filing date | Add all jurisdictions |
+| Secured Transaction Summary | Security agreement date; obligation summary; collateral categories | Track UCC-1 text |
+| Release Statement | Full/partial release; satisfaction; no further claims | Unambiguous |
+| Termination Status | UCC-3 filing details or intent to file | Do not imply filed if not filed |
+| Effective Date | Specific date | Tie to payoff or execution |
+| Exhibits | List supporting documents | Provide exhibit labels |
+| Execution | Authorized signatory + title | Add notarization if required |
+
+**Template**
+
+```text
+EVIDENCE OF UCC LIEN RELEASE
+
+Date: {Document Date}
+
+1. Parties
+Secured Party: {Legal Name}, {Entity Type}, {Jurisdiction of Organization}
+Address: {Address}
+Debtor: {Legal Name}, {Entity Type}, {Jurisdiction of Organization}
+Address: {Address}
+
+2. Financing Statement Identification
+UCC-1 File Number: {File Number}
+Filing Office/Jurisdiction: {Filing Office, State}
+Filing Date: {Filing Date}
+Additional Filings (if any): {List UCC-3 amendments/continuations/assignments}
+
+3. Secured Transaction Summary
+Security Agreement Date: {Date}
+Obligation: {Brief description of secured obligations}
+Collateral: {Collateral description mirroring UCC-1}
+
+4. Release and Termination
+The Secured Party hereby releases, terminates, and fully discharges all security interests,
+liens, and claims in the collateral described above arising under the UCC-1 financing
+statement identified in Section 2. All secured obligations have been satisfied in full, and
+the Secured Party asserts no further interest in the collateral or proceeds.
+
+5. Termination Filing
+{If filed} A UCC-3 Termination Statement has been filed under File No. {UCC-3 No.} on {Date}.
+{If not filed} The Secured Party will file a UCC-3 Termination Statement with the filing office
+identified above.
+
+6. Effective Date
+This release is effective as of {Effective Date}.
+
+7. Exhibits
+Exhibit A: UCC-1 Financing Statement
+Exhibit B: UCC-3 Termination Statement (file-stamped, if available)
+Exhibit C: Payoff/Release Evidence {wire confirmation / payoff letter / order}
+
+Secured Party:
+
+By: ___________________________
+Name: {Signatory Name}
+Title: {Title}
+Date: {Signature Date}
+
+{Optional Notary Acknowledgment}
+```
+
+**Exhibits Checklist**
+
+- [ ] UCC-1 financing statement (file-stamped)
+- [ ] UCC-3 termination (file-stamped if available)
+- [ ] Payoff letter or satisfaction evidence
+- [ ] Security agreement (if cited)
+- [ ] Order/settlement (if release arises from legal proceeding)
+
+## Guidelines
+
+- Match debtor and secured party names exactly to the UCC-1; flag discrepancies for confirmation.
+- Mirror the collateral description; avoid paraphrasing that could narrow or expand scope.
+- If the release is partial, list released collateral and expressly preserve any remaining liens.
+- Do not state a UCC-3 was filed unless you have the file number and date.
+- Use consistent filing office terminology (e.g., “Secretary of State, {State}”).
+- Add notarization only if required by jurisdiction or requested by the client.
+- Mark any uncertain statutory citations with `[VERIFY]`.
+- Keep the document neutral and evidentiary; avoid advocacy or legal conclusions.
+tokens used
+10,126

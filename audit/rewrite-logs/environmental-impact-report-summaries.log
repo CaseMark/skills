@@ -1,0 +1,341 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-2a8d-7142-a421-a08f17528c8c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7ba292b2-b010-41d7-8168-3450b89495f3",
+  "slug": "environmental-impact-report-summaries",
+  "name": "Environmental Impact Report Summaries",
+  "summary": "Generates concise, legally-focused summaries of Environmental Impact Reports (EIRs) for environmental law matters. Distills technical findings on impacts, mitigations, alternatives, and compliance with statutes like NEPA and CEQA, highlighting litigation risks and controversies. Use for regulatory reviews, permit challenges, administrative proceedings, or litigation support.",
+  "content": "# Environmental Impact Report Summary for Legal Review\n\nYou are tasked with creating a comprehensive yet concise summary of an Environmental Impact Report (EIR) for legal proceedings, regulatory compliance review, or litigation support in environmental law matters. This summary must distill complex technical and scientific findings into a clear, legally-focused document that enables attorneys, regulators, and decision-makers to quickly understand the environmental implications of a proposed project or development.\n\n## Purpose and Context\n\nEnvironmental Impact Reports are detailed technical documents often running hundreds of pages, containing scientific data, modeling results, mitigation measures, and regulatory analysis. In legal contexts\u2014whether for NEPA/CEQA compliance review, permit challenges, citizen suits, or environmental litigation\u2014legal professionals need summaries that highlight legally significant findings, potential regulatory violations, areas of controversy, and litigation risks. Your summary serves as a critical bridge between technical environmental science and legal strategy, enabling counsel to identify key issues, assess compliance with environmental statutes, and develop arguments for administrative proceedings or court filings.\n\n## Analysis Requirements\n\nBegin by thoroughly reviewing the complete Environmental Impact Report using comprehensive document analysis to ensure no critical findings are overlooked. Identify and extract the project description, including location, scope, timeline, and purpose. Analyze each environmental resource area assessed in the report, such as air quality, water resources, biological resources, cultural resources, geology and soils, hazardous materials, noise, traffic, and cumulative impacts. For each resource area, capture the baseline environmental conditions, the methodology used for impact assessment, the significance determinations made, and any proposed mitigation measures.\n\nPay particular attention to findings of significant and unavoidable impacts, as these trigger heightened legal scrutiny under statutes like CEQA and may require statements of overriding considerations. Identify any alternatives analysis, including the environmentally superior alternative and the reasons for selecting or rejecting specific alternatives, as this is frequently contested in environmental litigation. Extract information about public comments received, agency responses, and areas of controversy or disagreement among experts, as these often signal potential legal challenges.\n\n## Legal Considerations and Compliance Framework\n\nFrame your summary with awareness of the applicable environmental regulatory framework, which may include the National Environmental Policy Act (NEPA), the California Environmental Quality Act (CEQA), state environmental policy acts, the Clean Water Act, the Clean Air Act, the Endangered Species Act, and local environmental ordinances. Identify whether the report demonstrates compliance with procedural requirements such as public notice, comment periods, and consultation with relevant agencies. Note any findings that may trigger additional permitting requirements or regulatory approvals.\n\nHighlight statements or conclusions that may be vulnerable to legal challenge, such as inadequate baseline data, insufficient analysis of alternatives, improper significance determinations, inadequate mitigation measures, or failure to address cumulative impacts. Flag any reliance on mitigation measures that are vague, unenforceable, or deferred to future study, as these are common grounds for legal challenge. Identify any inconsistencies between the EIR's findings and applicable regulatory standards or thresholds of significance.\n\n## Summary Structure and Output Format\n\nYour summary should be organized into clear sections that facilitate legal review and strategic planning. Begin with an executive overview that captures the project description, the lead agency, the type of environmental review conducted, and the overall environmental determination. Follow with a section-by-section analysis of environmental impacts, organized by resource area, with each section identifying baseline conditions, predicted impacts, significance determinations, and proposed mitigation. Include a dedicated section on alternatives considered, clearly identifying the proposed project, the no-project alternative, and other alternatives analyzed, along with the comparative environmental analysis.\n\nCreate a separate section highlighting significant and unavoidable impacts, areas of controversy, and issues raised during public review that may present litigation risk. Summarize the mitigation monitoring and reporting program, noting any concerns about enforceability or adequacy. Conclude with a section on legal compliance and procedural adequacy, identifying any potential vulnerabilities or areas requiring further legal analysis. Throughout the summary, use precise legal terminology and cite specific sections of the EIR for reference, enabling attorneys to quickly locate source material for deeper review or citation in legal filings.\n\nPresent your summary in a professional legal memorandum format with clear headings, concise paragraphs, and objective analysis. The tone should be analytical rather than advocative, presenting findings in a manner that allows legal counsel to assess both strengths and weaknesses of the environmental review. The summary should typically range from five to fifteen pages depending on the complexity of the project and the EIR, striking a balance between comprehensiveness and accessibility. Your goal is to transform a technical environmental document into a strategic legal tool that enables informed decision-making in environmental law practice.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pre-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.728303",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:56:42.430591Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Choosing concise skill slug**
+
+I'm deciding on "eir-summary" as the skill slug for brevity while clearly referencing Environmental Impact Report, adding relevant trigger keywords and descriptive metadata for clarity and searchability.
+thinking
+**Drafting complete skill content**
+
+I'm preparing the full skill markdown for "eir-summary" with structured metadata, detailed prerequisites, an output process with numbered steps, templated tables for deliverables, checklists with no nested bullets, and comprehensive guidelines including legal compliance notes and trigger keywords as specified.
+codex
+---
+name: eir-summary
+description: Produces structured, legally focused summaries of Environmental Impact Reports (EIR) or Environmental Impact Statements (EIS), distilling impacts, mitigation, alternatives, and compliance risks for environmental litigation and regulatory review. Use for EIR summary, EIS summary, CEQA review, NEPA review, environmental review memo, mitigation analysis, alternatives analysis, cumulative impacts, permit challenges, administrative record review.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Environmental Impact Report Summary
+
+Condense EIR/EIS technical findings into a legally actionable summary with citations to the record.
+
+## Prerequisites
+
+1. Full EIR/EIS (including appendices, technical studies, and modeling outputs).
+2. Project description materials (maps, site plans, phasing, schedule).
+3. Lead agency, jurisdiction, and governing statutes/regulations.
+4. Public notice and comment record, including responses.
+5. Thresholds of significance or regulatory standards used.
+6. Mitigation Monitoring and Reporting Program (if separate).
+7. List of required permits/approvals (if available).
+
+## Output Structure / Process
+
+1. Identify document type (CEQA EIR, NEPA EIS, or other) and review level (programmatic, tiered, supplemental, addendum).
+2. Extract project snapshot, lead agency role, and decision timeline.
+3. Build the Environmental Impacts Matrix from each resource area.
+4. Build the Alternatives Analysis table and identify the environmentally superior alternative.
+5. Isolate Significant and Unavoidable Impacts with required findings.
+6. Summarize mitigation measures and enforceability via MMRP.
+7. Extract public comments, agency responses, and controversy/discord.
+8. Complete the Compliance and Vulnerability Checklist.
+9. Provide a source map for all key findings.
+
+**Executive Overview**
+
+| Item | Details | EIR/EIS Cite |
+| --- | --- | --- |
+| Project |  |  |
+| Lead Agency |  |  |
+| Jurisdiction |  |  |
+| Review Type |  |  |
+| Decision/Determination |  |  |
+| Key Issues |  |  |
+
+**Project Description**
+
+| Component | Details | EIR/EIS Cite |
+| --- | --- | --- |
+| Location |  |  |
+| Purpose/Need |  |  |
+| Scope |  |  |
+| Phasing/Timeline |  |  |
+| Land Use/Footprint |  |  |
+
+**Environmental Impacts Matrix**
+
+| Resource Area | Baseline | Method/Model | Impact Finding | Significance Label | Mitigation | Residual Impact | EIR/EIS Cite | Issues/Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Air Quality |  |  |  |  |  |  |  |  |
+| GHG/Climate |  |  |  |  |  |  |  |  |
+| Water Resources |  |  |  |  |  |  |  |  |
+| Biological Resources |  |  |  |  |  |  |  |  |
+| Cultural/Tribal |  |  |  |  |  |  |  |  |
+| Geology/Soils |  |  |  |  |  |  |  |  |
+| Hazards/Materials |  |  |  |  |  |  |  |  |
+| Noise |  |  |  |  |  |  |  |  |
+| Traffic/Transportation |  |  |  |  |  |  |  |  |
+| Land Use/Planning |  |  |  |  |  |  |  |  |
+| Utilities/Services |  |  |  |  |  |  |  |  |
+| Cumulative Impacts |  |  |  |  |  |  |  |  |
+| Other (specify) |  |  |  |  |  |  |  |  |
+
+**Alternatives Analysis**
+
+| Alternative | Key Features | Environmentally Superior | Impact Comparison | Selection/Reject Rationale | EIR/EIS Cite |
+| --- | --- | --- | --- | --- | --- |
+| Proposed Project |  |  |  |  |  |
+| No Project |  |  |  |  |  |
+| Alternative 1 |  |  |  |  |  |
+| Alternative 2 |  |  |  |  |  |
+
+**Significant and Unavoidable Impacts**
+
+| Impact | Resource Area | Why Unavoidable | Required Findings/Overrides | EIR/EIS Cite |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+**Mitigation and MMRP**
+
+| Mitigation Measure | Enforceable Standard | Timing/Trigger | Monitoring Party | Feasibility | EIR/EIS Cite | Concerns |
+| --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |  |
+
+**Public Review and Controversy**
+
+| Topic | Commenter/Agency | Key Critique | Response Adequacy | Dispute/Expert Split | Litigation Risk | EIR/EIS Cite |
+| --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |  |
+
+**Compliance and Vulnerability Checklist**
+
+- [ ] Baseline data adequate and supported by substantial evidence.
+- [ ] Alternatives range is reasonable and feasible; no improper elimination.
+- [ ] Cumulative impacts analyzed with defined geographic/temporal scope.
+- [ ] Significance thresholds disclosed and applied consistently.
+- [ ] Mitigation is specific, enforceable, and not improperly deferred.
+- [ ] Growth-inducing/indirect impacts addressed.
+- [ ] Segmentation/piecemealing avoided or justified.
+- [ ] Responses to comments are substantive and address expert critiques.
+- [ ] Required consultations/permits identified (e.g., CWA, CAA, ESA, NHPA) [VERIFY].
+- [ ] Statement of overriding considerations (if needed) supported by record.
+- [ ] Recirculation triggers evaluated (new significant impacts or information).
+
+**Open Questions**
+
+| Issue | Why It Matters | Needed Source/Follow-Up |
+| --- | --- | --- |
+|  |  |  |
+
+**Key Source Map**
+
+| Finding | EIR/EIS Section | Page/Exhibit |
+| --- | --- | --- |
+|  |  |  |
+
+## Guidelines
+
+- Use the document’s exact significance labels and thresholds; do not normalize or reword.
+- Cite every material finding to section and page/exhibit.
+- Do not fill gaps; write “Not found in EIR/EIS” when missing.
+- Separate fact from inference; label inference explicitly.
+- If jurisdiction or governing statute is unclear, flag and request clarification.
+- Mark uncertain legal citations or regulatory triggers with `[VERIFY]`.
+- Maintain neutral, analytical tone; no advocacy or conclusions of law.
+tokens used
+5,600

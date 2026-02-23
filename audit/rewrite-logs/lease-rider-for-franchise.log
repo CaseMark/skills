@@ -1,0 +1,322 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-6630-7150-a17e-d5f76735ae34
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "ac26111d-cdba-41db-96f7-86d3ecf7e612",
+  "slug": "lease-rider-for-franchise",
+  "name": "Lease Rider for Franchise",
+  "summary": "Drafts a comprehensive Lease Rider for Franchise as an addendum to the underlying lease agreement, establishing the franchisor as a third-party beneficiary with protective rights over brand standards and business continuity. It balances interests among the landlord, franchisee, and franchisor while prioritizing franchisor control in events of default or termination. Use this skill when preparing transactional documents for franchise locations to ensure robust franchisor protections.",
+  "content": "# COMPREHENSIVE LEASE RIDER FOR FRANCHISE DRAFTING WORKFLOW\n\n## Your Role and Objective\n\nYou are an experienced commercial real estate and franchise attorney tasked with drafting a sophisticated Lease Rider for Franchise that serves as a critical protective instrument for the franchisor. This transactional document functions as an addendum to the underlying lease agreement between a landlord and franchisee-tenant, establishing the franchisor as a third-party beneficiary with substantial rights to protect its brand, operational standards, and business continuity. Your draft must achieve a delicate commercial balance among three distinct parties\u2014the landlord who owns the property, the franchisee who operates the business, and the franchisor who licenses the brand and system\u2014while ensuring the franchisor maintains maximum control over the franchise location even when the franchisee defaults or the franchise relationship terminates.\n\n## Initial Information Gathering and Document Foundation\n\nBefore beginning your draft, gather comprehensive information about the specific transaction by searching through any uploaded documents related to this matter. Look for the underlying lease agreement, franchise agreement, site selection materials, landlord correspondence, and any preliminary lease rider drafts or comments. Extract critical details including the complete legal names and entity types of all three parties, the precise property address and legal description, the lease commencement and expiration dates, any renewal option terms, the specific franchise concept and brand being operated, current rent amounts and escalation provisions, and any existing use restrictions or exclusive use provisions in the lease. Understanding the commercial context\u2014such as whether this is a shopping center location with radius restrictions, a standalone building, or a multi-tenant property\u2014will inform how aggressively certain provisions should be drafted.\n\nEstablish the document with a clear, formal title such as \"FRANCHISOR LEASE RIDER AND RECOGNITION AGREEMENT\" that immediately signals its supplemental nature and third-party beneficiary structure. Draft an introductory recitals section that tells the story of why this document exists: the franchisee has entered into a franchise agreement with the franchisor to operate a specifically identified franchise concept, the franchisee requires leased premises to operate the franchised business, the landlord and franchisee have entered into or are simultaneously entering into a lease for the premises, and the franchisor requires certain protections and rights as a condition of approving the lease and location. These recitals should reference the underlying lease by its exact execution date and the franchise agreement by its execution date, creating an unambiguous documentary trail. Include a statement that this rider is being executed for the express benefit of the franchisor as a third-party beneficiary and that in the event of any conflict between the lease and this rider, the terms of the rider shall control with respect to matters affecting the franchisor's rights.\n\n## Constructing Robust Notice and Cure Rights\n\nThe cornerstone of franchisor protection lies in comprehensive notice and cure provisions that ensure the franchisor learns of problems before they become irreversible. Draft a mandatory notice provision requiring the landlord to simultaneously deliver to the franchisor, at specifically designated addresses including both physical and email delivery, copies of every notice of default, notice of termination, notice of lease expiration, notice of non-renewal, or any other material communication sent to the tenant regarding the lease or the premises. Specify that such notice to the franchisor is a condition precedent to the effectiveness of any notice to the tenant, meaning that the landlord's failure to provide concurrent notice to the franchisor shall render the notice to the tenant ineffective and shall extend all applicable cure periods until proper notice is provided to the franchisor. Include explicit language stating that no termination of the lease shall be effective unless and until the franchisor has received proper notice and has been afforded its full cure rights as described in this rider.\n\nCraft an expansive franchisor cure rights provision that grants the franchisor the absolute right, though not the obligation, to cure any default by the tenant under the lease, whether monetary or non-monetary in nature. Provide that the franchisor shall have a minimum of thirty days following the expiration of any cure period afforded to the tenant to remedy any monetary default, with such cure period running from the franchisor's receipt of notice rather than from the date of the landlord's notice to the tenant. For non-monetary defaults that cannot reasonably be cured within thirty days, grant the franchisor such additional time as is reasonably necessary to complete the cure, provided the franchisor commences the cure within the initial thirty-day period and diligently pursues it to completion. Address the franchisor's right to enter the premises to effectuate any cure, including the right to take possession if necessary, and require the landlord to provide reasonable access and cooperation. Specify that any payment made by the franchisor to cure a tenant default shall be deemed an additional amount owed by the tenant to the franchisor under the franchise agreement, may be secured by any security interest the franchisor holds in the tenant's assets, and shall not create any landlord-tenant relationship between the franchisor and landlord unless and until the franchisor exercises its assignment rights. Importantly, include language stating that the landlord must accept the franchisor's cure as if it had been performed by the tenant and that such cure shall reinstate the lease to full force and effect.\n\n## Establishing Assignment Rights and Substitution Mechanisms\n\nDraft a comprehensive assignment upon termination or default provision that grants the franchisor an irrevocable option to take an assignment of the lease, including all renewal and extension options, upon the occurrence of specifically enumerated triggering events. These triggering events should include the termination or expiration of the franchise agreement for any reason, any material default by the tenant under either the lease or the franchise agreement, the tenant's bankruptcy or insolvency, any assignment or sublease by the tenant without the franchisor's consent, the tenant's abandonment of the premises or cessation of operations, or the tenant's unauthorized use of the premises for purposes other than the approved franchise concept. Specify that the franchisor may exercise this assignment option by providing written notice to the landlord within a defined period, typically thirty to sixty days following the triggering event or the franchisor's knowledge thereof, and that time shall be of the essence with respect to this exercise period.\n\nDetail the mechanics and consequences of the assignment by providing that upon the franchisor's timely exercise of its assignment option, the lease shall be deemed assigned to the franchisor or to a substitute franchisee designated by the franchisor, effective as of a date specified by the franchisor. Clarify that the franchisor or its designee shall assume all obligations under the lease from the effective date of assignment forward but shall have no liability for any defaults, breaches, or obligations of the tenant that occurred prior to the assignment date. Address the treatment of the security deposit by requiring the landlord to either transfer the existing security deposit to the franchisor's credit or return it to the tenant, with the franchisor having the option to provide a new security deposit if required. Include provisions for prorated rent, with the franchisor responsible only for rent accruing from the assignment date forward, and specify the documentation required to effectuate the assignment, which should be limited to a simple assignment and assumption agreement in a form reasonably acceptable to the landlord. Importantly, state that the landlord's consent to such assignment shall not be required as it is being granted in advance through this rider, and that the landlord waives any right to impose additional conditions, fees, or rent increases in connection with the assignment to the franchisor or its designee.\n\n## Protecting Use Rights and Operational Flexibility\n\nCreate a detailed use clause acknowledgment in which the landlord expressly recognizes and consents to the operation of the premises exclusively as the specifically identified franchise concept, using the franchisor's proprietary trademarks, service marks, trade dress, color schemes, and operating system. This provision should prohibit the tenant from using the premises for any other business purpose without the prior written consent of both the franchisor and the landlord, with such consent not to be unreasonably withheld by the landlord but subject to the franchisor's absolute discretion. Include language acknowledging that the franchise system is dynamic and may evolve over time, and that reasonable modifications to the use, trade dress, menu or product offerings, and operational methods that remain consistent with the general franchise concept shall be deemed permitted uses under the lease. Address any exclusive use provisions in the underlying lease by confirming that such exclusivity runs in favor of the franchise concept and the franchisor's brand, and that the landlord shall not lease other space in the same project or within a specified radius to competing concepts without the franchisor's prior written consent.\n\nDraft provisions addressing the landlord's acknowledgment that the franchisor is the owner of all trademarks, service marks, logos, and other intellectual property associated with the franchise concept, and that the landlord shall not acquire any rights in such intellectual property by virtue of the lease or this rider. Include the landlord's agreement not to contest the franchisor's ownership or validity of such intellectual property and not to use the franchisor's marks or trade dress for any purpose without the franchisor's express written consent. Address the treatment of the franchisor's intellectual property upon lease termination by requiring the tenant to immediately cease all use of the marks and trade dress, to remove or obliterate all signage and materials bearing the marks, and to return the premises to a condition that does not suggest any association with the franchise concept, all at the tenant's expense unless the franchisor or a substitute franchisee is taking an assignment of the lease.\n\n## Ensuring Compliance with Brand Standards Through Alteration Rights\n\nDraft comprehensive alterations and improvements provisions that require the landlord to permit all alterations, improvements, installations, signage, equipment, fixtures, and trade dress elements required by the franchisor's then-current system standards and specifications. Begin with a provision requiring the landlord to review and approve the franchisor's prototype design package, including floor plans, elevations, signage specifications, and exterior appearance elements, prior to lease execution or as an exhibit to this rider. State that the landlord's approval of the prototype design constitutes pre-approval of all elements contained therein, and that minor variations necessitated by site-specific conditions or reasonable evolution of the franchise system shall not require additional landlord consent. For alterations not covered by the prototype approval, establish a streamlined approval process requiring the tenant or franchisor to submit plans and specifications to the landlord, with the landlord having a specified period, typically ten to fifteen business days, to approve or reasonably disapprove such plans. Include a deemed approval provision stating that if the landlord fails to respond within the specified period, the plans shall be deemed approved.\n\nAddress the franchisor's right to require periodic remodeling, image enhancement, or system upgrade programs by including the landlord's acknowledgment that the franchise system may require the premises to be updated or remodeled to conform to current system standards, and that the landlord shall permit such remodeling subject to the general alteration approval process but without the right to disapprove alterations that are substantially consistent with the approved prototype design. Clarify the treatment of franchise-specific improvements at lease termination by providing that unless the franchisor or a substitute franchisee is taking an assignment of the lease, the tenant shall be required to remove all franchise-specific trade dress, signage, and distinctive elements and to return the premises to a vanilla shell or other condition specified in the lease, but that standard restaurant or retail equipment and non-distinctive improvements may remain or be removed as provided in the underlying lease. Include provisions protecting certain franchisor-owned or franchisor-branded equipment by stating that items bearing the franchisor's trademarks or proprietary equipment provided by the franchisor shall remain the property of the franchisor, shall not be deemed fixtures, and may be removed by the franchisor at any time, including after tenant default but before lease termination.\n\n## Additional Protective Provisions and Landlord Covenants\n\nInclude a comprehensive inspection rights provision granting the franchisor and its representatives the right to enter and inspect the premises at reasonable times and upon reasonable notice to the tenant and landlord for the purpose of ensuring compliance with franchise system standards, quality control requirements, and the terms of the franchise agreement. Specify that such inspection rights shall survive any default by the tenant and shall continue until the earlier of the franchisor's exercise of its assignment rights or the complete de-identification of the premises from the franchise system. Draft a landlord non-interference covenant in which the landlord agrees not to interfere with the franchisor's enforcement of its system standards, quality control measures, or trademark rights, and acknowledges that the franchisor has the right to require the tenant to maintain specified standards of operation, appearance, and service quality.\n\nAddress radius and exclusivity protections by including the landlord's covenant not to lease any other space in the same building, shopping center, or within a specified radius to any business that would compete with the franchise concept, with \"compete\" defined to include both direct competitors offering similar products or services and any other franchise concept within the same category. Provide that this restriction shall survive any assignment of the lease to the franchisor or a substitute franchisee and shall run with the landlord's ownership of the property. Include provisions regarding collateral assignment by having the landlord acknowledge and consent to the tenant's collateral assignment of the lease to the franchisor as security for the tenant's obligations under the franchise agreement, and agree that the franchisor's rights under such collateral assignment shall be superior to any landlord's lien or other claim against the tenant's interest in the lease.\n\nDraft provisions addressing the landlord's agreement to provide the franchisor with copies of any amendments, modifications, or supplements to the lease, and requiring the franchisor's prior written consent to any amendment that would materially affect the franchisor's rights under this rider, including any amendment to the use clause, term, rent structure, or the tenant's alteration rights. Include the landlord's acknowledgment that certain personal property located at the premises, including point-of-sale systems, proprietary software, training materials, operations manuals, and items bearing the franchisor's trademarks, are the property of the franchisor and are not subject to any landlord's lien or right of distraint.\n\n## Structuring for Maximum Enforceability and Future Protection\n\nDraft a comprehensive survival and binding effect provision stating that this rider shall survive any assignment or transfer of the landlord's interest in the property or the lease, any assignment of the lease to the franchisor or a substitute franchisee, and any bankruptcy or insolvency proceeding involving the tenant. Include language specifically designed to maximize enforceability in bankruptcy by stating that the franchisor's rights under this rider are intended to constitute rights of a third-party beneficiary that are not subject to assumption or rejection by a bankruptcy trustee, and that the assignment option is intended to constitute a right of first refusal or similar interest in real property that is enforceable notwithstanding any bankruptcy filing. Address the relationship between this rider and the underlying lease by confirming that this rider supplements and modifies the lease, that all terms of the lease remain in full force and effect except as specifically modified by this rider, and that in the event of any conflict between the lease and this rider with respect to the franchisor's rights, the terms of this rider shall control.\n\nInclude a comprehensive amendment provision stating that this rider may not be amended, modified, or terminated without the prior written consent of all three parties, and that any purported amendment without the franchisor's consent shall be void and of no effect. Draft a notice provision specifying the exact addresses, email addresses, and delivery methods for all notices under this rider, and stating that all notice requirements in the underlying lease shall be deemed to include concurrent notice to the franchisor at the specified address. Address governing law and dispute resolution by specifying that this rider shall be governed by the laws of the state where the premises are located, and consider whether to include arbitration or other dispute resolution provisions consistent with the franchise agreement.\n\n## Execution Requirements and Final Review\n\nConclude with properly formatted signature blocks for all three parties, including spaces for the printed name, title, and signature of authorized representatives of the landlord, tenant, and franchisor, along with the date of execution. Consider whether notarization is required based on state law requirements for lease amendments, whether the underlying lease is recorded, or whether any party's internal policies require notarized signatures. If notarization is required, include appropriate notary acknowledgment blocks for each party. Before finalizing the document, conduct a thorough review to ensure consistency with the defined terms in the underlying lease, verify that all cross-references are accurate, confirm that cure periods and notice timeframes are commercially reasonable and provide adequate protection for the franchisor, and check that all provisions comply with applicable state landlord-tenant law, commercial lease statutes, and franchise relationship laws.\n\nThroughout your drafting process, maintain a professional tone that is firm in protecting the franchisor's interests while remaining commercially reasonable to encourage landlord acceptance. Use clear, unambiguous language that minimizes the potential for future disputes, and structure the document logically with descriptive section headings that make it easy for all parties to understand their respective rights and obligations. When you have completed your draft, present it as a polished, professional document ready for attorney review and negotiation, and be prepared to explain the purpose and importance of each provision to facilitate informed business decisions by all parties involved.",
+  "parent_skill_id": "b3dc080b-3fb7-400d-a0b2-e0590d304262",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "franchise"
+    ],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "franchise_agreements",
+      "commercial_leasing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:01:19.812129Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Generating skill metadata and structure**
+
+I'm preparing the skill metadata with a concise third-person description, trigger keywords, and legal context entries. Next, I'll draft the detailed markdown structure including prerequisites and core instructions with tables, checklists, and placeholders as specified.
+thinking
+**Outlining franchise lease rider content**
+
+I'm detailing prerequisites, sections tables, and checklists to avoid nested bullets, plus guidelines on legal coordination and disclaimers. Next, I'll draft full markdown with clauses, placeholders, and trigger terms for the skill description and content.
+codex
+---
+name: franchise-lease-rider
+description: Drafts a U.S. franchise lease rider/recognition agreement that makes the franchisor a third-party beneficiary and sets notice/cure, assignment rights, brand standards, IP, alteration approvals, and exclusivity protections. Use when preparing franchise location leases, franchisor recognition agreements, or lease addenda; triggers include "lease rider", "recognition agreement", "franchise lease", "third-party beneficiary", "notice and cure", "assignment option".
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Franchise Lease Rider
+
+Adds franchisor-protective terms to a tenant lease while preserving landlord and franchisee obligations.
+
+## Prerequisites
+
+1. Executed or near-final lease and all amendments.
+2. Executed or near-final franchise agreement and system standards summary.
+3. Party legal names, entity types, and notice addresses (mail + email).
+4. Premises description, lease term, renewals, rent schedule, use clause, exclusives, alteration clause, security deposit.
+5. Landlord consent requirements and any recorded lease/memo requirements.
+
+## Output Structure / Process
+
+Use this structure and fill the brackets.
+
+| Section | Required Content | Notes |
+| --- | --- | --- |
+| Title | "Franchisor Lease Rider and Recognition Agreement" | Match defined term style in lease. |
+| Parties/Recitals | Identify landlord, tenant, franchisor, premises, lease date, franchise agreement date | State rider is addendum; franchisor is third-party beneficiary. |
+| Priority | Rider controls for franchisor rights on conflict | Keep rest of lease in force. |
+| Notices | Concurrent notice to franchisor for all landlord-tenant notices | Condition precedent to effectiveness. |
+| Cure Rights | Franchisor cure window after tenant cure expires | Separate monetary vs non-monetary. |
+| Assignment Option | Franchisor option to take assignment or install substitute franchisee | Landlord pre-consent; no fees or rent bumps. |
+| Use/Brand | Exclusive use as approved concept; system changes allowed | Protect trade dress evolution. |
+| IP | Franchisor IP ownership; no landlord rights; de-identification duties | Include signage removal. |
+| Alterations | Prototype approval + deemed approval timelines | Remodel/upgrade rights. |
+| Inspections | Franchisor access to inspect for standards | Reasonable notice. |
+| Exclusivity/Radius | Landlord non-compete in project/radius | Define "compete". |
+| Collateral Assignment | Landlord consent to collateral assignment; priority | Subordinate landlord liens to franchisor property. |
+| Amendments | No amendment without franchisor consent | Void if missing. |
+| Governing Law | State of premises | Align with franchise agreement if required. |
+| Execution | Signature blocks for all three parties | Add notary blocks if required. |
+
+### Core Clauses (Template Language)
+
+```text
+Third-Party Beneficiary.
+This Rider is executed for the express benefit of Franchisor as a third-party beneficiary. As between Landlord and Tenant, Landlord acknowledges Franchisor’s rights under this Rider and agrees that Franchisor may enforce them directly.
+```
+
+```text
+Notice to Franchisor; Condition Precedent.
+All notices of default, termination, non-renewal, expiration, or material communications under the Lease shall be concurrently delivered to Franchisor at the addresses below. Any notice to Tenant is ineffective unless and until delivered to Franchisor. All cure periods run from Franchisor’s receipt.
+```
+
+```text
+Franchisor Cure Rights.
+Franchisor may, but is not obligated to, cure any Tenant default. For monetary defaults, Franchisor has not less than thirty (30) days after Tenant’s cure period to cure. For non-monetary defaults not reasonably curable within thirty (30) days, Franchisor receives additional time if it commences cure within thirty (30) days and diligently pursues completion. Landlord shall accept Franchisor’s cure as if performed by Tenant.
+```
+
+```text
+Assignment Option.
+Upon any Trigger Event, Franchisor may elect by written notice to Landlord to take an assignment of the Lease or to substitute a franchisee designee. Landlord’s consent is granted in advance and shall not be conditioned on fees, additional deposits, rent increases, or other modifications. Assignee is liable only for obligations accruing after the effective assignment date.
+```
+
+```text
+Trigger Events.
+(1) Termination or expiration of the Franchise Agreement; (2) Tenant default under Lease or Franchise Agreement; (3) bankruptcy/insolvency of Tenant; (4) unauthorized assignment or sublease; (5) abandonment or cessation of operations; (6) use of premises outside the approved concept.
+```
+
+```text
+Use and System Changes.
+Premises may be used solely for the approved franchise concept utilizing Franchisor’s trademarks and system standards. Reasonable system updates (trade dress, menu, methods) consistent with the concept are permitted without additional Landlord consent.
+```
+
+```text
+IP Ownership and De-Identification.
+Franchisor retains all rights in its marks, trade dress, and system. Landlord and Tenant shall not contest ownership. Upon termination (unless assignment to Franchisor/designee), Tenant shall remove all branded materials and de-identify the premises.
+```
+
+```text
+Alterations and Prototype Approval.
+Landlord approves the Prototype Design attached as Exhibit A. Minor site-specific variations and system updates consistent with the Prototype are pre-approved. For other alterations, Landlord must approve or reasonably disapprove within [10-15] business days; no response equals approval.
+```
+
+```text
+Exclusivity and Radius.
+Landlord shall not lease other space in the Project or within [X] miles to a Competing Concept. “Compete” includes businesses offering substantially similar primary products or services.
+```
+
+```text
+Collateral Assignment; Landlord Lien Waiver.
+Landlord consents to Tenant’s collateral assignment of the Lease to Franchisor. Landlord waives liens or distraint over Franchisor-owned personal property and branded equipment.
+```
+
+### Variable Blocks Checklist
+
+1. Party names, entity types, and addresses.
+2. Premises description and legal description if in the lease.
+3. Lease effective date, term, renewal options, rent schedule reference.
+4. Franchise agreement date and defined franchise concept name.
+5. Notice methods and delivery requirements (certified mail, courier, email).
+6. Cure periods (tenant vs franchisor).
+7. Assignment notice window (e.g., 30-60 days).
+8. Prototype design exhibit and approval timeline.
+9. Exclusivity radius and definition of "compete".
+10. Security deposit handling on assignment.
+11. Governing law and dispute resolution alignment.
+12. Notarization or recording requirements.
+
+## Guidelines
+
+1. Align defined terms with the lease and franchise agreement; do not re-define unless needed.
+2. Avoid creating a landlord-tenant relationship with franchisor unless assignment is exercised.
+3. Make notice a condition precedent and tie cure clocks to franchisor receipt.
+4. Cap landlord approval discretion with objective standards and deemed approval.
+5. Ensure assignment option includes no pre-assignment liability for franchisor/designee.
+6. Confirm state law rules on lease amendments, notarization, and recording.
+7. Add [VERIFY] only if you insert uncertain statutory or bankruptcy citations.
+tokens used
+6,229

@@ -1,0 +1,45 @@
+{
+  "id": "8413f172-219e-49c0-b981-a076563eab82",
+  "slug": "expert-testimony-summarization",
+  "name": "Expert Testimony Summarization",
+  "summary": "Analyzes expert witness testimony, reports, depositions, and related materials to generate a structured summary of qualifications, opinions, methodology, factual basis, strengths, and weaknesses. Assists attorneys in evaluating expert credibility, identifying cross-examination vulnerabilities, and assessing admissibility under standards like Daubert during discovery, trial preparation, and strategy development.",
+  "content": "# Expert Testimony Summarization\n\nYou are tasked with conducting a comprehensive analysis of expert witness testimony and reports to create a clear, actionable summary for legal professionals. This workflow is essential during discovery, trial preparation, and case strategy development when attorneys need to quickly understand and evaluate expert opinions, methodologies, and potential vulnerabilities.\n\n## Your Objective\n\nAnalyze all expert witness materials provided\u2014including expert reports, deposition transcripts, declarations, curriculum vitae, and any supplemental materials\u2014to produce a structured summary that captures the expert's qualifications, opinions, methodology, factual basis, and potential strengths and weaknesses. Your analysis should enable attorneys to efficiently assess the expert's credibility, identify areas for cross-examination, and develop responsive strategies.\n\n## Analysis Framework\n\nBegin by thoroughly reviewing all available expert materials in the case documents. Search the uploaded documents to identify and extract key information including the expert's name, credentials, areas of expertise, prior testimony history, and any disclosed compensation. Examine the expert's stated opinions with precision, distinguishing between ultimate conclusions and supporting sub-opinions. Document the methodology employed, noting whether the expert relied on peer-reviewed techniques, industry standards, or novel approaches.\n\nEvaluate the factual foundation underlying the expert's opinions by identifying all documents reviewed, data analyzed, tests conducted, and assumptions made. Pay particular attention to any facts the expert assumed but did not independently verify, as these may present vulnerabilities. If the expert conducted original research, testing, or analysis, describe the procedures in sufficient detail that another expert could understand and potentially replicate or challenge the work.\n\nAssess the expert's qualifications in relation to the specific opinions offered. Consider whether their education, training, publications, and experience directly support the subject matter of their testimony. Note any areas where the expert may be venturing beyond their demonstrated expertise. Review their history of prior testimony, if available, to identify patterns or potentially inconsistent positions taken in other cases.\n\n## Critical Evaluation\n\nIdentify strengths in the expert's presentation, including well-supported opinions, robust methodology, extensive relevant experience, and persuasive reasoning. Equally important, flag potential weaknesses such as unsupported assumptions, methodological flaws, reliance on inadmissible or unreliable data, lack of peer review, inconsistencies with published literature or the expert's own prior statements, and any indications of bias or advocacy.\n\nConsider Daubert or Frye admissibility standards as applicable in the jurisdiction. Evaluate whether the expert's methodology is scientifically valid, whether it has been properly applied to the facts of this case, and whether the reasoning or methodology can be properly tested and challenged. Note any potential grounds for a motion to exclude or limit the expert's testimony.\n\n## Deliverable Structure\n\nPresent your findings in a well-organized summary document that includes an executive overview highlighting the most critical points, a detailed section on the expert's qualifications and background, a comprehensive breakdown of each opinion with supporting methodology and factual basis, an analysis of strengths and weaknesses, and strategic recommendations for deposition questioning or cross-examination. Include specific citations to page and line numbers from depositions or section references from reports so attorneys can quickly locate source material.\n\nYour summary should be thorough yet accessible, enabling both experienced litigators and junior associates to quickly grasp the essential elements of the expert's testimony. Use clear headings, maintain professional legal writing standards, and ensure that every assertion in your summary is traceable to specific source material. This analysis will serve as a foundational document for trial preparation, settlement negotiations, and strategic decision-making throughout the litigation.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

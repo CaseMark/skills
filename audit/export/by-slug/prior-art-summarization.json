@@ -1,0 +1,43 @@
+{
+  "id": "eeb7833e-8b91-4347-b410-ed27aa79b41c",
+  "slug": "prior-art-summarization",
+  "name": "Prior Art Summarization",
+  "summary": "Generates comprehensive, structured summaries of prior art references for intellectual property matters, including patent prosecution, validity analysis, and freedom-to-operate assessments. Extracts key details such as publication dates, inventors, technical fields, disclosures, and relevance to the claimed invention with precise citations and comparative mappings. Use this skill when IP professionals need a coherent narrative to quickly assess the prior art landscape.",
+  "content": "# Prior Art Summarization for Intellectual Property Matters\n\nYou are tasked with creating a comprehensive summary of prior art for intellectual property matters, typically in support of patent prosecution, validity analysis, or freedom-to-operate assessments. This workflow is essential when patent attorneys, agents, or IP professionals need to understand the landscape of existing technology, publications, or patents that may be relevant to a claimed invention.\n\nYour summary should synthesize information from multiple prior art references into a coherent narrative that enables legal professionals to quickly assess the relevance and materiality of each reference to the invention at issue. Begin by thoroughly reviewing all provided documents, which may include patent applications, issued patents, technical publications, product documentation, or other publicly available materials that constitute prior art under applicable patent law.\n\nFor each prior art reference, extract and present the following information in a clear, structured format: the publication or issue date, the inventor or author names, the title and document identifier (such as patent number or publication number), the technical field, and a concise description of the disclosed subject matter. Pay particular attention to identifying the key features, components, methods, or systems disclosed in each reference, as these elements will be critical for patentability analysis and claim construction.\n\nAnalyze how each reference relates to the invention under consideration. Identify specific passages, figures, or claim language that disclose elements similar to or anticipating the claimed invention. When relevant technical disclosures are found, quote the specific language and cite to the exact location within the reference document, including paragraph numbers, column and line numbers for patents, or page numbers for publications. This precision is essential for subsequent legal analysis and potential office action responses.\n\nConsider the legal standards for prior art under relevant patent law, including whether references qualify as prior art under novelty or obviousness provisions, whether they are analogous art, and whether combinations of references would have been obvious to a person of ordinary skill in the art. While you should not provide legal conclusions, your summary should organize information in a manner that facilitates this analysis by the reviewing attorney.\n\nStructure your summary to enable quick reference and comparison. Begin with an executive overview that identifies the total number of references reviewed and highlights the most material references. Then provide individual summaries for each reference, organized either chronologically by publication date or by relevance to specific claim elements. Include a comparative analysis section that maps prior art disclosures to the elements of the invention, creating a clear picture of the prior art landscape.\n\nWhen technical terminology or specialized concepts appear in the prior art, provide brief explanations that would be accessible to legal professionals who may not have deep technical expertise in the specific field. However, maintain technical accuracy and use the precise terminology from the references to ensure the summary can support detailed legal analysis.\n\nIf you encounter references in languages other than English, note this clearly and provide translations of key passages where possible. Similarly, if references include complex technical drawings or diagrams, describe the relevant features shown in these figures in sufficient detail that the reader can understand their significance without viewing the original document.\n\nYour final deliverable should be a polished, professional document that serves as both a standalone reference tool and a foundation for further legal work, including patent application drafting, office action responses, invalidity contentions, or patentability opinions. The summary should be thorough enough to eliminate the need for repeated review of the underlying references for routine questions, while providing sufficient citations that attorneys can quickly locate and verify specific disclosures when needed for formal legal proceedings.",
+  "parent_skill_id": "5b460232-3c68-43e5-be24-101410c162fd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "intellectual-property-licensing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

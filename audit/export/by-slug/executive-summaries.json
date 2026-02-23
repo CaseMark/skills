@@ -1,0 +1,39 @@
+{
+  "id": "5337056b-2c33-4a6e-8211-2a8d68c3b641",
+  "slug": "executive-summaries",
+  "name": "Executive Summaries",
+  "summary": "Generates concise executive summaries that distill complex legal documents, reports, or findings into key points, conclusions, and actionable insights. Designed for senior lawyers, executives, or clients needing quick reviews while preserving legal accuracy and professional tone. Use it to condense lengthy materials for efficient decision-making in corporate governance contexts.",
+  "content": "# Executive Summary Generation for Legal Documents\n\nYou are tasked with creating a comprehensive executive summary that distills complex legal documents, reports, or findings into a concise, accessible format suitable for senior lawyers, executives, and clients who need to quickly grasp the essential information without reviewing the full documentation.\n\n## Your Objective\n\nTransform lengthy legal materials into a polished executive summary that captures all critical points, key conclusions, material findings, and actionable insights while maintaining legal accuracy and professional tone. The summary should enable busy decision-makers to understand the substance, implications, and recommended actions without requiring them to read the underlying documents.\n\n## Approach and Methodology\n\nBegin by thoroughly analyzing the source documents to identify the core legal issues, factual background, key arguments, material findings, and ultimate conclusions. Search through all provided materials systematically to extract the most significant information, ensuring nothing critical is overlooked. Pay particular attention to dates, parties, monetary amounts, legal standards applied, holdings, and any deadlines or time-sensitive matters.\n\nStructure your executive summary to follow a logical progression that mirrors how senior stakeholders think about legal matters. Start with a brief statement of what the document addresses and why it matters. Present the essential background facts necessary for context, but avoid excessive detail. Highlight the central legal questions or issues at stake, followed by the key findings, analysis, or arguments. Conclude with the bottom-line conclusions, recommendations, or next steps.\n\nMaintain appropriate legal precision while using clear, accessible language. Avoid unnecessary jargon, but retain technical terms when they carry specific legal meaning that cannot be simplified without loss of accuracy. When complex legal concepts are essential, provide brief explanatory context. Use concrete examples and specific references to strengthen credibility, citing to particular sections, exhibits, or page numbers from the source materials when referencing critical facts or conclusions.\n\n## Format and Presentation Standards\n\nYour executive summary should typically range from one to three pages depending on the complexity and length of the source materials, with the understanding that brevity is valued but not at the expense of completeness. Organize the content with clear headings that guide the reader through the material. Consider including sections such as Overview, Background, Key Issues, Findings and Analysis, Conclusions, and Recommendations as appropriate to the specific document type.\n\nUse formatting techniques that enhance readability and allow for quick scanning. This includes short paragraphs, strategic use of bold text for critical points, and occasional use of numbered or bulleted lists when presenting multiple discrete items such as findings, risk factors, or action items. However, rely primarily on well-structured prose rather than excessive listing.\n\n## Legal and Professional Considerations\n\nEnsure that your summary accurately reflects the substance and tone of the underlying documents. Do not overstate conclusions, minimize risks, or inject opinions not present in the source materials. If the underlying document presents multiple viewpoints or uncertain conclusions, your summary should reflect that nuance appropriately. Maintain attorney-client privilege and confidentiality by being mindful of how information is characterized and ensuring the summary is appropriately marked if it contains privileged material.\n\nConsider your audience carefully. Senior lawyers may appreciate more technical detail and legal citations, while business executives typically need more context about business implications and less procedural detail. Clients often benefit from clear explanations of what the legal findings mean for their specific situation and what actions they should consider. Tailor the level of detail, terminology, and emphasis accordingly while maintaining a professional standard suitable for any of these audiences.\n\nWhen the source materials contain recommendations or identify next steps, ensure these are prominently featured in your summary, as decision-makers particularly value clear guidance on what should happen next. If deadlines exist, highlight them conspicuously. If risks are identified, present them clearly along with any proposed mitigation strategies.\n\nCreate a document artifact containing your executive summary with a descriptive title that identifies both the subject matter and the document type. The summary should stand alone as a professional work product that could be distributed to stakeholders without requiring additional explanation or the underlying documents for basic comprehension.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

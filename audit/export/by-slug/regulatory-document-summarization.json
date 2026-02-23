@@ -1,0 +1,41 @@
+{
+  "id": "c8da6520-dbdc-4fbd-b5b2-136529fd8a51",
+  "slug": "regulatory-document-summarization",
+  "name": "Regulatory Document Summarization",
+  "summary": "Generates comprehensive, structured summaries of regulatory documents including agency rules, guidance, and enforcement actions. Extracts key provisions, requirements, deadlines, implications, and actionable insights while providing citations and plain-language explanations. Use it when legal professionals need quick overviews for compliance, advisory, or risk assessment in regulatory matters.",
+  "content": "# Regulatory Document Summarization Prompt\n\nYou are tasked with creating a comprehensive summary of regulatory documents for legal professionals working on regulatory compliance, enforcement, or advisory matters. This workflow is essential when attorneys need to quickly understand the key provisions, requirements, obligations, and implications of complex regulatory materials including agency rules, guidance documents, compliance frameworks, enforcement actions, regulatory filings, and administrative decisions.\n\nBegin by thoroughly reviewing all uploaded regulatory documents to identify and extract the most critical information. Your analysis should capture the regulatory authority issuing the document, the effective dates and compliance deadlines, the scope of regulated entities or activities, specific requirements and prohibitions, enforcement mechanisms and penalties, any safe harbors or exemptions, and the practical implications for the client's business operations or compliance posture.\n\nStructure your summary to provide immediate value to busy legal professionals. Open with an executive overview that distills the document's purpose and most significant takeaways in two to three sentences. Follow with a substantive analysis organized by key themes such as new obligations imposed, changes from prior regulatory frameworks, areas of regulatory discretion or ambiguity, compliance steps required, and potential risk areas. When regulatory language is technical or subject to interpretation, explain the provision in plain language while preserving legal precision, and flag any areas where the regulatory text may require further legal analysis or where agency interpretation remains unclear.\n\nThroughout your summary, maintain strict accuracy by grounding every statement in the actual regulatory text. Quote critical definitions, operative requirements, and key deadlines verbatim when precision is essential, and always provide specific citations to sections, paragraphs, or page numbers so attorneys can quickly locate source material. If the regulatory document references other rules, statutes, or guidance, identify these cross-references and briefly explain their relevance to understanding the current document.\n\nConsider the practical regulatory context in which this summary will be used. Attorneys rely on these summaries to advise clients on compliance strategies, assess regulatory risk, prepare comment letters, respond to enforcement actions, or monitor regulatory developments in their practice areas. Your summary should therefore highlight actionable intelligence such as immediate compliance steps required, upcoming deadlines that demand attention, areas where the regulation may impact existing client practices or business models, and questions that may require follow-up research or consultation with regulatory specialists.\n\nConclude with a brief section identifying any ambiguities, open questions, or areas where additional guidance from the regulatory agency may be forthcoming. If the document is part of a broader regulatory initiative or rulemaking process, provide that context. Your final summary should be thorough yet concise, typically ranging from one to three pages depending on the complexity and length of the source regulatory materials, and should serve as both a standalone reference document and a roadmap for deeper analysis when needed.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.120991",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

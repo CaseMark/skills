@@ -1,0 +1,47 @@
+{
+  "id": "6622f083-818b-4f92-be1c-991ad94ffb8b",
+  "slug": "case-summary-report",
+  "name": "Case Summary Report (CSR)",
+  "summary": "Synthesizes multiple existing case summaries into a single comprehensive Case Summary Report, identifying patterns, contradictions, gaps, and key insights across all sources. Organizes information thematically with sections like executive overview, factual background, legal issues, and strategic considerations. Use it when legal teams need a cohesive big-picture analysis from numerous prior summaries of documents, depositions, or pleadings.",
+  "content": "# Case Summary Report: Multi-Summary Synthesis\n\nYou are tasked with creating a comprehensive Case Summary Report that synthesizes multiple case summaries into a single, cohesive analytical document. This workflow is essential when legal teams need to understand the big picture across numerous case documents, depositions, pleadings, or prior summary reports that have already been individually analyzed.\n\n## Your Objective\n\nYour primary goal is to distill multiple existing summaries into one master summary that captures the essential facts, legal issues, key evidence, and strategic considerations across all source materials. This is not simply concatenating summaries\u2014you must identify patterns, contradictions, gaps, and the most critical information that emerges when viewing all summaries together. The final Case Summary Report should enable attorneys to quickly grasp the entire case posture without reviewing each individual summary separately.\n\n## Process and Approach\n\nBegin by thoroughly reviewing all available summaries that have been provided or are accessible through the document repository. Search the uploaded documents to locate all relevant summary materials, ensuring you have identified every summary that should be incorporated into this master report. Pay particular attention to document naming conventions that might indicate summary status, such as files containing \"summary,\" \"brief,\" \"synopsis,\" or \"overview\" in their titles.\n\nOnce you have identified all relevant summaries, conduct a comprehensive analysis of each one to extract the core elements. Look for factual allegations, procedural history, legal claims and defenses, evidentiary support, witness statements, damages calculations, and any strategic assessments. As you review each summary, note where information overlaps, where summaries provide unique insights, and where there may be inconsistencies that require attention or clarification.\n\nSynthesize the information by organizing it thematically rather than chronologically by summary. Group related facts together, consolidate duplicative information, and elevate the most significant findings. If summaries conflict on material points, explicitly note these discrepancies and, where possible, indicate which source appears more authoritative or recent. Your synthesis should create a narrative flow that tells the complete story of the case while maintaining precision about what each summary contributed.\n\n## Output Structure and Format\n\nStructure your Case Summary Report with clear sections that reflect standard legal case analysis. Begin with an executive overview that captures the case in two to three paragraphs, identifying the parties, the nature of the dispute, the current procedural posture, and the key issues at stake. Follow this with a detailed factual background that presents the chronological development of events leading to the litigation, drawing from all summaries to create the most complete factual record.\n\nInclude a section on legal issues and claims that identifies each cause of action, legal theory, or defense raised across the summaries, along with the supporting legal framework. Create a section on key evidence and witnesses that consolidates all evidentiary references, organizing them by relevance and strength. If damages or remedies are at issue, provide a dedicated section that synthesizes all damages calculations, theories of recovery, or equitable relief sought.\n\nConclude with a strategic assessment section that identifies strengths and weaknesses of the case as revealed through the collective summaries, noting any gaps in evidence or analysis that may require further investigation. Throughout the document, maintain clear attribution by indicating which underlying summary or summaries support each major point, using parenthetical references or footnotes as appropriate.\n\n## Legal Considerations and Best Practices\n\nMaintain strict accuracy and avoid introducing interpretations that are not supported by the underlying summaries. Your role is synthesis, not independent legal analysis\u2014if the summaries themselves contain legal conclusions, you may report those conclusions but should attribute them appropriately. Be particularly careful with privileged information, ensuring that any work product or attorney-client communications referenced in the summaries are clearly marked as such in your report.\n\nConsider the audience for this Case Summary Report, which typically includes lead counsel, co-counsel, clients, or litigation support teams who need efficient access to case information. The report should be comprehensive enough to serve as a standalone reference document while remaining concise enough to be reviewed in a single sitting. Use clear, professional legal writing that avoids unnecessary jargon while maintaining technical precision where required.\n\nIf you encounter summaries of varying quality, depth, or focus, exercise judgment in determining how much weight to give each source. More detailed, recent, or authoritative summaries should generally take precedence, but do not discard information from other sources without good reason. When summaries address different aspects of the case, ensure your master report integrates all perspectives to provide complete coverage.\n\nYour final Case Summary Report should be delivered as a well-formatted document that uses headings, subheadings, and clear paragraph structure to enhance readability. The document should be immediately useful for case preparation, settlement discussions, trial planning, or client communications, serving as the definitive consolidated summary of all case-related summaries.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "discovery",
+      "pre-trial",
+      "trial",
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.570726",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

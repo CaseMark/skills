@@ -1,0 +1,45 @@
+{
+  "id": "4c2b853e-afee-4c9d-b1fd-bac88cb47d53",
+  "slug": "settlement-summaries",
+  "name": "Settlement Summaries",
+  "summary": "Generates comprehensive summaries of settlement negotiations and agreements in commercial litigation, capturing the full chronology of offers, counteroffers, key terms, and strategic developments. Provides legal teams with a definitive reference for understanding negotiation history and final resolutions. Use this skill during settlement phases to document and analyze dispute resolutions.",
+  "content": "# Settlement Summaries: Comprehensive Analysis and Documentation\n\nYou are tasked with creating a thorough, professional summary of settlement negotiations and agreements that provides legal teams with a clear understanding of the negotiation history, key terms, and final resolution of disputed matters.\n\n## Your Objective\n\nAnalyze all available settlement-related documents, communications, and agreements to produce a comprehensive summary that captures the complete arc of settlement discussions from initial proposals through final agreement. This summary should serve as a definitive reference for attorneys, clients, and stakeholders who need to understand what was negotiated, what was agreed upon, and the strategic considerations that shaped the final settlement.\n\n## Approach and Methodology\n\nBegin by thoroughly reviewing all settlement-related materials in the matter file. Search through uploaded documents to identify settlement demand letters, offer letters, counteroffers, mediation statements, term sheets, and executed settlement agreements. Extract key information including monetary amounts, payment terms, release provisions, confidentiality clauses, and any non-monetary consideration. Pay particular attention to how positions evolved over time, noting initial demands, counteroffers, and the progression of negotiations that led to the final terms.\n\nWhen analyzing the documents, focus on identifying the parties' respective positions, the key disputed issues that drove the negotiation, and any leverage points or case developments that influenced settlement discussions. Document any mediation sessions, including the mediator's name, date of mediation, and any proposals that emerged from the process. If multiple settlement discussions occurred over an extended period, organize the information chronologically to show how the negotiation evolved.\n\n## Required Content and Structure\n\nYour settlement summary should open with an executive overview that concisely states the final settlement terms, including the total settlement amount, payment structure, and settlement date. Follow this with a detailed chronology of the negotiation process that walks through each significant offer, counteroffer, and material development. For each stage of negotiation, identify the date, the party making the proposal, the specific terms offered, and any conditions or contingencies attached to the offer.\n\nInclude a substantive section analyzing the key settlement terms in detail. Address monetary consideration with specificity, breaking down lump sum payments versus structured settlements, allocation among multiple claimants if applicable, and any tax considerations or gross-up provisions. Examine non-monetary terms such as injunctive relief, business practice changes, or other equitable remedies. Carefully review and summarize release provisions, identifying what claims are being released, whether the release is mutual or unilateral, and the scope of parties covered by the release.\n\nDocument confidentiality and non-disclosure provisions, noting what information must remain confidential, whether the settlement amount can be disclosed, and any exceptions to confidentiality requirements. If the settlement includes an admission or denial of liability clause, quote the relevant language precisely. Address any ongoing obligations such as compliance monitoring, reporting requirements, or future cooperation obligations.\n\n## Legal Considerations and Best Practices\n\nEnsure your summary identifies any conditions precedent to the settlement becoming effective, such as court approval requirements, board authorization, or third-party consents. Note critical deadlines including payment due dates, dismissal filing deadlines, and any time-sensitive performance obligations. If the settlement agreement includes dispute resolution provisions for enforcement issues, summarize the agreed-upon mechanism whether arbitration, mediation, or specific court jurisdiction.\n\nFlag any unusual or noteworthy provisions that deviate from standard settlement practice in the relevant jurisdiction or practice area. Consider the strategic context by noting how the settlement compares to the client's litigation risk assessment, potential trial exposure, and litigation costs avoided. If the matter involved insurance coverage, address how the settlement was allocated between covered and non-covered claims and any reservation of rights.\n\n## Presentation and Format\n\nPresent your summary in clear, professional prose that is accessible to both legal professionals and business clients. Use precise legal terminology when describing technical provisions, but explain complex concepts in plain language when appropriate. Organize information logically with clear headings and subheadings that allow readers to quickly locate specific information. When quoting settlement agreement language, use quotation marks and cite to the specific section or paragraph of the agreement.\n\nConclude with any implementation steps or post-settlement actions required, such as filing a dismissal with prejudice, executing mutual releases, making initial payments, or providing notice to other parties. Your summary should serve as both a historical record of how the settlement was achieved and a practical guide for ensuring all settlement terms are properly executed and the matter is fully resolved.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

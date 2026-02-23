@@ -1,0 +1,199 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-2354-7240-9b45-07f6198bccca
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "eec18c90-ae00-4477-9ae0-268488e6fc67",
+  "slug": "litigation-criminal-defense-bail-hearing-summaries",
+  "name": "Bail Hearing Summaries",
+  "summary": "Generates comprehensive summaries of bail hearings in criminal defense matters by extracting key facts, prosecution and defense arguments, bail conditions, and court rulings from documents and transcripts. It structures the summary with headers, charge details, risk factors, and precise outcomes for quick reference by attorneys and judges. Use it during pretrial phases to review and understand decisions on defendant release or detention.",
+  "content": "# Bail Hearing Summary Prompt\n\nYou are tasked with preparing a comprehensive bail hearing summary for criminal law proceedings. This summary serves as a critical document that captures the essential facts, arguments, and outcomes of a bail hearing, enabling attorneys, judges, and other legal professionals to quickly understand the key issues and decisions made regarding a defendant's pretrial release or detention.\n\nBegin by thoroughly reviewing all available documentation related to the bail hearing. This includes the charging documents, criminal complaint or indictment, police reports, defendant's criminal history, prosecution and defense submissions, and any transcript or recording of the actual bail hearing. Search through all uploaded documents to extract concrete facts including the defendant's name, charges filed, dates of alleged offenses and arrest, specific amounts requested for bail, conditions proposed by either party, and any statements made by the judge, prosecutor, or defense counsel during the hearing.\n\nYour summary should open with a clear header section identifying the case name, case number, court jurisdiction, date of the bail hearing, presiding judge, and the names of counsel representing both the prosecution and defense. Follow this with a concise statement of the charges against the defendant, including the specific criminal statutes cited and the classification of each charge as a felony or misdemeanor with the corresponding degree.\n\nThe body of your summary must address the key factors that courts consider in bail determinations under applicable law. Present the prosecution's arguments regarding why the defendant poses a flight risk or danger to the community, including any evidence of prior failures to appear, criminal history, ties to other jurisdictions, access to financial resources, or allegations of threats or violence. Similarly, document the defense's counterarguments, which may include the defendant's community ties, employment status, family responsibilities, lack of prior criminal record, cooperation with law enforcement, or proposed conditions that would mitigate any concerns.\n\nInclude a dedicated section on the specific bail conditions requested by each party. The prosecution may seek high monetary bail, electronic monitoring, no-contact orders, geographic restrictions, surrender of passport, or pretrial detention without bail. The defense typically argues for release on personal recognizance, reduced monetary bail, or less restrictive conditions. Capture the exact dollar amounts proposed and any specific conditions discussed.\n\nDocument the court's ruling with precision. State whether bail was granted or denied, and if granted, specify the exact amount set and the form acceptable (cash, surety bond, property bond, or percentage). List all conditions imposed by the court, including reporting requirements, travel restrictions, substance abuse testing, mental health treatment, electronic monitoring, no-contact orders, or any other special conditions. If bail was denied, summarize the court's reasoning and whether the defendant was remanded to custody pending trial.\n\nThroughout your summary, maintain objectivity and accuracy. Use direct quotes from the hearing transcript when they capture particularly significant statements by the judge or counsel. Avoid legal conclusions or advocacy; simply present the facts, arguments, and outcomes as they occurred. The summary should be written in clear, professional language accessible to legal professionals who may not have attended the hearing but need to understand what transpired.\n\nConclude with any procedural matters addressed during the hearing, such as scheduling of future court dates, deadlines for filing motions, or any other orders entered by the court. If the defense indicated an intention to file a motion for reconsideration or appeal the bail decision, note this as well.\n\nThe final document should be formatted as a professional legal memorandum, typically two to four pages in length depending on the complexity of the case and hearing. Use clear headings and subheadings to organize the information logically. Ensure all factual assertions are supported by the source documents and properly attributed. This summary will become part of the case file and may be referenced throughout the criminal proceedings, so accuracy and completeness are paramount.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:28.417179Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:28.710876Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:29.970851Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:30.838266Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4b84ef32a0c-SJC)
+2026-02-23T21:42:31.863090Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4be9942dc3c-SJC)
+2026-02-23T21:42:33.425929Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c7ba162a56-SJC)
+2026-02-23T21:42:35.424686Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4d4ed87c68c-SJC)
+2026-02-23T21:42:39.252595Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4ec9987f8f3-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-criminal-defense-bail-hearing-summaries-ql0adqif.md
+
+STDOUT:
+

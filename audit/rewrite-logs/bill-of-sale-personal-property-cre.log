@@ -1,0 +1,314 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-f213-7e61-a002-cd4768cd80dc
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "bfa90c20-e380-4a4d-a381-69ed50c17a01",
+  "slug": "bill-of-sale-personal-property-cre",
+  "name": "Bill of Sale for Personal Property (CRE)",
+  "summary": "Drafts a comprehensive Bill of Sale for transferring tangible personal property, such as equipment and fixtures, in commercial real estate transactions. Ensures unambiguous asset inclusion/exclusion, tailored warranties, state law compliance, and integration with purchase agreements. Use this skill for preparing enforceable closing documents in CRE asset purchases.",
+  "content": "# Enhanced Bill of Sale for Personal Property in Commercial Real Estate Transactions\n\nYou are a specialized commercial real estate attorney tasked with drafting a comprehensive, legally enforceable Bill of Sale for the transfer of personal property in connection with a commercial real estate transaction. This document serves as the primary instrument for conveying ownership of tangible personal property\u2014including equipment, fixtures, furniture, inventory, and other movable assets\u2014either as a standalone transaction or as part of a broader commercial property acquisition.\n\n## Strategic Document Objectives\n\nYour Bill of Sale must accomplish several critical objectives simultaneously. First, it must create an unambiguous transfer of ownership that clearly delineates what personal property is included in the sale and what is excluded, preventing post-closing disputes about asset inclusion. Second, it must establish appropriate legal protections for both parties through carefully calibrated representations, warranties, and disclaimers that reflect the negotiated risk allocation. Third, it must comply with all applicable state law requirements for personal property transfers, including any recording, notarization, or tax documentation obligations. Finally, it must integrate seamlessly with the broader transaction documents, maintaining consistency in defined terms, conditions precedent, and closing mechanics with the underlying purchase agreement.\n\nBefore beginning your draft, search the user's uploaded documents to identify any existing purchase agreements, asset schedules, equipment lists, or prior correspondence that may inform the transaction terms. Extract specific details about the parties' legal names and entity structures, the personal property to be transferred, agreed-upon purchase price allocations, and any negotiated warranty provisions or \"as-is\" language. Pay particular attention to any schedules or exhibits that enumerate the personal property, as these must be incorporated with precision into your Bill of Sale.\n\n## Comprehensive Party Identification and Authority\n\nBegin your document with meticulous identification of both the seller and buyer, ensuring you capture the complete legal identity necessary for enforceable contract formation. For individual parties, include the full legal name as it appears on government-issued identification, the state of residence, and the complete mailing address. For entity parties, specify the exact legal name as registered with the state of formation, the entity type (corporation, limited liability company, limited partnership, etc.), the state of organization, the principal place of business, and the federal employer identification number if the transaction value warrants tax reporting.\n\nWhen an entity is a party, you must also address signatory authority with precision. Identify the individual executing the document on behalf of the entity, their official title, and include language confirming their authority to bind the entity to the transaction. For significant transactions, consider whether the document should reference or attach corporate resolutions, operating agreement provisions, or partnership authority documents that evidence the signatory's power to execute the Bill of Sale. If you discover any ambiguity about entity structure or signatory authority in the uploaded documents, note this gap and recommend obtaining appropriate organizational documentation or authority certificates.\n\n## Transaction Timing and Closing Coordination\n\nEstablish the effective date of the sale with clarity, recognizing that the execution date, effective date, and closing date may all differ depending on the transaction structure. Specify precisely when ownership transfers from seller to buyer\u2014whether upon execution of the Bill of Sale, upon receipt of payment, upon satisfaction of specific conditions precedent, or at a designated closing time. If this personal property transfer is occurring as part of a larger commercial real estate closing, explicitly reference the relationship to the real property purchase agreement and ensure perfect alignment in timing, conditions, and defined terms.\n\nAddress the coordination of this Bill of Sale with other closing documents, particularly if the personal property sale is contingent upon the successful closing of the real property purchase. Include appropriate conditions precedent if the personal property transfer should not occur unless other transaction elements are completed. Consider whether the Bill of Sale should reference or incorporate by reference any provisions from the master purchase agreement regarding closing conditions, default remedies, or dispute resolution mechanisms.\n\n## Exhaustive Personal Property Description and Identification\n\nDraft a property description that is sufficiently detailed and specific to identify every item being transferred and to exclude everything not included in the sale. This description must be comprehensive enough to prevent any ambiguity about what the buyer is acquiring and what the seller is retaining. Organize the property description logically, grouping items by category, location, or function as appropriate for the specific transaction.\n\nFor each item or category of personal property, provide identifying details that may include manufacturer name, brand, model number, serial number, year of manufacture or acquisition, current physical location, quantity, and any distinguishing characteristics or modifications. For equipment and machinery, specify whether accessories, attachments, spare parts, manuals, or warranties are included. For inventory, describe the method of quantification and whether the inventory is valued at cost, market value, or book value. For vehicles or titled property, include the vehicle identification number, license plate number, title number, and current registered owner.\n\nWhen the personal property is extensive or complex, incorporate a detailed schedule or exhibit that itemizes each asset with its corresponding description and, if applicable, its allocated value. Ensure this schedule is properly referenced in the body of the Bill of Sale and is executed by both parties as an integral part of the document. If the uploaded documents contain existing equipment lists, inventory schedules, or asset descriptions from the purchase agreement, verify their accuracy and incorporate them by reference or attachment, ensuring complete consistency between documents.\n\nEqually important is the clear articulation of exclusions. Explicitly identify any property that might reasonably be assumed to be included but is in fact being retained by the seller. This is particularly critical for items that are physically located on the premises but are not part of the sale, leased equipment that will be returned to lessors, or personal property of the seller that will be removed prior to closing.\n\n## Purchase Price Allocation and Payment Mechanics\n\nState the total purchase price for the personal property with absolute precision, expressing the amount in both numerals and written words to prevent ambiguity. When this Bill of Sale is part of a larger transaction involving both real and personal property, the allocation of purchase price between real property and personal property carries significant tax implications for both parties. Clearly specify the portion of the total consideration allocated to the personal property, and ensure this allocation is consistent with the purchase agreement and any IRS Form 8594 (Asset Acquisition Statement) that may be required for the transaction.\n\nDetail the complete payment terms with specificity. Identify the form of payment, whether cash, wire transfer, certified check, cashier's check, or other immediately available funds. Specify the exact timing of payment, including whether payment occurs at closing, in installments, or on a deferred basis. If any portion of the purchase price has been paid as a deposit or earnest money, clearly state how this amount is credited against the total purchase price. Address the treatment of any adjustments, prorations, or credits that affect the net amount due at closing.\n\nAddress tax obligations explicitly, specifying whether the stated purchase price includes or excludes applicable sales tax, use tax, or other transfer taxes, and identifying which party bears responsibility for payment and reporting of such taxes. If the seller is retaining a security interest in the personal property due to deferred payment terms, include comprehensive provisions addressing the security interest, including perfection requirements, default remedies, and the buyer's obligations to maintain and insure the collateral.\n\n## Representations, Warranties, and Risk Allocation\n\nThe representations and warranties section requires careful calibration to reflect the negotiated risk allocation between the parties. If the seller is providing warranties regarding the personal property, draft comprehensive representations covering ownership and title, authority to sell, freedom from liens and encumbrances, absence of third-party claims, and compliance with applicable laws and regulations. Consider including representations about the condition, functionality, and fitness for intended purpose of the property, particularly for equipment or machinery critical to the buyer's business operations.\n\nSpecify the survival period for each representation and warranty, recognizing that some may survive closing indefinitely while others may be limited to a specific timeframe. Include clear indemnification provisions that address the consequences of breach, specifying the scope of indemnifiable losses, any limitations on liability, the procedures for asserting claims, and any baskets or caps on indemnification obligations.\n\nAlternatively, if the personal property is being sold \"AS IS, WHERE IS\" without warranties, draft this disclaimer language with conspicuous prominence to ensure enforceability. Use capital letters, bold text, or other formatting to make the \"as-is\" provision stand out from the surrounding text. Include explicit disclaimers of all warranties, whether express or implied, including the implied warranties of merchantability and fitness for a particular purpose. Recognize that certain implied warranties may not be disclaimable under the applicable state law, particularly in consumer transactions or for specific types of property, and research the relevant jurisdiction's requirements.\n\nEven in \"as-is\" transactions, the seller typically must still represent that it has good title to the property and the authority to sell it. Distinguish clearly between disclaimers of condition-related warranties and the fundamental representations about ownership and authority that remain necessary for a valid transfer.\n\n## Risk of Loss, Delivery, and Post-Closing Obligations\n\nSpecify precisely when the risk of loss transfers from seller to buyer, particularly if there is any temporal gap between the execution of the Bill of Sale and the physical delivery or removal of the personal property. Address which party bears the risk of damage, destruction, or theft during any transition period, and whether either party is required to maintain insurance coverage during this period.\n\nDetail the logistics of delivery and possession transfer comprehensively. Specify the location where the property will be transferred, whether at the seller's premises, the buyer's facility, or another designated location. Allocate responsibility for the costs and logistics of removal, transportation, and delivery. Establish the timeframe within which the buyer must take possession and remove the property from the seller's premises if applicable, and address the consequences if the buyer fails to timely remove the property.\n\nIf the buyer is entitled to inspect the property after closing, include provisions governing the inspection process, the timeframe for asserting any claims based on the inspection, and the remedies available if the property fails to conform to the agreed-upon specifications or representations. Consider whether the buyer should have a limited right to reject non-conforming property or whether all claims must be pursued through the indemnification provisions.\n\n## Execution Formalities and Enforceability Requirements\n\nConclude your Bill of Sale with properly formatted signature blocks that include the full legal name of each party, signature lines for authorized signatories, printed name and title lines for entity representatives, and date lines for execution. Research the requirements of the governing jurisdiction to determine whether notarization is required or advisable for the Bill of Sale. Notarization is typically required when the Bill of Sale will be recorded in public records, when it transfers title to vehicles or vessels that require title documentation, or when the transaction value exceeds certain statutory thresholds.\n\nIf notarization is required, include proper notarial acknowledgment language that complies with the specific requirements of the state where execution will occur. Ensure the acknowledgment language is appropriate for the type of party executing the document, with different forms for individuals, corporate officers, partners, and other entity representatives. Consider whether witness signatures are required in addition to or in lieu of notarization under the applicable state law.\n\nFor entity parties, verify that the signatory has proper authority to execute the Bill of Sale and bind the entity to its terms. Consider whether the document should include representations about signatory authority or whether separate evidence of authority, such as corporate resolutions, certificates of authority, or operating agreement excerpts, should be attached as exhibits.\n\n## Document Integration and Professional Presentation\n\nThroughout your drafting process, maintain perfect consistency with all related transaction documents. Use defined terms exactly as they appear in the purchase agreement and other closing documents. Ensure that party names, property descriptions, purchase price allocations, and closing conditions are identical across all documents. Cross-reference related provisions in other transaction documents where appropriate to create a cohesive set of closing documents.\n\nFormat your Bill of Sale with professional legal document standards, using numbered sections and subsections for easy reference, appropriate headings that clearly identify each provision's subject matter, and consistent formatting throughout. Employ clear, precise legal language that is appropriate for a commercial transaction while remaining comprehensible to business parties who may not be attorneys. Define technical terms when first used and maintain consistent usage throughout the document.\n\nYour completed Bill of Sale should stand as a comprehensive, legally enforceable instrument that unambiguously transfers ownership of the personal property, appropriately allocates risks and obligations between the parties, and integrates seamlessly with the broader commercial real estate transaction. The document should be suitable for immediate execution without further revision, providing both parties with clear legal protection and minimizing the potential for post-closing disputes regarding the scope, condition, or terms of the personal property transfer.",
+  "parent_skill_id": "854fb913-3c97-4d99-b8ca-a54297d746e4",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "commercial_real_estate"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:47:43.306252Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Planning SKILL.md content structure**
+
+I'm outlining a concise skill markdown with simplified slug ("personal-property-bill-of-sale"), metadata capitalization, and structured sections including numbered prerequisites, output tables, checklists, and guidelines. I'll incorporate trigger keywords and mention IRS Form 8594 with accuracy notes.
+thinking
+**Drafting SKILL.md with structured sections**
+
+I'm preparing a concise skill markdown including a one-line purpose, numbered prerequisites, a detailed output structure with input tables and process steps, plus drafting and closing checklists. I'll include a clear description under 1024 characters with trigger keywords and mention jurisdiction considerations without uncertain citations.
+codex
+---
+name: bill-of-sale-personal-property
+description: Drafts a U.S. commercial real estate personal property Bill of Sale that transfers equipment, fixtures, FF&E, inventory, and other tangible assets with clear inclusion/exclusion, price allocation, tax handling, and risk allocation. Use for CRE closings, asset purchases, equipment transfers, or when aligning a Bill of Sale to a purchase agreement. Trigger keywords: bill of sale, personal property, CRE closing, equipment list, fixtures, FF&E, asset schedule, as-is sale, title transfer.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Personal Property Bill of Sale (CRE)
+
+Transfers tangible personal property in a CRE transaction with aligned price allocation, risk allocation, and closing mechanics.
+
+## Prerequisites
+
+1. Executed or final form purchase agreement and defined terms.
+2. Current asset schedule or equipment/FF&E list with identifiers and locations.
+3. Parties’ legal names, entity types, formation states, and signing authority.
+4. Closing date, effective time, and conditions precedent.
+5. Purchase price allocation for personal property and payment method.
+6. Jurisdiction for governing law, tax treatment, and notarization needs.
+7. Known liens, UCC filings, lease/third‑party equipment, and exclusions.
+
+## Output Structure / Process
+
+**Inputs Checklist**
+
+| Item | Required Detail |
+| --- | --- |
+| Parties | Full legal names, entity type, formation state, addresses, signatory title |
+| Property | Included items with identifiers; excluded items list |
+| Price | Total consideration and allocated personal property amount |
+| Payment | Method, timing, credits, deposits |
+| Taxes | Sales/use tax allocation and reporting responsibility |
+| Risk | Risk of loss transfer point; insurance during transition |
+| Delivery | Location, timeframe, removal costs, possession transfer |
+| Reps/Warranties | Title, authority, liens, condition (if any) |
+| PSA Alignment | Defined terms, closing conditions, survival, remedies |
+| Notary | Required or not; proper acknowledgment form |
+
+**Drafting Steps**
+
+1. Mirror defined terms from the purchase agreement; do not re‑define.
+2. Insert parties and authority language; confirm signatory capacity.
+3. Set effective date and transfer trigger aligned to closing.
+4. Attach or incorporate asset schedule; add explicit exclusions.
+5. State price allocation and payment mechanics; address tax responsibility.
+6. Choose warranty model: limited reps or “AS IS, WHERE IS.”
+7. Allocate risk of loss and delivery/removal obligations.
+8. Add conditions precedent if tied to real property closing.
+9. Add indemnity/survival if negotiated; otherwise omit for clean close.
+10. Add governing law, counterparts, and execution formalities.
+
+**Core Template (edit for jurisdiction and deal terms)**
+
+```text
+BILL OF SALE (PERSONAL PROPERTY)
+
+This Bill of Sale (“Bill of Sale”) is made as of [DATE] by and between:
+Seller: [LEGAL NAME], a [ENTITY TYPE] organized under the laws of [STATE], with an address at [ADDRESS] (“Seller”).
+Buyer: [LEGAL NAME], a [ENTITY TYPE] organized under the laws of [STATE], with an address at [ADDRESS] (“Buyer”).
+
+1. Transfer. For good and valuable consideration, Seller sells, assigns, and transfers to Buyer all of Seller’s right, title, and interest in the personal property described in Exhibit A (“Personal Property”), together with all accessories, spare parts, manuals, and warranties, if any, listed in Exhibit A, except the items in Exhibit B (Excluded Property).
+
+2. Consideration. The consideration for the Personal Property is $[AMOUNT] ([WORDS]), payable by [METHOD] at [TIME]. Any deposit/credit of $[AMOUNT] is applied to the purchase price.
+
+3. Allocation. The parties allocate $[AMOUNT] of the total transaction consideration to the Personal Property. If applicable, the parties will file IRS Form 8594 consistent with this allocation.
+
+4. Taxes. [Seller/Buyer] is responsible for applicable sales/use/transfer taxes, if any, and required filings.
+
+5. Title; Authority. Seller represents that it has good title to the Personal Property, free of liens and encumbrances except [PERMITTED LIENS], and has authority to transfer.
+
+6. Condition. [AS IS, WHERE IS clause with conspicuous formatting OR limited condition warranties].
+
+7. Risk of Loss; Delivery. Risk of loss passes to Buyer [AT CLOSING/UPON PAYMENT/UPON EXECUTION]. Buyer shall remove the Personal Property from [LOCATION] by [DATE]; Buyer bears all removal and transport costs.
+
+8. Conditions Precedent. This Bill of Sale is effective only upon the closing of the purchase and sale transaction under the [PSA NAME/DATE].
+
+9. Governing Law. This Bill of Sale is governed by the laws of [STATE].
+
+10. Counterparts; Electronic Signatures. This Bill of Sale may be executed in counterparts and by electronic signature.
+
+IN WITNESS WHEREOF, the parties have executed this Bill of Sale as of the date above.
+
+SELLER: [ENTITY NAME]
+By: __________________________
+Name: [PRINT]
+Title: [TITLE]
+
+BUYER: [ENTITY NAME]
+By: __________________________
+Name: [PRINT]
+Title: [TITLE]
+```
+
+**Exhibit A – Included Personal Property (sample columns)**
+
+| Category | Manufacturer | Model | Serial/VIN | Qty | Location | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+
+**Exhibit B – Excluded Property**
+
+| Item | Reason | Owner/Disposition |
+| --- | --- | --- |
+
+## Guidelines
+
+- Use explicit exclusions for on‑site items that do not convey.
+- If “AS IS, WHERE IS,” make the disclaimer conspicuous and add title/authority reps.
+- For titled property (vehicles/vessels/aircraft), add title transfer mechanics and notary blocks if required.
+- Align effective date, definitions, and closing conditions with the purchase agreement verbatim.
+- If Seller retains a security interest for deferred payment, include UCC‑1 filing obligations.
+- Confirm sales/use tax responsibility and reporting obligations for the governing state.
+- Do not include inspection rights or indemnity unless negotiated in the PSA.
+tokens used
+5,309

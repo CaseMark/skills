@@ -1,0 +1,20 @@
+{
+  "id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "slug": "transactional",
+  "name": "Transactional Practice",
+  "summary": "Root skill for all transactional legal work including contracts, deals, and business formations.",
+  "content": "# Transactional Practice\n\nThis is the parent category for all transactional skills. Transactional work involves structuring, negotiating, and documenting business deals and agreements.\n\n## Sub-areas\n- Mergers & Acquisitions\n- Commercial Real Estate\n- Residential Real Estate\n- Loan & Financing\n- Franchise Agreements\n- Employment & Consulting\n- Asset Purchase\n- Estate Planning\n- Intellectual Property Licensing\n- Commercial Leasing\n\n## Key Principles\n- Clear and precise drafting\n- Risk allocation and mitigation\n- Due diligence thoroughness\n- Client business objectives alignment\n- Regulatory compliance\n",
+  "parent_skill_id": null,
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Transactional"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

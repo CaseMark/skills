@@ -1,0 +1,480 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c83-54b9-7db2-ac02-16043dd6bd33
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "8bc6dff5-b720-4894-9f8a-36ed151625e1",
+  "slug": "haccp-plan-food-safety",
+  "name": "HACCP Plan for Food Safety",
+  "summary": "Drafts a comprehensive HACCP Plan for food safety compliance with FDA and USDA regulations. Conducts hazard analysis, identifies critical control points, and structures the plan based on client operations and official guidance. Use for food production businesses preparing legally defensible regulatory documents.",
+  "content": "# HACCP Plan for Food Safety - Enhanced Workflow Prompt\n\nYou are tasked with drafting a comprehensive Hazard Analysis and Critical Control Points (HACCP) Plan for a food safety regulatory document. This plan must comply with FDA and USDA requirements and serve as a legally defensible framework for identifying, monitoring, and controlling food safety hazards throughout the production process.\n\n## Context and Approach\n\nBegin by gathering all relevant information about the client's food production operations. Search the user's uploaded documents for existing process flows, facility layouts, product specifications, and any prior safety documentation. This will provide the foundation for a customized HACCP plan rather than a generic template. Supplement this document-specific information with current regulatory guidance from FDA and USDA official sources to ensure the plan meets all federal compliance standards.\n\nThe HACCP plan you create must be both scientifically sound and legally compliant. Each section should reference authoritative sources including FDA regulations (21 CFR Part 117 for preventive controls, 21 CFR Part 123 for seafood, 9 CFR Part 417 for meat and poultry), USDA guidelines, and recognized industry standards. When citing regulatory requirements, verify that you are referencing the current, enforceable versions of these regulations.\n\n## Document Structure and Content Requirements\n\n**Preliminary Information Section**: Draft a comprehensive introduction that identifies the food business entity with complete legal name, address, and contact information. Describe each product covered by the plan including ingredients, processing methods, packaging, storage conditions, shelf life, and intended use and consumers. Include the distribution methods and geographic scope. Search official FDA and USDA resources for model HACCP plan templates specific to the product category, and cite the relevant guidance documents that inform this section's structure.\n\n**Hazard Analysis Section**: Conduct a thorough hazard analysis by examining each step in the production process from receiving raw materials through distribution. Review any uploaded process flow diagrams or operational documents to identify where biological hazards (pathogens, toxins), chemical hazards (allergens, cleaning agents, pesticides), and physical hazards (metal, glass, plastic) may be introduced, increased, or controlled. For each identified hazard, assess the likelihood of occurrence and severity of health consequences. Reference FDA's HACCP principles and USDA's hazard analysis guidance, citing specific sections that address hazard identification methodologies. The analysis must demonstrate a systematic evaluation of each process step.\n\n**Critical Control Points Section**: Identify and justify each Critical Control Point in the process using the CCP decision tree methodology. A CCP is a step where control can be applied and is essential to prevent, eliminate, or reduce a food safety hazard to acceptable levels. Distinguish CCPs from control points that manage quality but not safety. Search USDA guidebooks and FDA compliance resources for industry-specific best practices in CCP identification, particularly for the product type in question. Document the scientific or regulatory basis for designating each CCP, and explain why control at this point is critical to food safety.\n\n**Critical Limits Section**: For each identified CCP, establish specific, measurable critical limits that separate acceptable from unacceptable conditions. These limits must be based on scientific literature, regulatory standards, or experimental studies. Common critical limits include time and temperature parameters, pH levels, water activity, preservative concentrations, or physical dimensions. Search FDA regulations and food safety codes for legally mandated critical limits applicable to the specific hazards and products. Cite the regulatory authority or scientific source for each critical limit, ensuring that the limits are more stringent than or equal to regulatory minimums. Include the rationale for selecting each limit and explain how it controls the identified hazard.\n\n**Monitoring Procedures Section**: Describe detailed monitoring procedures for each CCP that specify what will be monitored, how monitoring will be conducted, the frequency of monitoring, and who is responsible for monitoring. Monitoring must be continuous or at a frequency sufficient to ensure the CCP remains under control. Include the specific instruments or methods used for measurement, calibration requirements, and the qualifications of personnel conducting monitoring. Search food safety authority resources and industry templates for monitoring best practices, ensuring procedures are practical for the operational environment while maintaining scientific validity. Document how monitoring records will be reviewed and by whom.\n\n**Corrective Actions Section**: Outline predetermined corrective action procedures for each CCP that will be implemented when monitoring indicates a deviation from a critical limit. Corrective actions must address both the immediate control of the affected product and the correction of the process to prevent recurrence. Review any business-specific risk factors in uploaded documents that might inform corrective action protocols. Specify who has authority to initiate corrective actions, how affected product will be identified and segregated, the evaluation process for product disposition, and the steps to restore process control. Search official FDA and USDA resources for corrective action frameworks and cite relevant regulatory requirements for corrective action documentation.\n\n**Verification and Validation Section**: Detail comprehensive verification procedures to confirm that the HACCP plan is working as intended. Verification activities should include calibration of monitoring equipment, review of CCP monitoring records, review of corrective action records, visual inspections, and periodic testing or sampling. Establish the frequency for each verification activity and assign responsibility. Include validation procedures that provide scientific or technical evidence that the HACCP plan, when properly implemented, will effectively control the identified hazards. Cite FDA and USDA verification guidelines, and reference any industry-specific validation studies or regulatory guidance. Address how the plan will be reassessed when changes occur in raw materials, product formulation, processing methods, or when new hazards are identified.\n\n**Record-Keeping and Documentation Section**: Specify all records that must be maintained to document the HACCP system, including the hazard analysis, CCP monitoring records, critical limit deviation records, corrective action records, and verification and validation records. For each record type, indicate the information to be captured, the format, the retention period, and the storage location. Search official legal and regulatory sources for HACCP record-keeping requirements, noting that FDA regulations typically require records to be maintained for at least two years or the shelf life of the product, whichever is longer. Cite specific regulatory sections that mandate record retention periods. Address how records will be made available for regulatory inspection and how confidentiality of proprietary information will be maintained.\n\n## Final Document Assembly\n\nOnce you have gathered all necessary regulatory citations, reviewed relevant uploaded documents for business-specific details, and researched current FDA and USDA guidance for each section, create a comprehensive HACCP Plan document. The document should be professionally formatted with clear section headings, numbered subsections for each CCP, and properly cited references to all regulatory and scientific sources. Include a signature page for the HACCP team members and management approval. The final plan must be both a practical operational tool for the food business and a legally compliant regulatory document that demonstrates due diligence in food safety management.\n\nEnsure that every assertion about regulatory requirements is supported by citation to the specific regulation or guidance document, and that all critical limits and monitoring procedures are scientifically justified and practically implementable for the client's specific operations.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "food"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:13.84715",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:59:04.065647Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating SKILL.md for HACCP Plan**
+
+---
+slug: haccp-plan
+
+title: HACCP Plan
+
+description: A skill for drafting and analyzing HACCP food safety plans involving hazard analysis, critical control points, and compliance with FDA, USDA, and FSMA regulations for seafood, meat, and poultry products.
+
+practice_areas:
+  - Regulatory
+
+document_types:
+  - Analysis
+
+skill_modes:
+  - Drafting
+  - Analysis
+  - Research
+
+purpose: Provides comprehensive guidance to develop, analyze, and validate HACCP food safety plans ensuring regulatory compliance.
+
+prerequisites:
+  1. Understanding of the complete food process flow.
+  2. Detailed product list information.
+  3. Facility layout and operations overview.
+  4. Identification of potential hazards.
+  5. Review of prior audits and inspection reports.
+  6. Clear regulatory scope definition (FDA vs USDA jurisdiction).
+
+output_structure:
+  - Core instructions for HACCP plan development.
+  - Hazard analysis table.
+  - CCP (Critical Control Points) decision tree.
+  - Critical limits table.
+  - Monitoring procedures and checklists.
+  - Corrective actions protocol.
+  - Verification and validation steps.
+  - Record-keeping requirements.
+  - Citations of applicable regulations and guidelines.
+  - Signature/approval page.
+  - Jurisdiction-specific caveats and guidance notes.
+thinking
+---
+name: haccp-plan
+description: Drafts U.S. HACCP plans for food production with FDA/USDA compliance, including hazard analysis, CCPs, critical limits, monitoring, corrective actions, verification/validation, and recordkeeping. Use for "HACCP plan", "food safety plan", "hazard analysis", "critical control points", "FSMA", "FDA", "USDA", "seafood HACCP", "meat and poultry HACCP".
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Analysis
+  skill_modes:
+    - Drafting
+    - Analysis
+    - Research
+
+title: HACCP Plan
+
+purpose: Produce a defensible HACCP plan tailored to the client's process and applicable FDA/USDA regime.
+
+prerequisites:
+  1. Complete process flow diagram from receiving to distribution.
+  2. Product list and descriptions.
+  3. Facility layout and operational overview.
+  4. Hazard identification and analysis.
+  5. Review of prior audits and inspections.
+  6. Clarified regulatory scope (FDA vs USDA).
+
+output_structure:
+  - Introduction and product description.
+  - Hazard analysis table.
+  - CCP decision tree.
+  - Critical limits table.
+  - Monitoring procedures and checklists.
+  - Corrective actions protocol.
+  - Verification and validation procedures.
+  - Recordkeeping requirements.
+  - Regulatory citations.
+  - HACCP team signature page.
+  - Jurisdictional guidance and compliance notes.
+
+section_map:
+  - Introduction
+  - Product Description
+  - Process Flow Diagram
+  - Hazard Analysis
+  - CCP Determination
+  - Critical Limits
+  - Monitoring
+  - Corrective Actions
+  - Verification and Validation
+  - Records and Documentation
+  - Citations
+  - Signatures
+  - Guidelines
+
+hazard_analysis_table:
+
+| Step          | Hazard Type (B/C/P) | Hazard Description                               | Likelihood | Severity | Preventive Measure                      | CCP?  | Justification / Source              |
+|---------------|---------------------|-------------------------------------------------|------------|----------|---------------------------------------|-------|-----------------------------------|
+| [Step Name]   | [Biological/Chemical/Physical] | [Describe hazard]                             | [Low/Med/High] | [Low/Med/High] | [Control measure]                     | [Yes/No] | [Regulatory or scientific source] |
+
+ccp_decision_tree:
+- Is there a hazard that can be prevented, eliminated, or reduced to acceptable levels? Yes/No
+- Is this step specifically designed to control that hazard? Yes/No
+- Could contamination occur or increase to unacceptable levels if this step is omitted? Yes/No
+- Will a subsequent step eliminate or reduce the hazard? Yes/No
+- Does this step exceed mandatory regulatory requirements? Yes/No
+
+critical_limits_table:
+
+| CCP           | Parameter             | Critical Limit                 | Basis (Regulation/Science)           | Monitoring Method         | Frequency               |
+|---------------|-----------------------|-------------------------------|-------------------------------------|---------------------------|-------------------------|
+| [CCP Number]  | [Temperature, pH, etc.] | [Limit value]                 | [Citation or study]                  | [Method description]       | [e.g. Continuous/Hourly] |
+
+monitoring_table:
+
+| CCP           | Monitoring Activity     | Responsible Person             | Frequency                        | Records Maintained       |
+|---------------|------------------------|-------------------------------|---------------------------------|-------------------------|
+| [CCP Number]  | [Check temp, visual]   | [HACCP team member]            | [Frequency]                     | [Log, checklist, report]|
+
+corrective_actions_table:
+
+| CCP           | Deviation Detected      | Immediate Control Actions      | Product Disposition             | Root Cause Analysis       | Records                      |
+|---------------|------------------------|-------------------------------|--------------------------------|---------------------------|------------------------------|
+| [CCP Number]  | [Describe deviation]   | [Containment, correction]      | [Rework, discard, hold]          | [Investigation summary]   | [Forms, reports]              |
+
+verification_validation_table:
+
+| Activity                     | Description                   | Responsible Party               | Frequency                      | Records                      |
+|------------------------------|-------------------------------|--------------------------------|--------------------------------|------------------------------|
+| Record Review               | Review monitoring records      | HACCP team or QA               | [Frequency]                   | [Log summaries]              |
+| Equipment Calibration       | Verify instruments            | Maintenance or QA              | [Frequency]                   | [Calibration certificates]  |
+| Sampling & Testing         | Validate controls effectiveness | QA or Lab                     | [Frequency]                   | [Test reports]               |
+
+recordkeeping:
+- Maintain records for each CCP including monitoring, corrective actions, verification, and validation.
+- Retention period: [INSERT PER REGIME]
+- Ensure records are accessible for regulatory inspections.
+- Maintain confidentiality and integrity of records.
+
+citations:
+- 21 CFR Part 117 (FSMA Preventive Controls)
+- 21 CFR Part 123 (Seafood HACCP)
+- 9 CFR Part 417 (USDA HACCP)
+- If applicable: 21 CFR Part 120 (Juice HACCP) [VERIFY]
+- Other product-specific rules: [INSERT]
+
+guidelines:
+- Confirm agency jurisdiction (FDA vs USDA) and product category; some products have dual jurisdiction.
+- Do not invent critical limits; base on scientific or regulatory data [VERIFY].
+- Avoid using generic values; tailor limits and controls to the specific process.
+- Include allergen control measures.
+- Calibrate monitoring equipment regularly and document calibration.
+- Maintain record confidentiality; prepare for regulatory inspections.
+- Use current versions of referenced regulations.
+- Include HACCP team member signatures and approval dates.
+
+output_template_intro:
+```
+HACCP Plan for [Product/Process Name]
+
+Prepared by: [Name]
+Date: [MM/DD/YYYY]
+
+This plan outlines the hazard analysis and critical control points for [Product/Process Name], ensuring compliance with FDA and USDA regulatory requirements. The document includes comprehensive steps from hazard identification through verification and recordkeeping to maintain food safety integrity throughout production.
+```
+
+legal_context:
+  jurisdictions:
+    - US
+codex
+---
+name: haccp-plan
+description: Drafts U.S. HACCP plans for food production with FDA/USDA compliance, covering hazard analysis, critical control points (CCPs), critical limits, monitoring, corrective actions, verification/validation, and recordkeeping. Use for "HACCP plan", "food safety plan", "hazard analysis", "critical control points", "FSMA", "FDA", "USDA", "seafood HACCP", "meat and poultry HACCP".
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Analysis
+  skill_modes:
+    - Drafting
+    - Analysis
+    - Research
+---
+
+# HACCP Plan
+
+Produce a defensible HACCP plan tailored to the client's process and the applicable FDA or USDA regime.
+
+## Prerequisites
+
+1. Legal entity name, facilities, contacts, and HACCP team roster
+2. Product list with ingredients, formulations, packaging, shelf life, intended consumers
+3. Process flow diagram(s) from receiving through distribution
+4. Facility layout and equipment list with calibration capability
+5. Supplier controls and specifications for incoming materials
+6. Existing SOPs, sanitation, allergen, and preventive control documents
+7. Regulatory scope decision: FDA vs USDA (or dual jurisdiction)
+
+## Output Structure / Process
+
+Section Map:
+- Cover and scope
+- Product description(s)
+- Process flow diagram and narrative
+- Hazard analysis
+- CCP determination
+- Critical limits
+- Monitoring procedures
+- Corrective actions
+- Verification and validation
+- Recordkeeping and retention
+- References and signature page
+
+Cover and Scope Template:
+```text
+HACCP Plan for: [Legal Entity Name]
+Facility: [Address(es)]
+Products Covered: [List]
+Regulatory Regime: [FDA 21 CFR Part 117 / FDA 21 CFR Part 123 / USDA 9 CFR Part 417 / Other]
+Plan Effective Date: [Date]
+HACCP Team: [Names, Roles]
+```
+
+Product Description Table:
+| Product | Ingredients | Processing | Packaging | Storage | Shelf Life | Intended Use/Consumers | Distribution |
+|---|---|---|---|---|---|---|---|
+
+Process Flow:
+- Insert flow diagram(s)
+- Provide a narrative walk-through of each step
+- Confirm on-site verification of the flow diagram
+
+Hazard Analysis Table:
+| Step | Hazard Type (B/C/P) | Hazard | Likelihood | Severity | Preventive Measure | CCP? | Justification/Source |
+|---|---|---|---|---|---|---|---|
+
+CCP Determination:
+- Apply a CCP decision tree for each hazard with a control measure
+- Record rationale for each CCP or non-CCP decision
+
+CCP Decision Tree Record (per hazard):
+| Step | Hazard | Control Measure | Decision Tree Outcome | CCP? | Rationale |
+|---|---|---|---|---|---|
+
+Critical Limits Table:
+| CCP | Parameter | Critical Limit | Basis (Reg/Science) | Measurement Method | Frequency |
+|---|---|---|---|---|---|
+
+Monitoring Procedures Table:
+| CCP | What | How | Frequency | Who | Instrument/Calibration | Record |
+|---|---|---|---|---|---|---|
+
+Corrective Actions Table:
+| CCP | Deviation | Immediate Control | Product Disposition | Root Cause Fix | Authority | Record |
+|---|---|---|---|---|---|---|
+
+Verification and Validation Table:
+| Activity | Purpose | Frequency | Responsible Party | Record |
+|---|---|---|---|---|
+
+Recordkeeping Matrix:
+| Record Type | Contents | Format | Retention Period | Storage Location | Access Controls |
+|---|---|---|---|---|---|
+
+References:
+- Cite applicable regulations and guidance
+- Use [VERIFY] for any uncertain citation or numeric limit
+
+Signature Page:
+```text
+HACCP Team Approval
+Name | Title | Signature | Date
+Management Approval
+Name | Title | Signature | Date
+```
+
+## Guidelines
+
+- Confirm jurisdiction and product category before selecting the governing regulation.
+- Use FDA 21 CFR Part 117 for preventive controls, FDA 21 CFR Part 123 for seafood HACCP, and USDA 9 CFR Part 417 for meat/poultry HACCP.
+- Do not invent critical limits; each must have a cited regulatory or scientific basis.
+- Include allergen-related hazards where applicable, and tie to controls and monitoring.
+- Validation requires scientific or technical evidence; note the source explicitly.
+- Record retention must match the governing regime; insert the exact rule or mark [VERIFY].
+- Keep the plan specific to the facility, process, and products; avoid generic values.
+- Ensure the flow diagram is verified on-site and updated when processes change.
+tokens used
+4,293

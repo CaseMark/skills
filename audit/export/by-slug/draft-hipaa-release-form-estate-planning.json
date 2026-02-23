@@ -1,0 +1,46 @@
+{
+  "id": "2c134879-21f8-47c7-8e59-da96fd32c3b0",
+  "slug": "draft-hipaa-release-form-estate-planning",
+  "name": "HIPAA Release Form",
+  "summary": "Drafts a comprehensive HIPAA Release Authorization form compliant with 45 CFR \u00a7 164.508 for authorizing disclosure of protected health information. Used in estate planning to enable designated healthcare agents to access patient medical records for decision-making. Includes required elements like patient identification, authorized recipients, disclosing parties, scope of information, and purpose of disclosure.",
+  "content": "# HIPAA Release Form - Enhanced Legal Workflow Prompt\n\nYou are tasked with drafting a comprehensive HIPAA Release Authorization form that complies with federal privacy regulations under the Health Insurance Portability and Accountability Act. This transactional document is commonly used in estate planning contexts to authorize designated individuals to access a patient's protected health information for healthcare decision-making purposes.\n\n## Document Purpose and Legal Framework\n\nCreate a legally compliant HIPAA authorization form that permits the disclosure of protected health information (PHI) from healthcare providers to designated agents or representatives. The document must satisfy the minimum necessary requirements under 45 CFR \u00a7 164.508, including specific core elements and required statements that make the authorization valid under federal law. This authorization is typically executed in conjunction with healthcare powers of attorney or advance directives to ensure continuity of care and informed decision-making by designated agents.\n\n## Required Document Sections and Content\n\n**Patient Identification and Authorization Statement**: Begin with complete patient identification including full legal name and date of birth. Include a clear, unambiguous authorization statement such as: \"I authorize the use and disclosure of my protected health information (PHI) as described in this authorization.\" This statement establishes the patient's informed and voluntary consent.\n\n**Authorized Recipients**: Specify all persons or organizations authorized to receive the patient's PHI. In estate planning contexts, this typically includes the primary healthcare agent and any successor agents named in the healthcare power of attorney. Each authorized recipient should be identified by name and relationship to the patient. Include placeholder language that can be customized: \"[Agent's Name], designated as my Healthcare Agent\" and \"[Successor Agent's Name], designated as my Successor Healthcare Agent.\"\n\n**Authorized Disclosing Parties**: Identify the healthcare providers and entities authorized to disclose information. Use comprehensive language such as: \"Any health plan, physician, health care professional, hospital, clinic, laboratory, pharmacy, medical facility, or other covered entity that has provided payment, treatment, or services to me, or that possesses my protected health information.\"\n\n**Scope of Information**: Define the breadth of information to be disclosed. For comprehensive healthcare decision-making, specify: \"All of my protected health information, including but not limited to my complete medical record, mental health records, substance abuse treatment records, HIV/AIDS testing and treatment records, and genetic information.\" Address any special categories of sensitive information that require explicit authorization under applicable state law.\n\n**Purpose of Disclosure**: Articulate the specific purpose clearly: \"To enable my designated healthcare agent(s) to make informed healthcare decisions on my behalf, to communicate with my healthcare providers, and to access all information necessary to execute their duties under my Healthcare Power of Attorney or Advance Directive.\"\n\n**Duration and Expiration**: Specify the effective period of the authorization. Standard language includes: \"This authorization shall become effective immediately upon execution and shall remain in effect until revoked by me in writing, or upon my death, whichever occurs first.\" Consider whether the authorization should survive incapacity or terminate under specific conditions.\n\n**Revocation Rights and Limitations**: Include the federally required statement regarding the right to revoke: \"I understand that I have the right to revoke this authorization at any time by providing written notice to the healthcare provider or entity in possession of my records. I understand that revocation will not affect any actions taken in reliance on this authorization before revocation was received. I understand that information disclosed pursuant to this authorization may be subject to re-disclosure by the recipient and may no longer be protected by federal privacy regulations.\"\n\n**Additional Required Statements**: Include statements regarding the patient's right to refuse to sign the authorization, that treatment cannot be conditioned on signing (unless legally permitted exceptions apply), and that the patient has the right to receive a copy of the signed authorization.\n\n## Execution Requirements\n\nThe document must include signature lines for the patient with printed name, signature, and date fields. If the authorization is signed by a personal representative, include fields for the representative's name, signature, relationship to patient, and authority to act (such as court appointment documentation). Ensure adequate space for witness signatures if required by state law.\n\n## Output Format and Professional Standards\n\nGenerate a complete, professionally formatted HIPAA authorization form suitable for execution. Use clear headings, appropriate legal formatting, and plain language where possible while maintaining legal precision. The document should be structured logically with numbered or lettered sections for easy reference. Include a descriptive title such as \"Authorization for Release of Protected Health Information Pursuant to HIPAA\" at the top of the document.\n\nEnsure all placeholder text is clearly marked with brackets and descriptive labels so the attorney can easily customize the form for specific clients. The final document should be ready for attorney review and client execution with minimal additional drafting required. Include a footer notation indicating this is a legal document that should be reviewed by qualified legal counsel before execution.",
+  "parent_skill_id": "8bedabb0-a0e4-4136-9d06-540d72094eac",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "healthcare"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "estate_planning",
+      "healthcare-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "cd1bf732-73b9-4dd1-8756-a62b5b155a0b",
+  "slug": "food-facility-registration",
+  "name": "Food Facility Registration",
+  "summary": "Drafts a comprehensive Food Facility Registration document compliant with FDA's Food Safety Modernization Act (FSMA) and 21 CFR Part 1, Subpart H. Gathers facility details, categorizes food products, addresses U.S. agent requirements for foreign facilities, and includes certification and attestation statements. Use this skill when preparing mandatory FDA registrations for domestic or foreign food facilities to ensure regulatory compliance and enable FDA oversight.",
+  "content": "# Food Facility Registration - FDA Compliance Document Preparation\n\nYou are tasked with preparing a comprehensive Food Facility Registration document in full compliance with the FDA Food Safety Modernization Act (FSMA) and 21 CFR Part 1, Subpart H requirements. This registration is a critical regulatory filing that establishes the facility's compliance with federal food safety laws and enables FDA oversight.\n\n## Document Preparation Standards\n\nBegin by gathering all necessary facility information through careful review of any uploaded business documents, prior registrations, or corporate records. Search through available documentation to identify the complete legal name of the facility, its physical address (not a P.O. Box), all business trading names, and the Dun & Bradstreet (DUNS) number if available. If parent company information exists in the documents, extract the parent company's legal name, address, and DUNS number, as this is required when the facility is not independently owned.\n\nFor the facility's operational details, identify and categorize all food products manufactured, processed, packed, or held at the location according to FDA product category codes. Be specific about whether the facility engages in manufacturing/processing versus storage/distribution, as this affects registration requirements. Verify whether the facility is required to register or qualifies for any exemptions under 21 CFR 1.226, such as retail food establishments, restaurants, nonprofit food establishments, fishing vessels, or farms.\n\n## U.S. Agent Requirements\n\nEvery foreign facility must designate a U.S. Agent who resides or maintains a place of business in the United States. If this is a foreign facility, ensure the U.S. Agent section includes the agent's full legal name, complete physical address in the United States, telephone number, and email address. The U.S. Agent serves as the communication link between FDA and the foreign facility and must be available for FDA communications during all business hours. For domestic facilities, clearly indicate \"Not Applicable - Domestic Facility\" in this section.\n\n## Registration Certification and Attestation\n\nThe certification statement must be precise and legally binding. Draft language that affirms the submitter has authority to bind the facility, that all information provided is true, accurate, and complete to the best of their knowledge, and that the facility agrees to permit FDA inspection of the facility and all records required to be made available under the Federal Food, Drug, and Cosmetic Act. Include the full name and title of the authorized individual, the date of submission, and a clear signature block.\n\n## Regulatory Context and Compliance Notes\n\nInclude a preamble section explaining that this registration is submitted pursuant to Section 415 of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 350d) and implementing regulations at 21 CFR Part 1, Subpart H. Note that registration must be renewed biennially during the period beginning on October 1 and ending on December 31 of each even-numbered year. Include the FDA registration number field if this is a renewal or update to an existing registration.\n\nAdd a compliance section noting that registration does not constitute FDA approval of the facility or its products, that registration does not exempt the facility from any other applicable FDA requirements, and that the facility must update its registration within 60 days of any material change to the information submitted. Specify that failure to register when required, providing false information, or failing to update registration may result in administrative detention of food articles, refusal of admission for imported foods, and other enforcement actions.\n\n## Document Structure and Format\n\nOrganize the final document with clear section headings, numbered paragraphs for easy reference, and a professional regulatory filing format suitable for submission through the FDA's Food Facility Registration Module or paper submission if required. Include a cover page with the document title, facility name, submission date, and contact information for the responsible party. Ensure all required fields are clearly labeled and that optional fields are marked as such to avoid confusion during the submission process.\n\nThe completed registration should be comprehensive enough to satisfy FDA requirements while remaining clear and accessible for facility personnel who must maintain and update the registration over time.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "food"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "formation"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:13.77205",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

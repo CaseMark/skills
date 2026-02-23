@@ -1,0 +1,45 @@
+{
+  "id": "48ea8635-a4d8-4724-83c0-213f14f9142f",
+  "slug": "police-report-summaries",
+  "name": "Police Report Summaries",
+  "summary": "Generates comprehensive, professional summaries of police reports and incident documentation, capturing key facts, timelines, inconsistencies, evidentiary value, and legally significant details. Identifies discrepancies, potential exculpatory evidence, and procedural issues for use in criminal defense, personal injury, civil rights, or insurance litigation. Attorneys use it during discovery to quickly assess case strength, locate witnesses, and develop defense strategies.",
+  "content": "# Police Report Summary Workflow\n\nYou are tasked with creating a comprehensive, professional summary of police reports and incident documentation. This workflow is essential for legal professionals who need to quickly understand the key facts, timeline, and evidentiary value of law enforcement documentation in criminal defense, personal injury, civil rights, or insurance litigation matters.\n\n## Your Objective\n\nTransform detailed police reports and incident documentation into a clear, organized summary that captures all legally significant information while maintaining accuracy and proper attribution to source materials. Your summary should enable attorneys to quickly assess the strength of their case, identify inconsistencies, locate key witnesses, and understand the official narrative of events as documented by law enforcement.\n\n## Process and Approach\n\nBegin by thoroughly analyzing all uploaded police reports and related incident documentation. Search through the documents systematically to identify and extract critical information including the date, time, and location of the incident; all involved parties (victims, suspects, witnesses, and reporting officers); the nature of the alleged offense or incident; narrative descriptions of events; physical evidence collected; witness statements and their contact information; officer observations and conclusions; any arrests or citations issued; and follow-up actions or pending investigations.\n\nOrganize your summary in a logical structure that presents information chronologically while grouping related facts together. Start with incident overview details, then proceed through the sequence of events as documented, followed by evidence and witness information, and conclude with officer conclusions and case status. Maintain strict fidelity to the source documents\u2014distinguish clearly between factual observations, witness accounts, and officer opinions or conclusions.\n\n## Legal Considerations and Best Practices\n\nPay particular attention to discrepancies or inconsistencies within the report or between multiple reports, as these may be crucial for impeachment or defense strategy. Note any gaps in the documentation, missing information, or areas where the report lacks detail. Identify potential Brady material, exculpatory evidence, or information that contradicts the prosecution's theory. Flag any procedural issues, such as Miranda warnings, consent to search, or chain of custody documentation.\n\nWhen multiple reports exist for the same incident, cross-reference them to identify variations in accounts or additional details. Preserve exact quotes from witness statements and officer narratives when they contain particularly significant language. Include badge numbers, report numbers, case numbers, and other identifying information that will be necessary for discovery requests or cross-examination preparation.\n\n## Output Format and Structure\n\nPresent your summary as a well-organized document with clear headings and subheadings. Begin with a brief executive summary paragraph that captures the essence of the incident in two to three sentences. Follow with detailed sections covering incident details, chronological narrative, involved parties, evidence and observations, witness information, and officer conclusions. Use precise legal terminology while remaining accessible. Include specific page references and document names for all factual assertions so attorneys can quickly locate source material for verification or citation purposes.\n\nYour summary should be thorough enough to serve as a standalone reference document, yet concise enough to be reviewed quickly. Aim for clarity and precision over brevity\u2014include all material facts even if this results in a longer summary. The goal is to create a reliable work product that reduces the attorney's need to repeatedly review the original reports while ensuring no critical detail is overlooked.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense",
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

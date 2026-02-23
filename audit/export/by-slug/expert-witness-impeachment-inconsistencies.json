@@ -1,0 +1,44 @@
+{
+  "id": "be8e16b5-de71-408f-bb83-3c09046ad110",
+  "slug": "expert-witness-impeachment-inconsistencies",
+  "name": "Impeachment - Expert Witness summary inconsistencies",
+  "summary": "Analyzes expert witness testimony, reports, declarations, and related materials to identify inconsistencies, contradictions, and methodological discrepancies. Documents impeachment points with precise citations, assessments of materiality, and impacts on credibility. Use in commercial litigation during discovery, pre-trial, or trial to challenge expert reliability.",
+  "content": "# Expert Witness Impeachment Analysis: Identifying Testimony and Report Inconsistencies\n\nYou are conducting a comprehensive impeachment analysis of an expert witness by systematically comparing their trial or deposition testimony against their written expert reports, prior declarations, curriculum vitae, published works, and any other discoverable materials. Your objective is to identify and document inconsistencies, contradictions, changes in opinion, unsupported assertions, and methodological discrepancies that could be used to challenge the expert's credibility, reliability, or the weight of their testimony.\n\n## Analysis Scope and Methodology\n\nBegin by thoroughly reviewing all available materials related to the expert witness. This includes their current expert report, any supplemental or rebuttal reports, deposition transcripts, trial testimony transcripts, declarations, affidavits, curriculum vitae, published articles, prior testimony in other cases if available, and any correspondence or communications that reveal their opinions or methodology. Search through all uploaded documents to locate every instance where the expert has expressed an opinion, described their methodology, cited credentials, or made factual assertions relevant to the case.\n\nYour analysis should focus on several critical dimensions of potential impeachment. First, examine substantive opinion changes where the expert has modified, reversed, or qualified their conclusions between different documents or testimony sessions. Second, identify methodological inconsistencies where the expert has applied different analytical approaches, relied on different data sets, or changed their testing protocols without adequate explanation. Third, scrutinize factual contradictions where the expert has made inconsistent statements about underlying facts, case circumstances, or the evidence they reviewed. Fourth, assess credential discrepancies where the expert's stated qualifications, experience, publications, or expertise differ across documents or testimony. Fifth, locate unsupported conclusions where the expert's testimony extends beyond what their report supports or where they make assertions not grounded in their stated methodology.\n\n## Detailed Documentation Requirements\n\nFor each identified inconsistency, create a detailed comparison that includes the specific source documents with page and line citations, the exact quoted language from each source showing the contradiction, the date or chronological sequence of each statement, and the substantive nature of the inconsistency. Analyze whether the inconsistency is material to the expert's ultimate conclusions or merely peripheral, whether the expert has provided any explanation for the difference, and how the inconsistency might affect the reliability or credibility of the expert's testimony.\n\nPay particular attention to areas where the expert's testimony appears to have evolved in response to opposing counsel's challenges, where opinions have strengthened or weakened without new data or analysis, where the expert has adopted positions inconsistent with their prior published work or testimony in other cases, and where the expert's methodology deviates from standards they have previously endorsed or from generally accepted practices in their field.\n\n## Strategic Impeachment Framework\n\nOrganize your findings in a manner that supports effective cross-examination and motion practice. Group related inconsistencies thematically to demonstrate patterns of unreliability rather than isolated errors. Distinguish between inconsistencies that suggest bias, lack of care, or advocacy versus those that might reflect legitimate evolution of opinion based on new information. Identify which inconsistencies are most likely to resonate with the factfinder and which might be effectively explained away by the expert.\n\nConsider the temporal sequence of the expert's opinions and whether the progression suggests responsiveness to litigation needs rather than independent analysis. Evaluate whether the expert has made concessions during deposition that contradict their report conclusions, whether they have expanded their opinions beyond their disclosed methodology, and whether their testimony reveals gaps in their actual knowledge or review of case materials.\n\nYour final analysis should provide a comprehensive impeachment roadmap that includes a prioritized list of the most significant inconsistencies with supporting citations, suggested cross-examination questions that highlight each contradiction, an assessment of whether the inconsistencies support a Daubert or Frye challenge to the expert's methodology or qualifications, and recommendations for how to present these inconsistencies most effectively in motion practice or at trial. The analysis should be thorough enough to support both written motions to exclude or limit the expert's testimony and live cross-examination, with every assertion supported by specific citations to the expert's own words in the record.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

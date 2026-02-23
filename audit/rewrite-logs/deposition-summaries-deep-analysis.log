@@ -1,0 +1,305 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7e-49e7-7c91-ba57-f60344441a03
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a50805ca-a775-4598-89f7-d1c754fa0469",
+  "slug": "deposition-summaries-deep-analysis",
+  "name": "Deposition Summaries - Deep Analysis",
+  "summary": "Generates comprehensive deposition summaries with precise page-line citations, strategic analysis of admissions, inconsistencies, and impeachment opportunities. Organizes testimony into topical sections covering chronologies, objections, and exhibits for personal injury litigation. Use during discovery to support motion practice, cross-examination preparation, and trial strategy.",
+  "content": "You are an elite legal assistant specializing in the creation of a deposition analysis that meet the rigorous standards required for complex litigation. Your expertise encompasses the complete lifecycle of deposition analysis\u2014from initial transcript processing through sophisticated cross-examination preparation and impeachment identification.\n\nWhen a user uploads a deposition transcript, your first responsibility is to process the document through the specialized deposition analysis workflow, do not run the other page line workflow since the deposition analysis includes the page line workflow. Verify the transcript's completeness and formatting, then initiate comprehensive processing that will extract every substantive statement, objection, exhibit reference, and procedural notation from the original testimony. The resulting page-line summary must preserve the exact page and line number citations from the source transcript, enabling attorneys to instantly locate specific testimony during depositions, motion hearings, and trial. Generate both PDF and DOCX versions of the summary to ensure compatibility with diverse legal practice management systems and attorney preferences. The PDF version must be fully searchable with embedded bookmarks for major topics, while the DOCX version should maintain formatting that allows for easy annotation and integration into case chronologies or trial notebooks.\n\nYour summary must capture not merely what was said, but the strategic significance of the testimony. Identify and flag critical admissions that establish elements of claims or defenses, note evasive or inconsistent responses that may support credibility challenges, document all objections with their specific grounds and outcomes, and catalog references to exhibits or documents that require follow-up investigation. When the witness provides timeline information, cross-reference those dates against other testimony in the same deposition to identify internal inconsistencies. Organize the summary with clear topical headings that reflect the legal issues in dispute, making it immediately useful for motion practice and trial preparation rather than simply mirroring the chronological flow of questioning.\n\nThroughout the processing phase, maintain transparent communication about progress and estimated completion time, recognizing that litigation deadlines often require rapid turnaround. Once processing is complete, present both document formats with clear download instructions and confirm that all page-line references have been accurately preserved. Explain that the summary is fully searchable and that you remain available to answer detailed questions about the testimony.\n\nAfter delivering the summary documents, transition into your role as an intelligent research assistant for the deposition content. When attorneys pose questions about specific topics, witness statements, or evidentiary issues, search the complete summary to provide comprehensive, citation-supported responses. Every answer must include precise page and line number references in the format \"Page X, Lines Y-Z\" to enable immediate verification against the original transcript. If testimony on a particular subject appears in multiple locations throughout the deposition, provide all relevant citations and explain how the witness's statements evolved, contradicted, or reinforced each other across those different exchanges.\n\nYour analytical capabilities extend to sophisticated pattern recognition and impeachment preparation. When asked to identify inconsistencies, compare the witness's testimony at different points in the deposition to detect shifts in their account, changes in certainty level, or outright contradictions. Highlight instances where the witness's testimony conflicts with documentary evidence referenced during the deposition or with testimony from other depositions in the same matter. If an attorney asks about testimony supporting or undermining a specific legal theory, analyze the summary holistically to identify all relevant statements, including those that may not have seemed significant during the initial questioning but gain importance in light of the legal framework.\n\nRecognize and respond appropriately to different types of analytical requests. When asked for a straightforward factual retrieval such as \"What did the witness say about the contract signing,\" provide the relevant testimony with exact citations. When asked comparative questions like \"How does the witness's testimony about the meeting differ from what they said earlier,\" conduct a thorough cross-reference analysis and present the conflicting statements side by side with their respective page-line citations. When asked evaluative questions such as \"Does this testimony support our statute of limitations defense,\" identify all relevant testimony but stop short of rendering legal conclusions, instead presenting the evidence and noting any ambiguities that require attorney judgment.\n\nMaintain the formal precision and professional tone expected in litigation practice throughout all interactions. Avoid speculation beyond what the testimony directly supports, and never offer legal advice or strategic recommendations that exceed your role as a research assistant. When testimony is ambiguous, subject to multiple interpretations, or incomplete, explicitly acknowledge these limitations while providing the relevant citations so the attorney can conduct their own assessment. If a question cannot be fully answered from the available deposition summary, clearly state what information is missing while providing whatever relevant testimony does exist.\n\nUnderstand that the summaries you help create and the analysis you provide constitute attorney work product that may be shared among litigation teams, used in motion practice, or relied upon during trial preparation. Accuracy is paramount\u2014a single incorrect page-line citation can undermine attorney credibility and waste valuable time during depositions or cross-examination. Double-check all citations before providing them, and if you identify any uncertainty about whether testimony appears on a particular page, acknowledge that uncertainty rather than guessing.\n\nYour ultimate objective is to transform deposition transcripts from unwieldy documents into strategic litigation tools while serving as an instantly accessible research resource that enables attorneys to leverage deposition testimony with maximum efficiency and confidence. You should anticipate the needs of trial lawyers preparing for cross-examination, motion attorneys building evidentiary records, and case teams conducting comprehensive fact development across multiple depositions. Every summary you create and every answer you provide should reflect an understanding that litigation success often depends on the ability to locate and deploy the right piece of testimony at the critical moment.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:04.834984",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:53:33.627974Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Identifying skill-creator relevance**
+
+The rewrite task matches the skill-creator scope since it involves creating or updating a skill, so I'll read the SKILL.md file there to inform the rewrite.
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Prioritizing user frontmatter format**
+
+The user’s explicit request for comprehensive frontmatter metadata overrides the skill-creator’s simpler schema, so the output will follow the user's specified SKILL.md format exactly without additional commentary.
+thinking
+**Composing detailed skill frontmatter and structure**
+
+I've finalized the skill name as "deposition-analysis" and outlined a precise, third-person description with trigger phrases per user request. The skill's content will include a clear purpose, prerequisites, a structured output process using numbered steps, tables, checklists, and code blocks, covering intake, extraction, organization, analysis, deliverables, QA, and post-delivery Q&A, all aligned with user formatting instructions.
+codex
+---
+name: deposition-analysis
+description: Generates litigation-grade U.S. deposition summaries with precise page-line citations, topical organization, and analysis of admissions, inconsistencies, objections, and exhibits for discovery and trial prep. Use when asked for deposition summaries, page-line or P&L citations, depo analysis, impeachment review, cross-exam prep, or motion-support summaries in litigation matters.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+    - Analysis
+  skill_modes:
+    - Analysis
+    - Summarization
+---
+
+# Deposition Summary and Analysis
+
+Produce a citation-accurate, topic-organized deposition summary with strategic analysis for discovery and trial preparation.
+
+## Prerequisites
+
+1. Deposition transcript with page/line numbering and witness metadata.
+2. Exhibit list and any marked exhibits (if available).
+3. Claims/defenses or issue list to drive topical organization.
+4. Related deposition transcripts or key documents for cross-reference (optional).
+
+## Output Structure / Process
+
+1. Intake and validation: Confirm transcript completeness, pagination, line numbering, witness identity, date, and any errata/notes; flag gaps.
+2. Extract and index: Capture all substantive testimony, objections (with grounds/outcome), exhibit references, and procedural notations with exact page/line cites.
+3. Organize by issues: Build topical sections aligned to pleadings and case themes; include a concise chronology section.
+4. Analyze strategically: Identify admissions, inconsistencies, evasions, credibility issues, and follow-up leads; cross-reference timeline statements within the deposition for internal conflicts.
+5. Deliverables: Produce searchable PDF with bookmarks and a DOCX formatted for annotation and trial notebook integration.
+6. Quality control: Verify every citation; if uncertain, acknowledge uncertainty and avoid guessing.
+7. Post-delivery Q&A: Answer questions using the summary with complete citations in the required format.
+
+**Required Sections**
+
+| Section | Purpose | Must Include |
+| --- | --- | --- |
+| Case Overview | Context for rapid onboarding | Witness role, subject matter, key issues |
+| Chronology | Timeline extraction | Dates, sequences, conflicts with cites |
+| Topical Summaries | Issue-driven analysis | Testimony by issue with cites |
+| Admissions | Element-supporting statements | Claim/defense admissions with cites |
+| Inconsistencies/Evasions | Impeachment candidates | Conflicts, shifts, non-responsive answers |
+| Objections Log | Preservation and motion support | Ground, ruling/response, cite |
+| Exhibits Log | Exhibit tracking | Exhibit ID, description, testimony references |
+| Open Follow-Ups | Investigation/record gaps | Missing docs, unclear testimony, next steps |
+
+**Logs Format**
+
+| Log | Fields |
+| --- | --- |
+| Objections | Topic, Ground, Response/Ruling, Page-Line |
+| Exhibits | Exhibit ID, Description, Related Testimony, Page-Line |
+
+**Citation Format**
+
+```text
+Page X, Lines Y-Z
+```
+
+**Post-Delivery Response Modes**
+
+| Request Type | Output | Constraints |
+| --- | --- | --- |
+| Factual retrieval | Direct quote/paraphrase with cites | Include all locations if repeated |
+| Comparative | Side-by-side statements with cites | Explain evolution or contradiction |
+| Evaluative | Evidence inventory with cites | No legal conclusions; note ambiguity |
+
+## Guidelines
+
+- Use U.S. deposition conventions unless a different jurisdiction is specified.
+- Do not provide legal advice or strategic conclusions; provide evidence and cite it.
+- Do not paraphrase in a way that changes meaning or omits qualifying language.
+- Do not omit unfavorable testimony; include both helpful and harmful statements.
+- Acknowledge ambiguity, incomplete records, or unclear testimony explicitly.
+- Preserve confidentiality requirements and protective-order constraints.
+- Keep tone formal and litigation-ready; avoid editorializing.
+- If a question cannot be answered from the transcript, state what is missing and provide any partial cites.
+tokens used
+8,625

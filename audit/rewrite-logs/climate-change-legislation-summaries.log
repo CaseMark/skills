@@ -1,0 +1,300 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-e128-7020-a213-75b7974c4f5c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "634951ad-3864-45c6-b688-8a913f76c99e",
+  "slug": "climate-change-legislation-summaries",
+  "name": "Climate Change Legislation Summaries",
+  "summary": "Generates structured, concise summaries of climate change legislation, covering key provisions like carbon pricing, emission targets, compliance obligations, enforcement, and business impacts. Use this skill for quick reference by environmental policymakers, compliance officers, and legal counsel navigating regulatory obligations in mitigation and adaptation strategies.",
+  "content": "# Climate Change Legislation Summary Prompt\n\nYou are tasked with creating a comprehensive yet concise summary of climate change legislation. This summary should serve as an essential reference tool for environmental policy makers, corporate compliance officers, sustainability directors, and legal counsel advising businesses on environmental regulatory obligations.\n\nYour analysis should begin by identifying and examining the specific legislation, regulation, or international agreement provided. Search available documents thoroughly to extract all relevant provisions, and supplement with current authoritative sources when necessary to ensure accuracy and completeness. Focus on legislation addressing climate change mitigation strategies such as carbon pricing mechanisms, greenhouse gas emission reduction targets, renewable energy mandates, and climate adaptation requirements.\n\nStructure your summary to include the following essential components presented in clear, accessible language. Begin with the full legal citation and jurisdictional scope, identifying whether this is federal, state, provincial, or international law, and specify the enacting authority and effective dates. Provide a concise executive overview that captures the legislation's primary purpose, key regulatory mechanisms, and intended environmental outcomes in no more than three to four sentences.\n\nDetail the core substantive provisions with particular attention to regulatory thresholds, compliance obligations, and enforcement mechanisms. When addressing carbon tax laws, specify the tax rate structure, covered emissions sources, exemptions, revenue allocation mechanisms, and any border adjustment provisions. For emission regulations, identify the regulated entities by sector or size, emission reduction targets with baseline years and compliance deadlines, monitoring and reporting requirements, and available compliance pathways including offset mechanisms or emissions trading provisions. When summarizing international agreements, clarify binding versus voluntary commitments, nationally determined contributions or equivalent mechanisms, financial and technology transfer provisions, and compliance review processes.\n\nAnalyze the practical business implications by identifying which industry sectors face the most significant compliance burdens, estimating potential financial impacts where quantifiable, noting transition periods or phase-in schedules, and highlighting any incentive programs, tax credits, or funding mechanisms available to support compliance. Address enforcement provisions including penalty structures, regulatory oversight bodies, and any citizen suit or private right of action provisions.\n\nIdentify critical implementation details such as required permits or registrations, mandatory reporting deadlines and formats, third-party verification or audit requirements, and any pending regulatory guidance or rulemaking that may affect interpretation. Note significant legal considerations including preemption of state or local laws, interaction with existing environmental regulations, constitutional or legal challenges that have been filed or are anticipated, and any sunset provisions or mandatory legislative reviews.\n\nConclude with forward-looking context by noting anticipated regulatory developments, proposed amendments under consideration, and how this legislation fits within the broader climate policy landscape at the relevant jurisdictional level. Where applicable, compare the stringency and approach of this legislation to similar laws in other jurisdictions to provide useful benchmarking context.\n\nThroughout your summary, maintain precise legal terminology while ensuring accessibility for non-lawyer stakeholders who need to understand compliance obligations. Cite specific statutory sections, regulatory provisions, and official guidance documents using proper legal citation format. When referencing technical terms such as carbon dioxide equivalent, scope one through three emissions, or additionality requirements, provide brief clarifying explanations. Your summary should be sufficiently detailed to inform strategic business planning and policy development while remaining concise enough to serve as a quick reference guide, typically ranging from two to four pages depending on the legislation's complexity.\n\nVerify all factual assertions about regulatory requirements, dates, and numerical targets against authoritative sources, and clearly distinguish between enacted law, proposed legislation, and regulatory guidance. If certain implementation details remain subject to future rulemaking, explicitly note this uncertainty and identify the responsible agency and anticipated timeline for clarification.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "energy"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.428776",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:48:44.757069Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating skill documentation for climate legislation summaries**
+
+I'm producing a concise SKILL.md focused on summarizing climate change legislation with a simplified slug and structured content that includes a clear description, trigger keywords, numbered prerequisites, output process with tables and checklists, guidelines emphasizing citation placeholders, and section templates without actual legal citations. This will ensure clear guidance for generating and validating comprehensive climate legislation summaries.
+thinking
+**Drafting comprehensive climate legislation SKILL.md**
+
+I'm structuring the skill doc with frontmatter including concise slug and metadata, a third-person description, and a clear one-line purpose. It features numbered prerequisites, a numbered multi-step output process paired with a markdown table outlining required sections and content notes, plus detailed checklists for key legislative topics. A markdown code block presents the summary template while guidelines cover source verification, citation labeling, jurisdiction notes, length limits, and terminology use—ensuring clarity and reproducibility without external links or policy advocacy.
+codex
+---
+name: climate-legislation-summary
+description: Produces structured summaries of climate change legislation with citations and compliance impact analysis, covering jurisdiction, authority, carbon pricing or emissions controls, targets, reporting, enforcement, incentives, and business implications. Use for climate legislation summaries, carbon tax, cap-and-trade, emissions targets, renewable mandates, adaptation requirements, and international climate agreements.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Climate Change Legislation Summary
+
+Creates a structured, citation-ready summary of climate change laws for compliance and policy analysis.
+
+## Prerequisites
+
+1. Final text of the statute/regulation/treaty or official versioned source
+2. Jurisdiction and enacting authority
+3. Effective date(s), amendments, and current status (enacted, proposed, in force)
+4. Any implementing regulations or guidance, if applicable
+5. Target industry or client context (optional but preferred)
+
+## Output Structure / Process
+
+### Required Sections (Table)
+
+| Section | Required Content | Notes |
+| --- | --- | --- |
+| Citation & Status | Full legal citation; instrument type; enactment/entry-into-force date; amendments; current status | Mark proposed vs enacted |
+| Scope & Authority | Jurisdiction, regulator, covered entities, geographic scope | Identify federal/state/international |
+| Executive Overview | 3–4 sentences on purpose, mechanisms, intended outcomes | Plain language |
+| Core Provisions | Key obligations, thresholds, timelines, exemptions | Cite sections |
+| Compliance & Reporting | Monitoring, MRV, verification, registry, reporting cadence | Note deadlines |
+| Enforcement | Oversight body, penalties, inspections, private rights | Include penalty ranges if specified |
+| Business Impacts | Sectors most affected, costs, transition periods, incentives | Quantify if sources allow |
+| Implementation Notes | Required permits, pending rulemaking, guidance gaps | Identify agency |
+| Legal Considerations | Preemption, litigation, constitutional issues, sunset/review | Cite docket if known |
+| Forward Look | Proposed amendments, expected rulemakings, policy fit | Distinguish speculation |
+| Glossary | Define key technical terms used | 1–2 lines each |
+
+### Core Provisions Checklist
+
+- Covered entities (sector, size, emissions threshold)
+- GHG scope coverage (Scope 1/2/3 if applicable)
+- Baseline year and reduction targets
+- Compliance deadlines and phase-in schedule
+- Allowable compliance pathways (offsets, trading, credits)
+- Exemptions and de minimis thresholds
+- Data collection and reporting requirements
+
+### Carbon Pricing Addendum (if applicable)
+
+- Mechanism type (tax, cap-and-trade, hybrid)
+- Rate or cap formula, escalation schedule
+- Covered emissions sources and exemptions
+- Revenue allocation and rebates
+- Border adjustments or leakage provisions
+- Registry or market infrastructure
+- Price collar, floor, or ceiling rules
+
+### International Agreement Addendum (if applicable)
+
+- Binding vs voluntary commitments
+- NDCs or equivalent commitments
+- Finance and technology transfer
+- Transparency framework and review cycle
+- Compliance or dispute mechanisms
+
+### Renewable/Adaptation Addendum (if applicable)
+
+- Renewable portfolio standard or mandate details
+- Procurement or credit trading rules
+- Adaptation planning requirements
+- Infrastructure resilience standards
+
+### Summary Template
+
+```text
+Citation & Status:
+Scope & Authority:
+Executive Overview:
+Core Provisions:
+Compliance & Reporting:
+Enforcement:
+Business Impacts:
+Implementation Notes:
+Legal Considerations:
+Forward Look:
+Glossary:
+```
+
+## Guidelines
+
+- Use exact section citations and regulatory references; mark any uncertain citation with [VERIFY].
+- Distinguish enacted law, proposed legislation, and guidance; label each clearly.
+- If a detail is missing, state “Not specified in source.”
+- Keep executive overview to 3–4 sentences; use tables for dense material.
+- Avoid policy advocacy; focus on legal obligations and operational impacts.
+- If multiple jurisdictions are compared, normalize by mechanism type and stringency.
+- Explain technical terms only once in the Glossary, then use consistently.
+tokens used
+2,867

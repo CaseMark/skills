@@ -1,0 +1,45 @@
+{
+  "id": "a495d691-7ad4-4e1d-8b4f-98fbe47fe460",
+  "slug": "risk-assessment-reports",
+  "name": "Risk Assessment Reports",
+  "summary": "Generates comprehensive risk assessment reports evaluating potential legal risks in business scenarios, transactions, or operational decisions. Analyzes likelihood, impact, and mitigation strategies for risks across categories like regulatory compliance, contracts, and litigation. Use it to support informed decision-making for executives and in-house counsel in corporate governance contexts.",
+  "content": "# Risk Assessment Report: Legal and Business Venture Analysis\n\nYou are tasked with preparing a comprehensive Risk Assessment Report that evaluates the potential legal risks associated with a specific business scenario, transaction, or operational decision. This report serves as a critical decision-making tool for executives, in-house counsel, and stakeholders who need to understand both the likelihood and potential impact of legal challenges before proceeding with strategic initiatives.\n\n## Your Objective\n\nAnalyze the provided legal scenario, transaction documents, or business venture details to identify, categorize, and evaluate all material legal risks. Your assessment should enable decision-makers to understand not only what could go wrong, but also the probability of adverse outcomes, the magnitude of potential consequences, and practical mitigation strategies. The report must balance thoroughness with accessibility, presenting complex legal analysis in a format that supports informed business judgment.\n\n## Analytical Framework\n\nBegin by conducting a systematic review of all relevant documentation. If multiple documents have been provided, examine each one thoroughly to extract facts, obligations, representations, and potential areas of legal exposure. Search through contracts, correspondence, regulatory filings, and background materials to identify specific provisions, commitments, or circumstances that could give rise to legal challenges. Pay particular attention to dates, monetary amounts, party obligations, jurisdictional issues, and any language that creates enforceable duties or potential liabilities.\n\nWhen the scenario involves novel legal questions or recent regulatory developments, supplement your document analysis with current legal research. Investigate relevant case law, statutes, and regulatory guidance that could affect the risk profile. Verify that your understanding of applicable legal standards reflects the most current state of the law, particularly in rapidly evolving areas such as data privacy, environmental regulation, or emerging technologies.\n\n## Risk Identification and Categorization\n\nStructure your analysis around distinct risk categories that are relevant to the specific scenario. Common categories include regulatory compliance risks, contractual liability exposure, litigation probability, intellectual property vulnerabilities, employment and labor law concerns, tax implications, and reputational or governance risks. For each identified risk, provide concrete analysis rather than generic observations. Reference specific contractual provisions, statutory requirements, or factual circumstances that create the exposure.\n\nEvaluate both the likelihood and potential impact of each risk using a clear framework. Likelihood should consider factors such as the strength of legal precedent, the clarity of applicable rules, the track record of enforcement in the relevant jurisdiction, and any specific facts that increase or decrease probability. Impact assessment should address potential financial exposure, operational disruption, regulatory sanctions, reputational harm, and strategic consequences. Where possible, quantify potential damages, penalties, or costs, while acknowledging uncertainties and ranges.\n\n## Contextual and Strategic Considerations\n\nYour assessment should reflect an understanding of the broader business context. Consider how the identified risks interact with the organization's strategic objectives, risk tolerance, competitive position, and operational capabilities. Some legally significant risks may be commercially acceptable given the potential rewards, while others may be deal-breakers regardless of upside potential. Address how timing, market conditions, or stakeholder relationships might influence both the probability and consequences of legal challenges.\n\nIdentify any gaps in available information that limit the precision of your risk assessment. If critical facts are unknown, key documents are unavailable, or legal standards remain unsettled, explicitly note these limitations and explain how they affect your conclusions. Recommend specific due diligence steps, expert consultations, or additional research that could refine the risk analysis.\n\n## Mitigation and Recommendations\n\nFor each material risk, propose practical mitigation strategies. These might include contractual protections, structural modifications to the transaction, compliance protocols, insurance coverage, regulatory approvals, or alternative approaches that achieve business objectives with reduced legal exposure. Evaluate the feasibility, cost, and effectiveness of each mitigation option, recognizing that some risks can be eliminated, others can be reduced, and some must simply be accepted and managed.\n\nConclude with clear, actionable recommendations that synthesize your analysis. These should directly address the decision at hand, whether that involves proceeding with a transaction, modifying terms, seeking additional protections, or declining to move forward. Your recommendations should be calibrated to the organization's apparent risk tolerance while ensuring decision-makers understand the full scope of potential legal consequences.\n\n## Deliverable Format\n\nPresent your Risk Assessment Report in a professional format suitable for executive review. Begin with an executive summary that captures the most critical risks and key recommendations in concise, accessible language. Organize the detailed analysis into logical sections with clear headings that allow readers to navigate to areas of particular concern. Use tables or matrices where appropriate to present risk ratings, likelihood-impact assessments, or comparison of mitigation options. Ensure that all factual assertions are supported by specific references to source documents, and that legal conclusions are grounded in applicable authority. The final report should be comprehensive enough to support informed decision-making while remaining focused on material risks rather than theoretical or remote possibilities.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

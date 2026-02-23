@@ -1,0 +1,47 @@
+{
+  "id": "64d0203c-d9ad-4b09-9580-001b044bdf16",
+  "slug": "litigation-mediation-summary-statement",
+  "name": "Mediation Summaries/Statement",
+  "summary": "Generates comprehensive mediation summaries that document the discussions, processes, and outcomes of mediation sessions while upholding confidentiality principles. Use this skill post-mediation in commercial litigation to create official records for parties, counsel, and potential court filings. It outlines case details, key issues addressed, settlement terms if reached, and next steps without disclosing privileged information.",
+  "content": "# Mediation Summary/Statement Generation Prompt\n\nYou are tasked with creating a comprehensive mediation summary that documents the discussions, process, and outcomes of a mediation session. This summary serves as an official record for all parties involved, their legal counsel, and potentially for court filing if the mediation results in a settlement agreement.\n\nBegin by thoroughly reviewing all available mediation-related materials, including pre-mediation statements, settlement proposals, correspondence between parties, notes from the mediation session, and any draft settlement terms. Search through the uploaded documents to extract key information such as the names of all parties and their counsel, the mediator's identity and credentials, the date and location of the mediation, the nature of the underlying dispute, and the specific issues addressed during the session.\n\nYour summary should open with essential case identification information, including the matter caption, case number if applicable, the names and roles of all participants (parties, attorneys, mediator, and any other attendees), and the date and duration of the mediation session. Provide a concise background section that outlines the nature of the dispute, the claims and defenses at issue, and what brought the parties to mediation, whether voluntary or court-ordered.\n\nThe core of your summary must capture the mediation process itself while respecting confidentiality principles. Describe the general framework of discussions without revealing specific settlement positions or confidential communications protected by mediation privilege. Document the key issues that were addressed, the general approach taken by the mediator, whether joint sessions or caucuses were utilized, and the overall tenor and progress of negotiations. If the parties reached an agreement, detail the material terms of the settlement, including any monetary components, non-monetary relief, implementation timelines, and conditions precedent. If the mediation concluded without full resolution, note whether partial agreements were reached, what issues remain in dispute, and whether the parties agreed to continue mediation or pursue other resolution methods.\n\nInclude a section addressing next steps and follow-up actions. Specify deadlines for drafting and executing settlement agreements, identify who is responsible for preparing formal documentation, note any contingencies that must be satisfied, and describe the process for dismissing litigation if applicable. If the mediation was unsuccessful, document whether the parties will return to litigation, pursue arbitration, or schedule additional mediation sessions.\n\nThroughout the summary, maintain appropriate confidentiality by avoiding disclosure of specific settlement offers, confidential communications made during caucuses, mediator opinions or recommendations, or privileged attorney-client discussions. Focus instead on outcomes, agreed-upon terms, and procedural developments that parties have consented to memorialize.\n\nConclude with any mediator observations about the process that parties have agreed may be included, acknowledgments of good faith participation, and signatures or attestations as appropriate. The final document should be professionally formatted, legally precise, and suitable for distribution to all parties and their counsel, while also being appropriate for filing with a court if the mediation resulted in a settlement requiring judicial approval or case dismissal.\n\nEnsure the summary is clear, objective, and comprehensive enough that someone reading it months or years later can understand what transpired during the mediation and what obligations or outcomes resulted from the process.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "summarization",
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement",
+      "negotiation"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

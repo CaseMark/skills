@@ -1,0 +1,287 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c83-d934-7642-93b9-1771bcd6e19e
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "05d46acc-10c3-4770-b1f7-4d7c0d1a132a",
+  "slug": "insurance-policy-summaries",
+  "name": "Insurance Policy Summaries",
+  "summary": "Analyzes insurance-related documents including policies, endorsements, claims files, and correspondence to generate comprehensive, structured summaries. Highlights key coverage provisions, exclusions, timelines, claim details, and potential disputes for insurance litigation and coverage disputes. Use it to enable quick assessment of policy terms, claim merits, and litigation strategies without reviewing full documentation.",
+  "content": "# Insurance Policy Summaries: Comprehensive Document Analysis and Claims Overview\n\nYou are tasked with creating a thorough, professional summary of insurance-related documents and claims. This workflow is essential for legal professionals handling insurance litigation, coverage disputes, policy reviews, subrogation matters, and claims evaluation. Your summary will enable attorneys to quickly understand policy terms, coverage limits, exclusions, claim histories, and potential areas of dispute without reviewing hundreds of pages of dense insurance documentation.\n\n## Your Objective\n\nAnalyze all provided insurance documents\u2014including policies, endorsements, declarations pages, claim files, correspondence, adjuster reports, and related materials\u2014to produce a clear, organized summary that highlights key coverage provisions, claim details, parties involved, timelines, amounts at issue, and critical legal considerations. The summary should serve as a comprehensive reference document that allows legal teams to assess coverage positions, identify gaps or ambiguities, evaluate claim merit, and develop litigation or negotiation strategies.\n\n## Analysis Approach\n\nBegin by conducting a complete review of all uploaded insurance documents to extract concrete information including policy numbers, effective dates, coverage limits, deductibles, named insureds, additional insureds, policy language regarding covered perils and exclusions, and any endorsements that modify standard terms. For claims-related documents, identify the date of loss, claimant information, claimed damages or injuries, reserve amounts, payments made, denial letters, and the insurer's stated basis for any coverage determination. Search the documents systematically to ensure you capture all relevant facts, including specific policy provisions that may be disputed, correspondence that establishes notice or reservation of rights, and any expert reports or evaluations that bear on coverage or damages.\n\nWhen multiple policies are involved, clearly distinguish between primary and excess coverage, identify any coordination of benefits provisions, and note potential coverage gaps or overlaps. Pay particular attention to conditions precedent, notice requirements, cooperation clauses, and other policy provisions that could affect coverage. If claim files are included, trace the chronology of the claim from initial report through investigation, evaluation, and resolution or denial.\n\n## Required Summary Components\n\nYour summary must be structured to provide both high-level overview and detailed reference information. Open with an executive summary that captures the essential facts in two to three paragraphs: what policies are at issue, what event or loss triggered the claim, what coverage is being sought or disputed, and what the current status is. Follow this with detailed sections organized logically.\n\nCreate a section on Policy Information that lists each relevant policy with its insurer, policy number, period of coverage, named insured, coverage types and limits, applicable deductibles or self-insured retentions, and key endorsements. Include a section on Coverage Analysis that identifies the specific policy provisions relevant to the claim, noting the insuring agreement language, applicable exclusions, conditions, and definitions that may be disputed. Quote critical policy language verbatim when it is central to coverage determination.\n\nDevelop a Claims History section that chronologically presents the loss event, notice to insurers, investigation activities, coverage positions taken by insurers, any reservation of rights or denial letters, amounts paid or reserved, and current claim status. Identify all parties involved including insureds, claimants, adjusters, coverage counsel, and experts. Include a section on Legal Issues and Considerations that highlights potential coverage disputes, ambiguities in policy language, notice or cooperation issues, bad faith concerns, or other legal questions that may arise.\n\n## Format and Presentation Standards\n\nPresent your summary in clear, professional prose using section headings and subheadings to organize information logically. Use tables or structured lists only when presenting multiple policies, coverage limits, or chronological claim events where such format enhances clarity. Cite to specific documents and page numbers when referencing policy provisions, correspondence, or claim file materials so that attorneys can quickly locate source materials. Maintain objectivity in your analysis, presenting facts and identifying issues without advocating for a particular coverage position unless specifically instructed to do so.\n\nEnsure that all monetary amounts are clearly stated with dates, all parties are properly identified with their roles, and all relevant dates are captured accurately. Flag any missing information that would be material to coverage analysis, such as gaps in claim documentation, unclear policy language, or absent endorsements referenced in declarations pages. Your summary should be comprehensive enough that a legal professional unfamiliar with the matter can understand the insurance landscape and key issues after reading it.\n\n## Legal and Professional Considerations\n\nInsurance policies are contracts of adhesion interpreted under state-specific rules that often favor coverage and construe ambiguities against the insurer. Be alert to policy language that may be subject to varying interpretations, particularly regarding scope of coverage, exclusion applicability, and conditions precedent. Note any choice of law provisions in the policies as coverage interpretation may vary significantly by jurisdiction. Consider whether any claims implicate multiple policies across different periods, triggering allocation issues or disputes over which policy responds.\n\nBe mindful of confidentiality and privilege concerns when summarizing claim files that may contain attorney work product or communications with coverage counsel. Identify any documents that appear to be privileged so they can be handled appropriately. When bad faith or extra-contractual liability may be at issue, note insurer conduct that could be relevant including investigation adequacy, timeliness of coverage decisions, and reasonableness of claim handling.\n\nThis summary serves as a critical tool for case evaluation, coverage negotiation, motion practice, and trial preparation in insurance matters. Your thorough, accurate, and well-organized analysis will enable legal teams to make informed strategic decisions and provide sound advice to clients regarding insurance coverage and claims.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:59:37.845223Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating insurance-policy-summary skill**
+
+I'm defining the "insurance-policy-summary" skill with a clear title and third-person description including trigger keywords. The skill metadata uses capitalized keys with specified practice areas, document types, and skill modes. The structure covers key sections like executive summary, policy table, endorsements, and more, including templates and guidelines emphasizing confidentiality, privilege, compliance, and choice of law. Prerequisites use a numbered list; checklists use flat bullet lists; tables support output formatting.
+thinking
+**Drafting skill description with triggers**
+
+I'm incorporating trigger keywords like "policy summary," "coverage analysis," and "claims file," and including references to insuring agreement, exclusions, and conditions precedent. The description advises quoting key language verbatim with placeholders for document citations, marking uncertain citations with [VERIFY], while avoiding statutory references. This keeps the content concise and focused.
+codex
+---
+name: insurance-policy-summary
+description: Produces structured summaries of U.S. insurance policies, endorsements, claims files, and coverage correspondence, highlighting key terms, limits, exclusions, conditions, timelines, and dispute points for coverage analysis and insurance litigation. Use when summarizing policies, endorsements, declarations, claims files, reservation of rights letters, denial letters, or coverage disputes; trigger keywords: policy summary, coverage analysis, claims file, reservation of rights, denial letter, insurance litigation, coverage dispute.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Analysis
+    - Summarization
+---
+
+# Insurance Policy Summary
+
+Deliver a litigation-grade, source-cited summary of policy terms and claim handling that supports coverage strategy.
+
+## Prerequisites
+
+1. All policies, endorsements, declarations pages, and schedules
+2. Claims file materials and correspondence (notice, ROR, denial, coverage positions)
+3. Loss facts and timeline (date of loss, claimant, damages)
+4. Jurisdiction and choice-of-law indicators (policy clause, venue)
+
+## Output Structure / Process
+
+Executive Summary (2-3 short paragraphs)
+- Policies at issue and coverage posture
+- Triggering event/loss and claim status
+- Primary disputes or ambiguities
+
+Policy Inventory (table)
+| Insurer | Policy No. | Period | Named Insured | Coverage Types | Limits | Deductible/SIR | Key Endorsements | Source |
+|---|---|---|---|---|---|---|---|---|
+
+Endorsements and Modifiers (table)
+| Endorsement | Effect on Coverage | Date/Version | Source |
+|---|---|---|---|
+
+Coverage Analysis (checklist)
+- Insuring agreement(s) relevant to the claim
+- Definitions that control scope of coverage
+- Exclusions potentially invoked
+- Conditions precedent and compliance issues
+- Other insurance / priority, primary vs. excess
+- Allocation issues across policy periods
+- Quote critical policy language verbatim with pinpoint cite
+
+Claims History (chronology table)
+| Date | Event | Actor | Amount | Coverage Position | Source |
+|---|---|---|---|---|---|
+
+Parties and Roles (table)
+| Party | Role | Relationship | Source |
+|---|---|---|---|
+
+Financials (table)
+| Type | Amount | Date | Notes | Source |
+|---|---|---|---|---|
+Types: Reserves, Payments, Demand, Estimate, Exposure
+
+Coverage Positions (table)
+| Position | Basis | Policy Provision | Communicated By | Date | Source |
+|---|---|---|---|---|---|
+
+Legal Issues and Dispute Drivers (checklist)
+- Ambiguity points and competing interpretations
+- Notice, cooperation, and prejudice issues
+- Bad faith / extra-contractual exposure indicators
+- Choice-of-law implications for interpretation
+- Subrogation, contribution, or allocation disputes
+
+Gaps and Missing Information (checklist)
+- Missing endorsements or schedules referenced
+- Unclear or absent policy periods
+- Incomplete claims file segments
+- Unverified loss facts or damages
+
+Source Map
+- Document name + page/paragraph for each quoted or key fact
+
+## Guidelines
+
+- Stay neutral; do not advocate a coverage position unless instructed.
+- Pinpoint cite every key term, exclusion, condition, and coverage position.
+- Flag privilege or work-product materials without summarizing content.
+- Distinguish primary vs. excess and identify overlap or gaps.
+- Use jurisdiction-specific interpretation only when identified in the documents.
+- Mark any uncertain authority as `[VERIFY]`.
+tokens used
+2,890

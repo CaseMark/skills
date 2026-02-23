@@ -1,0 +1,442 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-1051-75f3-8e52-f7093037993f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "dcd257b8-f4d0-45dc-931d-3383ed41cfb7",
+  "slug": "consumer-loan-agreement-tila-compliant",
+  "name": "Consumer Loan Agreement (TILA Compliant)",
+  "summary": "Drafts a comprehensive Consumer Loan Agreement fully compliant with TILA and Regulation Z requirements. Ensures prominent federal disclosures, accurate calculations, and enforceable terms balancing lender and borrower interests. Use for consumer finance transactions requiring precise regulatory adherence.",
+  "content": "# Consumer Loan Agreement (TILA Compliant) - Enhanced Legal Drafting Prompt\n\nYou are an expert legal document drafting assistant specializing in consumer finance law, with deep expertise in Truth in Lending Act (TILA) compliance under 15 U.S.C. \u00a7 1601 et seq. and Regulation Z (12 CFR Part 1026). Your mission is to draft a comprehensive, legally enforceable Consumer Loan Agreement that satisfies all federal disclosure requirements mandated by the Consumer Financial Protection Bureau while protecting the legitimate interests of both lender and borrower.\n\n## Initial Information Gathering and Document Review\n\nBefore beginning the drafting process, conduct a thorough review of any documents the user has provided that may contain relevant transaction details, party information, loan terms, or institutional requirements. Search through uploaded materials to identify concrete facts including borrower names and addresses, lender entity information, principal loan amounts, interest rates, payment schedules, collateral descriptions, and any special terms or conditions that must be incorporated into the agreement. Extract specific numerical values, dates, legal entity names, and regulatory requirements that appear in source materials, ensuring you capture exact figures and proper legal designations as they will be critical to TILA compliance.\n\nIf the user's documents contain partial information or reference other institutional forms, templates, or policies, identify what additional details you need to request from the user to complete a fully compliant agreement. The TILA disclosure box requires precise calculations and specific dollar amounts that must be mathematically accurate and presented in the exact format prescribed by Regulation Z.\n\n## Regulatory Framework and Compliance Architecture\n\nThe agreement must be structured to present all material terms in clear, conspicuous language using the specific terminology mandated by Regulation Z. Every disclosure must be accurate to within the tolerance thresholds established by federal law, complete in its presentation of all required elements, and formatted in a manner that enables the borrower to make a fully informed credit decision. The document architecture should segregate the mandatory TILA disclosures in a prominent disclosure box that appears before any other contractual provisions, followed by comprehensive loan terms and conditions, default and remedies provisions, and execution formalities.\n\nBalance regulatory compliance with practical enforceability by ensuring that consumer protection disclosures are presented with maximum clarity while contractual obligations are defined with sufficient specificity to be legally binding and enforceable in the applicable jurisdiction. Consider state law variations that may impose additional disclosure requirements, interest rate limitations, or restrictions on remedies such as prepayment penalties or deficiency judgments.\n\n## Federal Truth in Lending Disclosure Box Construction\n\nCreate the mandatory TILA disclosure box with the heading \"FEDERAL TRUTH IN LENDING DISCLOSURES\" displayed in bold, conspicuous text at least two points larger than the body text of the agreement. This disclosure section must be visually segregated from other provisions through the use of borders, shading, or substantial white space, and must appear on the first page of the agreement before any other contractual terms.\n\nWithin this disclosure box, present each required disclosure element using the exact label prescribed by Regulation Z, followed by the corresponding value. For the lender identification, provide the complete legal name of the lending institution exactly as it appears in regulatory filings, including any \"doing business as\" designations, along with the complete physical address where the lender conducts business and primary contact information for borrower inquiries. Verify this information matches the entity's registration with applicable state and federal regulatory authorities.\n\nFor borrower identification, list the complete legal name of each individual or entity assuming the debt obligation, including all co-borrowers and guarantors if the transaction structure requires them. Include current residential addresses and ensure the names will match government-issued identification documents that will be verified at closing.\n\nCalculate and disclose the Amount Financed as the net amount of credit extended to or on behalf of the borrower, representing the principal sum after deducting any prepaid finance charges. This figure must reflect the actual amount the borrower will receive or that will be paid on their behalf, excluding the finance charge but including any amounts financed for ancillary products such as credit insurance or debt protection products if the borrower has elected such coverage. Present this with the label \"Amount Financed (The amount of credit provided to you or on your behalf)\" followed by the specific dollar amount.\n\nCompute the Finance Charge as the total dollar cost of credit over the complete life of the loan, encompassing all interest charges calculated using the agreed-upon rate and payment schedule, plus all loan origination fees, points, service charges, document preparation fees, and any other charges imposed as a condition of extending credit. Itemize the major components of the finance charge in a manner that allows the borrower to understand what costs are included in this comprehensive figure. Present this with the label \"Finance Charge (The dollar amount the credit will cost you)\" followed by the total dollar amount.\n\nCalculate the Annual Percentage Rate with precision using the actuarial method or United States Rule method as prescribed in Regulation Z, ensuring the calculation reflects the true relationship between the finance charge and the amount financed over the full term of the loan, accounting for the timing of all payments. The APR must be accurate within the tolerance thresholds established by Regulation Z\u2014generally within one-eighth of one percentage point for regular transactions. Present this with the label \"Annual Percentage Rate (The cost of your credit as a yearly rate)\" followed by the percentage carried to at least two decimal places.\n\nDisclose the Total of Payments as the sum of all scheduled payments the borrower will make if all payments are made exactly as agreed, representing the amount financed plus the finance charge. Present this with the label \"Total of Payments (The amount you will have paid after you have made all payments as scheduled)\" followed by the specific dollar figure.\n\nProvide a detailed Payment Schedule that specifies the number of payments, the amount of each payment, and the due dates or timing of all payments. For loans with uniform payment amounts, state the number of payments and the amount of each payment along with the payment frequency. For loans with irregular payment amounts, balloon payments, or variable timing, provide a complete schedule in tabular format showing each payment amount and its specific due date. Include the date of the first payment and clearly describe the payment frequency using terms such as \"monthly,\" \"bi-weekly,\" or \"quarterly.\" Present this information with the heading \"Payment Schedule (Your payment schedule will be)\" followed by either a narrative description for uniform payments or a detailed table for irregular payments.\n\n## Substantive Loan Terms and Contractual Provisions\n\nFollowing the TILA disclosure box, draft comprehensive contractual provisions that establish the legal relationship between lender and borrower and govern the performance of the loan transaction. Begin with a clear statement of the loan transaction, identifying the parties by their full legal names and stating the fundamental promise: the lender agrees to extend credit in the amount financed, and the borrower agrees to repay that amount plus the finance charge according to the payment schedule, all as disclosed in the Federal Truth in Lending Disclosures above.\n\nIf the loan purpose is relevant to the agreement's terms or required to be disclosed under applicable state law, include a clear statement of the loan purpose such as \"This loan is being extended for personal, family, or household purposes\" or specify the particular purpose if relevant to enforceability or regulatory classification.\n\nAddress prepayment rights with absolute clarity by stating whether the borrower may satisfy the loan obligation before the scheduled maturity date without incurring any penalty or premium. If prepayment is permitted without penalty, include affirmative language such as \"You have the right to prepay the principal amount outstanding under this Agreement at any time, in whole or in part, without incurring any penalty, premium, or additional charge beyond accrued interest to the date of prepayment. If you prepay the loan in full, you will not be entitled to a refund of any portion of the precomputed finance charge except as may be required by applicable law, and any refund will be calculated using the actuarial method.\"\n\nIf the agreement includes a prepayment penalty, disclose this fact with conspicuous prominence, specifying the exact conditions under which the penalty applies, the duration of the prepayment penalty period, the method for calculating the penalty amount, and the maximum penalty that could be assessed. Ensure any prepayment penalty complies with state law limitations, as many jurisdictions prohibit or restrict prepayment penalties on consumer loans, particularly for loans secured by residential real property.\n\nEstablish late charge provisions by specifying the exact amount or percentage that will be assessed if a payment is not received by its due date, along with any grace period that applies before the late charge is imposed. State with precision the number of days after the payment due date before which a late charge will not be assessed, typically between ten and fifteen days. Ensure the late charge amount complies with state law limitations and represents a reasonable estimate of the administrative costs associated with handling delinquent payments rather than a penalty. For example: \"If we do not receive any payment within 10 days after its scheduled due date, you agree to pay a late charge equal to 5% of the unpaid portion of the scheduled payment or $25, whichever is less. We will assess this late charge only once for each late payment, and the late charge will not be compounded or assessed on subsequent payments unless those payments are also late.\"\n\nIf the loan is secured by collateral, provide a comprehensive description of the security interest and the collateral that secures the borrower's repayment obligation. For personal property collateral, include the make, model, year, serial number or vehicle identification number, and current location of the property. For real property collateral, include the complete legal description as it appears in the relevant deed or title document, along with the common street address. State clearly that the borrower grants to the lender a security interest in the described collateral and that the lender retains all rights necessary to perfect and enforce that security interest under the Uniform Commercial Code or applicable real property law. Include the borrower's affirmative covenants to maintain the collateral in good condition, keep it free from other liens and encumbrances, maintain required insurance coverage, and not sell, transfer, or dispose of the collateral without the lender's prior written consent.\n\nIf the loan is unsecured, include an affirmative statement such as \"This is an unsecured loan. You are not providing any collateral or security interest to secure your repayment obligation. The lender's remedies in the event of default are limited to those available for unsecured debt under applicable law.\"\n\n## Default, Acceleration, and Remedies Provisions\n\nDraft comprehensive default provisions that specify with particularity what events or conditions constitute a default beyond the obvious failure to make timely payments. Include as events of default the borrower's failure to maintain required insurance on collateral, the borrower's bankruptcy or insolvency, any material misrepresentation in the loan application, the borrower's death if the loan is not structured to survive, and any impairment of the collateral or the lender's security interest. State that upon the occurrence of any event of default, the lender may, at its option and subject to any notice requirements imposed by applicable law, declare the entire unpaid balance of principal and accrued interest immediately due and payable.\n\nAddress any state law requirements for notice of default and opportunity to cure before acceleration, specifying the exact notice period required and the method of delivery that will be used. Include language preserving the lender's right to pursue all available remedies under applicable law, including the right to repossess and sell collateral in a commercially reasonable manner, pursue deficiency judgments to the extent permitted by state law, and recover reasonable attorneys' fees and costs of collection if state law allows such recovery.\n\nIf the loan is secured by collateral, include detailed provisions governing the lender's rights upon default, including the right to take possession of the collateral with or without judicial process to the extent permitted by law, the right to sell the collateral at public or private sale after providing any notice required by the Uniform Commercial Code, and the application of sale proceeds first to the costs of repossession and sale, then to accrued interest, then to principal, with any surplus to be returned to the borrower and any deficiency to remain the borrower's obligation.\n\n## Insurance, Payment Application, and Additional Covenants\n\nInclude provisions requiring the borrower to maintain comprehensive insurance coverage on any collateral securing the loan, specifying the minimum coverage amounts and types required, such as collision and comprehensive coverage for vehicle collateral or hazard insurance for real property collateral. State that the borrower must name the lender as loss payee or additional insured on all insurance policies and provide proof of insurance to the lender upon request.\n\nAddress the lender's right to place force-placed insurance if the borrower fails to maintain required coverage, specifying that the cost of such insurance will be added to the borrower's loan balance and that force-placed insurance may be more expensive than insurance the borrower could obtain independently. Include language allowing the lender to advance funds to pay insurance premiums or property taxes on collateral and add such advances to the principal balance.\n\nSpecify how payments will be applied by stating the order of application, such as \"We will apply each payment you make first to any unpaid late charges, then to accrued but unpaid interest, then to principal, and finally to any other charges or fees you owe under this Agreement.\" This payment application hierarchy can significantly affect the borrower's total cost of credit and should be clearly disclosed.\n\nInclude any additional borrower covenants relevant to the transaction, such as the obligation to pay all taxes and assessments on collateral, to comply with all laws and regulations affecting the collateral, to permit the lender to inspect the collateral upon reasonable notice, and to notify the lender immediately of any change in the borrower's address, employment status, or financial condition that might affect the ability to repay the loan.\n\n## Special Notices and Regulatory Acknowledgments\n\nInclude any notices required by federal or state law beyond the TILA disclosures. If the borrower is or may be a servicemember, include a notice regarding rights under the Servicemembers Civil Relief Act, such as \"If you are a servicemember on active duty, you may be entitled to certain protections under the Servicemembers Civil Relief Act, including a potential reduction in interest rate to 6% per annum for obligations incurred before active duty. Please contact us if you are called to active duty.\"\n\nIf the transaction involves a co-signer or guarantor who is not receiving the proceeds of the loan, include the Federal Trade Commission's required co-signer notice in substantially the following form: \"You are being asked to guarantee this debt. Think carefully before you do. If the borrower does not pay the debt, you will have to. Be sure you can afford to pay if you have to, and that you want to accept this responsibility. You may have to pay up to the full amount of the debt if the borrower does not pay. You may also have to pay late fees or collection costs, which increase this amount.\"\n\nIf state law requires specific notices regarding the borrower's rights, remedies, or the consequences of default, incorporate those notices verbatim as required by statute. For example, some states require specific language regarding the borrower's right to cure a default, the lender's obligation to provide notice before repossession, or the borrower's right to redeem collateral after repossession.\n\n## Execution Formalities and Document Completion\n\nConclude the agreement with appropriate execution provisions that create a legally binding contract. Include a clear acknowledgment statement immediately above the signature lines stating: \"By signing below, I/we acknowledge that I/we have received a completed copy of this Consumer Loan Agreement, including the Federal Truth in Lending Disclosures set forth above. I/we have read and understand all terms and conditions of this Agreement, have had the opportunity to ask questions and seek independent legal advice, and agree to be bound by all provisions contained in this Agreement.\"\n\nProvide signature blocks for each borrower with spaces for printed legal name, signature, and date of execution. If the transaction involves co-borrowers, include separate signature blocks for each co-borrower with identical acknowledgment language. If a guarantor or co-signer is involved, include a separate signature block with appropriate guaranty language and the required FTC co-signer notice.\n\nInclude a lender acknowledgment section with a signature block for an authorized officer of the lending institution, along with a space for the officer's printed name and title. Add a statement that the lender will provide the borrower with a complete copy of the executed agreement immediately upon signing.\n\n## Formatting, Presentation, and Final Quality Control\n\nPresent the entire agreement in a clear, professional format using a readable font no smaller than 10-point type for body text. Use bold or larger type for all section headings and for the TILA disclosure box to ensure conspicuousness. The TILA disclosure box should use at least 12-point bold type for the heading and 10-point type for the disclosure content, with adequate spacing between disclosure items to enhance readability.\n\nEnsure the document includes adequate white space and logical organization with clear section breaks and numbered or lettered provisions to facilitate reference. Number all pages consecutively and include a header or footer on each page identifying the document as \"Consumer Loan Agreement\" along with the borrower's name and the date of execution.\n\nVerify that all mathematical calculations are accurate, including the Amount Financed, Finance Charge, APR, Total of Payments, and payment schedule amounts. Ensure that the APR calculation complies with Regulation Z methodology and falls within acceptable tolerance levels. Cross-reference all dollar amounts and percentages to ensure consistency throughout the document.\n\nReview the completed agreement to confirm that it contains all provisions necessary for a legally enforceable consumer loan agreement that fully complies with TILA and Regulation Z requirements, incorporates all relevant state law provisions, and is suitable for execution without further modification. The final document should be comprehensive, clear, and ready for presentation to the borrower for review and signature.",
+  "parent_skill_id": "b5ab7115-707e-4537-ad00-f8dc8fa8fb69",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "financial_services"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement",
+      "contract"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "financial_services"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:14.912397",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:50:02.272078Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating concise skill markdown**
+
+I'm preparing the SKILL.md content with a concise slug "consumer-loan-agreement-tila" and including a third-person description with relevant trigger keywords. The skill will cover TILA requirements including key regulations, APR accuracy (marked with [VERIFY] if uncertain), prepayment penalties, required disclosures like FTC cosigner notice and SCRA notice, as well as a state law disclaimer. The output will feature structured sections with templates, tables, and checklists focusing on calculation fields, disclosure box formatting, and standard clauses, ensuring the TILA disclosure box precedes other terms.
+thinking
+**Finalizing skill markdown structure and content**
+
+I'm defining the SKILL.md with YAML frontmatter including metadata and a third-person description with key trigger keywords related to TILA and consumer loans. The skill uses numbered prerequisites and single-level checklists, avoiding nested bullets. The output features a "Section order" table listing required sections, code-block templates for the disclosure box and payment schedule with exact Reg Z labels, and a calculation checklist. Guidelines note state law variance, consumer-only scope, and marks uncertain citations with [VERIFY]. This ensures clean, structured, and compliant drafting guidance consistent with directions.
+codex
+---
+name: consumer-loan-agreement-tila
+description: Drafts U.S. closed-end consumer loan agreements with Truth in Lending Act (TILA) and Regulation Z disclosures, including APR, finance charge, amount financed, total of payments, and payment schedule, plus enforceable default, security, and notice terms. Use when drafting consumer loan agreements, promissory notes with TILA boxes, or lender-borrower credit contracts. Trigger keywords: TILA, Regulation Z, Truth in Lending, APR, finance charge, amount financed, payment schedule, consumer loan agreement.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+    - Contract
+  skill_modes:
+    - Drafting
+---
+
+# Consumer Loan Agreement (TILA)
+
+Produce a closed-end consumer loan agreement with a compliant TILA disclosure box and enforceable loan terms.
+
+## Prerequisites
+
+1. **Parties** — legal names, entity types, addresses, and authorized signers for lender and all borrowers/co-borrowers.
+2. **Loan economics** — principal, interest rate, term, payment frequency, first payment date, fees, and any prepaid finance charges.
+3. **Security** — collateral description or confirmation the loan is unsecured; required insurance details if secured.
+4. **State law** — jurisdiction, caps on late fees/prepayment penalties, notice-to-cure requirements, and any mandated notices.
+5. **Regulatory scope** — confirm closed-end, consumer-purpose credit and whether any special rules apply (mortgage, high-cost, military, etc.).
+
+## Output Structure / Process
+
+**Section Order (strict):**
+
+| Order | Section | Required Content |
+| --- | --- | --- |
+| 1 | TILA Disclosure Box | Conspicuous “FEDERAL TRUTH IN LENDING DISCLOSURES” heading; labeled items; clear segregation; placed before other terms. |
+| 2 | Loan Terms | Promise to pay; purpose statement (consumer purpose); term; payment timing; payment method. |
+| 3 | Prepayment / Late Fees | Right to prepay; penalty terms if any; grace period and late charge formula. |
+| 4 | Security / Collateral | Security interest grant, collateral description, perfection and maintenance covenants. |
+| 5 | Default / Acceleration | Events of default; notice-to-cure; acceleration; remedies. |
+| 6 | Insurance / Advances | Required insurance; loss payee; lender advances and repayment. |
+| 7 | Payment Application | Application order of payments. |
+| 8 | Notices / Regulatory | Co-signer notice (if applicable); SCRA notice (if applicable); state-required notices. |
+| 9 | Execution | Receipt acknowledgement; signatures for borrowers, co-signers, and lender. |
+
+**Disclosure Box Template (place on page 1):**
+```text
+FEDERAL TRUTH IN LENDING DISCLOSURES
+
+Lender: [Legal Name] [DBA if any]
+Address: [Street, City, State, ZIP]
+Contact: [Phone/Email]
+
+Borrower(s): [Full Legal Name(s)]
+Address: [Street, City, State, ZIP]
+
+Amount Financed (The amount of credit provided to you or on your behalf): $[Amount]
+Finance Charge (The dollar amount the credit will cost you): $[Amount]
+Annual Percentage Rate (The cost of your credit as a yearly rate): [APR]%
+Total of Payments (The amount you will have paid after you have made all payments as scheduled): $[Amount]
+
+Payment Schedule (Your payment schedule will be):
+[Either]
+[ ] [Number] payments of $[Amount] due [frequency], beginning [date]
+[Or]
+See schedule below:
+```
+
+**Payment Schedule (use if non-uniform or balloon):**
+```text
+Payment # | Due Date | Amount
+1 | [Date] | $[Amount]
+2 | [Date] | $[Amount]
+...
+N | [Date] | $[Amount]
+```
+
+**Calculation Checklist (must be completed before drafting):**
+- [ ] Amount Financed = principal minus prepaid finance charges plus any financed fees.
+- [ ] Finance Charge includes all charges imposed as a condition of credit.
+- [ ] APR calculated per Regulation Z methodology; accuracy within Reg Z tolerances [VERIFY].
+- [ ] Total of Payments = Amount Financed + Finance Charge.
+- [ ] Payment schedule totals match Total of Payments.
+
+**Key Clause Templates (insert and tailor):**
+
+**Prepayment (no penalty):**
+```text
+You may prepay the unpaid principal at any time, in whole or in part, without penalty. If you prepay in full, you will not receive a refund of any finance charge except as required by law, and any refund will be calculated using the actuarial method.
+```
+
+**Late Charge:**
+```text
+If we do not receive any payment within [X] days after its due date, you will pay a late charge of [Y]% of the unpaid portion of the scheduled payment (or $[Z], whichever is less). One late charge applies per late payment and is not compounded.
+```
+
+**Security Interest (secured loan):**
+```text
+You grant us a security interest in the collateral described below. You will keep it insured, in good condition, and free of other liens, and you will not sell or transfer it without our written consent.
+Collateral: [Full description, serial/VIN, legal description for real property]
+```
+
+**Unsecured Statement (if applicable):**
+```text
+This is an unsecured loan. You are not providing collateral to secure this obligation.
+```
+
+**Default / Acceleration:**
+```text
+Events of default include failure to pay, breach of this Agreement, insolvency or bankruptcy, material misrepresentation, or failure to maintain required insurance. Subject to any required notice and cure period, we may declare the unpaid balance immediately due and pursue all lawful remedies.
+
+Reconnecting... 1/5 (stream disconnected before completion: Incomplete response returned, reason: content_filter)
+
+
+thinking
+**Finalizing slug and metadata details**
+
+Decided on the slug "consumer-loan-agreement-tila" for clarity and completeness, reflecting the agreement type and compliance. Planning a concise third-person description highlighting key triggers like TILA, Regulation Z, APR, and disclosure terms, with capitalized practice areas from legal context.
+thinking
+**Outlining detailed skill instructions and structure**
+
+Established a thorough structure for the skill including a clear title, purpose, prerequisites, section mapping with tables and checklists, required disclosures, and quality guidelines. Planning to deliver all content in SKILL.md raw format, with numbered lists only (no nested bullets), and use code blocks selectively for templates like the disclosure box.
+codex
+---
+name: consumer-loan-agreement-tila
+description: Drafts a U.S. consumer loan agreement with Truth in Lending Act and Regulation Z disclosures, including a compliant disclosure box, APR/finance charge/amount financed calculations, payment schedule, security interest terms, default/remedies, and required notices (e.g., co-signer, SCRA). Use when drafting consumer loan agreements, TILA/Reg Z disclosures, or APR/finance charge disclosure boxes. Trigger keywords: consumer loan agreement, TILA, Regulation Z, Truth in Lending, APR disclosure, amount financed, finance charge, payment schedule, co-signer notice.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+    - Contract
+  skill_modes:
+    - Drafting
+---
+
+# Consumer Loan Agreement (TILA/Reg Z)
+
+Produce a consumer loan agreement with a front‑loaded Federal Truth in Lending disclosure box and enforceable terms.
+
+## Prerequisites
+
+1. **Parties** — full legal names, entity types, addresses, and contact info for lender and all borrowers/co‑borrowers.
+2. **Jurisdiction** — governing state law and any state-specific consumer loan statute or rate cap.
+3. **Loan economics** — principal, interest rate type, term, origination fees, points, prepaid finance charges, and any financed add‑ons.
+4. **Payment mechanics** — first payment date, frequency, number of payments, and whether payments are level or irregular.
+5. **Collateral** — secured or unsecured; if secured, full collateral description and perfection method.
+6. **Fees and penalties** — late charge amount or formula, grace period, prepayment rights or penalties.
+7. **Default/cure rules** — notice requirements and cure periods mandated by state law.
+8. **Insurance** — required coverages, lender as loss payee, and force‑placed insurance policy.
+9. **Co‑signer/guarantor** — whether a non‑borrower guarantor is required.
+10. **Special notices** — SCRA, state‑mandated notices, and any high‑cost loan flags.
+
+## Output Structure / Process
+
+1. **Document map** — use this section order:
+   1. Federal Truth in Lending Disclosures (first page, boxed).
+   2. Loan Terms and Promise to Pay.
+   3. Payment Terms and Application of Payments.
+   4. Prepayment and Late Charges.
+   5. Security Interest and Collateral Covenants (or Unsecured Statement).
+   6. Default, Acceleration, and Remedies.
+   7. Insurance and Taxes (if secured).
+   8. Notices (FTC co‑signer, SCRA, state‑specific).
+   9. Miscellaneous (governing law, notices, assignment, severability).
+   10. Signatures and Acknowledgments.
+
+2. **Federal Truth in Lending Disclosures (boxed, first page)**  
+Use exact labels. Bold, boxed, and visually separated.  
+Template:
+```text
+FEDERAL TRUTH IN LENDING DISCLOSURES
+
+Annual Percentage Rate (The cost of your credit as a yearly rate): [APR %]
+
+Finance Charge (The dollar amount the credit will cost you): $[____]
+
+Amount Financed (The amount of credit provided to you or on your behalf): $[____]
+
+Total of Payments (The amount you will have paid after you have made all payments as scheduled): $[____]
+
+Payment Schedule (Your payment schedule will be):
+- [#] payments of $[____] due [frequency], beginning [date]
+- [or include a table of irregular payments with due dates]
+
+Late Charge: [amount/percent] after [grace period]
+Prepayment: [allowed without penalty / penalty terms]
+Security Interest: [collateral or "none"]
+Insurance: [required/not required; if required, description]
+```
+
+3. **Disclosure calculations table**  
+Provide a table showing inputs and computed outputs.  
+| Field | Calculation/Rule | Inputs Needed |
+| --- | --- | --- |
+| Amount Financed | Principal minus prepaid finance charges plus financed add‑ons | Principal, prepaid finance charges, add‑ons |
+| Finance Charge | Total cost of credit over term | Interest, fees, points, required charges |
+| APR | Actuarial method per Reg Z | Amount financed, payment timing, finance charge |
+| Total of Payments | Amount financed + finance charge | Amount financed, finance charge |
+
+4. **Payment schedule**  
+If irregular or balloon, include a table:  
+| Payment # | Due Date | Amount |
+| --- | --- | --- |
+| 1 | [date] | $[ ] |
+| 2 | [date] | $[ ] |
+
+5. **Core contractual provisions**  
+Include short, enforceable clauses:
+   1. **Promise to Pay** — incorporate amounts from the disclosure box.
+   2. **Payment Application** — late fees → interest → principal → other charges.
+   3. **Prepayment** — clear permission and any penalty mechanics.
+   4. **Late Charges** — specify grace period and cap.
+   5. **Security Interest** — UCC or real property collateral, insurance, maintenance, and disposition restrictions.
+   6. **Unsecured Statement** — if no collateral.
+   7. **Default** — nonpayment, bankruptcy, misrepresentation, collateral impairment, insurance lapse.
+   8. **Acceleration and Remedies** — cure notice if required; repossession/sale if secured; deficiency rules by state.
+
+6. **Notices (insert if applicable)**  
+Use exact statutory text when required.
+   1. **FTC Co‑Signer Notice** [VERIFY]
+   2. **SCRA Notice** (active duty protections) [VERIFY]
+   3. **State‑specific consumer loan notices** (verbatim)
+
+7. **Execution**  
+Borrower acknowledgment of receipt of disclosures, signatures for each borrower and co‑signer, lender signature block.
+
+8. **Quality checks**  
+Confirm all dollar figures and percentages match across the document.  
+Confirm APR tolerance compliance under Reg Z [VERIFY].  
+Confirm all required notices for the governing state are present.
+
+## Guidelines
+
+- Keep the disclosure box first page, boxed, and visually distinct from contract terms.
+- Use exact disclosure labels and consistent numbers across the document.
+- Do not include a prepayment penalty unless allowed by the governing state and transaction type.
+- If secured, ensure collateral description is sufficient for perfection and enforcement.
+- If a co‑signer is used, insert the FTC notice verbatim and place it near the signature block [VERIFY].
+- Flag any missing state‑specific disclosures and pause for confirmation.
+- Mark any uncertain statutory requirements with `[VERIFY]` and request confirmation.
+tokens used
+3,379

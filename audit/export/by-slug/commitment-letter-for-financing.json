@@ -1,0 +1,43 @@
+{
+  "id": "f0850db7-bf33-42da-bc41-ca898a0ee1a2",
+  "slug": "commitment-letter-for-financing",
+  "name": "Commitment Letter for Financing",
+  "summary": "Drafts a comprehensive Commitment Letter for Financing that memorializes a lender's agreement to provide funds under specified economic terms, conditions precedent, and fees. Used in transactional loan and financing matters such as commercial real estate acquisition, business expansion, or construction projects. Balances binding commitments with non-binding intent to protect parties while facilitating progression to final loan documentation.",
+  "content": "# Commitment Letter for Financing - Enhanced Drafting Prompt\n\nYou are tasked with drafting a comprehensive Commitment Letter for Financing, a critical transactional document that establishes the lender's binding or non-binding commitment to provide financing to a borrower under specified terms and conditions. This document serves as a bridge between preliminary negotiations and final loan documentation, and must be drafted with precision to protect both parties' interests while clearly delineating the path to closing.\n\n## Document Purpose and Context\n\nA Commitment Letter for Financing memorializes a lender's agreement to provide funds to a borrower, subject to satisfaction of enumerated conditions. This document must balance commercial practicality with legal enforceability, clearly distinguishing between binding commitments and expressions of intent. Your draft should reflect industry-standard practices while remaining adaptable to the specific transaction at hand, whether it involves commercial real estate acquisition, business expansion, construction financing, or other lending purposes.\n\n## Parties and Transaction Framework\n\nBegin by clearly identifying all parties to the commitment with their full legal names, entity types, jurisdictions of formation or residence, and principal places of business. Specify the commitment date and establish whether this is a binding commitment letter or a non-binding term sheet with binding provisions. The introductory section should concisely describe the proposed transaction's nature and purpose, providing sufficient context for the financing without excessive detail. Include any parent guarantors or co-borrowers at this stage, ensuring complete transparency about all obligated parties.\n\n## Financial Terms and Commitment Structure\n\nArticulate the fundamental economic terms with absolute precision, including the total commitment amount (specifying whether this is a maximum amount or a fixed sum), the interest rate structure (fixed or variable, with applicable indices and margins clearly stated), and the anticipated term of the loan. Detail the repayment schedule, including amortization period, payment frequency, and any balloon payment provisions. Specify the intended use of proceeds, any restrictions on fund deployment, and the anticipated funding date or dates if the commitment involves multiple disbursements. Address material fees including commitment fees, origination fees, unused line fees, and any prepayment penalties or yield maintenance provisions. Ensure all financial terms align with applicable usury laws and regulatory requirements for the relevant jurisdiction and loan type.\n\n## Conditions Precedent to Funding\n\nEnumerate with specificity all conditions that must be satisfied before the lender's obligation to fund becomes effective. These conditions typically include completion of satisfactory due diligence (legal, financial, environmental, and operational), receipt of acceptable appraisals or valuations, evidence of adequate insurance coverage, delivery of organizational documents and good standing certificates, execution of definitive loan documentation, perfection of security interests in collateral, receipt of legal opinions from borrower's counsel, and evidence of requisite corporate or partnership approvals. Include conditions related to the absence of material adverse changes in the borrower's financial condition, business operations, or the collateral's value. Specify any required third-party consents, subordination agreements, or intercreditor arrangements. Each condition should be drafted with sufficient clarity to enable objective determination of satisfaction.\n\n## Representations, Warranties, and Borrower Obligations\n\nDetail the fundamental representations and warranties the borrower must make regarding its legal existence and good standing, authority to enter the transaction, absence of conflicts with existing agreements or obligations, accuracy of financial statements and projections, litigation status, tax compliance, environmental compliance, and ownership of collateral. Include representations specific to the transaction type, such as property condition for real estate financing or intellectual property ownership for technology company lending. Specify any interim obligations the borrower must observe during the commitment period, such as maintaining insurance, preserving collateral value, providing updated financial information, or refraining from incurring additional indebtedness. These provisions protect the lender's position between commitment and closing while establishing baseline expectations for the borrower's conduct.\n\n## Commitment Expiration, Termination, and Fees\n\nClearly establish the commitment's expiration date and time, after which the lender's obligation to fund terminates automatically unless extended by written agreement. Specify whether the commitment fee is refundable or non-refundable, and under what circumstances any deposits or good faith payments may be retained by the lender. Detail the lender's rights to terminate the commitment prior to expiration, including termination for failure to satisfy conditions precedent, material adverse change, borrower breach of representations or interim covenants, or other specified events. Address the allocation of transaction costs, including legal fees, due diligence expenses, appraisal costs, and title insurance premiums, specifying which party bears these costs regardless of whether the transaction closes.\n\n## Governing Law, Dispute Resolution, and Execution\n\nDesignate the governing law that will interpret the commitment letter, typically the jurisdiction where the lender is located or where the primary collateral is situated. Include a forum selection clause specifying the exclusive or non-exclusive venue for disputes, and consider whether arbitration or mediation provisions are appropriate for this transaction. Address whether the commitment letter itself is binding or non-binding, and if certain provisions (such as confidentiality, governing law, or fee obligations) survive regardless of the commitment's overall binding nature. Provide signature blocks for all parties with appropriate titles, dates, and acknowledgment language. For entity signatories, ensure signature authority is properly reflected and consider whether corporate seals or attestations are required.\n\n## Output Requirements\n\nProduce a professionally formatted commitment letter on appropriate letterhead (or with placeholder for letterhead), using clear section headings, numbered or lettered paragraphs for easy reference, and consistent defined terms throughout. The document should be comprehensive yet accessible, typically ranging from 5 to 15 pages depending on transaction complexity. Use plain language where possible while maintaining legal precision, and ensure all cross-references are accurate. Include a signature page that can be executed separately, and consider whether the document should include schedules or exhibits for detailed financial terms, collateral descriptions, or form documents to be delivered at closing.",
+  "parent_skill_id": "b63cc6ae-4f61-40f8-b17f-f98c348afb58",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "loan_and_financing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

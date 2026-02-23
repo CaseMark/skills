@@ -1,0 +1,354 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-eb92-73e2-826b-f0059e84c799
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f3450dd3-fc8a-41f8-b5c5-8a0e60f8242f",
+  "slug": "bill-of-lading-drafting",
+  "name": "Bill of Lading",
+  "summary": "Drafts a comprehensive Bill of Lading that functions as a receipt for goods, contract of carriage, and document of title. Ensures compliance with maritime law, COGSA, and international conventions like the Hague-Visby Rules by detailing parties, shipment information, and goods descriptions. Use for international commercial shipping transactions requiring precise regulatory documentation.",
+  "content": "# Bill of Lading Drafting Workflow\n\nYou are tasked with drafting a comprehensive Bill of Lading, which serves as a critical regulatory document in commercial shipping transactions. This document functions simultaneously as a receipt for goods, a contract of carriage, and a document of title. Your draft must comply with applicable maritime law, the Carriage of Goods by Sea Act (COGSA), and relevant international conventions such as the Hague-Visby Rules where applicable.\n\n## Parties Involved\n\nBegin by identifying and documenting all parties to the shipping transaction with precision. The shipper (consignor) is the party tendering the goods for transport, the consignee is the party entitled to receive the goods at destination, and the carrier is the entity responsible for transportation. For each party, you must obtain and verify the complete legal name as registered with relevant authorities, the full physical address including street, city, state/province, postal code, and country, and current contact information including telephone numbers and email addresses. If a notify party exists\u2014typically a freight forwarder, customs broker, or the consignee's agent\u2014include their complete details as well. Ensure that all entity names match official registration documents to prevent disputes over identity and authority. Consider whether any party is acting as an agent and, if so, clarify the principal on whose behalf they act.\n\n## Shipment Information\n\nDocument the complete journey of the goods with specificity sufficient to establish the carrier's obligations and route. Record the date of shipment or the date the carrier received the goods, the port or place of origin with specific terminal or facility identification, the port or place of destination including the designated delivery point, and the intended route or vessel name if known. Include the booking number, container numbers if applicable, and seal numbers for containerized cargo. Specify whether this is a port-to-port, door-to-door, or multimodal shipment, as this affects liability and insurance considerations. If transshipment is anticipated, identify intermediate ports and clarify whether the Bill of Lading covers the entire journey or only specific segments. Note any special routing instructions or restrictions imposed by the shipper.\n\n## Description of Goods\n\nProvide a detailed and accurate description of the cargo that satisfies both commercial and regulatory requirements. For each item or commodity, specify the type of goods using standard trade descriptions or Harmonized System (HS) codes where appropriate, the quantity expressed in appropriate units (pieces, cartons, pallets), the gross weight and volume or cubic measurement, the packaging type and condition (new wooden crates, sealed cardboard boxes, shrink-wrapped pallets), and any identifying marks, numbers, or labels on the packages. Declare the stated value if required for insurance or liability purposes, noting that carriers typically limit liability to a per-package or per-kilogram amount under COGSA unless a higher value is declared and additional freight paid. Include any special characteristics relevant to handling, such as fragility, perishability, or hazardous materials classification. The description should be sufficiently detailed to identify the goods but should reflect only information provided by the shipper, as carriers typically disclaim responsibility for verifying contents of sealed containers.\n\n## Freight and Charges\n\nClearly specify all financial terms governing the transportation service. State whether freight is prepaid or collect, identify the applicable freight rate and how it was calculated (per container, per ton, per cubic meter), itemize any additional charges such as terminal handling fees, documentation fees, fuel surcharges, or security fees, and specify the currency in which payment is due. Include payment terms such as due date and acceptable payment methods. If special services were requested\u2014such as expedited handling, temperature control, or additional insurance\u2014document these services and their associated costs. Address who bears responsibility for demurrage, detention, or storage charges if goods are not timely retrieved. Clarify whether freight charges include or exclude customs duties, taxes, and other governmental impositions.\n\n## Terms and Conditions\n\nEstablish the legal framework governing the carriage relationship and allocate risks between parties. Define the carrier's responsibilities, including the duty to exercise due diligence to make the vessel seaworthy, properly man and equip the vessel, and care for the cargo during transit. Specify limitations of liability, typically referencing COGSA's limitation of $500 per package or customary freight unit unless a higher value is declared, and enumerate exceptions to carrier liability such as act of God, perils of the sea, acts of war, inherent vice of the goods, and shipper's fault in packing or description. State the governing law and jurisdiction for dispute resolution, identifying whether claims must be brought in a specific court or resolved through arbitration. Include the time limit for filing claims, typically nine months under COGSA, and the requirement for written notice of loss or damage. Address whether the Bill of Lading is negotiable or non-negotiable (straight), as this affects transferability of title. Include standard clauses regarding general average contribution, both-to-blame collision clause if applicable, and the carrier's lien on goods for unpaid freight and charges.\n\n## Signatures and Certification\n\nConclude the document with proper execution to establish its legal validity and evidentiary value. Provide signature blocks for the carrier or its authorized agent, including printed name, title, and date of signature, confirming receipt of goods in apparent good order and condition unless otherwise noted. Include space for the shipper's signature if required by the carrier's practices. Specify the number of original Bills of Lading issued, typically three originals, noting that surrender of one original renders the others void and that delivery of goods against one original discharges the carrier's obligations. If the Bill of Lading is issued in electronic form, ensure compliance with applicable electronic commerce laws and the carrier's procedures for electronic Bills of Lading. Include any required certifications regarding hazardous materials, export compliance, or other regulatory matters. Note any clausing or exceptions regarding the condition or quantity of goods as received, as clean Bills of Lading (without exceptions) are typically required for letters of credit.\n\nUpon completing all sections with verified and accurate information, prepare the final document in a format suitable for execution and distribution to all parties, ensuring compliance with applicable legal requirements and commercial practices in the relevant trade lane.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "contract"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:18.46563",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:47:42.259139Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Planning skill rewrite with YAML front matter**
+
+I'm preparing to rewrite the skill content focused on "bill-of-lading," simplifying the slug and creating a YAML front matter with a third-person description, legal context tags, and an accurate summary including trigger keywords. I'll clarify and correct legal time limits, mark uncertain citations with [VERIFY], and structure output with guidelines and prerequisites.
+thinking
+**Finalizing skill content structure and details**
+
+I'm gathering accurate COGSA and Hague-Visby time limits and relevant citations with [VERIFY] tags for uncertain points, planning clear sections with templates, checklists, and tables for fields and clauses. The description and guidelines will be precise, third person, and include trigger keywords, prerequisites, and compliance guidance, all formatted with ASCII-only markdown and minimal placeholders.
+codex
+---
+name: bill-of-lading
+description: Drafts a U.S. ocean Bill of Lading (B/L) that functions as receipt, contract of carriage, and document of title, with COGSA/Hague-Visby-aware clauses, negotiability designation, and charge allocation. Use when drafting or reviewing a bill of lading, master/house B/L, ocean carriage terms, shipment documentation, or title transfer in international trade. Trigger keywords: bill of lading, B/L, ocean carriage, COGSA, Hague-Visby, negotiable, straight, master bill, house bill.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Contract
+  skill_modes:
+    - Drafting
+---
+
+# Bill of Lading
+
+Produce a complete B/L that accurately memorializes shipment, allocates risk, and complies with the governing carriage regime.
+
+## Prerequisites
+
+1. Shipper/consignee/notify party legal names, addresses, and contact details
+2. Booking confirmation, vessel/voyage details, ports, and delivery terms
+3. Packing list, commercial invoice, marks/numbers, weights, and measurements
+4. Incoterms and freight payment terms (prepaid/collect), currency, and charges
+5. Insurance/declared value instructions and any special handling requirements
+6. Hazardous materials data (UN number, IMDG class) if applicable
+
+## Output Structure / Process
+
+Use the sections below in order. Populate from source documents only.
+
+### Document Header
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| B/L Number | Yes | Unique identifier |
+| B/L Type | Yes | `Negotiable` or `Straight (Non-negotiable)` |
+| Issue Place/Date | Yes | City, country, date |
+| Carrier | Yes | Legal name and address |
+| Shipper | Yes | Legal name and address |
+| Consignee | Yes | Legal name and address |
+| Notify Party | Optional | If applicable |
+| Vessel/Voyage | Optional | If known |
+| Booking No. | Optional | If provided |
+| Container/Seal Nos. | Optional | If applicable |
+
+### Shipment Routing
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| Place of Receipt | Yes | Terminal or facility |
+| Port of Loading | Yes | Port code if available |
+| Port of Discharge | Yes | Port code if available |
+| Place of Delivery | Yes | Final destination |
+| Transshipment | Optional | List intermediate ports |
+
+### Cargo Description
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| Description of Goods | Yes | Trade description; do not speculate |
+| HS Code | Optional | If provided |
+| Marks/Numbers | Optional | As on packages |
+| Packages/Units | Yes | Count and unit type |
+| Gross Weight | Yes | With unit |
+| Measurement | Optional | CBM or other |
+| Packaging | Optional | Type and condition |
+| Declared Value | Optional | If higher liability requested |
+| Special Handling | Optional | Fragile, reefer, etc. |
+| HazMat | Conditional | IMDG class, UN number |
+
+### Freight and Charges
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| Freight Term | Yes | Prepaid or Collect |
+| Rate Basis | Yes | Per container/weight/measure |
+| Additional Charges | Optional | THC, docs, fuel, security |
+| Currency | Yes | ISO currency code |
+| Payment Due | Optional | Date or upon release |
+
+### Core Clauses Checklist
+
+- Receipt in apparent good order and condition unless claused
+- Carrier duty of due diligence to make vessel seaworthy
+- Limitation of liability per COGSA $500 per package or customary freight unit unless higher value declared and paid [VERIFY]
+- Notice of loss/damage timing (apparent vs concealed) [VERIFY]
+- Time bar for suit (COGSA one year from delivery or due date) [VERIFY]
+- Exceptions to liability (perils of the sea, act of God, inherent vice, shipper fault)
+- General average clause and security for GA contributions
+- Carrier lien for unpaid freight/charges
+- Governing law and forum or arbitration clause
+- Himalaya clause extending defenses to agents/subcontractors
+- Both-to-blame collision clause if used by carrier
+
+### Negotiability and Originals
+
+- State number of originals issued and effect of surrender of one original
+- If straight B/L, state non-negotiable and identify consignee
+- If electronic B/L, specify system and rules governing eBL transfer
+
+### Signature Blocks
+
+- Carrier or agent signature, name, title, date
+- Shipper signature if required by carrier practice
+- Clausing space for exceptions to condition/quantity
+
+### Output Template
+
+```text
+BILL OF LADING (B/L)
+B/L No.: [_____]
+Type: [Negotiable / Straight (Non-negotiable)]
+Issue Place/Date: [_____]
+
+Carrier: [Name, Address]
+Shipper: [Name, Address]
+Consignee: [Name, Address]
+Notify Party: [Name, Address]
+
+Place of Receipt: [_____]
+Port of Loading: [_____]
+Port of Discharge: [_____]
+Place of Delivery: [_____]
+Vessel/Voyage: [_____]
+Booking No.: [_____]
+Container/Seal Nos.: [_____]
+
+Goods Description: [_____]
+Marks/Numbers: [_____]
+Packages/Units: [_____]
+Gross Weight: [_____]
+Measurement: [_____]
+Declared Value: [_____]
+Special Handling: [_____]
+HazMat: [UN/IMDG if applicable]
+
+Freight Term: [Prepaid/Collect]
+Rate Basis: [_____]
+Additional Charges: [_____]
+Currency: [_____]
+Payment Due: [_____]
+
+Clauses: [COGSA/Hague-Visby regime, limitations, time bar, GA, lien, forum]
+Originals: [#] originals issued; surrender of one renders others void
+Signatures: Carrier/Agent [_____], Shipper [_____]
+```
+
+## Guidelines
+
+- Do not invent data; mirror packing list, booking, and shipper instructions.
+- If using Hague-Visby or other regime, state it expressly and remove conflicting COGSA language. [VERIFY]
+- For letters of credit, issue a clean B/L only if no visible damage; otherwise clause accurately.
+- Align freight term and Incoterms with buyer/seller responsibilities.
+- If multimodal or door-to-door, clarify scope and liability regime for each leg.
+- Confirm that any declared value matches carrier requirements for increased liability.
+- Treat HS codes, weights, and counts as shipper-provided; avoid guarantees.
+- Flag any jurisdiction-specific mandates or carrier standard terms that must be attached.
+tokens used
+13,307

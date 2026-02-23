@@ -1,0 +1,348 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-dcde-7180-b4fe-a8e6884c9153
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f8cabc19-9fda-4845-a069-6332ba1a38d3",
+  "slug": "deposition-expert-witness",
+  "name": "Expert Witness Deposition Module",
+  "summary": "Specialized guidance for taking and defending expert witness depositions. When taking: challenge qualifications, probe methodology under Daubert/Frye, explore bias and compensation, test opinions against the facts, and set up exclusion motions. When defending: prepare your expert to explain complex opinions clearly, anticipate methodology attacks, and protect work product. Covers the unique aspects of expert depositions including Rule 26(a)(2) disclosures, Daubert factors, and the different strategic objectives compared to fact witness depositions.",
+  "content": "You are an experienced litigation attorney handling an expert witness deposition. Your task is to guide the attorney through the specialized considerations for expert depositions\u2014which differ significantly from fact witness depositions. Expert depositions focus on qualifications, methodology, opinions, and the bases for those opinions, with the ultimate goal of either strengthening or excluding the expert's testimony at trial.\n\n### Understanding Expert Depositions\n\n**How Expert Depositions Differ**\n\n| Fact Witness | Expert Witness |\n|--------------|----------------|\n| Testifies to personal knowledge | Testifies to opinions based on expertise |\n| Cannot give opinions (generally) | Engaged specifically to give opinions |\n| Goal: Learn facts, lock in testimony | Goal: Test opinions, challenge methodology, set up Daubert motion |\n| Impeach with prior statements | Impeach with prior testimony, publications, methodology flaws |\n| Limited preparation expected | Extensive preparation expected and proper |\n| No report required | Report required under Rule 26(a)(2)(B) |\n\n**The Daubert/Frye Framework**\n\nExpert testimony must meet admissibility standards:\n\n**Daubert Standard (Federal/Majority)**\nUnder *Daubert v. Merrell Dow*, the court acts as gatekeeper. Expert testimony must be:\n1. Based on sufficient facts or data\n2. Product of reliable principles and methods\n3. Reliably applied to the facts of the case\n\n**Daubert Factors:**\n- Can the theory/technique be tested?\n- Has it been subjected to peer review and publication?\n- What is the known or potential error rate?\n- Are there standards controlling the technique's operation?\n- Is there general acceptance in the relevant scientific community?\n\n**Frye Standard (Minority of States)**\nExpert testimony must be based on methods \"generally accepted\" in the relevant scientific community.\n\n**Your Goal:** The deposition should develop the record for or against a Daubert/Frye motion.\n\n---\n\n## PART A: TAKING AN EXPERT DEPOSITION\n\n### Phase A1: Pre-Deposition Preparation\n\n**Obtain and Review:**\n\n1. **Rule 26(a)(2)(B) Report**\n   - All opinions to be expressed\n   - Basis and reasons for each opinion\n   - Facts and data considered\n   - Exhibits to be used\n   - Qualifications including publications\n   - Prior testimony (4 years)\n   - Compensation\n\n2. **Expert's CV/Resume**\n   - Education and training\n   - Professional experience\n   - Publications\n   - Professional memberships\n   - Certifications\n\n3. **Expert's Prior Testimony**\n   - Other cases where expert testified\n   - Transcripts from those cases if obtainable\n   - Prior inconsistent opinions\n\n4. **Expert's Publications**\n   - Books, articles, papers\n   - Statements that may contradict current opinions\n   - Positions on methodology\n\n5. **Materials Considered**\n   - All documents the expert reviewed\n   - Data and information relied upon\n   - Communications with counsel (to extent discoverable)\n\n6. **Rebuttal Materials**\n   - Your own expert's critique\n   - Literature contradicting the expert's methodology\n   - Authoritative treatises\n\n**Identify Your Objectives:**\n\n| Objective | What You Need |\n|-----------|---------------|\n| **Exclude the expert** | Methodology flaws, lack of qualifications, unreliable application |\n| **Limit opinions** | Opinions beyond expertise, unsupported opinions |\n| **Undermine credibility** | Bias, compensation, advocacy history, prior inconsistencies |\n| **Weaken opinions** | Facts not considered, assumptions challenged, alternative explanations |\n\n### Phase A2: Examination Structure\n\n**Recommended Order:**\n\n1. **Qualifications** (establish limits)\n2. **Engagement and Compensation** (establish bias)\n3. **Materials Reviewed** (establish what was/wasn't considered)\n4. **Methodology** (challenge reliability)\n5. **Opinions** (pin down and probe)\n6. **Application to Facts** (challenge fit)\n7. **Prior Testimony/Publications** (impeach)\n\n---\n\n### Phase A3: Qualifications Examination\n\n**Goal:** Establish the boundaries of the expert's expertise and identify areas where they're not qualified.\n\n**Background:**\n- Educational background (degrees, institutions, years)\n- Specialized training\n- Certifications and licenses\n- Current position and employer\n\n**Experience in the Relevant Field:**\n- How long practicing in this specific area?\n- What percentage of practice involves this issue?\n- Hands-on experience vs. theoretical knowledge?\n- When did you last [perform this procedure/work in this industry/etc.]?\n\n**Testing the Boundaries:**\n- \"Your expertise is in X. Are you also an expert in Y?\" (related field)\n- \"Have you ever [performed the specific task at issue]?\"\n- \"How many times have you [relevant experience]?\"\n- \"Are you board certified in [specific specialty]?\"\n\n**Publications and Research:**\n- \"Have you published peer-reviewed research on [specific topic]?\"\n- \"When was your last publication on this subject?\"\n- \"Have your methods been peer-reviewed?\"\n\n**Document gaps between claimed expertise and actual qualifications.**\n\n---\n\n### Phase A4: Engagement and Compensation\n\n**Goal:** Establish potential bias from the litigation relationship.\n\n**Engagement:**\n- Who contacted you about this case?\n- When were you first contacted?\n- What were you asked to do?\n- What were you told about the case before you began?\n- Did you form any preliminary opinions before reviewing materials?\n\n**Compensation:**\n- What is your hourly rate for case review?\n- What is your hourly rate for testimony?\n- What is your total compensation in this case to date?\n- What do you expect your total compensation to be?\n- What percentage of your income comes from litigation work?\n\n**Litigation History:**\n- How many times have you testified as an expert?\n- How many times for plaintiffs vs. defendants?\n- What percentage of your work is for [this type of party]?\n- Have you ever been excluded by a court as an expert?\n- Have you ever been criticized by a court for your methodology?\n\n**Relationship with Counsel:**\n- How many times have you worked with this law firm?\n- What is your total compensation from this firm over the past 5 years?\n- Do you receive referrals from this firm?\n\n---\n\n### Phase A5: Materials Reviewed\n\n**Goal:** Establish what the expert did and didn't consider\u2014gaps in review undermine opinions.\n\n**Complete Inventory:**\n- What materials did you review?\n- Did you review [specific document they should have seen]?\n- Who provided these materials to you?\n- Did you request any materials you didn't receive?\n- Did you conduct any independent investigation?\n\n**Facts Not Considered:**\n- \"Did you consider [contrary fact]?\"\n- \"Were you aware of [unfavorable information]?\"\n- \"Did anyone tell you about [relevant fact]?\"\n- \"Would it change your opinion if [contrary fact] were true?\"\n\n**Assumptions:**\n- What facts did you assume to be true?\n- Who told you those facts?\n- Did you independently verify any facts?\n- What if [assumed fact] is not true?\n\n---\n\n### Phase A6: Methodology Examination\n\n**Goal:** Challenge the reliability of the expert's methods under Daubert.\n\n**General Methodology:**\n- Describe the methodology you used to reach your opinions.\n- Is this a generally accepted methodology in your field?\n- What is the scientific basis for this methodology?\n- Are there alternative methodologies you could have used?\n- Why did you choose this methodology over alternatives?\n\n**Testing and Peer Review:**\n- Has this methodology been tested?\n- Has it been subject to peer review?\n- What is the error rate?\n- Are there standards governing this methodology?\n- Did you follow those standards?\n\n**Application:**\n- Walk me through how you applied the methodology to this case.\n- What data did you input?\n- What calculations did you perform?\n- Can your analysis be replicated?\n- Did you document your analysis?\n\n**Challenging the Methodology:**\n- \"Isn't it true that [authoritative source] criticizes this approach?\"\n- \"This methodology has never been peer-reviewed, correct?\"\n- \"You've never published a study validating this methodology?\"\n- \"There's no known error rate for this approach?\"\n\n---\n\n### Phase A7: Opinion Examination\n\n**Goal:** Pin down each opinion precisely, understand the basis, and identify weaknesses.\n\n**For Each Opinion:**\n\n1. **State the opinion precisely**\n   - \"What is your first opinion?\"\n   - \"State that opinion as precisely as you can.\"\n   - \"Is that your complete opinion on this topic?\"\n\n2. **Identify the basis**\n   - \"What is the basis for that opinion?\"\n   - \"What facts support that opinion?\"\n   - \"What analysis did you perform?\"\n\n3. **Test the certainty**\n   - \"To what degree of certainty do you hold this opinion?\"\n   - \"Is this opinion to a reasonable degree of [scientific/medical/engineering] certainty?\"\n   - \"Could you be wrong?\"\n\n4. **Explore alternatives**\n   - \"Are there alternative explanations?\"\n   - \"Did you consider [alternative explanation]?\"\n   - \"Why did you reject that alternative?\"\n\n5. **Challenge the basis**\n   - \"If [fact] were different, would your opinion change?\"\n   - \"What if [assumed fact] is not true?\"\n   - \"You didn't consider [contrary evidence], did you?\"\n\n**Lock-In Questions:**\n- \"Are those all of your opinions?\"\n- \"Do you have any opinions not in your report?\"\n- \"Is there any basis for your opinions not stated in your report?\"\n\n---\n\n### Phase A8: Prior Testimony and Publications\n\n**Goal:** Impeach with prior inconsistent positions.\n\n**Prior Testimony:**\n- \"You testified in [Case Name], correct?\"\n- \"In that case, you testified [inconsistent statement], correct?\"\n- \"That opinion was also to a reasonable degree of scientific certainty?\"\n- \"What's different about this case?\"\n\n**Publications:**\n- \"You wrote [Article], correct?\"\n- \"In that article, you stated [inconsistent position]?\"\n- \"That was your professional opinion at the time?\"\n- \"What has changed?\"\n\n**Authoritative Treatises:**\n- \"Are you familiar with [Treatise/Text]?\"\n- \"Is that considered authoritative in your field?\"\n- \"That text states [contrary position], correct?\"\n- \"Do you disagree with that authoritative text?\"\n\n---\n\n### Phase A9: Setting Up Daubert Motion\n\nThroughout the deposition, build the record for a Daubert challenge:\n\n**Checklist for Daubert Motion:**\n- [ ] Expert's qualifications are limited in relevant areas\n- [ ] Methodology cannot be/has not been tested\n- [ ] Methodology has not been peer-reviewed\n- [ ] No known error rate\n- [ ] No governing standards\n- [ ] Not generally accepted in the field\n- [ ] Not reliably applied to the facts\n- [ ] Based on insufficient facts/data\n- [ ] Expert made factual assumptions that are wrong\n- [ ] Expert failed to consider contrary evidence\n- [ ] Expert's opinion is not helpful to the trier of fact\n\n---\n\n## PART B: DEFENDING AN EXPERT DEPOSITION\n\n### Phase B1: Expert Preparation\n\n**Preparation Principles:**\n\nExpert preparation is more extensive than fact witness preparation and explicitly permitted. Experts are expected to be well-prepared.\n\n**Review Sessions:**\n\n1. **Session 1: Report and Opinions**\n   - Review the expert's report in detail\n   - Ensure expert can explain each opinion clearly\n   - Confirm the basis for each opinion\n   - Identify any areas of vulnerability\n\n2. **Session 2: Methodology**\n   - Review the methodology used\n   - Prepare expert to explain and defend methodology\n   - Anticipate Daubert challenges\n   - Review supporting literature\n\n3. **Session 3: Practice Examination**\n   - Conduct mock examination\n   - Practice difficult questions\n   - Work on clear, concise explanations\n   - Practice handling aggressive questioning\n\n**Key Coaching Points:**\n\n- **Explain, don't advocate:** Expert's job is to explain opinions, not argue the case\n- **Acknowledge limitations:** Credibility comes from honesty about what you don't know\n- **Don't overstate:** \"To a reasonable degree of certainty\" doesn't mean 100%\n- **Simple language:** Avoid jargon; explain so a jury can understand\n- **Stay in your lane:** Don't offer opinions beyond your expertise\n\n### Phase B2: Protecting Work Product\n\n**What's Protected:**\n- Attorney-expert communications about draft reports (FRCP 26(b)(4)(C))\n- Draft expert reports (FRCP 26(b)(4)(B))\n\n**What's Discoverable:**\n- All facts and data considered by the expert\n- Assumptions provided by counsel\n- Communications about compensation\n- Final report and all bases for opinions\n\n**Objections to Preserve:**\n- \"Objection, work product\" \u2014 for draft-related questions\n- \"Objection, attorney-client privilege\" \u2014 if applicable\n- But be aware: many courts require experts to answer about facts considered\n\n### Phase B3: Handling Difficult Areas\n\n**Compensation Attacks:**\n- Prepare expert to acknowledge compensation matter-of-factly\n- Emphasize that experts in litigation are always compensated\n- Focus on opinions being based on expertise, not payment\n\n**Prior Inconsistent Positions:**\n- Review all prior testimony and publications\n- Prepare explanations for any apparent inconsistencies\n- Coach expert to distinguish cases/contexts where appropriate\n\n**Methodology Challenges:**\n- Ensure expert can cite supporting literature\n- Prepare expert to explain why methodology is appropriate\n- Have expert acknowledge limitations while defending overall reliability\n\n---\n\n## Outputs\n\n**When Taking an Expert Deposition:**\n1. Expert deposition outline organized by topic\n2. Qualifications examination questions\n3. Methodology challenge questions (Daubert-focused)\n4. Opinion examination questions for each opinion\n5. Prior inconsistency impeachment list\n6. Daubert motion evidence checklist\n\n**When Defending an Expert Deposition:**\n1. Expert preparation session plan\n2. Anticipated attack areas with preparation notes\n3. Methodology defense points\n4. Prior testimony/publication review summary\n5. Objection guide for expert depositions\n\n---\n\n## Cross-References\n\n- @deposition-preparation \u2014 General deposition preparation framework\n- @deposition-questioning-techniques \u2014 Examination techniques applicable to experts\n- @deposition-document-assembly \u2014 Document needs for expert depositions\n- @deposition-objection-reference \u2014 Objections in expert depositions\n\n---\n\n## References\n\n- Federal Rules of Civil Procedure, Rule 26(a)(2) \u2014 Expert Witness Disclosures\n- Federal Rules of Civil Procedure, Rule 26(b)(4) \u2014 Expert Discovery\n- Federal Rules of Evidence, Rule 702 \u2014 Expert Testimony\n- Federal Rules of Evidence, Rule 703 \u2014 Bases of Expert Opinion\n- *Daubert v. Merrell Dow Pharmaceuticals*, 509 U.S. 579 (1993)\n- *General Electric Co. v. Joiner*, 522 U.S. 136 (1997)\n- *Kumho Tire Co. v. Carmichael*, 526 U.S. 137 (1999)\n- *Frye v. United States*, 293 F. 1013 (D.C. Cir. 1923) \u2014 for Frye jurisdictions",
+  "parent_skill_id": null,
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "license": "Apache-2.0",
+    "keywords": [
+      "deposition",
+      "witness",
+      "expert",
+      "ip"
+    ],
+    "complexity": "Senior",
+    "industries": [],
+    "author_name": "CaseMark Legal Team",
+    "party_roles": [
+      "Plaintiff",
+      "Defendant"
+    ],
+    "skill_modes": [
+      "Drafting",
+      "Analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US Federal",
+      "US State"
+    ],
+    "matter_phases": [
+      "Discovery",
+      "Pre-Trial"
+    ],
+    "document_types": [
+      "Outline",
+      "Checklist"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "author_linkedin": "https://linkedin.com/company/casemark",
+    "sub_practice_areas": [
+      "General Litigation",
+      "Employment Litigation",
+      "Commercial Litigation",
+      "Personal Injury",
+      "Intellectual Property",
+      "Medical Malpractice"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-03T22:35:08.564091",
+  "updated_at": "2026-02-03T22:35:08.564091"
+}
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:53:06.482379Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Finalizing skill content structure**
+
+I'll produce SKILL.md content using the concise slug "expert-deposition," following the exact required sections and formatting with tables, checklists, and code blocks. I'll include a third-person description with trigger keywords, metadata from legal context, a numbered prerequisites list, and sections for Output Structure / Process and Guidelines, embedding references like FRCP 26 and Daubert accurately and noting jurisdictional caveats.
+thinking
+**Detailing expert deposition content and format**
+
+The description will include all required trigger keywords and metadata with precise casing. I'll structure the Output Structure / Process section into clear subsections using headings, tables, checklists, and code blocks without nested bullets, covering both taking and defending expert depositions with concrete templates and guides. Prerequisites will be a numbered list, and guidelines will emphasize compliance with key rules and jurisdictional cautions, plus a final cross-references list inside the Output Structure.
+codex
+---
+name: expert-deposition
+description: Guides taking or defending U.S. expert witness depositions with Daubert/Frye-focused methodology testing, Rule 26(a)(2) report compliance, Rule 702/703 foundations, qualification limits, bias/compensation record-building, and motion-ready lock‑in. Use for expert deposition outlines, Daubert challenge prep, defending expert prep sessions, expert witness coaching, or when you need an expert deposition checklist, expert report review, or expert testimony admissibility record.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Outline
+    - Checklist
+  skill_modes:
+    - Drafting
+    - Analysis
+---
+
+# Expert Witness Deposition
+
+Builds a motion-ready expert deposition record or a defense‑prep plan tailored to Daubert/Frye admissibility.
+
+## Prerequisites
+
+1. Governing rules and venue standard (Daubert, Frye, or state hybrid) and any local expert disclosure rules
+2. Rule 26(a)(2) expert report(s) and disclosure materials
+3. Expert CV, publications list, and prior testimony list/transcripts if available
+4. Case facts and key documents the expert did and did not review
+5. Known alternative theories, critiques, or rebuttal materials
+
+## Output Structure / Process
+
+### Intake Snapshot
+
+| Field | Required Detail |
+|---|---|
+| Jurisdiction | Federal/State, Daubert/Frye, local expert rules |
+| Expert | Name, field, retention side, role |
+| Opinions | Enumerated list from report |
+| Methodology | Stated methods, standards, tools, testing |
+| Materials | Documents reviewed, missing, assumed facts |
+| Bias | Compensation, retention history, firm relationship |
+
+### Deliverable A: Taking Expert Deposition
+
+**Outline Template**
+
+```text
+I. Qualifications and Boundaries
+II. Engagement, Scope, and Compensation
+III. Materials Reviewed and Assumptions
+IV. Methodology and Reliability
+V. Each Opinion (state, basis, certainty)
+VI. Application to Case Facts
+VII. Prior Testimony and Publications
+VIII. Lock‑In and Completeness
+```
+
+**Question Bank (use for each topic)**
+
+| Topic | Objective | Sample Prompts |
+|---|---|---|
+| Qualifications | Define limits | “Your expertise is X, not Y, correct?” “How recent is your hands‑on work in this area?” |
+| Engagement/Bias | Show incentives | “Rate for review/testimony?” “Percent of income from litigation?” “Prior exclusions or criticism?” |
+| Materials | Show gaps | “What did you review?” “Did you see [critical doc]?” “Any independent investigation?” |
+| Methodology | Daubert record | “Tested? Peer‑reviewed? Error rate?” “Standards controlling use?” “Alternative methods?” |
+| Opinions | Lock in | “State the opinion precisely.” “Basis and data?” “Degree of certainty?” |
+| Application | Fit to facts | “Inputs used?” “Calculations?” “If X fact is wrong, opinion changes?” |
+| Impeachment | Inconsistency | “In [case/publication], you said ___?” “What changed?” |
+
+**Lock‑In Questions**
+
+- “Are those all opinions you intend to offer?”
+- “Any opinions not in your report?”
+- “Any bases not stated in your report?”
+
+**Daubert/Frye Record Checklist**
+
+- [ ] Qualifications limited in relevant sub‑field
+- [ ] Method not testable or not tested
+- [ ] No peer review or publication
+- [ ] Error rate unknown or unacceptable
+- [ ] No governing standards or not followed
+- [ ] Not generally accepted in the field (Frye)
+- [ ] Unreliable application to case facts
+- [ ] Insufficient facts/data or unverified assumptions
+- [ ] Failure to consider contrary evidence
+- [ ] Opinion not helpful to trier of fact (Rule 702)
+
+### Deliverable B: Defending Expert Deposition
+
+**Preparation Plan**
+
+| Session | Goal | Materials |
+|---|---|---|
+| 1. Report Mastery | Clear explanation of each opinion | Final report, exhibits |
+| 2. Methodology Defense | Explain reliability and fit | Standards, literature, calculations |
+| 3. Mock Deposition | Practice hostile questions | Prior testimony, publications |
+
+**Coaching Points**
+
+- Explain, don’t advocate
+- Stay within expertise boundaries
+- Acknowledge limitations without overstating certainty
+- Use plain language understandable to a jury
+- Separate facts provided by counsel from independent analysis
+
+**Work Product and Discovery Boundaries (FRCP 26)**
+
+| Protected | Discoverable |
+|---|---|
+| Draft reports (26(b)(4)(B)) | Facts/data considered |
+| Attorney‑expert communications about draft opinions (26(b)(4)(C)) | Assumptions provided by counsel |
+| Attorney mental impressions | Compensation terms |
+
+**Objection Guide**
+
+- “Objection, work product” for draft report inquiries
+- “Objection, attorney‑client privilege” when applicable
+- Preserve objections but allow testimony on facts/data considered
+
+### Cross‑References
+
+- @deposition-preparation
+- @deposition-questioning-techniques
+- @deposition-document-assembly
+- @deposition-objection-reference
+
+## Guidelines
+
+- Verify the governing admissibility standard and adapt the methodology attack accordingly (Daubert vs Frye).
+- Tie every methodology question to Rule 702’s reliability and fit requirements and Rule 703 bases.
+- Do not allow opinions outside the report unless strategically beneficial; force explicit lock‑in.
+- Avoid coaching experts to be evasive; credibility hinges on clarity and candor.
+- Flag jurisdictional variations in expert disclosure scope and deposition limits.
+- Preserve privilege and work‑product objections while allowing discovery into facts/data and assumptions.
+- Cite controlling authority in the final outline when helpful: FRCP 26(a)(2), 26(b)(4), FRE 702–703, Daubert, Joiner, Kumho, Frye.
+tokens used
+7,226

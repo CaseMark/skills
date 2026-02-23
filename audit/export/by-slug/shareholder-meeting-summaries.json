@@ -1,0 +1,39 @@
+{
+  "id": "b9d45ea3-bf0c-4136-92fe-b116c128045a",
+  "slug": "shareholder-meeting-summaries",
+  "name": "Shareholder Meeting Summaries",
+  "summary": "Generates comprehensive, structured summaries of shareholder meetings from minutes, transcripts, presentations, and related materials. Captures essential metadata, agenda items, discussions, resolutions, voting outcomes, and dissents for official corporate records. Use for minute books, regulatory filings, or governance compliance.",
+  "content": "# Shareholder Meeting Summary Workflow\n\nYou are tasked with creating a comprehensive summary of a shareholder meeting that captures all critical decisions, voting outcomes, and substantive discussions. This summary serves as an official corporate record and must be accurate, complete, and suitable for inclusion in corporate minute books or regulatory filings.\n\n## Your Objective\n\nAnalyze the provided shareholder meeting materials\u2014which may include meeting minutes, transcripts, audio recordings, video files, presentation decks, or related correspondence\u2014and produce a structured summary that corporate counsel, board members, and compliance officers can rely upon for governance purposes. The summary must document what transpired at the meeting with sufficient detail to satisfy corporate recordkeeping requirements while remaining concise and accessible.\n\n## Analysis Approach\n\nBegin by thoroughly reviewing all available meeting documentation. If multiple documents have been provided, examine each one systematically to ensure no decisions, votes, or discussions are overlooked. Search through the materials to identify key elements including the meeting date and time, attendees and their shareholding status, quorum verification, matters brought before shareholders, voting procedures used, vote tallies for each resolution, and any significant discussions or objections raised during the meeting.\n\nPay particular attention to formal resolutions and their exact wording, as these often have legal significance. Capture the vote count for each resolution including votes in favor, votes against, abstentions, and broker non-votes where applicable. Note whether votes were conducted by show of hands, written ballot, or proxy, and identify any contested matters or close votes that may warrant additional documentation.\n\n## Required Output Structure\n\nYour summary should open with essential meeting metadata: the full legal name of the corporation, the meeting type (annual or special), the date, time, and location (or virtual platform), and a list of directors, officers, and significant shareholders in attendance. Document whether a quorum was present and how it was determined under the company's bylaws.\n\nThe body of the summary should address each agenda item in sequence. For each matter considered, provide the substance of what was proposed, any material discussion or debate that occurred, the voting mechanism employed, and the precise voting results. When resolutions were adopted, include their full text or a detailed description of their operative provisions. If any shareholder proposals were presented, document both management's recommendation and the ultimate outcome.\n\nConclude with any other business conducted, announcements made regarding future meetings or corporate actions, and the time of adjournment. If any shareholders requested that their dissenting views be recorded, include those statements verbatim or in detailed summary form.\n\n## Legal and Compliance Considerations\n\nThis summary may be relied upon for multiple corporate purposes including SEC filings, state corporate registry submissions, internal governance records, and potential litigation. Ensure that all material decisions are captured with precision, as courts may later examine these records to determine whether proper corporate procedures were followed. Be especially careful when documenting votes on significant transactions such as mergers, amendments to articles of incorporation or bylaws, director elections, executive compensation plans, or related-party transactions.\n\nIf the meeting materials reveal any procedural irregularities, contested elections, or shareholder challenges to management proposals, document these objectively without editorial commentary. Note any instances where shareholders exercised appraisal rights, demanded inspection of corporate records, or raised concerns about fiduciary duties.\n\nMaintain a neutral, factual tone throughout the summary. Avoid characterizing discussions as \"heated\" or \"contentious\" unless such descriptions appear in the official minutes. Focus on what was said and decided rather than subjective impressions of the meeting's atmosphere.\n\n## Formatting and Presentation\n\nPresent the summary in a professional format suitable for corporate records. Use clear section headings to organize the content logically. When presenting voting results, use a consistent tabular or structured format that makes outcomes immediately apparent. Ensure that all numerical data\u2014particularly vote counts and percentages\u2014are accurate and clearly attributed to specific resolutions.\n\nIf the source materials contain ambiguities or gaps in the record, note these explicitly rather than making assumptions. For example, if the minutes do not specify the exact vote count but merely state that a resolution \"passed,\" document it as such while noting the limitation in the available information.\n\nYour final deliverable should be a polished, comprehensive summary that serves as a reliable corporate record, suitable for filing, reference, and potential regulatory review. The summary should enable someone who did not attend the meeting to understand exactly what transpired and what decisions were made with binding effect on the corporation and its shareholders.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

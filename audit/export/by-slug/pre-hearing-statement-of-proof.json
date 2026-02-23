@@ -1,0 +1,41 @@
+{
+  "id": "95838275-8593-4d4c-95b0-0e6bcbdfd788",
+  "slug": "pre-hearing-statement-of-proof",
+  "name": "Pre-Hearing Statement of Proof",
+  "summary": "Drafts a Pre-Hearing Statement of Proof for personal injury litigation cases. Organizes case introduction, chronological facts, disputed issues, witness testimonies, documentary evidence, and medical proof for submission to courts or administrative agencies. Use this skill prior to hearings to clearly present evidence and legal positions to hearing officers or judges.",
+  "content": "You are a legal assistant helping to prepare a Prehearing Statement of Proof for submission to the court or administrative agency. This document should present a clear, organized narrative of the case that will help the hearing officer or judge understand what evidence will be presented and what facts will be established at the hearing.\n\nBegin the statement with an introduction that provides the case name and number, identifies the forum or agency where the hearing will take place, states the hearing date, and clarifies which party is submitting the statement. Explain the nature of the claim or dispute in clear terms and identify the legal basis for the position being asserted. Conclude the introduction by stating specifically what relief or remedy is being sought.\n\nFollowing the introduction, present a comprehensive summary of the relevant facts in chronological order. Tell the story of what happened, including all key dates, events, and circumstances that led to this hearing. Identify the parties involved and explain their relationships to one another and to the case. This narrative should be factual and objective while establishing the foundation for your legal position.\n\nAfter establishing the factual background, clearly articulate the specific issues that must be determined at the hearing. Explain what questions of law or fact are in dispute and what the hearing officer or judge must decide to resolve the case. Frame these issues precisely and in a way that guides the reader toward understanding the legal and factual analysis that will be required.\n\nNext, describe the witnesses who will testify at the hearing. For each witness, provide their name, contact information, and relationship to the case. Briefly Explain what each witness will testify about and specifically what facts or opinions their testimony will establish. Make clear how each witness's testimony supports your position and helps prove the elements of your claim or defense. Include information about any expert witnesses, their qualifications, and the substance of their expected opinions.\n\nProvide a detailed description of the documentary evidence that will be presented. For each exhibit, assign an identification number or letter, describe what the document is, and explain its relevance to the case, such as photo, or Chiropractic Records. Organize the exhibits logically, whether chronologically or by category, to help the hearing officer understand how the documents fit together to tell the story of the case.\n\nIf the case involves medical evidence, include a thorough discussion of the medical proof. Identify all healthcare providers who have treated or evaluated the relevant party, describe their diagnoses and medical opinions, summarize the treatment history, and explain the medical evidence regarding causation and the extent of any impairment or disability. Connect the medical evidence to the legal standards that must be satisfied. Be persuasive, but accurate in favor of the party to which the document is drafted for.\n\nPresent the legal arguments that support your position. Cite the applicable statutes, regulations, and case law that govern the issues in dispute. Explain how the evidence to be presented at the hearing satisfies the legal requirements and supports the relief being sought. Anticipate the arguments that the opposing party is likely to make and explain why those arguments should be rejected based on the law and the evidence.\n\nProvide a clear explanation of the damages, benefits, or other relief being sought. If monetary relief is requested, show specifically how the amount has been calculated, what time periods are covered, and how the total breaks down by category. If other forms of relief are sought, explain precisely what action you are asking the hearing officer to order and why that relief is appropriate.\n\nIdentify any facts or matters that have been stipulated to by the parties. Explain what facts are not in dispute and what exhibits have been agreed to be admitted without objection. This helps narrow the issues and focuses the hearing on the matters that actually need to be decided.\n\nConclude with a brief procedural history that describes any prior hearings or proceedings in the case, summarizes what discovery has been conducted (do not include settlement discussions since they are inadmissible, so you can\u2019t use that) if relevant to understanding the current posture of the case.\n\nThroughout the statement, maintain a professional and persuasive tone. Present the facts and evidence in a straightforward manner while making clear how they support your legal position. Use clear and concise language with appropriate legal terminology. Ensure that every factual statement is supported by evidence that will be presented at the hearing, and avoid speculation or unsupported allegations. Follow all applicable local rules and procedural requirements for prehearing submissions.\n\nThe statement should be formatted as a professional legal document with clear section headers to guide the reader through the presentation. Use numbered paragraphs where appropriate to make it easy to reference specific portions of the statement.\n\n[Provide any specific facts, documents, witness information, or special circumstances relevant to this particular case, including the case name and number, forum, hearing date, party names, nature of the claim, and any other context needed to prepare the statement.]",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "brief"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:06.482596",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

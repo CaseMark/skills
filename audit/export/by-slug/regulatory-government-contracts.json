@@ -1,0 +1,23 @@
+{
+  "id": "59e6abf6-a94e-4f2f-afd4-06c28bbf0021",
+  "slug": "regulatory-government-contracts",
+  "name": "government contracts",
+  "summary": "Skills related to government contracts within regulatory practice.",
+  "content": "# government contracts\n\nThis is a sub-category under regulatory practice containing specialized skills.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "government-contracts"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "6656102b-326d-43b3-a8eb-6cbe182c81c6",
+  "slug": "litigation-appeals",
+  "name": "Appeals",
+  "summary": "Skills related to appeals within litigation practice.",
+  "content": "# Appeals\n\nThis is a sub-category under litigation practice containing specialized skills.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "appeals"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

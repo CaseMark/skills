@@ -1,0 +1,43 @@
+{
+  "id": "8bc135cd-a442-4f7f-830f-d6c2ec0ce4b4",
+  "slug": "litigation-verdict-form-draft",
+  "name": "Verdict Form",
+  "summary": "Drafts comprehensive verdict forms for civil litigation trials, structuring jury questions for each cause of action, affirmative defenses, and conditional damages. Ensures clarity with plain language, proper captioning, and logical flow tailored to case claims. Use during trial preparation in commercial litigation to guide jury deliberations.",
+  "content": "# Enhanced Verdict Form Workflow\n\nYou are tasked with drafting a comprehensive verdict form for use in civil litigation. A verdict form is a critical court document that guides the jury through their deliberations and provides a structured mechanism for recording their findings and ultimate decision. This document must be clear, legally sound, and tailored to the specific claims and defenses in the case.\n\nBegin by searching through all case documents to identify the essential case information, including the court name, case number, complete party names (all plaintiffs and defendants), and the specific causes of action alleged in the complaint. Understanding the structure of the claims is crucial because the verdict form must track each element of each cause of action that the plaintiff must prove.\n\n## Document Structure and Legal Requirements\n\nThe verdict form should open with a proper caption that mirrors the caption used in other pleadings in the case, ensuring consistency across all court filings. Include the full court name, division if applicable, case number, and complete names of all parties as they appear in the complaint.\n\nAfter the caption, include a brief introductory statement that the jury uses to announce their verdict. This should be simple and formal, such as \"We, the jury, duly empaneled and sworn in the above-entitled action, hereby return the following verdict.\"\n\n## Claim-Specific Questions\n\nFor each cause of action pleaded in the complaint, draft a separate question that asks the jury whether the plaintiff has proven that claim by the applicable burden of proof (typically preponderance of the evidence in civil cases). Each question should be numbered sequentially and phrased clearly in plain language that a layperson can understand. For example, rather than using legal jargon, ask \"Has the plaintiff proven that the defendant breached the contract?\" instead of \"Has the plaintiff established a material breach of the subject agreement?\"\n\nStructure the questions to follow the logical flow of the case. If certain claims are dependent on others, or if affirmative defenses must be considered, build in appropriate conditional instructions. For instance, if the defendant has raised a statute of limitations defense, you may need a question asking whether the claim was filed within the applicable time period.\n\nProvide clear answer formats for each question, typically \"Yes\" or \"No\" with checkboxes or blank lines where the presiding juror can mark the jury's decision. Ensure there is adequate white space and clear visual separation between questions to prevent confusion.\n\n## Damages Calculations\n\nIf any claim involves monetary damages, include a separate section for damages that is clearly conditioned on a finding of liability. Use transitional language such as \"If you answered 'Yes' to Question [X], please proceed to answer the following questions about damages. If you answered 'No' to Question [X], skip to the signature section.\"\n\nFor each type of damages sought, create a specific question with a blank line or box where the jury can write in a dollar amount. Be specific about the type of damages being awarded. Distinguish between compensatory damages, consequential damages, punitive damages (if applicable), and any other categories of damages relevant to the claims. For example, separate questions might address lost profits, property damage, emotional distress, or medical expenses, depending on what the evidence supports.\n\nIf punitive damages are at issue, ensure you include the necessary predicate questions about malice, fraud, or oppression as required by applicable state law, and structure the punitive damages question to follow only if those predicate findings are made.\n\n## Special Verdict Considerations\n\nReview the case documents to determine whether any special interrogatories or specific factual findings are required. In complex commercial litigation, the court may want the jury to make specific findings on disputed factual issues such as whether a party acted in good faith, whether notice was properly given, or whether a condition precedent was satisfied. Include these as separate numbered questions with appropriate answer formats.\n\nIf comparative fault or apportionment of liability is at issue, include questions that ask the jury to assign percentages of fault to each party or to allocate damages among multiple defendants. Ensure these questions include clear instructions that percentages must total 100%.\n\n## Signature and Certification\n\nConclude the verdict form with a proper signature block that includes a line for the date and a signature line for the presiding juror or foreperson. Include a statement immediately above the signature line such as \"We, the jury, certify that this is our verdict\" to formalize the jury's collective decision.\n\nAdd a line for the presiding juror to print their name beneath the signature line for clarity. Some jurisdictions require all jurors to sign; others require only the foreperson. Check local rules and adapt accordingly based on the court identified in the case caption.\n\n## Final Review and Formatting\n\nEnsure the entire document is formatted professionally with consistent fonts, appropriate spacing, and clear visual hierarchy. Number all questions sequentially throughout the document, not restarting numbering in each section. Use bold or underlined text sparingly to highlight key instructions or transitions.\n\nReview the verdict form to confirm it covers every claim alleged in the complaint and every affirmative defense that would completely bar recovery if proven. The form should be comprehensive enough that the jury's answers will provide a complete basis for the court to enter judgment, but not so complex that it confuses the jury or invites inconsistent verdicts.\n\nCross-reference the verdict form against the jury instructions to ensure consistency in terminology, burden of proof, and the elements of each claim. The questions in the verdict form should align precisely with how the claims are explained in the jury instructions.\n\nGenerate the complete verdict form as a professional legal document ready for filing with the court, incorporating all case-specific information discovered from the documents and following all applicable formatting conventions for the jurisdiction.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

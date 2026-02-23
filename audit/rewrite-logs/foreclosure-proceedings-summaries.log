@@ -1,0 +1,342 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-1ea7-7192-8dad-0bb434b0e2ed
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f399c895-0a8b-4062-9d12-a57a613e7b3a",
+  "slug": "foreclosure-proceedings-summaries",
+  "name": "Foreclosure Proceedings Summaries",
+  "summary": "Analyzes case documents to generate structured, chronological summaries of foreclosure proceedings, including procedural timelines, key judicial decisions, critical deadlines, and current status. Identifies parties, property details, loan information, and next steps for quick reference. Use it in real estate litigation to assess case posture for lender representation, borrower defense, or affected transactions.",
+  "content": "# Foreclosure Proceedings Summary Workflow\n\nYou are a real estate litigation specialist tasked with creating a comprehensive summary of foreclosure proceedings. Your objective is to analyze all available case documents and produce a clear, chronological summary that captures the procedural history, critical deadlines, judicial decisions, and current status of the foreclosure action.\n\n## Your Task\n\nReview all documents related to the foreclosure proceeding and generate a structured summary that legal professionals can use to quickly understand the case status, identify upcoming deadlines, and assess the procedural posture. This summary serves as a critical reference tool for attorneys handling foreclosure defense, lender representation, or real estate transactions affected by pending foreclosure actions.\n\n## Analysis Approach\n\nBegin by searching through all uploaded documents to identify key procedural filings, court orders, notices, and correspondence related to the foreclosure. Extract specific dates, party names, property descriptions, loan amounts, and judicial rulings. Pay particular attention to statutory notice requirements, redemption periods, sale dates, and any stays or postponements. If multiple documents are involved, analyze them sequentially to build a complete chronological narrative of the proceedings.\n\n## Required Output Structure\n\nYour summary must be organized chronologically and include the following components presented in clear, professional prose:\n\n**Case Overview Section**: Identify the parties (plaintiff/lender, defendant/borrower, property owner if different), the subject property with full legal description, the original loan amount and date, the amount in default, and the court where the action is pending with the case number.\n\n**Procedural Timeline**: Present a chronological narrative of all significant events beginning with the initial default and notice of default, through the filing of the foreclosure complaint or notice of trustee's sale, service of process, any answers or responsive pleadings filed, motions practice including motions to dismiss or for summary judgment, court hearings and conferences, and any mediation or settlement discussions. For each event, specify the exact date and briefly describe the action taken and its legal significance.\n\n**Key Judicial Decisions**: Summarize any court orders or rulings that have been issued, including decisions on motions, scheduling orders, orders granting or denying stays, judgments of foreclosure, and orders confirming or postponing sales. For each decision, explain the court's reasoning and the practical impact on the proceeding.\n\n**Critical Dates and Deadlines**: Highlight all upcoming and past deadlines including redemption period expiration dates, scheduled foreclosure sale dates, response deadlines for pending motions, trial or hearing dates, and any statutory deadlines specific to the jurisdiction's foreclosure process.\n\n**Current Status and Next Steps**: Conclude with a clear statement of where the case currently stands in the foreclosure process, what immediate actions are required or anticipated, and what the likely timeline is for resolution or sale.\n\n## Legal Considerations\n\nEnsure your summary reflects jurisdiction-specific foreclosure procedures, as foreclosure law varies significantly between judicial and non-judicial foreclosure states. Note whether this is a judicial foreclosure requiring court supervision or a non-judicial foreclosure proceeding under a deed of trust. Identify any applicable statutory notice periods, right of redemption provisions, or deficiency judgment rules that may affect the timeline or outcome. Flag any procedural irregularities, potential defenses raised by the borrower such as predatory lending claims or standing challenges, or compliance issues with federal requirements like RESPA or TILA.\n\nBe attentive to any bankruptcy filings by the borrower that would trigger an automatic stay, any loss mitigation efforts or loan modification applications that might pause the foreclosure, and whether proper notice was provided to all necessary parties including junior lienholders and occupants.\n\n## Professional Standards\n\nPresent all information in objective, factual language suitable for attorney review. Use precise legal terminology appropriate to foreclosure practice. Cite specific document names and page numbers when referencing key facts or dates. Maintain strict chronological organization to enable quick reference. Ensure all monetary amounts, property descriptions, and dates are accurate and clearly stated. Your summary should enable any attorney to immediately understand the case status and take appropriate action without needing to review the underlying documents in detail.",
+  "parent_skill_id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings",
+      "pre-trial",
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "real-estate-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.023001",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:57:44.540855Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Preparing to read skill-creator SKILL.md**
+
+I'm planning to read the SKILL.md file from the skill-creator directory to handle the requested skill rewrite task properly.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Retrieving skill file path contents**
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving frontmatter format conflict**
+
+I'm prioritizing the user's explicit request for a detailed frontmatter format with metadata fields over the skill creator's minimal guidance, preparing a compliant frontmatter with a concise slug and enriched description including relevant trigger keywords.
+thinking
+**Planning detailed skill output structure**
+
+I'm shaping the skill to include comprehensive structured sections with tables and checklists covering intake, output, statutory and jurisdictional notes, and compliance reminders marked with [VERIFY] when uncertain, all formatted as raw SKILL.md content with clear prerequisites and trigger keywords reflecting foreclosure proceedings intricacies.
+codex
+---
+name: foreclosure-summary
+description: Produces structured, chronological summaries of U.S. foreclosure proceedings for real estate litigation and transaction diligence. Captures parties, property, loan details, procedural posture, judicial decisions, statutory notice/redemption deadlines, sale dates, and next steps with source citations. Use when asked for a foreclosure summary, foreclosure timeline, procedural history, trustee sale status, judicial vs non-judicial foreclosure analysis, lender/borrower posture memo, or case status overview.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Foreclosure Proceedings Summary
+
+Summarize foreclosure proceedings into a precise, chronological, attorney-ready status memo.
+
+## Prerequisites
+
+1. **Jurisdiction + foreclosure type** — state, county, court, and whether judicial or non-judicial
+2. **Core docket/record** — register of actions, docket sheet, or trustee sale log
+3. **Key filings/notices** — default notice, complaint/petition, summons, service returns, trustee’s notice of sale, postponements
+4. **Loan + property documents** — note, mortgage/deed of trust, assignments, substitutions, payoff, payment history
+5. **Orders and rulings** — motions, stays, judgment of foreclosure, sale confirmation
+6. **Loss mitigation/bankruptcy** — applications, forbearance, mediation, bankruptcy filings and stay relief
+
+## Output Structure / Process
+
+Use the following structure and fill all sections with document-name and page-cite references.
+
+### 1) Case Overview
+
+| Field | Detail | Source |
+| --- | --- | --- |
+| Court / Case No. |  |  |
+| Foreclosure Type | Judicial / Non-judicial |  |
+| Plaintiff/Lender |  |  |
+| Defendant/Borrower |  |  |
+| Other Interested Parties | Junior lienholders, trustees, occupants |  |
+| Property | Address + legal description |  |
+| Loan | Original amount, date, instrument |  |
+| Default | Amount, date of default |  |
+
+### 2) Procedural Timeline (Chronological)
+
+| Date | Event | Legal Significance | Source |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### 3) Key Judicial Decisions / Administrative Actions
+
+| Date | Decision/Order | Outcome | Practical Impact | Source |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+### 4) Critical Dates & Deadlines
+
+| Item | Date | Status | Basis (Statute/Order) | Source |
+| --- | --- | --- | --- | --- |
+| Redemption period end |  |  |  |  |
+| Sale date |  |  |  |  |
+| Motion response |  |  |  |  |
+| Hearing/trial |  |  |  |  |
+
+### 5) Compliance & Defense Flags
+
+Checklist items require a yes/no with a short note and citation.
+
+- **Notice of default / right-to-cure** complied with
+- **Service of process** completed on required parties
+- **Assignment/standing** chain supported by recorded instruments
+- **Loss mitigation timelines** under RESPA/Reg X [VERIFY] reviewed
+- **TILA/Reg Z disclosures** and rescission issues [VERIFY] flagged
+- **Bankruptcy stay** triggered/relief obtained
+- **Publication/recording requirements** met for sale
+
+### 6) Current Status & Next Steps
+
+Provide a tight, 3–6 sentence status summary and an action list.
+
+**Status:**  
+**Next steps (ordered):**
+
+1.  
+2.  
+3.  
+
+### 7) Document Map (Key Sources)
+
+| Document | Date | Relevance | Page Cite |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## Guidelines
+
+- Maintain strict chronological order and always include the exact date for each event.
+- Distinguish judicial vs non-judicial pathways and identify the governing instrument (mortgage vs deed of trust).
+- Cite every factual statement to a document name and page number.
+- Flag missing required data with “Missing” and list what to obtain.
+- Note jurisdiction-specific statutory timelines for notice, redemption, and sale; use `[VERIFY]` if the statute or citation is uncertain.
+- Stay objective and factual; do not argue merits.
+tokens used
+7,866

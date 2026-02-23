@@ -1,0 +1,328 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-0a5c-7ed1-9a37-3bcc98e29bb7
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "89915372-1bea-4e6f-812b-7aa59913a3e0",
+  "slug": "employment-contract-summaries",
+  "name": "Employment Contract Summaries",
+  "summary": "Analyzes employment contracts to generate comprehensive, structured summaries of key terms, obligations, risks, and notable absences. Highlights compensation, termination provisions, restrictive covenants, and other critical elements for quick comprehension. Use for client counseling, due diligence, litigation preparation, or contract negotiation.",
+  "content": "# Employment Contract Summary Workflow\n\nYou are tasked with creating a comprehensive summary of an employment contract or related employment documentation. This workflow is designed to help legal professionals quickly understand the key terms, obligations, and risks within employment agreements, whether for client counseling, due diligence, litigation preparation, or contract negotiation.\n\n## Your Objective\n\nAnalyze the employment contract thoroughly and produce a clear, organized summary that captures all material terms and highlights potential issues or areas requiring attention. Your summary should enable an attorney to understand the essential elements of the employment relationship without reading the entire contract, while also flagging provisions that may require deeper analysis or negotiation.\n\n## Analysis Approach\n\nBegin by searching the uploaded documents to identify and extract the employment contract or contracts in question. Read through the entire document systematically to ensure you capture every significant provision. Employment contracts often contain critical terms buried in standard clauses, so thoroughness is essential. Pay particular attention to defined terms at the beginning of the contract, as these often shape the interpretation of key provisions throughout the agreement.\n\nAs you analyze the contract, organize your findings around the core elements that define the employment relationship. Identify the parties and their roles, the position and reporting structure, compensation and benefits, term and termination provisions, restrictive covenants, intellectual property assignments, dispute resolution mechanisms, and any unusual or non-standard clauses. Consider both what is present in the contract and what may be notably absent, as gaps in employment agreements can create significant legal exposure.\n\n## Summary Structure and Content\n\nYour summary should begin with a brief overview that identifies the parties, the position, the start date if specified, and the fundamental nature of the employment relationship, including whether it is at-will or for a defined term. This overview should be concise but sufficient to orient the reader to the basic employment arrangement.\n\nFollowing the overview, provide detailed sections covering compensation structure including base salary, bonuses, commissions, equity grants, and the vesting schedules or performance conditions attached to variable compensation. Address the complete benefits package, including health insurance, retirement plans, paid time off, and any other perquisites or benefits specified in the agreement.\n\nAnalyze the termination provisions with particular care, as these often become the most contested aspects of employment relationships. Identify what constitutes cause for termination, notice requirements, severance obligations, and any conditions precedent to receiving severance payments. Note whether the contract includes any change-in-control provisions or enhanced severance in specific circumstances.\n\nExamine restrictive covenants including non-competition, non-solicitation, and non-disclosure obligations. For each restrictive covenant, specify the scope, duration, and geographic limitations. Assess whether these restrictions appear reasonable and enforceable under applicable law, noting that enforceability standards vary significantly by jurisdiction. If the contract includes a choice of law provision, consider enforceability under that jurisdiction's standards.\n\nReview intellectual property and work product provisions to determine what the employee must assign to the employer and whether any carve-outs exist for prior inventions or work done outside the scope of employment. These provisions are particularly important for employees in creative or technical roles.\n\nIdentify the dispute resolution mechanisms specified in the contract, including whether disputes must be resolved through arbitration, the rules governing any arbitration, and whether the employee waives the right to participate in class actions. Note any fee-shifting provisions or limitations on available remedies.\n\n## Legal Considerations and Risk Assessment\n\nThroughout your summary, identify provisions that may present legal risks or negotiation opportunities. Flag overly broad restrictive covenants that may be unenforceable, ambiguous termination provisions that could lead to disputes, compensation structures that may create classification issues under wage and hour laws, or missing provisions that would typically protect either party's interests.\n\nConsider the employment law context in which this contract operates. While you should not provide a full legal analysis of compliance with all applicable employment laws, note where contract provisions intersect with statutory requirements such as minimum wage laws, overtime exemptions, anti-discrimination protections, or mandatory leave entitlements. Highlight any provisions that appear to conflict with statutory protections or that attempt to waive non-waivable rights.\n\nIf the contract involves executive-level employment, pay special attention to provisions regarding equity compensation, change-in-control payments, tax gross-ups, and Section 409A compliance. For contracts involving employees who will have access to confidential information or trade secrets, assess whether the confidentiality and non-disclosure provisions provide adequate protection.\n\n## Output Format\n\nPresent your summary in a clear, professional format using descriptive headings and organized sections. Use precise language and cite specific contract sections when referencing particular provisions. Where contract language is ambiguous or could be interpreted multiple ways, note the ambiguity and explain the potential interpretations. Quantify obligations wherever possible, providing specific dollar amounts, percentages, time periods, and dates rather than general descriptions.\n\nYour summary should be comprehensive enough to serve as a standalone reference document, yet concise enough to be reviewed quickly. Aim for a length proportionate to the complexity of the underlying contract, typically ranging from two to five pages for standard employment agreements, with longer summaries appropriate for complex executive agreements with multiple exhibits and schedules.\n\nConclude with a brief section identifying any missing information, ambiguities requiring clarification, or recommended follow-up actions. This might include provisions that should be negotiated, missing standard protections that should be added, or areas where additional documentation or legal research would be beneficial.",
+  "parent_skill_id": "a8cfbc04-d7ae-4f08-856a-f5d970d6dc17",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "review"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "contract",
+      "agreement",
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "employment-and-consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:56:33.941892Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating employment contract summary skill**
+
+I'm creating a clear, well-structured skill document named "employment-contract-summary" with descriptive metadata and a concise purpose. The output includes defined sections, tables for parties and compensation, a red flag checklist, jurisdiction notes, and risk considerations, all formatted with flat lists and no fluff.
+thinking
+**Including code block template and refined description**
+
+I'm adding a code block template for the output section as allowed and refining the description to mention relevant trigger keywords and document types in third person. The description clearly states the skill's purpose and contexts for use, ensuring compliance with formatting rules and keyword richness.
+codex
+---
+name: employment-contract-summary
+description: Produces structured U.S. employment contract summaries that capture key terms, obligations, risks, and notable omissions, with section-level citations. Use when summarizing an employment contract or employment agreement, executive employment agreement, offer letter, or consulting agreement; triggers include “employment contract summary,” “employment agreement,” “compensation,” “severance,” “non-compete,” “non-solicit,” “confidentiality,” and “restrictive covenant.”
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Contract
+    - Agreement
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+    - Review
+---
+
+# Employment Contract Summary
+
+Create a concise, citation-backed summary of an employment agreement with risks and gaps flagged.
+
+## Prerequisites
+
+1. **Complete agreement set** — main contract plus exhibits, schedules, equity plans, and referenced policies.
+2. **Governing law and venue** — from the document; if missing, mark as absent.
+3. **Role context** — job title, level (executive/non‑executive), and start date if known.
+
+## Output Structure / Process
+
+Use this exact order and include section/page citations for each item.
+
+**1) Snapshot (4–6 lines)**
+- Parties, role/title, start date, at‑will vs. term, governing law, dispute forum.
+
+**2) Parties & Role**
+| Item | Details | Citation |
+| --- | --- | --- |
+| Employer |  |  |
+| Employee |  |  |
+| Title/Reporting |  |  |
+| Duties/Scope |  |  |
+
+**3) Term & Renewal**
+| Item | Details | Citation |
+| --- | --- | --- |
+| Term length |  |  |
+| Renewal/extension |  |  |
+| Probationary period |  |  |
+
+**4) Compensation & Equity**
+| Component | Amount/Formula | Timing/Conditions | Citation |
+| --- | --- | --- | --- |
+| Base salary |  |  |  |
+| Bonus/incentive |  |  |  |
+| Commission |  |  |  |
+| Equity/RSUs/options |  |  |  |
+| Benefits in cash |  |  |  |
+
+**5) Benefits & Perks**
+| Benefit | Eligibility | Employer/Employee share | Citation |
+| --- | --- | --- | --- |
+| Health/retirement |  |  |  |
+| PTO/leave |  |  |  |
+| Expenses/perqs |  |  |  |
+
+**6) Termination & Severance**
+| Scenario | Notice | Cause definition | Severance/conditions | Citation |
+| --- | --- | --- | --- | --- |
+| For cause |  |  |  |  |
+| Without cause |  |  |  |  |
+| Resignation |  |  |  |  |
+| Change in control |  |  |  |  |
+
+**7) Restrictive Covenants**
+| Covenant | Duration | Geography | Scope | Exceptions | Citation |
+| --- | --- | --- | --- | --- | --- |
+| Non‑compete |  |  |  |  |  |
+| Non‑solicit |  |  |  |  |  |
+| Confidentiality |  |  |  |  |  |
+| Non‑disparagement |  |  |  |  |  |
+
+Add enforceability notes by state if governing law is specified; otherwise mark “state‑specific enforceability varies.”
+
+**8) IP & Work Product**
+| Topic | Obligation | Carve‑outs | Citation |
+| --- | --- | --- | --- |
+| Assignment of inventions |  |  |  |
+| Prior inventions schedule |  |  |  |
+| Works outside scope |  |  |  |
+
+**9) Dispute Resolution**
+| Mechanism | Rules/Forum | Class waiver | Fees | Remedies limits | Citation |
+| --- | --- | --- | --- | --- | --- |
+| Arbitration/litigation |  |  |  |  |  |
+
+**10) Compliance & Statutory Conflicts (Flag Only)**
+- Minimum wage/overtime classification risks.
+- Non‑waivable rights (leave, anti‑discrimination, whistleblower).
+- 409A, golden‑parachute, or tax gross‑up concerns for executives.
+
+**11) Risks, Ambiguities, Missing Terms**
+- Provide a checklist with short bullets, each with a citation or “missing.”
+- Note any inconsistent defined terms or cross‑reference errors.
+
+**12) Recommended Follow‑ups**
+- Targeted questions or documents needed (e.g., equity plan, bonus plan, policy handbook).
+
+**Template**
+```text
+RISK LEVEL: Low / Medium / High (brief rationale)
+
+SUMMARY:
+- ...
+
+KEY ISSUES:
+- ...
+
+MISSING/UNCLEAR:
+- ...
+```
+
+## Guidelines
+
+- Cite every material term with section/page references.
+- Quantify everything (dollars, dates, percentages, vesting schedules).
+- Distinguish “silent” vs. “expressly excluded.”
+- Flag non‑competes and non‑solicits as state‑dependent; do not assume enforceability.
+- Do not provide legal advice or outcome predictions; only flag issues and conflicts.
+tokens used
+3,291

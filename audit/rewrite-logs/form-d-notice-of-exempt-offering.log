@@ -1,0 +1,351 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-ab19-7ec1-8c1c-50b34510e1fd
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f16be73c-1d2d-4666-8d3e-49a4ba81181a",
+  "slug": "form-d-notice-of-exempt-offering",
+  "name": "Form D Notice of Exempt Offering",
+  "summary": "Drafts a comprehensive Form D Notice of Exempt Offering for electronic filing with the SEC via EDGAR within 15 days of the first securities sale. This skill captures issuer details, related persons, offering information, and exemptions under Regulation D. Use it for issuers conducting unregistered securities offerings to comply with federal securities laws.",
+  "content": "**Enhanced Prompt: Form D Notice of Exempt Offering**\n\nYou are tasked with drafting a comprehensive Form D Notice of Exempt Offering of Securities, a critical regulatory filing required under the Securities Act of 1933 and SEC Regulation D. This document serves as formal notice to the Securities and Exchange Commission that the issuer is conducting a securities offering under one or more exemptions from registration. The Form D must be filed electronically through the SEC's EDGAR system no later than 15 days after the first sale of securities in the offering, and accuracy is paramount as this filing becomes part of the public record and may be relied upon by investors, regulators, and other stakeholders.\n\nBegin by establishing the foundational filing information that will appear on the cover page. You must accurately capture the issuer's Central Index Key (CIK) number if one has been previously assigned, determine whether this is a new filing or an amendment to a previous Form D submission, and record the precise date of first sale of securities. The filing must clearly indicate whether it represents an initial notice or corrects information in a prior submission. Ensure that all identifying numbers and dates are verified against the issuer's corporate records and any previous SEC filings to maintain consistency across the regulatory record.\n\nProceed to compile comprehensive issuer information with meticulous attention to detail. Document the issuer's complete legal name exactly as it appears in the organizational documents, the full principal business address including street address rather than post office boxes, the jurisdiction of incorporation or organization, the issuer's organizational form (corporation, limited partnership, limited liability company, etc.), the year of incorporation or organization, and the issuer's primary Standard Industrial Classification (SIC) code. Include complete contact information for the issuer including telephone number, and if applicable, the issuer's website address. This section must reflect the issuer's current legal status and any recent changes in domicile, name, or structure should be clearly noted with effective dates.\n\nIdentify and disclose all related persons who must be listed on Form D pursuant to SEC regulations. This includes every executive officer, director, and promoter of the issuer, with their full legal names, complete business addresses, and specific relationship to the issuer clearly delineated. For each listed person, you must indicate their role (executive officer, director, promoter, or multiple roles) and provide their business street address. Pay particular attention to the definition of \"promoter\" under securities law, which encompasses any person who, acting alone or in conjunction with others, directly or indirectly takes initiative in founding and organizing the business or enterprise of the issuer. Ensure that all persons who have received or will receive compensation or securities in connection with the offering are properly disclosed if they meet the regulatory definition of related persons.\n\nProvide detailed and precise information regarding the securities being offered. Specify the exact type of security (common stock, preferred stock, limited partnership interests, LLC membership interests, convertible notes, options, warrants, or other), the total amount of securities being offered expressed both in number of units and aggregate offering price, and the price per unit if applicable. If the offering involves multiple classes or series of securities, each must be separately described with its distinct characteristics, rights, and preferences clearly articulated. Address whether the securities are being offered at a fixed price or through a variable pricing mechanism, and if minimum investment amounts apply to individual investors, state these thresholds clearly. The description must enable the SEC and potential investors to understand precisely what is being sold and on what terms.\n\nClearly identify and substantiate the specific exemptions from registration being claimed under Regulation D or other provisions of the Securities Act. State whether the offering relies on Rule 504, Rule 506(b), Rule 506(c), or another exemption, and ensure that the factual circumstances of the offering align with all conditions and limitations of the claimed exemption. For Rule 506(b) offerings, confirm that the issuer is not engaging in general solicitation or general advertising and that sales are limited to accredited investors and up to 35 sophisticated non-accredited investors. For Rule 506(c) offerings, verify that the issuer will take reasonable steps to verify that all purchasers are accredited investors and that general solicitation is permissible under the exemption. If claiming multiple exemptions or relying on Section 4(a)(2) in conjunction with Regulation D, explain the basis for each exemption and how the offering satisfies the applicable requirements. This analysis is critical because claiming an inapplicable exemption can result in the offering being deemed an illegal unregistered securities offering.\n\nDocument the comprehensive details of the offering structure and sales compensation arrangements. Specify the anticipated duration of the offering, including the date of first sale and the expected termination date, recognizing that ongoing offerings may require amended Form D filings. Disclose whether the issuer is using broker-dealers, finders, or other intermediaries to facilitate sales, and if so, provide complete information about these persons including their CRD numbers if they are registered representatives. Detail all compensation arrangements including cash commissions, finder's fees, securities issued as compensation, or other consideration paid or to be paid to any person for soliciting investors or facilitating the offering. Describe the intended use of proceeds from the offering with sufficient specificity to inform investors how their capital will be deployed, whether for working capital, acquisition of assets, repayment of debt, or other corporate purposes. If the offering is being conducted on a \"best efforts\" basis rather than a firm commitment underwriting, this must be clearly stated, along with any minimum offering amount required before the issuer can access investor funds.\n\nAddress the financial parameters and structural elements of the offering with precision. State the minimum investment amount accepted from any individual investor, the total offering amount representing the maximum aggregate proceeds the issuer intends to raise, and whether the offering is being conducted with or without a minimum threshold that must be reached before the issuer can close on any sales. If investor funds will be held in escrow pending satisfaction of minimum offering requirements, describe these arrangements and identify the escrow agent. Provide information about the issuer's financial condition if material to the offering, particularly if the issuer is in the development stage, has limited operating history, or has experienced recent losses. While Form D itself does not require audited financial statements, you should note whether such statements have been provided to investors as part of the offering materials, as this may be required depending on the exemption claimed and the sophistication of the investors.\n\nConclude the Form D with proper execution by an authorized representative of the issuer. The signature section must include the printed name and title of the person signing on behalf of the issuer, confirmation that this person is duly authorized to execute the filing, and the date of signature. The signatory should typically be an executive officer, director, or general partner with actual authority to bind the issuer to the representations made in the Form D. Include a statement that the signatory has reviewed the Form D and that, to the best of their knowledge, the information contained therein is true and correct in all material respects. Electronic signatures are acceptable for EDGAR filings provided they comply with SEC requirements for authentication and non-repudiation.\n\nThroughout the drafting process, maintain strict adherence to the current Form D instructions published by the SEC and ensure that all information is accurate, complete, and consistent with the issuer's organizational documents, offering materials, and actual offering practices. Remember that Form D is a notice filing rather than a qualification document, but inaccuracies or omissions can result in loss of the registration exemption, regulatory enforcement action, and potential liability to investors. Cross-reference all information against source documents and verify that the offering as described in Form D matches the offering as actually being conducted in all material respects.",
+  "parent_skill_id": "83ed0182-52a7-4281-8773-85f057bf7d8d",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "securities_and_capital_markets"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:58:20.740452Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating concise Form D notice skill**
+
+I'm defining a skill titled "Form D Notice of Exempt Offering" with the slug "form-d-notice," using third-person concise description including keywords like SEC Form D and EDGAR filing deadlines. The skill covers process steps and regulatory references such as Rule 504, 506(b), 506(c), Section 4(a)(2), and Reg D, includes caution on solicitation, and formats prerequisites and guidance clearly without fluff.
+thinking
+**Detailing Form D skill structure**
+
+I'm refining the skill to include a clear output structure with tables for required fields and source mapping, checklists per section, and a disclosure logic step on exemptions versus solicitation. The process will note EDGAR filing deadlines tied to Rule 503—marked [VERIFY]—and amendment triggers, also flagged [VERIFY] where uncertain. The description integrates key trigger keywords and metadata while ensuring concise third-person wording.
+codex
+---
+name: form-d-notice
+description: Drafts U.S. SEC Form D notices for Regulation D exempt offerings, capturing issuer details, related persons, offering terms, exemption basis, sales compensation, and use of proceeds for EDGAR filing within 15 days of first sale. Use when preparing a Form D, notice of exempt offering, Reg D filing, Rule 506(b)/506(c)/504 offering, or unregistered securities offering compliance.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+---
+
+# Form D Notice of Exempt Offering
+
+Produce a complete Form D data set ready for EDGAR submission.
+
+## Prerequisites
+
+1. **First sale date** and offering status (initial vs amendment)
+2. **Issuer identifiers**: legal name, CIK (if any), EIN (if used internally), org form, jurisdiction, year formed, SIC code, principal address, phone, website
+3. **Related persons list**: executive officers, directors, promoters with business addresses and roles
+4. **Offering terms**: security type(s), amount offered, amount sold to date, price/unit or valuation method, minimum investment
+5. **Exemption basis**: Rule 504 / Rule 506(b) / Rule 506(c) and solicitation/verification approach
+6. **Sales compensation**: broker-dealers/finders, CRD numbers, compensation structure
+7. **Use of proceeds** and escrow arrangements (if any)
+8. **Authorized signatory** name/title and confirmation of authority
+9. **Prior Form D** data if filing an amendment
+
+## Output Structure / Process
+
+### 1) Filing Header
+
+Checklist:
+- `Filing type`: Initial or Amendment
+- `Date of first sale`
+- `CIK` (if assigned)
+
+### 2) Issuer Information
+
+Use this table format:
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| Legal name | Yes | Match charter documents |
+| Jurisdiction | Yes | State/country of organization |
+| Org form | Yes | Corp/LLC/LP/etc. |
+| Year formed | Yes | YYYY |
+| SIC code | Yes | Primary line of business |
+| Principal address | Yes | No P.O. boxes |
+| Phone | Yes | |
+| Website | No | If maintained |
+
+### 3) Related Persons
+
+Include **all** executive officers, directors, and promoters.
+
+Template:
+
+| Name | Role(s) | Business Address | Notes |
+| --- | --- | --- | --- |
+
+Role logic:
+- Executive officer: any policy-making officer
+- Director: board member
+- Promoter: person taking initiative in founding/organizing the issuer
+
+### 4) Offering Details
+
+Provide per class/series if multiple.
+
+Checklist:
+- `Type of security`
+- `Total amount offered`
+- `Amount sold to date`
+- `Price per unit` or valuation method
+- `Minimum investment`
+- `Offering duration` (anticipated)
+
+### 5) Exemption Claimed
+
+Specify exemption and matching facts.
+
+Table:
+
+| Exemption | Eligibility Facts | Solicitation | Investor Limits |
+| --- | --- | --- | --- |
+| Rule 504 | State qualification/limits apply | No general solicitation unless state law permits | As applicable |
+| Rule 506(b) | Accredited + up to 35 sophisticated | No general solicitation | Investor sophistication required |
+| Rule 506(c) | Accredited only | General solicitation permitted | Verification steps required |
+
+If relying on Section 4(a)(2) in parallel, note basis and alignment with Reg D.
+
+### 6) Sales Compensation
+
+Checklist:
+- `Use of brokers/finders`: Yes/No
+- `Broker/agent names`
+- `CRD numbers` (if registered)
+- `Cash commissions`
+- `Non-cash compensation` (securities, warrants, etc.)
+
+### 7) Use of Proceeds / Escrow
+
+Checklist:
+- `Primary use(s) of proceeds`
+- `Debt repayment` (identify if material)
+- `Escrow` details (agent, conditions)
+- `Minimum offering amount` and close conditions
+
+### 8) Signature Block
+
+Provide:
+
+- Printed name
+- Title
+- Date of signature
+- Statement of authority and accuracy
+
+Template:
+
+```
+By: [Name]
+Title: [Title]
+Date: [YYYY-MM-DD]
+Authority: Duly authorized to sign on behalf of issuer; information is true and correct to the best of knowledge.
+```
+
+### 9) Validation Checklist
+
+- EDGAR filing deadline: within 15 days of first sale (Rule 503) [VERIFY]
+- No conflicts with charter/PPM/SAFEs/notes
+- Exemption conditions match actual offering conduct
+- Addresses are complete and consistent
+- Amounts and dates reconcile across materials
+
+### 10) Amendment Triggers
+
+File an amendment if:
+- Material change to offering terms or issuer information
+- Correction of a material error
+- Ongoing offering requires periodic updates [VERIFY]
+
+## Guidelines
+
+- Do not guess missing data; flag gaps explicitly.
+- If claiming Rule 506(b), confirm no general solicitation and investor limits.
+- If claiming Rule 506(c), document accredited investor verification steps.
+- Ensure related person list includes promoters, not just officers/directors.
+- Keep Form D consistent with subscription docs, PPM, and actual sales practices.
+- Note any jurisdictional or state “blue sky” filings separately.
+- Mark any uncertain legal citations with `[VERIFY]`.
+tokens used
+4,590

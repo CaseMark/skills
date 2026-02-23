@@ -1,0 +1,331 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-7cc7-79b3-acac-e8d051f6e29c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "14fc4b91-8893-4820-84df-8c428cf6b3d4",
+  "slug": "certified-claim-contract-disputes-act",
+  "name": "Certified Claim under Contracts Disputes Act",
+  "summary": "Drafts a comprehensive Certified Claim under the Contract Disputes Act (CDA), 41 U.S.C. \u00a7\u00a7 7101-7109, for government contractors disputing federal contract issues. Ensures strict compliance with FAR Part 33 requirements, including proper header, contract background, factual support, damages calculation, and certification to preserve appeal rights. Use when submitting formal claims to contracting officers before litigation or appeal.",
+  "content": "# Enhanced Prompt: Certified Claim under the Contract Disputes Act\n\nYou are tasked with drafting a comprehensive Certified Claim under the Contract Disputes Act (CDA), 41 U.S.C. \u00a7\u00a7 7101-7109. This is a formal legal document that must comply with strict regulatory requirements set forth in the Federal Acquisition Regulation (FAR) Part 33 and established case law interpreting the CDA. The claim must be precise, well-supported, and properly certified to preserve the claimant's rights to appeal and judicial review.\n\n## Initial Document Review and Information Gathering\n\nBegin by conducting a thorough review of all available contract documents, correspondence, and supporting materials. Search through uploaded documents to identify and extract critical information including the complete contract number with all modification numbers, the exact contract award date, the full legal names and addresses of all parties, the contracting officer's name and official title, and the total contract value. Extract specific contract language from relevant clauses including the disputes clause, changes clause, differing site conditions clause, and any other provisions that form the basis of the claim. Identify and catalog all correspondence between the parties that relates to the dispute, noting specific dates, sender and recipient names and titles, and the substance of each communication. Gather all contemporaneous documentation including daily reports, progress logs, meeting minutes, photographs, and financial records that support the factual narrative and damages calculation.\n\n## Document Header and Foundational Elements\n\nConstruct a complete header section that establishes all foundational elements required for proper claim submission. Present the full legal name and complete address of the claimant contractor exactly as it appears in the contract documents. Identify the contracting officer by full name, official title, agency, and office address. State the complete contract number including all modification numbers, the contract award date, and the date of claim submission. Verify that all identifying information matches precisely with the official contract documents, as any discrepancies may create jurisdictional issues or delay processing. Include a clear subject line that identifies the document as a \"Certified Claim under the Contract Disputes Act\" and briefly describes the nature of the dispute.\n\n## Contract Background and Contextual Framework\n\nProvide a comprehensive yet concise summary of the underlying contract that gives rise to this claim. Describe the contract's purpose and objectives, the detailed scope of work or services to be performed, the period of performance including any option periods, and the total contract value broken down by base period and options if applicable. Present the contract type such as firm-fixed-price, cost-plus-fixed-fee, or time-and-materials, as this affects the legal standards applicable to certain claim theories. Quote verbatim the specific contract clauses that are central to the dispute, ensuring that clause numbers, titles, and dates match the actual incorporated provisions. Reference the contract by its official designation and cite specific sections, paragraphs, exhibits, or attachments that are relevant to the claim. Describe any unique or unusual contract requirements, site conditions, or performance constraints that provide necessary context for understanding the dispute. This section should enable the contracting officer to immediately grasp the contractual framework without needing to retrieve and review the entire contract file.\n\n## Precise Statement of the Claim\n\nArticulate with absolute clarity and specificity the exact nature of the dispute and the precise relief being sought. State unambiguously whether this is a claim for additional monetary compensation, contract time extension, both, or other equitable adjustment to the contract terms. Identify with particularity the specific government action, inaction, directive, or breach that gives rise to the claim. Frame the claim in terms that align with recognized CDA claim categories such as formal or constructive changes to contract requirements, differing site conditions, government-caused delays, defective or ambiguous specifications, superior knowledge, breach of the duty to cooperate, or other established bases for contractor recovery. Specify the exact amount of monetary compensation sought, stated as a definite sum rather than an estimate or range. If seeking a time extension, specify the exact number of calendar days or work days requested and identify the specific contract milestones or completion dates that should be adjusted. The statement must be sufficiently definite to allow the contracting officer to understand exactly what is being claimed and to conduct a meaningful investigation and evaluation of the merits.\n\n## Detailed Factual Foundation and Chronological Narrative\n\nPresent a meticulously detailed chronological narrative of all facts supporting the claim. Begin with relevant background circumstances that existed at the time of contract award, including the contractor's understanding of the work requirements, site conditions, or other material aspects of performance. Proceed systematically through each significant event, communication, directive, discovery, or occurrence that contributed to the dispute. For each factual assertion, provide the specific date or time period, identify all individuals involved by full name and official title, describe exactly what occurred or what was communicated, and reference the specific supporting documentation by exhibit number. Search through all available documents to locate and quote relevant passages from correspondence, meeting minutes, daily reports, or other contemporaneous records that corroborate each factual assertion.\n\nDescribe in detail what was required and expected under the original contract terms versus what actually occurred or was encountered during performance, highlighting the material discrepancies that caused injury to the contractor. If claiming a change, describe the original contract requirement with specificity, then describe the altered requirement or directive, explaining how the government's action or inaction effectively changed the contractor's obligations. If claiming differing site conditions, describe the site conditions indicated in the contract documents or reasonably inferable from them, then describe the actual conditions encountered, explaining how they differed materially and were not reasonably foreseeable. If claiming delay, establish the critical path of performance, identify the specific government actions or failures that impacted critical path activities, and demonstrate the resulting extension of the performance period.\n\nInclude comprehensive details about the contractor's response to the circumstances giving rise to the claim, including any contemporaneous written notices provided to the government, requests for clarification or direction, protests or objections to government directives, and efforts to mitigate damages. Describe the resulting impacts on labor productivity, equipment utilization, material costs, schedule performance, or other measurable aspects of contract performance. Maintain an objective, factual tone throughout this section, presenting facts clearly and completely while avoiding argumentative or inflammatory language. Ensure that the causal connection between government action and contractor injury is unmistakably clear from the factual narrative.\n\n## Legal and Regulatory Basis for Entitlement\n\nEstablish the comprehensive legal foundation for the claim by identifying and explaining all applicable statutes, regulations, contract provisions, and legal precedents that support the contractor's entitlement to relief. Begin by citing the Contract Disputes Act, 41 U.S.C. \u00a7\u00a7 7101-7109, as the jurisdictional basis for the claim and the authority under which the contracting officer must issue a final decision. Identify and quote the specific FAR provisions that govern the type of claim being asserted. For changes claims, cite FAR 52.243-1 (Changes\u2014Fixed-Price), FAR 52.243-2 (Changes\u2014Cost-Reimbursement), or the applicable changes clause incorporated into the contract, and explain how the facts satisfy the elements of a compensable change. For differing site conditions claims, cite FAR 52.236-2 and explain how the encountered conditions meet the definition of either a Type I or Type II differing site condition. For delay claims, cite the contract's suspension of work clause or other relevant provisions and explain the government's duty not to hinder or delay the contractor's performance.\n\nResearch and cite relevant case law from the Armed Services Board of Contract Appeals, the Civilian Board of Contract Appeals, the Court of Federal Claims, and the Federal Circuit that supports the legal theories advanced in the claim. For each cited case, provide the full case name, citation, and a brief explanation of the legal principle established and how it applies to the facts of this claim. Explain how the facts of this case satisfy each element required for recovery under the legal theories asserted. Address any potential affirmative defenses or counterarguments the government might raise, such as lack of timely notice, failure to comply with contract procedures, or contractor assumption of risk, and explain with supporting legal authority why these defenses do not defeat the claim. If multiple legal theories support the claim, explain each theory separately while noting that they may be asserted in the alternative.\n\n## Comprehensive Quantum of Damages and Calculation Methodology\n\nProvide an exhaustive breakdown of the monetary amount claimed, organized systematically by cost category and supported by detailed calculations traceable to source documents. Search through all available financial records, accounting ledgers, payroll records, invoices, and job cost reports to extract specific cost data supporting each element of damages. Present the damages calculation using recognized methodologies appropriate to the type of claim being asserted.\n\nFor direct costs, itemize all additional labor hours incurred as a result of the compensable event, broken down by labor classification such as project manager, superintendent, foreman, journeyman, and laborer. For each classification, specify the number of additional hours, the applicable hourly rate, and the total cost, with supporting references to payroll records and timesheets. Itemize all additional materials and supplies purchased, identifying each item by description, quantity, unit cost, and total cost, with supporting references to purchase orders and invoices. Itemize all additional equipment costs including rental equipment, owned equipment calculated at appropriate rates, and equipment purchases, with supporting documentation. Identify all additional subcontractor costs with references to subcontract agreements, change orders, and subcontractor invoices.\n\nFor indirect costs, calculate overhead, general and administrative expenses, fringe benefits, and other indirect costs using the rates established in the contract, disclosed in the contractor's accounting system, or calculated using methods accepted by the Defense Contract Audit Agency. Explain the methodology used to calculate each indirect cost rate and demonstrate that the rates are reasonable and properly allocable to the contract. If the contract establishes specific indirect cost rates, apply those rates. If not, explain the basis for the rates used and provide supporting documentation from the contractor's accounting records.\n\nFor delay-related costs, specify the exact period of delay measured in calendar days or work days, identify the specific contract activities that were delayed, and demonstrate through critical path method analysis or other accepted scheduling methodology that the delayed activities were on the critical path and caused an extension of the overall contract performance period. Calculate extended field office overhead costs by identifying all personnel and expenses that were required to remain on site during the delay period, including project management, supervision, field office rent, utilities, and equipment. If claiming home office overhead costs, apply an accepted methodology such as the Eichleay formula, explaining each step of the calculation and providing supporting data for total contract billings, total company overhead, contract performance period, and delay period.\n\nFor loss of efficiency or productivity impacts, employ recognized methodologies such as the measured mile analysis, industry studies, or other methods accepted by the boards and courts. Provide detailed supporting data demonstrating the baseline productivity rate achieved during unimpacted periods, the actual productivity rate achieved during impacted periods, the quantified difference, and the causal link between the government action and the decreased productivity. Present any expert analysis or reports supporting the productivity loss calculation.\n\nCalculate and include interest on the claimed amount from the date each cost was incurred or the date the claim accrued, whichever is appropriate, through the date of the contracting officer's final decision, as provided under 41 U.S.C. \u00a7 7109. Use the interest rates established by the Secretary of the Treasury pursuant to the CDA. Present the total claim amount clearly and unambiguously as a definite sum, with a summary table showing all major cost categories and the total amount demanded.\n\n## Mandatory Certification Requirement and Signatory Authority\n\nFor all claims exceeding $100,000, include the mandatory certification statement required by 41 U.S.C. \u00a7 7103(b)(1). The certification must contain the precise statutory language without modification or paraphrasing. Present the certification as follows, formatted as a separate section with appropriate spacing and emphasis:\n\n\"I certify that the claim is made in good faith; that the supporting data are accurate and complete to the best of my knowledge and belief; that the amount requested accurately reflects the contract adjustment for which the contractor believes the Government is liable; and that I am duly authorized to certify the claim on behalf of the contractor.\"\n\nThis certification must be signed by a senior company official with actual authority to bind the contractor, such as a corporate officer including the president, vice president, chief financial officer, or other authorized representative. The signatory must not be an attorney or consultant representing the contractor, as the certification must come from a company official with personal knowledge of the claim's preparation and the authority to commit the company. Include below the certification statement a signature line with the signatory's printed name, official title, company name, and date of signature. Verify that the signatory has appropriate authority under the company's corporate governance documents to execute such certifications. Note that for claims of $100,000 or less, the statutory certification is not required, but the claim must still be submitted in writing to the contracting officer and must request a final decision.\n\n## Supporting Documentation, Exhibits, and Evidentiary Foundation\n\nCompile and organize all documentary evidence supporting the claim into a comprehensive exhibit package. Create a detailed exhibit index that lists each attachment with an exhibit number, document title or description, date of the document, and a brief explanation of its relevance to the claim. Organize exhibits in a logical sequence that corresponds to the chronological narrative and the structure of the claim document.\n\nEssential supporting documents that should be included as exhibits are the original contract and all modifications, amendments, or supplemental agreements; all correspondence between the parties relevant to the dispute including letters, emails, meeting minutes, and memoranda; all contemporaneous project documentation including daily reports, progress schedules, superintendent's logs, and inspection records; photographs, drawings, or other demonstrative evidence showing site conditions, work progress, or other relevant physical facts; all financial records supporting the damages calculation including invoices, purchase orders, payroll records, accounting ledgers, and job cost reports; any expert reports, analyses, or opinions supporting technical or damages aspects of the claim; and any other documents referenced in the claim narrative.\n\nSearch through all available documents to ensure that every factual assertion made in the claim narrative is supported by referenced exhibit evidence. For each significant fact stated in the claim, include a parenthetical citation to the specific exhibit and page number that supports that fact. Ensure that all cost elements included in the damages calculation are traceable to specific source documents included in the exhibits. If voluminous documentation exists, consider providing representative samples in the exhibits while noting that complete documentation is available for the contracting officer's review upon request.\n\n## Professional Formatting, Submission Requirements, and Procedural Compliance\n\nPresent the claim in a professional format that facilitates review and evaluation by the contracting officer. Use clear section headings that correspond to the major elements of the claim. Number all paragraphs consecutively throughout the document to enable easy reference in subsequent correspondence or the contracting officer's final decision. Use consistent citation format for all legal authorities, following Bluebook or other standard legal citation format. Include a table of contents if the claim exceeds twenty pages. Use appropriate font size and spacing to ensure readability.\n\nConclude the claim with a clear and unambiguous demand for relief. State specifically that the contractor demands a final decision from the contracting officer on this claim as required by the Contract Disputes Act and FAR 33.211. Note that for claims exceeding $100,000, the contracting officer must issue a final decision within sixty days or notify the contractor of the time within which a decision will be issued. Expressly preserve all rights to appeal an adverse final decision to the appropriate board of contract appeals or to the United States Court of Federal Claims, as provided by 41 U.S.C. \u00a7 7104.\n\nEnsure that the claim is submitted to the proper contracting officer, meaning the individual with authority to enter into, administer, or terminate the contract and make related determinations and findings. Verify the contracting officer's current contact information and preferred method of submission. Submit the claim with proof of delivery such as certified mail return receipt, courier tracking confirmation, or email delivery receipt, as the date of receipt by the contracting officer triggers important procedural timelines under the CDA. Retain complete copies of the claim and all exhibits for the contractor's records. Consider whether to submit the claim in both hard copy and electronic format to facilitate the contracting officer's review.",
+  "parent_skill_id": "59e6abf6-a94e-4f2f-afd4-06c28bbf0021",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "government-contracts"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:16.162001",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:48:19.901429Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating concise certified claim skill**
+
+I'm drafting a precise skill markdown named "cda-certified-claim" with metadata from legal_context capitalized and without practice area prefixes. It includes structured sections (summary, claim statement, chronology, entitlement, quantum, interest, certification, final decision request, exhibits, delivery), exact certification language, a checklist, and prerequisites, carefully marking uncertain citations with [VERIFY].
+thinking
+**Drafting skill with purpose, triggers, and detailed structure**
+
+I'm composing an 80–150 line skill including a concise purpose statement emphasizing use with CDA claims, FAR Part 33, and government contracts, plus trigger keywords. The output provides a numbered prerequisites list, clearly structured template sections, tables for facts, damages, and exhibits, and notes signatory authority, avoiding nested bullets.
+codex
+---
+name: cda-certified-claim
+description: Drafts U.S. Contract Disputes Act (CDA) certified claims for federal government contracts, including FAR Part 33 compliance, definite sum, entitlement/quantum sections, certification language, and final-decision demand. Use when preparing a CDA claim, certified claim, or submission to a contracting officer; trigger keywords: CDA, Contract Disputes Act, certified claim, FAR 33, final decision, contracting officer.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# CDA Certified Claim
+
+Produce a CDA-compliant claim package that preserves appeal rights and supports entitlement and quantum.
+
+## Prerequisites
+
+1. Executed contract and all modifications, including disputes/changes clauses.
+2. Contracting officer name, title, office address, and submission method.
+3. Chronology of events with source documents.
+4. Damages data with source records (cost reports, invoices, payroll, schedules).
+5. Authorized company official to sign certification (if claim > $100,000).
+
+## Output Structure / Process
+
+Use this structure and template. Replace bracketed fields.
+
+**1) Header**
+- Claimant: full legal name and address (as in contract)
+- Contracting Officer: name, title, agency, office address
+- Contract Number: including mods
+- Contract Award Date
+- Date of Claim Submission
+- Subject: "Certified Claim under the Contract Disputes Act (CDA)"
+
+**2) Executive Summary (5–10 lines)**
+- Contract purpose, type, period of performance
+- Claim type(s): change / differing site conditions / delay / breach
+- Relief requested: definite sum and/or time extension
+- Request for final decision
+
+**3) Contract Background**
+Include contract facts in a table.
+
+| Field | Detail |
+|---|---|
+| Contract type | [FFP / CPFF / T&M] |
+| Scope | [brief scope] |
+| POP | [start–end] |
+| Value | [base + options] |
+| Key clauses | [list clause numbers/titles] |
+
+**4) Statement of Claim (Definite Relief)**
+- Monetary claim: `$[exact amount]` (no ranges or estimates).
+- Time extension: `[exact days]` calendar/work days (if requested).
+- Identify claim theory and triggering government act/omission.
+
+**5) Factual Narrative (Chronological)**
+Use a dated table with exhibit cites.
+
+| Date | Event | Personnel | Exhibit |
+|---|---|---|---|
+| [YYYY-MM-DD] | [event] | [names/titles] | [Ex. #] |
+
+**6) Entitlement (Legal/Regulatory Basis)**
+Cite applicable authority and map elements to facts.
+
+| Theory | Elements | Contract/FAR/Statute | Facts Satisfied |
+|---|---|---|---|
+| Change | [element list] | [FAR 52.243-1 / 52.243-2 or clause] |
+| Differing Site Conditions | [Type I/II elements] | FAR 52.236-2 |
+| Delay/Suspension | [elements] | [Suspension clause] |
+| Other | [elements] | [authority] |
+
+Required authority anchors:
+- Contract Disputes Act, 41 U.S.C. §§ 7101–7109.
+- FAR Part 33 (Disputes and Appeals).
+- FAR 33.211 (final decision requirements) [VERIFY].
+- If citing case law, include full case name, citation, and holding in 1 sentence.
+
+**7) Quantum (Damages)**
+Present a summary table, then detail by category.
+
+| Cost Category | Basis | Amount | Source |
+|---|---|---|---|
+| Direct labor | [hours x rate] | $ | [Ex. #] |
+| Materials | [qty x unit] | $ | [Ex. #] |
+| Equipment | [rental/owned] | $ | [Ex. #] |
+| Subcontracts | [COs/invoices] | $ | [Ex. #] |
+| Indirects | [rate x base] | $ | [Ex. #] |
+| Delay/overhead | [method] | $ | [Ex. #] |
+| Productivity loss | [method] | $ | [Ex. #] |
+| CDA interest | [rate + period] | $ | [Ex. #] |
+| **Total** |  | **$[total]** |  |
+
+For delay/home-office overhead, specify method (e.g., Eichleay) and inputs.
+For interest, cite 41 U.S.C. § 7109.
+
+**8) Certification (Required if > $100,000)**
+Insert exact statutory text without modification:
+
+"I certify that the claim is made in good faith; that the supporting data are accurate and complete to the best of my knowledge and belief; that the amount requested accurately reflects the contract adjustment for which the contractor believes the Government is liable; and that I am duly authorized to certify the claim on behalf of the contractor."
+
+Signature block:
+- Name
+- Title
+- Company
+- Date
+
+Note: For claims ≤ $100,000, omit certification but still request a final decision.
+
+**9) Demand for Final Decision**
+State: "This is a claim under the CDA and requests a final decision by the Contracting Officer."
+
+Include CDA appeal preservation language: 41 U.S.C. § 7104 [VERIFY].
+
+**10) Exhibits**
+Provide an index and cite each exhibit in the narrative and quantum.
+
+| Exhibit | Description | Date | Relevance |
+|---|---|---|---|
+
+**11) Delivery**
+State delivery method and attach proof of receipt (mail, courier, or email). Keep a complete copy.
+
+## Guidelines
+
+- Use a definite sum; no ranges or "to be determined."
+- Map every factual assertion to an exhibit.
+- Keep tone factual and non-argumentative.
+- Ensure claim is addressed to the proper contracting officer.
+- If citing case law, verify jurisdiction (ASBCA, CBCA, COFC, Fed. Cir.).
+- Mark uncertain citations with `[VERIFY]`.
+tokens used
+5,763

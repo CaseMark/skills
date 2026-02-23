@@ -1,0 +1,318 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c83-8e55-7052-9554-5cf8a9dec74a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "41b172d3-4f19-46d8-8742-79d63cddd4b0",
+  "slug": "human-resources-policy-summaries",
+  "name": "Human Resources Policy Summaries",
+  "summary": "Generates comprehensive, plain-language summaries of HR policies focused on employment law compliance for organizations. Organizes content thematically by major areas like anti-discrimination, wage and hour, leave entitlements, and workplace safety, highlighting employee rights, obligations, legal frameworks, and practical guidance. Use this skill when reviewing employee handbooks or policy documents to create accessible compliance guides for employees.",
+  "content": "# HR Policy Compliance Summary Workflow\n\nYou are tasked with creating a comprehensive yet accessible summary of an organization's human resources policies as they relate to employment law compliance. This summary serves a critical dual purpose: ensuring organizational compliance with federal, state, and local employment regulations while making complex legal requirements understandable to employees at all levels.\n\nBegin by thoroughly reviewing all provided HR policy documents, employee handbooks, and related compliance materials. Your analysis should identify and extract key provisions related to employment law compliance, including but not limited to anti-discrimination policies, wage and hour requirements, leave entitlements (FMLA, ADA, state-specific provisions), workplace safety obligations, privacy protections, and anti-harassment procedures. Pay particular attention to policies that create enforceable rights or obligations for employees, as these require especially clear communication.\n\nStructure your summary to balance legal precision with plain-language accessibility. For each major policy area, provide a clear statement of what the policy requires, explain the underlying legal framework that necessitates the policy, and articulate both employee rights and corresponding obligations. Where policies reference specific statutes or regulations, include these citations for reference while ensuring the explanation remains comprehensible to non-lawyers. Highlight any recent updates to policies that reflect changes in employment law, and flag areas where the organization's policies may exceed minimum legal requirements, as employees should understand the full scope of protections available to them.\n\nYour summary should be organized thematically rather than by document source, grouping related policies together even if they appear in separate handbooks or policy statements. Create distinct sections for major compliance areas such as equal employment opportunity and non-discrimination, compensation and benefits, leave and accommodation, workplace conduct and safety, privacy and data protection, and complaint and investigation procedures. Within each section, use clear headings and subheadings that employees can easily navigate when seeking information about their specific rights or obligations.\n\nInclude practical guidance on how employees can exercise their rights under these policies, such as whom to contact with questions, how to request accommodations or leave, and what procedures to follow when reporting concerns. Emphasize any time-sensitive requirements, such as deadlines for requesting leave or filing internal complaints, as these procedural elements are often critical to preserving employee rights. Where policies involve multi-step processes, consider including brief workflow descriptions that walk employees through what to expect.\n\nAddress potential areas of confusion or common misconceptions about employment rights and obligations. For instance, clarify the distinction between at-will employment and wrongful termination protections, explain how different leave entitlements may interact or run concurrently, and describe the scope and limitations of confidentiality in various contexts. Your goal is to prevent misunderstandings that could lead to either employees failing to assert legitimate rights or making unfounded claims based on misinterpretation of policy language.\n\nConclude with a section on resources and next steps, directing employees to appropriate contacts for different types of questions or concerns, whether HR personnel, compliance officers, employee assistance programs, or external agencies. Include a clear statement about the summary's purpose as an educational tool and note that it does not replace the full policy documents, which remain controlling in case of any discrepancy.\n\nThe final deliverable should be a polished document suitable for distribution to all employees, written at an accessible reading level while maintaining legal accuracy. Use formatting techniques such as bold text for key terms, bullet points for lists of rights or requirements, and text boxes or callouts for particularly important information. The tone should be informative and supportive, reinforcing the organization's commitment to compliance and employee welfare while clearly communicating expectations for all parties.",
+  "parent_skill_id": "43b99e7e-7093-4876-89c4-8ebc98560188",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "employment-and-consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.148674",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:59:18.746397Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating concise HR policy skill markdown**
+
+I'm choosing the slug "hr-policy-summary" and defining the skill's title, metadata, purpose, prerequisites, structured content including tables for policy areas, process steps, guidelines, and examples of major US employment laws without formal citations, using [VERIFY] only for uncertain points.
+thinking
+**Drafting detailed HR policy markdown**
+
+I'm structuring the output with specified sections, single-level bullet lists, an 110–140 line target, detailed description and metadata, prerequisites, tables, templates, process steps, and clear guidelines avoiding nested bullets and including key notes like jurisdiction caveats and disclaimers as raw markdown starting with "---".
+codex
+---
+name: hr-policy-summary
+description: Produces plain-language summaries of U.S. HR policies and employee handbooks with employment-law compliance framing, organized by topic (EEO, wage/hour, leave, safety, privacy, complaints) and highlighting employee rights, obligations, and procedures. Use when summarizing HR policies, employee handbook provisions, compliance guides, or onboarding materials. Trigger keywords: HR policy summary, employee handbook summary, employment compliance summary, leave policy summary, wage and hour summary, anti-harassment summary.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# HR Policy Compliance Summary
+
+Create a thematically organized, employee-facing summary of HR policies with clear rights, obligations, and procedures.
+
+## Prerequisites
+
+1. **Source policies** — employee handbook, HR policies, codes of conduct, safety manuals, and any addenda.
+2. **Jurisdictions** — U.S. federal plus applicable state and local locations for the workforce.
+3. **Audience** — intended readers, reading level, and preferred tone.
+4. **Contacts** — HR, compliance, reporting channels, EAP, and escalation paths.
+5. **Effective dates** — version dates and any recent updates or pending changes.
+
+## Output Structure / Process
+
+Use this structure and process.
+
+**Process Checklist**
+
+1. Inventory all documents and map to policy areas.
+2. Extract enforceable rights, obligations, and procedures.
+3. Note legal frameworks referenced by the policy.
+4. Identify policy terms that exceed legal minimums.
+5. Flag gaps, conflicts, or missing procedural details.
+6. Draft summary blocks by policy area using the template.
+7. Add procedures, contacts, deadlines, and workflow steps.
+8. Add misconceptions and clarifications.
+9. Add resources and a controlling-documents disclaimer.
+
+**Required Sections**
+
+1. Executive Summary
+2. Policy Area Summaries (thematic)
+3. Procedures and Contacts
+4. Common Misconceptions / Clarifications
+5. Updates, Overrides, and Enhancements
+6. Resources and Next Steps
+7. Disclaimer (summary is non-controlling)
+
+**Policy Areas to Cover**
+
+- Equal Employment Opportunity and Non-Discrimination
+- Anti-Harassment and Retaliation
+- Wage and Hour (classification, overtime, breaks, timekeeping)
+- Leave and Accommodation (FMLA, ADA, state leave, pregnancy, military)
+- Workplace Safety and Health (OSHA, incident reporting)
+- Privacy, Monitoring, and Data Protection
+- Workplace Conduct (discipline, attendance, conflicts, substance use)
+- Complaint, Investigation, and Non-Retaliation Procedures
+- Arbitration, ADR, or Internal Dispute Resolution (if present)
+- Union/Concerted Activity Rights (if relevant)
+- Remote Work and BYOD (if present)
+
+**Policy Area Summary Matrix**
+
+| Policy area | What the policy requires | Legal framework cited | Employee rights | Employee obligations | How to act (steps + contacts) | Deadlines/time limits |
+|---|---|---|---|---|---|---|
+| Example: Leave & Accommodation | | | | | | |
+
+**Policy Area Block Template**
+
+```text
+## {Policy Area}
+
+**What this policy covers**
+- {Plain-language scope}
+
+**Key requirements**
+- {What employees must do}
+- {What managers/HR must do}
+
+**Employee rights**
+- {Rights and protections}
+
+**Legal basis**
+- {Statutes/regulations named in policy; use [VERIFY] if unsure}
+
+**How to use this policy**
+- {Steps to request/report}
+- {Required forms or documentation}
+- {Primary contact and backup}
+
+**Deadlines**
+- {Notice periods, reporting windows, appeal timelines}
+
+**Notes**
+- {Policy exceeds legal minimums or clarifies internal rules}
+```
+
+**Misconceptions Section Format**
+
+- Myth: {Short statement}
+- Reality: {Correct statement and the policy basis}
+
+**Procedures and Contacts Table**
+
+| Issue type | Primary contact | Alternate contact | How to submit | Expected response time |
+|---|---|---|---|---|
+
+## Guidelines
+
+- Use plain language and define unavoidable legal terms once.
+- If a policy is silent on a point, state “Not addressed in policy” rather than guessing.
+- Distinguish legal requirements from employer-enhanced benefits.
+- Clarify at-will employment limits and anti-retaliation protections where stated.
+- Highlight time-sensitive requirements with exact timelines.
+- Preserve policy-defined thresholds and eligibility rules; do not generalize.
+- Include statutory names when policies cite them; mark uncertain citations with `[VERIFY]`.
+- Do not provide legal advice or interpret beyond the policy text.
+- Use the organization’s labels for departments and channels.
+- Add a clear disclaimer that the underlying policies control in case of conflict.
+tokens used
+3,104

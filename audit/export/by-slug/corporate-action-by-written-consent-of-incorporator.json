@@ -1,0 +1,42 @@
+{
+  "id": "d8ce97b4-0be1-4f92-92ef-793c0569ed60",
+  "slug": "corporate-action-by-written-consent-of-incorporator",
+  "name": "Action by Written Consent of Incorporator",
+  "summary": "Drafts a comprehensive Action by Written Consent of Incorporator for newly formed corporations. This skill formalizes initial organizational actions such as adopting bylaws and appointing directors without a formal meeting, following the filing of Articles of Incorporation. Use it during the foundational governance setup phase under U.S. state corporation statutes.",
+  "content": "# Enhanced Prompt: Action by Written Consent of Incorporator\n\nYou are tasked with drafting a comprehensive Action by Written Consent of Incorporator, a critical corporate formation document that allows the incorporator to take necessary organizational actions without holding a formal meeting. This document establishes the foundational governance structure of a newly formed corporation.\n\n## Document Purpose and Legal Context\n\nThis consent document serves as the incorporator's formal written action to complete the initial organizational steps required after filing Articles of Incorporation. Under most state corporation statutes, incorporators have the authority to take actions by written consent in lieu of holding an organizational meeting. This document memorializes those actions and becomes part of the corporation's permanent records. The consent is legally binding once executed and should be filed with the corporate minute book.\n\n## Information Gathering and Document Assembly\n\nBegin by searching through any uploaded corporate formation documents to identify key information including the corporation's exact legal name, state of incorporation, date the Articles of Incorporation were filed with the Secretary of State, and the incorporator's full legal name. If bylaws have been prepared, locate them to reference as an exhibit. Look for any documentation regarding the intended initial board of directors.\n\nWhen gathering information about initial directors, you need the complete legal names of each person who will serve on the initial board. Verify the correct spelling of all names and confirm the number of directors is consistent with any requirements stated in the Articles of Incorporation or applicable state law. If the user has not provided this information, ask them to specify the names of all initial directors who should be appointed.\n\n## Document Structure and Required Elements\n\nThe document should open with a clear title identifying it as the \"Action by Written Consent of Incorporator of [Corporation Name]\" and include the effective date of the consent. The preamble must identify the incorporator by name, state that they are the sole incorporator (or identify all incorporators if multiple), reference the corporation's legal name and state of incorporation, and cite the specific date the Articles of Incorporation were filed with the state.\n\nThe substantive actions section should be organized as numbered resolutions. The first action typically adopts the corporation's bylaws, with specific reference to them being attached as Exhibit A. Ensure the bylaws are actually attached or note if they will be attached separately. The second action appoints the initial board of directors, listing each director's full legal name. You may include additional actions as appropriate, such as authorizing the opening of bank accounts, adopting a fiscal year, authorizing the issuance of stock, or ratifying actions taken by the incorporator.\n\nInclude a statement that the incorporator has completed all duties as incorporator of the corporation, which formally concludes the incorporator's role and transfers authority to the board of directors. The execution section should state that this written consent will be filed with the minutes of the corporation and include signature lines for the incorporator with their printed name beneath.\n\n## Formatting and Professional Standards\n\nFormat the document in a professional manner consistent with corporate legal documents. Use clear section headings, numbered paragraphs for each action taken, and proper spacing. Ensure all placeholder text in brackets is replaced with actual information. The document should be single-spaced with double spacing between sections. Use a professional font such as Times New Roman or Arial in 12-point size.\n\nPay careful attention to internal consistency\u2014the corporation name, state of incorporation, and filing date must match exactly throughout the document and correspond to the filed Articles of Incorporation. Verify that the number of directors appointed complies with any minimum or maximum stated in the Articles of Incorporation or required by state law.\n\n## State-Specific Considerations and Compliance\n\nBe aware that corporate formalities vary by state. Some states have specific requirements for incorporator actions or organizational meetings. If the state of incorporation is identified, consider whether any state-specific provisions should be included. Delaware corporations, for example, may have different customary practices than California corporations. When in doubt, include standard provisions that comply with the Model Business Corporation Act, which most states follow.\n\n## Final Review and Deliverables\n\nBefore presenting the final document, verify that all required information has been incorporated, all bracketed placeholders have been replaced with actual data, the document flows logically from preamble through actions to execution, and the formatting is professional and consistent. If any critical information is missing, clearly identify what additional details are needed from the user before the document can be finalized.\n\nPresent the completed document as a properly formatted legal instrument ready for execution. Note that the incorporator should sign the document in the presence of a notary if required by state law or corporate practice, though notarization is typically not mandatory for this type of consent. Remind the user that the executed consent should be filed in the corporate minute book along with the bylaws and Articles of Incorporation as part of the corporation's permanent organizational records.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "junior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate-formation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

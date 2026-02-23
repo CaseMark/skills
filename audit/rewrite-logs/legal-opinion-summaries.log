@@ -1,0 +1,289 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-e4fd-7940-9c32-c1e265c84ef7
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a06ac36a-b48a-46ed-b255-9d576e5c0b6c",
+  "slug": "legal-opinion-summaries",
+  "name": "Legal Opinion Summaries",
+  "summary": "Generates concise professional summaries of full legal opinions, reducing length by 70-80% while preserving core legal questions, factual context, analysis, and conclusions. Optimizes for quick comprehension by clients, executives, and co-counsel in transactional matters. Use when providing rapid insights into lawyer's position without reading the entire document.",
+  "content": "# Legal Opinion Summary Generation\n\nYou are tasked with creating a concise, professional summary of a full legal opinion that enables clients and legal professionals to quickly grasp the essential legal analysis, conclusions, and recommendations without reading the complete document.\n\n## Your Objective\n\nTransform a comprehensive legal opinion into a clear, accessible summary that preserves the core legal reasoning while reducing length by approximately 70-80%. The summary must maintain the professional tone and analytical rigor of the original opinion while presenting information in a format optimized for quick comprehension by busy executives, in-house counsel, or co-counsel who need to understand the lawyer's position on key legal matters.\n\n## Process and Approach\n\nBegin by thoroughly reviewing the full legal opinion to identify its fundamental components: the legal questions presented, the factual background necessary for context, the applicable legal framework, the core analysis and reasoning, and the ultimate conclusions or recommendations. Search through the uploaded documents to locate and extract the complete opinion, ensuring you capture all relevant sections including any exhibits, case citations, or statutory references that are essential to understanding the legal position.\n\nAs you analyze the opinion, distinguish between essential elements that must be preserved and supporting details that can be condensed or omitted. The legal questions and conclusions are sacrosanct and must be presented with complete accuracy. The factual background should be streamlined to include only those facts that directly impact the legal analysis. Legal authorities should be cited in abbreviated form, mentioning only the most controlling or persuasive precedents unless multiple authorities are necessary to demonstrate a point.\n\n## Required Structure and Content\n\nYour summary should open with a clear statement of the legal questions or issues addressed in the opinion, presented in plain language that non-lawyers can understand while maintaining legal precision. Follow this with a brief factual background section that provides only the context necessary to understand the legal analysis\u2014typically no more than two to three paragraphs regardless of how extensive the original fact section may be.\n\nThe heart of your summary is the legal analysis section, which must distill the lawyer's reasoning into its most essential components. For each major legal issue, present the applicable legal standard or framework, the key arguments or considerations that drive the analysis, and how those considerations lead to the conclusion. When multiple legal theories or arguments are presented in the original opinion, prioritize those that are most central to the ultimate recommendation. Use clear topic sentences and logical transitions to guide the reader through the analytical progression.\n\nConclude with a definitive statement of the lawyer's opinion or recommendation, including any qualifications, assumptions, or limitations that are material to relying on the opinion. If the original opinion includes risk assessments, likelihood of success estimates, or alternative courses of action, these should be preserved in summary form as they are often critical to client decision-making.\n\n## Legal and Professional Considerations\n\nMaintain absolute fidelity to the substance and tenor of the original opinion. A summary that mischaracterizes the lawyer's position, overstates the certainty of conclusions, or omits material qualifications can create professional liability and undermine client trust. When the original opinion expresses uncertainty, acknowledges counterarguments, or identifies gaps in the legal authority, your summary must reflect these nuances even in condensed form.\n\nPreserve all citations to controlling legal authority, though you may abbreviate case names and omit string citations of secondary authorities. If the original opinion relies on specific statutory language, regulatory provisions, or contractual terms, include the precise language or a faithful paraphrase with appropriate attribution. Legal professionals reading your summary may need to locate and review these sources, so accurate citation information is essential.\n\nBe mindful of attorney-client privilege and work product protection. The summary inherits the privileged status of the original opinion, but you should maintain the same level of professional discretion in your language. Avoid unnecessary speculation beyond what appears in the original opinion, and do not introduce new legal theories or arguments that the authoring lawyer did not advance.\n\n## Format and Presentation Standards\n\nPresent the summary in a professional memorandum format with clear section headings that mirror the structure described above: Issues Presented, Factual Background, Legal Analysis, and Conclusion/Recommendation. Use standard legal writing conventions including full sentences, proper paragraph structure, and formal tone appropriate for client communication.\n\nThe total length should typically range from two to five pages depending on the complexity of the original opinion, with most summaries falling in the three-page range. Use formatting techniques such as bold headings, numbered issues when multiple questions are addressed, and judicious use of bullet points only when listing discrete items like elements of a legal test or multiple recommendations.\n\nWhen technical legal concepts are central to the analysis, include brief explanatory phrases that make the summary accessible to intelligent non-lawyers while preserving legal accuracy. The goal is to enable a business executive or client representative to understand the lawyer's position and its implications for their decision-making, even if they lack formal legal training.\n\nYour completed summary should stand alone as a professional work product that the authoring lawyer could confidently provide to clients, co-counsel, or other stakeholders as an accurate representation of their legal opinion and advice.",
+  "parent_skill_id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:24.920785",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:01:51.991429Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating skill documentation outline**
+
+Crafting a concise markdown skill doc titled "Legal Opinion Summary" with a clear purpose, metadata, prerequisites, structured output sections including a template and checklist, and US-specific guidelines focused on accuracy, privilege, and citation verification.
+thinking
+**Finalizing skill doc details**
+
+Including a note to preserve controlling authorities with abbreviated citations, adding a "Confidentiality/Privilege" guideline, specifying length targets (2-5 pages) for US jurisdiction, and ensuring flat lists with tables for subitems; refining the description to incorporate trigger keywords and precise purpose for summarizing transactional legal opinions.
+codex
+---
+name: opinion-summary
+description: Produces concise U.S. transactional legal opinion summaries for clients, executives, and co-counsel, preserving issues presented, material facts, legal standards, analysis, conclusions, and qualifications with key authorities. Use when asked to summarize a legal opinion, opinion memorandum, legal analysis memo, or provide an executive opinion recap/brief.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Legal Opinion Summary
+
+Condense a full legal opinion into a professional, executive-ready summary that preserves substance and qualifications.
+
+## Prerequisites
+
+1. Full legal opinion text, including exhibits or appendices relied on.
+2. Identification of governing jurisdiction(s) and transaction context.
+3. Any confidentiality/privilege marking requirements for the output.
+4. Target audience and desired length range.
+
+## Output Structure / Process
+
+Use the following structure and keep the summary approximately 20–30% of original length unless instructed otherwise.
+
+**Required Sections**
+
+| Section | Required Content |
+| --- | --- |
+| Issues Presented | Plain-language statement of each legal question. Number issues if more than one. |
+| Factual Background | Only facts material to the analysis; omit narrative detail. |
+| Legal Analysis | For each issue: controlling standard, key reasoning steps, and decisive facts. |
+| Conclusion / Recommendation | Definitive outcome, recommendation, and reliance conditions. |
+| Qualifications / Assumptions | Material limits, open questions, and reliance assumptions. |
+| Risk / Alternatives | If addressed in the opinion: risks, likelihoods, and alternatives. |
+| Authorities | Controlling statutes, regs, or cases; short cites only. |
+
+**Issue-by-Issue Analysis Table**
+
+| Issue | Standard | Key Facts | Reasoning | Conclusion |
+| --- | --- | --- | --- | --- |
+
+**Compression Checklist**
+
+- Include all legal questions and final conclusions.
+- Preserve material qualifiers, uncertainties, and counterarguments.
+- Retain controlling statutory language or contract excerpts when central.
+- Remove string citations and non-controlling authorities.
+- Use short citations sufficient for lookup.
+
+**Template**
+
+Issues Presented  
+1.  
+2.
+
+Factual Background  
+-  
+
+Legal Analysis  
+Issue 1  
+- Standard:  
+- Reasoning:  
+- Conclusion:  
+
+Issue 2  
+- Standard:  
+- Reasoning:  
+- Conclusion:  
+
+Conclusion / Recommendation  
+-  
+
+Qualifications / Assumptions  
+-  
+
+Risk / Alternatives  
+-  
+
+Authorities  
+-  
+
+## Guidelines
+
+- Do not introduce new theories or arguments not in the opinion.
+- Do not overstate certainty; mirror any caveats, limits, and contingencies.
+- Preserve privilege/work-product sensitivity and mark accordingly.
+- Use professional memorandum tone; avoid casual language.
+- If a legal citation is uncertain, mark it with `[VERIFY]`.
+tokens used
+2,729

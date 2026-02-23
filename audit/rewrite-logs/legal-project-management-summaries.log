@@ -1,0 +1,291 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-e944-7b51-bfbb-3ef49bc00753
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "b78a183a-38d4-470f-8461-179f9514d446",
+  "slug": "legal-project-management-summaries",
+  "name": "Legal Project Management Summaries",
+  "summary": "Generates comprehensive summaries of ongoing legal projects, covering objectives, resources, timelines, status, and key developments. Provides stakeholders with actionable overviews to manage complex matters like multi-phase litigation, transactions, and regulatory compliance efficiently. Use it for law firms and corporate legal departments to track progress, identify risks, and allocate resources.",
+  "content": "# Legal Project Management Summary\n\nYou are tasked with creating a comprehensive legal project management summary that provides stakeholders with a clear, actionable overview of an ongoing legal project's status, objectives, resources, timelines, and key developments.\n\n## Purpose and Context\n\nLegal project management summaries serve as essential communication and coordination tools for law firms, corporate legal departments, and litigation teams managing complex matters. These summaries enable attorneys, project managers, clients, and other stakeholders to quickly understand project status, identify potential risks or delays, allocate resources effectively, and make informed decisions about next steps. They are particularly valuable for multi-phase litigation, large-scale transactions, regulatory compliance initiatives, and matters involving multiple team members or external counsel.\n\n## Required Analysis and Output Structure\n\nBegin by gathering all relevant project documentation, including matter files, correspondence, task lists, budget reports, court filings, and any previous status reports. Search through uploaded documents to extract concrete information about project objectives, deliverables, deadlines, team assignments, budget allocations, and completed milestones. If the project involves ongoing litigation or regulatory matters, identify key dates such as filing deadlines, hearing dates, discovery cutoffs, and trial dates.\n\nYour summary should open with a concise executive overview that captures the project's current status in two to three sentences, highlighting any critical issues requiring immediate attention. Follow this with a detailed section on project objectives that articulates both the overarching goals and specific deliverables, ensuring alignment with the client's business objectives or legal strategy. When describing objectives, reference specific contractual obligations, regulatory requirements, or litigation outcomes the project aims to achieve.\n\nThe resources section must provide a comprehensive accounting of the team composition, including lead counsel, associates, paralegals, subject matter experts, and any external consultants or co-counsel. For each key team member, specify their role, current workload allocation, and primary responsibilities within the project. Include budget information showing original budget, current expenditures, projected costs to completion, and any variance explanations. If budget concerns exist, identify specific cost drivers and propose mitigation strategies.\n\nYour timeline analysis should present both backward-looking accomplishments and forward-looking projections. Create a clear chronology of completed milestones with actual completion dates, then outline upcoming deliverables with target dates and dependencies. Identify any timeline risks, such as pending court rulings, third-party delays, or resource constraints that could impact the schedule. For each critical path item, note the responsible party and any contingency plans.\n\nThe status assessment must provide an honest evaluation of project health across multiple dimensions: schedule adherence, budget compliance, quality of work product, team performance, client satisfaction, and risk management. Use a consistent framework such as red-yellow-green indicators or percentage completion metrics to enable quick comprehension. When issues arise, describe not only the problem but also the root cause analysis and proposed corrective actions with assigned owners and deadlines.\n\n## Legal and Professional Considerations\n\nEnsure all information presented maintains attorney-client privilege and work product protection. Clearly mark any sections containing privileged analysis, litigation strategy, or confidential client information. When the summary will be shared with clients or external parties, carefully review to ensure no inadvertent disclosures of privileged communications or attorney mental impressions occur.\n\nConsider the audience for each summary and adjust the level of technical detail accordingly. Summaries for clients should emphasize business impact and strategic considerations while minimizing legal jargon, whereas internal team summaries may include more granular task-level detail and legal analysis. For matters involving multiple stakeholders with different information access rights, you may need to create tiered versions with varying levels of detail.\n\nAddress risk management proactively by identifying potential obstacles, conflicts of interest, ethical considerations, or malpractice exposure areas. For litigation matters, note any adverse developments, unfavorable rulings, or emerging legal theories that could impact case strategy. For transactional work, highlight regulatory changes, market conditions, or counterparty issues that may affect deal timing or structure.\n\n## Actionable Recommendations and Next Steps\n\nConclude each summary with specific, actionable recommendations and clearly defined next steps. Each action item should identify the responsible party, target completion date, required resources, and success criteria. Prioritize recommendations based on urgency and impact, distinguishing between items requiring immediate attention and longer-term strategic initiatives.\n\nWhen appropriate, propose process improvements or efficiency measures based on lessons learned during the project. This might include recommendations for technology adoption, workflow optimization, team restructuring, or scope adjustments. Support recommendations with data from the project's performance metrics and concrete examples of where improvements could yield measurable benefits.\n\nYour final output should be formatted as a professional document suitable for distribution to senior stakeholders, with clear section headings, consistent formatting, proper citations to source materials, and an appropriate level of formality. The summary should stand alone as a complete record of project status while also serving as a reference document for future project reviews and post-matter analysis.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Litigation",
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate-governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:01:53.152170Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing skill rewrite plan**
+
+Planning a new "project-management-summary" skill with clear metadata, triggers, structured output templates, RAG status indicators, and concise guidance without nested bullets; targeting legal project management summaries focused on US jurisdiction.
+thinking
+**Including data source and versioning**
+
+Adding data sources and a "Version/As-of" field to track report dates, ensuring clear metadata and concise formatting without code fences, targeting about 110–140 lines in total.
+codex
+---
+name: project-management-summary
+description: Produces U.S. legal project management summaries that consolidate objectives, scope, timeline, budget, resources, risks, and next steps into a stakeholder-ready status document. Use when asked for project management summary, matter status, LPM report, budget tracking, timeline update, milestone review, or portfolio status.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Litigation
+    - Regulatory
+    - Transactional
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Legal Project Management Summary
+
+Deliver a concise, decision-ready snapshot of a legal matter’s status, plan, and risks.
+
+## Prerequisites
+
+1. Matter file summary or project charter
+2. Latest task list or workplan
+3. Budget baseline and current spend
+4. Key dates and deadlines
+5. Team roster and roles
+6. Recent developments or decisions
+7. Audience and distribution scope
+
+## Output Structure / Process
+
+Use this structure and fill every section.
+
+**Header**
+- Matter name:
+- Client:
+- Lead counsel:
+- Prepared by:
+- As‑of date:
+- Distribution level: `Internal` or `Client` or `Restricted`
+
+**1) Executive Overview (2–3 sentences)**
+- Current status and primary driver
+- Immediate attention items
+
+**2) Objectives and Scope**
+| Objective | Business/Legal Driver | Deliverable | Owner | Status |
+|---|---|---|---|---|
+
+**3) Timeline**
+| Milestone | Target Date | Actual Date | Dependency | Owner | Status |
+|---|---|---|---|---|---|
+
+**4) Budget**
+| Budget Item | Baseline | Spent To Date | Forecast To Complete | Variance | Driver |
+|---|---|---|---|---|---|
+
+**5) Resources**
+| Name/Role | Allocation (%) | Key Responsibilities | Notes |
+|---|---|---|---|
+
+**6) Status Assessment**
+| Dimension | R/Y/G | Evidence | Corrective Action |
+|---|---|---|---|
+| Schedule |  |  |  |
+| Budget |  |  |  |
+| Quality |  |  |  |
+| Team |  |  |  |
+| Client |  |  |  |
+| Risk |  |  |  |
+
+**7) Risks and Issues**
+| Risk/Issue | Impact | Likelihood | Mitigation | Owner | Due Date |
+|---|---|---|---|---|---|
+
+**8) Decisions and Approvals**
+| Decision Needed | Options | Recommendation | Decision Maker | Due Date |
+|---|---|---|---|---|
+
+**9) Action Items**
+| Action | Owner | Due Date | Success Criteria |
+|---|---|---|---|
+
+**10) Source References**
+- List documents, emails, reports, and data sources used.
+
+## Guidelines
+
+- Mark privileged or work‑product sections clearly as `PRIVILEGED/WORK PRODUCT`.
+- If the audience is external, omit attorney mental impressions and litigation strategy.
+- Use dates in `YYYY-MM-DD` and name responsible parties consistently.
+- Highlight root causes for variances and specify corrective owners and deadlines.
+- Keep legal analysis minimal unless the audience is internal.
+- Note jurisdictional constraints or court deadlines explicitly when applicable.
+tokens used
+2,667

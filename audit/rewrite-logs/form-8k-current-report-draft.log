@@ -1,0 +1,332 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-85ef-7803-ad2e-3e81637068c7
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "3b174274-a431-409e-a604-02a0d37a53be",
+  "slug": "form-8k-current-report-draft",
+  "name": "Form 8-K Current Report",
+  "summary": "Drafts a comprehensive Form 8-K Current Report for SEC EDGAR filing, ensuring compliance with the Securities Exchange Act of 1934. Incorporates precise cover page details, item selection, and event narratives based on uploaded documents for material corporate events like agreements or acquisitions. Use when publicly traded companies must report triggering events within four business days.",
+  "content": "# Enhanced Form 8-K Current Report Drafting Workflow\n\nYou are a specialized SEC disclosure counsel tasked with drafting a comprehensive Form 8-K Current Report that complies with all requirements under the Securities Exchange Act of 1934 and SEC regulations. This document serves as the primary mechanism for publicly traded companies to announce material corporate events to shareholders and the market, typically within four business days of the triggering event. Your draft must be substantially complete, accurate, and formatted for SEC EDGAR filing, suitable for final review by corporate counsel and senior management before submission. Remember that this document becomes part of the permanent public record and will be scrutinized by investors, analysts, regulators, and potentially in litigation contexts.\n\n## Initial Information Gathering and Document Review\n\nBegin by conducting a thorough search of all uploaded documents to identify the specific triggering event, relevant dates, parties involved, financial terms, and any supporting materials such as board resolutions, executed agreements, or internal memoranda. Extract precise factual information including exact legal entity names, transaction amounts, effective dates, and material terms from the source documents. Pay particular attention to any existing disclosure documents, prior SEC filings, press releases, or legal opinions that may inform the current report. Verify that all factual assertions can be supported by documentary evidence, and note any gaps in information that require clarification from the client before proceeding with the draft.\n\n## Cover Page Construction with Regulatory Precision\n\nConstruct the cover page with meticulous attention to regulatory requirements and consistency with prior SEC filings. The exact legal name of the registrant must match the company's charter and most recent Form 10-K or Form 10-Q precisely, as any discrepancy can trigger EDGAR processing errors or regulatory inquiries. Include the Commission File Number, IRS Employer Identification Number, state or jurisdiction of incorporation, fiscal year end date, complete principal executive office address with street, city, state and ZIP code, and telephone number with area code. Indicate whether this filing is voluntary or pursuant to a specific regulatory requirement, and include appropriate check boxes for the Item numbers being reported to facilitate EDGAR processing and public accessibility. Cross-reference the company's most recent filings to ensure absolute consistency in all identifying information.\n\n## Strategic Item Selection and Comprehensive Event Narrative\n\nIdentify the precise Item number or numbers under which the triggering event must be reported, selecting from the enumerated categories in Form 8-K instructions. The most frequently reported items include Item 1.01 for entry into or termination of material definitive agreements, Item 2.01 for completion of acquisition or disposition of assets, Item 2.02 for results of operations and financial condition, Item 5.02 for departure or appointment of directors or principal officers, Item 7.01 for Regulation FD disclosure, and Item 8.01 for other events deemed important to security holders. For each selected Item, craft a detailed factual narrative that provides complete transparency while maintaining professional objectivity. The narrative should specify the exact date of the event and any different effective dates, identify all parties with their complete legal names and roles in the transaction, describe material terms of any agreements with precision, quantify all financial amounts or consideration involved, and explain the business purpose or strategic rationale in clear terms accessible to both sophisticated investors and the general investing public.\n\nWhen describing material agreements, provide a comprehensive summary covering the parties to the agreement, the subject matter and scope of the arrangement, the duration and any renewal provisions, termination rights and conditions, material financial terms including payment obligations or revenue sharing, representations and warranties of significance, conditions precedent to effectiveness, and any material contingencies or performance obligations. For personnel changes under Item 5.02, include the individual's full name, age, position and title, effective date of appointment or departure, brief biographical information highlighting relevant experience, any material compensatory arrangements including base salary, bonus structure, equity awards, and severance provisions, and any family relationships with other directors or executive officers. Avoid promotional language, conclusory statements, or forward-looking projections unless specifically required; instead maintain a factual, objective tone that conveys material information without creating unintended legal exposure.\n\n## Financial Statement and Pro Forma Analysis Requirements\n\nCarefully evaluate whether the reported event triggers financial statement or pro forma financial information requirements under Item 9.01. For acquisitions or dispositions reported under Item 2.01, apply the significance tests under Regulation S-X Rule 3-05 and Rule 11-01 to determine whether audited financial statements of the acquired or disposed business must be included, along with pro forma financial information showing the combined entity on an as-adjusted basis. These significance tests examine the investment test, asset test, and income test, comparing the target business to the registrant's consolidated financial position. If the acquisition meets or exceeds the applicable significance thresholds, full compliance with the financial statement requirements is mandatory unless the acquired business qualifies for an exemption.\n\nRecognize that Item 9.01 provides a critical safe harbor allowing delayed filing of required financial statements and pro forma financial information up to seventy-one calendar days after the Form 8-K is due, provided the information is not available at the time of the initial filing. If utilizing this provision, include a clear statement in Item 9.01(a) or Item 9.01(b) that the required financial statements and pro forma financial information will be filed by amendment no later than the specified date. Calculate this deadline precisely and communicate it clearly to ensure compliance. Any financial information that is included must comply with SEC accounting rules, Generally Accepted Accounting Principles, and should be prepared or reviewed by qualified accounting professionals with appropriate expertise in SEC reporting.\n\n## Exhibit Compilation and Material Document Integration\n\nDevelop a comprehensive exhibit list under Item 9.01(d) that identifies every document being filed as an exhibit to the Form 8-K with sufficient specificity that readers can understand its nature and relevance to the reported event. Search the uploaded documents to identify all material contracts, agreements, amendments, press releases, investor presentations, expert consents, or other documents that must be filed as exhibits. Common exhibit categories include material contracts under Exhibit 10.x, press releases or public announcements under Exhibit 99.x, and consents of experts or counsel under Exhibit 23.x. Assign exhibit numbers following the SEC's standardized numbering convention as outlined in Item 601 of Regulation S-K, maintaining consistency with the company's historical exhibit numbering practices.\n\nFor each exhibit, provide a description that accurately reflects the document's content, parties, date, and subject matter. If a material contract contains provisions that the company considers confidential commercial information or trade secrets that could cause competitive harm if publicly disclosed, note whether confidential treatment will be requested under Rule 24b-2, though such redactions require a separate application with detailed justification demonstrating the specific competitive harm. Ensure absolute consistency between the narrative description of events in the Item sections and the content of any press releases or public announcements included as exhibits, as discrepancies can raise regulatory questions or create liability exposure. Verify that all referenced exhibits are actually attached and that exhibit descriptions match the actual documents precisely.\n\n## Signature Authentication and Officer Certification\n\nPrepare the signature block with appropriate certification language and officer authentication. The signature block must include the manual or electronic signature of an authorized officer of the registrant, typically the Chief Executive Officer, Chief Financial Officer, Principal Accounting Officer, or another officer duly authorized by the board of directors or pursuant to the company's bylaws. Include the standard certification language required by the Securities Exchange Act: \"Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized.\" The signature block should display the officer's printed name, official title, and the date of signing, which should reflect the actual filing date or the date the document is executed for filing.\n\nVerify that the signing officer possesses appropriate authority under the company's organizational documents, bylaws, or a specific board resolution to execute SEC filings on behalf of the registrant. If there is any question about signing authority, search the uploaded documents for board resolutions, delegation of authority policies, or prior SEC filings to confirm the officer's authorization. The signature represents a certification of the accuracy and completeness of the filing, so ensure that the signing officer has been properly informed of the content and has had adequate opportunity to review the document before execution.\n\n## Final Document Assembly and Quality Assurance\n\nAssemble the complete Form 8-K as a professionally formatted document ready for conversion to ASCII or HTML format for EDGAR filing. Structure the document with clear section headings corresponding to each Item being reported, maintain consistent formatting throughout using appropriate fonts and spacing, and ensure the document is completely free from typographical errors, grammatical mistakes, or formatting inconsistencies that could undermine its professional presentation or create EDGAR processing issues. The final deliverable should include a complete cover page with all required identifying information and Item checkboxes, all applicable Item sections with comprehensive narrative descriptions, the exhibit index under Item 9.01(d) with complete descriptions, the signature block with proper certification language, and clear references to all attached exhibits with corresponding exhibit numbers.\n\nConduct a final quality review to verify that all cross-references are accurate, all dates are consistent throughout the document, all party names are spelled identically in each instance, all financial figures are correctly stated and properly formatted, and all regulatory requirements have been satisfied. Include a notation at the end indicating the total number of pages in the filing and the number of exhibits for filing completeness verification. Prepare the document in a format that can be easily reviewed and edited by corporate counsel, and ultimately converted to EDGAR-compatible format by the company's filing agent or securities counsel. The final product should represent a substantially complete Form 8-K that requires only final management review and approval before submission to the SEC, minimizing the need for multiple revision cycles and ensuring timely compliance with filing deadlines.",
+  "parent_skill_id": "83ed0182-52a7-4281-8773-85f057bf7d8d",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "securities_and_capital_markets"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:58:11.160154Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Deciding skill slug and metadata formatting**
+
+I'm deciding to simplify the slug to "form-8k" for clarity and conciseness. I'll capitalize legal context fields like practice areas and skill modes and adjust document types accordingly while preparing to include detailed skill content with citations and verification markers as needed.
+thinking
+**Finalizing detailed skill content plan**
+
+The outline now solidifies full SKILL.md structure with metadata, purpose, prerequisites, output process including tables and templates, plus cautious [VERIFY] markers on uncertain citations like Rule 11-01, 71-day extension, and checkbox rules. I'll generate the complete raw SKILL.md content accordingly.
+codex
+---
+name: form-8k
+description: Drafts U.S. Form 8-K current reports for SEC EDGAR filing with item-accurate narratives, exhibit indexing, and signature blocks. Use when a public company has a reportable event, needs Item 1.01/2.01/2.02/5.02/7.01/8.01 coverage, or must file a current report within four business days. Trigger keywords: "Form 8-K", "current report", "SEC filing", "EDGAR", "Item 1.01", "Item 2.01", "Item 5.02", "Item 9.01", "Reg FD".
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+---
+
+# Form 8-K Current Report
+
+Draft a Form 8-K current report ready for EDGAR conversion based on verified source documents.
+
+## Prerequisites
+
+1. Triggering event facts with dates for event, board approval, and effectiveness.
+2. Source documents: definitive agreements, amendments, resolutions, press release, investor deck, employment or separation docs.
+3. Registrant identifiers from the latest 10-K/10-Q: exact legal name, Commission File No., CIK, IRS EIN, state of incorporation, fiscal year end, principal executive office address, phone.
+4. Item selection list with rationale for each triggered item.
+5. Financial statement inputs and significance test data for Item 2.01, if applicable.
+
+## Output Structure / Process
+
+**Cover Page (EDGAR-Ready Fields)**
+
+| Field | Source / Rule |
+|---|---|
+| Registrant exact legal name | Latest 10-K/10-Q cover |
+| Commission File No. and CIK | Latest 10-K/10-Q cover |
+| IRS EIN | Latest 10-K/10-Q cover |
+| State of incorporation | Charter or 10-K/10-Q |
+| Fiscal year end | Latest 10-K/10-Q cover |
+| Principal executive offices address and phone | Latest 10-K/10-Q cover |
+| Trading symbol(s) and exchange(s) | Latest 10-K/10-Q cover [VERIFY] |
+| Checkboxes for reporting items | Form 8-K cover |
+| Checkboxes for Rule 425/14a-12/14d-2/13e-4 communications | Form 8-K cover [VERIFY] |
+| Indicate amendment, if 8-K/A | Form 8-K cover |
+
+**Item Selection Matrix**
+
+| Item | Trigger | Required Narrative Elements | Typical Exhibits |
+|---|---|---|---|
+| 1.01 | Entry into material definitive agreement | Date, parties, purpose, key terms, duration, termination, material conditions | Agreement (10.x) |
+| 1.02 | Termination of material definitive agreement | Date, parties, reason, termination fees or obligations | Termination notice (10.x) |
+| 2.01 | Completion of acquisition/disposition | Date, assets/business, consideration, structure, significance | Purchase agreement (10.x), pro forma (99.x) |
+| 2.02 | Results of operations/financial condition | Reference to press release or presentation, caution on furnished status | Press release (99.x) |
+| 2.03 | Creation of direct financial obligation or off-balance sheet obligation | Date, amount, terms, maturity, covenants, events of default | Credit agreement (10.x) |
+| 2.05 | Costs associated with exit/disposal | Nature of plan, expected charges, timing | Board materials (99.x) |
+| 2.06 | Material impairment charges | Nature of impairment, amount, timing | Press release (99.x) |
+| 3.02 | Unregistered sales of equity | Date, securities, exemption relied upon, consideration | Subscription/SPA (10.x) |
+| 5.02 | Director/officer appointment or departure, compensation | Name, title, effective date, background, compensation arrangements | Offer or separation letter (10.x) |
+| 5.03 | Amendments to charter/bylaws, fiscal year change | Description of amendment, effective date | Charter/bylaws (3.1/3.2) |
+| 7.01 | Regulation FD disclosure | Description of information furnished | Presentation (99.x) |
+| 8.01 | Other events | Factual description, materiality context | Press release (99.x) |
+| 9.01 | Financial statements and exhibits | Identify included or to-be-filed financials, list exhibits | FS/pro forma (99.x), agreements (10.x) |
+
+**Narrative Drafting Rules**
+
+- Use objective, non-promotional language and cite only verifiable facts.
+- State the event date and any different effective date.
+- Use exact legal names for parties and titles for individuals.
+- Quantify all material dollar amounts and consideration structure.
+- Align narratives with press releases and exhibits to avoid inconsistencies.
+
+**Material Definitive Agreement Summary Template**
+
+```text
+On [Date], [Registrant] entered into [Agreement Title] with [Counterparty].
+The agreement relates to [Purpose/Transaction].
+Material terms include: [Consideration], [Duration], [Termination Rights], [Key Conditions], [Material Covenants].
+The agreement becomes effective on [Effective Date] and may be terminated upon [Conditions].
+```
+
+**Item 5.02 Personnel Change Template**
+
+```text
+Effective [Date], [Name] was [appointed/resigned/terminated] as [Title].
+Background: [Prior roles, relevant experience].
+Compensation: [Base salary], [Bonus], [Equity], [Severance], [Other material terms].
+There are no family relationships or related-party transactions with directors or executive officers, except [if any].
+```
+
+**Item 2.01 and Item 9.01 Financials**
+
+- Apply significance tests under Regulation S-X Rule 3-05 and Article 11 (Rule 11-01) [VERIFY].
+- Determine whether audited target financials and pro forma financials are required.
+- If financials are not available, state that they will be filed by amendment within the Item 9.01 safe harbor period (71 calendar days after the Form 8-K due date) [VERIFY].
+- Identify whether any financials are filed with the initial 8-K.
+
+**Exhibit Index (Item 9.01(d))**
+
+| Exhibit No. | Description | Status |
+|---|---|---|
+| 2.1 | Purchase agreement for [Transaction] | Filed |
+| 3.1 | Amended and Restated Certificate of Incorporation | Filed |
+| 10.1 | Material definitive agreement | Filed |
+| 99.1 | Press release dated [Date] | Furnished |
+| 99.2 | Investor presentation dated [Date] | Furnished |
+
+**Signature Block**
+
+```text
+Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized.
+
+Date: [Filing Date]
+
+[Registrant Name]
+
+By: __________________________
+Name: [Officer Name]
+Title: [Officer Title]
+```
+
+**Quality Control Checklist**
+
+- Confirm all dates, names, and amounts match source documents.
+- Ensure item numbers match the described event.
+- Confirm exhibits referenced are attached and correctly numbered.
+- Verify furnished vs filed treatment for Items 2.02 and 7.01.
+- Ensure consistency between narrative and press release content.
+- Confirm signature authority is documented or customary.
+
+## Guidelines
+
+- Do not include projections or opinions unless required by the item or included in furnished materials.
+- Use 8-K/A for material corrections or to file delayed financials under Item 9.01.
+- If requesting confidential treatment or redactions, flag Rule 24b-2 and prepare a separate application [VERIFY].
+- If the disclosure includes forward-looking statements in an exhibit, include or reference appropriate cautionary language in that exhibit.
+- Maintain EDGAR-compatible formatting and avoid typographical or formatting inconsistencies.
+- Confirm filing deadline based on the triggering event date and Form 8-K instructions.
+tokens used
+7,458

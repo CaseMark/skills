@@ -1,0 +1,41 @@
+{
+  "id": "eec18c90-ae00-4477-9ae0-268488e6fc67",
+  "slug": "litigation-criminal-defense-bail-hearing-summaries",
+  "name": "Bail Hearing Summaries",
+  "summary": "Generates comprehensive summaries of bail hearings in criminal defense matters by extracting key facts, prosecution and defense arguments, bail conditions, and court rulings from documents and transcripts. It structures the summary with headers, charge details, risk factors, and precise outcomes for quick reference by attorneys and judges. Use it during pretrial phases to review and understand decisions on defendant release or detention.",
+  "content": "# Bail Hearing Summary Prompt\n\nYou are tasked with preparing a comprehensive bail hearing summary for criminal law proceedings. This summary serves as a critical document that captures the essential facts, arguments, and outcomes of a bail hearing, enabling attorneys, judges, and other legal professionals to quickly understand the key issues and decisions made regarding a defendant's pretrial release or detention.\n\nBegin by thoroughly reviewing all available documentation related to the bail hearing. This includes the charging documents, criminal complaint or indictment, police reports, defendant's criminal history, prosecution and defense submissions, and any transcript or recording of the actual bail hearing. Search through all uploaded documents to extract concrete facts including the defendant's name, charges filed, dates of alleged offenses and arrest, specific amounts requested for bail, conditions proposed by either party, and any statements made by the judge, prosecutor, or defense counsel during the hearing.\n\nYour summary should open with a clear header section identifying the case name, case number, court jurisdiction, date of the bail hearing, presiding judge, and the names of counsel representing both the prosecution and defense. Follow this with a concise statement of the charges against the defendant, including the specific criminal statutes cited and the classification of each charge as a felony or misdemeanor with the corresponding degree.\n\nThe body of your summary must address the key factors that courts consider in bail determinations under applicable law. Present the prosecution's arguments regarding why the defendant poses a flight risk or danger to the community, including any evidence of prior failures to appear, criminal history, ties to other jurisdictions, access to financial resources, or allegations of threats or violence. Similarly, document the defense's counterarguments, which may include the defendant's community ties, employment status, family responsibilities, lack of prior criminal record, cooperation with law enforcement, or proposed conditions that would mitigate any concerns.\n\nInclude a dedicated section on the specific bail conditions requested by each party. The prosecution may seek high monetary bail, electronic monitoring, no-contact orders, geographic restrictions, surrender of passport, or pretrial detention without bail. The defense typically argues for release on personal recognizance, reduced monetary bail, or less restrictive conditions. Capture the exact dollar amounts proposed and any specific conditions discussed.\n\nDocument the court's ruling with precision. State whether bail was granted or denied, and if granted, specify the exact amount set and the form acceptable (cash, surety bond, property bond, or percentage). List all conditions imposed by the court, including reporting requirements, travel restrictions, substance abuse testing, mental health treatment, electronic monitoring, no-contact orders, or any other special conditions. If bail was denied, summarize the court's reasoning and whether the defendant was remanded to custody pending trial.\n\nThroughout your summary, maintain objectivity and accuracy. Use direct quotes from the hearing transcript when they capture particularly significant statements by the judge or counsel. Avoid legal conclusions or advocacy; simply present the facts, arguments, and outcomes as they occurred. The summary should be written in clear, professional language accessible to legal professionals who may not have attended the hearing but need to understand what transpired.\n\nConclude with any procedural matters addressed during the hearing, such as scheduling of future court dates, deadlines for filing motions, or any other orders entered by the court. If the defense indicated an intention to file a motion for reconsideration or appeal the bail decision, note this as well.\n\nThe final document should be formatted as a professional legal memorandum, typically two to four pages in length depending on the complexity of the case and hearing. Use clear headings and subheadings to organize the information logically. Ensure all factual assertions are supported by the source documents and properly attributed. This summary will become part of the case file and may be referenced throughout the criminal proceedings, so accuracy and completeness are paramount.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

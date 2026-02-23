@@ -1,0 +1,203 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-1d65-7d82-921c-baa2b5691110
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "82eb9e0f-e513-415e-8f76-63c612555988",
+  "slug": "litigation-consent-judgment-and-injunction",
+  "name": "Consent Judgment and Injunction",
+  "summary": "Drafts a comprehensive Consent Judgment and Injunction for intellectual property litigation cases. This skill structures the document with proper caption, recitals, jurisdictional findings, and precise settlement terms including injunctive relief to ensure enforceability. Use it during settlement phases when parties agree to resolve disputes without trial.",
+  "content": "# Consent Judgment and Injunction Drafting Workflow\n\nYou are tasked with drafting a comprehensive Consent Judgment and Injunction, a critical litigation document that memorializes the parties' agreement to resolve their dispute without trial while incorporating court-ordered injunctive relief. This document must be legally enforceable, comply with applicable court rules, and clearly articulate both the settlement terms and the specific conduct required or prohibited by the injunction.\n\n## Initial Document Review and Fact Gathering\n\nBegin by thoroughly examining all uploaded case documents to extract essential information including the parties' full legal names and capacities, case number, court jurisdiction, factual background of the dispute, prior procedural history, and the specific terms the parties have agreed upon. Pay particular attention to any settlement agreements, correspondence between counsel, or draft terms that outline the monetary considerations, admissions or denials of liability, and the scope of injunctive relief sought. Identify all relevant dates, amounts, and specific obligations that must be incorporated into the final judgment.\n\n## Caption and Introductory Matter\n\nDraft a proper court caption that conforms to the specific formatting requirements of the jurisdiction where the case is pending. The caption should include the full court name with division if applicable, the complete case number, the parties' names exactly as they appear in the original complaint with proper designations (plaintiff, defendant, petitioner, respondent), and the document title \"Consent Judgment and Injunction\" or \"Agreed Judgment and Permanent Injunction\" as appropriate to local practice. Research the specific court's local rules and standard formatting conventions to ensure compliance with technical requirements that could affect the document's acceptance for filing.\n\n## Recitals and Jurisdictional Foundation\n\nCompose detailed recitals that establish the court's jurisdiction over the parties and subject matter, summarize the nature of the claims and defenses without prejudicing either party, and explain that the parties have reached a voluntary agreement to resolve all disputes. The recitals should reflect that the parties enter into this consent judgment to avoid the expense and uncertainty of continued litigation, that they have been represented by competent counsel, and that they understand the binding nature of the judgment. Include specific findings that support the court's authority to enter the judgment and grant injunctive relief, referencing applicable statutes or rules of civil procedure. Ensure the recitals make clear that this is a negotiated resolution, not an adjudication on the merits, unless the parties have agreed otherwise.\n\n## Substantive Judgment Terms\n\nArticulate with precision all agreed-upon terms of the judgment, including any monetary awards with specific payment amounts, payment schedules, interest rates, and consequences of default. If the judgment includes admissions or denials of liability, state these clearly and unambiguously. Address the allocation of costs and attorney's fees according to the parties' agreement, specifying whether each party bears their own costs or whether one party is responsible for the other's fees. For any non-monetary obligations such as the transfer of property, delivery of documents, or performance of specific acts, provide detailed descriptions with concrete deadlines and performance standards. Verify that all judgment terms are legally enforceable and comply with applicable substantive law, public policy considerations, and any statutory requirements for consent judgments in the relevant jurisdiction.\n\n## Injunctive Relief Provisions\n\nDraft comprehensive injunction provisions that specify with particularity the conduct that is prohibited, required, or restricted. For prohibitory injunctions, clearly identify what actions the enjoined party must refrain from taking, using specific and measurable language rather than vague generalities. For mandatory injunctions requiring affirmative conduct, detail exactly what actions must be performed, by whom, according to what timeline, and to what standard. Define the geographic scope and duration of the injunction, whether it is permanent or subject to modification upon changed circumstances. Include provisions for monitoring compliance if appropriate, such as reporting requirements, inspection rights, or third-party oversight. Research and incorporate standard injunction language from authoritative sources while ensuring the provisions are tailored to the specific facts and needs of this case. Address potential enforcement mechanisms including contempt proceedings and the procedures for seeking modification or dissolution of the injunction.\n\n## Release, Waiver, and Reservation of Rights\n\nInclude comprehensive mutual release provisions that identify with specificity which claims, causes of action, and parties are released, and which if any are reserved or excluded from the release. The release language should encompass all known and unknown claims arising from the facts and circumstances of the litigation up to the date of the judgment, using appropriate language to waive statutory protections against releasing unknown claims where permitted by law. Address whether the parties waive their rights to appeal from the consent judgment, and if so, include explicit waiver language. If certain claims or rights are intentionally preserved (such as claims against non-parties or unrelated matters), clearly delineate these exceptions. Verify that the release provisions are enforceable under applicable law and include any required consideration or acknowledgments.\n\n## Jurisdiction Retention and Enforcement Mechanisms\n\nExplicitly state that the court retains continuing jurisdiction to enforce the terms of the consent judgment and injunction, to resolve disputes regarding interpretation or compliance, to modify the injunction upon proper showing of changed circumstances, and to adjudicate any motions for contempt or other enforcement proceedings. Specify the procedures for bringing enforcement actions, including notice requirements, meet-and-confer obligations before filing motions, and the standard of proof for establishing violations. Address attorney's fees and costs in enforcement proceedings, stating whether the prevailing party is entitled to recover these expenses. Include provisions for expedited relief in the event of imminent or ongoing violations, such as temporary restraining orders or emergency hearings. Research the jurisdiction's standards for enforcing consent judgments and incorporate any specific procedural requirements.\n\n## Execution and Court Approval\n\nProvide signature blocks for all parties to the litigation, their attorneys of record with bar numbers and contact information, and a separate section for judicial approval and signature. Include date lines for each signature and language confirming that the signatories have authority to bind their respective parties. Draft proposed findings and conclusions for the court's entry, stating that the court has reviewed the consent judgment, finds it fair and reasonable, determines it was entered into voluntarily with the advice of counsel, and approves it as an order of the court. Research jurisdiction-specific requirements for the form of judicial approval, as some courts require specific language or separate approval orders. Ensure the signature page complies with electronic filing requirements if applicable.\n\n## Final Document Assembly and Quality Control\n\nWhen you have gathered all necessary information from the case documents, researched applicable legal standards and procedural requirements, and drafted all required sections with appropriate specificity and legal precision, create a complete and professionally formatted Consent Judgment and Injunction document. The final document should be organized logically with numbered paragraphs for easy reference, include a caption on the first page and abbreviated captions on subsequent pages, and conclude with the signature blocks and certificate of service if required. Ensure consistent terminology throughout, proper citation format for any legal authorities referenced, and compliance with all applicable court rules regarding formatting, font, margins, and length restrictions.",
+  "parent_skill_id": "adccc2a5-9c43-42a4-8e4e-70541b15086f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement",
+      "post-trial"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "intellectual-property-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:03.344864",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:26.936219Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:27.033126Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:28.406791Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:29.453740Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4ae9b07b701-SJC)
+2026-02-23T21:42:30.511480Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4b63c802523-SJC)
+2026-02-23T21:42:31.901208Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4bf0a11c8ce-SJC)
+2026-02-23T21:42:34.087283Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4cc3c7bf64e-SJC)
+2026-02-23T21:42:37.853142Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4e3fc3929a0-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-consent-judgment-and-injunction-0v96swas.md
+
+STDOUT:
+

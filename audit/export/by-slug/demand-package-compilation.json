@@ -1,0 +1,42 @@
+{
+  "id": "a96c83fe-57d7-472e-aeef-1275bda46e3e",
+  "slug": "demand-package-compilation",
+  "name": "Demand Package Compilation",
+  "summary": "Compiles a comprehensive demand package for settlement negotiations or pre-litigation in commercial litigation matters. Organizes a demand letter with chronological facts, legal theories, damages calculations, and supporting exhibits like evidence, records, and legal authority into a persuasive narrative. Use to present a client's strong claim position to adverse parties.",
+  "content": "# Demand Package Compilation\n\nYou are tasked with creating a comprehensive demand package for settlement negotiations or pre-litigation purposes. A demand package is a critical document that presents the factual basis, legal theories, damages, and supporting evidence for a client's claim against an adverse party. This package serves as both a persuasive advocacy tool and a complete evidentiary record that demonstrates the strength of your client's position.\n\nYour objective is to compile all relevant materials into a professionally organized demand package that includes a detailed demand letter, supporting documentation, evidence of damages, medical records and bills where applicable, witness statements, photographic or video evidence, expert reports, relevant contracts or agreements, correspondence history, and applicable legal authority. The package should tell a compelling narrative that progresses logically from the incident or breach through causation to damages, making it clear why the demand amount is justified and reasonable.\n\nBegin by thoroughly reviewing all available case documents to identify the key facts, parties, dates, and events that form the foundation of the claim. Extract specific details including the nature of the incident or breach, all parties involved and their roles, precise dates and timeline of events, specific damages incurred with supporting documentation, any prior communications or settlement discussions, relevant contractual provisions or legal duties, and available evidence including witness accounts and expert opinions. When reviewing documents, ensure you capture exact quotes, figures, and citations that will strengthen the demand.\n\nStructure the demand package to open with a cover letter that identifies the matter, parties, and purpose of the package. Follow this with a comprehensive demand letter that includes an introduction identifying your client and the basis for the claim, a detailed statement of facts presented chronologically and supported by specific evidence, a clear articulation of legal theories and duties breached, a thorough damages calculation broken down by category with supporting documentation referenced, a discussion of liability and why it is clear and compelling, and a specific settlement demand with a reasonable deadline for response.\n\nAfter the demand letter, organize supporting exhibits in a logical sequence that mirrors the narrative structure of your demand letter. Number each exhibit clearly and create a comprehensive exhibit index. Include categories such as incident documentation, medical records and billing statements, employment and wage loss documentation, property damage estimates and repair invoices, photographic and video evidence, witness statements and affidavits, expert reports and opinions, contracts and agreements, correspondence and communications, and relevant legal authority including statutes, regulations, and case law.\n\nThroughout the compilation process, maintain strict attention to privilege and confidentiality considerations. Do not include attorney work product, privileged communications, or internal strategy documents. Redact sensitive personal information where appropriate while preserving the evidentiary value of documents. Ensure all medical records comply with HIPAA requirements and that you have proper authorizations for release.\n\nCalculate damages with precision and transparency. Break down economic damages into past and future medical expenses, past and future lost wages and earning capacity, property damage and repair costs, and out-of-pocket expenses with receipts. Address non-economic damages including pain and suffering, emotional distress, loss of enjoyment of life, and loss of consortium where applicable. If punitive damages are warranted, articulate the legal basis and the conduct that justifies such an award. Provide a clear total demand figure that accounts for all categories and explain the methodology used to arrive at each component.\n\nThe tone of your demand package should be professional, factual, and persuasive without being inflammatory or overly aggressive. Present the facts confidently and let the evidence speak for itself. Acknowledge any potential weaknesses in your case only to the extent necessary to address them proactively, but frame them in the most favorable light possible. Emphasize the strength of your evidence, the clarity of liability, and the reasonableness of your demand in light of the damages sustained.\n\nBefore finalizing the package, verify that all referenced exhibits are included and properly labeled, all factual assertions are supported by evidence in the package, all damage calculations are accurate and documented, all dates and names are correct and consistent throughout, the demand amount is clearly stated and justified, and the response deadline is reasonable and clearly communicated. Ensure the entire package is professionally formatted, paginated, and organized for easy reference.\n\nThe final demand package should be a complete, self-contained presentation of your client's claim that requires no additional explanation or supplementation. It should be persuasive enough to encourage serious settlement negotiations while being comprehensive enough to demonstrate your readiness to proceed to litigation if necessary. The recipient should clearly understand what happened, why your client is entitled to recovery, how damages were calculated, and what action is required to resolve the matter.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "settlement"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

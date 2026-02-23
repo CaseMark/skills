@@ -1,0 +1,40 @@
+{
+  "id": "3aee7c56-aec8-4002-9e75-85dcaf777b67",
+  "slug": "legal-audit-summaries",
+  "name": "Legal Audit Summaries",
+  "summary": "Generates comprehensive, structured summaries of legal audit findings, highlighting compliance issues, risk assessments with prioritization, and actionable remediation recommendations. Use this skill to distill complex audit reports, checklists, and evidence into clear documents for executives, general counsel, and compliance teams to evaluate organizational legal standing and plan fixes.",
+  "content": "# Legal Audit Summary Generation\n\nYou are tasked with creating a comprehensive legal audit summary that distills complex audit findings into a clear, actionable document for organizational leadership and compliance teams. This summary serves as a critical tool for executives, general counsel, and compliance officers to understand their organization's legal standing, identify areas of regulatory exposure, and prioritize remediation efforts.\n\n## Objective and Scope\n\nYour primary objective is to synthesize the complete findings from a legal audit into a structured summary document that highlights compliance issues, assesses associated risks, and provides concrete recommendations for remediation. The summary must be accessible to both legal and non-legal stakeholders while maintaining the precision and rigor expected in legal compliance documentation.\n\nBegin by thoroughly analyzing all audit documentation provided, including audit reports, compliance checklists, regulatory assessments, interview notes, policy reviews, and any supporting evidence or exhibits. Extract every compliance issue identified, ensuring no finding is overlooked regardless of its perceived severity. For each issue, identify the specific legal or regulatory requirement that has been violated or inadequately addressed, the relevant jurisdiction and governing authority, and the factual circumstances that constitute the deficiency.\n\n## Risk Assessment and Prioritization\n\nFor each compliance issue identified, conduct a comprehensive risk analysis that evaluates both the likelihood and potential impact of adverse consequences. Consider regulatory enforcement trends, the organization's industry sector, prior enforcement actions against similar entities, and the current regulatory environment. Categorize risks using a clear framework such as critical, high, medium, and low, with explicit criteria for each category. Critical risks typically involve potential criminal liability, significant financial penalties, license revocation, or threats to business continuity. High risks may include substantial civil penalties, regulatory sanctions, or reputational damage. Medium and low risks should be similarly defined with reference to their potential business impact.\n\nWhen assessing financial exposure, provide ranges where exact amounts cannot be determined, and cite the specific statutory penalty provisions, regulatory fine schedules, or historical enforcement data that inform your estimates. Consider both direct costs such as fines and penalties, and indirect costs including remediation expenses, increased compliance monitoring, potential litigation, and business disruption.\n\n## Document Structure and Content Requirements\n\nYour summary should open with an executive overview that provides a high-level assessment of the organization's overall compliance posture, the total number of findings by risk category, the most significant areas of concern, and the recommended timeline for remediation activities. This section should be concise enough for busy executives to grasp the essential findings in two to three paragraphs.\n\nThe main body of the summary should organize findings logically, either by regulatory domain such as data privacy, employment law, environmental compliance, or by risk level, beginning with the most critical issues. For each finding, provide a clear heading that identifies the compliance area, followed by a description of the specific deficiency, the applicable legal or regulatory requirement with proper citations, the risk assessment including likelihood and impact, the potential consequences if left unaddressed, and detailed recommendations for remediation.\n\nWhen drafting recommendations, be specific and actionable. Rather than suggesting the organization should \"improve data security practices,\" specify that the organization should \"implement multi-factor authentication for all systems containing personally identifiable information within 60 days, conduct a comprehensive access review to ensure role-based permissions align with the principle of least privilege, and engage a qualified third party to perform penetration testing by the end of the current fiscal quarter.\" Each recommendation should include a proposed timeline, responsible parties or departments, and any resource requirements such as budget, personnel, or external expertise.\n\n## Legal and Regulatory Considerations\n\nEnsure all citations to statutes, regulations, and regulatory guidance are accurate and current. When referencing specific legal requirements, provide sufficient context for non-legal readers to understand the obligation and its business rationale. If the audit revealed areas where regulatory interpretation is evolving or where guidance is ambiguous, acknowledge this uncertainty and recommend strategies for managing interpretive risk, such as seeking advisory opinions from regulators or obtaining legal counsel.\n\nBe mindful of privilege considerations when drafting the summary. If the audit was conducted under attorney-client privilege or as attorney work product, include appropriate privilege legends and handling instructions. Avoid language that could be construed as admissions of wrongdoing, while still being candid about deficiencies that require remediation. Frame findings in terms of opportunities for improvement and risk mitigation rather than violations or failures where appropriate.\n\n## Implementation and Follow-Through\n\nInclude a section addressing implementation of the recommendations, with a proposed remediation roadmap that sequences corrective actions based on risk priority and interdependencies. Identify quick wins that can demonstrate immediate progress alongside longer-term structural improvements. Recommend establishing a compliance committee or task force to oversee remediation efforts, with clear governance structures, reporting lines, and accountability mechanisms.\n\nSuggest metrics and key performance indicators to track remediation progress, such as percentage of high-risk findings closed, time to resolution for each risk category, and compliance testing results. Recommend a schedule for follow-up audits or assessments to verify that corrective actions have been effectively implemented and sustained.\n\nYour final summary document should be professionally formatted, free of legal jargon where possible, and organized with clear headings, subheadings, and visual elements such as risk matrices or compliance dashboards if appropriate. The tone should be objective and constructive, emphasizing the organization's commitment to compliance excellence while being forthright about areas requiring improvement. The document should serve not only as a record of audit findings but as a practical roadmap for achieving and maintaining regulatory compliance.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.996951",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,310 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-c618-7832-965d-d0bbc01a9bee
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "0bf8bb83-19eb-4302-b6b9-057d9836aa24",
+  "slug": "corporate-plan-of-liquidation-and-dissolution",
+  "name": "Plan of Liquidation and Dissolution",
+  "summary": "Drafts a comprehensive Plan of Liquidation and Dissolution for U.S. corporations undergoing voluntary dissolution. This skill generates a structured document covering preamble, board and shareholder approvals, creditor notices, asset distribution, and compliance with state statutes and federal tax rules. Use it when winding down corporate operations after governance approvals to ensure fiduciary duties are met.",
+  "content": "# Plan of Liquidation and Dissolution - Enhanced Workflow Prompt\n\nYou are tasked with drafting a comprehensive Plan of Liquidation and Dissolution for a corporate entity. This document serves as the formal roadmap for winding down business operations, satisfying creditor claims, distributing remaining assets, and achieving legal dissolution. The plan must comply with applicable state corporation statutes, federal tax requirements, and fiduciary duties owed to shareholders and creditors.\n\n## Document Structure and Requirements\n\n**Preamble and Recitals Section**\n\nBegin by formally identifying the corporation with its complete legal name, state and date of incorporation, jurisdiction, and principal place of business. Draft recitals that clearly articulate the board of directors' determination that liquidation and dissolution serve the best interests of the corporation and its shareholders. Reference the specific statutory authority under which the dissolution is proceeding, whether voluntary dissolution under state business corporation law or another applicable framework. The recitals should establish the factual and legal foundation for the dissolution, including any business circumstances that led to this decision, while maintaining appropriate professional tone and avoiding unnecessary detail that might create liability exposure.\n\n**Approval and Authorization Section**\n\nDocument with precision the corporate governance actions authorizing the liquidation and dissolution. Specify the date of the board of directors meeting at which dissolution was approved, the vote count, and confirmation that a quorum was present. Detail the subsequent shareholder approval, including the meeting date, the class and number of shares voting for and against the plan, and verification that the requisite statutory threshold was met (typically majority or supermajority depending on jurisdiction and charter provisions). If written consent was used in lieu of a meeting, document this alternative procedure and confirm compliance with applicable notice and consent requirements. Address any special voting rights of preferred shareholders or other classes of equity holders that may require separate class votes.\n\n**Notice to Creditors and Stakeholders Section**\n\nEstablish a comprehensive notification protocol that satisfies both statutory requirements and fiduciary obligations. Describe the process for providing formal notice to known creditors, including the method of delivery (certified mail, personal service, or other legally sufficient means), the content of the notice, and the deadline by which claims must be submitted. Outline the publication requirements for unknown or unascertainable creditors, specifying the newspapers or publications to be used, frequency of publication, and duration of the publication period as required by state law. Address notification obligations to employees, customers, vendors, regulatory agencies, and tax authorities. Include specific timelines that comply with state statutes, which typically require notices to be sent within a specified period after filing articles of dissolution and allow creditors a minimum claims period (often 120 days for known creditors and longer for published notice to unknown creditors).\n\n**Liquidation Process Section**\n\nDetail the systematic approach to winding up business operations and converting assets to cash or distributable form. Describe the process for completing or terminating existing contracts, collecting accounts receivable, liquidating inventory and equipment, resolving pending litigation, and addressing intellectual property assets. Establish the priority sequence for satisfying obligations: first, costs and expenses of liquidation; second, employee wages and benefits; third, tax obligations; fourth, secured creditor claims; fifth, unsecured creditor claims; and finally, distributions to shareholders. Identify the person or committee responsible for overseeing the liquidation process and their authority to engage professionals such as appraisers, auctioneers, or liquidation specialists. Address the treatment of contingent liabilities and the establishment of reasonable reserves for disputed or unliquidated claims.\n\n**Distribution of Assets Section**\n\nSpecify the methodology for distributing remaining assets after satisfaction of all creditor claims and establishment of necessary reserves. For corporations with multiple classes of stock, detail the liquidation preferences, participation rights, and distribution priorities as established in the articles of incorporation. Provide the calculation method for determining per-share distributions and the timeline for making distributions to shareholders. If assets will be distributed in kind rather than cash, describe the valuation methodology and allocation process. Address tax considerations affecting distributions, including the recognition of gain or loss by the corporation and the tax treatment to shareholders. For nonprofit entities, specify the distribution of assets to qualifying organizations as required by Section 501(c)(3) or other applicable tax-exempt provisions.\n\n**Filing for Dissolution Section**\n\nEnumerate the required filings with state authorities to effectuate legal dissolution. Identify the specific forms required by the jurisdiction, typically including Articles of Dissolution or Certificate of Dissolution filed with the Secretary of State. Specify the information that must be included in the filing: corporate name, date of incorporation, statement that dissolution has been authorized, statement regarding creditor notification, and confirmation that taxes have been paid or adequately provided for. Address any state-specific requirements such as tax clearance certificates, final reports, or consent from regulatory agencies. Establish responsibility for ensuring timely filing and obtaining certified copies of filed documents for corporate records.\n\n**Tax and Compliance Matters Section**\n\nAddress all federal and state tax obligations associated with dissolution. Require filing of IRS Form 966 (Corporate Dissolution or Liquidation) within 30 days after adopting the resolution or plan to dissolve. Specify the preparation and filing of final federal income tax returns (Form 1120 or applicable variant) and final state income, franchise, sales, and employment tax returns. Detail the process for obtaining tax clearances or certificates of good standing from relevant tax authorities. Address the cancellation of employer identification numbers, sales tax permits, and business licenses. Outline ongoing compliance obligations such as maintaining records for the statutory period (generally three to seven years), addressing post-dissolution claims, and handling any tax audits or disputes that arise after dissolution.\n\n**Effective Date and Execution Section**\n\nEstablish the effective date of the plan and the anticipated date of legal dissolution, noting that actual dissolution becomes effective upon filing of Articles of Dissolution with the state or such later date as specified in the filing. Include signature blocks for authorized corporate officers, typically the president and secretary, with acknowledgment that they are executing the plan pursuant to proper authorization. Confirm that the signatories have authority to bind the corporation and that their execution constitutes certification of the facts stated in the plan.\n\n## Drafting Standards and Legal Considerations\n\nThroughout the document, maintain formal legal drafting conventions including defined terms, consistent terminology, and precise language. Ensure compliance with the specific requirements of the state of incorporation, as dissolution procedures vary significantly by jurisdiction. Consider potential challenges from minority shareholders, creditors, or other stakeholders, and draft provisions that demonstrate good faith, fair dealing, and compliance with fiduciary duties. Address any special circumstances such as pending litigation, environmental liabilities, employee benefit plan terminations, or regulatory compliance issues specific to the industry.\n\nThe completed Plan of Liquidation and Dissolution should serve as both a practical operational guide for the liquidation process and a legally sufficient document that, together with required state filings, accomplishes the orderly and lawful dissolution of the corporate entity while protecting the interests of shareholders and satisfying obligations to creditors and other stakeholders.",
+  "parent_skill_id": "a268f17a-bb00-4f1c-b9bf-16df265c8942",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate_dissolution"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:40:58.952762Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:40:59.369773Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:41:00.169303Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:41:01.151397Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e286faaccff9-SJC)
+2026-02-23T21:41:02.190347Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e28d8ee4cf0d-SJC)
+2026-02-23T21:41:03.662619Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e2975f654b96-SJC)
+codex
+---
+name: plan-of-liquidation-and-dissolution
+description: Drafts a U.S. corporate Plan of Liquidation and Dissolution agreement for voluntary wind-downs and corporate closeout. Use after board and shareholder authorization is complete to produce a governance-compliant document covering approval history, creditor notice, claims administration, liquidation sequencing, distribution mechanics, tax clearance, and state termination filings. Trigger this skill when inputs mention liquidation, voluntary dissolution, winding up, dissolution resolution, creditor claims period, Form 966, or shareholder distribution calculations.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Plan of Liquidation and Dissolution
+
+Creates a litigation-grade dissolution plan that supports lawful wind-up, fiduciary defense posture, and execution tracking from resolution to filing completion.
+
+## Prerequisites
+
+1. Confirm state(s) of incorporation and governing entity documents: charter, bylaws, shareholder agreement, operating constraints.
+2. Confirm dissolved entity path: voluntary dissolution under applicable state corporation statute.
+3. Confirm approved corporate actions:
+   - Board resolution with date, quorum, vote counts, and authorization language.
+   - Shareholder vote/sufficient written consents with class-vote handling if relevant.
+4. Collect governance and transaction data:
+   - Stock ledger (class/rank), ownership percentages, transfer restrictions.
+   - Current financials, schedules of assets/liabilities, pending litigation list, tax status.
+5. Confirm notice and filing requirements with counsel:
+   - State secretary of state requirements (forms, fees, waiting periods).
+   - Federal tax milestones (including Form 966 and final returns).
+6. Confirm stakeholder communications plan and publication channel for unknown creditors.
+
+## Output Structure / Process
+
+### A. Build Entity & Jurisdiction Matrix
+
+| Item | Required Input | Draft Control |
+| --- | --- | --- |
+| Entity identity | Legal name, formation state, tax ID, principal office | Use exact legal names/codes; mirror formation records |
+| Closing timeline | Target adoption, creditor response, expected filing dates | Ensure state/publication intervals are state-compliant [VERIFY] |
+| Approvals | Board + shareholder actions, class vote mechanics | Include vote tallies and voting rights analysis |
+| Creditor administration | Known/unknown creditor list, claim deadlines, reserve policy | Align notice language with statute and case posture |
+| Distribution policy | Liabilities stack, reserves, preference classes | Explicitly document liquidation preference and conversion formula |
+| Tax package | EIN, filing history, state tax IDs/licences | Integrate Form 966 and final tax obligations |
+
+### B. Required Sections (Generate in Fixed Order)
+
+| Section | Minimum Required Elements | Output Artifact |
+| --- | --- | --- |
+| Preamble & Recitals | Corporate identity, statutory basis, date, reasoned basis | Introductory recital clause |
+| Board/Shareholder Authorization | Meeting/consent details, resolutions, voting mechanics, class vote results | Authorization section + exhibit references |
+| Notice & Claims Process | Methods of delivery, deadlines, publication terms, response handling | Claims procedure clauses and claim form language |
+| Winding Up Operations | Contract closure, litigation handling, asset conversion strategy | Operational winding-up matrix |
+| Priority Payments | Liquidation expenses, wages/benefits, taxes, secured and unsecured claims, contingencies | Payment waterfall and reservation schedule |
+| Shareholder Distribution | Class-based preference, pro rata mechanics, in-kind vs cash process | Distribution clause + math worksheet |
+| Dissolution Filings | Filing form list, signature authority, recordkeeping and proof | Filing checklist and filing signature block |
+| Tax & Compliance | Final return duties, IRS/Form 966, clearances, record retention | Compliance roadmap |
+| Execution & Effectiveness | Effective date, cure period notes, officer certifications | Signature blocks + execution statements |
+
+### C. Drafting Template
+
+```text
+PLAN OF LIQUIDATION AND DISSOLUTION
+of [Entity Name], a [State] corporation
+
+1. Preamble
+   - Entity identifiers
+   - Authority to dissolve
+   - Purpose of plan
+2. Authorization
+   - Board proceedings (date, quorum, votes)
+   - Shareholder actions (votes by class)
+3. Notices
+   - Known creditors: method + deadline
+   - Unknown creditors: publication + period [VERIFY]
+4. Claims and Winding Up
+   - Claim submission forms/timing
+   - Disputed claims reserves
+5. Payment Priority
+   - Expense waterfall
+   - Reserve methodology and release triggers
+6. Distributions
+   - Class ladder
+   - Per-share calculation
+7. Tax & Compliance
+   - Form 966 and final return filing timeline
+   - State/federal tax certificates
+8. Filing & Termination
+   - Articles/Certificate of Dissolution package
+9. Execution
+   - Effective date
+   - Officer certification
+```
+
+### D. Mandatory Deliverables
+
+1. `[ ]` Clean, date-stamped preamble and recitals.
+2. `[ ]` Governance evidence paragraph for every required threshold.
+3. `[ ]` Creditor notice log template and publication proof list.
+4. `[ ]` Reserve memo: disputed, environmental/contingent, tax exposure.
+5. `[ ]` Distribution worksheet by share class.
+6. `[ ]` State filing exhibit index with filing copies.
+7. `[ ]` Post-filing action list with retention and audit handling.
+
+## Guidelines
+
+- Use precise defined terms; do not mix “dissolved,” “wound up,” and “terminated” without defining each term first.
+- Preserve board/shareholder decision chronology as enforceable fact paragraphs.
+- Never state creditors are “waived” without documented statutory or consent basis.
+- For unknown creditors, use published notice period exactly as permitted by state law [VERIFY].
+- Use separate class distribution schedule whenever preferred rights exist, even if zero-value in final distribution.
+- Include statutory references only after jurisdiction verification to avoid portability errors [VERIFY].
+- Nonprofit wind-down: route residual assets to qualified tax-exempt recipients per governing tax law [VERIFY].
+- Post-dissolution records: retain closing papers and tax support for statutory period (often 3–7 years, confirm exact duration).
+tokens used
+4,807

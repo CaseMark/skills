@@ -1,0 +1,42 @@
+{
+  "id": "ac280710-d9f6-493d-9560-a2b7db8de614",
+  "slug": "litigation-bankruptcy-adversary-proceeding-complaint",
+  "name": "Adversary Proceeding Complaint",
+  "summary": "Drafts a comprehensive Adversary Proceeding Complaint for filing in United States Bankruptcy Court to initiate litigation within an existing bankruptcy case. Addresses disputes such as dischargeability of debts, fraudulent transfers, preferential payments, or automatic stay violations, ensuring compliance with Federal Rules of Bankruptcy Procedure Rule 7001. Use it when a plaintiff like a trustee or creditor needs to commence formal proceedings for specific relief.",
+  "content": "# Adversary Proceeding Complaint Drafting Specification\n\nYou are tasked with drafting a comprehensive Adversary Proceeding Complaint for filing in United States Bankruptcy Court. This is a formal litigation document that initiates a lawsuit within an existing bankruptcy case to resolve disputes between parties, typically involving matters such as dischargeability of debts, fraudulent transfers, preferential payments, or violations of the automatic stay.\n\n## Document Structure and Requirements\n\nThe complaint must conform to the Federal Rules of Bankruptcy Procedure, particularly Rule 7001, and follow the formatting requirements of the applicable local bankruptcy court rules. Your draft should be professional, legally precise, and suitable for immediate filing upon attorney review.\n\n### Caption Requirements\n\nBegin with a properly formatted caption that identifies the United States Bankruptcy Court by district and division. Include the debtor's name exactly as it appears in the main bankruptcy case, along with the bankruptcy case number in the format used by that court. Identify the plaintiff and defendant with their full legal names and any relevant capacity designations. If an adversary proceeding number has already been assigned by the court, include it; otherwise, leave space for the clerk to assign this number upon filing.\n\n### Introductory Paragraph\n\nDraft an introduction that clearly states the plaintiff is filing this complaint to commence an adversary proceeding pursuant to Federal Rule of Bankruptcy Procedure 7001. Identify which subsection of Rule 7001 applies to this particular proceeding. Provide a concise one-sentence summary of the nature of the dispute and the primary relief sought, giving the court and defendant immediate notice of the complaint's purpose.\n\n### Jurisdictional Statement\n\nInclude a comprehensive jurisdictional statement establishing the court's authority to hear this matter. Reference 28 U.S.C. \u00a7 1334 for the district court's original jurisdiction over bankruptcy cases and proceedings, and 28 U.S.C. \u00a7 157 for the reference to the bankruptcy court. Affirmatively state whether this is a core proceeding under 28 U.S.C. \u00a7 157(b)(2) and identify the specific subsection that applies, or alternatively state that it is a non-core proceeding related to the bankruptcy case. If applicable, include the basis for personal jurisdiction over the defendant and venue in this particular district.\n\n### Parties Section\n\nProvide detailed allegations identifying all parties to the adversary proceeding. For the plaintiff, state their relationship to the bankruptcy estate, whether they are the debtor, trustee, creditor, or other party in interest, and establish their standing to bring this action. For the defendant, provide sufficient identifying information including their last known address for service purposes, their relationship to the debtor or bankruptcy estate, and any relevant background establishing why they are a proper party to this proceeding.\n\n### Factual Background\n\nDevelop a comprehensive factual narrative that provides essential context for the dispute. Begin with the underlying bankruptcy case, including when it was filed, under which chapter of the Bankruptcy Code, and any relevant procedural history. Describe the relationship between the parties, including any contractual arrangements, business dealings, or other connections that gave rise to the dispute. Present the facts chronologically where possible, using numbered paragraphs for each distinct factual allegation. Ensure each factual allegation is stated with sufficient specificity to satisfy pleading requirements while avoiding unnecessary legal conclusions. The factual section should tell a coherent story that logically leads to the legal claims that follow.\n\n### Specific Factual Basis for Claims\n\nAfter establishing general background, provide detailed factual allegations specific to the cause of action being asserted. For dischargeability complaints, describe the specific transactions, representations, or conduct that allegedly constitute fraud, willful and malicious injury, or other grounds for exception from discharge under 11 U.S.C. \u00a7 523. For preference actions under 11 U.S.C. \u00a7 547, identify each transfer with specificity including dates, amounts, and the nature of the antecedent debt. For fraudulent transfer claims under 11 U.S.C. \u00a7 548 or applicable state law, detail the transfer, the consideration received, and facts supporting actual or constructive fraud. Include specific dates, dollar amounts, and documentary evidence references where available.\n\n### Count Structure\n\nOrganize each cause of action as a separate count with clear headings. Each count should incorporate by reference the general allegations and jurisdictional statements, then proceed to state the elements of the specific claim. For each element, provide factual allegations sufficient to establish a plausible claim for relief under the applicable legal standard. \n\nWhen drafting a dischargeability count, identify the specific subsection of 11 U.S.C. \u00a7 523 that applies and methodically address each element. When drafting avoidance actions, cite the specific statutory authority and establish each required element including the timing of transfers relative to the bankruptcy filing, the debtor's financial condition, and the defendant's status as an initial or subsequent transferee.\n\n### Prayer for Relief\n\nConclude with a detailed prayer for relief that specifies exactly what the plaintiff seeks from the court. This should include a request for judgment determining the specific legal issue, such as non-dischargeability of a particular debt with the amount specified, avoidance of identified transfers with the total value stated, or damages for violations of the automatic stay. Request recovery of costs and attorneys' fees where authorized by statute or contract. Include a request for such other and further relief as the court deems just and proper. Ensure the relief requested corresponds directly to the claims alleged and the court's authority under the Bankruptcy Code.\n\n### Professional Standards\n\nThroughout the complaint, maintain formal legal writing standards with numbered paragraphs for factual allegations, proper citation format for statutory and case law references, and precise legal terminology. Avoid argumentative language or legal conclusions unsupported by factual allegations. Ensure consistency in party designations, defined terms, and factual assertions. The document should be suitable for filing with only minimal attorney review and customization for the specific facts of the case.\n\nDraft the complete adversary proceeding complaint incorporating all required sections, using the specific information provided about the parties, case, and factual circumstances, while ensuring compliance with all applicable procedural rules and pleading standards.",
+  "parent_skill_id": "e2706f93-2f57-48d2-adf6-247cbb765062",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "bankruptcy-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

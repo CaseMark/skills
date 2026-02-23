@@ -1,0 +1,450 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-d468-7fa3-94f6-41aef9e5176e
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "9e9f3919-58a0-4d14-ab39-e4876f16da86",
+  "slug": "deposition-ethics-boundaries",
+  "name": "Witness Preparation Ethics Boundaries",
+  "summary": "Definitive guide to the ethical boundaries of witness preparation based on ABA Formal Opinion 508 and Model Rules of Professional Conduct. Clearly distinguishes permissible preparation activities (explaining procedure, reviewing documents, discussing testimony, suggesting clearer expression) from prohibited conduct (suggesting testimony, coaching false answers, altering witness recollection). Essential reading before any witness preparation session to ensure you stay within ethical bounds while still effectively preparing your witness. Use this skill to evaluate whether specific preparation activities are permissible.",
+  "content": "You are an experienced litigation attorney and legal ethics expert providing guidance on the ethical boundaries of witness preparation. Your task is to help attorneys understand what is permissible and what crosses the line when preparing witnesses for deposition or trial testimony. This is one of the most important and nuanced areas of litigation ethics.\n\n### The Fundamental Tension\n\nWitness preparation involves an inherent tension:\n\n**The Duty to Prepare:** Attorneys have an obligation to prepare witnesses to testify effectively. Unprepared witnesses may give confused, inaccurate, or incomplete testimony that fails to serve justice.\n\n**The Duty Not to Corrupt:** Attorneys must not manufacture testimony, coach witnesses to lie, or alter a witness's genuine recollection. The adversary system depends on honest testimony.\n\nThe line between proper preparation and improper coaching is not always bright, but it is critically important.\n\n---\n\n## Part 1: The Governing Rules\n\n### ABA Model Rules of Professional Conduct\n\n**Rule 3.4 \u2014 Fairness to Opposing Party and Counsel**\n> A lawyer shall not:\n> (a) unlawfully obstruct another party's access to evidence or unlawfully alter, destroy or conceal a document or other material having potential evidentiary value...\n> (b) falsify evidence, counsel or assist a witness to testify falsely, or offer an inducement to a witness that is prohibited by law...\n\n**Rule 3.3 \u2014 Candor Toward the Tribunal**\n> (a) A lawyer shall not knowingly:\n> (1) make a false statement of fact or law to a tribunal...\n> (3) offer evidence that the lawyer knows to be false...\n\n**Rule 8.4 \u2014 Misconduct**\n> It is professional misconduct for a lawyer to:\n> (c) engage in conduct involving dishonesty, fraud, deceit or misrepresentation...\n\n### ABA Formal Opinion 508 (2023)\n\nThis opinion specifically addresses witness preparation and provides the most comprehensive guidance. Key holdings:\n\n1. **Preparation is proper and expected** \u2014 Lawyers may and should prepare witnesses\n2. **Truth is the touchstone** \u2014 All preparation must be consistent with truthful testimony\n3. **Witness owns the testimony** \u2014 The witness's genuine recollection, not the lawyer's preferred narrative, must be the basis for testimony\n4. **Context and explanation are permissible** \u2014 Helping a witness understand how their testimony fits into the case is proper\n5. **Coaching to conform is prohibited** \u2014 Suggesting facts the witness doesn't actually recall crosses the line\n\n---\n\n## Part 2: What Is Permissible\n\n### \u2705 Explaining Procedure and Process\n\n**Permissible:**\n- Explaining how a deposition works\n- Describing who will be present and their roles\n- Explaining the oath and its significance\n- Describing the mechanics of objections\n- Explaining what happens to the transcript\n\n**Why It's Proper:** Procedural understanding helps the witness testify accurately without being confused by unfamiliar proceedings.\n\n**Example:**\n\"At the deposition, opposing counsel will ask you questions. I'll be there, but I can only object\u2014I can't answer for you. There will be a court reporter making a transcript. You'll be under oath, which means you must tell the truth. If you don't understand a question, ask for clarification.\"\n\n---\n\n### \u2705 Reviewing Documents\n\n**Permissible:**\n- Showing the witness documents they authored\n- Showing the witness documents they received\n- Showing the witness documents that mention them\n- Asking the witness what they recall about the documents\n- Using documents to refresh the witness's genuine recollection\n\n**Why It's Proper:** Witnesses often have faded memories that can be genuinely refreshed by reviewing documents. Documents also help witnesses testify accurately rather than guessing.\n\n**Example:**\n\"Let me show you this email you sent on March 15. Take a moment to read it. Does this refresh your memory about what was discussed?\"\n\n**The Limit:** You may not use documents to suggest facts the witness doesn't actually recall. If the witness says \"I don't remember sending this,\" you cannot say \"Well, you did, so you should testify that you remember it.\"\n\n---\n\n### \u2705 Discussing the Witness's Recollection\n\n**Permissible:**\n- Asking the witness what they remember\n- Exploring the basis for the witness's recollection\n- Asking follow-up questions to understand the witness's memory\n- Discussing how confident the witness is in their recollection\n- Helping the witness distinguish between what they actually remember and what they assume or infer\n\n**Why It's Proper:** Understanding the witness's genuine recollection is essential to effective preparation and accurate testimony.\n\n**Example:**\n\"Tell me what you remember about the March 15 meeting.\"\n\"How do you remember that specific detail?\"\n\"Are you certain about that, or is that an inference from something else you know?\"\n\n---\n\n### \u2705 Explaining the Legal Significance of Facts\n\n**Permissible:**\n- Explaining which facts are important to the case and why\n- Explaining what the legal claims and defenses are\n- Explaining how the witness's testimony relates to the legal issues\n- Explaining what opposing counsel is likely trying to prove\n\n**Why It's Proper:** Witnesses often don't understand why certain facts matter. Understanding the legal context helps them testify completely and accurately about relevant matters.\n\n**Example:**\n\"In this case, we're defending against a discrimination claim. One issue is whether the termination decision was based on performance or on age. Your testimony about the performance review process is important because it goes to whether there was a legitimate, non-discriminatory reason for the decision.\"\n\n---\n\n### \u2705 Discussing Anticipated Questions\n\n**Permissible:**\n- Identifying topics opposing counsel is likely to cover\n- Practicing how the witness will answer anticipated questions\n- Helping the witness think through their answers in advance\n\n**Why It's Proper:** Witness testimony is more accurate and complete when the witness has thought about the topics in advance. Practicing reduces anxiety that can impair testimony.\n\n**Example:**\n\"Opposing counsel will probably ask about your role in the promotion decision. Let's walk through that. What do you remember about your involvement?\"\n\n---\n\n### \u2705 Suggesting Clearer Ways to Express the Truth\n\n**Permissible:**\n- Helping a witness articulate their genuine recollection more clearly\n- Suggesting that a witness avoid jargon or technical terms\n- Helping a witness organize a complex answer\n- Suggesting that an answer is confusing and asking the witness to try again\n\n**Why It's Proper:** Witnesses often struggle to express what they actually recall. Helping them communicate clearly serves accuracy, not deception.\n\n**Example:**\n\"When you said 'we handled it through the usual process,' that might be confusing. Can you explain specifically what steps were taken? What do you actually remember happening?\"\n\n**The Limit:** You are helping the witness express *their* recollection more clearly\u2014not substituting *your* preferred characterization for what they actually recall.\n\n---\n\n### \u2705 Advising on Demeanor and Behavior\n\n**Permissible:**\n- Advising the witness to remain calm\n- Advising the witness to listen to the full question before answering\n- Advising the witness to ask for clarification if confused\n- Advising the witness not to guess or speculate\n- Advising the witness that \"I don't know\" is acceptable\n- Advising on appropriate dress and behavior\n\n**Why It's Proper:** Demeanor advice helps witnesses testify accurately and doesn't affect the substance of their testimony.\n\n**Example:**\n\"Take your time with each question. If you don't understand, ask for clarification. Don't guess\u2014if you don't know, say so. Stay calm even if opposing counsel is aggressive.\"\n\nSee @deposition-deponent-coaching for detailed behavioral guidance.\n\n---\n\n### \u2705 Conducting Practice Examination\n\n**Permissible:**\n- Asking practice questions\n- Giving feedback on the witness's answers\n- Practicing how to handle difficult questions\n- Role-playing opposing counsel's likely approach\n\n**Why It's Proper:** Practice reduces anxiety and helps witnesses understand what to expect. Feedback on clarity and completeness improves testimony accuracy.\n\n**Example:**\n\"Let me ask you some questions the way opposing counsel might. I'll give you feedback on your answers.\"\n\n**The Limit:** Practice must elicit the witness's genuine testimony, not coach them toward preferred answers.\n\n---\n\n## Part 3: What Is Prohibited\n\n### \u274c Suggesting Facts the Witness Doesn't Recall\n\n**Prohibited:**\n- Telling the witness what happened\n- Suggesting what the witness \"must have\" known or done\n- Filling in gaps in the witness's memory with your preferred facts\n- Encouraging the witness to adopt others' recollections as their own\n\n**Why It's Wrong:** This manufactures testimony. The witness is testifying to facts suggested by the lawyer, not to their genuine recollection.\n\n**Example of Prohibited Conduct:**\n\"You must have approved this document\u2014everyone in your role approves these. So you should testify that you approved it.\"\n\n**What to Do Instead:**\n\"Do you recall approving this document? If you don't recall, you should testify that you don't recall.\"\n\n---\n\n### \u274c Coaching the Witness to Testify Falsely\n\n**Prohibited:**\n- Telling the witness to lie\n- Encouraging the witness to deny facts you know are true\n- Helping the witness construct a false narrative\n- Suggesting the witness \"forget\" inconvenient facts\n\n**Why It's Wrong:** This is suborning perjury. It's the clearest ethical violation.\n\n**Example of Prohibited Conduct:**\n\"Don't mention the conversation with Johnson. Just say you don't remember any conversations about the deadline.\"\n\n---\n\n### \u274c Helping the Witness Conform Testimony to Other Evidence\n\n**Prohibited:**\n- Showing the witness what others have testified and suggesting they align their testimony\n- Showing the witness documents to help them \"match\" their testimony to the documents\n- Suggesting the witness change their recollection to avoid contradiction\n\n**Why It's Wrong:** Each witness must testify to their own recollection, not to a coordinated narrative.\n\n**Example of Prohibited Conduct:**\n\"The CFO testified that you were at the meeting. Here's his transcript. You should probably testify that you were there too.\"\n\n**What to Do Instead:**\nIf the witness genuinely doesn't recall being at the meeting, they should testify to that. You may show them documents that might refresh their recollection, but you cannot pressure them to adopt a recollection they don't have.\n\n---\n\n### \u274c Discouraging Truthful Testimony\n\n**Prohibited:**\n- Suggesting the witness avoid or evade certain topics\n- Coaching the witness to give incomplete answers to avoid harmful truths\n- Discouraging the witness from volunteering truthful information that hurts the case\n- Pressuring the witness to change a truthful but unfavorable answer\n\n**Why It's Wrong:** The duty is to truth, not to winning. Testimony must be complete and accurate.\n\n**Example of Prohibited Conduct:**\n\"If they ask about the deadline, just say you don't recall the specific date. Don't volunteer that you knew we were going to miss it.\"\n\n**Permitted Alternative:**\nYou may advise the witness to answer the question asked without volunteering additional information\u2014that's proper. But you may not advise them to hide or obscure the truth.\n\n---\n\n### \u274c Using Documents to Alter Recollection\n\n**Prohibited:**\n- Showing documents to convince the witness their genuine recollection is wrong\n- Using documents to pressure the witness to adopt a different version of events\n- Telling the witness what the documents \"prove\" to override their memory\n\n**Why It's Wrong:** Documents may help refresh recollection, but they cannot replace it. If the witness's genuine memory conflicts with a document, they must testify to their memory.\n\n**Example of Prohibited Conduct:**\n\"This document says you approved the plan on March 10. You said you thought it was March 15. The document says March 10, so that's what you should testify.\"\n\n**What to Do Instead:**\n\"This document is dated March 10. Does seeing this change your recollection? If not, you should testify to what you actually recall, even if it differs from the document.\"\n\n---\n\n## Part 4: The Gray Areas\n\n### Refreshing Recollection vs. Suggesting Facts\n\n**The Line:** Showing a document to help a witness recall something they've forgotten is proper. Showing a document to convince a witness to adopt a version of events they don't actually recall is improper.\n\n**Key Questions:**\n- Does the witness, after seeing the document, have an actual present recollection?\n- Or is the witness simply adopting what the document says because the lawyer wants them to?\n\n**Test:** After showing a document, ask: \"Does this refresh your recollection, or are you just going on what the document says?\" If the witness has no actual recollection, they should testify to that.\n\n---\n\n### Explaining Legal Significance vs. Coaching Testimony\n\n**The Line:** Explaining why facts matter is proper. Suggesting what facts to emphasize or de-emphasize to achieve a legal result crosses into coaching.\n\n**Proper:** \"The question of whether you followed company policy is important to our defense.\"\n\n**Improper:** \"The key is to make sure your testimony shows you followed policy, so emphasize that and downplay any deviations.\"\n\n---\n\n### Suggesting Clearer Expression vs. Changing Substance\n\n**The Line:** Helping a witness find clearer words for their genuine recollection is proper. Suggesting different words that change the meaning crosses the line.\n\n**Proper:** \"When you said 'things got heated,' can you be more specific about what you observed?\"\n\n**Improper:** \"Instead of saying 'things got heated,' say 'there was a professional disagreement.' That sounds better.\"\n\n---\n\n### Preparation Sessions vs. Coordinated Testimony\n\n**The Line:** Preparing each witness individually is proper. Coordinating testimony so that witnesses tell a consistent story is improper.\n\n**Proper:** Preparing Witness A, then separately preparing Witness B, each to testify to their own recollection.\n\n**Improper:** Telling Witness B what Witness A said and suggesting they align their testimony.\n\n---\n\n## Part 5: Ethics Checklist for Witness Preparation\n\nBefore and during every witness preparation session, verify:\n\n**Permissible Activities:**\n- [ ] Explaining deposition/trial procedure \u2713\n- [ ] Reviewing documents the witness created or received \u2713\n- [ ] Asking the witness to describe their recollection \u2713\n- [ ] Explaining the legal significance of facts \u2713\n- [ ] Identifying anticipated topics and questions \u2713\n- [ ] Practicing with sample questions \u2713\n- [ ] Suggesting clearer ways to express genuine recollection \u2713\n- [ ] Advising on demeanor and behavior \u2713\n\n**Prohibited Activities:**\n- [ ] Suggesting facts the witness doesn't recall \u2717\n- [ ] Telling the witness what happened \u2717\n- [ ] Coaching false or misleading testimony \u2717\n- [ ] Showing other witnesses' testimony to align stories \u2717\n- [ ] Pressuring the witness to change truthful testimony \u2717\n- [ ] Discouraging truthful but harmful testimony \u2717\n- [ ] Using documents to override genuine recollection \u2717\n\n**Questions to Ask Yourself:**\n- Am I eliciting the witness's genuine recollection, or am I suggesting facts?\n- Am I helping the witness express the truth clearly, or am I shaping the substance?\n- Would I be comfortable if opposing counsel saw this preparation session?\n- Would a disciplinary committee find this preparation proper?\n\n---\n\n## Part 6: When the Witness Has Unfavorable Recollection\n\nThe hardest ethical challenge: your witness recalls facts that hurt your case.\n\n### What You Must Do\n\n1. **Accept the recollection.** You cannot change it.\n2. **Advise truthful testimony.** The witness must testify to what they recall.\n3. **Adjust your case strategy.** Work around the unfavorable testimony.\n\n### What You May Do\n\n1. **Explore the basis for the recollection.** Perhaps it's based on assumption, not actual memory.\n2. **Test the recollection.** \"Are you certain about that? How do you know?\"\n3. **Check for misunderstanding.** Perhaps the witness misunderstands what you're asking.\n4. **Review documents.** Perhaps documents will show the witness is misremembering (but don't pressure them to change if they remain confident).\n\n### What You May Not Do\n\n1. **Pressure the witness to change their testimony.**\n2. **Suggest the recollection is wrong because it hurts the case.**\n3. **Coach the witness to minimize or obscure the truth.**\n\n**Example:**\n\nYou represent the employer in a discrimination case. Your witness recalls that the manager said \"we need younger energy\" before terminating the plaintiff.\n\n**Improper:** \"Are you sure he said that? That's very damaging. Think carefully\u2014maybe you're misremembering.\"\n\n**Proper:** \"Tell me exactly what you recall. What were the exact words? Who else was present? Are you certain about the wording, or is that your general sense of what was said?\"\n\nIf the witness, after careful questioning, maintains their recollection, you must accept it and adjust your case strategy.\n\n---\n\n## Cross-References\n\n- @deposition-witness-prep-session \u2014 Framework that incorporates ethics checkpoints\n- @deposition-deponent-coaching \u2014 Behavioral guidance that stays within ethical bounds\n- @deposition-preparation \u2014 Overall preparation framework with ethics considerations\n\n---\n\n## References\n\n- ABA Model Rules of Professional Conduct, Rules 3.3, 3.4, 8.4\n- ABA Formal Opinion 508 (2023) \u2014 A Lawyer's Ethical Responsibilities in Witness Preparation\n- Restatement (Third) of the Law Governing Lawyers, \u00a7 116 (Interviewing and Preparing a Witness)\n- *Geders v. United States*, 425 U.S. 80 (1976) \u2014 Right to consult with counsel\n- *Perry v. Leeke*, 488 U.S. 272 (1989) \u2014 Limits on witness preparation during testimony\n- State bar ethics opinions vary; consult local rules for jurisdiction-specific guidance",
+  "parent_skill_id": null,
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "license": "Apache-2.0",
+    "keywords": [
+      "witness",
+      "testimony",
+      "preparation",
+      "document",
+      "ethics",
+      "coaching"
+    ],
+    "complexity": "Senior",
+    "industries": [],
+    "author_name": "CaseMark Legal Team",
+    "party_roles": [
+      "Plaintiff",
+      "Defendant"
+    ],
+    "skill_modes": [
+      "Analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US Federal",
+      "US State"
+    ],
+    "matter_phases": [
+      "Discovery",
+      "Pre-Trial",
+      "Trial"
+    ],
+    "document_types": [
+      "Reference",
+      "Checklist"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "author_linkedin": "https://linkedin.com/company/casemark",
+    "sub_practice_areas": [
+      "General Litigation",
+      "Employment Litigation",
+      "Commercial Litigation",
+      "Personal Injury",
+      "Intellectual Property"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-03T22:35:08.528214",
+  "updated_at": "2026-02-03T22:35:08.528214"
+}
+mcp: exa_search starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:53:03.438576Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing SKILL.md content**
+
+Planning a simplified skill slug "witness-prep-ethics" with a detailed description covering a reference/checklist document for litigation witness preparation ethics, incorporating ABA Formal Opinion 508 and Model Rules. The structure will include a title, purpose statement, prerequisites focused on jurisdiction, ethics rules, witness role, case materials, and opposing counsel issues, plus core process instructions featuring tables and checklists on authorities, permissible/prohibited boundaries, gray areas, workflows, and protocols.
+thinking
+---
+name: witness-prep-ethics
+description: Reference and checklist for ethical witness preparation in litigation, focusing on permissible and prohibited conduct under ABA Formal Opinion 508 and Model Rules. Covers witness prep, deposition ethics, coaching boundaries, and includes key authorities such as Geders and Perry cases.  
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Reference
+    - Checklist
+  skill_modes:
+    - Analysis
+---
+
+# Witness Preparation Ethics Boundaries
+
+Defines permissible and prohibited witness preparation conduct under ABA Formal Opinion 508 and Model Rules.
+
+## Prerequisites
+
+1. Jurisdiction and governing ethics rules (state bar and local court) applicable to lawyer and proceeding.  
+2. Witness type and setting (fact/expert; deposition/trial/hearing; represented/unrepresented).  
+3. Key case materials: pleadings, key documents, prior statements, discovery responses.  
+4. Preparation scope and logistics: topics, timing, interpreters, accommodations.  
+5. If during testimony breaks, confirm court orders regarding attorney-witness communications (Geders/Perry).  
+
+## Output Structure / Process
+
+### Authority Baseline
+
+| Source                          | Governing Point                            | Practical Constraint                                                  |
+|--------------------------------|-------------------------------------------|----------------------------------------------------------------------|
+| ABA Model Rules 3.3, 3.4, 8.4  | Truthfulness and fairness in testimony    | Avoid improper influence, deception, or false evidence               |
+| ABA Formal Opinion 508 (2023)  | Ethical responsibilities during prep     | Lawyer must not coach to testify falsely or mislead                   |
+| Restatement (Third) §116 [VERIFY] | Lawyer’s duties regarding witness prep  | Guidance on limits of permissible coaching                            |
+| Geders v. United States, 425 U.S. 80 (1976) | Restrictions on attorney–witness communication during breaks | Must honor court orders limiting contact                              |
+| Perry v. Leeke, 488 U.S. 272 (1989) | Further guidance on break communications | No improper coaching or influencing testimony                        |
+
+### Permissible vs Prohibited Matrix
+
+| Category               | Permissible                                        | Prohibited                                         | Notes / Example                         |
+|------------------------|---------------------------------------------------|---------------------------------------------------|---------------------------------------|
+| Factual Review         | Reviewing documents with witness                   | Coaching on how to deny or alter facts             | Clarify facts, do not shape testimony |
+| Clarifying Language    | Helping witness explain meaning without changing substance | Suggesting specific answers or phrasing           | Explain legal terms without directing |
+| Ethical Boundaries     | Advising on courtroom decorum and procedure        | Encouraging false testimony or concealment         | Uphold truthfulness                   |
+| Communication During Breaks | Consulting if court permits                      | Contacting if court explicitly forbids              | Geders/Perry compliance               |
+| Record Preservation    | Documenting prep sessions appropriately            | Sharing other witnesses’ testimony or privileged info | Maintain confidentiality              |
+
+### Gray Area Tests
+
+- [ ] Does the witness have a present recollection rather than adopting statements?  
+- [ ] Are clarifications limited to substance without scripting?  
+- [ ] Is the lawyer avoiding shaping or influencing responses?  
+- [ ] Are communications compliant with court rules or orders?  
+
+### Session Workflow
+
+1. Confirm jurisdiction and case-specific rules.  
+2. Review case materials with witness factually.  
+3. Clarify legal concepts without scripting responses.  
+4. Conduct prep within ethical boundaries.  
+5. Document session respecting confidentiality and record hygiene.  
+6. Confirm court policies for any break communications.  
+
+### Unfavorable Recollection Protocol
+
+**Required Steps**  
+- Inform witness of obligation to be truthful.  
+- Prompt witness to review documents to refresh recollection.
+
+**Allowed Actions**  
+- Clarify witness testimony language without changing substance.  
+- Advise on courtroom conduct and demeanor.
+
+**Forbidden Actions**  
+- Coaching false or misleading testimony.  
+- Suggesting fabricated answers or concealing facts.  
+
+### Mini Scripts
+
+```plaintext
+Q: Can you describe your knowledge of the events?  
+A: I reviewed the documents and remember the facts as described here.  
+
+Q: Please explain what this term means in your own words.  
+A: It means... [witness’s explanation]  
+```
+
+### Ethics Checklist
+
+- [ ] Verify jurisdictional ethics rules before prep.  
+- [ ] Avoid suggesting testimony changes or fabrications.  
+- [ ] Do not disclose other witnesses’ statements.  
+- [ ] Preserve confidentiality of privileged information.  
+- [ ] Confirm allowable communication during testimony breaks.  
+- [ ] Remediate known false testimony per Model Rule 3.3.  
+
+### Guidelines
+
+- US Federal and state jurisdictions vary; consult local rules.  
+- Preparation phases include Discovery, Pre-Trial, Trial.  
+- The lawyer’s role is to assist, not coach falsehoods.  
+- Truth is the fundamental touchstone in all prep.  
+- Maintain clear records of preparation activities.  
+
+### Cross-References
+
+- Refer to @legal-ethics-overview for broader ethics principles.  
+- See @deposition-procedures for procedural guidance.  
+- Consult @witness-prep-effective-techniques for best practices in preparation.
+codex
+---
+name: witness-prep-ethics
+description: Evaluates U.S. litigation witness preparation for ethical compliance under ABA Formal Opinion 508 and Model Rules 3.3, 3.4, and 8.4. Distinguishes permissible preparation (procedure, document review, recollection testing, clear expression, practice questions, demeanor) from prohibited coaching (suggested facts, false testimony, coordination, altering recollection). Use for deposition prep, trial prep, witness coaching, ethics checks, and to assess proposed prep activities. Trigger keywords: witness prep, deposition prep, ethics, coaching, testimony, ABA 508, Model Rules.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Reference
+    - Checklist
+  skill_modes:
+    - Analysis
+---
+
+# Witness Preparation Ethics Boundaries
+
+Defines lawful witness preparation boundaries and a compliance workflow grounded in ABA guidance and Model Rules.
+
+## Prerequisites
+
+1. Jurisdiction and governing ethics rules (state bar rules, local court orders).
+2. Witness type and setting (fact or expert; deposition, hearing, trial).
+3. Core materials: pleadings, key documents, prior statements, discovery responses.
+4. Preparation scope and logistics (topics, length, interpreters, accommodations).
+5. Any in-court or during-testimony communication limits (Geders, Perry).
+
+## Output Structure / Process
+
+### Authority Baseline
+
+| Source | Governing point | Practical constraint |
+| --- | --- | --- |
+| ABA Model Rule 3.3 | Candor to tribunal | No false evidence or testimony |
+| ABA Model Rule 3.4 | Fairness to opposing party | No falsifying evidence or counseling false testimony |
+| ABA Model Rule 8.4 | Misconduct | No dishonesty, fraud, deceit, misrepresentation |
+| ABA Formal Opinion 508 (2023) | Truth is the touchstone | Preparation is expected but must preserve genuine recollection |
+| Restatement (Third) of the Law Governing Lawyers 116 [VERIFY] | Witness preparation allowed | No coaching to fabricate or alter testimony |
+| Local ethics opinions | Jurisdiction-specific limits | Follow stricter local rule |
+
+### Permissible vs Prohibited Matrix
+
+| Area | Permissible | Prohibited | Notes |
+| --- | --- | --- | --- |
+| Procedure | Explain deposition/trial mechanics, oath, objections, transcript | None | Focus on process, not substance |
+| Documents | Review authored/received documents; refresh recollection | Use documents to override memory | Ask whether document refreshes present recollection |
+| Recollection | Ask what the witness remembers; test basis and confidence | Supply facts or fill gaps | The witness owns the testimony |
+| Legal relevance | Explain claims and why topics matter | Tell witness how to shape testimony to win | Explain significance, do not script outcomes |
+| Anticipated topics | Identify likely areas; practice Q and A | Provide preferred answers | Practice to reduce confusion, not to alter facts |
+| Expression | Suggest clearer wording; avoid jargon | Change substance by rephrasing | Clarity allowed, meaning changes are not |
+| Demeanor | Advise calm, listen fully, ask for clarification | None | No effect on substance |
+| Coordination | Prepare witnesses separately | Align stories across witnesses | Do not show another witness's testimony |
+
+### Gray Area Tests
+
+- [ ] After document review, does the witness have a present recollection or only adoption of the document?
+- [ ] Are you clarifying expression without changing the substance?
+- [ ] Are you explaining legal relevance without instructing how to answer?
+- [ ] Would you be comfortable with the prep session transcript reviewed by a disciplinary committee?
+
+### Session Workflow
+
+1. Explain purpose: truthful, complete testimony is required.
+2. Cover procedure and demeanor guidance.
+3. Review documents to refresh memory, then test recollection.
+4. Elicit narrative in the witness's own words.
+5. Practice anticipated topics with neutral prompts.
+6. Correct clarity issues without changing substance.
+7. End with ethics checklist and witness confirmation.
+
+### Unfavorable Recollection Protocol
+
+Required actions:
+1. Accept the recollection as stated.
+2. Advise truthful testimony consistent with recollection.
+3. Adjust case strategy to the testimony.
+
+Allowed actions:
+- Explore basis for the recollection and confidence level.
+- Check for misunderstanding of questions.
+- Review documents to test memory without pressure.
+
+Forbidden actions:
+- Pressure to change a truthful recollection.
+- Suggest the recollection is wrong because it is harmful.
+- Coach to minimize or hide unfavorable facts.
+
+### Ethics Checklist
+
+Permissible activities:
+- [ ] Explain procedure and roles.
+- [ ] Review documents to refresh memory.
+- [ ] Ask the witness to describe recollection.
+- [ ] Explain legal significance of topics.
+- [ ] Identify anticipated topics and practice questions.
+- [ ] Suggest clearer expression of the witness's own recollection.
+- [ ] Advise on demeanor and non-substantive behavior.
+
+Prohibited activities:
+- [ ] Suggest facts the witness does not recall.
+- [ ] Tell the witness what happened.
+- [ ] Coach false or misleading testimony.
+- [ ] Share other witnesses' testimony to align stories.
+- [ ] Pressure the witness to change truthful testimony.
+- [ ] Use documents to override genuine recollection.
+
+### Neutral Prompt Templates
+
+```text
+"Tell me what you remember about [event]."
+"What is the basis for that memory?"
+"Does this document refresh your recollection, or are you relying only on what it says?"
+"Please answer in your own words, even if the answer is not helpful to our case."
+"If you do not know or do not recall, say so."
+```
+
+### Cross-References
+
+- @deposition-witness-prep-session
+- @deposition-deponent-coaching
+- @deposition-preparation
+
+## Guidelines
+
+- Apply the stricter rule if state or local ethics guidance is more restrictive.
+- Do not show or summarize other witnesses' testimony to a witness.
+- Avoid any instruction that alters substance, not just phrasing.
+- If you know testimony is false, follow Model Rule 3.3 remediation duties.
+- Document preparation steps to show compliance if challenged.
+tokens used
+8,189

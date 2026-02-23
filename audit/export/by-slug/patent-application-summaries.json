@@ -1,0 +1,42 @@
+{
+  "id": "3b8654fd-7c37-476c-8e43-dc5014c58787",
+  "slug": "patent-application-summaries",
+  "name": "Patent Application Summaries",
+  "summary": "Generates comprehensive, structured summaries of patent applications, extracting bibliographic data, technical descriptions, claims analysis, drawings, and legal-strategic considerations. Ideal for IP professionals, attorneys, and patent agents preparing for prosecution, licensing negotiations, or litigation strategy. Provides accessible overviews balancing technical accuracy with legal insights for non-experts.",
+  "content": "# Patent Application Summary Workflow\n\nYou are tasked with creating a comprehensive summary of a patent application for intellectual property matters. This workflow is essential for attorneys, patent agents, and IP professionals who need to quickly understand the key elements of a patent filing, communicate its substance to clients or colleagues, or prepare for prosecution, licensing negotiations, or litigation strategy sessions.\n\nYour summary should provide a clear, accurate, and professionally structured overview that captures the invention's essence, technical details, and legal scope. Begin by thoroughly analyzing the patent application document to extract all relevant information. Search through the entire document systematically to ensure you capture every critical element, including the specification, claims, drawings, abstract, and any supporting materials.\n\n## Core Elements to Extract and Summarize\n\nThe summary must include the application's bibliographic data, including the application number, filing date, inventor names, assignee information, and any priority claims or related applications. Identify the technical field and background of the invention, explaining the problem the invention addresses and how it differs from prior art mentioned in the specification.\n\nProvide a detailed yet concise description of the invention itself, explaining how it works, its key components or steps, and its innovative aspects. This should be written in language accessible to legal professionals who may not have deep technical expertise in the specific field, while maintaining technical accuracy. Extract and summarize the independent claims, as these define the broadest scope of protection sought. Note the number of total claims and highlight any particularly significant dependent claims that narrow the invention in commercially important ways.\n\nIdentify any drawings or figures and briefly describe what they illustrate, as visual elements often clarify complex technical concepts. Note any specific embodiments or examples provided in the specification that demonstrate practical applications of the invention.\n\n## Legal and Strategic Considerations\n\nYour summary should address the patent's potential scope of protection by analyzing the claim language for breadth and specificity. Identify any potential limitations or weaknesses in the claims that might affect enforceability or design-around opportunities. Note any means-plus-function claims or other claim formats that may require special attention during prosecution or litigation.\n\nIf the application references prior art, summarize how the applicant distinguishes the invention from existing technology. This context is crucial for understanding the invention's novelty and non-obviousness arguments. Flag any potential issues such as enablement concerns, written description questions, or claim indefiniteness that might arise during examination.\n\n## Output Format and Structure\n\nPresent your summary in a clear, professional format suitable for inclusion in client communications, internal memoranda, or case management systems. Begin with an executive overview paragraph that captures the invention's essence in two to three sentences. Follow with organized sections covering bibliographic information, technical field and background, detailed invention description, claim analysis, and strategic observations.\n\nUse precise legal and technical terminology appropriate for IP practice, but ensure the summary remains accessible to attorneys who may not specialize in the specific technology area. Include specific citations to relevant sections, claim numbers, and figure references to allow readers to quickly locate detailed information in the full application.\n\nThe final summary should typically be one to three pages in length, balancing comprehensiveness with conciseness. It should enable a reader unfamiliar with the application to understand its key aspects within minutes and make informed decisions about prosecution strategy, portfolio management, licensing opportunities, or freedom-to-operate considerations.\n\nConclude with any notable observations about the application's commercial potential, competitive landscape implications, or recommended next steps for prosecution or portfolio strategy. Your summary serves as a critical tool for efficient IP practice management and strategic decision-making.",
+  "parent_skill_id": "5b460232-3c68-43e5-be24-101410c162fd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "intellectual_property_licensing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,309 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c87-657c-7372-9fdf-3a85050d8698
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d31a333d-c039-4fa7-b4ef-bacf36c67dbf",
+  "slug": "litigation-class-action-opt-out-form-draft",
+  "name": "Opt-Out Form",
+  "summary": "Drafts a comprehensive Opt-Out Form for class action lawsuits, arbitration agreements, settlements, or collective proceedings. Ensures legal sufficiency, clear identification of the opting-out party, and compliance with procedural rules like FRCP 23 or statutes such as CCPA. Use when clients need to formally withdraw from class participation within specified deadlines.",
+  "content": "# Opt-Out Form Drafting Prompt\n\nYou are tasked with drafting a comprehensive Opt-Out Form for litigation purposes. This document allows an individual or entity to formally withdraw from participation in a class action lawsuit, arbitration agreement, settlement, or other collective legal proceeding. The form must be legally sufficient, clearly worded, and compliant with applicable procedural rules and substantive law.\n\n## Document Purpose and Context\n\nBegin by understanding the specific context of the opt-out. Determine whether this form relates to a class action settlement under Federal Rule of Civil Procedure 23, an arbitration clause opt-out under consumer protection statutes, a data privacy opt-out under regulations like CCPA or GDPR, or another legal mechanism. The purpose statement should clearly articulate what the individual is opting out of, the legal basis for their right to opt out, and the consequences of exercising this right. Review any court orders, settlement agreements, or contractual provisions that govern the opt-out process to ensure the form complies with specified deadlines, formatting requirements, and submission procedures.\n\n## Header and Identifying Information\n\nThe document header must establish proper jurisdiction and context. Include the full case caption if this relates to pending litigation, including the court name, case number, and party names. For non-litigation opt-outs, identify the entity or program from which the individual is opting out. The header should display the document title \"Opt-Out Form\" or \"Notice of Opt-Out\" prominently, along with the date of execution. If the opt-out must be submitted by a specific deadline, reference that deadline clearly in the header section to ensure the user understands the time-sensitive nature of the document.\n\n## Personal Information and Identification Section\n\nThis section must collect all information necessary to identify the opting-out party and verify their eligibility to opt out. At minimum, include:\n\n- Full legal name of the individual or entity opting out, exactly as it appears in relevant records\n- Complete mailing address and email address for correspondence and confirmation\n- Telephone number for contact purposes\n- Any claim number, account number, case reference number, or other identifying information that links the party to the class action, settlement, or agreement\n- For class actions, any proof of class membership such as purchase dates, transaction numbers, or account identifiers\n\nEnsure the form requests sufficient detail to prevent confusion or rejection due to incomplete identification. If the opt-out relates to a consumer transaction, include fields for relevant dates and transaction details that establish standing to opt out.\n\n## Opt-Out Declaration and Legal Effect\n\nDraft a clear, unambiguous statement of the individual's election to opt out. The declaration should state: \"I hereby elect to opt out of [specify the class action settlement, arbitration agreement, or other proceeding] and exclude myself from any settlement, judgment, or collective resolution.\" Provide checkbox options or clear yes/no selections to eliminate ambiguity. Include a brief explanation of the legal consequences, such as: \"By opting out, I understand that I will not be bound by any settlement or judgment in this matter, will not receive any benefits from the settlement, and retain my right to pursue individual legal claims.\" \n\nEnsure the language meets enforceability standards by using definitive, first-person statements of intent. If applicable law requires specific opt-out language (such as under certain consumer protection statutes or court orders), incorporate that exact language. Address any waiver of rights that occurs through opting out, and confirm that the individual understands they are forfeiting participation in the collective proceeding.\n\n## Signature and Execution Requirements\n\nThe signature block must comply with applicable formality requirements. Include a line for handwritten or electronic signature, printed name, and date of execution. Determine whether the opt-out form requires notarization, witness signatures, or other authentication based on the governing rules or agreement. If electronic signatures are acceptable under the E-SIGN Act or applicable state law, include language confirming that electronic execution is valid and binding.\n\nFor opt-outs submitted on behalf of minors, incapacitated persons, or entities, include appropriate representative signature blocks with titles and authority statements. Add a certification statement where the signatory affirms under penalty of perjury that the information provided is true and correct to the best of their knowledge.\n\n## Submission Instructions and Deadline Compliance\n\nConclude the form with clear, specific instructions for submission. Specify the exact mailing address, email address, or online portal where the opt-out form must be submitted. State the deadline for submission explicitly, including the date and time if applicable, and note whether the deadline is based on postmark date or receipt date. Include language such as: \"This Opt-Out Form must be postmarked no later than [DATE] and mailed to [ADDRESS]\" or \"This form must be submitted electronically through [PORTAL] by 11:59 PM [TIME ZONE] on [DATE].\"\n\nAdvise the user to retain a copy of the completed form for their records and to obtain proof of mailing or electronic submission confirmation. If the governing court order or agreement specifies particular formatting requirements (such as specific paper size, font requirements, or filing procedures), incorporate those specifications into the instructions.\n\n## Output Format and Finalization\n\nProduce a complete, ready-to-execute Opt-Out Form in a professional legal document format. Use clear headings, adequate spacing, and a readable font appropriate for legal documents. Ensure all required fields are clearly marked and that the document flows logically from identification through declaration to execution. The final document should be suitable for immediate use by the client, requiring only the insertion of personal information and signature to be legally effective.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:03:30.387440Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Drafting opt-out form content**
+
+I'm preparing the SKILL.md content for an opt-out form with a concise slug and a detailed description covering class action, arbitration, settlement, and privacy opt-outs (CCPA). The document will be titled "Opt-Out Form" as a Letter type, include numbered prerequisites, checklists, required fields in a table, and template sections like case header, declaration, legal effects, signature, notarization, and submission instructions—all clearly structured and capitalized per instructions.
+thinking
+**Composing detailed SKILL.md guidelines**
+
+I'm crafting full SKILL.md content with metadata, a clear purpose, numbered prerequisites, structured output/process steps, tables for required fields, checklists, template code, and bullet-point guidelines covering do's/don'ts, compliance, jurisdiction caveats, and citations marked [VERIFY] where uncertain—all focused on opt-out forms involving class action, arbitration, settlement, CCPA, GDPR, and FRCP 23 contexts, within 1024 chars for description and proper formatting.
+codex
+---
+name: opt-out-form
+description: Drafts U.S. opt-out forms/notices of exclusion for class actions, collective actions, settlements, arbitration opt-outs, and privacy programs. Ensures compliant identification, clear election language, consequence statements, signature formalities, and submission instructions aligned to governing orders or contracts (e.g., FRCP 23, arbitration opt-out windows, CCPA/GDPR programs). Use when preparing opt-out paperwork, notice of exclusion, class settlement opt-out, or arbitration opt-out letters.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Opt-Out Form
+
+Produces a ready-to-execute opt-out form tailored to the governing order, settlement, or contract.
+
+## Prerequisites
+
+1. Governing instrument: court order, settlement agreement, arbitration clause, privacy program rules.
+2. Opt-out deadline and measurement: postmark vs receipt; time zone if electronic.
+3. Submission channel(s): mail, email, portal; required address/URL.
+4. Case/program identifiers: caption, case number, settlement name, claim/account ID.
+5. Opting-out party data: legal name, address, email, phone, proof of membership/transaction.
+6. Authority for representative signatures (minors, incapacitated persons, entities).
+
+## Output Structure / Process
+
+Build the form in this order:
+
+1. Header and caption
+2. Party identification and membership proof
+3. Opt-out election statement
+4. Consequences acknowledgment
+5. Signature and certification
+6. Submission instructions
+
+Required fields table:
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| Full legal name | Yes | Must match account/claim records |
+| Mailing address | Yes | For confirmation notices |
+| Email | Yes | If allowed/required by program |
+| Phone | No | Include if required by order |
+| Claim/account/reference ID | Yes | As specified |
+| Proof of membership | If required | Transaction date/ID, purchase, policy number |
+| Representative capacity | If applicable | Title/relationship and authority statement |
+
+Mandatory election language checklist:
+
+- Clear first-person election: “I elect to opt out and exclude myself from [program/case].”
+- Specific program name and case caption where applicable.
+- Statement of non-participation in settlement/award.
+- Reservation of individual rights (if allowed) without expanding beyond opt-out.
+
+Signature block checklist:
+
+- Signature line (handwritten or electronic)
+- Printed name
+- Date of execution
+- Representative capacity block (if applicable)
+- Certification statement (if required): “I declare under penalty of perjury …”
+
+Submission instructions checklist:
+
+- Exact recipient name and address or portal URL
+- Deadline with date and time zone (if electronic)
+- Postmark vs receipt rule
+- Proof of submission instruction (retain copy, mailing receipt)
+
+Template:
+
+```text
+[COURT NAME]
+[CASE CAPTION]
+Case No. [NUMBER]
+
+OPT-OUT FORM / NOTICE OF EXCLUSION
+Deadline: [DATE] ([POSTMARK/RECEIPT] by [TIME TZ] if applicable)
+
+1. Identifying Information
+Name: ________________________________
+Mailing Address: ______________________
+Email: _______________________________
+Phone: _______________________________ (if required)
+Claim/Account/Reference ID: ___________
+Proof of Membership/Transaction: ______
+
+2. Election to Opt Out
+I hereby elect to opt out of and exclude myself from [FULL NAME OF SETTLEMENT/CLASS/PROGRAM] in [CASE NAME/PROGRAM]. I understand that by opting out, I will not receive any settlement benefits and will not be bound by any settlement or judgment in this matter.
+
+3. Acknowledgment of Consequences (if required)
+I understand that I retain any rights to pursue my own claims, if any, and will not participate in the collective resolution.
+
+4. Signature
+Signature: ___________________________   Date: ________________
+Printed Name: ________________________
+
+Representative (if applicable)
+Capacity/Title: _______________________
+Authority Basis: ______________________
+```
+
+## Guidelines
+
+- Use exact wording required by the governing order or contract; do not paraphrase mandatory language.
+- Match the program’s required identifiers; missing IDs are a common rejection reason.
+- State deadlines as absolute dates and times; avoid relative terms like “within 30 days.”
+- Do not add waivers, releases, or admissions beyond the opt-out election.
+- If electronic signatures are permitted, ensure the form explicitly allows them per the governing instrument.
+- If notarization or witnesses are required, add those blocks and remove e-sign language.
+- Confirm jurisdictional or program-specific privacy rules before requesting sensitive data.
+- If the opt-out is for a minor or incapacitated person, require representative authority language.
+tokens used
+3,992

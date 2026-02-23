@@ -1,0 +1,23 @@
+{
+  "id": "a268f17a-bb00-4f1c-b9bf-16df265c8942",
+  "slug": "corporate-corporate-dissolution",
+  "name": "corporate dissolution",
+  "summary": "Skills related to corporate dissolution within corporate practice.",
+  "content": "# corporate dissolution\n\nThis is a sub-category under corporate practice containing specialized skills.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate-dissolution"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

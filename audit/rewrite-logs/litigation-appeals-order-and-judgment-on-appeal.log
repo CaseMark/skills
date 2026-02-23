@@ -1,0 +1,427 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-a4c0-7330-b52a-130b9d49d5e2
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a3e7b749-3c39-46c7-be68-359aeb3e25ef",
+  "slug": "litigation-appeals-order-and-judgment-on-appeal",
+  "name": "Order and Judgment on Appeal",
+  "summary": "Drafts a comprehensive Order and Judgment on Appeal for appellate courts in litigation matters. It memorializes the court's decision after reviewing a lower court's ruling, including proper caption, procedural history, and enforceable directives. Use it to create the official pronouncement binding parties and lower courts, ensuring jurisdictional compliance and precision.",
+  "content": "# Order and Judgment on Appeal - Professional Appellate Litigation Document\n\nYou are tasked with drafting a comprehensive Order and Judgment on Appeal that memorializes an appellate court's decision following review of a lower court's ruling. This document serves as the official pronouncement of the appellate court's decision, binding the parties and the lower court to specific actions or outcomes. It must reflect the highest standards of legal precision, procedural accuracy, and jurisdictional compliance while functioning as both a legal record and an enforceable directive.\n\n## Initial Information Gathering and Document Review\n\nBegin by thoroughly reviewing all available case materials to understand the complete procedural and substantive context of the appeal. Search through uploaded documents to identify the notice of appeal, appellate briefs, the lower court's decision being reviewed, relevant motions, and the trial court record. Extract specific information including party names and their procedural designations, case numbers at both the trial and appellate levels, the trial judge's name, filing dates for all critical documents, and the precise issues raised on appeal. Identify any oral argument transcripts and the dates arguments were heard. Gather factual findings from the lower court that remain relevant to the appellate review, noting which findings are challenged and which are accepted by the parties. Pay particular attention to the standard of review applicable to each issue, as this fundamentally shapes how the appellate court evaluates the lower court's decision.\n\n## Court Caption and Jurisdictional Foundation\n\nDraft a properly formatted court caption that establishes the document's authority and complies with the specific formatting requirements of the relevant appellate jurisdiction. The caption must include the full legal name of the appellate court with any applicable division or district designation, the complete appellate case number, and the names of all parties with their correct procedural titles as appellant, appellee, or intervenor. Reference the lower court case number and identify the trial court judge whose decision is under review. Ensure the caption follows the hierarchical structure prescribed by applicable court rules, typically featuring centered text for the court name, left-aligned case information, and clear identification of the document type. Include the date of the order's entry, which establishes critical timelines for enforcement and further proceedings.\n\n## Procedural History and Recitals\n\nProvide a comprehensive chronological narrative detailing how the case arrived at the appellate court and establishing the court's jurisdiction to decide the appeal. Begin with a concise but complete summary of the lower court proceedings, identifying the nature of the action, the claims and defenses presented, and the procedural posture that led to the judgment or order being appealed. Specify the date of the lower court's decision and confirm that the notice of appeal was timely filed, including the exact filing date. Articulate each issue raised on appeal with precision, framing the questions presented in a manner that sets up the court's subsequent analysis. Document the procedural milestones of the appeal itself, including when appellate briefs were filed, whether oral argument occurred and on what date, any stipulations or procedural agreements reached between the parties, and any motions decided during the pendency of the appeal. For each issue presented, identify the applicable standard of review\u2014whether de novo review, abuse of discretion, clearly erroneous, or substantial evidence\u2014as this standard governs the intensity and scope of appellate scrutiny. This procedural foundation demonstrates the appellate court's proper jurisdiction and provides essential context for understanding the scope of review undertaken.\n\n## Substantive Legal Analysis and Findings\n\nPresent the appellate court's substantive legal analysis with clarity, rigor, and comprehensive citation to controlling authority. For each issue raised on appeal, structure the analysis to first identify the applicable legal standard or rule, then apply that standard to the facts as established in the lower court record, and finally reach a definitive conclusion on whether the lower court erred. Demonstrate the court's engagement with the parties' arguments by addressing the key contentions raised by both appellant and appellee, explaining why certain arguments prevail and others fail. Ground each legal conclusion in properly cited authority, drawing from relevant constitutional provisions, statutes, regulations, and binding precedent from the jurisdiction's highest court or controlling federal circuit. When applying case law, provide sufficient explanation of how the precedent governs the present circumstances, distinguishing cases where appropriate and explaining why certain authorities are more persuasive than others.\n\nIf the appellate court adopts new legal interpretations or clarifies existing doctrine, articulate the rationale with particular care, explaining the policy considerations and legal principles that support the court's reasoning. Address any dissenting opinions from the lower court or conflicting authority from other jurisdictions when such discussion illuminates the court's analysis. Throughout the findings, consistently apply the appropriate standard of review, explaining how that standard influenced the evaluation of the lower court's decision. For example, if reviewing factual findings under a clearly erroneous standard, explain that the appellate court must defer to the trial court's findings unless they are unsupported by substantial evidence or based on an erroneous view of the law. If conducting de novo review of legal questions, demonstrate independent analysis without deference to the lower court's legal conclusions. Ensure all citations conform to the Bluebook or the jurisdiction's required citation format, and verify that cited authorities are current and have not been overruled or superseded.\n\n## Judgment and Disposition\n\nState the appellate court's final disposition with absolute clarity and precision, using unambiguous language that eliminates any doubt about the outcome. Specify whether the lower court's decision is affirmed in whole or in part, reversed in whole or in part, modified, or vacated. When the judgment involves multiple issues with different dispositions, separately address each issue's outcome to prevent confusion about which aspects of the lower court's decision are upheld and which are overturned. If the case is remanded to the lower court, clearly articulate the scope and purpose of the remand with specific instructions about what proceedings must occur. Explain whether the remand is for further proceedings consistent with the appellate opinion, for entry of a specific judgment, for reconsideration of particular issues, or for additional fact-finding. Identify any limitations on the lower court's discretion upon remand and clarify whether the appellate court retains jurisdiction or returns full jurisdiction to the trial court.\n\nIf the judgment modifies the lower court's decision, specify the exact nature of the modifications, whether they involve damages amounts, injunctive relief terms, or other remedies. Ensure the judgment language complies with jurisdictional requirements for finality and enforceability, using terminology consistent with applicable appellate rules. Address whether the judgment is final and appealable or whether it resolves only certain issues while leaving others for further proceedings.\n\n## Orders and Implementation Directives\n\nProvide explicit directives to the parties and the lower court regarding implementation of the judgment, translating the appellate court's legal conclusions into actionable commands that govern post-appeal proceedings. Specify any relief granted to the prevailing party, including awards of costs on appeal as provided by statute or court rule, and address whether attorney's fees are awarded if applicable under governing law or contractual provisions. Direct the lower court to take specific actions such as entering judgment for a particular party, conducting new proceedings on remand, modifying existing orders to conform with the appellate decision, or dismissing claims that cannot survive appellate review.\n\nAddress practical implementation matters including timelines for compliance with the appellate court's directives, the effective date of any modified orders, and the status of any stays or injunctions that were in place during the pendency of the appeal. If the appellate court imposes conditions on remand or requires specific procedural steps, enumerate these requirements with sufficient detail to prevent disputes about what the lower court must do. Include directives regarding the return of the record to the lower court and specify when the mandate will issue, as the issuance of mandate typically marks the point when the appellate court's decision becomes enforceable in the lower court. Ensure all orders are sufficiently specific to be enforceable and provide clear guidance that prevents further litigation about the meaning or scope of the appellate court's directives.\n\n## Authentication and Finality\n\nConclude with proper authentication elements that establish the document's official status and legal effect. Include signature lines for the presiding judge or justice who authored the opinion, along with any concurring or dissenting judges if the jurisdiction's practice requires their signatures on the formal order. Provide the date of the order's entry, which establishes the timeline for seeking rehearing, petitioning for further review, or complying with the court's directives. Include any required certification language, such as attestation by the clerk of the appellate court, certification that the order represents the court's final decision on the matters presented, or statements regarding when the mandate will issue.\n\nEnsure compliance with local rules regarding signature formats, including whether electronic signatures are permitted, the proper inclusion of judicial titles, and any seal or stamp requirements. If the jurisdiction requires specific language regarding the finality of the order, the availability of further review through petition for rehearing or discretionary review by a higher court, or the timeline for seeking such review, incorporate that language precisely as prescribed by applicable court rules.\n\n## Document Format and Professional Standards\n\nThe final document should be formatted as a formal court order suitable for immediate filing with the appellate court and judicial signature. Use a professional typeface such as Times New Roman or the court's specified font, with appropriate margins typically one inch on all sides, double-spacing for the body text unless court rules specify otherwise, and proper pagination. Maintain a formal, objective tone throughout that reflects the judicial voice, avoiding advocacy while clearly articulating the court's reasoning and directives. Organize the document with clear section headings that guide the reader through the procedural history, legal analysis, and final disposition. Use numbered paragraphs where appropriate for complex orders involving multiple issues or directives, and ensure sufficient white space for readability.\n\nAll legal citations must conform to the citation format required by the jurisdiction, whether Bluebook, California Style Manual, or another state-specific citation system. Verify that case names are properly formatted, that pinpoint citations are included for quoted material, and that subsequent references to authorities use appropriate short forms. The document should be immediately suitable for judicial signature and filing without requiring substantive revision, representing the professional standard expected in appellate practice.",
+  "parent_skill_id": "6656102b-326d-43b3-a8eb-6cbe182c81c6",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "appeal"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "appeals"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:02:41.188838Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+---
+slug: order-judgment-appeal
+title: Order and Judgment on Appeal
+description: This skill guides drafting appellate court orders and judgments, focusing on the procedural history, issues, standard of review, analysis, disposition, remand, costs, mandate, and signatures. It covers key pleading document types within appellate practice areas to assist legal drafters in producing structured and clear appellate decisions.
+practice_areas: Appellate, Litigation
+legal_context: Appellate Procedure, Court Decisions
+document_types: Pleading, Order, Judgment
+skill_modes: Drafting
+
+# Purpose
+Provide a structured process and templates to draft clear, comprehensive appellate orders and judgments.
+
+# Prerequisites
+1. Familiarity with appellate procedure and terminology.
+2. Understanding of the underlying trial issues and record.
+3. Access to relevant statutes and case law for standard of review.
+4. Knowledge of court-specific formatting and filing requirements.
+
+# Structure / Process
+
+| Section              | Description                                                    |
+|----------------------|----------------------------------------------------------------|
+| Caption              | Court, parties, case number, and appeal designation.           |
+| Procedural History   | Summary of prior proceedings and relevant timeline.            |
+| Issues                | Clearly defined appellate issues presented for review.         |
+| Standard of Review    | Legal standards guiding the appellate court’s review.          |
+| Analysis              | Reasoned evaluation applying law to facts and arguments.       |
+| Disposition           | The court’s decision on each issue (affirm, reverse, etc.).      |
+| Remand                | Instructions for further proceedings if necessary.             |
+| Costs                 | Allocation of fees and costs between parties.                   |
+| Mandate               | Formal court order effectuating the judgment.                   |
+| Signatures            | Authorized signatures from judges or clerks.                    |
+
+# Guidelines
+- Use clear, concise language avoiding legal jargon where possible.
+- Clearly separate each section with appropriate headings.
+- Keep analysis focused on legal reasoning, citing legal authorities as needed [VERIFY].
+- Maintain consistent formatting aligned with court rules.
+- Use templates for uniformity and efficiency.
+- Avoid nested bullet points to enhance readability.
+- Include a checklist to ensure all components are addressed.
+- Ensure the document complies with jurisdiction-specific requirements.
+- Use flat lists in each section for clarity.
+- Verify citations and procedural facts before finalizing drafts.
+
+# Templates
+
+## Caption
+Court of [Name]  
+Case No. [Number]  
+[Appellant] v. [Appellee]  
+Order and Judgment on Appeal
+
+## Procedural History
+A brief narrative summarizing the trial court proceedings, motions, and appeals leading to the current appeal.
+
+## Issues
+1. Whether the trial court erred in [specific ruling].
+2. Whether the evidence supports the judgment.
+
+## Standard of Review
+The appellate court reviews [factual findings for clear error/legal conclusions de novo] [VERIFY depending on jurisdiction].
+
+## Analysis
+Detailed reasoning applying legal standards to the facts, addressing each issue in turn.
+
+## Disposition
+The judgment is [affirmed/reversed/remanded] in part and [affirmed/reversed/remanded] in part.
+
+## Remand
+If applicable, instructions to the lower court for further proceedings on specified issues.
+
+## Costs
+Costs [are/are not] awarded to [party], subject to court rules.
+
+## Mandate
+The court issues its mandate directing the clerk to enter judgment consistent with this order.
+
+## Signatures
+[Judge Names], [Titles]  
+Dated: [Date]
+
+# Checklist
+- [ ] Caption completed with accurate case information  
+- [ ] Procedural history concise and accurate  
+- [ ] Issues clearly identified and numbered  
+- [ ] Standard of review stated and appropriate  
+- [ ] Analysis addresses each issue with cited authority  
+- [ ] Disposition clearly states outcome per issue  
+- [ ] Remand instructions (if any) are clear  
+- [ ] Costs allocation specified  
+- [ ] Mandate language formal and complete  
+- [ ] Signatures include all required parties  
+- [ ] Formatting aligns with court rules  
+- [ ] No nested bullets; flat lists used throughout  
+- [ ] Citations and procedural facts verified [VERIFY]  
+
+---
+codex
+---
+name: order-judgment-appeal
+description: Drafts a U.S. appellate Order and Judgment memorializing the court’s disposition after review of a lower-court ruling, with compliant captioning, jurisdictional recitals, standards of review, issue-by-issue disposition, remand directives, costs, and mandate language. Use when preparing an appellate order, judgment, disposition, affirm/reverse/remand order, or mandate-ready directive.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Order and Judgment on Appeal
+
+Produce a final, enforceable appellate order and judgment that cleanly states jurisdiction, analysis, and disposition.
+
+## Prerequisites
+
+1. Appellate case number and lower-court case number
+2. Party names with correct procedural roles (appellant, appellee, intervenor)
+3. Trial judge name and date of the order/judgment on review
+4. Notice of appeal filing date and jurisdictional basis
+5. Issues presented on appeal and applicable standards of review
+6. Record citations for key facts and rulings
+7. Disposition instructions (affirm/reverse/vacate/modify/remand)
+8. Costs/fees authority and outcome
+9. Mandate issuance rule or date (if known)
+10. Signature authority and clerk attestation requirements
+
+## Output Structure / Process
+
+### 1) Caption Block
+
+Use the appellate court’s exact name and division. Include appellate and trial numbers.
+
+```
+[APPELLATE COURT NAME]
+[Division / District]
+
+[Case Caption]
+[Appellate Case No.]
+[Trial Court No.]
+[Trial Judge]
+
+ORDER AND JUDGMENT
+[Date]
+```
+
+### 2) Jurisdiction and Procedural History
+
+Provide a concise, chronological summary that establishes jurisdiction and posture.
+
+Checklist:
+- Identify appealed order/judgment and date
+- Confirm timely notice of appeal
+- Identify issues presented
+- Note briefing dates and oral argument status
+- State standard(s) of review for each issue
+
+### 3) Issues and Standards of Review
+
+Use a table to map issues to review standards.
+
+| Issue | Standard of Review | Record Reference |
+|---|---|---|
+| [Issue 1] | [De novo / abuse of discretion / clearly erroneous / substantial evidence] | [Cite] |
+| [Issue 2] | [Standard] | [Cite] |
+
+### 4) Analysis and Holdings
+
+For each issue, apply the standard to the record and state the holding.
+
+Template:
+```
+Issue [#]. [Issue statement]
+Standard of Review: [standard]
+
+Holding: [affirm/reverse/modify/vacate]
+Reasoning: [1–3 sentences with controlling authority and record cite]
+```
+
+### 5) Disposition
+
+State the final disposition with issue-by-issue clarity.
+
+Template:
+```
+IT IS ORDERED AND ADJUDGED that:
+1. The [trial court order/judgment] is [affirmed/reversed/vacated/modified] as to [Issue].
+2. The matter is [remanded] for [specific action].
+3. [Costs/fees disposition].
+```
+
+### 6) Remand Instructions (if any)
+
+Use explicit directives and limits.
+
+Checklist:
+- Scope of remand
+- Required proceedings or findings
+- Limits on trial court discretion
+- Jurisdiction retained or returned
+- Deadline or timeline if imposed
+
+### 7) Costs, Fees, and Mandate
+
+Specify statutory or rule basis when applicable.
+
+Template:
+```
+Costs on appeal are awarded to [party] pursuant to [authority].
+Attorney’s fees on appeal are [granted/denied] and [remanded for determination / set at $X].
+The mandate shall issue [date/under rule].
+```
+
+### 8) Authentication
+
+Include signature line(s) and clerk attestation per local rule.
+
+Template:
+```
+DATED: [Date]
+
+________________________________
+[Presiding Judge/Justice]
+[Title]
+
+ATTEST:
+________________________________
+Clerk of the Court
+```
+
+## Guidelines
+
+- Keep tone neutral and judicial, not advocacy.
+- State standards of review explicitly for each issue.
+- Avoid ambiguity in the disposition; separate each issue’s outcome.
+- If modifying or remanding, specify exact changes or required actions.
+- Use jurisdiction-specific formatting and citation rules.
+- Include mandate language or issuance timing if required by local rule.
+- If authority is uncertain, mark with `[VERIFY]` before filing.
+tokens used
+3,833

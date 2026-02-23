@@ -1,0 +1,43 @@
+{
+  "id": "f3450dd3-fc8a-41f8-b5c5-8a0e60f8242f",
+  "slug": "bill-of-lading-drafting",
+  "name": "Bill of Lading",
+  "summary": "Drafts a comprehensive Bill of Lading that functions as a receipt for goods, contract of carriage, and document of title. Ensures compliance with maritime law, COGSA, and international conventions like the Hague-Visby Rules by detailing parties, shipment information, and goods descriptions. Use for international commercial shipping transactions requiring precise regulatory documentation.",
+  "content": "# Bill of Lading Drafting Workflow\n\nYou are tasked with drafting a comprehensive Bill of Lading, which serves as a critical regulatory document in commercial shipping transactions. This document functions simultaneously as a receipt for goods, a contract of carriage, and a document of title. Your draft must comply with applicable maritime law, the Carriage of Goods by Sea Act (COGSA), and relevant international conventions such as the Hague-Visby Rules where applicable.\n\n## Parties Involved\n\nBegin by identifying and documenting all parties to the shipping transaction with precision. The shipper (consignor) is the party tendering the goods for transport, the consignee is the party entitled to receive the goods at destination, and the carrier is the entity responsible for transportation. For each party, you must obtain and verify the complete legal name as registered with relevant authorities, the full physical address including street, city, state/province, postal code, and country, and current contact information including telephone numbers and email addresses. If a notify party exists\u2014typically a freight forwarder, customs broker, or the consignee's agent\u2014include their complete details as well. Ensure that all entity names match official registration documents to prevent disputes over identity and authority. Consider whether any party is acting as an agent and, if so, clarify the principal on whose behalf they act.\n\n## Shipment Information\n\nDocument the complete journey of the goods with specificity sufficient to establish the carrier's obligations and route. Record the date of shipment or the date the carrier received the goods, the port or place of origin with specific terminal or facility identification, the port or place of destination including the designated delivery point, and the intended route or vessel name if known. Include the booking number, container numbers if applicable, and seal numbers for containerized cargo. Specify whether this is a port-to-port, door-to-door, or multimodal shipment, as this affects liability and insurance considerations. If transshipment is anticipated, identify intermediate ports and clarify whether the Bill of Lading covers the entire journey or only specific segments. Note any special routing instructions or restrictions imposed by the shipper.\n\n## Description of Goods\n\nProvide a detailed and accurate description of the cargo that satisfies both commercial and regulatory requirements. For each item or commodity, specify the type of goods using standard trade descriptions or Harmonized System (HS) codes where appropriate, the quantity expressed in appropriate units (pieces, cartons, pallets), the gross weight and volume or cubic measurement, the packaging type and condition (new wooden crates, sealed cardboard boxes, shrink-wrapped pallets), and any identifying marks, numbers, or labels on the packages. Declare the stated value if required for insurance or liability purposes, noting that carriers typically limit liability to a per-package or per-kilogram amount under COGSA unless a higher value is declared and additional freight paid. Include any special characteristics relevant to handling, such as fragility, perishability, or hazardous materials classification. The description should be sufficiently detailed to identify the goods but should reflect only information provided by the shipper, as carriers typically disclaim responsibility for verifying contents of sealed containers.\n\n## Freight and Charges\n\nClearly specify all financial terms governing the transportation service. State whether freight is prepaid or collect, identify the applicable freight rate and how it was calculated (per container, per ton, per cubic meter), itemize any additional charges such as terminal handling fees, documentation fees, fuel surcharges, or security fees, and specify the currency in which payment is due. Include payment terms such as due date and acceptable payment methods. If special services were requested\u2014such as expedited handling, temperature control, or additional insurance\u2014document these services and their associated costs. Address who bears responsibility for demurrage, detention, or storage charges if goods are not timely retrieved. Clarify whether freight charges include or exclude customs duties, taxes, and other governmental impositions.\n\n## Terms and Conditions\n\nEstablish the legal framework governing the carriage relationship and allocate risks between parties. Define the carrier's responsibilities, including the duty to exercise due diligence to make the vessel seaworthy, properly man and equip the vessel, and care for the cargo during transit. Specify limitations of liability, typically referencing COGSA's limitation of $500 per package or customary freight unit unless a higher value is declared, and enumerate exceptions to carrier liability such as act of God, perils of the sea, acts of war, inherent vice of the goods, and shipper's fault in packing or description. State the governing law and jurisdiction for dispute resolution, identifying whether claims must be brought in a specific court or resolved through arbitration. Include the time limit for filing claims, typically nine months under COGSA, and the requirement for written notice of loss or damage. Address whether the Bill of Lading is negotiable or non-negotiable (straight), as this affects transferability of title. Include standard clauses regarding general average contribution, both-to-blame collision clause if applicable, and the carrier's lien on goods for unpaid freight and charges.\n\n## Signatures and Certification\n\nConclude the document with proper execution to establish its legal validity and evidentiary value. Provide signature blocks for the carrier or its authorized agent, including printed name, title, and date of signature, confirming receipt of goods in apparent good order and condition unless otherwise noted. Include space for the shipper's signature if required by the carrier's practices. Specify the number of original Bills of Lading issued, typically three originals, noting that surrender of one original renders the others void and that delivery of goods against one original discharges the carrier's obligations. If the Bill of Lading is issued in electronic form, ensure compliance with applicable electronic commerce laws and the carrier's procedures for electronic Bills of Lading. Include any required certifications regarding hazardous materials, export compliance, or other regulatory matters. Note any clausing or exceptions regarding the condition or quantity of goods as received, as clean Bills of Lading (without exceptions) are typically required for letters of credit.\n\nUpon completing all sections with verified and accurate information, prepare the final document in a format suitable for execution and distribution to all parties, ensuring compliance with applicable legal requirements and commercial practices in the relevant trade lane.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "contract"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:18.46563",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

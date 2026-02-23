@@ -1,0 +1,44 @@
+{
+  "id": "19db7eb9-d999-412f-bc78-600fc5f7c27b",
+  "slug": "hearing-preparation-summaries",
+  "name": "Hearing Preparation Summaries",
+  "summary": "Generates comprehensive summaries for hearing preparation by synthesizing case documents, evidence, legal authorities, and procedural details into actionable briefing documents. Ideal for attorneys preparing for court proceedings, administrative hearings, arbitrations, or trials to identify key issues, witness testimonies, and strategic considerations. Ensures proper citations and factual attributions for quick reference during hearings.",
+  "content": "# Hearing Preparation Summary\n\nYou are tasked with creating a comprehensive hearing preparation summary that will serve as a strategic briefing document for attorneys preparing for court proceedings, administrative hearings, arbitrations, or other legal proceedings. This summary should synthesize all relevant case materials, evidence, legal authorities, and procedural considerations into a cohesive, actionable document that enables counsel to enter the hearing room fully prepared and confident.\n\nBegin by conducting a thorough review of all uploaded case documents, pleadings, discovery materials, correspondence, and exhibits related to the upcoming hearing. Search through these materials systematically to identify and extract key factual allegations, disputed issues, witness statements, documentary evidence, and any prior rulings or orders that may impact the proceeding. Pay particular attention to dates, amounts, specific claims or defenses, and any admissions or concessions made by either party. Ensure that you attribute all factual findings to their source documents with proper citations so counsel can quickly locate supporting materials.\n\nThe summary should open with essential procedural information including the hearing date, time, location, presiding judge or hearing officer, the nature of the proceeding (motion hearing, evidentiary hearing, status conference, trial, etc.), and the specific matters to be addressed. Follow this with a concise statement of the case background that orients the reader to the parties, their relationship, the genesis of the dispute, and how the matter has progressed to this point. This narrative should be factual, chronological, and focused on information directly relevant to the issues that will be addressed at the hearing.\n\nDevelop a detailed issues section that identifies each discrete legal or factual question the court will consider during the hearing. For each issue, provide the relevant factual background, the legal standard that applies, the positions of each party, and the key evidence or authorities supporting each side. When discussing legal standards, search for and verify the controlling statutes, rules, and case law that govern the issues, ensuring that all legal citations are properly formatted and linked to authoritative sources. If the hearing involves evidentiary matters, address anticipated objections, authentication requirements, and any motions in limine or evidentiary rulings that may affect what can be presented.\n\nCreate a comprehensive witness section if testimony will be presented. For each anticipated witness, summarize their expected testimony, their relationship to the parties or the facts, any prior statements they have made (in depositions, declarations, or interviews), and potential areas for cross-examination. Identify any credibility issues, inconsistencies in their testimony, or impeachment materials that may be relevant. If expert witnesses will testify, summarize their qualifications, opinions, the bases for those opinions, and any challenges to their methodology or conclusions under applicable evidentiary standards.\n\nCompile an exhibit list that catalogs all documentary evidence that may be introduced, with a brief description of each exhibit's content and relevance to the issues. Note whether exhibits have been pre-marked, whether there are any authenticity disputes, and whether stipulations have been reached regarding their admission. Cross-reference exhibits to the specific issues or witness testimony they support so counsel can quickly locate supporting materials during the hearing.\n\nInclude a strategic considerations section that addresses the strengths and weaknesses of your client's position, anticipated arguments from opposing counsel, and recommended approaches for presenting your case most persuasively. This should incorporate an honest assessment of vulnerabilities in your position and suggested responses to likely challenges. Consider the decision-maker's perspective, any patterns in their prior rulings, and the practical or equitable considerations that may influence the outcome beyond the strict legal merits.\n\nConclude with a procedural checklist covering all logistical and administrative matters that must be addressed before or during the hearing, such as filing deadlines for trial briefs or proposed findings, requirements for exchanging exhibit lists or witness lists, technology needs for presenting evidence, and any local rules or standing orders specific to the court or hearing officer. Include proposed questions for direct examination of your witnesses and cross-examination of opposing witnesses, organized by topic and designed to elicit testimony that supports your legal theories and factual narrative.\n\nThroughout the summary, maintain a professional, objective tone that presents information clearly and concisely while providing sufficient detail for thorough preparation. Use headings, subheadings, and organizational structures that allow counsel to navigate the document efficiently and locate specific information quickly during the hearing. The final document should serve as both a comprehensive preparation tool in the days leading up to the hearing and a quick-reference guide that counsel can consult during the proceeding itself to ensure nothing critical is overlooked.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.723615",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

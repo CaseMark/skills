@@ -1,0 +1,445 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7a-6c8a-7dc0-93b9-317dc82dfca5
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "8f2547dc-3ee5-4bde-91c5-7165313233ae",
+  "slug": "complaint-to-determine-dischargeability-of-debt",
+  "name": "Complaint to Determine Dischargeability of Debt",
+  "summary": "Drafts a comprehensive Complaint to Determine Dischargeability of Debt under 11 U.S.C. \u00a7 523 for bankruptcy adversary proceedings. Anchors claims in factual evidence and controlling precedent to argue a debt should survive discharge due to fraud, willful injury, or other exceptions. Use when a creditor seeks to prevent discharge of a specific debt in federal bankruptcy court.",
+  "content": "# Complaint to Determine Dischargeability of Debt\n\nYou are an expert bankruptcy litigation attorney tasked with drafting a comprehensive Complaint to Determine Dischargeability of Debt pursuant to 11 U.S.C. \u00a7 523 and Federal Rule of Bankruptcy Procedure 7001. This adversary proceeding document must meet all federal bankruptcy court requirements while presenting a compelling, factually-grounded legal argument for why a specific debt should survive the debtor's bankruptcy discharge.\n\n## Initial Document Intelligence and Fact Development\n\nBefore beginning your draft, conduct a thorough review of all available case materials to extract concrete factual support for your claims. Search through uploaded documents to identify and catalog specific evidence including dates of transactions, amounts owed, written communications between parties, contracts or agreements, financial statements, witness statements, and any documentation of the debtor's conduct. Your complaint must be anchored in verifiable facts rather than conclusory allegations, particularly given the heightened pleading standards that apply to fraud-based claims.\n\nAs you gather facts, organize them chronologically to construct a clear narrative of events leading to the debt and the debtor's conduct that warrants exception from discharge. Pay particular attention to evidence demonstrating the debtor's state of mind, intent, knowledge, and any pattern of behavior that supports your legal theory. Document the source of each factual assertion so you can properly attribute information and prepare for inevitable discovery requests.\n\n## Legal Research and Precedent Analysis\n\nGround your complaint in current, controlling legal authority by researching the specific exception to discharge you intend to invoke. Identify the essential elements required under your circuit's interpretation of the relevant subsection of \u00a7 523, as these elements vary significantly across jurisdictions. For fraud claims under \u00a7 523(a)(2)(A), understand how your circuit defines \"actual fraud\" following Husky International Electronics, Inc. v. Ritz, and what standard applies to the creditor's reliance following Field v. Mans. For willful and malicious injury claims under \u00a7 523(a)(6), know whether your circuit requires subjective intent to harm or accepts substantial certainty of harm as sufficient.\n\nVerify that your legal theories align with recent Supreme Court and circuit court decisions, and cite to binding precedent that supports each element of your claim. When crafting your legal arguments, incorporate the specific language courts in your jurisdiction use to describe the required showing, as this demonstrates sophistication and increases the persuasive force of your pleading. If arguing for an extension or novel application of existing law, ensure you can articulate a nonfrivolous basis for such an argument to satisfy Rule 9011 obligations.\n\n## Caption, Jurisdiction, and Procedural Foundation\n\nStructure your complaint with a properly formatted caption identifying the United States Bankruptcy Court for the applicable district, the debtor's main bankruptcy case number, and space for the adversary proceeding number to be assigned upon filing. The caption must include complete legal names and addresses for both the plaintiff-creditor and defendant-debtor, formatted according to local bankruptcy court rules which vary by district. Center the document title \"COMPLAINT TO DETERMINE DISCHARGEABILITY OF DEBT\" in capital letters below the caption.\n\nEstablish the court's authority to hear this matter by asserting subject matter jurisdiction under 28 U.S.C. \u00a7 1334 for bankruptcy jurisdiction and 28 U.S.C. \u00a7 157 for the reference to bankruptcy judges. Affirmatively state that this adversary proceeding constitutes a core proceeding under 28 U.S.C. \u00a7 157(b)(2)(I), which allows the bankruptcy court to enter final orders. Confirm venue is proper under 28 U.S.C. \u00a7 1409 because the proceeding is brought in the court where the underlying bankruptcy case is pending. Address the critical timing requirement by noting the date of the debtor's bankruptcy filing, the date of the first meeting of creditors under \u00a7 341(a), and confirming that this complaint is filed within the 60-day deadline established by Bankruptcy Rule 4007(c) for most dischargeability complaints.\n\n## Party Identification and Standing\n\nProvide detailed identification of the plaintiff-creditor with sufficient specificity to establish standing and the nature of the claim. Include the full legal name, business form if applicable, principal place of business, and a clear description of how the debt arose and the creditor's relationship to the debtor. If the plaintiff is a successor in interest, assignee, or subrogee, explain the chain of title to the claim and establish the plaintiff's right to pursue this action.\n\nIdentify the defendant-debtor with equal precision, including their full legal name, any aliases or business names used in connection with the transaction giving rise to the debt, current address, and the bankruptcy case number and chapter under which they sought relief. Note whether the case was originally filed under a different chapter and subsequently converted, as this may affect certain procedural aspects. Establish that the debtor is subject to personal jurisdiction in this court and that all parties necessary for complete relief are before the court.\n\n## Factual Narrative with Heightened Particularity\n\nConstruct a detailed, chronological factual narrative that establishes each element of your chosen exception to discharge with the specificity required by Federal Rule of Civil Procedure 9(b) as incorporated by Bankruptcy Rule 7009. For fraud-based claims under \u00a7 523(a)(2)(A), you must plead the circumstances constituting fraud with particularity, which requires identifying the who, what, when, where, and how of each allegedly fraudulent representation or omission.\n\nDescribe each specific false statement or material omission made by the debtor, including the exact date and manner of communication, whether oral or written, and the specific content of the misrepresentation. If relying on written communications, quote the relevant language and identify the document by date and type. Establish the debtor's knowledge of falsity at the time of the representation by alleging facts demonstrating what the debtor knew or should have known, such as access to contrary information, professional expertise, or prior inconsistent statements. Demonstrate the debtor's intent to deceive through circumstantial evidence such as a pattern of similar misrepresentations, concealment of information, or conduct inconsistent with innocent mistake.\n\nPlead the creditor's reliance on the misrepresentation with specific facts showing how the creditor acted differently than they would have absent the false statement, such as extending credit, delivering goods, or refraining from protective action. Address the justifiability of this reliance by explaining why it was reasonable under the circumstances, considering factors such as the parties' relationship, the creditor's opportunity to investigate, and any special expertise or superior knowledge of the debtor. Establish causation and damages by connecting the fraudulent conduct directly to the creditor's loss, specifying the amount of damages and how they were calculated.\n\nFor claims based on willful and malicious injury under \u00a7 523(a)(6), detail the deliberate nature of the debtor's conduct with facts demonstrating that the injury was intentional rather than merely negligent or reckless. Describe the specific actions taken by the debtor, the debtor's awareness of the likely consequences, and evidence of subjective intent to harm or substantial certainty that harm would result. Include any statements by the debtor revealing their intent, the context and circumstances surrounding the conduct, and the nature and extent of the resulting injury.\n\nWhen alleging fraud or defalcation while acting in a fiduciary capacity under \u00a7 523(a)(4), first establish the existence of a fiduciary relationship recognized under applicable state or federal law, distinguishing between express trusts and mere contractual or statutory obligations. Identify the specific fiduciary duties owed by the debtor, the source of those duties in statute or common law, and the debtor's knowing breach of those duties. Detail how the debtor's conduct constituted fraud or defalcation, including any misappropriation of funds, self-dealing, or failure to account for property held in trust.\n\n## Structured Legal Claims and Causes of Action\n\nOrganize your complaint into separately numbered counts, each addressing a distinct statutory basis for non-dischargeability under 11 U.S.C. \u00a7 523. Label each count clearly with both the legal theory and the specific statutory subsection, such as \"COUNT I: Non-Dischargeability Under 11 U.S.C. \u00a7 523(a)(2)(A) \u2013 False Pretenses, False Representation, or Actual Fraud.\" Begin each count by incorporating all prior allegations by reference to avoid unnecessary repetition while maintaining a complete statement of the claim.\n\nFor each cause of action, articulate the essential elements as defined by controlling circuit precedent, then methodically demonstrate how the alleged facts satisfy each element. Structure your analysis to track the legal standard precisely, using the same terminology and framework employed by courts in your jurisdiction. After establishing each element factually, state the legal conclusion that the debt is excepted from discharge under the cited provision, making clear that this is the relief you seek.\n\nConsider pleading alternative theories of non-dischargeability where the facts support multiple statutory exceptions, as this provides the court with multiple independent grounds for relief and protects against the possibility that one theory may fail. Ensure that your alternative theories are consistent with the facts alleged and do not undermine each other, and that each count is independently sufficient to support a judgment of non-dischargeability.\n\n## Prayer for Relief and Remedial Requests\n\nConclude your complaint with a prayer for relief that requests specific, appropriate remedies tailored to your case. At minimum, request that the court enter judgment determining that the entire debt owed to plaintiff, or specific components thereof, is non-dischargeable under the applicable provisions of 11 U.S.C. \u00a7 523. Specify the amount of the debt claimed to be non-dischargeable, breaking it down into principal, interest, and any other components.\n\nRequest an award of the costs and expenses of this adversary proceeding as permitted by law, including filing fees, service costs, and other litigation expenses. If your contract with the debtor or applicable law authorizes recovery of attorney's fees, specifically request reasonable attorney's fees incurred in prosecuting this action. Seek pre-judgment and post-judgment interest at the applicable federal rate or as provided by contract. Include a general request for such other and further relief as the court deems just and proper, which preserves your ability to seek additional remedies that may become apparent during litigation.\n\n## Verification and Signature Requirements\n\nInclude a verification statement as required by Bankruptcy Rule 7008 for complaints alleging fraud or other circumstances requiring heightened pleading standards. The verification must be signed under penalty of perjury by the plaintiff or, if the plaintiff is an entity, by a corporate officer or authorized representative with personal knowledge of the facts alleged. The verification should state that the signatory has read the complaint, knows its contents, and believes the matters stated therein to be true based on personal knowledge or, as to those matters stated on information and belief, believes them to be true.\n\nConclude with a signature block containing the attorney's name, bar number, firm name, complete address, telephone number, email address, and designation as \"Attorney for Plaintiff.\" Ensure compliance with all local rules regarding signature requirements, particularly for electronic filing systems that may require specific formatting or electronic signature protocols. Include the date of signing and verify that all required certificates of service or other procedural documents are prepared for filing.\n\n## Professional Standards and Ethical Compliance\n\nThroughout the drafting process, maintain strict adherence to Federal Rule of Bankruptcy Procedure 9011, which requires that all factual contentions have evidentiary support or are likely to have evidentiary support after reasonable investigation, and that all legal contentions are warranted by existing law or by a nonfrivolous argument for modification of existing law. Before filing, verify that you possess or can reasonably obtain evidence supporting each factual allegation, as you may face sanctions for assertions made without adequate investigation.\n\nDraft the complaint in clear, professional prose that presents facts objectively while casting them in the light most favorable to your client. Avoid inflammatory language, personal attacks, or unnecessary editorializing that may undermine your credibility with the court. Use numbered paragraphs throughout for easy reference in subsequent pleadings and court orders. Ensure internal consistency in your factual allegations and legal theories, as contradictions or implausible claims will invite dismissal or sanctions.\n\nConsider potential defenses the debtor may raise and address them preemptively where doing so strengthens your position without conceding weaknesses in your case. For example, if anticipating a statute of limitations defense, affirmatively plead facts establishing when the cause of action accrued and why the action is timely. If the debtor may argue lack of reliance or due diligence, include facts demonstrating the reasonableness of the creditor's conduct under the circumstances.\n\nReview your completed complaint against the Federal Rule of Civil Procedure 12(b)(6) standard as incorporated by Bankruptcy Rule 7012, ensuring that your factual allegations, accepted as true, plausibly give rise to an entitlement to relief under the applicable legal standard. The complaint must contain sufficient factual matter to state a claim that is facially plausible, meaning the facts alleged allow the court to draw the reasonable inference that the debtor is liable for the misconduct alleged. Conclusory statements or mere recitations of legal elements are insufficient and will not survive a motion to dismiss.\n\n## Output Format and Deliverable Specifications\n\nProduce a complete, court-ready Complaint to Determine Dischargeability of Debt formatted according to federal bankruptcy court standards and local rules for the applicable district. The document should be professionally formatted with appropriate margins, spacing, and typeface as required by local rules. Include line numbering if required by local practice. Organize the document with clear headings and subheadings that guide the reader through the jurisdictional basis, factual background, legal claims, and requested relief.\n\nEnsure that all citations to legal authority are properly formatted according to Bluebook or local citation rules, with pinpoint citations to specific pages or sections where appropriate. When referencing documents or evidence, describe them with sufficient specificity that they can be identified and located, and indicate whether they are attached as exhibits or will be produced during discovery. If attaching exhibits, reference them in the body of the complaint and ensure they are properly marked and authenticated.\n\nThe final document should be comprehensive yet concise, providing all necessary information to satisfy pleading requirements without unnecessary verbosity. Every paragraph should serve a purpose in establishing jurisdiction, stating facts, proving elements, or requesting relief. The complaint should tell a compelling story that leads logically to the conclusion that the debt should be excepted from discharge, while meeting all technical legal requirements for this specialized form of bankruptcy litigation.",
+  "parent_skill_id": "e2706f93-2f57-48d2-adf6-247cbb765062",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "bankruptcy-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:49:20.532668Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating skill content for nondischargeability complaint**
+
+I'm producing SKILL.md content titled "Nondischargeability Complaint" with metadata practice_areas Litigation, document_types Pleading, skill_modes Drafting. It will include a concise purpose, a numbered prerequisites list, and a structured process section with checklists, tables, and templates. Relevant statutes and Supreme Court cases will be cited without [VERIFY] for well-known ones, using [VERIFY] only if uncertain.
+thinking
+```markdown
+---
+name: nondischargeability-complaint
+description: Drafts a U.S. bankruptcy adversary complaint to determine nondischargeability of a specific debt under 11 U.S.C. § 523, with Rule 7001, 7009, and 4007(c) compliance, element-by-element pleading, and fact anchoring for fraud, willful and malicious injury, or fiduciary defalcation theories. Use when preparing a creditor’s complaint to determine dischargeability, § 523 adversary proceeding, fraud nondischargeability, or willful and malicious injury complaint in bankruptcy court.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Complaint to Determine Dischargeability of Debt
+
+Produces a court-ready adversary complaint seeking nondischargeability of a specific debt.
+
+## Prerequisites
+
+1. Bankruptcy case information: court, district, chapter, case number, filing date, date of first 341 meeting, and relevant deadlines.  
+2. Parties: names and roles of creditor(s) and debtor(s).  
+3. Evidence of the debt and underlying transaction or obligation.  
+4. Applicable § 523 subsection(s) selected as basis for nondischargeability and elements required by jurisdiction.  
+5. Calculation of damages or amount claimed nondischargeable.  
+6. Applicable local rules for service, filing, form, and timing compliance.  
+7. List of supporting exhibits to attach.
+
+## Output Structure / Process
+
+### Section order and required contents
+
+| Section                      | Required Content                                      |
+|------------------------------|-----------------------------------------------------|
+| Caption                      | Court name, case number, adversary proceeding number, parties, document title |
+| Jurisdiction and Venue       | Basis for jurisdiction, core proceeding designation, proper venue |
+| Parties                     | Identification of creditor and debtor                |
+| General Allegations          | Bankruptcy case status, petition date, 341 meeting, debt description |
+| Counts                      | Count titles per § 523 subsection, corresponding factual allegations |
+| Prayer for Relief           | Specific relief sought (declaring nondischargeability, costs, fees) |
+| Verification [conditional] | Statement verifying facts if required by local rules or court order [VERIFY] |
+| Signature                   | Attorney or party signature, date                    |
+| Exhibits                    | List and reference to attached evidence              |
+
+---
+
+### Jurisdiction, Venue, and Timeliness Checklist
+
+- [ ] Bankruptcy court's subject-matter jurisdiction established (28 U.S.C. §§ 1334, 157).  
+- [ ] Case designated as core proceeding under 28 U.S.C. § 157(b)(2)(I).  
+- [ ] Venue proper per 28 U.S.C. § 1409.  
+- [ ] Complaint filed within 60 days after first 341 meeting per Fed. R. Bankr. P. 4007(c).  
+- [ ] For § 523(a)(3)(B) claims, comply with applicable deadlines and notice requirements.  
+
+---
+
+### Fact Development Checklist
+
+- [ ] Clearly state dates and parties involved.  
+- [ ] Describe nature and source of the debt.  
+- [ ] Allege elements specific to chosen § 523 subsection(s) with pertinent facts.  
+- [ ] For fraud (§ 523(a)(2)(A)), state representation, intent, reliance, and damages per Fed. R. Bankr. P. 7009 (Rule 9(b) heightened pleading).  
+- [ ] For willful and malicious injury (§ 523(a)(6)), detail intentional act and injury suffered.  
+- [ ] For fiduciary defalcation (§ 523(a)(4)), specify fiduciary relationship and breach.  
+- [ ] Provide timeline of events evidencing misconduct or debt issues.
+
+---
+
+### Counts and Elements by § 523 Subsection
+
+| Subsection       | Elements (Jurisdiction-Specific)                            | Required Factual Allegations                  |
+|------------------|-------------------------------------------------------------|-----------------------------------------------|
+| 523(a)(2)(A)     | False representation, intent to deceive, actual reliance, damage | Specific misrepresentations, dates, reliance facts, damages |
+| 523(a)(2)(B)     | False financial statement, knowledge, justifiable reliance | Description of false statement, debtor's knowledge, creditor’s reliance |
+| 523(a)(4)        | Fraud or defalcation while acting in fiduciary capacity    | Existence of fiduciary duty, breach, resulting loss |
+| 523(a)(6)        | Willful and malicious injury                                | Intentional injury, harm caused to creditor  |
+
+---
+
+### Count Template (Example)
+
+```
+COUNT I: Nondischargeability under 11 U.S.C. § 523(a)(2)(A)
+
+1. Plaintiff incorporates by reference the preceding paragraphs as if fully set forth herein.
+2. Debtor made materially false representations to Plaintiff on or about [date].
+3. Debtor knew the representations were false at the time made.
+4. Plaintiff justifiably relied on the false representations.
+5. Plaintiff sustained damages in the amount of $[amount] as a direct result.
+6. The debt owed by Debtor to Plaintiff is therefore nondischargeable pursuant to 11 U.S.C. § 523(a)(2)(A).
+
+[Add additional counts as applicable]
+```
+
+---
+
+### Prayer for Relief
+
+- Judgment declaring the debt nondischargeable pursuant to the applicable provisions of 11 U.S.C. § 523.  
+- Award of damages in the amount claimed.  
+- Costs and attorney’s fees incurred.  
+- Any further relief deemed just and proper.  
+
+---
+
+### Signature and Verification
+
+- Signature line for attorney or party authorized to sign.  
+- Include verification statement if required by local rule or court order [VERIFY].
+
+---
+
+### Exhibits
+
+| Exhibit | Description                     |
+|---------|--------------------------------|
+| A       | Debt instrument or contract    |
+| B       | Relevant communications        |
+| C       | Calculations of damages        |
+| D       | Other supporting evidence      |
+
+---
+
+## Guidelines
+
+- Use numbered paragraphs throughout the pleading.  
+- Avoid conclusory allegations without factual support.  
+- Do not plead inconsistent alternative theories.  
+- Comply with Fed. R. Bankr. P. 9(b) for fraud allegations and incorporate Rule 7009.  
+- Check and follow local court and filing rules carefully.  
+- Use professional, neutral tone; avoid inflammatory language.  
+- Cite statutes and rules accurately; mark uncertain case law with [VERIFY].  
+- Example relevant authorities to cite:
+
+| Authority                             | Citation                         |
+|-------------------------------------|--------------------------------|
+| Bankruptcy Rules                    | Fed. R. Bankr. P. 4007(c), 7001, 7008, 7009, 7012, 9011 |
+| Bankruptcy Jurisdiction             | 28 U.S.C. §§ 1334, 157, 157(b)(2)(I), 1409 |
+| Bankruptcy Code                     | 11 U.S.C. § 523                |
+| Optional Case Law [VERIFY]          | Husky Int'l Elecs., Inc. v. Ritz, 578 U.S. 356 (2016) |
+| Optional Case Law [VERIFY]          | Field v. Mans, 516 U.S. 59 (1995) |
+| Optional Case Law [VERIFY]          | Kawaauhau v. Geiger, 523 U.S. 57 (1998) |
+
+---
+
+### Notes
+
+- The deadline to file a nondischargeability complaint is generally 60 days after the first meeting of creditors under Rule 4007(c).  
+- Some exceptions apply, e.g., under § 523(a)(3)(B); verify timing based on case specifics.  
+- Local rules may require a verification or affidavit; include if applicable.  
+- Always conform counts to applicable circuit precedent and local practice.
+
+```
+codex
+---
+name: nondischargeability-complaint
+description: Drafts a U.S. bankruptcy adversary complaint to determine nondischargeability of a specific debt under 11 U.S.C. § 523, with Rule 7001/7009/4007(c) compliance, element-by-element pleading, and fact anchoring for fraud, fiduciary defalcation, or willful and malicious injury theories. Use when preparing a complaint to determine dischargeability, nondischargeability complaint, § 523 adversary proceeding, fraud nondischargeability, or willful and malicious injury complaint in bankruptcy court.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Complaint to Determine Dischargeability of Debt
+
+Produces a court-ready adversary complaint seeking a determination that a specified debt is excepted from discharge.
+
+## Prerequisites
+
+1. Bankruptcy case metadata: court, district, chapter, main case number, petition date, § 341(a) meeting date, Rule 4007(c) deadline.
+2. Parties data: full legal names, addresses, entity type, aliases, and relationship to the debt.
+3. Debt record: contract/loan docs, invoices, payment history, communications, admissions, and damage calculation.
+4. Chosen § 523 subsection(s) and controlling circuit elements.
+5. Chronology of key events with dates, amounts, and participants.
+6. Evidence list mapped to each element (documents, witnesses, admissions).
+7. Local bankruptcy rules for caption, line numbering, service, and ECF signature format.
+
+## Output Structure / Process
+
+| Section | Required content |
+| --- | --- |
+| Caption | U.S. Bankruptcy Court, district, main case no., adversary no. blank, parties, title. |
+| Jurisdiction/Venue | 28 U.S.C. §§ 1334, 157; core proceeding § 157(b)(2)(I); venue § 1409. |
+| Parties | Standing, chain of title if assignee/subrogee; debtor identifiers and chapter. |
+| General Allegations | Numbered paragraphs; chronological facts; evidence anchors. |
+| Counts | Separate counts per § 523 subsection with element-by-element facts. |
+| Prayer | Nondischargeability judgment; amount breakdown; costs; fees if authorized; interest; other relief. |
+| Signature | Attorney block with bar info; ECF signature per local rule. |
+| Verification | Include only if required by local rule or court order. |
+
+Jurisdiction/Venue/Timeliness checklist:
+- [ ] § 1334 subject-matter jurisdiction alleged.
+- [ ] § 157 reference and core proceeding § 157(b)(2)(I) alleged.
+- [ ] § 1409 venue alleged.
+- [ ] Petition date and § 341(a) meeting date stated.
+- [ ] Rule 4007(c) timeliness alleged for § 523(a)(2), (4), (6).
+
+Fraud pleading (Rule 9(b) via Rule 7009) checklist:
+- [ ] Who made the statement or omission.
+- [ ] What was said or concealed.
+- [ ] When and where it occurred.
+- [ ] How it was false or misleading.
+- [ ] Knowledge of falsity and intent to deceive.
+- [ ] Reliance and why it was justifiable.
+- [ ] Causation and damages with amounts.
+
+Elements mapping table (tailor to circuit law):
+
+| § 523 theory | Elements to plead | Required factual allegations |
+| --- | --- | --- |
+| § 523(a)(2)(A) | Misrepresentation/false pretenses/actual fraud; intent; justifiable reliance; proximate loss | Specific statements or omissions, intent facts, reliance behavior, loss calculation. |
+| § 523(a)(2)(B) | Written statement respecting financial condition; materially false; intent to deceive; reasonable reliance | Exact document, falsity, reliance details, damages link. |
+| § 523(a)(4) | Fiduciary capacity or embezzlement/larceny; defalcation or fraud | Existence of express trust or fiduciary duty, breach, misappropriation, accounting failures. |
+| § 523(a)(6) | Willful and malicious injury | Intent to injure or substantial certainty of harm; malicious conduct; injury specifics. |
+
+Count template:
+```text
+COUNT __: NONDISCHARGEABILITY UNDER 11 U.S.C. § 523(____)
+1. Plaintiff realleges paragraphs __ through __.
+2. Element 1: [state element]. Facts: [cite numbered paragraphs].
+3. Element 2: [state element]. Facts: [cite numbered paragraphs].
+4. Element 3: [state element]. Facts: [cite numbered paragraphs].
+5. As a result, the debt of $[amount] is excepted from discharge under § 523(____).
+```
+
+Authorities to cite (as applicable):
+- 11 U.S.C. § 523.
+- 28 U.S.C. §§ 1334, 157, 157(b)(2)(I), 1409.
+- Fed. R. Bankr. P. 7001, 7009, 7012, 4007(c), 9011.
+- Fraud reliance standard: Field v. Mans [VERIFY].
+- Actual fraud scope: Husky Int’l Elecs., Inc. v. Ritz [VERIFY].
+- Willful and malicious injury: Kawaauhau v. Geiger [VERIFY].
+
+Prayer for relief checklist:
+- [ ] Declaration of nondischargeability for specified debt.
+- [ ] Judgment amount itemized by principal, interest, fees, costs.
+- [ ] Prejudgment/post-judgment interest (statutory or contractual).
+- [ ] Attorney’s fees if contract or statute permits.
+- [ ] Other just and proper relief.
+
+## Guidelines
+
+- Plead only facts with evidentiary support or likely support after investigation (Rule 9011).
+- Use numbered paragraphs throughout; avoid conclusory element recitations.
+- Align each count to controlling circuit elements and terminology.
+- Avoid inconsistent theories unless pled as alternatives and factually supportable.
+- Maintain professional tone; no inflammatory rhetoric.
+- Confirm Rule 4007(c) deadline compliance for § 523(a)(2), (4), (6).
+- Follow local bankruptcy court formatting, line numbering, and ECF signature rules.
+- Attach exhibits only when required or strategically necessary; otherwise identify and reference them clearly.
+tokens used
+7,629

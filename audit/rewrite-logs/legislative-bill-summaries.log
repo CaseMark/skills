@@ -1,0 +1,302 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-12c6-70d0-91fe-5950bb9a93e1
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "3ea02c8a-19c9-426a-851c-b8412b0ce8e4",
+  "slug": "legislative-bill-summaries",
+  "name": "Legislative Summaries",
+  "summary": "Generates comprehensive summaries of legislative bills, including identifying information, intent, major provisions, potential impacts, and implementation considerations. Translates complex legislative language into plain terms for lawmakers, lobbyists, policy advocates, and citizens. Use when needing clear insights into proposed legislation's purpose, effects, and status.",
+  "content": "# Legislative Bill Summary Prompt\n\nYou are tasked with creating a comprehensive legislative summary that provides lawmakers, lobbyists, policy advocates, and engaged citizens with a clear understanding of a proposed bill. Your summary should demystify complex legislative language and illuminate the practical implications of the proposed legislation.\n\nBegin by conducting thorough research on the bill in question. Search for the full text of the legislation, official legislative records, committee reports, fiscal notes, and any available analysis from legislative research services or nonpartisan policy organizations. Gather information about the bill's sponsors, the legislative session in which it was introduced, its current status in the legislative process, and any amendments that have been proposed or adopted.\n\nYour summary should open with essential identifying information including the bill number, official title, primary sponsor(s), date of introduction, and current legislative status. Provide this information in a clear, accessible format that allows readers to quickly understand what they are reviewing.\n\nNext, articulate the legislative intent and purpose. Explain the problem or gap in existing law that this bill seeks to address. Describe the policy objectives the sponsors aim to achieve and the rationale behind the proposed approach. If the bill responds to specific events, court decisions, or constituent concerns, provide that context to help readers understand why this legislation is being considered at this time.\n\nPresent the major provisions of the bill in plain language, organizing them logically by subject matter or by the sequence in which they appear in the legislation. For each significant provision, explain what current law requires, what the bill would change, and how the new framework would operate. Translate statutory language into accessible terms while maintaining legal accuracy. When the bill creates new programs, mandates, prohibitions, or rights, clearly describe who would be affected, what actions would be required or permitted, and what enforcement mechanisms would apply.\n\nAnalyze the potential impacts across multiple dimensions. Consider fiscal impacts on government budgets at relevant levels, including implementation costs, ongoing operational expenses, and any revenue implications. Examine how the bill would affect different stakeholder groups including individuals, businesses, nonprofit organizations, and government agencies. Assess whether the legislation would expand or restrict rights, create new obligations, or shift the balance of authority between different entities or levels of government. If the bill addresses a matter of ongoing policy debate, acknowledge the different perspectives and explain how this proposal positions itself within that broader conversation.\n\nAddress implementation considerations including effective dates, phase-in periods, rulemaking authority granted to agencies, and any reporting or evaluation requirements. Note whether the bill includes sunset provisions or requires future legislative review.\n\nIdentify any controversial or contested elements of the legislation. If there are known points of opposition or debate, present the competing arguments fairly and objectively. Highlight provisions that may face constitutional challenges, conflict with federal law, or create tension with existing state statutes.\n\nConclude with a balanced assessment that helps readers understand the significance of this legislation. Avoid advocacy or partisan framing, but do provide context about whether this represents incremental adjustment or fundamental reform, whether it aligns with or departs from trends in other jurisdictions, and what questions remain unresolved.\n\nThroughout your summary, maintain a neutral, informative tone appropriate for a diverse audience with varying levels of legal and policy expertise. Use clear section headings to organize your analysis. When citing specific sections of the bill, reference them precisely so readers can locate the relevant language in the full text. If technical terms or legal concepts are necessary, provide brief explanations to ensure accessibility.\n\nYour completed summary should serve as a reliable reference document that enables busy professionals and engaged citizens to quickly grasp what the bill does, why it matters, and what effects it would have if enacted. The summary should be thorough enough to inform substantive discussion while remaining concise enough to be read and absorbed efficiently.",
+  "parent_skill_id": "59e6abf6-a94e-4f2f-afd4-06c28bbf0021",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "government_contracts"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:16.433546",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:02:03.880416Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating SKILL.md with structured template**
+
+I'm drafting SKILL.md with a concise new slug "bill-summary" and a professional, third-person description including trigger keywords. The file will contain metadata with capitalized practice areas, document types, and skill modes, plus sections for purpose, numbered prerequisites, structured output process with tables and checklists, and guidelines in flat list format, targeting about 80-150 lines.
+thinking
+**Drafting detailed SKILL.md with metadata and structured template**
+
+I'm creating a SKILL.md that includes trigger keywords in a third-person description targeting U.S. legislative bill summaries, covering intent, provisions, status, and citations with [VERIFY] flags for uncertainties. The file will have metadata, a concise purpose statement, numbered prerequisites, a detailed output structure with a table and checklist, and clear guidelines emphasizing neutrality, source-based content, and jurisdiction scope. This draft avoids nested lists and uses flat formatting, aiming for about 90-120 lines.
+codex
+---
+name: bill-summary
+description: Produces neutral U.S. legislative bill summaries with identifying data, intent, major provisions, impacts, implementation details, and contested issues, translating statutory language into plain terms with section pinpoints and “as of” status dating. Use when summarizing bills, analyzing proposed legislation, preparing bill briefs, digesting committee reports or fiscal notes, or writing legislative updates. Trigger keywords: bill summary, legislative summary, proposed legislation, bill analysis, committee report, fiscal note, bill status.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Research
+    - Analysis
+---
+
+# Legislative Bill Summary
+
+Deliver a neutral, section-pinned summary of a U.S. legislative bill with effects, implementation, and controversy captured in plain language.
+
+## Prerequisites
+
+1. **Bill text** — full text or latest engrossed version
+2. **Bill metadata** — bill number, title, sponsor(s), chamber, introduction date, current status, amendments
+3. **Supporting materials** — fiscal notes, committee reports, legislative analyses, staff briefs
+4. **Current law references** — cited statutes/regulations being amended or affected
+5. **Jurisdiction** — federal or specific state/territory; session/legislature
+
+## Output Structure / Process
+
+**Research checklist**
+- Confirm the latest bill version and amendment history
+- Capture official status “as of” date
+- Identify related statutes and current-law baseline
+- Extract fiscal/appropriation figures and agency impacts
+- Note opposition/support positions if documented
+
+**Section map (use all, in order)**
+
+| Section | Required contents |
+| --- | --- |
+| Identifiers | Bill number, title, jurisdiction, session, chamber, sponsor(s), co-sponsors, introduction date, status with “as of” date, last action, effective date(s) |
+| Intent / Problem | Problem statement, policy objectives, triggering events or case law (if any) |
+| Major Provisions | For each provision: current law → change → operational effect; affected parties; enforcement or penalties; admin authority |
+| Fiscal / Budget | One-time costs, ongoing costs, revenue impacts, funding sources, agency burden |
+| Stakeholder Impact | Individuals, businesses, nonprofits, agencies; rights expanded/restricted; compliance obligations |
+| Implementation | Rulemaking authority, phase-in, reporting, evaluation, sunset clauses |
+| Controversies / Risks | Opposition points, constitutional or federal preemption issues, conflicts with state law |
+| Comparative / Trend | Alignment or divergence from other jurisdictions or recent legislative trends |
+| Open Questions | Missing data, unclear definitions, unresolved operational details |
+
+**Provision formatting (repeat per provision)**
+- Provision label: Section or line cite
+- Current law: One sentence
+- Change: One sentence
+- Effect: 1–3 sentences
+- Affected: Groups or agencies
+- Enforcement: Entity and mechanism
+
+**Summary template**
+
+```text
+Identifiers:
+- Bill:
+- Jurisdiction/Session:
+- Sponsors:
+- Status (as of DATE):
+
+Intent / Problem:
+- 
+
+Major Provisions:
+1. [Section cite]
+- Current law:
+- Change:
+- Effect:
+- Affected:
+- Enforcement:
+
+Fiscal / Budget:
+- 
+
+Stakeholder Impact:
+- 
+
+Implementation:
+- 
+
+Controversies / Risks:
+- 
+
+Comparative / Trend:
+- 
+
+Open Questions:
+- 
+```
+
+## Guidelines
+
+- Use precise section pinpoints (e.g., “Sec. 4(b)(2)”) for every major provision.
+- Keep tone neutral; do not advocate or predict outcomes.
+- If fiscal data is missing, state “No fiscal note located.”
+- Flag potential constitutional, preemption, or conflict issues; add `[VERIFY]` if uncertain.
+- Translate terms into plain language, but preserve defined terms of art.
+- State uncertainty explicitly when sources disagree.
+- Use “as of” dates for status and version control.
+- Do not infer intent beyond documented statements or committee materials.
+tokens used
+3,106

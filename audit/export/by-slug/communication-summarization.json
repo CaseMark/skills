@@ -1,0 +1,44 @@
+{
+  "id": "4e0b31ff-8eba-43b2-8e55-9b5a213d6dce",
+  "slug": "communication-summarization",
+  "name": "Communication Summarization",
+  "summary": "Generates comprehensive, structured summaries of legal communications including email threads, meeting notes, and correspondence. Distills key facts, decisions, commitments, deadlines, and legally significant elements into professional memorandum-style documents. Use it for legal professionals needing quick, actionable overviews of complex communication chains in corporate matters.",
+  "content": "# Communication Summarization Workflow\n\nYou are tasked with creating a comprehensive summary of communications related to a legal matter. This workflow is essential for legal professionals who need to quickly understand the key points, decisions, and action items from email threads, meeting notes, client correspondence, or other communication records without reviewing every individual message.\n\nYour primary objective is to distill complex communication chains into a clear, actionable summary that captures the essential information while maintaining legal accuracy and context. Begin by thoroughly reviewing all communications provided, whether they are uploaded documents, email threads, or meeting transcripts. Search through the user's documents to identify all relevant communications, extracting key facts such as dates, participants, decisions made, commitments given, and deadlines established.\n\nThe summary should be structured to provide maximum utility for legal professionals. Open with a brief executive overview that captures the core purpose and outcome of the communications in two to three sentences. Follow this with a chronological or thematic organization of key points, depending on which approach best serves the content. Include specific dates, names, and concrete details rather than generalizations. When parties make commitments or establish deadlines, note these explicitly with attribution. If there are conflicting positions or unresolved issues within the communications, identify these clearly as they may require follow-up action.\n\nPay particular attention to legally significant elements within the communications. This includes any agreements reached, modifications to existing arrangements, admissions or representations made by parties, requests for information or documents, and any language that could constitute notice under contractual or statutory provisions. If communications reference specific documents, contracts, or legal authorities, note these references for potential follow-up research or review.\n\nYour output should be formatted as a professional memorandum-style document suitable for inclusion in a case file or matter folder. Use clear headings to organize different aspects of the communications, such as \"Background and Context,\" \"Key Decisions and Agreements,\" \"Outstanding Issues,\" and \"Action Items and Deadlines.\" Maintain a neutral, objective tone throughout, avoiding characterizations or conclusions unless they are explicitly stated in the source communications.\n\nWhen communications span multiple documents or a lengthy thread, ensure you capture the evolution of discussions and any changes in position or understanding that occurred over time. If certain communications appear to supersede or modify earlier exchanges, make this relationship clear in your summary. For matters involving multiple parties or complex negotiations, consider organizing information by party or by topic to enhance clarity.\n\nInclude proper source attribution throughout your summary, noting which document or communication each piece of information comes from. This allows readers to quickly locate the original source if they need additional context or want to verify specific details. If you encounter ambiguities or gaps in the communication record, note these as well, as they may indicate missing correspondence or areas requiring clarification.\n\nThe final summary should enable a legal professional who has not reviewed the underlying communications to understand what was discussed, what was decided, who is responsible for what actions, and what remains unresolved. This document serves as both a time-saving tool for matter management and a potential exhibit or reference document for litigation or transactional purposes.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "discovery",
+      "settlement"
+    ],
+    "document_types": [
+      "summary",
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,378 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-d7f7-7161-8811-1a820a8f0bd3
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "888738de-b2ae-4d2f-a4e9-0384c02dcdcd",
+  "slug": "corporate-finance-term-loan-agreement-draft",
+  "name": "Term Loan Agreement",
+  "summary": "Drafts a comprehensive Term Loan Agreement for commercial lending transactions in corporate finance. Establishes precise economic terms, recitals, covenants, and security provisions while balancing lender and borrower interests and ensuring regulatory compliance. Use when creating enforceable loan documents for term financing facilities.",
+  "content": "# Enhanced Term Loan Agreement Drafting Prompt\n\nYou are an expert corporate finance attorney tasked with drafting a comprehensive Term Loan Agreement that serves as the definitive legal framework for a commercial lending transaction. This document must be meticulously crafted to be legally enforceable, commercially practical, and compliant with all applicable lending regulations while appropriately balancing the legitimate interests of both lender and borrower.\n\n## Initial Information Gathering and Document Intelligence\n\nBefore beginning your draft, conduct a thorough review of any materials the user has provided or uploaded. Search through all available documents to identify critical transaction details, including the parties' legal names and entity information, the proposed loan amount and terms, any existing relationship between the parties, intended use of proceeds, security or guarantee arrangements, and any prior correspondence or term sheets that establish the commercial understanding. Extract specific facts such as dollar amounts, interest rate benchmarks, maturity dates, financial covenant thresholds, and any special conditions or negotiated provisions. If you discover relevant corporate documents such as organizational charts, financial statements, or prior loan agreements, incorporate appropriate provisions that reflect the borrower's corporate structure and financial profile. When information is incomplete or ambiguous, identify the gaps and request clarification from the user to ensure the agreement accurately reflects the parties' intentions.\n\n## Structural Foundation and Contextual Framework\n\nBegin your draft by establishing a clear and professional document structure that guides readers logically through the transaction. Open with a precise identification of all parties, ensuring you capture complete legal names, entity types with jurisdictions of formation, and principal places of business. The recitals should tell a coherent story of the transaction, explaining the borrower's business purpose for seeking financing, the specific use of loan proceeds (whether for acquisition, capital expenditure, refinancing, or working capital), and the lender's agreement to provide credit on the stated terms. Craft these recitals to provide meaningful context without creating unintended contractual obligations or representations that could later be construed as warranties. If the parties have an existing lending relationship or if this loan is part of a broader financing arrangement, acknowledge that history while making clear that this agreement supersedes any prior understandings regarding this specific facility.\n\n## Core Economic Terms with Precision and Clarity\n\nArticulate the fundamental loan economics with absolute precision to prevent any possibility of ambiguity or dispute. State the principal loan amount both numerically and in written form, and define the loan term by specifying both the funding date and the maturity date with exact calendar dates rather than relative timeframes. Detail the disbursement mechanics comprehensively, addressing whether the loan will be funded in a single advance or multiple tranches, and if multiple disbursements are contemplated, establish clear conditions precedent for each draw including required documentation, compliance certificates, updated financial information, and any milestone achievements. Specify the exact method of disbursement, whether by wire transfer to a designated account (including ABA routing and account numbers) or by other commercially acceptable means, and address the timing of availability of funds.\n\nFor the interest rate structure, provide complete clarity on whether the rate is fixed for the entire term or variable based on a specified benchmark. If variable, identify the precise index (such as Term SOFR, Daily Simple SOFR, or the Prime Rate as published by a specified source) and state the margin or spread to be added to that benchmark. Define the interest calculation methodology with specificity, including the day count convention (such as actual/360, actual/365, or 30/360), the frequency of rate resets for variable rates, any applicable interest rate floors or caps, and the timing of when rate changes become effective. Establish the payment schedule with specific due dates (such as the fifteenth day of each month or the last business day of each calendar quarter), clarify whether initial payments are interest-only or include principal amortization from inception, and detail how payments will be applied as between fees, accrued interest, and principal reduction.\n\n## Repayment Structure and Prepayment Provisions\n\nConstruct a detailed repayment schedule that leaves no uncertainty about the borrower's obligations to repay principal. Specify whether the loan amortizes through equal installments, follows a custom amortization schedule, or features a balloon payment structure with minimal amortization and a large final payment at maturity. If providing an amortization schedule, include it as an exhibit with a clear table showing payment dates, principal amounts, interest amounts, and remaining balance after each payment. Address how the amortization schedule may be affected by voluntary prepayments, and ensure the methodology for recalculating remaining payments is clearly stated.\n\nRegarding prepayment rights, establish clear parameters that balance the borrower's desire for flexibility with the lender's interest in predictable yield and return on investment. Specify whether the borrower may prepay without penalty at any time, whether prepayment requires advance notice (such as ten or thirty business days), and whether any lockout periods restrict prepayment during an initial term. If prepayment fees apply, detail the exact calculation methodology, whether structured as a percentage of the prepaid amount (such as 3% in year one, 2% in year two, 1% in year three), a yield maintenance calculation that compensates the lender for lost interest, or a make-whole premium based on the present value of remaining payments. Address mandatory prepayment triggers that may arise from asset sales, casualty or condemnation proceeds, debt or equity issuances, or excess cash flow, and specify what portion of such proceeds must be applied to loan reduction. Include provisions for voluntary partial prepayments, establishing minimum prepayment amounts and clarifying whether such payments reduce future scheduled installments or the final maturity payment.\n\n## Comprehensive Representations and Warranties\n\nDraft a robust package of representations and warranties from the borrower that provide the lender with essential assurances regarding the borrower's legal status, authority, financial condition, and business operations. Begin with fundamental representations covering the borrower's due organization and valid existence under the laws of its jurisdiction of formation, its corporate or entity power and authority to execute and perform the loan agreement, the proper authorization of the transaction by all necessary corporate action, and the enforceability of the loan documents against the borrower. Include representations confirming the absence of conflicts with the borrower's organizational documents, other material agreements, or any court order or law.\n\nAddress financial representations with specificity, including warranties that all financial statements provided to the lender fairly present the borrower's financial condition as of their dates, were prepared in accordance with generally accepted accounting principles consistently applied, and that no material adverse change in the borrower's financial condition, business, or operations has occurred since the date of the most recent financial statements. Include representations regarding the absence of undisclosed liabilities, the accuracy of accounts receivable aging, and the adequacy of reserves for taxes, contingencies, and other obligations.\n\nIncorporate operational and compliance representations covering the absence of material litigation or governmental proceedings, compliance with all applicable laws and regulations including environmental laws, proper filing of tax returns and payment of taxes, ownership of intellectual property free from material infringement claims, compliance with ERISA if the borrower maintains employee benefit plans, and the absence of defaults under other material agreements. Ensure each representation is appropriately qualified with materiality thresholds (such as \"Material Adverse Effect\" as defined in the agreement) and knowledge qualifiers where commercially reasonable, while maintaining the lender's ability to rely on these statements for underwriting decisions and ongoing credit monitoring.\n\n## Affirmative and Negative Covenants Framework\n\nEstablish a comprehensive covenant structure that governs the borrower's conduct throughout the loan term, beginning with affirmative covenants that require the borrower to take specific actions or maintain certain conditions. Include detailed financial reporting obligations specifying the delivery of annual audited financial statements within a defined period after fiscal year-end (such as ninety or one hundred twenty days), quarterly unaudited financial statements within a shorter period after quarter-end (such as forty-five days), and compliance certificates signed by the chief financial officer certifying compliance with all covenants and the absence of defaults. Require the borrower to maintain its corporate existence and good standing in all jurisdictions where failure to do so would have a material adverse effect, comply with all applicable laws and regulations, maintain adequate insurance coverage with the lender named as loss payee or additional insured as appropriate, pay all taxes and other obligations when due, preserve and maintain all assets necessary to its business, and provide the lender with reasonable access to books, records, and facilities for inspection and audit.\n\nIncorporate negative covenants that restrict actions potentially detrimental to the lender's position and the borrower's ability to repay. Include limitations on incurring additional indebtedness beyond specified permitted categories (such as trade payables in the ordinary course, existing indebtedness disclosed on a schedule, or additional debt up to a specified basket amount), creating liens or encumbrances on assets except for permitted liens (such as purchase money security interests, tax liens not yet due, or liens securing permitted indebtedness up to specified thresholds), and engaging in fundamental changes such as mergers, consolidations, or sales of all or substantially all assets without lender consent. Restrict investments and acquisitions beyond ordinary course business operations, limit dividends and distributions to shareholders (potentially permitting distributions up to a specified amount or percentage of net income if no default exists), prohibit transactions with affiliates except on arm's length terms, and restrict material changes in the nature of the business.\n\nConsider incorporating financial maintenance covenants tailored to the borrower's industry and financial profile, such as a minimum debt service coverage ratio (requiring that cash flow available for debt service exceed debt service obligations by a specified multiple, such as 1.25x or 1.50x), a maximum leverage ratio (limiting total debt to EBITDA or total debt to tangible net worth), minimum liquidity or working capital requirements, and maximum capital expenditure limitations. Ensure all covenant thresholds are realistic and achievable based on the borrower's historical performance and projections, while providing meaningful protection to the lender. Include appropriate exceptions, carve-outs, and baskets that reflect commercial negotiation, such as permitting specified amounts of restricted payments or investments, and ensure testing periods and calculation methodologies are clearly defined.\n\n## Events of Default and Remedial Framework\n\nDefine with absolute precision the circumstances constituting events of default, providing the lender with clear triggers for exercising remedies while ensuring the borrower understands all prohibited conduct and conditions. Include payment defaults covering failure to pay principal when due (typically with no cure period), failure to pay interest or fees when due (potentially with a short cure period of three to five business days), and covenant defaults distinguishing between breaches of affirmative covenants or negative covenants (typically allowing a cure period of fifteen to thirty days after notice for non-monetary defaults). Address representation and warranty defaults, specifying that any material misrepresentation or breach of warranty constitutes a default, potentially with a cure right if the underlying condition can be remedied.\n\nIncorporate cross-default provisions that trigger a default under this agreement if the borrower defaults under other material indebtedness, typically defining materiality by a threshold amount and specifying whether the cross-default is triggered by the occurrence of the default under the other agreement or only upon acceleration of that other indebtedness. Include comprehensive bankruptcy and insolvency defaults covering voluntary bankruptcy filings, involuntary petitions that remain undismissed for a specified period (such as sixty or ninety days), appointments of receivers or trustees, assignments for the benefit of creditors, and admissions of inability to pay debts. Address judgment defaults where judgments exceeding a specified threshold remain unsatisfied and unstayed for a defined period, and consider including a material adverse change provision that permits the lender to declare a default if a material adverse change in the borrower's business, operations, financial condition, or ability to perform its obligations occurs.\n\nDetail the lender's remedies upon the occurrence and continuation of an event of default, including the right to declare all outstanding principal, accrued interest, and other obligations immediately due and payable (with automatic acceleration upon bankruptcy defaults and optional acceleration upon other defaults), increase the interest rate to a default rate (typically two to five percentage points above the otherwise applicable rate), exercise all rights against any collateral if the loan is secured, pursue claims against guarantors, and recover all costs of collection including reasonable attorneys' fees and expenses. Address the lender's right to apply any payments received and to exercise set-off rights against any deposits or other obligations the lender owes to the borrower. Include clear language preserving all remedies available at law or in equity and specifying that all remedies are cumulative rather than exclusive or alternative.\n\n## Governing Law, Dispute Resolution, and Boilerplate Provisions\n\nSpecify the governing law that will control the interpretation and enforcement of the agreement, typically selecting the law of the state where the lender is located, where the borrower's principal operations are conducted, or where the most significant relationship to the transaction exists. Include a clear submission to jurisdiction, with the borrower consenting to the exclusive or non-exclusive jurisdiction of state and federal courts located in a specified venue and waiving any objection to venue or inconvenient forum. Address dispute resolution mechanisms, determining whether disputes will be resolved through litigation in the specified courts, binding arbitration under designated rules (such as the American Arbitration Association's Commercial Arbitration Rules or JAMS), or mandatory mediation as a prerequisite to formal proceedings, and consider the advantages and disadvantages of each forum including cost, speed, confidentiality, and enforceability of judgments.\n\nIncorporate essential boilerplate provisions that ensure contract enforceability and proper interpretation. Include a severability clause providing that if any provision is held invalid or unenforceable, the remainder of the agreement remains in full force and effect and the invalid provision will be reformed to the maximum extent permissible to achieve the parties' intent. Add an entire agreement or integration clause confirming that the written loan documents constitute the complete agreement between the parties and supersede all prior negotiations, understandings, and agreements, whether written or oral. Specify that amendments and modifications must be in writing and signed by both parties, and clarify that no waiver of any provision or default is effective unless in writing and signed by the party against whom enforcement is sought, with any waiver applying only to the specific instance and not constituting a continuing waiver or waiver of any other provision or default.\n\nAddress assignment rights by prohibiting the borrower from assigning or transferring its obligations under the agreement without the prior written consent of the lender, while permitting the lender to assign its rights and obligations to any affiliate, participant, or other financial institution, potentially requiring notice to the borrower but not borrower consent. Include comprehensive notice provisions specifying the addresses for all parties, acceptable methods of delivery (such as personal delivery, overnight courier, certified mail, or email to specified addresses), and when notices are deemed received (such as upon delivery if hand-delivered, one business day after sending if by overnight courier, or three business days after mailing if sent by certified mail).\n\nConsider including a jury trial waiver if appropriate for a commercial transaction between sophisticated parties, with clear language indicating that both parties knowingly, voluntarily, and intentionally waive the right to trial by jury of any dispute arising out of or relating to the loan documents. Add a confidentiality provision requiring both parties to maintain the confidentiality of the loan terms and any non-public information received from the other party, with appropriate exceptions for disclosures required by law, to regulators, to professional advisors, or to potential assignees or participants. Include an indemnification provision requiring the borrower to indemnify and hold the lender harmless from any losses, claims, damages, or expenses (including attorneys' fees) arising from the loan transaction, the borrower's business operations, or any breach of the borrower's representations, warranties, or covenants, with appropriate carve-outs for losses resulting from the lender's gross negligence or willful misconduct.\n\n## Execution Formalities and Document Completion\n\nProvide properly formatted signature blocks for all parties with spaces for authorized signatures, printed names, titles, and dates of execution. For entity borrowers, ensure signature blocks reflect proper corporate authority with appropriate officer titles (such as President, Chief Executive Officer, Chief Financial Officer, or other authorized signatories as confirmed by corporate resolutions or certificates of incumbency), and consider requiring dual signatures if the borrower's organizational documents or the lender's policies require multiple authorized signatories. Include spaces for witnesses if required by the governing law or if the lender's policies require witnessed signatures, and provide for notarization with appropriate acknowledgment language if the agreement will be recorded, if recording enhances the lender's priority position, or if notarization is required for enforceability in the governing jurisdiction.\n\nCreate a comprehensive schedule of exhibits and attachments that form part of the complete loan documentation package, such as the promissory note evidencing the borrower's payment obligation, any security agreement or mortgage granting liens on collateral, guaranty agreements from any guarantors, corporate resolutions or certificates authorizing the transaction, compliance certificate forms to be delivered with financial statements, and schedules disclosing existing indebtedness, liens, litigation, or other matters referenced in the representations and warranties. Ensure all exhibits are properly referenced in the body of the agreement, attached to the execution version, and clearly labeled with exhibit letters or numbers corresponding to the references in the text.\n\n## Quality Control and Professional Standards\n\nThroughout the drafting process, maintain rigorous consistency in defined terms by capitalizing all defined terms upon first use and throughout the document, ensuring each defined term is used consistently and that no term is used in multiple inconsistent ways. Employ clear, precise, and unambiguous language that minimizes the potential for conflicting interpretations, avoiding archaic legalese such as \"witnesseth,\" \"whereas,\" or \"hereinafter\" while maintaining appropriate formality and legal precision. Structure the document with logical section and subsection numbering (such as Article I, Section 1.1, subsection (a), clause (i)) and ensure all cross-references are accurate and complete, referencing specific section numbers rather than vague terms like \"above\" or \"herein.\"\n\nBefore finalizing the document, conduct a comprehensive quality control review to verify that all commercial terms align with the parties' understanding and any term sheet or commitment letter, all mathematical calculations are correct (including interest calculations, amortization schedules, and financial covenant thresholds), all cross-references point to the correct sections, all exhibits are properly attached and referenced, and all blanks are completed with the appropriate information. Ensure compliance with applicable lending laws including state and federal usury limitations, truth-in-lending disclosure requirements if applicable, and any consumer protection statutes if the borrower is an individual or the loan is for consumer purposes. Verify that the document is professionally formatted with consistent fonts, spacing, and pagination, is free of typographical and grammatical errors, and presents a polished appearance appropriate for execution by sophisticated commercial parties in a significant financing transaction.\n\n## Final Output and Deliverable\n\nProduce a complete, execution-ready Term Loan Agreement that comprehensively addresses all aspects of the lending transaction, reflects the specific commercial terms and risk allocation negotiated by the parties, and complies with all applicable legal requirements. The final document should be structured logically with a table of contents if the agreement exceeds ten pages, include all necessary exhibits and schedules, and be formatted for professional presentation. Ensure the agreement can stand alone as the definitive statement of the parties' rights and obligations, anticipates potential issues and disputes that may arise during the loan term, and provides clear mechanisms for resolution. The completed document should instill confidence in both lender and borrower that their transaction is properly documented, legally enforceable, and positioned for successful performance through maturity and repayment.",
+  "parent_skill_id": "7c2ec6da-d0c6-4bed-9b73-15979d5d69d4",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement",
+      "contract"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate_finance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:50:55.342691Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Generating term-loan-agreement skill documentation**
+
+I'm preparing a concise skill doc titled "Term Loan Agreement" with a structured draft guide including metadata from legal_context, key sections, compliance notes, placeholders, and triggers; next is composing the detailed SKILL.md per the outlined format.
+thinking
+**Crafting SKILL.md template content**
+
+I'm preparing the SKILL.md with frontmatter, markdown formatting using numbered lists and single-level checklists, ASCII-safe characters, and including compliance guidance with [VERIFY] tags where uncertain, targeting around 120 lines per user instructions.
+codex
+---
+name: term-loan-agreement
+description: Drafts U.S. corporate finance term loan agreements with precise economic terms, covenants, collateral, events of default, and enforcement mechanics. Use for commercial lending, senior or subordinated term facilities, or bilateral loan documentation. Trigger keywords: term loan agreement, loan agreement, commercial loan, corporate finance, senior secured, SOFR, amortization, covenant package, default rate.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+    - Contract
+  skill_modes:
+    - Drafting
+---
+
+# Term Loan Agreement
+
+Draft a complete, execution-ready term loan agreement for a commercial lending transaction.
+
+## Prerequisites
+
+1. Parties and entity details: legal names, formation state, addresses, signatories.
+2. Economic terms: principal, funding date, maturity date, interest benchmark and margin, fees.
+3. Repayment mechanics: amortization type, payment dates, prepayment rules.
+4. Collateral and guaranty scope: secured or unsecured, collateral description, guarantors.
+5. Covenant package: reporting, affirmative, negative, and financial covenants.
+6. Defaults and remedies: cure periods, cross-default threshold, default rate.
+7. Governing law and forum selection.
+
+## Output Structure / Process
+
+Use this structure and fill all brackets.
+
+1. Title and Parties
+   - Agreement title, date.
+   - Parties table:
+
+| Role | Legal Name | Entity Type | Jurisdiction | Address |
+| --- | --- | --- | --- | --- |
+| Lender | [LENDER] | [ENTITY] | [STATE/COUNTRY] | [ADDRESS] |
+| Borrower | [BORROWER] | [ENTITY] | [STATE/COUNTRY] | [ADDRESS] |
+| Guarantor (if any) | [GUARANTOR] | [ENTITY/INDIVIDUAL] | [STATE/COUNTRY] | [ADDRESS] |
+
+2. Recitals
+   - Purpose of loan and use of proceeds.
+   - Relationship context if applicable.
+   - Avoid creating warranties.
+
+3. Definitions
+   - Include defined terms used in economics, covenants, defaults.
+   - Include "Business Day", "Material Adverse Effect", "Default", "Event of Default", "Permitted Liens", "Permitted Indebtedness".
+
+4. Loan and Advances
+   - Principal amount in words and numbers.
+   - Funding mechanics: single advance or multiple tranches.
+   - Conditions precedent checklist:
+
+| CP Item | Required Evidence |
+| --- | --- |
+| Organizational authority | Resolutions, incumbency certificates |
+| KYC/AML | Beneficial ownership certification |
+| Good standing | Certificates of good standing |
+| Collateral perfection | UCC filings, title, insurance |
+| Legal opinions | Counsel opinion(s) if required |
+
+5. Interest and Fees
+   - Benchmark, margin, default rate.
+   - Day count and reset frequency.
+   - Interest period conventions and timing.
+   - Fees table:
+
+| Fee | Amount/Formula | Due |
+| --- | --- | --- |
+| Origination | [AMOUNT/%] | [DATE] |
+| Commitment | [AMOUNT/%] | [DATE] |
+| Prepayment | [SCHEDULE] | [EVENT] |
+
+6. Payments and Amortization
+   - Payment dates and application order (fees, interest, principal).
+   - Amortization method:
+     - Equal installments
+     - Custom schedule
+     - Balloon
+   - If schedule required, add Exhibit A:
+
+| Payment Date | Principal | Interest | Total | Remaining Balance |
+| --- | --- | --- | --- | --- |
+
+7. Prepayment
+   - Voluntary prepayment rules: notice, minimums.
+   - Mandatory prepayments: asset sales, insurance proceeds, debt or equity issuance, excess cash flow.
+   - Reduction mechanics: next installments vs. final payment.
+
+8. Security and Guaranty
+   - Collateral description and scope.
+   - Security documents list.
+   - Perfection steps and maintenance.
+   - Guaranty scope (payment vs. collection).
+
+9. Representations and Warranties
+   - Organization, authority, enforceability.
+   - No conflict with agreements or law.
+   - Financial statements, no material adverse change.
+   - Litigation, compliance, taxes, ERISA if applicable.
+   - IP ownership if material to business.
+
+10. Covenants
+   - Affirmative covenants checklist:
+
+| Covenant | Detail |
+| --- | --- |
+| Reporting | Annual audited, quarterly, compliance certificates |
+| Taxes | Pay when due |
+| Insurance | Maintain coverage, lender as loss payee/additional insured |
+| Existence | Maintain good standing |
+| Access | Books and inspection rights |
+
+   - Negative covenants checklist:
+
+| Covenant | Limitation |
+| --- | --- |
+| Indebtedness | Permitted baskets only |
+| Liens | Permitted liens only |
+| Dispositions | Restricted sales of assets |
+| M&A | Restricted without consent |
+| Dividends | Restricted distributions |
+
+   - Financial covenants table:
+
+| Covenant | Threshold | Test Frequency |
+| --- | --- | --- |
+| Debt service coverage | [x.xx] | [Quarterly] |
+| Leverage ratio | [x.xx] | [Quarterly] |
+| Minimum liquidity | [$] | [Monthly/Quarterly] |
+
+11. Events of Default
+   - Payment defaults with cure periods.
+   - Covenant defaults with notice and cure.
+   - Misrepresentation.
+   - Cross-default threshold.
+   - Insolvency events.
+   - Judgments above threshold.
+   - Material adverse effect (if included).
+
+12. Remedies
+   - Acceleration.
+   - Default interest.
+   - Setoff rights.
+   - Collateral enforcement.
+   - Costs and attorneys fees.
+
+13. Boilerplate
+   - Governing law, venue, waiver of jury trial.
+   - Assignment and participation.
+   - Notices.
+   - Integration, amendments, waivers.
+   - Severability.
+
+14. Exhibits and Schedules
+   - Exhibit A: Amortization Schedule.
+   - Exhibit B: Form Compliance Certificate.
+   - Schedule 1: Existing Indebtedness.
+   - Schedule 2: Existing Liens.
+   - Schedule 3: Litigation.
+
+15. Signature Blocks
+   - Include name, title, date lines.
+   - Add witnesses or notarization if required.
+
+## Guidelines
+
+- Use exact dates, not relative terms.
+- Align all economics with the term sheet and commitment letter.
+- Define all calculation methods and test periods.
+- If consumer-purpose or individual borrower is involved, add TILA and state disclosure requirements [VERIFY].
+- If secured, confirm UCC Article 9 perfection steps and describe collateral precisely [VERIFY].
+- For SOFR-based loans, include fallback and conforming changes language [VERIFY].
+- Include OFAC/AML and beneficial ownership representations for regulated lenders.
+- Flag any missing inputs before drafting final language.
+tokens used
+6,519

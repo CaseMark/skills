@@ -1,0 +1,21 @@
+{
+  "id": "3e9e5f69-9083-4b6c-a851-d6d303f504a9",
+  "slug": "citation-bluebook",
+  "name": "Bluebook Citation Format",
+  "summary": "Standard legal citation format for court filings and legal memoranda. Covers cases, statutes, and secondary sources.",
+  "content": "# Bluebook Citation Format\n\nThe Bluebook is the standard citation system for U.S. legal documents.\n\n## Case Citations\n- Full: *Smith v. Jones*, 123 F.3d 456, 458 (9th Cir. 2020)\n- Short: *Smith*, 123 F.3d at 459\n- Id.: *Id.* at 460\n\n## Statute Citations\n- Federal: 42 U.S.C. \u00a7 1983 (2018)\n- State: Cal. Civ. Code \u00a7 1542 (West 2020)\n\n## Rules\n- Fed. R. Civ. P. 12(b)(6)\n- Fed. R. Evid. 702\n\n## Secondary Sources\n- Restatements: Restatement (Second) of Contracts \u00a7 90 (Am. L. Inst. 1981)\n- Treatises: 5 Wright & Miller, Federal Practice and Procedure \u00a7 1216 (3d ed. 2004)\n\n## Common Signals\n- *See* (direct support)\n- *See also* (additional support)\n- *Cf.* (analogous support)\n- *But see* (contrary authority)\n",
+  "parent_skill_id": null,
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "skill_modes": [
+      "drafting",
+      "research"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-01-06T03:16:15.3172"
+}

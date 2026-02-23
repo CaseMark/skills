@@ -1,0 +1,201 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-1aaf-7a53-aba4-e74cf159d65f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "81d4253f-a1a5-452c-827f-10f41b472d74",
+  "slug": "litigation-class-action-settlement-agreement",
+  "name": "Class Action Settlement Agreement",
+  "summary": "Drafts a comprehensive Class Action Settlement Agreement to resolve class action lawsuits, including recitals, settlement fund terms, class definitions, and broad releases while ensuring compliance with FRCP 23(e) fairness standards. Balances interests of class members and defendants based on case materials and negotiations. Use it during settlement phases of class action litigation for court approval.",
+  "content": "# Class Action Settlement Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Class Action Settlement Agreement that will resolve a class action lawsuit subject to court approval. This is a critical litigation document that must balance the interests of the class members, defendant(s), and satisfy judicial scrutiny for fairness, reasonableness, and adequacy under Federal Rule of Civil Procedure 23(e) or applicable state equivalents.\n\n## Document Research and Context Gathering\n\nBegin by thoroughly reviewing all available case materials to understand the underlying litigation, claims asserted, class definition, and negotiation history. Search through uploaded documents to identify key facts including: the nature of the claims and causes of action; the defined class and any subclasses; prior settlement negotiations or term sheets; damages theories and calculations; any objections or concerns raised during negotiations; and relevant court orders regarding class certification or settlement procedures. Extract specific details such as party names, case numbers, jurisdictional information, monetary amounts discussed, and any unique terms already agreed upon.\n\nIf the user references specific settlement terms, monetary amounts, or allocation methodologies, locate these details in the source documents and incorporate them with proper attribution. Understanding the factual and procedural background is essential to drafting provisions that accurately reflect the parties' agreement and the litigation context.\n\n## Core Settlement Agreement Structure\n\nDraft a formal settlement agreement that opens with comprehensive recitals establishing the litigation background, class certification status, the parties' desire to resolve the matter, and the defendant's denial of liability while agreeing to settle to avoid further litigation costs and uncertainty. These recitals provide critical context for judicial review.\n\n**Settlement Fund and Payment Terms**: Establish a total, non-reversionary common fund amount that the defendant(s) agree to pay to resolve all class claims. Specify the exact dollar amount, payment schedule, and account details for the qualified settlement fund. Address whether the fund is inclusive or exclusive of attorney's fees and costs, and detail any tax treatment considerations. Include provisions for fund administration, investment of settlement proceeds pending distribution, and clear timelines for defendant payment obligations.\n\n**Class Definition and Release Scope**: Precisely define the settlement class using the same or refined language from the class certification order. The release provisions must comprehensively describe all claims being released, including those actually asserted and those that could have been asserted arising from the same facts or transactions. Draft the release broadly enough to provide meaningful peace to the defendant while ensuring it's not overly broad to risk court rejection. Specify that the release binds all class members except those who timely and validly opt out, and address treatment of unknown claims with appropriate statutory language if required by jurisdiction.\n\n**Plan of Allocation and Claims Process**: Develop a detailed, objective formula for distributing the settlement fund among class members who submit valid claims. The allocation methodology should be based on legally relevant factors such as the strength of individual claims, damages suffered, or pro rata distribution principles. Describe the claims administration process including: claim form requirements and submission procedures; documentation class members must provide; deadlines for claim submission; the claims administrator's role and authority; procedures for validating, accepting, or rejecting claims; and the dispute resolution process for contested claims. Address how unclaimed funds will be handled, whether through cy pres distribution to appropriate charitable organizations or pro rata reallocation to participating class members.\n\n**Attorney's Fees, Costs, and Incentive Awards**: Specify the maximum amount or percentage of the settlement fund that class counsel may petition the court to award for attorney's fees and reimbursement of litigation costs. Detail the legal basis for the fee request, whether percentage-of-fund or lodestar methodology. Include provisions for any incentive or service awards to class representatives, subject to court approval, acknowledging their time and effort in prosecuting the litigation.\n\n**Notice Program and Opt-Out Procedures**: Establish a comprehensive notice plan that satisfies due process requirements, describing the form and content of class notice, methods of dissemination (mail, email, publication, internet), and timeline for notice distribution. Create clear opt-out procedures allowing class members to exclude themselves from the settlement, including the required content of opt-out requests, submission deadlines, and where requests must be sent. Specify that class members who opt out are not bound by the settlement or release but forfeit any right to settlement benefits.\n\n**Court Approval Contingencies**: Make the entire settlement expressly contingent upon the court granting preliminary approval, final approval after a fairness hearing, and entry of a final judgment. Include provisions addressing what occurs if the court declines approval or materially modifies the settlement terms, typically giving parties the right to withdraw. Establish the schedule for seeking preliminary approval, providing class notice, conducting the fairness hearing, and obtaining final approval.\n\n## Additional Essential Provisions\n\nAddress the defendant's denial of liability and wrongdoing, making clear the settlement is a compromise to avoid litigation risks and expenses. Include mutual non-disparagement or confidentiality provisions if negotiated. Establish the effective date of the settlement and conditions precedent. Create provisions for settlement administration including appointment of a claims administrator, their duties and compensation, and oversight mechanisms.\n\nInclude standard contract provisions such as: governing law and jurisdiction; integration clause confirming this agreement supersedes all prior negotiations; amendment procedures requiring court approval for material changes; severability provisions; and authorization representations from all parties and counsel. Address tax reporting obligations and clarify that each party bears responsibility for their own tax liabilities.\n\n## Formatting and Professional Standards\n\nStructure the agreement with numbered articles and sections for easy reference. Use defined terms consistently throughout, with initial definitions in all capitals. Include signature blocks for all parties, their counsel, and class representatives. Attach as exhibits: the proposed class notice; claim form; preliminary approval order; and final approval order and judgment.\n\nThe final document should be professionally formatted, legally precise, and comprehensive enough to withstand judicial scrutiny while clearly communicating the settlement terms to class members. Every provision should serve the dual purpose of memorializing the parties' agreement and satisfying the court's obligation to protect absent class members' interests.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:28.299389Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:28.511949Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:29.809780Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:30.679658Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4b758159338-SJC)
+2026-02-23T21:42:31.704860Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4bddb3b6cd4-SJC)
+2026-02-23T21:42:33.131176Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c68b8ee8cc-SJC)
+2026-02-23T21:42:35.746765Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4d6e9061d99-SJC)
+2026-02-23T21:42:39.937344Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4f10bb529a0-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-class-action-settlement-agreement-pf11fmwh.md
+
+STDOUT:
+

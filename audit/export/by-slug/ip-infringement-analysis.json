@@ -1,0 +1,45 @@
+{
+  "id": "a106d817-6676-4665-abc0-3e16c955a71a",
+  "slug": "ip-infringement-analysis",
+  "name": "Infringement Analysis",
+  "summary": "Conducts comprehensive infringement analysis for intellectual property including patents, trademarks, copyrights, and trade secrets. Performs claim-by-claim comparisons for patents, likelihood of confusion tests for trademarks, and substantial similarity assessments for copyrights. Use in IP litigation to evaluate actionable claims, defenses, and strategies for pre-filing, discovery, or settlement phases.",
+  "content": "# Infringement Analysis Prompt\n\nYou are conducting a comprehensive intellectual property infringement analysis. This analysis is critical for evaluating whether a party's use of protected intellectual property\u2014including patents, trademarks, copyrights, or trade secrets\u2014constitutes actionable infringement. Your analysis will inform litigation strategy, settlement negotiations, cease and desist actions, or licensing discussions.\n\nBegin by thoroughly examining all uploaded documents related to the alleged infringement. Search through contracts, registration certificates, prosecution histories, prior art references, product specifications, marketing materials, correspondence, and any other relevant documentation to establish the foundational facts. Extract and document the specific intellectual property rights at issue, including registration numbers, filing dates, priority dates, claim language for patents, mark descriptions for trademarks, or the nature of copyrighted works. Identify the allegedly infringing products, services, or activities with precision, noting dates of first use, geographic scope, and commercial context.\n\nFor patent infringement analysis, conduct a detailed claim-by-claim comparison between the asserted patent claims and the accused product or process. Apply the all-elements rule, analyzing whether each limitation of the asserted claims is present literally or under the doctrine of equivalents in the accused instrumentality. Consider means-plus-function limitations, claim construction issues that may arise, and potential design-around features. Address both direct infringement and indirect infringement theories, including induced infringement and contributory infringement where applicable. Evaluate any prior art that may bear on validity defenses, including anticipation and obviousness challenges that the accused infringer might raise.\n\nFor trademark infringement analysis, assess the likelihood of confusion using the relevant multi-factor test applicable in the jurisdiction. Examine the similarity of the marks in appearance, sound, meaning, and commercial impression. Analyze the relatedness of the goods or services, the strength and distinctiveness of the senior mark, evidence of actual confusion, the defendant's intent, the sophistication of consumers, and the channels of trade. Consider whether the senior mark qualifies for famous mark status enabling dilution claims. Evaluate fair use defenses, including descriptive fair use and nominative fair use, as well as any First Amendment considerations.\n\nFor copyright infringement analysis, establish that the plaintiff owns a valid copyright in the work and that the defendant copied protected expression. Conduct a substantial similarity analysis comparing the original work to the allegedly infringing work, distinguishing between protectable expression and unprotectable ideas, facts, or scenes \u00e0 faire. Consider whether the defendant had access to the original work and whether any copying was de minimis. Evaluate potential defenses including fair use by analyzing the purpose and character of the use, the nature of the copyrighted work, the amount and substantiality of the portion used, and the effect on the market for the original work.\n\nFor trade secret misappropriation analysis, identify the specific information claimed as trade secrets and assess whether each element qualifies for protection by deriving independent economic value from not being generally known and being subject to reasonable efforts to maintain secrecy. Trace the alleged acquisition, disclosure, or use of the trade secrets by the defendant, examining whether misappropriation occurred through improper means or breach of confidentiality obligations. Consider the availability of inevitable disclosure arguments and evaluate temporal and geographic scope of any restrictive covenants.\n\nThroughout your analysis, search for and incorporate relevant case law, statutes, and regulatory guidance that supports or undermines the infringement claims. Verify and properly cite all legal authorities using appropriate Bluebook format. When precedent from the relevant jurisdiction is limited, identify persuasive authority from other circuits or jurisdictions while noting any distinctions.\n\nAssess the strength of the infringement case on a scale and provide a clear recommendation regarding the likelihood of success on the merits. Identify the strongest arguments supporting infringement and the most significant vulnerabilities or defenses the opposing party may assert. Consider procedural issues including statute of limitations, laches, estoppel, and jurisdictional questions that may affect the viability of claims.\n\nQuantify potential damages or remedies, distinguishing between compensatory damages such as lost profits or reasonable royalties, disgorgement of the infringer's profits, statutory damages where applicable, and the availability of enhanced damages for willful infringement. Evaluate whether injunctive relief is appropriate and likely to be granted, considering the balance of hardships and public interest factors under the relevant equitable standards.\n\nPresent your complete analysis in a structured memorandum format with clearly delineated sections covering the intellectual property rights at issue, the allegedly infringing activities, the legal framework and applicable tests, the element-by-element or factor-by-factor analysis, defenses and counterarguments, damages and remedies, and strategic recommendations. Support all conclusions with specific citations to the documentary record and controlling legal authority. Your analysis should be sufficiently detailed and well-reasoned to serve as the foundation for litigation decisions, settlement valuations, or client counseling on enforcement options.",
+  "parent_skill_id": "adccc2a5-9c43-42a4-8e4e-70541b15086f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "intellectual-property-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:03.531306",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

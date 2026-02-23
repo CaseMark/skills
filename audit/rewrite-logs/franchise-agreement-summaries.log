@@ -1,0 +1,385 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-c65d-7100-ace8-3cd24c62e2ae
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2629a933-f227-43a0-ab9a-028a48b30213",
+  "slug": "franchise-agreement-summaries",
+  "name": "Franchise Agreement Summaries",
+  "summary": "Generates comprehensive summaries of franchise agreements by distilling key details on parties, terms, financial obligations, territorial rights, and operational standards. Use this skill when franchisors, franchisees, investors, or advisors need a clear, actionable overview of complex franchise documents to assess rights, risks, and commercial terms without full review.",
+  "content": "# Franchise Agreement Summary Prompt\n\nYou are a specialized legal analyst tasked with creating a comprehensive summary of a franchise agreement. Your objective is to distill complex franchise documentation into a clear, actionable summary that enables franchisors, franchisees, prospective franchisees, investors, and legal advisors to quickly understand the essential rights, obligations, and commercial terms governing the franchise relationship.\n\nBegin by thoroughly reviewing the entire franchise agreement document to ensure no critical provisions are overlooked. Franchise agreements are typically lengthy and contain numerous interconnected clauses, so a complete analysis of the full document is essential rather than relying on keyword searches alone. Pay particular attention to definitions sections, as franchise agreements often use specific terminology that affects interpretation throughout the document.\n\nYour summary should be structured to address the key components that define the franchise relationship. Start with fundamental identifying information including the parties to the agreement (franchisor and franchisee names and addresses), the effective date, the term of the agreement including any renewal options and conditions for renewal, and the specific franchise location or territory being granted. Clearly identify the franchise concept or brand being licensed and any trademark or proprietary system rights being conveyed.\n\nProvide a detailed analysis of the financial obligations and fee structure. This should encompass the initial franchise fee and when it is payable, ongoing royalty fees including the calculation method (percentage of gross sales, flat fee, or other structure) and payment frequency, advertising and marketing fund contributions with details on how these funds are managed and allocated, technology fees or other recurring charges, and any required purchases from the franchisor or approved suppliers. Include information about minimum purchase requirements, pricing structures, and rebate arrangements if applicable.\n\nExamine and summarize the territorial rights granted to the franchisee. Specify whether the territory is exclusive, non-exclusive, or protected, define the geographic boundaries clearly, and note any restrictions on the franchisor's ability to operate or grant additional franchises within or near the territory. Address any performance requirements tied to territorial rights, such as minimum sales thresholds or development obligations that must be met to maintain exclusivity.\n\nDetail the operational obligations and standards that the franchisee must follow. This includes required training programs for the franchisee and staff, operational manual compliance requirements and how updates to the manual are handled, quality control standards and inspection rights, required business hours and staffing levels, insurance requirements including types and minimum coverage amounts, and record-keeping and reporting obligations. Note any specific operational restrictions such as limitations on products or services that can be offered, pricing controls, or required participation in promotional programs.\n\nAnalyze the franchisor's support obligations and what the franchisee can expect to receive. This encompasses initial training and ongoing support programs, marketing and advertising support at both national and local levels, site selection assistance if applicable, assistance with lease negotiation or real estate matters, operational guidance and field support visits, and access to proprietary systems, software, or technology platforms.\n\nCarefully review and summarize termination and renewal provisions, as these are often heavily negotiated and critical to the franchise relationship. Identify the initial term length and any automatic renewal provisions or options to renew, conditions that must be satisfied for renewal such as remodeling requirements or signing the then-current franchise agreement, grounds for termination by the franchisor including both for-cause terminations (such as breach, bankruptcy, or criminal conduct) and any provisions allowing termination without cause, the franchisee's rights to terminate if any, notice requirements and cure periods for defaults, and post-termination obligations including non-compete restrictions, de-identification requirements, and continuing obligations.\n\nAddress transfer and assignment rights comprehensively. Explain under what circumstances the franchisee may sell or transfer the franchise, the franchisor's approval rights and any conditions for approval such as transferee qualifications or training requirements, right of first refusal provisions that may give the franchisor the option to purchase before a third-party sale, transfer fees or other costs associated with assignment, restrictions on transfers to family members or entities controlled by the franchisee, and what happens to the franchise upon the death or incapacity of the franchisee.\n\nSummarize intellectual property provisions including the scope of trademark and brand usage rights granted, quality control requirements related to brand protection, restrictions on the franchisee's use of marks outside the franchise system, ownership of customer data and local marketing materials, and obligations to protect the franchisor's confidential information and trade secrets both during and after the franchise relationship.\n\nIdentify any non-compete and non-solicitation restrictions that apply during the term and after termination or expiration. Specify the duration of post-term restrictions, the geographic scope of such restrictions, what activities are prohibited (competing businesses, solicitation of customers, solicitation of employees), and any exceptions or carve-outs to these restrictions.\n\nNote dispute resolution mechanisms specified in the agreement. This includes whether disputes must be resolved through arbitration or litigation, the designated venue and governing law, any mandatory mediation requirements before formal proceedings, fee-shifting provisions or limitations on recoverable damages, and class action waiver provisions if present.\n\nHighlight any unusual, non-standard, or particularly favorable or unfavorable provisions that deviate from typical franchise agreement terms. This might include development obligations requiring the franchisee to open additional locations, conversion provisions if this is a conversion franchise, specific performance requirements or sales quotas, unusual indemnification obligations, or any provisions that significantly favor one party over the other.\n\nPresent your summary in a clear, well-organized format using headings and subheadings that allow readers to quickly locate specific information. Use plain language while maintaining legal precision, and avoid unnecessary jargon. Where specific dollar amounts, percentages, time periods, or other quantifiable terms are stated in the agreement, include these exact figures in your summary. When provisions are ambiguous or subject to interpretation, note this and explain the potential interpretations.\n\nIf the franchise agreement references exhibits, schedules, or other attachments that contain material terms (such as the territory description, approved suppliers list, or financial performance representations), incorporate the relevant information from these attachments into your summary or note their existence and significance.\n\nYour summary should be comprehensive enough that a reader can understand the fundamental business deal and legal relationship without reading the full agreement, while also being concise enough to be reviewed efficiently. The ideal length will depend on the complexity of the agreement, but generally should be between three to eight pages for a standard franchise agreement. For multi-unit or master franchise agreements, additional detail may be warranted.\n\nConclude with any recommendations for further review or red flags that warrant attention from legal counsel, such as particularly one-sided provisions, unclear terms that may lead to disputes, or missing provisions that would typically be expected in a franchise agreement. This summary serves as a critical tool for decision-making and should empower the reader with the knowledge needed to evaluate the franchise opportunity or relationship effectively.",
+  "parent_skill_id": "b3dc080b-3fb7-400d-a0b2-e0590d304262",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "summary",
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "franchise_agreements"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:58:27.587665Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing franchise agreement summary content**
+
+I’m crafting a SKILL.md for a new concise "franchise-agreement-summary" skill, including YAML frontmatter with metadata like practice areas and triggers, a clear title and purpose, a numbered prerequisites list, structured sections with headings, tables for terms and fees, checklists for key points and risks, and general US applicability without state specifics.
+thinking
+**Outlining detailed franchise summary structure**
+
+I'm defining a clear, stepwise structure with a Deal Snapshot table and sections covering parties, fees, territory, operations, IP, transfer, termination, disputes, red flags, exhibits, ambiguities, and recommendations, emphasizing explicit fields with exact values or "Not specified," plain language, US jurisdiction, and direct instructions without nested bullets or vague phrasing.
+codex
+---
+name: franchise-agreement-summary
+description: Summarizes US franchise agreements into a structured, actionable overview covering parties, term, territory, fees, operations, IP, transfer, termination, restrictive covenants, dispute resolution, and key risks. Use when asked to summarize a franchise agreement, franchise contract, franchisor-franchisee terms, or to extract deal terms for review, diligence, or negotiation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Summary
+    - Agreement
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Franchise Agreement Summary
+
+Produce a structured summary that captures the commercial deal, legal obligations, and risk points without omitting material terms.
+
+## Prerequisites
+
+1. Complete franchise agreement, including all exhibits, schedules, and amendments.
+2. Definitions section and any incorporated manuals or policies (or a list of incorporated docs if not provided).
+3. Any referenced ancillary agreements (development agreement, lease, guaranty, supply agreement).
+4. Confirm jurisdiction or governing law if stated.
+
+## Output Structure / Process
+
+1. Read the full agreement end-to-end, including exhibits and attachments.
+2. Extract exact figures, time periods, and thresholds; do not infer missing numbers.
+3. Note defined terms that control interpretation.
+4. Populate the summary using the template below. If a field is not specified, state "Not specified."
+
+### Deal Snapshot
+
+| Field | Detail |
+| --- | --- |
+| Agreement title | |
+| Effective date | |
+| Parties (Franchisor / Franchisee) | |
+| Brand / System | |
+| Location(s) / Territory | |
+| Initial term | |
+| Renewal options | |
+| Governing law / venue | |
+
+### Parties and Relationship
+
+| Topic | Summary |
+| --- | --- |
+| Franchisor identity and role | |
+| Franchisee entity and principals | |
+| Ownership / control requirements | |
+| Guaranty requirements | |
+| Relationship characterization | |
+
+### Fees and Financial Obligations
+
+| Fee / Obligation | Amount / Formula | Timing | Notes |
+| --- | --- | --- | --- |
+| Initial franchise fee | | | |
+| Royalty | | | |
+| Marketing / ad fund | | | |
+| Technology / software | | | |
+| Training fees | | | |
+| Supply / purchase requirements | | | |
+| Minimum purchases / quotas | | | |
+| Transfer fees | | | |
+| Audit costs / interest / late fees | | | |
+
+### Territory and Development
+
+| Topic | Summary |
+| --- | --- |
+| Territory type (exclusive / protected / non-exclusive) | |
+| Geographic definition | |
+| Franchisor reservation of rights | |
+| Performance conditions | |
+| Multi-unit or development obligations | |
+| Encroachment standards | |
+
+### Operations and Standards
+
+| Topic | Summary |
+| --- | --- |
+| Training requirements | |
+| Operating manual compliance | |
+| Quality control and inspections | |
+| Hours of operation | |
+| Staffing / management requirements | |
+| Insurance requirements | |
+| Reporting / recordkeeping | |
+| Pricing / product restrictions | |
+| Technology systems | |
+
+### Franchisor Support
+
+| Topic | Summary |
+| --- | --- |
+| Initial training / opening support | |
+| Ongoing support / field visits | |
+| Marketing support | |
+| Site selection / lease assistance | |
+| Proprietary systems access | |
+
+### Intellectual Property and Data
+
+| Topic | Summary |
+| --- | --- |
+| Trademark / brand license scope | |
+| Brand standards and QC | |
+| Local marketing approvals | |
+| Confidentiality / trade secrets | |
+| Customer data ownership | |
+
+### Transfer, Assignment, and Succession
+
+| Topic | Summary |
+| --- | --- |
+| Transfer rights and approvals | |
+| Right of first refusal | |
+| Transferee qualifications | |
+| Transfer fees | |
+| Death / incapacity provisions | |
+| Change of control restrictions | |
+
+### Term, Renewal, and Termination
+
+| Topic | Summary |
+| --- | --- |
+| Initial term length | |
+| Renewal conditions | |
+| For-cause termination grounds | |
+| Termination without cause | |
+| Notice and cure periods | |
+| Franchisee termination rights | |
+| Post-termination obligations | |
+
+### Restrictive Covenants
+
+| Topic | Summary |
+| --- | --- |
+| Non-compete (during term) | |
+| Post-term non-compete (duration / geography / scope) | |
+| Non-solicitation (customers / employees) | |
+| Exceptions / carve-outs | |
+
+### Dispute Resolution
+
+| Topic | Summary |
+| --- | --- |
+| Arbitration or litigation | |
+| Venue and forum | |
+| Mediation requirements | |
+| Fee shifting / damages limits | |
+| Class action waiver | |
+
+### Exhibits and Attachments
+
+| Exhibit | Material Terms |
+| --- | --- |
+| Territory description | |
+| Approved suppliers | |
+| Required forms / notices | |
+| Financial schedules | |
+| Other | |
+
+### Unusual Terms / Red Flags
+
+List any provisions that are atypical, one-sided, or unusually burdensome. Examples: aggressive development schedules, unusually broad non-compete, sweeping indemnities, unilateral amendment rights, mandatory remodels on renewal, or liquidated damages.
+
+### Ambiguities and Follow-Ups
+
+List unclear terms, missing figures, or external documents that control key obligations.
+
+### Recommendations
+
+Provide concise next-step items for counsel review or negotiation focus.
+
+## Guidelines
+
+- Use exact numbers, dates, and thresholds; do not round or infer.
+- Cite section numbers if available.
+- Flag any incorporated documents that were not provided.
+- Note any state-specific franchise relationship or termination statutes if referenced.
+- If language is ambiguous, present possible interpretations and note the risk.
+- Keep the summary neutral; do not provide legal advice or business recommendations beyond identifying risks.
+tokens used
+3,883

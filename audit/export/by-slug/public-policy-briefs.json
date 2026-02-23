@@ -1,0 +1,44 @@
+{
+  "id": "48b12173-4efa-4751-a193-54bae4ea135e",
+  "slug": "public-policy-briefs",
+  "name": "Public Policy Briefs",
+  "summary": "Generates comprehensive public policy briefs that summarize and analyze the effects of proposed or enacted legislation. Provides objective insights into economic, social, legal impacts, stakeholders, and implementation challenges. Use when lawmakers, lobbyists, or citizens need rapid, balanced understanding of legislative implications.",
+  "content": "# Public Policy Brief: Legislative Impact Analysis\n\nYou are tasked with creating a comprehensive public policy brief that analyzes and summarizes the effects of proposed or enacted legislation. This brief must serve the diverse needs of lawmakers, lobbyists, advocacy organizations, and engaged citizens who require rapid yet thorough understanding of legislative implications.\n\n## Your Objective\n\nProduce a clear, balanced, and actionable summary that distills complex legislative language and policy mechanisms into accessible insights. The brief should illuminate both immediate and long-term consequences of the policy, identify affected stakeholders, and highlight potential implementation challenges. Your analysis must remain objective while acknowledging different perspectives on the policy's impact.\n\n## Research and Information Gathering\n\nBegin by conducting thorough research on the specific legislation in question. Search for the full text of the bill or enacted law, legislative history, committee reports, fiscal impact statements, and any available analyses from government agencies or nonpartisan research organizations. If the user has provided relevant documents, search those materials first to extract key provisions, stated purposes, and official projections. Supplement document-based information with current external research to capture recent developments, stakeholder reactions, and expert commentary that may not appear in the uploaded materials.\n\nIdentify the policy's sponsors, the legislative context in which it was introduced, and any amendments or modifications made during the legislative process. Understanding the evolution of the legislation often reveals compromises, priorities, and potential areas of controversy that merit attention in your brief.\n\n## Structure and Content Requirements\n\nYour public policy brief should open with an executive summary that captures the essence of the legislation in two to three paragraphs, suitable for readers who need only the highest-level overview. This section must identify the policy area, the problem the legislation addresses, and the primary mechanism through which it operates.\n\nThe main body of your brief should be organized into clearly defined sections. First, provide background and context explaining why this legislation was proposed, including the policy problem it aims to solve and relevant historical or political context. Second, describe the key provisions of the legislation in plain language, breaking down complex legal or technical language into understandable terms while maintaining accuracy. Third, analyze the anticipated effects across multiple dimensions: economic impacts on businesses, governments, and individuals; social implications for affected communities and populations; legal or regulatory changes and their significance; and implementation requirements including timelines, responsible agencies, and resource needs.\n\nFourth, identify and describe stakeholder positions, acknowledging who supports and opposes the policy and their respective rationales. This section should fairly represent different viewpoints without advocacy. Fifth, discuss potential challenges, unintended consequences, or areas of uncertainty that may affect the policy's success or create future complications.\n\n## Legal and Policy Considerations\n\nGround your analysis in established legal frameworks and policy evaluation criteria. Consider constitutional questions if relevant, federalism implications when state and federal jurisdictions interact, and how this legislation relates to or modifies existing law. Reference comparable policies in other jurisdictions when such comparisons illuminate likely outcomes or implementation lessons.\n\nDistinguish clearly between provisions that are mandatory versus discretionary, immediate versus phased implementation, and permanent versus sunset provisions. These distinctions significantly affect how the policy will function in practice and should be highlighted for readers making strategic decisions.\n\n## Tone and Accessibility\n\nWrite in a professional yet accessible tone appropriate for a diverse audience with varying levels of policy expertise. Avoid unnecessary jargon, but when technical terms are essential, define them clearly on first use. Use active voice and concrete examples to illustrate abstract policy mechanisms. Your goal is to inform rather than persuade, maintaining analytical objectivity while acknowledging legitimate areas of debate or uncertainty.\n\n## Format and Presentation\n\nPresent your brief as a well-organized document with clear headings, subheadings, and logical flow. Include a brief citation section listing key sources consulted, enabling readers to pursue deeper research if desired. If specific data, statistics, or quotes are particularly significant, highlight them appropriately within the text or as callout elements.\n\nThe final brief should typically range from three to six pages, balancing comprehensiveness with the need for quick consumption. Lawmakers reviewing multiple pieces of legislation, lobbyists preparing advocacy strategies, and citizens seeking to understand policy debates all require information that is both thorough and efficiently presented.\n\nYour analysis should empower readers to understand not just what the legislation does, but why it matters, who it affects, and what questions remain as implementation proceeds. This brief becomes a foundational document for informed civic participation and strategic decision-making in the policy process.",
+  "parent_skill_id": "59e6abf6-a94e-4f2f-afd4-06c28bbf0021",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis",
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary",
+      "brief",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "government-contracts"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:16.666768",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,393 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7a-4b8d-7090-82fb-559e31466e00
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "95d64c70-858d-445e-b4a5-4fdcbfdf9240",
+  "slug": "complaint-for-breach-of-purchase-agreement",
+  "name": "Complaint for Breach of Purchase Agreement",
+  "summary": "Drafts a comprehensive complaint alleging breach of a purchase agreement in real estate litigation. Establishes jurisdiction, venue, parties, and compliance with court rules and formatting requirements. Use when initiating a lawsuit as plaintiff against a party breaching a real property purchase contract.",
+  "content": "# Complaint for Breach of Purchase Agreement\n\nYou are drafting a comprehensive litigation complaint alleging breach of a purchase agreement. This document must comply with all applicable court rules, state procedural requirements, and professional standards for pleading practice. Your goal is to produce a well-structured, factually supported complaint that clearly establishes the elements of breach of contract and positions the plaintiff for successful litigation.\n\n## Document Structure and Requirements\n\nBegin by establishing the proper caption and court information. Identify the specific court where the action will be filed, including the full legal name of the court, division if applicable, and case number if one has been assigned. Present the plaintiff and defendant with their complete legal names, addresses, and any relevant business entity designations. Research the specific formatting requirements for the jurisdiction where this complaint will be filed, as courts often have particular rules regarding caption format, font requirements, line spacing, and margin specifications. Consult official court websites, local rules, and state bar association resources to ensure compliance with these technical requirements.\n\n## Jurisdiction and Venue Analysis\n\nDraft a clear and legally sufficient statement of jurisdiction and venue. Articulate the basis for the court's subject matter jurisdiction, whether it derives from diversity of citizenship, the amount in controversy, or state law grounds. Examine the purchase agreement thoroughly to identify any forum selection or choice of law clauses that may dictate where the action must be brought or what law applies. If such clauses exist, address them directly and explain how they support filing in the chosen forum. Verify your jurisdictional allegations against authoritative legal sources to ensure they meet the standards established by controlling statutes and case law. The venue statement should explain why the chosen court is the proper location for this action, referencing relevant factors such as where the contract was executed, where performance was to occur, where the breach occurred, or where the defendant resides or conducts business.\n\n## Parties Section\n\nProvide detailed identification of all parties to the litigation. For the plaintiff, include the full legal name, current address, and a description of their role in the purchase agreement (such as buyer, seller, or assignee). Similarly identify the defendant with complete information including any trade names, business entity type, registered agent information if applicable, and their role in the underlying transaction. If either party is a business entity, specify the type of entity (corporation, LLC, partnership, etc.) and the state of formation or incorporation. Review best practices from reputable legal resources regarding how to properly describe parties in breach of contract complaints, particularly when dealing with complex business entities, multiple parties, or situations involving successors or assigns.\n\n## Factual Background and Narrative\n\nConstruct a detailed chronological narrative that tells the complete story of the transaction and subsequent breach. Begin with the circumstances that led to the formation of the purchase agreement, including any negotiations, preliminary agreements, or representations made during the formation process. Describe the purchase agreement itself with specificity: identify the date of execution, the subject matter of the purchase (whether real property, business assets, goods, or other property), the purchase price and payment terms, and all material terms and conditions. Extract specific language, dates, dollar amounts, and obligations directly from the purchase agreement and any related documents. Present the plaintiff's performance under the agreement, detailing what obligations were fulfilled, when payments were made, and what conditions were satisfied. Then describe the defendant's breach with precision: identify exactly what obligation was not performed, when the breach occurred, what notice was given, and what opportunities for cure were provided. Include specific dates, communications, and factual details that demonstrate both the existence of the contract and the defendant's failure to perform. This narrative should be thorough enough that a reader unfamiliar with the transaction can understand exactly what happened and why it constitutes a breach.\n\n## Cause of Action for Breach of Contract\n\nPlead the breach of contract claim by establishing each required element with factual support. Demonstrate that a valid and enforceable contract existed by showing mutual assent (offer and acceptance), supported by adequate consideration, between parties with capacity to contract. Identify the specific contractual provisions that the defendant breached, quoting relevant language from the agreement where appropriate. Explain what the defendant was required to do under the contract, how the defendant failed to perform those obligations, and why any excuses or defenses do not apply. Establish that the plaintiff performed all conditions precedent or was excused from performance, and that the plaintiff sustained damages as a direct and proximate result of the defendant's breach. Research and cite the applicable legal standards for breach of contract in your jurisdiction, referencing controlling statutes or leading cases that establish the elements of the claim. Ensure your factual allegations, when accepted as true, satisfy each element of the cause of action under governing law.\n\n## Damages Calculation and Specification\n\nProvide a detailed and well-supported damages calculation. Identify each category of damages being sought, which may include direct damages (the benefit of the bargain), consequential damages (foreseeable losses flowing from the breach), incidental damages (costs incurred in responding to the breach), and any other recoverable losses. For each category, provide specific dollar amounts or good-faith estimates based on the evidence available. Explain the methodology used to calculate damages, whether based on the contract price, market value differentials, actual losses incurred, or other appropriate measures. If seeking consequential damages, establish that such damages were foreseeable at the time of contracting and flow naturally from the breach. Review authoritative resources on damages in purchase agreement breach cases to ensure your damage theories are legally cognizable and properly pleaded. Consider whether the purchase agreement contains any liquidated damages provisions, limitations on damages, or other clauses that affect the available remedies. If the plaintiff incurred costs in attempting to mitigate damages, describe those efforts and associated expenses.\n\n## Prayer for Relief\n\nDraft a comprehensive prayer for relief that requests all appropriate remedies. This should include compensatory damages in a specific amount or according to proof at trial, and may include requests for specific performance if the subject matter of the purchase agreement is unique and monetary damages would be inadequate. Request pre-judgment and post-judgment interest at the applicable legal rate, costs of suit including filing fees and service costs, and reasonable attorney's fees if authorized by the contract or applicable statute. Verify whether the purchase agreement contains an attorney's fees provision and cite it specifically if requesting fee recovery on that basis. Research your jurisdiction's rules regarding what remedies may be requested in a complaint and ensure your prayer conforms to local practice. Some jurisdictions require specific dollar amounts while others permit general prayers for relief; tailor your request accordingly.\n\n## Verification and Signature Requirements\n\nConclude the complaint with proper verification and signature blocks. Draft a verification statement in which the plaintiff (or an authorized representative with personal knowledge) swears or affirms under penalty of perjury that the allegations in the complaint are true and correct to the best of their knowledge. Research the specific verification requirements in your jurisdiction, as some states require notarization while others accept unsworn declarations under penalty of perjury. Include a complete signature block for the attorney of record, containing the attorney's name, bar number, firm name, complete address, telephone number, email address, and any other information required by local rules. Ensure the signature block complies with the court's formatting requirements and includes all mandatory information.\n\n## Final Document Assembly\n\nOnce you have gathered all necessary information from the purchase agreement and supporting documents, researched all applicable legal standards and procedural requirements, and drafted each section with appropriate factual detail and legal support, compile the complete complaint. Ensure the document flows logically, maintains consistent formatting throughout, uses proper legal citation format for any authorities referenced, and presents a compelling and professional pleading that clearly establishes the plaintiff's right to relief. The final complaint should be ready for filing upon attorney review and client approval.",
+  "parent_skill_id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "real-estate-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:07.527089",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:49:12.141289Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Reading AGENTS.md for instructions**
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+exec
+/bin/zsh -lc 'cat /Users/max/CaseMark/skills/AGENTS.md' in /Users/max/CaseMark/skills exited 1 in 51ms:
+cat: /Users/max/CaseMark/skills/AGENTS.md: No such file or directory
+
+
+thinking
+**Preparing skill instructions format**
+
+I'm confirming no existing AGENTS.md or skill instructions for the target directory and planning to produce a SKILL.md with specified metadata and structured content under the slug "purchase-agreement-breach-complaint" focused on drafting a complaint for breach of a purchase agreement with generic jurisdiction notes and placeholders.
+thinking
+---
+name: purchase-agreement-breach-complaint
+description: Drafts U.S. litigation complaint pleading breach of a real estate purchase agreement, including triggers such as complaint, breach of purchase agreement, real estate, purchase contract, and specific performance. Used for asserting claims and related remedies in filing pleadings.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+
+# Complaint for Breach of Purchase Agreement
+
+Pleading template to assert breach of a real estate purchase agreement and related remedies.
+
+## Prerequisites
+
+1. Executed purchase agreement and any amendments  
+2. Escrow instructions and related documents  
+3. Correspondence and notices between parties  
+4. Evidence of performance or tender of performance  
+5. Proof of damages incurred  
+6. Jurisdiction and venue information  
+7. Party identification and entity information  
+8. Desired remedies and claims  
+
+## Output Structure / Process
+
+Use the outline below; tailor to local rules.
+
+| Section                         | Required Content                                                  | Inputs                              |
+| -------------------------------| -----------------------------------------------------------------| ---------------------------------- |
+| Caption                        | Court name, division, parties, case number, jury demand if needed| Court records, party names          |
+| Intro/Preliminary Statement    | Brief overview of transaction and breach                         | Transaction facts                  |
+| Jurisdiction & Venue           | Basis for jurisdiction, forum selection, choice of law, venue facts | Venue facts, contract clauses     |
+| Parties                       | Names, entity types, formation states, addresses, agents         | Party documents                    |
+| Factual Allegations           | Timeline; contract execution; material terms; plaintiff performance; breach; notice/cure; damages | Agreements, correspondence        |
+| Cause of Action: Breach       | Contract elements; cite provisions; conditions precedent; damages | Contract terms, conditions         |
+| Remedy-Specific Allegations   | Specific performance, injunctive relief, escrow, lis pendens     | Remedy details                    |
+| Damages                      | Damage categories and calculation                                | Damages evidence                   |
+| Prayer for Relief            | Enumerated requests                                             | Remedies sought                    |
+| Verification                | Verification statement if required                               | Local rule requirements            |
+| Signature Block            | Attorney or party signature details                              | Attorney info                     |
+| Exhibit List                | Contracts, addenda, notices, relevant documentation             | Exhibits                         |
+
+## Element Checklist for Breach of Contract
+
+| Element                 | Allegations to Plead                                         | Evidence / Source                |
+|-------------------------|-------------------------------------------------------------|--------------------------------|
+| Valid contract          | Formation, parties, consideration, attach key terms         | Executed agreement documents    |
+| Plaintiff performance   | Actions taken, escrow, satisfaction or excuse of conditions  | Receipts, emails                |
+| Defendant breach        | Specific obligation breached, date, failure to perform       | Notices, written communications |
+| Causation & damages     | Direct and foreseeable harm caused by breach                 | Damages calculations, invoices  |
+
+## Damages Worksheet
+
+| Category           | Measure                      | Amount       | Source                        |
+|--------------------|------------------------------|--------------|-------------------------------|
+| Benefit of bargain | Difference between contract price and market value           | [Amount]    | Appraisals, contracts          |
+| Consequential      | Additional losses arising from breach                         | [Amount]    | Reports, financial records     |
+| Incidental        | Costs incurred in response to breach                           | [Amount]    | Invoices, receipts             |
+| Reliance          | Expenses incurred in reliance on contract                       | [Amount]    | Payment records                |
+
+## Prayer for Relief Checklist
+
+- [ ] Request damages as calculated and supported  
+- [ ] Seek specific performance if property is unique and legal remedy inadequate  
+- [ ] Include injunctive relief where applicable  
+- [ ] Demand attorney's fees only if contract or statute allows  
+- [ ] Request costs and interest as permitted  
+
+## Jurisdiction and Venue Facts Checklist
+
+- [ ] Confirm court jurisdiction and venue are proper  
+- [ ] Alleged compliance with forum selection clauses if any  
+- [ ] State basis for choice of law and venue facts  
+- [ ] Include venue-specific pleading requirements if applicable  
+
+## Guidelines & Compliance Notes
+
+- Confirm local pleading standard (notice vs. fact) and adjust accordingly  
+- Plead conditions precedent generally or specifically per local rules  
+- Attach exhibits consistent with local requirements; redact confidential info  
+- Avoid requesting attorney fees without contractual or statutory basis  
+- If seeking specific performance, allege uniqueness, adequacy of remedy, readiness, and ability to perform  
+- For lis pendens filings, ensure statutory compliance  
+- Identify and describe property with a legal description and address  
+- Use placeholders like [PLAINTIFF] and [DEFENDANT] for parties  
+- Avoid settlement communications protected by evidentiary rules  
+- Verify requirements for verification, notarization, or civil cover sheet and comply accordingly  
+- If diversity jurisdiction is involved, allege citizenship of all members and amount in controversy
+codex
+---
+name: purchase-agreement-breach-complaint
+description: Drafts a U.S. civil complaint pleading breach of a real estate purchase agreement, including jurisdiction, venue, parties, contract terms, breach, damages, and remedies. Use for pre-filing and pleadings when preparing a complaint, breach of purchase agreement claim, real estate contract dispute, or specific performance request.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Complaint for Breach of Purchase Agreement
+
+Pleading template to assert breach of a real estate purchase agreement and related remedies.
+
+## Prerequisites
+
+1. Executed purchase agreement and all addenda, disclosures, and amendments.
+2. Property identification details: address, legal description, parcel/APN.
+3. Parties and entity data: full legal names, entity types, formation states, principal places of business, registered agents.
+4. Timeline of performance: deposits, escrow instructions, conditions precedent, approvals, inspections, financing.
+5. Breach evidence: notice of breach, cure demands, refusal or failure to perform, communications.
+6. Damages support: contract price, market value, carrying costs, replacement transaction, mitigation efforts.
+7. Jurisdiction and venue facts: forum selection clause, place of performance, defendant residence or business location.
+8. Requested remedies: damages, specific performance, injunctive relief, attorneys’ fees, interest, costs.
+
+## Output Structure / Process
+
+Use the outline and required content below. Tailor to local rules and pleading standard.
+
+| Section | Required Content | Inputs |
+| --- | --- | --- |
+| Caption | Court name, division, parties, case number placeholder, jury demand if required | Court, party names |
+| Preliminary Statement | 3–6 sentences summarizing contract, breach, and relief sought | Timeline, remedies |
+| Jurisdiction | Basis (state law, diversity, amount in controversy), choice-of-law clause | Party citizenship, amount |
+| Venue | Statutory basis, forum selection clause, location of property/performance | Property, contract clause |
+| Parties | Role in transaction, entity type, formation state, address, agency facts | Entity records |
+| Factual Allegations | Chronology: negotiation, execution, terms, performance, breach, notice, cure | Contract, correspondence |
+| Cause of Action | Elements of breach; specific contract provisions breached | Contract sections |
+| Remedy-Specific Allegations | Specific performance, escrow relief, injunctive relief, lis pendens | Remedy choice |
+| Damages | Categories, calculation methods, mitigation | Financial records |
+| Prayer for Relief | Numbered requests for each remedy | Remedy list |
+| Verification | Include only if jurisdiction requires | Local rules |
+| Signature Block | Attorney info, bar number, firm, contact | Attorney details |
+| Exhibits | Contract, addenda, notices, escrow instructions, key correspondence | Exhibit set |
+
+Element checklist for breach of purchase agreement:
+
+| Element | Allegations to Plead | Evidence / Source |
+| --- | --- | --- |
+| Valid contract | Offer, acceptance, consideration, parties, signatures, effective date | Executed agreement |
+| Plaintiff performance | Deposits paid, conditions satisfied, readiness and ability to close | Escrow records |
+| Defendant breach | Specific obligation, failure, date of breach, refusal | Notices, emails |
+| Causation and damages | Direct and foreseeable losses from breach | Damages worksheet |
+
+Jurisdiction and venue checklist:
+
+- [ ] Identify forum selection and choice-of-law clauses; plead compliance or enforceability.
+- [ ] If diversity, allege citizenship of each party and amount in controversy.
+- [ ] Tie venue to property location, performance location, or defendant residence.
+
+Damages worksheet:
+
+| Category | Measure | Amount | Source |
+| --- | --- | --- | --- |
+| Benefit of bargain | Contract price vs. market value | $ | Appraisal, listing |
+| Consequential | Foreseeable losses (financing, relocation, taxes) | $ | Invoices |
+| Incidental | Transactional costs, escrow fees | $ | Receipts |
+| Reliance | Out-of-pocket costs in reliance | $ | Records |
+| Mitigation | Actions taken to reduce loss | $ | Timeline |
+
+Prayer for relief checklist:
+
+- [ ] Compensatory damages (specific or “according to proof,” per local rule).
+- [ ] Specific performance (if property is unique and legal remedy inadequate).
+- [ ] Pre-judgment and post-judgment interest at statutory rate.
+- [ ] Attorneys’ fees and costs if contract or statute allows.
+- [ ] Any equitable relief tied to escrow or title.
+
+## Guidelines
+
+- State the property with both street address and legal description if available.
+- Quote or attach only the contract provisions necessary to show breach.
+- Plead conditions precedent as required by local rules.
+- If seeking specific performance, allege readiness, ability to perform, and uniqueness of the property.
+- Do not request attorneys’ fees absent a contractual or statutory basis.
+- Avoid including settlement communications or inadmissible offers.
+- Confirm verification, notarization, civil cover sheet, and exhibit rules for the filing court.
+- Redact confidential personal information per court privacy rules.
+tokens used
+17,380

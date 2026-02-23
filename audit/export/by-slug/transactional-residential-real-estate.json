@@ -1,0 +1,23 @@
+{
+  "id": "1e023c13-68e2-423b-a34b-5d3cec3dd336",
+  "slug": "transactional-residential-real-estate",
+  "name": "residential real estate",
+  "summary": "Skills related to residential real estate within transactional practice.",
+  "content": "# residential real estate\n\nThis is a sub-category under transactional practice containing specialized skills.",
+  "parent_skill_id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "residential-real-estate"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

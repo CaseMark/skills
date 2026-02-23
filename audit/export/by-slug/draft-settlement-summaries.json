@@ -1,0 +1,44 @@
+{
+  "id": "8953c208-8556-4668-aabe-f8ee632987de",
+  "slug": "draft-settlement-summaries",
+  "name": "Draft Settlement Summaries",
+  "summary": "Drafts comprehensive settlement summaries documenting key terms, negotiation chronologies, and agreements in commercial litigation. It extracts essential details from emails, drafts, and mediation notes to create professional reference documents for attorneys, clients, and stakeholders. Use it post-settlement to provide high-level overviews and precise material terms without reviewing full correspondence.",
+  "content": "# Draft Settlement Summaries\n\nYou are tasked with creating a comprehensive settlement summary that documents the key terms, negotiations, and agreements reached in a legal settlement. This summary serves as a critical reference document for attorneys, clients, and stakeholders to understand the resolution of the dispute without reviewing extensive negotiation correspondence or draft agreements.\n\nBegin by searching through all available settlement-related documents, including negotiation emails, draft settlement agreements, term sheets, mediation notes, and final executed agreements. Extract and organize the essential information that tells the complete story of how the parties reached resolution. Your summary should provide both a high-level overview and sufficient detail to understand the material terms and conditions.\n\nStructure your settlement summary to include the following key components in a clear, professional format. Start with an executive summary that captures the essence of the settlement in two to three paragraphs, identifying the parties, the nature of the underlying dispute, the settlement amount or consideration, and the date of agreement. Follow this with a detailed chronology of the negotiation process, highlighting key milestones such as initial demands, counteroffers, mediation sessions, and breakthrough moments that led to resolution.\n\nDocument the material terms of the settlement with precision and clarity. This includes monetary payments with specific amounts and payment schedules, non-monetary consideration such as releases of claims or dismissals of litigation, confidentiality provisions, non-admission clauses, and any ongoing obligations or covenants. Pay particular attention to release language, identifying exactly which claims and parties are being released and any carve-outs or exceptions. If the settlement involves structured payments, installment plans, or contingent obligations, create a clear timeline or table showing when each obligation becomes due.\n\nAddress the procedural aspects of the settlement implementation, including dismissal requirements, court approval processes if applicable, and any conditions precedent that must be satisfied before the settlement becomes effective. Note whether the settlement is subject to court approval, particularly in class actions, derivative suits, or matters involving minors or incapacitated persons. Identify any representations, warranties, or acknowledgments made by either party as part of the settlement.\n\nAnalyze any unique or non-standard provisions that may have particular significance to your client or the matter. This might include tax allocation clauses, indemnification provisions, dispute resolution mechanisms for settlement-related disagreements, or provisions addressing future conduct or business relationships between the parties. If the settlement resolves only certain claims while preserving others, clearly delineate what is being settled versus what remains in dispute.\n\nThroughout your summary, maintain objectivity while highlighting strategic considerations and potential risks. If certain terms were heavily negotiated or represent compromises from initial positions, note this context to help readers understand the give-and-take of the negotiation process. Include relevant dates, deadlines, and time-sensitive obligations prominently so they are not overlooked.\n\nConclude with a section on implementation and next steps, outlining what actions must be taken to effectuate the settlement, who is responsible for each action, and the timeline for completion. This practical guidance ensures that the settlement terms are properly executed and the matter is fully resolved according to the agreement.\n\nYour settlement summary should be written in clear, professional language accessible to both legal professionals and clients. Avoid unnecessary legal jargon while maintaining precision in describing legal concepts and obligations. Use headings, subheadings, and formatting to make the document easy to navigate and reference. The final product should serve as a standalone document that provides a complete understanding of the settlement without requiring readers to consult the underlying agreements or correspondence.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "summarization",
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement",
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

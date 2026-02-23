@@ -1,0 +1,44 @@
+{
+  "id": "f04667f7-e287-41db-a2ee-ef7dd8a3b356",
+  "slug": "labeling-compliance-review",
+  "name": "Labeling Compliance Review",
+  "summary": "Drafts a comprehensive labeling compliance review for FDA-regulated products like drugs, foods, and medical devices. Analyzes principal display panels and information panels against FDCA, 21 CFR, and FDA guidance to identify compliance gaps and legal risks. Provides actionable recommendations to ensure labeling meets mandatory requirements and avoids misbranding.",
+  "content": "# Labeling Compliance Review - Enhanced Regulatory Assessment Protocol\n\n## Purpose and Scope\n\nYou are tasked with conducting a comprehensive labeling compliance review for a regulated product subject to FDA oversight. This review must evaluate whether the product labeling meets all applicable federal requirements under the Federal Food, Drug, and Cosmetic Act (FDCA), relevant FDA regulations (21 CFR), and current FDA guidance documents. Your analysis should identify compliance gaps, assess legal risks, and provide actionable recommendations to ensure the labeling satisfies all mandatory disclosure requirements while avoiding prohibited claims or misleading statements.\n\n## Product Information Analysis\n\nBegin by thoroughly documenting the product name exactly as it appears on the label, including any trademarked elements, and describe the product's intended use with specificity. For drugs and medical devices, the intended use statement is particularly critical as it determines the applicable regulatory framework and labeling requirements. Explain how the product is meant to be used by consumers, the conditions it addresses or treats, and the target population. This foundational information will guide your assessment of whether the appropriate labeling standards have been applied and whether the product classification aligns with its marketed purpose.\n\n## Principal Display Panel Evaluation\n\nConduct a detailed examination of the Principal Display Panel (PDP), which is the portion of the label most likely to be displayed or examined under customary conditions of display for retail sale. Assess whether the PDP includes all required elements in the proper format, size, and prominence as mandated by applicable regulations. For drugs, verify the presence of the established name, quantity of contents, and any required warnings. For foods, confirm the statement of identity and net quantity of contents meet regulatory specifications. Evaluate the typography, color contrast, and spatial arrangement to ensure required information is conspicuous and not obscured by vignettes, designs, or other labeling elements. Identify any prohibited terms, unapproved claims, or misleading imagery that could render the product misbranded. Your analysis should address whether the PDP complies with specific requirements for font size ratios, placement rules, and the hierarchy of information presentation.\n\n## Information Panel Assessment\n\nReview the information panel comprehensively to verify compliance with all mandatory disclosure requirements specific to the product category. For foods, examine the Nutrition Facts panel for accuracy in formatting, nutrient declaration, serving size determination, and compliance with current labeling regulations including any recent amendments. For over-the-counter drugs, scrutinize the Drug Facts panel to ensure it follows the standardized format with proper headings, sequencing, and content for active ingredients, purposes, warnings, directions, and other required sections. Evaluate whether all required statements appear in the prescribed order and format, whether the type size meets minimum requirements, and whether the information is presented in a manner that is not misleading or confusing to consumers. Consider whether voluntary information, if present, is appropriately distinguished from required information and does not interfere with the prominence of mandatory disclosures.\n\n## Claims Substantiation and Compliance Review\n\nAnalyze all express and implied claims made on the labeling, including structure/function claims, health claims, nutrient content claims, and any other representations about the product's characteristics, benefits, or effects. Determine whether each claim is permissible under applicable regulations, whether required disclaimers accompany the claims, and whether adequate scientific substantiation exists to support the representations. For structure/function claims on dietary supplements, verify the presence of the required disclaimer stating the claim has not been evaluated by FDA and the product is not intended to diagnose, treat, cure, or prevent any disease. For health claims, confirm they are either authorized by FDA regulation or qualify as qualified health claims with appropriate qualifying language. Assess nutrient content claims against the regulatory definitions and conditions of use. Identify any claims that may cause the product to be considered an unapproved new drug or misbranded device, and evaluate whether the overall impression created by the labeling is truthful and not misleading.\n\n## Warnings and Mandatory Statements Verification\n\nSystematically verify that all required warnings, cautions, and mandatory statements appear on the labeling in the proper format, location, and prominence. For drugs and dietary supplements, confirm that contraindications, side effects, and appropriate warnings for specific populations (pregnant women, children, individuals with certain health conditions) are adequately disclosed. For foods, check for required allergen declarations under the Food Allergen Labeling and Consumer Protection Act, and verify that major food allergens are properly identified in plain language. Evaluate whether warning statements meet minimum type size requirements and are not diminished through color, contrast, or positioning. Consider whether additional warnings may be necessary based on the product's ingredients, intended use, or foreseeable misuse scenarios, even if not explicitly required by regulation.\n\n## Compliance Conclusion and Recommendations\n\nProvide a definitive conclusion regarding the overall compliance status of the labeling, clearly stating whether the label is compliant with all applicable FDA requirements or identifying specific areas of non-compliance. If deficiencies exist, categorize them by severity (critical violations that render the product misbranded versus minor technical deficiencies) and provide specific, actionable recommendations for corrective measures. Reference the specific regulatory citations (CFR sections, guidance documents, or warning letters) that support your findings. Assess the legal risk associated with any identified violations, including potential enforcement actions such as warning letters, seizures, or injunctions. Recommend a timeline for implementing corrections and, if appropriate, suggest whether FDA notification or pre-market approval may be required for labeling changes. Document the name and qualifications of the reviewer conducting this assessment, the date of review, and the version of the label examined to maintain a clear record for regulatory and quality assurance purposes.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "review",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:14.04291",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

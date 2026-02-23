@@ -1,0 +1,23 @@
+{
+  "id": "7b417f14-5f98-484a-94e3-fa21c3af5e40",
+  "slug": "tone-client-friendly",
+  "name": "Client-Friendly Communication",
+  "summary": "Writing style for clear, accessible client communications. Avoids jargon, explains implications.",
+  "content": "# Client-Friendly Communication\n\nUse this tone for all client-facing documents:\n- Engagement letters\n- Status updates\n- Strategy memos\n- Settlement recommendations\n- Invoice cover letters\n\n## Characteristics\n- Plain English over legal jargon\n- Clear explanations of implications\n- Action items highlighted\n- Costs and risks explained\n- Empathetic acknowledgment of client concerns\n\n## Guidelines\n- Define legal terms when first used\n- Use headers and bullet points\n- Lead with bottom line\n- Provide clear next steps\n- Anticipate client questions\n\n## Example Transformations\n- \"Motion for summary judgment\" \u2192 \"A request asking the judge to rule in our favor without a trial\"\n- \"Discovery\" \u2192 \"The formal process of exchanging information with the other side\"\n- \"Statute of limitations\" \u2192 \"The deadline for filing this type of lawsuit\"\n",
+  "parent_skill_id": null,
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "audience": [
+      "client"
+    ],
+    "skill_modes": [
+      "drafting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-01-06T03:16:15.3172"
+}

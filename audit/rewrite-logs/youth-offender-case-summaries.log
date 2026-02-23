@@ -1,0 +1,192 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c76-7053-7d92-b4da-c03af28ace33
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "b4dab25d-27e0-41b8-a539-1cfc6188fc92",
+  "slug": "youth-offender-case-summaries",
+  "name": "Youth Offender Case Summaries",
+  "summary": "Generates comprehensive summaries of youth offender cases in the juvenile justice system, covering charges, factual circumstances, youth background, interventions, and outcomes. This skill provides objective, readable insights for stakeholders like judges, probation officers, and attorneys to evaluate interventions and inform decisions during hearings and reviews. It emphasizes rehabilitative focus, developmental considerations, and confidentiality.",
+  "content": "# Youth Offender Case Summary Generation\n\nYou are tasked with creating a comprehensive case summary for a youth offender matter within the juvenile justice system. This summary serves as a critical tool for judges, probation officers, social workers, defense attorneys, prosecutors, and other stakeholders who need to understand the complete trajectory of a juvenile case, evaluate intervention effectiveness, and make informed decisions about future case management and systemic improvements.\n\n## Purpose and Context\n\nYouth offender case summaries differ fundamentally from adult criminal case summaries due to the rehabilitative focus of juvenile justice systems, confidentiality requirements, and the developmental considerations that must inform every aspect of case handling. These summaries are used during disposition hearings, case reviews, transfer hearings, program placement decisions, and systemic evaluations of juvenile justice practices. They must balance thoroughness with readability, ensuring that busy professionals can quickly grasp the essential facts while having access to detailed information when needed.\n\n## Required Analysis and Content\n\nBegin by conducting a thorough review of all available case documentation, including intake reports, police reports, court filings, psychological evaluations, educational records, family assessments, and any prior case histories. Search through uploaded documents to extract concrete facts about the charges, dates, involved parties, and procedural history. If multiple documents are involved and you need to extract consistent information across them, analyze each document systematically to ensure no relevant details are overlooked.\n\nYour summary must include a clear statement of the current charges and any prior adjudications, presented in plain language that explains both the legal terminology and the underlying conduct. Describe the factual circumstances that led to the current case, including the date and location of the alleged offense, any victims or co-defendants, and the youth's role in the incident. This narrative should be factual and objective, avoiding judgmental language while providing sufficient detail for stakeholders to understand the seriousness and nature of the conduct.\n\nDocument the youth's background and circumstances comprehensively, as these factors are central to juvenile justice decision-making. Include age, grade level, school attendance and performance, family structure and stability, any history of trauma or abuse, mental health diagnoses or concerns, substance use issues, and prior involvement with child welfare or juvenile justice systems. Present this information with sensitivity to privacy concerns while recognizing that stakeholders need a complete picture to make appropriate recommendations.\n\nDetail all interventions, services, and programs that have been provided or ordered, including diversion programs, counseling services, educational support, substance abuse treatment, family therapy, community service, probation supervision, or residential placement. For each intervention, note the dates of participation, the youth's level of engagement and compliance, any progress or setbacks observed, and the outcomes or current status. This intervention history is essential for evaluating what approaches have been effective and what additional services may be needed.\n\nSummarize the procedural history of the case, including the date of arrest or referral, detention decisions, court appearances, plea negotiations or adjudication proceedings, disposition hearings, and any modifications to orders or conditions. Present this chronology clearly so readers can understand the case timeline and any significant delays or procedural issues.\n\n## Legal and Ethical Considerations\n\nMaintain strict adherence to confidentiality requirements governing juvenile records. The summary should be prepared with the understanding that juvenile records are generally not public and that disclosure is limited to authorized parties with a legitimate need to know. Avoid including unnecessary identifying information about victims, witnesses, or family members beyond what is essential for case understanding.\n\nUse person-first, developmentally appropriate language that recognizes the youth's capacity for growth and change. Refer to the individual as a \"youth\" or \"juvenile\" rather than using stigmatizing terms. Frame the summary within the rehabilitative philosophy of juvenile justice, emphasizing assessment of needs and risks rather than purely punitive considerations.\n\nBe mindful of implicit bias and ensure that your summary presents facts objectively without allowing assumptions based on race, ethnicity, socioeconomic status, or other protected characteristics to color the narrative. When describing family circumstances or community context, focus on relevant factors that inform case planning rather than stereotypes.\n\n## Output Format and Structure\n\nPresent the summary in a clear, professional format with distinct sections that allow readers to locate specific information quickly. Use headings such as Youth Information, Current Charges and Allegations, Factual Background, Prior History, Family and Social Context, Educational and Mental Health Information, Interventions and Services, Case Chronology, Current Status, and Recommendations or Next Steps as appropriate to the specific case.\n\nWrite in clear, accessible prose that can be understood by professionals from various disciplines, avoiding unnecessary legal jargon while maintaining precision. When legal terms are necessary, provide brief explanations. Use a tone that is professional and objective while remaining mindful of the human dimensions of the case.\n\nInclude specific dates, names of programs or service providers, and quantifiable information about outcomes whenever possible. If the youth has been in a residential program for six months, note attendance rates, behavioral incidents, educational progress, and staff observations. If family therapy was ordered, document the number of sessions attended and any reported improvements in family functioning.\n\nConclude with a section that synthesizes the key information and identifies critical issues or decisions pending. This might include upcoming hearings, pending evaluations, program transitions, or systemic concerns that the case illustrates. If you are preparing this summary for a specific purpose such as a disposition hearing or transfer evaluation, ensure that the summary addresses the relevant legal standards and factors that decision-makers must consider.\n\nThe final summary should be comprehensive yet concise, typically ranging from three to six pages depending on case complexity. It should serve as a standalone document that provides a complete picture of the case while also directing readers to supporting documentation for additional detail. Every assertion should be grounded in the case record, with sources clearly indicated so that readers can verify information or seek additional context as needed.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "Criminal_Defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:44:59.204307Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:44:59.423432Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear failed: MCP client for `linear` timed out after 10 seconds. Add or adjust `startup_timeout_sec` in your config.toml:
+[mcp_servers.linear]
+startup_timeout_sec = XX
+mcp startup: ready: case-dev-docs; failed: context7, exa_search, bench-skills, linear
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-youth-offender-case-summaries-dvqysp_q.md
+
+STDOUT:
+

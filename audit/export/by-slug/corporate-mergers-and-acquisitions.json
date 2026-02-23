@@ -1,0 +1,23 @@
+{
+  "id": "dff94cd3-1513-4427-8bbe-6d4721e158d9",
+  "slug": "corporate-mergers-and-acquisitions",
+  "name": "mergers and acquisitions",
+  "summary": "Skills related to mergers and acquisitions within corporate practice.",
+  "content": "# mergers and acquisitions\n\nThis is a sub-category under corporate practice containing specialized skills.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "mergers-and-acquisitions"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

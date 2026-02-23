@@ -1,0 +1,574 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7a-a113-7dc0-be1d-498502361a3d
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2c70c542-5079-4d8b-a14f-b3ecd918e8e4",
+  "slug": "consent-decree-with-epa",
+  "name": "Consent Decree with EPA",
+  "summary": "Drafts comprehensive Consent Decrees between the EPA and defendants for alleged violations of federal environmental statutes. Guides through case framework, jurisdictional foundations, party identifications, and recitals to ensure judicial approval and enforceability. Use when settling EPA enforcement actions under laws like the Clean Water Act or Clean Air Act.",
+  "content": "# EPA Consent Decree Drafting Workflow\n\n## Purpose and Strategic Context\n\nThis workflow guides the preparation of a comprehensive Consent Decree between the United States Environmental Protection Agency and a defendant alleged to have violated federal environmental statutes. The resulting document must satisfy both the substantive requirements of environmental law and the procedural requirements for judicial approval, including public notice and comment provisions mandated by applicable regulations. The decree serves as both a settlement instrument and an enforceable court order that will govern the parties' relationship for years to come.\n\nBefore beginning the drafting process, conduct a thorough review of all available case materials, enforcement files, and prior correspondence to ensure complete understanding of the factual and legal foundation. Search through uploaded documents to identify key facts including the nature and extent of alleged violations, facility characteristics, prior enforcement history, and any technical assessments or environmental sampling data. Extract specific dates, locations, regulatory citations, and quantifiable impacts that will inform the decree's provisions.\n\n## Initial Case Framework and Jurisdictional Foundation\n\nBegin by establishing the complete case caption following federal court conventions. The caption must read \"United States of America, on behalf of the United States Environmental Protection Agency, Plaintiff, v. [Full Legal Name of Defendant], Defendant\" and include the assigned case number, court designation, and judicial district. Verify the defendant's exact legal name against corporate registration documents, articles of incorporation, or other official records available in the case file to prevent jurisdictional challenges. For corporate defendants, confirm the state of incorporation and principal place of business, as these details affect both jurisdiction and service of process.\n\nDraft comprehensive party identification provisions that extend beyond mere names to include all relevant corporate relationships and structural details. For the United States, specify that it acts through the Environmental Protection Agency and identify the relevant EPA regional office and designated project coordinator who will oversee implementation. For corporate defendants, detail any parent-subsidiary relationships, affiliated entities, or successor corporations that may affect enforcement or asset availability. When multiple defendants are involved, clearly articulate each party's separate obligations while addressing joint and several liability where environmental statutes impose such responsibility.\n\nThe background and jurisdictional recitals serve multiple critical functions and must be drafted with precision. First, establish subject matter jurisdiction by citing the specific environmental statute or statutes allegedly violated\u2014whether the Clean Water Act (33 U.S.C. \u00a7 1251 et seq.), Clean Air Act (42 U.S.C. \u00a7 7401 et seq.), Resource Conservation and Recovery Act (42 U.S.C. \u00a7 6901 et seq.), or Comprehensive Environmental Response, Compensation, and Liability Act (42 U.S.C. \u00a7 9601 et seq.)\u2014along with the jurisdictional provisions authorizing citizen suits or government enforcement actions. Second, describe the defendant's facility, operations, or activities with sufficient specificity to provide clear notice while avoiding unnecessary admissions that could be weaponized in collateral litigation or contribution actions. Include the facility's physical address, operational history, regulated activities, and applicable permit requirements.\n\nThird, summarize the nature and extent of alleged violations in terms that balance specificity with settlement pragmatism. Reference any notices of violation, administrative orders, inspection reports, or sampling data that document the alleged noncompliance, but frame these as allegations that the defendant neither admits nor denies. Fourth, articulate how the proposed Consent Decree serves the public interest by achieving compliance, remedying environmental harm, and deterring future violations in accordance with the underlying statute's objectives. This public interest showing is essential for judicial approval and should reference the environmental benefits expected from the decree's implementation.\n\n## Substantive Compliance and Remedial Obligations\n\nThe heart of any Consent Decree lies in its compliance requirements and remedial obligations, which must be drafted with sufficient technical precision to be enforceable while maintaining enough flexibility to accommodate site-specific conditions and evolving circumstances. Begin by drafting comprehensive corrective action provisions that detail all measures the defendant must undertake to achieve compliance with applicable environmental laws and regulations. These provisions should reference and incorporate detailed technical attachments such as a Statement of Work, Remedial Action Plan, or Compliance Implementation Plan that specifies engineering requirements, performance standards, quality assurance protocols, and acceptance criteria.\n\nFor pollution control requirements, specify the equipment to be installed, process modifications to be implemented, and operational parameters to be maintained. Address monitoring and reporting obligations with particularity, including sampling frequencies, analytical methods, detection limits, and reporting formats. When permits or regulatory approvals are required for compliance activities, explicitly require the defendant to obtain such authorizations and provide proof of compliance to EPA. For contamination remediation, establish cleanup standards based on applicable regulations, risk assessments, or site-specific criteria, and specify the remedial technologies to be employed, whether pump-and-treat systems, soil vapor extraction, bioremediation, or institutional controls.\n\nStructure the corrective action provisions to require EPA review and approval at critical decision points, including work plan submissions, design documents, and completion reports. This oversight mechanism ensures that EPA retains control over the remediation's direction while allowing the defendant to implement the work. Include provisions for ongoing operational requirements such as implementation of best management practices, employee training programs, preventive maintenance schedules, and record-keeping systems. Address how the defendant will demonstrate compliance, whether through performance testing, continuous monitoring, periodic inspections, or third-party audits.\n\nDevelop a detailed compliance schedule that transforms general obligations into specific, measurable milestones with definite deadlines. The schedule must be both realistic and expeditious, reflecting the urgency of environmental protection while accounting for technical constraints, procurement lead times, and regulatory approval processes. For each major deliverable or performance milestone, specify the deadline either as a calendar date or as a number of days following a triggering event such as entry of the decree, EPA approval of a work plan, or completion of a prerequisite task.\n\nOrganize milestones in logical sequence, identifying dependencies where one task cannot begin until another is complete. For example, construction cannot commence until design plans are approved, and system startup cannot occur until construction is certified complete. Include interim reporting requirements that provide EPA with visibility into progress and early warning of potential delays. For long-term remediation projects spanning multiple years, establish annual progress reports and periodic reassessment points where the parties evaluate whether modifications are warranted based on performance data or changed conditions.\n\nConsider incorporating incentive mechanisms for early completion or phased reduction of oversight for demonstrated compliance. Conversely, build in escalating oversight or corrective measures if the defendant falls behind schedule or fails to meet performance standards. The schedule should clearly distinguish between deadlines for submitting documents to EPA (which trigger EPA's review period) and deadlines for completing physical work or achieving measurable environmental outcomes.\n\n## Financial Provisions and Economic Consequences\n\nDraft civil penalty provisions that specify the total monetary amount the defendant agrees to pay to resolve the alleged violations, expressed in United States dollars with precision. The penalty amount should reflect documented consideration of the statutory penalty factors applicable to the violated environmental statute, which typically include the seriousness of the violation, the economic benefit the violator derived from noncompliance, the violator's ability to pay, any history of prior violations, the degree of culpability, and such other matters as justice may require.\n\nProvide context for the penalty calculation by referencing EPA's penalty policies, settlement guidelines, or the applicable statutory penalty framework, while noting that the penalty represents a compromise of disputed claims and does not constitute an admission of liability. If the total payment includes distinct components\u2014such as a civil penalty, natural resource damages, past response costs, or future oversight costs\u2014itemize these amounts separately with clear explanations of what each component addresses. For penalties exceeding thresholds that trigger enhanced public comment requirements, include language acknowledging that the amount was determined after consideration of comments received during the public comment period.\n\nEstablish detailed payment terms specifying when, how, and to whom payments must be made. Direct civil penalties to the United States Treasury through the Department of Justice's Consolidated Debt Collection System or other designated account, providing complete wiring instructions, routing numbers, and case reference codes to ensure proper crediting. Specify whether payment is due in a single lump sum within a defined period after entry of the decree, or in installments according to a payment schedule. If installment payments are permitted due to demonstrated financial hardship, include provisions addressing the consequences of default, such as acceleration of all remaining amounts, accrual of interest at the federal judgment rate, and potential contempt proceedings.\n\nAddress the acceptable forms of payment, typically wire transfer or certified check, and require the defendant to provide proof of payment to both EPA and the Department of Justice within a specified timeframe, usually five to ten business days after payment is made. Include standard language clarifying that payment of the civil penalty does not alter the defendant's obligation to comply with all other terms of the decree, that penalties are not tax-deductible as ordinary business expenses under 26 U.S.C. \u00a7 162(f), and that payment does not affect any other person's liability for the violations addressed.\n\nFor cases involving significant remedial work or long-term obligations, draft financial assurance provisions requiring the defendant to demonstrate the financial capacity to complete all required work. Specify acceptable forms of financial assurance, which may include surety bonds, letters of credit, trust funds, or corporate guarantees meeting specified criteria. Establish the required amount of financial assurance based on cost estimates for the work, typically with a contingency factor to account for unforeseen circumstances. Include provisions for periodic adjustment of financial assurance amounts as work progresses or cost estimates are refined, and specify the conditions under which financial assurance may be reduced or released.\n\n## Enforcement Mechanisms and Dispute Resolution\n\nDraft comprehensive stipulated penalty provisions that establish predetermined monetary consequences for the defendant's failure to comply with any requirement of the Consent Decree. Structure these penalties to escalate based on the duration and severity of noncompliance, creating meaningful deterrence while maintaining proportionality. Typically, stipulated penalties begin at a specified daily rate for the initial period of violation (such as the first thirty days) and increase for continued noncompliance (such as doubling for days thirty-one through sixty, and tripling thereafter).\n\nDifferentiate between categories of violations based on their significance to environmental protection and public health. Major violations\u2014such as failure to meet cleanup standards, missing critical construction milestones, or exceeding effluent limitations\u2014should carry higher penalty rates than minor violations such as late submission of routine reports or minor documentation deficiencies. For each category, specify the daily penalty rate and the triggering conditions with precision to avoid disputes over whether a violation has occurred.\n\nEstablish the procedural mechanism by which EPA may demand stipulated penalties, including requirements for written notice specifying the violation, the applicable penalty amount, and the basis for the demand. Provide the defendant with a reasonable opportunity to invoke dispute resolution procedures before penalties become due, typically by requiring payment within thirty days of demand unless the defendant initiates dispute resolution within fifteen days. Clarify that stipulated penalties are in addition to, not in lieu of, any other remedies available to the United States, including specific performance, additional civil penalties under the underlying environmental statute, or criminal prosecution for knowing violations.\n\nInclude provisions addressing how stipulated penalties accrue during periods when performance is excused due to force majeure, typically providing that penalties do not accrue for delays directly caused by force majeure events but resume immediately upon cessation of the force majeure condition. Consider establishing a reasonable cap on total stipulated penalties to maintain proportionality while preserving deterrent effect, or alternatively, provide that stipulated penalties may be reduced or waived upon a showing that the defendant exercised good faith efforts to comply and that the violation did not result in environmental harm.\n\nEstablish a structured, multi-tiered dispute resolution process designed to resolve disagreements efficiently without immediate resort to court intervention, which can be costly and time-consuming for both parties. The process should begin with an informal negotiation period during which designated representatives of the parties attempt to resolve the dispute through good-faith discussions within a specified timeframe, typically twenty to thirty days from the date one party notifies the other of the dispute.\n\nDefine what matters are subject to dispute resolution and what matters may proceed directly to court. Generally, disputes over technical requirements, schedule modifications, approval of work plans, or compliance determinations should go through dispute resolution, while demands for stipulated penalties or allegations of material breach may proceed directly to enforcement. Specify the information that must be exchanged during dispute resolution, including relevant technical data, legal authorities, and proposed resolutions, to ensure that both parties have the information necessary for informed negotiation.\n\nIf informal resolution fails, provide for elevation to senior officials of EPA and the defendant for further negotiation at a higher level, with an additional timeframe of fifteen to twenty days. Include provisions requiring the defendant to comply with EPA's position during the pendency of dispute resolution unless such compliance would cause irreparable harm, ensuring that environmental protection continues while disputes are resolved. Establish procedures for either party to seek court resolution if dispute resolution does not achieve agreement within the specified timeframes, including requirements for a joint statement to the court identifying areas of agreement and disagreement and the parties' respective positions.\n\nDraft force majeure provisions that excuse the defendant's performance when compliance is prevented by events beyond the defendant's reasonable control and without the defendant's fault or negligence. Define force majeure events with specificity to provide clear guidance while avoiding overly broad excuses that could undermine the decree's effectiveness. Typically, force majeure includes acts of God such as earthquakes, floods, or other natural disasters; wars, riots, or civil unrest; and unanticipated government actions such as changes in law or denial of necessary permits despite good-faith efforts to obtain them.\n\nExplicitly exclude events that should not excuse performance, including economic circumstances, changes in financial condition, labor disputes involving the defendant's own employees, the defendant's financial inability to perform, and the failure of contractors or subcontractors to perform unless their failure was itself caused by a force majeure event. Establish procedural requirements for invoking force majeure protection, including prompt written notice to EPA within a specified number of days after the defendant knew or should have known of the event, detailed explanation of how the event prevents performance and what specific obligations are affected, anticipated duration of the delay, and measures taken or to be taken to minimize the delay and mitigate its effects.\n\nRequire the defendant to exercise best efforts to avoid or minimize delays caused by force majeure events and to resume performance as soon as reasonably possible after the event ceases. Specify that force majeure excuses only the specific obligations directly affected by the event and only for the duration of the event's impact, with corresponding extensions of subsequent deadlines that depend on the excused obligation. Address how force majeure events affect stipulated penalty accrual, typically providing that penalties do not accrue during the force majeure period but resume immediately upon its conclusion. Consider requiring the defendant to implement interim protective measures during force majeure delays to prevent environmental harm or deterioration of site conditions.\n\n## Resolution of Claims and Reservation of Rights\n\nDraft the United States' covenant not to sue with precision, as this provision represents the core consideration for the defendant's agreement to the decree's terms and defines the scope of claims being resolved. The covenant should clearly identify what claims are being released, typically covering civil judicial or administrative claims under the specific environmental statutes identified in the complaint for violations alleged to have occurred at the identified facility or facilities up to the date of decree entry.\n\nUse precise temporal, geographic, and substantive limitations to define the covenant's scope. Temporally, specify whether the covenant covers only past violations up to a certain date or includes prospective relief from future liability for the same contamination or conditions. Geographically, define the covered property with specificity, using legal descriptions, addresses, or attached maps to eliminate ambiguity. Substantively, identify the specific environmental statutes and regulatory provisions covered, and clarify whether the covenant extends to all potential claims under those statutes or only to the specific violations alleged in the complaint.\n\nInclude standard carve-outs that preserve the United States' rights to pursue claims for matters not specifically resolved by the decree. These typically include criminal liability, which cannot be resolved through civil settlement; violations occurring after the decree's effective date; conditions unknown at the time of settlement that constitute an imminent and substantial endangerment to public health or the environment; liability under environmental statutes not specifically referenced in the decree; and natural resource damages not specifically addressed in the settlement. Clarify whether the covenant runs only to the named defendant or extends to related entities, successors, or assigns, and specify that it does not release any other potentially responsible parties unless explicitly stated.\n\nArticulate the United States' comprehensive reservation of rights to pursue all claims and remedies not specifically resolved by the Consent Decree. This section should make clear that the United States retains all rights to enforce the terms of the decree itself through any available remedy, including specific performance, stipulated penalties, contempt proceedings, or additional civil penalties. Explicitly reserve rights to pursue new violations, newly discovered conditions, and violations of environmental requirements not covered by the decree, ensuring that the settlement does not create a license for future noncompliance.\n\nPreserve the United States' authority to modify or impose additional requirements if changes in law, regulation, or site conditions warrant such action, subject to appropriate notice and opportunity for the defendant to be heard. Reserve rights against third parties who are not parties to the decree, including other potentially responsible parties, contractors, or successors in interest. Reserve rights to recover costs incurred by the United States in overseeing or enforcing the decree, including attorney's fees, expert witness fees, and EPA oversight costs. Include standard language preserving all defenses, claims, and rights of the United States in any subsequent litigation and clarifying that the decree cannot be construed as an admission or precedent in other matters.\n\n## Public Participation and Judicial Approval\n\nDescribe the procedural requirements for public notice, comment, and judicial approval mandated by applicable law and Department of Justice policy. Specify that the Consent Decree is subject to a public comment period of at least thirty days following publication of notice in the Federal Register, or longer if required by the specific environmental statute at issue. For matters of significant local interest, include provisions for publication of notice in local newspapers serving the affected community and for public meetings or hearings if warranted by the level of public interest.\n\nExplain that the United States will lodge the proposed Consent Decree with the court simultaneously with or after filing the complaint, and that the court will not enter the decree until after the public comment period has closed and the United States has considered any comments received. Include provisions requiring the United States to prepare and file with the court a responsiveness summary that addresses significant comments and explains any modifications made to the decree in response to public input.\n\nPreserve the United States' right to withdraw from the Consent Decree if public comments reveal information or considerations that make the settlement inappropriate, improper, or inadequate. This withdrawal provision is essential to maintain the United States' discretion to reassess the settlement in light of new information and protects against judicial approval of settlements that do not serve the public interest. Specify that if the United States withdraws, the decree becomes null and void, and the defendant may not use any statements or admissions made during settlement negotiations in subsequent litigation.\n\nAddress the effective date of the Consent Decree, typically the date of entry by the court, and specify that all obligations and deadlines run from that date unless otherwise explicitly stated. Include provisions regarding modification of the decree, specifying that any changes must be made by written agreement of the parties and approved by the court through a formal modification process. Address termination of the decree, establishing that it remains in effect until the defendant has completed all obligations to the satisfaction of the United States and the court has determined that termination is appropriate, typically after the United States files a motion for termination and the court enters an order.\n\n## Execution and Finalization\n\nProvide for proper execution of the Consent Decree by all necessary parties and approval by the court. Include signature blocks for authorized representatives of the defendant, which for corporate entities must be officers with actual authority to bind the corporation to the decree's terms. Require that corporate defendants provide evidence of signatory authority, such as a corporate resolution adopted by the board of directors or a certificate of the corporate secretary attesting to the signatory's authority.\n\nInclude signature blocks for the United States Attorney for the district in which the action is filed, trial attorneys from the Department of Justice Environment and Natural Resources Division, and appropriate EPA representatives including the Regional Counsel and the designated project coordinator. Provide a signature line for the United States District Judge who will enter the decree, along with a line for the date of entry.\n\nSpecify that the Consent Decree may be executed in counterparts, each of which constitutes an original, and that facsimile or electronic signatures are acceptable and have the same force and effect as original signatures. Address the number of original executed copies to be maintained, typically requiring that one fully executed original be filed with the court and that copies be provided to all parties. Include provisions regarding service of documents under the decree, specifying the addresses and contact information for service on each party and the acceptable methods of service, whether by hand delivery, overnight courier, or electronic mail.\n\nThroughout the drafting process, maintain consistency in defined terms, cross-references, and formatting to ensure the decree functions as a coherent, enforceable instrument. Review all technical attachments and exhibits for consistency with the main body of the decree, and ensure that all referenced documents are properly incorporated and attached. Verify that all statutory citations are accurate and current, and that all regulatory references reflect the most recent versions of applicable regulations. The final product should be a comprehensive, self-executing document that provides clear guidance to the parties, the court, and the public regarding the resolution of the environmental violations and the path to compliance and environmental restoration.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement",
+      "pre-trial"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.468869",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:49:33.841449Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Choosing slug and metadata for skill output**
+
+Selecting "epa-consent-decree" as the new slug to keep it specific and clear, dropping practice prefixes. Preparing metadata with proper capitalization for practice areas and document types, plus a concise third-person description including key environmental statutes and DOJ public comment policies, marking uncertain citations with [VERIFY].
+thinking
+---
+name: epa-consent-decree
+description: Drafts U.S. EPA consent decrees for federal environmental enforcement settlements under the Clean Water Act, Clean Air Act, RCRA, or CERCLA. Enforces jurisdictional recitals, no-admission framing, corrective action plans, compliance schedules, stipulated penalties, financial assurance, public notice/comment, covenants not to sue, and reservations of rights. Use when drafting or negotiating EPA consent decrees, DOJ ENRD settlements, CWA consent decrees, CAA consent decrees, RCRA or CERCLA judicial settlements, or environmental enforcement decrees.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# EPA Consent Decree
+
+Draft a judicially enforceable EPA/DOJ consent decree that resolves federal environmental enforcement claims and governs long-term compliance.
+
+## Prerequisites
+1. Case caption, court, district, and case number  
+2. Defendant legal name, entity type, state of incorporation, principal place of business, and signatory authority  
+3. Facility or site description and relevant permits  
+4. Timeline and documentation of alleged violations  
+5. Statutory basis (CWA, CAA, RCRA, CERCLA) and jurisdictional provisions  
+6. Settlement scope, including claims released and temporal/geographic limits  
+7. Remedy scope with corrective actions, cleanup standards, and associated plans or exhibits  
+8. Penalty amount, payment method, and any financial assurance requirements  
+9. Public notice and comment plan in accordance with DOJ policies  
+
+## Output Structure / Process
+
+Provide the consent decree in this structured format using defined terms consistently and attaching technical plans as exhibits.
+
+### 1) Caption and Parties
+- Caption: “United States of America, on behalf of the United States Environmental Protection Agency, Plaintiff, v. [Defendant], Defendant.”  
+- Court, district, and case number  
+- Parties section:
+
+| Party              | Required Details                                              |
+|--------------------|---------------------------------------------------------------|
+| United States       | EPA region, project coordinator, DOJ representation           |
+| Defendant           | Legal name, entity type, state of incorporation, principal place of business, successors/assigns |
+| Multiple Defendants | Allocation of obligations and joint/several liability          |
+
+### 2) Jurisdiction, Venue, and Background Recitals  
+Include a concise allegation-only narrative and public-interest statement. Checklist:  
+- Subject matter jurisdiction and venue statutes  
+- Statutory authority for claims  
+- Facility/site description with address and regulated activities  
+- Alleged violations (no admission)  
+- No-admission clause or “neither admits nor denies” language  
+- Public interest and environmental benefit statement  
+
+Suggested statutory anchors (tailor to case):  
+| Statute           | Core Citation            |
+|-------------------|-------------------------|
+| Clean Water Act   | 33 U.S.C. § 1251 et seq. |
+| Clean Air Act    | 42 U.S.C. § 7401 et seq. |
+| RCRA             | 42 U.S.C. § 6901 et seq. |
+| CERCLA           | 42 U.S.C. § 9601 et seq. |
+
+### 3) Definitions  
+Define key terms such as “Facility,” “Effective Date,” “Work,” “EPA Approval,” “Force Majeure,” “Stipulated Penalties,” “Statement of Work,” “Compliance Schedule,” and “Applicable Law.”
+
+### 4) Compliance/Corrective Action Obligations  
+Use a structured table and attach technical plans.  
+
+| Obligation           | Required Deliverable      | EPA Approval Point  | Attachment |
+|----------------------|--------------------------|--------------------|------------|
+| Corrective action design | Design plan              | Prior to construction | Ex. A      |
+| Implementation       | Construction/installation | Pre-start          | Ex. A      |
+| Operation & Monitoring| O&M plan, monitoring reports | Ongoing         | Ex. B      |
+| Cleanup standards    | Confirmation sampling     | Completion         | Ex. C      |
+
+Include:  
+- Permit acquisition and proof of compliance  
+- Monitoring parameters, frequency, methods, detection limits  
+- QA/QC protocols  
+- Performance standards and acceptance criteria  
+- Training, best management practices, record-keeping  
+
+### 5) Compliance Schedule  
+Milestone schedule with dependencies and triggers.  
+
+| Milestone           | Trigger       | Deadline       | Deliverable       |
+|---------------------|---------------|----------------|-------------------|
+| Submit Work Plan    | Effective Date | +30 days      | Work Plan         |
+| EPA Approval        | Submission    | +45 days       | Approval/Comments |
+| Begin Construction  | EPA Approval  | +30 days       | Notice of Start   |
+| Complete Construction | Start       | +180 days      | Completion Report |
+| Start Monitoring    | Completion    | +15 days      | Baseline Report   |
+
+Rules:  
+- Separate document submission deadlines from physical performance deadlines  
+- Include interim progress reports  
+- Provide procedure for schedule modifications  
+
+### 6) Civil Penalty and Payment  
+Checklist:  
+- Total civil penalty amount and components  
+- Statutory penalty factors cited [VERIFY]  
+- Payment method and recipient (Treasury or DOJ account)  
+- Due date (e.g., within 30 days of Effective Date)  
+- Proof of payment to EPA/DOJ within 5–10 business days  
+- Non-deductibility under 26 U.S.C. § 162(f)  
+- Default and interest (federal judgment rate) [VERIFY]  
+
+### 7) Financial Assurance (if required)  
+- Acceptable forms: surety bond, letter of credit, trust fund, corporate guarantee  
+- Amount based on cost estimate plus contingency  
+- Adjustment and review schedule  
+- Release conditions  
+
+### 8) Stipulated Penalties  
+Tiered penalties by violation type and duration:  
+
+| Violation Type              | Day 1–30 | Day 31–60 | Day 61+ |
+|-----------------------------|----------|-----------|---------|
+| Major (key milestones, cleanup standards)  | $X/day   | $Y/day    | $Z/day  |
+| Minor (routine reporting)   | $x/day   | $y/day    | $z/day  |
+
+Procedure:  
+- EPA notice of violation and demand  
+- Cure/dispute window (e.g., 15 days to invoke dispute resolution; 30 days to pay if no dispute)  
+- Penalties cumulative and not exclusive of other remedies  
+
+### 9) Dispute Resolution  
+Multi-tier process:  
+1. Informal negotiation (20–30 days)  
+2. Escalation to senior officials (15–20 days)  
+3. Court resolution with joint statement  
+
+Rules:  
+- Distinguish disputable matters from immediate enforcement actions  
+- Require continued compliance pending resolution unless irreparable harm  
+
+### 10) Force Majeure  
+- Events beyond reasonable control excluding financial inability and contractor failure (unless FM) or defendant labor disputes  
+- Notice requirements (within specified days)  
+- Mitigation and resumption duties  
+- Effect on deadlines and stipulated penalties  
+
+### 11) Covenant Not to Sue and Reservation of Rights  
+Covenant scope checklist:  
+- Statutes covered and claims released  
+- Temporal scope (past violations through Effective Date)  
+- Geographic/site boundary  
+- No release for criminal liability, future violations, unknown imminent/endangerment conditions, NRD unless expressly included, or other statutes not listed  
+
+Reservation of rights:  
+- Enforcement of decree  
+- New violations or newly discovered conditions  
+- Oversight costs, fees, and expert costs  
+- Rights against non-parties  
+
+### 12) Public Notice, Comment, and Entry  
+- Lodge decree with court alongside complaint  
+- Public comment period of at least 30 days and Federal Register notice per 28 C.F.R. § 50.7 [VERIFY]  
+- Responsiveness summary  
+- Government reservation of right to withdraw decree if comments demonstrate inappropriateness  
+
+### 13) Effective Date, Modification, Termination  
+- Effective Date is date of court entry  
+- Modification only by written agreement plus court approval  
+- Termination upon completion and court order or motion  
+
+### 14) Notices and Service  
+- Addresses, email, and service methods for each party  
+- Procedure for updating contact information  
+
+### 15) Execution and Signatures  
+- Authorized signatories with corporate authority certificates or resolutions  
+- DOJ ENRD, U.S. Attorney, EPA Regional Counsel signatures  
+- Judge signature block  
+- Counterparts and electronic signatures permitted  
+
+## Guidelines  
+- All violation statements framed as allegations; no admissions unless required  
+- Align attachments with decree terms and cross-reference defined terms  
+- Verify statutory, regulatory, and penalty factor citations; mark uncertain cites with [VERIFY]  
+- Ensure compliance schedule is realistic and enforceable considering permitting timelines  
+- Include public interest rationale and DOJ policy compliance for decree entry  
+- Avoid releasing claims beyond negotiated scope; preserve NRD unless expressly settled  
+- Use consistent defined terms and numbered sections to avoid enforcement ambiguity  
+
+## Example No-Admission Clause  
+```
+No Admission. Defendant does not admit, and expressly denies, the allegations contained herein. This Consent Decree shall not be construed as an admission of liability.
+```
+
+## Trigger Keywords  
+consent decree, EPA, DOJ ENRD, CWA, CAA, RCRA, CERCLA, environmental enforcement settlement, stipulated penalties, corrective action plan
+codex
+---
+name: epa-consent-decree
+description: Drafts U.S. EPA consent decrees for federal environmental enforcement settlements under the Clean Water Act, Clean Air Act, RCRA, or CERCLA. Enforces jurisdictional recitals, no-admission framing, corrective action plans, compliance schedules, stipulated penalties, financial assurance, public notice/comment, covenants not to sue, and reservations of rights. Use when drafting or negotiating EPA consent decrees, DOJ ENRD settlements, CWA consent decrees, CAA consent decrees, RCRA or CERCLA judicial settlements, or environmental enforcement decrees.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# EPA Consent Decree
+
+Draft a judicially enforceable EPA/DOJ consent decree that resolves federal environmental enforcement claims and governs long-term compliance.
+
+## Prerequisites
+
+1. Case caption, court, district, case number
+2. Defendant legal name, entity type, state of incorporation, principal place of business
+3. Facility/site description, address, permits, and regulated activities
+4. Alleged violations timeline and supporting documents
+5. Statutory basis and jurisdictional provisions (CWA/CAA/RCRA/CERCLA)
+6. Settlement scope (claims released, temporal and geographic limits)
+7. Remedy scope (plans, standards, attachments, EPA approval points)
+8. Penalty position, payment method, and financial assurance requirement
+9. Public notice/comment plan and DOJ policy requirements
+
+## Output Structure / Process
+
+Provide a consent decree in the following structure. Use defined terms consistently and attach technical plans as exhibits.
+
+### 1) Caption and Parties
+- Caption: “United States of America, on behalf of the United States Environmental Protection Agency, Plaintiff, v. [Defendant], Defendant.”
+- Court, district, case number
+
+Parties table:
+| Party | Required details |
+| --- | --- |
+| United States | EPA region, project coordinator, DOJ representation |
+| Defendant | legal name, entity type, state of incorporation, principal place of business, successors/assigns |
+| Multiple defendants | allocation of obligations and joint/several liability |
+
+### 2) Jurisdiction, Venue, and Background Recitals
+Checklist:
+- Subject matter jurisdiction and venue statute(s)
+- Statutory authority for claims
+- Facility/site description with address and regulated activities
+- Alleged violations framed as allegations only
+- Public interest and environmental benefit statement
+
+Suggested statutory anchors:
+| Statute | Core citation |
+| --- | --- |
+| Clean Water Act | 33 U.S.C. § 1251 et seq. |
+| Clean Air Act | 42 U.S.C. § 7401 et seq. |
+| RCRA | 42 U.S.C. § 6901 et seq. |
+| CERCLA | 42 U.S.C. § 9601 et seq. |
+
+No-admission clause template:
+```
+Defendant does not admit the allegations of the Complaint and denies liability. This Consent Decree is entered to avoid litigation.
+```
+
+### 3) Definitions
+- Define: Facility, Effective Date, Work, EPA Approval, Force Majeure, Stipulated Penalties, Statement of Work, Compliance Schedule, Applicable Law.
+
+### 4) Compliance/Corrective Action Obligations
+Table: Obligations and Attachments
+| Obligation | Required Deliverable | EPA Approval Point | Attachment |
+| --- | --- | --- | --- |
+| Corrective action design | Design plan | Prior to construction | Ex. A |
+| Implementation | Construction/installation | Pre-start | Ex. A |
+| O&M and monitoring | O&M plan, monitoring reports | Ongoing | Ex. B |
+| Cleanup standards | Confirmation sampling | Completion | Ex. C |
+
+Include:
+- Permit acquisition and proof of compliance
+- Monitoring parameters, frequency, methods, detection limits
+- QA/QC protocols and performance standards
+- Training, BMPs, record-keeping, reporting format
+
+### 5) Compliance Schedule
+Template:
+| Milestone | Trigger | Deadline | Deliverable |
+| --- | --- | --- | --- |
+| Submit Work Plan | Effective Date | +30 days | Work Plan |
+| EPA approval | Submission | +45 days | Approval/Comments |
+| Begin construction | EPA approval | +30 days | Notice of Start |
+| Complete construction | Start | +180 days | Completion Report |
+| Start monitoring | Completion | +15 days | Baseline Report |
+
+Rules:
+- Separate submission deadlines from physical performance deadlines
+- Include interim progress reports and annual status reports for multi-year work
+- Provide a modification procedure for schedule adjustments
+
+### 6) Civil Penalty and Payment
+Checklist:
+- Total civil penalty amount and components
+- Statutory penalty factors cited [VERIFY]
+- Payment method and recipient (Treasury/DOJ account)
+- Due date (e.g., within 30 days of Effective Date)
+- Proof of payment to EPA/DOJ within 5–10 business days
+- Non-deductibility under 26 U.S.C. § 162(f)
+- Default, interest, and acceleration terms [VERIFY]
+
+### 7) Financial Assurance (if required)
+- Acceptable forms: surety bond, letter of credit, trust fund, corporate guarantee
+- Amount based on cost estimate plus contingency
+- Adjustment/review schedule
+- Release conditions after completion
+
+### 8) Stipulated Penalties
+Table: Stipulated Penalties
+| Violation Type | Day 1–30 | Day 31–60 | Day 61+ |
+| --- | --- | --- | --- |
+| Major (cleanup standard, key milestone) | $X/day | $Y/day | $Z/day |
+| Minor (routine report) | $x/day | $y/day | $z/day |
+
+Procedure:
+- EPA notice of violation and demand
+- Dispute window (e.g., 15 days to invoke dispute resolution)
+- Payment due (e.g., 30 days after demand if no dispute)
+- Penalties are cumulative and not exclusive of other remedies
+
+### 9) Dispute Resolution
+1. Informal negotiation (20–30 days)
+2. Escalation to senior officials (15–20 days)
+3. Court resolution with joint statement
+
+Rules:
+- Define disputes subject to the process vs. immediate enforcement
+- Require continued compliance pending resolution unless irreparable harm
+
+### 10) Force Majeure
+- Define events beyond reasonable control
+- Exclude: financial inability, contractor failure (unless itself force majeure), labor disputes of defendant
+- Notice requirements within X days of knowledge
+- Mitigation and resumption duties
+- Effect on deadlines and stipulated penalties
+
+### 11) Covenant Not to Sue and Reservation of Rights
+Covenant scope checklist:
+- Statutes covered and claims released
+- Temporal scope (past violations up to Effective Date)
+- Geographic/site boundary
+- No release for criminal liability, future violations, unknown imminent/endangerment conditions, NRD unless expressly covered, other statutes not listed
+
+Reservation of rights checklist:
+- Enforcement of the decree
+- New violations and newly discovered conditions
+- Oversight costs, fees, expert costs
+- Rights against non-parties
+
+### 12) Public Notice, Comment, and Entry
+- Lodge decree with court with complaint
+- Public comment period of at least 30 days and Federal Register notice [VERIFY]
+- Responsiveness summary
+- Government withdrawal right if comments show decree is inappropriate
+
+### 13) Effective Date, Modification, Termination
+- Effective Date = date of court entry
+- Modification only by written agreement and court approval
+- Termination upon completion and motion/order
+
+### 14) Notices and Service
+- Addresses, email, and service methods for each party
+- Update procedure for contact changes
+
+### 15) Execution and Signatures
+- Authorized signatories and corporate authority certificate/resolution
+- DOJ ENRD, U.S. Attorney, EPA Regional Counsel
+- Judge signature block
+- Counterparts and electronic signatures permitted
+
+## Guidelines
+
+- Keep all violation statements as allegations; no admissions unless required.
+- Align attachments with decree terms; cross-reference defined terms.
+- Verify statutory, regulatory, and penalty-factor citations; mark uncertain cites with `[VERIFY]`.
+- Ensure compliance schedules are realistic, sequenced, and enforceable.
+- Include public-interest rationale and DOJ policy compliance for entry.
+- Avoid releasing claims beyond negotiated scope; preserve NRD unless expressly settled.
+- Use consistent defined terms and numbering to avoid enforcement ambiguity.
+tokens used
+10,633

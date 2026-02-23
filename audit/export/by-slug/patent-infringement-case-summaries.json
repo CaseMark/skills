@@ -1,0 +1,47 @@
+{
+  "id": "68013771-0aba-48db-8760-848cef642467",
+  "slug": "patent-infringement-case-summaries",
+  "name": "Patent Infringement Case Summaries",
+  "summary": "Generates comprehensive summaries of patent infringement cases, capturing parties involved, patents at issue, alleged infringements, procedural history, legal arguments, and outcomes. Structures information with case captions, executive overviews, and detailed sections for IP enforcement tracking. Use it to create reference documents for legal professionals and corporate IP teams analyzing disputes.",
+  "content": "# Patent Infringement Case Summary Prompt\n\nYou are tasked with creating a comprehensive patent infringement case summary that will serve as a critical reference document for intellectual property enforcement tracking. This summary must capture all essential elements of the patent dispute in a clear, organized format that enables legal professionals, patent holders, and corporate IP teams to quickly understand the case's key facts, legal issues, and outcomes.\n\nBegin by conducting thorough research to identify and verify all relevant information about the patent infringement case. Search through all available case documents, court filings, patent records, and related materials to extract accurate information about the parties, patents, allegations, and proceedings. When specific case citations or patent numbers are referenced, verify these sources to ensure accuracy and provide proper attribution.\n\nStructure your summary to include the following essential components presented in a logical, professional format. Start with a case caption that identifies the full legal names of all parties, the court and jurisdiction, the case number, and the filing date. Provide a concise executive overview that captures the essence of the dispute in two to three sentences, allowing readers to immediately grasp what the case involves.\n\nDetail the patent portfolio at issue by identifying each patent by its full patent number, title, filing date, and issue date. Describe the claimed invention in accessible language that balances technical accuracy with readability for non-technical legal professionals. Identify the patent holder and explain the significance or commercial application of the patented technology. If multiple patents are involved, organize this information clearly for each patent separately.\n\nDescribe the alleged infringement with specificity, identifying the accused products, services, or processes and explaining how the plaintiff claims these infringe upon the patent claims. Address whether the alleged infringement is claimed to be direct, indirect, willful, or contributory. Include any specific patent claims that are central to the infringement allegations, using claim numbers and brief descriptions of the claim elements at issue.\n\nSummarize the procedural history and current status of the case, noting key dates such as complaint filing, answer submission, significant motion practice, claim construction hearings (Markman hearings), discovery milestones, trial dates, and any appeals. Highlight critical rulings on motions to dismiss, summary judgment, or claim construction that have shaped the case's trajectory.\n\nPresent the legal arguments and defenses raised by each party. For the plaintiff, capture theories of infringement, damages calculations, and requests for injunctive relief. For the defendant, document any challenges to patent validity (anticipation, obviousness, indefiniteness), non-infringement arguments, inequitable conduct allegations, or licensing defenses. Include any counterclaims for declaratory judgment or patent invalidity.\n\nIf the case has reached a resolution, provide detailed outcome information including the verdict or settlement terms (to the extent publicly available), damages awarded with specific amounts and the basis for calculation (lost profits, reasonable royalty, enhanced damages for willfulness), any injunctive relief granted or denied, attorney's fees awards, and the final disposition. For ongoing cases, clearly indicate the current procedural posture and anticipated next steps.\n\nAnalyze the broader implications of this case for patent enforcement in the relevant technology sector. Consider whether the case establishes important precedent on claim construction, damages methodology, or validity challenges. Assess its impact on licensing practices or enforcement strategies in the industry. Note if the case involves standard-essential patents, FRAND commitments, or other special circumstances affecting patent rights.\n\nThroughout the summary, maintain precise legal terminology while ensuring the document remains accessible to readers who may include business executives, licensing professionals, and technical experts in addition to attorneys. Use clear headings and subheadings to organize information logically. When technical patent concepts or legal doctrines require explanation, provide brief, accurate definitions in context.\n\nCite all sources appropriately, including court documents by docket number and filing date, patent documents by patent number, and any secondary sources using proper legal citation format. Ensure that all factual assertions can be traced back to verified sources from the case record or official patent documentation.\n\nThe final summary should serve as a standalone reference document that enables readers to understand the complete arc of the patent infringement case without needing to review the underlying case files, while also providing sufficient detail and citations to facilitate deeper research when necessary. This document becomes part of the institutional knowledge for tracking patent enforcement trends, assessing litigation risk, and informing IP strategy decisions.",
+  "parent_skill_id": "adccc2a5-9c43-42a4-8e4e-70541b15086f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "discovery",
+      "pre-trial",
+      "trial",
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "intellectual-property-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:03.903267",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

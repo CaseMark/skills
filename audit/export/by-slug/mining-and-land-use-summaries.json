@@ -1,0 +1,45 @@
+{
+  "id": "5e08f846-7f1c-4e3f-a60f-23069a6c0c3e",
+  "slug": "mining-and-land-use-summaries",
+  "name": "Mining and Land Use Summaries",
+  "summary": "Generates comprehensive summaries of legal and regulatory issues related to mining and land use. Identifies key permits, compliance obligations, and risks to help stakeholders navigate natural resource extraction and land development regulations. Use during project planning, due diligence, permit applications, audits, and dispute resolution.",
+  "content": "# Mining and Land Use Legal and Regulatory Summary\n\nYou are tasked with creating a comprehensive summary of legal and regulatory issues related to mining and land use. This summary serves as a critical navigation tool for stakeholders\u2014including mining companies, landowners, developers, regulatory agencies, and legal counsel\u2014who must understand and comply with the complex web of regulations governing natural resource extraction and land development.\n\n## Objective and Scope\n\nYour primary objective is to analyze all relevant documents, statutes, regulations, permits, and legal materials to produce a clear, actionable summary that identifies key legal issues, regulatory requirements, compliance obligations, and potential risks. The summary should enable stakeholders to make informed decisions about mining operations, land development projects, permitting strategies, and regulatory compliance. This document type is particularly valuable during project planning phases, due diligence reviews, regulatory audits, permit applications, and dispute resolution processes.\n\n## Analysis Framework\n\nBegin by conducting a thorough review of all available documentation related to the mining or land use matter. Search through uploaded documents to identify relevant permits, environmental impact assessments, regulatory correspondence, land use agreements, mineral rights documentation, compliance reports, and any existing legal opinions or regulatory determinations. Extract concrete facts including specific regulatory citations, permit conditions, compliance deadlines, jurisdictional boundaries, environmental restrictions, and stakeholder obligations.\n\nIdentify the applicable regulatory framework by determining which federal, state, and local laws govern the project. This typically includes environmental protection statutes, mining regulations, land use ordinances, water rights laws, endangered species protections, cultural resource preservation requirements, and occupational safety standards. For each applicable law or regulation, verify the current version and confirm its applicability to the specific project circumstances. When citing legal authorities, ensure proper Bluebook format with verified sources.\n\nAnalyze the permitting landscape by identifying all required permits, licenses, and approvals necessary for the proposed mining or land use activity. Common permits include mining permits, environmental permits, water discharge permits, air quality permits, land disturbance permits, and special use permits. For each permit, document the issuing agency, application requirements, review timelines, public comment periods, appeal rights, and ongoing compliance obligations. Note any permits already obtained, permits pending, and permits still required.\n\n## Regulatory Compliance and Risk Assessment\n\nExamine environmental compliance requirements with particular attention to water quality standards, air emissions limits, waste management protocols, reclamation obligations, and habitat protection measures. Identify any environmentally sensitive areas, protected species, wetlands, or cultural resources that may trigger additional regulatory scrutiny or mitigation requirements. Document baseline environmental conditions and any monitoring or reporting obligations.\n\nAssess land use compatibility by reviewing applicable zoning ordinances, comprehensive plans, overlay districts, and conditional use requirements. Determine whether the proposed mining or development activity is permitted as-of-right, requires conditional approval, or necessitates a variance or rezoning. Identify any conflicting land uses, buffer requirements, or community concerns that may affect project viability.\n\nEvaluate mineral rights and property interests by clarifying the ownership and scope of surface rights, mineral rights, water rights, and access rights. Address any split estate issues where surface and mineral rights are severed. Document easements, rights-of-way, restrictive covenants, or other encumbrances that may affect operations. Identify all parties with legal interests in the property and their respective rights and obligations.\n\n## Stakeholder Considerations and Legal Issues\n\nIdentify all relevant stakeholders including regulatory agencies, adjacent landowners, tribal governments, environmental organizations, local communities, and other interested parties. Document their legal rights, consultation requirements, notice obligations, and opportunities for participation in permitting or approval processes. Address any tribal consultation requirements under federal or state law, particularly regarding cultural resources or sacred sites.\n\nHighlight material legal issues and potential disputes including regulatory challenges, permit denials or conditions, enforcement actions, citizen suits, property disputes, contract disagreements, or constitutional challenges. For each identified issue, assess the legal basis, potential outcomes, and recommended strategies for resolution or mitigation. Note any pending litigation, administrative proceedings, or regulatory investigations that may affect the project.\n\n## Summary Structure and Deliverable\n\nYour final summary should be organized into clear sections that allow readers to quickly locate relevant information. Begin with an executive summary that captures the most critical legal and regulatory issues, compliance status, and immediate action items. Follow with detailed sections addressing the regulatory framework, permitting requirements, environmental compliance, land use considerations, property rights, stakeholder issues, and identified risks. Conclude with practical recommendations and a compliance roadmap that prioritizes actions based on urgency and legal significance.\n\nThroughout the summary, maintain a professional tone that balances legal precision with accessibility for non-lawyer stakeholders. Use plain language explanations alongside technical legal terminology. Provide specific citations to applicable laws, regulations, and permit conditions while avoiding unnecessary legal jargon. Include relevant dates, deadlines, and procedural requirements to facilitate project planning and compliance tracking.\n\nWhen information is incomplete or requires further investigation, clearly identify these gaps and recommend specific steps to obtain the necessary information. If regulatory requirements are ambiguous or subject to agency discretion, note this uncertainty and suggest strategies for obtaining clarification through pre-application meetings, advisory opinions, or regulatory guidance.\n\nThe completed summary should serve as both a comprehensive reference document and a practical compliance tool that enables stakeholders to navigate the regulatory landscape confidently, anticipate legal challenges, and maintain compliance throughout the project lifecycle.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "mining"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "negotiation"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.950931",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

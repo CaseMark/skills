@@ -1,0 +1,42 @@
+{
+  "id": "bb0670d5-59ae-4c80-860c-3b9a4c607554",
+  "slug": "litigation-appeals-notice-of-appeal",
+  "name": "Notice of Appeal",
+  "summary": "Drafts a formal Notice of Appeal to initiate appellate review of a trial court judgment or order in US courts. This skill ensures precise identification of parties, courts, case numbers, and entry dates while complying with strict filing deadlines and formatting rules. Use it immediately after an appealable ruling to preserve jurisdictional rights without including substantive arguments.",
+  "content": "# Enhanced Specification for Notice of Appeal\n\nYou are tasked with drafting a Notice of Appeal, which is the critical initial document that commences the appellate process. This document serves to formally notify both the court and opposing parties of the appellant's intention to seek review of a trial court's decision by a higher court. The Notice of Appeal is a jurisdictional document, meaning that failure to file it properly and timely can result in the permanent loss of appellate rights.\n\n## Document Purpose and Legal Context\n\nThe Notice of Appeal must be prepared with precision and filed within strict statutory deadlines, which vary by jurisdiction but are typically 30 days from entry of final judgment in civil cases and 14 days in criminal cases under federal rules. State court deadlines may differ significantly. This document does not contain legal arguments or detailed explanations of error; rather, it serves the ministerial function of invoking the appellate court's jurisdiction and identifying the judgment or order being challenged. The document must comply with all applicable rules of appellate procedure, including proper formatting, caption requirements, and service provisions.\n\n## Required Information and Document Structure\n\nBegin with a complete caption that identifies both the trial court where the case originated and the appellate court to which the appeal is being taken. Include the full legal names of all parties, maintaining their procedural designations from the trial court (plaintiff/defendant, petitioner/respondent) while adding their appellate designations (appellant/appellee). The trial court case number must be stated accurately, as this enables the appellate court to obtain the record. If an appellate case number has already been assigned, include it as well.\n\nThe body of the notice should contain a clear statement identifying the appealing party by full legal name, the appellate court to which the appeal is directed, and the specific judgment or order from which the appeal is taken. Specify the exact date the judgment or order was entered, not the date it was signed or the date the party received notice. If appealing from a partial judgment, an interlocutory order, or a post-judgment order, describe it with sufficient specificity to identify the ruling being challenged. When multiple orders are being appealed, list each one separately with its corresponding entry date.\n\n## Signature Block and Certificate of Service\n\nThe document must be signed by the attorney of record for the appellant, or by the appellant if proceeding pro se. Include complete contact information including the attorney's bar number, firm name, mailing address, telephone number, email address, and any other information required by local rules. The signature block should clearly identify the party being represented.\n\nAttach a certificate of service demonstrating that copies of the Notice of Appeal have been served on all parties or their counsel of record, using the method of service permitted by applicable rules. Specify the date and method of service, and list all parties served with their addresses. Many jurisdictions require simultaneous or near-simultaneous service on the trial court clerk.\n\n## Output Format and Filing Requirements\n\nGenerate the Notice of Appeal as a formal court document suitable for immediate filing, formatted according to the applicable court rules regarding margins, font size, line spacing, and page numbering. The document should be concise, typically one to two pages in length. Include any required cover sheets, civil cover sheets, or docketing statements that must accompany the Notice of Appeal in your jurisdiction. Ensure the document is suitable for both electronic filing systems and traditional paper filing, as requirements vary by court.",
+  "parent_skill_id": "6656102b-326d-43b3-a8eb-6cbe182c81c6",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "appeals"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

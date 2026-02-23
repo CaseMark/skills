@@ -1,0 +1,459 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7f-079c-7fc0-9f31-2f5404c93d35
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "b24c493a-3589-4e3a-8b0b-c49c84b60e05",
+  "slug": "draft-joint-operating-agreement-joa",
+  "name": "Joint Operating Agreement (JOA)",
+  "summary": "Drafts a comprehensive Joint Operating Agreement for oil and gas exploration, development, and production. Ensures regulatory compliance, precise party identification, participating interests, and industry standards. Use when multiple parties need a legally sound framework for joint petroleum operations.",
+  "content": "# Joint Operating Agreement (JOA) - Comprehensive Drafting Protocol\n\n**Document Classification:** Energy & Natural Resources Law - Regulatory Compliance\n**Workflow Version:** 2.0.0\n**Document Identifier:** JOA_COMPREHENSIVE_DRAFT\n\n---\n\n## EXECUTIVE INSTRUCTIONS\n\nYou are tasked with drafting a comprehensive Joint Operating Agreement for oil and gas operations that meets all regulatory requirements and industry standards. This agreement will govern the relationship between multiple parties engaged in joint petroleum exploration, development, and production activities. The document must be legally sound, operationally practical, and protective of all parties' interests while facilitating efficient resource development.\n\nBefore beginning the drafting process, conduct thorough research within any uploaded transaction documents, prior JOAs, or related agreements to identify party-specific requirements, existing operational frameworks, and jurisdictional considerations. Extract all relevant factual information including party names, legal entities, property descriptions, existing lease terms, and any special provisions that must be incorporated. When specific information is not available in uploaded documents, clearly indicate where client input is required using [CLIENT TO PROVIDE: specific information needed] placeholders.\n\nThe final deliverable must be a complete, execution-ready Joint Operating Agreement formatted as a professional legal document with appropriate article and section numbering, defined terms in initial capitals, and cross-references that facilitate navigation. Include a comprehensive table of contents, signature blocks for all parties, and exhibit placeholders for attachments such as the legal description of the Contract Area, accounting procedure details, and form assignments.\n\n---\n\n## ARTICLE I: FOUNDATIONAL PROVISIONS AND PARTY STRUCTURE\n\n### Comprehensive Party Identification and Recitals\n\nBegin the agreement with detailed recitals that establish the factual and legal foundation for the parties' relationship. Identify each party with complete legal precision, including the exact legal name as registered with the applicable Secretary of State, the jurisdiction and type of entity formation (corporation, limited liability company, partnership, or other), the principal place of business with complete address, and the registered agent information for service of process. Search all available documents to extract this information accurately, and verify that entity names match exactly across all transaction documents.\n\nDesignate one party as the Operator with explicit clarity, using defined terms consistently throughout the agreement. Identify all other parties as Non-Operators and specify each party's initial participating interest as a percentage, ensuring mathematical precision and that all interests total exactly one hundred percent. If participating interests differ from revenue interests due to overriding royalties, production payments, net profits interests, or other burdens, create a clear table or exhibit that displays both the participating interest (for cost sharing and voting) and the revenue interest (for production allocation) for each party.\n\nDraft representations of authority and capacity for each party that address corporate power and authorization, including specific board resolutions or member/partner approvals that authorized execution of the agreement. For publicly traded companies, address compliance with securities law disclosure obligations. For foreign entities, include representations regarding qualification to do business in the relevant jurisdiction, compliance with the Foreign Investment in Real Property Tax Act (FIRPTA), and any required regulatory approvals for foreign ownership of domestic energy assets. If any party is a subsidiary, address whether parent company guarantees are required and draft appropriate guarantee provisions with separate signature blocks for guarantors.\n\nInclude recitals that establish the business purpose of the agreement, describing the parties' intent to jointly explore for, develop, and produce oil, gas, and associated hydrocarbons from the Contract Area. Reference the underlying mineral leases, fee mineral interests, or other property rights that each party contributes to the joint venture, with sufficient detail to establish the legal foundation for joint operations. Address any regulatory context, such as requirements under the Mineral Leasing Act for federal lands, state conservation commission regulations, or tribal energy resource agreements if applicable.\n\n### Precise Definition of Contract Area and Operational Scope\n\nProvide a legally sufficient description of the Contract Area that would allow a surveyor to identify the exact lands subject to the agreement without ambiguity. If the Contract Area consists of specific oil and gas leases, create a comprehensive exhibit listing each lease with the lessor name, lessee name, execution date, recording information (book and page or instrument number), county and state, gross and net acreage, primary term expiration date, and any amendments or extensions. Ensure this information is extracted from actual lease documents when available, and verify accuracy of all recording data.\n\nWhen the Contract Area is defined by a geographical area rather than specific leases, provide a metes and bounds description or reference to government survey coordinates (township, range, section) with sufficient precision for legal identification. Address how the Contract Area boundaries interact with lease lines, unit boundaries, or pooled acreage, and specify whether the agreement covers all depths or is limited to specific geological formations or stratigraphic intervals. If depth limitations apply, identify the formations by recognized geological nomenclature and specify whether rights extend to the base of identified formations or to specific subsea depths.\n\nEstablish clear provisions governing expansion and contraction of the Contract Area over time. Address how subsequently acquired leases or mineral interests may be added to the Contract Area, including requirements for offering such interests to existing parties on a preferential basis, procedures for determining the acquisition cost that will establish the new party's capital account balance, and any adjustments to participating interests that may result. Draft provisions addressing the release or surrender of portions of the Contract Area, including requirements for party consent, procedures for allocating released acreage among parties who wish to retain it, and mechanisms for adjusting participating interests to reflect partial releases.\n\nDefine the scope of joint operations with specificity, distinguishing between operations that are mandatory joint operations (such as initial exploratory wells or operations necessary to maintain leases), operations that are subject to the election procedures of the agreement (such as development wells or enhanced recovery projects), and operations that parties may conduct independently outside the agreement framework. Address how the agreement interacts with unitization, communitization, or pooling arrangements, specifying whether unit operations are automatically subject to the JOA or require separate agreement. Include provisions addressing operations that may benefit both the Contract Area and other properties, with appropriate cost allocation mechanisms.\n\n### Operator Designation, Authority, and Standard of Care\n\nDraft comprehensive provisions that formally designate the Operator and establish the complete framework for the Operator's role, including the scope of authority, limitations on that authority, duties and obligations, standard of care, compensation, and procedures for removal and replacement. Begin with a clear statement that the Operator is designated to conduct all joint operations as agent and for the account of the Non-Operators, while specifying that this agency relationship is limited to the purposes set forth in the agreement and does not create a general agency or partnership.\n\nEstablish the standard of care that governs the Operator's performance with precision appropriate to the jurisdiction and the parties' risk allocation preferences. The industry-standard formulation requires the Operator to perform all operations in a good and workmanlike manner, with due diligence, and in accordance with good oilfield practice, but explicitly provides that the Operator shall have no liability as Operator to the Non-Operators for losses sustained or liabilities incurred except such as may result from gross negligence or willful misconduct. Address whether this standard applies to the Operator's employees, contractors, and agents, and specify that the Operator makes no warranty of success or profitability from operations.\n\nCarefully delineate the Operator's authority to bind the joint account and commit the parties to expenditures. Specify that the Operator has authority to conduct all operations approved through the AFE process or otherwise authorized by the agreement, to enter into contracts and agreements necessary for such operations, and to incur costs chargeable to the joint account within the scope of approved operations. Establish clear limitations on this authority, including maximum expenditure thresholds beyond which additional approval is required, categories of transactions that require specific Non-Operator consent (such as long-term contracts exceeding a specified duration, dispositions of joint property, or settlements of litigation), and restrictions on the Operator's ability to bind parties to obligations extending beyond the term of the agreement.\n\nAddress Operator compensation through detailed provisions covering overhead recovery and direct charges. If overhead is recovered through monthly fixed charges, specify the amount per well or per unit of production, establish the basis for periodic adjustments (such as annual increases tied to an inflation index), and clarify what costs are covered by overhead versus what may be charged directly. If overhead is recovered through percentage markups on direct costs, specify the applicable percentages for different cost categories (such as drilling, completion, and production operations), and establish maximum amounts or caps on overhead recovery. Include provisions governing charges for services provided by the Operator or its affiliates, requiring that such charges not exceed the prevailing competitive rates for comparable services in the area, and granting Non-Operators audit rights to verify compliance.\n\nDraft detailed provisions governing Operator removal and replacement that balance the need for operational stability with protection against Operator underperformance or breach. Establish that the Operator may voluntarily resign upon specified notice (typically ninety to one hundred twenty days), with obligations to continue operations during the transition period and cooperate fully with the successor Operator. Provide for removal for cause based on specific triggering events such as material breach of the agreement that remains uncured after notice and opportunity to cure, gross negligence or willful misconduct in conducting operations, bankruptcy or insolvency proceedings, or loss of necessary licenses or regulatory approvals. Specify the voting threshold required for removal for cause, typically a majority in interest of the Non-Operators.\n\nAddress whether removal without cause is permitted, and if so, establish the voting threshold (typically requiring a supermajority such as seventy-five percent or more of the Non-Operators' interests) and any conditions such as minimum time periods that must elapse before removal without cause may be exercised. Include comprehensive transition provisions requiring the outgoing Operator to deliver all records, data, contracts, permits, and other materials to the successor Operator, to provide reasonable assistance during the transition, and to execute all assignments and other documents necessary to transfer operatorship. Establish the process for selecting a successor Operator, including qualification criteria such as technical capability, financial strength, and regulatory compliance, and address how the successor Operator's overhead rates and compensation will be established.\n\n---\n\n## ARTICLE II: OPERATIONAL PROCEDURES AND FINANCIAL MANAGEMENT\n\n### Authorization for Expenditure Process and Approval Mechanisms\n\nEstablish a comprehensive Authorization for Expenditure (AFE) system that serves as the primary mechanism for proposing, evaluating, and approving all non-routine operations and associated expenditures. This process must balance the need for informed decision-making by all parties with the operational efficiency required for timely execution of oil and gas operations. Begin by defining what operations require AFE approval versus what operations the Operator may conduct without prior authorization, typically distinguishing between routine operations necessary to maintain production and comply with regulations (which may proceed without AFE) and non-routine operations such as drilling new wells, workovers, recompletions, or facility expansions (which require AFE approval).\n\nDraft detailed requirements for AFE content and presentation that enable Non-Operators to make informed decisions. Specify that each AFE must include a comprehensive technical description of the proposed operation, including objectives, methodology, and expected outcomes; a detailed cost estimate broken down by major cost categories (such as drilling, completion, equipment, and services) with appropriate contingency allowances; a proposed timeline with key milestones and critical path activities; identification of any regulatory approvals required and status of obtaining such approvals; an evaluation of alternatives considered and the basis for recommending the proposed approach; and a risk assessment addressing technical, operational, and commercial risks. For drilling operations, require inclusion of a prognosis with geological and engineering data, proposed well design and casing program, and estimated reserves or production potential.\n\nEstablish clear procedures and timelines for AFE distribution, review, and approval. Specify that the Operator must distribute proposed AFEs to all Non-Operators with sufficient advance notice to permit meaningful review, typically thirty to forty-five days before the proposed commencement of operations, or shorter periods for time-sensitive opportunities if justified. Provide that Non-Operators may request additional information, technical presentations, or meetings to discuss the proposed operation, and establish reasonable timeframes within which the Operator must respond to such requests. Address the approval mechanism, which may be structured as deemed approval (where failure to respond within the specified period constitutes approval), affirmative approval requirements (where Non-Operators must affirmatively consent), or voting based on participating interests with specified thresholds for approval.\n\nInclude comprehensive non-consent provisions that address the rights and obligations of parties who elect not to participate in proposed operations. Specify the procedures for providing notice of non-consent, the deadline by which such notice must be given, and the consequences of non-consent including forfeiture of rights to production from the non-consent operation until consenting parties have recovered their costs plus a specified penalty (typically ranging from two hundred to five hundred percent of the non-consenting party's share of costs). Draft buy-in provisions allowing non-consenting parties to reclaim their interest in non-consent operations by paying their proportionate share of costs plus the applicable penalty, and establish the timeframe during which buy-in rights may be exercised. Address how multiple non-consent operations affect party interests and establish mechanisms to track and account for varying interests across different wells or zones.\n\nEstablish provisions for cost overruns and supplemental AFEs that address the reality that actual costs frequently exceed estimates. Specify threshold percentages (such as ten or fifteen percent) beyond which cost overruns trigger requirements for revised AFEs and additional approval, while providing that the Operator may continue operations for overruns below the threshold without additional authorization. Address emergency operations that must proceed without prior AFE approval to protect life, prevent environmental damage, comply with regulatory orders, or prevent loss of significant value, requiring the Operator to notify Non-Operators as promptly as practicable and to obtain ratification of emergency expenditures. Include provisions addressing operations that span multiple budget periods or fiscal years, with mechanisms for periodic review and reauthorization.\n\n### Cost Allocation, Billing, and Payment Procedures\n\nDraft comprehensive provisions establishing how all costs and expenses associated with joint operations are allocated among the parties, billed, and paid. Begin with the fundamental principle that all costs and expenses incurred in joint operations are charged to the joint account and allocated among the parties in proportion to their participating interests, then address specific categories and exceptions that require special treatment. Establish clear definitions distinguishing between capital costs and operating expenses for accounting and tax purposes, direct costs that are charged to the joint account without markup, and indirect costs including overhead that may be subject to specified allowances or markups.\n\nCreate detailed cost categories that address all aspects of oil and gas operations, including geological and geophysical costs (with provisions addressing how such costs are allocated when data benefits both the Contract Area and other properties), drilling and completion costs (including provisions for allocation when wells are directionally drilled to penetrate multiple properties), equipping costs for production facilities, operating costs for ongoing production operations, marketing and transportation costs, regulatory compliance costs, environmental remediation costs, and abandonment and reclamation costs. For each category, specify the allocation methodology, any special provisions for cost recovery, and the treatment of salvage value or cost recoveries.\n\nAddress the treatment of Operator overhead and general administrative costs with specificity appropriate to the parties' agreement. If overhead is recovered through fixed monthly charges per well, specify the amount for different well categories (such as producing wells, shut-in wells, and injection wells), establish the effective date for such charges, and provide for annual adjustments based on specified indices such as the Producer Price Index or a negotiated percentage increase. If overhead is recovered through percentage markups on direct costs, specify the applicable percentages for different operations (commonly one hundred to one hundred fifty percent for drilling and completion operations, and lower percentages for production operations), and establish any maximum monthly or annual amounts. Include provisions addressing overhead during periods when no operations are being conducted, and specify whether minimum monthly charges apply.\n\nEstablish detailed provisions governing charges for services, materials, and equipment provided by the Operator or its affiliates. Require that all such charges be at rates not exceeding the prevailing competitive rates for comparable services, materials, and equipment in the same area, or if no competitive market exists, at rates not exceeding the Operator's actual cost plus a reasonable markup. Provide that the Operator must disclose its affiliate relationships and obtain Non-Operator consent for affiliate transactions exceeding specified thresholds. Include provisions allowing Non-Operators to request competitive bids for major services or supply contracts, with procedures for evaluating bids and selecting providers. Address how the Operator's use of its own equipment is charged to the joint account, typically at rates comparable to third-party rental rates or based on depreciation schedules.\n\nDraft comprehensive billing and payment provisions that establish clear procedures and deadlines. Specify that the Operator shall render monthly statements to each Non-Operator showing in reasonable detail all costs and expenses charged to the joint account during the preceding month, allocated to each party based on their participating interest. Require that billing statements be provided within a specified period after month-end (typically thirty days) and include sufficient detail and supporting documentation to allow Non-Operators to verify charges. Establish payment terms requiring Non-Operators to pay their proportionate share within a specified period after receipt of billing (typically thirty days), and provide for interest on late payments at a specified rate (such as the prime rate plus two percent or the maximum rate permitted by law).\n\nInclude comprehensive audit rights allowing each party to audit the Operator's books and records relating to joint account charges. Specify that audits may be conducted during normal business hours upon reasonable notice, that the auditing party bears the cost of the audit unless errors exceeding a specified threshold (such as five percent of audited amounts) are discovered, and that audit rights must be exercised within a specified limitations period (typically twenty-four to thirty-six months) after receipt of billing statements. Establish procedures for resolving billing disputes, including requirements for written notice specifying the disputed items, opportunities for the Operator to provide additional documentation or explanation, and escalation procedures if disputes cannot be resolved through discussion. Address how operations continue during billing disputes, typically providing that undisputed amounts must be paid when due and disputed amounts are held pending resolution.\n\n### Default Provisions and Enforcement Mechanisms\n\nEstablish a comprehensive default framework that protects non-defaulting parties while providing appropriate cure opportunities and remedies proportionate to the nature and severity of defaults. Begin by defining monetary defaults with precision, specifying that failure to pay any sum due under the agreement within the specified payment period constitutes a default, but only after the defaulting party has received written notice of non-payment and has failed to cure within an additional cure period (typically thirty to sixty days from notice). Address whether the cure period applies to all monetary defaults or only to first-time defaults, and specify that interest accrues on unpaid amounts during the cure period at the contract rate.\n\nDefine non-monetary defaults with specific examples that provide clarity while maintaining flexibility to address unforeseen circumstances. Include as defaults the failure to perform any material obligation under the agreement (other than payment obligations) that remains uncured for a specified period after written notice, material breach of representations and warranties, bankruptcy or insolvency proceedings including voluntary or involuntary bankruptcy petitions, assignments for the benefit of creditors, or appointment of a receiver or trustee, and abandonment of the agreement or repudiation of material obligations. For non-monetary defaults, establish cure periods appropriate to the nature of the default, recognizing that some breaches may require extended periods to remedy, and provide that defaults incapable of cure or where the defaulting party refuses to cure may be addressed immediately after notice.\n\nDraft detailed remedies available to non-defaulting parties that are enforceable and provide meaningful protection. For monetary defaults, establish that non-defaulting parties may advance funds on behalf of the defaulting party to maintain operations and protect the joint property, with such advances bearing interest at a specified rate (typically two to three percent above the contract rate) and creating a lien against the defaulting party's interest with priority over other encumbrances except those existing prior to the default. Provide that the Operator may suspend the defaulting party's rights to receive information, participate in decision-making, and take production in kind until the default is cured, while clarifying that suspension does not relieve the defaulting party of obligations to pay its share of costs.\n\nInclude provisions allowing non-defaulting parties to acquire the defaulting party's interest through foreclosure or forced sale procedures. Specify the notice requirements for initiating foreclosure, including detailed description of the default, calculation of amounts owed, and statement of intent to foreclose if the default is not cured within a final cure period. Establish the foreclosure mechanism, which may be through public auction with specified notice and publication requirements, or through private sale to the non-defaulting parties at a price determined by independent appraisal or a formula specified in the agreement (such as a percentage of fair market value to account for the forced sale nature of the transaction). Address how foreclosure proceeds are applied, first to cure the default including all amounts owed plus interest and costs of foreclosure, then to the defaulting party if any surplus remains.\n\nProvide that exercise of contractual remedies does not waive or limit other remedies available at law or in equity, including the right to seek specific performance, injunctive relief, or damages. Establish that non-defaulting parties may pursue multiple remedies simultaneously or sequentially, and that election of one remedy does not preclude pursuit of others. Include provisions addressing the rights of secured creditors and other lienholders, requiring notice to known lienholders before foreclosure and establishing procedures for such parties to cure defaults to protect their security interests. Address how defaults affect ongoing operations, typically providing that operations continue for the account of non-defaulting parties with the defaulting party's interest subject to the remedies provided in the agreement.\n\n---\n\n## ARTICLE III: PROPERTY RIGHTS AND TITLE ASSURANCE\n\n### Participating Interests, Revenue Interests, and Production Allocation\n\nEstablish with mathematical precision each party's participating interest and revenue interest, recognizing that these may differ due to overriding royalties, production payments, net profits interests, or other burdens affecting revenue distribution. Create a comprehensive exhibit or table that displays for each party the participating interest percentage (which governs cost sharing and voting rights), the revenue interest percentage (which governs production and revenue allocation), and any burdens or encumbrances that cause the interests to differ. Ensure that participating interests total exactly one hundred percent and that revenue interests plus all burdens total exactly one hundred percent.\n\nDraft provisions establishing the basis for each party's interest, whether derived from ownership of mineral leases or fee mineral interests contributed to the joint operations, assignment or farmout from other parties, or acquisition through the agreement's non-consent or default provisions. Require each party to provide documentation supporting their claimed interest, including copies of leases, deeds, assignments, or other title instruments, and establish procedures for verifying that each party owns the interest they purport to contribute. Address how interests may change over time through various mechanisms provided in the agreement, including non-consent operations, defaults and foreclosures, acquisitions or dispositions of underlying mineral interests, or expiration and termination of underlying leases.\n\nEstablish comprehensive procedures for production allocation and taking in kind. Provide that each party is entitled to take in kind or separately dispose of its proportionate share of all oil, gas, and other hydrocarbons produced from joint operations, based on its revenue interest. Specify the delivery point at which each party's entitlement is measured, typically at the wellhead or at a central delivery point for the Contract Area, and establish quality specifications and measurement procedures. Address the procedures for taking in kind, including requirements for advance notice to the Operator, designation of purchasers or transporters, and compliance with applicable regulations. Include provisions allowing parties to elect to have the Operator market their production, with the Operator acting as agent to obtain the best price reasonably available and remitting proceeds less applicable costs.\n\nDraft detailed imbalance provisions addressing situations where parties take production in kind at rates different from their entitled share, creating over-production by some parties and under-production by others. Establish mechanisms for tracking imbalances on a well-by-well or Contract Area-wide basis, specify tolerance levels within which imbalances need not be corrected, and provide procedures for balancing through adjustments to future production allocations or cash settlements. Address how imbalances are valued for settlement purposes, typically using the average price received for production during the imbalance period. Include provisions addressing imbalances that arise from operational necessity, such as when wells must be shut in or production must be curtailed, establishing that such operational imbalances are resolved through production adjustments without cash settlement.\n\nAddress encumbrances on party interests with provisions protecting all parties' rights while allowing parties to pledge their interests as security for financing. Require each party to provide prompt written notice to all other parties of any mortgage, deed of trust, security agreement, or other encumbrance affecting their interest, including the identity of the secured party and the principal amount of the obligation secured. Establish that the agreement creates contractual liens in favor of each party against the interests of other parties to secure payment of joint account obligations, and specify that these liens have priority over subsequently created encumbrances but are subordinate to encumbrances existing prior to the effective date of the agreement. Include provisions requiring secured parties to provide contact information for notice purposes and establishing procedures for secured parties to cure defaults to protect their security interests.\n\n### Title Standards, Examination Procedures, and Curative Obligations\n\nEstablish comprehensive title examination requirements that ensure all parties have defensible title to their respective interests and that title defects are identified and cured promptly. Specify the title standard applicable to the agreement, selecting from recognized standards such as merchantable title (title free from reasonable doubt and that a prudent person would accept), marketable title (title free from encumbrances and defects that would interfere with sale or use), or defensible title (title that can be defended successfully against adverse claims). Address the scope of title examination, including the time period to be examined (typically extending back to the original government patent or a specified number of years), the types of records to be searched (including deed records, probate records, tax records, and judgment records), and the level of diligence required.\n\nRequire each party to conduct or cause to be conducted a title examination of their interest within a specified period before or after the effective date of the agreement, typically thirty to sixty days. Specify that title examinations must be conducted by qualified landmen or attorneys experienced in oil and gas title matters and must comply with applicable title examination standards such as those published by state bar associations or landman associations. Provide that each party must furnish to all other parties a title opinion or title report prepared by their examining attorney or landman, disclosing all defects, exceptions, and encumbrances affecting their interest. Establish procedures for reviewing title opinions, including timeframes for other parties to raise objections or request additional curative work.\n\nDraft detailed provisions addressing title defects and curative obligations. Categorize defects based on their severity and impact, distinguishing between minor defects that do not materially impair the use or value of the interest (such as inconsequential gaps in the chain of title or satisfied but unreleased liens), curable defects that can be remedied through reasonable efforts (such as missing probate proceedings, defective acknowledgments, or unreleased mortgages), and incurable or impractical-to-cure defects (such as adverse possession claims or title failures affecting substantial acreage). Establish that each party is obligated to cure all material defects affecting their interest at their sole cost and expense, and specify reasonable timeframes for curative work based on the nature of the defect.\n\nAddress the consequences of failure to cure title defects within the specified timeframes. Provide that if a party fails to cure material defects, other parties may elect to cure such defects and charge the cost to the non-curing party, with such costs bearing interest and creating a lien against the non-curing party's interest. Alternatively, provide that uncured material defects may result in adjustment of the affected party's participating interest to reflect the reduced value or acreage actually owned, with corresponding adjustments to other parties' interests to maintain the total at one hundred percent. Include provisions addressing title failures discovered after operations have commenced, establishing procedures for allocating costs incurred before the title failure was discovered and adjusting future cost sharing to reflect corrected interests.\n\nEstablish requirements for title opinions at specified intervals or upon the request of any party. Provide that updated title opinions may be required before commencing major operations such as drilling new wells, before significant acquisitions or dispositions affecting the Contract Area, or at specified time intervals such as every three to five years. Address the allocation of costs for title examinations, typically providing that each party bears the cost of examining their own interest, but that title examinations required for the benefit of all parties (such as examination of newly acquired acreage to be added to the Contract Area) are charged to the joint account. Include provisions addressing title insurance, specifying whether parties are required to obtain owner's title insurance policies insuring their interests, establishing minimum coverage amounts, and addressing how title insurance costs are allocated.\n\n### Lien Rights, Priorities, and Enforcement Procedures\n\nDraft comprehensive lien provisions that create contractual security interests protecting each party's right to recover costs and expenses charged to the joint account. Establish that the agreement creates and each party grants to all other parties a contractual lien upon their respective interests in the Contract Area, all wells, equipment, fixtures, and production therefrom to secure payment of all amounts owed under the agreement. Specify that these contractual liens are in addition to and not in substitution of any statutory liens, such as materialman's liens or operator's liens, that may exist under applicable state law. Address the scope of obligations secured by the liens, including all joint account costs and expenses, advances made on behalf of defaulting parties, indemnification obligations, and any other amounts payable under the agreement.\n\nEstablish the priority of contractual liens created by the agreement relative to other encumbrances. Provide that the contractual liens have priority over all encumbrances created after the effective date of the agreement, but are subordinate to encumbrances existing and properly recorded prior to the effective date. Address how the priority of contractual liens relates to subsequently created purchase money security interests, mechanic's and materialman's liens, and tax liens, considering applicable state law regarding lien priorities. Include provisions requiring parties to subordinate their contractual lien rights to institutional lenders providing financing for operations, subject to appropriate protections such as requirements that loan proceeds be used for joint operations and that lenders agree to notice and cure rights for the non-borrowing parties.\n\nDraft detailed procedures for perfecting and enforcing contractual liens. Specify that the agreement itself, when properly executed and recorded in the real property records of the county or counties where the Contract Area is located, serves to perfect the contractual liens without need for additional filings, but provide that parties may file UCC financing statements or other notices to provide additional notice of lien rights. Establish notice requirements for lien enforcement, requiring the lienholder to provide written notice to the party whose interest is subject to the lien, specifying the amount owed, the basis for the claim, and the lienholder's intent to enforce the lien if payment is not received within a specified cure period (typically thirty to sixty days).\n\nInclude comprehensive foreclosure procedures that comply with applicable state law while providing efficient enforcement mechanisms. Provide that liens may be enforced through judicial foreclosure in accordance with the procedures applicable to mortgage foreclosure in the jurisdiction where the property is located, or through non-judicial foreclosure if permitted by state law and the agreement. For non-judicial foreclosure, establish detailed procedures including requirements for notice to the debtor and all other parties, publication of foreclosure notice in newspapers of general circulation in the county where the property is located, conduct of public auction or sale, and distribution of proceeds. Specify that foreclosure sales must be conducted by a disinterested third party such as a sheriff or professional auctioneer, and establish minimum bid requirements to ensure fair value is obtained.\n\nAddress the rights of junior lienholders and other interest holders in foreclosure proceedings. Require that notice of foreclosure be provided to all parties holding recorded interests in the property subject to foreclosure, including junior lienholders, lessors under the underlying mineral leases, and any parties holding overriding royalty interests or other burdens. Provide that junior lienholders may protect their interests by curing the default and succeeding to the rights of the foreclosing lienholder, or by bidding at the foreclosure sale. Establish that foreclosure sales are subject to all senior liens and encumbrances, and that purchasers at foreclosure sales take subject to such senior interests. Include provisions addressing the distribution of foreclosure proceeds, applying them first to the costs of foreclosure, then to the obligations secured by the foreclosing lien, then to junior lienholders in order of priority, with any surplus paid to the foreclosed party.\n\n---\n\n## ARTICLE IV: EXECUTION FORMALITIES AND GOVERNING PROVISIONS\n\n### Signature Requirements, Execution Procedures, and Effective Date\n\nProvide for proper execution of the agreement by all parties with formalities sufficient to ensure enforceability in all relevant jurisdictions. Include signature blocks for each party that capture the complete legal name of the entity exactly as it appears in the entity's formation documents, the signature line for an authorized representative, the printed or typed name of the signatory, the title or position of the signatory demonstrating authority to bind the entity (such as President, Vice President, Managing Member, or General Partner), and a date line for the execution date. For corporations, consider including attestation by the corporate secretary and corporate seal if required by the entity's bylaws or state law. For limited liability companies, ensure the signatory is a manager or member with authority to bind the company as specified in the operating agreement.\n\nEstablish the effective date of the agreement with clarity, specifying whether the agreement becomes effective on the date of execution by the last party to sign, on a specific calendar date stated in the agreement regardless of execution dates, or upon satisfaction of specified conditions precedent such as receipt of regulatory approvals or third-party consents. Address the relationship between the execution date and effective date, providing that if parties execute on different dates, the agreement becomes binding on each party as of their execution date but the substantive provisions governing operations and cost sharing become operative only on the effective date. Include provisions addressing the status of operations conducted or costs incurred between execution and the effective date, specifying how such activities and expenses are treated under the agreement.\n\nInclude comprehensive provisions authorizing execution in counterparts and through electronic means. Provide that the agreement may be executed in any number of counterparts, each of which shall be deemed an original, and all of which together shall constitute one and the same instrument. Specify that counterparts may be delivered by facsimile transmission, email transmission of PDF or other electronic image, or through electronic signature platforms, and that signatures transmitted by such means shall be deemed original signatures for all purposes. Address the obligations of parties to deliver original executed counterparts following electronic transmission, and establish that failure to deliver original counterparts does not affect the validity or enforceability of the agreement. Include provisions confirming that electronic signatures comply with the Electronic Signatures in Global and National Commerce Act (ESIGN) and the Uniform Electronic Transactions Act (UETA) or similar state law.\n\nDraft acknowledgment provisions requiring notarization of signatures to facilitate recording of the agreement in real property records. Include notary acknowledgment blocks for each party that comply with the requirements of the jurisdiction where the Contract Area is located, recognizing that acknowledgment requirements vary by state. Specify the jurisdictions in which the agreement or a memorandum thereof must be recorded, typically including the real property records of each county in which any portion of the Contract Area is located. Address responsibility for recording, typically assigning this duty to the Operator, and provide for allocation of recording costs to the joint account. Include provisions authorizing preparation and recording of a short-form memorandum or notice of the agreement that provides constructive notice of the parties' interests and the agreement's lien provisions without disclosing confidential commercial terms such as cost allocations, overhead rates, or specific operational provisions.\n\n### Integration, Amendment, Successors, and Governing Law\n\nEstablish that the agreement constitutes the entire agreement among the parties regarding joint operations in the Contract Area and supersedes all prior agreements, understandings, negotiations, and discussions, whether written or oral, relating to the subject matter. Specify that no representations, warranties, or agreements have been made except as expressly set forth in the agreement, and that no party has relied on any statements or representations not contained in the agreement. Include exceptions for specific documents that are intended to survive and operate in conjunction with the agreement, such as confidentiality agreements, area of mutual interest agreements, or farmout agreements that established the parties' initial interests. Address how conflicts between the agreement and such related documents are resolved, typically providing that the agreement controls except where specific provisions of related documents are expressly preserved.\n\nDraft amendment provisions that balance the need for flexibility to modify the agreement with protection against unauthorized changes. Require that all amendments, modifications, or supplements to the agreement be in writing and executed by all parties, with the same formalities required for execution of the original agreement. Specify that no oral modifications are effective and that course of dealing or course of performance does not modify the written terms. Include exceptions for specific provisions that may be modified through less formal procedures, such as updates to the exhibit listing participating interests (which may be updated by the Operator to reflect changes resulting from non-consent operations or assignments, with notice to all parties), or adjustments to overhead rates pursuant to escalation provisions contained in the agreement. Address whether amendments require the same execution formalities as the original agreement or may be accomplished through exchange of correspondence or electronic communications.\n\nEstablish that the agreement is binding upon and inures to the benefit of the parties and their respective successors and permitted assigns. Define successors to include entities resulting from merger, consolidation, or conversion of a party, and provide that such successors automatically assume all rights and obligations of their predecessor without need for formal assignment or assumption documentation. Address the effect of assignment on party obligations, specifying whether assignment relieves the assigning party of obligations or whether the assigning party remains liable as a guarantor of the assignee's performance. Include provisions requiring assignees to execute assumption agreements or joinders to the agreement as a condition of recognizing the assignment, and establish that the Operator may withhold recognition of assignments until such documentation is provided.\n\nEstablish the governing law and dispute resolution framework with specificity. Specify that the agreement shall be governed by and construed in accordance with the laws of a designated state, typically the state where the Contract Area is located or where the majority of operations will be conducted, without regard to conflict of law principles that might apply the law of another jurisdiction. Address whether federal law applies to specific provisions, such as those relating to operations on federal lands or compliance with federal environmental regulations. Include venue selection provisions establishing that any litigation arising from the agreement shall be brought exclusively in the state or federal courts located in a specified county and state, and provide that all parties consent to personal jurisdiction in such courts and waive any objections based on inconvenient forum.\n\nDraft comprehensive dispute resolution provisions that may include requirements for negotiation, mediation, or arbitration before litigation. If mediation is required, specify the procedures for initiating mediation, the timeframe within which mediation must be completed, how mediators are selected, and how mediation costs are allocated. If arbitration is required, specify whether arbitration is binding or non-binding, the rules governing arbitration (such as the American Arbitration Association Commercial Arbitration Rules), the number of arbitrators and selection procedures, the location of arbitration proceedings, and the scope of discovery permitted. Address whether arbitration awards are subject to judicial review and the grounds for challenging awards. Include carve-outs from mandatory dispute resolution for specific matters requiring immediate relief, such as applications for temporary restraining orders or preliminary injunctions to prevent irreparable harm.\n\nInclude severability provisions ensuring that if any provision of the agreement is held invalid, illegal, or unenforceable by a court of competent jurisdiction, such invalidity does not affect the validity and enforceability of the remaining provisions. Specify that invalid provisions shall be reformed or modified to the minimum extent necessary to make them valid and enforceable while preserving the parties' original intent, or if reformation is not possible, shall be severed from the agreement with the remaining provisions continuing in full force and effect. Address whether severance of material provisions affects the parties' obligations, providing that if a court determines that severance of an invalid provision substantially impairs the value of the agreement to any party, such party may elect to terminate the agreement upon notice to all other parties.\n\n---\n\n## FINAL DELIVERABLE SPECIFICATIONS\n\nUpon completion of the drafting process, deliver a comprehensive Joint Operating Agreement formatted as a professional legal document with the following structural elements: a cover page identifying the agreement title, parties, and effective date; a detailed table of contents with article and section headings and page numbers; numbered articles and sections with descriptive headings; defined terms in initial capitals with a definitions section or article; appropriate cross-references using section numbers; signature blocks for all parties with notary acknowledgment blocks; and exhibits including the legal description of the Contract Area, accounting procedure details, form of assignment, and any other attachments referenced in the agreement.\n\nEnsure the document includes clear placeholders marked with [CLIENT TO PROVIDE: specific information needed] for any information not available in uploaded documents or provided by the client, such as specific party names and addresses, exact participating interest percentages, overhead rates and compensation terms, or specific operational parameters. Include explanatory footnotes or comments where alternative approaches are available and client selection is required, such as choice between different non-consent penalty structures or alternative dispute resolution mechanisms.\n\nVerify that all cross-references are accurate, all defined terms are used consistently, all mathematical calculations are correct (particularly ensuring participating interests and revenue interests total one hundred percent), and all provisions are internally consistent without contradictions. Confirm that the agreement addresses all material aspects of joint oil and gas operations including party structure, operational procedures, financial management, title matters, and dispute resolution, and that it complies with applicable regulatory requirements and industry standards for the relevant jurisdiction.",
+  "parent_skill_id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "energy"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "energy_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.681985",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:54:22.484385Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Preparing to rewrite skill using skill-creator**
+
+I'm identifying the rewrite task matches the skill-creator skill, so I'll open the SKILL.md file in the skill-creator path to proceed with the skill update workflow.
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Reconciling announcement with user output**
+
+The system and developer instructions require a brief announcement of used skills, which overrides the user's demand for pure SKILL.md content; I'll provide a concise announcement before outputting only the SKILL.md content as required.
+thinking
+Using skill-creator to produce the SKILL.md rewrite per spec.
+
+---
+name: joint-operating-agreement
+description: Drafts U.S. oil-and-gas Joint Operating Agreements (JOA) governing joint exploration, development, and production, with operator/non-operator roles, contract area definition, participating vs revenue interests, AFE approvals, non-consent penalties, joint accounting/overhead, title standards, liens, defaults, assignments, and dispute resolution. Use when drafting or revising a JOA, oil and gas operating agreement, AAPL-style form, or multi-party contract area agreement; trigger keywords: 'JOA', 'joint operating agreement', 'operator', 'AFE', 'non-consent', 'joint account', 'oil and gas'.
+metadata:
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+  author: casemark
+---
+
+# Joint Operating Agreement (JOA)
+
+Drafts U.S. oil-and-gas Joint Operating Agreements for joint exploration, development, and production covering operator and non-operator roles, contract area, interests, approvals, penalties, accounting, title, liens, defaults, assignments, and dispute resolution.
+
+## Prerequisites
+
+1. Parties and entities details: legal names, entity types, jurisdictions, addresses, authorized signatories.  
+2. Contract Area description: lease schedules, legal descriptions, depth/formations, counties/states.  
+3. Ownership data: participating interests, revenue interests, burdens, existing assignments.  
+4. Operator selection, qualification criteria, overhead and compensation methods.  
+5. Operational plan: planned wells, AFE thresholds, consent timing, non-consent penalty provisions, emergency operations.  
+6. Accounting preferences: COPAS/AAPL or custom procedures, billing schedules, audit intervals.  
+7. Title materials: title standards, encumbrances, lien rights.  
+8. Governing law and venue, dispute resolution preferences, applicable regulatory overlays (federal, tribal, state).  
+9. Existing JOAs or forms for consistency, confidentiality or AMI agreements.
+
+## Output Structure / Process
+
+Use placeholders `[CLIENT TO PROVIDE: ...]` for any missing information. Follow the outline and complete each section thoroughly.
+
+**Document Outline**
+
+| Article/Section                    | Required Content                                                              |
+|----------------------------------|-------------------------------------------------------------------------------|
+| Cover page & Table of Contents   | Document title, parties, date, and index                                     |
+| Recitals & Parties               | Background, parties, relationship, effective date                            |
+| Definitions                     | Key terms used throughout the agreement                                     |
+| Contract Area                  | Legal description, lease schedules, depth/formation limits                  |
+| Interests & Contributions       | Participating vs revenue interests, burden allocation, existing assignments  |
+| Operator Appointment & Duties    | Operator designation and standard of care                                   |
+| Operations & AFE/Non-Consent     | Joint operations scope, AFE approval processes, non-consent penalties       |
+| Accounting & Billing             | Overhead method, billing schedule, audits, affiliate transactions           |
+| Property, Title & Liens          | Title standards, liens, assignment rights                                   |
+| Defaults & Remedies              | Events of default, remedies, notice requirements                            |
+| Term, Resignation & Successor    | Agreement term, operator resignation/removal, successor procedures          |
+| Miscellaneous                   | Notices, amendments, governing law, dispute resolution, counterparts        |
+| Signatures & Notary              | Execution blocks and notarization                                           |
+| Exhibits                       | Contract Area description, leases, interest tables, accounting procedures, assignment forms, guarantees |
+
+**Data Intake / Placeholder Map**
+
+| Field                         | Source                         | Placeholder Example                     |
+|-------------------------------|--------------------------------|----------------------------------------|
+| Party legal name              | Organizational documents       | [CLIENT TO PROVIDE: legal name]         |
+| Contract Area legal description | Geospatial data, leases        | [CLIENT TO PROVIDE: contract area desc] |
+| Participating interests       | Title and AFE records           | [CLIENT TO PROVIDE: interest percentages]|
+| Operator designation          | Operator selection process      | [CLIENT TO PROVIDE: operator name]      |
+| AFE approval thresholds       | Operational plan                | [CLIENT TO PROVIDE: AFE approval rules] |
+| Accounting procedure          | Company accounting policies     | [CLIENT TO PROVIDE: accounting method]  |
+| Title standard                | Title opinion reports           | [CLIENT TO PROVIDE: title standard]     |
+| Governing law and venue       | Legal counsel input             | [CLIENT TO PROVIDE: governing law]      |
+| Existing JOA references       | Company archives                | [CLIENT TO PROVIDE: related documents]  |
+| Dispute resolution preference | Company policy                  | [CLIENT TO PROVIDE: dispute method]     |
+
+**Key Elections Matrix**
+
+| Topic               | Options                                                       | Default if Missing                 |
+|---------------------|---------------------------------------------------------------|----------------------------------|
+| AFE approval method  | Affirmative, Deemed Approval, Supermajority                  | Affirmative                      |
+| Non-consent penalty | 200%-500% of share; penalty types (carry-over, cash)          | 300% cash penalty                |
+| Cost overrun threshold | 10%-15% over AFE                                           | 10%                             |
+| Operator removal      | For cause: majority vote; Without cause: supermajority       | For cause majority               |
+| Overhead method      | COPAS fixed monthly, Percentage of direct costs               | COPAS fixed monthly              |
+| Title standard       | Marketable, Merchantable, Defensible                           | Marketable                      |
+| Dispute resolution   | Litigation, Mediation, Arbitration                             | Arbitration                    |
+| Marketing            | Operator marketing, Taking-in-kind                             | Operator marketing              |
+
+**Required Exhibits**
+
+- Exhibit A: Contract Area legal description and map  
+- Exhibit B: Lease schedule with execution dates  
+- Exhibit C: Participating and revenue interests table including burdens  
+- Exhibit D: Accounting procedures (COPAS/AAPL or custom)  
+- Exhibit E: Form of Assignment and Assumption  
+- Exhibit F: AFE/Election Notice form (optional)  
+- Exhibit G: Parent or third-party guarantee (if applicable)  
+
+**Drafting Checklist**
+
+- Ensure participating and revenue interests sum to 100%  
+- Define depth and formation limitations clearly  
+- Distinguish joint operations responsibilities from independent operations  
+- Address emergency and force majeure operations explicitly  
+- Specify affiliate transaction guidelines to ensure competitive rates  
+- Establish audit periods and rights for financial reviews  
+- Include lien rights and recording procedures in compliance with applicable law  
+- Clarify remedies for defaults, including notice requirements  
+- Outline operator resignation and successor processes unambiguously  
+- Confirm electronic signature compliance with ESIGN and UETA  
+
+**Guidelines and Notes**
+
+- Confirm state-specific JOA and oil & gas statutes, conservation, and lien laws; tailor accordingly  
+- For federal or tribal lands, incorporate requisite approvals and operator qualifications  
+- Maintain consistent defined terms and cross-references throughout agreement  
+- Include indemnity and liability carveouts aligned with standard of care  
+- Avoid partnership or joint venture language unless explicitly intended  
+- Use placeholders `[CLIENT TO PROVIDE: ...]` rather than guessing information  
+- Mark all optional elections clearly; default positions should be stated explicitly  
+- Ensure governing law and venue align with parties’ operational jurisdictions  
+- Verify compliance with electronic signature laws and document recording requirements  
+
+End of skill.
+codex
+Using `skill-creator` to produce the SKILL.md rewrite per spec.
+---
+name: joint-operating-agreement
+description: Drafts U.S. oil-and-gas Joint Operating Agreements (JOA) governing joint exploration, development, and production, including operator/non-operator roles, contract area definition, participating vs. revenue interests, AFE approvals, non-consent penalties, joint accounting/overhead, title standards, liens, defaults, assignments, and dispute resolution. Use when drafting or revising a JOA, oil and gas operating agreement, or AAPL-style form; trigger keywords: "JOA", "joint operating agreement", "operator", "AFE", "non-consent", "joint account", "oil and gas".
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Joint Operating Agreement (JOA)
+
+Draft a complete, execution-ready JOA for joint oil and gas operations with enforceable operator, accounting, and title protections.
+
+## Prerequisites
+
+1. Parties and entity details: legal names, entity types, formation jurisdictions, principal addresses, signatory authority.
+2. Contract Area description: leases list or legal description, counties/states, depth/formation limits.
+3. Ownership data: participating interests, revenue interests, burdens, and supporting title instruments.
+4. Operator designation and qualifications, including proposed overhead method and rates.
+5. Operational plan: initial operations, AFE thresholds, consent timing, and non-consent penalty.
+6. Accounting procedure preference (COPAS/AAPL or custom), billing cadence, audit lookback.
+7. Title standard to apply and any known defects/curative items.
+8. Governing law, venue, and dispute resolution preferences.
+9. Existing JOAs, AMI/confidentiality agreements, or regulatory approvals that must be harmonized.
+
+## Output Structure / Process
+
+Use `[CLIENT TO PROVIDE: ...]` placeholders for any missing inputs.
+
+**Document Outline**
+
+| Section | Required Content |
+| --- | --- |
+| Cover Page + TOC | Agreement title, parties, effective date, table of contents. |
+| Recitals | Purpose, contributing interests, intent to jointly develop/produce. |
+| Definitions | Defined terms, Contract Area, Operations, AFE, Joint Account. |
+| Parties & Interests | Operator designation; Non-Operators; participating and revenue interests. |
+| Contract Area | Legal description, lease schedule, depth/formation limits, expansion/contraction. |
+| Operations | Scope of joint ops, independent ops, pooling/unitization handling. |
+| AFE + Consents | AFE content, timing, approval method, cost overrun rules, emergency ops. |
+| Non-Consent | Election deadlines, penalty multiplier, payout and buy-in mechanics. |
+| Accounting | Joint Account rules, overhead method, affiliate charges, billing terms. |
+| Audit | Audit rights, lookback period, dispute resolution for charges. |
+| Title & Curative | Title standard, opinions, curative obligations, interest adjustments. |
+| Liens & Security | Contractual liens, priority, perfection, enforcement process. |
+| Defaults | Monetary and non-monetary defaults, cure periods, remedies. |
+| Operator Removal | For-cause/without-cause thresholds, transition obligations. |
+| Assignments | Consent, assumption agreements, successor obligations. |
+| Miscellaneous | Notices, amendments, counterparts, electronic signatures, governing law, venue, ADR. |
+| Execution | Signature blocks, notary acknowledgments, recording/memorandum. |
+| Exhibits | Contract Area, leases, interest table, accounting procedure, forms. |
+
+**Data Intake / Placeholder Map**
+
+| Field | Source | Placeholder |
+| --- | --- | --- |
+| Legal entity names | Formation docs | `[CLIENT TO PROVIDE: full legal names]` |
+| Entity types/jurisdictions | Formation docs | `[CLIENT TO PROVIDE: entity type and state]` |
+| Contract Area legal description | Leases/surveys | `[CLIENT TO PROVIDE: legal description]` |
+| Lease schedule data | Lease files | `[CLIENT TO PROVIDE: lease schedule details]` |
+| Participating interests | Deal sheet | `[CLIENT TO PROVIDE: PI % table]` |
+| Revenue interests/burdens | Title/assignments | `[CLIENT TO PROVIDE: RI % and burdens]` |
+| Operator designation | Term sheet | `[CLIENT TO PROVIDE: Operator name]` |
+| AFE thresholds/timing | Term sheet | `[CLIENT TO PROVIDE: AFE approval rules]` |
+| Non-consent penalty | Term sheet | `[CLIENT TO PROVIDE: penalty multiple]` |
+| Governing law/venue | Term sheet | `[CLIENT TO PROVIDE: state and venue]` |
+
+**Key Elections Matrix**
+
+| Topic | Options | Default If Not Provided |
+| --- | --- | --- |
+| AFE approval method | Affirmative, deemed, supermajority | `[CLIENT TO PROVIDE: method]` |
+| Cost overrun trigger | 10% or 15%+ | `[CLIENT TO PROVIDE: %]` |
+| Non-consent penalty | 200% to 500% | `[CLIENT TO PROVIDE: multiple]` |
+| Operator removal | For-cause majority; no-cause supermajority | `[CLIENT TO PROVIDE: thresholds]` |
+| Overhead recovery | Fixed monthly or % markup | `[CLIENT TO PROVIDE: method and rates]` |
+| Title standard | Marketable, merchantable, defensible | `[CLIENT TO PROVIDE: standard]` |
+| Dispute resolution | Litigation, mediation, arbitration | `[CLIENT TO PROVIDE: forum]` |
+
+**Required Exhibits**
+
+- Exhibit A: Contract Area legal description.
+- Exhibit B: Lease schedule with recording data.
+- Exhibit C: Participating and revenue interest table with burdens.
+- Exhibit D: Accounting procedure (COPAS/AAPL or custom).
+- Exhibit E: Form of Assignment and Assumption.
+- Exhibit F: AFE/election notice forms (if used).
+- Exhibit G: Parent guarantee form (if required).
+
+**Drafting Checks**
+
+- Participating interests total 100%; revenue interests plus burdens total 100%.
+- Contract Area description is survey-usable and ties to leases or metes/bounds.
+- Operator standard of care and liability carveout are consistent across sections.
+- AFE, non-consent, and cost overrun rules align with each other.
+- Overhead method and affiliate charges are defined and auditable.
+- Default remedies and lien rights are internally consistent and enforceable.
+- Assignment provisions require assumption and protect joint account.
+
+## Guidelines
+
+- Tailor to the governing state’s oil and gas lien, pooling/unitization, and conservation rules.
+- If federal or tribal lands are included, add required approvals and operator qualification language.
+- Avoid partnership or joint venture language unless the parties explicitly intend it.
+- Use consistent defined terms and cross-references; avoid duplication of obligations.
+- Confirm electronic signature enforceability for the selected jurisdiction (ESIGN/UETA).
+- Do not guess facts; use `[CLIENT TO PROVIDE: ...]` for missing data only.
+tokens used
+17,033
+
+OUTPUT:
+Using `skill-creator` to produce the SKILL.md rewrite per spec.
+---
+name: joint-operating-agreement
+description: Drafts U.S. oil-and-gas Joint Operating Agreements (JOA) governing joint exploration, development, and production, including operator/non-operator roles, contract area definition, participating vs. revenue interests, AFE approvals, non-consent penalties, joint accounting/overhead, title standards, liens, defaults, assignments, and dispute resolution. Use when drafting or revising a JO

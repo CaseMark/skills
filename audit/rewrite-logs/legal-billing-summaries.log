@@ -1,0 +1,338 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-8ce7-7363-b45a-4ba2aeeef4fd
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "058869ec-9699-48ba-8673-4ff5cdfcb45d",
+  "slug": "legal-billing-summaries",
+  "name": "Legal Billing Summaries",
+  "summary": "Generates professional legal billing summaries that consolidate billable hours, expenses, and activities into client-friendly narratives. It organizes data by categories like research, drafting, and communications, providing quantitative breakdowns and qualitative context on work performed and value delivered. Use this skill for law firms and legal departments to ensure transparency in billing for corporate governance matters.",
+  "content": "# Legal Billing Summary Generation\n\nYou are tasked with creating a comprehensive legal billing summary that provides clients with a clear, transparent breakdown of billable hours, expenses, and legal activities. This document serves as a critical communication tool between legal service providers and clients, ensuring full transparency in legal costs while demonstrating the value delivered.\n\n## Objective and Scope\n\nGenerate a professional billing summary that consolidates all billable time entries, expenses, and legal activities for a specified billing period. The summary should transform raw time and expense data into a client-friendly narrative that explains what work was performed, why it was necessary, and how it relates to the client's legal matter. This document must balance detailed accounting with readability, allowing both legal and non-legal stakeholders to understand the services rendered and associated costs.\n\n## Required Analysis and Content\n\nBegin by thoroughly reviewing all time entries, expense records, and matter-related documentation for the billing period. Search through uploaded billing records, timesheets, expense reports, and case files to extract complete information about billable activities. Identify patterns in the work performed, major milestones achieved, and how activities align with the overall case strategy or legal objectives.\n\nThe summary should organize billable activities into logical categories such as legal research, document review and drafting, client communications, court appearances, depositions, negotiations, and case strategy. For each category, provide both quantitative data (hours spent, rates applied, total costs) and qualitative context explaining the purpose and outcome of the work. When significant expenses appear, such as expert witness fees, filing costs, travel expenses, or third-party services, include clear explanations of their necessity and relationship to the matter.\n\n## Structure and Format Requirements\n\nPresent the billing summary in a professional format that begins with an executive overview highlighting the total fees, total expenses, and grand total for the billing period. Include the matter name, client name, billing period dates, and responsible attorneys or legal professionals. The executive overview should provide a high-level narrative of the major activities and accomplishments during the period, giving context before diving into detailed breakdowns.\n\nFollowing the overview, organize detailed billing information by attorney or timekeeper, showing individual rates, hours worked, and subtotals. Within each timekeeper's section, group activities by task category or chronologically by significant case events. Each time entry description should be clear and specific enough that a client understands what was done without requiring legal expertise to interpret. Avoid excessive legal jargon or vague descriptions like \"legal research\" without context about the specific issue researched.\n\nCreate a separate expenses section that itemizes all costs with dates, descriptions, and amounts. For recurring or significant expense categories, consider providing subtotals. If the matter involves multiple phases or distinct work streams, consider organizing the summary to reflect these divisions, allowing clients to see how resources were allocated across different aspects of their legal needs.\n\n## Legal and Ethical Considerations\n\nEnsure all billing descriptions maintain attorney-client privilege and do not inadvertently disclose confidential information or work product in a manner that could be discoverable or harmful if the summary were disclosed. Descriptions should be sufficiently detailed for transparency but appropriately general to protect privileged communications and strategic thinking.\n\nVerify that all time entries comply with applicable billing guidelines, including any client-specific billing protocols, rate agreements, or expense policies established in the engagement letter. Flag any entries that may require special explanation, such as block billing that might need to be broken down, or any write-downs or adjustments applied to the raw time entries. If the client has specific billing requirements or restrictions (such as caps on certain activities, prohibited expense types, or required task codes), ensure the summary demonstrates compliance.\n\nBe mindful of ethical billing practices, ensuring that time entries reflect actual work performed, avoid duplication where multiple attorneys worked on the same task, and properly allocate time for administrative versus substantive legal work. If any time has been written off or discounted, consider whether to show this in the summary as a demonstration of value and cost management.\n\n## Context and Best Practices\n\nLegal billing summaries are typically generated monthly or at significant case milestones, though billing frequency may vary based on client agreements or matter type. These summaries serve multiple purposes beyond simple invoicing: they provide clients with regular updates on case progress, demonstrate the value of legal services, support budget management and forecasting, and create a detailed record of work performed that may be relevant for fee disputes, audits, or insurance claims.\n\nWhen preparing summaries for sophisticated clients such as corporate legal departments, expect higher scrutiny and more detailed questions about billing practices. These clients often have established metrics for evaluating legal spend and may compare your billing patterns against industry benchmarks. For individual clients or smaller businesses, the summary may need more explanatory context about legal processes and why certain activities were necessary.\n\nConsider including forward-looking information where appropriate, such as anticipated activities for the next billing period, upcoming deadlines or milestones, and estimated costs for planned work. This helps clients budget and understand the trajectory of their matter. If the matter is approaching significant cost thresholds or budget limits established in the engagement letter, proactively address this in the summary with recommendations for managing costs or adjusting scope.\n\nThe tone should be professional yet accessible, demonstrating both competence and client service orientation. The summary is an opportunity to reinforce the value proposition of your legal services, showing not just what was done but how it advances the client's interests and objectives. Where significant accomplishments occurred during the billing period\u2014such as favorable rulings, successful negotiations, or completion of major deliverables\u2014highlight these achievements to contextualize the investment of time and resources.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate-governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:01:29.991943Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Preparing to use skill-creator**
+
+I'm choosing the skill-creator here because the task involves rewriting or creating a skill file per the instructions, so I'll announce using skill-creator then read the SKILL.md file to proceed.
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Finalizing skill format and metadata**
+
+I'm choosing "billing-summary" as the slug and drafting a concise YAML frontmatter with relevant metadata from the legal context; the skill body will include a clear title, a brief purpose, and a numbered prerequisites list, focusing on concise core instructions without extra commentary or announcements.
+thinking
+**Drafting detailed billing summary skill content**
+
+I'm planning a structured skill that includes comprehensive compliance guidelines, clear sections with tables and checklists, and plain-language rules for U.S. corporate billing summaries, targeting about 100 lines including templates and metadata while avoiding nested lists and superfluous text.
+codex
+---
+name: billing-summary
+description: Produces U.S. corporate governance legal billing summaries from time and expense data, converting entries into client‑friendly narratives with categorized hours, rates, expenses, and milestones. Enforces engagement‑letter billing rules, privilege‑safe descriptions, and ethical billing safeguards. Trigger keywords: billing summary, invoice narrative, timekeeper breakdown, expense summary, client billing report, legal spend, fee narrative.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Legal Billing Summary
+
+Deliver a client‑ready billing narrative that explains fees and expenses clearly while preserving privilege.
+
+## Prerequisites
+
+1. Billing period start and end dates
+2. Matter name and client name
+3. Time entries with timekeeper, rate, hours, description, date
+4. Expense entries with date, vendor, description, amount
+5. Engagement letter or client billing guidelines (rates, caps, task codes, prohibited expenses)
+6. Known milestones or phase labels for the period (if any)
+7. Any write‑downs, discounts, or adjustments applied
+
+## Output Structure / Process
+
+Use the following structure and fill all sections.
+
+**Header Block**
+
+Matter:  
+Client:  
+Billing Period:  
+Responsible Attorneys:  
+Billing Guidelines Reference:  
+
+**Executive Overview**
+
+Provide 3–6 sentences summarizing the period’s major workstreams and outcomes.
+
+Totals table:
+
+| Metric | Amount |
+| --- | --- |
+| Fees | $ |
+| Expenses | $ |
+| Total | $ |
+| Discount/Write‑down (if any) | $ |
+| Net Total | $ |
+
+**Timekeeper Summary**
+
+Timekeeper table:
+
+| Timekeeper | Role | Rate | Hours | Fees | Notes |
+| --- | --- | --- | --- | --- | --- |
+
+Notes should explain scope (e.g., “board governance research,” “drafted consent resolutions”).
+
+**Task Category Breakdown**
+
+Required categories (use these labels unless client task codes dictate otherwise):
+
+- Research and Analysis
+- Drafting and Document Production
+- Client Communications
+- Internal Strategy and Case Management
+- Negotiation and Counterparty Communications
+- Regulatory/Compliance Work
+- Filings and Formalities
+- Other (only if necessary; define clearly)
+
+Category table:
+
+| Category | Hours | Fees | Narrative |
+| --- | --- | --- | --- |
+
+Narrative rule: explain purpose and outcome in plain English without revealing legal advice or strategy.
+
+**Chronology or Phase View (optional but recommended for long periods)**
+
+If multi‑phase, provide a phase table:
+
+| Phase / Milestone | Dates | Key Work Performed | Fees |
+| --- | --- | --- | --- |
+
+**Expenses**
+
+Expenses table:
+
+| Date | Category | Vendor | Description | Amount | Justification |
+| --- | --- | --- | --- | --- | --- |
+
+Provide subtotals for material categories (e.g., filing fees, expert/consultant, travel).
+
+**Adjustments and Compliance Notes**
+
+- List any write‑downs, caps applied, or policy‑driven exclusions.
+- Note any block‑billed entries and how they were separated or explained.
+- Confirm compliance with client billing guidelines.
+
+**Forward Look (optional)**
+
+Provide 2–4 sentences on expected next‑period activities and anticipated cost drivers.
+
+## Guidelines
+
+- Protect privilege: avoid legal advice, mental impressions, or litigation strategy.
+- Use plain language; avoid vague phrases like “legal research” without topic.
+- Tie work to matter objectives or compliance requirements.
+- Show policy compliance: rates, caps, task codes, approved expenses.
+- Flag exceptions: unusual expenses, staffing changes, or large time spikes.
+- Do not duplicate time across multiple timekeepers for the same task without explanation.
+- Do not include administrative tasks as billable unless guidelines allow.
+- Keep the narrative consistent with time entry descriptions and invoice totals.
+tokens used
+6,039

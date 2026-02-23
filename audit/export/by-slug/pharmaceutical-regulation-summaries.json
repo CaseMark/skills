@@ -1,0 +1,43 @@
+{
+  "id": "eb0983bd-0ecf-4a08-8f44-2b0c5b7c99dc",
+  "slug": "pharmaceutical-regulation-summaries",
+  "name": "Pharmaceutical Regulation Summaries",
+  "summary": "Generates comprehensive summaries of pharmaceutical regulatory compliance issues, structured around drug approval processes, patent and IP intersections, and marketing restrictions. Analyzes FDA frameworks, clinical trials, post-market obligations, and enforcement priorities tailored to a company's products and activities. Use this skill for legal counsel and compliance teams needing actionable overviews of U.S. pharmaceutical regulations.",
+  "content": "# Pharmaceutical Regulation Compliance Summary\n\nYou are tasked with creating a comprehensive regulatory compliance summary for a pharmaceutical company. This document serves as a critical reference tool for legal counsel, compliance officers, regulatory affairs professionals, and executive leadership to understand and navigate the complex regulatory landscape governing pharmaceutical operations.\n\nYour summary should provide a clear, actionable overview of the key regulatory compliance issues affecting the pharmaceutical company's operations. Begin by conducting thorough research into the current regulatory framework, examining recent FDA guidance documents, relevant federal statutes including the Federal Food, Drug, and Cosmetic Act and the Public Health Service Act, applicable Code of Federal Regulations provisions, and any recent enforcement actions or warning letters that illustrate current regulatory priorities. Search the company's internal documents to identify specific products, therapeutic areas, or business activities that require regulatory analysis, and gather information about any pending applications, ongoing clinical trials, or marketed products that may be subject to regulatory scrutiny.\n\nStructure your summary to address three core regulatory domains that are fundamental to pharmaceutical compliance. First, analyze the drug approval process applicable to the company's pipeline and marketed products, distinguishing between the requirements for new drug applications, abbreviated new drug applications for generics, biologics license applications, and any applicable expedited pathways such as breakthrough therapy designation, fast track designation, or accelerated approval. Explain the clinical trial requirements under IND regulations, the data integrity and quality standards expected by regulatory authorities, and the post-market surveillance obligations including adverse event reporting, risk evaluation and mitigation strategies, and periodic safety update reports. Include specific timelines, submission requirements, and common pitfalls that could delay approval or trigger regulatory deficiencies.\n\nSecond, examine the patent and intellectual property considerations that intersect with regulatory compliance, including the interplay between FDA exclusivity periods and patent protection, the requirements and strategic implications of Orange Book listings for small molecule drugs or Purple Book listings for biologics, the patent certification procedures under the Hatch-Waxman Act that generic manufacturers must navigate, and the regulatory and legal framework surrounding patent term extensions and pediatric exclusivity. Address how patent strategies must align with regulatory submissions and the compliance risks associated with improper Orange Book listings or patent use code designations.\n\nThird, analyze the marketing and promotional restrictions that govern how pharmaceutical products can be communicated to healthcare providers and patients. Detail the prohibition on off-label promotion and the narrow exceptions for responding to unsolicited requests or distributing scientific publications, the requirements for fair balance in promotional materials and the presentation of risk information, the FDA's evolving guidance on digital and social media communications, the Anti-Kickback Statute and Physician Payments Sunshine Act implications for speaker programs and consulting arrangements, and the specific restrictions on direct-to-consumer advertising including the requirement for major statement of risks. Include recent enforcement trends and consent decrees that illustrate regulatory expectations.\n\nThroughout your summary, cite specific regulatory provisions using proper legal citation format, reference relevant FDA guidance documents by title and date, and incorporate examples from recent enforcement actions or advisory opinions that provide practical context. When discussing requirements that vary by product type, therapeutic area, or approval pathway, clearly delineate these distinctions to avoid confusion. If the company operates internationally or plans to seek foreign regulatory approvals, briefly note how FDA requirements compare to those of the European Medicines Agency or other major regulatory authorities where relevant to the company's business strategy.\n\nConclude with a practical compliance checklist or action items section that translates the regulatory analysis into concrete steps the company should take to maintain compliance, such as establishing standard operating procedures for specific regulatory activities, implementing training programs for commercial teams on promotional boundaries, conducting internal audits of labeling and advertising materials, or developing systems for tracking and meeting post-approval commitments. Your summary should empower the reader to identify compliance gaps, prioritize regulatory risks, and make informed decisions about product development and commercialization strategies within the bounds of applicable law.",
+  "parent_skill_id": "67824aa0-7a4e-4b90-9639-76894488fa49",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "pharmaceutical"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "fda-and-food-drug-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:14.380215",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

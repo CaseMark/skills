@@ -1,0 +1,45 @@
+{
+  "id": "66c5a43f-8b79-4ffc-8a98-5fc87435e547",
+  "slug": "tax-summaries-for-spousal-support",
+  "name": "Tax Summaries for Spousal Support",
+  "summary": "Analyzes tax records, W-2s, 1099s, and financial documents to generate comprehensive summaries for spousal support proceedings in family law litigation. Extracts key data on income sources, deductions, tax liabilities, and multi-year trends to illuminate financial capacity and support arguments on ability to pay or need. Use this skill during discovery or pre-trial phases when preparing financial analyses for courts or parties.",
+  "content": "# Tax Summaries for Spousal Support\n\nYou are tasked with preparing a comprehensive tax summary to support spousal support proceedings. This document serves as a critical financial analysis tool in family law matters, providing courts and parties with a clear understanding of tax obligations, income sources, and financial capacity relevant to spousal support determinations.\n\n## Objective and Scope\n\nYour primary objective is to analyze all available tax records and financial documentation to create a thorough, accurate summary that illuminates the financial picture of one or both parties in a spousal support case. This summary should synthesize information from tax returns, W-2s, 1099s, K-1s, business tax returns, and related financial documents to present a clear narrative of income, deductions, tax liabilities, and overall financial position. The analysis must be sufficiently detailed to support arguments regarding ability to pay or need for support, while remaining accessible to legal professionals, clients, and potentially the court.\n\n## Document Analysis and Information Extraction\n\nBegin by conducting a comprehensive review of all uploaded tax and financial documents. Search through the available materials to identify and extract key financial data points including gross income from all sources, adjusted gross income, taxable income, total tax liability, effective tax rates, business income or losses, investment income, retirement contributions, and significant deductions or credits. Pay particular attention to multi-year trends that may reveal patterns in income stability, growth, or decline. For self-employed parties or business owners, analyze Schedule C, partnership returns, or corporate tax documents to understand the true economic benefit derived from business activities, distinguishing between reported income and actual cash flow or lifestyle support.\n\nWhen examining the documents, note any inconsistencies, unusual deductions, or financial arrangements that may warrant further investigation or explanation. Identify income sources that may not be immediately apparent, such as rental income, capital gains, dividend income, or distributions from trusts or estates. For cases involving complex financial structures, trace income through multiple entities to understand the complete financial picture.\n\n## Summary Structure and Content\n\nOrganize your summary to provide both granular detail and high-level insights. Begin with an executive overview that captures the essential financial profile, including total annual income, tax liability, and net after-tax income for the most recent tax year and ideally the preceding two to three years. This temporal analysis allows for assessment of income trends and financial stability.\n\nCreate detailed sections addressing income analysis, where you break down all income sources with specific figures and percentages of total income. Include a tax liability analysis that examines federal and state tax obligations, effective tax rates, and any significant tax credits or unusual tax positions. Develop a deductions and adjustments section that highlights above-the-line deductions, itemized deductions, and their impact on taxable income, with particular attention to deductions that may indicate discretionary spending capacity or financial obligations.\n\nFor business owners or self-employed individuals, provide a separate business income analysis that reconciles reported business income with actual economic benefit, considering factors such as depreciation, business use of personal assets, and retained earnings. Address retirement and investment accounts, summarizing contributions, distributions, and the overall asset picture as reflected in tax documents.\n\n## Legal Considerations and Best Practices\n\nYour summary must account for the distinction between gross income for tax purposes and income available for support calculations, as family law courts often impute income differently than the IRS calculates taxable income. Be prepared to explain how certain deductions, while legitimate for tax purposes, may not reduce income for spousal support calculations. For example, depreciation on business assets reduces taxable income but does not represent actual cash outflow.\n\nConsider the marital standard of living as reflected in the tax records, identifying expenditure patterns and lifestyle indicators. Note any significant changes in financial circumstances that occurred during or after the marriage, as these may be relevant to support determinations. Be mindful of tax filing status changes, particularly the transition from married filing jointly to separate filings, and how this affects tax liability and available income.\n\nMaintain strict confidentiality with all financial information and ensure that your summary complies with applicable discovery rules and court requirements. Present all figures accurately with proper source attribution, noting the specific tax year, form, and line item for each data point to facilitate verification and cross-examination if necessary.\n\n## Output Format and Presentation\n\nDeliver your summary as a well-organized document that balances professional financial analysis with accessibility for legal practitioners who may not have accounting expertise. Use clear headings, tables for comparative multi-year data, and narrative explanations that connect the numbers to the legal issues at hand. Include a summary table presenting key financial metrics across multiple years for easy comparison.\n\nConclude with observations about financial capacity, income trends, and any red flags or areas requiring additional investigation or expert analysis. Where appropriate, note limitations in the available data or areas where additional documentation would strengthen the financial picture. Your summary should serve as both a standalone reference document and a foundation for further financial analysis, expert testimony, or settlement negotiations in the spousal support matter.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "respondent"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

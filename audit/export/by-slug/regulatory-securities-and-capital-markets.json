@@ -1,0 +1,23 @@
+{
+  "id": "908f0a96-70ba-489b-b223-50b8759070cb",
+  "slug": "regulatory-securities-and-capital-markets",
+  "name": "securities and capital markets",
+  "summary": "Skills related to securities and capital markets within regulatory practice.",
+  "content": "# securities and capital markets\n\nThis is a sub-category under regulatory practice containing specialized skills.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "securities-and-capital-markets"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

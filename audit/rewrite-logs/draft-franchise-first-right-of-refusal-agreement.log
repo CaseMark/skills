@@ -1,0 +1,318 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c73-334d-7c20-8fae-89627cb0f76a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "5260daf9-eb73-485f-9edd-9b2b5f68b473",
+  "slug": "draft-franchise-first-right-of-refusal-agreement",
+  "name": "First Right of Refusal Agreement",
+  "summary": "Drafts a comprehensive First Right of Refusal Agreement for franchise relationships, granting the franchisor priority to purchase the franchised business upon a third-party offer. It includes detailed provisions on notice procedures, bona fide offers, and exclusions for family transfers. Use this skill when supplementing franchise agreements to protect franchisor control over brand operators.",
+  "content": "# FIRST RIGHT OF REFUSAL AGREEMENT DRAFTING PROMPT\n\nYou are tasked with drafting a comprehensive First Right of Refusal Agreement in connection with a franchise relationship. This agreement establishes the franchisor's preferential right to purchase the franchised business before the franchisee may sell to a third party, ensuring the franchisor maintains control over who operates under its brand and system.\n\n## DOCUMENT HEADER AND PARTIES\n\nDraft a formal document header that clearly identifies this as a \"RIGHT OF FIRST REFUSAL AGREEMENT\" or similar appropriate title. Establish the parties to this agreement with precision, identifying the franchisor and franchisee by their complete legal names, entity types, and states of organization or residence. Reference the underlying Franchise Agreement by its execution date and clarify that this Right of First Refusal Agreement either supplements that agreement or is incorporated as part of the franchise relationship. Ensure the introductory paragraph establishes the effective date of this agreement and provides appropriate context for why the parties are entering into this arrangement.\n\n## GRANT OF THE RIGHT OF FIRST REFUSAL\n\nArticulate the core grant of the right of first refusal with specificity and clarity. Explain that if the franchisee receives a bona fide, arm's-length offer from a third party to purchase the franchised business, the franchise assets, or any controlling ownership interest in the franchisee entity, the franchisee is obligated to first offer the franchisor the opportunity to purchase on identical terms and conditions. Define what constitutes a \"bona fide offer\" and specify whether this right applies to offers for stock purchases, asset purchases, mergers, or other forms of business transfers. Address whether the right applies to partial interests or only to transfers of controlling interests, and clarify whether gifts, transfers to family members, or transfers to affiliated entities trigger this right. The provision should make clear that the franchisee may not proceed with any covered transaction without first complying with the notice and waiting period requirements set forth in this agreement.\n\n## NOTICE REQUIREMENTS AND PROCEDURES\n\nEstablish a detailed notice procedure that the franchisee must follow upon receiving a qualifying third-party offer. Specify that the franchisee must provide written notice to the franchisor within a defined timeframe after receiving the offer, and that this notice must include a complete copy of the third-party offer, all related term sheets, letters of intent, purchase agreements, and supporting documentation. Require the franchisee to provide sufficient detail about the proposed purchaser, the purchase price, payment terms, financing contingencies, closing timeline, and all other material terms and conditions. Designate the specific address, email, or other contact information where such notice must be sent to the franchisor, and specify whether notice is effective upon sending or upon receipt. Include provisions addressing what happens if the franchisee fails to provide complete information or attempts to structure a transaction to avoid triggering the right of first refusal.\n\n## FRANCHISOR'S EXERCISE PERIOD AND ELECTION\n\nDefine the time period during which the franchisor may exercise its right of first refusal, typically ranging from thirty to sixty days after receipt of complete notice from the franchisee. Specify that time is of the essence and that the franchisor must provide written notice of its election to purchase within this period. Address whether the franchisor may request additional information or conduct due diligence during this period, and if so, whether such requests extend the exercise period. Clarify the form that the franchisor's acceptance must take and establish that upon the franchisor's timely exercise of the right, a binding agreement to purchase is formed on the same terms as the third-party offer. Include provisions addressing how the franchisor may modify certain terms that are personal to the third-party offeror, such as financing contingencies or employment arrangements, while maintaining economic equivalence to the third-party offer.\n\n## CONSEQUENCES OF NON-EXERCISE AND SUBSEQUENT SALE RESTRICTIONS\n\nArticulate what occurs if the franchisor does not exercise its right of first refusal within the specified period. Provide that the franchisee is then free to proceed with the sale to the third party, but only on terms that are materially identical to those presented to the franchisor. Specify a time period during which the franchisee must complete the third-party sale, typically between ninety and one hundred eighty days, after which the right of first refusal is reinstated. Establish that any material modification to the price, terms, or conditions of the third-party offer requires the franchisee to re-submit the modified offer to the franchisor and restart the notice and exercise period. Define what constitutes a \"material\" change, providing examples such as:\n\n- A reduction in purchase price exceeding a specified percentage or dollar amount\n- Changes to payment terms, financing arrangements, or security provisions\n- Modifications to assumed liabilities or excluded assets\n- Extensions of closing timelines beyond specified thresholds\n- Changes in the identity of the purchaser or addition of new parties\n\n## SCOPE AND APPLICABILITY\n\nDefine comprehensively the scope of transactions and transfers subject to this right of first refusal. Specify that the right applies not only to direct sales of the franchised business assets but also to any transfer of a controlling ownership interest in the franchisee entity, whether accomplished through stock sales, membership interest transfers, mergers, consolidations, or other reorganizations. Address whether the right is triggered by a single transaction transferring control or by a series of related transactions that cumulatively result in a change of control. Clarify how the right applies in the context of multi-unit franchisees and whether it extends to transfers of individual franchise locations or only to transfers of the entire franchised business. Consider including carve-outs for transfers that do not implicate the franchisor's legitimate interests, such as estate planning transfers to family trusts, transfers between existing owners, or pledges of interests as collateral, while ensuring appropriate approval rights are maintained.\n\n## VALUATION AND PRICING MECHANISMS\n\nAddress how the purchase price will be determined when the franchisor exercises its right. If the franchisor is matching a third-party offer, confirm that the purchase price will be identical to that offered by the third party. Consider including provisions for situations where the third-party offer includes non-cash consideration, earn-outs, or other contingent payments, establishing how the franchisor will provide equivalent value. If the agreement contemplates scenarios where the right of first refusal may be triggered without a third-party offer, include a valuation mechanism such as agreement on an independent appraiser, use of a specific valuation methodology, or a formula based on financial metrics. Address who bears the costs of any valuation process and establish timelines for completing any required appraisals.\n\n## CLOSING PROCEDURES AND CONDITIONS\n\nEstablish the procedures and timeline for closing the transaction if the franchisor exercises its right of first refusal. Specify a closing date that mirrors the timeline in the third-party offer or establish a reasonable period, typically thirty to ninety days from the franchisor's exercise notice. Address standard closing conditions, including delivery of clear title, transfer of all franchise-related assets, assignment of contracts and leases, delivery of financial statements and records, and execution of customary closing documents. Clarify which party bears responsibility for obtaining necessary consents, regulatory approvals, or third-party approvals required for the transfer. Include provisions allocating closing costs, prorations, and transfer taxes. Address what happens if either party fails to close the transaction, including potential remedies such as specific performance or damages.\n\n## RELATIONSHIP TO FRANCHISE AGREEMENT\n\nClarify the relationship between this Right of First Refusal Agreement and the underlying Franchise Agreement. Specify whether this agreement supplements, amends, or is incorporated into the Franchise Agreement, and address how conflicts between the documents will be resolved. Confirm that all transfer restrictions, approval requirements, and other provisions in the Franchise Agreement remain in full force and effect, and that compliance with this Right of First Refusal Agreement does not eliminate the need for franchisor approval of any transfer under the Franchise Agreement. Consider whether the right of first refusal survives termination or expiration of the Franchise Agreement and under what circumstances.\n\n## REPRESENTATIONS AND WARRANTIES\n\nInclude appropriate representations and warranties from the franchisee regarding the bona fide nature of any third-party offer, confirming that the offer was made at arm's length, that the franchisee has not solicited or structured the offer to avoid the right of first refusal, and that all material terms have been disclosed to the franchisor. Consider including representations regarding the franchisee's ownership of the business, absence of other encumbrances or rights that would prevent the transfer, and compliance with all franchise agreement obligations. Address the consequences of breach of these representations, including potential termination rights and damages.\n\n## REMEDIES AND ENFORCEMENT\n\nEstablish the remedies available to the franchisor if the franchisee violates this agreement by failing to provide proper notice, selling to a third party during the exercise period, or completing a sale on terms materially different from those presented to the franchisor. Specify that the franchisor is entitled to seek injunctive relief and specific performance, given that monetary damages may be inadequate to protect the franchisor's interests in controlling its franchise system. Include provisions for recovery of attorneys' fees and costs by the prevailing party in any dispute arising from this agreement. Consider whether violations of this agreement constitute grounds for termination of the Franchise Agreement.\n\n## GENERAL PROVISIONS\n\nInclude standard miscellaneous provisions appropriate for this type of agreement. Address governing law and jurisdiction, specifying which state's laws will apply and where disputes must be brought. Include a provision stating that this agreement may only be amended in writing signed by both parties. Address assignment rights, noting that the franchisor's rights under this agreement may be assigned to successors or affiliates, while the franchisee's obligations run with the business and bind successors. Include a severability clause providing that if any provision is found unenforceable, the remainder of the agreement continues in effect. Add an integration clause confirming that this agreement, together with the Franchise Agreement, constitutes the entire understanding between the parties regarding the subject matter. Include notice provisions specifying how formal notices under this agreement must be delivered.\n\n## SIGNATURE BLOCKS\n\nConclude the agreement with appropriate signature blocks for both the franchisor and franchisee. For entity parties, include signature lines for authorized representatives with their titles indicated, along with printed names. Include date lines for each signature. If the agreement requires notarization or witnesses under applicable law, include appropriate acknowledgment or attestation sections. Consider whether corporate seals or other formalities are required based on the parties' entity types and governing law.\n\n---\n\n**DRAFTING INSTRUCTIONS**: Produce a professional, legally sound agreement that balances the franchisor's legitimate interest in controlling its franchise system with the franchisee's right to realize value from the business. Use clear, unambiguous language that minimizes potential disputes about interpretation. Ensure all time periods, notice requirements, and procedural steps are specific and workable. Tailor the scope and terms to the specific franchise relationship and business context. Consider the enforceability of the provisions under applicable state law, particularly regarding restraints on alienation and reasonableness of time periods and scope.",
+  "parent_skill_id": "b3dc080b-3fb7-400d-a0b2-e0590d304262",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "franchising"
+    ],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "franchise_agreements"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:41:27.990831Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:41:28.099926Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:41:29.474862Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:41:30.392322Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e33e8f740065-SJC)
+2026-02-23T21:41:31.556938Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e3450cf0eb32-SJC)
+2026-02-23T21:41:33.008388Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e34eebef7834-SJC)
+2026-02-23T21:41:35.257161Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e35ccbb9c8de-SJC)
+2026-02-23T21:41:38.961079Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e373fc8b38ce-SJC
+codex
+---
+name: first-right-of-refusal-agreement
+description: Drafts a U.S. franchise first right of refusal agreement during formation or negotiation when a franchisor must protect transfer control. Use for drafting ROFR addendums/schedules to a Franchise Agreement covering third-party sale, transfer, or change-of-control events. Includes trigger-specific notice flow, bona fide-offer parity, exercise windows, anti-circumvention rules, carve-outs, valuation fallback, closing mechanics, enforcement remedies, and conflict alignment with franchise transfer provisions. Keywords: first right of refusal, ROFR, franchise transfer, third-party offer, bona fide offer, notice period, material change, matching rights.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# First Right of Refusal Agreement (Franchise)
+
+Drafts a U.S. franchise right-of-first-refusal agreement that secures franchisor approval rights while preserving a lawful transfer path for the franchisee.
+
+## Prerequisites
+
+1. Signed Franchise Agreement with key transfer/consent clauses and termination rights.
+2. Verified party details: legal names, entity type, jurisdiction of formation/organization, authorized signers.
+3. State law preferences for enforceability (governing law, venue, equitable remedies).
+4. Transfer framework: whether covered entity owns one or multiple units and what constitutes transfer of control.
+5. Negotiation parameters: notice/election days, completion windows, carve-out policy, valuation approach, remedy priorities.
+
+## Output Structure / Process
+
+1) Build an input table before drafting.
+
+| Input | Capture |
+|---|---|
+| Parties | Franchisor / franchisee identities and addresses |
+| Governed contract | Franchise Agreement date and cross-reference language |
+| Covered transfer scope | Asset sale, stock/membership transfer, merger, reorg, pledge, etc. |
+| Trigger windows | Notice period, exercise period, closing period |
+| Non-compliant behavior | Default remedies and cure standards |
+| Jurisdiction | Governing law, forum, service addresses |
+
+2) Draft core sections in this exact order:
+
+- Heading and recitals
+- Definitions
+- ROFR grant and covered transaction scope
+- Notice package requirements
+- Franchisor election process
+- Non-exercise/approval-to-close rules
+- Value and economics matching
+- Closing conditions and costs
+- Reinstatement and relationship-to-franchise agreement
+- Warranties, breaches, and remedies
+- Miscellaneous (assignment, survival, amendment, integration, notices, signatures)
+
+3) Use clause-level output blocks only, each with placeholders.
+
+```text
+[FRANCHISOR NAME]
+[FRANCHISEE NAME]
+[FRANCHISE EFFECTIVE DATE]
+[GOVERNING LAW]
+[NOTICE ADDRESS]
+```
+
+4) Enforceable trigger logic template:
+
+| Trigger condition | Required franchisee action | Consequence |
+|---|---|---|
+| Third-party bona fide offer received | Deliver complete notice package within agreed days | Franchisor gets matching right |
+| Incomplete info | Cure request + fixed cure period | No exercise period starts until cured |
+| Franchisor elects to purchase | Written election within exercise period | Binding matching purchase terms |
+| Franchisor declines/non-response | Franchisee may close only on materially identical terms | Material changes restart process |
+| Sham or structured avoidance | Immediate breach workflow | Equitable relief + damages |
+
+5) Required notice package (insert as checklist):
+
+- Signed offer documentation (including LOI / term sheet / purchase agreement)
+- Purchase price and all payment components
+- Financing terms and contingencies
+- Identity/affiliates of proposed purchaser
+- Escrow/security assumptions, liabilities, excluded assets
+- Proposed closing timeline and conditions
+- Certifications of non-circumvention and no bad-faith structuring
+
+6) Include numeric timeline blocks, not narrative-only terms:
+
+```text
+Notice deadline: ____ business days after offer
+Franchisor exercise window: ____ days after complete notice
+Closing target: ____ days after election
+Third-party completion window: ____ days
+Materiality trigger: price change >____% OR >$____
+```
+
+7) Required matrix for transfer scope.
+
+| Transaction type | Apply ROFR? | Notes |
+|---|---|---|
+| Direct sale of franchised business | Yes/No | Scope-defined |
+| Transfer of controlling ownership interest | Yes | Include mergers/reorgs |
+| Transfer of minority non-controlling interests | Yes/No | Clarify by threshold |
+| Estate or family transfer exception | Carve-out/conditional | Preserve franchisor rights |
+| Pledge or financing collateralization | Optional carve-out | If default on collateral event occurs, define restart |
+
+8) Add an anti-circumvention section:
+- no step transaction to evade ROFR
+- no pre-closing assignment/flip structures without disclosure
+- all related-party or changed-party deals require refresh of notice and election period
+
+## Guidelines
+
+- Do lock legal definitions first; every operative clause should reference defined terms.
+- Do harmonize with the Franchise Agreement transfer framework and state which document controls on conflict.
+- Do separate scope exceptions (family, estate, affiliate) from approval rights to reduce interpretation disputes.
+- Do preserve franchisor remedy stack: injunctive relief, specific performance, attorneys’ fees/costs, and any termination rights expressly allowed by the Franchise Agreement.
+- Do add compliance guardrails for reasonableness of time limits and geographic/control restrictions by state law.
+- Don’t use vague “reasonable” terms where fixed deadlines are intended.
+- Don’t mix form and content clauses; keep drafting logic, mechanics, and boilerplate isolated.
+- Don’t leave references to undefined attachments or exhibits.
+- If enforceability is jurisdiction-sensitive, add explicit legal review flags for reasonableness, restraints on alienation, and remedy limits. [VERIFY]
+tokens used
+6,459

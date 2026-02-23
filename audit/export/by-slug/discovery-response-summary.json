@@ -1,0 +1,42 @@
+{
+  "id": "b8c8ddff-1bc0-46b1-8c0e-ce43bb423b82",
+  "slug": "discovery-response-summary",
+  "name": "Discovery response",
+  "summary": "Generates a comprehensive, professionally formatted summary of discovery documents and responses, including interrogatories, production requests, admissions, and depositions. Organizes content thematically by issue, identifies key findings, gaps, discrepancies, and strategic insights. Use during the discovery phase of commercial litigation to prepare for motions, settlement, or trial.",
+  "content": "# Discovery Response Summary\n\nYou are tasked with creating a comprehensive summary of discovery documents and responses for litigation purposes. This workflow is essential during the discovery phase of litigation when attorneys need to organize, analyze, and synthesize voluminous discovery materials including interrogatory responses, requests for production, requests for admission, deposition transcripts, and supporting documents.\n\nYour objective is to produce a clear, well-organized discovery response summary that enables the legal team to quickly understand what information has been obtained, identify gaps in discovery, and prepare for subsequent litigation activities such as motion practice, settlement negotiations, or trial preparation.\n\n## Approach and Methodology\n\nBegin by thoroughly reviewing all discovery-related documents that have been provided or uploaded. Search through the available documents to identify all discovery requests, responses, objections, and supporting materials. Extract key information including the propounding party, responding party, discovery method used, dates of service and response, and the substance of each request and corresponding response.\n\nFor each category of discovery, organize the information chronologically and by discovery type. When reviewing interrogatory responses, capture the specific questions asked, any objections raised, and the substantive answers provided. Pay particular attention to responses that admit facts, identify witnesses, describe events, or reference supporting documents. For document production responses, note what categories of documents were requested, what was produced, what was withheld on privilege or other grounds, and any deficiencies in the production.\n\nAnalyze deposition testimony by identifying key admissions, contradictions with written discovery responses, and significant factual revelations. Cross-reference deposition testimony with interrogatory answers and document productions to identify consistencies or discrepancies that may be strategically important.\n\n## Document Structure and Content Requirements\n\nYour discovery response summary should be formatted as a professional legal memorandum with clear sections and subsections. Begin with an executive summary that provides a high-level overview of the discovery conducted, major findings, and critical gaps or issues. This section should be concise enough for senior attorneys to grasp the essential information quickly.\n\nCreate separate sections for each type of discovery conducted. Within each section, organize responses by topic or issue rather than simply listing them numerically. This thematic organization allows readers to understand what information was obtained about specific factual issues, claims, or defenses. For example, group all discovery responses related to damages together, all responses about liability together, and all responses about affirmative defenses together.\n\nFor each discovery response, provide the request number, the verbatim or summarized request, any objections asserted, and a clear summary of the substantive response. When responses reference or attach documents, note the document identification numbers and briefly describe the documents. Highlight responses that contain admissions, identify previously unknown witnesses or evidence, or contradict the opposing party's pleadings or prior statements.\n\nInclude a section analyzing privilege logs and withheld documents. Summarize the categories of documents withheld, the privileges asserted, and any potential challenges to those privilege claims. Note any patterns in the privilege assertions that may suggest over-designation or improper withholding.\n\n## Legal Considerations and Strategic Analysis\n\nThroughout your summary, maintain awareness of the applicable rules of civil procedure governing discovery in the relevant jurisdiction. Note any responses that appear deficient, evasive, or non-compliant with discovery obligations. Identify opportunities for follow-up discovery, including supplemental interrogatories, additional document requests, or depositions of newly identified witnesses.\n\nEvaluate the completeness and adequacy of responses in light of the requesting party's discovery needs. Flag responses that are overly general, fail to answer the question asked, or improperly assert boilerplate objections without substantive answers. Consider whether motion practice to compel further responses may be warranted and identify the specific deficiencies that would support such a motion.\n\nCross-reference discovery responses with the pleadings, claims, and defenses in the case. Identify responses that support or undermine specific elements of claims or defenses. Note any admissions that could be used in summary judgment motions or at trial, and highlight any responses that create factual disputes requiring resolution through additional discovery or at trial.\n\n## Practical Application and Next Steps\n\nThis discovery response summary serves multiple purposes in the litigation workflow. It provides a centralized reference document that allows all members of the legal team to quickly access and understand the information obtained through discovery without reviewing hundreds of pages of responses. It facilitates strategic planning by identifying what facts have been established, what remains in dispute, and what additional discovery is needed.\n\nThe summary should conclude with a section identifying gaps in discovery and recommending next steps. Specify what additional interrogatories should be propounded, what categories of documents should be requested, which witnesses should be deposed, and what follow-up is needed on deficient responses. Prioritize these recommendations based on their importance to proving or defending against the claims in the case.\n\nEnsure that all citations to specific discovery responses include sufficient detail to allow readers to locate the original response quickly. Use consistent formatting for discovery response citations throughout the document. Maintain an objective, analytical tone while clearly identifying information that is favorable or unfavorable to your client's position. The summary should be comprehensive enough to serve as a primary reference document throughout the remainder of the litigation.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

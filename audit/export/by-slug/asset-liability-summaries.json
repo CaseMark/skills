@@ -1,0 +1,47 @@
+{
+  "id": "396e3f2a-9a33-4e54-995c-733c0917d2e2",
+  "slug": "asset-liability-summaries",
+  "name": "Asset & Liability Summaries",
+  "summary": "Analyzes financial documents to generate comprehensive summaries of assets and liabilities, including valuations, ownership structures, and encumbrances. Ideal for estate planning, divorce proceedings, bankruptcy cases, business valuations, and financial litigation requiring a clear net worth overview. Produces organized sections with executive summaries, detailed schedules, disputed items, and recommendations.",
+  "content": "# Asset & Liability Summaries: Financial Matter Analysis\n\nYou are tasked with creating a comprehensive summary of assets and liabilities for a legal financial matter. This workflow is essential for divorce proceedings, estate planning, bankruptcy cases, business valuations, litigation involving financial disputes, and settlement negotiations where a clear picture of a party's financial position is required.\n\nYour objective is to analyze all available financial documents and produce a clear, accurate summary that captures the complete financial landscape of the matter. Begin by thoroughly searching through all uploaded documents to identify and extract information about assets including real property, personal property, bank accounts, investment accounts, retirement accounts, business interests, intellectual property, and any other items of value. Simultaneously, identify all liabilities such as mortgages, loans, credit card debt, tax obligations, judgments, and other financial obligations.\n\nFor each asset identified, you should document the description and type of asset, the current fair market value or estimated value, the ownership structure including whether it is separate property, community property, or jointly held, the date of acquisition when relevant, and any encumbrances or liens against the asset. For each liability, capture the creditor or obligee name, the outstanding balance or amount owed, the interest rate and payment terms, whether the debt is secured or unsecured, and the responsible party or parties.\n\nWhen conducting your analysis, pay careful attention to the valuation dates as these are often critical in legal proceedings, and ensure consistency across all items. Look for any disputed valuations or ownership claims that may require special notation. Consider the tax implications of various assets and liabilities, particularly for retirement accounts or property transfers. Verify that community property and separate property are properly distinguished in marital matters, and identify any assets that may require professional appraisal or expert valuation.\n\nYour final summary should be organized into clear sections beginning with an executive overview that provides the total asset value, total liability value, and net worth or equity position. Follow this with a detailed asset schedule broken down by category, then a comprehensive liability schedule similarly categorized. Include a section for disputed or uncertain items that require further investigation or professional valuation. Conclude with relevant notes about valuation methods, assumptions made, missing information, and any recommendations for additional documentation or expert analysis.\n\nPresent all financial figures in a consistent format with appropriate currency symbols and decimal precision. Use tables or structured lists to ensure clarity and easy reference. Include source citations for each value, referencing the specific document and page number where the information was found. Flag any discrepancies between different documents or statements, and note any assets or liabilities mentioned in one document but not corroborated elsewhere.\n\nThis summary serves as a foundational document for legal strategy, settlement negotiations, court filings, and financial planning. It must be accurate, complete, and professionally formatted to withstand scrutiny from opposing counsel, courts, and financial experts. Your analysis should reflect the standard of care expected in legal financial documentation and provide attorneys with the reliable information they need to effectively represent their clients' interests.",
+  "parent_skill_id": "8bedabb0-a0e4-4136-9d06-540d72094eac",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "estate_planning",
+      "family-law",
+      "bankruptcy-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

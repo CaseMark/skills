@@ -1,0 +1,42 @@
+{
+  "id": "d3b03448-027a-4e01-a6bf-5ed3d4795d27",
+  "slug": "labor-law-violation-summaries",
+  "name": "Labor Law Violation Summaries",
+  "summary": "Analyzes investigative documents to produce structured summaries of labor law violations, including wage and hour issues, workplace safety infractions, and worker rights breaches. Generates executive overviews, categorized findings with evidence citations, affected worker counts, and recommended remedial actions. Use this skill for regulatory bodies, compliance teams, or legal counsel needing clear distillations of complex investigations.",
+  "content": "# Labor Law Violation Investigation Summary\n\nYou are tasked with creating a comprehensive summary of labor law violation investigations and findings. This summary will serve regulatory bodies, corporate compliance teams, legal counsel, and affected workers by distilling complex investigative materials into clear, actionable intelligence regarding worker rights violations, workplace safety infractions, and wage-related issues.\n\n## Your Objective\n\nAnalyze all available investigative documents, reports, complaints, inspection records, and related materials to produce a structured summary that captures the nature, scope, and severity of labor law violations. Your summary should enable readers to quickly understand what violations occurred, who was affected, what evidence supports the findings, and what remedial actions are required or recommended.\n\n## Approach and Methodology\n\nBegin by thoroughly reviewing all uploaded documents related to the investigation. Search through inspection reports, witness statements, payroll records, safety logs, complaint filings, correspondence between parties, and any regulatory agency findings. Extract concrete facts including specific dates of violations, names of affected workers, exact wage discrepancies, documented safety hazards, and direct quotes from investigative findings.\n\nWhen processing extensive document sets, analyze each document systematically to ensure no critical information is overlooked. Pay particular attention to recurring patterns of violations, multiple complaints about similar issues, and any evidence of willful or repeated non-compliance. If the investigation spans multiple locations, departments, or time periods, organize your findings to reflect these distinctions clearly.\n\n## Required Content and Structure\n\nYour summary must open with an executive overview that identifies the employer or entity under investigation, the time period covered, the types of violations alleged and confirmed, and the number of workers affected. This section should immediately convey the gravity and scope of the violations to orient the reader.\n\nThe body of your summary should address each category of violation separately. For wage and hour violations, specify the nature of the infraction such as unpaid overtime, minimum wage violations, illegal deductions, misclassification of employees, or failure to provide required breaks. Include the total amount of wages owed, the number of affected workers, and the time period during which violations occurred. Reference specific payroll records, timekeeping documents, or worker testimony that substantiates these findings.\n\nFor workplace safety violations, detail each hazardous condition or practice identified, citing relevant Occupational Safety and Health Administration standards or state safety regulations that were violated. Describe the potential or actual harm to workers, any injuries or illnesses that resulted, and whether the employer had prior notice of the hazard. Include information about required safety equipment that was not provided, inadequate training, or failure to implement mandatory safety protocols.\n\nRegarding worker rights violations, address issues such as retaliation against workers who complained or organized, interference with union activities, discrimination based on protected characteristics, denial of family or medical leave rights, or violations of whistleblower protections. Explain how these violations manifested, which workers were targeted, and what adverse actions were taken against them.\n\n## Legal Framework and Compliance Context\n\nGround your summary in the applicable legal framework by identifying the specific statutes, regulations, and standards that were violated. This may include the Fair Labor Standards Act, state wage payment laws, OSHA regulations, the National Labor Relations Act, anti-discrimination statutes, or industry-specific safety requirements. When regulatory agencies have issued citations or findings, reference these official determinations and any penalty assessments.\n\nDistinguish between violations that appear to result from negligence or lack of knowledge versus those that suggest willful disregard for legal obligations. Note any evidence of attempts to conceal violations, destroy records, or intimidate workers from reporting issues, as these factors significantly affect the legal and remedial response.\n\n## Remedial Actions and Recommendations\n\nConclude your summary with a clear account of required or recommended remedial measures. This includes back wages owed and to whom they should be paid, penalties or fines assessed by regulatory agencies, required changes to workplace policies or practices, mandatory safety improvements, reinstatement of terminated workers, and any ongoing monitoring or reporting obligations. If the investigation resulted in a settlement agreement or consent decree, summarize its key terms and compliance deadlines.\n\nWhere investigations remain ongoing or certain findings are preliminary, clearly indicate this status and explain what additional steps are pending. If workers have filed private lawsuits in addition to regulatory complaints, note this parallel litigation and how it relates to the administrative findings.\n\n## Presentation Standards\n\nPresent all information in clear, professional language accessible to both legal professionals and non-lawyers. Use precise terminology when describing legal violations, but explain technical concepts when necessary for clarity. Organize information logically with clear headings and transitions between topics. Support all factual assertions with specific references to source documents, including document names, page numbers, and relevant dates.\n\nMaintain objectivity by distinguishing between alleged violations, preliminary findings, and confirmed violations. When presenting disputed facts, acknowledge the dispute and explain what evidence supports each position. Your summary should be comprehensive enough to stand alone as a reference document while remaining concise enough to be readily digestible by busy stakeholders who need to understand the situation quickly and make informed decisions about next steps.",
+  "parent_skill_id": "43b99e7e-7093-4876-89c4-8ebc98560188",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "employment_and_consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.18632",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

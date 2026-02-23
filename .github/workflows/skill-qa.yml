@@ -1,0 +1,211 @@
+name: Skill QA
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate:
+    name: Validate Skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find changed skills
+        id: changed
+        run: |
+          # Get list of changed SKILL.md files
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/SKILL.md')
+          if [ -z "$CHANGED" ]; then
+            echo "No SKILL.md files changed"
+            echo "skills=" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          echo "skills<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Setup Python
+        if: steps.changed.outputs.skills != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        if: steps.changed.outputs.skills != ''
+        run: pip install pyyaml
+
+      - name: Validate frontmatter and structure
+        if: steps.changed.outputs.skills != ''
+        id: validate
+        run: |
+          python3 << 'SCRIPT'
+          import yaml
+          import os
+          import re
+          import sys
+
+          errors = []
+          warnings = []
+          skills_checked = []
+
+          changed_files = """${{ steps.changed.outputs.skills }}""".strip().split('\n')
+
+          for skill_path in changed_files:
+              if not skill_path.strip():
+                  continue
+
+              skill_dir = os.path.dirname(skill_path)
+              dir_name = os.path.basename(skill_dir)
+              skills_checked.append(skill_path)
+
+              # Read file
+              try:
+                  with open(skill_path, 'r') as f:
+                      content = f.read()
+              except FileNotFoundError:
+                  # File was deleted
+                  continue
+
+              # Parse frontmatter
+              fm_match = re.match(r'^---\n(.*?)\n---\n(.*)$', content, re.DOTALL)
+              if not fm_match:
+                  errors.append(f"**{skill_path}**: Missing or malformed YAML frontmatter")
+                  continue
+
+              try:
+                  fm = yaml.safe_load(fm_match.group(1))
+              except yaml.YAMLError as e:
+                  errors.append(f"**{skill_path}**: Invalid YAML frontmatter: {e}")
+                  continue
+
+              body = fm_match.group(2)
+
+              # Validate name
+              name = fm.get('name', '')
+              if not name:
+                  errors.append(f"**{skill_path}**: Missing `name` field")
+              elif len(name) > 64:
+                  errors.append(f"**{skill_path}**: `name` exceeds 64 characters ({len(name)})")
+              elif not re.match(r'^[a-z0-9]([a-z0-9-]*[a-z0-9])?$', name):
+                  errors.append(f"**{skill_path}**: `name` must be lowercase alphanumeric + hyphens, cannot start/end with hyphen")
+              elif '--' in name:
+                  errors.append(f"**{skill_path}**: `name` must not contain consecutive hyphens")
+              elif name != dir_name:
+                  errors.append(f"**{skill_path}**: `name` '{name}' does not match directory name '{dir_name}'")
+
+              # Validate description
+              desc = fm.get('description', '')
+              if not desc:
+                  errors.append(f"**{skill_path}**: Missing `description` field")
+              elif len(desc) > 1024:
+                  errors.append(f"**{skill_path}**: `description` exceeds 1024 characters ({len(desc)})")
+              else:
+                  # Check for first/second person
+                  lower_desc = desc.lower()
+                  if lower_desc.startswith('i ') or ' i ' in lower_desc[:50]:
+                      warnings.append(f"**{skill_path}**: `description` may use first person. Use third person (e.g., 'Processes...' not 'I process...')")
+                  if lower_desc.startswith('you ') or lower_desc.startswith('use this'):
+                      warnings.append(f"**{skill_path}**: `description` may use second person. Use third person.")
+
+              # Validate body line count
+              line_count = len(body.strip().split('\n'))
+              if line_count > 500:
+                  errors.append(f"**{skill_path}**: Body exceeds 500 lines ({line_count}). Split content into reference files.")
+              elif line_count > 400:
+                  warnings.append(f"**{skill_path}**: Body is {line_count} lines. Consider splitting into reference files before it exceeds 500.")
+
+              # Check for nested references (references in reference files)
+              ref_dir = os.path.join(skill_dir, 'references')
+              if os.path.isdir(ref_dir):
+                  for ref_file in os.listdir(ref_dir):
+                      ref_path = os.path.join(ref_dir, ref_file)
+                      if os.path.isfile(ref_path) and ref_file.endswith('.md'):
+                          with open(ref_path, 'r') as f:
+                              ref_content = f.read()
+                          # Check if reference file links to other files
+                          nested_refs = re.findall(r'\[.*?\]\(((?!http).*?\.md)\)', ref_content)
+                          if nested_refs:
+                              warnings.append(f"**{ref_path}**: Contains nested references ({', '.join(nested_refs)}). Keep references one level deep from SKILL.md.")
+
+              # Check for duplicate name across all skills
+              # (This is a simplified check - the full check should compare against all existing skills)
+
+          # Output results
+          report = "## Skill QA Report\n\n"
+          report += f"**Skills checked:** {len(skills_checked)}\n\n"
+
+          if errors:
+              report += "### Errors\n\n"
+              for e in errors:
+                  report += f"- {e}\n"
+              report += "\n"
+
+          if warnings:
+              report += "### Warnings\n\n"
+              for w in warnings:
+                  report += f"- {w}\n"
+              report += "\n"
+
+          if not errors and not warnings:
+              report += "All checks passed.\n"
+
+          # Write report for PR comment
+          with open('qa-report.md', 'w') as f:
+              f.write(report)
+
+          if errors:
+              print("VALIDATION FAILED")
+              print(report)
+              sys.exit(1)
+          else:
+              print("VALIDATION PASSED")
+              print(report)
+          SCRIPT
+
+      - name: Post PR comment
+        if: always() && steps.changed.outputs.skills != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let report;
+            try {
+              report = fs.readFileSync('qa-report.md', 'utf8');
+            } catch {
+              report = '## Skill QA Report\n\nValidation script failed to produce a report.';
+            }
+
+            // Find and update existing comment or create new one
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(c =>
+              c.user.type === 'Bot' && c.body.includes('## Skill QA Report')
+            );
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: report,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: report,
+              });
+            }

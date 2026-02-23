@@ -1,0 +1,202 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-5428-7312-8997-db4292b1202c
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a3f30b4a-d270-4566-9e1d-c09824baad96",
+  "slug": "litigation-family-law-marital-settlement-agreement-draft",
+  "name": "Marital Settlement Agreement",
+  "summary": "Drafts a comprehensive Marital Settlement Agreement resolving divorce issues including property division, spousal support, and child custody. It extracts details from case files to create itemized schedules and tailored provisions under applicable state law. Use this skill in family law litigation to finalize binding settlements before court approval.",
+  "content": "# Marital Settlement Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Marital Settlement Agreement (MSA) that will serve as the final, binding contract resolving all issues in a divorce proceeding. This document must be thorough, legally sound, and tailored to the specific circumstances of the parties involved.\n\nBegin by gathering all relevant information from the user's uploaded documents and case files. Search through financial disclosures, property appraisals, income statements, custody evaluations, and any preliminary agreements or correspondence between the parties. Extract specific details including asset values, debt amounts, income figures, property descriptions, children's names and ages, and any previously agreed-upon terms.\n\n## Property Division and Asset Allocation\n\nDraft Article I to comprehensively address the division of all marital property and debts. For community property division, create a detailed, itemized schedule that identifies each asset by specific description (including account numbers, addresses, or vehicle identification numbers where applicable), states its fair market value or outstanding balance, and clearly designates which party will receive or assume responsibility for each item. Include real property with legal descriptions, financial accounts with institution names and account numbers, vehicles with make/model/year, retirement accounts with plan names and approximate values, personal property of significant value, and business interests with ownership percentages.\n\nAddress all community debts with equal specificity, identifying each creditor, account number, current balance, and which party will be responsible for payment and hold the other party harmless. For separate property confirmation, list each party's separate assets and debts that were acquired before marriage, by gift, by inheritance, or otherwise qualify as separate property under applicable state law, confirming that each party retains their separate property free from any claim by the other party.\n\n## Spousal Support Provisions\n\nIn Article II, specify the complete terms of spousal support or clearly state that both parties waive any right to spousal support now and in the future. If support is to be paid, state the exact monthly amount, the payment schedule (including due date each month and payment method), the duration of support (whether for a specific term or until a triggering event such as remarriage or cohabitation), whether the support is modifiable or non-modifiable, the tax treatment under current law, and any step-down provisions or cost-of-living adjustments. If support is waived, include explicit language that each party waives any right to request spousal support in the future and acknowledges this waiver is made with full understanding of their rights.\n\n## Child Custody and Support Framework\n\nDraft Article III to address all matters concerning minor children of the marriage. Incorporate a detailed parenting plan that specifies legal custody (joint or sole decision-making authority for education, healthcare, and religious upbringing), physical custody arrangements with a specific schedule for regular parenting time, holiday and vacation schedules, transportation responsibilities, and provisions for communication between the child and the non-custodial parent. Reference any attached parenting plan by exhibit letter or number.\n\nFor child support, calculate the amount consistent with the applicable state's child support guidelines, showing the guideline calculation if required by local rules. State the monthly support amount, payment schedule, which parent will maintain health insurance coverage for the children, how uninsured medical expenses will be divided, responsibility for childcare costs, and provisions for modification based on changed circumstances. Include the duration of support (typically until age of majority or graduation from high school) and address post-secondary education expenses if the parties have agreed to contribute.\n\n## General Provisions and Enforceability\n\nInclude comprehensive general provisions that ensure the agreement's enforceability and finality. Draft mutual general releases whereby each party releases the other from all claims arising from the marital relationship except those specifically preserved in the agreement. Include representations and warranties that each party has made full and complete financial disclosure, has had the opportunity to consult with independent legal counsel or knowingly waives that right, enters into the agreement voluntarily without duress or coercion, and believes the agreement is fair and equitable.\n\nAddress attorney's fees and costs, typically providing that each party will bear their own fees unless a party must enforce the agreement due to the other's breach. Include provisions for dispute resolution, specifying whether the parties will attempt mediation before litigation and which court will have jurisdiction over enforcement actions. Add standard contract provisions including severability (if any provision is found invalid, the remainder continues in effect), governing law (specifying the state whose laws govern interpretation), integration (this agreement supersedes all prior agreements), and amendment procedures (requiring written modifications signed by both parties).\n\n## Execution and Finalization\n\nConclude with a signature section that includes signature lines for both the Petitioner and Respondent, dated signature lines, notary acknowledgments if required by local rules, and signature lines for the parties' attorneys if they are represented. Include a statement immediately above the signatures that each party acknowledges they have read the agreement, understand its terms, and sign it voluntarily.\n\nThroughout the document, use clear, unambiguous language that minimizes future disputes. Define any terms that could be subject to interpretation. Ensure all cross-references to exhibits are accurate. Verify that the agreement complies with the jurisdiction's family law requirements and public policy. The final document should be professionally formatted, properly paginated, and ready for filing with the court or presentation to the judge for approval and incorporation into the final divorce decree.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "petitioner",
+      "respondent"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement",
+      "pre-trial"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:41.411192Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:41.726911Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:43.011888Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:43.819021Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5096ec9b7dd-SJC)
+2026-02-23T21:42:44.968139Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e50fe9bd7a20-SJC)
+2026-02-23T21:42:46.351727Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5193faa3023-SJC)
+2026-02-23T21:42:48.548141Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e526eb91552b-SJC)
+2026-02-23T21:42:52.213330Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e53dd81a3451-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-family-law-marital-settlement-agreement-draft-yy2222nm.md
+
+STDOUT:
+

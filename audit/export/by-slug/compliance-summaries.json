@@ -1,0 +1,46 @@
+{
+  "id": "a1790a1a-6806-4096-9e1e-683472e275da",
+  "slug": "compliance-summaries",
+  "name": "Compliance Summaries",
+  "summary": "Generates comprehensive compliance summaries evaluating an organization's adherence to applicable laws, regulations, and industry standards across sectors like finance, healthcare, and environmental protection. Analyzes current compliance status, identifies risks and remediation needs, and structures outputs with executive summaries and detailed assessments. Use for creating governance documents that inform executives, boards, and regulators on compliance posture.",
+  "content": "# Compliance Summary Generation Prompt\n\nYou are tasked with creating a comprehensive compliance summary that evaluates an organization's adherence to applicable laws, regulations, and industry standards. This summary serves as a critical governance document for executives, board members, compliance officers, and regulatory stakeholders who need to understand the organization's current compliance posture and any areas requiring remediation.\n\nBegin by identifying the specific industry sector and jurisdiction relevant to this compliance review. The regulatory landscape varies significantly across industries such as financial services (subject to SEC, FINRA, banking regulations), healthcare (HIPAA, FDA, state medical board requirements), environmental protection (EPA regulations, state environmental laws), data privacy (GDPR, CCPA, sector-specific data protection rules), and other regulated sectors. Search the organization's uploaded documents to locate compliance policies, audit reports, regulatory correspondence, internal assessments, and any previous compliance summaries that establish the baseline regulatory framework.\n\nConduct thorough research to identify all applicable regulatory requirements for the organization's specific operations, geographic footprint, and business activities. This includes federal statutes and regulations, state and local laws, industry-specific standards, contractual compliance obligations, and any consent orders or settlement agreements that impose ongoing compliance duties. For each identified requirement, document the specific legal citation, the substantive obligation it imposes, the responsible department or personnel, required reporting or filing deadlines, and the consequences of non-compliance including potential penalties, enforcement actions, or reputational harm.\n\nAnalyze the organization's current compliance status by examining available evidence of compliance activities. Review documentation of policies and procedures implemented to address regulatory requirements, training programs and employee certifications, monitoring and auditing activities, incident reports and breach notifications, corrective action plans, and communications with regulatory agencies. Assess whether the organization has established adequate compliance infrastructure including designated compliance officers, appropriate resource allocation, documented compliance programs, regular risk assessments, and effective reporting mechanisms to senior management and the board.\n\nStructure your compliance summary to provide both high-level executive insights and detailed supporting information. Open with an executive summary that characterizes the overall compliance posture using clear risk categorization such as compliant, substantially compliant with minor gaps, non-compliant with material deficiencies, or under active regulatory scrutiny. Identify the most significant compliance risks and any immediate action items requiring executive attention. Then provide a detailed analysis organized by regulatory domain or business unit, documenting each applicable requirement, the current compliance status with supporting evidence, any identified gaps or deficiencies, recommended remediation steps with assigned ownership and timelines, and resource requirements for achieving full compliance.\n\nAddress temporal considerations by distinguishing between current compliance status, upcoming regulatory changes that will require program modifications, pending regulatory examinations or audits, and expiring licenses, certifications, or registrations requiring renewal. Highlight any areas where regulatory interpretation is evolving or where the organization operates in legal gray areas that may require legal counsel review or proactive engagement with regulators.\n\nInclude forward-looking compliance planning by identifying emerging regulatory trends in the industry, anticipated legislative or regulatory changes, opportunities to enhance compliance programs beyond minimum requirements, and recommendations for compliance technology or process improvements. Consider whether the organization should pursue industry certifications, participate in regulatory safe harbor programs, or implement compliance management systems that demonstrate commitment to best practices.\n\nEnsure your summary addresses key stakeholder needs by providing board-level governance information suitable for oversight responsibilities, operational details that compliance teams can use for program implementation, risk metrics and key performance indicators for ongoing monitoring, and documentation that could support regulatory examinations or third-party due diligence. Use clear, precise language that accurately conveys legal requirements while remaining accessible to non-legal business leaders.\n\nConclude with a prioritized action plan that sequences compliance initiatives based on regulatory deadlines, risk severity, resource availability, and interdependencies between different compliance workstreams. Specify accountability by identifying responsible parties, establishing realistic timelines, and defining measurable outcomes that will demonstrate compliance achievement. Your summary should serve as both a compliance assessment and a roadmap for maintaining and enhancing the organization's regulatory compliance program.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "finance",
+      "healthcare",
+      "environmental"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.707017",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,299 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-0841-78a2-8fa6-8657752e427f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "37177ae8-f77f-4b9e-b823-8806565ed796",
+  "slug": "legal-research-summaries",
+  "name": "Legal Research Summaries",
+  "summary": "Generates professional summaries of comprehensive legal research on specific questions or topics. Synthesizes statutes, case law, and regulatory guidance with thematic analysis of interactions, trends, and controversies. Use it to help lawyers quickly understand legal landscapes, prepare arguments, or evaluate case strategies.",
+  "content": "# Legal Research Summary Prompt\n\nYou are tasked with conducting comprehensive legal research and producing a professional research summary that synthesizes findings on a specific legal question or topic. Your summary will serve as a critical resource for attorneys preparing arguments, evaluating case strategy, or understanding the applicable legal landscape.\n\n## Research Scope and Methodology\n\nBegin by clearly identifying the legal question or topic requiring research. Determine the relevant jurisdiction(s), applicable practice areas, and the time period for which the research should be current. Your research should encompass three primary categories of authority: statutory law, case law, and regulatory guidance. For each category, identify the most authoritative and relevant sources.\n\nWhen researching statutory provisions, locate the current version of applicable statutes, noting any recent amendments or pending legislative changes that may affect the analysis. For case law, prioritize binding precedent from the relevant jurisdiction, followed by persuasive authority from other jurisdictions if applicable. Include landmark cases that established foundational principles as well as recent decisions that reflect current judicial interpretation. When examining regulatory guidance, identify administrative rules, agency interpretations, advisory opinions, and enforcement actions that provide context for how statutes are applied in practice.\n\n## Analysis and Synthesis\n\nYour research summary must go beyond mere citation collection. Analyze how the various authorities interact and identify any tensions, conflicts, or evolving trends in the law. Distinguish between settled legal principles and areas of ongoing development or controversy. When multiple interpretations exist, present each viewpoint with supporting authority and evaluate the relative strength of each position.\n\nOrganize your findings thematically rather than by source type. For instance, if researching employment discrimination standards, you might organize sections around burden of proof, protected characteristics, available remedies, and procedural requirements\u2014with each section drawing from statutes, cases, and regulations as appropriate. This integrated approach provides attorneys with a more useful understanding of how the law operates in practice.\n\n## Document Structure and Presentation\n\nStructure your summary to maximize utility for legal professionals working under time constraints. Begin with an executive summary that distills the key findings and bottom-line conclusions in two to three paragraphs. This should answer the core research question directly and highlight any critical nuances or limitations.\n\nThe body of your summary should be organized into logical sections with clear headings. Each section should begin with a topic sentence that states the legal principle, followed by supporting authority and analysis. When citing cases, include not only the citation but also a brief explanation of the holding, the relevant facts that distinguish or align the case with the current matter, and the procedural posture if relevant to the analysis. For statutory provisions, quote the operative language when it is central to the analysis, and explain how courts or agencies have interpreted ambiguous terms.\n\nInclude a dedicated section addressing counterarguments or alternative interpretations. Attorneys must anticipate opposing counsel's positions, so your summary should identify the strongest arguments against your primary conclusions and evaluate their merit based on the available authority.\n\n## Citations and Verification\n\nAll legal authorities must be properly cited in Bluebook format with verified sources. Each citation should link to the authoritative version of the source, whether that is an official reporter, government website, or other reliable legal database. Verify that each source actually supports the proposition for which it is cited by confirming the specific language, holding, or provision referenced.\n\nWhen you encounter citations that cannot be verified or sources that are unavailable, note this limitation explicitly rather than including unverified information. If research reveals gaps in the available authority\u2014such as an issue of first impression or an area where courts are divided without clear guidance\u2014acknowledge these gaps as they are material to the attorney's strategic decision-making.\n\n## Practical Application and Strategic Considerations\n\nConclude your summary with a section on practical implications and strategic considerations. Based on the research findings, what are the strengths and weaknesses of potential legal arguments? Are there procedural considerations, such as statutes of limitations or jurisdictional requirements, that affect how the law applies? Are there recent developments, such as pending appeals or proposed regulatory changes, that could alter the legal landscape?\n\nYour summary should empower the attorney to make informed decisions about case strategy, settlement negotiations, or client counseling. The goal is not merely to report what the law says, but to provide actionable intelligence about how the law is likely to be applied to the specific question or matter at hand.\n\nThroughout your research and writing, maintain objectivity and intellectual rigor. Your role is to provide accurate, comprehensive information\u2014not to advocate for a particular outcome. Where the law is unclear or subject to reasonable debate, present the analysis in a balanced manner that allows the attorney to exercise professional judgment based on complete information.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.620652",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:02:01.134022Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Finalizing skill metadata and structure**
+
+I'm choosing the slug "legal-research-summary" to keep domain clarity while simplifying prefixes, and structuring SKILL.md with a concise purpose, prerequisites, detailed output process including tables and checklists, guidelines emphasizing Bluebook citations and verification, and placeholder tags for uncertain citations.
+thinking
+**Drafting detailed skill content with structured tasks and cautions**
+
+I'm including explicit tasks like executive summary and thematic sections, adding templates and checklists, emphasizing caution about legal advice and verification, specifying user prompt prerequisites, and organizing all into a well-formatted SKILL.md with full metadata and trigger keywords for clarity and completeness.
+codex
+---
+name: legal-research-summary
+description: Produces U.S. litigation-focused legal research summaries that synthesize statutes, case law, and regulatory guidance into an attorney-ready landscape analysis with counterarguments and strategic implications. Use when drafting research summaries, research memos, case law surveys, statutory/regulatory synthesis, or answering "what is the law on X" questions. Trigger keywords: legal research summary, research memo, case law survey, statutory analysis, regulatory guidance, legal landscape.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+    - Analysis
+  skill_modes:
+    - Research
+    - Summarization
+    - Analysis
+---
+
+# Legal Research Summary
+
+Deliver a concise, attorney-ready synthesis of governing law and competing interpretations on a defined legal question.
+
+## Prerequisites
+
+1. **Research question** — precise issue statement in one sentence
+2. **Jurisdiction(s)** — state/federal, circuit, and any choice-of-law constraints
+3. **Time scope** — currentness cutoff and retroactivity needs
+4. **Fact pattern** — material facts that drive legal tests/standards
+5. **Authority sources** — preferred databases or required sources (e.g., Westlaw, Lexis, gov sites)
+
+## Output Structure / Process
+
+**Section Template (use all sections in order):**
+1. **Issue & Scope**
+2. **Executive Summary**
+3. **Legal Framework (Thematic)**
+4. **Counterarguments / Alternative Views**
+5. **Gaps / Open Questions**
+6. **Practical Implications & Strategy**
+7. **Sources & Verification Notes**
+
+**Authority Prioritization (apply in every section):**
+- Binding precedent for the forum
+- Persuasive authority if binding is absent or split
+- Statutes and regulations with effective dates
+- Agency guidance/enforcement actions where relevant
+
+**Thematic Organization Matrix (organize by topic, not by source type):**
+| Theme | Legal Standard | Key Authorities | Fact Alignment | Notes |
+|---|---|---|---|---|
+| {Theme 1} | {Rule/element} | {Case/Statute/Reg} | {Align/Distinguish} | {Trend/Conflict} |
+| {Theme 2} | {Rule/element} | {Case/Statute/Reg} | {Align/Distinguish} | {Trend/Conflict} |
+
+**Executive Summary (2–3 short paragraphs):**
+- Direct answer to the research question
+- Dominant rule and any split/controversy
+- Practical bottom line for litigation posture
+
+**Legal Framework (Thematic) – Per Theme:**
+- **Rule statement** (one sentence)
+- **Primary authority** (binding first)
+- **Holding summary** (case law) or **operative language** (statute/reg)
+- **Procedural posture** if material
+- **Fact alignment** (why it matters to the current matter)
+
+**Counterarguments / Alternative Views:**
+- Identify the strongest opposing line(s) of authority
+- Note jurisdictional splits or inconsistent applications
+- Provide relative strength assessment based on authority quality
+
+**Gaps / Open Questions:**
+- Issues of first impression
+- Conflicting precedents without reconciliation
+- Pending appeals or proposed legislative/regulatory changes
+
+**Practical Implications & Strategy:**
+- Litigation leverage points (motion posture, evidentiary hooks)
+- Risk assessment (strength/weakness of primary positions)
+- Procedural constraints (SOL, jurisdiction, exhaustion)
+
+**Citations & Verification:**
+- Use Bluebook format
+- Link to authoritative sources (official reporters, government sites)
+- Verify holding/quote supports proposition
+- Flag unverified or inaccessible sources explicitly
+
+**Output Checklist:**
+- Issue statement is precise and jurisdiction-scoped
+- Executive summary answers the question
+- Each theme ties to facts and authority
+- Counterarguments included
+- Gaps and pending changes noted
+- Bluebook citations verified
+
+## Guidelines
+
+- Maintain neutrality; do not advocate a single outcome.
+- If law is unsettled, present competing views with authority weight.
+- Distinguish binding vs persuasive authority in every section.
+- Use `[VERIFY]` for any citation not confirmed in source text.
+- Note effective dates and amendments for statutes/regulations.
+- Avoid long quotes; summarize unless specific language is dispositive.
+tokens used
+2,970

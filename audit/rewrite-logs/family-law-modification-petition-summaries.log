@@ -1,0 +1,310 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-bdb0-70c1-8fb3-bb6df357626f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "3afdd11d-674d-4436-b892-7c453b6fa737",
+  "slug": "family-law-modification-petition-summaries",
+  "name": "Modification Petition Summaries",
+  "summary": "Generates comprehensive summaries of modification petitions in family law cases. Analyzes key elements including the current order, requested changes, material changes in circumstances, supporting facts, evidence, and procedural details. Use it when attorneys need quick insights into petitions seeking to modify child custody, support, visitation, or other post-judgment orders.",
+  "content": "# Modification Petition Summaries for Family Law Matters\n\nYou are tasked with creating a comprehensive summary of a modification petition in a family law case. This workflow is essential when attorneys need to quickly understand the key issues, requested changes, and supporting grounds in petitions to modify existing family law orders, such as those involving child custody, visitation, child support, spousal support, or other post-judgment matters.\n\nBegin by thoroughly analyzing the modification petition document provided. Your summary should capture the essential elements that allow legal professionals to immediately grasp what is being requested and why. The analysis must identify the current order being challenged, the specific modifications sought, the material change in circumstances alleged, and the legal and factual basis supporting the requested changes.\n\nStructure your summary to include the following key components in a clear, organized format. Start with the case caption information including the parties' names, case number, and court. Identify what type of order is subject to modification, such as a custody arrangement, support obligation, or visitation schedule, and provide the date of the original order. Clearly articulate each specific modification being requested, using precise language that captures both what currently exists and what the petitioner seeks to change.\n\nThe heart of your summary should address the grounds for modification. Family law courts require a showing of material change in circumstances or other statutory grounds depending on the jurisdiction and type of order. Extract and summarize the factual allegations that purport to establish these changed circumstances, whether they involve relocation, changes in income, changes in a child's needs, remarriage, cohabitation, health issues, or other relevant factors. Present these facts in a logical sequence that demonstrates how they support the requested relief.\n\nInclude any supporting documentation referenced in the petition, such as financial declarations, declarations from the parties or witnesses, expert reports, school records, medical records, or other exhibits. Note what evidence is attached versus what may be referenced but not yet provided. If the petition includes specific legal arguments or citations to statutes and case law, summarize the legal framework being invoked.\n\nCapture procedural information including the filing date, any requested hearing dates, whether temporary or emergency orders are sought, and any specific requests for relief beyond the primary modification such as attorney's fees, costs, or retroactive application of changes. If the petition includes allegations regarding the other party's conduct or compliance with existing orders, summarize these claims objectively.\n\nYour summary should be written in clear, professional language suitable for attorney review, avoiding unnecessary legal jargon while maintaining precision. The goal is to enable a family law attorney to understand the petition's substance within minutes, prepare for client consultations, evaluate the strength of the claims, identify areas requiring investigation or discovery, and formulate response strategies. Present the information in a neutral, objective manner that accurately reflects the petition's content without editorial commentary on the merits of the claims.\n\nConclude with any notable aspects of the petition, such as unusual requests, potential jurisdictional issues, statute of limitations concerns, or procedural defects that may warrant attention. If critical information appears to be missing from the petition, note these gaps as they may be relevant to case strategy or response preparation.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:57:19.869504Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing detailed skill spec**
+
+I'm consolidating user and system instructions into a concise SKILL.md draft focused on family law modification petition summaries; I'll select the slug "modification-petition-summary," include structured metadata, define purpose and prerequisites, and detail clear sections with checklists near 100 lines, ensuring tone aligns with developer expectations.
+thinking
+**Drafting full skill content**
+
+I'm structuring the complete SKILL.md content with required metadata and sections, following the prescribed format, tone, and constraints; I'll include descriptive fields, prerequisites, structured output elements with tables and checklists, guidelines, and jurisdiction notes, ensuring no code fences or extra explanation.
+codex
+---
+name: modification-petition-summary
+description: Produces structured summaries of U.S. family law modification petitions, capturing the existing order, requested changes, alleged material change in circumstances, supporting facts, evidence, and procedural posture. Use when summarizing petitions to modify custody, visitation, child support, spousal support, or other post-judgment orders for quick attorney review. Trigger keywords: "modification petition", "change in circumstances", "custody modification", "support modification", "visitation modification", "post-judgment motion".
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+---
+
+# Modification Petition Summary
+
+Condense a family law modification petition into a decision-ready, neutral summary.
+
+## Prerequisites
+
+1. The modification petition and all referenced exhibits/attachments
+2. The current order/judgment being modified (or its date and terms)
+3. Docket metadata (court, case number, filing date)
+4. Jurisdiction/state and party roles (petitioner/respondent)
+5. Any cited statutes/case law included in the petition
+
+## Output Structure / Process
+
+Use the following structure and fill all fields that are present in the petition. Note missing items explicitly.
+
+**Case Snapshot (table)**
+
+| Field | Details |
+| --- | --- |
+| Court / County | |
+| Case No. | |
+| Parties | |
+| Petitioner / Respondent | |
+| Filing Date | |
+| Order at Issue (type/date) | |
+| Requested Hearing Date | |
+| Emergency/Temporary Relief Sought | Yes/No; details |
+
+**Order Comparison (table)**
+
+| Topic | Current Order | Requested Modification |
+| --- | --- | --- |
+| Custody (legal/physical) | | |
+| Parenting time / visitation | | |
+| Child support | | |
+| Spousal support | | |
+| Other provisions | | |
+
+**Grounds for Modification (checklist)**
+
+- Material change in circumstances alleged: Yes/No
+- Nature of change: relocation, income change, child needs, health, safety, cohabitation/remarriage, school issues, other
+- Best interests factors invoked: Yes/No; specify
+- Statutory standard cited: Yes/No; cite if provided
+- Retroactive modification requested: Yes/No; scope
+
+**Factual Allegations (bulleted chronology)**
+
+- Date/period: event/fact alleged
+- Link to requested change: how petitioner connects fact to relief
+- Any allegations of noncompliance with prior order
+
+**Evidence Inventory (table)**
+
+| Evidence Type | Attached? | Description / Purpose |
+| --- | --- | --- |
+| Financial declaration | | |
+| Party declaration(s) | | |
+| Witness declaration(s) | | |
+| Expert report(s) | | |
+| School records | | |
+| Medical records | | |
+| Other exhibits | | |
+
+**Legal Framework (short list)**
+
+- Statutes cited
+- Case law cited
+- Local rules/procedural standards cited
+
+**Procedural Posture (table)**
+
+| Item | Details |
+| --- | --- |
+| Service/Notice described | |
+| Prior modification history mentioned | |
+| Related proceedings (contempt, enforcement, DV) | |
+| Requested fees/costs | |
+| Mediation/ADR requested or required | |
+
+**Relief Requested (list)**
+
+- Primary modification(s)
+- Temporary/emergency orders
+- Ancillary relief (fees, costs, transportation, exchanges, supervised visits, etc.)
+
+**Gaps / Flags (list)**
+
+- Missing: current order text/date, financial data, parenting plan, jurisdiction facts, service info
+- Potential jurisdiction/venue issue: flag if facts suggest multi-state custody or relocation
+- Procedural defect: missing verification, missing required forms, untimely filing, lack of notice (if apparent)
+
+## Guidelines
+
+- Keep tone neutral and factual; do not argue merits.
+- Mirror petition terminology for accuracy; avoid recharacterizing allegations.
+- Distinguish between attached evidence and referenced-but-missing documents.
+- Flag any uncertainty or absent data explicitly as “Not provided”.
+- Jurisdiction-specific standards vary by state; do not infer standards not stated.
+- Use `[VERIFY]` for any legal citation you cannot confirm.
+tokens used
+2,840

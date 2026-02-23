@@ -1,0 +1,402 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c84-2296-79c1-be74-29be3cd39df8
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "8355d95a-91a4-4560-8c91-ee66ec2acdd9",
+  "slug": "international-distribution-agreement",
+  "name": "International Distribution Agreement",
+  "summary": "Drafts a comprehensive International Distribution Agreement for cross-border product distribution between suppliers and distributors. Addresses multi-jurisdictional regulatory compliance, intellectual property protection, trade controls, and dispute resolution mechanisms. Use when establishing or formalizing international distribution relationships to ensure legal robustness and commercial practicality.",
+  "content": "# Enhanced Prompt: International Distribution Agreement\n\nYou are tasked with drafting a comprehensive International Distribution Agreement that establishes the legal framework for cross-border product distribution between a supplier and distributor. This agreement must navigate the complexities of international commerce, including multi-jurisdictional regulatory compliance, intellectual property protection, trade controls, and cross-border dispute resolution. The final document should be sophisticated enough to withstand international legal scrutiny while remaining commercially practical for business implementation.\n\n## Initial Information Gathering and Document Intelligence\n\nBefore beginning the drafting process, conduct a thorough review of any documents the user has provided or referenced in their matter files. Search through uploaded contracts, correspondence, product specifications, prior distribution agreements, and corporate documents to extract critical factual information that will inform the agreement. Look for specific details about the parties' legal entities, including full corporate names, jurisdictions of incorporation, registration numbers, and principal places of business. Identify any existing business relationships, prior course of dealing, or established practices between the parties that should be reflected in the contractual terms.\n\nExtract concrete information about the products to be distributed, including technical specifications, regulatory classifications, intellectual property rights, and any existing trademark or patent registrations. Review correspondence to understand the commercial expectations of both parties regarding territory, exclusivity, pricing structures, and performance obligations. If the user has uploaded competitive agreements or industry-standard forms, analyze these documents to identify market-standard provisions and potential negotiation points. Pay particular attention to any regulatory approvals, export licenses, or compliance certifications that may already exist and should be referenced in the agreement.\n\nWhen factual information is incomplete or ambiguous, identify the specific gaps and present them to the user with clear options for resolution. For example, if the territory definition is unclear, present alternative formulations based on geographic scope, customer type, or distribution channel, explaining the legal and commercial implications of each approach.\n\n## Parties and Appointment Architecture\n\nDraft the opening provisions with meticulous attention to party identification, ensuring that each entity is described with complete legal precision. For the Supplier, include the full legal name exactly as it appears in the certificate of incorporation or formation documents, the type of legal entity with specific designation, the jurisdiction of incorporation or organization, the complete registered office address, and any relevant company registration or tax identification numbers. Provide identical detail for the Distributor entity. If either party is part of a corporate group, clarify whether the agreement is being entered into by the parent company, a subsidiary, or an affiliate, and address any requirements for parent company guarantees or cross-corporate obligations.\n\nThe appointment clause must articulate with absolute clarity whether the Distributor receives exclusive or non-exclusive rights to distribute the Products within the defined Territory. If exclusivity is granted, meticulously define the scope and limitations of that exclusivity. Address whether the Supplier retains the right to make direct sales to certain customer categories, such as governmental entities, military organizations, or multinational corporations with centralized purchasing. Specify whether the Supplier may fulfill orders placed through its own e-commerce platforms by customers located in the Territory, and if so, whether the Distributor receives commission or other compensation for such sales. Establish any performance thresholds, minimum purchase commitments, or sales targets that must be achieved for the Distributor to maintain exclusive status, including the measurement period, calculation methodology, and consequences of failure to meet targets.\n\nDefine the Territory with geographic and jurisdictional precision that eliminates ambiguity. Rather than simply listing countries, consider whether the Territory should be defined by reference to specific political subdivisions, customs territories, trade zones, or regulatory jurisdictions. Address how the Territory will be affected by geopolitical changes, such as the formation of new nations, changes in territorial sovereignty, or the imposition of international sanctions. Clarify the treatment of sales to customers physically located in the Territory who intend to use or resell the Products outside the Territory, and establish protocols for handling inquiries or orders that originate from outside the Territory but involve delivery within it. If certain customers, industries, or applications within the Territory are excluded from the Distributor's rights due to export controls, existing contractual commitments, or strategic considerations, identify these carve-outs explicitly and establish procedures for managing such restricted opportunities.\n\n## Commercial Terms and Transaction Mechanics\n\nConstruct a comprehensive framework for the ordering, pricing, and payment processes that reflects the realities of international trade and manages the inherent risks of cross-border transactions. Establish the complete lifecycle of an order, beginning with how the Distributor submits purchase orders, including required information such as product specifications, quantities, requested delivery dates, and shipping instructions. Specify the timeframe within which the Supplier must accept or reject orders, the form of order acknowledgment, and the legal effect of acceptance. Address whether accepted orders may be modified or cancelled, and if so, under what circumstances and with what penalties or restocking fees.\n\nDevelop a pricing structure that addresses both the initial pricing and the mechanism for future adjustments. If prices are fixed for a specified period, state the duration and the process for renegotiation. If prices are subject to adjustment, identify the triggering events with precision, such as changes in raw material costs exceeding a specified threshold, currency fluctuations beyond a defined range, or increases in transportation costs. Establish the notice period required for price changes and whether the Distributor has the right to cancel pending orders if prices increase. Address volume-based pricing tiers, promotional pricing programs, and any price protection mechanisms that shield the Distributor from price increases on inventory already purchased or committed. Clarify whether stated prices include or exclude value-added taxes, customs duties, freight charges, insurance premiums, and other transaction costs, and allocate responsibility for each cost category between the parties.\n\nDesign payment terms that appropriately allocate credit risk and currency risk in the international transaction. Specify the required payment method, recognizing that international sales often require more secure payment mechanisms than domestic transactions. If payment by letter of credit is required, detail the specific terms, including whether the letter of credit must be irrevocable and confirmed by a bank acceptable to the Supplier, whether it must be payable at sight or may provide for deferred payment, and what documents must be presented to obtain payment. If wire transfer is permitted, specify the required timing relative to shipment, such as payment in advance, payment against presentation of shipping documents, or payment within a specified number of days after delivery. Address which currency will be used for invoicing and payment, and allocate the risk of exchange rate fluctuations between the invoice date and payment date. Establish the consequences of late payment with specificity, including the applicable interest rate, the Supplier's right to suspend further shipments until payment is received, and the Supplier's right to terminate the agreement for material payment defaults. Consider requiring credit support in the form of parent company guarantees, standby letters of credit, or bank guarantees if the Distributor's financial condition or credit history warrants additional security.\n\nSpecify the delivery terms using the current edition of Incoterms published by the International Chamber of Commerce, and ensure that both parties understand the allocation of costs, risks, and responsibilities under the chosen term. If using EXW (Ex Works), clarify that the Distributor bears all costs and risks from the Supplier's facility and is responsible for export clearance. If using FCA (Free Carrier), specify the named place where the Supplier delivers the goods to the carrier nominated by the Distributor. If using FOB (Free on Board), CIF (Cost, Insurance and Freight), or similar terms, identify the named port and clarify the point at which risk transfers. If using DDP (Delivered Duty Paid), confirm that the Supplier assumes responsibility for import clearance and payment of all duties and taxes. Supplement the Incoterms with additional provisions addressing packaging standards for international shipment, marking and labeling requirements, insurance coverage and beneficiaries, inspection rights before shipment, and the procedure for making claims for damaged, defective, or non-conforming goods. Establish the timeframe within which the Distributor must inspect goods and notify the Supplier of any defects, and specify whether the Supplier's obligation is to repair, replace, or refund the purchase price for non-conforming goods.\n\n## Regulatory Compliance and Trade Controls\n\nDraft comprehensive compliance provisions that address the complex web of international, national, and local laws governing cross-border trade. Begin with export control compliance, requiring the Supplier to represent and warrant that it will comply with all applicable export control laws and regulations of its jurisdiction, including obtaining any required export licenses before shipping controlled items. Require the Distributor to represent and warrant that it will comply with all import laws and regulations of the Territory, including obtaining necessary import licenses, permits, and regulatory approvals. Address the classification of the Products under applicable export control regimes, such as the Export Control Classification Number under the U.S. Export Administration Regulations or the classification under the EU Dual-Use Regulation, and specify any restrictions on end-use or end-users.\n\nEstablish robust sanctions compliance obligations requiring both parties to represent and warrant that they are not owned or controlled by, and will not transact with, any person or entity that is the target of comprehensive sanctions or appears on any restricted party list, such as the U.S. Treasury Department's Specially Designated Nationals List, the EU Consolidated List, or the UN Sanctions List. Require each party to screen its counterparty and any sub-distributors, agents, or other intermediaries against applicable sanctions lists before entering into the relationship and on an ongoing basis. Include provisions requiring immediate notification if either party becomes subject to sanctions or is added to a restricted party list, and grant the other party the right to immediately suspend performance or terminate the agreement without liability if such an event occurs.\n\nAddress anti-corruption compliance with provisions that go beyond mere representations to establish concrete obligations and prohibitions. Require both parties to comply with all applicable anti-corruption laws, including the U.S. Foreign Corrupt Practices Act, the UK Bribery Act, and local anti-bribery laws in the Territory and the Supplier's jurisdiction. Explicitly prohibit the Distributor from making, offering, or authorizing any payment or transfer of anything of value, directly or indirectly, to any government official, political party, or candidate for political office for the purpose of obtaining or retaining business or securing any improper advantage. Define \"government official\" broadly to include employees of state-owned enterprises and public international organizations. Require the Distributor to maintain accurate books and records of all transactions related to the agreement and to implement adequate internal controls to prevent and detect corruption. Grant the Supplier the right to audit the Distributor's books and records related to the agreement to verify compliance with anti-corruption laws, and establish the consequences of non-compliance, including immediate termination rights and indemnification obligations.\n\nIncorporate product-specific regulatory requirements based on the nature of the Products and the regulatory environment in the Territory. If the Products are subject to safety standards, technical regulations, or conformity assessment procedures in the Territory, specify which party is responsible for ensuring compliance and obtaining necessary certifications or approvals. Address labeling requirements, including language requirements, safety warnings, country of origin marking, and any mandatory information that must appear on product labels or packaging. If the Products are subject to product registration, notification, or approval requirements in the Territory, such as medical device registrations or chemical substance notifications, clarify whether the Supplier or Distributor will serve as the applicant or registrant and how the costs of obtaining and maintaining such approvals will be allocated.\n\nInclude data protection and privacy compliance provisions if the agreement involves the transfer of personal data across borders, such as customer information, employee data, or end-user registration information. Require both parties to comply with applicable data protection laws, including the EU General Data Protection Regulation if either party is established in the EU or processes data of EU residents, and similar laws in other jurisdictions. If the Supplier will transfer personal data to the Distributor, incorporate appropriate data transfer mechanisms, such as standard contractual clauses approved by the European Commission, and specify the purposes for which the Distributor may process the data and the security measures that must be implemented. Address data breach notification obligations and the allocation of liability for data protection violations.\n\n## Intellectual Property Rights and Brand Protection\n\nCraft intellectual property provisions that clearly delineate ownership, grant appropriate usage rights, and protect the Supplier's brand equity and proprietary information. Begin with a clear statement that the Supplier retains all right, title, and interest in and to its trademarks, service marks, trade names, logos, trade dress, patents, copyrights, trade secrets, know-how, and other intellectual property rights, and that nothing in the agreement transfers ownership of any intellectual property to the Distributor. Grant the Distributor a limited, non-exclusive, non-transferable, royalty-free license to use the Supplier's trademarks and trade names solely for the purpose of marketing, promoting, advertising, and selling the Products within the Territory during the term of the agreement and in accordance with the Supplier's brand guidelines and quality standards.\n\nEstablish detailed restrictions and requirements governing the Distributor's use of the Supplier's intellectual property. Require the Distributor to use the trademarks exactly as specified by the Supplier, without modification, combination with other marks, or use in a manner that could dilute or tarnish the marks. Require the Distributor to obtain the Supplier's prior written approval for all marketing materials, advertisements, packaging, signage, and other materials that bear the Supplier's trademarks, and grant the Supplier the right to require modifications or withdrawal of any materials that do not meet the Supplier's standards. Prohibit the Distributor from registering or attempting to register any of the Supplier's trademarks or confusingly similar marks in any jurisdiction, and require the Distributor to execute any documents necessary to cancel any such registrations if they exist. Include an acknowledgment that all goodwill arising from the Distributor's use of the Supplier's trademarks inures solely to the benefit of the Supplier.\n\nAddress the protection of the Supplier's confidential information and trade secrets with provisions that define what constitutes confidential information, establish the Distributor's obligations to maintain confidentiality, and specify permitted uses and required safeguards. Define confidential information broadly to include technical data, product specifications, pricing information, customer lists, marketing strategies, business plans, and any other non-public information disclosed by the Supplier to the Distributor. Require the Distributor to use the same degree of care to protect the Supplier's confidential information as it uses to protect its own confidential information, but in no event less than reasonable care. Limit the Distributor's use of confidential information to the purposes of performing its obligations under the agreement, and prohibit disclosure to third parties except to employees, agents, and advisors who have a need to know and are bound by confidentiality obligations at least as restrictive as those in the agreement. Specify that the confidentiality obligations survive termination of the agreement for a defined period, typically three to five years, or indefinitely for information that constitutes trade secrets.\n\nEstablish procedures for handling intellectual property infringement by third parties. Require the Distributor to promptly notify the Supplier of any actual or suspected infringement of the Supplier's intellectual property rights that comes to the Distributor's attention, including counterfeiting, unauthorized use of trademarks, or patent infringement. Grant the Supplier the sole right to determine whether to take action against infringers and to control any enforcement proceedings, while requiring the Distributor to cooperate fully in such proceedings, including providing evidence, testimony, and access to relevant documents. Address the allocation of any recovery obtained from infringement actions, typically providing that the Supplier retains any damages or other relief after reimbursement of the Distributor's reasonable costs of cooperation.\n\nInclude provisions addressing what happens to intellectual property rights and materials upon termination of the agreement. Require the Distributor to immediately cease all use of the Supplier's trademarks, trade names, and other intellectual property upon termination or expiration. Require the Distributor to return or destroy, at the Supplier's option, all materials bearing the Supplier's trademarks, including marketing materials, packaging, signage, and promotional items, and to provide written certification of such return or destruction. Address the treatment of inventory bearing the Supplier's trademarks, typically providing for a sell-off period during which the Distributor may continue to sell existing inventory, subject to certain conditions and limitations.\n\n## Term, Termination, and Post-Termination Obligations\n\nEstablish the initial term of the agreement with a specific commencement date and duration, such as three years from the date of execution or from the date of first shipment. Address whether the agreement will automatically renew for successive periods unless either party provides notice of non-renewal, and if so, specify the length of renewal terms and the notice period required to prevent renewal. Alternatively, provide that the agreement continues until terminated by either party upon specified notice, such as 90 or 180 days' written notice.\n\nDefine the circumstances under which either party may terminate the agreement before the end of the stated term. Grant each party the right to terminate immediately upon written notice if the other party commits a material breach of the agreement and fails to cure such breach within a specified cure period, typically 30 days after receiving written notice describing the breach. Identify specific breaches that are considered material and may justify termination, such as failure to make payment when due, violation of intellectual property restrictions, breach of confidentiality obligations, or non-compliance with export control or anti-corruption laws. Provide that certain breaches are incurable and permit immediate termination without opportunity to cure, such as insolvency, assignment for the benefit of creditors, or violation of sanctions laws.\n\nGrant each party the right to terminate immediately if the other party becomes subject to insolvency proceedings, files for bankruptcy protection, makes an assignment for the benefit of creditors, appoints or has appointed a receiver or administrator, or ceases to conduct business in the ordinary course. Address whether the non-defaulting party has the right to purchase inventory or assume executory contracts in the event of the other party's insolvency.\n\nEstablish comprehensive post-termination obligations that protect both parties' interests after the relationship ends. Address the treatment of orders pending at the time of termination, providing that the Supplier may elect to fulfill or cancel pending orders, and if fulfilled, the Distributor remains obligated to accept and pay for such orders. Require the Distributor to return or destroy all confidential information and materials bearing the Supplier's trademarks as described in the intellectual property section. Address the Distributor's inventory of Products, typically providing for a sell-off period of 30 to 90 days during which the Distributor may continue to sell existing inventory at regular prices, subject to continued compliance with all terms of the agreement and payment obligations. Prohibit the Distributor from representing itself as an authorized distributor after termination and from holding itself out as having any ongoing relationship with the Supplier.\n\nInclude provisions addressing the Distributor's obligations to customers after termination, such as honoring warranties and providing service and support for Products sold during the term. Clarify whether the Distributor or Supplier will be responsible for warranty claims and customer service after termination, and establish any compensation or reimbursement arrangements for such ongoing obligations. Address the return of demonstration units, samples, and other property belonging to the Supplier.\n\n## Governing Law and Dispute Resolution Framework\n\nSelect the governing law with careful consideration of the international nature of the relationship and the need for a neutral, sophisticated, and predictable legal framework. Common choices for international distribution agreements include the laws of England and Wales, which offer well-developed commercial law principles and international enforceability; the laws of the State of New York, which provide sophisticated commercial law and are familiar to many international businesses; the laws of Switzerland, which offer neutrality and a strong tradition of international commerce; or the laws of Singapore, which combine common law principles with a pro-business environment and strong international arbitration infrastructure. Explicitly state that the chosen law applies without regard to its conflicts of law principles, which could otherwise result in the application of a different jurisdiction's law.\n\nAddress the applicability of the United Nations Convention on Contracts for the International Sale of Goods, which automatically applies to contracts for the sale of goods between parties whose places of business are in different countries that have ratified the Convention, unless the parties expressly exclude it. Many sophisticated parties prefer to exclude the CISG in favor of more familiar domestic law, in which case include an explicit provision stating that the CISG does not apply to the agreement. If the parties choose to have the CISG apply, consider supplementing it with provisions addressing issues not fully covered by the Convention, such as limitation of liability and dispute resolution.\n\nDesign a dispute resolution mechanism that is appropriate for international commercial disputes and provides an enforceable means of resolving conflicts. International arbitration is generally preferred over litigation for cross-border disputes because arbitral awards are more easily enforced across borders under the New York Convention on the Recognition and Enforcement of Foreign Arbitral Awards, which has been ratified by over 160 countries. If the parties choose arbitration, select a reputable international arbitral institution that provides established rules, administrative support, and a panel of experienced arbitrators. Leading institutions include the International Chamber of Commerce, which offers comprehensive rules and global recognition; the London Court of International Arbitration, which provides efficient procedures and high-quality arbitrators; the Singapore International Arbitration Centre, which combines modern rules with an Asia-Pacific focus; and the Hong Kong International Arbitration Centre, which offers similar advantages for Asia-based disputes.\n\nSpecify the essential elements of the arbitration provision with precision to avoid disputes about the arbitration process itself. Designate the seat of arbitration, which determines the procedural law governing the arbitration and the courts that have supervisory jurisdiction. The seat should be in a jurisdiction with a pro-arbitration legal framework and that is a party to the New York Convention. Common choices include London, Paris, Geneva, Singapore, and Hong Kong. Specify the language of the arbitration proceedings, which is typically English for international commercial disputes but may be another language if both parties are more comfortable with it. Determine the number of arbitrators, with three arbitrators being standard for significant disputes to ensure diverse perspectives and reduce the risk of bias, while a sole arbitrator may be appropriate for smaller claims to reduce costs. Establish the procedure for appointing arbitrators, typically providing that each party appoints one arbitrator and the two party-appointed arbitrators select the presiding arbitrator, with the arbitral institution making appointments if a party fails to do so or the party-appointed arbitrators cannot agree.\n\nAddress the scope of the arbitration agreement, confirming that it covers all disputes, controversies, or claims arising out of or relating to the agreement, including disputes about its validity, interpretation, performance, or termination. Consider whether to include a multi-tiered dispute resolution process that requires the parties to attempt negotiation or mediation before commencing arbitration, which can help preserve the business relationship and reduce costs, but include specific timeframes to prevent the pre-arbitration steps from being used to delay resolution. Include provisions for emergency or interim relief, either through an emergency arbitrator procedure offered by the arbitral institution or through applications to courts, to address situations requiring immediate action before the arbitral tribunal is constituted.\n\nSpecify how the costs of arbitration will be allocated, including arbitrators' fees, administrative fees of the arbitral institution, and attorneys' fees. The default rule in many jurisdictions is that each party bears its own costs, but the agreement may provide that the prevailing party is entitled to recover its reasonable costs and attorneys' fees from the losing party, which can discourage frivolous claims and defenses. Address whether the arbitral tribunal has the authority to award punitive or exemplary damages, which are not available in many jurisdictions and are often excluded in international commercial arbitration.\n\nInclude a provision requiring the parties to continue performing their obligations under the agreement during the pendency of any dispute, subject to exceptions for payment obligations that are the subject of the dispute or situations where continued performance would cause irreparable harm. This ensures that disputes do not disrupt the ongoing business relationship and that customers continue to receive products and service.\n\n## Additional Provisions and Boilerplate\n\nInclude standard contractual provisions that address important legal and practical issues not covered in the substantive sections. Draft a comprehensive definitions section that defines all capitalized terms used throughout the agreement, ensuring consistency and eliminating ambiguity. Include terms such as \"Products,\" \"Territory,\" \"Confidential Information,\" \"Intellectual Property,\" and any other terms that require precise definition.\n\nAddress the relationship between the parties with a provision clarifying that the Distributor is an independent contractor and not an employee, agent, partner, or joint venturer of the Supplier. Specify that the Distributor has no authority to bind the Supplier or to make representations or warranties on behalf of the Supplier except as expressly authorized in writing. This protects the Supplier from liability for the Distributor's actions and clarifies that the Distributor is not entitled to employee benefits or subject to the Supplier's control.\n\nInclude assignment and change of control provisions that restrict each party's ability to transfer its rights or obligations under the agreement without the other party's consent. Typically, the Supplier is permitted to assign the agreement to an affiliate or in connection with a merger, acquisition, or sale of substantially all of its assets, while the Distributor's rights are personal and may not be assigned without the Supplier's prior written consent. Address what constitutes a change of control of the Distributor that requires notice to or consent from the Supplier.\n\nDraft force majeure provisions that excuse performance when it is prevented by events beyond a party's reasonable control, such as acts of God, war, terrorism, government actions, epidemics, strikes, or natural disasters. Specify the notice requirements when a party invokes force majeure, the obligation to mitigate the effects of the force majeure event, and the consequences if the force majeure event continues for an extended period, such as the right of either party to terminate the agreement if performance is suspended for more than 90 days.\n\nInclude limitation of liability provisions that cap each party's liability for certain types of damages and exclude liability for consequential, incidental, or punitive damages. Carefully consider what types of damages should be excluded and whether certain obligations should be carved out from the limitation, such as indemnification obligations, breaches of confidentiality, or violations of intellectual property rights. Ensure that the limitation of liability provisions comply with the requirements of the governing law and are enforceable in the relevant jurisdictions.\n\nAddress notices with a provision specifying how notices must be delivered to be effective, including the addresses for each party, whether notices may be sent by email or must be sent by courier or registered mail, and when notices are deemed received. Include a requirement that parties notify each other of changes in address or contact information.\n\nInclude a severability provision stating that if any provision of the agreement is found to be invalid or unenforceable, the remaining provisions continue in full force and effect, and the invalid provision is modified to the minimum extent necessary to make it valid and enforceable while preserving the parties' intent.\n\nAddress amendments and waivers with a provision requiring that any modification of the agreement must be in writing and signed by both parties, and that no waiver of any provision is effective unless in writing and signed by the party against whom the waiver is sought to be enforced. Specify that a waiver of any breach does not constitute a waiver of any subsequent breach.\n\nInclude an entire agreement clause stating that the agreement constitutes the complete and exclusive statement of the agreement between the parties and supersedes all prior negotiations, understandings, and agreements, whether written or oral. This protects both parties from claims based on pre-contractual representations or side agreements.\n\nAddress counterparts and electronic signatures by providing that the agreement may be executed in multiple counterparts, each of which is deemed an original and all of which together constitute one agreement. Confirm that electronic signatures, including digital signatures and scanned signatures transmitted by email or electronic signature platforms, have the same legal effect as original signatures. For parties in jurisdictions requiring corporate seals or notarization, include appropriate provisions and signature blocks accommodating such formalities.\n\n## Document Formatting and Presentation\n\nFormat the final International Distribution Agreement as a professional legal document with a clear hierarchical structure using numbered sections and subsections. Begin with a title that identifies the document as an \"International Distribution Agreement\" and includes the date of execution. Include a preamble that identifies the parties with their full legal names and describes the purpose of the agreement in general terms.\n\nOrganize the substantive provisions into logically grouped articles with descriptive headings, such as \"Appointment and Territory,\" \"Products and Orders,\" \"Pricing and Payment,\" \"Intellectual Property,\" \"Compliance and Regulatory Matters,\" \"Term and Termination,\" \"Dispute Resolution,\" and \"General Provisions.\" Use consistent formatting for headings, with first-level headings in bold and capitalized, second-level headings in bold, and third-level headings in italics or underlined.\n\nCapitalize all defined terms consistently throughout the document and ensure that each defined term is used with the same meaning in all contexts. Include cross-references to other sections where appropriate, using section numbers rather than page numbers to ensure accuracy if the document is reformatted.\n\nConclude the agreement with signature blocks that include space for the printed name, title, and signature of each party's authorized representative, along with the date of execution. Include separate signature blocks for each party, clearly labeled with the party's name. If the agreement is to be executed in counterparts, include a statement to that effect above the signature blocks.\n\nEnsure that the final document is comprehensive and addresses all material terms of the distribution relationship, yet remains clear and accessible to business professionals who will implement and administer the agreement. Balance legal precision with commercial practicality, using plain language where possible while maintaining the specificity required for enforceability. The document should be suitable for execution with minimal additional negotiation, while remaining flexible enough to accommodate party-specific requirements through bracketed options, blank spaces for insertion of specific information, or alternative provisions that can be selected based on the parties' preferences.\n\nReview the completed agreement to ensure internal consistency, verify that all cross-references are accurate, confirm that all defined terms are properly capitalized and used consistently, and check that the numbering of sections and subsections is sequential and logical. The final product should reflect the sophistication expected in international commercial transactions while serving as a practical tool for managing the ongoing distribution relationship.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.075309",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:59:56.939204Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing skill content for distribution agreement**
+
+I'm selecting the slug "international-distribution-agreement" as concise and descriptive. Next, I'll create SKILL.md with a third-person description, trigger keywords, practice areas, document types, skill modes, and structured sections including purpose, prerequisites, process steps, and checklists for compliance and drafting, all concise and without extra commentary.
+thinking
+```
+---
+name: international-distribution-agreement
+description: Drafts cross-border international distribution agreements appointing exclusive or non-exclusive distributors. Covers key terms including territory, pricing, payment, Incoterms, export controls, sanctions, anti-corruption, CISG considerations, and compliance with product regulatory and data privacy rules. Trigger keywords: international distribution agreement, cross-border distribution, exclusive distributor, Incoterms, export controls, sanctions, anti-corruption, CISG.
+practice_areas:
+  - Regulatory
+  - Transactional
+document_types:
+  - Agreement
+skill_modes:
+  - Drafting
+---
+
+# **International Distribution Agreement**
+Creates comprehensive international distribution agreements for appointing distributors across borders, addressing regulatory and transactional risks and ensuring compliance with export controls, sanctions, and product regulations.
+
+## **Prerequisites**
+1. Party details and roles
+2. Products and regulatory classification
+3. Territory and sales channels
+4. Pricing, payment terms, and credit support
+5. Incoterm selection and logistics arrangements
+6. Applicable compliance requirements
+
+## **Output Structure / Process**
+1. Intake checklist completion  
+2. Drafting core agreement sections  
+3. Selecting and customizing clauses from clause map  
+4. Ensuring compliance via checklists  
+5. Reviewing for jurisdictional and regulatory consistency  
+6. Finalizing template and delivery  
+
+**Intake Checklist**
+
+| Item                       | Options / Notes                                             | Required |
+|----------------------------|-------------------------------------------------------------|----------|
+| Party names and addresses  | Full legal names, contact info                              | Yes      |
+| Product descriptions       | Including HS codes, classifications                         | Yes      |
+| Territory                  | Exclusive/non-exclusive, geographic scope                   | Yes      |
+| Pricing and payment terms  | Currency, credit terms, invoicing                            | Yes      |
+| Incoterms                  | Use latest ICC edition, specify named place/port            | Yes      |
+| Compliance screening       | Export controls, sanctions lists, anti-corruption screening | Yes      |
+| Regulatory registrations   | Local product registrations or approvals                     | If applicable |
+
+**Clause Map**
+
+| Section               | Must Cover                                      | Options / Notes                                  |
+|-----------------------|------------------------------------------------|------------------------------------------------|
+| Appointment           | Distributor status, exclusivity                  | Sub-distributors rights and approvals           |
+| Territory             | Define scope and any restrictions                | Channels authorized for sales                    |
+| Ordering & Pricing    | Order procedures, price adjustments               | Performance targets/minimum purchase obligations |
+| Payment Terms         | Currency, invoicing, credit support               | Late payment penalties                            |
+| Delivery & Risk       | Incoterms, transfer of title and risk             | Inspection rights                                |
+| Warranty & Returns    | Product warranties, defective return procedures  | Remedies and liability limits                     |
+| Compliance            | Export controls, sanctions, anti-corruption      | Screening obligations, audit rights               |
+| Intellectual Property | License to use trademarks and brands              | Restrictions, quality control                      |
+| Confidentiality       | Handling of confidential information               | Duration and scope                                |
+| Term & Termination    | Duration, renewal, termination rights              | Post-termination obligations, sell-off period    |
+| Governing Law & Dispute| Governing law clause and arbitration/mediation    | Consider New York Convention enforceability       |
+| CISG Opt-Out          | Exclude CISG application if desired                | Specify in governing law clause                   |
+| Liability & Indemnity | Limitation of liability, indemnities                | Carve-outs for IP, confidentiality, compliance   |
+| Force Majeure         | Excusable delays and conditions                     | Notice requirements                               |
+| Assignment            | Restrictions on assignment and change of control   | Consent rights                                    |
+| Relationship          | Confirm independent contractor status               | No agency or partnership intent                   |
+| Audit Rights          | Distributor audit for compliance verifications     | Anti-corruption and regulatory compliance         |
+| Records & Reporting   | Record keeping and reporting obligations             | Inspection rights                                 |
+
+**Compliance Checklist**
+
+- [ ] Screen parties against export control and sanctions lists  
+- [ ] Confirm compliance with anti-corruption laws (e.g., FCPA, UK Bribery Act)  
+- [ ] Verify product regulatory registrations and classifications  
+- [ ] Ensure data privacy compliance for cross-border data transfers (e.g., GDPR)  
+- [ ] Include applicable export control regulations (EAR, EU Dual-Use Regulation)  
+- [ ] Apply ongoing compliance monitoring and audit rights  
+
+**Guidelines**
+
+- Specify Incoterms referencing the current ICC edition and named place/port  
+- Screen and require ongoing screening of restricted parties and entities  
+- Use neutral governing law and seat to ensure enforceability under the New York Convention  
+- Exclude the CISG unless specifically intended to apply  
+- Add carve-outs in limitation of liability for intellectual property, confidentiality, and compliance breaches  
+- Confirm local regulatory registrations and approvals prior to contract execution  
+- Maintain simple, flat lists; avoid nested bullets in deliverables  
+- Mark uncertain legal citations with [VERIFY] where applicable (none included here)  
+
+**Template Skeleton**
+
+```text
+INTERNATIONAL DISTRIBUTION AGREEMENT
+
+1. Appointment of Distributor
+2. Territory and Sales Channels
+3. Orders, Pricing, and Payment
+4. Delivery Terms (Incoterms)
+5. Title and Risk of Loss
+6. Warranty and Returns
+7. Compliance with Laws and Regulations
+8. Intellectual Property License
+9. Confidentiality
+10. Term and Termination
+11. Governing Law and Dispute Resolution
+12. CISG Exclusion
+13. Limitation of Liability and Indemnity
+14. Force Majeure
+15. Assignment and Change of Control
+16. Independent Contractor Relationship
+17. Audit Rights and Records
+18. Miscellaneous Provisions
+```
+codex
+---
+name: international-distribution-agreement
+description: Drafts an international distribution agreement for cross-border product distribution, covering appointment and territory, exclusivity, ordering, pricing, payment, Incoterms, export controls, sanctions, anti-corruption, IP licensing, and dispute resolution. Use when drafting or revising an international distribution agreement, exclusive distributor appointment, cross-border channel agreement, or global distributor contract. Trigger keywords: international distribution agreement, exclusive distributor, cross-border distribution, Incoterms, export controls, sanctions, anti-corruption, CISG opt-out.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# **International Distribution Agreement**
+Drafts a cross-border distribution agreement that allocates commercial risk and regulatory responsibility while protecting IP and brand.
+
+## **Prerequisites**
+1. **Party details**: full legal names, entity type, jurisdiction, registration numbers, addresses, signing authority.
+2. **Products**: specs, regulatory classification, IP ownership, trademarks, required certifications.
+3. **Territory and channels**: countries/regions, customer carve-outs, online/direct sales rules, sub-distributors.
+4. **Commercial terms**: pricing model, currency, credit support, minimums/targets, forecast cadence.
+5. **Logistics**: Incoterms (current ICC edition), named place/port, inspection timeline, insurance coverage.
+6. **Compliance scope**: export/import regimes, sanctions lists, anti-bribery laws, data protection triggers.
+7. **Dispute framework**: governing law, forum/arbitration seat, language, interim relief preferences.
+
+## **Output Structure / Process**
+1. **Intake summary**: capture assumptions and open variables to confirm with the user.
+2. **Define appointment**: exclusivity, territory, channels, reserved customers, performance thresholds.
+3. **Set transaction mechanics**: orders, acceptance, pricing adjustments, payment/security, delivery, risk/title.
+4. **Lock compliance**: export controls, sanctions, anti-corruption, product regulatory, data protection.
+5. **Protect IP/brand**: license scope, approvals, infringement handling, confidentiality, post-term cleanup.
+6. **Exit and disputes**: term/renewal, termination, sell-off, governing law, CISG position, arbitration/litigation.
+7. **Boilerplate**: independent contractor, assignment/change of control, force majeure, notices, amendments.
+
+| Intake Checklist | Details | Required |
+| --- | --- | --- |
+| Appointment | Exclusive or non-exclusive; channels; sub-distributors | Yes |
+| Territory | Country list or regulatory/customs definition | Yes |
+| Pricing | List prices, tiers, adjustment triggers, taxes/duties | Yes |
+| Payment | Currency, timing, method, credit support | Yes |
+| Incoterms | Term and named place/port; insurance | Yes |
+| Compliance | Export/import, sanctions, anti-bribery, data | Yes |
+| IP License | Marks, approvals, quality control | Yes |
+| Termination | Term, cure periods, sell-off | Yes |
+| Disputes | Law, forum/arbitration, language | Yes |
+
+| Clause Map | Must Cover | Options |
+| --- | --- | --- |
+| Appointment & Territory | Exclusivity, carve-outs, targets | Non-exclusive; exclusive subject to KPIs |
+| Orders | PO requirements, acceptance window | Modify/cancel rules, fees |
+| Pricing | Adjustments, notice, price protection | FX pass-through, raw material triggers |
+| Payment | Method, due date, late interest | LC/standby LC, advance payment |
+| Delivery | Incoterms, risk transfer, title | Supplier or distributor insurance |
+| Inspection/Warranty | Inspection window, remedies | Repair/replace/refund |
+| Compliance | Export controls, sanctions, anti-corruption | Audit rights, termination triggers |
+| IP & Brand | License scope, approvals, goodwill | Prohibit registrations |
+| Confidentiality | Scope, duration, trade secrets | Survival period |
+| Term/Termination | Term, renewal, cure | Immediate termination for sanctions |
+| Post-Term | Sell-off, returns, support | Customer warranty handling |
+| Liability/Indemnity | Caps, exclusions, carve-outs | IP/compliance carve-outs |
+| Disputes | Law, CISG, arbitration | Courts, interim relief |
+
+```text
+[Template Skeleton]
+1. Definitions
+2. Appointment and Territory
+3. Products; Forecasts
+4. Orders; Acceptance; Cancellations
+5. Pricing; Taxes/Duties; Adjustments
+6. Payment Terms; Credit Support
+7. Delivery; Incoterms; Title/Risk
+8. Inspection; Returns; Warranty
+9. Compliance: Export/Import; Sanctions; Anti-Corruption; Regulatory; Data
+10. IP License; Brand Use; Infringement
+11. Confidentiality; Records; Audit
+12. Indemnities; Limitation of Liability
+13. Term; Renewal; Termination
+14. Post-Term Obligations; Sell-Off
+15. Dispute Resolution; Governing Law; CISG
+16. General: Independent Contractor; Assignment; Force Majeure; Notices; Amendments; Counterparts
+17. Signatures
+```
+
+## **Guidelines**
+- Exclude CISG unless the parties affirmatively want it to apply.
+- Always specify Incoterms with the named place/port and the ICC edition.
+- If exclusivity is granted, define performance thresholds, measurement period, and cure.
+- Allocate import duties, VAT, and clearance responsibilities explicitly.
+- Require ongoing sanctions screening for parties and sub-distributors.
+- Include anti-corruption representations plus audit/records obligations.
+- Define product regulatory approvals and which party is registrant/applicant.
+- Add data transfer mechanism if personal data crosses borders.
+- Carve out IP, confidentiality, and compliance breaches from liability caps as needed.
+- Provide a sell-off period with payment obligations and brand-use limits.
+tokens used
+10,224

@@ -1,0 +1,325 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-7abc-7892-8e57-25c2074c042b
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "5176b8e3-ff25-4339-8b41-20716494c960",
+  "slug": "customer-identification-program-cip-policy-drafting",
+  "name": "Customer Identification Program (CIP) Policy",
+  "summary": "Drafts a comprehensive Customer Identification Program (CIP) policy compliant with Section 326 of the USA PATRIOT Act and 31 CFR 1020.220 for financial institutions. Incorporates current FinCEN requirements, examination guidance, and best practices to ensure regulatory precision and operational usability. Use this skill when developing or updating AML compliance policies subject to regulatory review.",
+  "content": "# Enhanced Customer Identification Program (CIP) Policy Drafting Workflow\n\n## Comprehensive Policy Development Instructions\n\nYou are tasked with drafting a complete Customer Identification Program (CIP) Policy that meets all regulatory requirements under Section 326 of the USA PATRIOT Act and its implementing regulations at 31 CFR 1020.220. This policy will serve as a foundational compliance document subject to regulatory examination, internal audit review, and operational implementation by front-line staff. Your drafting must balance regulatory precision with practical usability, ensuring the policy can guide daily operations while demonstrating robust compliance to examiners.\n\nBefore beginning the drafting process, conduct thorough research to identify the most current regulatory requirements, examination guidance, and industry best practices for customer identification programs. Search for recent regulatory updates from FinCEN, examination manuals from federal banking agencies, enforcement actions involving CIP deficiencies, and model policies from industry associations. Pay particular attention to any recent amendments to the Bank Secrecy Act regulations, interagency guidance on customer due diligence, and FFIEC BSA/AML examination procedures that address customer identification. Verify all regulatory citations to ensure accuracy and currency, as outdated references can undermine the policy's credibility during examinations.\n\nIf the user has uploaded any existing CIP policies, regulatory guidance documents, examination reports, or related compliance materials, review these documents thoroughly to understand the institution's current practices, identified deficiencies, and specific regulatory context. Extract relevant language, procedures, and institutional details that should be incorporated or updated in the new policy. Ensure consistency with the institution's broader Bank Secrecy Act/Anti-Money Laundering program and other related policies such as beneficial ownership requirements, enhanced due diligence procedures, and suspicious activity reporting protocols.\n\n## Policy Purpose and Regulatory Foundation\n\nDraft an authoritative purpose statement that establishes this policy as a critical component of the institution's anti-money laundering compliance framework. The purpose section must clearly articulate that this Customer Identification Program implements the mandatory requirements of Section 326 of the USA PATRIOT Act and 31 CFR 1020.220, which require financial institutions to implement reasonable procedures to verify the identity of any person seeking to open an account. Explain that the policy serves multiple interconnected objectives: preventing money launderers and terrorist financiers from using the institution's products and services, enabling the institution to form a reasonable belief that it knows the true identity of each customer, protecting the institution from reputational and legal risks associated with illicit financial activity, and facilitating the institution's ability to respond to law enforcement requests for customer information.\n\nThe purpose statement should convey the institution's proactive commitment to financial crime prevention while acknowledging the regulatory mandate. Use language that demonstrates senior management support and board-level oversight, as examiners will assess whether the CIP reflects appropriate governance and institutional priority. Emphasize that compliance with this policy is mandatory for all personnel involved in account opening, customer onboarding, and relationship management, and that violations may result in disciplinary action up to and including termination. The tone should be authoritative yet accessible, suitable for both regulatory review and staff training purposes.\n\n## Scope and Applicability Provisions\n\nDefine with precision the scope of accounts and relationships covered by this Customer Identification Program. Specify that the policy applies to all accounts opened by individuals, corporations, partnerships, trusts, estates, and other legal entities, whether opened in person, electronically, by mail, or through any other channel. Address the treatment of existing accounts opened before the effective date of the CIP regulations, explaining that while these accounts are grandfathered and do not require retroactive identification, the institution will apply CIP procedures when existing customers open new accounts or when risk-based factors warrant enhanced scrutiny of existing relationships.\n\nIdentify any categories of accounts or transactions that are exempt from CIP requirements under regulatory provisions, such as accounts opened by government entities, accounts opened by financial institutions subject to BSA/AML regulations, or accounts opened for employee benefit plans. Ensure these exemptions are narrowly construed and properly documented, as examiners scrutinize whether institutions inappropriately expand exemptions beyond regulatory boundaries. Clarify how the policy applies to different account types including deposit accounts, loan accounts, safe deposit boxes, and other products or services that constitute \"accounts\" under the regulatory definition. Address the application of CIP procedures to beneficial owners of legal entity customers, cross-referencing the institution's Customer Due Diligence Rule compliance procedures where applicable.\n\n## Customer Identification Information Requirements\n\nEstablish comprehensive requirements for the minimum identifying information that must be collected from every customer before account opening. For individual customers, mandate collection of the customer's full legal name exactly as it appears on government-issued identification documents, complete date of birth including month, day, and year, complete residential street address including apartment or unit number where applicable, and a valid identification number. Explain that post office boxes may be collected as mailing addresses but cannot serve as the sole address for individual customers, as physical addresses are necessary for identity verification and risk assessment purposes.\n\nDetail the acceptable identification numbers for different customer categories. For U.S. citizens and resident aliens, specify that the institution will collect the Social Security Number or Individual Taxpayer Identification Number. For non-resident aliens who do not have these numbers, explain that the institution will collect passport numbers and country of issuance, alien identification card numbers, or other government-issued document numbers along with the issuing jurisdiction. Emphasize that the identification number must be from a document that is unexpired or, if expired, expired recently enough to provide reliable verification.\n\nFor entity customers including corporations, partnerships, limited liability companies, and other legal entities, require collection of the entity's full legal name as registered with governmental authorities, principal place of business address, taxpayer identification number or Employer Identification Number, and organizational documents such as articles of incorporation, partnership agreements, or trust instruments. Explain that for entities, the institution must also identify and verify individuals with authority to act on behalf of the entity, including authorized signatories, and must comply with beneficial ownership identification requirements under the Customer Due Diligence Rule. Describe how the institution will document the legal existence of entities through examination of formation documents, good standing certificates, or business licenses.\n\nAddress special circumstances that may require modified information collection, such as customers who are minors, customers who are incarcerated, customers who are homeless or lack traditional addresses, or customers who are foreign officials or politically exposed persons. Provide guidance on how staff should handle these situations while maintaining compliance with minimum CIP requirements, such as accepting addresses of shelters or social service agencies for homeless individuals, or collecting additional information to mitigate elevated risks associated with politically exposed persons.\n\n## Identity Verification Methods and Procedures\n\nDevelop detailed verification procedures that enable staff to form a reasonable belief that the institution knows the true identity of each customer. Explain that verification must occur within a reasonable time before or after account opening, with \"reasonable time\" generally interpreted as within thirty days for most accounts, though certain low-risk accounts may permit longer timeframes while high-risk accounts may require verification before the account is opened. Emphasize that accounts opened before verification is complete must be subject to appropriate risk-based limitations on transactions and monitoring for suspicious activity.\n\nDescribe documentary verification methods as the primary approach for confirming customer identities. Specify that documentary verification involves examining original or certified copies of unexpired government-issued identification documents that include a photograph, such as driver's licenses, state-issued identification cards, passports, military identification cards, or alien registration cards. Provide detailed instructions for staff examining these documents, including verification that the photograph reasonably resembles the customer, that the document appears genuine and has not been altered, that the information on the document is consistent with information provided by the customer, and that the document has not expired or has expired only recently. Instruct staff to record the type of document examined, the issuing authority, the document number, and the expiration date in the customer's records.\n\nEstablish non-documentary verification methods as alternative or supplementary approaches when documentary methods are unavailable or when additional verification is prudent based on risk assessment. Describe acceptable non-documentary methods including contacting the customer by telephone or mail at the address provided to confirm the information, comparing information provided by the customer with information obtained from consumer reporting agencies, public databases, or other reliable third-party sources, checking references with other financial institutions, or obtaining financial statements or other documentation that corroborates the customer's identity. Explain that non-documentary methods are particularly appropriate when customers cannot present adequate documentation due to disability, geographic distance, or other legitimate reasons, or when the institution's risk assessment indicates that additional verification beyond documentary review is warranted.\n\nAddress verification procedures for entity customers, explaining that the institution must verify the legal existence of the entity through examination of organizational documents, certificates of good standing, business licenses, or searches of governmental registries. Describe how the institution will verify the identity of individuals authorized to act on behalf of entities, applying the same documentary or non-documentary methods used for individual customers. Explain the process for identifying and verifying beneficial owners of legal entity customers, including collection of beneficial ownership certification forms and verification of the identities of individuals who own twenty-five percent or more of the entity or who exercise control over the entity.\n\nProvide guidance on resolving discrepancies discovered during the verification process, such as inconsistencies between information provided by the customer and information obtained from third-party sources, or situations where documents appear altered or fraudulent. Instruct staff to document all discrepancies, conduct additional verification using alternative methods, escalate unresolved discrepancies to supervisory personnel, and consider whether the discrepancies warrant filing a suspicious activity report. Establish clear protocols for declining to open accounts when verification cannot be satisfactorily completed or when fraud is suspected.\n\n## Government List Screening and Prohibited Parties\n\nEstablish mandatory procedures for screening all customers against government lists of known or suspected terrorists, terrorist organizations, and other prohibited parties before opening any account and on an ongoing basis thereafter. Specify that the institution will check customer names and identifying information against the Office of Foreign Assets Control Specially Designated Nationals and Blocked Persons List, the Foreign Sanctions Evaders List, the Sectoral Sanctions Identifications List, and any other OFAC sanctions programs applicable to the institution's business activities. Explain that screening must also encompass other relevant government lists such as the FBI's Most Wanted Terrorists list, the Financial Action Task Force list of high-risk jurisdictions, and any other lists designated by the institution's compliance program.\n\nDescribe the screening methodology, including the use of automated interdiction software where available and appropriate manual screening procedures where automated systems are not employed. Explain that screening must compare not only exact name matches but also close phonetic matches, alternate spellings, and variations that could indicate the same individual or entity. Address how the institution will handle common names that generate numerous potential matches, establishing risk-based procedures for investigating and clearing false positives while ensuring that true matches are identified and appropriately handled.\n\nDetail the escalation and response procedures when potential matches are identified. Require immediate escalation of any potential match to designated compliance personnel with authority to investigate and make blocking determinations. Prohibit account opening or transaction processing until the potential match is investigated and either cleared or confirmed. Explain that if a match is confirmed, the institution must immediately block the account or reject the transaction, file a blocked property report with OFAC within ten business days, and maintain the block until receiving authorization from OFAC to unblock. Emphasize the absolute prohibition on notifying the customer that their account has been blocked or that they have been identified as a match to a sanctions list, as such notification could constitute illegal tipping off under federal law.\n\nEstablish ongoing screening requirements for existing customers, specifying the frequency of rescreening based on risk assessment and the institution's resources. Explain that at minimum, existing customers must be screened whenever OFAC issues list updates, and that higher-risk customers or accounts may warrant more frequent screening. Describe procedures for updating customer information to ensure screening remains accurate, including processes for capturing name changes, address changes, and other modifications to customer profiles that could affect screening results.\n\n## Risk-Based Assessment and Enhanced Due Diligence\n\nDevelop a comprehensive risk-based framework that allows the institution to calibrate customer identification and verification procedures based on the money laundering and terrorist financing risks presented by different customers, products, services, and geographic locations. Explain that while all customers must meet minimum CIP requirements, the institution will apply enhanced scrutiny and additional verification measures to higher-risk relationships while maintaining efficient processes for lower-risk customers who present minimal compliance concerns.\n\nIdentify specific risk factors that warrant enhanced customer identification procedures, including but not limited to customers who are non-U.S. persons or non-resident aliens, customers whose businesses are located in or who conduct substantial transactions involving high-risk geographic locations identified by FATF or other authorities, customers whose businesses operate in industries associated with elevated money laundering risks such as money services businesses, casinos, precious metals dealers, or cannabis-related businesses, customers who are politically exposed persons or senior foreign political figures, customers who request account structures or services that lack obvious economic purpose, customers who will conduct primarily cash transactions, and customers whose anticipated account activity is unusually large relative to their stated business or occupation.\n\nDescribe the enhanced due diligence measures that may be applied to higher-risk customers, including requirements to collect additional documentation beyond minimum CIP requirements such as business plans, source of wealth statements, or references from other financial institutions, conducting enhanced verification using multiple independent sources, obtaining senior management approval before opening accounts, implementing more restrictive transaction limits during the initial account period, conducting more frequent ongoing monitoring and periodic reviews of account activity, and requiring more detailed recordkeeping regarding the purpose and expected use of accounts. Emphasize that enhanced due diligence decisions should be documented with clear explanations of the risk factors identified and the additional measures applied.\n\nEstablish procedures for ongoing risk assessment of existing customers, explaining that customer risk profiles may change over time based on changes in account activity, changes in the customer's business or circumstances, or changes in the institution's understanding of risks associated with particular industries or geographic locations. Require periodic reviews of higher-risk customers at intervals appropriate to the level of risk, with documentation of each review and any adjustments to risk ratings or monitoring procedures.\n\n## Recordkeeping, Documentation, and Retention\n\nEstablish comprehensive recordkeeping requirements that ensure the institution maintains complete documentation of all customer identification and verification activities. Specify that the institution will preserve all information obtained during the customer identification process, including the customer's name, address, date of birth, and identification number, copies or descriptions of any documents examined for identity verification including the type of document, issuing authority, document number, and expiration date, detailed descriptions of the methods and results of any non-documentary verification measures undertaken, and documentation of the resolution of any discrepancies or unusual circumstances encountered during the verification process.\n\nRequire that all records be maintained in a format that permits ready retrieval and examination by regulatory authorities, law enforcement, and internal audit personnel. Explain that records may be maintained in original paper form, photocopied form, electronic imaging, or other reproduced format, provided that the reproduction accurately reflects the original document and can be readily accessed. Address the organization and indexing of CIP records, specifying whether they will be maintained in customer files, centralized compliance files, or electronic databases, and assigning responsibility for ensuring records are properly filed and accessible.\n\nMandate that all CIP records be retained for a minimum of five years following the closure of the account, consistent with Bank Secrecy Act recordkeeping requirements. Explain that the retention period begins when the account is closed, not when the account is opened, and that records for accounts that remain open must be retained indefinitely until five years after closure. Address procedures for ensuring records are not destroyed prematurely, including coordination with records management personnel and implementation of legal holds when accounts are subject to litigation, investigation, or regulatory examination.\n\nEstablish procedures for providing records to regulatory examiners and law enforcement authorities upon appropriate request. Explain that the institution will cooperate fully with authorized requests for CIP records, providing responsive documents in the format requested within the timeframe specified. Address confidentiality and privacy considerations, ensuring that customer information is protected from unauthorized disclosure while remaining accessible for legitimate regulatory and law enforcement purposes.\n\n## Customer Notice and Communication Protocols\n\nDraft clear requirements for providing notice to customers regarding the institution's identity verification obligations under federal law. Specify that the institution will provide notice to customers in a manner that is clear, conspicuous, and timely, ensuring customers understand that identifying information is being requested to verify their identities as required by federal law. Explain that notice may be provided through various channels including account opening disclosures, posted notices in branch lobbies, website disclosures, mobile application notices, or oral notification by account opening personnel, with the specific method tailored to the account opening channel.\n\nProvide sample notice language that satisfies regulatory requirements while maintaining a customer-friendly tone. The notice should explain that federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account, that the institution will ask for identifying information including name, address, date of birth, and identification number, and that the institution may also ask to see documents such as driver's licenses or passports. Ensure the notice language is accessible to customers with limited English proficiency or disabilities, providing translations or alternative formats as required by applicable law.\n\nAddress procedures for handling customer questions, concerns, or objections regarding identity verification requirements. Instruct staff to explain that identity verification is a federal legal requirement applicable to all financial institutions, not a discretionary policy of this institution, and that the institution cannot open accounts for customers who refuse to provide required identifying information. Provide guidance on escalating customer complaints to supervisory personnel and documenting customer objections or unusual circumstances. Establish clear protocols for declining to open accounts when customers refuse to provide required information, ensuring decisions are documented and consistent with the institution's policies and applicable law.\n\n## Third-Party Reliance and Delegation Arrangements\n\nEstablish the framework under which the institution may rely on another financial institution or third-party service provider to perform elements of the customer identification program. Explain that such reliance is permissible only when specific regulatory conditions are satisfied, including execution of a written contract that requires the third party to implement and maintain a CIP that complies with applicable regulations, certification by the third party that it has implemented an adequate CIP, and the institution's performance of appropriate due diligence to assess the adequacy of the third party's CIP.\n\nSpecify the due diligence procedures the institution will conduct before entering into reliance arrangements, including review of the third party's CIP policies and procedures, assessment of the third party's compliance history and regulatory examination results, evaluation of the third party's staff training and quality control processes, and testing of the third party's systems and controls. Require periodic ongoing due diligence to ensure the third party continues to maintain an adequate CIP, including annual reviews of the third party's performance, testing of customer identification records, and monitoring of any regulatory actions or deficiencies identified at the third party.\n\nEmphasize that ultimate responsibility for CIP compliance remains with the institution regardless of any reliance on third parties, and that the institution may be held accountable for deficiencies in third-party performance. Establish clear oversight responsibilities including designation of personnel responsible for managing third-party relationships, monitoring third-party performance, and ensuring that customer identification information and verification records are appropriately shared with the institution. Address the institution's access rights to customer information and verification documentation maintained by third parties, ensuring the institution can retrieve records necessary for regulatory examinations, law enforcement requests, or internal investigations.\n\nDescribe specific scenarios where third-party reliance may be appropriate, such as when the institution acquires accounts through merger or acquisition, when the institution participates in loan syndications or participations, or when the institution uses third-party vendors for account opening or customer onboarding. Provide guidance on documenting reliance arrangements and maintaining evidence of due diligence and ongoing oversight.\n\n## Training, Program Administration, and Governance\n\nEstablish comprehensive training requirements to ensure all personnel involved in customer identification, account opening, and compliance functions possess the knowledge and skills necessary to implement this policy effectively. Mandate that all relevant personnel receive initial training upon hire or upon assignment to positions involving customer identification responsibilities, and ongoing training at least annually thereafter. Specify that training must cover the regulatory requirements underlying the CIP, the institution's specific policies and procedures, methods for examining and verifying identity documents, procedures for conducting non-documentary verification, government list screening requirements and procedures, risk assessment and enhanced due diligence protocols, recordkeeping obligations, and escalation procedures for unusual circumstances or suspected fraud.\n\nDescribe the training delivery methods, which may include classroom instruction, computer-based training modules, webinars, or other formats appropriate to the institution's size and resources. Require documentation of all training activities including attendance records, training materials, test results where applicable, and certifications of completion. Assign responsibility for developing training content, delivering training programs, tracking completion, and updating training materials as regulations, procedures, or industry practices evolve.\n\nDesignate clear responsibility for overall CIP administration and oversight, typically assigning these duties to the institution's BSA/AML compliance officer or other qualified compliance personnel. Specify the compliance officer's responsibilities including monitoring CIP implementation and effectiveness, conducting periodic audits and testing of customer identification procedures, reviewing samples of customer files to assess compliance with documentation and verification requirements, investigating deficiencies or violations and implementing corrective action, updating policies and procedures as needed to address regulatory changes or identified weaknesses, serving as the primary contact for regulatory inquiries regarding the CIP, and reporting to senior management and the board of directors regarding CIP compliance.\n\nEstablish requirements for periodic independent testing of the CIP, explaining that the institution will conduct or commission independent audits at intervals appropriate to the institution's risk profile, typically annually for higher-risk institutions or every twelve to eighteen months for lower-risk institutions. Describe the scope of independent testing, which should include review of policies and procedures for adequacy and currency, testing of customer files to assess compliance with identification and verification requirements, evaluation of government list screening processes and documentation, assessment of training programs and staff knowledge, review of recordkeeping practices and retention compliance, and evaluation of any third-party reliance arrangements. Require written reports of all independent testing with findings, recommendations, and management responses, and mandate that testing results be reported to the board of directors or appropriate board committee.\n\nAddress the governance structure for CIP oversight, including board of directors approval of the policy, senior management responsibility for implementation, and regular reporting to the board regarding CIP effectiveness, examination findings, and any significant deficiencies or violations. Establish procedures for updating the policy in response to regulatory changes, examination findings, or identified weaknesses, requiring board approval for material policy changes and appropriate documentation of all amendments.\n\n## Policy Review and Amendment Procedures\n\nConclude the policy with provisions establishing procedures for periodic review and amendment. Specify that the policy will be reviewed at least annually by the compliance officer and updated as necessary to reflect regulatory changes, examination guidance, industry best practices, or institutional experience. Require board approval for material policy changes and senior management approval for technical or administrative updates. Include version control provisions documenting the effective date of the policy, dates of amendments, and approval authorities. Establish procedures for communicating policy updates to relevant personnel and ensuring updated training is provided when significant changes are implemented.\n\n## Final Drafting Instructions and Quality Standards\n\nProduce the complete Customer Identification Program Policy as a professional, publication-ready document suitable for board approval and regulatory examination. Organize the policy with clear headings, logical flow, and consistent formatting. Use precise regulatory language where necessary while maintaining readability for staff who will implement the policy. Include all required elements identified in these instructions while tailoring the content to reflect the institution's specific circumstances, risk profile, and operational structure. Ensure all regulatory citations are accurate and current. Maintain an authoritative yet accessible tone throughout. The final policy should typically range from fifteen to thirty pages depending on the institution's complexity, with sufficient detail to guide implementation while avoiding unnecessary verbosity. After drafting, review the policy for completeness, accuracy, consistency, and compliance with all regulatory requirements before presenting it to the user.",
+  "parent_skill_id": "b5ab7115-707e-4537-ad00-f8dc8fa8fb69",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "financial-services"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "financial-services"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:14.95735",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:52:40.918114Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Defining CIP policy rewrite focus**
+
+Planning a concise Customer Identification Program (CIP) policy titled "cip-policy" with third-person description and triggers, including key legal references like Section 326 USA PATRIOT Act and 31 CFR 1020.220. The plan includes structured sections with tables, checklists, sample notices, risk factors, third-party reliance conditions, and institution-defined timelines, marking uncertain citations with [VERIFY].
+thinking
+**Finalizing CIP policy content details**
+
+Deciding to define retention as 5 years post-account closure per 31 CFR 1020.220 and include beneficial ownership rule with a [VERIFY] due to 2024 updates. The description will be third-person, under 1024 characters, incorporating trigger keywords, and the output will feature a clear "Output Structure / Process" with phases like Intake, Drafting, Governance, plus numbered prerequisites and flat checklists without nested bullets or fluff.
+codex
+---
+name: cip-policy
+description: Drafts a U.S. Customer Identification Program (CIP) policy compliant with USA PATRIOT Act Section 326 and 31 CFR 1020.220, aligned to BSA/AML program expectations, OFAC screening, CDD/beneficial ownership, recordkeeping, and governance. Use when creating or updating a CIP policy, AML onboarding procedures, or regulatory exam-ready documentation. Trigger keywords: CIP, Customer Identification Program, Section 326, 31 CFR 1020.220, BSA/AML policy, OFAC screening.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Customer Identification Program (CIP) Policy
+
+Produce an exam-ready CIP policy that operationalizes identity collection, verification, screening, recordkeeping, and governance.
+
+## Prerequisites
+
+1. **Institution profile** — charter type, products, channels, footprint, risk assessment
+2. **Current AML/BSA program** — related policies (CDD/EDD, SAR, sanctions)
+3. **Account taxonomy** — definitions of "account" and product coverage
+4. **Existing procedures** — onboarding workflows and system capabilities
+5. **Regulatory references** — Section 326, 31 CFR 1020.220, applicable interagency guidance
+
+## Output Structure / Process
+
+**1) Policy Header**
+- Effective date, version, approving authority, owner
+
+**2) Purpose and Authority**
+- Cite Section 326 and 31 CFR 1020.220
+- State CIP is mandatory and integrated with BSA/AML
+
+**3) Scope and Definitions**
+- Covered accounts, channels, customer types
+- Exclusions (narrowly defined; cite specific rule basis if used)
+- Define “customer,” “account,” and “beneficial owner” as applicable
+
+**4) Minimum Information Collection**
+
+| Customer Type | Required Data | Notes |
+| --- | --- | --- |
+| Individual | Name, DOB, residential address, ID number | Physical address required; mailing address optional |
+| Entity | Legal name, principal place of business, EIN/TIN, formation docs | Identify authorized signers |
+| Non‑U.S. | Passport/foreign ID number + country | Verify per risk-based standards |
+
+**5) Verification Methods**
+
+| Method | When Used | Evidence to Record |
+| --- | --- | --- |
+| Documentary | Default | Document type, issuer, number, expiration |
+| Non‑documentary | If no suitable documents or higher risk | Source, date, result, analyst notes |
+
+**Documentary checklist**
+- Document appears genuine and unaltered
+- Photo/description reasonably matches customer
+- Name/DOB/address match customer-provided data
+- Document is unexpired or institution-defined acceptable exception
+
+**Non‑documentary options**
+- Database/consumer report checks
+- Contact at verified address/phone
+- References from other financial institutions
+- Additional corroborating documents
+
+**6) Entity and Beneficial Ownership**
+- Verify legal existence (formation docs, good standing, registry)
+- Verify identity of individuals with authority to act
+- Collect/verify beneficial ownership per CDD Rule (31 CFR 1010.230) [VERIFY]
+
+**7) Discrepancy Resolution**
+- Document mismatch and remediation steps
+- Escalate unresolved discrepancies
+- Refuse or restrict account when identity cannot be verified
+- Consider SAR referral when warranted
+
+**8) Government List Screening**
+- Screen all customers against OFAC lists prior to account opening
+- Document list sources, tool, match logic, and clearance
+- Escalation and blocking procedures for true matches
+- No customer notice of sanctions match or blocking
+
+**9) Risk-Based Enhancements**
+- Define risk factors and EDD triggers
+- Additional verification, senior approval, transaction limits
+- Periodic review cadence by risk tier
+
+**10) Recordkeeping**
+- Retain CIP records for 5 years after account closure
+- Maintain retrievable records for exam and law enforcement requests
+- Storage format and custody responsibility
+
+**11) Customer Notice**
+- Provide CIP notice at or before account opening
+- Channel-specific delivery methods
+
+**Sample notice (edit for channel)**
+
+```text
+To help the government fight the funding of terrorism and money laundering, federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account. We will ask for your name, address, date of birth, and identification number, and may ask to see your driver’s license or other identifying documents.
+```
+
+**12) Third‑Party Reliance**
+- Written contract, certification of compliant CIP, due diligence
+- Ongoing monitoring and audit rights
+- Institution retains ultimate responsibility
+
+**13) Training and Governance**
+- Initial and annual training for relevant staff
+- CIP owner (BSA/AML Officer) duties and reporting
+- Independent testing cadence and board reporting
+
+**14) Review and Change Control**
+- Annual review minimum
+- Board approval for material changes
+- Version history and distribution
+
+## Guidelines
+
+- Use “reasonable time” for verification timing; define exact SLAs in procedures.
+- Avoid expanding exemptions beyond regulatory text; document rationale.
+- Align with broader AML, sanctions, and CDD policies.
+- Mark any jurisdiction-specific deviations and approvals.
+- If citing guidance, ensure currency; tag uncertain sources as [VERIFY].
+tokens used
+7,169

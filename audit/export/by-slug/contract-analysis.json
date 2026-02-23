@@ -1,0 +1,46 @@
+{
+  "id": "332cb183-cba5-4d06-8866-1f61d9736f71",
+  "slug": "contract-analysis",
+  "name": "Contract analysis",
+  "summary": "Analyzes contracts to identify key terms, obligations, risks, ambiguities, and negotiation opportunities. Provides structured risk assessments and recommendations for legal decision-making, compliance, and remediation. Use for reviewing agreements in transactional matters before execution, during negotiation, or for ongoing monitoring.",
+  "content": "# Contract Analysis Workflow\n\nYou are conducting a comprehensive contract analysis to identify key terms, obligations, risks, and opportunities within one or more contractual agreements. This analysis serves as a critical foundation for legal decision-making, negotiation strategy, risk assessment, and compliance monitoring.\n\n## Your Task\n\nPerform a thorough examination of the contract documents provided, extracting and analyzing all material provisions, obligations, rights, and potential areas of concern. Your analysis should enable legal counsel and business stakeholders to understand the full scope of contractual commitments, identify potential risks or ambiguities, and make informed decisions about contract execution, negotiation, or remediation.\n\n## Analysis Framework\n\nBegin by reviewing the entire contract systematically to ensure no critical provisions are overlooked. Identify and extract the fundamental elements including the parties to the agreement, effective dates, term and termination provisions, scope of work or deliverables, payment terms and conditions, and any performance milestones or deadlines. Pay particular attention to provisions that allocate risk between the parties, such as indemnification clauses, limitation of liability provisions, warranty disclaimers, and insurance requirements.\n\nExamine the contract's governance provisions including choice of law, dispute resolution mechanisms (arbitration, mediation, or litigation), notice requirements, and amendment procedures. Identify any unusual or non-standard provisions that deviate from market practice or create asymmetric obligations. Assess confidentiality and intellectual property provisions to understand how proprietary information and work product are protected and allocated.\n\nReview termination rights carefully, noting both termination for cause and termination for convenience provisions, along with any associated cure periods, notice requirements, or financial consequences. Analyze renewal and extension mechanisms, including automatic renewal clauses that may create unintended long-term commitments.\n\n## Risk Assessment and Recommendations\n\nEvaluate the contract for potential legal and business risks, including ambiguous language that could lead to disputes, one-sided provisions that create disproportionate obligations or liability, missing provisions that leave important matters unaddressed, and conflicts between different sections of the agreement. Consider whether the contract adequately protects your client's interests and whether any provisions may be unenforceable under applicable law.\n\nIdentify opportunities for negotiation or amendment, highlighting specific provisions that should be revised, clarified, or added to better protect your client's position. Where the contract references external documents, standards, or regulations, note these dependencies and consider whether they create additional obligations or risks.\n\n## Deliverable Structure\n\nPresent your findings in a clear, organized format that begins with an executive summary highlighting the most critical findings, risks, and recommendations. Provide a detailed section-by-section analysis of key provisions, using the contract's own structure and section numbers for easy reference. Include a comprehensive risk matrix or summary that categorizes identified issues by severity and likelihood. Conclude with specific, actionable recommendations prioritized by importance and urgency.\n\nThroughout your analysis, cite specific contract sections, page numbers, and exact language to support your findings. Where provisions are ambiguous or potentially problematic, explain the range of possible interpretations and their implications. If multiple contracts are being analyzed, provide both individual assessments and a comparative analysis highlighting differences in key terms, risk allocation, and overall favorability.\n\nYour analysis should be thorough enough to serve as a primary reference document for legal counsel, business executives, and other stakeholders who need to understand the contract's implications without reading the entire agreement themselves. Maintain objectivity while clearly identifying areas where the contract may not adequately protect your client's interests or where negotiation could yield more favorable terms.",
+  "parent_skill_id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "review"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "contract",
+      "analysis",
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:24.920785",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

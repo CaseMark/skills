@@ -1,0 +1,497 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-e675-70f2-b3c4-ddd932003753
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "1e8e03a7-2ab0-4e75-a74a-4f61c22d2abe",
+  "slug": "corporate-ma-earn-out-agreement-draft",
+  "name": "Earn Out Agreement",
+  "summary": "Drafts a comprehensive Earn-Out Agreement as an exhibit to a Purchase Agreement in M&A transactions. It reviews transaction documents to incorporate key terms, defines earn-out periods and metrics, and structures provisions for contingent post-closing payments based on business performance. Use this skill for preparing legally sound earn-out frameworks in corporate acquisitions.",
+  "content": "# Earn-Out Agreement Drafting Workflow\n\nYou are an expert corporate attorney specializing in mergers and acquisitions. Your task is to draft a comprehensive, legally sound Earn-Out Agreement that serves as an exhibit to a main Purchase Agreement in an M&A transaction. This agreement establishes the framework for contingent payments from buyer to seller based on post-closing performance of the acquired business.\n\n## Initial Information Gathering and Document Review\n\nBefore beginning your draft, conduct a thorough review of all available transaction documents to understand the deal structure, parties' intentions, and key commercial terms. Search through any uploaded purchase agreements, term sheets, letters of intent, or related transaction documents to identify critical information including the parties' names and jurisdictions, the nature of the acquired business, the base purchase price and overall deal value, any previously negotiated earn-out terms or parameters, the proposed earn-out period and performance metrics, and specific concerns or priorities expressed by either party.\n\nPay particular attention to defined terms in the main Purchase Agreement that should be incorporated by reference, the closing date or anticipated closing timeline, representations and warranties that relate to financial performance, and any existing covenants that may impact earn-out calculations. If the transaction documents reference industry-specific considerations, regulatory requirements, or unique operational factors, ensure your earn-out provisions account for these elements.\n\n## Document Structure and Foundational Provisions\n\nBegin your draft by establishing the document title as \"Earn-Out Agreement\" and clearly identifying it as a specific exhibit to the Purchase Agreement. Include the full legal names of the parties as they appear in the main agreement, the execution date, and explicit cross-references to the Purchase Agreement including its date and the specific exhibit designation. Draft a preamble that concisely explains the purpose of the agreement: that in connection with the purchase and sale of the acquired business, the parties have agreed that a portion of the purchase price shall be contingent upon the post-closing financial performance of that business.\n\nCreate a comprehensive definitions section that establishes precise meanings for all critical terms. Define the Earn-Out Period by specifying the exact commencement date (typically the Closing Date as defined in the Purchase Agreement) and the termination date, whether expressed as a specific calendar date or measured in fiscal years or quarters. Define Earn-Out Payment to encompass all contingent payments due from Buyer to Seller, clarifying whether payments are cumulative across periods or independent for each measurement period, and whether there is an aggregate maximum cap across all periods.\n\nProvide an exceptionally detailed definition of the financial metric that triggers earn-out payments. If using EBITDA, specify that it means earnings before interest, taxes, depreciation, and amortization, calculated in accordance with Generally Accepted Accounting Principles consistently applied using the same accounting methods, practices, and policies used by the acquired business during the fiscal year immediately preceding closing. Enumerate specific adjustments, exclusions, or normalizations that will apply, such as excluding extraordinary items, non-recurring expenses, purchase accounting adjustments, or corporate overhead allocations that did not exist pre-closing. If using Revenue, specify whether it means gross revenue or net revenue, how returns and allowances are treated, and whether it includes deferred revenue or only recognized revenue under GAAP.\n\nDefine the Acquired Business with precision sufficient to enable accurate financial tracking. Specify whether it encompasses specific assets, a subsidiary entity, a business division, product lines, or customer relationships. If the acquired business will be integrated with buyer's existing operations, establish clear parameters for how revenues and expenses will be attributed to the acquired business versus other buyer operations. Define any tiered payment structure terms such as Threshold (minimum performance required for any payment), Target (expected performance level), and Maximum (performance cap beyond which no additional payments accrue).\n\n## Earn-Out Calculation Methodology and Payment Structure\n\nArticulate the complete methodology for calculating earn-out payments with mathematical precision and commercial clarity. Explain that for each measurement period during the Earn-Out Period, the Buyer shall pay the Seller an Earn-Out Payment if and to the extent that the specified financial metric of the Acquired Business achieves or exceeds predetermined targets. Describe whether the payment structure follows a binary model (all-or-nothing upon hitting a specific target), a linear sliding scale (proportional to performance within a range), a tiered structure (different percentages or amounts at different achievement levels), or a formula-based calculation.\n\nPresent the payment schedule in a clear format that demonstrates for each fiscal year or measurement period: the specific EBITDA target, revenue threshold, or other performance metric; the corresponding earn-out payment amount or calculation formula (such as \"20% of EBITDA exceeding $8,000,000 up to a maximum of $2,000,000\" or \"15% of Revenue between $12,000,000 and $18,000,000\"); any minimum threshold below which no payment is due; and any maximum cap on payments for that period or in the aggregate. Address whether targets escalate over time to reflect expected growth, whether achievement in one period affects calculations or targets in subsequent periods, and how partial-year periods will be handled if the Earn-Out Period does not align perfectly with fiscal year boundaries.\n\nInclude worked examples that illustrate how payments would be calculated under various performance scenarios. For instance, if the agreement provides for tiered payments, show calculations demonstrating what the seller would receive if EBITDA reaches 80% of target, 100% of target, and 120% of target. These examples serve both as drafting clarity checks and as useful references for the parties during the earn-out period.\n\n## Post-Closing Operational Covenants and Business Conduct\n\nDraft detailed provisions governing how the Buyer must operate the Acquired Business during the Earn-Out Period, recognizing that this section is typically the most heavily negotiated and is critical to the Seller's ability to earn contingent payments. Require that the Buyer operate the Acquired Business in the ordinary course consistent with past practice, maintaining staffing levels, marketing and sales expenditures, capital investment, product development efforts, and strategic direction at levels substantially similar to those maintained during the twelve months preceding closing, except as commercially reasonable business judgment may require in response to changed market conditions or business opportunities.\n\nProhibit the Buyer from taking any action with the primary purpose or intent of preventing, reducing, or delaying the achievement of Earn-Out Payments. Provide specific examples of prohibited actions such as: reallocating profitable contracts or key customers away from the Acquired Business to other buyer operations; imposing corporate overhead allocations or management fees that did not exist pre-closing or that exceed market rates; implementing pricing changes that reduce revenue without corresponding cost benefits; terminating key employees whose departure would materially impair performance; or deferring revenue recognition or accelerating expense recognition in a manner inconsistent with past practice.\n\nAddress the tension between buyer's control rights and seller's earn-out interests by establishing a framework for material business decisions. Specify whether certain actions require seller consent, consultation, or advance notice, such as: material changes to business strategy, product lines, or target markets; integration of the Acquired Business with buyer's existing operations that would make separate financial tracking difficult or impossible; disposition of material assets of the Acquired Business; changes to compensation structures for key employees; or entry into material contracts that extend beyond the Earn-Out Period. Balance these seller protections against the buyer's legitimate need to control and integrate the acquired business by limiting consent rights to actions that would reasonably be expected to materially and adversely affect the calculation of Earn-Out Payments.\n\nConsider including affirmative covenants requiring the Buyer to: maintain working capital at levels sufficient to operate the business consistent with past practice; pursue business opportunities and customer relationships that existed at closing; maintain relationships with key suppliers and vendors; provide resources and support for the Acquired Business comparable to those provided to similar buyer business units; and retain key employees identified by name or position who are critical to achieving earn-out targets, potentially with specified compensation levels or incentive arrangements.\n\n## Financial Reporting, Information Access, and Verification Rights\n\nEstablish comprehensive rights for the Seller to access information necessary to verify earn-out calculations and monitor business performance. Provide that the Buyer shall maintain separate books and records for the Acquired Business sufficient to permit accurate calculation of the earn-out metric, even if the business is integrated with buyer's operations. Require the Buyer to provide the Seller with quarterly unaudited financial statements and annual audited financial statements for the Acquired Business, prepared in accordance with GAAP consistently applied, within specified timeframes after period end.\n\nGrant the Seller and its authorized representatives (including independent accountants, financial advisors, and legal counsel) reasonable access during normal business hours and upon reasonable advance notice to the books, records, financial statements, tax returns, contracts, and other documents of the Acquired Business that relate to the calculation of Earn-Out Payments. Specify the scope of access rights, including whether the seller may interview management, key employees, or the buyer's accountants, and whether access extends to electronic accounting systems and data rooms. Balance these access rights against the buyer's legitimate interests by requiring the seller and its representatives to execute reasonable confidentiality agreements, limiting the frequency of on-site visits to avoid business disruption, and restricting access to information that is competitively sensitive or unrelated to earn-out calculations.\n\nAddress how access rights will be implemented if the Acquired Business has been fully integrated and no longer maintains separate financial statements. In such cases, require the Buyer to provide sufficient detail regarding revenue and expense allocations, transfer pricing methodologies, and overhead allocations to permit the Seller to verify that the earn-out metric has been calculated in accordance with the agreement.\n\n## Earn-Out Statement Preparation, Delivery, and Review Process\n\nRequire that within a specified period after the end of each measurement period (typically 60 to 90 days after fiscal year-end, or 45 days after quarter-end for quarterly measurements), the Buyer shall prepare and deliver to the Seller a detailed written Earn-Out Statement setting forth the Buyer's calculation of the Earn-Out Payment for that period. Specify that this statement must include: the complete financial statements of the Acquired Business for the measurement period; a detailed calculation showing how the earn-out metric was determined, including all adjustments, exclusions, and allocations applied; supporting schedules and work papers demonstrating the derivation of each component; identification and explanation of any departures from past accounting practices; and the resulting payment amount due to the Seller.\n\nRequire that the Earn-Out Statement be prepared in accordance with GAAP consistently applied using the same accounting methods, practices, policies, and estimation methodologies used by the Acquired Business during the fiscal year immediately preceding closing, except as required by changes in GAAP or applicable law. Require certification by the Chief Financial Officer or another senior financial officer of the Buyer that the statement has been prepared in accordance with the agreement and fairly presents the calculation of the earn-out metric.\n\nEstablish a structured review process by providing that the Earn-Out Statement shall be deemed accepted and final unless the Seller delivers a written notice of objection within a specified period (typically 30 to 45 days) after receiving the statement. Require that any objection notice specify in reasonable detail each disputed item, the basis for the objection, the Seller's alternative calculation or treatment, and the dollar impact of each disputed item. Provide that items not specifically identified in the objection notice are deemed accepted and may not be disputed later.\n\n## Dispute Resolution Mechanism and Independent Accounting Review\n\nCreate a multi-tiered dispute resolution process that promotes efficient resolution while ensuring fairness. Provide that upon delivery of an objection notice, the parties shall negotiate in good faith for a defined period (such as 30 days) to resolve disputed items. Require senior financial officers from each party to meet (in person or virtually) and work collaboratively to resolve differences, with each party providing supporting documentation and analysis for its position. Specify that any items resolved during this negotiation period are final and binding.\n\nFor items that remain in dispute after the negotiation period, establish that all such items shall be submitted to an independent accounting firm of national or regional reputation for final determination. Provide a mechanism for selecting the accounting firm: the parties shall attempt to mutually agree on a firm within 10 days, but if they cannot agree, each party shall select one accounting firm and those two firms shall jointly select a third firm to serve as the independent accountant. Alternatively, specify a particular firm or provide that the firm shall be appointed by a designated organization such as the American Arbitration Association or a local accounting association.\n\nDefine the scope and parameters of the independent accounting firm's engagement. Specify that the firm shall consider only those items that remain in dispute and may not review items that were accepted or resolved during negotiation. Establish the standard of review: whether the firm conducts a de novo review of disputed items, acts as an arbitrator choosing between the parties' positions, or serves as an expert determining the correct treatment under GAAP and the agreement. Require the firm to render its determination within a specified period (typically 30 to 60 days) after engagement, and provide that the determination shall be final, binding, and non-appealable except in cases of manifest error or fraud.\n\nAddress the allocation of costs for the independent accounting firm. Common approaches include: splitting costs equally between the parties; allocating costs based on which party prevails on the majority of disputed items; or allocating costs proportionally based on the dollar amount of adjustments, such that if the final determination is closer to one party's calculation, that party pays a smaller share of costs. Specify that each party bears its own attorneys' fees and other expenses related to the dispute resolution process.\n\n## Payment Timing, Mechanics, and Tax Treatment\n\nEstablish clear deadlines and procedures for making earn-out payments. Provide that any undisputed portion of an Earn-Out Payment (including the entire payment if no objection is timely delivered) shall be paid within a specified number of business days (typically 5 to 10) after the earlier of: the Seller's written acceptance of the Earn-Out Statement, the expiration of the objection period without delivery of an objection notice, or the resolution of disputed items through negotiation. For amounts that remain disputed and are submitted to the independent accounting firm, require payment within a specified period (typically 5 business days) after the firm delivers its determination.\n\nSpecify payment mechanics in detail: payments shall be made by wire transfer of immediately available funds to an account designated by the Seller in writing, with wire instructions provided at least 5 business days before the payment due date. Address tax withholding obligations by providing that the Buyer may withhold from Earn-Out Payments any amounts required to be withheld under applicable tax laws, and requiring the Buyer to provide the Seller with evidence of amounts withheld and paid to taxing authorities. Establish that withheld amounts are treated as paid to the Seller for purposes of the agreement.\n\nInclude an interest provision addressing late payments. Provide that any Earn-Out Payment not paid when due shall accrue interest from the due date until paid at a specified rate, such as the prime rate published in the Wall Street Journal plus 2%, or the maximum rate permitted by applicable law, whichever is less. Specify whether interest compounds and the frequency of compounding.\n\nDraft provisions addressing tax treatment and cooperation. Explicitly state that the parties agree to treat all Earn-Out Payments as additional purchase price for the Acquired Business for federal, state, and local tax purposes, and that each party shall file all tax returns consistent with such treatment unless otherwise required by a final determination of a taxing authority or a change in applicable law. Require the parties to cooperate in providing necessary documentation, including amended Forms 1099 or other information returns, and to notify each other of any tax audit or proceeding that relates to the characterization of Earn-Out Payments.\n\n## Acceleration, Change of Control, and Extraordinary Events\n\nDraft comprehensive provisions addressing whether and under what circumstances the Buyer's obligation to make future Earn-Out Payments accelerates or is otherwise affected by extraordinary events. Define Change of Control to include: any merger, consolidation, or business combination involving the Buyer where the Buyer's shareholders immediately before the transaction own less than 50% of the voting power immediately after; any sale, transfer, or disposition of all or substantially all of the Buyer's assets; any sale, transfer, or disposition of the Acquired Business or its material assets to a third party; or any transaction resulting in a change of more than 50% of the beneficial ownership of the Buyer's voting securities.\n\nProvide that upon a Change of Control during the Earn-Out Period, one of the following consequences shall occur (select the approach most appropriate for the transaction): all remaining potential Earn-Out Payments shall immediately become due and payable at the maximum amount that could be earned for all remaining measurement periods; the present value of expected future Earn-Out Payments shall become immediately due, calculated using a specified discount rate and based on projections prepared by the Buyer or an independent valuation firm; the Seller shall have the option to elect acceleration at a specified amount or to require the acquiring party to assume all earn-out obligations under terms no less favorable to the Seller; or the earn-out obligations shall continue but with enhanced protections such as requiring the Acquired Business to be maintained as a separate operating unit with separate financial reporting.\n\nAddress what happens if the Acquired Business is sold, liquidated, or materially changed during the Earn-Out Period in a transaction that does not constitute a Change of Control of the Buyer. Provide that if the Buyer sells the Acquired Business or substantially all of its assets to a third party, the Buyer shall either: require the purchaser to assume the earn-out obligations, with the Buyer remaining secondarily liable; pay the Seller an amount equal to the present value of expected future earn-out payments; or provide the Seller with a security interest in the sale proceeds or other collateral to secure future payments.\n\nConsider provisions addressing how extraordinary items and events will be treated in calculating the earn-out metric. Specify that the following items shall be excluded from or added back to the earn-out calculation: gains or losses from the disposition of assets not in the ordinary course of business; write-downs or impairments resulting from purchase accounting or buyer's accounting policies; expenses related to the transaction itself or integration activities; litigation settlements or judgments relating to pre-closing matters; and changes in accounting principles required by GAAP or regulatory authorities. Establish a mechanism for addressing extraordinary items not specifically enumerated, such as requiring mutual agreement or submission to the independent accounting firm.\n\n## Security, Subordination, and Enforcement Provisions\n\nClearly characterize the legal nature of the Seller's right to receive Earn-Out Payments to establish the appropriate legal framework and avoid ambiguity regarding tax treatment, bankruptcy priority, transferability, and enforcement rights. Explicitly state that the Seller's right to receive Earn-Out Payments constitutes an unsecured contractual right to receive contingent payments and does not constitute: an equity interest, ownership interest, or security in the Buyer or the Acquired Business; a partnership interest, joint venture interest, or profit-sharing arrangement; a security interest or lien on any assets; or any right to participate in management, governance, or control of the business.\n\nSpecify that earn-out rights do not entitle the Seller to voting rights, board representation, consent rights (except as expressly provided in the operational covenants section), access to information beyond what is specified in the agreement, or any other rights typically associated with equity ownership. Clarify that the Seller's rights are limited to receiving payments if and to the extent earned under the agreement's terms and to enforce the Buyer's obligations through the dispute resolution mechanisms provided.\n\nAddress whether the Seller may assign or transfer earn-out rights. Common approaches include: prohibiting any assignment without the Buyer's prior written consent; permitting assignment to affiliates of the Seller or to trusts for estate planning purposes, provided the assignee agrees to be bound by all terms including confidentiality obligations; or permitting free assignment but requiring notice to the Buyer and confirmation that the assignee is bound by the agreement. If the Seller is a partnership, LLC, or other entity that may distribute assets to its members, address whether earn-out rights may be distributed and how payments will be made to multiple recipients.\n\nConsider whether the Seller should require security or credit enhancement to protect earn-out payment rights, particularly if the Buyer's financial condition is uncertain or if the earn-out amounts are substantial. Options include: requiring the Buyer to deposit funds into escrow as targets are achieved, to be released to the Seller after the review period expires; obtaining a guarantee from the Buyer's parent company or principal shareholders; securing a letter of credit from a financial institution in an amount equal to expected earn-out payments; or obtaining a security interest in specific assets of the Acquired Business or the Buyer, with appropriate subordination to senior lenders.\n\nIf the Buyer has senior debt financing, address subordination and intercreditor issues. Provide that the Seller acknowledges the earn-out obligations are subordinated to the Buyer's obligations under its senior credit facility, and that in the event of bankruptcy, insolvency, or enforcement actions by senior lenders, the Seller's rights may be limited. Consider whether the Seller should negotiate for a carve-out from subordination for a minimum amount of earn-out payments, or for consent rights if the Buyer seeks to incur additional senior debt during the Earn-Out Period.\n\n## Representations, Covenants, and Miscellaneous Provisions\n\nInclude mutual representations from both parties that they have full power and authority to enter into the agreement, that the agreement constitutes a legal, valid, and binding obligation, and that execution and performance do not violate any other agreement or obligation. If the Seller is providing ongoing services or transition assistance, include representations regarding the Seller's ability to perform such services and any required consents.\n\nDraft covenants requiring ongoing cooperation between the parties. Require the Buyer to provide reasonable assistance to the Seller in understanding financial statements and calculations, responding to questions, and providing additional documentation as reasonably requested. Require the Seller to maintain confidentiality regarding all non-public information received about the Buyer or the Acquired Business, with exceptions for disclosures required by law or to the Seller's advisors under appropriate confidentiality obligations.\n\nAddress key employee retention if specific individuals are critical to achieving earn-out targets. Provide that the Buyer shall use commercially reasonable efforts to retain identified key employees during the Earn-Out Period, potentially by maintaining compensation at specified levels, providing retention bonuses, or including such employees in buyer's incentive programs. Establish that if a key employee is terminated by the Buyer without cause or resigns for good reason (as defined), the earn-out targets may be adjusted or the Seller may receive a deemed payment.\n\nInclude standard miscellaneous provisions tailored to the agreement's context. Specify the governing law (typically the same jurisdiction as the Purchase Agreement) and venue for any disputes not resolved through the accounting firm process. Provide that the agreement may be amended only by a written instrument signed by both parties. Establish notice procedures, specifying addresses for each party and acceptable methods of delivery (personal delivery, overnight courier, email to specified addresses). Include a severability clause providing that if any provision is held invalid, the remaining provisions continue in effect. Draft an integration clause confirming that this agreement, together with the Purchase Agreement and any other specified transaction documents, constitutes the entire understanding regarding earn-out payments and supersedes all prior negotiations and understandings.\n\nConsider including a provision addressing how changes in law, accounting standards, or regulatory requirements will be handled. Provide that if changes in GAAP, tax law, or industry-specific regulations materially affect the calculation of the earn-out metric, the parties shall negotiate in good faith to adjust the targets or calculation methodology to preserve the original economic intent, and if they cannot agree, the matter shall be submitted to the independent accounting firm for determination.\n\n## Final Review and Quality Assurance\n\nAfter completing your draft, conduct a comprehensive review to ensure internal consistency, completeness, and alignment with the parties' commercial objectives. Verify that all defined terms are used consistently throughout the document and that cross-references to the Purchase Agreement are accurate. Confirm that the calculation methodology is mathematically sound and produces reasonable results under various performance scenarios. Check that the operational covenants appropriately balance the buyer's control rights with the seller's earn-out interests given the specific circumstances of the transaction.\n\nReview the dispute resolution mechanism to ensure it provides a clear path to resolution for any potential disagreement, with appropriate timeframes that allow thorough review without unnecessary delay. Verify that payment timing provisions are practical and allow sufficient time for financial statement preparation, review, and dispute resolution. Confirm that the agreement addresses all material issues that could arise during the earn-out period, including change of control, business disposition, key employee departure, and extraordinary items.\n\nPresent your completed draft in a professional format with clear section headings, appropriate numbering, and a table of contents if the agreement exceeds 10 pages. Include signature blocks for authorized representatives of both parties, with space for printed names, titles, and dates. If the agreement includes schedules or exhibits (such as detailed calculation examples, lists of key employees, or forms of financial statements), reference them appropriately in the body of the agreement and prepare them as separate attachments.\n\nYour final deliverable should be a comprehensive, balanced, and enforceable Earn-Out Agreement that clearly establishes the framework for contingent payments, protects both parties' legitimate interests, provides transparent calculation and verification mechanisms, and includes robust dispute resolution procedures to address any disagreements that may arise during the earn-out period.",
+  "parent_skill_id": "dff94cd3-1513-4427-8bbe-6d4721e158d9",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "mergers_and_acquisitions"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:50:57.771885Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Drafting earn-out agreement skill documentation**
+
+Creating skill documentation titled "Earn-Out Agreement" with a clear description including trigger keywords; metadata uses capitalized legal_context terms with practice area Corporate and document type Agreement. Structure includes defined sections, tables for definitions, payment schedule, covenants checklist, reporting timelines, dispute resolution, change of control options, tax treatment, security, and miscellaneous guidelines all following flat lists and numbered or table formats without nested bullets.
+thinking
+---
+name: earn-out-agreement  
+description: Drafts U.S. M&A earn-out agreements as exhibits to purchase agreements, defining the earn-out period, metrics, covenants, reporting, dispute resolution, payment mechanics, and change-of-control treatment. Use when drafting earn-out provisions, contingent purchase price schedules, post-closing performance payments, EBITDA/revenue targets, or earn-out statements. Trigger keywords: earn-out, contingent purchase price, M&A, post-closing payments, EBITDA, revenue targets, purchase agreement exhibit.  
+metadata:  
+  Legal_Context: Corporate, M&A, Transaction, Contract  
+  Practice_Areas: Corporate  
+  Document_Types: Agreement  
+  Skill_Modes: Drafting  
+
+# Earn-Out Agreement
+
+One-line purpose: To provide a comprehensive template for drafting detailed earn-out provisions in M&A purchase agreement exhibits.
+
+## Prerequisites  
+1. Signed or near-final Purchase Agreement with defined terms  
+2. Identification of parties and relevant entity information  
+3. Defined earn-out economics including metrics, targets, caps, and periods  
+4. Accounting policies and baseline pre-close financial statements  
+5. Integration plan and expected operational covenants  
+6. Tax treatment approach and withholding positions  
+7. Dispute resolution procedures and designated accountant  
+8. Change of control or disposition scenarios and outcomes  
+9. Security and credit support arrangements, if any  
+
+## Output Structure / Process  
+
+**Document Header**  
+Include title, exhibit reference, parties, and effective date.
+
+**Incorporation**  
+Clause referencing the Purchase Agreement’s definitions and terms.
+
+**Definitions Table**  
+| Term              | Required Content                          |  
+|-------------------|-----------------------------------------|  
+| Earn-Out Period   | Start and end dates                      |  
+| Measurement Period | Financial periods for metrics            |  
+| Earn-Out Payment  | Calculation method                       |  
+| Metric           | EBITDA, revenue, or other specified metric |  
+| Target / Threshold / Cap | Numeric values and conditions        |  
+| Acquired Business | Description                             |  
+| GAAP             | Accounting standards used                |  
+| Adjustments      | Allowed financial adjustments            |  
+| Extraordinary Items | Treatment of unusual events             |  
+| Change of Control | Definition and implications               |  
+| Earn-Out Statement | Reporting and review process              |  
+
+**Earn-Out Economics Table**  
+| Period            | Metric Target | Payment Formula | Minimum Threshold | Cap |  
+|-------------------|--------------|-----------------|------------------|-----|  
+| Period 1          |              |                 |                  |     |  
+| Period 2          |              |                 |                  |     |  
+
+**Calculation Rules Checklist**  
+- Use GAAP consistent with Purchase Agreement  
+- Specify allocation methodology for integrated operations  
+- Enumerate permitted adjustments  
+- Prevent double counting  
+- Address partial periods  
+- Define currency and rounding rules  
+
+**Worked Examples**  
+Provide minimal formula or illustrative example to clarify payment calculation:  
+```  
+Earn-Out Payment = (Actual Metric – Threshold) × Payment Rate  
+```  
+
+**Operational Covenants Checklist**  
+| Action                       | Consent/Notice Requirement |  
+|------------------------------|----------------------------|  
+| Conduct business in ordinary course | Consent required if deviation |  
+| Avoid bad faith actions          | Notice required             |  
+| Resource allocation             | Consent required             |  
+| Trigger events for consent/notice | Clearly defined             |  
+
+**Information Rights**  
+1. Maintain separate accounting books  
+2. Provide quarterly and annual financial statements  
+3. Grant inspection and audit rights  
+4. Enforce confidentiality obligations  
+
+**Earn-Out Statement Timeline Table**  
+| Milestone           | Timing (days)        |  
+|---------------------|---------------------|  
+| Period End          | Date                  |  
+| Statement Due       | Within X days          |  
+| Objection Window    | Within Y days after statement |  
+| Negotiation Period  | Defined period          |  
+| Accountant Decision | Deadline after negotiations |  
+| Payment Due         | By specified date        |  
+
+**Dispute Resolution Steps**  
+1. Good faith negotiations between parties  
+2. Referral to independent accountant/arbiter  
+3. Defined scope and standards for determination  
+4. Cost allocation options for dispute resolution  
+
+**Payment Mechanics**  
+- Specify payment timing and method  
+- Address withholding obligations  
+- Detail currency and banking details  
+
+**Tax Treatment**  
+- Clarify tax withholding responsibilities and treatment of payments  
+
+**Acceleration / Change of Control / Disposition Options Table**  
+| Trigger Event       | Outcome Options         |  
+|---------------------|------------------------|  
+| Change of Control   | Full acceleration, partial, or none |  
+| Disposition        | Treatment of earn-out payments        |  
+
+**Security / Assignment / Subordination Options**  
+- Security interests granted or restricted  
+- Conditions for assignment  
+- Subordination terms  
+
+**Miscellaneous**  
+- Governing law  
+- Amendments procedure  
+- Notices requirements  
+- Integration clause  
+- Severability  
+- Counterparts and electronic signature acceptance  
+
+**Exhibits**  
+- Sample Earn-Out Statement  
+- Key Employees and Roles List  
+- Allocation Methodology Description  
+
+## Guidelines  
+1. Use clear, unambiguous definitions and terms  
+2. Ensure consistency with Purchase Agreement and GAAP  
+3. Provide measurable metrics and realistic targets  
+4. Include detailed reporting and review timelines  
+5. Specify dispute resolution steps explicitly  
+6. Address tax and security implications thoroughly  
+7. Avoid drafts with vague or conflicting terms  
+8. Do not nest bullet points; use tables and numbered lists  
+9. Maintain professional and compliant language  
+10. Adapt templates to jurisdictional regulations as needed  
+
+[VERIFY] Footnote: Earn-out payment calculations should align with GAAP and consistent past financial reporting practices. Adjust as necessary for extraordinary items or integration effects.  
+---
+codex
+---
+name: earn-out-agreement
+description: Drafts U.S. M&A earn-out agreements as exhibits to purchase agreements, defining earn-out period, metrics, covenants, reporting, dispute resolution, payment mechanics, tax treatment, and change-of-control outcomes. Use when drafting earn-out provisions, contingent purchase price schedules, post-closing performance payments, EBITDA or revenue targets, earn-out statements, or purchase agreement exhibits.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Earn-Out Agreement
+
+Establishes the post-closing contingent purchase price framework tied to defined business performance.
+
+## Prerequisites
+
+1. Executed or near-final Purchase Agreement with defined terms and exhibit references
+2. Parties’ legal names, entity types, jurisdictions, and signing authority
+3. Earn-out economics: metric(s), targets, thresholds, caps, periods, and payment formula
+4. Pre-closing accounting policies and baseline financials for the acquired business
+5. Integration plan and operational governance expectations during the earn-out period
+6. Reporting cadence and access rights expectations
+7. Dispute resolution structure and preferred independent accountant
+8. Change-of-control and business disposition outcomes
+9. Tax characterization and withholding positions
+10. Any security, guarantee, escrow, or subordination requirements
+
+## Output Structure / Process
+
+**1) Header and Incorporation**
+1. Title: “Earn-Out Agreement”
+2. Exhibit reference to the Purchase Agreement with date and defined terms incorporation
+3. Parties and effective date
+4. Purpose clause tying earn-out to contingent purchase price
+
+**2) Definitions (table required)**
+
+| Term | Required Content |
+| --- | --- |
+| Earn-Out Period | Start at Closing Date; end date or number of fiscal periods |
+| Measurement Period | Each fiscal year/quarter or stated period |
+| Earn-Out Payment | Cumulative or per-period; aggregate cap |
+| Earn-Out Metric | EBITDA/Revenue/other; GAAP basis; consistent policies; defined adjustments |
+| Threshold / Target / Cap | Minimum, target, maximum |
+| Acquired Business | Entity/division/assets included; allocation rules if integrated |
+| Extraordinary Items | Enumerated inclusions/exclusions |
+| Change of Control | Deal-specific triggers |
+| Earn-Out Statement | Contents and timing |
+| Independent Accountant | Selection method and role |
+
+**3) Earn-Out Economics (table required)**
+
+| Measurement Period | Metric Target | Payment Formula | Minimum Threshold | Period Cap | Aggregate Cap |
+| --- | --- | --- | --- | --- | --- |
+| [Period 1] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| [Period 2] | [ ] | [ ] | [ ] | [ ] | [ ] |
+
+**4) Calculation Rules (checklist required)**
+1. GAAP consistently applied using pre-closing policies unless required change
+2. Allocation methodology for integrated operations stated and applied consistently
+3. Adjustments and exclusions listed exhaustively
+4. Partial-year period proration stated
+5. Currency, rounding, and tie-break rules stated
+6. No double counting across periods unless expressly allowed
+
+**5) Worked Examples (short table or formula block)**
+
+```text
+Example:
+If Metric = $X, then Earn-Out Payment = [formula], subject to [cap].
+```
+
+**6) Operational Covenants (checklist + consent/notice table)**
+
+Checklist:
+1. Operate in ordinary course consistent with past practice
+2. Maintain staffing, marketing, and capital spend consistent with baseline
+3. No actions primarily intended to reduce or delay earn-out
+4. Maintain separate books/records sufficient for metric calculation
+
+Consent/Notice Table:
+
+| Action | Requirement |
+| --- | --- |
+| Material strategy change | [Notice/Consultation/Consent] |
+| Integration affecting tracking | [Notice/Consent] |
+| Disposition of assets | [Consent] |
+| Key employee termination | [Notice/Consent] |
+
+**7) Reporting and Access**
+1. Quarterly unaudited and annual audited financials within stated days
+2. Access to relevant books/records and supporting schedules
+3. Confidentiality obligations and reasonable access limits
+4. Access to allocation schedules if integrated
+
+**8) Earn-Out Statement and Review Timeline (table required)**
+
+| Step | Deadline |
+| --- | --- |
+| Statement delivery after period end | [45–90 days] |
+| Seller objection window | [30–45 days] |
+| Good-faith negotiation | [30 days] |
+| Independent accountant decision | [30–60 days] |
+| Payment after finalization | [5–10 business days] |
+
+**9) Dispute Resolution**
+1. Objection notice must itemize each dispute and dollar impact
+2. Unobjected items are final
+3. Independent accountant scope limited to disputed items
+4. Standard of review specified: de novo, expert determination, or baseball
+5. Cost allocation method stated
+
+**10) Payment Mechanics**
+1. Wire transfer instructions and timing
+2. Withholding allowed; treated as paid to seller
+3. Interest on late payments with rate and compounding
+
+**11) Tax Treatment**
+1. Earn-out treated as additional purchase price unless required otherwise
+2. Cooperation on tax filings and audit notices
+
+**12) Change of Control / Disposition (table required)**
+
+| Event | Treatment |
+| --- | --- |
+| Change of Control of Buyer | [Acceleration / PV payout / assumption / enhanced protections] |
+| Sale of Acquired Business | [Assumption / PV payout / security interest] |
+| Extraordinary events | [Included/Excluded/Mutual adjustment mechanism] |
+
+**13) Security / Assignment / Subordination**
+1. Nature of right: unsecured contractual right, no equity interest
+2. Assignment limitations and permitted transferees
+3. Security or guarantees if applicable
+4. Subordination and intercreditor acknowledgments if applicable
+
+**14) Miscellaneous**
+1. Governing law and venue
+2. Amendments in writing only
+3. Notices and delivery methods
+4. Severability and integration
+5. Counterparts and electronic signatures
+
+**15) Exhibits**
+1. Sample Earn-Out Statement
+2. Allocation methodology schedule
+3. Key employee list if applicable
+
+## Guidelines
+
+1. Mirror defined terms and dates from the Purchase Agreement exactly
+2. Avoid ambiguous metric definitions; list every adjustment explicitly
+3. State whether earn-out is cumulative or per-period and cap mechanics
+4. Ensure operational covenants are tied to measurable standards
+5. Make review and dispute windows concrete and enforceable
+6. Keep independent accountant scope narrow to disputed items only
+7. Treat change-of-control outcomes as explicit elections, not defaults
+8. If unsure on accounting or tax treatment, flag with `[VERIFY]`
+9. U.S. jurisdictional defaults apply unless specified otherwise
+tokens used
+8,516

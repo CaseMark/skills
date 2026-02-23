@@ -1,0 +1,304 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-f826-7773-aafd-aaa374aeca28
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "3b24776f-46eb-429e-b32f-848dbd9576a1",
+  "slug": "corporate-state-qualification-to-do-business",
+  "name": "State Qualification to Do Business",
+  "summary": "Drafts a comprehensive Application for Certificate of Authority to qualify a foreign corporation to conduct business in a target U.S. state. Incorporates jurisdictional research, name availability verification, and details from corporate foundational documents like articles of incorporation and officer information. Use this skill for ensuring corporate compliance during interstate expansion to avoid penalties and maintain legal standing.",
+  "content": "# Enhanced Prompt: State Qualification to Do Business Application\n\n## Objective and Scope\n\nYou are tasked with drafting a comprehensive Application for Certificate of Authority to enable a corporation incorporated in one state to lawfully conduct business in another state. This foreign qualification process is a critical corporate compliance requirement that protects the corporation's ability to enforce contracts, maintain standing in courts, and avoid substantial penalties for conducting unauthorized business activities. The application must satisfy all statutory requirements of the target state while accurately reflecting the corporation's current organizational structure and legal status.\n\n## Initial Information Gathering and Document Review\n\nBegin by searching through all available documents in the matter to locate the corporation's foundational documents, including the articles or certificate of incorporation, current bylaws, recent board resolutions, and any existing certificates of good standing from the home state. Extract the corporation's exact legal name as it appears in the formation documents, paying careful attention to punctuation, spacing, and required corporate designators such as \"Inc.,\" \"Corporation,\" or \"Corp.\" Identify the state or country of incorporation, the precise date of incorporation, and whether the corporation has perpetual duration or a specified term of existence.\n\nReview any available corporate records to identify the current officers and directors, including their full legal names, titles, and business addresses. If organizational charts, annual reports, or recent filings are available in the documents, extract this governance information to ensure accuracy and currency. Search for any existing registered agent agreements or correspondence that might indicate the corporation's preferred registered agent in the target state.\n\n## Jurisdictional Research and Name Availability\n\nDetermine the specific requirements of the foreign state where the corporation seeks to qualify by researching that state's business corporation act and the filing procedures of its secretary of state or equivalent authority. Identify whether the state provides a mandatory official form for foreign qualification or whether a custom application must be drafted to satisfy statutory requirements. Note any unique requirements such as notarization, authentication of supporting documents, or specific formatting requirements.\n\nVerify whether the corporation's legal name is available for use in the foreign state or whether a conflict exists with an existing entity. If the exact corporate name is unavailable, determine what alternative name or fictitious name the corporation will use to conduct business in that jurisdiction, ensuring compliance with the state's assumed name statutes. Document any name reservation or fictitious name filing that may be required as a prerequisite to the qualification application.\n\n## Drafting the Application Document\n\nPrepare the Application for Certificate of Authority with a clear and professional structure that addresses each element required by the foreign state's statutes. Begin with a formal heading that identifies the document as an \"Application for Certificate of Authority to Transact Business in [State Name]\" and includes the corporation's legal name. In the opening section, state the purpose of the application clearly: to register a foreign corporation to legally conduct business operations within the target state and obtain the protections and obligations that accompany authorized business presence.\n\nPresent the corporation's identifying information in a logical sequence. State the exact legal name of the corporation as it appears in the home state's records, followed by any alternate name under which it will operate in the foreign state if applicable. Identify the jurisdiction of incorporation and provide the specific date when the corporation was originally formed. Specify the corporation's duration, noting whether it is perpetual or has a defined term. Include the complete street address of the corporation's principal office in its home state, ensuring this is a physical location rather than a postal box.\n\nDesignate the corporation's presence in the foreign state by providing the address of its registered office, which serves as the official location for service of process and receipt of state communications. This may be the address of the registered agent or, if the corporation will maintain its own office in the state, the address of that physical location. Clearly identify the registered agent by full legal name and confirm that this individual or entity maintains a physical street address in the foreign state and is available during normal business hours to accept service of process.\n\nInclude a formal statement of consent from the registered agent, drafted as follows: \"The undersigned hereby consents to serve as registered agent for [Corporation Name] in the State of [Foreign State] and acknowledges the responsibilities attendant to this appointment, including the duty to maintain a physical address in this state and to be available during normal business hours to accept service of process and official communications on behalf of the corporation.\" Provide a signature block for the registered agent with spaces for original signature and date.\n\nPresent the corporation's governance structure in a clear and organized format. Create a section titled \"Officers\" that lists each current officer by title, full legal name, and business address. Common officer positions include President, Vice President, Secretary, Treasurer, Chief Executive Officer, and Chief Financial Officer, though the specific titles should reflect the corporation's actual organizational structure. Follow this with a section titled \"Directors\" that similarly lists each member of the board of directors by full legal name and business address. Ensure this information is current as of the application date and consistent with the corporation's most recent filings in its home state.\n\n## Supporting Documentation and Attachments\n\nAttach a certificate of existence or certificate of good standing obtained from the secretary of state or equivalent authority in the corporation's home jurisdiction. This certificate provides official verification that the corporation is validly existing, authorized to conduct business, current on all required filings, and has satisfied all tax and fee obligations in its state of incorporation. Verify that this certificate has been issued recently, typically within sixty to ninety days of the foreign qualification application, as most states will not accept stale certificates. Confirm whether the foreign state requires the certificate to bear an apostille or other authentication, particularly if the corporation was formed in a foreign country or if the target state has specific authentication requirements.\n\nPrepare a comprehensive filing checklist that identifies all documents to be submitted with the application, including the application itself, the certificate of good standing, any required name reservation or fictitious name certificates, and a check or authorization for payment of filing fees. Research the current filing fee for foreign qualification in the target state and include this amount in the checklist. Note the preferred method of submission, whether by mail to a specific address, in-person delivery, or electronic filing through an online portal.\n\n## Execution and Authorization\n\nIdentify the corporate officer who possesses authority under the corporation's bylaws or board resolutions to execute the application on behalf of the corporation. This is typically the President, Chief Executive Officer, or Secretary, though the specific authorization should be verified against the corporation's governing documents. Create a signature block that includes the corporation's legal name, a line for the authorized officer's signature, the officer's printed name, their title, and the date of execution.\n\nDraft an attestation clause that precedes the signature block, stating: \"The undersigned officer hereby certifies that they are duly authorized to execute this Application for Certificate of Authority on behalf of the corporation, and that the information provided herein is true, accurate, and complete to the best of their knowledge and belief.\" If the foreign state requires notarization, include an appropriate notary acknowledgment block following the signature. If the state accepts unsworn declarations in lieu of notarization, include the statutory declaration language required by that jurisdiction.\n\n## Compliance Considerations and Ongoing Obligations\n\nInclude a brief explanatory section or cover memorandum that addresses the ongoing compliance obligations created by foreign qualification. Note that once qualified, the corporation must file annual reports with the foreign state, maintain its registered agent and registered office, pay applicable franchise taxes or annual fees, and keep its authority current by remaining in good standing in both its home state and the foreign state. Explain that failure to maintain good standing or satisfy these ongoing requirements may result in administrative dissolution of the foreign qualification, loss of legal standing to enforce contracts, and potential penalties.\n\nVerify that the corporation's intended activities in the foreign state actually constitute \"transacting business\" under that state's statutes, as certain limited activities such as maintaining bank accounts, holding meetings, or engaging in interstate commerce may not trigger the qualification requirement. If there is any question about whether qualification is necessary, note this issue for further legal analysis or consultation with counsel admitted in the target state.\n\n## Document Output and Final Review\n\nGenerate a complete, professionally formatted Application for Certificate of Authority that conforms to the foreign state's requirements and is ready for execution and filing. If the state provides an official form, populate all fields accurately with no placeholder text remaining. If no official form exists, draft the application in a clear, numbered paragraph format with appropriate section headings that track the statutory requirements. Ensure all required information has been included, all addresses are complete street addresses rather than post office boxes where required, and all names are spelled exactly as they appear in official records.\n\nReview the completed application against the statutory checklist to confirm that every required element has been addressed. Verify that the registered agent consent is included and properly formatted for signature, that the certificate of good standing is attached or noted as an attachment, and that the filing fee amount is correct. Confirm that the execution block is appropriate for the foreign state's requirements regarding notarization or sworn statements. Prepare the document in a format suitable for printing, execution, and submission to the state filing office, with clear indication of where original signatures are required.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_formation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:41:14.255182Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+codex
+---
+name: qualification-to-do-business
+description: Drafts U.S. foreign-corporation qualification filings (Application for Certificate of Authority) for registration in a target state. Use when setting up a non-domiciliary corporation to transact business, checking qualification triggers, confirming name availability, preparing officer/director and registered-agent data, assembling good-standing support, and producing filing-ready execution and fee-ready package artifacts. Trigger keywords: certificate of authority, qualification to do business, foreign corporation, register to do business, registered agent appointment.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# State Qualification to Do Business
+
+Produces a state-specific Certificate of Authority packet for a foreign corporation seeking legal authorization to transact business in a U.S. state.
+
+## Prerequisites
+
+1. Corporate formation package: incorporation certificate/articles, bylaws or equivalent governance charter, and current officer/board authorization evidence.
+2. Exact legal name as filed in the home jurisdiction, including punctuation and entity designator.
+3. Target-state research plan: required form/version, filing method, fee, signature, and authentication requirements.
+4. Name-availability result in target state, including any alternatives or assumed-name requirements.
+5. Home-jurisdiction certificate of good standing/existence (or equivalent).
+6. Current principal officers/directors and intended in-state activities to evaluate filing necessity.
+
+## Output Structure / Process
+
+### 1) State compliance snapshot (mandatory prefill)
+
+| Item | Required output |
+|---|---|
+| Target state | Exact state and filing office/program |
+| Qualification required? | Yes/No with legal basis or exception note |
+| Official form available | Yes/No + form title/version |
+| Exact filing name | Legal name + any alt/assumed name requirement |
+| Registered agent model | Required, available, physical address |
+| Consent format | Signature language required by state |
+| Notarization/declaration | Required yes/no; text if required |
+| Certificate authentication | Apostille/consular rule if applicable |
+| Fee | Current filing fee and payment channel |
+| Submission channel | Online/mail/in-person + filing ID/portal |
+
+### 2) Core data checklist
+
+| Field | Capture rule |
+|---|---|
+| Legal name | Match formation document exactly |
+| Formation jurisdiction | State or country + exact incorporation date |
+| Duration | Perpetual or fixed term |
+| Principal office address | Physical address (no PO box if disallowed) |
+| Registered office | Physical in target state |
+| Registered agent | Full legal name + address + availability statement |
+| Officers | Full names, titles, business addresses |
+| Directors | Full names + addresses |
+| Authorized filer | Title and authority source |
+| Filing date | Current date unless state requires specific effective date |
+
+### 3) Drafting process
+
+1. Build application headings and statutory sections: identification, in-state presence, registered office/agent, governance disclosure, certification, and signature block.
+2. Populate required identity data and in-state contact information from source records only.
+3. Insert authorized filing officer signature block and state-specific attestation or declaration text.
+4. Add registered-agent consent block using exact required language or closest compliant equivalent.
+5. Append filing checklist and document index with all exhibits and fee instructions.
+6. Add transacting-business risk note when applicability is uncertain.
+
+### 4) Deliverable templates
+
+```text
+Entity Legal Name:
+Formation Jurisdiction:
+Formation Date:
+Principal Office:
+Target State:
+Registered Office:
+Registered Agent:
+Registered Agent Street Address:
+Authorized Signatory:
+Signatory Title:
+Execution Date:
+```
+
+```text
+Officers:
+[Title] | [Full Name] | [Business Address]
+Directors:
+[Title/Role] | [Full Name] | [Business Address]
+```
+
+```text
+Filing Package:
+- Application (completed form or drafted equivalent)
+- Certificate of Good Standing/Existence
+- Name Reservation/Assumed Name documents (if required)
+- Filing fee authorization/payment item
+- Any state-required affidavits or declarations
+```
+
+### 5) Validation gates (before final output)
+
+- No placeholders remain.
+- Registered agent consent present and complete.
+- Good-standing certificate recency checked against target-state tolerance [VERIFY].
+- Officer/director rosters current and sourced.
+- Notary or declaration block matches state requirement.
+- Fee amount and payment instructions verified from latest state guidance.
+
+## Guidelines
+
+- Use home-state and target-state authority directly; do not assume cross-state uniformity.
+- Preserve exact legal name capitalization, punctuation, and designator.
+- Do not infer missing officer/agent details.
+- If foreign-country incorporation is involved, evaluate apostille or authentication chain [VERIFY].
+- If activity likely exempt from qualification (e.g., isolated transaction/interstate activity-only scenarios), include an issue flag for legal review [VERIFY].
+- If qualification is not yet required, output reasoned denial memo instead of a filing package.
+tokens used
+7,181

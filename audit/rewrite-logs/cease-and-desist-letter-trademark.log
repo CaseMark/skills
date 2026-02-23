@@ -1,0 +1,329 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-69b1-77a3-9604-116ee227e813
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "0889f90f-0c6a-423f-a146-886d16186a4e",
+  "slug": "cease-and-desist-letter-trademark",
+  "name": "Cease and Desist Letter - Trademark",
+  "summary": "Drafts a comprehensive, professional cease and desist letter for trademark infringement cases. This skill generates authoritative pre-litigation correspondence demanding immediate cessation of unauthorized trademark use, while establishing the owner's rights and warning of potential litigation. Use it to formally notify alleged infringers and provide an opportunity to remedy before court proceedings.",
+  "content": "# Enhanced Cease and Desist Letter - Trademark Infringement\n\nYou are tasked with drafting a comprehensive, legally sound cease and desist letter addressing trademark infringement. This document serves as formal pre-litigation notice to an alleged infringer that they are unlawfully using a protected trademark, demanding immediate cessation of such use, and warning of potential legal consequences for non-compliance. The letter must be authoritative yet professional, clearly establishing the trademark owner's rights while providing the recipient with a reasonable opportunity to remedy the situation before litigation becomes necessary.\n\n## Initial Information Gathering and Document Review\n\nBefore drafting, conduct a thorough review of all available information about the trademark, the trademark owner, and the alleged infringement. Search through any uploaded documents, correspondence, or files related to this matter to identify concrete facts including the trademark registration details, evidence of the infringement, dates of first use, registration numbers, and any prior communications with the alleged infringer. Extract specific information about the trademark owner's business, the strength and reputation of the mark, any licensing agreements, and the scope of goods or services covered by the trademark. Identify all evidence of the infringing activity including screenshots, photographs, product samples, URLs, advertising materials, or witness statements. Gather information about when the infringement was first discovered, the geographic scope of the unauthorized use, and any evidence of consumer confusion or damage to the trademark owner's reputation or business.\n\n## Document Structure and Professional Presentation\n\nBegin with a professional letterhead that conveys the seriousness of pre-litigation correspondence. Include the complete contact information of the trademark owner or their legal counsel if represented by an attorney, the current date formatted appropriately, and the recipient's full contact information including their legal business name, any doing-business-as names, and complete mailing address. The subject line should clearly and unambiguously identify this as a \"Cease and Desist Letter Regarding Trademark Infringement\" and reference the specific trademark at issue by name or description. Ensure the formatting is clean, professional, and appropriate for legal correspondence that may later be introduced as evidence in federal court proceedings.\n\n## Opening Statement and Establishment of Authority\n\nOpen the letter by clearly identifying the sender as the lawful owner of the trademark in question, providing the exact trademark whether it is a word mark, design mark, or combination mark. State unequivocally that the purpose of this correspondence is to demand immediate cessation of all unauthorized use of the protected trademark and to provide formal notice under applicable trademark law. Establish the sender's standing and authority to make such demands by briefly referencing their ownership rights and the legal basis for those rights. The tone should be firm, direct, and businesslike while avoiding inflammatory or unnecessarily hostile language. Make clear that this letter serves as formal notice that may be used as evidence of the recipient's knowledge of the trademark rights in any subsequent legal proceedings, and that continued use after receipt of this notice may constitute willful infringement subject to enhanced damages.\n\n## Comprehensive Establishment of Trademark Rights\n\nProvide detailed information establishing the trademark owner's superior legal rights to the mark. For registered trademarks, include the exact trademark as it appears in the registration, the United States Patent and Trademark Office registration number, the registration date, the international class or classes of goods or services, and a description of the specific goods or services covered by the registration. Explain that the registration provides nationwide constructive notice of the trademark owner's claim of ownership and creates a legal presumption of validity, ownership, and exclusive right to use the mark in commerce in connection with the registered goods or services pursuant to the Lanham Act, 15 U.S.C. \u00a7 1051 et seq.\n\nFor unregistered trademarks protected under common law, establish the trademark owner's rights by describing the first use in commerce date, the geographic areas where the mark has been continuously used, the nature and extent of advertising and promotion, sales figures or market presence, and evidence of acquired distinctiveness or secondary meaning in the minds of consumers. Explain how the mark has come to identify the trademark owner as the source of the goods or services through extensive use, advertising investment, and consumer recognition.\n\nDescribe the strength and distinctiveness of the mark by characterizing it appropriately as arbitrary, fanciful, suggestive, or descriptive with acquired secondary meaning. If the mark is famous or well-known, provide evidence of its fame including market share, advertising expenditures, media coverage, consumer surveys, or industry recognition. Emphasize the substantial investment the trademark owner has made in developing, marketing, and protecting the trademark over time, and the valuable goodwill and reputation that has become associated with the mark. Explain that this goodwill represents a valuable business asset that the law protects against unauthorized use that would cause consumer confusion or dilute the mark's distinctiveness.\n\n## Detailed Description and Analysis of Infringing Activity\n\nProvide specific, factual, and detailed descriptions of the recipient's unauthorized use of the trademark or a confusingly similar mark. Describe the exact manner in which the infringing mark is being used, whether on products, packaging, labels, advertising materials, promotional items, websites, social media platforms, domain names, email addresses, or in any other commercial context. Include the dates when the infringing use was first discovered and provide evidence that the use is ongoing and continuous. Reference specific examples with supporting documentation such as dated photographs, timestamped screenshots with visible URLs, archived web pages, product samples, advertising materials, social media posts, or other tangible evidence that can be attached as exhibits to the letter.\n\nAnalyze how the unauthorized use creates a likelihood of confusion among consumers regarding the source, sponsorship, affiliation, or endorsement of the goods or services. Apply the multi-factor likelihood of confusion test recognized by federal courts, addressing relevant factors such as the similarity of the marks in appearance, sound, meaning, and commercial impression; the similarity or relatedness of the goods or services offered under the respective marks; the strength and distinctiveness of the trademark owner's mark; the proximity of the parties' channels of trade and classes of customers; evidence of actual confusion among consumers, retailers, or other market participants; the recipient's intent in adopting the mark and whether there is evidence of bad faith or intentional copying; and the sophistication of the relevant consumers and the degree of care they exercise in purchasing decisions.\n\nExplain clearly that the recipient's use meets the legal threshold for actionable trademark infringement under the Lanham Act because it is likely to cause confusion, mistake, or deception as to the source, origin, sponsorship, or approval of the recipient's goods or services. If applicable, also address claims for trademark dilution if the mark qualifies as famous, explaining how the unauthorized use blurs the distinctiveness of the mark or tarnishes its reputation even in the absence of consumer confusion.\n\n## Clear, Specific, and Actionable Demands\n\nArticulate precisely and unambiguously what actions the recipient must take to remedy the infringement and avoid litigation. Demand immediate cessation of all use of the infringing mark in any form, including on products, packaging, labels, advertising, promotional materials, websites, social media accounts, domain names, email addresses, business cards, signage, and any other commercial use. Specify that cessation must be complete and permanent, not merely temporary or limited.\n\nBeyond cessation, specify additional corrective actions required to remedy the harm caused by the infringement. These may include the removal of all infringing materials from commerce and the destruction of all infringing inventory, packaging, promotional materials, and other items bearing the infringing mark, with written certification of such destruction. Demand the cancellation or transfer of any infringing domain names to the trademark owner. Require the removal of all online content featuring the infringing mark from websites, social media platforms, online marketplaces, and any other internet presence. If the recipient has authorized third parties such as distributors, retailers, or licensees to use the infringing mark, demand notification to all such parties of the discontinuation and instruction to cease use immediately.\n\nRequest a written accounting of all sales, revenues, and profits derived from the use of the infringing mark, including the dates of first use, quantities sold, prices charged, and total revenues, as this information will be necessary to calculate damages if litigation becomes necessary. Demand a written response confirming full compliance with all demands, describing in detail the steps taken to cease use and remedy the infringement, and providing evidence of such compliance.\n\nSet a specific, reasonable deadline for full compliance, typically ten to fifteen business days from receipt of the letter, with the exact date clearly stated. Explain that time is of the essence and that failure to respond or comply by the deadline will be interpreted as a refusal to remedy the infringement voluntarily, necessitating immediate legal action.\n\n## Consequences of Non-Compliance and Available Legal Remedies\n\nClearly and specifically warn the recipient of the serious legal consequences of failing to comply with the demands set forth in the letter. Explain that if the recipient does not cease the infringing use and provide written confirmation of compliance by the stated deadline, the trademark owner will have no choice but to file a federal lawsuit in the United States District Court seeking all available remedies under the Lanham Act and applicable state trademark and unfair competition laws.\n\nDetail the remedies that will be sought in litigation, including preliminary and permanent injunctive relief prohibiting any further use of the infringing mark or any confusingly similar mark. Explain that the trademark owner will seek monetary damages including the trademark owner's actual damages caused by the infringement, which may include lost sales, lost profits, damage to reputation and goodwill, and corrective advertising costs. Additionally, the trademark owner will seek disgorgement of all profits the infringer has earned from the unauthorized use of the mark pursuant to 15 U.S.C. \u00a7 1117(a).\n\nNote that in cases of willful infringement, the court has discretion to award enhanced damages up to three times the actual damages, and that continued use after receiving this notice constitutes evidence of willful infringement that can significantly increase the damages award. Explain that the court may also award statutory damages if applicable, and that the trademark owner will seek recovery of all costs and attorney's fees incurred in the litigation under 15 U.S.C. \u00a7 1117(a), which can be substantial. Reference that the court may order the destruction of all infringing materials, products, and promotional items under court supervision.\n\nEmphasize that the trademark owner reserves all rights and remedies available under federal and state law, and that nothing in this letter constitutes a waiver of any such rights, a license or permission to use the trademark, or a limitation on the trademark owner's ability to seek any and all available relief. Make clear that this letter is sent in a good faith effort to resolve the matter without the expense and burden of litigation, but that the trademark owner is fully prepared to pursue all legal remedies if voluntary compliance is not forthcoming.\n\n## Professional Closing and Response Instructions\n\nConclude the letter with clear, specific instructions for how the recipient should respond. Provide complete contact information for the sender or their legal counsel, including mailing address, telephone number, and email address, and specify the preferred method of communication. Reiterate the deadline for response and compliance, stating the exact date by which written confirmation of full compliance must be received. Explain that the response should include a detailed description of all steps taken to cease use of the infringing mark, evidence of such cessation such as screenshots showing removal of online content or photographs of destroyed materials, and the written accounting of sales and profits as requested.\n\nInclude a professional closing signature block with the name, title, and contact information of the signatory. If the letter is sent by legal counsel, include the attorney's full name, bar admission information, law firm name, and contact details. Consider including a statement that the letter is sent on behalf of the client and that the attorney is authorized to act on the client's behalf in this matter.\n\nMaintain a professional, businesslike tone throughout the closing that reinforces the seriousness of the matter and the trademark owner's commitment to protecting their intellectual property rights, while leaving open the possibility of amicable resolution if the recipient acts promptly and in good faith to remedy the infringement.\n\n## Drafting Considerations and Legal Strategy\n\nThroughout the letter, maintain a tone that is firm, authoritative, and professional without being unnecessarily hostile, threatening, or inflammatory. The strategic goal is to secure voluntary compliance and cessation of the infringing use while preserving all legal options and creating a strong evidentiary record if litigation becomes necessary. Every factual statement must be accurate, specific, and supported by evidence that can be produced in court if challenged. Avoid making exaggerated claims, unsupported legal conclusions, or statements that could be construed as harassment, extortion, bad faith, or abuse of process.\n\nConsider whether the recipient may have any legitimate defenses such as fair use, nominative use, descriptive use, prior rights based on earlier use, or geographic limitations on the trademark owner's rights. If such defenses appear potentially applicable, address them preemptively by explaining why they do not apply to the recipient's use or why the trademark owner's rights are nevertheless superior. This demonstrates that the trademark owner has conducted thorough due diligence and is acting reasonably and in good faith.\n\nEnsure that the letter demonstrates the trademark owner has conducted appropriate investigation, has legitimate and superior trademark rights, has accurately identified actionable infringement, and is acting reasonably to protect valuable intellectual property rights. The letter should position the trademark owner favorably for litigation if it becomes necessary, while providing the recipient with a fair opportunity to resolve the matter voluntarily and avoid the substantial costs and risks of federal court litigation.\n\nThe final document should be formatted as a formal business letter suitable for sending via certified mail with return receipt requested, which provides proof of delivery and receipt that may be important in establishing willfulness and the recipient's knowledge of the trademark rights in any subsequent litigation.",
+  "parent_skill_id": "adccc2a5-9c43-42a4-8e4e-70541b15086f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "Intellectual_Property_Litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:48:13.947193Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Planning rewrite of SKILL.md for trademark cease and desist**
+
+Focusing on creating a concise, descriptive slug "trademark-cease-desist" and drafting SKILL.md content with metadata, clear purpose, prerequisites, structured template, and citations marked [VERIFY] where uncertain.
+thinking
+**Finalizing detailed SKILL.md content plan**
+
+Deciding to include confident citations without [VERIFY], others omitted to keep precision; drafting clear structured frontmatter, precise description with trigger keywords, metadata with proper capitalization, stepwise process, checklists, templates with placeholders, flat guidelines, and comprehensive sections covering all key aspects of a trademark cease and desist letter.
+codex
+---
+name: trademark-cease-desist
+description: Drafts U.S. trademark cease-and-desist letters for alleged infringement, establishing ownership rights, documenting infringing use, and issuing specific cure demands with deadlines and remedies references. Use when drafting cease and desist letters, trademark infringement notices, brand enforcement demands, Lanham Act notice letters, or requests to stop use of a confusingly similar mark.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Trademark Cease and Desist Letter
+
+Formal pre-suit notice demanding cessation of alleged trademark infringement and preservation of evidence.
+
+## Prerequisites
+
+1. **Owner identity and authority** — client name, entity type, signatory, counsel contact info
+2. **Mark details** — exact mark, registration number(s) if any, class(es), registration date, first use date
+3. **Scope of use** — goods/services covered, channels of trade, geography
+4. **Infringement evidence** — dated screenshots, URLs, product images, ads, packaging, listings
+5. **Confusion evidence** — actual confusion, overlap in customers, similarity of goods/services
+6. **Requested remedies** — stop use, remove content, destroy inventory, transfer domains/handles, accounting
+7. **Deadline and service method** — response date, delivery method, proof of receipt plan
+
+## Output Structure / Process
+
+### Inputs Checklist
+
+| Item | Required | Notes |
+|---|---|---|
+| Owner legal name and address | Yes | Include counsel if represented |
+| Mark type | Yes | Word, design, or composite |
+| Registration status | No | If registered, provide USPTO details |
+| First use date | No | Required for common-law rights |
+| Goods/services description | Yes | Match to registered or actual use |
+| Infringer legal name and address | Yes | Include DBA and online identifiers |
+| Infringing uses | Yes | URLs, listings, products, social handles |
+| Evidence list | Yes | Attach as exhibits |
+| Demands and deadline | Yes | State exact response date |
+
+### Likelihood of Confusion Factors (address only applicable)
+
+| Factor | Evidence to include |
+|---|---|
+| Similarity of marks | Appearance, sound, meaning, commercial impression |
+| Relatedness of goods/services | Overlap or complementarity |
+| Strength of mark | Distinctiveness, duration, marketing spend |
+| Channels of trade | Same platforms, retailers, or customer base |
+| Actual confusion | Customer inquiries, misdirected emails |
+| Intent | Copying, bad-faith adoption, knowledge of mark |
+| Consumer sophistication | Purchase care level |
+
+### Demands Matrix
+
+| Demand | When to include | Proof requested |
+|---|---|---|
+| Immediate cessation | Always | Written confirmation |
+| Removal from websites/marketplaces | If online use | Screenshots showing takedown |
+| Destroy inventory/packaging | If physical goods | Certification of destruction |
+| Transfer domains/handles | If used | Transfer confirmation |
+| Notify distributors/retailers | If third parties involved | Copy of notice |
+| Accounting of sales/profits | If damages likely | Sales report summary |
+
+### Letter Template
+
+```text
+[Sender Letterhead]
+[Date]
+
+[Recipient Name]
+[Recipient Entity / DBA]
+[Address]
+
+Re: Cease and Desist — Trademark Infringement of [MARK]
+
+[1. Representation and Purpose]
+We represent [OWNER]. This letter provides formal notice and demands immediate cessation of unauthorized use of [MARK].
+
+[2. Rights in the Mark]
+[Registered or common-law rights summary]
+- If registered: USPTO Reg. No. [#], Reg. Date [date], Classes [#], Goods/Services [description], Lanham Act (15 U.S.C. § 1051 et seq.).
+- If unregistered: first use [date], continuous use in [geography], scope of goods/services, evidence of distinctiveness.
+
+[3. Infringing Use]
+You are using [INFRINGING MARK] on/with [products/services/platforms], including:
+- [URL / listing / social handle / product image]
+- [Date observed]
+Your use is likely to cause confusion as to source, sponsorship, or affiliation.
+
+[4. Likelihood of Confusion Summary]
+[Concise factor-based analysis tailored to evidence]
+
+[5. Demands]
+You must:
+1. Cease all use of [INFRINGING MARK] and any confusingly similar mark.
+2. Remove infringing content from [websites/platforms].
+3. [Destroy/recall] infringing materials and certify completion.
+4. Transfer [domain/handle] to [OWNER].
+5. Provide an accounting of sales and profits from [date range].
+
+[6. Deadline]
+Provide written confirmation and evidence of compliance no later than [DATE].
+
+[7. Remedies Notice]
+If you do not comply, [OWNER] will pursue all available remedies under federal and state law, including injunctive relief, damages, and disgorgement of profits (15 U.S.C. § 1117(a)).
+
+[8. Reservation of Rights]
+All rights are reserved. No license or waiver is granted by this letter.
+
+[9. Response Instructions]
+Send your response to: [contact info]. Include evidence of compliance and the requested accounting.
+
+Sincerely,
+[Name]
+[Title]
+[Law Firm / Company]
+[Contact Info]
+
+Enclosures: [Exhibit list]
+```
+
+## Guidelines
+
+- Use only verified facts; attach exhibits to support each allegation.
+- Keep tone firm and professional; avoid threats unrelated to civil remedies.
+- If proposing settlement, consider FRE 408 framing and keep offers separate.
+- Tailor to jurisdictional law and state unfair competition statutes if applicable.
+- Address possible defenses only when evidence supports rebuttal.
+- Do not claim willfulness unless supported by facts (e.g., prior notice).
+- Use exact dates and deadlines; avoid “within X days” without a calendar date.
+tokens used
+6,235

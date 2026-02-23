@@ -1,0 +1,21 @@
+{
+  "id": "ec855b65-8752-4280-8720-b301ef9e3ee9",
+  "slug": "tone-diplomatic",
+  "name": "Diplomatic Professional Tone",
+  "summary": "Writing style for measured, professional legal documents. Use for negotiations, client communications, and judicial submissions.",
+  "content": "# Diplomatic Professional Tone\n\nUse this tone for most legal writing, especially:\n- Initial demand letters\n- Settlement negotiations\n- Client communications\n- Judicial submissions (default)\n- Opposing counsel correspondence\n\n## Characteristics\n- Balanced, measured language\n- Acknowledgment of legitimate opposing positions\n- Focus on legal merits over rhetoric\n- Professional courtesy maintained\n- Persuasion through logic and authority\n\n## When to Use\n- Building relationships with opposing counsel\n- Preserving settlement opportunities\n- Writing for judges who prefer restraint\n- Client-facing documents\n- Initial stages of disputes\n\n## Example Phrases\n- \"While we understand Defendant's position, the authorities suggest...\"\n- \"We respectfully submit that...\"\n- \"The better reading of the contract is...\"\n- \"We would welcome the opportunity to discuss...\"\n",
+  "parent_skill_id": null,
+  "skill_type": "reference",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "skill_modes": [
+      "drafting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:15.3172",
+  "updated_at": "2026-01-06T03:16:15.3172"
+}

@@ -1,0 +1,478 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-be70-7ff0-a0ab-37c49b379275
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7cb9a4a3-0732-4dd4-99a6-276f733762e5",
+  "slug": "litigation-ca-discovery-verification-builder",
+  "name": "California Discovery Verification Builder",
+  "summary": "This skill generates California-compliant discovery verification forms for interrogatory responses (CCP \u00a7 2030.250) and document production responses (CCP \u00a7 2031.250). It guides the practitioner through selecting the correct statutory formulation for individuals versus entities, properly deploying personal-knowledge versus information-and-belief language, avoiding the attorney verification trap, and including an execution-ready perjury declaration under CCP \u00a7 2015.5 with date, location, and signature block. The skill embeds adversarial awareness, ethical guardrails, and privilege-protection guidance, and requires attorney review before any output is used or served.",
+  "content": "# California Discovery Verification Builder (CCP \u00a7\u00a7 2030.250, 2031.250)\n\n## 1. Opening Context\n\nIn California civil litigation, a discovery response without a properly signed verification is, as a matter of law, no response at all. Under the rule established in *Appleton v. Superior Court* (1988) 206 Cal.App.3d 632, responses served without a verification are treated as a failure to respond, which can result in the waiver of all objections\u2014including attorney-client privilege and work product protection\u2014and expose the party to mandatory monetary sanctions. This skill produces California state-court discovery verifications that comply with Code of Civil Procedure sections 2030.250 (interrogatories) and 2031.250 (requests for production/inspection). Verifications are not mere formalities: they are sworn statements under penalty of perjury that authenticate the discovery responses and can become pivotal evidence for impeachment, sanctions motions, and summary judgment.\n\nGood execution means the verification precisely matches the discovery device, accurately states the capacity of the signer (individual party, corporate representative, agent), correctly uses \"personal knowledge\" versus \"information and belief\" language in the statutorily authorized way, and includes a legally sufficient perjury declaration under CCP \u00a7 2015.5 that is usable in California proceedings. Poorly drafted verifications risk being struck as noncompliant, forcing costly redo work, undermining credibility with the court, and creating avoidable exposure for the client and counsel if the verification overstates personal knowledge or fails to properly invoke \"information and belief\" where permitted. This skill is governed primarily by CCP \u00a7\u00a7 2030.250 and 2031.250, and secondarily by California's general perjury declaration statute, CCP \u00a7 2015.5, plus applicable ethical duties of competence, confidentiality, and candor under the California Rules of Professional Conduct.\n\n## 2. Understanding the Context and Purpose\n\nCalifornia written discovery is structured so that objections are made by counsel, but factual responses must be verified by the responding party or an authorized representative. The verification serves several strategic functions throughout the lifecycle of a case. First, it creates an evidentiary anchor: a verified response can be used against the party as an admission or for impeachment in deposition or at trial, and it shapes the motion practice landscape around further responses and sanctions. Second, it enforces accountability: a verification signals that the party has participated meaningfully in the investigation and review process, which matters when opposing counsel challenges the adequacy of the search, completeness of production, or the factual basis for responses.\n\nThe immediate audience for the verification is the opposing party and counsel, who will scrutinize whether the verification is properly executed and enforceable (e.g., through a motion to compel). The court may become an indirect audience if verification defects surface in discovery motion practice. The internal audience is also important: supervising attorneys, in-house counsel, and clients expect verifications that are accurate, minimally risky, and operationally easy to execute with clear signature blocks, correct captioning, and correct \"individual vs. entity\" language.\n\nStrategically, a verification can either help or harm the client depending on how it is framed. Overbroad \"personal knowledge\" statements can box the client into testimony that is difficult to explain later\u2014creating a trap at deposition where opposing counsel asks, \"You swore under penalty of perjury you had personal knowledge, but now you say you never saw the document?\" Conversely, overuse of \"information and belief\" can invite suspicion and discovery motion practice if it appears evasive, especially where the responding party reasonably should have personal knowledge. The objective is to comply with the statute and align the sworn statement with the actual process the client used to prepare the responses.\n\nFrom a defensive standpoint, practitioners must also be wary of what might be called the \"Attorney Verification Trap.\" While CCP \u00a7 446 allows an attorney to verify a pleading if the client is absent from the county, an attorney-verified discovery response generally does not satisfy the Discovery Act's requirements for trial or summary judgment purposes and risks making the attorney a witness in the case. This practice is strongly discouraged and carries significant malpractice exposure.\n\nScope boundary: This skill builds the verification forms and signature blocks for (a) interrogatory responses and (b) responses to requests for production/inspection. It does not draft the substantive responses, objections, privilege logs, or produce documents. It also does not address verifications for requests for admission (CCP \u00a7 2033.240), deposition errata, or other sworn filings.\n\n## 3. Prerequisites and Information Gathering\n\nBefore drafting any verification, the LLM must identify which discovery device is being verified and who is legally and practically able to sign. The exact statutory wording differs between interrogatory verifications and production/inspection verifications, and it differs again when the responding party is an entity rather than a natural person.\n\nAt minimum, collect the following inputs before proceeding. First, you need the operative discovery requests and the draft responses that will be served, including the title page and caption of the response set. The verification must match the document it verifies\u2014for example, \"Responses to Special Interrogatories (Set One)\" versus \"Responses to Form Interrogatories, General (Set Two)\" versus \"Responses to Requests for Production of Documents (Set One).\" Second, you need the identity of the responding party as it appears in the pleadings, and whether the responding party is an individual, a corporation, an LLC, a partnership, a public entity, or another organization. Third, you need the court name and case number to ensure the caption matches the lead document.\n\nYou must also collect signature logistics: the signer's full legal name, title or role (e.g., \"Chief Financial Officer,\" \"Person Most Knowledgeable,\" \"Authorized Agent\"), the city and state where the signer will physically sign (required by CCP \u00a7 2015.5), and the anticipated date of execution. If execution will be done remotely, gather whether the firm's practice is to use wet signature, scanned signature, or an e-signature platform, and confirm that the executed verification will satisfy the requirements of CCP \u00a7 2015.5.\n\nFinally, you must understand the factual basis for the responses: which portions are within the signer's personal knowledge, which are based on a reasonable inquiry of the organization's books and records, and which are based on information obtained from employees, agents, counsel, or documents. For entity verifications, determine what steps the organization took to gather information (custodian interviews, document collection, internal database searches). This supports accurate \"information and belief\" language.\n\nIf any required item is missing\u2014especially the discovery type, party type, signer identity, or signing location\u2014the LLM must stop and ask targeted follow-up questions before generating the verification. Do not guess the party type, the signer's authority, or the caption. Insert prominent placeholders like \"[ATTORNEY TO VERIFY TITLE]\" when specific information is unavailable and flag such gaps in the output notes.\n\n## 4. Step-by-Step Process\n\n### Step 1: Classify the Discovery Device and Select the Governing Statute\n\nStart by determining whether the verification is for interrogatory responses (CCP \u00a7 2030.250) or for responses to inspection demands/requests for production (CCP \u00a7 2031.250). This distinction matters because the statutory language differs in its specifics. Treat this as a binary classification and explicitly label the output\u2014for example, \"Interrogatory Verification (CCP \u00a7 2030.250)\" or \"Inspection Demand / RPD Verification (CCP \u00a7 2031.250)\"\u2014in your internal draft notes.\n\nInterrogatories in California include Form Interrogatories, Special Interrogatories, and other authorized interrogatory formats; the verification requirements attach to the responding party's answers, not the objections. Requests for production are typically styled as \"Demand for Inspection and Copying\" or \"Request for Production of Documents\" and involve a statement of compliance, inability to comply, or objections.\n\nQuality execution requires you to mirror the exact title of the response document. A common defect is drafting a verification that generically says \"Responses to Interrogatories\" while the served document is titled \"Defendant ABC, Inc.'s Responses to Plaintiff's Special Interrogatories (Set Two).\" Opposing counsel will argue the verification is not tethered to the served responses, and a court may require a corrected verification. Example titling language that ties properly: \"Verification of [Party] to Responses to Plaintiff's Special Interrogatories (Set One)\" or \"Verification of [Party] to Responses to Demand for Inspection and Production of Documents (Set Three).\"\n\nAdversarial awareness: Opposing counsel will look for technical deficiencies to gain leverage in meet-and-confer correspondence and motions to compel. If you misidentify the device or omit the set number, you create avoidable motion fodder and risk a court order requiring re-service.\n\n### Step 2: Determine Who Must Sign and in What Capacity\n\nNext, identify whether the responding party is a natural person or an entity. CCP \u00a7\u00a7 2030.250 and 2031.250 expressly contemplate verifications \"by the party\" and allow an entity to verify through an officer, agent, or employee. The critical judgment is to align the signer's stated capacity with both the statutory allowance and the real-world basis for the signer's knowledge.\n\nFor an individual party, the signer is ordinarily the party themselves. Avoid having counsel sign an individual's discovery verification; that is a red flag and may be improper because counsel generally lacks personal knowledge and is not the \"party.\" For an entity party, choose someone who can honestly state that they are authorized and who has either personal knowledge or has overseen an adequate inquiry into records and personnel. In practice, for a corporate defendant, the signer is often a corporate officer (CEO, CFO, General Counsel) or another authorized employee with oversight of the response process. For a public entity, an authorized official or custodian may sign. For an LLC, a managing member or authorized manager may sign. Do not invent the title: confirm it with the user.\n\nExample capacity lines (illustrative): For an individual: \"I am the [plaintiff/defendant] in this action. I have read the foregoing responses and know the contents thereof.\" For a corporation: \"I am the [title] of [Entity], a party to this action, and am authorized to make this verification for and on its behalf. I have read the foregoing responses and know the contents thereof.\"\n\nCommon mistake: Using an employee-signatory for an entity without stating authorization, or naming the entity in the signature block but having an individual sign without clarifying their title or authority. Another common mistake is having a low-level employee sign without specifying they are an \"authorized agent,\" which creates an opening for the opposing side to challenge the verification's validity.\n\nAdversarial awareness: If discovery becomes contentious, the other side may challenge whether the signer was truly authorized or sufficiently knowledgeable, especially if later deposition testimony suggests the signer rubber-stamped counsel's work without conducting a genuine inquiry. Draft the verification to be truthful and defensible: it should reflect a reasonable inquiry process, not a fiction of omniscience.\n\n### Step 3: Choose the Correct \"Personal Knowledge\" vs. \"Information and Belief\" Structure\n\nThe core statutory nuance in CCP \u00a7\u00a7 2030.250 and 2031.250 is that verifications can be made on personal knowledge, or\u2014when permitted\u2014partly on information and belief. The task is to produce a verification that matches the actual epistemic basis for the responses.\n\nFor entity responses, it is rarely true that any one person has personal knowledge of all responsive facts across the organization. California statutes accordingly allow verifications stating that the answers are true of the declarant's own knowledge except as to matters stated on information and belief, and that as to those matters the declarant believes them to be true. Use this \"split\" formulation when the responses necessarily incorporate information from records, other employees, or counsel's synthesis of data. For entity parties, the \"information and belief\" clause should be considered the default unless the signer can genuinely attest to personal knowledge of every fact.\n\nFor individual parties, the same split formulation can be appropriate when some responses depend on documents, third-party records, or recollection refreshed by materials the party did not personally create. However, do not overuse \"information and belief\" to avoid accountability for plainly personal facts. If the response concerns the party's own date of birth, that is personal knowledge. If it asks the party to identify all communications between their employer and a third party, it may be partly based on documents and may warrant information-and-belief language.\n\nIllustrative clause that tracks the statutory model: \"I have read the foregoing responses and know the contents thereof. The matters stated therein are true of my own knowledge, except as to those matters which are stated on information and belief, and as to those matters, I believe them to be true.\"\n\nYou must not state \"all of the foregoing is true of my own personal knowledge\" if that is not accurate. That creates perjury risk for the client and impeachment exposure at deposition or trial. Conversely, do not use a blanket \"information and belief\" clause for all responses when the signer plainly has personal knowledge of the core facts, as this can invite suspicion and meet-and-confer disputes.\n\nAdversarial awareness: Opposing counsel may argue that an entity's information-and-belief verification is too vague if it does not indicate a reasonable inquiry. You can draft a truthful sentence that signals process without creating new obligations\u2014for example, for an entity signer: \"I have reviewed the responses and am informed by employees and records of the company regarding the matters stated.\" Keep it accurate and modest. Do not describe the role of counsel in preparing responses, as this can implicate privilege waiver.\n\n### Step 4: Draft the Perjury Declaration and Execution Block Under CCP \u00a7 2015.5\n\nCalifornia verifications must be made under penalty of perjury in compliance with CCP \u00a7 2015.5. This statute prescribes specific language and requires the date and place of execution. Strict adherence to its wording is mandatory; any deviation\u2014such as omitting \"under the laws of the State of California\"\u2014can render the verification void, particularly if signed outside the state.\n\nThe required declaration language is: \"I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.\" This language should be used regardless of whether the signer is located within or outside California at the time of execution, as it satisfies CCP \u00a7 2015.5 in both scenarios.\n\nThe execution block must include the date and the city and state where the document is signed. Example perjury block (California execution, illustrative): \"I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct. Executed on [DATE], at [CITY], California.\" Example perjury block (out-of-state execution, illustrative): \"I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct. Executed on [DATE], at [CITY], [STATE].\"\n\nDo not include a notary acknowledgment unless specifically required by the client or court order. Verifications under CCP \u00a7 2015.5 generally do not require notarization, and adding unnecessary notary language can cause execution delays and create confusion about whether an acknowledgment is now required. Do not abbreviate or paraphrase the CCP \u00a7 2015.5 language.\n\nCommon mistake: Omitting the place of execution or using an ambiguous location line such as \"Executed on: [date]\" without specifying the city and state. Opposing counsel can challenge the sufficiency, and your filing and recordkeeping become unreliable. Another common mistake is dating the verification before the responses were finalized; the date should be contemporaneous with or after the finalization of the responses.\n\nAdversarial awareness: If there is later a perjury or credibility dispute, the execution details become important. Make the execution information explicit and accurate, and preserve the signed original in a defensible manner.\n\n### Step 5: Build the Caption, Case-Identifying Information, and Signature Blocks\n\nEven though CCP \u00a7\u00a7 2030.250 and 2031.250 focus on the verification language itself, in practice the document must look like a California pleading attachment and be easy to associate with the served discovery responses. Use the same caption block as the responses, with the same court, parties, case number, and title. If the responses are formatted as California pleadings with attorney service address blocks and line numbering, mirror that format for the verification page(s).\n\nThe verification title should exactly match the response title. If the response document is \"DEFENDANT ABC, INC.'S RESPONSES TO PLAINTIFF'S REQUESTS FOR PRODUCTION (SET ONE),\" then the verification should be titled \"VERIFICATION OF DEFENDANT ABC, INC. TO RESPONSES TO PLAINTIFF'S REQUESTS FOR PRODUCTION (SET ONE).\" This prevents the \"floating verification\" problem where an opposing party argues the signature page was attached to a different version of the responses.\n\nFor the signature block, include the signer's typed name and capacity. For an entity, the signature line should make clear the person signs on behalf of the entity and state their title. Example signature block (individual, illustrative): A signature line followed by \"[Full Name], [Plaintiff/Defendant].\" Example signature block (entity, illustrative): The entity name on the first line, then \"By:\" followed by a signature line, then \"[Full Name]\" and \"Its: [Title].\" If the entity is \"ABC, LLC,\" ensure the verification also says \"ABC, LLC\"\u2014not \"ABC, Inc.\" A mismatch between the entity name in the responses and in the verification can render the responses effectively unverified.\n\nCommon mistake: Putting only the individual name without the entity name and title, which creates ambiguity about whether the entity itself has verified.\n\n### Step 6: Handle Hybrid Responses (Factual Assertions vs. Objections)\n\nUnder CCP \u00a7 2030.250(a) and \u00a7 2031.250(a), the party verifies the factual responses, but the attorney is responsible for the objections. The verification should not explicitly state that the party is verifying the legal objections, as that could inadvertently suggest the client has \"personal knowledge\" of the attorney's legal strategy and potentially waive work product protection. The verification language\u2014\"I have read the responses and the same are true of my own knowledge\"\u2014implicitly applies to the factual portion. The attorney should sign the main response document separately to cover the objections. This division of responsibility should be reflected in the drafting.\n\n### Step 7: Tailor \"Agent\" Verifications When the Party Cannot Sign\n\nSometimes a party cannot sign due to unavailability, incapacity, or another legitimate reason. CCP provisions contemplate verification by an agent in some settings, but this is an area where sloppy drafting creates disproportionate risk. If someone other than the party or a regular entity officer signs, the verification must clearly explain the basis of the signer's authority and knowledge.\n\nIn practice, an \"agent\" verification might be used for an entity (where the agent is effectively an officer or employee) or for an individual under limited circumstances (e.g., conservator, attorney-in-fact). If you are asked to draft an agent verification, do not proceed without collecting the legal basis for the agency (power of attorney, corporate authorization, court appointment), the scope of the agent's authority, and how the agent acquired information about the facts in the responses.\n\nIllustrative language (authorized corporate representative/agent): \"I am an authorized [officer/employee/agent] of [Entity] and am authorized to make this verification on its behalf. I have read the foregoing responses and know their contents. The matters stated in the responses are true of my own knowledge except as to matters stated on information and belief, and as to those matters I believe them to be true.\"\n\nDo not claim authority (\"I am authorized\") unless it is true and can be supported. If authority is uncertain, flag it for attorney verification. Do not use an \"agent\" verification as a convenience when the actual party could sign with minor scheduling effort; that invites meet-and-confer disputes and undermines the credibility of the responses.\n\nAdversarial awareness: An opponent may seek deposition testimony about who verified, what the signer reviewed, and whether the signer conducted any inquiry. Draft with the assumption that the signer could later be questioned about the verification process.\n\n### Step 8: Produce a Clean, Execution-Ready Final Verification Packet\n\nThe final output should be an execution-ready verification page or pages that can be appended to the discovery responses and served. Ensure the verification is not inadvertently attached to a draft that changes later; if the substantive responses are still evolving, clearly label the verification \"DRAFT\u2014DO NOT SIGN\" until the responses are final.\n\nWhen producing the final packet, include both a standalone verification and, if requested, a version combined at the end of the response document. In California practice, verifications are often attached as the final pages of the response document. If the client will sign electronically, confirm that the firm's practices comply with California rules regarding electronic signatures on sworn statements.\n\nCommon mistake: Letting a client sign a verification before counsel has finalized objections and substantive answers, creating a mismatch between what was verified and what was served. Another common mistake is failing to maintain version control between the served responses and the executed verification.\n\nAdversarial awareness: If there is a later motion to compel, the opponent may argue the responses were unverified at the time of service or that the verification does not correspond to the served version. Preserve metadata and maintain a clear chain between the served responses and the executed verification.\n\n## 5. Critical Legal Standards and Compliance\n\nThe central statutory requirements are CCP \u00a7 2030.250 for interrogatory verifications, CCP \u00a7 2031.250 for inspection demand verifications, and CCP \u00a7 2015.5 for the perjury declaration form. Under *Appleton v. Superior Court* (1988) 206 Cal.App.3d 632, unverified responses are treated as no response at all, potentially waiving all objections and triggering sanctions.\n\nProfessional responsibility constraints are directly engaged because you are preparing a document for signature under penalty of perjury. Under California Rule of Professional Conduct 1.1 (Competence), counsel must ensure the verification is legally correct and tailored to the client's actual knowledge basis. Under Rule 1.4 (Communication), counsel should explain to the client that a verification has the same legal weight as testifying under oath in a courtroom, and that falsifying a verification is a felony under California Penal Code \u00a7 118. Under Rule 3.3 (Candor Toward the Tribunal), an attorney cannot allow a client to sign a verification the attorney knows to be false; if the responses contain known inaccuracies, the attorney has a duty to correct them before the client signs.\n\nConfidentiality and privilege warrant special attention. The verification should not unnecessarily disclose privileged communications or attorney work product. Do not describe counsel's advice as the basis for truth unless you intend to waive privilege. If you add process language, describe sources as \"records and employees\" rather than \"advice of counsel,\" unless attorney review concludes otherwise. Be extremely cautious with any attorney-signed verification: under CCP \u00a7 446, an attorney verification can sometimes be used as a basis to seek discovery of the attorney's files related to the verified document.\n\nMalpractice risk clusters include defective verifications that render responses effectively unverified and trigger motions, waivers, and sanctions exposure; perjury exposure for the client due to inaccurate \"personal knowledge\" language; and privilege waiver by including unnecessary narrative about how responses were prepared. Mitigate these by matching the verification to the discovery device and title, accurately selecting the signer and authority, using information-and-belief language where appropriate, and requiring attorney review before sending to the client.\n\nIf the verification process reveals that the client's intended sworn statements conflict with counsel's understanding or create exposure\u2014for example, if the client insists on verifying facts counsel believes are false\u2014escalate immediately for attorney intervention. Do not attempt to smooth over inconsistencies in the verification language.\n\n## 6. Quality Control and Review\n\nBefore finalizing, test the verification against four substantive questions that mirror how opposing counsel and the court will evaluate it.\n\nFirst, does the verification accurately reflect the governing statute and discovery device type? Confirm that the verification cites the correct statute\u2014CCP \u00a7 2030.250 for interrogatories, CCP \u00a7 2031.250 for inspection demands\u2014and that the language is consistent with the statutory requirements. If you include CCP \u00a7 2015.5 language, confirm it substantially matches the statutory form and includes date and place of execution.\n\nSecond, does the signer have the capacity stated, and is that capacity accurately described? Cross-check the signer's name and title against client-provided information. If the party is \"Acme LLC,\" ensure the signer is an officer or agent of \"Acme LLC\"\u2014do not have a parent company officer sign for a subsidiary unless they are also an officer of the subsidiary. Flag any uncertainty as requiring attorney verification.\n\nThird, is the \"personal knowledge vs. information and belief\" structure truthful and defensible? Reconcile the verification wording with how the responses were actually compiled. If the responses rely on records and interviews, an information-and-belief clause is generally appropriate. If the responses concern purely personal facts, a stricter personal-knowledge statement may be acceptable. Any mismatch between the verification's knowledge representation and the actual basis for the responses is a red flag.\n\nFourth, does the document match the served responses in caption, party name, case number, and exact response title? This is a mechanical point with substantive consequences. A mismatch can render the responses effectively unverified and invite a motion to compel.\n\nAdditional mechanical checks: Does the CCP \u00a7 2015.5 formula contain the exact phrase \"under penalty of perjury under the laws of the State of California\" without abbreviation or paraphrase? Are the date and location fields clearly marked for the client, or filled in if known? Are all blank fields that require client input prominently marked?\n\nCitations and authority verification: The LLM must verify any cited statute or case via web search or the official California Legislature website before including it in a verification. If the LLM cannot verify a citation, it must flag it for attorney review. All outputs from this skill require attorney review before being sent to a client for signature or served on opposing counsel. The generated verification is not legal advice and should not be used without supervision by a licensed California attorney responsible for the matter.\n\n## 7. Jurisdiction-Specific Adaptations\n\nThis skill is designed exclusively for California Superior Court practice under the Civil Discovery Act. Adaptations are required when the forum or context changes.\n\nIf the matter is in federal court in California, interrogatory and production responses are governed by FRCP 33 and 34, and the verification practice differs significantly. Under FRCP 33(b)(3), interrogatory answers must be verified by the responding party under oath, but the form of declaration is governed by 28 U.S.C. \u00a7 1746 rather than CCP \u00a7 2015.5. Responses to requests for production under FRCP 34 are signed by the attorney and typically do not require a separate party verification. Do not use CCP verification forms in federal court unless a stipulation, local rule, or judge-specific order specifically requires it. While similar in principle, California's CCP \u00a7 2015.5 has stricter \"laws of the State of California\" requirements for out-of-state signatures than the federal counterpart.\n\nIf the matter is in another state, do not reuse the CCP statutory language. Many states have different perjury declaration statutes and different requirements for who signs and under what knowledge standard.\n\nWithin California, remain alert to local custom and judge preferences about formatting. Some local California Superior Courts have specific formatting rules for signature pages or pleading paper (e.g., Los Angeles Superior Court local rules regarding formatting). Always advise the user to check the local rules of the specific county. If the responding party is a governmental entity, verify whether internal policies require a specific official to sign and adapt the signer capacity line accordingly while keeping the statutory perjury framework intact.\n\n## Execution Output Requirements\n\nWhen executing this skill, produce publication-ready verification documents in California pleading style. Generate an \"Interrogatory Verification\" compliant with CCP \u00a7 2030.250 and/or an \"Inspection Demand / Requests for Production Verification\" compliant with CCP \u00a7 2031.250, each in both an individual-party version and an entity-party version as applicable. Each version must include a caption-ready title line that can be matched to the discovery response title, the statutory \"personal knowledge except information and belief\" structure when appropriate, a CCP \u00a7 2015.5-compliant perjury declaration with date and place lines, and a signature block with name and capacity.\n\nIf the user specifies only one discovery device or only one party type, produce only the relevant versions and clearly label what was omitted. If the user does not specify signer authority for an entity, flag that as required input before finalizing. All outputs must include a notation that attorney review is required before the verification is circulated to a client for signature or served on opposing counsel.",
+  "parent_skill_id": null,
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "generated_from": "evolution_approved",
+    "parent_skill_id": "8d1e59f1-ae63-4084-97f2-a4a7d804dfe2"
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-16T04:32:33.092994",
+  "updated_at": "2026-02-16T04:48:09.239103"
+}
+mcp: exa_search starting
+mcp: context7 starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:02:47.911995Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Choosing slug and inferring metadata**
+
+I'm selecting a concise slug by dropping prefixes, settling on "ca-discovery-verification," and inferring metadata fields from context since legal_context lacks them, assigning practice area "Litigation," document type "Verification," and skill mode "Drafting" for completeness.
+thinking
+---
+name: ca-discovery-verification
+description: Drafts California Superior Court discovery verification pages for interrogatory responses (CCP 2030.250) and inspection/RPD responses (CCP 2031.250), including CCP 2015.5 perjury declarations, entity vs individual capacity language, and personal-knowledge vs information-and-belief options. Use when drafting discovery verifications, response verification pages, CCP 2015.5 declarations, or fixing unverified CA discovery responses.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Verification
+  skill_modes:
+    - Drafting
+---
+
+# California Discovery Verification
+
+**Purpose**  
+Build CA-compliant verification pages for interrogatory and RPD responses.
+
+## Prerequisites  
+
+1. Discovery device type and exact response title (e.g., "Responses to Special Interrogatories (Set One)").  
+2. Court name, case number, and parties as they appear in the caption.  
+3. Responding party type (individual or entity) and exact legal name.  
+4. Signer’s name, title/role, and authority basis if signing for an entity or as an agent.  
+5. Knowledge basis: personal knowledge or information and belief, with inquiry steps if entity.  
+6. Execution details: date, city, state; signature method (wet or electronic).  
+7. Finalized versions of the responses to be verified.
+
+## Output Structure / Process  
+
+**Decision Matrix**
+
+| If                                     | Use                              | Statute(s)          |
+|---------------------------------------|---------------------------------|---------------------|
+| Interrogatory responses (individual)  | Interrogatory Verification - Individual | CCP 2030.250        |
+| Interrogatory responses (entity)      | Interrogatory Verification - Entity   | CCP 2030.250        |
+| Inspection / RPD responses (individual) | RPD Verification - Individual         | CCP 2031.250        |
+| Inspection / RPD responses (entity)   | RPD Verification - Entity             | CCP 2031.250        |
+
+**Drafting Steps**
+
+1. Classify discovery device and party type.  
+2. Choose appropriate signer type and knowledge basis wording.  
+3. Build verification statement including perjury declaration.  
+4. Complete execution details (date, location, signature).  
+5. Apply quality control checklist.  
+6. Provide optional agent verification if needed.  
+
+**Quality Control Checklist**  
+
+- [ ] Verification matches response title and device.  
+- [ ] Correct signer type and authority used.  
+- [ ] Knowledge basis clearly stated (personal knowledge or information and belief).  
+- [ ] Perjury declaration text included exactly.  
+- [ ] Execution date and place specified.  
+- [ ] Signature method noted (wet or electronic).  
+- [ ] Avoid verifying objections; attorney signs separately.  
+- [ ] Confirm no notarization unless required.  
+- [ ] Local rules compliance checked.  
+- [ ] Attorney review required before final use.
+
+## Templates
+
+### Interrogatory Verification – Individual
+
+```
+[CAPTION]
+
+Responses to Special Interrogatories (Set One)
+
+Verification
+
+I, [NAME], declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+
+[Option A – Personal Knowledge Only:]  
+The matters stated in the foregoing responses are true of my own knowledge.
+
+[Option B – Personal Knowledge and Information and Belief:]  
+The matters stated in the foregoing responses are true of my own knowledge, except as to those matters stated on information and belief, and as to those matters, I believe them to be true.
+
+Executed on [DATE], at [CITY], California.
+
+__________________________  
+[NAME]
+```
+
+### Interrogatory Verification – Entity
+
+```
+[CAPTION]
+
+Responses to Special Interrogatories (Set One)
+
+Verification
+
+I, [NAME], am [TITLE] of [ENTITY]. I have personal knowledge of the facts stated herein or have made a reasonable inquiry and believe them to be true.
+
+I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+
+Executed on [DATE], at [CITY], California.
+
+__________________________  
+[NAME], [TITLE]
+```
+
+### RPD Verification – Individual
+
+```
+[CAPTION]
+
+Responses to Request for Production of Documents
+
+Verification
+
+I, [NAME], declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+
+[Option A – Personal Knowledge Only:]  
+The matters stated in the foregoing responses are true of my own knowledge.
+
+[Option B – Personal Knowledge and Information and Belief:]  
+The matters stated in the foregoing responses are true of my own knowledge, except as to those matters stated on information and belief, and as to those matters, I believe them to be true.
+
+Executed on [DATE], at [CITY], California.
+
+__________________________  
+[NAME]
+```
+
+### RPD Verification – Entity
+
+```
+[CAPTION]
+
+Responses to Request for Production of Documents
+
+Verification
+
+I, [NAME], am [TITLE] of [ENTITY]. I have personal knowledge of the facts stated herein or have made a reasonable inquiry and believe them to be true.
+
+I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+
+Executed on [DATE], at [CITY], California.
+
+__________________________  
+[NAME], [TITLE]
+```
+
+## Guidelines and Compliance Notes
+
+- Do not verify objections; attorney signs objections separately.  
+- Use precise CCP 2015.5 perjury declarations as shown.  
+- Include "Executed on [DATE], at [CITY], California" for location and date.  
+- Avoid notarization unless local rules require it.  
+- Confirm local court rules before use.  
+- Do not use this CA form in federal court; use 28 USC 1746 and FRCP 33/34 instead.  
+- Request for Production is rarely verified in federal court.  
+- Attorney verification is limited to narrow CCP 446 cases [VERIFY] – avoid making attorney a witness.  
+- Unverified discovery responses may be deemed a waiver with possible sanctions (Appleton v. Superior Court (1988) 206 Cal.App.3d 632) [VERIFY].  
+- Penal Code 118 (perjury penalties) applies [VERIFY].  
+- Follow California Rules of Professional Conduct 1.1, 1.4, 3.3 regarding competence, communication, and candor to courts [VERIFY].  
+- All outputs require attorney review before client use.  
+- Do not disclose counsel’s legal advice in verifications to avoid privilege waiver.  
+- If any required information is missing (e.g., signer authority, knowledge basis), request it before draft completion.  
+- Include trigger keywords in descriptions to enable correct skill triggering.  
+
+---
+
+Attorney review required before submission.
+codex
+---
+name: ca-discovery-verification
+description: Drafts California Superior Court discovery verification pages for interrogatory responses (CCP 2030.250) and inspection/RPD responses (CCP 2031.250), including CCP 2015.5 perjury declarations, entity vs individual capacity language, and personal-knowledge vs information-and-belief options. Use when drafting discovery verifications, response verification pages, CCP 2015.5 declarations, or fixing unverified CA discovery responses.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Verification
+  skill_modes:
+    - Drafting
+---
+
+# California Discovery Verification
+
+Builds California-compliant discovery verification pages tied to interrogatory or RPD/inspection responses.
+
+## Prerequisites
+
+1. Discovery device type and exact response title as it will appear on the responses
+2. Court name, case number, and party names for the caption
+3. Responding party type and exact legal name
+4. Signer name, title/role, and authority basis (entity/agent)
+5. Knowledge basis for responses (personal knowledge vs information and belief)
+6. Execution details: date, city, state, signature method
+7. Finalized response set to be verified
+
+## Output Structure / Process
+
+**Decision Matrix**
+
+| Decision | Use | Statute |
+| --- | --- | --- |
+| Interrogatories (Form/Special) | Interrogatory Verification | CCP 2030.250 |
+| Inspection demand / RPD | Inspection/RPD Verification | CCP 2031.250 |
+| Federal court | Do not use CCP form; use FRCP 33/34 + 28 U.S.C. 1746 | [VERIFY] |
+
+**Knowledge Basis Clause**
+
+| If | Use this clause |
+| --- | --- |
+| All responses are truly personal knowledge | “The matters stated in the foregoing responses are true of my own knowledge.” |
+| Any response relies on records, employees, or collected information | “The matters stated in the foregoing responses are true of my own knowledge, except as to those matters stated on information and belief, and as to those matters I believe them to be true.” |
+
+**Required Elements Checklist**
+
+- [ ] Verification title matches the response title verbatim
+- [ ] Signer capacity stated and authority clear (entity/agent)
+- [ ] CCP 2015.5 perjury declaration is verbatim
+- [ ] Execution date and city/state included
+- [ ] Signature block includes name and capacity
+- [ ] No statement that the signer verifies objections
+
+**Templates**
+
+Interrogatory Verification (Individual)
+```text
+[CAPTION BLOCK]
+
+VERIFICATION OF [PARTY NAME] TO [EXACT RESPONSE TITLE]
+
+I am the [plaintiff/defendant] in this action. I have read the foregoing responses and know the contents thereof.
+[CHOOSE KNOWLEDGE BASIS CLAUSE]
+
+I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+Executed on [DATE], at [CITY], [STATE].
+
+___________________________
+[SIGNER NAME]
+[Plaintiff/Defendant]
+```
+
+Interrogatory Verification (Entity)
+```text
+[CAPTION BLOCK]
+
+VERIFICATION OF [ENTITY NAME] TO [EXACT RESPONSE TITLE]
+
+I am the [TITLE] of [ENTITY NAME], a party to this action, and am authorized to make this verification for and on its behalf. I have read the foregoing responses and know the contents thereof.
+[CHOOSE KNOWLEDGE BASIS CLAUSE]
+[OPTIONAL: “I am informed by the employees and records of [ENTITY NAME] regarding the matters stated.”]
+
+I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+Executed on [DATE], at [CITY], [STATE].
+
+[ENTITY NAME]
+By: _______________________
+    [SIGNER NAME]
+    Its: [TITLE]
+```
+
+Inspection/RPD Verification (Individual)
+```text
+[CAPTION BLOCK]
+
+VERIFICATION OF [PARTY NAME] TO [EXACT RESPONSE TITLE]
+
+I am the [plaintiff/defendant] in this action. I have read the foregoing responses and know the contents thereof.
+[CHOOSE KNOWLEDGE BASIS CLAUSE]
+
+I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+Executed on [DATE], at [CITY], [STATE].
+
+___________________________
+[SIGNER NAME]
+[Plaintiff/Defendant]
+```
+
+Inspection/RPD Verification (Entity)
+```text
+[CAPTION BLOCK]
+
+VERIFICATION OF [ENTITY NAME] TO [EXACT RESPONSE TITLE]
+
+I am the [TITLE] of [ENTITY NAME], a party to this action, and am authorized to make this verification for and on its behalf. I have read the foregoing responses and know the contents thereof.
+[CHOOSE KNOWLEDGE BASIS CLAUSE]
+[OPTIONAL: “I am informed by the employees and records of [ENTITY NAME] regarding the matters stated.”]
+
+I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+Executed on [DATE], at [CITY], [STATE].
+
+[ENTITY NAME]
+By: _______________________
+    [SIGNER NAME]
+    Its: [TITLE]
+```
+
+## Guidelines
+
+- Match the verification title to the response title exactly; mismatches invite motions to compel.
+- Do not use attorney-signed verifications except in narrow CCP 446 circumstances [VERIFY].
+- Do not state “personal knowledge” if the signer relied on records or others; use information-and-belief clause when needed.
+- Do not verify legal objections; attorney signs the response document for objections.
+- Use CCP 2015.5 declaration verbatim; include date and city/state of execution.
+- Do not add notarization unless a court order or client policy requires it.
+- Unverified responses can be treated as no response, risking waiver and sanctions (Appleton v. Superior Court (1988) 206 Cal.App.3d 632) [VERIFY].
+- Perjury exposure applies to false verifications (Cal. Penal Code § 118) [VERIFY].
+- Federal court requires FRCP 33/34 and 28 U.S.C. 1746, not CCP 2015.5 [VERIFY].
+- Confirm local rules and entity signing authority before finalizing.
+- Attorney review required before any verification is sent for signature or served.
+tokens used
+10,828

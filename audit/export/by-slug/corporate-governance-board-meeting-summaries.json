@@ -1,0 +1,42 @@
+{
+  "id": "58ffcf0d-7897-440c-9391-23193cf21a3c",
+  "slug": "corporate-governance-board-meeting-summaries",
+  "name": "Board Meeting Summaries",
+  "summary": "Generates comprehensive, objective summaries of corporate board meetings, capturing metadata like attendees and quorum, discussions on agenda items, resolutions with vote details, and significant actions such as approvals of financials, dividends, or mergers. Ensures compliance with governance requirements by documenting decisions, committee reports, and conflicts of interest clearly. Use it to create official records for stakeholders, officers, and regulators after board meetings.",
+  "content": "# Board Meeting Summaries Prompt\n\nYou are tasked with creating a comprehensive summary of a corporate board meeting. This workflow is essential for maintaining accurate corporate records, ensuring compliance with governance requirements, and providing clear documentation of board decisions and deliberations for shareholders, officers, and regulatory bodies.\n\nBegin by thoroughly reviewing all provided board meeting materials, including meeting minutes, presentations, resolutions, discussion notes, and any supporting documents. Your analysis should capture the complete scope of the meeting while distilling complex discussions into clear, actionable summaries that serve both legal compliance and business communication purposes.\n\nYour summary must open with essential meeting metadata: the date, time, and location of the meeting, whether it was held in person or virtually, and a complete list of attendees including directors present, directors absent (noting whether absences were excused), officers in attendance, and any guests or advisors who participated. Document whether a quorum was present and note any conflicts of interest that were disclosed at the outset of the meeting.\n\nThe substantive portion of your summary should organize board activities into logical sections. For each agenda item discussed, provide a concise overview of the matter presented, key points of discussion and debate among directors, any concerns or questions raised, and the ultimate decision or action taken. When resolutions were passed, include the specific resolution language or a precise summary, the vote count showing how many directors voted for, against, or abstained, and note whether the resolution was unanimous. Identify any matters that were tabled for future consideration or referred to committees for further review.\n\nPay particular attention to significant corporate actions that carry legal weight. These include approval of financial statements and audit reports, declaration of dividends or other distributions, authorization of major contracts or transactions, approval of stock issuances or repurchases, election or removal of officers, amendments to bylaws or corporate policies, approval of mergers, acquisitions, or significant asset sales, and authorization of borrowing or financing arrangements. For each such action, clearly state what was approved and any conditions or limitations placed on the authorization.\n\nDocument any committee reports presented during the meeting, summarizing the key findings and recommendations from audit, compensation, nominating, governance, or special committees. Note whether the board accepted committee recommendations and what follow-up actions were directed.\n\nYour summary should maintain an objective, professional tone appropriate for corporate records while being accessible to readers who may not have attended the meeting. Use clear, precise language and avoid ambiguity, particularly when describing board decisions and authorizations. Where discussions involved complex financial, legal, or strategic matters, provide sufficient context for the decision without reproducing entire presentations or debates.\n\nConclude your summary with any announcements made, the date scheduled for the next board meeting, and a note of when the meeting was adjourned. If executive sessions were held, note their occurrence and general subject matter without disclosing privileged attorney-client communications or other confidential deliberations unless specifically instructed to do so.\n\nThe final summary should be formatted as a professional corporate document suitable for inclusion in the company's minute book and corporate records. It should be comprehensive enough to satisfy legal requirements for documenting board actions while remaining concise enough to serve as an effective communication tool for stakeholders who need to understand what the board accomplished during the meeting.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,394 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7d-cb8e-7b80-a5d6-14323624c235
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "03497438-01b2-4c09-b79d-ce280a430c85",
+  "slug": "deed-of-trust-security-agreement-drafting",
+  "name": "Deed of Trust and Security Agreement",
+  "summary": "Drafts a comprehensive Deed of Trust and Security Agreement that creates security interests in both real property and personal property under state law and the UCC. Guides through information gathering from documents, jurisdictional research on trust deed requirements, and precise drafting of parties, recitals, and collateral descriptions. Use for commercial real estate financing transactions needing dual-purpose security instruments.",
+  "content": "# Deed of Trust and Security Agreement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Deed of Trust and Security Agreement, a critical transactional document that creates both a real property security interest and a personal property security interest under the Uniform Commercial Code. This dual-purpose instrument requires precision, jurisdictional awareness, and thorough integration of both client-specific facts and applicable legal standards.\n\n## Initial Information Gathering and Context Development\n\nBegin by conducting a thorough review of all uploaded documents to extract essential transaction details. You need to identify the complete legal names and addresses of all parties: the Grantor (borrower/debtor), the Trustee (neutral third party holding legal title), and the Beneficiary (lender/secured party). Search the uploaded materials for the loan amount, interest rate, payment terms, maturity date, and any specific conditions or requirements unique to this transaction. Extract detailed property descriptions including legal descriptions, street addresses, assessor's parcel numbers, and any encumbrances or title exceptions. For personal property collateral, identify specific items, serial numbers, and UCC filing requirements.\n\nOnce you have gathered client-specific information, supplement your knowledge by researching current best practices and standard formulations for deeds of trust in the applicable jurisdiction. Different states have varying requirements for trust deed provisions, foreclosure procedures, and trustee powers. Verify whether the jurisdiction follows title theory, lien theory, or intermediate theory, as this affects the structure of the conveyance language. Research state-specific statutory requirements for notices, cure periods, and foreclosure procedures that must be incorporated into the document.\n\n## Drafting the Parties and Recitals Sections\n\nThe Parties section must precisely identify each party with their full legal name, organizational status (if applicable), and address. For corporate or LLC grantors, verify the entity's good standing and authority to grant security interests. The recitals should establish the transactional context by describing the underlying loan or obligation, the purpose of the security, and preliminary property identification. These recitals create the foundation for interpreting the operative provisions and should reference any related loan agreements, promissory notes, or other transaction documents that have been uploaded.\n\nDraft a comprehensive property description that satisfies both real property recording requirements and UCC collateral description standards. For the real property, include the complete legal description as it appears in the chain of title, supplemented by the common address for clarity. Describe any fixtures, improvements, or appurtenances that are included in the conveyance. For personal property, create a detailed description that meets UCC Article 9 sufficiency standards while being specific enough to identify the collateral without ambiguity.\n\n## Structuring the Grant Provisions and Security Interests\n\nThe Grant of Deed of Trust section contains the operative conveyance language transferring the real property interest to the Trustee for the benefit of the Beneficiary. Research and incorporate the standard granting language used in the applicable jurisdiction, ensuring it includes all necessary property rights, easements, and appurtenances. The conveyance should be absolute in form but defeasible upon satisfaction of the secured obligation, with clear language establishing the Trustee's powers and duties. Include provisions addressing the Trustee's authority to sell the property upon default, the procedure for trustee substitution, and any limitations on trustee liability.\n\nThe Security Agreement section must create an enforceable security interest in personal property under UCC Article 9. Research current UCC requirements for attachment and perfection, including the necessity of the debtor's authenticated security agreement, value given by the secured party, and the debtor's rights in the collateral. Draft provisions granting the Beneficiary a security interest in all personal property collateral, including specific items, inventory, equipment, accounts, general intangibles, and proceeds. Ensure the description is sufficient under UCC Section 9-108 while being comprehensive enough to capture all intended collateral. Address whether filing a UCC-1 financing statement will be required and include the Grantor's authorization for such filing.\n\n## Representations, Warranties, and Covenants\n\nDraft comprehensive representations and warranties from the Grantor addressing title ownership, authority to grant the security interests, absence of conflicting liens, compliance with laws, and the condition of both real and personal property. Research standard representations used in similar transactions and verify them against any title reports, surveys, or environmental assessments in the uploaded documents. Include representations specific to the personal property collateral, such as ownership, location, and absence of prior security interests.\n\nThe covenants section establishes the Grantor's ongoing obligations during the term of the security arrangement. Include affirmative covenants requiring payment of the secured obligation, maintenance of insurance with the Beneficiary as loss payee, payment of taxes and assessments, maintenance and repair of the property, and compliance with applicable laws and regulations. Add negative covenants prohibiting waste, unauthorized transfers, creation of junior liens, and material alterations without consent. For personal property, include covenants regarding maintenance, location restrictions, and prohibition against disposal without the Beneficiary's consent. Research jurisdiction-specific requirements for insurance coverage, tax payment obligations, and environmental compliance that should be incorporated.\n\n## Default Provisions and Remedies\n\nDefine Events of Default with specificity, including non-payment of principal or interest, breach of any covenant or representation, cross-default to related agreements, bankruptcy or insolvency proceedings, and material adverse changes in the Grantor's financial condition or the collateral's value. Research state-specific notice and cure period requirements that must be satisfied before acceleration or foreclosure. Include both monetary defaults (with specific grace periods) and non-monetary defaults (with reasonable cure periods).\n\nThe Remedies section must address both real property foreclosure procedures and UCC remedies for personal property. For the real property, describe the trustee's sale process according to state law, including notice requirements, publication procedures, sale conduct, and distribution of proceeds. Research whether judicial foreclosure is available as an alternative and whether the jurisdiction recognizes deficiency judgments. For personal property, incorporate UCC Article 9 remedies including the secured party's right to take possession, dispose of collateral through public or private sale, and retain collateral in satisfaction of the obligation. Include detailed provisions regarding commercially reasonable disposition, notice to the debtor and other secured parties, and application of proceeds. Address the Beneficiary's right to appoint a receiver, obtain injunctive relief, and pursue any other remedies available at law or in equity.\n\n## Governing Law, Miscellaneous Provisions, and Execution\n\nSpecify the governing law for the agreement, which may differ between the real property provisions (typically the law of the property's location) and the security agreement provisions (which may be governed by UCC choice of law rules). Research conflict of law principles to ensure the chosen law is enforceable and appropriate. Include standard miscellaneous provisions such as notices (with specific addresses and methods), amendments and waivers (requiring written consent), severability, integration, successors and assigns, and waiver of jury trial if appropriate in the jurisdiction.\n\nDraft provisions addressing subordination, non-disturbance, and attornment if the property is subject to leases. Include environmental indemnification provisions if appropriate given the property type. Address whether the Grantor waives homestead exemptions, redemption rights, or other statutory protections, verifying that such waivers are enforceable in the jurisdiction.\n\nThe execution section must comply with state recording requirements for deeds of trust and UCC filing requirements for security agreements. Include signature blocks for all parties with appropriate acknowledgment language for notarization. Research whether witnesses are required in addition to notarization. For corporate or LLC grantors, include appropriate authority recitals and signature blocks for authorized officers. Verify whether spousal consent or joinder is required in community property or homestead jurisdictions.\n\n## Final Document Assembly and Quality Control\n\nAfter gathering all necessary information from uploaded documents, researching applicable legal requirements, and drafting all sections with appropriate detail and precision, create a complete, professionally formatted Deed of Trust and Security Agreement. The document should integrate client-specific facts seamlessly with standard provisions and jurisdictional requirements. Ensure internal consistency between the real property and personal property provisions, proper cross-references between sections, and compliance with both recording statutes and UCC filing requirements. The final document should be ready for attorney review, client execution, notarization, and recording or filing as appropriate.",
+  "parent_skill_id": "854fb913-3c97-4d99-b8ca-a54297d746e4",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "commercial_real_estate"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:53:01.231309Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Preparing to read skill-creator SKILL.md**
+
+I'm opening the skill-creator SKILL.md file to access the content needed for rewriting skills per the instructions. Next, I'll read the file using a command to gather necessary context.
+exec
+/bin/zsh -lc 'ls -la /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 52ms:
+total 64
+drwxr-xr-x@ 8 max  staff    256 Feb 11 10:23 .
+drwxr-xr-x@ 5 max  staff    160 Feb 11 10:23 ..
+-rw-r--r--@ 1 max  staff  18664 Feb 11 10:23 SKILL.md
+drwxr-xr-x@ 3 max  staff     96 Feb 11 10:23 agents
+drwxr-xr-x@ 4 max  staff    128 Feb 11 10:23 assets
+-rw-r--r--@ 1 max  staff  11358 Feb 11 10:23 license.txt
+drwxr-xr-x@ 3 max  staff     96 Feb 11 10:23 references
+drwxr-xr-x@ 5 max  staff    160 Feb 11 10:23 scripts
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+exec
+/bin/zsh -lc "sed -n '200,400p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 52ms:
+## Editing documents
+
+For simple edits, modify the XML directly.
+
+**For tracked changes**: See [REDLINING.md](REDLINING.md)
+**For OOXML details**: See [OOXML.md](OOXML.md)
+```
+
+Codex reads REDLINING.md or OOXML.md only when the user needs those features.
+
+**Important guidelines:**
+
+- **Avoid deeply nested references** - Keep references one level deep from SKILL.md. All reference files should link directly from SKILL.md.
+- **Structure longer reference files** - For files longer than 100 lines, include a table of contents at the top so Codex can see the full scope when previewing.
+
+## Skill Creation Process
+
+Skill creation involves these steps:
+
+1. Understand the skill with concrete examples
+
+
+
+thinking
+**Resolving frontmatter and slug decisions**
+
+Decided to follow user instructions over skill-creator guidelines for frontmatter metadata, ensuring required fields are included. Chose the slug "deed-of-trust-security-agreement" for specificity and simplicity by dropping "drafting" as a suffix.
+thinking
+**Designing detailed skill content structure**
+
+Mapped out a comprehensive SKILL.md including frontmatter with user-required metadata, a third-person description with trigger keywords, a concise purpose, numbered prerequisites, and a multi-part Output Structure featuring tables, numbered lists, bullet rules, a remedies matrix, checklists, and a code block template—all aligned to user format and length constraints.
+thinking
+**Finalizing skill content for output**
+
+Prepared the complete SKILL.md content meeting all user formatting, style, and content requirements with third-person description phrasing and no nested bullets, ready for direct output.
+codex
+---
+name: deed-of-trust-security-agreement
+description: Drafts U.S. commercial real estate Deed of Trust and Security Agreements that secure loans with both real property trust deed terms and UCC Article 9 personal property collateral grants. Used when drafting deed of trust security agreements, trust deed + security agreement hybrids, dual-collateral loan documents, or commercial real estate financing security instruments. Trigger keywords: deed of trust, trust deed, security agreement, UCC collateral, fixture filing, commercial real estate loan.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Deed of Trust and Security Agreement
+
+Draft a dual-collateral security instrument that secures a loan with real property and UCC personal property.
+
+## Prerequisites
+
+1. **Parties** — full legal names, entity types, jurisdictions, addresses, and signer authority for Grantor/Borrower (Debtor), Trustee, and Beneficiary/Lender (Secured Party).
+2. **Secured obligations** — principal, interest, payment schedule, maturity, default rate, fees, future advances, cross-default scope, and related guarantees.
+3. **Real property** — legal description, street address, APN, title exceptions, easements, leases, fixtures, and improvements.
+4. **Personal property collateral** — collateral categories, item schedules, serial numbers, locations, IP, accounts, and proceeds.
+5. **Jurisdictional rules** — state deed of trust statute, recording requirements, trustee sale notice/cure, deficiency/redemption limits, homestead or spousal joinder rules.
+6. **Insurance/taxes/environment** — coverages, loss payee requirements, escrow terms, and any environmental reports.
+7. **Related documents** — note, loan agreement, assignment of leases/rents, intercreditor/subordination agreements.
+
+## Output Structure / Process
+
+**Data Intake Table**
+
+| Item | Required details | Notes |
+| --- | --- | --- |
+| Parties | Names, entity type, address, authority | Match public records for debtor name |
+| Secured obligations | Note/loan agreement references | Include future advances if intended |
+| Real property | Legal description, APN, address | Attach as Exhibit A |
+| Fixtures | List or define by category | Tie to real property collateral |
+| Personal property | UCC categories, schedules, locations | Attach as Exhibit B |
+| Notices | Addresses, methods, timing | Align with loan agreement |
+| Governing law | Situs state + UCC debtor location | Separate if different |
+
+**Document Outline (Required Sections)**
+
+1. Parties and defined terms.
+2. Recitals linking to the note/loan agreement.
+3. Grant of Deed of Trust with power of sale and defeasance.
+4. Security Agreement grant for personal property collateral.
+5. Fixture filing provisions and as-extracted collateral (if applicable).
+6. Assignment of leases and rents (if applicable).
+7. Representations and warranties.
+8. Covenants: payment, taxes, insurance, maintenance, compliance, preservation.
+9. Events of Default with notice/cure.
+10. Remedies: trustee sale process and UCC Article 9 remedies.
+11. Notices, governing law, choice-of-law, integration, amendments.
+12. Substitution of trustee and trustee protections.
+13. Receivership and protective advances.
+14. Execution, acknowledgments, and recording instructions.
+
+**Collateral Description Rules**
+
+- Use the real property legal description verbatim; attach as Exhibit A.
+- Define fixtures and improvements as part of the real property collateral.
+- For UCC collateral, list categories and include proceeds; specify equipment and inventory locations.
+- Include deposit accounts or investment property only if control agreements are required or planned.
+- State whether after-acquired property is included.
+
+**Default/Remedy Matrix**
+
+| Default type | Notice/cure | Remedies |
+| --- | --- | --- |
+| Payment default | Exact grace period | Acceleration; trustee sale |
+| Covenant breach | Reasonable cure period | Acceleration; protective advances |
+| Bankruptcy/insolvency | Typically no cure | Stay relief; receiver |
+| Unauthorized transfer/encumbrance | Immediate or short cure | Acceleration; injunctive relief |
+| Insurance/tax failure | Short cure; lender may pay | Add to secured debt |
+
+**Execution/Recording Checklist**
+
+- Confirm trustee eligibility under state law.
+- Confirm notarization and witness requirements.
+- Obtain spousal or owner joinder if required by homestead/community property rules.
+- Provide recording instructions and return address.
+- Prepare UCC-1 financing statement with exact debtor name and address.
+- Cross-check defined terms with the note/loan agreement.
+
+**Template Skeleton**
+
+```text
+DEED OF TRUST AND SECURITY AGREEMENT
+
+This Agreement is made as of [Date] between [Grantor], [Trustee], and [Beneficiary].
+
+1. Recitals
+1.1 Secured Obligations. [Describe note/loan agreement and any future advances.]
+
+2. Grant of Deed of Trust
+[Conveyance language; power of sale; defeasance on payment.]
+
+3. Security Agreement
+[Grant of security interest in Personal Property; proceeds; after-acquired.]
+
+4. Representations and Warranties
+[...]
+
+5. Covenants
+[...]
+
+6. Events of Default
+[...]
+
+7. Remedies
+[Trustee sale process; UCC Article 9 remedies; application of proceeds.]
+
+8. Miscellaneous
+[Notices; governing law; amendments; successors/assigns.]
+
+Signatures and Acknowledgments
+[Notary blocks; entity authority.]
+
+Exhibit A - Legal Description
+Exhibit B - Personal Property Collateral Schedule
+```
+
+## Guidelines
+
+- Separate governing law for real property (situs) and UCC collateral (debtor location); state both if different.
+- Match debtor name to public organizational records to avoid UCC filing defects.
+- Do not paraphrase the legal description; use the title report text verbatim.
+- Use exact statutory notice and cure periods; do not insert generic timing.
+- Verify whether the deed of trust serves as a fixture filing in the jurisdiction.
+- If waiving redemption, deficiency, homestead, or jury trial rights, confirm enforceability and required language [VERIFY].
+- Ensure remedy sequencing aligns with the note and any intercreditor or subordination terms.
+- Keep cross-references consistent and define "Secured Obligations" precisely.
+tokens used
+17,469

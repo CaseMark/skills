@@ -1,0 +1,202 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-5149-7781-b404-5bcfe2ee84c2
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "01a4e88f-84ac-4124-b6da-49e54885dd8a",
+  "slug": "litigation-family-law-financial-affidavit-disclosure",
+  "name": "Financial Affidavit and Disclosure",
+  "summary": "Drafts a comprehensive Financial Affidavit and Disclosure for family law litigation proceedings such as divorce, child support, and property division. Ensures compliance with jurisdictional requirements for sworn financial statements, including detailed income, assets, and liabilities disclosures. Use it when preparing court filings that provide a complete picture of the affiant's financial circumstances.",
+  "content": "# Financial Affidavit and Disclosure - Enhanced Legal Workflow Prompt\n\nYou are tasked with drafting a comprehensive Financial Affidavit and Disclosure for use in family law litigation proceedings. This document serves as a sworn statement of the affiant's complete financial circumstances and must meet all jurisdictional requirements for financial disclosure in domestic relations matters. The affidavit will be filed with the court and may be subject to cross-examination, so accuracy, completeness, and compliance with local rules are paramount.\n\n## Document Purpose and Legal Context\n\nBegin by understanding that a Financial Affidavit and Disclosure is a critical litigation document used primarily in family law matters including divorce, child support, spousal maintenance, and property division proceedings. This sworn statement provides the court and opposing parties with a complete picture of the affiant's financial situation. The document must comply with applicable state or local court rules regarding financial disclosures, which often mandate specific formats, required attachments, and levels of detail. Ensure you are familiar with the jurisdiction's specific requirements, as some courts provide mandatory forms while others allow more flexibility in format.\n\n## Header and Jurisdictional Information\n\nDraft a formal header that establishes the document's legal context and identifies all parties. Include the full name of the court (including division if applicable), the complete case caption with all parties' names as they appear in the initial pleadings, and the assigned case or docket number. Provide the affiant's complete identifying information in a clear, organized manner:\n\n- Full legal name, current residential address, and contact information\n- Date of birth, age, Social Security number (last four digits may be sufficient depending on jurisdiction), and current marital status\n- Current employment status, employer name and address, job title, and length of employment\n- Educational background and professional qualifications relevant to earning capacity\n- Physical health status if it affects employment or financial circumstances\n\nEnsure the header clearly identifies this document as a \"Financial Affidavit and Disclosure\" or uses the specific title required by local court rules.\n\n## Comprehensive Income Disclosure\n\nProvide a detailed accounting of all income sources, recognizing that courts require disclosure of both earned and unearned income from all sources. Begin with employment income, specifying gross monthly wages or salary, the pay frequency, and any regular overtime or shift differentials. Document all additional compensation including bonuses (both discretionary and guaranteed), commissions, tips, profit-sharing, stock options, and deferred compensation arrangements. Specify whether these amounts are annual, quarterly, or irregular, and provide monthly averages.\n\nAddress all unearned income sources with equal specificity. List investment income including interest, dividends, capital gains, and rental property income (gross rents minus ordinary expenses). Disclose retirement income from pensions, annuities, Social Security, or distributions from retirement accounts. Include any public assistance, unemployment benefits, workers' compensation, disability payments, or other government benefits. If the affiant receives spousal support or child support from a previous relationship, document these amounts separately. For self-employed individuals or business owners, provide detailed information about business income, including gross receipts, ordinary business expenses, and net income, with reference to supporting tax returns and financial statements.\n\nCalculate and clearly state the total gross monthly income and total net monthly income after mandatory deductions (taxes, Social Security, Medicare, mandatory retirement contributions). Attach supporting documentation including recent pay stubs (typically three to six months), W-2 forms, 1099 forms, tax returns (usually two years), and business financial statements if applicable.\n\n## Detailed Monthly Expense Analysis\n\nItemize all reasonable and necessary monthly living expenses in sufficient detail to allow the court to assess the affiant's financial needs and standard of living. Organize expenses into logical categories that align with your jurisdiction's requirements or standard practice. For housing expenses, separately list mortgage or rent payments, property taxes, homeowner's or renter's insurance, homeowner association fees, and maintenance costs. Utility expenses should include electricity, gas, water, sewer, trash collection, telephone (landline and mobile), internet, and cable or streaming services.\n\nDocument household operating expenses such as groceries and household supplies, dining out, clothing and personal care items, laundry and dry cleaning, and household furnishings and maintenance. Transportation costs must include vehicle loan or lease payments, automobile insurance, fuel, maintenance and repairs, registration and licensing fees, and parking or tolls. If public transportation is used, provide those costs instead.\n\nInclude all insurance premiums not deducted from wages: health insurance, dental and vision insurance, life insurance, and disability insurance. List all debt payments separately, including credit card minimum payments, personal loans, student loans, and any other installment obligations. Document child-related expenses if applicable, such as childcare, education costs, extracurricular activities, and medical expenses not covered by insurance. Include support obligations for children from other relationships.\n\nAddress discretionary but regular expenses including entertainment and recreation, gifts and charitable contributions, pet care, subscriptions and memberships, and savings or investment contributions. Calculate and clearly state the total monthly expenses. Ensure that the relationship between income and expenses is reasonable and explainable; significant discrepancies may require additional explanation.\n\n## Complete Asset Inventory\n\nProvide a comprehensive inventory of all assets owned individually, jointly, or in which the affiant has any beneficial interest, regardless of whether the asset is considered marital or separate property. For each asset category, specify the nature of ownership (individual, joint, tenancy type), the date of acquisition, the current fair market value, and any encumbrances or liens.\n\nReal property should be described with complete legal descriptions or street addresses, purchase dates and prices, current estimated market values (supported by recent appraisals, tax assessments, or comparative market analyses), outstanding mortgage balances, and equity positions. For vehicles, provide the year, make, model, VIN, current mileage, estimated value (reference Kelley Blue Book or similar), and outstanding loan balances.\n\nFinancial accounts require detailed disclosure. List all bank accounts (checking, savings, money market) with institution names, account numbers (partial for security), and current balances as of a specific recent date. Document all investment accounts including brokerage accounts, stocks, bonds, mutual funds, and certificates of deposit with current values. Retirement accounts must be separately identified: 401(k), 403(b), IRA, Roth IRA, pension plans, and deferred compensation plans, with current account values and vested amounts if different.\n\nDisclose business interests including ownership percentages in corporations, partnerships, LLCs, or sole proprietorships, with business valuations if available. List other significant assets such as valuable personal property (jewelry, art, collectibles, antiques), life insurance policies with cash value, intellectual property rights, pending legal claims or settlements, trust interests, and any other assets of significant value. For personal property, general categories with estimated total values may be acceptable unless specific items are particularly valuable or contested.\n\n## Liabilities and Debt Obligations\n\nProvide a complete accounting of all debts, obligations, and liabilities, whether incurred individually or jointly, and regardless of whether they are considered marital or separate debts. For each liability, identify the creditor, the original debt amount, the current outstanding balance, the monthly payment amount, the interest rate, and whether the debt is secured or unsecured.\n\nMortgage debt should reference the associated property and include the original loan amount, current principal balance, monthly payment (including principal, interest, taxes, and insurance if escrowed), interest rate, and loan maturity date. Vehicle loans should be tied to specific vehicles with similar detail. Credit card debt requires the creditor name, account number (partial), credit limit, current balance, minimum monthly payment, and interest rate for each account.\n\nDocument all other installment loans including personal loans, student loans, medical debt, tax obligations (federal, state, local), and any judgments or liens against the affiant or their property. If the affiant is a guarantor or co-signer on any debts, disclose these contingent liabilities. Include any domestic support obligations from previous relationships, specifying whether they are current or in arrears.\n\nCalculate and clearly state the total outstanding debt. Ensure that all debt payments listed in the expense section correspond to debts listed in this section. If any debts are in collection, default, or subject to payment plans, provide specific details about the status and arrangements.\n\n## Additional Financial Disclosures and Special Circumstances\n\nAddress any financial circumstances not fully captured in the previous sections that are relevant to the court's understanding of the affiant's financial situation. Disclose any anticipated significant changes in income or expenses, such as scheduled raises, bonus expectations, job changes, retirement plans, or known upcoming expenses. If the affiant has recently experienced or anticipates experiencing a substantial change in financial circumstances (job loss, inheritance, sale of property, business changes), provide detailed explanation.\n\nDocument any support obligations or financial responsibilities for individuals other than those involved in the current proceeding, including elderly parents, adult disabled children, or children from other relationships. If the affiant has filed for bankruptcy or has any pending bankruptcy proceedings, provide complete details including the chapter, filing date, case number, and current status.\n\nDisclose any tax refunds anticipated or recently received, any pending legal claims that may result in financial recovery, and any loans from family members or friends that may not appear on credit reports. If the affiant has transferred, sold, or disposed of any significant assets within the past two to three years (or the period specified by local rules), provide details of these transactions including the asset description, transfer date, recipient or purchaser, and consideration received.\n\nAddress any extraordinary expenses or financial hardships that affect the affiant's ability to meet obligations, such as ongoing medical treatment, special needs of dependents, or court-ordered obligations. If the affiant maintains separate households or has unusual living arrangements that affect expenses, explain these circumstances.\n\n## Verification, Declaration, and Execution\n\nConclude the affidavit with a formal verification section that transforms this financial statement into a sworn legal document. Draft a declaration paragraph in which the affiant swears or affirms under penalty of perjury that they have read the entire affidavit, that the information contained therein is true, accurate, and complete to the best of their knowledge and belief, and that they understand that any false statements may subject them to criminal penalties for perjury.\n\nInclude appropriate language that complies with your jurisdiction's requirements for unsworn declarations or sworn affidavits. Some jurisdictions require specific statutory language for declarations under penalty of perjury. The declaration should reference the specific statute if required (such as 28 U.S.C. \u00a7 1746 for federal matters or state equivalents).\n\nProvide signature lines for the affiant including a line for printed name, signature, and date. Include a statement that the affiant is competent to make this declaration and is doing so of their own free will. If notarization is required in your jurisdiction, include a complete notary acknowledgment section with appropriate space for the notary's signature, seal, commission expiration date, and any other required notarial language.\n\n## Document Assembly and Quality Control\n\nBefore finalizing the document, verify that all sections are complete, all calculations are accurate, and all required supporting documentation is referenced and attached. Ensure that the document complies with any page limits, formatting requirements, or mandatory forms required by local court rules. Cross-reference all figures to ensure consistency between sections (for example, debt payments in the expense section should match debts listed in the liability section).\n\nReview the document for internal consistency and reasonableness. The relationship between income, expenses, assets, and liabilities should present a coherent financial picture. If there are apparent discrepancies (such as high expenses relative to income, or low asset accumulation relative to historical income), consider whether additional explanation is needed.\n\nConfirm that the document is organized logically, uses clear headings and subheadings, employs professional legal formatting, and is free from grammatical or typographical errors. Ensure that all confidential information is handled appropriately and that any required redactions (such as full Social Security numbers or bank account numbers) are made if the document will be filed publicly.\n\nThe completed Financial Affidavit and Disclosure should be a comprehensive, accurate, and professionally prepared legal document that fully satisfies the court's requirements for financial disclosure and provides a complete picture of the affiant's financial circumstances as of the date of execution.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner",
+      "respondent",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:40.049776Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:42:40.773350Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:41.394972Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:42.276730Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4ff7b53349f-SJC)
+2026-02-23T21:42:43.393895Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5060b9a1a0f-SJC)
+2026-02-23T21:42:44.968050Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5104aa2ebeb-SJC)
+2026-02-23T21:42:47.206217Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e51dd8e50c60-SJC)
+2026-02-23T21:42:50.819300Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e534dcd79657-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-family-law-financial-affidavit-disclosure-fv6d2jb3.md
+
+STDOUT:
+

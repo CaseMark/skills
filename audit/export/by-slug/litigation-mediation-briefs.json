@@ -1,0 +1,43 @@
+{
+  "id": "32ca9c8c-4e02-4b5b-bdd0-6922ff4970f4",
+  "slug": "litigation-mediation-briefs",
+  "name": "Mediation Briefs",
+  "summary": "Drafts comprehensive mediation briefs for commercial litigation matters, presenting the client's position persuasively while educating the mediator on facts, law, damages, and litigation risks. Structures the brief with executive summary, neutral facts, legal analysis, damages assessment, and settlement framework to facilitate productive negotiations. Use prior to mediation sessions to demonstrate good faith and promote settlement.",
+  "content": "# Mediation Brief Preparation\n\nYou are tasked with preparing a comprehensive mediation brief that effectively presents your client's position, facilitates productive settlement discussions, and demonstrates good faith participation in the mediation process. A mediation brief serves as both an advocacy document and an educational tool for the mediator, who typically has no prior knowledge of the dispute.\n\nBegin by thoroughly reviewing all case materials, pleadings, discovery responses, and relevant correspondence to understand the complete factual and legal landscape. Search through uploaded documents to extract key facts, dates, parties involved, monetary amounts in dispute, and critical communications that support your client's position. Pay particular attention to evidence that demonstrates liability, damages, or defenses, as these will form the foundation of your brief.\n\nStructure the mediation brief to include an executive summary that concisely captures the dispute, the parties' positions, and the relief sought. Follow with a detailed statement of facts presented in a neutral yet persuasive manner, acknowledging both strengths and weaknesses of your position to establish credibility with the mediator. Include a legal analysis section that addresses the applicable law, relevant precedents, and how the facts support your client's claims or defenses. When citing legal authorities, ensure all case law and statutory references are properly verified and formatted according to Bluebook citation standards.\n\nThe damages or relief section should provide a clear, well-supported calculation of your client's losses or, if defending, a reasoned challenge to the opposing party's damage claims. Include documentation such as medical bills, lost wage calculations, expert reports, or other quantifiable evidence. Address both economic and non-economic damages where applicable, and consider the range of potential outcomes at trial versus settlement.\n\nIncorporate a candid assessment of litigation risks, including the strengths of the opposing party's position, potential evidentiary challenges, and the costs and uncertainties of continued litigation. This demonstrates good faith and helps the mediator understand the realistic parameters for settlement. Consider including a confidential section for the mediator's eyes only that discusses your client's settlement authority, priorities, and any non-monetary interests that might facilitate resolution.\n\nThroughout the brief, maintain a professional and solution-oriented tone that focuses on resolution rather than adversarial posturing. The goal is to educate the mediator about why your position is reasonable and meritorious while remaining open to compromise. Avoid inflammatory language or personal attacks that might hinder productive negotiations.\n\nConclude with a clear statement of your client's settlement position or the framework within which settlement discussions should proceed. If there are creative solutions, alternative structures, or non-monetary terms that might bridge the gap between the parties, identify these possibilities to give the mediator tools for facilitating agreement.\n\nEnsure the brief complies with any page limits, formatting requirements, or submission deadlines established by the mediation agreement or the mediator's procedures. The final document should be polished, well-organized, and professionally presented, as it reflects not only on the merits of your case but also on your credibility and professionalism as counsel.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "brief"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,267 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-6974-7913-bde8-15cbfd5ca8d6
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d0aa916a-396d-4e91-8bbb-9988fae25f47",
+  "slug": "casemark-chronology-case-summary-analysis",
+  "name": "CaseMark Chronology - highlevel overview of documents and information about the case",
+  "summary": "Generates a high-level chronological overview synthesizing key documents, events, parties, and legal developments in a case into a coherent timeline with strategic analysis. Identifies patterns, inconsistencies, gaps, and pivotal moments while providing an executive summary, detailed entries, and recommendations for further investigation. Use for case intake, deposition or trial preparation, or onboarding new team members to quickly grasp the matter's trajectory.",
+  "content": "# CaseMark Chronology: Comprehensive Case Summary and Analysis\n\nYou are tasked with creating a high-level chronological overview that provides attorneys with a comprehensive understanding of a case's key documents, events, and information. This workflow is essential during case intake, preparation for depositions, trial preparation, or when new team members need to quickly understand the matter's trajectory and critical elements.\n\nYour objective is to produce a detailed chronology that synthesizes all available case documents into a coherent narrative timeline. Begin by thoroughly analyzing all uploaded documents in the matter to identify key dates, events, parties, communications, transactions, and legal developments. Extract factual information including specific dates, document types, authors, recipients, and the substantive content of each significant document or event. Pay particular attention to documents that establish the foundation of claims or defenses, evidence of damages, communications between parties, contractual obligations, regulatory compliance issues, and any procedural developments.\n\nThe chronology should be organized in strict chronological order, with each entry containing the date, document source or event type, parties involved, and a concise but comprehensive description of what occurred or what the document establishes. When dates are approximate or unclear, note this explicitly. Include cross-references between related entries to help attorneys understand how events connect across the timeline. For complex cases with multiple threads of activity, consider organizing entries by date while using clear labels or categories to distinguish between different aspects of the case such as contractual performance, communications, regulatory actions, or litigation events.\n\nYour analysis must go beyond mere document listing to provide strategic context. Identify patterns, inconsistencies, gaps in the timeline, and pivotal moments that changed the trajectory of the matter. Highlight documents or events that appear to be particularly significant for establishing liability, damages, defenses, or procedural advantages. Note any missing documentation that would be expected given the nature of the case, as these gaps may indicate areas requiring further discovery or investigation.\n\nPresent the final chronology in a clear, professional format that includes an executive summary at the beginning outlining the case's nature, key parties, central legal issues, and the overall timeline span. Follow this with the detailed chronological entries, and conclude with an analysis section that identifies critical themes, strengths and weaknesses in the factual record, and recommendations for further investigation or document collection. Ensure all entries include proper source attribution so attorneys can quickly locate the underlying documents for detailed review.\n\nThis chronology serves as a foundational work product that will be referenced throughout the case lifecycle, so prioritize accuracy, completeness, and clarity. The document should enable any attorney to quickly grasp the case's essential facts and timeline without needing to review hundreds of individual documents.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.609285",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:48:14.139322Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Drafting structured skill output**
+
+I'm setting the slug as "case-chronology" for clarity and simplicity, dropping practice-area prefixes. The output will follow a structured format with sections like Executive Summary, Chronology Table, Analysis, Recommendations, and Missing Info, including markdown tables and flat numbered checklists. I'll focus on a concise, descriptive title "Case Chronology" and include metadata on practice area and document type aligned with legal_context data, plus a purpose statement and usage guidelines as instructed.
+thinking
+**Finalizing skill metadata and guidelines**
+
+I'm finalizing the description in third-person, including key trigger phrases and summarizing output features like executive summaries and dated entries. Guidelines use flat bullets and numbered prerequisites, with output structure clearly detailing sections and formats. I’ll include metadata lists for practice areas, document types, and skill modes as instructed, ensuring clarity and compliance.
+codex
+---
+name: case-chronology
+description: Produces U.S. litigation case chronologies that synthesize documents and events into a dated timeline with executive summary, source attribution, gaps, inconsistencies, and investigation recommendations. Use for case intake, onboarding, deposition prep, trial prep, or when asked for a chronology, timeline, case summary, or executive summary of a matter.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+    - Analysis
+  skill_modes:
+    - Analysis
+    - Summarization
+---
+
+# Case Chronology
+
+Deliver a timeline-centered case summary that lets counsel grasp key facts, documents, and strategic inflection points fast.
+
+## Prerequisites
+
+1. Complete document set or defined subset (with source IDs or filenames).
+2. Party list with roles (plaintiff/defendant/non-party; individual/entity).
+3. Date range of interest and any known anchor events.
+4. Known claims/defenses or legal issues (if available).
+
+## Output Structure / Process
+
+1. **Executive Summary**
+   - Matter type, core dispute, key parties.
+   - Timeline span (earliest date to latest date).
+   - 3–6 pivotal events that drive liability, damages, or defenses.
+
+2. **Chronology Table** (strict date order)
+   - Use one row per event or document.
+   - If date is approximate, label as `circa`, `approx`, or date range.
+
+| Date | Event/Doc Type | Parties | Source | What Happened | Significance |
+|---|---|---|---|---|---|
+| YYYY-MM-DD | Email / Contract / Call / Filing / Payment / Incident | A ↔ B | Doc ID / Filename | 1–3 sentence factual summary | Liability/Damages/Defense impact |
+
+3. **Cross-References**
+   - Explicitly link related entries by date or source IDs.
+   - Example: “See 2024-03-02 (Doc 18) re: notice; follow-up 2024-03-12 (Doc 22).”
+
+4. **Issues & Gaps**
+   - Missing documents expected for this matter.
+   - Date inconsistencies or conflicting accounts.
+   - Unexplained timeline gaps.
+
+5. **Strategic Analysis**
+   - Patterns, turning points, or admissions.
+   - Evidence that strengthens or weakens key claims/defenses.
+
+6. **Recommendations**
+   - Additional documents to request.
+   - Witnesses to interview or depose.
+   - Targeted discovery topics.
+
+## Guidelines
+
+- Use factual, neutral tone; separate facts from inferences.
+- Include source attribution for every entry.
+- Flag uncertainty with `approx` or `unknown date` instead of guessing.
+- Call out missing routine records (notices, invoices, logs, filings).
+- Avoid legal conclusions unless directly supported by the record.
+- If citing statutes or procedural rules, verify and mark `[VERIFY]` if unsure.
+- Keep all dates in ISO format `YYYY-MM-DD` for sorting.
+tokens used
+11,544

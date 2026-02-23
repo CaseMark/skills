@@ -1,0 +1,45 @@
+{
+  "id": "7ba292b2-b010-41d7-8168-3450b89495f3",
+  "slug": "environmental-impact-report-summaries",
+  "name": "Environmental Impact Report Summaries",
+  "summary": "Generates concise, legally-focused summaries of Environmental Impact Reports (EIRs) for environmental law matters. Distills technical findings on impacts, mitigations, alternatives, and compliance with statutes like NEPA and CEQA, highlighting litigation risks and controversies. Use for regulatory reviews, permit challenges, administrative proceedings, or litigation support.",
+  "content": "# Environmental Impact Report Summary for Legal Review\n\nYou are tasked with creating a comprehensive yet concise summary of an Environmental Impact Report (EIR) for legal proceedings, regulatory compliance review, or litigation support in environmental law matters. This summary must distill complex technical and scientific findings into a clear, legally-focused document that enables attorneys, regulators, and decision-makers to quickly understand the environmental implications of a proposed project or development.\n\n## Purpose and Context\n\nEnvironmental Impact Reports are detailed technical documents often running hundreds of pages, containing scientific data, modeling results, mitigation measures, and regulatory analysis. In legal contexts\u2014whether for NEPA/CEQA compliance review, permit challenges, citizen suits, or environmental litigation\u2014legal professionals need summaries that highlight legally significant findings, potential regulatory violations, areas of controversy, and litigation risks. Your summary serves as a critical bridge between technical environmental science and legal strategy, enabling counsel to identify key issues, assess compliance with environmental statutes, and develop arguments for administrative proceedings or court filings.\n\n## Analysis Requirements\n\nBegin by thoroughly reviewing the complete Environmental Impact Report using comprehensive document analysis to ensure no critical findings are overlooked. Identify and extract the project description, including location, scope, timeline, and purpose. Analyze each environmental resource area assessed in the report, such as air quality, water resources, biological resources, cultural resources, geology and soils, hazardous materials, noise, traffic, and cumulative impacts. For each resource area, capture the baseline environmental conditions, the methodology used for impact assessment, the significance determinations made, and any proposed mitigation measures.\n\nPay particular attention to findings of significant and unavoidable impacts, as these trigger heightened legal scrutiny under statutes like CEQA and may require statements of overriding considerations. Identify any alternatives analysis, including the environmentally superior alternative and the reasons for selecting or rejecting specific alternatives, as this is frequently contested in environmental litigation. Extract information about public comments received, agency responses, and areas of controversy or disagreement among experts, as these often signal potential legal challenges.\n\n## Legal Considerations and Compliance Framework\n\nFrame your summary with awareness of the applicable environmental regulatory framework, which may include the National Environmental Policy Act (NEPA), the California Environmental Quality Act (CEQA), state environmental policy acts, the Clean Water Act, the Clean Air Act, the Endangered Species Act, and local environmental ordinances. Identify whether the report demonstrates compliance with procedural requirements such as public notice, comment periods, and consultation with relevant agencies. Note any findings that may trigger additional permitting requirements or regulatory approvals.\n\nHighlight statements or conclusions that may be vulnerable to legal challenge, such as inadequate baseline data, insufficient analysis of alternatives, improper significance determinations, inadequate mitigation measures, or failure to address cumulative impacts. Flag any reliance on mitigation measures that are vague, unenforceable, or deferred to future study, as these are common grounds for legal challenge. Identify any inconsistencies between the EIR's findings and applicable regulatory standards or thresholds of significance.\n\n## Summary Structure and Output Format\n\nYour summary should be organized into clear sections that facilitate legal review and strategic planning. Begin with an executive overview that captures the project description, the lead agency, the type of environmental review conducted, and the overall environmental determination. Follow with a section-by-section analysis of environmental impacts, organized by resource area, with each section identifying baseline conditions, predicted impacts, significance determinations, and proposed mitigation. Include a dedicated section on alternatives considered, clearly identifying the proposed project, the no-project alternative, and other alternatives analyzed, along with the comparative environmental analysis.\n\nCreate a separate section highlighting significant and unavoidable impacts, areas of controversy, and issues raised during public review that may present litigation risk. Summarize the mitigation monitoring and reporting program, noting any concerns about enforceability or adequacy. Conclude with a section on legal compliance and procedural adequacy, identifying any potential vulnerabilities or areas requiring further legal analysis. Throughout the summary, use precise legal terminology and cite specific sections of the EIR for reference, enabling attorneys to quickly locate source material for deeper review or citation in legal filings.\n\nPresent your summary in a professional legal memorandum format with clear headings, concise paragraphs, and objective analysis. The tone should be analytical rather than advocative, presenting findings in a manner that allows legal counsel to assess both strengths and weaknesses of the environmental review. The summary should typically range from five to fifteen pages depending on the complexity of the project and the EIR, striking a balance between comprehensiveness and accessibility. Your goal is to transform a technical environmental document into a strategic legal tool that enables informed decision-making in environmental law practice.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pre-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.728303",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

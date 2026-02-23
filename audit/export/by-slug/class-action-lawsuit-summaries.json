@@ -1,0 +1,47 @@
+{
+  "id": "6ef15a4f-3e8a-40ef-ac16-15ae848345c3",
+  "slug": "class-action-lawsuit-summaries",
+  "name": "Class Action Suit Summaries",
+  "summary": "Generates comprehensive, structured summaries of class action lawsuits, detailing claims, allegations, class definitions, procedural history, and resolutions. Use it to distill key litigation elements for attorneys evaluating similar cases, corporate due diligence, or compliance monitoring. Ideal for creating standalone references from case documents.",
+  "content": "# Class Action Lawsuit Summary Analysis\n\nYou are tasked with creating a comprehensive summary of a class action lawsuit that captures the essential elements of the litigation in a clear, structured format suitable for legal professionals, stakeholders, and decision-makers.\n\n## Objective and Scope\n\nYour primary objective is to produce a detailed yet concise summary that distills the key aspects of a class action lawsuit into an accessible document. This summary should serve as a standalone reference that allows readers to quickly understand the nature of the claims, the composition and scope of the class, the procedural history, and the ultimate resolution or current status of the litigation. Class action summaries are critical tools used by attorneys evaluating similar litigation, corporate legal departments assessing exposure, investors conducting due diligence, and compliance officers monitoring industry trends.\n\n## Required Analysis and Content\n\nBegin by thoroughly examining all available case documents, pleadings, court orders, settlement agreements, and related materials. Search through uploaded documents to extract concrete facts including case names, docket numbers, filing dates, jurisdictional information, and specific allegations. Your summary must address several core components in a logical, narrative structure.\n\n**Claims and Allegations**: Provide a clear articulation of the legal claims asserted in the class action, including the specific causes of action (such as securities fraud, consumer protection violations, antitrust claims, employment discrimination, or product liability). Detail the factual allegations underlying these claims, explaining what the defendants allegedly did or failed to do, the time period during which the alleged conduct occurred, and the legal theories supporting liability. Include relevant statutory or regulatory provisions cited in the complaint, and note any novel legal theories or significant legal questions presented by the case.\n\n**Class Definition and Membership**: Precisely describe the class as certified by the court or as proposed in the complaint if certification has not yet occurred. Include the specific criteria that define class membership, any geographic or temporal limitations, and estimates of the class size where available. Explain any subclasses that have been established and the rationale for their creation. Address whether the class was certified under Rule 23(b)(2) for injunctive relief, Rule 23(b)(3) for damages, or another provision, and summarize the court's findings regarding numerosity, commonality, typicality, and adequacy of representation. If class certification was denied or decertified, explain the court's reasoning and any subsequent procedural developments.\n\n**Procedural History and Key Developments**: Trace the significant procedural milestones in the litigation, including the initial filing date, jurisdiction and venue, motions to dismiss and their outcomes, discovery disputes, summary judgment rulings, class certification proceedings, and trial or settlement. Highlight any interlocutory appeals, particularly those addressing class certification or other significant issues. Note the involvement of multiple district courts if the case was part of a multidistrict litigation (MDL), and identify the transferee court and any coordinating proceedings.\n\n**Resolution and Outcomes**: If the case has been resolved, provide comprehensive details about the resolution mechanism and terms. For settlements, specify the total settlement amount, the structure of the settlement fund, the claims process and deadlines, the allocation methodology for distributing funds to class members, and the amounts designated for attorneys' fees, costs, and any incentive awards to class representatives. Describe any non-monetary relief provided, such as injunctive relief, changes to business practices, or monitoring provisions. Include information about the settlement approval process, objections raised by class members, the court's findings regarding fairness and adequacy, and the final approval date. If the case proceeded to trial, summarize the verdict, damages awarded, and any post-trial motions or appeals. For cases still pending, describe the current procedural posture and anticipated next steps.\n\n## Format and Structure\n\nOrganize your summary using clear headings and subheadings that guide the reader through the analysis. Begin with a case caption that includes the full case name, court, docket number, and relevant dates. Follow with an executive summary paragraph that captures the essence of the case in three to four sentences. Then proceed through each substantive section in a logical order that tells the story of the litigation from inception through resolution or current status.\n\n## Legal Considerations and Best Practices\n\nMaintain strict accuracy and objectivity throughout your summary, distinguishing clearly between allegations and proven facts. When describing claims, use appropriate qualifiers such as \"alleged\" or \"purported\" unless facts have been established through admission, settlement, or adjudication. Cite specific court orders, opinions, and settlement agreements to support factual statements about procedural developments and outcomes. Be mindful of confidentiality provisions in settlement agreements that may limit what information can be disclosed publicly.\n\nConsider the audience for your summary and ensure that legal terminology is used precisely but explained where necessary for non-specialist readers. Avoid advocacy or characterizations that favor either plaintiffs or defendants; instead, present the information neutrally and let the facts speak for themselves. Where significant legal issues were contested, present both sides' arguments before explaining the court's resolution.\n\nPay particular attention to any precedential value the case may have established, especially regarding class certification standards, substantive legal interpretations, or procedural innovations. Note if the case resulted in published opinions that have been cited by other courts or that clarified unsettled areas of law.\n\nYour completed summary should serve as a reliable, comprehensive reference that captures all material aspects of the class action litigation in a format that is both thorough for detailed analysis and accessible for quick reference. The document should enable readers to understand not only what happened in the case but also its significance within the broader legal landscape and its potential implications for similar litigation or business practices.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "discovery",
+      "pre-trial",
+      "post-trial",
+      "appeal",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

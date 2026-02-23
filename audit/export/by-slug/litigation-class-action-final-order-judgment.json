@@ -1,0 +1,45 @@
+{
+  "id": "7ba4a98a-5f12-474a-a927-92e34e343a84",
+  "slug": "litigation-class-action-final-order-judgment",
+  "name": "Final Order and Judgment",
+  "summary": "Drafts a comprehensive Final Order and Judgment for class action litigation, including caption, procedural history, detailed findings of fact, conclusions of law, and enforceable directives. Ensures compliance with jurisdictional formatting, local rules, and best practices to withstand appellate review. Use at the conclusion of class action cases following trial, summary judgment, or settlement.",
+  "content": "# Final Order and Judgment - Enhanced Workflow Prompt\n\nYou are tasked with drafting a comprehensive Final Order and Judgment, a critical litigation document that formally resolves a case and establishes legally binding determinations. This document must be meticulously crafted to withstand appellate scrutiny and provide clear, enforceable directives.\n\n## Document Foundation and Caption\n\nBegin by establishing the proper caption that identifies the court, jurisdiction, parties, and case number. The caption must conform to the specific formatting requirements of the jurisdiction where the case is pending. Research the applicable court's local rules and style requirements through official court websites, state bar association resources, and authoritative legal formatting guides. Ensure the document title clearly identifies it as a \"Final Order and Judgment\" or uses the terminology preferred by the specific court.\n\n## Procedural History and Recitals\n\nDraft an introduction that provides essential context by summarizing the nature of the action, the procedural posture, and the basis for the court's decision. Search through all case documents to identify key procedural events, motions filed, hearings conducted, and any settlement agreements or stipulations reached by the parties. Reference specific dates, filings, and court proceedings that led to this final determination. If the judgment follows a trial, note whether it was a bench trial or jury trial. If it results from summary judgment or settlement, clearly state that foundation.\n\n## Factual Determinations\n\nConstruct detailed Findings of Fact that set forth the court's factual determinations based on the evidence presented. Each finding should be numbered sequentially and stated with precision. Thoroughly review all case documents, pleadings, discovery materials, trial transcripts, and exhibits to extract the specific facts that support the judgment. Present facts chronologically or thematically as appropriate, ensuring each finding is supported by evidence in the record. Distinguish between contested and uncontested facts, and note the standard of proof applied (preponderance of evidence, clear and convincing, etc.). Research judicial best practices for drafting findings of fact to ensure they are sufficiently detailed to support the legal conclusions and withstand appellate review.\n\n## Legal Analysis and Conclusions\n\nDevelop Conclusions of Law that apply relevant legal principles to the established facts. Each conclusion should be numbered and cite the specific statutes, regulations, case law, or common law principles that govern the determination. Research and verify all legal authorities cited, ensuring they are current, binding or persuasive in the jurisdiction, and accurately stated. Address each cause of action or defense raised in the litigation, explaining why the prevailing party is entitled to judgment. Consider constitutional provisions, statutory requirements, and controlling precedent that support the legal conclusions.\n\n## Relief and Remedies Ordered\n\nArticulate the specific relief granted with absolute clarity and precision. This section must leave no ambiguity about what each party is required to do or refrain from doing. Specify any monetary awards with exact amounts, including principal, interest (with the applicable rate and calculation method), costs, and attorney's fees if awarded. Detail any injunctive relief with clear, enforceable terms that describe the prohibited or required conduct. If the judgment includes dismissals, specify whether they are with or without prejudice. Address the disposition of all claims and all parties, ensuring no issue is left unresolved. Research standard judgment provisions and enforcement mechanisms applicable in the jurisdiction to ensure the order is practically enforceable.\n\n## Execution and Authentication\n\nConclude with proper signature blocks, dating provisions, and any required certifications or notices. Include the judge's signature line with their printed name and title. Provide space for the date of entry and ensure compliance with local rules regarding service, notice to parties, and entry of judgment procedures. Research the specific court's requirements for final judgments, including whether a separate document rule applies, whether proposed orders must be submitted, and what certification or verification may be required.\n\n## Document Assembly and Quality Control\n\nWhen you have gathered all necessary information from case documents, completed all legal research and verification of authorities, and confirmed compliance with jurisdictional requirements, generate the complete Final Order and Judgment. The document should be professionally formatted, internally consistent, and ready for submission to the court. Ensure all cross-references are accurate, all legal citations are properly formatted in Bluebook style, and the document flows logically from caption through findings, conclusions, and final orders to the signature block. The final product must be a court-ready document that clearly and unambiguously resolves all matters before the court.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial",
+      "post-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

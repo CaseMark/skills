@@ -1,0 +1,42 @@
+{
+  "id": "e01601b1-1857-44ec-8508-a16ba756da8d",
+  "slug": "litigation-criminal-defense-interview-summaries",
+  "name": "Interview Summaries",
+  "summary": "Generates comprehensive, structured summaries of witness or subject interviews for criminal defense investigations. Distills key facts, verbatim statements, inconsistencies, credibility indicators, and follow-up leads into actionable intelligence. Use during pre-filing or discovery phases to support investigators and legal teams.",
+  "content": "# Interview Summaries for Investigation Matters\n\nYou are tasked with creating a comprehensive interview summary for an investigation matter. This summary will serve as a critical record of witness or subject interviews, capturing key facts, statements, and observations that may be relevant to the investigation's outcome.\n\n## Your Objective\n\nProduce a clear, organized summary that distills the interview into actionable intelligence while preserving the integrity and context of statements made. The summary should enable legal professionals, investigators, and decision-makers to quickly understand what was learned, identify follow-up needs, and assess the interview's significance to the broader investigation.\n\n## Approach and Methodology\n\nBegin by thoroughly reviewing all available interview materials. This may include interview transcripts, audio recordings that have been transcribed, investigator notes, or preliminary reports. Search through uploaded documents to extract direct quotes, specific dates, names of individuals mentioned, locations discussed, and any documentary evidence referenced during the interview. Ensure you capture verbatim statements when they are particularly significant, as exact wording may become critical in subsequent proceedings.\n\nStructure your summary to include the interview's basic identifying information at the outset: the date and time of the interview, location, participants present (including the interviewee, interviewer, counsel if present, and any observers), and the matter or case reference. Establish the context by briefly noting the interviewee's relationship to the investigation and the purpose of the interview.\n\nOrganize the substantive content thematically rather than as a chronological transcript. Group related topics together, such as the interviewee's background and credibility factors, their knowledge of key events, their interactions with other relevant parties, and their awareness of documents or communications. Within each theme, present information in a logical flow that builds understanding. When the interviewee provides information about specific incidents or transactions, include the who, what, when, where, why, and how details as completely as possible.\n\n## Critical Elements to Capture\n\nYour summary must identify and highlight any admissions, inconsistencies, or statements that contradict other evidence or witness accounts. Note the interviewee's demeanor, credibility indicators, and any observable reluctance or evasiveness on particular topics, as these observations inform the weight given to their statements. Document any documents shown to the interviewee and their responses or recognition of those materials.\n\nFlag areas requiring follow-up investigation, including leads to other witnesses, requests for additional documents, or topics where the interviewee lacked knowledge or memory. Identify any exculpatory or inculpatory information that emerged, and assess how the interview advances or changes the investigation's direction.\n\n## Format and Presentation\n\nPresent the summary in a professional memorandum format suitable for inclusion in investigation files and potential disclosure to opposing parties or regulators. Use clear section headings that allow readers to navigate quickly to topics of interest. Employ concise, factual language that avoids legal conclusions unless specifically analyzing the interview's implications. When quoting the interviewee directly, use quotation marks and provide sufficient context so the statement's meaning is clear.\n\nInclude a brief executive summary at the beginning that captures the most significant takeaways in three to five sentences. Conclude with a recommendations section that outlines next steps, additional witnesses to interview, documents to obtain, or areas requiring further investigation based on what was learned.\n\n## Legal and Professional Considerations\n\nMaintain objectivity throughout the summary, distinguishing clearly between what the interviewee stated, what the interviewer observed, and any analytical assessments. Be mindful that this summary may be discoverable in litigation or regulatory proceedings, so ensure accuracy and avoid speculative commentary. Preserve attorney-client privilege and work product protection by appropriately labeling the document and avoiding unnecessary disclosure of legal strategy or mental impressions beyond factual observations.\n\nConsider the audience for this summary, which may include attorneys, compliance officers, human resources personnel, or external investigators. Ensure the language is accessible while maintaining professional standards and precision. Your summary should stand as a reliable record that accurately reflects the interview and serves the investigation's needs throughout its lifecycle.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

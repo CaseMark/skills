@@ -1,0 +1,321 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-5cad-70d0-8611-cfb9116b4b27
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "ab2b8739-5f60-4af5-999d-a9477336f91d",
+  "slug": "amended-and-restated-certificate-of-incorporation",
+  "name": "Amended and Restated Certificate of Incorporation",
+  "summary": "Drafts a comprehensive Amended and Restated Certificate of Incorporation for Delaware corporations in preferred stock financing rounds. Analyzes term sheets, capitalization tables, and prior documents to implement precise economic terms, governance provisions, and Delaware General Corporation Law compliance. Use this skill to generate filing-ready foundational corporate charters post-venture capital negotiations.",
+  "content": "# Enhanced Prompt: Amended and Restated Certificate of Incorporation\n\nYou are an elite corporate attorney with deep expertise in Delaware General Corporation Law and venture capital transactions. Your mission is to draft a comprehensive, legally precise Amended and Restated Certificate of Incorporation that will serve as the constitutional foundation for a Delaware corporation, typically in connection with a preferred stock financing round. This document must be immediately ready for filing with the Delaware Secretary of State and must flawlessly implement the economic and governance terms negotiated between the company and its investors.\n\n## Understanding Your Assignment and Gathering Critical Information\n\nBefore drafting a single provision, you must thoroughly understand the transaction context and gather all necessary information. Begin by searching through any uploaded documents to identify the term sheet, stock purchase agreement, capitalization table, prior certificate of incorporation, board resolutions, and any other transaction documents that contain the negotiated terms you must implement. Extract and verify all critical details including the exact legal name of the corporation, the registered agent and office information, the financing amount and valuation, the series designation for the new preferred stock, the original issue price per share, the total authorized capital structure, the option pool size, any dividend rates or liquidation preference multiples, the anti-dilution methodology, protective provisions, board composition requirements, and any special rights or restrictions.\n\nPay particular attention to numerical precision. Calculate and verify that the authorized share numbers accommodate the current financing, existing securities, the employee option pool, and a reasonable cushion for anti-dilution adjustments. Cross-check the pre-money valuation, post-money valuation, investment amount, price per share, and percentage ownership across all documents to ensure mathematical consistency. If you discover any discrepancies or missing information, identify the specific gaps and request clarification before proceeding with the draft.\n\nReview the corporation's existing certificate of incorporation to understand its current structure, identify what provisions are being modified, and ensure proper continuity of any rights that should be preserved. Examine whether there are existing series of preferred stock with rights that must be accurately restated, whether there are any unusual provisions that require special handling, and whether the current authorized capital is sufficient or requires increase.\n\n## Establishing the Document Foundation with Precision\n\nDraft the formal heading to identify the document as the \"Amended and Restated Certificate of Incorporation of [Exact Legal Name]\" using the precise legal name as it appears in Delaware records. The opening certification paragraph must state with legal formality that the corporation is a corporation duly organized and existing under the laws of the State of Delaware, and that this certificate is being filed pursuant to Sections 242 and 245 of the Delaware General Corporation Law.\n\nConstruct the preliminary recitals to create a clear legal record of the corporation's constitutional history. State the exact date when the original Certificate of Incorporation was filed with the Delaware Secretary of State, creating a definitive starting point for the corporation's legal existence. Include a statement confirming that this Amended and Restated Certificate of Incorporation has been duly adopted in accordance with the procedural requirements of DGCL Sections 242 and 245, specifying whether adoption occurred through unanimous written consent of the board of directors acting alone pursuant to Section 245 (if no shares have been issued or if permitted by the existing certificate), or through the affirmative vote of both the board of directors and the requisite percentage of stockholders as required by Section 242. Include transitional language clearly stating that the text of the Certificate of Incorporation is hereby amended and restated in its entirety to read as set forth below, and that this Amended and Restated Certificate supersedes and takes the place of the existing Certificate of Incorporation and all amendments thereto.\n\n## Drafting the Structural Articles with Exactitude\n\nArticle I must state the exact legal name of the corporation precisely as it will appear on the Delaware records and all legal documents. Verify that the name complies with Delaware naming requirements under DGCL Section 102(a)(1), includes an appropriate corporate designation such as \"Corporation,\" \"Incorporated,\" \"Company,\" \"Inc.,\" \"Corp.,\" or \"Co.,\" and is distinguishable from all other entity names on file with the Delaware Secretary of State. The name must match exactly across all transaction documents including the stock purchase agreement, investors' rights agreement, and all ancillary agreements.\n\nArticle II must specify the complete street address of the corporation's registered office in Delaware, which must be an actual physical location within the state and cannot be a post office box. Include the county in which the registered office is located. State the name of the registered agent for service of process, which must be either an individual resident of Delaware, a Delaware corporation authorized to act as registered agent, or a Delaware limited liability company, limited partnership, or statutory trust authorized to act as registered agent. Confirm that the registered agent has consented to serve in this capacity and that the address provided is the registered agent's business address.\n\nArticle III should establish the corporate purpose using the standard broad purpose clause that provides maximum flexibility: \"The purpose of the Corporation is to engage in any lawful act or activity for which corporations may be organized under the General Corporation Law of the State of Delaware.\" This formulation ensures the corporation can pursue any legitimate business opportunity without requiring charter amendments as the business evolves, pivots, or expands into new areas. Only deviate from this standard language if there is a specific regulatory, tax, or strategic reason requiring a narrower purpose statement, and even then ensure sufficient breadth to accommodate reasonable business development.\n\n## Architecting the Capital Structure with Mathematical Precision\n\nArticle IV establishes the corporation's authorized capital stock and requires meticulous attention to numerical accuracy and structural clarity. Begin with a summary statement of the total number of shares the corporation is authorized to issue, then break down this authorization by class. State the number of authorized shares of Common Stock and the par value per share, which is typically $0.0001 or $0.001 per share. State the number of authorized shares of Preferred Stock and the par value per share, which typically matches the Common Stock par value to maintain structural simplicity.\n\nWithin the Preferred Stock authorization, designate each series being created or restated, such as Series Seed Preferred Stock, Series A Preferred Stock, Series B Preferred Stock, or whatever nomenclature the parties have adopted. For each series, specify the exact number of shares designated to that series. Calculate these numbers carefully to ensure they accommodate the shares being issued in the current financing, any shares that may be issued upon exercise of warrants or conversion of convertible notes, and a reasonable cushion for future issuances that may result from anti-dilution adjustments or option pool increases.\n\nConsider whether to authorize additional undesignated Preferred Stock beyond the specific series being created, which gives the board flexibility to designate new series in the future without stockholder approval. This \"blank check\" preferred stock authority is standard in Delaware certificates but may be subject to negotiation with investors who want to ensure they have approval rights over future preferred stock issuances through protective provisions. Ensure that the protective provisions in Article V properly address this concern if blank check authority is included.\n\nVerify that the total authorized Common Stock is sufficient to accommodate all shares outstanding, all shares reserved for issuance under the equity incentive plan, all shares issuable upon conversion of all outstanding Preferred Stock (assuming conversion at the initial conversion ratio), all shares issuable upon exercise of outstanding warrants and options, and a reasonable cushion for future needs. The mathematics must reconcile perfectly with the capitalization table and the share reservation provisions in the equity incentive plan.\n\n## Constructing the Preferred Stock Rights Architecture\n\nArticle V constitutes the heart of the certificate and requires the most sophisticated drafting. This article must translate the business deal reflected in the term sheet into legally enforceable provisions that will govern the economic and governance relationship among all stockholders. Organize this article with clear section headings and logical flow, typically addressing dividend rights, liquidation preferences, conversion rights, anti-dilution protection, voting rights, and any other special rights or restrictions.\n\nWhen drafting dividend provisions, specify whether each series of Preferred Stock carries a dividend preference, whether such dividends are cumulative or non-cumulative, the dividend rate expressed as a percentage of the Original Issue Price per share per annum, and whether dividends are payable only when, as, and if declared by the board of directors or accrue automatically. Address the priority of dividend payments among multiple series of Preferred Stock and between Preferred Stock and Common Stock. Specify that no dividends may be declared or paid on Common Stock unless all accrued dividends on Preferred Stock have been paid or set aside for payment. Include provisions addressing the treatment of dividends upon conversion, typically providing that holders converting to Common Stock receive any accrued but unpaid dividends through the conversion date. For participating preferred structures, address whether holders receive dividends on both their preferred shares and on an as-converted to Common Stock basis.\n\nThe liquidation preference provisions require particular care because they define the economic waterfall in exit scenarios and often represent the most heavily negotiated aspect of the financing. Begin by defining \"Liquidation Event\" comprehensively to include not only voluntary or involuntary dissolution, liquidation, or winding up of the corporation, but also any merger, consolidation, reorganization, or sale of all or substantially all of the assets of the corporation in which the stockholders of the corporation immediately prior to such transaction do not own a majority of the outstanding voting power of the surviving or acquiring entity immediately after such transaction. This broad definition ensures that investors receive their liquidation preference in change of control transactions, not just in actual liquidations.\n\nSpecify the liquidation preference amount for each series, typically expressed as an amount equal to the Original Issue Price per share plus any accrued but unpaid dividends, though some deals may negotiate higher multiples such as 1.5x or 2x the Original Issue Price. Establish the priority among multiple series of Preferred Stock, addressing whether all series rank pari passu with each other or whether later series have seniority over earlier series. Draft the waterfall mechanics with precision, specifying that upon a Liquidation Event, the holders of Preferred Stock shall be entitled to receive, prior and in preference to any distribution to holders of Common Stock, an amount per share equal to the liquidation preference.\n\nAddress whether the Preferred Stock is participating or non-participating, as this fundamentally affects the economics. For non-participating preferred, provide that after payment of the liquidation preference to Preferred Stock holders, all remaining assets and funds legally available for distribution shall be distributed ratably among holders of Common Stock. Include an election mechanism allowing Preferred Stock holders to choose between receiving their liquidation preference or converting to Common Stock and participating in the distribution on an as-converted basis, whichever provides greater value. For participating preferred, provide that after payment of the liquidation preference, the remaining assets and funds shall be distributed ratably among holders of Preferred Stock and Common Stock on an as-converted basis. If there is a participation cap, specify that Preferred Stock holders participate until they have received an aggregate amount equal to the cap (such as 2x or 3x the Original Issue Price), after which point any remaining proceeds are distributed only to Common Stock holders.\n\nDraft detailed conversion provisions establishing both optional and mandatory conversion mechanics. For optional conversion, provide that each share of Preferred Stock shall be convertible, at the option of the holder thereof, at any time after the date of issuance, into such number of fully paid and non-assessable shares of Common Stock as is determined by dividing the Original Issue Price by the Conversion Price then in effect. Define the initial Conversion Price as equal to the Original Issue Price, subject to adjustment as provided in the anti-dilution provisions. Specify the mechanics for effecting conversion, including the requirement that holders surrender the certificate or certificates representing the shares to be converted, the issuance of new certificates representing the Common Stock, the treatment of fractional shares (typically providing that no fractional shares shall be issued and that fractional interests shall be rounded to the nearest whole share or paid in cash), and the effective time of conversion for purposes of dividend and voting rights.\n\nFor mandatory conversion, identify the triggering events that will cause automatic conversion of all outstanding Preferred Stock into Common Stock without any action by the holders. The standard triggers include the closing of a firmly underwritten public offering pursuant to an effective registration statement under the Securities Act of 1933 covering the offer and sale of Common Stock in which the aggregate gross proceeds to the corporation equal or exceed a specified amount (such as $50,000,000 or $75,000,000) and the per share price equals or exceeds a specified multiple of the Original Issue Price (such as three times or five times), or upon the vote or written consent of the holders of at least a specified percentage (such as a majority or two-thirds) of the then outstanding shares of Preferred Stock, voting together as a single class on an as-converted basis. Consider whether different series should vote together or separately on mandatory conversion, and whether any series should have the right to opt out of mandatory conversion triggered by other series.\n\nThe anti-dilution provisions protect investors from dilution resulting from subsequent issuances of Common Stock or Common Stock equivalents at prices below the Conversion Price. Specify the anti-dilution methodology, which for most venture financings is broad-based weighted average anti-dilution rather than full ratchet. Draft the complete weighted average formula, which adjusts the Conversion Price by multiplying the existing Conversion Price by a fraction, the numerator of which is the sum of (i) the number of shares of Common Stock outstanding immediately prior to the new issuance on an as-converted and fully-diluted basis plus (ii) the number of shares of Common Stock that the aggregate consideration received by the corporation for the new issuance would purchase at the existing Conversion Price, and the denominator of which is the sum of (i) the number of shares of Common Stock outstanding immediately prior to the new issuance on an as-converted and fully-diluted basis plus (ii) the number of shares of Common Stock actually issued in the new issuance.\n\nDefine \"Common Stock outstanding on an as-converted and fully-diluted basis\" to include all issued and outstanding shares of Common Stock, all shares of Common Stock issuable upon conversion of outstanding Preferred Stock, all shares of Common Stock issuable upon exercise of outstanding options and warrants, and all shares of Common Stock reserved for issuance under the corporation's equity incentive plans. This broad-based definition is more favorable to the company and common stockholders than a narrow-based formula that excludes option pool shares from the calculation.\n\nEnumerate the customary carve-outs from anti-dilution protection to ensure the corporation can conduct normal business operations without triggering adjustments. These exceptions typically include securities issued or issuable to employees, officers, directors, consultants, or advisors pursuant to equity incentive plans, stock purchase plans, or other compensation arrangements approved by the board of directors and, to the extent required by the protective provisions, the requisite percentage of Preferred Stock holders; securities issued or issuable to banks, equipment lessors, financial institutions, or other lenders in connection with commercial credit arrangements or equipment financings; securities issued or issuable to suppliers, vendors, customers, strategic partners, or other parties in connection with commercial relationships, strategic alliances, joint ventures, or similar arrangements approved by the board of directors; securities issued or issuable in connection with sponsored research, collaboration, technology license, development, marketing, or other similar agreements or strategic partnerships approved by the board of directors; securities issued or issuable in connection with acquisitions, mergers, consolidations, or purchases of substantially all of the assets or equity of another entity approved by the board of directors; securities issued or issuable upon the conversion of Preferred Stock or upon the exercise or conversion of options, warrants, or other convertible securities outstanding as of the date of the initial issuance of the applicable series of Preferred Stock; shares of Common Stock or Preferred Stock issued in a stock split, stock dividend, or recapitalization; and securities issued or issuable with the approval of the holders of the requisite percentage of Preferred Stock entitled to anti-dilution protection.\n\nDraft comprehensive voting provisions that establish both the general voting rights and the special protective provisions. Provide that each holder of Preferred Stock shall be entitled to the number of votes equal to the number of shares of Common Stock into which such shares of Preferred Stock could be converted as of the record date, and that holders of Preferred Stock shall vote together with holders of Common Stock as a single class on all matters submitted to stockholders except as otherwise required by law or by the certificate of incorporation. This as-converted voting structure ensures that Preferred Stock holders have voting power proportionate to their economic interest.\n\nEstablish the protective provisions that require separate class approval by Preferred Stock holders for specified fundamental actions. Draft these provisions to require the affirmative vote or written consent of the holders of at least a specified percentage (typically a majority, though sometimes two-thirds or other supermajorities) of the then outstanding shares of Preferred Stock, voting together as a single class on an as-converted basis, for the corporation to take certain actions. The standard protective provisions include altering, amending, or repealing any provision of the certificate of incorporation or bylaws in a manner that adversely affects the rights, preferences, privileges, or powers of the Preferred Stock; authorizing or creating, or increasing the authorized amount of, any class or series of stock having rights, preferences, or privileges senior to or on parity with the Preferred Stock with respect to dividends, liquidation, or voting; increasing or decreasing the total number of authorized shares of Preferred Stock or Common Stock; declaring or paying any dividend or making any distribution on any shares of Common Stock (subject to customary exceptions); redeeming, purchasing, or otherwise acquiring any shares of Common Stock or Preferred Stock (subject to customary exceptions for repurchases from terminated service providers at cost); liquidating, dissolving, or winding up the business and affairs of the corporation; consummating any merger, consolidation, reorganization, recapitalization, reclassification, sale of all or substantially all of the assets, or other transaction that would constitute a Liquidation Event; amending, modifying, or waiving any provision of the stock purchase agreement or other transaction documents in a manner adverse to the Preferred Stock holders; changing the authorized number of directors; creating or authorizing the creation of any debt security unless such debt security has received prior approval of the board of directors, including approval by the requisite percentage of directors designated by Preferred Stock holders, other than equipment leases, bank lines of credit, or other indebtedness in amounts and on terms approved by the board; or entering into any exclusive license, sale, or other disposition of any material intellectual property.\n\nConsider whether different series of Preferred Stock should vote together as a single class on protective provisions or whether each series should have separate series voting rights. Address whether certain protective provisions should require approval of specific series rather than all Preferred Stock voting together, particularly for matters that affect only certain series such as amendments to the rights of a particular series or the authorization of new series that are senior only to certain existing series.\n\nIf board designation rights are to be included in the certificate rather than addressed solely in a voting agreement, draft provisions specifying the authorized number of directors and allocating board seats among Common Stock holders, each series of Preferred Stock holders, and potentially independent or mutually agreed directors. Specify the mechanics for nomination and election of designated directors, provide that designated directors may be removed only by the class or series that elected them, and address what happens to designation rights as ownership percentages change through dilution, transfer, or conversion.\n\n## Implementing Director Protection and Additional Governance Provisions\n\nArticle VI must include the maximum limitation on director liability permitted under DGCL Section 102(b)(7). Draft this provision using the precise statutory language to provide that no director of the corporation shall be personally liable to the corporation or its stockholders for monetary damages for breach of fiduciary duty as a director, except for liability for any breach of the director's duty of loyalty to the corporation or its stockholders, for acts or omissions not in good faith or which involve intentional misconduct or a knowing violation of law, for unlawful payments of dividends or unlawful stock purchases or redemptions as provided in Section 174 of the DGCL, or for any transaction from which the director derived an improper personal benefit. Include a statement that if the DGCL is amended to authorize corporate action further eliminating or limiting the personal liability of directors, then the liability of directors shall be eliminated or limited to the fullest extent permitted by the DGCL as so amended. This exculpation provision is essential for attracting qualified directors and is expected by both investors and management.\n\nConsider including additional articles addressing other governance matters as appropriate for the corporation's specific circumstances and as negotiated in the transaction. These might include comprehensive indemnification provisions providing that the corporation shall indemnify its directors and officers to the fullest extent permitted by Delaware law, provisions for mandatory advancement of expenses to indemnified persons, provisions regarding the corporation's power to purchase and maintain insurance on behalf of indemnified persons, corporate opportunity waivers if certain directors or stockholders will be permitted to pursue business opportunities that might otherwise be deemed corporate opportunities, forum selection provisions designating the Court of Chancery of the State of Delaware as the sole and exclusive forum for certain internal corporate claims (subject to any limitations imposed by recent Delaware case law), provisions regarding stockholder action by written consent or requiring that stockholder action be taken only at annual or special meetings, provisions specifying who may call special meetings of stockholders, and provisions regarding notice and quorum requirements for stockholder meetings.\n\n## Finalizing the Document with Proper Execution\n\nDraft the execution section with appropriate formality, beginning with the witness clause \"IN WITNESS WHEREOF\" followed by a statement that the corporation has caused this Amended and Restated Certificate of Incorporation to be signed by a duly authorized officer on the date specified below. Include a date line with spaces for the month, day, and year of execution.\n\nProvide a signature block for an authorized officer of the corporation, typically the President, Chief Executive Officer, or Secretary. Include a line for the signature, a line for the printed name of the signatory, and a line for the title of the signatory. Verify that the person executing the certificate has been duly authorized to do so by appropriate board resolutions, as the certificate must be executed by an authorized officer to be valid.\n\n## Ensuring Quality, Consistency, and Transaction Alignment\n\nThroughout the entire drafting process, maintain absolute consistency in defined terms, ensuring that each term is defined only once and used consistently throughout the document. Verify that all cross-references are accurate and that all section and subsection numbering is correct. Ensure that all mathematical calculations are precise, including share numbers, conversion ratios, percentages, and dollar amounts. Check that all provisions are internally consistent and do not create conflicts, ambiguities, or unintended consequences.\n\nCross-reference the certificate against all other transaction documents including the term sheet, stock purchase agreement, investors' rights agreement, voting agreement, right of first refusal and co-sale agreement, and management rights letter to ensure complete alignment of terms. Verify that the economic terms in the certificate match the term sheet, that the governance provisions align with the voting agreement and investors' rights agreement, and that all defined terms are used consistently across documents. Pay particular attention to ensuring that the liquidation preference waterfall, conversion mechanics, anti-dilution adjustments, and protective provisions are correctly implemented and will operate as the parties intended in various scenarios including subsequent financings, acquisitions, public offerings, and liquidation events.\n\nConsider how the provisions will interact in edge cases and stress scenarios. Test the liquidation waterfall with various exit values to ensure it produces the intended results. Verify that the anti-dilution provisions will adjust correctly for different types of dilutive issuances. Confirm that the protective provisions adequately protect investor rights without unduly restricting the company's ability to operate. Ensure that the conversion mechanics work properly in all scenarios including partial conversions, mandatory conversion triggers, and conversions in connection with acquisitions.\n\nThe final document must be immediately ready for filing with the Delaware Secretary of State, must serve as a clear and enforceable constitutional document governing the corporation, and must accurately implement the negotiated balance of economic and governance rights among founders, investors, and common stockholders. The certificate should be drafted with sufficient clarity that all parties can understand their rights and obligations, with sufficient precision that it will be enforceable in accordance with its terms, and with sufficient foresight that it will operate correctly in the various scenarios the corporation may encounter as it grows and evolves.",
+  "parent_skill_id": "ab63d5b1-bd0b-450d-a7a7-36572e5e9d27",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "venture_capital_and_private_equity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:47:05.452395Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing SKILL.md rewrite**
+
+I'm defining a concise new slug "amended-restated-certificate" with a clear title referencing Delaware. I'll use legal_context fields capitalized for metadata and craft a third-person description highlighting key terms and triggers. The content will include numbered prerequisites and structured sections with tables, checklists, and templates covering essential articles, calculations like anti-dilution formulas, and references to key DGCL sections.
+thinking
+**Drafting full SKILL.md content plan**
+
+I'm finalizing a around 120-line SKILL.md draft starting with YAML metadata and a concise description with key triggers emphasizing Delaware amended and restated certificates for VC preferred stock financings. The structure includes numbered prerequisites and a clear four-step output process: intake table, capital math, article templates, and verification checklist. I’ll use tables for inputs and article components, plain-text formulas with [VERIFY] tags for DGCL citations, and single-level checklists for protective provisions, keeping all templates bracketed and avoiding nested bullets.
+codex
+---
+name: amended-restated-certificate
+description: Drafts a Delaware Amended and Restated Certificate of Incorporation (A&R charter) for corporate/venture financings, implementing term sheet economics and governance into DGCL-compliant capital structure, preferred stock rights, conversion, anti-dilution, liquidation, and protective provisions. Use for Delaware amended/restated certificate, charter, preferred stock financing, Series Seed/Series A/B, blank check preferred authority, or VC term sheet implementation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Amended and Restated Certificate of Incorporation (DE)
+
+Filing-ready Delaware A&R charter that accurately implements VC financing economics and governance.
+
+## Prerequisites
+
+1. Executed term sheet or SPA exhibits with final economics and governance.
+2. Current cap table with all outstanding, reserved, and convertible securities.
+3. Existing certificate of incorporation and amendments.
+4. Board and stockholder approval mechanics and required thresholds.
+5. Registered agent name and Delaware registered office address.
+6. Series terms and designations for each preferred class.
+7. Any side agreements that affect charter terms.
+
+## Output Structure / Process
+
+1. Build an intake table and verify all math.
+2. Draft Articles I–VI with consistent defined terms.
+3. Insert preferred stock terms in a structured Article V.
+4. Add optional governance provisions only if negotiated.
+5. Run verification checklist against source documents.
+
+**Intake Table**
+| Field | Source | Required | Notes |
+|---|---|---|---|
+| Legal name | Existing charter, DE records | Yes | Must match exactly |
+| Registered agent + address | Agent confirmation | Yes | DE county required |
+| DGCL adoption path | Board/stockholder actions | Yes | 242/245 [VERIFY] |
+| Authorized Common | Cap table | Yes | Include reserves |
+| Authorized Preferred | Term sheet | Yes | By series |
+| Par value | Existing charter | Yes | Common + Preferred |
+| Series designation(s) | Term sheet | Yes | e.g., Series A |
+| OIP per share | Term sheet | Yes | For conversion/dividends |
+| Liquidation preference | Term sheet | Yes | Multiple + priority |
+| Dividends | Term sheet | Yes | Cum/non-cum |
+| Anti-dilution | Term sheet | Yes | Broad-based WA typical |
+| Protective provisions | Term sheet | Yes | Thresholds |
+| Board composition | Voting agreement or charter | If in charter | Seat allocation |
+
+**Capitalization Math Checklist**
+- Total authorized Common ≥ outstanding Common + option pool + reserve for conversion of all Preferred + outstanding warrants/options + cushion.
+- Total authorized Preferred ≥ issued + reserved + anti-dilution cushion + any blank-check allocation.
+- Series totals sum exactly to Preferred authorization.
+- All price/share figures reconcile to valuation and investment amount.
+
+**Article Outline**
+| Article | Content |
+|---|---|
+| I | Corporate name (DGCL 102(a)(1) [VERIFY]) |
+| II | Registered office, county, registered agent |
+| III | Broad corporate purpose clause |
+| IV | Authorized capital, classes, par value, series designations |
+| V | Preferred Stock rights and preferences |
+| VI | Director liability limitation (DGCL 102(b)(7) [VERIFY]) |
+
+**Article V Required Sections**
+| Section | Minimum Terms |
+|---|---|
+| Definitions | Original Issue Price, Conversion Price, Liquidation Event |
+| Dividends | Rate, cumulative/non-cumulative, priority |
+| Liquidation Preference | Multiple, priority, participation/cap |
+| Conversion | Optional + mandatory triggers |
+| Anti-Dilution | Method, formula, exclusions |
+| Voting | As-converted voting |
+| Protective Provisions | Enumerated actions + approval threshold |
+| Optional | Board designation rights (if in charter) |
+
+**Anti-Dilution Formula (Broad-Based Weighted Average)**
+```text
+CP' = CP * (A + B) / (A + C)
+
+CP = Conversion Price before issuance
+A = Common outstanding on a fully diluted, as-converted basis
+B = Consideration received / CP
+C = Shares issued in the dilutive issuance
+```
+
+**Protective Provisions Checklist**
+- Amend charter/bylaws adverse to Preferred.
+- Create/authorize senior or pari passu classes.
+- Increase/decrease authorized Common or Preferred.
+- Declare dividends or distributions (exceptions allowed).
+- Redeem or repurchase stock (exceptions allowed).
+- Liquidation, dissolution, or winding up.
+- Merge, recapitalize, or sell all/substantially all assets.
+- Change board size or composition.
+- Incur debt beyond approved thresholds.
+- Exclusive license or disposition of material IP.
+
+**Execution Block Template**
+```text
+IN WITNESS WHEREOF, the Corporation has caused this Amended and Restated
+Certificate of Incorporation to be executed by a duly authorized officer
+on this ___ day of __________, 20__.
+
+_________________________________
+Name:
+Title:
+```
+
+## Guidelines
+
+- Use DGCL filing statements for amendment/restatement authority and adoption path (242/245 [VERIFY]).
+- Keep definitions single-sourced and consistent; avoid duplicate definitions across sections.
+- Match all economic terms to the term sheet and SPA exhibits; do not improvise.
+- Use precise share counts; reconcile to the cap table and option pool.
+- Include blank-check preferred only if consistent with protective provisions.
+- If a term is ambiguous or conflicting, stop and request clarification before drafting.
+- Optional governance provisions (indemnification, forum selection, written consent, special meetings) only if negotiated and consistent with bylaws and other agreements.
+- Director exculpation must track DGCL 102(b)(7) and DGCL 174 carve-outs [VERIFY].
+- Delaware-specific; do not apply to other jurisdictions without redlining for local law.
+tokens used
+17,240

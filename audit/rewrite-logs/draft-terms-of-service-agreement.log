@@ -1,0 +1,478 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-641c-7cc3-9cf7-4860d272310f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "5552a2d2-110b-497f-bd27-1a5babed317e",
+  "slug": "draft-terms-of-service-agreement",
+  "name": "Terms of Service Agreement",
+  "summary": "Drafts a comprehensive, enforceable Terms of Service Agreement tailored to online services, platforms, or products, emphasizing regulatory compliance in data privacy and cybersecurity. Incorporates provisions for user acceptance, modifications, liability limitations, and jurisdiction-specific requirements like GDPR and CCPA. Use when creating ToS documents to protect company interests while promoting user trust and clarity.",
+  "content": "# Enhanced Terms of Service Agreement Workflow\n\nYou are tasked with drafting a comprehensive, legally sound Terms of Service Agreement that protects the company's interests while maintaining enforceability and user trust. This regulatory compliance document must balance robust legal protections with clarity and transparency, ensuring users understand their rights and obligations while the company maintains necessary operational flexibility and limitation of liability.\n\n## Understanding the Service Context\n\nBefore drafting begins, develop a thorough understanding of the specific service, platform, or product these terms will govern. Search through any uploaded documents to identify the nature of the business, its operational model, target user demographics, geographic markets, and any unique features that require specialized contractual provisions. Look for existing company policies, privacy notices, or regulatory compliance documentation that should be referenced or incorporated into the terms. If the service involves data processing, e-commerce transactions, user-generated content, or regulated activities, note these characteristics as they will require specific legal provisions.\n\nConsider the regulatory landscape applicable to this service. Identify whether the company operates in jurisdictions requiring specific consumer protection language, data privacy compliance provisions, or industry-specific regulatory terms. For services targeting European users, GDPR compliance provisions will be essential. For California residents, CCPA considerations apply. Financial services, healthcare, telecommunications, and other regulated industries each carry distinct legal requirements that must be woven throughout the agreement.\n\n## Establishing the Contractual Foundation\n\nDraft the agreement's opening sections to establish a clear, legally binding relationship from the moment of user engagement. The acceptance mechanism must be unambiguous\u2014specify whether users accept terms through affirmative action such as clicking an acceptance button, through continued use after receiving notice of terms, or upon initial access to the service. The language should eliminate any doubt about when the contractual relationship forms and what actions constitute acceptance.\n\nAddress the legal capacity requirements with precision. If the service has age restrictions, clearly state the minimum age and explain what happens if a minor attempts to use the service. For business users or those acting on behalf of organizations, include representations that the individual has authority to bind the entity they represent. Explain how the terms interact with other company policies, whether those policies are incorporated by reference or stand as separate agreements, and establish a hierarchy if conflicts arise between documents.\n\nThe dynamic nature of online services requires provisions addressing term modifications. Explain how users will receive notice of changes\u2014whether through email, platform notifications, or posting on the website\u2014and specify how much advance notice will be provided. Clarify that continued use after the effective date of changes constitutes acceptance of modified terms, while also providing users the option to terminate their account if they disagree with material changes. Include version control references and effective dates to ensure clarity about which version governs any particular user relationship.\n\n## Governing User Relationships and Conduct\n\nDevelop comprehensive provisions addressing user account creation, maintenance, and security that allocate responsibilities clearly between the company and users. The registration process should be detailed, specifying what information users must provide, accuracy requirements, and the ongoing obligation to keep account information current. Establish that users bear responsibility for maintaining the confidentiality of their credentials and for all activities occurring under their account, whether or not authorized.\n\nSpecify the personal and non-transferable nature of accounts unless the service model permits sharing or assignment under defined conditions. Address account lifecycle issues including user-initiated termination procedures, dormancy policies for inactive accounts, and the company's rights to suspend or terminate accounts for violations or other legitimate reasons. If the service requires identity verification, age verification, or multi-factor authentication for security or regulatory compliance, detail these requirements and the consequences of non-compliance.\n\nThe prohibited conduct provisions must be sufficiently comprehensive to address foreseeable misuse while remaining clear enough for users to understand their boundaries. Begin with an overarching requirement that users comply with all applicable laws and regulations when using the service. Then articulate specific prohibited activities with enough detail to provide meaningful guidance: fraudulent activities or misrepresentation of identity or affiliation; transmission of malware, viruses, or other harmful code; unauthorized access attempts to systems, networks, or other user accounts; infringement of intellectual property rights belonging to the company or third parties; harassment, threats, or abusive conduct toward other users or company personnel; unauthorized scraping, data mining, or automated data collection; manipulation or interference with service functionality; and use of the service to facilitate or engage in unlawful activities.\n\nReserve the company's right to investigate suspected violations, cooperate with law enforcement authorities, and take remedial action including content removal, account suspension, or permanent termination. Specify the standard of review the company will apply when evaluating potential violations, typically reserving sole discretion while committing to good faith evaluation. Consider whether warnings will be issued before termination for certain violations or whether immediate termination is appropriate for serious breaches.\n\n## Addressing User-Generated Content\n\nWhen the service permits users to submit, post, upload, or otherwise contribute content, establish a clear framework governing ownership and licensing rights. Begin by affirming that users retain ownership of their original content, which respects user expectations and encourages participation. Simultaneously, grant the company a license sufficiently broad to operate and promote the service effectively without requiring individual permissions for each use.\n\nSpecify the license scope with precision: whether it is worldwide to accommodate global operations, non-exclusive to allow users to use their content elsewhere, royalty-free to avoid payment obligations, sublicensable to permit third-party service providers to process content, and transferable to allow business transactions. Detail the permitted uses under this license, including storing, displaying, reproducing, modifying for technical compatibility, creating derivative works for promotional purposes, performing, and distributing user content in connection with operating, promoting, and improving the service.\n\nAddress license duration carefully. Determine whether the license terminates when users delete content or whether certain uses survive deletion, such as content already shared by other users or incorporated into derivative works. For content that has been distributed or cached, explain that technical limitations may prevent immediate removal from all systems.\n\nInclude robust user representations and warranties regarding their content. Users should represent that they own or have obtained all necessary rights to grant the license, that their content does not violate third-party intellectual property rights or other legal rights, and that it complies with these terms and applicable laws. Establish the company's rights, but not obligations, to monitor, review, modify for technical reasons, or remove user content that violates these terms, infringes rights, or is otherwise objectionable. If applicable to the service, include DMCA-compliant procedures for reporting and addressing copyright infringement claims, including designated agent information and counter-notification processes.\n\n## Protecting Intellectual Property Rights\n\nDraft provisions that strongly protect the company's intellectual property while clearly delineating the limited rights granted to users. Assert comprehensive ownership of the service and all materials therein, including software, databases, text, graphics, logos, icons, images, audio and video content, data compilations, and the overall compilation and organization of content. Specify that these materials are protected by copyright, trademark, patent, trade secret, and other intellectual property laws both domestically and internationally.\n\nDefine the limited license granted to users for accessing and using the service. Typically, this is a limited, non-exclusive, non-transferable, revocable license to access and use the service for personal or internal business purposes in accordance with these terms. Explicitly prohibit activities that could harm the company's intellectual property interests: copying, modifying, distributing, transmitting, displaying, performing, reproducing, publishing, licensing, creating derivative works from, transferring, or selling any content or materials obtained from the service except as expressly permitted.\n\nAddress trademark usage by prohibiting use of company trademarks, service marks, trade names, or logos without prior written permission. Specify that any permitted use must comply with company trademark guidelines and must not create confusion about affiliation or endorsement, dilute the company's brand, or disparage the company. Include provisions addressing user feedback, suggestions, or ideas submitted to the company, clarifying that such submissions become company property without compensation, attribution, or confidentiality obligations, allowing the company to freely use and implement user suggestions.\n\nReserve all rights not expressly granted to users, and prohibit reverse engineering, decompiling, disassembling, or attempting to derive source code from the service or any component thereof, except to the extent such restrictions are prohibited by applicable law. For services involving proprietary algorithms or methodologies, consider additional protections for trade secrets and confidential information.\n\n## Establishing Termination Rights and Procedures\n\nArticulate the company's comprehensive rights to terminate or suspend user access while providing appropriate procedural protections where legally required. Establish the company's right to immediately terminate or suspend access without prior notice or liability for various reasons: breach of these terms or incorporated policies; violation of applicable laws or regulations; fraudulent, illegal, or abusive activity; requests by law enforcement or government agencies; extended periods of inactivity; technical or security issues that threaten service integrity; or for any reason or no reason at the company's sole discretion.\n\nDetail the effects of termination comprehensively. Upon termination, all user rights to access and use the service immediately cease. Address what happens to user content, whether it will be deleted immediately, after a grace period, or retained for legal or operational purposes. Specify which provisions survive termination, typically including indemnification obligations, limitation of liability, intellectual property provisions, dispute resolution mechanisms, and any payment obligations incurred before termination.\n\nAddress refund policies for prepaid fees, whether termination for cause results in forfeiture of prepaid amounts, and whether users receive pro-rata refunds for voluntary termination or termination without cause. Establish users' termination rights, including how they may close their accounts and what happens to their data upon voluntary termination, ensuring compliance with data portability requirements under applicable privacy laws.\n\nInclude provisions addressing the company's rights to modify, suspend, or discontinue the service or any features thereof, whether temporarily or permanently, with or without notice. Disclaim liability for such modifications or discontinuations while reserving flexibility to evolve the service. Consider including language regarding users' ability to retrieve their content before or after termination, consistent with data protection regulations and reasonable operational constraints.\n\n## Crafting Warranty Disclaimers\n\nDraft comprehensive warranty disclaimers that provide maximum legal protection while complying with applicable consumer protection laws that may limit disclaimer enforceability. Use clear, conspicuous language with appropriate formatting such as capitalization or bold text to ensure the disclaimer is legally effective. State explicitly that the service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis without warranties of any kind, either express or implied.\n\nSpecifically disclaim all implied warranties that might otherwise apply by operation of law, including warranties of merchantability, fitness for a particular purpose, title, non-infringement, and any warranties arising from course of dealing, course of performance, or usage of trade. Disclaim warranties regarding service characteristics that users might otherwise expect: uninterrupted, timely, secure, or error-free operation; accuracy, reliability, or completeness of content or results; correction of defects or errors; or freedom from viruses, malware, or other harmful components.\n\nAddress the company's limited responsibility for third-party content, links, services, or products accessible through the platform. Clarify that the company does not endorse, warrant, or assume responsibility for third-party offerings and that users interact with third parties at their own risk. Include appropriate carve-outs or modifications to warranty disclaimers as required by jurisdictions that prohibit full disclaimer of implied warranties, such as consumer protection laws in the European Union, certain U.S. states, or other jurisdictions with mandatory consumer rights.\n\nFor services with both free and paid tiers, consider whether premium features carry different warranty obligations or service level commitments. If the company makes specific representations about paid services, ensure those commitments are clearly stated while disclaiming warranties beyond those specific representations.\n\n## Limiting Liability Exposure\n\nConstruct a robust limitation of liability clause that defines and restricts the company's potential exposure across all legal theories while remaining enforceable under applicable law. Use clear, conspicuous formatting to ensure the limitation is legally effective. Establish that to the maximum extent permitted by law, the company and its officers, directors, employees, agents, affiliates, licensors, and service providers shall not be liable for indirect, incidental, special, consequential, or punitive damages arising from or related to the service or these terms.\n\nSpecify categories of excluded damages with sufficient detail to cover foreseeable claims: loss of profits, revenue, sales, or business; loss of data or information; loss of use or interruption of service; loss of goodwill or reputation; cost of substitute services; or any other intangible losses, regardless of whether such damages were foreseeable, the company was advised of their possibility, or the legal theory underlying the claim.\n\nAddress the legal theories to which the limitation applies, including contract, tort (including negligence), strict liability, warranty, or any other legal theory. Establish a monetary cap on total aggregate liability, typically limited to the amount paid by the user to the company in the twelve months preceding the claim, or a nominal amount such as one hundred dollars for free services. This cap should apply to all claims collectively, not per claim.\n\nInclude appropriate exceptions required by law or sound policy. Most jurisdictions prohibit limiting liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, gross negligence or willful misconduct, or violations of consumer protection laws that prohibit liability limitations. Specify these exceptions clearly to maintain enforceability of the remaining limitations. Consider whether different liability provisions are needed for different service tiers, jurisdictions, or user types such as consumers versus business users.\n\n## Establishing Dispute Resolution Mechanisms\n\nDevelop a comprehensive framework for resolving disputes that provides certainty, efficiency, and appropriate legal protections while considering enforceability across different jurisdictions. Specify the governing law that will apply to interpretation and enforcement of the agreement, typically the law of a particular state or country where the company is headquartered or primarily operates. Explicitly exclude conflict of law principles that might otherwise apply different substantive law.\n\nDetail the dispute resolution mechanism appropriate for the service and user base. For business-to-business services, binding arbitration often provides efficiency and confidentiality. For consumer services, consider jurisdictional requirements that may limit arbitration enforceability or require specific consumer protections. If requiring arbitration, specify the administering organization and applicable rules such as American Arbitration Association Commercial Arbitration Rules, JAMS Comprehensive Arbitration Rules, or ICC Arbitration Rules. Establish the seat or location of arbitration, the language of proceedings, whether a single arbitrator or panel will decide disputes, and how arbitration costs will be allocated between parties.\n\nAddress whether arbitration will be conducted on an individual basis or permit class actions, including specific class action waiver language if seeking to prohibit class arbitration. Be aware that class action waivers face enforceability challenges in certain jurisdictions and for certain claim types, particularly consumer claims in some U.S. states and under European consumer protection laws.\n\nInclude provisions preserving the right to seek preliminary relief in court for certain matters that require immediate action, such as injunctive or equitable relief for intellectual property infringement, confidentiality breaches, or unauthorized access. Specify exclusive jurisdiction and venue for any disputes not subject to arbitration or for enforcement of arbitration awards, including consent to personal jurisdiction in specified courts and waiver of objections based on inconvenient forum.\n\nConsider including a pre-dispute informal negotiation requirement, specifying that parties must attempt to resolve disputes through good faith negotiation for a defined period before initiating formal proceedings. Address how disputes will be handled for users in jurisdictions with mandatory consumer protection laws that may override contractual dispute resolution provisions, potentially requiring separate dispute resolution terms for different geographic markets.\n\n## Incorporating Essential Boilerplate Provisions\n\nInclude standard contractual provisions that address common legal issues and ensure the agreement functions effectively as a complete contract. A severability clause should specify that if any provision is found invalid or unenforceable, the remaining provisions continue in full force and effect, and the invalid provision should be modified to the minimum extent necessary to make it enforceable while preserving the parties' intent.\n\nAn entire agreement clause establishes that these terms, together with any incorporated policies and documents, constitute the complete agreement between the parties regarding the subject matter and supersede all prior or contemporaneous understandings, agreements, representations, and warranties. A waiver provision clarifies that failure to enforce any right or provision does not constitute a waiver of that right or provision, and that any waiver must be in writing and signed by the company to be effective.\n\nAddress assignment rights, typically prohibiting users from assigning or transferring their rights or obligations without company consent while reserving the company's right to assign the agreement in connection with mergers, acquisitions, corporate reorganizations, or sale of assets. Include notice provisions specifying how parties will communicate formal notices, including acceptable methods such as email or platform notifications, deemed receipt timing, and required contact information.\n\nFor services with payment obligations, include provisions addressing payment terms, accepted payment methods, automatic renewal and cancellation procedures, refund policies, and consequences of non-payment. Address tax responsibilities, clarifying whether stated prices include or exclude applicable taxes and which party bears responsibility for various tax obligations.\n\n## Finalizing the Document\n\nWhen generating the complete Terms of Service Agreement, ensure all provisions are drafted in clear, legally precise language appropriate for the specific service and user base. Maintain internal consistency throughout the document, with defined terms capitalized and used uniformly, cross-references accurate, and numbering sequential. Structure the document logically with clear headings, numbered sections and subsections, and appropriate emphasis through formatting for critical provisions such as disclaimers and limitations of liability.\n\nBalance legal protection for the company with transparency and fairness to users. While the agreement should protect company interests, overly one-sided terms may be unenforceable under unconscionability doctrines or consumer protection laws, and may damage user trust and adoption. Consider including user-friendly summaries or explanatory notes for complex provisions, though clarify that the legal text controls in case of conflicts.\n\nReview the final document for compliance with applicable regulatory requirements based on the service type, user demographics, and geographic markets. Ensure data protection provisions align with GDPR, CCPA, or other applicable privacy laws. Verify that consumer protection requirements are met for jurisdictions where the service operates. For regulated industries, confirm that industry-specific legal requirements are addressed.\n\nThe completed Terms of Service Agreement should serve as a comprehensive, enforceable contract that protects the company's interests, clearly communicates user rights and obligations, complies with applicable legal requirements, and supports the company's business objectives while maintaining user trust and satisfaction.",
+  "parent_skill_id": "ba3a7b36-0ba1-4804-8d31-b83b8cb31d15",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "data_privacy_and_cybersecurity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:10.797853",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:55:51.294158Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+---
+slug: terms-of-service
+title: Terms of Service Agreement
+description: A comprehensive drafting skill for creating Terms of Service Agreements covering regulatory compliance, best practices, and jurisdiction-specific considerations to ensure clear, enforceable user agreements.
+practice_areas:
+  - Regulatory
+document_types:
+  - Agreement
+skill_modes:
+  - Drafting
+trigger_keywords:
+  - terms of service
+  - terms of use
+  - tos
+  - platform agreement
+  - website terms
+  - user agreement
+  - saas terms
+  - app terms
+
+# Terms of Service Agreement Drafting Skill
+
+## Purpose
+To assist in drafting clear, compliant Terms of Service Agreements tailored for various platforms and regulated industries.
+
+## Prerequisites
+1. Understanding of contract law basics.
+2. Familiarity with platform-specific practices.
+3. Knowledge of regulatory requirements such as GDPR, CCPA, DMCA.
+4. Awareness of applicable jurisdictional laws.
+5. Capability to identify business-specific needs and user interactions.
+
+## Sections Overview
+- Introduction & Acceptance
+- User Obligations & Restrictions
+- Intellectual Property Rights
+- Privacy & Data Protection
+- Liability & Disclaimers
+- Termination Clauses
+- Governing Law & Dispute Resolution
+- Updates & Amendments
+
+## Input Checklist
+| Item                          | Required | Notes                             |
+|-------------------------------|----------|----------------------------------|
+| Platform type                 | Yes      | Website, SaaS, mobile app, etc. |
+| Target jurisdiction           | Yes      | Specify for governing law        |
+| User demographic              | Optional | Age restrictions (COPPA)         |
+| Data collection specifics     | Yes      | To align with privacy clauses    |
+| Third-party services usage   | Optional | Include relevant clauses         |
+| Regulated industry status     | Yes      | Triggers extra compliance needs  |
+
+## Clause Matrix
+| Clause                      | Description                                             | Regulated Industry Concerns                 | Compliance Notes                       |
+|-----------------------------|---------------------------------------------------------|--------------------------------------------|--------------------------------------|
+| Acceptance of Terms          | User agreement to the terms                             | Must allow clear consent options           | GDPR compliant consent mechanisms    |
+| User Obligations            | Usage limits, prohibited activities                     | Enhanced monitoring if regulated           | Must avoid unfair restrictions       |
+| Intellectual Property Rights | Ownership and license terms                              | Sensitive if content created by users      | DMCA takedown procedures [VERIFY]   |
+| Privacy & Data Protection    | Data collection, usage, storage policies                | Critical section: GDPR, CCPA, ECPA, COPPA  | Data breach notification obligations |
+| Limitation of Liability      | Limits platform’s legal exposure                        | Must balance enforceability                  | State-specific caps may apply        |
+| Termination                 | Grounds and procedures for ending user access           | Additional criteria if regulated industry  | Notice requirements must be clear    |
+| Governing Law & Disputes     | Jurisdiction, arbitration or court options               | Must respect local mandatory laws          | Arbitration clauses [VERIFY]         |
+| Updates & Amendments         | How terms can be modified and communicated               | Special rules if affecting regulated users | User notification protocols          |
+
+## Drafting Steps
+1. Gather platform and jurisdiction information.
+2. Identify regulatory requirements (GDPR, CCPA, DMCA, COPPA, ECPA).
+3. Customize user obligations and prohibited activities.
+4. Draft clear privacy and data protection clauses with variable placeholders.
+5. Include intellectual property terms compatible with user content.
+6. Define liability limitations respecting jurisdiction caps.
+7. Establish termination conditions aligned with industry norms.
+8. Specify governing law and dispute resolution processes.
+9. Outline update mechanisms with user notice.
+10. Review compliance notes and insert [VERIFY] flags for uncertain points.
+
+## Optional Modules
+- COPPA Compliance: Catering to child data privacy with consent mechanisms.
+- DMCA Procedures: Takedown and counter-notice processes for copyright enforcement.
+- ECPA Considerations: Handling wiretap and electronic communications laws.
+- Regulated Industry Addendum: Specific clauses for finance, health, or other sectors.
+
+## Jurisdiction Modules
+| Jurisdiction | Notes                                                   |
+|--------------|---------------------------------------------------------|
+| EU           | GDPR focus, data subject rights, breach notifications  |
+| US - California | CCPA specific rights, do-not-sell opt-out            |
+| US - Federal | COPPA, DMCA, ECPA compliance                             |
+| Others       | Adapt governing law and dispute clauses accordingly     |
+
+## Guidelines
+
+### Do
+- Use clear, simple language to avoid ambiguity.
+- Incorporate explicit consent mechanisms where required.
+- Ensure transparency in data handling and user rights.
+- Regularly update terms to reflect regulatory changes.
+- Tailor clauses to platform specifics and user base.
+
+### Don’t
+- Include overly broad liability waivers that may be unenforceable.
+- Rely on implied consent for sensitive data processing.
+- Neglect jurisdictional nuances in governing law or disputes.
+- Overlook regulated industry-specific rules and notifications.
+
+### Compliance Notes
+- Ensure GDPR compliance with data subject rights and lawful processing.
+- Implement CCPA’s “Do Not Sell” options and privacy notices.
+- Incorporate DMCA takedown processes with proper notices.
+- Consider COPPA rules if users include children under 13.
+- Observe ECPA’s electronic communication protections where applicable.
+- [VERIFY] jurisdiction-specific enforcement and recent amendments.
+
+## Variable Placeholders Example
+```markdown
+- [PlatformName]: The name of the platform.
+- [User]: The individual or entity using the service.
+- [Jurisdiction]: The applicable legal jurisdiction.
+- [ContactEmail]: Compliance contact address.
+- [EffectiveDate]: Date the terms become effective.
+```
+
+## Template Skeleton
+```markdown
+# Terms of Service Agreement
+
+## 1. Introduction
+Welcome to [PlatformName]. By accessing or using our service, you agree to these Terms as of [EffectiveDate].
+
+## 2. Acceptance of Terms
+[User] agrees to comply with the terms outlined herein.
+
+## 3. User Obligations
+You shall not engage in prohibited activities including [ListProhibitedActivities].
+
+## 4. Intellectual Property
+Content remains property of [PlatformName] or respective owners.
+
+## 5. Privacy and Data Protection
+Our privacy practices comply with [Jurisdiction] laws detailed in our Privacy Policy.
+
+## 6. Liability Limitations
+[PlatformName]'s liability is limited to [ClauseDetails] as permitted by law.
+
+## 7. Termination
+We may suspend or terminate your access for violations per [TerminationCriteria].
+
+## 8. Governing Law and Dispute Resolution
+These terms are governed by laws of [Jurisdiction]. Disputes shall resolve via [Method].
+
+## 9. Updates
+Terms may be updated with notification sent to [ContactEmail].
+
+## Contact
+For questions, contact us at [ContactEmail].
+```
+
+## Input Checklist Recap
+Ensure all inputs from platform type to data specifics are gathered before drafting.
+
+---
+
+[VERIFY] indicates areas needing confirmation or jurisdiction-specific checks.
+codex
+---
+name: terms-of-service
+description: Drafts a U.S. online Terms of Service (Terms of Use) agreement for websites, apps, platforms, and SaaS offerings with privacy and cybersecurity compliance hooks, enforceable acceptance mechanics, liability limits, dispute resolution, and content/IP rules. Use for "terms of service", "terms of use", "TOS", "user agreement", "platform terms", "website terms", "app terms", "SaaS terms".
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Terms of Service Agreement
+
+Drafts a comprehensive, enforceable TOS tailored to the service model, data flows, and jurisdictional compliance needs.
+
+## Prerequisites
+
+1. **Service overview**: product type, core features, user types (consumer/business), age minimums, geos served
+2. **Business model**: free/paid tiers, subscriptions, renewals, refunds, promotions
+3. **Data & privacy**: data categories, purposes, sharing, processors, retention, security practices, privacy notice
+4. **User content**: UGC types, moderation policy, takedown process, DMCA agent info (if applicable)
+5. **Existing policies**: privacy policy, acceptable use, community guidelines, IP policy
+6. **Dispute posture**: arbitration vs courts, venue, class action waiver stance, small claims carve-out
+
+## Output Structure / Process
+
+### 1) Intake Checklist
+
+| Item | Required | Notes |
+|---|---|---|
+| Company legal name, address, contact email | Yes | Contracting entity |
+| Service name and URL/app identifiers | Yes | Define "Service" |
+| Eligibility/age | Yes | COPPA if under 13 [VERIFY] |
+| Countries/states served | Yes | Trigger GDPR/CCPA/other |
+| Payment terms | If paid | Auto-renew, cancellation |
+| IP assets | Yes | Trademarks, content |
+| UGC + moderation | If UGC | DMCA workflow |
+| APIs/integrations | If any | Third-party terms |
+
+### 2) Clause Matrix (include if applicable)
+
+| Area | Include When | Key Points |
+|---|---|---|
+| Acceptance mechanism | Always | Clickwrap preferred; continued-use fallback |
+| Accounts & security | Accounts exist | Credentials, MFA, responsibility |
+| Acceptable use | Always | Prohibited conduct list |
+| UGC license | UGC exists | Scope, duration, takedown |
+| IP ownership | Always | Service IP, limited license |
+| Payments | Paid tiers | Billing, taxes, refunds |
+| Termination | Always | For cause/at will, effects |
+| Disclaimers | Always | AS IS / AS AVAILABLE |
+| Liability cap | Always | Cap, exclusions, carve-outs |
+| Indemnity | B2B or UGC | IP claims, violations |
+| Dispute resolution | Always | Governing law, venue/arbitration |
+
+### 3) Drafting Sequence
+
+1. **Definitions & acceptance** (clickwrap + versioning/effective date)
+2. **Eligibility & authority** (age, entity authority)
+3. **Account rules** (registration, security, accuracy)
+4. **Acceptable use** (law compliance + prohibited conduct list)
+5. **UGC & IP** (ownership, license, feedback)
+6. **Third-party services** (links, integrations, no endorsement)
+7. **Payment terms** (if applicable)
+8. **Termination & suspension** (rights, effect, survival)
+9. **Disclaimers & limitation of liability**
+10. **Indemnification** (if applicable)
+11. **Dispute resolution** (law, venue, arbitration)
+12. **Boilerplate** (severability, assignment, notices)
+
+### 4) Prohibited Conduct Checklist
+
+- Illegal activity; fraud; misrepresentation
+- Malware, phishing, or security bypass
+- Unauthorized access, scraping, or rate-limit evasion
+- IP infringement or circumvention of protections
+- Harassment, hate, or abusive conduct
+- Interference with service availability
+
+### 5) UGC License Template (edit scope)
+
+```
+User Content License. You retain ownership of Your Content. You grant Company a worldwide, non-exclusive, royalty-free, sublicensable, transferable license to host, store, use, display, reproduce, modify for technical purposes, distribute, and create derivative works of Your Content solely to operate, improve, and promote the Service. License ends upon deletion except for content already shared or cached in ordinary operation.
+```
+
+### 6) Liability & Warranty Template (edit cap)
+
+```
+Disclaimer. THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS, AND NON-INFRINGEMENT, TO THE MAXIMUM EXTENT PERMITTED BY LAW.
+
+Limitation. TO THE MAXIMUM EXTENT PERMITTED BY LAW, COMPANY SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR LOSS OF DATA, PROFITS, OR REVENUE. TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNTS PAID BY YOU TO COMPANY IN THE 12 MONTHS BEFORE THE CLAIM (OR $100 IF NONE). EXCEPTIONS: LIABILITY FOR DEATH/PERSONAL INJURY, FRAUD, OR WILLFUL MISCONDUCT WHERE PROHIBITED.
+```
+
+### 7) Dispute Resolution Options
+
+| Option | Use When | Notes |
+|---|---|---|
+| Arbitration + class waiver | B2B or low-risk consumer | Include small-claims carve-out |
+| Court litigation | High consumer scrutiny | Specify venue + jury waiver |
+| EU consumer carve-out | Serving EU | Mandatory local rights |
+
+### 8) Privacy & Data Hooks (reference Privacy Policy)
+
+- Incorporation by reference to Privacy Policy
+- Data processing roles (controller/processor)
+- Security measures (high-level only)
+- Cross-border transfers if applicable (EU SCCs [VERIFY])
+
+### 9) Assembly Checklist (final QC)
+
+- Definitions consistent, capitalization standardized
+- Effective date + version history
+- Notice method and update mechanism
+- Survival clauses listed
+- Hyperlinks to incorporated policies
+
+## Guidelines
+
+- Prefer clickwrap; avoid browsewrap unless unavoidable.
+- If serving EU/UK, include GDPR-consistent rights hooks and consumer protections; avoid overbroad waiver language. [VERIFY]
+- If serving California residents, include CCPA/CPRA notice hooks and no-sale/share language where relevant. [VERIFY]
+- For UGC services, include DMCA agent and takedown procedure. [VERIFY]
+- Avoid unconscionability risk: keep caps and waivers reasonable for consumer users.
+- Do not promise security or uptime beyond actual controls/SLAs.
+- Flag any regulated industry (health, finance, telecom) for additional statutory modules.
+tokens used
+6,113

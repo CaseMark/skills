@@ -1,0 +1,43 @@
+{
+  "id": "697ce1fe-f534-4e37-9b65-bece193e1be0",
+  "slug": "litigation-personal-injury-letter-of-spoliation",
+  "name": "Letter of Spoliation",
+  "summary": "Drafts a formal Letter of Spoliation for personal injury litigation cases. This skill generates a comprehensive, legally sound letter that notifies the opposing party of their duty to preserve all relevant evidence, creating a record for potential spoliation sanctions. Use it during pre-litigation or early litigation phases to obligate evidence preservation across physical, documentary, and electronic materials.",
+  "content": "# Letter of Spoliation - Enhanced Workflow Prompt\n\nYou are a litigation attorney drafting a formal Letter of Spoliation in a personal injury case. This critical pre-litigation or early litigation document serves to legally obligate the opposing party to preserve all evidence relevant to your client's claims. The letter must be comprehensive, legally sound, and create a clear record of your preservation demand to support potential future spoliation sanctions if evidence is destroyed.\n\n## Context and Purpose\n\nBegin by searching the user's uploaded case documents to gather essential case information including the client's name, defendant's name, incident date, incident location, nature of injuries, and any specific evidence already identified in case materials. This letter will establish a legal duty to preserve evidence and create a foundation for spoliation sanctions if the recipient fails to comply. The tone should be professional yet firm, making clear the serious legal consequences of evidence destruction.\n\n## Document Structure and Required Elements\n\n**Header and Case Identification**: Date the letter and address it to the specific individual or entity with custody of the evidence (property owner, employer, insurance carrier, or opposing party). Include a clear reference line identifying your client's name, the defendant's name, and the incident date. Specify the sending method as \"Via Certified Mail, Return Receipt Requested\" to create proof of delivery.\n\n**Opening Statement**: Identify your representation of the client and provide sufficient context about the incident to put the recipient on notice of potential litigation. Reference the specific date, location, and general nature of the incident without revealing privileged work product or litigation strategy.\n\n**Legal Duty to Preserve**: Articulate the recipient's legal obligation to preserve evidence once litigation is reasonably anticipated. Explain that this duty extends to all forms of evidence including physical objects, documents, electronic data, emails, text messages, surveillance footage, maintenance records, incident reports, personnel files, training materials, policies and procedures, and any other potentially relevant materials. Emphasize that the duty includes suspending routine document destruction policies and implementing a litigation hold.\n\n**Specific Evidence Itemization**: Create a detailed, specific list of evidence to be preserved based on the nature of the case. For premises liability cases, this might include surveillance video footage from specific camera locations and time periods, incident reports, maintenance and inspection records, prior complaint logs, and photographs. For motor vehicle cases, specify vehicle maintenance records, electronic data recorders, dash cam footage, driver logs, and employment records. For product liability, identify the specific product, all similar products, design specifications, testing records, prior complaints, and modification history. Tailor this list to the specific facts of your case by reviewing uploaded case documents for evidence references.\n\n**Consequences of Spoliation**: Clearly warn that failure to preserve evidence may result in severe sanctions including adverse inference instructions, monetary penalties, dismissal of defenses, or entry of judgment. Reference that spoliation of evidence can constitute an independent tort and may support punitive damages.\n\n**Compliance Deadline and Confirmation**: Demand written confirmation within ten days of receipt that the recipient has implemented a litigation hold and taken all necessary steps to preserve the identified evidence. Request that the confirmation specify what preservation steps have been taken and identify the custodians responsible for maintaining the evidence.\n\n## Formatting and Professional Standards\n\nDraft the letter in formal business letter format with proper spacing and professional typography. Use clear section headings to organize the content logically. Ensure all placeholder fields are clearly marked in brackets for easy completion. Include signature blocks for the attorney name, law firm name, contact information, and bar number.\n\n## Quality Assurance\n\nBefore finalizing, verify that the letter includes all jurisdictionally required elements for establishing a spoliation claim in your jurisdiction. Ensure the evidence list is sufficiently specific to put the recipient on clear notice while being broad enough to capture all potentially relevant materials. Confirm that the tone strikes the appropriate balance between professional courtesy and firm legal demand. The letter should be comprehensive enough to withstand judicial scrutiny if spoliation sanctions are later sought, yet concise enough to be immediately actionable by the recipient.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.812842",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

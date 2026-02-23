@@ -1,0 +1,372 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c73-1218-7932-9697-250464ec97ac
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "bd19d655-4049-4829-9c34-12a3f01ad461",
+  "slug": "deposition-30b6-corporate-rep",
+  "name": "30(b)(6) Corporate Representative Deposition",
+  "summary": "Complete guidance for taking and defending Rule 30(b)(6) corporate representative depositions. When taking: draft properly scoped topic lists, prepare examination outlines that bind the corporation, and extract admissions that become the company's official position. When defending: analyze noticed topics for objections, select and prepare appropriate designees, and ensure adequate preparation on each topic. Covers topic list drafting with \"reasonable particularity,\" designee selection strategy, the binding nature of corporate testimony, and handling \"outside my designated topics\" responses. Essential for any litigation involving corporate parties.",
+  "content": "You are an experienced litigation attorney handling a Rule 30(b)(6) corporate representative deposition. Your task is to guide the attorney through the complete 30(b)(6) process\u2014whether taking the deposition of an opposing corporation or defending your client's corporate designee. This skill covers topic drafting, designee selection, preparation, and examination strategies unique to corporate representative depositions.\n\n### Understanding 30(b)(6) Depositions\n\n**What Makes 30(b)(6) Different**\n\nA 30(b)(6) deposition is fundamentally different from an individual deposition:\n\n| Individual Deposition | 30(b)(6) Deposition |\n|----------------------|---------------------|\n| Tests one person's personal knowledge | Tests the corporation's collective knowledge |\n| Witness testifies to what they know | Designee must prepare to testify on behalf of organization |\n| \"I don't know\" is acceptable | \"I don't know\" may mean corporation failed to prepare |\n| Testimony binds only the individual | Testimony binds the corporation |\n| No advance topic disclosure required | Requires notice with topics stated with \"reasonable particularity\" |\n| Depose the person you want | Corporation selects who to designate |\n\n**The Binding Nature of 30(b)(6) Testimony**\n\nCorporate representative testimony constitutes an evidentiary admission by the organization itself. This means:\n- The corporation cannot later contradict its designee's testimony without explanation\n- 30(b)(6) testimony can be used to support summary judgment against the corporation\n- The designee's admissions are the corporation's admissions\n- This creates unique strategic opportunities (when taking) and risks (when defending)\n\n**The Corporation's Duty to Prepare**\n\nThe designated witness must prepare beyond their personal knowledge:\n- Review documents and information from across the organization\n- Interview other employees with relevant knowledge\n- Synthesize information to present the corporation's position\n- The witness testifies to what the corporation knows, not just what they personally know\n\n---\n\n## PART A: TAKING A 30(b)(6) DEPOSITION\n\n### Phase A1: Topic List Drafting\n\nThe notice must describe the topics \"with reasonable particularity.\" This is the most critical drafting task.\n\n**Principles of Effective Topic Drafting**\n\n1. **Specific Enough to Require Preparation**\n   - Bad: \"All communications regarding the plaintiff\"\n   - Good: \"Communications between HR and the plaintiff's supervisor regarding plaintiff's performance from January 2023 to June 2024\"\n\n2. **Broad Enough to Cover What You Need**\n   - Too narrow: \"The email sent on March 15, 2024 at 2:47 PM\"\n   - Appropriate: \"Communications regarding the decision to terminate plaintiff's employment\"\n\n3. **Tied to Claims and Defenses**\n   - Each topic should connect to an element of a claim or defense\n   - Don't include topics just because they're interesting\n\n4. **Avoid Objectionable Framing**\n   - Avoid asking for \"all\" information (overbroad)\n   - Avoid legal conclusions (\"Whether defendant discriminated\")\n   - Avoid topics requiring expert opinion\n   - Avoid privileged information (legal advice, work product)\n\n**Topic Categories to Consider**\n\nBased on case type, consider topics in these categories:\n\n**Organizational Structure and Policies**\n- Corporate structure, reporting relationships, decision-making authority\n- Policies and procedures relevant to the dispute\n- Training on relevant policies\n- Policy creation, modification, and communication\n\n**Personnel and Decision-Making**\n- Identity and roles of persons involved in key decisions\n- Decision-making process for [specific decision]\n- Communications among decision-makers\n- Criteria applied in making decisions\n\n**Documents and Records**\n- Document retention policies and practices\n- Location and custodians of relevant documents\n- Creation and maintenance of specific records\n- Any document destruction or loss\n\n**Chronology and Events**\n- Sequence of events leading to [key event]\n- Corporation's knowledge of [specific facts]\n- Actions taken in response to [specific events]\n- Timeline of [specific process]\n\n**Financial and Damages**\n- Calculation of [specific damages/amounts]\n- Financial impact of [specific events]\n- Basis for [specific financial decisions]\n\n**Topic List Template**\n\nGenerate a topic list following this format:\n\n```\nRULE 30(b)(6) NOTICE TOPICS\n\nPursuant to Federal Rule of Civil Procedure 30(b)(6), [Corporation] shall \ndesignate one or more representatives to testify on its behalf regarding \nthe following topics:\n\nTOPIC 1: [Corporation's] organizational structure from [date] to present, \nincluding reporting relationships and decision-making authority for \n[relevant department/function].\n\nTOPIC 2: [Corporation's] policies and procedures regarding [specific \nsubject matter], including the creation, modification, communication, \nand enforcement of such policies from [date] to [date].\n\nTOPIC 3: The facts and circumstances surrounding [specific event or \ndecision], including all persons involved, communications exchanged, \ncriteria considered, and the basis for the decision.\n\nTOPIC 4: [Corporation's] documents and records relating to [specific \nsubject], including their creation, maintenance, location, and any \ndestruction or loss.\n\nTOPIC 5: [Continue as needed...]\n```\n\n**Anticipating Objections**\n\nFor each topic, evaluate potential objections:\n\n| Topic | Potential Objection | How to Address |\n|-------|--------------------|--------------------|\n| [Topic] | Overbroad | Narrow time period or scope |\n| [Topic] | Vague | Add specific definitions |\n| [Topic] | Unduly burdensome | Limit to key custodians/sources |\n| [Topic] | Seeks privileged info | Carve out attorney-client communications |\n| [Topic] | Seeks legal conclusions | Reframe to seek facts, not conclusions |\n\n### Phase A2: Examination Strategy\n\n**Opening: Confirm Designation and Preparation**\n\nBegin every 30(b)(6) deposition by establishing the foundation:\n\n\"You've been designated by [Corporation] to testify on its behalf regarding certain topics, correct?\"\n\n\"Let me go through the topics you've been designated to address:\n- Topic 1: [Read topic]. Were you designated for this topic?\"\n- [Continue for each topic]\n\n\"For each topic you were designated to address, tell me what you did to prepare.\"\n\nFor each topic, establish:\n- What documents did you review?\n- Who did you speak with?\n- What other sources of information did you consult?\n- Do you feel you're prepared to testify fully on this topic?\n\n**Why This Matters:**\n- Establishes the record if the witness claims lack of knowledge later\n- Identifies potential additional discovery (documents reviewed, people consulted)\n- Creates foundation for argument that corporation failed its duty to prepare\n\n**Topic-by-Topic Examination**\n\nFor each noticed topic, follow this structure:\n\n**A. Foundation**\n- Confirm the witness is designated for this topic\n- Confirm preparation for this topic\n- Identify the witness's personal involvement (if any)\n\n**B. Substantive Examination**\n- Start broad: \"Tell me what [Corporation] knows about [topic]\"\n- Follow up on each point\n- Cover all aspects of the topic as noticed\n- Use documents to test and expand the testimony\n\n**C. Binding Admissions**\nThe key strategic advantage of 30(b)(6) is obtaining binding corporate admissions:\n\n\"Is it [Corporation's] position that [favorable characterization]?\"\n\"Does [Corporation] contend that [fact]?\"\n\"What is [Corporation's] explanation for [event]?\"\n\nFrame questions to elicit the corporation's official position, not just what the witness personally thinks.\n\n**D. Exhaustion Check**\nBefore leaving each topic:\n\n\"Is there any other information that [Corporation] has regarding [topic] that you haven't told me about?\"\n\"Are there any other documents related to [topic] that you haven't mentioned?\"\n\"Is there anyone else at [Corporation] with knowledge of [topic] that you haven't identified?\"\n\n**Handling Common 30(b)(6) Problems**\n\n**Problem: \"I don't know\"**\n\nWhen a designated witness says \"I don't know\":\n\n\"You were designated to testify on behalf of [Corporation] about this topic, correct?\"\n\"You had an obligation to prepare to testify about this topic, correct?\"\n\"What did you do to find out the answer to this question?\"\n\"Who at [Corporation] would have this information?\"\n\"Are you telling me that [Corporation] doesn't know, or that you weren't prepared to testify about this?\"\n\nDocument the failure to prepare for potential motion to compel.\n\n**Problem: \"That's outside my designated topics\"**\n\n\"Let me read you Topic [X] from the notice: [read topic]. Isn't this question within that topic?\"\n\"Who at [Corporation] was designated for that topic?\"\n\"If no one was designated for that topic, why not?\"\n\nNote: You can also ask the witness questions in their personal capacity, not just as corporate representative.\n\n**Problem: Multiple Designees**\n\nIf the corporation designated different people for different topics:\n- Examine each designee only on their designated topics\n- Get clear confirmation of which topics each covers\n- Note any gaps between designees\n- Consider whether gaps require meet-and-confer or motion\n\n**Problem: Witness Constantly Defers to Counsel**\n\n\"I need you to answer, not your attorney.\"\n\"Do you need to ask your attorney what [Corporation's] position is?\"\n\"Did you prepare for this deposition with your attorney?\"\n\"Did your attorney tell you what [Corporation's] position is on this topic?\"\n\n### Phase A3: Post-Deposition Use of 30(b)(6) Testimony\n\n30(b)(6) testimony is powerful evidence:\n\n**Summary Judgment**\n- Corporate admissions can establish undisputed facts\n- \"The corporation testified that...\" is strong evidence\n- Opposing party cannot easily contradict their own designee\n\n**Trial**\n- 30(b)(6) testimony is admissible as party admission\n- Can be read to jury as corporation's own statement\n- Impeachment if corporation's trial position differs from deposition\n\n**Discovery Motions**\n- Failed preparation can support motion to compel re-deposition\n- Inadequate designation can support sanctions\n\n---\n\n## PART B: DEFENDING A 30(b)(6) DEPOSITION\n\n### Phase B1: Topic Analysis\n\nWhen you receive a 30(b)(6) notice, analyze each topic:\n\n**For Each Topic, Assess:**\n\n| Factor | Analysis |\n|--------|----------|\n| **Clarity** | Is the topic stated with reasonable particularity? |\n| **Scope** | Is it appropriately limited in time and subject? |\n| **Relevance** | Does it relate to claims/defenses? |\n| **Burden** | How difficult will it be to prepare? |\n| **Privilege** | Does it seek privileged information? |\n| **Objections** | What objections should we make? |\n\n**Common Objections to 30(b)(6) Topics**\n\n| Objection | When to Use | Example |\n|-----------|-------------|---------|\n| **Overbroad** | Topic covers too much ground | \"All communications\" with no time limit |\n| **Vague** | Topic is unclear | \"Relevant policies\" without specifying which |\n| **Unduly Burdensome** | Preparation would be unreasonable | Topics requiring review of millions of documents |\n| **Not Reasonably Particular** | Doesn't specify what's sought | \"Information about the plaintiff\" |\n| **Seeks Legal Conclusions** | Asks for legal positions | \"Whether defendant violated the contract\" |\n| **Privileged** | Seeks attorney-client or work product | \"Communications with counsel about this lawsuit\" |\n| **Irrelevant** | No connection to claims | Topic about unrelated business unit |\n\n**Generating a Topic Response**\n\nFor each topic, recommend one of:\n\n1. **Accept** \u2014 Prepare a designee to testify fully\n2. **Accept with Clarification** \u2014 Agree to topic as you understand it; document understanding\n3. **Narrow** \u2014 Propose reasonable limitations; explain basis\n4. **Object and Refuse** \u2014 Only for clearly improper topics; be prepared to litigate\n5. **Object but Prepare** \u2014 State objection; prepare witness anyway to avoid sanctions\n\n**Sample Topic Analysis Output:**\n\n| Topic | Assessment | Recommendation | Proposed Response |\n|-------|------------|----------------|-------------------|\n| Topic 1 | Clear, relevant, manageable | Accept | Designate [Name] |\n| Topic 2 | Overbroad in time | Narrow | Limit to 2022-2024 |\n| Topic 3 | Vague | Clarify | Request specification |\n| Topic 4 | Seeks privileged info | Object/Partial | Testify on non-privileged aspects |\n| Topic 5 | Irrelevant | Object | Refuse absent court order |\n\n### Phase B2: Designee Selection\n\n**Selection Criteria**\n\nFor each topic, identify the best designee based on:\n\n1. **Knowledge** \u2014 Who knows the most about this topic?\n2. **Preparation Capacity** \u2014 Who can learn what they don't know?\n3. **Demeanor** \u2014 Who will present well under examination?\n4. **Availability** \u2014 Who can prepare adequately given the timeline?\n5. **Authority** \u2014 Who can credibly speak for the corporation?\n\n**Designee Options**\n\n| Option | Pros | Cons |\n|--------|------|------|\n| **Most Knowledgeable Person** | Minimal preparation needed | May be poor witness; may be very senior |\n| **Designated Corporate Witness** | Professional, experienced | May require extensive preparation |\n| **Person Who Prepared Response** | Already knows the subject | May have limited broader knowledge |\n| **Outside Counsel Coordination** | Can synthesize information | Usually not appropriate |\n| **Multiple Designees** | Each expert in their area | Coordination challenges; gaps possible |\n\n**Designee Matrix**\n\n| Topic | Primary Designee | Backup | Knowledge Level | Prep Needed |\n|-------|-----------------|--------|-----------------|-------------|\n| Topic 1 | [Name/Title] | [Name] | High/Med/Low | Hours estimate |\n| Topic 2 | [Name/Title] | [Name] | High/Med/Low | Hours estimate |\n\n**Single vs. Multiple Designees**\n\nConsider:\n- **Single designee** \u2014 Simpler; avoids gaps; requires broader preparation\n- **Multiple designees** \u2014 Each can be expert; creates gap risks; scheduling complexity\n\nIf using multiple designees:\n- Clearly delineate which topics each covers\n- Ensure no gaps between designees\n- Prepare each on potential overlap areas\n- Have them review each other's preparation\n\n### Phase B3: Designee Preparation\n\n30(b)(6) preparation is more intensive than individual witness preparation. The designee must know what the corporation knows, not just what they personally know.\n\n**Preparation Scope**\n\nFor each topic, the designee must:\n\n1. **Review Documents**\n   - All documents relevant to the topic\n   - Documents the designee didn't previously know about\n   - Documents from other custodians\n\n2. **Interview Witnesses**\n   - Current employees with relevant knowledge\n   - Former employees if reasonably available\n   - Document what was learned\n\n3. **Synthesize Information**\n   - Identify the corporation's position on key issues\n   - Reconcile conflicting information\n   - Prepare to explain ambiguities\n\n4. **Anticipate Questions**\n   - What will opposing counsel ask about this topic?\n   - What documents will they use?\n   - What admissions will they seek?\n\n**Topic-by-Topic Preparation Checklist**\n\nFor each topic, generate a preparation checklist:\n\n**TOPIC: [Topic Text]**\n\nDocuments to Review:\n- [ ] [Document category 1]\n- [ ] [Document category 2]\n- [ ] [Specific documents identified]\n\nPeople to Interview:\n- [ ] [Person 1] \u2014 [What they know]\n- [ ] [Person 2] \u2014 [What they know]\n\nKey Facts to Know:\n- [ ] [Fact 1]\n- [ ] [Fact 2]\n\nPotential Problem Areas:\n- [ ] [Issue 1] \u2014 [How to address]\n- [ ] [Issue 2] \u2014 [How to address]\n\nCorporation's Position:\n- On [sub-issue 1]: [Position]\n- On [sub-issue 2]: [Position]\n\n**Preparation Sessions**\n\nStructure preparation using @deposition-witness-prep-session, with these 30(b)(6) additions:\n\n**Session 1: Topic-by-Topic Foundation**\n- Walk through each topic\n- Identify what the designee already knows\n- Identify gaps requiring research/interviews\n- Assign document review and interviews\n\n**Session 2: Knowledge Synthesis**\n- Review what designee learned from documents/interviews\n- Test knowledge on each topic\n- Identify the corporation's position on key issues\n- Fill remaining gaps\n\n**Session 3: Practice Examination**\n- Practice questions on each topic\n- Focus on binding admission questions\n- Practice handling \"I don't know\" appropriately\n- Practice staying within designated topics\n\n**The \"I Don't Know\" Problem in 30(b)(6)**\n\nCoach the designee on the difference between:\n\n\u2705 **Acceptable**: \"The corporation does not have information about that\" (after adequate preparation)\n\n\u2705 **Acceptable**: \"I've reviewed all available documents and interviewed relevant personnel, and the corporation's records don't reflect that information\"\n\n\u274c **Problematic**: \"I don't know\" (without explanation of preparation efforts)\n\n\u274c **Problematic**: \"I wasn't told about that\" (suggests inadequate preparation)\n\nIf the designee truly doesn't know something after adequate preparation:\n- Explain the preparation undertaken\n- Explain why the information isn't available\n- Don't guess or speculate\n\n### Phase B4: Defending the Deposition\n\n**Before the Deposition**\n\n- Final preparation session (day before or morning of)\n- Review the topics one more time\n- Remind designee of ground rules\n- Confirm designee feels prepared on each topic\n\n**During the Deposition**\n\n**Objections:**\nPreserve objections to improper questions, but remember most questions must still be answered.\n\n**Proper Objections:**\n- Objection to form (compound, ambiguous, etc.)\n- Beyond the scope of noticed topics (but witness may still need to answer in personal capacity)\n- Assumes facts not in evidence\n- Calls for speculation\n\n**Instructions Not to Answer (Rare):**\n- Attorney-client privilege\n- Work product (depending on jurisdiction)\n- Questions clearly outside all noticed topics AND outside personal knowledge\n\n**Protecting the Record:**\n\nIf the witness struggles, consider:\n- Taking a break (not during a pending question)\n- Objecting to unclear questions\n- Asking the questioner to clarify\n\nDo NOT:\n- Coach the witness during breaks\n- Make speaking objections that signal answers\n- Obstruct legitimate questioning\n\n**After the Deposition**\n\n- Debrief with the witness\n- Identify any issues requiring follow-up\n- Consider whether errata sheet corrections are needed\n- Assess whether re-deposition risk exists\n\n---\n\n## Outputs\n\n**When Taking a 30(b)(6):**\n1. Drafted topic list with reasonable particularity\n2. Topic-by-topic examination outline\n3. Binding admission question list\n4. Anticipated objections and responses\n\n**When Defending a 30(b)(6):**\n1. Topic analysis with objections and recommendations\n2. Designee selection matrix\n3. Topic-by-topic preparation checklist\n4. Corporation's position summary by topic\n5. Witness preparation session plan\n\n---\n\n## Cross-References\n\n- @deposition-preparation \u2014 General deposition preparation framework\n- @deposition-witness-prep-session \u2014 Witness preparation session structure\n- @deposition-notice-drafter \u2014 Notice and subpoena drafting (including 30(b)(6) notices)\n- @deposition-objection-reference \u2014 Objection types and grounds\n- @deposition-questioning-techniques \u2014 Examination techniques applicable to 30(b)(6)\n\n---\n\n## References\n\n- Federal Rules of Civil Procedure, Rule 30(b)(6) \u2014 Deposition of Organization\n- Federal Rules of Civil Procedure, Rule 37(d) \u2014 Failure to Attend Deposition\n- *Brazos River Authority v. GE Ionics, Inc.*, 469 F.3d 416 (5th Cir. 2006) \u2014 Binding nature of testimony\n- *QBE Insurance Corp. v. Jorda Enterprises, Inc.*, 277 F.R.D. 676 (S.D. Fla. 2012) \u2014 Duty to prepare\n- *Calzaturficio v. Fabiano Shoe Co.*, 201 F.R.D. 33 (D. Mass. 2001) \u2014 Reasonable particularity standard\n- State equivalents vary; consult local rules (e.g., California Code of Civil Procedure \u00a7 2025.230)",
+  "parent_skill_id": null,
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "license": "Apache-2.0",
+    "keywords": [
+      "deposition",
+      "testimony",
+      "examination",
+      "preparation",
+      "corporate representative",
+      "30(b)(6)",
+      "litigation",
+      "objection",
+      "notice"
+    ],
+    "complexity": "Senior",
+    "industries": [],
+    "author_name": "CaseMark Legal Team",
+    "party_roles": [
+      "Plaintiff",
+      "Defendant"
+    ],
+    "skill_modes": [
+      "Drafting",
+      "Analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US Federal",
+      "US State"
+    ],
+    "matter_phases": [
+      "Discovery",
+      "Pre-Trial"
+    ],
+    "document_types": [
+      "Outline",
+      "Checklist",
+      "Notice"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "author_linkedin": "https://linkedin.com/company/casemark",
+    "sub_practice_areas": [
+      "General Litigation",
+      "Employment Litigation",
+      "Commercial Litigation",
+      "Intellectual Property"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-03T22:35:08.236371",
+  "updated_at": "2026-02-03T22:35:08.236371"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:41:18.443676Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+codex
+---
+name: 30b6-corporate-rep
+description: Drafts and analyzes U.S. deposition workflows for Rule 30(b)(6) corporate representative testimony, including noticing topics with reasonable particularity, deposing or defending the corporate designee, objection handling, and preservation of binding admissions for later motions, summary judgment, or trial. Use when receiving, drafting, or enforcing 30(b)(6) notice topics; selecting and preparing designees; building topic-by-topic outlines; or triaging “outside my designated topics,” "I don't know" defenses, and privilege/procedural issues. Trigger keywords: 30(b)(6), corporate representative deposition, topic list, designee, notice analysis, deposition objections, corporate admissions.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Outline
+    - Checklist
+    - Notice
+  skill_modes:
+    - Drafting
+    - Analysis
+---
+
+# Rule 30(b)(6) Corporate Representative Deposition
+
+Drafts and defends corporate representative depositions to create/contain binding corporate testimony with controlled scope, preserved objections, and defensible preparation records.
+
+## Prerequisites
+
+1. Confirm governing law: FRCP 30(b)(6) or state analog, plus local rule overlays and any protective orders.
+2. Identify case theory, claims, defenses, and relief sought.
+3. Gather key pleadings, correspondence, claim timelines, and privilege log.
+4. Collect custodial map, org chart, and known repositories of responsive documents.
+5. Confirm deposition logistics: noticing party, noticing timeline, counsel, deposition reporter, interpreter/transcript needs.
+6. Confirm whether witness is witness/examiner-side role (taking or defending).
+7. Flag deadlines for meet-and-confer and extension opportunities.
+
+## Output Structure / Process
+
+### 1) Intake mode selection
+
+| Mode | Core output | Required inputs |
+|---|---|---|
+| Taking 30(b)(6) deposition | Topic list, examination outline, binding-admission script, objection map | Claims/defenses, document map, desired admissions |
+| Defending 30(b)(6) deposition | Topic response matrix, designee assignment, prep playbook, objection protocol | Notice topics, corporate data sources, witness availability |
+| Post-deposition leverage | Testimony-based summary, contradiction log, potential follow-up actions | Transcript, errata notes, exhibits |
+
+### 2) Topic drafting (for taking a deposition)
+
+| Goal | Rule/Best practice | Draft action |
+|---|---|---|
+| Sufficient particularity | Topics must be specific enough to permit preparation | Include exact conduct/event, time range, participants, and document classes |
+| Broad but bounded scope | Avoid “all communications” traps | Phrase as subject + date range + decision/events |
+| Claim/defense relevance | Prevent objectionable overbreadth | Tie each topic to a pleaded element or affirmative defense |
+| Defensibility | Reduce objections | Avoid legal conclusions, privilege, and purely conclusory wording |
+
+```text
+RULE 30(b)(6) TOPICS
+Pursuant to FRCP 30(b)(6), [Corporation] shall designate one or more persons to testify on its behalf regarding:
+
+TOPIC 1: Corporate structure, reporting chain, and authority for [function] from [start date] to [end date].
+TOPIC 2: [Specific policy] as created, implemented, communicated, and enforced during [time period].
+TOPIC 3: Facts and internal decision-making re: [event], including persons involved, communications, records reviewed, and basis for the decision.
+TOPIC 4: Document repositories, custodians, retention/destruction practices, and any known loss of records related to [subject].
+TOPIC 5: [Limit and continue as needed, with definitions for any technical term].
+```
+
+**Topic objection precheck**
+
+| Objection risk | Typical text | Rewrite |
+|---|---|---|
+| Overbroad | “All communications” | Limit to event, function, and date window |
+| Vague | “Relevant policies” | Specify policy name/type and conduct affected |
+| Burdensome | “All records ever” | Restrict custodians/systems/time period |
+| Privileged | “communications with counsel” | Add explicit non-privileged carve-out |
+| Legal conclusion | “Whether defendant breached duty” | Recast as facts supporting/negating breach |
+
+### 3) Examination structure (when taking)
+
+| Step | Commands |
+|---|---|
+| 1. Foundation | Confirm designation, topics, preparation, and who performed review/interviews |
+| 2. Topic-by-topic build | Elicit factual scope, document sources, person-by-person knowledge, corporate decision pathway |
+| 3. Binding-admission capture | Ask for corporation’s position on each key point and any exceptions |
+| 4. Exhaustion | Ask for missing documents/persons/events and ownership of unknowns |
+| 5. Problem handling | On “I don’t know,” force explanation of prep steps; preserve failure-to-prepare record |
+
+### 4) Taking-side topic-by-topic question skeleton
+
+| Topic stage | Example command pattern |
+|---|---|
+| Prepare/qualify | “You were designated on behalf of [Corporation] for Topic __, correct?” |
+| Corporate knowledge | “What did [Corporation] know, when did it know, and from what source?” |
+| Facts over conclusions | “What documents reflect [fact]?” / “Who communicated [decision] to whom?” |
+| Position evidence | “What is [Corporation]’s position regarding [sub-issue]?” |
+| Coverage probe | “Is there any additional document/person/fact not yet identified?” |
+
+### 5) Topic analysis (when defending)
+
+| Factor | Question | Action |
+|---|---|---|
+| Clarity | Is the topic specific and bounded? | Accept / request clarification |
+| Relevance | Does it map to pleaded claims/defenses? | Narrow or Object |
+| Burden | Can it be prepared on available timelines? | Phased preparation or scope limitation |
+| Privilege | Does it seek protected legal advice/work product? | Object/privilege log and preserve answer-by-topic |
+| Form | Does it seek legal conclusion/speculation? | Reframe objection with reasoned response |
+
+**Response legend:** Accept, Accept-with-clarification, Narrow, Object-and-Prepare, Object-and-Refuse (rare).
+
+### 6) Designee selection matrix
+
+| Topic | Primary designee | Backup | Knowledge level | Prep depth | Gaps |
+|---|---|---|---|---|---|
+| [Topic 1] | [Name/Title] | [Name] | High/Med/Low | [hours] | [gaps] |
+| [Topic 2] | [Name/Title] | [Name] | High/Med/Low | [hours] | [gaps] |
+
+Choose single designee only if breadth manageable; choose multiple where specialization outruns coordination risk.
+
+### 7) Topic-specific preparation checklist
+
+| Topic | Actions |
+|---|---|
+| Topic text | [Insert text] |
+| Documents | [ ] Custodian list  [ ] Repositories  [ ] Privilege flags  [ ] Missing/lost-data log |
+| Interviews | [ ] Internal witnesses [ ] Prior employees if available [ ] Notes logged |
+| Synthesis | [ ] Corporate position  [ ] Conflicts reconciled  [ ] Uncertain areas marked |
+| Deposition responses | [ ] “Does not know” only after documented diligence  [ ] Non-speculative answers  [ ] Personal knowledge distinction noted |
+
+### 8) During deposition (defending)
+
+| Objection handling | Rule of use |
+|---|---|
+| Form | Compound/ambiguous/unclear phrasing objection with request to narrow |
+| Scope | Beyond noticed topics objection, while allowing potential personal-capacity answering |
+| Privilege | Counsel consult for attorney-client and, as applicable, work-product |
+| Calls for speculation | Clarify knowledge limits and basis |
+
+Do not coach witness on substantive answers during breaks; preserve record instead via clarifying questions and on-record process directives.
+
+### 9) After deposition leverage
+
+1. Extract clean admissions and inconsistencies by topic.
+2. Build contradiction matrix against prior corporate documents and witness statements.
+3. Identify meet-and-confer items (new topics, incompletely prepared topics, sanction exposure).
+4. Evaluate whether supplemental deposition is required versus Rule 37 motion posture.
+
+## Guidelines
+
+- Keep every 30(b)(6) topic tied to a litigation objective and time-bounded.
+- In taking mode, treat witness answers as potential party admissions; pin down “corporation’s position” precisely.
+- In defending mode, prepare as if every topic may be used at summary judgment and at trial.
+- Avoid coaching during deposition; objections should preserve rights without obstructing proper questioning.
+- Mark jurisdictional limits explicitly for state court analogs and local rules, including any timing or notice differences [VERIFY].
+- Use [VERIFY] for all non-confirmed external citations before finalizing formal filings.
+
+## Cross-references
+
+- @deposition-preparation
+- @deposition-witness-prep-session
+- @deposition-notice-drafter
+- @deposition-objection-reference
+- @deposition-questioning-techniques
+
+## References
+
+- Federal Rule of Civil Procedure 30(b)(6) [VERIFY]
+- Federal Rule of Civil Procedure 37(d) [VERIFY]
+- *Brazos River Authority v. GE Ionics, Inc.*, 469 F.3d 416 (5th Cir. 2006) [VERIFY]
+- *QBE Insurance Corp. v. Jorda Enterprises, Inc.*, 277 F.R.D. 676 (S.D. Fla. 2012) [VERIFY]
+- *Calzaturficio v. Fabiano Shoe Co.*, 201 F.R.D. 33 (D. Mass. 2001) [VERIFY]
+- California Code of Civil Procedure § 2025.230 (state corporate representative framework analog considerations) [VERIFY]
+tokens used
+9,674

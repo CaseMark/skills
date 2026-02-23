@@ -1,0 +1,40 @@
+{
+  "id": "e4c5de97-8e7b-45c9-8c25-1554b407c370",
+  "slug": "international-trade-law-summaries",
+  "name": "International Trade Law Summaries",
+  "summary": "Generates comprehensive summaries of key international trade law regulations, statutes, and landmark cases. Helps companies navigate importing, exporting, tariffs, trade agreements, and compliance challenges. Use it as a practical reference for in-house counsel, compliance officers, and executives.",
+  "content": "# International Trade Law Summary Prompt\n\nYou are an expert international trade law attorney tasked with creating a comprehensive summary of key regulations and cases that will help companies navigate the complexities of importing, exporting, tariffs, and trade agreements. This summary should serve as a practical reference guide for in-house counsel, compliance officers, and business executives who need to understand the current international trade law landscape.\n\nBegin by conducting thorough research to identify the most significant and current international trade regulations, statutes, and landmark cases. Your research should encompass multilateral trade agreements such as WTO provisions and GATT principles, regional trade agreements including USMCA, EU trade regulations, and bilateral trade treaties, as well as domestic trade laws such as U.S. customs regulations, export control laws (EAR and ITAR), and trade remedy statutes. Search for recent developments in trade law, including new tariff schedules, sanctions programs, and regulatory updates from the past 12-24 months that would materially impact international business operations.\n\nWhen analyzing cases, focus on precedent-setting decisions that clarify key principles in areas such as tariff classification disputes, anti-dumping and countervailing duty determinations, customs valuation controversies, export control violations, and trade agreement interpretation. For each significant case, extract the essential facts, the legal issues presented, the court or tribunal's holding, and most importantly, the practical implications for businesses engaged in international trade. Ensure all case citations are properly formatted and verified for accuracy.\n\nStructure your summary to be both comprehensive and accessible. Organize the content by major topic areas rather than chronologically, allowing readers to quickly locate information relevant to their specific trade activities. For each regulatory framework or legal principle, explain not only what the law requires but also how companies can achieve compliance in practice. Include guidance on common pitfalls, recent enforcement trends, and best practices that emerge from the case law and regulatory guidance.\n\nAddress the interplay between different regulatory regimes, as international trade often involves navigating multiple jurisdictions simultaneously. Explain how U.S. export controls interact with foreign import regulations, how free trade agreement provisions may override standard tariff schedules, and how sanctions programs can restrict otherwise permissible trade activities. Your summary should help readers understand these complex interactions and identify when specialized legal advice may be necessary.\n\nIncorporate practical context throughout the summary by explaining when specific regulations apply, which government agencies have jurisdiction over different aspects of international trade, what documentation and compliance procedures are required, and what penalties or remedies may result from violations. This context transforms abstract legal principles into actionable guidance that business professionals can apply to their operations.\n\nConclude with a section highlighting emerging trends and areas of uncertainty in international trade law, such as evolving digital trade regulations, environmental and labor standards in trade agreements, national security considerations in trade policy, or ongoing trade disputes that may reshape the legal landscape. This forward-looking analysis helps companies anticipate future compliance challenges and strategic considerations.\n\nYour final summary should be thorough yet concise, typically ranging from 10 to 25 pages depending on the scope requested. Use clear headings and subheadings to enhance readability, and consider including a table of contents for longer summaries. Write in plain language that legal and non-legal professionals can understand, while maintaining the precision and accuracy expected in legal analysis. The goal is to create a reference document that reduces the time and cost companies spend researching international trade law issues while ensuring they have reliable, current information to guide their business decisions.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "research",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.116143",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "95727531-983b-4681-9a0b-8102eed3b665",
+  "slug": "post-settlement-correspondence",
+  "name": "Post-Settlement Correspondence",
+  "summary": "Drafts a comprehensive post-settlement correspondence document that memorializes negotiations, agreements, and terms in commercial litigation. It provides a chronological narrative of settlement discussions followed by detailed outlines of monetary, non-monetary, release, and confidentiality provisions. Use it immediately after reaching a settlement to create an official record for implementation, compliance, and stakeholder reference.",
+  "content": "# Post-Settlement Correspondence\n\nYou are tasked with preparing a comprehensive post-settlement correspondence document that memorializes the settlement negotiations and final agreements reached between the parties. This document serves as an official record of the settlement process and terms, providing clarity for all stakeholders and creating a reference point for future implementation and compliance.\n\nBegin by thoroughly reviewing all available settlement-related materials in the case file. Search through uploaded documents to identify and extract key information including the chronology of settlement discussions, all offers and counteroffers exchanged, the parties' positions throughout negotiations, any mediator reports or recommendations, and the final settlement terms as agreed. Pay particular attention to monetary amounts, payment schedules, release provisions, confidentiality clauses, and any ongoing obligations of the parties.\n\nStructure the correspondence to provide both a narrative summary and specific documentation of the settlement. Open with a clear statement of the matter and parties involved, followed by a chronological account of how the settlement was reached. Detail the progression of negotiations, noting significant developments such as mediation sessions, key concessions, and turning points that led to resolution. Present this narrative in a professional tone that acknowledges the collaborative resolution while maintaining appropriate formality.\n\nThe core of the document should comprehensively outline all settlement terms and conditions. Specify the exact monetary consideration, including total amounts, payment structure, and deadlines. Describe any non-monetary terms such as injunctive relief, behavioral commitments, or structural changes agreed upon. Address the scope of releases and dismissals, identifying which claims, parties, and time periods are covered. Include provisions regarding confidentiality, non-disparagement, and any restrictions on future conduct. If the settlement includes ongoing obligations such as reporting requirements, compliance monitoring, or future cooperation, detail these clearly with associated timelines.\n\nIncorporate relevant legal considerations throughout the document. Reference applicable procedural rules governing settlement approval if court approval is required. Note any statutory or regulatory compliance issues addressed by the settlement terms. If the settlement involves minors, incapacitated persons, or class members, address the special approval procedures and protections applicable to these parties. Acknowledge any tax implications or reporting requirements that may arise from the settlement structure.\n\nConclude with clear next steps and implementation requirements. Specify deadlines for executing settlement agreements, filing dismissals, making payments, or taking other required actions. Identify responsible parties for each action item and establish a timeline for full implementation. Include contact information for all counsel and parties to facilitate coordination during the implementation phase.\n\nThroughout the document, maintain precise language that accurately reflects the settlement terms while remaining accessible to all recipients. Ensure that the correspondence can serve as both a summary for clients and other stakeholders who need to understand the settlement at a high level, and as a detailed reference for attorneys and parties responsible for implementing specific terms. The final document should be suitable for inclusion in the case file as the definitive record of how the settlement was achieved and what obligations it creates going forward.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "settlement",
+      "post-trial"
+    ],
+    "document_types": [
+      "letter",
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "24f005d4-5555-4672-9105-72caf8c3108c",
+  "slug": "environmental-regulation-summaries",
+  "name": "Environmental Regulation Summaries",
+  "summary": "Generates comprehensive summaries of key environmental laws, regulations, and compliance requirements for specific industries, activities, or projects. Identifies applicable federal, state, and local statutes like the Clean Air Act and Clean Water Act, explaining purposes, obligations, permitting, and penalties. Use it to help businesses, consultants, and regulators ensure compliance and mitigate environmental risks.",
+  "content": "# Environmental Regulation Summary Prompt\n\nYou are tasked with creating a comprehensive environmental regulation summary that identifies and explains the key environmental laws, regulations, and compliance requirements applicable to a specific industry, business activity, or project. This summary serves as a critical compliance tool for businesses, regulatory bodies, environmental consultants, and legal advisors who need to understand their environmental obligations and mitigate potential environmental impacts.\n\nBegin by identifying the specific industry, activity, or project scope that requires environmental regulatory analysis. If the user has not specified this information, ask them to clarify the industry sector (such as manufacturing, energy production, construction, agriculture, mining, or waste management), the geographic jurisdiction (federal, state, local, or international), and any particular environmental concerns or activities involved (such as air emissions, water discharge, hazardous waste handling, land use, or wildlife protection).\n\nOnce you have established the scope, conduct thorough research to identify all applicable environmental laws and regulations. Search for current federal statutes such as the Clean Air Act, Clean Water Act, Resource Conservation and Recovery Act, Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA), National Environmental Policy Act, Endangered Species Act, and Toxic Substances Control Act. Examine relevant state environmental protection laws, which often impose requirements more stringent than federal standards. Review applicable regulations from agencies including the Environmental Protection Agency, state environmental departments, and local environmental authorities. Ensure you are accessing the most current versions of these laws and regulations, as environmental requirements frequently change through amendments, new rulemakings, and updated guidance documents.\n\nFor each identified law or regulation, provide a clear and concise summary that includes the statute or regulation name and citation, the regulatory authority responsible for enforcement, the core purpose and environmental protection goals, specific requirements that apply to the identified industry or activity, compliance obligations including permits, reporting, monitoring, and recordkeeping duties, and potential penalties for non-compliance. Explain technical requirements in accessible language while maintaining legal precision, as your audience may include both legal professionals and business operators without legal training.\n\nAddress the practical implications of compliance by discussing typical permitting processes and timelines, common compliance challenges specific to the industry, best practices for maintaining ongoing compliance, interaction between different regulatory requirements that may overlap or conflict, and recent enforcement trends or regulatory priorities that may affect compliance strategies. If relevant regulations have recently changed or are under review for potential amendment, note these developments and their potential impact on future compliance obligations.\n\nStructure your summary in a logical format that allows readers to quickly locate information relevant to their specific needs. Begin with an executive overview that highlights the most critical regulatory requirements and compliance deadlines. Organize the detailed analysis by regulatory program or environmental media (air, water, land, waste) rather than by individual statute, as this approach better reflects how businesses experience regulatory obligations. Include a compliance checklist or matrix that maps specific business activities to their corresponding regulatory requirements, making it easy for users to identify which rules apply to their operations.\n\nThroughout the summary, maintain awareness of the legal and practical context in which environmental regulations operate. Environmental law is characterized by overlapping federal, state, and local jurisdiction, strict liability standards that can impose significant penalties regardless of intent, citizen suit provisions that allow private enforcement, and rapidly evolving scientific understanding that drives regulatory change. Your summary should help readers not only understand their current obligations but also anticipate emerging compliance issues and develop proactive environmental management strategies.\n\nConclude with practical guidance on maintaining compliance, including recommendations for establishing environmental management systems, conducting regular compliance audits, staying informed about regulatory changes, engaging with regulatory agencies, and seeking specialized legal or technical assistance when needed. If the industry or activity involves particularly complex or high-risk environmental issues, emphasize the importance of consulting with environmental attorneys and technical experts to ensure full compliance and minimize environmental liability.\n\nYour final summary should be comprehensive yet accessible, legally accurate yet practically useful, and tailored specifically to the industry, activity, and jurisdiction identified. It should serve as both a reference document for understanding environmental obligations and a practical guide for implementing effective compliance programs that protect both the environment and the business from regulatory risk.",
+  "parent_skill_id": "10a3b7b1-1714-4b91-94f5-379793333870",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "manufacturing",
+      "energy",
+      "construction",
+      "agriculture",
+      "mining",
+      "waste management"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "research",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "environmental_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:12.841477",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

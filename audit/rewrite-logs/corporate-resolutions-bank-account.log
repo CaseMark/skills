@@ -1,0 +1,427 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7c-5f9e-7283-a563-8c72ebaae68f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d6b0c8ec-fd8f-4303-876d-c1ab917d21bd",
+  "slug": "corporate-resolutions-bank-account",
+  "name": "Corporate Resolutions for Bank Account",
+  "summary": "Drafts comprehensive corporate resolutions authorizing the opening, maintenance, and transaction activities for corporate bank accounts. Ensures compliance with corporate bylaws, state law, and bank due diligence requirements through precise language on authority, officers, and adoption procedures. Use this skill when preparing formal board actions to satisfy financial institutions' demands for account management authorization.",
+  "content": "# Corporate Resolutions for Bank Account - Enhanced Prompt\n\nYou are tasked with drafting a comprehensive Corporate Resolution for Bank Account that serves as a formal corporate governance document authorizing specific banking activities and designating individuals with authority to act on behalf of the corporation. This document must satisfy both corporate formalities and banking institution requirements while providing clear, legally sufficient authorization for financial transactions.\n\n## Understanding the Legal and Practical Context\n\nCorporate resolutions for banking purposes represent official board action that financial institutions require before allowing individuals to open accounts, execute transactions, or otherwise act on behalf of a corporation. These documents serve a dual purpose: they demonstrate compliance with the corporation's internal governance structure and provide banks with the legal assurance they need to accept instructions from designated corporate representatives. Banks typically require original or certified copies of these resolutions and will reject documents that lack specificity, contain ambiguous authorization language, or fail to demonstrate proper corporate authority. The resolution must align with the corporation's articles of incorporation and bylaws, comply with applicable state corporate law, and include sufficient detail to satisfy the due diligence requirements of modern financial institutions.\n\nBefore drafting, you should search any uploaded corporate documents to identify the corporation's exact legal name, state of incorporation, current officers and directors, existing bylaws provisions regarding banking authority, and any prior resolutions that may need to be superseded. Understanding the corporation's governance structure and any special authorization requirements in its governing documents is essential to creating a legally effective resolution.\n\n## Establishing Corporate Authority and Document Foundation\n\nBegin the resolution with a formal header that establishes the document's authority within the corporate governance framework. The header must include the corporation's complete legal name exactly as it appears in the articles of incorporation, the state of incorporation, and the specific date of adoption. Clearly identify whether this resolution is being adopted at a formal board meeting or by written consent of the directors, as this distinction affects the procedural requirements and certification language.\n\nThe preamble should establish the legal foundation by referencing the specific provisions of the corporation's bylaws or articles of incorporation that authorize the board to adopt banking resolutions. If the resolution is adopted at a meeting, document that proper notice was given, specify whether the meeting was regular or special, and confirm that a quorum was present throughout the proceedings. For written consents, confirm that the requisite percentage of directors have consented to the action, noting that many states require unanimous written consent unless the bylaws provide otherwise. Include recitals that explain the business necessity for the banking relationship, such as the corporation's need for banking services to conduct ordinary business operations, manage corporate funds, receive customer payments, or pay vendors and employees.\n\n## Crafting Comprehensive Banking Authorizations\n\nThe operative provisions of the resolution must provide detailed and specific authorization for all banking activities the corporation wishes to permit while maintaining appropriate corporate controls. This section forms the core of the document and must be drafted with precision to avoid both over-restriction that hampers business operations and over-authorization that creates fiduciary risks.\n\nAddress account establishment and management by explicitly authorizing designated officers to open, maintain, modify, and close specific types of accounts at named financial institutions or a defined class of institutions. Specify whether the authorization extends to checking accounts, savings accounts, money market accounts, certificates of deposit, or other account types. Consider whether the corporation needs flexibility to establish accounts at multiple institutions or whether banking relationships should be concentrated at specific banks.\n\nDesignate authorized signatories with clarity regarding both identity and scope of authority. You may designate individuals by specific name, by corporate title, or by a combination of both approaches. Specify whether any single authorized signatory may act alone or whether joint signatures are required for certain transactions or amounts. For example, you might authorize any one signature for transactions under a specified dollar threshold while requiring two signatures for larger amounts. Address check signing authority, wire transfer authorization, ACH transaction approval, online banking access, and authority to execute banking documents and agreements.\n\nEstablish clear transaction parameters that define the scope of authorized banking activities. Beyond basic deposit and withdrawal authority, address whether designated individuals may apply for loans, execute promissory notes, pledge corporate assets as collateral, establish lines of credit, or enter into other borrowing arrangements on behalf of the corporation. If borrowing authority is granted, specify any dollar limitations, approval requirements, or restrictions on the types of obligations that may be incurred. Consider whether certain transactions require board approval beyond the general authorization provided in this resolution.\n\nInclude broad authorization for designated officers to execute all documents, agreements, certificates, and instruments that the financial institution may require to establish and maintain the banking relationship. Banks often have their own required forms and agreements, and this provision ensures that authorized officers can execute these documents without requiring additional board action for each form. However, consider whether certain extraordinary documents or agreements should require specific board approval despite this general authorization.\n\n## Ratification, Effectiveness, and Ongoing Compliance\n\nInclude ratification language that validates any banking actions already taken on behalf of the corporation if individuals have opened accounts or conducted transactions before formal authorization. This ratification protects both the corporation and individuals who acted in good faith, preventing arguments that prior transactions lacked proper authority. Specify the effective date of the resolution, which may be the date of adoption or a future date if the banking relationship has not yet been established.\n\nAddress the relationship between this resolution and any prior banking resolutions by explicitly stating that this resolution supersedes and replaces any prior conflicting resolutions regarding banking authority. This prevents confusion about which authorization controls if multiple resolutions exist. Specify that the resolution remains in full force and effect until formally amended or revoked by subsequent board action, and require the corporation to provide certified copies of any amendments or revocations to the financial institution promptly.\n\nConsider including provisions that address what happens when authorized individuals leave their positions or when new officers are appointed. Some resolutions include automatic termination of authority upon an individual's separation from the corporation, while others require affirmative board action to revoke authority. Address whether the corporation must notify the bank when authorized signatories change and establish procedures for updating signature cards and banking records.\n\n## Certification, Execution, and Corporate Records\n\nConclude with a comprehensive certification section where the corporate secretary certifies the resolution's adoption and continuing validity. The certification should confirm that the resolution was duly adopted in accordance with the corporation's bylaws and applicable law, that it has not been amended or revoked, and that it remains in full force and effect as of the certification date. This certification provides the bank with assurance that the resolution represents current corporate authority.\n\nProvide appropriate signature blocks for the corporate secretary who certifies the resolution and any other officers whose signatures the bank may require. Each signature block should include lines for the signatory's printed name, corporate title, and date of signature. If the corporation maintains a corporate seal, include space for seal impression, as some financial institutions still require this formality despite its declining use in modern corporate practice.\n\n## Document Formatting and Professional Standards\n\nFormat the resolution in a manner consistent with formal corporate governance documents and suitable for presentation to financial institutions. Use clear section headings, numbered or lettered clauses for easy reference, and formal legal language that conveys the document's official nature while remaining comprehensible to bank personnel who will review it. The document should be suitable for printing on corporate letterhead and filing in the corporate minute book as part of the permanent corporate records.\n\nEnsure the final document includes all information that banks typically require in their due diligence review, including complete corporate identification, clear designation of authorized individuals, specific scope of authority, and proper certification. The resolution should be sufficiently detailed to satisfy banking compliance requirements while remaining flexible enough to accommodate normal business operations without requiring frequent amendments.\n\nIf you have access to the corporation's governing documents, prior resolutions, or information about specific banking needs, incorporate this information to create a tailored resolution that addresses the corporation's particular circumstances rather than a generic template. Search uploaded documents for relevant corporate information, officer and director names, existing banking relationships, and any special authorization requirements that should be reflected in the resolution.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:51:27.996569Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Confirming approach to read AGENTS instructions**
+
+The user wants to open the AGENTS instructions file in a specific path with read-only access; I'll use a direct file read like cat rather than searching.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Searching for AGENTS.md**
+exec
+/bin/zsh -lc "rg --files -g 'AGENTS.md'" in /Users/max/CaseMark/skills exited 1 in 52ms:
+
+
+
+thinking
+**Confirming skill-creator as target**
+
+The user wants to rewrite a skill into SKILL.md, which aligns with the skill-creator's purpose for creating or updating skills, so I'll proceed using skill-creator as the relevant skill.
+thinking
+**Prioritizing SKILL.md content output**
+
+The user requires returning only the complete SKILL.md content with no explanations, so I will comply strictly and omit any mention of missing AGENTS.md despite instructions to note that.
+exec
+/bin/zsh -lc 'ls -a' in /Users/max/CaseMark/skills succeeded in 51ms:
+.
+..
+.claude
+.git
+.github
+.gitignore
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Searching for AGENTS.md files**
+
+I'm planning to search the entire directory tree under /Users/max/CaseMark/skills for AGENTS.md files to locate relevant agent definitions before proceeding.
+exec
+/bin/zsh -lc "rg --files -g 'AGENTS.md' .." in /Users/max/CaseMark/skills succeeded in 52ms:
+../c3/AGENTS.md
+../casedotdev-mono-cd-572/apps/router/AGENTS.md
+../thurgood/AGENTS.md
+../casedotdev-mono/apps/router/AGENTS.md
+../thurgood/web/AGENTS.md
+../cm-cr-v2/AGENTS.md
+../references/opencode/opencode/AGENTS.md
+../topology/AGENTS.md
+../casedotdev-mono-main/apps/router/AGENTS.md
+../casedotdev-mono/apps/cli/pre-release-builds/AGENTS.md
+../casedotdev-mono/apps/mcp/AGENTS.md
+../casedotdev-mono/apps/quality-checker/AGENTS.md
+../casedotdev-mono-cd-572/apps/router/workflows/AGENTS.md
+../c3-templates/AGENTS.md
+../casedotdev-mono-cd-572/apps/router/tests/AGENTS.md
+../casedotdev-mono-cd-572/apps/console/AGENTS.md
+../casedotdev-mono-cd-572/apps/console/lib/AGENTS.md
+../casedotdev-mono-cd-572/apps/console/components/AGENTS.md
+../casedotdev-mono-cd-572/apps/console/components/ui/AGENTS.md
+../casedotdev-mono-main/apps/console/AGENTS.md
+
+thinking
+**Preparing to read skill documentation**
+
+I'm opening the SKILL.md file to gather details needed for working with the skill-creator functionality.
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Reconciling conflicting frontmatter instructions**
+
+The user explicitly wants a metadata section in the frontmatter despite the skill-creator's directive to limit frontmatter to name and description only; I'll prioritize the user's format but note the conflict if clean application is impossible.
+thinking
+**Finalizing detailed SKILL.md structure and content**
+
+I'm consolidating all user requirements into a detailed SKILL.md, including a metadata-rich YAML frontmatter, a clear title and purpose, a numbered prerequisites list, structured output/process with required sections table, authority matrix, fill-in template code block, and compliance checklist—all in flat bullet formats and imperative style, using ASCII-only formatting and adhering strictly to user-specified fields and wording.
+codex
+---
+name: bank-account-resolution
+description: Drafts U.S. corporate board resolutions authorizing opening, maintenance, and operation of corporate bank accounts, designating signatories, setting transaction limits, and approving related banking documents with ratification, supersession, and secretary certification language aligned to bylaws and bank due diligence. Use when preparing board resolutions, written consents, bank account opening packets, signatory authority letters, or banking authorization documents for financial institutions. Trigger keywords: bank account resolution, banking resolution, board consent, signatory authority, account opening, ACH, wire, signature card.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Corporate Bank Account Resolution
+
+Authorize corporate banking relationships and signatory authority in a bank-acceptable board action format.
+
+## Prerequisites
+
+1. Exact legal name of the corporation and state of incorporation (from charter).
+2. Current bylaws and any charter provisions on board action, quorum, notice, written consent, and banking authority.
+3. Board action format: meeting (regular/special) or written consent, with required approval threshold.
+4. Current officers/directors, titles, and dates of appointment.
+5. Bank name(s), account types to be opened/maintained, and any bank-specific form requirements.
+6. Desired signatories, signature requirements (single/joint), and dollar thresholds.
+7. Scope of authority: deposits, withdrawals, ACH, wires, online banking, loans/credit, collateral pledges.
+8. Prior banking resolutions or actions to ratify or supersede.
+
+## Output Structure / Process
+
+Use this structure in order and tailor to the corporation's governance rules and the bank's requirements.
+
+**Required Sections**
+
+| Section | Required Content |
+| --- | --- |
+| Header | Corporate name, state, date, action method (meeting or written consent). |
+| Authority Recitals | Cite bylaws/charter authority; confirm notice/quorum or written consent threshold; business need for banking. |
+| Account Authorization | Name bank(s) and permitted account types; authority to open/maintain/close/modify accounts. |
+| Signatory Authority | Identify authorized persons by name and/or title; single vs joint signatures; threshold rules. |
+| Transaction Authority | Scope for checks, ACH, wires, online banking; any limits or approval steps. |
+| Borrowing Authority | If included, specify loan/credit limits, collateral, and approval constraints. |
+| Bank Forms | Authority to execute bank-required documents and signature cards. |
+| Ratification | Validate prior actions taken in good faith. |
+| Supersession | Replace prior conflicting banking resolutions. |
+| Effectiveness | Effective date; duration until amended/revoked. |
+| Changes in Officers | Automatic termination on separation vs board action; notice to bank. |
+| Certification | Secretary certification of adoption and current validity. |
+| Signatures | Secretary signature block; optional corporate seal. |
+
+**Authority Matrix (fill in and mirror in clauses)**
+
+| Action | Authorized Person/Title | Signature Requirement | Dollar Limits | Notes |
+| --- | --- | --- | --- | --- |
+| Open/close accounts | | | | |
+| Checks | | | | |
+| ACH | | | | |
+| Wires | | | | |
+| Online banking | | | | |
+| Loans/credit | | | | |
+| Collateral pledges | | | | |
+
+**Template**
+
+```text
+CORPORATE RESOLUTION OF [LEGAL NAME]
+State of Incorporation: [STATE]
+Date: [DATE]
+Adopted by: [BOARD MEETING / WRITTEN CONSENT]
+
+WHEREAS, the Board is authorized under the charter and bylaws to adopt resolutions
+for the conduct of corporate business and banking relationships; and
+WHEREAS, the Corporation requires banking services for ordinary business operations;
+
+RESOLVED, that [BANK NAME] is authorized as a depository and service provider, and the
+Corporation may open and maintain [ACCOUNT TYPES] at [BANK NAME];
+
+RESOLVED, that the following persons are authorized signatories:
+[NAME, TITLE] [single/joint authority] [thresholds];
+
+RESOLVED, that authorized signatories may execute checks, ACH, wire transfers, and
+online banking transactions within the limits set forth herein;
+
+RESOLVED, that [if applicable] the Corporation may obtain loans/credit up to [AMOUNT],
+and may execute promissory notes and related documents, subject to [limits/approvals];
+
+RESOLVED, that authorized persons may execute all agreements, signature cards, and
+forms required by the bank to establish and maintain the relationship;
+
+RESOLVED, that all prior actions taken consistent with these authorizations are ratified;
+
+RESOLVED, that this resolution supersedes all prior conflicting banking resolutions;
+
+RESOLVED, that this resolution is effective as of [DATE] and remains in effect until
+amended or revoked by the Board, with notice of any revocation provided to the bank;
+
+RESOLVED, that authority of any individual ceases upon separation from the Corporation
+and the Corporation will promptly notify the bank of changes.
+
+CERTIFICATION
+I, [NAME], Secretary of [LEGAL NAME], certify that the foregoing resolution was duly
+adopted on [DATE] in accordance with the bylaws and applicable law, and remains in
+full force and effect as of [DATE].
+
+__________________________          Date: ____________
+[NAME], Secretary
+[Corporate Seal, if used]
+```
+
+**Compliance Checklist**
+
+- [ ] Legal name and state match charter.
+- [ ] Board action method complies with bylaws and state law.
+- [ ] Quorum/notice or written consent threshold documented.
+- [ ] Signatories and limits align with internal approvals.
+- [ ] Borrowing authority scoped and limited if included.
+- [ ] Prior resolutions superseded or preserved as intended.
+- [ ] Ratification included if prior banking actions occurred.
+- [ ] Secretary certification included with current date.
+
+## Guidelines
+
+- Confirm state corporate statute requirements for written consent, notice, and quorum; adjust language to match.
+- Use names and titles exactly as in corporate records and officer appointments.
+- Do not grant broader authority than necessary; document dollar thresholds and joint signature rules.
+- If including borrowing or collateral authority, ensure board-approved limits and any required additional approvals are stated.
+- Include ratification only for actions already taken in good faith and within intended authority.
+- Banks may require their own forms; keep execution authority broad enough to sign those forms without new board action.
+tokens used
+19,294

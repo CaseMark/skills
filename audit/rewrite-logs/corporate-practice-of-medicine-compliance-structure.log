@@ -1,0 +1,338 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7c-556d-7471-a851-99af817fc2d6
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "848e26e0-7f69-4289-a020-d36be89af031",
+  "slug": "corporate-practice-of-medicine-compliance-structure",
+  "name": "Corporate Practice of Medicine Compliance Structure",
+  "summary": "Drafts a comprehensive Corporate Practice of Medicine (CPOM) Compliance Structure document for healthcare entities to ensure lawful separation of corporate ownership from medical practice. It provides doctrinal analysis, state-specific requirements, and federal regulatory guidance to mitigate risks like penalties and license revocation. Use this skill when structuring healthcare operations or conducting compliance reviews in CPOM-restricted jurisdictions.",
+  "content": "# Enhanced Prompt: Corporate Practice of Medicine Compliance Structure\n\nYou are tasked with drafting a comprehensive Corporate Practice of Medicine (CPOM) Compliance Structure document for a healthcare entity. This regulatory document must be thorough, legally sound, and tailored to ensure full compliance with applicable state and federal laws governing the separation between corporate ownership and medical practice.\n\n## Document Purpose and Scope\n\nBegin by crafting an introduction that establishes the document's purpose as a compliance framework for navigating CPOM restrictions. Define the Corporate Practice of Medicine doctrine clearly, explaining that it prohibits business corporations from practicing medicine or employing physicians to provide professional medical services in most jurisdictions. Emphasize why this matters: violations can result in severe penalties including license revocation, contract voidability, criminal prosecution, and civil fines. Your introduction should set the tone as both educational and protective, making clear that this document serves as the entity's roadmap for lawful operation. Draw upon authoritative legal resources and state bar association guidance to ensure your definitions align with current legal standards.\n\n## Doctrinal Foundation and State-Specific Analysis\n\nDevelop a comprehensive section explaining the CPOM doctrine's historical origins, rooted in the principle that medical judgment must remain independent from corporate profit motives. Trace its evolution from early 20th-century case law through modern statutory frameworks. Critically, you must address the significant state-by-state variations in CPOM enforcement. Some states strictly prohibit corporate practice, others permit it with restrictions, and a few have no prohibition at all. Your analysis should identify which jurisdictions are most relevant to the entity's operations and detail the specific requirements, exemptions, and enforcement patterns in those states. Reference comprehensive 50-state surveys from reputable healthcare law firms and regulatory compliance organizations. Include discussion of how different healthcare sectors (telemedicine, dental, optometry, physical therapy) may face varying levels of scrutiny under CPOM principles.\n\n## Legal and Regulatory Framework\n\nCompile and analyze all applicable federal and state laws that govern corporate involvement in medical practice. At the federal level, address Anti-Kickback Statute implications, Stark Law considerations, and relevant OIG guidance on permissible business arrangements. For state law, identify specific statutes, regulations, and case law that either prohibit or regulate corporate practice of medicine in relevant jurisdictions. Each legal citation must be verified for current validity and properly formatted according to Bluebook or local citation standards. Explain not just what the laws prohibit, but why these restrictions exist\u2014focusing on patient protection, professional independence, and quality of care concerns. Discuss any recent legislative changes or proposed reforms that might affect compliance strategies.\n\n## Compliant Organizational Structures\n\nDescribe in detail the organizational structures that allow compliant operation while respecting CPOM boundaries. Explain the professional corporation (PC) or professional association (PA) model, where licensed physicians maintain ownership and control of the medical practice entity. Detail the Management Services Organization (MSO) structure, which permits a business entity to provide administrative, financial, and operational support without exercising control over medical decision-making. For each structure, specify the governance requirements, ownership restrictions, and operational boundaries that must be maintained. Address the \"friendly PC\" model and its risks, explaining how courts and regulators scrutinize arrangements that appear to give de facto control to non-physician entities despite formal compliance. Include discussion of alternative structures such as the Physician Practice Management (PPM) model and equity-based arrangements that have survived legal challenges. Provide guidance on selecting the appropriate structure based on the entity's business model, geographic footprint, and risk tolerance.\n\n## Management Services Agreement Architecture\n\nArticulate the essential elements of a legally defensible Management Services Agreement between the business entity (MSO) and the physician-owned practice. The MSA must carefully delineate which functions the MSO may perform\u2014typically including billing, collections, human resources, facility management, marketing, and IT services\u2014while explicitly reserving all clinical decision-making, patient care protocols, physician hiring and termination, and fee-setting authority to the physician-owned entity. Detail specific contractual provisions that demonstrate physician independence:\n\n- Compensation structures that avoid creating incentives for inappropriate medical decisions, with clear documentation that physician fees are set by physicians, not the MSO\n- Termination rights that allow physicians to exit the arrangement without losing patient relationships or practice assets essential to clinical operations\n- Governance provisions establishing that the MSO provides recommendations but physicians retain final authority over all matters affecting medical judgment, quality of care, and professional standards\n- Compliance mechanisms requiring both parties to maintain CPOM compliance and providing for immediate remediation of any identified violations\n- Financial arrangements structured as fair market value payments for legitimate services, properly documented to withstand regulatory scrutiny\n\nReference model MSA provisions from healthcare law practice groups and bar association resources, while emphasizing that each agreement must be customized to the specific relationship and jurisdictional requirements.\n\n## Operational Compliance Framework\n\nDevelop a detailed compliance checklist that operationalizes CPOM principles in day-to-day business activities. This checklist should address the critical control points where CPOM violations most commonly occur. Cover physician hiring and credentialing processes, ensuring that only the physician-owned entity makes final decisions about which physicians join the practice. Address clinical protocol development, confirming that treatment guidelines, patient care standards, and quality metrics are established by physicians without business entity interference. Examine fee-setting procedures, verifying that the physician entity independently determines charges for medical services based on professional judgment rather than corporate revenue targets. Review decision-making authority for patient acceptance, treatment recommendations, referral patterns, and discharge planning. Assess marketing and advertising materials to ensure they accurately represent the physician-owned nature of medical services. Evaluate equipment and supply purchasing decisions that might affect clinical care. Include specific action items for documenting physician independence, such as maintaining separate board minutes, creating clear approval workflows, and establishing audit trails that demonstrate compliance. The checklist should be practical and actionable, with assigned responsibilities and completion timelines.\n\n## Training, Monitoring, and Enforcement Protocols\n\nEstablish comprehensive programs for ensuring ongoing compliance awareness and detecting potential violations before they result in regulatory action. Design training curricula for different stakeholder groups: physicians must understand their governance responsibilities and the importance of exercising independent judgment; administrative staff must recognize the boundaries of their authority and when to defer to physician decision-makers; executives must appreciate the legal risks and compliance requirements. Training should occur at onboarding, annually thereafter, and whenever organizational changes affect CPOM compliance. Implement monitoring mechanisms including regular audits of MSA compliance, review of decision-making documentation, assessment of financial arrangements, and evaluation of governance practices. Create clear reporting channels for employees to raise CPOM concerns without fear of retaliation, consistent with broader compliance and whistleblower protection policies. Establish enforcement procedures that address identified violations promptly through corrective action plans, structural modifications, or relationship termination if necessary. Reference OIG compliance program guidance, MGMA best practices, and healthcare compliance association standards to ensure your protocols meet industry expectations.\n\n## Risk Assessment and Mitigation Strategies\n\nAnalyze the potential consequences of CPOM violations and develop strategies to minimize exposure. Discuss regulatory penalties including medical board disciplinary action against physicians, corporate sanctions, and potential criminal liability in egregious cases. Address civil consequences such as contract voidability, which could unravel years of business relationships and financial arrangements. Examine qui tam litigation risks under state and federal false claims acts, where CPOM violations may support allegations that claims submitted were tainted by illegal arrangements. Consider reputational harm and the impact on physician recruitment, patient trust, and payer relationships. For each risk category, propose specific mitigation measures such as obtaining legal opinions on structural compliance, purchasing appropriate insurance coverage, implementing robust compliance programs, and maintaining documentation that demonstrates good faith compliance efforts. Include discussion of voluntary disclosure protocols if violations are discovered, and the factors that influence whether self-reporting to regulatory authorities is advisable. Reference enforcement actions and settlements from recent cases to illustrate real-world consequences and effective remediation approaches.\n\n## Conclusion and Authorization\n\nSynthesize the key compliance principles and structural requirements established throughout the document. Emphasize that CPOM compliance is not a one-time achievement but an ongoing obligation requiring vigilance, periodic review, and adaptation to changing legal standards. Reaffirm the entity's commitment to maintaining physician independence and operating within all applicable legal boundaries. Include signature blocks for all necessary parties: authorized representatives of the business entity, physician leaders of the medical practice, and legal counsel confirming review and approval of the compliance structure. Specify the document's effective date and establish a review schedule (typically annually or upon significant operational changes) to ensure continued compliance as the organization evolves.\n\n## Drafting Standards and Quality Requirements\n\nThroughout this document, maintain a professional tone appropriate for a regulatory compliance framework that may be reviewed by attorneys, regulators, and business partners. Use precise legal terminology while ensuring accessibility for non-lawyer stakeholders who must implement these requirements. Every legal assertion must be supported by proper citation to statutes, regulations, case law, or authoritative secondary sources. Verify that all cited authorities remain current and have not been superseded or modified. Structure the document with clear headings, logical flow, and sufficient detail to serve as both a compliance guide and a defensible record of the entity's good faith efforts to operate lawfully. The final document should be comprehensive enough to withstand regulatory scrutiny while remaining practical enough to guide actual business operations.",
+  "parent_skill_id": "4349c044-8af1-4018-bcc4-abf8fd5aa8f7",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "healthcare"
+    ],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "memo",
+      "analysis",
+      "checklist"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "healthcare_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:17.489887",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:51:25.373455Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Drafting CPOM Compliance Skill**
+
+Creating a concise CPOM compliance skill titled "CPOM Compliance Structure" with a third-person description, trigger keywords, and metadata from legal contexts. The content will cover intro, scope, governing law matrix, structure options in tables, MSA clause checklist with red flags, and compliance controls checklist, structured to fit about 110 lines with single-level bullets and tables.
+thinking
+**Drafting CPOM Compliance Skill Content**
+
+Planning detailed content with structured sections including a comprehensive CPOM memo template outline in code block, multiple detailed tables (state matrix, structure options, MSA clauses, operational controls, training/audits, risk assessments), and clear do/don't guidelines with jurisdiction caveats and citation placeholders marked [VERIFY]. The description will embed trigger keywords and metadata is confirmed. The output will be raw file content beginning with YAML front matter, following ASCII formatting, within 100-120 lines.
+codex
+---
+name: cpom-compliance-structure
+description: Drafts a U.S. Corporate Practice of Medicine (CPOM) compliance structure memo and checklist for healthcare entities, including state-by-state CPOM analysis, organizational models (PC/PA + MSO, PPM), and Management Services Agreement guardrails. Use for CPOM, corporate practice of medicine, MSO, friendly PC, management services agreement, physician ownership, and healthcare compliance structuring.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Memo
+    - Analysis
+    - Checklist
+  skill_modes:
+    - Drafting
+    - Research
+    - Analysis
+---
+
+# CPOM Compliance Structure
+
+Builds a jurisdiction-specific compliance structure for CPOM restrictions and physician independence.
+
+## Prerequisites
+
+1. Jurisdictions of operation and licensure footprints
+2. Services and modalities (in-person, telemedicine, dental, optometry, PT, etc.)
+3. Ownership and capitalization plan, including non-physician investors
+4. Proposed operating model (PC/PA, MSO, PPM, hospital-employed)
+5. Current contracts (MSA, equity, leases, IP, branding, financing)
+6. Referral relationships, payer mix, and compensation models
+7. Affiliate entities and shared services org chart
+8. Compliance history or known issues
+
+## Output Structure / Process
+
+Use the following outline and fill each section with jurisdiction-specific detail.
+
+```markdown
+1. Executive Summary
+2. CPOM Doctrine Overview (purpose, scope, enforcement posture)
+3. Jurisdiction Matrix (state-by-state)
+4. Structure Selection and Rationale
+5. Governance and Ownership Controls
+6. MSA Architecture and Key Clauses
+7. Operational Compliance Controls
+8. Training, Monitoring, and Reporting
+9. Risk Assessment and Mitigation
+10. Approvals, Effective Date, Review Cadence
+```
+
+### Jurisdiction Matrix (required)
+
+| State | CPOM Status (Prohibited / Limited / None) | Licensed Entity Type | Ownership/Control Limits | Medical Director Requirements | Key Authority | Enforcement Notes | Sector Carveouts | Notes |
+|---|---|---|---|---|---|---|---|---|
+| [State] | [Status] | [PC/PA/etc.] | [%/board control] | [Y/N + details] | [Statute/reg/case] [VERIFY] | [Board activity] | [Dental/optometry/PT] | [Local counsel flags] |
+
+### Structure Options (select and justify)
+
+| Model | When Used | Ownership/Control | Core Legal Risk | Mitigations |
+|---|---|---|---|---|
+| Physician-owned PC/PA + MSO | CPOM-restricted states | Physicians own and control practice | De facto control by MSO | Governance + MSA guardrails |
+| PPM with long-term MSO | Multi-state rollups | Split control | Fee-splitting, AKS, Stark | FMV, independence, audits |
+| Hospital-employed model | Integrated systems | Hospital entity | Employment restrictions | Board approvals, contracts |
+| Friendly PC | High-risk, investor-led | Non-physician influence | Regulatory recharacterization | Avoid or restructure |
+
+### Governance and Ownership Controls
+
+Checklist of non-delegable physician controls:
+
+- Clinical decision-making and protocols
+- Physician hiring, credentialing, and termination
+- Fee-setting and coding policies
+- Patient acceptance, referrals, discharge
+- Quality assurance and peer review
+- Ownership transfers of the professional entity
+
+### MSA Architecture (required clauses)
+
+| Clause | Required Language | Red Flags | Evidence to Keep |
+|---|---|---|---|
+| Scope of Services | Admin only, no clinical control | MSO controls care | Service catalog, SOPs |
+| Physician Independence | Physician entity retains final authority | MSO approval rights | Board minutes |
+| Compensation | FMV, no volume/value | Percentage of revenue tied to referrals | FMV study [VERIFY] |
+| Term/Exit | Physician ability to exit without patient loss | Non-compete blocking patient continuity | Transition plan |
+| IP/Branding | Practice controls clinical brand use | MSO owns clinical identity | Licenses and consents |
+| Compliance | Mutual CPOM compliance, audit rights | One-way enforcement | Audit reports |
+
+### Operational Compliance Controls (assign owners and cadence)
+
+| Control Point | Owner | Evidence | Cadence |
+|---|---|---|---|
+| Physician hiring approvals | Medical director | Approval log | Per hire |
+| Fee-setting process | Physician board | Pricing minutes | Annual/PRN |
+| Clinical protocols | Physician committee | Protocol approvals | Semiannual |
+| Marketing review | Compliance + physician | Ad approvals | Per campaign |
+| Equipment purchases impacting care | Physician sign-off | Capital approvals | Per purchase |
+| MSA performance | Compliance | SLA and audit file | Quarterly |
+
+### Training and Monitoring
+
+- Onboarding training for physicians, admins, executives
+- Annual CPOM refreshers with attestation
+- Quarterly MSA compliance audits
+- Whistleblower reporting path and non-retaliation policy
+
+### Risk Assessment and Mitigation
+
+| Risk | Consequences | Mitigation |
+|---|---|---|
+| CPOM violation | License discipline, voided contracts | Restructure governance, legal opinion |
+| AKS exposure | Civil/criminal penalties | FMV, commercial reasonableness [VERIFY] |
+| Stark exposure | Payment denials, refunds | Exception mapping [VERIFY] |
+| False Claims | Qui tam exposure | Compliance audits, disclosures |
+| Reputational harm | Recruiting/payer impact | Documentation, remediation |
+
+## Guidelines
+
+- Verify each jurisdiction with current statutes, regs, and medical board guidance; mark uncertain cites as `[VERIFY]`.
+- Do not assume CPOM is absent in states with weak enforcement; document enforcement posture separately.
+- Keep physician-owned entity assets and bank accounts separate from the MSO.
+- Avoid MSA terms that give the MSO veto power over clinical or physician personnel decisions.
+- Ensure compensation is FMV and not tied to referrals or clinical volume; document methodology.
+- If using friendly PC arrangements, require enhanced independence safeguards or avoid entirely.
+
+## Key Citations to Confirm
+
+- Anti-Kickback Statute, 42 U.S.C. § 1320a-7b(b) [VERIFY]
+- Stark Law, 42 U.S.C. § 1395nn [VERIFY]
+- OIG compliance program guidance (provider-specific) [VERIFY]
+
+## Approval and Review
+
+- Effective date, signatories (MSO, physician entity, counsel)
+- Review cadence: annual and upon material operational changes
+tokens used
+5,103

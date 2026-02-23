@@ -1,0 +1,506 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-08c0-7311-b2e6-bfbf8acac23b
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "96a9ccab-c980-42a8-ae46-d072393fe8cc",
+  "slug": "know-how-license-agreement-draft",
+  "name": "Know-How License Agreement",
+  "summary": "Drafts a comprehensive Know-How License Agreement for licensing confidential technical information, processes, and trade secrets. Reviews transaction documents to extract and incorporate specific deal terms, financial arrangements, exclusivity, and technical specifications. Use for IP transactions where value derives from secrecy rather than patents.",
+  "content": "# Enhanced Know-How License Agreement Drafting Prompt\n\nYou are an expert transactional attorney specializing in intellectual property licensing. Your task is to draft a comprehensive, commercially balanced Know-How License Agreement that protects proprietary technical information while enabling the licensee to effectively exploit the licensed technology. This agreement governs the transfer of confidential technical knowledge, processes, methodologies, and trade secrets\u2014information that derives value from its secrecy rather than public disclosure through patents.\n\n## Initial Information Gathering and Document Review\n\nBefore beginning your draft, conduct a thorough review of all available information about this transaction. Search through any uploaded documents, correspondence, term sheets, or prior agreements between the parties to extract critical deal terms, party information, technical specifications, and commercial arrangements. Look for specific details including the parties' full legal names and jurisdictions, descriptions of the know-how being licensed, proposed financial terms, territorial scope, exclusivity arrangements, and any special provisions the parties have negotiated. If you find a term sheet or letter of intent, extract every commercial term and ensure your draft reflects the agreed-upon business deal. When you encounter technical descriptions of the know-how, preserve the specific language as it may have been carefully negotiated to define scope without disclosing confidential details.\n\nPay particular attention to any existing relationships between the parties, prior agreements that may need to be referenced or superseded, and any regulatory or industry-specific requirements that may apply to this technology transfer. If the documents reveal that this is a university-to-industry transfer, a cross-border transaction, or involves regulated technology, adjust your drafting approach accordingly. Extract specific financial figures, milestone definitions, performance metrics, and any quality standards or technical specifications that should be incorporated into the agreement.\n\n## Contextual Analysis and Strategic Drafting Approach\n\nAnalyze the commercial context to inform your drafting strategy. Consider whether this is an exclusive license commanding premium terms with robust performance obligations, or a non-exclusive arrangement requiring more modest commitments. Evaluate the relative bargaining positions of the parties\u2014a startup licensing breakthrough technology from an established corporation requires different risk allocation than a strategic partnership between equals. Assess whether the know-how represents core technology essential to the licensee's business, which may justify stronger warranties and indemnities, or supplementary technology where more limited representations are appropriate.\n\nDetermine the appropriate level of formality and detail based on the transaction value, relationship duration, and complexity of the technology. High-value, long-term licenses of complex manufacturing processes require exhaustive technical schedules, detailed quality control provisions, and comprehensive training and support obligations. Simpler transfers of discrete methodologies may warrant more streamlined documentation. Consider whether the parties anticipate ongoing collaboration and improvement of the technology, which would require sophisticated provisions addressing ownership and licensing of derivative works, or whether this is a one-time transfer of static information.\n\n## Party Identification and Recitals\n\nDraft the preamble with complete legal precision, identifying each party with its exact legal name, entity type, jurisdiction of formation or residence, principal place of business, and any relevant registration numbers. For corporate entities, specify the state or country of incorporation. For individuals, include residence information sufficient for jurisdictional purposes. Assign clear shorthand names that will be used consistently throughout the agreement.\n\nCraft recitals that establish the factual and legal foundation for the transaction while preserving confidentiality of sensitive technical details. The recitals should narrate that the licensor has developed and owns valuable proprietary know-how in a specified field, that this know-how constitutes confidential trade secret information, that the licensee desires to acquire rights to use this know-how for specified business purposes, and that the parties wish to establish the terms governing this technology transfer. Include recitals addressing any background context such as prior research collaborations, existing business relationships, or strategic objectives that inform the agreement's structure. Draft these recitals to serve as evidence of the parties' intent and understanding should disputes arise, ensuring they accurately reflect commercial reality without creating unintended contractual obligations. Avoid overly promotional language while establishing the value and proprietary nature of the licensed technology.\n\n## Comprehensive Definitions Section\n\nDevelop precise definitions for all critical terms, recognizing that ambiguity in know-how licenses creates costly disputes and may undermine trade secret protection. Define \"Know-How\" or \"Licensed Technology\" with sufficient specificity to clearly identify what is being licensed while maintaining necessary confidentiality. Consider whether to attach a confidential technical schedule with detailed descriptions, use functional categories describing types of information, or employ a hybrid approach with general descriptions supplemented by confidential annexes. The definition must be specific enough to be enforceable yet flexible enough to encompass related information and updates without constant amendment.\n\nDefine \"Licensed Territory\" with geographic precision, specifying countries, regions, or worldwide scope as negotiated. If different rights apply in different territories, create separate definitions or subcategories. Define \"Licensed Field\" or \"Field of Use\" to delineate permitted applications, industries, or product categories, using language that clearly establishes boundaries while avoiding gaps or unintended overlaps with reserved rights. Create a comprehensive definition of \"Confidential Information\" that captures all proprietary elements of the licensed know-how while including standard exclusions for information that is publicly available through no breach, independently developed with documentary evidence, already known without confidentiality obligations, or received from third parties with rights to disclose.\n\nInclude definitions for \"Improvements\" and \"Derivative Know-How\" that clearly establish whether these terms encompass only modifications to the licensed know-how or extend to related developments. Define \"Background Technology\" or \"Background IP\" if the licensor is providing access to broader technical information beyond the core licensed know-how. For financial terms, define \"Net Sales\" with precision, specifying what revenue is included in the royalty base, what deductions are permitted for returns, allowances, taxes, shipping, and discounts, and how bundled products or services will be valued. Define \"Affiliate\" to establish which related entities may exercise rights under the agreement. Include definitions for \"Effective Date,\" \"Commercial Launch,\" and any milestone events that trigger payment or performance obligations.\n\n## Grant of License and Scope of Rights\n\nDraft the grant clause as the commercial centerpiece of the agreement, articulating with absolute precision what rights are being conveyed. Specify whether the license is exclusive, sole, or non-exclusive, and define exactly what these terms mean in this context\u2014an exclusive license should explicitly state that even the licensor is prohibited from using or licensing the know-how in the licensed field and territory, while a sole license typically reserves the licensor's right to use but prohibits licensing to others. Clearly enumerate the specific rights granted, which may include the right to use the know-how, the right to manufacture products incorporating the know-how, the right to have products manufactured by third parties, the right to sell and distribute products, the right to create derivative works or improvements, and the right to sublicense to specified categories of third parties.\n\nDelineate field-of-use restrictions with precision, defining permitted applications by industry, product category, customer type, or technical specification. Ensure field restrictions are clear enough to be enforceable while avoiding ambiguity about boundary cases. Define territorial limitations comprehensively, addressing whether the license covers manufacturing, use, sale, importation, or all commercial activities within the territory, and clarify how cross-border transactions are treated when products are manufactured in one territory and sold in another. Address whether the licensee may establish manufacturing facilities, sales offices, or distribution networks in the licensed territory.\n\nInclude explicit provisions addressing improvements and derivative know-how developed by either party. Specify whether improvements made by the licensee automatically fall under the license, require separate negotiation, or are subject to grant-back provisions requiring the licensee to license improvements back to the licensor on specified terms. Address whether grant-backs are exclusive or non-exclusive, royalty-bearing or royalty-free, and whether they extend to the licensor's right to sublicense improvements to other licensees. Consider including provisions for joint improvements developed through collaboration, establishing co-ownership or cross-licenses as appropriate.\n\nDraft comprehensive reservations of rights for the licensor, explicitly stating that all rights not expressly granted are reserved. In exclusive licenses, clarify whether the licensor retains rights to use the know-how for research, to fulfill existing obligations to third parties, or to continue internal use. Address whether the licensor may continue developing and licensing competing technology that does not incorporate the specific licensed know-how. Include provisions addressing sublicensing rights, specifying whether sublicenses are permitted, what approval rights the licensor retains, what terms must be included in sublicense agreements, and how sublicenses are affected by termination of the master license.\n\n## Financial Terms and Payment Mechanics\n\nStructure the financial provisions to reflect the complete economic arrangement while ensuring clarity for accounting and audit purposes. Detail any upfront license fees payable upon execution or upon achievement of specified conditions precedent, describing the amount, payment timing, and whether such fees are creditable against future royalties or represent separate consideration for the license grant. Specify any milestone payments tied to development achievements, regulatory approvals, or commercialization events, defining each milestone with objective criteria and establishing payment amounts and timing.\n\nDraft ongoing royalty provisions with precision, specifying whether royalties are calculated as a percentage of net sales, as fixed per-unit amounts, or through hybrid structures combining minimum payments with sales-based royalties. Define the royalty base exhaustively, establishing what revenues are included and excluded, how bundled products or services incorporating both licensed and unlicensed technology will be valued, and how to allocate revenues when licensed products are sold with services or unlicensed products. Address transfer pricing issues for sales between affiliates, requiring that such sales be valued at fair market value or at the price charged to unaffiliated customers.\n\nEstablish minimum annual royalty obligations if applicable, specifying the minimum amount due each contract year regardless of actual sales, and address consequences for failure to meet minimums, which may include conversion from exclusive to non-exclusive license, termination rights for the licensor, or requirement to pay the shortfall. Include provisions for royalty adjustments based on competitive circumstances, such as reduced royalties if the licensee must obtain additional licenses from third parties to avoid infringement, or if generic or competing products capture significant market share.\n\nDraft comprehensive payment mechanics covering currency of payment, exchange rate determination for international transactions, payment timing and frequency, acceptable payment methods, and the address or account for payments. Include late payment provisions specifying interest rates for overdue amounts, calculated from the due date until payment is received. Establish detailed record-keeping obligations requiring the licensee to maintain complete and accurate books and records of all sales and uses of the licensed know-how for a specified period, typically three to five years. Grant the licensor audit rights to verify royalty calculations, specifying that audits may be conducted by independent certified public accountants during business hours upon reasonable notice, not more than once per year unless a prior audit revealed underpayment. Address the cost allocation for audits, typically providing that the licensee pays audit costs if an underpayment exceeding a threshold percentage is discovered, otherwise the licensor bears the cost. Specify that payment obligations survive agreement termination for any sales or uses occurring during the term.\n\n## Confidentiality and Trade Secret Protection\n\nDraft robust confidentiality provisions that meet the legal requirements for trade secret protection under applicable law, recognizing that failure to maintain confidentiality may destroy the trade secret status of the licensed know-how. Impose comprehensive obligations on the licensee to maintain the confidentiality of all licensed know-how and confidential information using at least the same degree of care it uses to protect its own most sensitive confidential information, but in no event less than reasonable care. Specify that the licensee must implement and maintain appropriate physical, technical, and administrative safeguards to prevent unauthorized access, use, or disclosure.\n\nEnumerate permitted disclosures with precision, allowing disclosure only to employees, contractors, consultants, sublicensees, and other third parties who have a legitimate need to know the information to exercise rights under the license, and only after such recipients have executed written confidentiality agreements containing obligations at least as protective as those in this agreement. Require the licensee to maintain a written record of all persons and entities to whom confidential information is disclosed and to provide such records to the licensor upon request. Address the treatment of confidential information in regulatory filings, litigation, or other circumstances where disclosure may be legally compelled, requiring the licensee to provide prompt notice to the licensor, to cooperate in seeking protective orders, and to disclose only the minimum information required.\n\nEstablish that confidentiality obligations survive agreement termination indefinitely or until the information enters the public domain through no breach by the receiving party, recognizing that trade secret protection requires perpetual confidentiality. Include provisions requiring the return or destruction of all confidential materials, documents, and embodiments of the know-how upon termination, with certification of destruction by an officer of the licensee. Address the practical reality that know-how incorporated into the licensee's products, processes, or employee knowledge cannot be completely expunged, either by providing a limited right to continue using such incorporated know-how subject to ongoing confidentiality and royalty obligations, or by requiring the licensee to cease all use and destroy or return all products and materials incorporating the know-how.\n\n## Technical Transfer, Training, and Support\n\nInclude provisions addressing the practical transfer of know-how from licensor to licensee, recognizing that unlike patents where the disclosure is public, know-how licenses require active knowledge transfer. Specify what technical documentation, specifications, formulas, drawings, data, and other materials the licensor will provide, in what format, and within what timeframe after the effective date. Address whether the licensor will provide training to the licensee's personnel, specifying the number of training sessions, duration, location, number of attendees, and whether training costs are included in the license fee or billed separately.\n\nEstablish whether the licensor will provide ongoing technical support, consultation, or assistance during the term, defining the scope of such support, response time commitments, and any limitations on the licensor's obligations. Address whether the licensor will assist with technology transfer to the licensee's manufacturing facilities, provide process validation support, or participate in regulatory approval processes. Specify any quality control obligations, including whether the licensee must meet specified quality standards, submit samples or reports to the licensor, or permit licensor inspections of manufacturing facilities. Include provisions addressing updates and improvements to the know-how, specifying whether the licensor has any obligation to provide updates, whether updates are included in the license or require additional fees, and how updates affect the definition of licensed know-how.\n\n## Performance Obligations and Diligence Requirements\n\nDraft performance obligations appropriate to the exclusivity and scope of the license. For exclusive licenses, include diligence requirements obligating the licensee to use commercially reasonable efforts to develop, manufacture, and commercialize products incorporating the licensed know-how. Establish specific milestones with objective criteria and deadlines, such as completion of development activities, initiation of clinical trials, filing for regulatory approvals, first commercial sale, and achievement of specified sales targets. Specify consequences for failure to meet diligence obligations, which may include conversion from exclusive to non-exclusive license, termination rights for the licensor, or requirement to sublicense to third parties willing to commercialize the technology.\n\nInclude reporting obligations requiring the licensee to provide periodic written reports on development progress, commercialization activities, sales volumes and revenues, and other information necessary for the licensor to monitor compliance with the agreement. Specify reporting frequency, content requirements, and timing. Address whether the licensee must consult with the licensor regarding development strategy, regulatory approach, or commercialization plans, or whether the licensee has complete discretion in exercising the license.\n\n## Representations, Warranties, and Disclaimers\n\nDraft representations and warranties that allocate risk appropriately based on the parties' relative knowledge and bargaining positions. The licensor should represent and warrant that it has full right, power, and authority to enter into this agreement and grant the license, that it owns or controls all rights in the licensed know-how necessary to grant the license, that the licensed know-how is maintained as confidential trade secret information, and that to its knowledge the licensed know-how does not infringe or misappropriate any third-party intellectual property rights. Consider whether the licensor will represent that it is not aware of any third-party claims or threatened claims regarding the know-how, or that it has disclosed all known limitations, defects, or problems with the technology.\n\nAddress carefully whether the licensor will provide any warranties regarding the functionality, accuracy, completeness, or fitness for purpose of the know-how. Licensors typically resist such warranties for unpatented technical information, arguing that know-how is licensed \"as is\" with the licensee assuming all risk regarding whether the technology will work for its intended purposes. If functionality warranties are included, define them precisely with objective criteria and specify the exclusive remedy for breach, which may be limited to the licensor's obligation to use reasonable efforts to correct deficiencies or to refund fees paid.\n\nInclude explicit disclaimers of all implied warranties, particularly the implied warranties of merchantability, fitness for a particular purpose, and non-infringement, drafted in conspicuous text using capital letters or bold font to ensure enforceability. State clearly that the licensor makes no warranty that use of the licensed know-how will not infringe third-party intellectual property rights, that the licensee is solely responsible for conducting freedom-to-operate analyses, and that the licensee assumes all risk of infringement claims arising from its use of the technology. If the licensor is providing technical assistance, training, or support services, address whether any warranties apply to such services or whether they are also provided \"as is.\"\n\nThe licensee should represent and warrant its authority to enter the agreement, that it will use the licensed know-how only for lawful purposes and in compliance with all applicable laws and regulations, and that it has the technical and financial capability to exploit the license. Consider including representations regarding the licensee's compliance with export control laws, anti-corruption laws, and industry-specific regulations applicable to the technology.\n\n## Indemnification Provisions\n\nStructure mutual indemnification provisions that allocate third-party claim risk appropriately between the parties. Draft a licensee indemnification obligating the licensee to indemnify, defend, and hold harmless the licensor, its affiliates, and their respective officers, directors, employees, and agents from and against any and all claims, damages, liabilities, costs, and expenses, including reasonable attorneys' fees, arising from or relating to the licensee's use, modification, manufacture, marketing, or sale of products or services incorporating the licensed know-how, including product liability claims, personal injury claims, and claims that the licensee's products or activities infringe third-party rights. Specify that this indemnification applies to claims arising from the licensee's combination of the licensed know-how with other technology, modifications to the know-how, or failure to use the know-how in accordance with the licensor's instructions or specifications.\n\nDraft a licensor indemnification obligating the licensor to indemnify the licensee against third-party claims that the licensed know-how as provided by the licensor infringes or misappropriates third-party intellectual property rights, though this indemnification is often heavily negotiated and may be limited to breaches of the licensor's representations and warranties. Consider whether the licensor's indemnification should be subject to caps, exclusions for claims arising from modifications or combinations, or requirements that the licensee provide prompt notice and cooperation.\n\nEstablish comprehensive indemnification procedures specifying that the indemnified party must provide prompt written notice of any claim, that the indemnifying party has the right to control the defense and settlement of the claim using counsel of its choice, that the indemnified party may participate in the defense at its own expense, that the indemnifying party may not settle any claim without the indemnified party's consent if the settlement imposes obligations on or admits liability by the indemnified party, and that the indemnified party must provide reasonable cooperation in the defense. Specify that the indemnifying party's obligations are conditioned on the indemnified party's compliance with these procedures, though failure to provide prompt notice should only relieve the indemnifying party to the extent it is materially prejudiced by the delay.\n\n## Limitation of Liability\n\nDraft limitation of liability provisions that cap each party's exposure while preserving remedies for the most serious breaches. Include a mutual disclaimer of consequential damages providing that neither party will be liable to the other for any indirect, incidental, consequential, special, or punitive damages, including lost profits, lost revenue, lost business opportunities, or loss of data, even if advised of the possibility of such damages and regardless of the theory of liability. Draft this provision in conspicuous text to ensure enforceability.\n\nConsider including a cap on total liability providing that each party's aggregate liability for all claims arising under or relating to this agreement will not exceed a specified amount, which may be a multiple of fees paid or payable in the twelve months preceding the claim, or a fixed dollar amount negotiated by the parties. Specify whether the cap applies to all claims collectively or separately to different categories of claims.\n\nInclude carefully drafted exceptions to the limitations of liability for categories of claims where full liability is appropriate. Typical exceptions include breaches of confidentiality obligations, breaches of license scope or unauthorized use of the know-how, indemnification obligations, willful misconduct or gross negligence, and fraud. Specify that these exceptions apply notwithstanding any other provision of the agreement and that the limitations of liability do not apply to such excepted claims. Ensure that the limitation provisions are drafted to survive termination of the agreement where appropriate.\n\n## Intellectual Property Ownership and Prosecution\n\nEstablish clear ownership of all intellectual property, specifying that the licensor retains all right, title, and interest in and to the licensed know-how and any patents, copyrights, or other intellectual property rights related thereto. Provide that the licensee acquires no ownership rights in the licensed know-how except the limited license rights expressly granted in the agreement. Address ownership of improvements and derivative know-how, specifying whether improvements developed solely by the licensor remain the licensor's property, improvements developed solely by the licensee become the licensee's property subject to any grant-back obligations, and joint improvements are jointly owned or allocated based on inventorship or contribution.\n\nIf the licensed know-how is or may become the subject of patent applications, include provisions addressing patent prosecution and maintenance. Specify which party controls prosecution, who bears the costs, what consultation or approval rights the other party has regarding prosecution strategy, and how decisions regarding continuation, abandonment, or geographic scope are made. Address enforcement of intellectual property rights, specifying which party has the right and obligation to enforce rights against third-party infringement, what notice and consultation obligations apply, how enforcement costs and recoveries are allocated, and what step-in rights exist if the party with primary enforcement rights declines to act.\n\n## Term and Termination\n\nEstablish a clear term for the agreement, specifying whether the license is perpetual, for a fixed term of years from the effective date, or continuing until terminated in accordance with the agreement's termination provisions. If the term is fixed, address whether the agreement automatically renews for additional periods unless either party provides notice of non-renewal, or whether continuation beyond the initial term requires affirmative agreement by both parties. Specify any conditions precedent to the license becoming effective, such as regulatory approvals, payment of initial fees, or execution of ancillary agreements.\n\nDraft comprehensive termination provisions covering all anticipated termination scenarios. Include termination for convenience by either party upon specified advance written notice, typically ranging from thirty to one hundred eighty days depending on the nature of the license and the parties' respective investments. For exclusive licenses with significant licensee investment, consider whether termination for convenience should be prohibited or limited to termination by the licensee only. Include termination for material breach, providing that either party may terminate if the other party materially breaches the agreement and fails to cure such breach within a specified cure period, typically thirty to sixty days, after receiving written notice specifying the breach in detail. Specify that certain breaches are incurable and permit immediate termination, including breaches of confidentiality obligations, unauthorized use of the know-how beyond the license scope, or failure to pay undisputed amounts when due.\n\nInclude automatic termination provisions for bankruptcy, insolvency, appointment of a receiver, assignment for the benefit of creditors, or commencement of voluntary or involuntary bankruptcy proceedings that are not dismissed within a specified period. Address termination for failure to meet diligence obligations or minimum royalty requirements, specifying whether such failure permits immediate termination or first triggers conversion from exclusive to non-exclusive license. Consider including termination rights triggered by change of control of either party, particularly if the licensee is acquired by a competitor of the licensor.\n\n## Effects of Termination and Survival\n\nDraft detailed provisions specifying the consequences of termination, recognizing that the treatment of licensed know-how after termination is often heavily negotiated. Specify whether the licensee must immediately cease all use of the licensed know-how upon termination, or whether a wind-down period is permitted during which the licensee may complete work in progress, fulfill existing customer orders, or sell existing inventory. If a wind-down period is permitted, define its duration and scope precisely, and specify whether royalties continue to accrue on wind-down sales.\n\nAddress the treatment of sublicenses upon termination, specifying whether sublicenses automatically terminate, survive termination if the sublicensee is not in breach and agrees to be bound by the terms of the master license, or convert to direct licenses between the licensor and sublicensees. Include provisions requiring the licensee to provide notice of termination to all sublicensees and to cooperate in transitioning sublicenses to the licensor if applicable.\n\nEstablish obligations for return or destruction of confidential materials, requiring the licensee to promptly return or destroy all documents, materials, samples, prototypes, and other tangible embodiments of the licensed know-how, and to certify in writing that all such materials have been returned or destroyed and that the licensee has not retained any copies except as required by law or professional record retention obligations. Address the treatment of know-how that has been incorporated into the licensee's products, processes, or systems, either requiring complete cessation of use and destruction of all incorporating materials, or permitting continued use subject to ongoing confidentiality and royalty obligations.\n\nSpecify that all accrued but unpaid royalties and other amounts due become immediately payable upon termination, and that the licensor's audit rights survive for a specified period to verify final payments. Include a comprehensive survival provision establishing that certain sections survive termination indefinitely or for specified periods, including confidentiality obligations, payment obligations for pre-termination activities, indemnification obligations, limitations of liability, dispute resolution provisions, and general provisions regarding governing law and notices.\n\n## Export Control and Regulatory Compliance\n\nInclude provisions addressing export control and regulatory compliance, particularly if the licensed know-how involves controlled technology, dual-use items, or technology subject to export restrictions. Require the licensee to comply with all applicable export control laws and regulations, including the U.S. Export Administration Regulations, International Traffic in Arms Regulations, and equivalent laws of other jurisdictions. Specify that the licensee is responsible for obtaining all necessary export licenses and approvals, and that the licensee will not export, re-export, or transfer the licensed know-how to prohibited destinations, entities, or persons without required authorizations.\n\nAddress compliance with industry-specific regulations applicable to the licensed technology, such as FDA regulations for pharmaceutical or medical device know-how, environmental regulations for chemical processes, or safety standards for manufacturing technologies. Specify which party is responsible for obtaining regulatory approvals necessary to commercialize products incorporating the licensed know-how, and whether the licensor has any obligations to assist with regulatory submissions or maintain regulatory documentation.\n\n## Insurance Requirements\n\nConsider including insurance requirements obligating the licensee to obtain and maintain appropriate insurance coverage, including commercial general liability insurance, product liability insurance, and errors and omissions insurance, in amounts appropriate to the risks associated with the licensed technology. Specify minimum coverage amounts, require that the licensor be named as an additional insured on applicable policies, and require the licensee to provide certificates of insurance evidencing required coverage. Address whether insurance requirements survive termination for claims arising from pre-termination activities.\n\n## Dispute Resolution and Governing Law\n\nSelect governing law based on careful consideration of the parties' locations, the nature of the know-how, relevant trade secret protection regimes, and the enforceability of key provisions. Consider choosing a jurisdiction with well-developed trade secret law and a sophisticated commercial judiciary, such as Delaware, New York, or California, or if this is an international transaction, consider whether a neutral jurisdiction or international arbitration is more appropriate. Include a choice of law provision specifying that the agreement will be governed by and construed in accordance with the laws of the chosen jurisdiction, without regard to its conflicts of law principles.\n\nDraft dispute resolution provisions appropriate to the parties' preferences and the nature of potential disputes. For litigation, specify whether disputes will be resolved in the state and federal courts located in a specified jurisdiction, and whether the parties consent to exclusive jurisdiction in such courts or whether jurisdiction is non-exclusive. Include a waiver of jury trial if appropriate. For arbitration, specify the arbitration rules that will govern, such as the International Chamber of Commerce Rules, the American Arbitration Association Commercial Arbitration Rules, or JAMS Comprehensive Arbitration Rules. Establish the number of arbitrators, typically one for smaller disputes and three for larger disputes, the seat or location of arbitration, the language of proceedings, and the scope of discovery permitted.\n\nConsider including a tiered dispute resolution process requiring the parties to first attempt to resolve disputes through good-faith negotiation between senior executives, then through mediation before a mutually acceptable mediator, and only if these efforts fail, through arbitration or litigation. Specify timeframes for each tier and the process for escalating to the next level. Include a carve-out permitting either party to seek injunctive or equitable relief in any court of competent jurisdiction for actual or threatened breaches of confidentiality obligations or unauthorized use of the licensed know-how, notwithstanding any arbitration provision, recognizing that such breaches may cause irreparable harm for which monetary damages are inadequate.\n\nAddress the allocation of attorneys' fees and costs, either providing that each party bears its own fees and costs, or including a prevailing party provision requiring the non-prevailing party to reimburse the prevailing party's reasonable attorneys' fees and costs. Consider whether fee-shifting is appropriate given the parties' relative bargaining positions and whether it might discourage meritorious claims or defenses.\n\n## General Provisions\n\nInclude a comprehensive integration or entire agreement clause establishing that this agreement, together with any exhibits, schedules, and ancillary agreements expressly referenced, constitutes the entire agreement between the parties regarding the subject matter and supersedes all prior negotiations, understandings, and agreements, whether written or oral. Specify that this agreement may be amended only by a written instrument signed by authorized representatives of both parties, and that no course of dealing, course of performance, or trade usage will modify the agreement's terms.\n\nDraft assignment provisions that typically prohibit the licensee from assigning the agreement or any rights hereunder without the licensor's prior written consent, recognizing that the licensor has selected the licensee based on its specific capabilities and that assignment could undermine the licensor's control over its confidential know-how. Consider whether to permit assignment to affiliates or successors in connection with a merger, acquisition, or sale of substantially all assets related to the licensed business, subject to specified conditions such as assumption of all obligations and maintenance of confidentiality protections. Provide that the licensor may assign the agreement to affiliates or successors without consent, and specify that the agreement binds and benefits the parties' permitted successors and assigns.\n\nInclude detailed notice provisions specifying the addresses to which all notices, requests, consents, and other communications must be sent, and establishing that notices are effective when delivered personally, sent by confirmed facsimile or email, delivered by overnight courier, or sent by certified or registered mail with return receipt requested. Require parties to provide notice of any change of address. Specify that routine communications such as reports and payments may be sent to addresses or accounts designated separately from formal legal notices.\n\nDraft a severability provision establishing that if any provision is held invalid, illegal, or unenforceable by a court of competent jurisdiction, such provision will be modified to the minimum extent necessary to make it enforceable while preserving the parties' intent, or if modification is not possible, will be severed from the agreement, and the remaining provisions will continue in full force and effect. Consider including a provision requiring the parties to negotiate in good faith to replace any severed provision with an enforceable provision that achieves the original economic and legal objectives.\n\nInclude a waiver provision clarifying that no failure or delay by either party in exercising any right, power, or remedy will constitute a waiver thereof, and that no waiver will be effective unless in writing and signed by the party against whom the waiver is asserted. Specify that any waiver is limited to the specific instance and does not waive any other or subsequent breach or default.\n\nDraft a relationship provision disclaiming any partnership, joint venture, agency, or employment relationship between the parties, establishing that each party is an independent contractor, and specifying that neither party has authority to bind the other or to incur obligations on the other's behalf except as expressly authorized in writing.\n\nInclude provisions for execution in counterparts, establishing that the agreement may be executed in multiple counterparts, each of which is an original and all of which together constitute one agreement. Address electronic signatures by providing that signatures transmitted by facsimile, email, or electronic signature platform are valid and binding, in compliance with applicable electronic signature laws such as the U.S. Electronic Signatures in Global and National Commerce Act or equivalent laws in other jurisdictions.\n\nAddress force majeure if appropriate, excusing performance by either party to the extent prevented by circumstances beyond its reasonable control, including acts of God, war, terrorism, government actions, labor disputes, or natural disasters, provided that the affected party provides prompt notice and uses reasonable efforts to mitigate the effects and resume performance. Specify that force majeure does not excuse payment obligations and that if force majeure continues beyond a specified period, either party may terminate the agreement.\n\nInclude a provision addressing further assurances, requiring each party to execute and deliver such additional documents and take such additional actions as may be reasonably necessary to effectuate the purposes of the agreement and to confirm the rights granted hereunder.\n\n## Signature Blocks and Execution\n\nPrepare signature blocks appropriate to the parties' entity types, including spaces for signature, printed name, title, and date. For corporate entities, ensure that signatories have actual authority to bind the corporation, typically requiring signature by an officer such as the Chief Executive Officer, President, or authorized Vice President. Consider whether corporate resolutions or other evidence of authority should be attached. For partnerships or limited liability companies, ensure signature by authorized partners or members. Include representations in the signature block or immediately preceding it that the signatory has full authority to execute the agreement and bind the party.\n\n## Final Quality Control and Document Assembly\n\nBefore finalizing the agreement, conduct a comprehensive review to ensure internal consistency in defined terms, cross-references, section numbering, and exhibit references. Verify that all business terms extracted from term sheets or prior negotiations have been accurately incorporated. Confirm that the risk allocation reflects the parties' negotiated understanding and that all jurisdiction-specific requirements for know-how licenses and trade secret protection have been satisfied. Review the agreement holistically to ensure it creates a workable framework for the parties' ongoing relationship while providing clear remedies and exit mechanisms should the relationship deteriorate.\n\nPrepare any necessary exhibits or schedules, which may include a confidential technical description of the licensed know-how, a list of included documentation and materials, a payment schedule, a development milestone chart, quality specifications, or forms of sublicense agreement or confidentiality agreement to be used by the licensee. Ensure all exhibits are properly referenced in the body of the agreement and that the agreement specifies whether exhibits are confidential.\n\nYour final deliverable should be a complete, professionally formatted Know-How License Agreement that is ready for review by the parties and their counsel, requiring only insertion of party-specific information and negotiation of any bracketed alternatives or open business terms. The agreement should reflect sophisticated transactional drafting, anticipate common issues and disputes in know-how licensing, and provide a comprehensive legal framework that protects both parties' interests while enabling successful technology transfer and commercialization.",
+  "parent_skill_id": "5b460232-3c68-43e5-be24-101410c162fd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "intellectual_property_licensing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:00:55.717998Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing skill content plan**
+
+I'm defining a concise slug and title, then outlining detailed content with structured sections, tables, numbered checklists, and placeholders. The description will include specified trigger keywords in third person without fluff, and compliance points will be incorporated. The plan avoids nested bullets, targets about 140 lines, and ensures all required components are covered.
+thinking
+---
+name: know-how-license-agreement
+description: Drafts U.S. know-how (trade secret) license agreements for confidential technical information, processes, and methods, incorporating deal terms on scope, exclusivity, field, territory, consideration, milestones, confidentiality, tech transfer, diligence, and compliance. Use for technology transfer, trade secret licensing, manufacturing/process know-how, non‑patent IP, and confidential technical information deals.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Know-How License Agreement
+
+## Purpose
+Draft a comprehensive know-how license agreement for confidential technical information and trade secrets.
+
+## Prerequisites
+1. Parties and authority  
+2. Description of know-how and scope  
+3. Field, territory, and exclusivity terms  
+4. Financial terms  
+5. Technical transfer and support provisions  
+6. Diligence obligations and milestones  
+7. Compliance constraints including export control and regulatory matters  
+8. Prior agreements potentially impacting terms  
+9. Dispute resolution preferences and forums  
+
+---
+
+## Output Structure / Process
+
+### 1) Deal Intake Checklist
+
+| Field                     | Notes                                        | Source             |
+|---------------------------|----------------------------------------------|--------------------|
+| Parties                   | Full legal names and authority confirmations | Client input       |
+| Description of Know-How   | Detailed scope of confidential technical info | Client input       |
+| Field of Use              | Specific industries or applications covered  | Client input       |
+| Territory                 | Geographical scope of license                  | Client input       |
+| Exclusivity               | None, exclusive, or non-exclusive license     | Client input       |
+| Financial Consideration   | Royalties, milestones, lump sum, payment terms| Client input       |
+| Technical Support         | Transfer obligations, training, documentation | Client input       |
+| Milestones and Diligence  | Performance timelines and obligations         | Client input       |
+| Compliance Requirements   | Export control, regulatory constraints        | Client input       |
+| Governing Law             | Jurisdiction and venue                          | Client input       |
+| Prior Agreements          | Existing contracts affecting the license      | Client input       |
+
+---
+
+### 2) Definitions Table
+
+| Term                        | Definition/Description                                  |
+|-----------------------------|---------------------------------------------------------|
+| Know-How License            | License granting use of proprietary confidential info  |
+| Trade Secret License        | License covering protection of trade secrets            |
+| Technology Transfer        | Transfer of technical knowledge and support              |
+| Confidential Technical Information | Non-public tech/data protected from disclosure        |
+| Non-Patent IP              | Intellectual property excluding patent rights            |
+| Manufacturing Process License | License covering proprietary manufacturing methods     |
+| Exclusive License           | License restricting licensor from granting others rights |
+
+---
+
+### 3) Core Agreement Sections Checklist
+
+- [ ] Parties and Recitals  
+- [ ] Definitions  
+- [ ] Grant of License (scope, field, exclusivity, territory)  
+- [ ] Financial Terms (royalties, milestones, audits)  
+- [ ] Confidentiality Obligations  
+- [ ] Technology Transfer and Technical Support  
+- [ ] Performance and Diligence Requirements  
+- [ ] Representations and Warranties  
+- [ ] Indemnification  
+- [ ] Limitation of Liability  
+- [ ] Intellectual Property Ownership and Improvements  
+- [ ] Term and Termination Conditions  
+- [ ] Effects of Termination (wind-down, return of materials)  
+- [ ] Compliance with Laws and Export Controls  
+- [ ] Insurance Requirements  
+- [ ] Dispute Resolution and Governing Law  
+- [ ] General Provisions (notices, amendments)  
+- [ ] Signatures  
+- [ ] Exhibits and Schedules  
+
+---
+
+### 4) Financial Terms Template
+
+```markdown
+**Financial Terms**
+
+- Royalty Rate: [Specify percentage]% of [Net Sales/Revenue/Other Basis]
+- Royalty Base: See Royalty Base Table below
+- Payment Frequency: [Quarterly/Annually]
+- Milestones: 
+  - [Milestone 1]: $[Amount], due upon [Condition]
+  - [Milestone 2]: $[Amount], due upon [Condition]
+- Audit Rights: Licensor may audit licensee’s records annually upon [Notice period] notice
+- Currency: [USD/Other]
+```
+
+---
+
+### 5) Confidentiality & Trade Secret Controls Checklist
+
+- [ ] Define confidential technical information scope  
+- [ ] Obligation to maintain secrecy beyond termination  
+- [ ] Restrictions on use and disclosure  
+- [ ] Permitted disclosures (e.g., employees, affiliates under NDA)  
+- [ ] Return or destruction of confidential materials on termination  
+- [ ] Notice of unauthorized disclosure or breach  
+- [ ] Marking and labeling confidential materials  
+- [ ] Remedies for breach, including injunctive relief  
+
+---
+
+### 6) Improvements & Ownership Decision Table
+
+| Clause                  | Licensor Ownership | Licensee Ownership | Joint Ownership | Notes                       |
+|-------------------------|--------------------|--------------------|-----------------|-----------------------------|
+| Pre-existing Know-How   | X                  |                    |                 | Licensor retains rights     |
+| Improvements in Know-How |                    | X                  |                 | Licensee owns improvements  |
+| Joint Developments       |                    |                    | X               | Rights shared per agreement |
+
+---
+
+### 7) Termination Matrix
+
+| Trigger                                 | Effect                             | Notice Requirement      |
+|----------------------------------------|----------------------------------|------------------------|
+| Material Breach                        | Termination after cure period     | 30 days notice          |
+| Bankruptcy or Insolvency               | Immediate termination             | None                   |
+| Failure of Milestones (if exclusive)  | Termination or renegotiation      | 60 days notice          |
+| Expiration of Term                    | Automatic termination             | None                   |
+| Regulatory Prohibition                 | Termination as required           | Prompt notice           |
+
+---
+
+### 8) Exhibits/Schedules List
+
+- Exhibit A: Description of Know-How  
+- Exhibit B: Payment Milestones and Schedules  
+- Exhibit C: Technical Support Plan  
+- Exhibit D: Confidential Information List  
+- Exhibit E: Compliance and Export Control Requirements  
+
+---
+
+## Guidelines and Notes
+
+- Exclusivity triggers diligence obligations and milestone enforcement.  
+- [VERIFY] tag recommended for uncertain references or legal source checks.  
+- Keep flat lists with numbered items or simple bullets; avoid nested bullets.  
+- Align compliance sections with export control laws and regulatory regimes.  
+- Use clear placeholders in templates for all key parameters.  
+- Carefully define terms to avoid ambiguity, particularly on scope and IP ownership.  
+- Jurisdiction selection impacts enforceability and available remedies; review carefully.  
+- Maintain confidentiality controls rigorously to protect trade secret status.  
+- Diligence obligations ensure active use and development under exclusive licenses.  
+- Antitrust caution advised but avoid broad clauses; tailor to deal specifics.
+codex
+---
+name: know-how-license-agreement
+description: Drafts U.S. know-how (trade secret) license agreements for confidential technical information, processes, and methods, incorporating deal terms on scope, exclusivity, field, territory, consideration, milestones, confidentiality, tech transfer, diligence, and compliance. Use for technology transfer, trade secret licensing, manufacturing/process know‑how, non‑patent IP, and confidential technical information deals.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Know-How License Agreement
+
+Draft a comprehensive know‑how license agreement for confidential technical information and trade secrets.
+
+## Prerequisites
+
+1. **Parties & authority** — legal names, entity type, jurisdiction, signatory authority.
+2. **Know‑how scope** — technical description, boundaries, confidentiality level, exhibits.
+3. **Field & territory** — permitted uses, industries, geographies.
+4. **Exclusivity** — exclusive, sole, or non‑exclusive; sublicensing stance.
+5. **Economics** — upfront fee, royalties, milestones, minimums, audit terms.
+6. **Transfer package** — documentation, training, support, timelines.
+7. **Diligence** — milestones, reporting, commercialization obligations.
+8. **Compliance** — export controls, regulatory approvals, industry rules.
+9. **Prior agreements** — existing NDAs, collaboration, or IP licenses.
+
+## Output Structure / Process
+
+**Deal Intake Table**
+
+| Item | Required Detail | Source |
+| --- | --- | --- |
+| Parties | Full legal name, entity type, jurisdiction, address | Term sheet / records |
+| Know‑how | High‑level description, confidentiality qualifiers | Tech schedule |
+| Field of use | Industry, product, application limits | Term sheet |
+| Territory | Countries/regions, manufacturing vs sales scope | Term sheet |
+| Exclusivity | Exclusive/sole/non‑exclusive, licensor carve‑outs | Term sheet |
+| Sublicensing | Allowed scope, consent, pass‑through terms | Term sheet |
+| Consideration | Upfront, milestones, royalties, minimums | Term sheet |
+| Royalty base | Net sales definition, deductions, bundles | Finance notes |
+| Support | Training, tech transfer, validation, response times | Tech plan |
+| Improvements | Ownership, grant‑back, joint development | Negotiation |
+| Compliance | Export, regulatory, anti‑corruption | Compliance team |
+| Disputes | Governing law, venue, arbitration | Counsel |
+
+**Definitions Table**
+
+| Term | Drafting Notes |
+| --- | --- |
+| Know‑How / Licensed Technology | Identify by category + confidential schedule reference |
+| Confidential Information | Standard exclusions + trade secret status |
+| Field of Use | Clear boundary conditions and examples |
+| Territory | Manufacturing vs sale/import scope |
+| Net Sales | Allowed deductions list |
+| Improvements | Define scope and ownership triggers |
+| Affiliate | Control threshold and inclusion |
+| Milestone | Objective criteria + dates |
+
+**Core Sections Checklist**
+
+- [ ] Parties, recitals, background.
+- [ ] Definitions.
+- [ ] Grant of license: scope, exclusivity, field, territory.
+- [ ] Sublicensing: consent, flow‑downs, termination effects.
+- [ ] Improvements/derivatives: ownership and grant‑back.
+- [ ] Consideration: upfront, milestones, royalties, minimums.
+- [ ] Reports and records; audit rights.
+- [ ] Confidentiality and trade secret safeguards.
+- [ ] Tech transfer: deliverables, training, support.
+- [ ] Diligence and performance milestones.
+- [ ] Representations, warranties, disclaimers.
+- [ ] Indemnification and procedures.
+- [ ] Limitation of liability and carve‑outs.
+- [ ] IP ownership and enforcement.
+- [ ] Term, termination, wind‑down.
+- [ ] Compliance: export control, regulatory.
+- [ ] Insurance (if required by risk profile).
+- [ ] Dispute resolution and governing law.
+- [ ] General provisions; signatures; exhibits.
+
+**Financial Terms Template**
+
+```text
+Upfront Fee:
+- Amount:
+- Due date:
+- Creditable against royalties: Yes/No
+
+Milestones:
+- Milestone 1: [objective event] -> $[amount] due within [days]
+- Milestone 2: ...
+Minimum Royalties:
+- Year 1: $[amount]
+- Consequence of shortfall: [pay shortfall / convert exclusivity / termination]
+
+Royalties:
+- Rate: [x% of Net Sales / $ per unit]
+- Net Sales definition: [gross revenue less deductions]
+- Bundled products: [allocation method]
+- Affiliate sales: [FMV or transfer price standard]
+- Reporting: [quarterly/monthly] within [days]
+- Audit: [once/year], underpayment threshold: [x%] shifts costs
+```
+
+**Confidentiality & Trade Secret Controls**
+
+- [ ] Care standard at least reasonable and not less than own highest‑value info.
+- [ ] Access limited to need‑to‑know personnel under written NDA.
+- [ ] Physical/technical/administrative safeguards.
+- [ ] Compelled disclosure: notice + protective order + minimum disclosure.
+- [ ] Survival: perpetual or until public domain without breach.
+- [ ] Return/destroy materials; officer certification.
+
+**Improvements & Ownership Decision Table**
+
+| Scenario | Ownership | License Back |
+| --- | --- | --- |
+| Licensor‑only improvements | Licensor | Included / separate fee |
+| Licensee‑only improvements | Licensee | Grant‑back terms |
+| Joint improvements | Joint / by inventorship | Cross‑license scope |
+
+**Termination Matrix**
+
+| Trigger | Cure | Effect |
+| --- | --- | --- |
+| Material breach | 30–60 days | Termination |
+| Non‑payment | Short cure | Termination or conversion |
+| Confidentiality breach | None | Immediate |
+| Insolvency | 30–90 days | Automatic |
+| Diligence failure | N/A or short | Convert or terminate |
+
+**Exhibits / Schedules**
+
+- Exhibit A: Confidential know‑how description.
+- Exhibit B: Tech transfer deliverables and timeline.
+- Exhibit C: Milestones and reporting format.
+- Exhibit D: Royalty report template.
+
+## Guidelines
+
+- Do not over‑describe the know‑how in the agreement body; put sensitive detail in confidential exhibits.
+- Exclusivity requires diligence milestones or minimums.
+- Royalty base must be mechanically auditable; define deductions tightly.
+- If export‑controlled technology is involved, include explicit export control language and required licenses.
+- Use bold or caps for warranty disclaimers and limitation of liability to improve enforceability.
+- For international deals, confirm governing law and arbitration seat; flag any choice of law concerns.
+- Mark any uncertain citations with `[VERIFY]`.
+tokens used
+10,462

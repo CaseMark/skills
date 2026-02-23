@@ -1,0 +1,310 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-bca2-7ad1-a798-9f86a6ab6361
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "7f83536c-0820-4170-8b44-51c6b90e4c00",
+  "slug": "litigation-appeals-technical-formatting-requirements",
+  "name": "Appellate Document Formatting and Certification",
+  "summary": "This skill guides an LLM through producing appellate-filing ready Tables of Contents, Tables of Authorities, and truthful, rule-accurate Certificates of Compliance\u2014centered on FRAP 32(g) and related form and type-volume requirements. It provides detailed instructions for defensible word-count methodology with transparent exclusion calculations, strict anti-hallucination guardrails for pagination and citations, and integration with final PDF assembly and cross-verification. The workflow is designed to withstand clerk scrutiny and adversarial challenges while flagging local-rule variations, state-court differences, and Supreme Court requirements for verification and attorney review.",
+  "content": "# Appellate Document Formatting and Certification: Table of Contents, Table of Authorities, and Certificates of Compliance\n\n## 1. Opening Context\n\nThis skill governs the production of the foundational structural elements of an appellate brief: the Table of Contents (TOC), the Table of Authorities (TOA), and the Certificate of Compliance. In appellate practice, these are not merely administrative addenda; they are the primary navigation tools used by appellate judges and their law clerks to parse complex legal arguments, and they are a lawyer's formal representations to the court about compliance with formatting and length requirements. A flawed TOA or an inaccurate TOC does more than create technical friction\u2014it signals a lack of professional rigor and can undermine the credibility of the substantive legal arguments that follow. In extreme cases, failure to adhere to the strict formatting and certification requirements of the Federal Rules of Appellate Procedure (FRAP) or specific local circuit rules can result in the Clerk of Court rejecting a filing, triggering deficiency notices, inviting motions to strike, or missing a jurisdictional deadline.\n\nExecuting this skill requires a transition from the creative, argumentative phase of brief writing to a high-precision technical phase. The standard is absolute accuracy: every page number in the TOC must align with the text; every citation in the TOA must be correctly categorized and pinpointed; and the word count in the Certificate of Compliance must be calculated with surgical precision according to the specific exclusions permitted by the rules. Poor execution fails in predictable, high-stakes ways: the TOA omits key authorities or misstates page references; the TOC does not match headings after late edits; the word count is computed incorrectly because exempt material was not excluded; or the certificate cites the wrong rule, wrong limits, wrong software, or wrong count methodology. This work product represents the final quality gate before a client's position is submitted for judicial review, and it requires the same level of strategic attention as the substantive argument itself.\n\n## 2. Understanding the Context and Purpose\n\nAppellate practice is document-driven, and appellate clerks and judges often navigate briefs through the TOC and TOA rather than reading linearly. The TOC is not cosmetic; it is the map of the argument and a first-pass check for organization and issue framing. The TOA is equally functional: it allows the court to immediately assess the weight of authority relied upon\u2014distinguishing between binding precedent, persuasive authority from other circuits, and statutory or regulatory sources\u2014and it helps opposing counsel and the court test whether the brief is grounded in appropriate authority.\n\nThe Certificate of Compliance is a formal representation to the court that the advocate has respected the boundaries set by the rules regarding brief length and formatting. Since the federal system's transition from page limits to word counts, the court relies on the attorney's certification to ensure parity between parties. An inaccurate certification\u2014even if accidental\u2014can be viewed as an attempt to gain an unfair advantage. In federal appeals, word-count limits and formatting requirements are generally governed by FRAP 32 (form of briefs) and FRAP 28 (brief contents), with the certificate requirement specifically codified in FRAP 32(g). These components are among the few parts of a brief that are both highly standardized and highly visible to clerks; they are low-cost to get right and disproportionately costly to get wrong.\n\nThe primary audiences are (a) the clerk's office (for filing acceptance and compliance checks), (b) the panel and staff attorneys (for navigation and quick verification), and (c) opposing counsel (who may challenge noncompliance through motions to strike or requests for leave to exceed limits). The output must satisfy all of them.\n\nScope boundary: This skill standardizes TOC/TOA generation and compliance certification language and calculations. It does not draft substantive appellate arguments, select issues for appeal, or provide jurisdiction-specific computations beyond what is verifiable from rules and local orders. Where rule variations exist, the skill instructs the executing LLM to confirm via web search or flag for attorney verification.\n\n## 3. Prerequisites and Information Gathering\n\nBefore generating any TOC, TOA, or compliance certificate, the LLM must confirm it is working from the final or near-final brief text, not an outline or preliminary draft. TOC/TOA integrity depends on stable headings and pagination. If the user is still revising headings, citations, or sections, the LLM should either produce a \"draft\" TOC/TOA clearly labeled as such, or request the updated final text before proceeding.\n\nAt minimum, the following information must be collected. First, the full brief text as it will be filed, including the cover page, corporate disclosure statement (if applicable), all required statements, TOC/TOA placeholders if present, jurisdictional statement, statement of issues, statement of the case, summary of argument, argument, conclusion, signature block, certificates, and any addenda or appendices. Second, the forum and case metadata: the court, circuit or state, case number, short caption, and brief type (appellant's opening brief, appellee's response, reply, amicus, cross-appeal, petition for rehearing, etc.). Third, the formatting choices that affect compliance: whether the brief uses a proportional or monospaced font, the font name and size (e.g., 14-point Century Schoolbook or 12-point Courier), line spacing, and margins if known. Fourth, the intended filing method (CM/ECF PDF, paper, or both) and whether the court requires a separate word-count certificate or a combined certificate. Fifth, any court order granting a different length limit. Sixth, any local rule requirements for TOA format, hyperlinking, internal bookmarks, or addendum requirements.\n\nFor word-count calculations, the LLM should obtain the final word count from the drafting platform if available (Microsoft Word, WordPerfect, Google Docs), an exportable text version for independent verification, and a list of which sections the user believes are excluded from the word-count limit. The LLM must not assume what is excluded; it should confirm against the governing rule text and flag anything uncertain.\n\nIf any of the above is missing\u2014especially the forum (federal versus state) or the brief type\u2014the LLM must pause and ask targeted questions. The correct certificate language, word-count limits, and exclusion categories all depend on these inputs. Different document types carry different limits: for example, under FRAP 32(a)(7)(B), a principal brief (opening or response) is generally limited to 13,000 words, while a reply brief is limited to 6,500 words, and amicus briefs under FRAP 29 have their own limits. The LLM should verify the current word limits via web search rather than relying on memorized figures, as these limits are periodically amended.\n\n## 4. Step-by-Step Process\n\n### Step 1: Identify the Governing Authority for Form, Length, and Certificate Requirements\n\nThe process begins by determining the precise rules that govern the filing. For federal appellate courts, FRAP 28 and FRAP 32 are the baseline for content and form requirements. FRAP 32 sets out typography requirements and the type-volume limits, and FRAP 32(g) specifies the certificate of compliance requirement. The LLM must also determine whether the brief is a principal brief, reply, amicus brief, or other submission, because type-volume limits and content requirements change with the document type.\n\nIn parallel, the LLM must identify any circuit local rules or standing orders that modify TOA/TOC formatting or require additional certificates. For example, the Fifth and Eleventh Circuits require a Certificate of Interested Persons (CIP) that must precede the TOC and may have its own formatting requirements. The Ninth Circuit requires a specific Statement of Related Cases that is often excluded from the word count. The LLM should conduct a targeted web search for the specific court's local rules (e.g., \"[Circuit] local rule table of authorities\" and \"[Circuit] certificate of compliance FRAP 32(g)\") and cite the specific provisions with URLs. If web research is not available in the execution environment, the LLM must flag local-rule dependence and ask the user to provide the relevant local rule text.\n\nThe most common formatting and certification errors stem from using generic certificate language that cites the wrong authority, applying the wrong word limit for a reply or amicus brief, treating page limits and word limits interchangeably, or copying a certificate from one circuit and filing it in another. Opposing counsel can exploit these errors, and the clerk can issue deficiency notices that compress filing timelines.\n\nFor state appellate courts, the LLM must not assume that state rules mirror FRAP. Some states use strict page limits, some require proportionally spaced fonts but specify different sizes or margins, and some require separate word-count certificates in a prescribed form. For example, the California Rules of Court (Rule 8.204) impose different word limits (generally 14,000 words for a principal brief) and have specific rules for attachments that differ from federal addenda. The LLM must request the relevant state rule provisions or perform web research to obtain them, then tailor all outputs accordingly.\n\nFor U.S. Supreme Court filings, the requirements are significantly more technical than the FRAP. Supreme Court Rules 33 and 34 govern document preparation and format, including specific \"booklet format\" requirements for merits briefs. Supreme Court Rule 33.1(g) imposes word limits for booklet-format briefs, while Rule 33.2 imposes page limits for 8.5 \u00d7 11-inch documents. The certificate must explicitly state compliance with the applicable word or page limit, not just the typeface. The LLM must differentiate between these two modes of filing and should verify the current Supreme Court rules via web search before producing any certificate language.\n\n### Step 2: Normalize the Brief Structure and Headings for Reliable TOC Generation\n\nBefore generating the TOC, the LLM must standardize the heading hierarchy and numbering in the brief text. The TOC is only as accurate as the heading structure extracted. For federal briefs, the LLM should confirm that major sections conform to FRAP 28's required components (corporate disclosure statement when required, jurisdictional statement, statement of issues, statement of the case, summary of argument, argument, conclusion, and certificates). If the user's brief departs from the conventional order, the LLM should not silently \"correct\" it; instead, it should flag the divergence and ask whether it is intentional and supported by local rules or court preferences.\n\nThe LLM should create a heading map: a structured representation of all headings and subheadings in the order they appear, preserving exact capitalization and wording. If the brief uses Roman numerals and lettered subparts, these must be preserved because appellate judges often refer to argument points by those labels. Each TOC entry should ideally be a persuasive \"point heading\"\u2014a complete sentence or phrase that conveys a substantive legal position. For example, rather than the generic \"Standard of Review,\" a superior TOC entry would read \"The District Court Applied the Incorrect Standard of Review by Failing to Defer to the Agency's Factual Findings.\" However, the LLM must not rewrite headings for the TOC; the TOC must match the brief text verbatim. If headings are weak, the LLM may offer editorial feedback separately.\n\nCommon mistakes at this stage include pulling headings from the wrong version of the brief, introducing mismatches between TOC and body headings, losing defined terms or party names in headings, failing to capture unnumbered headings like \"Standard of Review\" that courts expect to see, and mixing heading levels at the same indentation depth. Some courts have conventions for TOC depth (e.g., include headings through two levels only). If a local rule or practitioner's guide specifies TOC depth, the LLM should follow it; otherwise, the default should be to include major headings and two levels of subheadings, flagging unusually deep nesting for the user's attention.\n\n### Step 3: Generate a Table of Contents That Matches the Final Document and Pagination\n\nThe TOC must reflect the filed version's headings and page numbers. If the user provides a paginated draft (e.g., a PDF), the LLM should extract the page numbers directly from that pagination rather than estimating. If the user provides an unpaginated text, the LLM must produce a TOC without page numbers (or with bracketed placeholders such as \"[__]\") and clearly label it: \"DRAFT\u2014PAGE NUMBERS TO BE UPDATED AFTER PAGINATION.\" The LLM must never fabricate page numbers.\n\nWhen page numbers are available, TOC entries should be aligned to the right margin using dot leaders if consistent with the user's style. The front matter (TOC, TOA, corporate disclosure statement, statement of related cases) is typically paginated in lowercase Roman numerals (i, ii, iii), while the body of the brief uses Arabic numerals (1, 2, 3). The LLM should confirm this convention applies in the user's forum and use it accordingly.\n\nThe TOC must include all major sections present in the brief\u2014including front-matter items and back-matter certificates if the court expects them. For federal appellate briefs, this typically means listing the Corporate Disclosure Statement, Table of Authorities, Jurisdictional Statement, Statement of Issues, Statement of the Case, Summary of Argument, Argument (with all subheadings), Conclusion, Certificate of Compliance, and Certificate of Service. The following illustrative structure demonstrates a typical federal appellate TOC:\n\n\"TABLE OF CONTENTS\n\nCORPORATE DISCLOSURE STATEMENT \u2026 i\nTABLE OF AUTHORITIES \u2026 ii\nSTATEMENT OF JURISDICTION \u2026 1\nSTATEMENT OF ISSUES \u2026 2\nSTATEMENT OF THE CASE \u2026 3\nSUMMARY OF ARGUMENT \u2026 10\nARGUMENT \u2026 12\n I. The District Court Erred in Denying Summary Judgment \u2026 12\n A. Standard of Review \u2026 12\n B. The Undisputed Facts Establish Liability \u2026 14\n II. The Damages Award Should Be Affirmed \u2026 18\nCONCLUSION \u2026 30\nCERTIFICATE OF COMPLIANCE \u2026 31\nCERTIFICATE OF SERVICE \u2026 32\"\n\n(This example is illustrative; the attorney must verify that all required sections are present and that page numbers correspond to the final paginated filing.)\n\nCommon mistakes include omitting required sections, TOC entries not matching the body headings verbatim, incorrect Roman numeral pagination for front matter, missing or inconsistent indentation that obscures hierarchy, and failing to update the TOC after the final round of edits, leading to \"phantom headings\" or incorrect page references.\n\n### Step 4: Build a Defensible Table of Authorities from Citations in the Final Brief\n\nThe TOA must be generated from actual citations in the brief. The LLM should parse the text for legal citation patterns, but it must treat automated citation extraction as fallible and perform secondary validation. Specifically, the LLM should confirm that each authority in the TOA actually appears in the brief text and that page references are correct.\n\nThe TOA must be organized into conventional categories: \"Cases,\" \"Constitutional Provisions\" (if applicable), \"Statutes,\" \"Rules,\" and \"Other Authorities\" (treatises, legislative history, law review articles, or secondary sources). Many courts expect or require this breakdown, and some circuits prefer further sub-categorization, such as separating Supreme Court cases from Circuit Court cases. Within \"Cases,\" sort alphabetically by the first party name; within \"Statutes,\" sort by code and section number (e.g., listing 28 U.S.C. \u00a7 1291 before 42 U.S.C. \u00a7 1983). The LLM should use consistent citation form. If the brief already follows Bluebook style, the LLM should not \"correct\" citations without instruction, but should flag obvious nonconforming items for attorney review.\n\nCritically, the LLM must not hallucinate or \"improve\" citations by adding reporter cites, volume numbers, or case years that are not present in the brief. If a citation is incomplete, the TOA should reflect what is in the document and separately flag: \"Citation appears incomplete; attorney should verify reporter and year.\" Any enhancement of citations should occur only after the attorney confirms the correct authority.\n\nFor authorities cited extensively (typically five or more times), the term \"passim\" may replace specific page numbers, though some jurisdictions discourage or restrict this practice. The LLM should use \"passim\" conservatively and only when clearly appropriate.\n\nThe following illustrative excerpt demonstrates TOA structure:\n\n\"TABLE OF AUTHORITIES\n\nCases\nAnderson v. Liberty Lobby, Inc., 477 U.S. 242 (1986) \u2026 14, 16\nCelotex Corp. v. Catrett, 477 U.S. 317 (1986) \u2026 14\nMatsushita Elec. Indus. Co. v. Zenith Radio Corp., 475 U.S. 574 (1986) \u2026 15\n\nStatutes\n28 U.S.C. \u00a7 1291 \u2026 1\n42 U.S.C. \u00a7 1983 \u2026 3, 7, 14\n\nRules\nFed. R. App. P. 28 \u2026 1\nFed. R. App. P. 32 \u2026 31\n\nOther Authorities\n16A Charles Alan Wright et al., Federal Practice & Procedure \u00a7 3949 (5th ed. 2020) \u2026 15\"\n\n(Authorities above are illustrative; counsel must verify that each is actually cited in the brief and that the page references are correct.)\n\nCommon mistakes include missing short-form citations where the same authority appears under variant names, double-counting the same authority, failing to include statutes and rules cited in the brief, mis-sorting \"In re\" and \"Ex parte\" cases, omitting citations that appear only in footnotes, and incorrect page references after late-stage pagination changes. Opposing counsel will often check the TOA to identify gaps in the analysis of controlling law. An opponent may use TOA errors to argue sloppiness or suggest the court cannot rely on the brief's citations.\n\n### Step 5: Compute Type-Volume (Word Count) Accurately, Including Exclusions, and Document the Methodology\n\nFor federal briefs governed by FRAP word limits, the certificate must state that the brief complies with the type-volume limitation of FRAP 32(a)(7) and must state the number of words and the method used to count them, as required by FRAP 32(g). The LLM must therefore: (a) determine whether the brief is subject to a word limit or page limit under the applicable rule or order; (b) obtain an accurate word count from a reliable source; and (c) identify which parts of the brief are excluded from the count under the governing rule.\n\nUnder FRAP 32(f), the following are generally excluded from the word count: the cover page, disclosure statement, table of contents, table of authorities, appearance of counsel, signature block, certificate of compliance, certificate of service, and any addendum containing statutes, rules, or regulations. The LLM must verify the current exclusion categories by consulting the rule text rather than relying on memorized lists, because these provisions can be amended. If the user asks for exclusions beyond what the rule allows (e.g., excluding the entire Statement of the Case), the LLM must refuse and explain that the certificate must track the rule.\n\nThe LLM should perform a bifurcated count: first, identify the total word count of the entire document, then systematically exclude the exempt sections. The result should be presented as a transparent breakdown: \"Total Words: [X]; Excluded Words: [Y]; Net Words for Compliance: [Z].\" If the brief is close to the limit (e.g., within 2% of the maximum), the LLM must flag this explicitly and recommend that counsel consider trimming to provide a margin of safety, because different counting methods may produce slightly different results.\n\nThe methodology should be defensible. Best practice is to use the word processor's built-in word count for the sections included under the rule, and separately confirm by copying the included text into a plain-text analyzer if feasible. The word count should be taken from the source document used to generate the PDF (typically a Word document), not from OCR on the PDF. The LLM must state explicitly: \"The word count provided is an estimate based on the text supplied. The attorney must perform a final count using the word processing software used for the final filing to ensure it matches the certified number.\"\n\nCommon mistakes include relying on PDF text extraction word counts (which can vary), forgetting to exclude the TOC/TOA and certificates when the rules permit, excluding items that are not excludable, mixing words and lines (monospaced compliance has different metrics), and failing to update the word count after final edits. Opponents can and do challenge noncompliance, especially where a party appears to push the limits; the goal is a method that can be explained to the court without embarrassment.\n\n### Step 6: Draft a Truthful, Rule-Accurate Certificate of Compliance\n\nFor federal appellate briefs, FRAP 32(g) requires a certificate of compliance that states the brief's type-volume and confirms compliance with the typeface and type-style requirements. The FRAP Appendix of Forms includes Form 6, which provides a model certificate. The certificate is a representation to the court and must match the actual document and actual counting method. It should be drafted in the first person (\"I certify\") and include the applicable limit (words or lines), the brief's word count, the method and software used for the count, and the typeface and type style.\n\nThe following model language may be adapted by the user:\n\n\"CERTIFICATE OF COMPLIANCE\n\nPursuant to Fed. R. App. P. 32(g)(1), I certify that this brief complies with the type-volume limitation of Fed. R. App. P. 32(a)(7)(B) because this brief contains [____] words, excluding the parts of the brief exempted by Fed. R. App. P. 32(f).\n\nThis brief also complies with the typeface requirements of Fed. R. App. P. 32(a)(5) and the type-style requirements of Fed. R. App. P. 32(a)(6) because it has been prepared in a proportionally spaced typeface using [Software Name] in [Font Size]-point [Font Name].\"\n\n(This language is illustrative. The attorney must insert the actual word count, software, font, and size, and must verify that the cited rule subsections are current. If the court provides preferred certificate language in local rules or a clerk's practice guide, that language should be used instead.)\n\nThe LLM must not fill in the word count, software name, font, or size unless the user has confirmed these details. If any information is missing, the LLM should insert bracketed placeholders and instruct the attorney to complete them before filing.\n\nIf the user requests a \"Rule 37 compliance certificate,\" the LLM should seek clarification. FRAP 37 governs interest on judgments and certain mandates; it does not itself create a generic formatting certificate. If a brief involves post-judgment interest issues, the proper approach is to ensure the requested relief and judgment language conforms to FRAP 37 and applicable substantive law, which is a substantive drafting task rather than a formatting certificate task. The LLM should ask whether the user means the FRAP 32(g) certificate of compliance, whether the brief includes arguments about interest, and\u2014if the user truly needs FRAP 37-related language\u2014produce a narrowly framed \"interest statement\" for attorney review and flag it for verification against the specific court's requirements.\n\nCommon mistakes include citing the wrong rule subsection, certifying compliance with fonts not actually used, copying a certificate that references page limits when the court uses word limits, and omitting the statement of the program used when required by FRAP 32(g). False or careless certifications can become disciplinary issues under Model Rule 3.3 (Candor Toward the Tribunal) and can undermine credibility with the panel.\n\n### Step 7: Final Assembly, Cross-Verification, and PDF Readiness\n\nThe final step is a holistic review of the structural integrity of the document. Even when not explicitly required by FRAP, modern appellate practice expects electronic briefs to be navigable. The LLM should guide the user to ensure that TOC entries correspond to PDF bookmarks and that citations are internally consistent.\n\nThe LLM should cross-reference the TOC and TOA against the body of the brief, checking that every heading in the TOC appears in the body with matching wording, that every authority in the TOA actually appears on the pages listed, that the certificate word count matches the final document, and that the caption, case number, and party names are consistent across the cover, headers, and signature blocks. It should check that font and margins are uniform throughout, that footnote text meets any applicable size requirements (many appellate courts require footnotes to be the same size as body text), and that \"orphaned headers\" do not appear stranded at the bottom of pages.\n\nFor the pagination convention, the LLM should verify that front matter uses lowercase Roman numerals and the body uses Arabic numerals, as is standard in appellate practice. Some courts publish technical standards for PDFs (e.g., text-searchable PDFs, bookmarks required for briefs over a certain length); the LLM should search for and cite the specific court source and incorporate those requirements into the assembly instructions. If the user is using an LLM-generated TOA/TOC rather than Word automation, the final source of truth should be the paginated PDF, and the user must verify that all page numbers match.\n\nCommon mistakes at this stage include TOA page numbers shifting after insertion of the TOA itself, adding headings late without updating the TOC, inconsistent case-caption formatting across sections, and failing to regenerate the PDF after last changes.\n\n## 5. Critical Legal Standards and Compliance\n\nCompetence and diligence govern even \"formatting\" work because errors can prejudice the client through filing rejection, motions to strike, or sanctions. The LLM must operate under a strict anti-hallucination and truthfulness posture: it must never invent page numbers, word counts, authorities, or rule citations.\n\nThe key professional responsibility constraints include Model Rule 1.1 (Competence), requiring mastery of the procedural rules of the forum as a core component of competent representation; Model Rule 1.3 (Diligence), requiring accurate and timely work; Model Rule 1.6 (Confidentiality), requiring the LLM and user to avoid disclosing sensitive client information into insecure systems; Model Rule 3.3 (Candor Toward the Tribunal), directly implicated by certificates of compliance and any representations about word counts and formatting, such that an attorney who knowingly or recklessly misstates a word count to evade length limits faces disciplinary action; and Model Rule 5.3 (Responsibilities Regarding Nonlawyer Assistance), insofar as an attorney must supervise nonlawyer and AI-generated work product and ensure it is reviewed before filing.\n\nPrivilege and confidentiality considerations arise because drafts of briefs, internal word-count calculations, and citation lists can constitute privileged work product. The LLM should instruct users to redact unnecessary personal data and to avoid uploading sealed material unless the platform is approved for such use. While the TOC and TOA are public-facing, the LLM must ensure it does not inadvertently include confidential or sealed information that may have been present in the draft but should be redacted or pseudonymized in the final version.\n\nMalpractice risk areas include incorrect certificates (word count, font, exemptions), missed local rule requirements leading to rejection, TOA/TOC errors that create credibility problems, and deadline risk when deficiency notices force refiling. Mitigation requires a verification step tied to the final filed PDF and independent cross-checking.\n\nCandor obligations deserve special emphasis: a certificate is not aspirational; it is a factual representation to the court. If the LLM cannot verify a fact, it must leave a placeholder and require attorney completion. If the user asks the LLM to \"make it fit\" by excluding non-exempt sections, the LLM must refuse and explain that the correct path is either to edit the brief to reduce its length or to seek leave of court for an overlength filing.\n\n## 6. Quality Control and Review\n\nQuality control is not a last-minute spellcheck; it is an evidentiary and compliance audit against a known final document. The LLM should evaluate whether the TOC/TOA and certificates match the final paginated version and whether every representation can be defended.\n\nFirst, confirm the governing law is stated correctly: the certificate should cite FRAP 32(g) for the certificate requirement, FRAP 32(a)(5)\u2013(6) for typeface and type-style, FRAP 32(a)(7) for the type-volume limitation, and FRAP 32(f) for the exemption categories. If any local rule language is used, it must be supported by a URL citation or flagged for attorney verification.\n\nSecond, confirm factual assertions are supported: the word count must match the software output for the final version; the font and size must match the brief's actual settings; and any stated exclusions must match what was excluded and what the rule allows.\n\nThird, confirm structural conventions: TOC hierarchy is clear; indentation is consistent; TOA categories are conventional and alphabetized; authorities are not duplicated under variant spellings; and page references are accurate. The attorney should manually check a sample of three to five TOC entries against the finalized PDF and verify that all \"Other Authorities\" are correctly categorized.\n\nFourth, confirm adversarial resilience: assume opposing counsel will independently check the word count and the TOA. If the word count is within 2% of the limit, flag it explicitly and recommend counsel consider providing margin. If any citation appears ambiguous or incomplete, flag it for attorney correction.\n\nFifth, verify citations and formatting: citations in the TOA should be copied exactly from the brief unless the user instructs correction. If the LLM proposes corrections, it must either provide a verifiable source (e.g., an official reporter citation confirmed through a reliable database) or flag the proposed correction for attorney confirmation. For statutes and rules, cite official sources such as the Cornell Legal Information Institute for federal rules.\n\nFinally, require attorney review: all outputs must be reviewed by a licensed attorney prior to filing. This skill provides drafting assistance and process guidance and does not constitute legal advice. The LLM must explicitly state: \"This document was generated based on [Federal/State] rules for the [Specific Circuit/Court]. If the venue has changed, the formatting must be revised. All word counts, page numbers, and citations must be independently verified before filing.\"\n\n## 7. Jurisdiction-Specific Adaptations\n\nFederal (FRAP-governed) matters should default to FRAP 28 and 32 for brief structure and certificates. The LLM should use FRAP 32(g) certificate language and ensure the count method and software are stated. Amicus briefs and special filings require separate rule confirmation via web search, because word limits and certificate expectations differ by rule and by circuit local practice.\n\nCircuit-specific requirements include the following examples, which the LLM should verify via web search before relying upon them. The Fifth and Eleventh Circuits require a Certificate of Interested Persons (CIP) that must precede the TOC and may have its own formatting requirements. The Ninth Circuit requires a specific Statement of Related Cases that is often excluded from the word count. Various circuits may have preferences regarding citation to unpublished dispositions or the sub-categorization of cases in the TOA. The LLM should always search for and cite the specific circuit's local rules and clerk's practice guides.\n\nState appellate courts must be treated as independent systems. California Rules of Court (Rule 8.204) impose different word limits and have specific rules for attachments. Other states may use page limits rather than word limits, require different fonts or margins, or mandate separate word-count affidavits. The LLM must request the relevant state rule provisions or perform web research to obtain them, then tailor all outputs accordingly and cite the rule URL.\n\nU.S. Supreme Court filings are governed by Supreme Court Rules 33 and 34, which are significantly more technical than the FRAP, involving specific booklet-format requirements, paper weight, and binding methods. Supreme Court Rule 33.1(g) imposes word limits for booklet-format briefs, while Rule 33.2 imposes page limits for letter-size documents. The certificate must explicitly state compliance with the applicable word or page limit. The LLM must differentiate between these two modes of filing and verify the current Supreme Court rules before producing any certificate language.\n\nFRAP 37 should be treated as a substantive relief and interest rule rather than a formatting certificate rule. If a user requests a \"Rule 37 certificate,\" the LLM should ask for the precise court request (order, local rule, or clerk instruction) and draft narrowly to that instruction, flagging the legal basis for attorney verification.\n\nFor any jurisdiction or court not specifically addressed above, the LLM must perform web research to identify the governing rules and cite them with URLs. If web research is unavailable, the LLM should provide a draft certificate shell with placeholders and clear instructions for the attorney to insert jurisdiction-specific details after consulting the applicable rules.",
+  "parent_skill_id": null,
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "generated_from": "evolution_approved",
+    "parent_skill_id": "73278d7c-412a-4c3a-bed7-9978ba61c9e4"
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-02-12T19:04:43.908674",
+  "updated_at": "2026-02-12T19:37:41.288772"
+}
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:02:47.175807Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Choosing skill slug and metadata**
+
+I'm deciding on a concise, descriptive slug like "appellate-toc-toa-certificate" and grounding metadata with practice_areas as Litigation and document_types including Certificate and Tables to reflect the Tables of Contents, Authorities, and Certificate focus.
+thinking
+**Finalizing skill content and structure**
+
+The plan is to produce a complete SKILL.md file for "appellate-formatting-certification" covering metadata, detailed prerequisites, structured input tables, stepwise output process, templates for TOC, TOA, certificate, and QC checklists, while incorporating [VERIFY] tags on rule citations and avoiding nested bullets by using tables and separate lists.
+codex
+---
+name: appellate-formatting-certification
+description: Generates appellate-brief Tables of Contents and Authorities plus a rule-accurate Certificate of Compliance with defensible word-count methodology. Use for appellate brief formatting, TOC/TOA rebuilds, certificate of compliance drafting, FRAP 32(g) citations, word-count certifications, and final PDF cross-checks before filing.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+    - Appeals
+  document_types:
+    - Brief
+    - Table
+    - Certificate
+  skill_modes:
+    - Drafting
+    - Compliance
+---
+
+# Appellate TOC/TOA and Compliance Certificate
+
+Produce filing-ready TOC, TOA, and certificate language tied to the final paginated brief and the governing rules.
+
+## Prerequisites
+
+1. Final or near-final brief text with stable headings and citations.
+2. Forum and brief type (court, circuit/state, document type).
+3. Formatting specs (font, size, spacing, margins).
+4. Pagination source (final PDF or instruction to leave placeholders).
+5. Word-count source (word processor count) and list of excluded sections.
+6. Local rules, standing orders, or court order modifying format or limits.
+
+## Output Structure / Process
+
+Required inputs table:
+
+| Input | Required | If missing |
+| --- | --- | --- |
+| Court and brief type | Yes | Ask targeted questions before drafting |
+| Final paginated PDF | Preferred | Use placeholders; label as DRAFT |
+| Word processor word count | Yes | Insert placeholder; require attorney count |
+| Excluded sections list | Yes | Require rule text; do not assume |
+| Local rules | Yes | Request rule text or cite [VERIFY] |
+
+Rule anchors to verify against current rules:
+
+| Forum | Core rule anchors |
+| --- | --- |
+| Federal courts of appeals | FRAP 28, FRAP 32(a)(5)-(7), FRAP 32(f), FRAP 32(g) [VERIFY] |
+| State appellate courts | State rule text only [VERIFY] |
+| U.S. Supreme Court | Sup. Ct. R. 33, 34, 33.1(g), 33.2 [VERIFY] |
+
+Process checklist:
+
+1. Confirm governing rules and any court order modifying limits.
+2. Normalize heading map from the final brief; preserve exact text.
+3. Generate TOC from the final pagination.
+4. Generate TOA from the citations in the final brief.
+5. Compute word count with explicit exclusions and method.
+6. Draft certificate language tied to the confirmed rules.
+7. Run final QC against the final PDF.
+
+TOC rules:
+
+- Never fabricate page numbers.
+- If unpaginated, use placeholders like `[__]` and label `DRAFT - PAGE NUMBERS TBD`.
+- Preserve exact heading text, capitalization, and numbering.
+- Use Roman numerals for front matter and Arabic for body only if the forum does so.
+- Include all required sections for the forum, including certificates if required.
+
+TOC template:
+
+```text
+TABLE OF CONTENTS
+
+[FRONT MATTER ITEM] ........................................ [__]
+TABLE OF AUTHORITIES ....................................... [__]
+[REQUIRED STATEMENTS] ...................................... [__]
+ARGUMENT ................................................... [__]
+  I. [Heading] ............................................. [__]
+     A. [Subheading] ....................................... [__]
+CONCLUSION ................................................. [__]
+CERTIFICATE OF COMPLIANCE .................................. [__]
+CERTIFICATE OF SERVICE ..................................... [__]
+```
+
+TOA categories and sorting:
+
+| Category | Include | Sorting rule |
+| --- | --- | --- |
+| Cases | All cases cited in the brief | Alphabetical by first party name |
+| Constitutional Provisions | Federal or state provisions cited | Jurisdiction then provision |
+| Statutes | All statutes cited | Code then section |
+| Rules | FRAP, local rules, state rules cited | Rule number |
+| Other Authorities | Treatises, articles, manuals | Alphabetical by author/title |
+
+TOA rules:
+
+- Do not add or fix citations not present in the brief.
+- If a citation is incomplete, flag it for attorney review.
+- Avoid "passim" unless the forum permits it.
+- Ensure each authority listed appears in the brief, including footnotes.
+
+Word-count calculation table:
+
+| Step | Value |
+| --- | --- |
+| Total words (source document) | [____] |
+| Excluded sections (by rule) | [list with rule cite] |
+| Excluded words | [____] |
+| Net words for compliance | [____] |
+
+Certificate template (adapt to forum rules):
+
+```text
+CERTIFICATE OF COMPLIANCE
+
+Pursuant to [Rule cite] [VERIFY], I certify that this brief complies with the type-volume limitation of [Rule cite] [VERIFY] because it contains [____] words, excluding the parts of the brief exempted by [Rule cite] [VERIFY].
+
+This brief complies with the typeface and type-style requirements of [Rule cite] [VERIFY] because it has been prepared in a proportionally spaced typeface using [Software] in [Font Size]-point [Font Name].
+```
+
+Final QC checklist:
+
+- TOC headings match the brief verbatim.
+- TOC page numbers match the final PDF.
+- TOA entries match citations in the brief and page references are correct.
+- Word count matches the source document used to generate the PDF.
+- Certificate cites the correct rule and states the actual method and software.
+- If within 2% of the limit, flag for trimming or motion for leave.
+
+## Guidelines
+
+- Do not invent page numbers, word counts, or citations.
+- Do not certify compliance without a confirmed count and formatting specs.
+- If the user requests a "Rule 37 certificate," ask for the exact order or rule basis; FRAP 37 is substantive interest relief, not a generic formatting certificate [VERIFY].
+- For state or Supreme Court filings, require the exact rule text or insert placeholders with [VERIFY].
+- Always require attorney review before filing and note that all counts and citations must be independently verified.
+- Protect confidentiality; exclude sealed or sensitive data unless explicitly authorized.
+tokens used
+12,291

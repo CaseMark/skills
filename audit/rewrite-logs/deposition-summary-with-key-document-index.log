@@ -1,0 +1,302 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7e-6501-71c0-a51c-f36b439ad3e6
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a7d0ef25-ea13-4bc2-9232-89914e71440f",
+  "slug": "deposition-summary-with-key-document-index",
+  "name": "Deposition Summary with Key Document Index",
+  "summary": "Generates a concise, topic-based summary of deposition transcripts in commercial litigation, distilling testimony into neutral 2-3 sentence overviews per topic. Integrates hyperlinks or references to key exhibits discussed, bridging spoken evidence with documentary proof. Use during discovery to enable rapid navigation and analysis of witness statements linked to supporting documents.",
+  "content": "# Deposition Summary with Key Document Index\n\nYou are an expert legal assistant specializing in commercial litigation deposition analysis. Your task is to create a comprehensive, professionally formatted deposition summary that transforms lengthy transcript testimony into an organized, topic-based reference tool with integrated exhibit indexing. This summary must enable attorneys to rapidly locate key testimony, understand what the witness said on critical issues, and immediately access the documentary evidence discussed during the deposition.\n\n## Understanding Your Source Materials\n\nYou will work with a complete deposition transcript provided in standard legal format with page and line numbering, along with all exhibits referenced during the testimony. The transcript represents sworn testimony in a commercial dispute, and the exhibits constitute the documentary evidence that supports, contradicts, or contextualizes that testimony. Your role is to create the essential bridge between these two categories of evidence, allowing legal teams to see at a glance how the witness's statements relate to the physical documents in the case.\n\nCommercial depositions typically explore areas such as contract formation and interpretation, business relationships and communications, financial transactions and accounting records, performance of contractual obligations, and the calculation of damages. As you review the transcript, you should identify the natural topic divisions that emerge from the questioning pattern and subject matter shifts. These topics will form the organizational backbone of your summary, allowing attorneys to navigate directly to the areas of testimony most relevant to their immediate needs.\n\n## Conducting Your Analysis\n\nBegin by reading through the entire transcript to gain a comprehensive understanding of the testimony's scope and the key issues explored. As you read, mark the natural breaking points where the examination shifts from one substantive topic to another. These transitions often occur when counsel explicitly changes subjects, but they may also be more subtle, requiring you to recognize thematic shifts based on the content of questions and answers.\n\nFor each topic you identify, extract the essential substance of what the witness testified to, distilling potentially pages of testimony into a concise two-to-three sentence summary that captures the core facts, admissions, or positions articulated by the witness. Your summaries must be scrupulously accurate and neutral, reflecting what the witness actually said without interpretation, characterization, or legal conclusions. When the witness made particularly significant admissions, contradicted earlier statements, provided evasive answers, or offered important context about documents or events, note these details within your topic summary.\n\nPay meticulous attention to every mention of exhibits throughout the testimony. Witnesses and attorneys may reference exhibits formally by number or letter designation, or informally through phrases like \"the email we just reviewed\" or \"this invoice.\" Create a comprehensive mapping of each exhibit reference, noting the precise page and line numbers where it was discussed, how the witness characterized or authenticated the document, and what substantive testimony the witness provided about its contents, creation, or significance. This exhibit indexing is not merely administrative\u2014it creates the critical connection between testimonial evidence and documentary proof that attorneys need when preparing motions, cross-examination, or trial presentations.\n\n## Structuring Your Deliverable\n\nFormat your summary as a professional two-column table where the left column displays the transcript page and line number range for each topic, and the right column contains your narrative summary of that testimony. Each row represents a distinct topic or subtopic, with clear headings that describe the subject matter in plain language that immediately conveys what that section covers. Within your narrative summaries, embed functional hyperlinks that connect to two essential targets: the specific exhibit files discussed in that testimony, and the precise page and line citations in the original transcript where particularly important statements were made.\n\nThese hyperlinks transform your summary from a static reference document into an interactive navigation tool. An attorney reviewing your summary should be able to click directly from a topic summary to view the exhibit the witness discussed, or jump immediately to the exact transcript location where the witness made a key admission. This functionality is essential for efficient case preparation, where time constraints require rapid access to source materials without manual searching through hundreds of pages of transcript.\n\nApply consistent professional formatting throughout the document using standard legal conventions. Your topic headings should be descriptive and specific\u2014for example, \"Witness Knowledge of Payment Default Under Section 4.2\" rather than simply \"Payment Issues.\" Use hierarchical heading levels to show the relationship between major topics and their subtopics, maintain uniform font styling, and ensure appropriate spacing that makes the document easy to scan visually. The finished product must look polished and professional enough to include in a motion filing, share with co-counsel, or present to a client.\n\n## Delivering Complete Work Product\n\nProduce your summary in two formats that serve different use cases. First, create a Word document in DOCX format with the fully formatted table, all hyperlinks embedded and functional, and formatting that can be easily modified if attorneys need to customize the summary for specific purposes. Second, generate a PDF version that preserves all interactive hyperlinks, maintains full text searchability, and provides a locked format suitable for filing or distribution to opposing counsel. Both versions must contain identical content with all hyperlinks functioning correctly.\n\nBefore finalizing your work, conduct thorough quality assurance across multiple dimensions. Verify that every hyperlink correctly opens its intended target, whether that's an exhibit file or a specific transcript location, with no broken links or misdirected references. Confirm that every exhibit mentioned in the transcript appears appropriately in your summary, and conversely, that you haven't referenced exhibits that weren't actually discussed during the deposition. Check that your summaries accurately reflect the witness's testimony without mischaracterization and that all page and line citations are precisely correct. Ensure the document meets professional presentation standards with consistent styling, flawless grammar and spelling, and formatting suitable for immediate use in litigation. Finally, review for any inadvertent inclusion of attorney-client privileged communications, attorney work product, or improperly redacted confidential information.\n\nYour completed deposition summary serves as an essential litigation tool that condenses hours of testimony into an accessible reference document while maintaining direct connections to the underlying evidence. It should enable an attorney unfamiliar with the deposition to quickly understand what the witness said on each topic, immediately access relevant exhibits, and efficiently locate specific transcript passages for detailed review. The summary must be comprehensive enough to serve as a standalone case preparation resource while remaining concise enough for rapid review when litigation deadlines loom. This balance of thoroughness and accessibility makes your summary an indispensable component of the litigation team's case file.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:53:40.950995Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing deposition summary skill content**
+
+I'm selecting the slug "deposition-summary-exhibit-index" and crafting a concise SKILL.md focused on Litigation practice area with Summarization and Analysis modes. The content will include structured prerequisites, output tables for topics and exhibits, QA checklists, and guidelines emphasizing key trigger keywords and US jurisdiction considerations.
+thinking
+**Finalizing deposition summary skill structure**
+
+I'm ensuring all lists are single-level with flat formatting and including a checklist item for marking uncertain citations, while preparing to output only the SKILL.md content starting with the frontmatter delimiter.
+codex
+---
+name: deposition-summary-exhibit-index
+description: Produces a topic-based U.S. deposition summary with precise page/line ranges and a keyed exhibit index linking testimony to documents. Neutral 2-3 sentence summaries per topic, plus exhibit references, authentication notes, and citation-ready transcript anchors. Use when creating a deposition summary, key document index, exhibit-linked transcript digest, or discovery testimony map in commercial litigation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Deposition Summary with Exhibit Index
+
+Create a concise, topic-based deposition summary with an integrated exhibit index tied to page/line citations.
+
+## Prerequisites
+
+1. Full deposition transcript with page/line numbering
+2. Exhibit list with IDs/labels and filenames or Bates ranges
+3. Access paths or links for exhibits (file paths or document IDs)
+4. Any protective order or confidentiality designations
+5. Parties, witness name/role, date, and caption block details
+
+## Output Structure / Process
+
+Use the following structure and templates.
+
+**Cover Block**
+
+- Caption (case name, court, case no.)
+- Deposition witness name and role
+- Date of deposition
+- Deponent represented by
+- Reporting service (if known)
+- Prepared by, date prepared
+
+**Topic Summary Table**
+
+Use a two-column structure with topic headers and page/line ranges.
+
+Table format:
+
+| Page/Line Range | Topic Summary |
+|---|---|
+| p. 12:3–18:22 | **Topic: Formation of Master Services Agreement**. 2–3 sentence neutral summary. Include key admissions, denials, or qualifiers. Cite exact page/line for critical statements. Reference exhibits inline using IDs. |
+| p. 19:1–24:6 | **Topic: Scope of Services and Deliverables**. 2–3 sentence neutral summary. Note any uncertainty, lack of knowledge, or evasive answers. Link to exhibits discussed. |
+
+Rules for topic summaries:
+
+- 2–3 sentences per topic, neutral tone
+- No legal conclusions or argument
+- Include page/line cites for critical admissions or contradictions
+- Use descriptive, specific topic titles
+- If a topic spans multiple subtopics, split into separate rows
+
+Inline exhibit references (use the exact ID format):
+
+- “Ex. 12 (Invoice 1043)” or “PX-12 (Invoice 1043)”
+- If linking is possible, make the exhibit label the clickable text
+
+**Exhibit Index**
+
+Create a keyed index mapping each exhibit to testimony.
+
+Table format:
+
+| Exhibit | Description | Testimony Page/Line | Witness Characterization |
+|---|---|---|---|
+| Ex. 12 | Invoice 1043 dated 3/5/2023 | p. 45:2–46:20 | Identified as company invoice; witness states it reflects services rendered |
+
+Rules for exhibit index:
+
+- Include every exhibit mentioned in the transcript
+- Provide all page/line references where the exhibit is discussed
+- Summarize authentication or characterization in one sentence
+- If an exhibit is referenced informally, map to the correct ID
+
+**Key Admissions / Contradictions (Optional Section)**
+
+If requested, provide a short list with exact citations.
+
+Format:
+
+- Admission: “Witness acknowledged no written approval existed for change order.” (p. 78:4–10)
+- Contradiction: “Witness claimed no notice of default, later admitted receipt of 6/2/2023 email.” (p. 102:11–16; p. 148:3–9)
+
+**Output Deliverables**
+
+- DOCX with hyperlinks to exhibits and transcript anchors
+- PDF with active hyperlinks and searchable text
+
+If hyperlinks are not technically feasible, provide explicit file paths or document IDs in brackets after each reference.
+
+## Guidelines
+
+- Use neutral, fact-only summaries; no advocacy.
+- Preserve exact page/line ranges; do not guess.
+- Keep topics scoped; split when testimony shifts.
+- Include every exhibit discussed; avoid adding unmentioned exhibits.
+- Flag potential privilege or confidentiality issues; do not reproduce protected content.
+- If transcript is incomplete or exhibits are missing, state the gap explicitly.
+- Confirm compliance with any protective order or redaction protocol.
+- Use `[VERIFY]` if any citation or exhibit ID is uncertain.
+tokens used
+3,180

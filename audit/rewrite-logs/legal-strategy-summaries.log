@@ -1,0 +1,392 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-094c-7b93-a635-985d74fb0b30
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "de07c056-a1db-419f-aa5a-ff991fe8f7b5",
+  "slug": "legal-strategy-summaries",
+  "name": "Legal Strategy Summaries",
+  "summary": "Generates comprehensive legal strategy summaries for litigation cases, synthesizing case facts, legal arguments, procedural tactics, and risk assessments into a unified roadmap. Use this skill to align legal teams and stakeholders on case direction, potential motions, and overall approach from early stages. It provides candid analysis of strengths, weaknesses, and settlement considerations for informed decision-making.",
+  "content": "# Legal Strategy Summary\n\nYou are tasked with creating a comprehensive legal strategy summary that will serve as the strategic roadmap for handling a case. This document must align the entire legal team and stakeholders around a unified approach, outlining the case direction, potential motions, key argument points, and tactical considerations.\n\nBegin by conducting a thorough review of all available case materials. Search through uploaded documents to extract critical facts, including case background, parties involved, key dates, relevant evidence, exhibits, and any prior proceedings or correspondence. Identify the legal issues at stake, the client's objectives, and any constraints or considerations that will shape the strategic approach. If the case involves specific legal doctrines, statutes, or precedents, research and verify the current state of the law in the relevant jurisdiction to ensure your strategy is grounded in accurate legal authority.\n\nYour strategy summary should open with an executive overview that concisely articulates the case's nature, the client's position, and the overarching strategic goal. This section should be accessible to both legal professionals and non-lawyer stakeholders, providing immediate clarity on what the case is about and what success looks like. Follow this with a detailed factual background that synthesizes the key facts from the case materials, organizing them chronologically or thematically as appropriate to tell a coherent story that supports the legal strategy.\n\nThe heart of the document should address the legal framework and strategic approach. Identify the applicable legal standards, causes of action or defenses, and the burden of proof. Analyze the strengths and weaknesses of your position candidly, as this honest assessment will inform tactical decisions throughout the case. Outline the primary legal arguments you intend to advance, explaining how the facts support each argument and how they align with controlling law. For each major argument, consider potential counterarguments and how you will address them.\n\nDetail the procedural strategy, including anticipated motions and their timing. If you plan to file a motion to dismiss, motion for summary judgment, or any other dispositive or procedural motion, explain the legal basis, the strategic purpose, and the likelihood of success. Consider discovery strategy as well, identifying what information you need to obtain, what you must protect, and how discovery can be used to strengthen your position or weaken the opposition's case. Address whether alternative dispute resolution should be pursued and at what stage, weighing the benefits of settlement against the advantages of continued litigation.\n\nInclude a risk assessment that evaluates potential outcomes, litigation costs, and the probability of success at various stages. This section should help stakeholders make informed decisions about resource allocation and settlement posture. If there are critical deadlines, procedural requirements, or jurisdictional considerations that will impact the strategy, highlight these prominently.\n\nConclude with clear next steps and action items, assigning responsibilities where appropriate and establishing timelines for key strategic decisions. The document should serve as both a planning tool and a reference guide that the team can return to as the case evolves.\n\nThroughout the strategy summary, maintain a professional tone that balances legal precision with accessibility. Use clear headings and logical organization to make the document easy to navigate. Cite to specific evidence, legal authorities, and case materials where relevant, ensuring that every strategic recommendation is grounded in the factual record and applicable law. The final product should be a comprehensive, actionable document that provides the legal team with a clear roadmap while giving stakeholders confidence in the strategic direction of the case.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings",
+      "discovery",
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.657873",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:02:01.240888Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Legal Strategy Summary Skill Documentation**
+
+---
+slug: strategy-summary  
+title: Legal Strategy Summary  
+description: A skill designed to create concise strategy summaries triggered by terms like "strategy summary," "case strategy," "litigation roadmap," "risk assessment," and "motions plan."  
+metadata:  
+  PRACTICE_AREAS: Litigation  
+  DOCUMENT_TYPES: Summary  
+  SKILL_MODES: Summarization, Analysis, Research  
+---
+
+**Purpose:**  
+To generate clear, structured legal strategy summaries that organize case elements, plans, risks, and next steps efficiently.
+
+---
+
+**Prerequisites:**  
+1. Access to relevant pleadings, correspondence, and key evidence.  
+2. Clear client objectives and known constraints.  
+3. Established deadlines and jurisdiction details.  
+
+---
+
+**Output Structure & Process:**
+
+| Section                | Description                                          | Notes/Checklists                                             |
+|------------------------|------------------------------------------------------|--------------------------------------------------------------|
+| Executive Overview     | High-level case summary and objectives               | Checklist: Key facts present, client goals articulated       |
+| Fact Chronology       | Ordered timeline of relevant events                    | Checklist: Dates accurate, events relevant                    |
+| Issues & Claims       | Legal issues identified and claims filed               | Checklist: Issues clearly stated, claims accurate             |
+| Law & Elements        | Relevant legal principles and required elements       | Checklist: Jurisdiction confirmed [VERIFY], elements listed   |
+| Argument Map          | Structured layout of arguments supporting the claims  | Checklist: Logical flow, key points included                   |
+| Counterarguments      | Anticipated opposing arguments and responses           | Checklist: Each counter addressed, gaps noted                  |
+| Procedural Plan       | Upcoming procedural steps and filings                   | Checklist: Deadlines included, responsibilities assigned       |
+| Discovery Plan        | Strategy and scope for evidence gathering               | Checklist: Key evidence targeted, discovery methods noted      |
+| ADR/Settlement        | Alternative dispute resolution or settlement options   | Checklist: Options considered, client preferences noted        |
+| Risk/Cost             | Assessment of case risks and associated costs           | Checklist: Risk factors listed, cost estimates documented      |
+| Deadlines             | Critical dates and timelines                             | Checklist: All deadlines accounted for, reminders set          |
+| Next Steps            | Immediate actions and assignments                        | Checklist: Assigned parties, deadlines for completion          |
+| Assumptions/Open Questions | Unresolved issues or uncertainties                    | Checklist: Clearly stated, plans for resolution                |
+| Authorities           | Key legal authorities referenced                         | Checklist: Sources cited [VERIFY], jurisdiction relevance      |
+
+---
+
+**Guidelines:**  
+- Confirm jurisdiction-specific rules; mark uncertain items with [VERIFY].  
+- Avoid including confidential or privileged information.  
+- Use plain, concise language; avoid verbose explanations.  
+- Present information in tables and checklists for clarity.  
+- Do not provide legal advice or opinions.  
+
+---
+
+**Expected Inputs:**  
+- Pleadings and court filings  
+- Correspondence and communications  
+- Key documentary, testimonial, or physical evidence  
+- Client objectives and strategic constraints  
+- Applicable deadlines  
+- Jurisdiction and procedural context  
+
+---
+
+**Example Checklist Items:**  
+- Facts verified and aligned with evidence  
+- Issues framed in jurisdiction-specific terms [VERIFY]  
+- Arguments logically sequenced  
+- Discovery targets prioritized  
+- Deadlines synced with court calendar  
+
+---
+
+End of skill documentation.
+codex
+---
+name: strategy-summary
+description: Produces a litigation legal strategy summary that aligns facts, legal theory, procedural tactics, discovery plan, and settlement posture into a single roadmap. Use when asked for a case strategy summary, litigation roadmap, risk assessment, motions plan, or stakeholder alignment memo. Trigger keywords: “strategy summary”, “case strategy”, “litigation roadmap”, “motions plan”, “risk assessment”, “settlement posture”.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+    - Research
+---
+
+# Legal Strategy Summary
+
+Strategic roadmap that links facts, law, procedure, and risk into an actionable litigation plan.
+
+## Prerequisites
+
+1. **Core record** — pleadings or draft claims/defenses, key exhibits, correspondence, and event timeline
+2. **Objectives** — client goals, acceptable outcomes, constraints, and settlement posture
+3. **Forum** — jurisdiction, court system, governing law, and procedural posture
+4. **Deadlines** — filed or upcoming dates, statutes of limitation, and scheduling order items
+5. **Known gaps** — missing documents, witnesses, or unresolved factual disputes
+
+## Output Structure / Process
+
+Use the structure below and keep each section concise and evidence-linked.
+
+### 1) Executive Overview
+
+| Field | Content |
+| --- | --- |
+| Matter | Short case descriptor |
+| Posture | Stage and next critical event |
+| Client objective | Primary objective and fallback |
+| Strategic thesis | One-sentence theory of the case |
+| Top risks | 3–5 highest-impact risks |
+| Immediate decisions | 3–5 decisions needed now |
+
+### 2) Key Facts (Chronology or Thematic)
+
+| Date/Period | Fact | Source | Dispute? |
+| --- | --- | --- | --- |
+|  |  |  | Yes/No |
+
+### 3) Issues, Claims, Defenses
+
+| Issue | Claim/Defense | Element | Supporting Facts | Gaps |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+### 4) Legal Authority Snapshot
+
+| Issue | Governing Standard | Authority | Notes |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### 5) Argument Map
+
+| Argument | Best Fact Support | Likely Counterargument | Rebuttal Strategy |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### 6) Procedural Strategy
+
+| Motion/Step | Timing | Legal Basis | Strategic Purpose | Success Likelihood |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+### 7) Discovery Strategy
+
+| Target | Method | Purpose | Risk/Objection | Priority |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+Checklist:
+- Preserve evidence and issue/confirm litigation hold.
+- Identify custodians, repositories, and privilege boundaries.
+- Plan deposition order and key admissions sought.
+- Define expert needs, retention timing, and scope.
+
+### 8) Settlement / ADR Posture
+
+| Option | Timing | Leverage | Risks | Recommendation |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+### 9) Risk, Cost, and Outcome Assessment
+
+| Scenario | Probability | Exposure/Recovery | Key Drivers |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### 10) Deadlines and Triggers
+
+| Deadline/Trigger | Date | Source | Action |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### 11) Open Questions and Needed Evidence
+
+| Question | Why It Matters | Owner | Target Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### 12) Next Steps (Action Plan)
+
+| Task | Owner | Due Date |
+| --- | --- | --- |
+|  |  |  |
+
+## Guidelines
+
+- Cite specific record sources for every material fact or inference.
+- If authority is uncertain, mark with `[VERIFY]`.
+- Keep the strategy thesis consistent across motions, discovery, and settlement posture.
+- Separate known facts from allegations and disputed issues.
+- Flag jurisdiction-specific rules, procedural traps, or local practice constraints.
+- Do not overstate success likelihood; provide candid strengths and weaknesses.
+- Maintain confidentiality; avoid including privileged content beyond what is necessary for strategy.
+tokens used
+2,447

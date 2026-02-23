@@ -1,0 +1,377 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7f-bc4b-7cc0-bfda-b64396a0b6fb
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "ed0a0722-87ba-4877-a887-ade7e34cafd6",
+  "slug": "draft-proxy-statement-corporate-governance",
+  "name": "Proxy Statement",
+  "summary": "Drafts a comprehensive, SEC-compliant Proxy Statement for annual shareholder meetings, including Notice of Annual Meeting, cover page, and detailed governance sections. Extracts and incorporates company-specific details from uploaded documents like prior proxies, board resolutions, and financials. Ensures adherence to SEC Rule 14a-3, Regulation 14A, and state corporate laws such as Delaware DGCL Sections 222 and 213.",
+  "content": "# Proxy Statement Drafting Workflow\n\nYou are an expert securities lawyer specializing in corporate governance and SEC compliance. Your task is to draft a comprehensive, legally compliant Proxy Statement for an upcoming annual shareholder meeting that serves as the primary communication vehicle between the corporation's board of directors and its shareholders. This document must enable informed decision-making while satisfying all requirements under SEC Rule 14a-3 and Regulation 14A of the Securities Exchange Act of 1934.\n\nBefore beginning the drafting process, search the user's uploaded documents to gather all relevant corporate information, including prior proxy statements, board resolutions, executive compensation data, financial statements, committee charters, governance policies, and any shareholder proposals received. Extract specific facts such as director names and biographical details, meeting dates, compensation figures, related party transactions, and voting matters approved by the board. Use this concrete information to populate the proxy statement with accurate, company-specific details rather than generic placeholders.\n\n## Notice of Annual Meeting\n\nDraft a formal Notice of Annual Meeting that serves as the official convocation of shareholders with precise legal authority. Specify the exact date, time, and location of the meeting, or if conducted virtually, provide complete details about the meeting platform, access procedures, and technical support contact information. Clearly identify the record date that establishes which shareholders are entitled to receive notice and vote, ensuring this date falls within the permissible window under applicable state corporate law, typically between ten and sixty days before the meeting date. Enumerate each matter to be acted upon with sufficient specificity that shareholders understand what decisions they will be asked to make.\n\nVerify compliance with the corporation's bylaws regarding advance notice periods, which generally require delivery between ten and sixty days before the meeting. Cross-reference the state of incorporation's corporate law provisions to ensure the notice period, record date, and meeting procedures satisfy all statutory requirements. If the corporation is incorporated in Delaware, confirm compliance with Section 222 of the Delaware General Corporation Law regarding notice requirements and Section 213 regarding record dates. For corporations incorporated in other jurisdictions, identify and apply the corresponding statutory provisions.\n\n## Proxy Statement Cover and Introduction\n\nCreate a comprehensive cover page and introduction that establishes the legal framework and practical context for the proxy solicitation. Open with a clear statement that the board of directors is soliciting proxies on behalf of the corporation, identify who bears the cost of solicitation (typically the company), and specify the approximate date when proxy materials will first be sent to shareholders. This date triggers various timing requirements under SEC rules and should be carefully coordinated with the printing and mailing schedule.\n\nExplain shareholders' voting rights with precision, including the number of votes each share carries, any class-specific voting provisions that may apply to different series of stock, and whether cumulative voting is permitted for director elections. Detail every method by which shareholders may cast their votes, whether by returning the enclosed proxy card by mail, calling a toll-free telephone number, accessing a secure internet voting site, or attending the meeting in person. For each voting method, provide clear step-by-step instructions that enable shareholders of varying technological sophistication to participate effectively.\n\nInclude a prominent statement regarding shareholders' absolute right to revoke their proxy at any time before it is voted by submitting a later-dated proxy, providing written notice of revocation to the corporate secretary, or voting in person at the meeting. Address the availability of proxy materials through multiple channels, including the company's investor relations website and the SEC's EDGAR database, and explain how shareholders can request paper copies if they received notice through electronic delivery. Ensure this introduction complies with SEC Rule 14a-3(a) requirements for clear and conspicuous presentation of material information.\n\n## Matters to be Voted On\n\nPresent each proposal requiring shareholder action with the clarity and completeness necessary for informed voting decisions. Structure this section to address each matter sequentially, using consistent formatting that enables shareholders to quickly locate the board's recommendation, the vote required for approval, and the practical effect of the proposal.\n\nFor the election of directors, specify whether shareholders are voting for a slate of nominees or individual candidates, identify the voting standard that applies (plurality in uncontested elections, majority vote standard if adopted by the company, or other standards specified in the bylaws), and explain the consequences of withheld votes or broker non-votes under the applicable standard. If the company has adopted a director resignation policy for majority vote failures, describe the policy and the board's process for considering resignations. Clarify whether directors are elected annually or serve staggered terms as part of a classified board structure.\n\nFor the ratification of the independent registered public accounting firm, identify the specific accounting firm proposed for appointment, explain that while shareholder ratification is not legally required, the board values shareholder input and the audit committee will consider the results in making future appointments. Note that this is typically a routine matter under stock exchange rules, meaning brokers may vote uninstructed shares on this proposal. Disclose the aggregate fees paid to the auditor during the last two fiscal years, broken down by category (audit fees, audit-related fees, tax fees, and all other fees), and explain the audit committee's pre-approval policies for audit and non-audit services.\n\nFor advisory votes on executive compensation (say-on-pay), emphasize the non-binding, advisory nature of the vote while explaining that the compensation committee carefully considers voting results when making future compensation decisions. Reference the Compensation Discussion and Analysis section where the compensation program is explained in detail, and note the board's recommendation. If this is a year when shareholders also vote on say-on-pay frequency, present that proposal separately with clear explanation of the options (annual, biennial, or triennial votes) and the board's recommendation.\n\nFor any shareholder proposals submitted under Rule 14a-8, present each proposal exactly as submitted by the proponent, including the proponent's supporting statement within the word limits specified by the rule. Follow each proposal with the board's opposing statement if the board recommends voting against the proposal, ensuring the board's statement is factually accurate, addresses the specific points raised by the proponent, and explains the board's rationale for its recommendation. Verify that each shareholder proposal satisfies the eligibility requirements of Rule 14a-8, including the proponent's ownership of at least two thousand dollars in market value or one percent of the company's securities for at least three years (or the alternative thresholds under the amended rule), and that the proposal addresses a proper subject for shareholder action under state law.\n\nFor each proposal, clearly state the vote required for approval (majority of votes cast, majority of outstanding shares, or other standard), explain how abstentions and broker non-votes are treated in calculating the result, and describe the material implications of approval or rejection. Search the uploaded documents for board resolutions, committee recommendations, and background materials that provide context for each proposal, and incorporate this information to give shareholders a complete understanding of what they are being asked to decide.\n\n## Board of Directors and Governance\n\nProvide comprehensive information about each director nominee and continuing director that enables shareholders to assess their qualifications, experience, and suitability for board service. For each individual, present biographical information including current age, principal occupation and employment history for at least the past five years, other public company directorships currently held and those held at any time during the past five years, and specific qualifications, attributes, skills, and experience that led the board to conclude the person should serve as a director. When describing qualifications, go beyond generic statements to identify concrete expertise such as financial literacy, industry knowledge, international business experience, cybersecurity expertise, or other specialized skills that contribute to the board's collective capabilities.\n\nDescribe the board's structure and operation, including the total number of directors, the number of board meetings held during the last fiscal year, and each director's attendance record both at board meetings and meetings of committees on which they served. If any director attended fewer than seventy-five percent of the aggregate of board and applicable committee meetings, provide explanation or context. Address the board's expectations regarding director attendance at annual shareholder meetings and note the attendance record from the prior year's meeting.\n\nDetail each standing committee of the board, including the audit committee, compensation committee, and nominating and corporate governance committee, as well as any other committees such as an executive committee, finance committee, or special litigation committee. For each committee, identify the current members, specify which members serve as chair, state the number of meetings held during the last fiscal year, and provide a concise summary of the committee's responsibilities and authority. Note whether each committee operates under a written charter and state that the charters are available on the company's website, providing the specific URL or navigation path.\n\nAddress director independence by identifying which directors the board has determined qualify as independent under the applicable listing standards of the stock exchange where the company's securities are traded (NYSE, Nasdaq, or other exchange). Explain the board's process for making independence determinations, including the categorical standards adopted by the board and any transactions, relationships, or arrangements considered by the board in making its determinations. If any director has a relationship that required board consideration under the independence standards, describe the relationship and explain why the board concluded it did not impair independence. Confirm that all members of the audit committee, compensation committee, and nominating committee qualify as independent under the applicable standards.\n\nDiscuss the board's leadership structure, including whether the roles of chairman of the board and chief executive officer are combined in a single individual or separated between two people, and provide the board's rationale for the current structure. If the roles are combined, describe the role and responsibilities of the lead independent director, including authority to call meetings of independent directors, approve board meeting agendas and schedules, serve as liaison between the chairman and independent directors, and chair executive sessions of independent directors. If the roles are separated, explain how this structure promotes effective oversight and appropriate checks and balances.\n\nDescribe the board's role in risk oversight, explaining how the full board and its committees monitor and manage the material risks facing the company. Address the allocation of risk oversight responsibilities among the full board and its committees, such as the audit committee's oversight of financial reporting and compliance risks, the compensation committee's oversight of risks related to compensation policies and practices, and the full board's oversight of strategic and operational risks. Explain how management communicates with the board about risk assessment and mitigation, and how the board's leadership structure supports effective risk oversight.\n\nSearch the uploaded documents for corporate governance guidelines, committee charters, director and officer questionnaires, independence determinations, and board meeting materials that provide specific information about the board's composition, structure, and practices. Use this information to provide concrete, company-specific details rather than generic descriptions of governance practices.\n\n## Executive Compensation\n\nPresent a thorough and transparent analysis of the company's executive compensation philosophy, policies, and practices through a Compensation Discussion and Analysis (CD&A) that satisfies the requirements of Item 402(b) of Regulation S-K. Structure the CD&A to address the six core questions that shareholders need answered: what are the objectives of the compensation program, what is the program designed to reward, what are the elements of compensation, why does the company choose to pay each element, how does the company determine the amount for each element, and how does each element fit into the overall compensation objectives and affect decisions regarding other elements.\n\nBegin the CD&A with an executive summary that provides a high-level overview of the compensation program, highlights significant compensation decisions made during the fiscal year, explains how the program aligns with company performance, and addresses how the compensation committee considered the results of the prior year's say-on-pay vote. Organize the detailed discussion to walk shareholders through the compensation decision-making process chronologically and logically, explaining the compensation committee's philosophy, the role of executive officers and compensation consultants in the process, the use of peer group data and benchmarking, and the specific decisions made regarding each element of compensation.\n\nDiscuss each element of compensation in detail, including base salary, annual cash incentive bonuses, long-term equity incentives, retirement benefits, perquisites, and any other compensation. For each element, explain the purpose it serves in the overall program, how target amounts are determined, what performance metrics or other factors affect actual payouts, and how the element relates to other compensation components. For performance-based compensation, identify the specific performance metrics used (such as revenue growth, earnings per share, return on equity, total shareholder return, or strategic objectives), explain why these metrics were selected, disclose the target levels of performance and corresponding payout opportunities, and report actual performance achieved and resulting payouts.\n\nAddress the role of the compensation committee and its processes, including the frequency of meetings, the use of executive sessions without management present, and the delegation of authority to subcommittees or management for certain decisions. If the committee engaged an independent compensation consultant, identify the consultant, describe the nature and scope of the assignment, state the fees paid for executive compensation services and any other services provided to the company, and address any potential conflicts of interest. Explain how the committee uses peer group data, identifying the companies included in the peer group and the rationale for their selection, and describe how peer group compensation levels inform but do not mechanistically determine the company's compensation decisions.\n\nDiscuss the compensation committee's consideration of risk in compensation design, explaining how the committee assessed whether the company's compensation policies and practices create risks that are reasonably likely to have a material adverse effect on the company. Describe specific design features that mitigate risk, such as balanced performance metrics, caps on incentive payouts, clawback policies, stock ownership guidelines, and prohibitions on hedging and pledging company securities.\n\nFollowing the CD&A, present the required compensation tables in the format specified by Item 402(c) through (k) of Regulation S-K. Begin with the Summary Compensation Table covering the principal executive officer, principal financial officer, and the three other most highly compensated executive officers (collectively, the named executive officers) for the last three completed fiscal years. Ensure each column is accurately calculated and clearly labeled, including salary, bonus, stock awards (grant date fair value under ASC 718), option awards (grant date fair value under ASC 718), non-equity incentive plan compensation, change in pension value and nonqualified deferred compensation earnings, all other compensation, and total compensation.\n\nSupplement the Summary Compensation Table with additional tables addressing grants of plan-based awards (showing each grant made during the fiscal year with threshold, target, and maximum payout opportunities), outstanding equity awards at fiscal year-end (showing each unexercised option and unvested stock award), option exercises and stock vested during the fiscal year, pension benefits (showing present value of accumulated benefits under defined benefit plans), and nonqualified deferred compensation (showing contributions, earnings, and balances under nonqualified deferred compensation plans). For each table, provide narrative explanation of material terms and conditions, vesting schedules, and other information necessary to understand the tabular disclosure.\n\nAddress the relationship between executive compensation actually paid and company performance through the pay versus performance disclosure required by Item 402(v) of Regulation S-K. Present the required table showing compensation actually paid to the principal executive officer and average compensation actually paid to other named executive officers for each of the last five fiscal years, alongside total shareholder return, peer group total shareholder return, net income, and a company-selected financial performance measure. Provide the required graphs showing the relationship between compensation actually paid and each performance measure, and include narrative discussion explaining the relationships shown in the table and graphs.\n\nCalculate and disclose the CEO pay ratio required by Item 402(u), showing the ratio of the CEO's total compensation to the median employee's total compensation. Describe the methodology used to identify the median employee, including the employee population analyzed, any material assumptions or adjustments made, and the use of statistical sampling if applicable. Explain any changes in methodology from the prior year and whether a new median employee was identified or the same employee was used with updated compensation.\n\nSearch the uploaded documents for compensation committee reports, meeting minutes, consultant presentations, peer group analyses, equity grant records, employment agreements, incentive plan documents, and financial performance data. Extract specific compensation amounts, performance targets and results, vesting schedules, and other concrete details to populate the compensation tables and support the narrative discussion with accurate, company-specific information.\n\n## Related Party Transactions\n\nDisclose all transactions since the beginning of the last fiscal year, or any currently proposed transaction, in which the company was or is to be a participant, the amount involved exceeds one hundred twenty thousand dollars, and any related person had or will have a direct or indirect material interest, as required by Item 404(a) of Regulation S-K. Define related persons to include directors, executive officers, nominees for director, beneficial owners of more than five percent of any class of the company's voting securities, and immediate family members of any such persons (including spouse, parents, children, siblings, mothers and fathers-in-law, sons and daughters-in-law, and brothers and sisters-in-law, as well as anyone sharing the household other than tenants or employees).\n\nFor each transaction requiring disclosure, provide a clear description of the transaction and the related person's interest, state the approximate dollar value of the amount involved in the transaction, state the approximate dollar value of the related person's interest in the transaction (computed without regard to profit or loss), and provide any other material information regarding the transaction. Structure the disclosure to enable shareholders to understand the nature of the relationship, the business purpose of the transaction, and whether the terms are comparable to those that would be available in arm's-length transactions with unrelated parties.\n\nDescribe the company's policies and procedures for the review, approval, or ratification of related party transactions, including the standards applied in determining whether to approve or ratify such transactions. Identify the body responsible for reviewing these transactions (typically the audit committee, a special committee of independent directors, or the full board), explain the process by which transactions are identified and brought to the reviewing body's attention, and describe the factors considered in evaluating whether to approve transactions. Common factors include whether the transaction is on terms comparable to those available from unrelated parties, whether the transaction presents any conflict of interest or appearance of impropriety, whether the transaction serves a valid business purpose, and whether approval serves the best interests of the company and its shareholders.\n\nAddress the company's processes for identifying related party transactions requiring disclosure, such as annual questionnaires completed by directors and executive officers, review of accounts payable and receivable for transactions with related parties, and review of significant contracts and arrangements. Explain how the company monitors ongoing transactions to ensure continued compliance with approval requirements and disclosure obligations.\n\nSearch the uploaded documents for director and officer questionnaires, audit committee meeting minutes, accounts payable and receivable records, significant contracts, and any other materials that might reveal related party transactions. Cross-reference information about director affiliations, executive outside activities, and significant shareholders to identify potential related party relationships requiring investigation and possible disclosure.\n\n## Shareholder Proposals and Nominations\n\nExplain the procedures by which shareholders may submit proposals for inclusion in the company's proxy materials for the next annual meeting pursuant to SEC Rule 14a-8. Specify the deadline for submission, which is generally one hundred twenty calendar days before the date of the company's proxy statement released to shareholders in connection with the previous year's annual meeting, and provide the specific date by which proposals must be received for the next annual meeting. State the address to which proposals should be sent, typically the corporate secretary at the company's principal executive offices, and note that proposals should be sent by certified mail, return receipt requested, to provide proof of timely delivery.\n\nDetail the eligibility requirements under Rule 14a-8, explaining that to be eligible to submit a proposal, a shareholder must have continuously held for at least three years either at least two thousand dollars in market value or one percent of the company's securities entitled to vote on the proposal, or satisfy the alternative thresholds of at least fifteen thousand dollars for two years or at least twenty-five thousand dollars for one year. Note that shareholders must continue to hold the required amount through the date of the annual meeting and must provide a written statement of intent to do so. Explain that shareholders must provide proof of ownership through a written statement from the record holder of the securities or a copy of a Schedule 13D, Schedule 13G, Form 3, Form 4, or Form 5 filed with the SEC.\n\nDescribe the procedural requirements that proposals must satisfy, including the five-hundred-word limit, the requirement that proposals address a proper subject for shareholder action under state law, and the prohibition on submitting more than one proposal per meeting. Outline the substantive bases for exclusion under Rule 14a-8(i), such as proposals that are not proper subjects for shareholder action under state law, proposals that would violate law if implemented, proposals that relate to the company's ordinary business operations, proposals that relate to director elections (subject to exceptions for proxy access proposals), and proposals that directly conflict with company proposals. Note that if the company intends to exclude a shareholder proposal, it must file its reasons with the SEC and provide the proponent with a copy, and the proponent has an opportunity to respond.\n\nAddress the separate procedures under the company's bylaws for shareholder proposals and director nominations to be presented at an annual meeting but not included in the company's proxy materials. Explain the advance notice requirements specified in the bylaws, which typically require delivery of notice to the corporate secretary not less than ninety days nor more than one hundred twenty days before the anniversary of the prior year's annual meeting, with adjustment provisions if the meeting date changes by more than thirty days. Describe the information that must be included in the notice, such as a description of the proposal or information about the nominee, the shareholder's ownership information, any material interest of the shareholder in the proposal, and representations regarding the shareholder's intent to appear at the meeting.\n\nIf the company has adopted proxy access provisions in its bylaws, explain the procedures by which eligible shareholders may include director nominees in the company's proxy materials. Describe the ownership threshold (typically three percent of outstanding shares), the holding period requirement (typically three years of continuous ownership), the maximum number of nominees that may be included (typically the greater of two directors or twenty percent of the board), the aggregation rules for groups of shareholders, and the information and certifications that must be provided. Specify the deadline for proxy access nominations, which is typically one hundred twenty to one hundred fifty days before the anniversary of the prior year's proxy statement mailing date.\n\nProvide the specific deadlines for the next annual meeting, calculated according to the formulas in the bylaws and Rule 14a-8, and note that if the date of the next annual meeting changes by more than thirty days from the anniversary of the current year's meeting, the company will inform shareholders of the revised deadlines through a Current Report on Form 8-K or other public announcement. Search the uploaded documents for the company's bylaws, certificate of incorporation, and prior proxy statements to extract the specific procedural requirements and calculate the exact deadlines applicable to the next annual meeting.\n\n## Voting Procedures and Revocability\n\nProvide detailed, practical instructions that enable shareholders to exercise their voting rights effectively through any available method. Explain that shareholders may vote by completing, signing, and returning the enclosed proxy card in the postage-paid envelope provided, and that the proxy card must be signed exactly as the shareholder's name appears on the card, with corporate proxies signed by an authorized officer and proxies for accounts held jointly signed by all joint owners or by one owner with authority to act for all.\n\nDescribe the telephone voting process, explaining that shareholders may call the toll-free number printed on the proxy card, provide the control number from the card to verify their identity, and follow the recorded instructions to cast their votes. Note that telephone voting is available twenty-four hours a day until the deadline specified in the proxy materials, typically eleven fifty-nine p.m. Eastern Time on the day before the meeting.\n\nExplain the internet voting process, instructing shareholders to visit the website address printed on the proxy card, enter the control number to access their proxy, and follow the on-screen instructions to cast their votes. Note that internet voting is also available twenty-four hours a day until the specified deadline, and that shareholders will receive confirmation of their votes after submitting the proxy online.\n\nAddress voting in person at the meeting, explaining any advance registration requirements, particularly for virtual meetings where shareholders must register in advance to receive access credentials. For virtual meetings, provide detailed technical instructions including system requirements, how to access the meeting platform, how to submit questions during the meeting, and contact information for technical support. Explain that shareholders who attend the meeting in person or virtually may vote during the meeting even if they previously submitted a proxy, and that the in-person vote will supersede the earlier proxy.\n\nClarify that shareholders may revoke their proxy at any time before it is voted by submitting a later-dated proxy using any available voting method, by providing written notice of revocation to the corporate secretary at the address specified in the proxy statement, or by voting in person at the meeting. Explain that simply attending the meeting does not revoke a proxy; the shareholder must actually cast a ballot at the meeting to supersede the proxy.\n\nAddress the treatment of signed proxy cards returned without voting instructions, explaining that such proxies will be voted in accordance with the board of directors' recommendations on all matters set forth in the notice of meeting, and that the proxies confer discretionary authority to vote on any other matters that may properly come before the meeting, although management is not aware of any such matters.\n\nDiscuss broker discretionary voting rules, explaining that if shares are held in street name through a broker, bank, or other nominee, the nominee may vote the shares on routine matters without receiving instructions from the beneficial owner, but cannot vote on non-routine matters without instructions, resulting in a broker non-vote. Identify which proposals are considered routine matters (typically the ratification of auditors) and which are non-routine matters (typically director elections, executive compensation votes, and shareholder proposals), and explain that broker non-votes will not affect the outcome of non-routine matters if the vote required is a majority of votes cast, but will have the same effect as votes against if the vote required is a majority of outstanding shares.\n\nExplain how votes are counted for each proposal, including the treatment of abstentions and broker non-votes. For director elections under a plurality standard, explain that the nominees receiving the most votes will be elected and that abstentions and broker non-votes have no effect. For proposals requiring a majority of votes cast, explain that abstentions are not counted as votes cast and therefore have no effect, while broker non-votes similarly have no effect. For proposals requiring a majority of outstanding shares, explain that abstentions and broker non-votes have the same effect as votes against because they reduce the number of affirmative votes as a percentage of outstanding shares.\n\nIdentify the inspector of elections who will tabulate votes and certify the results, typically an independent third party such as the company's transfer agent or a professional proxy services firm. Explain that the inspector will determine the number of shares outstanding and entitled to vote, the shares represented at the meeting, the validity of proxies, and the acceptance and tabulation of votes. Note that preliminary voting results will be announced at the meeting and final results will be published in a Current Report on Form 8-K filed within four business days after the meeting.\n\n## Other Business and Additional Information\n\nAddress any additional matters that may properly come before the meeting, noting that the board of directors is not aware of any such matters but that the proxies confer discretionary authority to vote on unforeseen matters in accordance with the best judgment of the proxy holders. Explain that if any other matters are properly presented at the meeting, the persons named as proxies will vote on those matters in accordance with their best judgment.\n\nIncorporate by reference the company's Annual Report on Form 10-K for the fiscal year ended on the specified date, explaining that the Annual Report accompanies or has been made available with the proxy statement and contains audited financial statements and Management's Discussion and Analysis of Financial Condition and Results of Operations. Note that the Annual Report is not incorporated into the proxy statement and is not deemed to be part of the proxy soliciting material. Provide information about how shareholders can obtain additional copies of the Annual Report, proxy statement, and exhibits to the Form 10-K without charge by contacting the corporate secretary or investor relations department at the address, telephone number, and email address specified.\n\nState that all of the company's SEC filings, including the Form 10-K, quarterly reports on Form 10-Q, current reports on Form 8-K, and amendments to those reports, are available free of charge on the company's website at the specified URL as soon as reasonably practicable after filing with the SEC. Note that these filings are also available on the SEC's website at www.sec.gov. Provide the company's principal executive offices address and investor relations contact information for shareholder inquiries, including mailing address, telephone number, and email address.\n\nAddress the availability of corporate governance documents, stating that the company's code of business conduct and ethics, corporate governance guidelines, and the charters of the audit committee, compensation committee, and nominating and corporate governance committee are available on the company's website at the specified URL, and that the company will provide printed copies of these documents without charge upon request to the corporate secretary. Note that the company will disclose any amendments to or waivers from the code of business conduct and ethics that apply to directors or executive officers on its website or in a Current Report on Form 8-K.\n\nExplain the process for communicating with the board of directors, stating that shareholders and other interested parties may send written communications to the board, the independent directors as a group, or individual directors by mailing correspondence to the corporate secretary at the company's principal executive offices with instructions to forward the communication to the specified recipient. Describe any screening process applied to shareholder communications, such as filtering out solicitations, junk mail, and communications that are abusive, in bad taste, or present safety or security concerns, and note that the corporate secretary will forward all appropriate communications to the intended recipients.\n\nConfirm that the proxy statement and form of proxy have been approved by the board of directors and are being sent by its authority. Conclude with the date of the proxy statement and the signature of the corporate secretary or other authorized officer, ensuring the document presents a complete, professional, and legally compliant communication that fulfills all SEC requirements while facilitating shareholder engagement and informed voting.\n\nThroughout the drafting process, maintain a tone that is professional, transparent, and accessible to shareholders who may not have legal or financial expertise. Use clear, direct language while preserving the precision necessary for legal compliance. Organize information logically with descriptive headings and subheadings that enable shareholders to navigate the document efficiently. Ensure all statements are factually accurate and supported by the underlying corporate records and SEC filings. Cross-reference related sections to help shareholders understand how different aspects of corporate governance and compensation fit together. The final proxy statement should inspire shareholder confidence in the board's stewardship while providing all information necessary for informed voting on each matter presented.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance",
+      "securities-and-capital-markets"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:55:08.433260Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Rewriting skill with structured content**
+
+I'm preparing a concise skill rewrite titled "Proxy Statement" with a simplified slug, using document type "Memo" from legal_context, practice areas Corporate and Regulatory, and modes drafting and research. The description will mention trigger keywords and incorporate key legal citations including DGCL sections and updated SEC thresholds for Rule 14a-8, emphasizing clear checklists, prerequisites, templates, and citations, flagged with [VERIFY] where uncertain.
+thinking
+**Preparing final skill content**
+
+I’m finalizing the skill to include clear sections—prerequisites, intake tables, structured output with checklist-based sections, and legal citations noting [VERIFY] on uncertain thresholds. The description will concisely highlight trigger keywords, and metadata will follow capitalization and term rules. The output will use un-nested bullet lists separated from numbered steps for clarity, with placeholders and minimal templates included as specified.
+codex
+---
+name: proxy-statement
+description: Drafts a U.S. SEC Regulation 14A and Rule 14a-3 compliant annual meeting proxy statement (DEF 14A), including Notice of Annual Meeting, proxy solicitation cover, governance, executive compensation, related party transactions, shareholder proposals, and voting procedures. Use when preparing proxy materials, annual meeting notices, or shareholder vote disclosures. Trigger keywords: proxy statement, DEF 14A, annual meeting, proxy solicitation, say-on-pay, auditor ratification, Regulation 14A, Rule 14a-3.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Annual Meeting Proxy Statement
+
+Drafts a compliant annual meeting proxy statement that enables informed voting and satisfies Regulation 14A disclosure requirements.
+
+## Prerequisites
+
+1. Meeting logistics and record date parameters (date, time, location or virtual platform, record date window, notice timing).
+2. Charter, bylaws, committee charters, governance guidelines, board resolutions, and exchange listing standards (NYSE or Nasdaq).
+3. Prior year proxy statement and current year board-approved proposals.
+4. Director and officer questionnaires and independence determinations.
+5. Executive compensation data, plans, grants, and committee materials.
+6. Auditor engagement details and fee breakdowns for the last two fiscal years.
+7. Related party transaction inventory and approval policies.
+8. Shareholder proposals and nominations received, plus Rule 14a-8 correspondence.
+9. Annual Report on Form 10-K and fiscal year end date.
+10. Investor relations contact info and company principal executive offices address.
+
+## Output Structure / Process
+
+Intake table (populate from uploads and confirm accuracy):
+| Field | Required Detail |
+| --- | --- |
+| Meeting date/time | Local time zone, cutoffs for vote submission |
+| Location/virtual | Address or platform, access steps, tech support |
+| Record date | Date and statutory/bylaw compliance |
+| Notice window | Statutory and bylaw windows |
+| Proposals | Titles, sponsor, board recommendation |
+| Voting standards | For each proposal |
+| Share classes | Voting rights, cumulative voting yes/no |
+| Board roster | Nominees, continuing directors |
+| Committee info | Members, chairs, meetings |
+| Compensation data | NEO list, tables inputs |
+| Auditor | Firm, fees, pre-approval policy |
+| Related party | Transactions > $120,000 |
+| Shareholder proposals | Rule 14a-8 details |
+
+Section order:
+1. Notice of Annual Meeting
+2. Proxy Statement Cover and Introduction
+3. Matters to Be Voted On
+4. Board of Directors and Governance
+5. Executive Compensation (CD&A and tables)
+6. Related Party Transactions
+7. Shareholder Proposals and Nominations
+8. Voting Procedures and Revocability
+9. Other Business and Additional Information
+10. Signature and Date
+
+Notice of Annual Meeting checklist:
+- Meeting date, time, and location or virtual platform.
+- Record date and statutory/bylaw compliance.
+- Matters to be voted on listed with specificity.
+- Delivery timing window (statute and bylaws).
+- Delaware reference if applicable: DGCL 222 notice and DGCL 213 record date.
+
+Proxy Statement Cover and Introduction checklist:
+- Board solicits proxies and pays solicitation costs.
+- First mailing date (approximate).
+- Voting rights by class and cumulative voting status.
+- Voting methods and step-by-step instructions.
+- Revocation rights and methods.
+- Availability of proxy materials (company site, EDGAR, paper copies).
+
+Matters to Be Voted On checklist:
+- Each proposal listed with board recommendation.
+- Required vote standard for approval.
+- Effects of abstentions and broker non-votes.
+- Director election standard and consequences (plurality or majority).
+- Auditor ratification with fees and pre-approval policy.
+- Say-on-pay and say-on-pay frequency (if applicable).
+- Shareholder proposals presented as submitted.
+- Rule 14a-8 eligibility statement and board response.
+
+Board and Governance checklist:
+- Director bios with last five years employment and other public boards.
+- Qualifications and skills matrix narrative.
+- Board size, meeting count, attendance, annual meeting attendance.
+- Committee membership, chairs, meeting counts, charters.
+- Independence determinations under listing standards.
+- Board leadership structure and lead independent director role.
+- Risk oversight framework.
+
+Executive Compensation checklist:
+- CD&A covering Item 402(b) elements.
+- Summary Compensation Table for last three fiscal years.
+- Grants of Plan-Based Awards table.
+- Outstanding Equity Awards at Fiscal Year-End table.
+- Option Exercises and Stock Vested table.
+- Pension Benefits and NQDC tables as applicable.
+- Pay vs Performance disclosure under Item 402(v).
+- CEO pay ratio under Item 402(u).
+- Compensation committee report and consultant disclosures.
+
+Related Party Transactions checklist:
+- Item 404(a) disclosures with amounts and interests.
+- Approval policy and approving body.
+- Identification process and monitoring.
+
+Shareholder Proposals and Nominations checklist:
+- Rule 14a-8 deadline date and address.
+- Eligibility thresholds and proof of ownership requirements [VERIFY].
+- 500-word limit and exclusion bases summary.
+- Advance notice bylaw deadlines and required information.
+- Proxy access procedures if in bylaws.
+
+Voting Procedures checklist:
+- Proxy card signature rules.
+- Telephone and internet voting steps and deadlines.
+- In-person or virtual voting steps and registration.
+- Revocation mechanics.
+- Discretionary authority for other matters.
+- Broker voting rules and routine vs non-routine matters.
+- Inspector of elections and Form 8-K results timing.
+
+Other Business and Additional Information checklist:
+- Annual Report on Form 10-K availability and non-incorporation statement.
+- How to request copies and contact details.
+- Availability of governance documents and code of ethics.
+- Board communications process and screening.
+
+Vote treatment matrix:
+| Vote Standard | Abstentions | Broker Non-Votes |
+| --- | --- | --- |
+| Plurality (directors) | No effect | No effect |
+| Majority of votes cast | Not counted | Not counted |
+| Majority of outstanding shares | Same as against | Same as against |
+
+Templates (fill with company data):
+Notice of Annual Meeting:
+```
+NOTICE OF ANNUAL MEETING OF STOCKHOLDERS
+Date: [DATE]
+Time: [TIME] [TZ]
+Place: [LOCATION] or [VIRTUAL PLATFORM + ACCESS STEPS]
+Record Date: [RECORD DATE]
+Items of Business:
+1. [PROPOSAL 1]
+2. [PROPOSAL 2]
+...
+By order of the Board of Directors,
+[NAME], Corporate Secretary
+Dated: [DATE]
+```
+
+Proposal format:
+```
+Proposal [#]: [TITLE]
+Board Recommendation: [FOR/AGAINST/ABSTAIN]
+Vote Required: [STANDARD]
+Effect of Abstentions: [EFFECT]
+Effect of Broker Non-Votes: [EFFECT]
+[DISCUSSION]
+```
+
+## Guidelines
+
+- Use company-specific facts from uploaded records; avoid generic placeholders except `[TO FILL]`.
+- Confirm compliance with Regulation 14A, Rule 14a-3, and Item 402 disclosure requirements.
+- Apply state corporate law and bylaws for notice and record dates; use DGCL 222 and 213 if Delaware.
+- Verify Rule 14a-8 eligibility thresholds and update if amended [VERIFY].
+- Keep tone neutral, plain, and investor-facing; no advocacy or sales language.
+- Cross-reference sections where needed (CD&A to say-on-pay, auditor fees to audit committee).
+- Flag missing facts with a clear request list rather than guessing.
+- Do not include legal advice; limit to disclosure and compliance drafting.
+- Maintain consistency of dates, titles, and vote standards across all sections.
+tokens used
+10,580

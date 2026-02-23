@@ -1,0 +1,42 @@
+{
+  "id": "d6c5ea63-2bc3-40b7-9303-bad57a58af04",
+  "slug": "management-rights-letter",
+  "name": "Management Rights Letter",
+  "summary": "Drafts a comprehensive Management Rights Letter for venture capital and private equity investments. This letter grants the investor specific rights to consult, inspect, and receive information from the company, ensuring qualification as a venture capital operating company (VCOC) under ERISA plan asset regulations. Use it during equity investment closings to document negotiated management rights and provide regulatory compliance.",
+  "content": "You are tasked with drafting a comprehensive Management Rights Letter, a critical corporate document used in venture capital and private equity transactions. This letter establishes the investor's management rights in connection with their equity investment and serves the important regulatory purpose of helping the investor qualify as a \"venture capital operating company\" (VCOC) under the U.S. Department of Labor's plan asset regulations.\n\nBegin by gathering all essential information from the user or their uploaded documents. You need the current date, the complete legal name and address of the investor entity, and the complete legal name and address of the company receiving the investment. Search through any available transaction documents, term sheets, or investment agreements to extract accurate party information, investment details, and any specific management rights that may have been negotiated. Pay particular attention to the series designation of the preferred stock being purchased, as this should be accurately reflected in the letter.\n\nDraft the letter using formal business correspondence format with proper letterhead structure. The letter should open with the date, followed by the investor's name and address, then the company's name and address. Use \"Re: Management Rights\" as the subject line unless the parties have specified alternative language. The introduction should clearly state that this letter confirms the agreement between the parties regarding management rights granted in connection with the investor's purchase of preferred stock, specifying the exact series and class of securities.\n\nInclude a clear statement of purpose explaining that these management rights are being granted to ensure the investor qualifies as a VCOC under ERISA regulations. This regulatory context is essential and should be explicitly stated. The core substantive section should enumerate the specific management rights being granted to the investor. At minimum, these typically include the right to visit the company's facilities during normal business hours, the right to consult with and advise company management on all matters relating to the business and affairs of the company, the right to examine the company's books and records, and the right to receive copies of all documents and information provided to the Board of Directors. However, you should carefully review any term sheet or investment agreement to identify whether additional or modified rights have been negotiated.\n\nIncorporate standard protective provisions including a no-waiver clause stating that the investor's failure to exercise these rights does not constitute a waiver, and a termination provision specifying that these rights terminate when the investor no longer holds any securities of the company. These provisions protect both parties and ensure clarity about the duration and enforceability of the rights.\n\nStructure the signature blocks appropriately with the company's acknowledgment section first, labeled \"AGREED AND ACCEPTED:\" followed by the company name, signature line, and a line for the name and title of the authorized signatory. Follow this with the investor's signature block, beginning with \"Sincerely,\" then the investor name, signature line, and name and title line for the authorized signatory.\n\nThroughout the drafting process, maintain consistency in how party names are referenced, ensure all cross-references are accurate, and verify that the security designation matches the actual investment terms. The tone should be formal and professional, using clear and unambiguous language appropriate for a binding corporate agreement. If any information is missing or unclear from the available documents, identify these gaps and request the necessary details from the user before finalizing the letter. The final document should be ready for execution without requiring substantive revisions, serving as a legally sound instrument that accomplishes both its contractual and regulatory purposes.",
+  "parent_skill_id": "ab63d5b1-bd0b-450d-a7a7-36572e5e9d27",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "venture_capital_and_private_equity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

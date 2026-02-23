@@ -1,0 +1,363 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7c-c6c9-7262-b3e2-02695dc87ff1
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "643ffa19-3075-4e56-bafa-0dfe2cb8b266",
+  "slug": "corporate-securities-underwriting-agreement-draft",
+  "name": "Underwriting Agreement",
+  "summary": "Drafts a comprehensive Underwriting Agreement for public securities offerings under a firm commitment structure. This skill defines terms between the issuing company, selling stockholders, and underwriters, including purchase details, greenshoe options, representations, warranties, and closing mechanics. Use it for SEC-registered offerings compliant with the Securities Act of 1933.",
+  "content": "# Enhanced Underwriting Agreement Workflow\n\nYou are a securities law specialist tasked with drafting a comprehensive Underwriting Agreement for a public securities offering. This agreement governs the relationship between the issuing company, any selling stockholders, and the underwriters who will purchase and distribute the securities to the public.\n\n## Context and Purpose\n\nAn Underwriting Agreement is a critical document in securities offerings that establishes the terms under which underwriters agree to purchase securities from the issuer and resell them to the public. This agreement must comply with federal securities laws, including the Securities Act of 1933, and typically accompanies an effective registration statement filed with the SEC. The document balances the interests of the issuer seeking capital with the underwriters' need for protection against liability and market risks.\n\n## Document Structure and Requirements\n\nBegin by establishing the fundamental transaction details in the header section. Identify all parties with precision, including the full legal name of the issuing company, any selling stockholders participating in the offering, and the lead underwriter acting as representative of the several underwriters. Specify the exact date of execution and confirm that this agreement is being entered into in connection with a registration statement that has been declared effective by the Securities Commission.\n\nDraft the purchase and sale provisions to clearly articulate the firm commitment underwriting structure. Specify the exact number of shares being offered, the price per share to be paid by the underwriters (which is typically the public offering price less the underwriting discount), and make explicit that each underwriter's obligation is several and not joint. Include the over-allotment or \"greenshoe\" option that grants underwriters the right to purchase additional shares, typically up to fifteen percent of the firm shares, exercisable within thirty days from the initial closing to cover over-allotments and stabilize the market price.\n\nDetail the closing mechanics with specificity regarding timing, location, and payment procedures. Establish that payment will be made by federal funds wire transfer against delivery of the shares in book-entry form through the Depository Trust Company. Address any conditions precedent that must be satisfied before the closing can occur.\n\n## Representations, Warranties, and Covenants\n\nCraft comprehensive representations and warranties from the company that address all material aspects of the offering and the company's business. These should cover the accuracy and completeness of the registration statement and prospectus, confirming that these documents contain no untrue statement of material fact and no omission of material fact necessary to make the statements not misleading. Include representations regarding the company's corporate status and good standing, its capitalization and the valid authorization and issuance of the shares being offered, the accuracy of financial statements and their conformity with generally accepted accounting principles, the absence of material adverse changes since the date of the latest financial statements, compliance with applicable laws and regulations, and the absence of material litigation or governmental proceedings.\n\nAddress the company's covenants regarding its conduct during the offering period, including restrictions on issuing additional securities, requirements to maintain the effectiveness of the registration statement, obligations to file required reports with the securities commission, and commitments to use offering proceeds as described in the prospectus.\n\nInclude appropriate representations and covenants from the underwriters, particularly their agreement to distribute securities only in compliance with applicable securities laws and to use only the prospectus and permitted free writing prospectuses in connection with the offering.\n\n## Conditions to Closing\n\nEnumerate all conditions that must be satisfied before the underwriters' obligation to close becomes binding. These conditions protect the underwriters and typically include confirmation that the registration statement remains effective and no stop order has been issued, verification that all company representations and warranties remain true and correct as of the closing date, receipt of a comfort letter from the company's independent auditors addressing the financial information in the registration statement and confirming that there has been no material adverse change in the company's financial condition, receipt of legal opinions from both company counsel and underwriters' counsel addressing the validity of the shares and compliance with securities laws, and confirmation that the shares have been approved for listing on the designated stock exchange.\n\nCritically, include any market-out provisions that allow underwriters to terminate their obligations if material adverse changes occur in financial markets or the company's business, or if trading is suspended on major securities exchanges. These provisions should be carefully negotiated to balance the company's need for certainty with the underwriters' need for protection against extraordinary market disruptions.\n\n## Indemnification and Contribution\n\nDraft robust indemnification provisions that allocate liability risk between the parties. The company should agree to indemnify and hold harmless the underwriters, their officers, directors, and controlling persons against any losses, claims, damages, or liabilities arising from untrue statements or omissions in the registration statement, prospectus, or any free writing prospectus, except to the extent such losses arise from information furnished by the underwriters specifically for inclusion in these documents.\n\nProvide reciprocal indemnification from the underwriters to the company for losses arising from untrue statements or omissions made in reliance upon and in conformity with written information furnished by the underwriters. Typically, the only information furnished by underwriters relates to the underwriting arrangements and the plan of distribution.\n\nInclude contribution provisions that establish how losses will be allocated among the parties if indemnification is determined to be unavailable due to public policy considerations or other legal limitations. The contribution formula should reflect relative fault and the relative benefits received by each party from the offering.\n\n## Additional Provisions\n\nAddress lock-up agreements that restrict the company's officers, directors, and major stockholders from selling their shares for a specified period, typically one hundred eighty days following the offering. These agreements prevent market flooding and protect the offering price stability.\n\nInclude standard miscellaneous provisions addressing governing law (typically New York law for securities offerings), jurisdiction and venue for disputes, amendment and waiver procedures, assignment restrictions, counterpart execution, and integration clauses confirming that the agreement constitutes the entire understanding between the parties.\n\n## Output Format and Compliance Considerations\n\nGenerate the complete Underwriting Agreement as a formal legal document with appropriate article and section numbering, defined terms in initial capitals throughout, and professional formatting suitable for execution by sophisticated parties. Include signature blocks for the company (executed by authorized officers), any selling stockholders, and the representative of the underwriters.\n\nEnsure that all provisions comply with current securities laws and regulations, including Securities Act Rule 10b-9 regarding stabilization activities, Regulation M regarding distribution participant conduct, and FINRA rules governing underwriter compensation and conflicts of interest. The agreement should be consistent with the disclosure in the registration statement regarding the underwriting arrangements and should not contain any material terms that are not disclosed in the prospectus.\n\nBefore finalizing the document, verify that all bracketed placeholders have been replaced with actual transaction-specific information, that all cross-references are accurate, and that the document is internally consistent. The final agreement should be ready for review by securities counsel and suitable for filing as an exhibit to the registration statement if required by SEC rules.",
+  "parent_skill_id": "83ed0182-52a7-4281-8773-85f057bf7d8d",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "securities_and_capital_markets"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: linear starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:51:54.756121Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Drafting skill documentation**
+
+Preparing a SKILL.md for an "underwriting-agreement" skill: it will have a concise third-person description, trigger keywords, and metadata with capitalized practice areas and document types. The skill focuses on drafting and includes core instructions, tables, checklists, templates, guidelines, and negotiation points referencing key legal rules and regulations with placeholders and due diligence elements, ensuring consistency with associated filings. I'll include [VERIFY] flags where citations are uncertain.
+thinking
+**Preparing detailed skill structure**
+
+Clarifying legal citations by marking uncertain ones with [VERIFY] and correcting misattributions, while including confirmed rules like FINRA 5110 without marks. Planning an 80-150 line SKILL.md using YAML front matter and structured sections with flat lists, tables (e.g., Deal Snapshot, Term Sheet Inputs), checklists, and placeholders. The document will cover US jurisdiction with typical NY governing law and emphasize trigger keywords and consistent formatting.
+codex
+---
+name: underwriting-agreement
+description: Drafts a U.S. public offering underwriting agreement for firm-commitment deals, aligning the issuer, selling stockholders, and underwriters on purchase terms, greenshoe, reps and warranties, covenants, closing conditions, indemnification, and market-out rights. Use when drafting underwriting agreements for SEC-registered offerings, firm commitment deals, over-allotment options, and listing approvals; trigger keywords: "underwriting agreement", "firm commitment", "public offering", "greenshoe", "over-allotment", "registration statement", "prospectus", "Securities Act of 1933".
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Underwriting Agreement
+
+Produces a firm-commitment underwriting agreement for a SEC-registered public offering.
+
+## Prerequisites
+
+1. **Transaction snapshot** — issuer, offering type, ticker/exchange, offering size, price range, selling stockholders.
+2. **Registration materials** — effective registration statement, base prospectus, preliminary/final prospectus, permitted free writing prospectuses.
+3. **Underwriting terms** — discount/commission, expense allocation, syndicate details, lock-up duration, greenshoe parameters.
+4. **Closing logistics** — closing date/time, DTC settlement details, wire instructions, listing approval status.
+5. **Deliverables list** — comfort letter scope, legal opinions, officer certificates, bring-down diligence, listing letter.
+
+## Output Structure / Process
+
+Use the structure below with defined terms and article/section numbering. Replace all placeholders and ensure consistency with the prospectus and registration statement.
+
+**Deal Inputs Table**
+
+| Item | Required |
+| --- | --- |
+| Issuer legal name / jurisdiction | [Issuer] |
+| Selling stockholders (if any) | [Selling Stockholders] |
+| Representative underwriter | [Lead Underwriter] |
+| Securities / class | [Security Type] |
+| Firm shares | [Firm Shares] |
+| Price to public | [Public Price] |
+| Underwriting discount | [Discount] |
+| Net proceeds to issuer | [Net Proceeds] |
+| Over-allotment % and term | [Up to 15% / 30 days] |
+| Exchange listing | [Exchange] |
+| Governing law | [New York] |
+| Closing date/time/location | [Closing] |
+
+**Document Outline**
+
+1. **Parties and Recitals**
+2. **Definitions**
+3. **Purchase and Sale**
+4. **Over-Allotment Option (Greenshoe)**
+5. **Delivery and Payment (DTC / Fedwire)**
+6. **Representations and Warranties**
+7. **Covenants**
+8. **Conditions to Closing**
+9. **Indemnification**
+10. **Contribution**
+11. **Termination / Market-Out**
+12. **Lock-Up Agreements**
+13. **Miscellaneous**
+
+**Section Checklists**
+
+Purchase and Sale
+- Firm-commitment structure; obligations are several, not joint.
+- Firm shares, price to public, underwriting discount, net price.
+- Selling stockholder sales (if any) with allocation.
+
+Over-Allotment Option
+- Option size and term.
+- Exercise mechanics and notice period.
+- Allocation and settlement.
+
+Delivery and Payment
+- DTC book-entry delivery.
+- Fedwire payment instructions.
+- Closing sequence and location.
+
+Representations and Warranties
+- Company status, authorization, capitalization, valid issuance.
+- Registration statement and prospectus accuracy; no material misstatements or omissions.
+- Financial statements GAAP conformity; no material adverse change.
+- Compliance with laws; no material litigation.
+- Underwriters: compliance with securities laws; distribution only with permitted materials.
+
+Covenants
+- Maintain registration statement effectiveness.
+- File required reports and supplements.
+- No additional issuances or inconsistent disclosures.
+- Use of proceeds per prospectus.
+- Stabilization and distribution compliance per Regulation M.
+
+Conditions to Closing
+- Registration statement effective; no stop order.
+- Reps and warranties true at closing.
+- Comfort letter from auditors.
+- Legal opinions: issuer counsel and underwriters' counsel.
+- Listing approval and good standing certificates.
+- Officer certificates and bring-down diligence.
+
+Indemnification
+- Company indemnifies underwriters for issuer-supplied disclosure.
+- Underwriters indemnify company for underwriter-supplied disclosure.
+- Scope of covered parties and procedures for defense.
+
+Contribution
+- Relative fault and relative benefit allocation.
+- Public policy fallback if indemnity unavailable.
+
+Termination / Market-Out
+- Material adverse change in issuer or markets.
+- Trading suspensions or exchange closures.
+- Force majeure and legal impediments.
+
+Lock-Up
+- Covered persons; duration; permitted transfers.
+- Release mechanics and notice.
+
+Miscellaneous
+- Governing law and venue.
+- Assignment restrictions.
+- Amendments and waivers.
+- Counterparts and electronic signatures.
+- Entire agreement and severability.
+
+**Required Deliverables Table**
+
+| Deliverable | Provider | Timing |
+| --- | --- | --- |
+| Comfort letter | Auditors | Closing |
+| Legal opinions | Issuer counsel / Underwriters' counsel | Closing |
+| Officer certificates | Issuer | Closing |
+| DTC eligibility | Issuer / Transfer agent | Pre-closing |
+| Exchange listing approval | Exchange | Pre-closing |
+| Lock-up agreements | Insiders | Pricing |
+
+**Template Clauses (Insert as Needed)**
+
+Market-Out Trigger
+```
+The Underwriters may terminate this Agreement by notice if, since the Execution Time,
+there has occurred any event or condition that, in the judgment of the Representative,
+materially adversely affects the financial markets or the business, operations, or
+prospects of the Company, or trading is suspended on [Exchange] or [Major Markets].
+```
+
+Over-Allotment Option
+```
+The Company grants the Underwriters an option to purchase up to [15%] additional Shares
+at the Public Offering Price less the underwriting discount, exercisable within [30]
+days after the date hereof, solely to cover over-allotments.
+```
+
+## Guidelines
+
+- Keep all economic terms identical to the prospectus and underwriting section disclosure.
+- Ensure underwriting-related information furnished by underwriters is explicitly identified.
+- Confirm DTC eligibility, listing approval, and closing mechanics before finalizing.
+- Include Regulation M compliance and stabilization limitations.
+- Address FINRA underwriting compensation and conflict rules where applicable (e.g., FINRA Rule 5110) [VERIFY].
+- If the deal is contingent or best-efforts, do not use firm-commitment structure; assess Rule 10b-9 applicability [VERIFY].
+- Use New York governing law unless the parties require a different forum.
+- Replace all brackets and validate cross-references before release.
+tokens used
+4,242

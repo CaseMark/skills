@@ -1,0 +1,318 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7a-9bf4-7172-8c65-b9384a98fa5f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2141fbf1-b9f5-4adf-aa1a-6f6dc875f80b",
+  "slug": "confidentiality-non-disclosure-agreement-franchise",
+  "name": "Confidentiality and Non-Disclosure Agreement (Franchise)",
+  "summary": "Drafts a comprehensive Confidentiality and Non-Disclosure Agreement tailored for franchise relationships, protecting the franchisor's proprietary information like operations manuals, financial data, and trade secrets during discussions with prospective franchisees. Ensures balance between protection and due diligence needs, suitable for execution before sharing Franchise Disclosure Documents. Use this skill in pre-franchise negotiations to safeguard sensitive business information.",
+  "content": "# Confidentiality and Non-Disclosure Agreement (Franchise) - Drafting Instructions\n\nYou are tasked with drafting a comprehensive Confidentiality and Non-Disclosure Agreement specifically tailored for franchise relationships. This agreement protects the franchisor's proprietary business information during preliminary discussions with prospective franchisees and throughout the franchise relationship. Your draft must be professionally structured, legally sound, and appropriate for use in franchise disclosure and negotiation contexts.\n\n## Document Purpose and Context\n\nThis NDA serves a critical function in the franchise industry by safeguarding the franchisor's confidential and proprietary information, including operations manuals, financial performance data, marketing strategies, supplier relationships, customer lists, and trade secrets. The agreement must balance the franchisor's legitimate need to protect valuable business information with the prospective franchisee's need to conduct reasonable due diligence. Draft this document with the understanding that it will typically be executed before the franchisor provides the Franchise Disclosure Document (FDD) and other sensitive materials to the prospective franchisee.\n\n## Parties and Recitals\n\nBegin by clearly identifying the parties to the agreement. The \"Disclosing Party\" should be identified as the franchisor, including its full legal name, state of organization, and principal place of business. The \"Receiving Party\" should be identified as the prospective franchisee, which may be an individual or entity, with complete identifying information. Include recitals that establish the context: the Receiving Party's interest in exploring a potential franchise relationship, the Disclosing Party's willingness to share confidential information for evaluation purposes only, and the parties' mutual understanding that no franchise relationship is guaranteed by this agreement. Ensure the recitals clarify that this NDA is separate from and in addition to any confidentiality obligations contained in the FDD or franchise agreement.\n\n## Definition of Confidential Information\n\nDraft a comprehensive definition of \"Confidential Information\" that encompasses all proprietary materials relevant to the franchise system. This definition should explicitly include:\n\n- All information contained in or derived from the operations manual, training materials, and system standards\n- Financial performance representations, pro forma financial statements, and unit-level economics\n- Marketing strategies, advertising materials, customer data, and brand guidelines\n- Supplier lists, pricing arrangements, and vendor relationships\n- Trade secrets, proprietary recipes, formulas, processes, and know-how specific to the franchise system\n\nThe definition should be broad enough to capture information disclosed in any form (written, oral, electronic, or visual) and should include information disclosed before and after the agreement's execution. Specify that information need not be marked \"confidential\" to qualify for protection if its confidential nature is apparent from its content or the circumstances of disclosure. Include language clarifying that the franchisor's business model, operational systems, and the very existence of the franchise opportunity constitute confidential information.\n\n## Exclusions from Confidential Information\n\nEstablish clear and reasonable exclusions that align with industry standards while protecting the franchisor's interests. Information should be excluded from confidentiality obligations only if the Receiving Party can demonstrate through clear and convincing evidence that such information: (a) was publicly available at the time of disclosure through no breach of this agreement; (b) was rightfully in the Receiving Party's possession prior to disclosure without any obligation of confidentiality; (c) was independently developed by the Receiving Party without reference to or use of the Confidential Information; or (d) was rightfully received from a third party without breach of any confidentiality obligation. Place the burden of proof squarely on the Receiving Party to establish any exclusion, and require contemporaneous written documentation to support any claimed exclusion. Do not include a standard exception for information required to be disclosed by law without also requiring advance notice to the franchisor and reasonable cooperation to seek protective orders.\n\n## Obligations and Restrictions on Use\n\nArticulate specific, enforceable obligations that the Receiving Party must undertake. The Receiving Party shall: (1) use the Confidential Information solely for the purpose of evaluating the potential franchise opportunity and for no other purpose whatsoever; (2) maintain the Confidential Information in strict confidence using at least the same degree of care used to protect its own confidential information, but in no event less than reasonable care; (3) limit disclosure of Confidential Information to the Receiving Party's professional advisors (attorneys, accountants, business consultants) who have a legitimate need to know and who are bound by professional confidentiality obligations or who execute a written confidentiality agreement in substantially the same form as this agreement; (4) not reverse engineer, disassemble, or attempt to derive the composition or underlying methodology of any Confidential Information; and (5) not directly or indirectly contact the franchisor's existing franchisees, suppliers, or customers without express prior written consent.\n\nInclude an affirmative obligation requiring the Receiving Party to immediately notify the franchisor upon discovery of any unauthorized use or disclosure of Confidential Information and to cooperate fully in remedying such breach. Specify that the Receiving Party shall not make copies of any Confidential Information except as reasonably necessary for evaluation purposes, and that all copies remain the property of the franchisor. Address the scenario where the Receiving Party decides not to pursue the franchise opportunity or negotiations terminate, requiring immediate return or certified destruction of all Confidential Information and copies thereof within five business days of request or termination of discussions.\n\n## Term, Duration, and Survival\n\nEstablish that the confidentiality obligations commence upon execution of the agreement and continue for a specified period that reflects the nature of the information being protected. For trade secrets and proprietary operational information that constitutes the core of the franchise system, specify that confidentiality obligations survive in perpetuity or for as long as such information maintains its status as a trade secret under applicable law. For other Confidential Information, establish a minimum term of three to five years following the date of disclosure or termination of franchise discussions, whichever is later. Clarify that if the parties ultimately enter into a franchise agreement, the confidentiality obligations under this NDA shall continue in full force and effect and shall be in addition to, not in lieu of, any confidentiality provisions in the franchise agreement. Include survival language ensuring that obligations relating to return of materials, remedies for breach, and governing law survive termination of the agreement indefinitely.\n\n## Remedies and Enforcement\n\nDraft robust remedy provisions that reflect the unique and irreparable harm caused by disclosure of franchise system information. Acknowledge explicitly that monetary damages alone would be inadequate to compensate the franchisor for breach of this agreement and that the franchisor shall be entitled to seek injunctive relief, specific performance, and other equitable remedies without the necessity of posting bond and without proving actual damages. Preserve the franchisor's right to pursue all available legal and equitable remedies, including monetary damages, disgorgement of profits, and recovery of reasonable attorneys' fees and costs incurred in enforcing the agreement. Include a provision making the Receiving Party liable for breaches by its employees, agents, and advisors to whom Confidential Information was disclosed. Consider including a liquidated damages provision for specific breaches if appropriate under the governing state's law, though ensure such provision is reasonable and not punitive in nature.\n\n## No License or Franchise Rights\n\nInclude clear disclaimers establishing that this agreement does not grant the Receiving Party any license, right, or interest in the franchisor's trademarks, service marks, trade names, or other intellectual property. Explicitly state that execution of this NDA does not obligate the franchisor to disclose any particular information, to enter into a franchise agreement, or to refrain from negotiating with other prospective franchisees. Clarify that the franchisor makes no representations or warranties regarding the accuracy or completeness of any Confidential Information disclosed, and that the Receiving Party must conduct its own independent investigation and due diligence. Include language confirming that this agreement does not create a partnership, joint venture, agency, or employment relationship between the parties.\n\n## Governing Law, Jurisdiction, and Dispute Resolution\n\nSpecify that the agreement shall be governed by and construed in accordance with the laws of the state where the franchisor maintains its principal place of business, without regard to conflicts of law principles. Establish exclusive jurisdiction and venue in the state and federal courts located in the franchisor's home jurisdiction, and include a consent to personal jurisdiction and waiver of any objection based on inconvenient forum. Consider whether mandatory arbitration is appropriate for this type of agreement, though recognize that injunctive relief matters are typically better suited for court proceedings. If including an arbitration provision, ensure it permits the franchisor to seek immediate injunctive relief in court while other disputes proceed to arbitration. Include a waiver of jury trial if consistent with the franchisor's overall legal strategy and enforceable under governing law.\n\n## General Provisions\n\nIncorporate standard but essential miscellaneous provisions that ensure the agreement's enforceability and completeness. Include a severability clause providing that if any provision is found unenforceable, the remaining provisions continue in full force and effect, and the unenforceable provision shall be modified to the minimum extent necessary to make it enforceable. Add an integration clause establishing that this agreement constitutes the entire understanding between the parties regarding confidentiality of the disclosed information and supersedes all prior agreements or understandings on this subject. Specify that amendments must be in writing and signed by both parties. Include a waiver provision clarifying that failure to enforce any provision does not constitute a waiver of that or any other provision. Address assignment by prohibiting the Receiving Party from assigning its obligations without prior written consent while allowing the franchisor to assign freely. Establish notice requirements with specific addresses and acceptable delivery methods (personal delivery, overnight courier, certified mail, email with confirmation).\n\n## Execution and Signature Block\n\nConclude with a properly formatted signature block that includes signature lines for authorized representatives of both parties, with spaces for printed names, titles, and dates of execution. If the Receiving Party is an entity, require signature by an authorized officer or member and include a representation of authority to bind the entity. For individual Receiving Parties, consider whether a spousal signature is necessary under the governing state's law. Ensure the signature page references the agreement and includes the date at the top for clarity.\n\n## Drafting Standards and Quality Control\n\nThroughout the document, maintain consistent defined terms with initial capitalization. Use clear, unambiguous language appropriate for a legally binding contract while avoiding unnecessary legalese. Ensure all cross-references are accurate and all sections are properly numbered. The final document should be professionally formatted, typically 4-7 pages in length, using a standard readable font (such as Times New Roman 12-point) with appropriate margins and spacing. Before finalizing, verify that all provisions comply with applicable state law regarding enforceability of restrictive covenants and confidentiality agreements, particularly regarding reasonableness of scope, duration, and geographic restrictions if any are included.",
+  "parent_skill_id": "b3dc080b-3fb7-400d-a0b2-e0590d304262",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "franchise_agreements"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:49:33.126167Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Drafting franchise NDA skill content**
+
+I'm preparing the Franchise NDA skill with a concise slug and title, third-person description, structured sections, checklists, and a template clause library using placeholders, all within 80–150 lines. The content will include key elements like trade secrets, injunctive relief, and reference the FDD with [VERIFY] flags where needed, formatted without markdown fences except for code blocks for templates.
+thinking
+**Building detailed NDA structure and guidelines**
+
+I'm creating a structured output with a clause matrix table covering essential NDA sections and requirements, guidance on terms like perpetual protection for trade secrets and 3–5 years for other info, plus key points on disclosures, return timelines, and advisors’ confidentiality. The guidelines emphasize checking state franchise laws, consistency, and avoiding overbroad restrictions, with minimal regulatory references including the FTC Franchise Rule noted conservatively with [VERIFY].
+codex
+---
+name: franchise-nda
+description: Drafts a U.S. franchise-focused confidentiality and non-disclosure agreement protecting franchisor operational manuals, financial data, marketing strategies, supplier terms, and trade secrets during pre-franchise discussions. Use when preparing an NDA for prospective franchisees, pre-FDD disclosures, franchise due diligence, or confidentiality agreements covering franchise system information. Trigger keywords: franchise NDA, confidentiality agreement, non-disclosure, FDD, prospective franchisee.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Franchise Confidentiality / NDA
+
+Protect franchisor proprietary information during franchise evaluation while preserving due diligence access.
+
+## Prerequisites
+
+1. **Parties**: Franchisor legal name, state of organization, principal place of business; prospective franchisee entity or individual details.
+2. **Disclosure scope**: What will be shared (operations manual excerpts, FDD, financials, vendor lists, recipes, training materials).
+3. **Timeline**: Anticipated disclosure dates and evaluation window.
+4. **Jurisdiction**: Governing law and venue preferences (typically franchisor home state).
+5. **Business intent**: Confirm NDA is pre-franchise and does not guarantee a franchise award.
+
+## Output Structure / Process
+
+**A. Draft order (use numbered sections)**
+
+1. **Parties and Recitals**
+2. **Definitions**
+3. **Exclusions**
+4. **Permitted Purpose / Use**
+5. **Confidentiality Obligations**
+6. **Restrictions and Non-Contact**
+7. **Required Disclosures by Law**
+8. **Return / Destruction**
+9. **Term and Survival**
+10. **Remedies**
+11. **No License / No Obligation / No Reliance**
+12. **Governing Law / Venue / Jury Waiver / Arbitration (if any)**
+13. **Miscellaneous**
+14. **Signatures**
+
+**B. Core clause checklist**
+
+- Recitals: evaluation of possible franchise relationship; no obligation to grant franchise; NDA is separate from FDD or franchise agreement confidentiality.
+- Definition of Confidential Information:
+  - Operations manuals, training materials, system standards.
+  - Financial performance representations, pro formas, unit economics.
+  - Marketing strategies, advertising assets, brand guidelines.
+  - Supplier lists, pricing, vendor relationships.
+  - Trade secrets, recipes, formulas, processes, know-how.
+  - Business model, operational systems, existence of the opportunity.
+  - All forms of disclosure (written, oral, electronic, visual) before/after execution.
+  - No requirement to mark as confidential if apparent by context.
+- Exclusions (burden on recipient; documented proof):
+  - Publicly available without breach.
+  - Rightfully possessed pre-disclosure.
+  - Independently developed without use.
+  - Rightfully received from third party without breach.
+  - Legal compulsion only with advance notice and cooperation for protective order.
+- Use restrictions:
+  - Sole purpose: evaluate franchise opportunity.
+  - Care standard: at least reasonable care and no less than recipient's own.
+  - Disclosure only to advisors with need-to-know and confidentiality obligation.
+  - No reverse engineering or derivation.
+  - No contact with franchisor franchisees, suppliers, or customers without written consent.
+  - No copies except as necessary; copies remain franchisor property.
+  - Breach notice and cooperation obligations.
+- Return/destruction:
+  - Return or certified destruction within 5 business days of request or termination.
+  - Include certification of destruction.
+- Term/survival:
+  - Trade secrets: perpetual or as long as trade secret status maintained.
+  - Other confidential info: 3–5 years from last disclosure or termination, whichever is later.
+  - Survival for return, remedies, governing law.
+- Remedies:
+  - Injunctive relief and specific performance without bond.
+  - Monetary damages, disgorgement, attorneys’ fees and costs.
+  - Liability for agents/advisors.
+  - Optional liquidated damages only if state law permits and reasonable.
+- No license / no obligation / no reliance:
+  - No IP license or franchise rights granted.
+  - No obligation to disclose or enter franchise agreement.
+  - Recipient relies on its own investigation; no warranties on accuracy/completeness.
+  - No partnership/joint venture/agency.
+- Governing law / venue:
+  - Franchisor home state law and exclusive venue.
+  - Consent to personal jurisdiction and waiver of inconvenient forum.
+  - Optional arbitration carve-out allowing court injunctive relief.
+- Miscellaneous:
+  - Entire agreement, amendments in writing, severability, waiver, assignment limits.
+  - Notice methods and addresses.
+
+**C. Clause template skeleton (edit placeholders)**
+
+```text
+1. Purpose. Recipient will use Confidential Information solely to evaluate a potential franchise relationship with Discloser.
+2. Confidential Information. "Confidential Information" means ...
+3. Exclusions. Confidential Information does not include information Recipient can prove by contemporaneous written records that ...
+4. Obligations. Recipient shall (a) protect..., (b) limit access..., (c) not reverse engineer..., (d) not contact...
+5. Compelled Disclosure. If Recipient is required by law..., Recipient will give prompt notice and cooperate...
+6. Return/Destruction. Within five (5) business days..., Recipient will return or certify destruction...
+7. Term. Obligations begin on Effective Date and continue... Trade secrets remain protected as long as they are trade secrets.
+8. Remedies. Recipient acknowledges irreparable harm and agrees to injunctive relief without bond...
+9. No License / No Obligation / No Reliance. Nothing herein grants any license or obligates Discloser...
+10. Governing Law; Venue. This Agreement is governed by the laws of [State]. Exclusive jurisdiction in [County, State] courts...
+11. Miscellaneous. Entire agreement; amendments; severability; waiver; assignment; notices.
+```
+
+## Guidelines
+
+- Confirm consistency with franchise disclosure timing and the FTC Franchise Rule [VERIFY].
+- Avoid overbroad restrictions that may be unenforceable under state law; keep scope tied to evaluation purpose.
+- Keep defined terms consistent and capitalized.
+- Make exclusions proof-based and document-dependent.
+- Ensure advisors receiving information are bound to confidentiality.
+- Do not allow blanket legal-compulsion disclosure without notice and protective order cooperation.
+- If using arbitration, preserve immediate court access for injunctive relief.
+- Include explicit non-contact with existing franchisees, suppliers, and customers.
+- Ensure no IP license or franchise rights are implied.
+tokens used
+4,870

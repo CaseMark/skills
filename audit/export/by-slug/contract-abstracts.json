@@ -1,0 +1,47 @@
+{
+  "id": "421ca824-aafc-4b4c-9183-ecaba527f23b",
+  "slug": "contract-abstracts",
+  "name": "Contract Abstracts",
+  "summary": "Generates structured abstracts distilling key terms, conditions, obligations, rights, liabilities, and commercial aspects from lengthy contracts. Ideal for corporate law professionals and executives needing quick, actionable insights without reading full documents. Organizes summaries with headers, section references, precise terminology, and flags for ambiguities or non-standard provisions.",
+  "content": "# Contract Abstract Generation Prompt\n\nYou are tasked with creating a comprehensive contract abstract that distills a lengthy contractual document into a clear, actionable summary of its key terms and conditions. This abstract will serve as a critical reference tool for legal professionals, business executives, and stakeholders who need to quickly understand the essential obligations, rights, liabilities, and commercial terms without reading the entire agreement.\n\nBegin by thoroughly reviewing the complete contract document to identify and extract all material provisions. Your analysis should encompass the fundamental business terms, including the parties' identities and their respective roles, the subject matter and scope of the agreement, pricing and payment structures, performance obligations and deliverables, and the duration and termination provisions. Pay particular attention to provisions that create legal obligations, establish rights, allocate risks, or define the commercial relationship between the parties.\n\nStructure your abstract in a standardized format that enables rapid comprehension and comparison across multiple contracts. Open with a header section that captures the contract title, execution date, parties involved with their legal entity types, and the agreement's effective date and term. Follow this with clearly delineated sections that address each major category of contractual provisions. For each key term you identify, provide the specific section reference from the original contract, a concise description of the provision, and any critical deadlines, thresholds, or conditions that apply.\n\nYour abstract must capture all provisions that carry significant legal or business implications. This includes representations and warranties made by each party, indemnification obligations and their scope and limitations, liability caps and exclusions, intellectual property ownership and licensing terms, confidentiality obligations and their duration, dispute resolution mechanisms including jurisdiction and governing law, assignment and change of control restrictions, renewal and termination rights with associated notice periods, and any unusual or non-standard provisions that deviate from market practice. When financial terms are present, extract all pricing structures, payment schedules, expense reimbursement provisions, penalties or liquidated damages, and any adjustment mechanisms such as price escalation clauses or earn-outs.\n\nMaintain precision and objectivity throughout your abstract. Use the exact terminology from the contract when describing key provisions, avoiding paraphrasing that might alter legal meaning. When provisions are complex or contain multiple conditions, break them down into their constituent elements while preserving their logical relationships. If the contract contains defined terms that carry specific meaning, incorporate those definitions or note where they can be found. Flag any ambiguous provisions, internal inconsistencies, or missing terms that would typically be expected in this type of agreement.\n\nConsider the practical business context in which this abstract will be used. Corporate legal departments rely on contract abstracts for portfolio management, compliance monitoring, and risk assessment. Business teams use them to understand their obligations and rights during contract performance. Transaction teams reference them during due diligence to identify potential liabilities or favorable terms. Your abstract should therefore highlight provisions that require ongoing monitoring, create contingent obligations, establish material rights that could be exercised, or present significant risk exposure.\n\nPresent your final abstract in a clean, professional format with clear section headings and consistent formatting. Use tables or structured lists where they enhance clarity, particularly for financial terms, milestone schedules, or comparative obligations between parties. Include a brief executive summary at the beginning that captures the contract's essential nature and most critical terms in three to five sentences. Conclude with a section noting any attachments, exhibits, or schedules referenced in the main agreement, as these often contain substantive terms that supplement the core contract.\n\nYour abstract should be comprehensive enough that a reader can understand the contract's material terms without accessing the full document, yet concise enough to be reviewed in a fraction of the time required to read the complete agreement. Aim for a length that is proportionate to the contract's complexity, typically reducing a standard commercial agreement to two to four pages of abstract. This deliverable will become a permanent reference document in the contract management system and may be relied upon for years during the contract's performance and beyond.",
+  "parent_skill_id": "67f61090-da8b-4201-be46-695d7d2df4a1",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "review"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "contract",
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

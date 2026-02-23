@@ -1,0 +1,322 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c73-23be-71b3-9ec2-317ecf508af6
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "ce638dfb-a291-4338-b1a2-e4c4791a9d09",
+  "slug": "draft-commencement-date-memorandum",
+  "name": "Commencement Date Memorandum",
+  "summary": "Drafts a comprehensive Commencement Date Memorandum for commercial leasing transactions. It reviews underlying agreements to confirm the effective date of obligations, satisfaction of conditions precedent, and party details to establish an official record. Use this skill post-execution when formalizing the lease commencement date to prevent disputes over timing and performance.",
+  "content": "# Enhanced Commencement Date Memorandum Workflow\n\nYou are tasked with drafting a comprehensive Commencement Date Memorandum, a critical transactional document that formally establishes when contractual obligations become effective under a previously executed agreement. This memorandum serves as an official record confirming the commencement date and must be prepared with precision to avoid future disputes regarding timing, performance obligations, and contractual rights.\n\n## Initial Information Gathering and Document Review\n\nBefore drafting begins, conduct a thorough review of all available transaction documents to extract essential information. Search through uploaded agreements, correspondence, and related materials to identify the underlying contract's full legal name, execution date, party information, and any provisions addressing commencement, effective dates, or conditions precedent. Pay particular attention to notice provisions, condition satisfaction requirements, and any communications between parties regarding the commencement date. Extract the complete legal names of all parties exactly as they appear in the original agreement, including jurisdictions of organization for entities and the specific roles each party holds in the transaction. Identify any amendments, restatements, or side letters that may affect the commencement date determination.\n\nIf the underlying agreement references specific conditions that must be satisfied before commencement, locate evidence of their satisfaction within the document repository. This may include regulatory approvals, financing confirmations, third-party consents, or other prerequisites. Document the date each condition was satisfied and preserve any supporting evidence for reference in the memorandum. When critical information cannot be located in available documents, note these gaps so you can request clarification from the user before proceeding with the draft.\n\n## Document Structure and Professional Formatting\n\nThe memorandum should open with a formal header clearly identifying it as a \"Commencement Date Memorandum\" or \"Memorandum Regarding Commencement Date,\" followed by the date of preparation. Include a reference line that identifies the underlying agreement by its complete title, execution date, and parties. The opening paragraph should state the memorandum's purpose explicitly: to confirm and document the commencement date of the referenced agreement and establish the official record of when contractual obligations become effective.\n\nFollowing the introduction, provide a comprehensive identification section that sets forth the full legal names of all parties exactly as they appear in the underlying agreement, their respective roles in the transaction, and for corporate entities, their jurisdiction of organization. Reference the underlying agreement with precision, including its complete title, execution date, any amendment dates, a brief description of the transaction's nature, and the specific contractual provision addressing commencement or effective dates. This foundation creates an unambiguous link between the memorandum and the agreement it references.\n\n## Commencement Date Specification and Conditions Analysis\n\nArticulate the exact commencement date with absolute precision, using both the specific calendar date and day of the week to eliminate any possibility of confusion. When the commencement date depends on satisfaction of conditions precedent, enumerate each condition clearly and confirm whether and when each was satisfied, citing supporting evidence where appropriate. Address the mechanism by which the commencement date was determined, whether through mutual agreement of the parties, automatic trigger upon condition satisfaction, operation of a notice provision, or other contractual mechanism specified in the underlying agreement.\n\nExplain the relationship between the execution date and the commencement date if they differ, and clarify any notice requirements that have been fulfilled pursuant to the agreement's terms. If the commencement triggers specific obligations with immediate effect, identify those obligations clearly to ensure all parties understand what becomes operative on the commencement date. This section must provide complete clarity regarding not just when the agreement commences, but how that date was determined and what contractual machinery brought it into effect.\n\n## Legal Effect and Contractual Implications\n\nExplain the legal significance of the commencement date with respect to the parties' rights and obligations under the agreement. Clarify that from the specified commencement date forward, all terms, conditions, covenants, and obligations set forth in the underlying agreement are in full force and effect unless the agreement itself specifies a different effective date for particular provisions. Address whether representations and warranties are made as of the commencement date or as otherwise specified, identify performance obligations that commence immediately versus those with delayed effectiveness, and clarify when payment obligations, delivery requirements, or service provision begins.\n\nExplain how the commencement date affects the calculation of any term or duration provisions, including renewal periods, termination notice periods, or time-sensitive rights such as options or first refusal rights. Address whether any provisions have retroactive effect or apply prospectively only from the commencement date. This section ensures that all parties have a shared understanding of what the commencement date means for their contractual relationship and helps prevent future disputes regarding timing of performance or the accrual of rights and obligations.\n\n## Acknowledgment, Execution, and Professional Standards\n\nConclude with formal language confirming that all parties acknowledge and agree to the commencement date as specified in this memorandum. Include appropriate signature blocks for all parties to the underlying agreement, with spaces for printed names, titles for representatives of entities, and dates of signature. The signature section should mirror the signature requirements of the underlying agreement to maintain consistency. Include a statement that this memorandum may be executed in counterparts, each of which shall constitute an original, and that electronic signatures shall have the same legal effect as original signatures.\n\nThroughout the memorandum, maintain formal legal writing standards appropriate for commercial transactions. Use clear, unambiguous language that avoids unnecessary legalese while preserving precision and legal accuracy. Ensure internal consistency in terminology, particularly in how you refer to the parties and the underlying agreement. The document should be suitable for inclusion in the transaction file and should serve as a reliable record that could be referenced in future proceedings if disputes arise regarding the timing of contractual obligations.\n\n## Output Requirements and Quality Standards\n\nThe final memorandum must be professionally formatted, internally consistent, and free of errors. It should be ready for execution by the parties without requiring substantial revision. The document should stand as a complete and authoritative record of the commencement date determination, suitable for filing in the transaction records and capable of serving as evidence in any future dispute regarding when contractual obligations became effective. Ensure all factual statements are supported by information from the underlying agreement or related transaction documents, and that all legal conclusions flow logically from the contractual provisions and the facts presented.",
+  "parent_skill_id": "8375a286-608e-4110-b21b-29ba7f38055a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "closing"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "commercial_leasing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:21.211146",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:41:23.401652Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+codex
+---
+name: commencement-date-memorandum
+description: Drafts a U.S. transactional commencement-date memorandum for commercial leasing and related commercial agreements, setting out the exact operative start date and the evidentiary basis for that date. Use after execution, at closing, or during post-signature administration when users ask for a defensible record on “commencement date,” “effective date,” “notice,” “conditions precedent,” “lease start,” or timing disputes over rent, termination windows, or performance triggers.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+---
+
+# Commencement Date Memorandum
+
+Creates a formal, execution-ready record confirming when the underlying agreement becomes operational and why that date controls parties’ rights and duties.
+
+## Prerequisites
+
+1. Governing agreement (full legal title, date, and execution date).
+2. Any amendments, riders, side letters, or addenda affecting commencement.
+3. Full legal party names exactly as in documents, with representative capacities.
+4. Governing law and, if provided, entity jurisdiction information.
+5. Condition precedent list and proof of satisfaction (or explicit statement of none).
+6. Any notice/consent/evidence records that trigger or confirm commencement.
+7. Missing data identified up front; do not proceed to final draft with unresolved gaps.
+
+## Output Structure / Process
+
+### Core Inputs
+
+| Required Item | What to Capture | Why It Matters |
+|---|---|---|
+| Agreement identity | Full title, execution date, filing/amendment dates | Links memorandum to source contract |
+| Parties | Exact legal names and roles | Prevents later ambiguity |
+| Commencement trigger | Clause/section defining effective date | Establishes legal basis for date |
+| Conditions precedent | Condition, satisfaction date, supporting doc | Determines whether date is operative |
+| Notice mechanics | Required notices and completion date | Confirms procedural prerequisites |
+| Obligation map | Obligations starting on, after, or before commencement | Clarifies performance impact |
+
+### Drafting Workflow
+
+1. Extract clauses on commencement, effectiveness, notices, and conditions precedent.
+2. Build a date matrix with:
+   - Execution date
+   - Each condition and evidence date
+   - Notice date(s)
+   - Determined commencement date
+3. Resolve and explain any discrepancies:
+   - Execution date vs commencement date
+   - Automatic vs party election-based effective date
+4. Generate memo sections in strict order:
+   - Header/recitals
+   - Party and agreement identification
+   - Condition and notice verification
+   - Commencement determination
+   - Effect and legal consequences
+   - Signature block / counterpart language
+5. Insert section/article citations for every factual assertion.
+
+### Mandatory Memorandum Sections
+
+- Heading identifying the document as a “Commencement Date Memorandum.”
+- Background:
+  - Agreement title/date
+  - Transaction type and parties
+- Fact findings:
+  - Condition precedent status table
+  - Notice/consent status table
+- Date determination:
+  - Exact date and day
+  - Rule/mechanism producing date
+- Effect section:
+  - What is operative from commencement
+  - What is delayed or remains unaffected
+- Execution clause and signature blocks (including titles and representative authority)
+
+### Template Core
+
+```text
+COMMENCEMENT DATE MEMORANDUM
+
+Date: [Insert date]
+
+Re: [Full Agreement Name], dated [Execution Date]
+(“Agreement”)
+
+The parties hereto confirm that the Agreement’s commencement date is:
+[Day, Month Day, Year], based on [section/article citation].
+
+PARTY IDENTIFICATION
+- [Party Name] – [Role]
+- [Party Name] – [Role]
+[Add all parties]
+
+CONDITIONS PRECEDENT AND NOTICE RECORD
+| Condition | Required By | Satisfied On | Evidence | Status |
+|---|---|---|---|---|
+| [..] | [..] | [..] | [Doc refs] | [Met/Not Met] |
+
+COMMENCEMENT DETERMINATION
+- Basis: [Automatic trigger / party notice / election / other]
+- Relationship to execution date: [Explain]
+- Immediate obligation effects: [List]
+- Deferred provisions: [List]
+
+EFFECTIVE OBLIGATIONS
+- Rent/payment start: [..]
+- Covenants and performance schedule: [..]
+- Term/timing provisions impacted: [..]
+
+ACKNOWLEDGMENT
+The parties acknowledge the foregoing as the official commencement date for the Agreement.
+
+Signatures:
+[Party/Representative]
+[Title]
+[Date]
+[Counterparts/electronic execution language]
+```
+
+### Non-Negotiables
+
+- Use only agreement-consistent terminology.
+- Reference exact clause numbers for all legal effect statements.
+- Do not invent missing facts or dates.
+
+## Guidelines
+
+- Keep the memo evidentiary and operational, not argumentative.
+- Maintain consistency with executed documents; do not restyle party names.
+- If a condition is unmet, state it clearly and stop finalization.
+- Flag conflicts between documents instead of reconciling by assumption.
+- If counterpart or electronic-signature treatment differs from standard language in the agreement, mirror the governing agreement.
+- Verify counterpart/e-signature enforceability and any required statutory language for non-U.S. or non-default jurisdictions. [VERIFY]
+
+tokens used
+5,238

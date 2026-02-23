@@ -1,0 +1,45 @@
+{
+  "id": "db4c35c9-4434-4b7e-868f-4eef1aedd965",
+  "slug": "insurance-claim-summaries",
+  "name": "Insurance Claim Summaries",
+  "summary": "Generates structured summaries of insurance claims, detailing claim identification, incident narrative, claimant's position with alleged damages and policy citations, insurer's response including coverage decisions and investigations, and resolution or current status. Use this skill to create quick-reference overviews from claim files for adjusters, legal counsel, policyholders, or claims managers in litigation or dispute preparation. Ideal for synthesizing complex documentation into a coherent narrative without full file review.",
+  "content": "# Insurance Claim Summary Generation\n\nYou are tasked with creating a comprehensive insurance claim summary that provides a clear, organized overview of an insurance claim from initiation through resolution or current status. This document serves as a critical reference tool for insurance adjusters, legal counsel, policyholders, and claims managers who need to quickly understand the essential facts, positions, and outcomes of an insurance claim without reviewing the entire claim file.\n\n## Objective and Scope\n\nYour primary objective is to produce a structured summary that captures the complete narrative of the insurance claim. Begin by thoroughly reviewing all available claim documentation, including the initial claim submission, policy documents, correspondence between the claimant and insurer, investigation reports, medical records or damage assessments, denial letters or coverage position statements, and any settlement agreements or ongoing dispute documentation. Extract and synthesize the key information into a coherent summary that allows any reader to understand the claim's trajectory and current disposition.\n\n## Required Content and Structure\n\nThe summary must open with essential claim identification information, including the claim number, policy number, insured party name, claimant name (if different from insured), date of loss or incident, date claim was filed, type of insurance coverage involved, and current claim status. Following this header information, provide a detailed narrative of the incident or loss that gave rise to the claim, describing what occurred, when and where it happened, and the circumstances that triggered coverage under the policy.\n\nNext, present the claimant's position comprehensively. Detail what damages, injuries, or losses the claimant alleges, the specific policy provisions or coverage the claimant believes apply, the total amount claimed with itemization of different damage categories, and any supporting evidence or documentation the claimant has provided. Be precise about monetary amounts and specific policy language cited by the claimant.\n\nThen articulate the insurer's response and position. Explain whether the insurer accepted coverage in full, accepted partial coverage, or denied the claim entirely. If coverage was denied or limited, identify the specific policy exclusions, conditions, or limitations the insurer relied upon. Document any coverage defenses raised, such as late notice, material misrepresentation, or failure to cooperate. Include details of any investigation conducted by the insurer, findings from that investigation, and the insurer's valuation of covered damages if different from the amount claimed.\n\n## Resolution and Current Status\n\nClearly state the final outcome if the claim has been resolved. Specify whether the claim was paid in full, settled for a negotiated amount, denied with no payment, or withdrawn by the claimant. Include the exact settlement or payment amount, the date of resolution, and whether the resolution included a release of all claims or preserved any rights for future action. If the claim remains open or disputed, describe the current procedural posture, including whether litigation has been filed, whether alternative dispute resolution is pending, what outstanding issues remain unresolved, and the next anticipated steps or deadlines.\n\n## Legal and Practical Considerations\n\nThroughout the summary, maintain strict objectivity and avoid characterizing either party's position as stronger or weaker unless you are explicitly summarizing an adjudicator's findings. Use precise legal terminology when referencing policy provisions, but also provide plain-language explanations to ensure accessibility for non-legal readers. When policy interpretation is at issue, quote the relevant policy language verbatim and note any ambiguities that are central to the dispute.\n\nPay particular attention to any bad faith allegations, regulatory compliance issues, or coverage questions that may have broader implications beyond this individual claim. If the claim involves subrogation rights, coordination of benefits with other insurance, or potential third-party liability, address these complexities clearly. Note any statute of limitations deadlines, contractual time limits for filing suit, or other time-sensitive considerations that may affect the parties' rights.\n\n## Quality Standards and Verification\n\nEnsure all factual statements are supported by the claim documentation. When presenting disputed facts, clearly attribute each version to its source rather than stating contested facts as established truth. Cross-reference important documents by name and date so readers can locate source materials if needed. Verify that all monetary amounts are accurate and clearly labeled as to whether they represent amounts claimed, amounts paid, or amounts in dispute. Confirm that the timeline of events is chronologically accurate and that all key dates are included.\n\nThe final summary should be concise yet comprehensive, typically ranging from two to five pages depending on claim complexity. It should enable a reader unfamiliar with the claim to understand the essential facts, the parties' positions, and the current status within minutes of review. The document should be formatted professionally with clear headings, consistent terminology, and proper citation to source documents where appropriate. This summary becomes part of the permanent claim file and may be reviewed by regulators, auditors, or courts, so accuracy and professionalism are paramount.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "insurance"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "discovery",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.816394",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

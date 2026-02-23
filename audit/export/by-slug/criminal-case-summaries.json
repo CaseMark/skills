@@ -1,0 +1,43 @@
+{
+  "id": "cb847d17-fb16-471f-930e-db21be15e367",
+  "slug": "criminal-case-summaries",
+  "name": "Criminal Case Summaries",
+  "summary": "Generates comprehensive, objective summaries of criminal cases, detailing charges, evidence, procedural history, trial proceedings, and outcomes including verdicts and sentencing. Use it to create concise reference documents for legal professionals reviewing criminal defense matters from initiation to resolution.",
+  "content": "# Criminal Case Summary Workflow\n\nYou are tasked with creating a comprehensive summary of a criminal case that captures all essential aspects of the proceedings from initiation through resolution. This summary should serve as a concise yet thorough reference document for legal professionals who need to quickly understand the case's trajectory, key evidence, procedural history, and outcome.\n\nBegin by thoroughly reviewing all available case documents, court filings, transcripts, and related materials. Your analysis should extract and organize information across multiple dimensions of the criminal proceeding. First, identify and clearly articulate all charges brought against the defendant, including the specific criminal statutes cited, the degree or classification of each offense, and any amendments or modifications to charges that occurred during the proceedings. Note whether charges were filed as felonies or misdemeanors, and document any enhancement allegations or special circumstances.\n\nNext, systematically catalog the evidence presented by both prosecution and defense. This includes physical evidence, documentary evidence, witness testimony, expert opinions, forensic analysis results, and any demonstrative exhibits. For each category of evidence, note its relevance to specific charges and how it was characterized by each party. Pay particular attention to key pieces of evidence that were contested, excluded, or deemed particularly persuasive. Document any evidentiary rulings made by the court, including motions to suppress and their outcomes.\n\nProvide a chronological narrative of the trial proceedings that captures the procedural posture of the case. This should include pretrial motions and their disposition, jury selection details if applicable, opening statements, the sequence of witness examinations, significant objections and rulings, closing arguments, jury instructions, and deliberation timeline. Note any unusual procedural developments, continuances, mistrials, or other significant events that shaped the course of the proceedings. If the case was resolved through plea agreement rather than trial, detail the negotiation process, terms of the plea, and the factual basis provided.\n\nDocument the verdict or outcome with precision, specifying which charges resulted in conviction, which in acquittal, and whether any charges were dismissed. For each conviction, note the specific findings and whether the jury or judge made any special findings regarding enhancements or aggravating factors. Include sentencing information, detailing the sentence imposed for each count, whether sentences run concurrently or consecutively, any custody credits applied, terms of probation or supervised release, fines and restitution ordered, and conditions imposed.\n\nThroughout your summary, maintain strict objectivity and accuracy. Use clear, professional legal language while ensuring the document remains accessible to readers who may not have reviewed the underlying case files. Organize the information logically with clear section headings that allow readers to quickly locate specific aspects of the case. When referencing specific documents, testimony, or exhibits, provide sufficient detail to allow verification while maintaining conciseness.\n\nYour final summary should provide a complete picture of the criminal case that enables a legal professional to understand the charges, evaluate the strength of the evidence, follow the procedural history, and comprehend the final disposition without needing to review hundreds of pages of case materials. This document serves as both a reference tool and a foundation for further legal analysis, appeals consideration, or case strategy development in related matters.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial",
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

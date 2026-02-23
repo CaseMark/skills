@@ -1,0 +1,42 @@
+{
+  "id": "2c4fa6e5-04b5-4559-8601-ba6f2cae8f55",
+  "slug": "energy-regulation-summaries",
+  "name": "Energy Regulation Summaries",
+  "summary": "Generates comprehensive summaries of significant regulations and landmark cases in the energy sector. Covers utility regulations, renewable energy incentives, environmental impact assessments, and their interconnections with federal and state frameworks. Use it to provide legal professionals, policymakers, and stakeholders with accessible overviews of the regulatory landscape and practical implications.",
+  "content": "# Energy Regulation Summary Prompt\n\nYou are tasked with creating a comprehensive summary of significant regulations and cases in the energy sector. This summary serves as a critical resource for legal professionals, policymakers, and energy industry stakeholders who need to understand the current regulatory landscape, recent developments, and key precedents affecting energy operations, renewable energy initiatives, and environmental compliance.\n\nYour summary should synthesize complex regulatory frameworks and judicial decisions into an accessible yet thorough document that captures the essential legal principles, practical implications, and industry impacts. Begin by identifying and analyzing the most significant recent developments in energy regulation, including federal and state utility regulations, renewable energy incentive programs, environmental impact assessment requirements, and landmark cases that have shaped energy law interpretation and enforcement.\n\nWhen examining utility regulations, focus on rate-making procedures, service obligations, grid modernization requirements, and regulatory commission decisions that affect utility operations and consumer protections. For renewable energy incentives, analyze tax credits, renewable portfolio standards, feed-in tariffs, net metering policies, and other mechanisms designed to promote clean energy development. In addressing environmental impact assessments, cover NEPA compliance, state environmental review processes, greenhouse gas emission regulations, and the intersection of energy development with environmental protection mandates.\n\nStructure your summary to provide both breadth and depth. Open with an executive overview that highlights the most consequential regulatory changes and judicial decisions from the relevant time period. Organize subsequent sections by major topic area, ensuring each regulation or case receives treatment proportional to its significance and practical impact. For each major regulation, identify the issuing authority, effective date, core requirements, affected parties, compliance deadlines, and any pending challenges or anticipated amendments. For significant cases, provide the court, parties, key facts, legal issues presented, holdings, reasoning, and implications for industry practice.\n\nThroughout your analysis, maintain awareness of the interconnected nature of energy regulation. Recognize how federal regulations interact with state and local requirements, how utility regulation affects renewable energy deployment, and how environmental mandates shape energy infrastructure development. Highlight conflicts between regulatory regimes, areas of regulatory uncertainty, and emerging issues that may require future legal clarification.\n\nYour summary should serve multiple audiences with varying levels of technical expertise. Use precise legal terminology when discussing statutory provisions, regulatory standards, and judicial holdings, but provide sufficient context and explanation to make the material accessible to non-specialists. When referencing specific regulations or cases, include proper citations that allow readers to locate and review the primary sources. For particularly complex regulatory schemes, consider including brief explanatory notes that clarify technical terms or procedural requirements.\n\nPay special attention to practical compliance considerations. When discussing new or amended regulations, identify what actions regulated entities must take, what documentation or reporting is required, and what penalties or enforcement mechanisms apply for non-compliance. For judicial decisions, explain how the ruling affects existing industry practices and what operational or strategic adjustments may be necessary.\n\nAddress both immediate and long-term implications of the regulations and cases you summarize. Consider how current regulatory developments may influence future policy directions, what legal challenges may be forthcoming, and how the energy sector's evolution toward decarbonization and distributed generation is reflected in regulatory frameworks. Note any regulatory gaps, inconsistencies, or areas where legal guidance remains unclear.\n\nConclude your summary with forward-looking observations about regulatory trends, anticipated developments, and areas where legal practitioners and industry participants should maintain vigilance. This may include pending legislation, proposed rulemakings, cases under appeal, or emerging technologies that may require new regulatory approaches.\n\nYour final document should be professionally formatted with clear headings, logical organization, and consistent citation practices. Ensure that readers can quickly locate information on specific topics while also understanding the broader regulatory context. The summary should be comprehensive enough to serve as a standalone reference document while remaining concise enough to be reviewed efficiently by busy legal professionals and decision-makers who need to stay current on energy sector developments.",
+  "parent_skill_id": "aacd1cde-bcad-4ff6-8ed0-2549dd59c6cd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "energy"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "energy-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.223393",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

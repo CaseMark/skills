@@ -1,0 +1,374 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-5914-7d71-9078-06e5cd0815f2
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "b53d1891-0cbc-4d86-af24-a4c2c0a127a0",
+  "slug": "business-associate-agreement-hipaa-baa-draft",
+  "name": "Business Associate Agreement (BAA) - HIPAA",
+  "summary": "Drafts a comprehensive, legally enforceable Business Associate Agreement compliant with HIPAA, HITECH Act, and related regulations for covered entities engaging business associates handling protected health information. Analyzes business context, existing agreements, and state laws to customize protections against breaches and regulatory scrutiny. Use this skill when forming or updating relationships involving PHI access, creation, or storage.",
+  "content": "# Enhanced Business Associate Agreement (BAA) - HIPAA Drafting Workflow\n\nYou are an expert healthcare attorney with deep specialization in HIPAA compliance, health information privacy law, and regulatory documentation. Your task is to draft a comprehensive, legally sound Business Associate Agreement that satisfies all requirements under the Health Insurance Portability and Accountability Act of 1996 (HIPAA), as amended by the Health Information Technology for Economic and Clinical Health Act (HITECH Act), and implementing regulations at 45 CFR Parts 160 and 164. This agreement must be immediately enforceable, practically implementable, and capable of withstanding regulatory scrutiny from the Office for Civil Rights.\n\n## Understanding the Legal and Business Context\n\nBefore drafting begins, conduct a thorough analysis of the specific business relationship requiring this BAA. Search through any uploaded documents, service agreements, statements of work, or correspondence between the parties to identify the precise nature of services being provided, the types of protected health information that will be accessed or created, the technical systems involved, and any existing compliance frameworks or security measures already in place. Extract concrete details including the legal names and organizational structures of both parties, the scope of PHI access required, whether electronic or paper records are involved, the geographic locations where PHI will be stored or processed, and any specific regulatory concerns unique to the covered entity's operations such as substance abuse treatment records under 42 CFR Part 2 or mental health records under state law.\n\nExamine the covered entity's existing privacy policies, security risk assessments, and breach response procedures to ensure the BAA aligns with and reinforces these established protocols. If the covered entity operates in multiple states, research applicable state privacy laws that may impose requirements beyond HIPAA's federal baseline, such as California's Confidentiality of Medical Information Act or Texas's Medical Privacy Act, and incorporate these heightened protections into the agreement. Verify current regulatory guidance from the Department of Health and Human Services, including any recent enforcement actions, audit findings, or regulatory updates that should inform the drafting approach.\n\n## Drafting the Foundational Framework\n\nBegin the agreement with a comprehensive preamble that establishes both parties with complete legal precision, including full corporate names, principal places of business, organizational form (corporation, limited liability company, partnership), and jurisdiction of organization. The effective date must be clearly stated, and the recitals should articulate not merely that HIPAA requires this agreement, but specifically why this business relationship creates business associate status under 45 CFR \u00a7 160.103. Reference the underlying service agreement by title and date, explaining how the services to be performed necessitate the creation, receipt, maintenance, or transmission of protected health information on behalf of the covered entity.\n\nThe recitals must establish the regulatory foundation by citing the specific HIPAA provisions that mandate written business associate agreements\u201445 CFR \u00a7 164.502(e) for the Privacy Rule requirements and 45 CFR \u00a7 164.308(b) for the Security Rule requirements. Articulate the parties' shared commitment to protecting patient privacy and maintaining the confidentiality, integrity, and availability of health information, while acknowledging that the business associate's access to PHI creates potential risks that this agreement is designed to mitigate through contractual safeguards, operational controls, and accountability mechanisms.\n\n## Establishing Precise Definitions and Interpretive Principles\n\nCreate a definitions section that incorporates by reference all relevant terms from 45 CFR \u00a7 160.103, but goes beyond mere incorporation to provide practical clarity for implementation. Define Protected Health Information with specificity about what categories of information are covered, including demographic data, medical records, billing information, and any individually identifiable health information in any form or medium. Distinguish Electronic Protected Health Information as the subset of PHI transmitted or maintained in electronic media, and explain the heightened security obligations that apply to ePHI under the Security Rule.\n\nDefine \"Breach\" using the regulatory definition from 45 CFR \u00a7 164.402, but provide interpretive guidance about the four-factor risk assessment that determines whether an impermissible use or disclosure constitutes a reportable breach. Explain that \"Security Incident\" has a broader meaning than breach, encompassing any attempted or successful unauthorized access, use, disclosure, modification, or destruction of information or interference with system operations, while clarifying that routine security incidents like unsuccessful ping attempts need not be individually reported if covered by periodic summary reporting. Define \"Unsecured PHI\" by reference to the HHS guidance on encryption and destruction standards, specifying that PHI encrypted according to NIST standards or destroyed according to NIST 800-88 guidelines is considered secured and not subject to breach notification.\n\nInclude definitions for \"Designated Record Set,\" \"Individual,\" \"Required by Law,\" \"Secretary,\" \"Subcontractor,\" \"Use,\" and \"Disclosure\" that align precisely with HIPAA regulatory definitions while providing context-specific examples relevant to the business relationship. Establish interpretive principles stating that any ambiguity shall be resolved in favor of compliance with HIPAA, that more stringent state laws shall apply where applicable, and that this agreement creates a floor, not a ceiling, for privacy and security protections.\n\n## Delineating Permitted and Prohibited Uses and Disclosures\n\nDraft provisions that precisely circumscribe the business associate's authority to use or disclose PHI, beginning with the fundamental principle that the business associate may use or disclose PHI only as permitted by this agreement or required by law, and may not use or disclose PHI in any manner that would violate the Privacy Rule if done by the covered entity. Specify the exact purposes for which PHI may be used, tying each permitted use directly to a service obligation in the underlying service agreement. For example, if the business associate provides billing services, state that PHI may be used solely to prepare and submit claims, respond to payment inquiries, and perform related billing functions, but may not be used for marketing, fundraising, or any purpose unrelated to the covered entity's healthcare operations.\n\nAddress the business associate's limited ability to use PHI for its own management and administration or to carry out legal responsibilities, but only if such use is permitted under 45 CFR \u00a7 164.504(e)(4)(i) and either the disclosure is required by law or the business associate obtains reasonable assurances from the recipient that the information will be held confidentially and used only for the purpose for which disclosed, with any further disclosure requiring the recipient to notify the business associate of any instances of which it becomes aware where confidentiality was breached. If the business associate will provide data aggregation services for healthcare operations purposes, explicitly authorize this function while defining the scope and limitations of such aggregation activities.\n\nInclude provisions permitting the business associate to make disclosures required by law, to report violations of law to appropriate authorities as permitted by 45 CFR \u00a7 164.502(j), and to disclose PHI to its workforce members, but only to the minimum extent necessary for such workforce members to perform their assigned functions. Establish that the business associate must implement role-based access controls ensuring that workforce members have access only to the specific PHI required for their job responsibilities, and must maintain audit logs documenting all PHI access by workforce members.\n\nExplicitly prohibit certain uses and disclosures to eliminate any ambiguity, including prohibitions on sale of PHI except as permitted under 45 CFR \u00a7 164.502(a)(5)(ii), use of PHI for marketing without authorization except as permitted under 45 CFR \u00a7 164.508(a)(3), and disclosure of psychotherapy notes except as specifically authorized. Address the business associate's obligations regarding the minimum necessary standard, requiring implementation of policies and procedures to limit uses and disclosures to the minimum necessary to accomplish the intended purpose, except where the minimum necessary standard does not apply such as disclosures to the covered entity or uses for treatment purposes.\n\n## Mandating Comprehensive Safeguards and Security Controls\n\nRequire the business associate to implement and maintain a comprehensive information security program that includes administrative, physical, and technical safeguards designed to ensure the confidentiality, integrity, and availability of all PHI, whether in electronic or physical form. For electronic PHI, mandate full compliance with the HIPAA Security Rule at 45 CFR Part 164, Subpart C, including all required implementation specifications and addressable specifications for which the business associate has determined implementation is reasonable and appropriate based on its risk assessment.\n\nSpecify that the business associate must conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of ePHI it creates, receives, maintains, or transmits, and must document this risk assessment in writing. This risk assessment must be reviewed and updated at least annually and whenever there are material changes to the business associate's operations, technology environment, or threat landscape. Based on the risk assessment findings, the business associate must implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level, documenting the rationale for all security decisions.\n\nDetail specific security requirements across all three categories of safeguards. For administrative safeguards, require designation of a security official responsible for developing and implementing security policies, implementation of workforce security procedures including authorization and supervision processes, comprehensive information access management controls, security awareness and training programs covering password management, malware protection, login monitoring, and security incident procedures, security incident response and reporting protocols, contingency planning including data backup, disaster recovery, and emergency mode operations, and periodic evaluation of security effectiveness. For physical safeguards, mandate facility access controls limiting physical access to electronic information systems and the facilities in which they are housed, workstation use policies specifying proper functions and physical attributes of workstations that access ePHI, workstation security measures restricting physical access to workstations, and device and media controls governing receipt, removal, movement, and disposal of hardware and electronic media containing ePHI.\n\nFor technical safeguards, require implementation of access controls including unique user identification, emergency access procedures, automatic logoff, and encryption and decryption where appropriate, audit controls recording and examining activity in information systems containing ePHI, integrity controls protecting ePHI from improper alteration or destruction, person or entity authentication verifying that persons or entities seeking access are who they claim to be, and transmission security protecting ePHI transmitted over electronic networks through integrity controls and encryption where appropriate. Specify that encryption must follow current NIST standards, that encryption keys must be managed according to industry best practices, and that the business associate must maintain an inventory of all devices and media containing ePHI.\n\nRequire the business associate to maintain written policies and procedures documenting its security program, to implement these policies consistently, to train all workforce members on security policies and procedures, to enforce compliance through disciplinary sanctions, and to maintain written records of all security-related activities including risk assessments, security incidents, training completion, and policy reviews. Establish expectations for continuous monitoring, vulnerability scanning, penetration testing, and security audits to identify and remediate security weaknesses before they can be exploited.\n\n## Establishing Breach Notification and Incident Response Protocols\n\nCreate detailed breach notification requirements that exceed HIPAA's minimum standards to ensure the covered entity receives timely, complete information necessary to fulfill its own notification obligations. Require the business associate to notify the covered entity of any breach of unsecured PHI, or any use or disclosure not permitted by this agreement, without unreasonable delay and in no case later than ten (10) business days after discovery of the breach or impermissible use or disclosure. Define \"discovery\" to occur on the first day the breach or violation is known to the business associate or, by exercising reasonable diligence, would have been known to any person who is an employee, officer, or agent of the business associate, other than the person who committed the breach.\n\nSpecify that breach notifications must be provided in writing and must include all information available at the time of notification, with supplemental notifications provided as additional information becomes available. Detail the required content of breach notifications: the date of the breach and the date of discovery if known; a description of the types of unsecured PHI involved in the breach, such as full name, Social Security number, date of birth, medical record number, diagnosis, treatment information, or other specific categories; identification of the individuals whose PHI has been or is reasonably believed to have been accessed, acquired, used, or disclosed during the breach, or if this information is not available, the number of individuals affected or a good faith estimate; a brief description of what happened, including the cause of the breach and how it occurred; a description of the steps the business associate is taking to investigate the breach, mitigate harm to individuals, and protect against further breaches; a description of what individuals should do to protect themselves from potential harm; contact information for the covered entity to obtain further information, including a telephone number, email address, and postal address; and any other information the covered entity may reasonably request to fulfill its notification obligations.\n\nDistinguish between reportable breaches and security incidents that do not rise to the level of a breach because they did not involve unauthorized acquisition, access, use, or disclosure of PHI, or because the business associate has documented that there is a low probability that PHI has been compromised based on a risk assessment considering the nature and extent of PHI involved, the unauthorized person who used or received the PHI, whether PHI was actually acquired or viewed, and the extent to which risk has been mitigated. Require the business associate to document all security incidents, including those that do not constitute reportable breaches, and to provide the covered entity with periodic summary reports of security incidents, attempted security incidents, and system security alerts.\n\nEstablish the business associate's obligation to cooperate fully with the covered entity's breach investigation and response activities, including immediate preservation of all evidence related to the breach, provision of access to systems, logs, and records necessary to investigate the breach, interviews with workforce members involved in or knowledgeable about the breach, forensic analysis of affected systems if requested, and assistance in determining which individuals were affected and what specific PHI was compromised. Require the business associate to bear all costs associated with breach investigation, notification, and remediation, including costs of providing credit monitoring or identity theft protection services to affected individuals if required by the covered entity or applicable law.\n\n## Governing Subcontractor Relationships and Downstream Liability\n\nRequire the business associate to enter into written agreements with all subcontractors, agents, or other persons or entities to whom it provides PHI or who will create, receive, maintain, or transmit PHI on behalf of the business associate, ensuring that such agreements impose the same restrictions and conditions on the subcontractor that apply to the business associate under this agreement, pursuant to 45 CFR \u00a7 164.504(e)(2) and \u00a7 164.308(b)(2). Specify that subcontractor agreements must include all provisions required by HIPAA for business associate agreements, including permitted and required uses and disclosures, safeguard requirements, breach notification obligations, individual rights support, government access provisions, and termination procedures.\n\nEstablish a subcontractor approval process requiring the business associate to obtain prior written consent from the covered entity before engaging any subcontractor who will have access to PHI. The approval request must include the subcontractor's name and contact information, a description of the services the subcontractor will provide, an explanation of why PHI access is necessary, information about the subcontractor's privacy and security qualifications and experience, a copy of the proposed subcontractor agreement, evidence of the subcontractor's compliance with HIPAA and other applicable privacy laws, proof of required insurance coverage, and results of any security assessments or audits of the subcontractor's systems and controls.\n\nClarify that the business associate remains fully liable to the covered entity for the acts and omissions of its subcontractors as if they were acts or omissions of the business associate itself, and that the business associate's use of subcontractors does not relieve it of any obligations under this agreement. Require the business associate to monitor subcontractor compliance through periodic audits, security assessments, and review of breach and security incident reports, and to take prompt corrective action, including termination of the subcontractor relationship if necessary, upon discovering any violation by a subcontractor. Mandate that the business associate report to the covered entity any subcontractor violations, compliance issues, or security concerns within five (5) business days of discovery.\n\n## Supporting Individual Rights and Covered Entity Compliance\n\nDetail the business associate's obligations to assist the covered entity in fulfilling its duties under HIPAA regarding individual rights, recognizing that while the covered entity retains ultimate responsibility for responding to individual requests, the business associate's cooperation is essential for timely compliance. Require the business associate to make available to the covered entity, within ten (10) business days of receiving a request, all PHI about an individual that is maintained by the business associate in a designated record set, in the form and format requested by the individual if readily producible in that form and format, or in a readable hard copy or electronic format as agreed by the covered entity and individual if not readily producible in the requested form and format, to enable the covered entity to fulfill its access obligations under 45 CFR \u00a7 164.524.\n\nEstablish procedures for amendment of PHI, requiring the business associate to make PHI maintained in a designated record set available to the covered entity for amendment and to incorporate any amendments to PHI as directed by the covered entity within fifteen (15) business days of receiving the amendment request, pursuant to 45 CFR \u00a7 164.526. Specify that the business associate must update all instances of the PHI in its possession or control, must ensure that subcontractors also incorporate the amendments, and must provide written confirmation to the covered entity when amendments have been completed.\n\nAddress accounting of disclosures requirements by mandating that the business associate document all disclosures of PHI and information related to such disclosures as would be required for the covered entity to respond to a request for an accounting of disclosures under 45 CFR \u00a7 164.528. Specify that the business associate must maintain records of each disclosure including the date of disclosure, the name and address of the entity or person who received the PHI, a brief description of the PHI disclosed, and a brief statement of the purpose of the disclosure or a copy of the individual's written authorization or written request for disclosure. Require the business associate to provide this information to the covered entity within ten (10) business days of receiving a request, in a format that allows the covered entity to compile the accounting efficiently.\n\nFor disclosures made through an electronic health record for treatment, payment, or healthcare operations purposes, require the business associate to maintain the additional information necessary to provide an accounting as required by the HITECH Act, including the name of the entity or person who received the PHI, a brief description of the PHI disclosed, and the date of the disclosure, for all disclosures during the three years prior to the request. Establish the business associate's obligation to respond to requests for restrictions on uses and disclosures as directed by the covered entity, implementing any restrictions the covered entity has agreed to honor, and to support the covered entity's obligations regarding confidential communications by accommodating reasonable requests to receive communications of PHI by alternative means or at alternative locations.\n\n## Ensuring Government Access and Regulatory Compliance\n\nRequire the business associate to make its internal practices, books, and records relating to the use and disclosure of PHI received from or created or received by the business associate on behalf of the covered entity available to the Secretary of Health and Human Services for purposes of determining the covered entity's compliance with HIPAA, as mandated by 45 CFR \u00a7 164.504(e)(2)(ii)(H) and \u00a7 164.308(b)(2)(iii). Specify that this obligation includes providing access to facilities, systems, documentation, and personnel, and that the business associate must respond to government requests within the timeframes specified by the Secretary, typically within ten (10) business days unless a different timeframe is specified.\n\nEstablish the business associate's duty to cooperate fully with any government investigation, audit, compliance review, or enforcement action, including preserving all relevant evidence, providing sworn testimony if required, producing documents and records in the format requested, allowing on-site inspections of facilities and systems, and refraining from any action that would obstruct or impede the government's investigation. Require the business associate to notify the covered entity immediately upon receiving any government inquiry, subpoena, civil investigative demand, or notice of investigation related to its handling of PHI or compliance with HIPAA, and to consult with the covered entity regarding response strategies while recognizing the business associate's independent obligation to comply with lawful government demands.\n\nAddress the business associate's obligation to comply with all applicable federal and state laws and regulations regarding privacy and security of health information, including state breach notification laws that may require notification to state attorneys general, consumer reporting agencies, or affected individuals within timeframes shorter than HIPAA requires, state health information privacy laws that may provide greater protections than HIPAA, and federal laws governing specific categories of health information such as 42 CFR Part 2 for substance abuse treatment records, 38 CFR Part 1 for veterans' health records, and 10 USC \u00a7 1102 for military health records.\n\nRequire the business associate to monitor regulatory developments and to notify the covered entity within fifteen (15) business days of any changes in law, regulation, or government guidance that may affect this agreement or the parties' obligations, including new HIPAA regulations, OCR guidance documents, enforcement actions establishing new compliance expectations, or court decisions interpreting privacy and security requirements. Establish the business associate's obligation to implement necessary changes to its practices, policies, and systems to maintain compliance with evolving requirements, and to work cooperatively with the covered entity to amend this agreement as necessary to reflect regulatory changes.\n\n## Defining Term, Termination Rights, and Post-Termination Duties\n\nEstablish that this agreement becomes effective on the date specified in the preamble and shall continue in full force and effect until all PHI provided by the covered entity to the business associate, or created or received by the business associate on behalf of the covered entity, is destroyed or returned to the covered entity, or until terminated in accordance with the termination provisions, whichever occurs later. Clarify that this agreement's term is tied to but independent from the underlying service agreement, and that termination of the service agreement does not automatically terminate this BAA until all PHI disposition obligations are fulfilled.\n\nGrant the covered entity the right to terminate this agreement immediately upon written notice if the business associate breaches a material term of this agreement and fails to cure the breach within fifteen (15) calendar days of receiving written notice specifying the breach, or if the covered entity determines that cure is not possible, to terminate immediately without opportunity to cure. Define material breaches to include any use or disclosure of PHI not permitted by this agreement, failure to implement required safeguards, failure to report breaches or security incidents as required, failure to cooperate with individual rights requests, refusal to provide government access, engagement of unauthorized subcontractors, and any pattern of minor violations that collectively demonstrate inability or unwillingness to comply with this agreement.\n\nProvide the covered entity with the option to terminate this agreement immediately if the business associate is named as a defendant or respondent in any lawsuit, administrative proceeding, or government investigation alleging violations of HIPAA or other privacy laws, if the business associate suffers a significant data breach affecting PHI of the covered entity or others, if the business associate experiences financial distress that may impair its ability to maintain required safeguards, or if the business associate undergoes a change of control, merger, acquisition, or other transaction that may affect its ability to fulfill obligations under this agreement.\n\nUpon termination for any reason, require the business associate to return to the covered entity or, if agreed by the covered entity in writing, destroy all PHI received from the covered entity or created or received by the business associate on behalf of the covered entity that the business associate still maintains in any form, including PHI maintained by subcontractors. Specify that return or destruction must be completed within thirty (30) calendar days of termination unless a different timeframe is specified by the covered entity, and that the business associate must certify in writing to the covered entity that all PHI has been returned or destroyed, identifying the method of destruction and confirming that subcontractors have also returned or destroyed all PHI.\n\nAddress circumstances where return or destruction of PHI is not feasible due to legal, regulatory, or technical barriers, requiring the business associate to notify the covered entity in writing of the specific conditions that make return or destruction infeasible, to extend the protections of this agreement to such PHI for as long as the business associate maintains it, to limit further uses and disclosures to those purposes that make return or destruction infeasible, and to implement additional safeguards to protect the PHI from unauthorized access or disclosure. Establish that the business associate's obligations regarding safeguards, breach notification, government access, and cooperation with the covered entity survive termination and continue for as long as the business associate maintains any PHI.\n\n## Allocating Liability and Requiring Indemnification\n\nDraft comprehensive indemnification provisions requiring the business associate to indemnify, defend, and hold harmless the covered entity, its affiliates, and their respective directors, officers, employees, and agents from and against any and all claims, demands, actions, suits, proceedings, assessments, judgments, costs, and expenses, including reasonable attorneys' fees, expert witness fees, and costs of investigation and litigation, arising out of or resulting from the business associate's breach of this agreement, violation of HIPAA or other applicable privacy or security laws, negligent or wrongful acts or omissions in handling PHI, failure to implement required safeguards, acts or omissions of the business associate's subcontractors, or any data breach, security incident, or unauthorized use or disclosure of PHI caused by the business associate.\n\nSpecify that the business associate's indemnification obligations include all regulatory penalties, fines, and sanctions imposed on the covered entity by the Office for Civil Rights, state attorneys general, or other regulatory authorities resulting from the business associate's violations, all costs of providing notice to affected individuals, regulatory authorities, and media outlets as required by breach notification laws, all costs of providing credit monitoring, identity theft protection, or other remedial services to affected individuals, all costs of investigating and remediating breaches or security incidents, and all damages awarded to individuals or third parties in civil litigation arising from privacy or security violations.\n\nEstablish procedures for the covered entity to provide prompt notice to the business associate of any claim subject to indemnification, for the business associate to assume defense of the claim using counsel reasonably acceptable to the covered entity, and for the covered entity to participate in the defense at its own expense if it chooses. Clarify that the business associate may not settle any claim without the covered entity's prior written consent, which shall not be unreasonably withheld, and that the covered entity retains the right to assume its own defense and control of any claim if the business associate fails to defend diligently or if the covered entity determines that its interests are not adequately represented.\n\nAddress insurance requirements by mandating that the business associate obtain and maintain throughout the term of this agreement and for three (3) years thereafter comprehensive general liability insurance with minimum limits of five million dollars ($5,000,000) per occurrence and in the aggregate, professional liability or errors and omissions insurance with minimum limits of five million dollars ($5,000,000) per claim and in the aggregate, and cyber liability insurance with minimum limits of ten million dollars ($10,000,000) per incident and in the aggregate, covering data breaches, privacy violations, network security failures, and regulatory proceedings. Require the business associate to name the covered entity as an additional insured on all policies, to provide the covered entity with certificates of insurance evidencing required coverage, and to provide thirty (30) days' advance written notice of any cancellation, non-renewal, or material change in coverage.\n\nConsider including limitations on liability if appropriate to the business relationship, such as excluding liability for indirect, consequential, or punitive damages, or capping total liability at a specified amount, but ensure that any limitations do not apply to the business associate's indemnification obligations, obligations to return or destroy PHI, obligations arising from willful misconduct or gross negligence, or obligations that cannot be limited under applicable law. Clarify that nothing in this agreement limits the business associate's liability to individuals whose PHI is breached or to government authorities for regulatory violations.\n\n## Incorporating Essential Miscellaneous Provisions\n\nInclude a comprehensive amendment provision specifying that this agreement may be amended only by written instrument signed by authorized representatives of both parties, but acknowledging that the parties agree to negotiate in good faith to amend this agreement as necessary to comply with changes in HIPAA regulations, OCR guidance, or other applicable law. Establish that if HIPAA or its implementing regulations are amended in a manner that affects this agreement, the parties will work cooperatively to amend this agreement to maintain compliance, and that if the parties cannot agree on necessary amendments within sixty (60) days of the regulatory change becoming effective, either party may terminate this agreement upon thirty (30) days' written notice.\n\nSpecify the governing law, stating that this agreement shall be governed by and construed in accordance with the laws of the state where the covered entity is located, without regard to conflict of law principles, while acknowledging that federal HIPAA requirements supersede any conflicting state law provisions except where state law provides greater privacy protections. Establish the exclusive jurisdiction and venue for any disputes arising under this agreement, typically in the state and federal courts located in the covered entity's principal place of business, and require both parties to consent to personal jurisdiction in such courts.\n\nAddress dispute resolution by establishing a tiered process beginning with good faith negotiations between designated representatives of both parties, escalating to mediation before a mutually agreed mediator if negotiations do not resolve the dispute within thirty (30) days, and proceeding to litigation only if mediation is unsuccessful. Clarify that nothing in the dispute resolution provisions limits either party's right to seek injunctive relief or other equitable remedies to prevent or remedy breaches that threaten immediate harm to PHI or individuals, and that the dispute resolution provisions do not apply to the covered entity's right to terminate for cause.\n\nEstablish notice requirements specifying that all notices, requests, and other communications under this agreement must be in writing and delivered by personal delivery, overnight courier, certified or registered mail with return receipt requested, or email with confirmation of receipt, to the addresses specified in the agreement or such other addresses as either party may designate by written notice. Specify that notices are deemed effective upon receipt or, if delivery is refused or cannot be completed, upon the date delivery was attempted.\n\nInclude assignment restrictions prohibiting the business associate from assigning, transferring, or delegating this agreement or any of its rights or obligations hereunder without the covered entity's prior written consent, which may be withheld in the covered entity's sole discretion, while allowing the covered entity to assign this agreement without consent in connection with a merger, acquisition, or sale of substantially all assets. Clarify that any attempted assignment in violation of this provision is void and constitutes a material breach.\n\nIncorporate a severability clause providing that if any provision of this agreement is held invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect, and the parties shall negotiate in good faith to replace the invalid provision with a valid provision that achieves the same or similar objectives. Include an integration clause stating that this agreement, together with the underlying service agreement and any exhibits or schedules attached hereto, constitutes the entire agreement between the parties regarding the subject matter hereof and supersedes all prior agreements, understandings, and communications, whether written or oral, regarding such subject matter.\n\nAddress waiver by providing that no waiver of any provision of this agreement shall be effective unless in writing and signed by the party against whom the waiver is sought to be enforced, and that no waiver of any breach or default shall constitute a waiver of any subsequent breach or default. Establish that the failure of either party to enforce any provision of this agreement shall not be construed as a waiver of such provision or the right to enforce it in the future.\n\nInclude a survival provision specifying that the obligations regarding safeguards, breach notification, return or destruction of PHI, indemnification, confidentiality, and government access survive termination or expiration of this agreement and continue for as long as the business associate maintains any PHI or as required by applicable law. Clarify that no third-party beneficiaries are created by this agreement except to the extent that individuals whose PHI is subject to this agreement may enforce their rights under HIPAA, and that nothing in this agreement creates any right or cause of action in favor of any person or entity not a party to this agreement except as may be required by law.\n\n## Finalizing Execution and Implementation\n\nProvide signature blocks for authorized representatives of both the covered entity and business associate, including spaces for printed names, titles, dates of execution, and organizational identification. Include attestations immediately above the signature lines stating that each signatory represents and warrants that they have full authority to execute this agreement on behalf of their respective organization and to bind such organization to the terms and conditions hereof. Consider including notarization requirements if appropriate under state law, organizational policy, or the significance of the business relationship, with appropriate notary acknowledgment forms.\n\nInclude a post-execution implementation checklist as an exhibit to the agreement, outlining the specific steps each party must take to operationalize the agreement's requirements, including designation of privacy and security contacts, establishment of communication protocols, implementation of technical safeguards, training of workforce members, execution of subcontractor agreements, and scheduling of compliance audits. Establish a timeline for implementation activities and require both parties to certify completion of implementation within sixty (60) days of execution.\n\n## Output Format and Professional Standards\n\nThe completed Business Associate Agreement must be drafted in clear, precise legal language that is enforceable in court while remaining accessible to healthcare administrators, compliance officers, and information technology professionals who will implement its requirements. Use defined terms consistently throughout the document, employing the capitalized defined term each time the concept appears after initial definition. Write in active voice wherever possible to clarify who bears each obligation, avoiding passive constructions that obscure responsibility. Organize the agreement logically with a clear hierarchy of sections, subsections, and paragraphs, using descriptive headings that allow readers to locate relevant provisions quickly.\n\nEnsure all citations to HIPAA regulations, federal statutes, and state laws are accurate and current as of the drafting date, using proper Bluebook citation format for legal authorities. Cross-reference related provisions within the agreement to help readers understand how different obligations interact and reinforce each other. Use consistent formatting throughout the document, with appropriate spacing, indentation, and numbering that creates visual hierarchy and enhances readability.\n\nThe agreement should be comprehensive enough to satisfy HIPAA's requirements, protect the covered entity's interests, and withstand scrutiny from regulators, auditors, and courts, while being practical to implement and enforce in the day-to-day business relationship. Avoid unnecessary legalese or archaic terms, but maintain the precision and formality appropriate for a binding contract governing sensitive health information. The completed document should be formatted professionally and suitable for execution by both parties, retention in compliance files, and production to government authorities if requested during an audit or investigation.\n\nBefore finalizing the agreement, verify that all required HIPAA provisions are included by checking against the requirements in 45 CFR \u00a7 164.504(e) for covered entity to business associate agreements and 45 CFR \u00a7 164.308(b) for business associate to subcontractor agreements. Ensure the agreement addresses all relevant provisions of the HITECH Act, including enhanced breach notification requirements, increased penalties, and direct liability for business associates. Confirm that any state-specific requirements have been incorporated and that the agreement provides protections at least as stringent as the most protective applicable law.",
+  "parent_skill_id": "4349c044-8af1-4018-bcc4-abf8fd5aa8f7",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "healthcare"
+    ],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "healthcare_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:17.159029",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:48:10.461913Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Preparing to rewrite skill in SKILL.md**
+
+I'm planning to read the existing SKILL.md file to use the skill-creator for rewriting the skill as requested.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Preparing to read skill file**
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Choosing concise skill slug**
+
+Deciding between "hipaa-baa" for clarity and relevance or "business-associate-agreement" for searchability, leaning toward "hipaa-baa" as it concisely reflects the skill focus and user instructions.
+thinking
+**Planning detailed skill content**
+
+Outlining a thorough HIPAA BAA skill with metadata, concise description including triggers and compliance terms, structured prerequisites, keyed output sections with tables and checklists, clear guidance on citations marked [VERIFY] when uncertain, and pragmatic guidelines; aiming for 80–150 lines in SKILL.md with no extra commentary or markings per user.
+codex
+---
+name: hipaa-baa
+description: Drafts HIPAA/HITECH-compliant Business Associate Agreements (BAAs) for covered entities and business associates handling PHI/ePHI, aligning Privacy Rule and Security Rule duties, breach notification, subcontractor flow-downs, and individual-rights support with state-law overlays. Use when drafting or updating a BAA, negotiating vendor PHI access, or attaching HIPAA terms to a services agreement. Trigger keywords: BAA, business associate agreement, HIPAA contract, PHI vendor agreement, HITECH breach notice.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# HIPAA Business Associate Agreement (BAA)
+
+Produce a HIPAA/HITECH-compliant BAA tailored to the services, PHI flow, and risk profile.
+
+## Prerequisites
+
+1. Party identities, entity types, jurisdictions, and notice addresses.
+2. Underlying services agreement/SOW and a plain-language description of services.
+3. PHI data map: categories of PHI, ePHI vs paper, systems, storage locations, data flows.
+4. Known regulatory overlays (state privacy, breach laws, 42 CFR Part 2, VA/military records).
+5. Security posture snapshot: safeguards, risk assessment cadence, incident contacts.
+6. Negotiated risk allocation: indemnity, insurance limits, liability caps (if any).
+7. Preferred timelines: breach notice, cure periods, termination notice.
+
+## Output Structure / Process
+
+Use this section order and fill placeholders with matter facts.
+
+```text
+1. Parties, Effective Date, Recitals (basis for BA relationship)
+2. Definitions (HIPAA terms + agreement-specific)
+3. Permitted Uses/Disclosures; Prohibited Uses
+4. Safeguards (Privacy + Security Rule)
+5. Breach/Incident Notification
+6. Subcontractors/Downstream Flow-Downs
+7. Individual Rights Support
+8. Government Access/Compliance Cooperation
+9. Term/Termination; Return/Destruction of PHI
+10. Indemnity/Insurance; Liability Allocation
+11. Miscellaneous (amendment, governing law, notices, assignment, severability, survival)
+12. Signatures; Exhibits (implementation checklist)
+```
+
+**Definitions checklist (include all that apply)**
+
+| Term | Source/Notes |
+| --- | --- |
+| Protected Health Information (PHI) | 45 CFR 160.103 [VERIFY] |
+| Electronic PHI (ePHI) | 45 CFR 160.103 [VERIFY] |
+| Breach | 45 CFR 164.402 [VERIFY] |
+| Security Incident | 45 CFR 164.304 [VERIFY] |
+| Unsecured PHI | HHS Guidance/NIST references [VERIFY] |
+| Designated Record Set | 45 CFR 164.501 [VERIFY] |
+| Required by Law, Individual, Secretary, Subcontractor, Use, Disclosure | HIPAA definitions [VERIFY] |
+
+**Required BAA clauses (minimums)**
+
+- [ ] Permit/limit uses and disclosures to services + required by law.
+- [ ] Prohibit uses/disclosures that would violate Privacy Rule if done by covered entity.
+- [ ] Require safeguards: Privacy Rule + Security Rule (45 CFR 164.308/310/312) [VERIFY].
+- [ ] Require breach notification and security incident reporting.
+- [ ] Flow-down to subcontractors (same restrictions/conditions).
+- [ ] Make PHI available for access/amendment/accounting support.
+- [ ] Make records available to HHS Secretary for compliance review.
+- [ ] Provide return/destruction or extension of protections if infeasible.
+- [ ] Termination for material breach.
+
+**Permitted/Prohibited Uses table**
+
+| Topic | Required Drafting |
+| --- | --- |
+| Core permitted uses | Tie each to a service obligation; include data aggregation if applicable. |
+| Management/admin uses | Allow only if required by law or recipient assurances (confidentiality, limited use). |
+| Required by law | Permit with notice to covered entity where allowed. |
+| Minimum necessary | Require policies; define exceptions (treatment, disclosures to covered entity). |
+| Prohibited uses | No sale of PHI; no marketing without authorization; no psychotherapy notes unless authorized. |
+
+**Safeguards checklist**
+
+- [ ] Admin: security official, access management, workforce training, incident response, contingency plan.
+- [ ] Physical: facility access controls, workstation use/security, device/media disposal.
+- [ ] Technical: unique IDs, emergency access, auto-logoff, encryption, audit controls, integrity controls, authentication, transmission security.
+- [ ] Risk analysis documented and updated; remediation tracked.
+
+**Breach/Incident notice (choose timelines and content)**
+
+| Element | Include |
+| --- | --- |
+| Deadline | “Without unreasonable delay,” cap in days (e.g., 10 business days). |
+| Discovery standard | Knowledge or would have known with reasonable diligence. |
+| Content | Dates, description, PHI types, affected individuals count, mitigation steps, contact info. |
+| Supplemental updates | Required as new facts emerge. |
+| Incident logs | Maintain and provide periodic summaries of non-breach incidents. |
+
+**Individual rights support**
+
+| Right | Business Associate обязанность |
+| --- | --- |
+| Access | Provide DRS data within X days for 45 CFR 164.524 [VERIFY]. |
+| Amendment | Implement amendments within X days; flow-down to subcontractors. |
+| Accounting | Maintain disclosure logs for 45 CFR 164.528 [VERIFY]. |
+| Restrictions/confidential comms | Implement covered entity instructions. |
+
+**Subcontractors**
+
+- [ ] Prior written approval required (if negotiated).
+- [ ] Written BAA-equivalent flow-down with same restrictions.
+- [ ] Ongoing monitoring/audit rights and prompt notice of issues.
+
+**Termination / PHI disposition**
+
+- [ ] Term tied to services but survives until PHI returned/destroyed.
+- [ ] Cure period and immediate termination triggers for material breach.
+- [ ] Return/destroy within X days; certification of destruction.
+- [ ] If infeasible: extend protections, limit uses/disclosures.
+
+**Exhibit: Implementation checklist**
+
+- [ ] Contact points and escalation path.
+- [ ] Security program baseline and audit cadence.
+- [ ] Subcontractor list and approvals.
+- [ ] Incident response tabletop schedule.
+
+## Guidelines
+
+- Match obligations to actual operational capability; do not promise controls the BA cannot meet.
+- Align with underlying services agreement; reconcile conflicting terms.
+- Add state-law and special-category overlays when applicable; use the most protective rule.
+- Use defined terms consistently; avoid ambiguity in permitted uses.
+- Mark any uncertain legal citations with `[VERIFY]`.
+- If HIPAA rules change post-execution, include amendment mechanism and timeline.
+tokens used
+33,744

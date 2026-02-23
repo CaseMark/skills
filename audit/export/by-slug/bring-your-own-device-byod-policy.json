@@ -1,0 +1,42 @@
+{
+  "id": "f1b29e06-69cf-451f-8876-3f4ec8f21a74",
+  "slug": "bring-your-own-device-byod-policy",
+  "name": "Bring Your Own Device (BYOD) Policy",
+  "summary": "Drafts a comprehensive Bring Your Own Device (BYOD) policy establishing guidelines for employees using personal devices to access company resources. Balances employee convenience with data security, privacy protections, and regulatory compliance, covering acceptable use, security requirements, company rights, and privacy expectations. Use this skill when creating internal policies for BYOD programs in data privacy and cybersecurity contexts.",
+  "content": "You are tasked with drafting a comprehensive Bring Your Own Device (BYOD) Policy that establishes clear guidelines for employees who wish to use personal devices to access company resources, data, and systems. This policy must balance employee convenience with robust data security, privacy protection, and regulatory compliance.\n\nBegin by crafting an introduction that articulates the policy's purpose and scope. Explain why the organization permits personal device usage for business purposes, the benefits this provides to both employees and the company, and the critical importance of maintaining security standards across all devices that access company resources. The introduction should set a professional yet accessible tone that helps employees understand this is both a privilege and a responsibility.\n\nIn the acceptable use and security requirements section, define what constitutes appropriate use of personal devices for business purposes. Specify which types of devices are covered under this policy, including smartphones, tablets, laptops, and wearable technology. Establish minimum security requirements that all devices must meet before accessing company systems. These requirements should address device authentication mechanisms such as strong passcodes, biometric locks, or multi-factor authentication. Detail the obligation to maintain current operating systems and security patches, and explain the requirement to install and maintain company-approved mobile device management software. Address encryption requirements for devices that will store company data, and specify any prohibited applications or activities that could compromise security.\n\nDevelop a comprehensive section addressing the company's rights regarding device access and data management. Clearly articulate the company's authority to remotely access, monitor, and wipe corporate data from personal devices under specific circumstances. These circumstances should include employee termination, device loss or theft, security breaches, or when the device no longer complies with security requirements. Distinguish between the company's rights to corporate data versus personal data, and explain the technical mechanisms that allow selective wiping of business information while preserving personal content. Address what happens to company data when an employee leaves the organization or chooses to discontinue BYOD participation.\n\nCreate a privacy section that establishes clear expectations and boundaries. Explain that while the company respects employee privacy regarding personal use of their devices, there can be no expectation of privacy for business communications, data, or activities conducted through company systems. Clarify what types of information the company may access or monitor, such as business emails, documents, and application usage related to company resources. Specify what personal information the company will not access under normal circumstances, while reserving the right to access devices when necessary for legal, security, or investigative purposes. Address how the company will handle situations where personal and business data may be commingled.\n\nInclude provisions addressing employee responsibilities beyond basic security requirements. Employees should understand their obligation to report lost or stolen devices immediately, to notify IT of any security incidents or suspicious activity, and to maintain their devices in good working condition. Address the employee's financial responsibility for their personal device, clarifying that the company will not repair, replace, or reimburse for damage to personal property except where specifically agreed in writing.\n\nIncorporate a section on data handling and classification that explains how employees should manage different types of company information on their personal devices. Provide guidance on which data classifications are permitted on BYOD devices and which require company-owned equipment. Address backup requirements, data retention obligations, and proper procedures for deleting company data when no longer needed.\n\nAddress compliance and legal considerations relevant to your industry and jurisdiction. If your organization operates in regulated industries such as healthcare, finance, or legal services, incorporate specific requirements from applicable regulations such as HIPAA, GLBA, SOX, or GDPR. Explain how BYOD usage must comply with these regulatory frameworks and what additional restrictions may apply.\n\nInclude a support and liability section that clarifies the extent of IT support available for personal devices, distinguishing between support for company applications versus personal device issues. Address liability for data breaches, specifying circumstances under which employees may be held responsible for security incidents resulting from negligence or policy violations.\n\nConclude with an acknowledgment section that requires employees to confirm they have read, understood, and agree to comply with all policy terms. The acknowledgment should include a statement that policy violations may result in disciplinary action up to and including termination, revocation of BYOD privileges, and potential legal action. Provide space for the employee's printed name, signature, and date, as well as a witness or manager signature if required by company practice.\n\nThroughout the policy, use clear, accessible language that non-technical employees can understand while maintaining the precision necessary for legal enforceability. Define technical terms when first introduced, and consider including a glossary if the policy contains substantial technical terminology. Ensure the policy is structured logically with clear headings, numbered sections, and consistent formatting that makes it easy to reference specific provisions.\n\nThe final policy should be comprehensive enough to protect company interests while remaining practical for employees to follow. It should anticipate common scenarios and questions, providing clear guidance that reduces ambiguity and supports consistent enforcement across the organization.",
+  "parent_skill_id": "ba3a7b36-0ba1-4804-8d31-b83b8cb31d15",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "data_privacy_and_cybersecurity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.808638",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

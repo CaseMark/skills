@@ -1,0 +1,332 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-37ce-7861-b205-0dd154619b76
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "18bd2c0c-aaab-46f2-bf6e-e8f998361380",
+  "slug": "lis-pendens-notice-of-pending-action",
+  "name": "Lis Pendens - Notice of Pending Action",
+  "summary": "Drafts a comprehensive Lis Pendens (Notice of Pending Action) compliant with state-specific statutes for real property litigation. Extracts key details from case documents including parties, court information, case number, and real property claims. Use this skill early in litigation to provide constructive notice to third parties of pending actions affecting property title or possession.",
+  "content": "# Lis Pendens - Notice of Pending Action\n\nYou are tasked with drafting a comprehensive Lis Pendens (Notice of Pending Action), a critical litigation document that provides constructive notice to third parties of a pending lawsuit affecting real property. This document must comply with all applicable state-specific statutory requirements and local court rules to ensure proper recording and legal effect.\n\n## Understanding the Document's Purpose and Legal Framework\n\nA Lis Pendens serves as a formal notice filed in the public records to warn potential purchasers and encumbrancers that specific real property is subject to pending litigation. The document creates constructive notice that affects the property's title or right to possession, preventing subsequent transferees from claiming bona fide purchaser status without notice of the pending action. Before drafting, you must identify and analyze the applicable state statutes governing lis pendens requirements in the relevant jurisdiction. Different states have varying requirements\u2014California Code of Civil Procedure \u00a7 405.20, for example, imposes specific content and procedural mandates distinct from Florida Statutes \u00a7 48.23 or New York CPLR \u00a7 6501. Determine whether the jurisdiction requires the underlying action to qualify as a \"real property claim\" as statutorily defined, and identify any mandatory language, warnings, or formatting requirements that must appear in the document. Some jurisdictions require specific statutory warnings to property owners about their right to seek expungement of the lis pendens if the plaintiff cannot establish probable validity of the real property claim.\n\n## Comprehensive Document and Case Information Extraction\n\nBegin by conducting a thorough review of all uploaded case documents to extract complete and accurate information about the parties, the litigation, and the affected property. You need the full legal names of all plaintiffs and defendants exactly as they appear in the complaint or other filed pleadings, including any designations such as \"Trustee,\" \"as successor in interest,\" or corporate status indicators. Identify the precise court name with complete jurisdictional information including county, judicial district or division, and department number if applicable. Extract the case number exactly as assigned by the court, noting that even minor variations can cause recording or indexing problems. Determine the filing date of the underlying action, as this may be required in the lis pendens and affects priority of the notice.\n\nReview the complaint and any amended pleadings carefully to understand the substantive nature of the real property claim. Identify whether the action involves disputes over title, foreclosure proceedings, specific performance of a real estate purchase agreement, partition actions, quiet title claims, enforcement of liens or encumbrances, or other claims that directly affect the property's title or right to possession. Extract specific factual allegations and legal theories that demonstrate how the pending action affects the real property, as most jurisdictions require the lis pendens to contain a description showing the action's connection to the property. Pay particular attention to the causes of action alleged, as not all claims in a lawsuit may qualify as real property claims sufficient to support a lis pendens\u2014for instance, a breach of contract claim may be included in a complaint alongside a specific performance claim, but only the latter typically supports the lis pendens.\n\n## Drafting the Court Caption and Header with Precision\n\nStructure the document with a court caption that precisely mirrors the format required by the specific court's local rules and the jurisdiction's recording statutes. Court caption requirements vary significantly by jurisdiction and even by individual courts within a state, so verify the exact formatting specifications including font type and size, line spacing, margin requirements, and caption structure. The caption must include the court's complete official name as it appears on court documents, the county and state, the case number in the exact format assigned, and the names of all parties in the same sequence as the complaint. Some jurisdictions require all parties to be listed even in multi-party litigation, while others permit abbreviated party designations for cases with numerous parties.\n\nInclude a clear, unambiguous document title such as \"Notice of Pending Action,\" \"Lis Pendens,\" or \"Notice of Lis Pendens\" as required or customarily used in your jurisdiction. Reserve appropriate space at the top of the first page for the county recorder's filing stamp, typically in the upper right corner with specific margin requirements\u2014many county recorders require a minimum of three inches of blank space for their recording information and will reject documents that don't comply. Include the filing attorney's complete information: full name, State Bar number, law firm name, complete mailing address, telephone number, email address, and designation as \"Attorney for Plaintiff\" or the specific party represented. Some jurisdictions also require the attorney's fax number despite its declining use in modern practice.\n\n## Providing Legally Sufficient Property Description\n\nThe property description constitutes the most critical element of the lis pendens for recording and notice purposes, and it must be sufficiently detailed and accurate to enable the county recorder to properly index the document and provide constructive notice to subsequent purchasers and encumbrancers. Include both the common street address of the property (if one exists and is known) and the complete legal description as it appears in the most recent deed, title report, or other official property records. The street address alone is generally insufficient for recording purposes, though it provides helpful additional identification.\n\nThe legal description must conform to the description standards used in your jurisdiction's recording system. In many areas, this means providing lot numbers, block numbers, tract numbers, subdivision names, and map references (such as \"Lot 15, Block 3, Riverside Estates Subdivision, according to Map Book 42, Page 17, Official Records of Orange County\"). In areas using metes and bounds descriptions, provide the complete description including all courses, distances, and monuments, beginning with a clear point of commencement. For properties described by government survey, include the section, township, and range designations. Always include the Assessor's Parcel Number (APN), Tax Identification Number, or equivalent local property identifier, as county recorders rely heavily on these numbers for indexing and many jurisdictions require them.\n\nIf the pending action affects multiple parcels of real property, each parcel must be separately and completely described with its own legal description and APN. Verify that your property description matches the description in the underlying complaint, as discrepancies may provide grounds for challenging the lis pendens or may result in the notice failing to provide constructive notice for the intended property. When in doubt about the adequacy of a property description, consult the county recorder's office guidelines or a title professional, as recording requirements are highly technical and jurisdiction-specific.\n\n## Articulating the Nature and Basis of the Pending Action\n\nDraft a clear, concise, yet comprehensive description of the pending lawsuit that establishes how it constitutes a \"real property claim\" under applicable statutory law. This section must provide meaningful notice to third parties about the nature of the dispute while satisfying statutory requirements that the lis pendens describe the action's effect on the property. Begin by stating the date the underlying action was commenced and filed with the court. Identify the specific causes of action alleged in the complaint that qualify as real property claims, using the precise terminology from the pleading while ensuring the description is understandable to non-lawyers who may search property records.\n\nSummarize the key factual allegations that connect the lawsuit to the described property, focusing on how the action affects title to or possession of the real property. For example, in a specific performance action, explain that the plaintiff seeks to enforce a purchase agreement for the property and obtain title; in a quiet title action, describe the competing claims to ownership or interests in the property; in a foreclosure action, identify the lien or encumbrance being enforced and the plaintiff's claim to foreclose and obtain title. Avoid unnecessary detail about collateral issues or claims that don't affect the property, but provide sufficient information that a potential purchaser or lender would understand the nature of the cloud on title created by the pending litigation.\n\nInclude a statement of the relief sought that affects the property, such as \"Plaintiff seeks judgment quieting title to the Property in Plaintiff's name and against all claims of Defendants\" or \"Plaintiff seeks specific performance of the Purchase Agreement and a judicial decree transferring title to the Property to Plaintiff.\" Cite the specific statutory authority that authorizes filing of the lis pendens in your jurisdiction, and if required by statute, incorporate any mandatory notice language. For instance, California requires a notice stating that the lis pendens may be subject to expungement if the court determines the claimant has not established probable validity of the real property claim, and failure to include this warning can result in the lis pendens being invalid.\n\n## Incorporating Required Verification, Declarations, and Attorney Certification\n\nMost jurisdictions require the lis pendens to be verified under penalty of perjury, and many also require specific attorney certifications or declarations regarding the good faith basis for the real property claim. Draft a verification statement that complies with your state's specific requirements for form and content. The verification typically must declare that the person signing has read the lis pendens, that the contents are true of the declarant's own knowledge as to factual matters within their personal knowledge, and that as to matters stated on information and belief, the declarant believes them to be true. The verification must be dated and must identify the location where it is executed.\n\nDetermine whether your jurisdiction permits the attorney to verify the lis pendens on behalf of the client or whether the client (plaintiff) must personally verify it. Some states require the party, not the attorney, to verify, while others permit attorney verification when the attorney has reviewed the complaint and has a good faith basis for asserting the real property claim. Research whether the verification requires notarization or whether a simple declaration under penalty of perjury pursuant to the laws of the state is sufficient\u2014requirements vary significantly by jurisdiction.\n\nIn addition to verification, some jurisdictions require the attorney to provide a separate certification or declaration establishing the good faith basis for the real property claim and confirming that the attorney has reviewed the complaint and believes the claim affecting the property has probable validity. Draft any such required certification with specific reference to the statutory standard, identifying the legal and factual basis for the real property claim and the attorney's good faith belief in its merit. Be aware that filing a lis pendens without adequate grounds may subject the attorney and client to sanctions, including liability for damages caused by a wrongful lis pendens, so ensure the certification accurately reflects the strength of the underlying claim.\n\n## Ensuring Compliance with Recording Requirements and Service Obligations\n\nFormat the document to comply with all technical requirements of the county recorder's office where the lis pendens will be recorded. County recorders have strict formatting requirements, and documents that fail to meet these specifications will be rejected, causing delay and potential loss of priority. Research the specific county recorder's requirements for the county where the property is located, including margin sizes (typically one inch on sides and bottom, with three to four inches at the top of the first page for the recorder's stamp), paper size and quality (typically 8.5 x 11 inches on white paper of specified weight), font size and type (often requiring a minimum of 10-point font in a legible typeface), and line spacing.\n\nInclude a \"Recording Requested By\" section at the top of the document with the attorney's name and the law firm name, and a \"When Recorded Mail To\" section with the complete mailing address where the recorded document should be returned. Some jurisdictions require this information in a specific location or format. Ensure that all pages after the first page include a header or footer identifying the document title and page number, as loose pages in the recorder's office can become separated.\n\nDetermine the service requirements under your jurisdiction's statutes, as many states require that the lis pendens be served on all parties to the action either before recording, contemporaneously with recording, or within a specified time after recording. Identify the required method of service\u2014some jurisdictions require personal service, while others permit service by mail or electronic service on represented parties. Prepare a proof of service that complies with your jurisdiction's requirements, either as part of the lis pendens document or as a separate document to be filed with the court. Note that some jurisdictions require the lis pendens to be filed with the court in addition to being recorded with the county recorder, while others require only recording.\n\n## Final Compliance Verification and Document Assembly\n\nBefore finalizing the document, conduct a comprehensive compliance review against all applicable statutes, court rules, and local recording requirements. Verify that every statutorily required element is present and properly formatted: complete and accurate court caption, full identification of all parties with correct names and designations, adequate and accurate property description with legal description and APN, sufficient description of the real property claim and its effect on the property, proper verification or declaration under penalty of perjury, any required attorney certification, citation to statutory authority, any mandatory statutory warnings or notices, and proper formatting for recording.\n\nCross-reference the statutory requirements one final time to ensure no mandatory language or procedural requirement has been omitted. Verify that all citations to statutes, case numbers, party names, and property identifiers are accurate and match the source documents exactly. Confirm that the property description matches the description in the complaint and in official property records. Check that the document is formatted to meet both court filing requirements (if filing with the court is required in your jurisdiction) and county recorder recording requirements, noting that these may differ.\n\nReview the document for internal consistency, ensuring that party names are used consistently throughout, that all cross-references are accurate, and that the document presents a professional appearance. Verify that signature blocks are properly formatted with space for the attorney's signature, printed name, and any required designations. If the client must sign a verification, include a separate signature block for the client with appropriate identification.\n\n## Expected Output Format and Final Deliverable\n\nProduce a complete, professionally formatted Lis Pendens document ready for attorney review, signature, and filing. The document should be structured as follows: (1) a properly formatted first page with adequate space for the recorder's stamp, recording requested by and return address information, complete court caption, and document title; (2) the body of the lis pendens containing the property description, description of the pending action, citation to statutory authority, and any required notices; (3) verification or declaration under penalty of perjury with signature block; (4) any required attorney certification or declaration with signature block; and (5) proof of service section if required by local practice.\n\nThe final document must be citation-accurate, with all statutory references verified and properly formatted according to local citation conventions. All factual information must be traceable to the uploaded case documents, with party names, dates, case numbers, and property descriptions matching source documents exactly. The language should be clear, professional, and legally precise, using appropriate terminology while remaining accessible to non-lawyers who may review the recorded document in the public records.\n\nInclude a brief cover note or summary identifying any jurisdiction-specific issues that require attorney attention, any information that could not be located in the uploaded documents and requires verification, and any strategic considerations regarding timing of recording or service. Flag any potential issues with the sufficiency of the real property claim to support the lis pendens, as wrongful filing can result in liability. The deliverable should be ready for final attorney review and signature with minimal additional work required.",
+  "parent_skill_id": "bb1b15da-0611-4138-b98f-8ce6726ca732",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "real-estate-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.104605",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:02:13.307609Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Creating skill markdown for lis-pendens**
+
+I'm producing a complete SKILL.md file for a "lis-pendens" drafting skill focused on litigation pleadings, fully formatted with the required description, prerequisites, structure, checklists, guidelines, and a template including placeholder text and citation flags.
+thinking
+**Creating comprehensive lis-pendens skill markdown**
+
+I'm finalizing the lis-pendens SKILL.md content with a clear description including trigger keywords, a numbered prerequisites list, detailed output structure covering intake tables, statute mapping, document sections, checklists, guidelines, and a code block template with placeholders and citation flags—all formatted with no nested lists and including an Attorney Attention Notes section as requested.
+codex
+---
+name: lis-pendens
+description: Drafts a U.S. Lis Pendens (Notice of Pending Action) for real property litigation, structured for recording and compliant with state statutes, court rules, and county recorder requirements. Includes party/case extraction, statutory authority, real property claim summary, legal description, verification, and service proof. Use when preparing a lis pendens, notice of pending action, or recording notice tied to title/possession claims. Trigger keywords: lis pendens, notice of pending action, real property claim, recording, expungement, quiet title, specific performance, foreclosure.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Lis Pendens (Notice of Pending Action)
+
+Drafts a recordable notice that provides constructive notice of pending litigation affecting title or right to possession.
+
+## Prerequisites
+
+1. **Jurisdiction + county recorder** — state, county, and local recorder formatting rules.
+2. **Filed pleading** — complaint or amended complaint that asserts a qualifying real property claim.
+3. **Case metadata** — court name, division, case number, filing date, party names.
+4. **Property records** — current deed/title report with full legal description and APN/tax ID.
+
+## Output Structure / Process
+
+**A. Intake Table (must be complete before drafting)**
+
+| Field | Value | Source |
+| --- | --- | --- |
+| State + County |  |  |
+| Court (full name) |  |  |
+| Division/Dept |  |  |
+| Case Number |  |  |
+| Filing Date |  |  |
+| Plaintiff(s) (exact) |  |  |
+| Defendant(s) (exact) |  |  |
+| Property Address |  |  |
+| Legal Description |  |  |
+| APN / Tax ID |  |  |
+| Recorder Formatting Rules |  |  |
+| Service Requirements |  |  |
+
+**B. Statute/Rule Mapping (fill, then cite in document)**
+
+| Topic | Requirement | Citation |
+| --- | --- | --- |
+| Statutory authority |  | [VERIFY] |
+| Real property claim definition |  | [VERIFY] |
+| Mandatory warning language |  | [VERIFY] |
+| Verification format |  | [VERIFY] |
+| Attorney certification |  | [VERIFY] |
+| Service timing/method |  | [VERIFY] |
+| Recorder formatting |  | [VERIFY] |
+
+**C. Drafting Checklist**
+
+- [ ] Caption matches court’s required format.
+- [ ] Parties listed exactly as in operative complaint.
+- [ ] Case number and filing date accurate.
+- [ ] Property description includes legal description + APN.
+- [ ] If multiple parcels, each parcel has its own legal description + APN.
+- [ ] Real property claim summary ties relief directly to title/possession.
+- [ ] Statutory authority cited.
+- [ ] Mandatory warning language included verbatim.
+- [ ] Verification/declaration completed and correctly signed.
+- [ ] Attorney certification included if required.
+- [ ] Proof of service prepared if required.
+
+**D. Document Template (adapt to local format)**
+
+```text
+[Recording Requested By:]
+[When Recorded Mail To:]
+[Space for Recorder’s Stamp per county rules]
+
+Attorney Name (Bar No.)
+Law Firm
+Address
+Phone | Email | Fax (if required)
+Attorney for [Plaintiff/Party]
+
+[COURT CAPTION EXACTLY AS FILED]
+
+NOTICE OF PENDING ACTION (LIS PENDENS)
+
+1. Parties. [Plaintiff(s)] filed this action against [Defendant(s)].
+2. Court and Case. This action is pending in the [Court], Case No. [###], filed on [Date].
+3. Property.
+   a. Street Address: [Address]
+   b. Legal Description: [Full legal description]
+   c. APN/Tax ID: [APN]
+4. Real Property Claim. The action includes claims for [quiet title / specific performance / foreclosure / partition / lien enforcement / other], which affect title to or right to possession of the Property.
+5. Relief Affecting Property. Plaintiff seeks [specific performance / decree quieting title / foreclosure sale / partition / other property-related relief].
+6. Statutory Authority. This Notice is recorded pursuant to [State statute citation] [VERIFY].
+7. Mandatory Notice. [Insert exact statutory warning language if required] [VERIFY].
+
+Dated: [Date]                    __________________________
+                                 [Attorney Name]
+                                 Attorney for [Party]
+
+VERIFICATION / DECLARATION
+I, [Name], declare under penalty of perjury under the laws of [State] that I have read the foregoing Notice of Pending Action and the facts stated in it are true and correct of my own knowledge, except as to matters stated on information and belief, and as to those matters I believe them to be true.
+
+Executed on [Date] at [City, State].
+__________________________
+[Signature]
+[Printed Name]
+[Title/Capacity]
+
+[ATTORNEY CERTIFICATION (if required)]
+I certify that I have reviewed the operative complaint and that the real property claim has probable validity under [statute] [VERIFY].
+__________________________
+[Attorney Signature]
+
+[PROOF OF SERVICE (if required)]
+I served the Notice of Pending Action on the parties as follows: [method, date, address/service list].
+__________________________
+[Server Signature]
+```
+
+**E. Attorney Attention Notes (include as short addendum)**
+
+- Missing source data: [list].
+- Statutes/rules not verified: [list with [VERIFY]].
+- Potential issues: [e.g., non‑qualifying claim, inadequate property description, service deadline risk].
+- Recorder-specific formatting risks: [list].
+
+## Guidelines
+
+- Verify real property claim qualifies under controlling statute; do not record for purely monetary or unrelated claims.
+- Use deed/title report language verbatim for legal description; street address alone is insufficient.
+- Match party names and case number exactly to the operative complaint.
+- Insert statutory warnings verbatim where required; mark uncertain text with `[VERIFY]`.
+- Confirm county recorder margins, font size, and stamp-space rules before finalizing.
+- Ensure service is completed within statutory timeframes; include proof of service when required.
+- Flag any jurisdiction-specific expungement standards or probable validity requirements.
+tokens used
+5,850

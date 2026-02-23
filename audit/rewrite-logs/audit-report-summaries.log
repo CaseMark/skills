@@ -1,0 +1,331 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-5c98-79e0-aa78-fc01a639172b
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "df66e6a5-d1ba-489a-b11f-94feeca51262",
+  "slug": "audit-report-summaries",
+  "name": "Audit Report Summaries",
+  "summary": "Generates comprehensive, structured summaries of audit reports, extracting key findings, risks, recommendations, and management responses organized by severity and materiality. Highlights financial impacts, regulatory implications, and action items for legal and compliance professionals reviewing complex audit documentation. Ideal for quickly identifying issues requiring board attention, remediation, or disclosure.",
+  "content": "# Audit Report Summaries\n\nYou are tasked with creating a comprehensive summary of audit-related matters and reports. This workflow is designed to help legal and compliance professionals quickly understand the key findings, risks, and recommendations from complex audit documentation without having to review hundreds of pages of detailed reports.\n\nWhen a user provides audit reports or audit-related documents, your objective is to produce a clear, actionable summary that captures the essential information decision-makers need. Begin by thoroughly analyzing all provided audit documentation to identify the scope of the audit, the entities or processes examined, the time period covered, and the audit methodology employed. Extract and synthesize the most critical findings, including any identified deficiencies, control weaknesses, compliance violations, or areas of concern that auditors have flagged.\n\nYour summary should organize findings by severity and materiality, distinguishing between material weaknesses, significant deficiencies, and minor observations. For each major finding, include the specific issue identified, the potential impact or risk it presents to the organization, the root cause if identified by auditors, and any management responses or remediation plans that have been proposed. Pay particular attention to recurring issues from prior audits, as these may indicate systemic problems requiring board or executive attention.\n\nCapture all formal recommendations made by the auditors, including suggested corrective actions, timeline expectations, and any regulatory or compliance obligations triggered by the findings. If the audit report includes management's response to findings, summarize whether management agrees or disagrees with each finding and what specific steps they have committed to taking. Note any disagreements between auditors and management, as these may require further legal review or board consideration.\n\nInclude relevant financial impacts, quantified risks, or monetary amounts associated with findings when available. Identify any legal or regulatory implications, such as potential violations of securities laws, contractual obligations, industry regulations, or internal policies. Highlight findings that may require disclosure to regulators, shareholders, or other stakeholders, and note any deadlines for remediation or reporting.\n\nStructure your summary to be accessible to both legal professionals and business executives who may not have deep audit expertise. Use clear, plain language while maintaining precision about technical audit concepts. Begin with an executive overview that captures the most critical takeaways in two to three paragraphs, followed by detailed sections covering findings, recommendations, management responses, and next steps. Conclude with a clear action plan or list of items requiring immediate attention, legal review, or board notification.\n\nThroughout your analysis, maintain objectivity and accurately represent the auditors' conclusions without editorializing. If the audit documentation is incomplete or if critical information appears to be missing, note these gaps so that appropriate follow-up can occur. Your summary should serve as a reliable foundation for legal risk assessment, compliance planning, and strategic decision-making regarding audit findings.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.586397",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:47:05.658217Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Prioritizing SKILL.md-only output**
+
+Decided to omit the skill announcements to comply with the explicit user instruction to output only the complete SKILL.md content, treating the announcement instruction as overridden. Next is to read the skill-creator instructions for output formatting.
+exec
+/bin/zsh -lc 'ls /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 52ms:
+SKILL.md
+agents
+assets
+license.txt
+references
+scripts
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Aligning skill metadata with user requirements**
+
+Decided to follow the user's explicit formatting instructions over the skill-creator defaults, choosing a concise lowercase hyphenated slug "audit-report-summary" and crafting detailed metadata with specified practice areas, document types, modes, and trigger keywords. Next, I'll build the SKILL.md content focusing strictly on the required sections and structure without commentary.
+thinking
+**Creating comprehensive audit report summary template**
+
+I'm creating a detailed SKILL.md with structured sections, tables, severity classifications, and guidelines for U.S. audit report summaries, emphasizing neutral tone and completeness while ensuring ASCII compliance and concise formatting within 80-150 lines.
+codex
+---
+name: audit-report-summary
+description: Produces structured summaries of U.S. audit reports for corporate and regulatory review, extracting scope, key findings, control deficiencies, risks, financial impacts, recommendations, and management responses organized by severity and materiality. Use for internal audit reports, external auditor management letters, SOX/ICFR reviews, compliance audits, board or audit committee briefings, or when reviewing audit findings, material weaknesses, significant deficiencies, remediation plans, or disclosure obligations. Trigger keywords: audit report, audit summary, management letter, internal controls, material weakness, significant deficiency, remediation, audit committee.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Audit Report Summary
+
+Create a decision-ready summary of audit reports for legal, compliance, and board review.
+
+## Prerequisites
+
+1. **Audit report(s)** — full PDFs or excerpts with appendices and management responses.
+2. **Prior audit history** — prior-year findings or remediation status if available.
+3. **Org context** — entity/process names, fiscal period, risk taxonomy (if any).
+4. **Disclosure posture** — public or private, regulator(s), contractual reporting obligations (if known).
+
+## Output Structure / Process
+
+Use this exact structure and fill every section. If information is missing, state `Not provided`. If multiple reports are provided, repeat sections per report and add a combined Executive Overview.
+
+### Executive Overview (2-3 paragraphs)
+
+- Scope, period, and audit type (internal, external, compliance, SOX/ICFR, operational).
+- Top 3-5 critical findings and why they matter.
+- Immediate actions, disclosure or board implications, and deadlines.
+
+### Scope & Methodology
+
+| Field | Details |
+| --- | --- |
+| Entity/Process | |
+| Period Covered | |
+| Standards/Framework | (e.g., COSO, ISO, internal policy) |
+| Sampling/Testing Approach | |
+| Auditor | |
+| Limitations | |
+
+### Findings by Severity / Materiality
+
+Classify each finding using the report's language. If absent, infer using the scale below and label as `Inferred`.
+
+Severity scale:
+- **Material weakness**: Reasonable possibility of material misstatement or major compliance failure.
+- **Significant deficiency**: Less severe than material weakness but important to governance.
+- **Other/Observation**: Control deficiency or process gap with limited impact.
+
+| ID | Severity | Finding | Risk/Impact | Root Cause | Recurrence | Financial Impact | Regulatory/Contractual Implication | Evidence/Reference |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+### Recommendations & Remediation Plan
+
+| Finding ID | Recommended Action | Owner | Target Date | Dependencies | Status |
+| --- | --- | --- | --- | --- | --- |
+
+### Management Responses
+
+| Finding ID | Mgmt Position (Agree/Disagree/Partial) | Response Summary | Commitments | Disputes / Exceptions |
+| --- | --- | --- | --- | --- |
+
+### Legal/Regulatory & Disclosure Implications
+
+List specific triggers with clear rationale.
+- Regulator or rule potentially implicated.
+- Disclosure obligations (board, audit committee, regulator, counterparties).
+- Deadlines or reporting windows.
+
+### Recurring Issues & Trend Analysis
+
+- Prior-year repeat findings.
+- Systemic control themes (e.g., access, segregation of duties, change management).
+
+### Action Plan / Immediate Attention
+
+Provide a short checklist of urgent items:
+- Items requiring legal review.
+- Items requiring board or audit committee briefing.
+- Items requiring remediation tracking.
+
+### Gaps & Follow-Ups
+
+List missing info, unclear evidence, or ambiguous auditor statements.
+
+## Guidelines
+
+- Maintain neutral, non-adversarial tone; do not editorialize.
+- Quote numbers exactly; distinguish estimates from audited amounts.
+- Use the auditor's terminology whenever possible; otherwise mark `Inferred`.
+- Flag conflicts between auditors and management explicitly.
+- Separate operational risk from legal or regulatory risk.
+- Do not provide legal advice; provide issue-spotting only.
+- If jurisdiction-specific rules are implicated, note them and mark `[VERIFY]` if unsure.
+tokens used
+9,016

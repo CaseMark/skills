@@ -1,0 +1,42 @@
+{
+  "id": "e3b99b24-da41-4c6b-ab68-3955264eb6e0",
+  "slug": "litigation-personal-injury-demand-summary",
+  "name": "Personal injury demand summary",
+  "summary": "Generates a comprehensive demand summary for personal injury litigation matters. Synthesizes key facts, liability analysis, detailed injury documentation, and itemized damages calculations for use in settlement negotiations with insurance adjusters or opposing counsel. Ideal for preparing persuasive settlement packages during pre-trial or settlement phases.",
+  "content": "# Personal Injury Demand Summary Workflow\n\nYou are tasked with creating a comprehensive demand summary for a personal injury matter. This summary serves as a critical document that synthesizes the key facts, damages, liability issues, and settlement position for insurance adjusters, opposing counsel, or internal case evaluation purposes.\n\nBegin by thoroughly reviewing all available case documents, medical records, police reports, witness statements, photographs, expert reports, and correspondence in the matter file. Your analysis should extract and organize information across every document to ensure nothing material is overlooked. Pay particular attention to the chronology of events, the mechanism of injury, the progression of medical treatment, and any evidence of comparative negligence or liability disputes.\n\nYour demand summary should open with a concise executive overview that captures the essential nature of the claim, including the date and location of the incident, the parties involved, and the primary theory of liability. This introduction should immediately orient the reader to the type of case, whether it involves a motor vehicle collision, premises liability, product defect, medical malpractice, or other personal injury scenario.\n\nThe liability section must present a clear and persuasive narrative of how the defendant's negligence or wrongful conduct caused the incident. Identify specific acts or omissions that constitute breach of duty, supported by factual evidence from police reports, eyewitness accounts, expert opinions, or applicable safety regulations and statutes. Address any potential comparative fault arguments and explain why the defendant bears primary or sole responsibility. Where relevant, reference traffic laws, building codes, industry standards, or other legal authorities that establish the duty of care and its breach.\n\nDocument the plaintiff's injuries with clinical precision, organizing medical information chronologically from the initial emergency treatment through current status and future prognosis. Specify diagnoses, treatment modalities, surgical interventions, physical therapy, medications, and any permanent impairments or disabilities. Distinguish between objective findings such as imaging results, surgical notes, and diagnostic test results versus subjective complaints. Highlight any pre-existing conditions and clearly delineate how the incident aggravated or exacerbated those conditions versus causing new injuries.\n\nThe damages section requires meticulous itemization across all compensable categories. Calculate past medical expenses with specificity, listing each provider, service date, and amount. Project future medical costs based on life care plans, expert testimony, or treating physician recommendations. Compute past lost wages using employment records, tax returns, and employer verification, then calculate future lost earning capacity if permanent disability affects the plaintiff's ability to work. Quantify any out-of-pocket expenses including transportation to medical appointments, home modifications, assistive devices, or prescription costs.\n\nBeyond economic damages, articulate the plaintiff's pain and suffering, emotional distress, loss of enjoyment of life, and any permanent disfigurement or disability. Use specific examples from medical records, deposition testimony, day-in-the-life documentation, or personal journals that illustrate how the injuries have impacted daily activities, relationships, hobbies, and quality of life. If the case involves loss of consortium, detail the impact on the spousal relationship with supporting testimony.\n\nPresent the settlement demand with strategic consideration of the case's strengths and weaknesses, comparable jury verdicts in the jurisdiction, insurance policy limits, and the client's willingness to negotiate. The demand figure should be supported by the damages calculation but also account for litigation risks, comparative fault exposure, and the strength of causation evidence. Include a deadline for response and specify any conditions such as confidentiality requirements or structured settlement considerations.\n\nThroughout the summary, maintain a professional and persuasive tone that acknowledges the human impact of the injuries while presenting the claim as a reasonable and well-supported demand for compensation. Ensure all factual assertions are traceable to specific documents in the case file, and flag any gaps in documentation that may require additional discovery or investigation. The final product should be a polished document that serves both as a negotiation tool and as a comprehensive case evaluation memorandum for internal decision-making.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:06.406296",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

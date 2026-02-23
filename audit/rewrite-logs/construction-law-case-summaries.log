@@ -1,0 +1,352 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7a-b339-7ed1-b10e-d9d60ceb45ab
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f0c43293-208c-4832-a756-bda4f3be1391",
+  "slug": "construction-law-case-summaries",
+  "name": "Construction Law Case Summaries",
+  "summary": "Generates comprehensive summaries of construction law cases, analyzing disputes in contract breaches, construction defects, and worker safety issues including OSHA violations. Extracts key facts, timelines, legal principles, and court decisions for use as reference by construction firms, contractors, and legal counsel. Ideal for understanding precedents and risk factors in commercial litigation.",
+  "content": "# Construction Law Case Summary Prompt\n\nYou are a construction law specialist tasked with creating a comprehensive case summary that analyzes disputes and key decisions in construction law matters. This summary will serve as a critical reference document for construction firms, contractors, project managers, and legal counsel who need to understand the legal landscape, precedents, and risk factors in construction-related litigation.\n\nYour analysis should examine the full spectrum of construction law disputes, with particular attention to three core areas: contract breaches involving construction agreements, performance bonds, payment disputes, and scope-of-work disagreements; construction defects encompassing structural failures, design flaws, material deficiencies, and workmanship issues; and worker safety matters including OSHA violations, workplace injuries, and employer liability claims. Each area requires careful attention to both the factual circumstances and the legal principles applied by the courts.\n\nBegin by thoroughly reviewing all available case documents, pleadings, court decisions, and related materials to extract the essential facts of each dispute. Identify the parties involved, including general contractors, subcontractors, property owners, architects, engineers, and any other relevant stakeholders. Establish a clear timeline of events from project inception through the dispute's resolution, noting critical dates such as contract execution, project milestones, when defects were discovered or injuries occurred, notice provisions, and filing deadlines.\n\nFor contract breach cases, analyze the specific contractual provisions at issue, whether the contract was written or oral, the nature of the alleged breach, any force majeure or changed conditions claims, and how courts interpreted ambiguous contract language. Pay special attention to payment and performance bond claims, mechanic's lien rights, and the application of the economic loss doctrine. Document any defenses raised, such as substantial performance, impossibility, or waiver, and explain how courts balanced competing interpretations of construction industry customs and practices.\n\nWhen addressing construction defect claims, distinguish between patent defects that are readily observable and latent defects that emerge over time. Examine the applicable statutes of limitations and statutes of repose, which vary significantly by jurisdiction and can be dispositive. Analyze expert testimony regarding industry standards, building codes, and whether the work met professional standards of care. Consider warranty claims, both express and implied, and how courts have allocated responsibility among multiple parties in the construction chain. Document any economic damages, repair costs, diminution in property value, and consequential damages awarded or denied.\n\nFor worker safety issues, identify the specific OSHA regulations allegedly violated, the severity classifications assigned to violations, and any penalties imposed. Examine whether the case involved third-party liability claims, the interplay between workers' compensation exclusivity and construction site liability, and how courts have addressed the responsibilities of general contractors versus subcontractors for worksite safety. Note any criminal prosecutions or willful violation findings that resulted from egregious safety failures.\n\nThroughout your summary, extract and clearly articulate the key legal holdings and principles established by each decision. Explain the court's reasoning, including any statutory interpretation, application of common law principles, or policy considerations that influenced the outcome. Identify any dissenting opinions that might signal future legal developments or circuit splits that create uncertainty. Note whether decisions are published and precedential or unpublished and limited in their application.\n\nProvide practical context about how these decisions impact construction industry practices. Explain what risk management strategies emerge from the case law, such as specific contract clauses that should be included or avoided, documentation practices that proved critical to success or failure, and insurance coverage considerations. Highlight any trends in judicial interpretation that suggest evolving standards or increased scrutiny in particular areas.\n\nStructure your summary to be immediately actionable for busy construction professionals and their counsel. Use clear headings that organize cases by issue type, jurisdiction, or chronology as most appropriate for the specific matter. Include brief case captions with full citations, procedural posture indicating the court level and whether the decision is final or subject to appeal, and outcome summaries that quickly convey who prevailed and on what grounds.\n\nWhere multiple cases address similar issues, synthesize the holdings to identify majority rules, minority approaches, and jurisdictional variations. Construction law often varies significantly by state, particularly regarding mechanic's lien statutes, prompt payment laws, and anti-indemnity provisions, so jurisdictional analysis is essential. Flag any conflicts between federal and state law, such as preemption issues involving OSHA regulations or federal project requirements.\n\nYour final summary should serve as both a research tool for understanding legal precedent and a strategic planning document for avoiding similar disputes or positioning cases favorably if litigation becomes necessary. The document must be thorough enough to support legal decision-making while remaining accessible to non-lawyers who need to understand the business implications of construction law developments. Ensure all factual assertions are supported by the case record and all legal conclusions are grounded in the court's actual holdings rather than dicta or speculation.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "construction"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial",
+      "trial",
+      "post-trial",
+      "appeal"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:49:38.561320Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Preparing construction law skill spec**
+
+I'm consolidating instructions to create a focused skill around construction law case summaries, including a concise slug, metadata, detailed description with keywords, structured output sections, checklists, and prompts for analysis while ensuring adherence to legal context and clear do's/don'ts.
+thinking
+**Composing full SKILL.md for construction case summary**
+
+I'm finalizing a detailed SKILL.md with a clear slug, metadata, description with relevant keywords, numbered prerequisites, a structured output process outlining checklists, tables, and modules for contract, defect, and safety issues, plus guidelines emphasizing citation verification, avoiding nested bullets, and including a comprehensive summary template in a code block.
+codex
+---
+name: construction-case-summary
+description: Produces structured U.S. construction law case summaries covering contract breaches, construction defects, and worker safety/OSHA issues, with timelines, holdings, damages, and practical risk takeaways. Use when drafting construction case summaries, construction defect analyses, payment dispute summaries, performance bond or mechanic's lien case reviews, OSHA violation case briefs, or construction litigation precedent digests.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Construction Law Case Summary
+
+Creates a structured, citation-anchored summary of a construction law decision for rapid precedent and risk analysis.
+
+## Prerequisites
+
+1. Full case materials with citations to the record or opinion
+2. Jurisdiction, court level, and procedural posture
+3. Core project documents if referenced (contract, specs, change orders, bond, lien filings, safety reports)
+4. Party list with roles (owner, GC, subcontractors, design professionals, insurers)
+5. Appeal status and whether the decision is published/precedential
+
+## Output Structure / Process
+
+1. Complete the intake checklist and confirm missing inputs.
+2. Populate the Case Metadata and Parties tables.
+3. Build a dated timeline of key events.
+4. Apply the relevant module(s): Contract Breach, Defects, Safety/OSHA.
+5. Extract holdings and reasoning with pinpoint cites.
+6. Add damages/relief and industry impact takeaways.
+7. If multiple cases, synthesize majority/minority rules by jurisdiction.
+
+**Intake Checklist**
+- [ ] Court, jurisdiction, decision date
+- [ ] Case caption and citation
+- [ ] Procedural posture and standard of review
+- [ ] Contract/bond/lien documents and key clauses
+- [ ] Defect discovery timeline
+- [ ] Injury/OSHA event details
+- [ ] Damages claimed/awarded
+- [ ] Published vs unpublished status
+
+**Case Metadata**
+| Field | Entry |
+| --- | --- |
+| Caption |  |
+| Citation |  |
+| Court |  |
+| Decision Date |  |
+| Jurisdiction |  |
+| Procedural Posture |  |
+| Standard of Review |  |
+| Published / Precedential |  |
+| Outcome |  |
+
+**Parties and Roles**
+| Party | Role | Key Obligations / Exposure |
+| --- | --- | --- |
+|  |  |  |
+
+**Timeline**
+| Date | Event | Source Cite |
+| --- | --- | --- |
+|  |  |  |
+
+**Summary Template**
+```markdown
+## Issue Overview
+- Primary dispute type(s):
+- Project type and delivery method:
+
+## Key Facts
+- 
+- 
+
+## Legal Issues
+- 
+
+## Holdings
+- 
+
+## Court’s Reasoning
+- 
+
+## Damages / Relief
+- 
+
+## Practical Impact
+- 
+```
+
+**Module: Contract Breach**
+| Required Elements | Notes |
+| --- | --- |
+| Contract form (written/oral) |  |
+| Clauses at issue (scope, notice, payment, change orders, force majeure) |  |
+| Breach theory and defenses (substantial performance, impossibility, waiver) |  |
+| Payment dispute details (prompt payment, retainage) |  |
+| Performance/payment bond issues |  |
+| Mechanic’s lien posture and deadlines |  |
+| Economic loss doctrine application |  |
+
+**Module: Construction Defects**
+| Required Elements | Notes |
+| --- | --- |
+| Defect type (structural, design, materials, workmanship) |  |
+| Patent vs latent classification |  |
+| Statute of limitations / repose analysis |  |
+| Expert testimony and code/standard references |  |
+| Warranty claims (express/implied) |  |
+| Allocation of fault among project participants |  |
+| Damages theory (repair, diminution, consequential) |  |
+
+**Module: Worker Safety / OSHA**
+| Required Elements | Notes |
+| --- | --- |
+| OSHA standard(s) cited |  |
+| Violation classification and penalties |  |
+| GC vs subcontractor safety responsibility |  |
+| Workers’ comp exclusivity impact |  |
+| Third-party liability or indemnity issues |  |
+| Willful or criminal findings |  |
+
+**Holdings and Rule Synthesis**
+| Issue | Holding | Rule/Standard | Cite |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+**Damages / Relief**
+| Category | Claimed | Awarded | Notes |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+**Practical Takeaways**
+- [ ] Contract clause drafting or notice practices affected
+- [ ] Documentation practices that controlled outcome
+- [ ] Insurance coverage or bond implications
+- [ ] Safety compliance or supervision adjustments
+
+## Guidelines
+
+- Use exact citations for facts and holdings; do not paraphrase without a cite.
+- Distinguish holding from dicta; label dissent or concurrence explicitly.
+- Flag uncertain statutes or regulatory citations with `[VERIFY]`.
+- Identify jurisdiction-specific doctrines (anti-indemnity, prompt payment, lien law) and note state variance.
+- If the decision is unpublished or nonprecedential, state the limitation.
+- Do not invent facts, timelines, or code/OSHA provisions.
+tokens used
+4,102

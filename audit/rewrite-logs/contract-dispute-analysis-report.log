@@ -1,0 +1,327 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-19b7-7531-9457-eb1dca11a56a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "b0824975-dd6a-4a26-8ef2-fc30c8c514cc",
+  "slug": "contract-dispute-analysis-report",
+  "name": "Contract Dispute Analysis Report",
+  "summary": "Generates a comprehensive analysis report on contracts central to a dispute, identifying key clauses, party obligations, breaches, and dispute resolution provisions. It evaluates litigation merits, risks, and strategies for commercial litigation matters. Use it for internal case assessments, pre-litigation planning, or settlement preparations.",
+  "content": "# Contract Dispute Analysis Report\n\n## Purpose and Scope\n\nYou are tasked with preparing a comprehensive Contract Dispute Analysis Report that examines the contractual relationship between the parties, identifies potential breaches, and provides strategic legal analysis. This report serves as a critical decision-making tool for counsel and clients to evaluate the merits of their position, assess litigation risks, and determine optimal dispute resolution strategies.\n\nYour analysis must be thorough, objective, and grounded in applicable contract law principles. Draw upon all available case documents, correspondence, and evidentiary materials to construct a factually accurate narrative. Apply relevant statutory provisions, common law principles, and jurisdictional precedents to support your legal conclusions. The report should be written in clear, professional language accessible to both legal professionals and sophisticated business clients.\n\n## Section 1: Introduction and Executive Summary\n\nBegin with a concise executive summary that captures the essence of the dispute and your key findings. Identify all parties to the contract by their full legal names and describe their respective roles (e.g., buyer/seller, licensor/licensee, employer/contractor). Provide the contract's execution date, effective date, and any subsequent amendments or modifications that bear on the current dispute.\n\nState the fundamental nature of the disagreement in plain terms, identifying which party initiated the dispute and what relief they seek. Explain the purpose of this report, including whether it is prepared for internal case evaluation, settlement negotiations, pre-litigation assessment, or trial preparation. Establish the scope of your analysis, noting any limitations in available evidence or legal research that may affect your conclusions.\n\n## Section 2: Contract Formation and Essential Terms\n\nPresent a detailed examination of how the contractual relationship came into existence, including any preliminary negotiations, letters of intent, or prior dealings between the parties that inform interpretation of the agreement. Describe the consideration exchanged and confirm that all essential elements of contract formation\u2014offer, acceptance, consideration, mutual assent, and capacity\u2014are satisfied under applicable law.\n\nIdentify and analyze the contract's key substantive provisions, organizing them by category: performance obligations, payment terms, delivery schedules, quality specifications, warranties, representations, and conditions precedent or subsequent. For each material term, explain its plain meaning and how the parties understood their respective obligations at the time of contracting. Note any ambiguities in contract language that may require application of interpretive canons such as contra proferentem or the rule favoring reasonable interpretations.\n\nExamine any integration clauses, modification provisions, or parol evidence limitations that affect what extrinsic evidence may be considered in interpreting the parties' intent. Highlight provisions governing notice requirements, cure periods, and procedural prerequisites to claiming breach. Pay particular attention to any alternative dispute resolution mechanisms, including mandatory arbitration clauses, mediation requirements, choice of law provisions, and forum selection clauses, as these will fundamentally shape the dispute's procedural trajectory.\n\n## Section 3: Factual Background and Dispute Timeline\n\nConstruct a chronological narrative of the parties' relationship from contract execution through the emergence of the current dispute. Document each party's performance or non-performance of contractual obligations, noting specific dates, deliverables, payments, communications, and any deviations from the contract's terms. Identify when the complaining party first became aware of the alleged breach and how they responded.\n\nDetail all material communications between the parties regarding the disputed performance, including demand letters, cure notices, requests for clarification, and any attempts at informal resolution. Analyze whether either party provided timely notice of breach as required by the contract or applicable law, and whether any cure periods were offered or exhausted. Document any partial performance, substantial performance, or attempts to mitigate damages.\n\nIdentify and catalog all relevant evidence supporting each party's version of events, including: contracts and amendments, purchase orders, invoices, delivery receipts, correspondence (email, letters, text messages), meeting notes, witness statements, expert reports, financial records, and any other documentation that substantiates claims or defenses. Assess the credibility and admissibility of key evidence, noting any gaps in the evidentiary record that may require additional discovery or investigation.\n\n## Section 4: Legal Analysis of Breach and Defenses\n\nAnalyze whether a material breach of contract has occurred by examining each alleged failure to perform against the contract's express terms and any implied obligations under applicable law. Distinguish between material breaches that excuse the non-breaching party's performance and minor breaches that sound only in damages. Apply the relevant legal standard for breach under the governing jurisdiction, whether based on common law principles, the Uniform Commercial Code for transactions in goods, or specialized statutory frameworks.\n\nEvaluate the strength of any defenses asserted or available to the allegedly breaching party. Consider impossibility or impracticability of performance due to unforeseen circumstances, frustration of purpose, failure of a condition precedent, waiver or estoppel based on the parties' course of dealing, unconscionability, fraud in the inducement, mutual mistake, lack of capacity, or illegality. Assess whether the non-breaching party's own conduct\u2014such as anticipatory repudiation, failure to cooperate, or breach of the implied covenant of good faith and fair dealing\u2014provides a defense or counterclaim.\n\nExamine any contractual limitations on liability, including liquidated damages clauses, consequential damages waivers, liability caps, or indemnification provisions. Determine whether such provisions are enforceable under applicable law or potentially subject to challenge as unconscionable or contrary to public policy. Consider whether any third-party beneficiaries, assignees, or guarantors have rights or obligations that affect the dispute's resolution.\n\n## Section 5: Governing Law and Jurisdictional Framework\n\nIdentify the substantive law that governs interpretation and enforcement of the contract, beginning with any express choice of law provision in the agreement. If no choice of law clause exists, apply the relevant conflicts of law principles to determine which jurisdiction's law applies based on factors such as the place of contracting, place of performance, location of the subject matter, and domicile of the parties.\n\nAnalyze the key statutory provisions and common law doctrines that control contract interpretation and breach remedies in the governing jurisdiction. For contracts involving the sale of goods, determine whether the Uniform Commercial Code applies and identify the specific UCC sections relevant to the dispute, such as provisions governing warranties, risk of loss, acceptance and rejection, or remedies. For service contracts, construction agreements, or other non-UCC transactions, identify the controlling common law principles and any specialized statutes.\n\nResearch and cite controlling case law from the governing jurisdiction that addresses similar contractual provisions, breach scenarios, or remedial issues. Distinguish any adverse precedent and highlight favorable authority that supports your client's position. Note any circuit splits, evolving legal standards, or unsettled questions of law that may affect the dispute's outcome. Identify the appropriate forum for dispute resolution based on any contractual forum selection clauses, jurisdictional requirements, and strategic considerations regarding venue.\n\n## Section 6: Remedies, Damages, and Risk Assessment\n\nAnalyze the full range of remedies available to the non-breaching party under both the contract and applicable law. Calculate expectation damages designed to place the injured party in the position they would have occupied had the contract been fully performed, including direct damages, incidental damages, and consequential damages unless contractually waived. Document all elements of damages with supporting evidence: lost profits, additional costs incurred, diminution in value, cost of cover or replacement performance, and any other measurable economic harm.\n\nAssess whether specific performance or injunctive relief may be appropriate and obtainable, particularly where monetary damages are inadequate to remedy the breach or the contract involves unique goods, real property, or specialized services. Consider whether rescission and restitution provide a more suitable remedy if the contract is voidable or if the parties can be restored to their pre-contract positions.\n\nEvaluate the litigation risks and potential exposure for each party. Consider the strength of the evidence, credibility of witnesses, complexity of legal issues, and the range of potential outcomes at trial. Assess the costs of litigation, including attorney's fees (and whether a prevailing party fee-shifting provision exists), expert witness fees, discovery costs, and the time investment required. Analyze the probability of success on the merits and the expected value of various litigation outcomes versus settlement alternatives.\n\nExamine settlement leverage and negotiation dynamics, including each party's risk tolerance, business considerations beyond the immediate dispute, reputational concerns, and desire to preserve or terminate the business relationship. Consider structured settlement options such as payment plans, contract reformation, mutual releases, or ongoing performance modifications.\n\n## Section 7: Strategic Recommendations and Next Steps\n\nProvide clear, actionable recommendations based on your legal analysis and risk assessment. If representing the claimant, advise whether to pursue litigation, arbitration, or continued settlement negotiations, and outline the optimal strategy for each path. Recommend specific pre-litigation steps such as sending a formal demand letter, engaging in structured negotiations, or pursuing mediation. Identify any time-sensitive issues such as statutes of limitations, contractual notice deadlines, or preservation of evidence requirements.\n\nIf representing the respondent, recommend whether to assert affirmative defenses, file counterclaims, or pursue early resolution through settlement or alternative dispute resolution. Advise on risk mitigation strategies and whether to make any settlement offers or participate in structured negotiations. Consider whether to seek declaratory relief to clarify the parties' rights and obligations.\n\nOutline the key discovery that will be necessary to prove or defend against the claims, including document requests, interrogatories, depositions of key witnesses, and retention of expert witnesses. Identify any gaps in the current evidentiary record that require immediate attention. Recommend whether to pursue preliminary injunctive relief or other provisional remedies to preserve the status quo or prevent irreparable harm during the pendency of the dispute.\n\nAddress ethical considerations and professional responsibility obligations, ensuring that all recommendations comply with applicable rules of professional conduct. Consider whether any conflicts of interest exist and whether the client has been fully informed of all material risks and alternatives.\n\n## Section 8: Conclusion and Overall Assessment\n\nSynthesize your findings into a coherent final assessment of the dispute's merits, risks, and likely outcomes. Provide your professional opinion on the relative strength of each party's position, supported by the legal analysis and factual findings detailed throughout the report. Offer a candid evaluation of the best-case, worst-case, and most likely scenarios if the matter proceeds to adjudication.\n\nRestate your primary strategic recommendation with a clear rationale grounded in the legal and factual analysis. Emphasize any critical considerations that should guide the client's decision-making, including cost-benefit analysis, business objectives, and risk tolerance. Ensure that your conclusion provides the client with sufficient information to make an informed decision about how to proceed with the dispute.\n\n---\n\n**Formatting and Citation Requirements**: Present all legal citations in proper Bluebook or jurisdiction-appropriate format. Organize the report with clear headings, subheadings, and numbered paragraphs for easy reference. Include a table of contents for reports exceeding fifteen pages. Attach relevant contract excerpts, key correspondence, and supporting documents as exhibits. Maintain an objective, professional tone throughout while clearly advocating for your client's position where appropriate.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pre-trial",
+      "settlement"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:50:04.897644Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Planning skill rewrite into SKILL.md**
+
+I'm deciding on a concise slug "contract-dispute-analysis" and preparing to create a third-person description with trigger keywords and capitalized metadata from legal_context. I'll structure SKILL.md with a clear title, purpose statement, numbered prerequisites, and include tables, checklists, and templates, noting Bluebook usage and jurisdiction specifics while marking uncertain citations with [VERIFY].
+thinking
+**Crafting detailed SKILL.md content**
+
+I'm preparing SKILL.md with a precise frontmatter including the new slug and a concise third-person description with trigger keywords. The content will feature flat numbered prerequisites, a stepwise output structure with tables, checklists, and code block templates, avoiding nested bullets and marking assumptions or unclear citations as needed, targeting about 120 lines total without commentary or fences.
+codex
+---
+name: contract-dispute-analysis
+description: Produces a structured contract dispute analysis report for U.S. commercial litigation matters, identifying operative agreements, obligations, breach theories, defenses, governing law, forum/ADR constraints, remedies, and litigation/settlement risk. Use for internal merits assessments, pre-filing evaluations, mediation prep, and settlement strategy. Trigger keywords: contract dispute, breach analysis, commercial litigation report, merits assessment, damages analysis, settlement evaluation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Analysis
+  skill_modes:
+    - Analysis
+---
+
+# Contract Dispute Analysis Report
+
+Delivers a concise, evidence-linked assessment of contract terms, breach exposure, defenses, remedies, and strategy.
+
+## Prerequisites
+
+1. **Operative contract set** — executed agreement(s), amendments, addenda, exhibits.
+2. **Performance record** — invoices, delivery receipts, change orders, acceptance/rejection records.
+3. **Communications** — emails, notices, cure letters, meeting notes, negotiation history.
+4. **Damages inputs** — pricing, costs, lost profits assumptions, mitigation steps.
+5. **Forum constraints** — choice-of-law, forum selection, arbitration/mediation clauses, notice/cure periods.
+
+## Output Structure / Process
+
+1. **Normalize inputs**
+- Identify the controlling agreement(s), order of precedence, and amendment history.
+- Flag missing documents and evidentiary gaps.
+
+2. **Executive Summary**
+- Use this template:
+```text
+Dispute: [one sentence]
+Parties/Roles: [A = ], [B = ]
+Contract: [title, date, governing law]
+Primary Breach Theory: [A alleges B failed to ...]
+Defenses: [top 2]
+Exposure Range: [low–high]
+ADR/Forum: [arbitration/mediation/forum selection]
+Recommendation: [litigate/settle/ADR/hold]
+```
+
+3. **Contract Inventory**
+| Document | Date | Parties | Scope | Precedence | Key Clauses (cite) |
+| --- | --- | --- | --- | --- | --- |
+
+4. **Key Terms & Obligations**
+| Clause Category | Clause Text (excerpt + cite) | Obligation | Party | Conditions/Triggers | Notice/Cure |
+| --- | --- | --- | --- | --- | --- |
+| Performance |  |  |  |  |  |
+| Payment |  |  |  |  |  |
+| Warranties/Representations |  |  |  |  |  |
+| Limitations/Liability |  |  |  |  |  |
+| ADR/Forum/Choice of Law |  |  |  |  |  |
+
+5. **Timeline of Performance**
+| Date | Event | Contract Reference | Evidence | Compliance Status |
+| --- | --- | --- | --- | --- |
+
+6. **Breach Analysis**
+- Use the elements checklist for each claim:
+- [ ] Duty identified and source cited
+- [ ] Breach facts tied to timeline evidence
+- [ ] Materiality assessment (common law or UCC Article 2 for goods)
+- [ ] Causation linkage
+- [ ] Damages support
+- Provide a claim-by-claim table:
+| Claim | Duty Source | Alleged Breach | Evidence | Materiality | Exposure |
+| --- | --- | --- | --- | --- | --- |
+
+7. **Defenses & Counterclaims**
+- Evaluate each defense with evidence and legal standard:
+| Defense | Legal Standard (jurisdiction) | Factual Basis | Evidence | Strength |
+| --- | --- | --- | --- | --- |
+| Impossibility/Impracticability |  |  |  |  |
+| Failure of Condition |  |  |  |  |
+| Waiver/Estoppel |  |  |  |  |
+| Prior Material Breach |  |  |  |  |
+| Good Faith/Fair Dealing |  |  |  |  |
+
+8. **Governing Law & Forum**
+- Identify applicable law:
+- [ ] Choice-of-law clause
+- [ ] Conflicts analysis if no clause
+- [ ] UCC Article 2 applicability (goods) vs common law (services)
+- [ ] Forum selection and ADR prerequisites
+- Provide controlling authority summary:
+| Issue | Statute/Doctrine | Key Case(s) | Impact |
+| --- | --- | --- | --- |
+
+9. **Remedies & Damages**
+| Remedy | Contractual Basis | Legal Basis | Evidence | Estimated Range |
+| --- | --- | --- | --- | --- |
+| Expectation |  |  |  |  |
+| Consequential/Incidental |  |  |  |  |
+| Specific Performance/Injunction |  |  |  |  |
+| Rescission/Restitution |  |  |  |  |
+
+10. **Risk Assessment**
+| Factor | Plaintiff | Defendant | Notes |
+| --- | --- | --- | --- |
+| Evidence Strength |  |  |  |
+| Witness Credibility |  |  |  |
+| Legal Uncertainty |  |  |  |
+| Cost/Time Exposure |  |  |  |
+| Settlement Leverage |  |  |  |
+
+11. **Strategic Recommendations**
+- Provide 2–3 options with pros/cons and triggers.
+- List immediate actions:
+- [ ] Preserve evidence and confirm hold scope
+- [ ] Satisfy notice/cure prerequisites
+- [ ] Prepare ADR filings if required
+- [ ] Identify discovery priorities and experts
+
+12. **Exhibits**
+- Attach or cite the exact contract excerpts, notices, and damages support used.
+
+## Guidelines
+
+- Tie every conclusion to a cited clause, event, or piece of evidence.
+- Flag assumptions and gaps explicitly; do not speculate without labeling.
+- Follow Bluebook or jurisdiction-appropriate citation rules.
+- Confirm limitation-of-liability, waiver, and liquidated damages enforceability under the governing jurisdiction.
+- If statutes or cases are uncertain, mark with `[VERIFY]`.
+- If ADR prerequisites exist, treat them as mandatory unless clearly waived.
+- Avoid mixing UCC and common law standards; select based on transaction type.
+- Maintain objective tone; separate facts, analysis, and recommendations.
+tokens used
+5,092

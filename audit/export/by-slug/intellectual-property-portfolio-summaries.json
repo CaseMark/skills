@@ -1,0 +1,42 @@
+{
+  "id": "45c3236e-ea94-41d6-8f2f-9f5de52fe075",
+  "slug": "intellectual-property-portfolio-summaries",
+  "name": "Intellectual Property (IP) Portfolio Summaries",
+  "summary": "Generates comprehensive, structured summaries of a company's intellectual property portfolio, cataloging patents, trademarks, copyrights, and trade secrets with status details, strategic assessments, and actionable insights. Analyzes geographic coverage, competitive positioning, risks, and opportunities to support IP management decisions. Use this skill for executive briefings, due diligence, licensing strategies, or portfolio optimization in corporate settings.",
+  "content": "# Intellectual Property Portfolio Summary Generation\n\nYou are tasked with creating a comprehensive summary of a company's intellectual property portfolio. This summary serves as a strategic management tool for executives, in-house counsel, investors, and business development teams to understand the scope, strength, and status of the organization's IP assets. The portfolio summary should provide both high-level insights and sufficient detail to support informed decision-making regarding IP strategy, licensing opportunities, enforcement actions, and portfolio optimization.\n\n## Objective and Scope\n\nGenerate a structured IP portfolio summary that catalogs and analyzes all intellectual property assets across patents, trademarks, copyrights, and trade secrets. The summary must present current status information, strategic value assessments, and actionable insights. This document should enable stakeholders to quickly understand what IP the company owns, the protection status of each asset, geographic coverage, competitive positioning, and potential risks or opportunities within the portfolio.\n\n## Required Analysis and Content\n\nBegin by conducting a thorough review of all available IP documentation, including patent applications and grants, trademark registrations, copyright registrations, licensing agreements, and any existing IP audit materials. Search through uploaded documents to extract concrete information about registration numbers, filing dates, grant dates, expiration dates, jurisdictions, inventors or creators, and current legal status for each asset.\n\nFor patents, identify and summarize each patent or patent application including the patent number or application number, title, filing date, grant date if applicable, expiration date, jurisdictions where protection exists, named inventors, technology classification, and current status such as pending, granted, abandoned, or expired. Assess the strategic importance of each patent by considering its relationship to core products or services, potential licensing value, and whether it provides meaningful competitive advantage or freedom to operate.\n\nFor trademarks, catalog each registered mark and pending application with details including the mark itself whether word, design, or combination, registration number or application number, filing and registration dates, renewal dates, classes of goods and services covered, jurisdictions of registration, and current status. Evaluate the strength of each mark considering factors such as distinctiveness, market recognition, enforcement history, and alignment with current branding strategy.\n\nFor copyrights, document registered works including the nature of the work such as software, documentation, marketing materials, or creative content, registration numbers and dates, authorship information, and term of protection. Consider whether unregistered copyrights in significant works should be identified and potentially registered for enhanced protection.\n\nAnalyze the portfolio holistically to identify patterns, gaps, and strategic considerations. Assess geographic coverage to determine whether protection aligns with current and planned markets, identify technology areas or product lines that may be under-protected, evaluate the age distribution of patents to anticipate upcoming expirations, and consider whether the portfolio supports the company's business strategy and competitive positioning.\n\n## Output Format and Structure\n\nPresent the summary in a clear, professional format organized into distinct sections. Begin with an executive summary that provides key statistics such as total number of patents, trademarks, and copyrights, highlights the most strategically important assets, identifies critical upcoming deadlines or expirations, and notes any significant risks or opportunities requiring immediate attention.\n\nFollow with detailed sections for each IP category. Within each section, present assets in a logical order such as by importance, technology area, or chronologically, and include all relevant identifying information and status details. Use tables or structured lists where appropriate to enhance readability and enable quick reference.\n\nInclude a strategic analysis section that discusses portfolio strengths and weaknesses, alignment with business objectives, competitive positioning based on the IP portfolio, potential monetization opportunities through licensing or sale, and recommendations for portfolio optimization such as abandoning low-value assets or pursuing additional protection in key areas.\n\nConclude with an action items section that identifies upcoming maintenance deadlines, renewal dates, and response deadlines for office actions, recommends specific filings or registrations to address gaps, suggests enforcement actions if infringement has been identified, and proposes portfolio management improvements.\n\n## Legal and Professional Considerations\n\nEnsure all information is current and accurate by verifying status information against the most recent documentation available. Maintain confidentiality and clearly mark the summary as privileged attorney work product if prepared by or under the direction of counsel. Use precise legal terminology when describing IP rights and status, but ensure the summary remains accessible to non-legal business stakeholders.\n\nConsider jurisdictional variations in IP law when assessing rights and making recommendations, as patent, trademark, and copyright protection varies significantly across countries. Note any pending litigation, opposition proceedings, or disputes involving portfolio assets. Identify any assets that may be subject to third-party rights such as joint ownership, licenses granted to others, or security interests.\n\nFlag maintenance and renewal deadlines with sufficient advance notice to ensure timely action, as failure to pay maintenance fees or file renewals can result in loss of rights. When assessing strategic value, consider both offensive value for excluding competitors and licensing, and defensive value for freedom to operate and cross-licensing negotiations.\n\nThis IP portfolio summary should serve as a living document that is updated regularly to reflect new filings, grants, registrations, expirations, and changes in business strategy. The summary enables proactive IP management rather than reactive responses to deadlines or competitive threats, supporting the company's innovation strategy and protecting its competitive advantages in the marketplace.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance",
+      "intellectual-property"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

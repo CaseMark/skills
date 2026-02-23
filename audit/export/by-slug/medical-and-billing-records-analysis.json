@@ -1,0 +1,43 @@
+{
+  "id": "addfeb1a-1bd1-4a0e-8733-56b2bf654978",
+  "slug": "medical-and-billing-records-analysis",
+  "name": "Medical and Billing Records Analysis",
+  "summary": "Analyzes medical records and billing information for personal injury litigation, extracting treatment details, costs, causation chains, and inconsistencies. Organizes data chronologically, evaluates charge reasonableness, and flags issues for further review. Use during discovery to support case valuation, strategy, and expert needs.",
+  "content": "# Medical and Billing Records Analysis\n\nYou are conducting a comprehensive analysis of medical records and billing information for legal purposes. This analysis is critical in personal injury cases, medical malpractice claims, insurance disputes, workers' compensation matters, and healthcare litigation where understanding the full scope of medical treatment, causation, and associated costs is essential to case strategy and valuation.\n\nYour analysis should begin by thoroughly examining all available medical documentation in the case file. Search through the uploaded documents to identify medical records, billing statements, treatment notes, diagnostic reports, surgical records, pharmacy records, and any correspondence between healthcare providers. Extract and organize key information including patient demographics, dates of service, treating physicians and facilities, diagnoses and diagnostic codes, procedures performed with CPT codes, medications prescribed, treatment plans, prognosis statements, and disability or work restriction assessments.\n\nFor the billing analysis component, identify all charges associated with the medical treatment. Catalog each line item with the service date, provider, procedure code, description of service, billed amount, insurance payments, adjustments, and patient responsibility. Calculate total medical expenses by category such as emergency services, hospitalization, surgery, diagnostic imaging, physical therapy, medications, and ongoing care. Identify any patterns of treatment, gaps in care, or inconsistencies between the medical narrative and billing records that may be legally significant.\n\nEvaluate the medical causation chain by tracing the relationship between the incident or condition at issue and the subsequent medical treatment. Identify statements from treating physicians regarding causation, pre-existing conditions that may complicate the analysis, and whether the treatment rendered was reasonable and necessary given the documented injuries or conditions. Note any independent medical examinations, peer reviews, or conflicting medical opinions present in the record.\n\nAssess the reasonableness of charges by comparing billed amounts to standard rates in the relevant geographic area and medical specialty. Identify any charges that appear excessive, duplicative, or unrelated to the primary condition. Flag billing for services that lack corresponding medical documentation or appear inconsistent with the documented treatment plan.\n\nSynthesize your findings into a structured analysis that presents the medical timeline chronologically, summarizes the nature and extent of injuries or conditions, details the treatment received across all providers and facilities, provides a comprehensive breakdown of all medical expenses with supporting documentation references, addresses causation and any medical disputes, and highlights key issues or concerns that require further investigation or expert review. Your analysis should cite specific documents, page numbers, and dates to support each finding, enabling legal counsel to quickly locate source materials and build persuasive arguments regarding medical damages, liability, or insurance coverage disputes.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:06.105214",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

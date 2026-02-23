@@ -1,0 +1,204 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-7d07-7782-8c28-ad86c5db0165
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "fd1cb3b4-68f7-41ed-8840-91c13c18f9d6",
+  "slug": "litigation-personal-injury-coverage-opinion",
+  "name": "Coverage Opinion",
+  "summary": "Drafts structured coverage opinions for insurance carriers in personal injury litigation, analyzing duty to defend and duty to indemnify based on policy language, complaint allegations, and state law. Provides executive summary, factual background, policy provisions, exclusions, and legal conclusions to guide carrier decisions on defense and reservation of rights. Use this skill when a carrier receives a claim or lawsuit to assess coverage obligations.",
+  "content": "Purpose: Analyze whether there is insurance coverage, the duty to defend, or whether there should be a reservation of rights and be able to provide that coverage opinion to the carriers alleged insured. \n\nUnderstanding Your Assignment\nFirst, understand what you're being asked to do:\nThe carrier gets sued or receives a claim\nThey need to know: \"Do we have to defend this case?\" and \"Do we have to pay if there's a judgment?\"\nDuty to Defend vs. Duty to Indemnify - these are separate analyses, and duty to defend is much broader\nThe carrier makes business decisions based on your opinion - reservation of rights, coverage denial, settlement authority\nRemember: You represent the carrier, not the insured. Your analysis protects the carrier's interests.\n\nStep 1: Gather Your Materials\nNever start writing until you have:\nThe insurance policy (all relevant pages - declarations, coverage forms, endorsements)\nThe complaint or claim documents\nAny additional factual materials (police reports, claim files, etc.)\nRelevant state law on insurance coverage (this varies significantly by jurisdiction)\nPro tip: Print everything out. You'll be cross-referencing constantly.\n\nStep 2: Structure Your Opinion\nA. Executive Summary\nWrite this LAST, but put it first. One paragraph maximum: \"Based on our analysis of the [Policy Type] policy and the allegations in the complaint, [Carrier] has [no duty to defend/a duty to defend subject to a reservation of rights/a clear duty to defend and indemnify] because [primary reason].\"\nB. Factual Background\nStick to facts alleged in the complaint or established in the claim file\nDon't speculate or add your own interpretation\nFocus on facts relevant to coverage - don't retell the entire story\nBe neutral in tone - you're not advocating for either side yet\nC. Policy Analysis\nThis is the meat of your opinion. Break it down systematically:\n1. Applicable Coverage Provisions\nQuote the exact policy language - never paraphrase\nIdentify the specific coverage section that might apply (CGL Coverage A, Professional Liability, etc.)\n2. Exclusions Analysis\nList every potentially applicable exclusion\nQuote the exact exclusion language\nThis is usually where coverage is defeated\n3. Conditions and Other Provisions\nNotice requirements, cooperation clauses, etc.\nOften overlooked but can be coverage killers\n\nStep 3: Legal Analysis - The Critical Part\nDuty to Defend Analysis\nRemember the \"Eight Corners Rule\" (in most states):\nLook only at the four corners of the complaint and the four corners of the policy\nDon't look at external evidence (unless state law allows it)\nThe duty to defend is triggered if there's any possibility of coverage\n\"When in doubt, defend\" - the standard heavily favors finding a duty to defend\nYour analysis should be:\nElement by Element: Does the complaint allege facts that could trigger coverage under each element?\nExclusion by Exclusion: Does any exclusion clearly and unambiguously bar coverage?\nDuty to Indemnify Analysis\nThis is narrower - based on actual facts, not just allegations\nUsually can't be determined until the case is resolved\nOften you'll conclude: \"The duty to indemnify cannot be determined at this time\"\n\nStep 4: State Law Considerations\nThis is where junior attorneys often screw up:\nInsurance law varies dramatically by state\nResearch the controlling jurisdiction's rules on: \nEight corners rule vs. extrinsic evidence\nAmbiguity interpretation (pro-insured in most states)\nSpecific coverage interpretations\nCite recent cases - this area of law moves quickly\n\nStep 5: Writing Tips\nTone and Style:\nObjective and analytical - you're not advocating, you're analyzing\nClear and concise - claims adjusters will read this, not just lawyers\nDefinitive when possible - \"The policy does not provide coverage\" vs. \"It appears coverage may not be available\"\nCommon Phrases to Use:\n\"Based on the allegations in the complaint...\"\n\"The policy language unambiguously states...\"\n\"Under [State] law, exclusions are interpreted narrowly...\"\n\"The duty to defend is broader than the duty to indemnify...\"\nWhat to Avoid:\nNever say \"probably\" or \"might\" - be definitive\nDon't advocate for the insured against your client\nDon't ignore unfavorable authority\nDon't add facts not in the complaint\n\nStep 6: Conclusion and Recommendations\nBe crystal clear about your conclusions:\nIf No Coverage: \"[Carrier] has no duty to defend or indemnify this action because [exclusion] unambiguously bars coverage for the alleged conduct.\"\nIf Questionable Coverage: \"[Carrier] should defend under a reservation of rights because [reason], while simultaneously investigating [specific coverage issues].\"\nIf Clear Coverage: \"[Carrier] has a duty to defend and likely a duty to indemnify based on the allegations.\"\nAlways include practical recommendations:\nShould carrier send a reservation of rights letter?\nWhat additional investigation is needed?\nAre there coverage defenses to preserve?\nTimeline considerations?\n\nStep 7: The Reservation of Rights Discussion\nWhen in doubt, recommend a reservation:\nExplain what specific rights the carrier is reserving\nNote that defending under a reservation protects the carrier's ability to later deny coverage\nInclude language for the reservation letter if appropriate\n\nCritical Mistakes to Avoid:\nDon't be a coverage advocate for the insured - you represent the carrier\nDon't ignore clear exclusion language because you feel bad for the insured\nDon't assume facts not alleged in the complaint\nDon't confuse duty to defend with duty to indemnify - they're different standards\nDon't cite outdated cases - insurance law evolves rapidly\nDon't hedge excessively - the carrier needs definitive guidance when possible\n\nFinal Practical Notes:\nTiming:\nGet these done quickly - coverage decisions affect litigation strategy\nIf you need more time, communicate with the carrier immediately\nFollow-up:\nExpect questions from claims adjusters\nBe prepared to update your opinion as facts develop\nKeep detailed time records - carriers scrutinize coverage opinion bills\nQuality Control:\nDouble-check all policy citations\nVerify you're analyzing the right policy period\nRemember: The carrier is relying on your legal judgment to make business decisions that could involve millions of dollars. Be thorough, be accurate, and be confident in your analysis. When you're genuinely unsure, it's better to recommend defending under a reservation of rights than to guess wrong about coverage. It must be objective because the carrier does not want to wrongfully deny coverage and the insured does not want to be wrongfully denied. \n",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings",
+      "pre-trial"
+    ],
+    "document_types": [
+      "memo",
+      "analysis",
+      "letter"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:04.546264",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:51.381993Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:51.604850Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:52.877472Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:53.779707Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e547ade8ebe4-SJC)
+2026-02-23T21:42:54.937862Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e54e28399203-SJC)
+2026-02-23T21:42:56.515442Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5580fbbe16d-SJC)
+2026-02-23T21:42:58.645675Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e5660bc6eb2a-SJC)
+2026-02-23T21:43:02.706968Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e57f5dbf4b39-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-personal-injury-coverage-opinion-m9i80zdk.md
+
+STDOUT:
+

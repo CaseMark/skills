@@ -1,0 +1,43 @@
+{
+  "id": "4440af2e-cc2b-45d5-932d-4dcbdc789b74",
+  "slug": "past-performance-questionnaire",
+  "name": "Past Performance Questionnaire",
+  "summary": "Drafts a comprehensive Past Performance Questionnaire to evaluate historical performance of legal service providers, vendors, or contractors in government contracts. Ensures compliance with regulatory standards, objectivity, and legal defensibility through structured sections on respondent details, engagement information, and performance assessments. Use during due diligence for potential or existing service relationships.",
+  "content": "# Past Performance Questionnaire - Enhanced Legal Workflow\n\nYou are tasked with drafting a comprehensive Past Performance Questionnaire designed to evaluate the historical performance of legal service providers, vendors, or contractors in compliance with applicable legal and regulatory standards. This document serves as a critical assessment tool for organizations conducting due diligence on potential or existing service relationships, and must meet professional standards for objectivity, thoroughness, and legal defensibility.\n\n## Document Purpose and Scope\n\nBegin by crafting a professional introduction that clearly articulates the questionnaire's purpose: to systematically evaluate past performance in legal engagements while ensuring compliance with relevant professional standards and regulatory requirements. The introduction should establish the evaluation criteria's foundation and explain how responses will be used in decision-making processes. Research current best practices from authoritative legal resources to ensure the introductory language reflects contemporary standards for performance evaluation instruments in legal contexts.\n\n## Respondent and Engagement Information\n\nDevelop a comprehensive section capturing essential respondent details including full legal name, contact information, professional credentials, and the specific nature of their relationship to the evaluated party. Search your available documents for any pre-existing information about the respondent or the entity being evaluated, including prior engagement records, contract terms, or correspondence that may inform the questionnaire's customization. Ensure all data collection fields comply with applicable bar association guidelines regarding confidentiality, data protection, and attorney-client privilege considerations. Cross-reference state bar requirements to verify that information requests align with ethical obligations for handling sensitive professional information.\n\nThe project or engagement details section must thoroughly document the scope, duration, deliverables, and outcomes of the past legal work. Include specific fields for matter type, jurisdiction, key dates, budget parameters, and final disposition. Research standard templates from official legal resources and bar associations to identify industry-standard fields that ensure comprehensive coverage of relevant engagement characteristics. This section should enable evaluators to understand the context and complexity of the work being assessed.\n\n## Performance Assessment Framework\n\nDesign a robust performance evaluation section incorporating both quantitative rating scales and qualitative assessment opportunities. Address critical performance dimensions including quality of legal work product, adherence to deadlines and budgets, effectiveness of communication, responsiveness to client needs, and compliance with applicable legal and ethical standards. Search authoritative legal practice resources to identify objective, defensible criteria that minimize subjective bias while capturing meaningful performance distinctions. Include clear rating scale definitions (such as 1-5 or unsatisfactory to exceptional) with specific behavioral anchors for each rating level to ensure consistency across evaluators.\n\nIncorporate dedicated sections for open-ended feedback on both strengths and areas requiring improvement. Frame these prompts using balanced, constructive language that encourages specific, actionable feedback rather than vague generalizations. Research examples from legal practice management resources to develop question prompts that elicit substantive responses about technical competence, professional judgment, collaboration effectiveness, and problem-solving capabilities.\n\n## Supporting Documentation and Verification\n\nCreate a references and attachments section that requests supporting documentation such as work samples, correspondence, performance metrics, or third-party references that corroborate the evaluation. Search uploaded documents for relevant facts, prior assessments, or engagement records that should be referenced or attached. Ensure instructions for evidence handling align with legal standards for document authentication and chain of custody as established by relevant bar associations and courts.\n\n## Certification and Legal Compliance\n\nConclude with a formal certification and signature section requiring the respondent to attest to the accuracy and completeness of all information provided. Research current legal requirements for electronic signatures by consulting official state bar guidelines and applicable electronic signature statutes to ensure the certification mechanism is legally enforceable. Include appropriate disclaimers regarding the consequences of providing false or misleading information, and specify the authorized purposes for which the questionnaire responses may be used.\n\n## Final Document Assembly\n\nOnce all necessary information has been gathered through document searches, web research of authoritative legal sources, and verification of compliance requirements, compile the complete Past Performance Questionnaire ensuring professional formatting, logical flow, and comprehensive coverage of all evaluation dimensions. The final document should be immediately usable by legal professionals for conducting thorough, defensible performance assessments that support informed decision-making about service provider relationships.",
+  "parent_skill_id": "59e6abf6-a94e-4f2f-afd4-06c28bbf0021",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "negotiation"
+    ],
+    "document_types": [
+      "checklist"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "government-contracts"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:16.628586",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

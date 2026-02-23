@@ -1,0 +1,41 @@
+{
+  "id": "58bcb4ba-60c8-4d93-b2c0-b50871b42a0f",
+  "slug": "corporate-stock-ledger-certificates",
+  "name": "Stock Ledger and Certificates",
+  "summary": "Drafts comprehensive stock ledgers and stock certificates packages for corporations, ensuring compliance with state law requirements. Extracts essential company information like capitalization structure and historical transactions from uploaded documents to populate detailed ledger tables and formal certificate templates. Use this skill during corporate formation or for maintaining accurate equity ownership records.",
+  "content": "# Stock Ledger and Certificates - Corporate Document Workflow\n\nYou are tasked with drafting a comprehensive Stock Ledger and Stock Certificates package for a corporation. This is a critical corporate governance document that must comply with state law requirements and maintain accurate records of equity ownership.\n\n## Initial Information Gathering\n\nBegin by searching the user's uploaded documents to identify essential company information including the corporation's legal name, state of incorporation, entity type (C-corp, S-corp, etc.), authorized share structure, par value if any, and current shareholders. Look for this information in the articles of incorporation, bylaws, organizational minutes, or any existing corporate records. If the company has existing stock records or prior issuances, extract all historical transaction details including dates, certificate numbers, shareholder names, and share quantities.\n\n## Document Structure and Content\n\n**Company Header and Identification Section**: Create a formal document header that includes the complete legal name of the corporation, the state and date of incorporation, the document title \"Stock Ledger and Stock Certificates,\" and the current date of preparation. Include a clear statement of the document's purpose as the official record of equity ownership for the corporation.\n\n**Corporate Capitalization Details**: Present a comprehensive overview of the company's authorized capital structure. Specify the total number of authorized shares, broken down by class if multiple classes exist (Common, Preferred, etc.). Include par value per share if applicable, or state \"no par value\" if that applies. Reference the authorizing documents (typically the articles of incorporation) that established this capital structure. If the user's documents contain this information, cite the specific source document and relevant provisions.\n\n**Stock Ledger Table**: Construct a detailed tabular ledger that serves as the master record of all stock issuances and transfers. The ledger must include columns for: Certificate Number (sequential numbering starting from 001), Date of Issuance, Shareholder Name (full legal name), Number of Shares Issued, Class/Type of Stock, Consideration Paid (cash amount or description of property/services), and a Transfer/Notes column for recording any subsequent transfers or relevant annotations. If historical stock transactions exist in the uploaded documents, populate the ledger with this verified information. Ensure the ledger format allows for easy future updates and maintains a clear audit trail of all equity transactions.\n\n**Individual Stock Certificate Template**: Design a formal stock certificate template that can be used for each issuance. The certificate should include ornamental borders or professional formatting appropriate for a legal instrument representing ownership. Essential elements must include: a unique certificate number corresponding to the ledger entry, the corporation's full legal name and state of incorporation, the shareholder's complete legal name and address, the number of shares represented by the certificate (in both numerals and written words), the class of stock, the date of issuance, a statement that the shares are subject to the corporation's bylaws and any shareholder agreements, a designated space for the corporate seal or statement \"Corporate Seal\" if a physical seal is not used, and signature lines for the President/CEO and Secretary with their printed names and titles beneath.\n\n**Record Maintenance and Compliance Instructions**: Provide clear guidance on the ongoing maintenance of the stock ledger and certificates. Explain that the stock ledger must be updated promptly for any transfers, with the old certificate marked as cancelled and a new certificate issued. Include instructions that the corporation must maintain these records at its principal office or registered agent's office as required by state law. Note the importance of obtaining proper transfer documentation (stock transfer forms, assignment separate from certificate) before recording any transfer in the ledger. Emphasize that shareholders have the right to inspect the stock ledger under most state corporation statutes, subject to proper notice and legitimate purpose requirements.\n\n**Transfer Procedures and Restrictions**: Document the standard procedure for transferring shares, which typically requires the surrendering shareholder to endorse the certificate and deliver it to the corporation along with a stock power or separate assignment document. Note any transfer restrictions that may apply, such as rights of first refusal, buy-sell agreement provisions, or securities law restrictions on transfer. If the user's uploaded documents include a shareholders' agreement, buy-sell agreement, or bylaws with transfer restrictions, extract and reference those specific provisions here.\n\n**Signature and Certification Block**: Conclude with a certification section that includes signature lines for the corporate officers authorized to maintain and certify the stock records (typically the President and Secretary). Include a statement such as: \"The undersigned officers of [Corporation Name] hereby certify that the foregoing Stock Ledger accurately reflects all issuances and transfers of the corporation's capital stock as of [date].\" Provide spaces for printed names, titles, and dates beneath each signature line.\n\n## Legal Compliance Considerations\n\nEnsure the document reflects compliance with the corporation's state of incorporation requirements. Different states have varying rules about stock certificate content, ledger maintenance, and record retention. If specific state requirements are not evident from the uploaded documents, note that the corporation should verify compliance with its state's business corporation act provisions regarding stock records and certificates.\n\nFor corporations with multiple share classes, ensure the certificate template and ledger clearly distinguish between classes and accurately reflect any different rights, preferences, or restrictions associated with each class as set forth in the articles of incorporation.\n\n## Final Document Assembly\n\nOnce you have gathered all necessary information from the uploaded documents and structured the complete stock ledger and certificate package, create a comprehensive document that integrates all sections in a professional, legally sound format. The final document should be immediately usable by the corporation for maintaining its official equity records and issuing stock certificates to shareholders. Ensure all information extracted from source documents is accurately reflected and properly attributed to maintain a clear record of where corporate data originated.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_formation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

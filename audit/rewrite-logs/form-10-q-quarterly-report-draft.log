@@ -1,0 +1,298 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-5154-73c3-8f97-decf274e6c96
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "596d8bfe-1cf0-4815-85d6-1f226222355c",
+  "slug": "form-10-q-quarterly-report-draft",
+  "name": "Form 10-Q Quarterly Report",
+  "summary": "Drafts a comprehensive Form 10-Q Quarterly Report fully compliant with SEC regulations, GAAP, and Sarbanes-Oxley Act requirements. It includes the cover page, table of contents, Part I Financial Information with unaudited condensed financial statements, and Part II Other Information. Use this skill for public companies to file accurate quarterly disclosures of financial condition, operations, and material events.",
+  "content": "# Form 10-Q Quarterly Report Drafting Workflow\n\nYou are tasked with drafting a comprehensive Form 10-Q Quarterly Report in full compliance with Securities and Exchange Commission (SEC) regulations, Generally Accepted Accounting Principles (GAAP), and the Sarbanes-Oxley Act requirements. This quarterly report must accurately reflect the company's financial condition and operations for the specified quarter while meeting all disclosure obligations under federal securities laws.\n\n## Document Overview and Compliance Framework\n\nBegin by establishing the foundational elements of the Form 10-Q in accordance with Regulation S-K and the Securities Exchange Act of 1934. The cover page must contain the exact legal name of the registrant as filed with the SEC, the company's IRS Employer Identification Number, the specific fiscal quarter end date, the SEC file number, and complete contact information including the principal executive offices' address and telephone number. Verify that the cover page format complies with Item 101 of Regulation S-K and includes all required checkboxes regarding filing status, accelerated filer status, shell company status, and whether the registrant has submitted all required interactive data files. Ensure the state or jurisdiction of incorporation and the registrant's trading symbol and exchange are prominently displayed.\n\nThe Table of Contents must provide a clear roadmap of the entire filing with accurate page number references. Structure it to reflect the two-part format mandated by Form 10-Q: Part I (Financial Information) and Part II (Other Information). Each item and sub-item must be listed with precision, and all exhibits must be enumerated with their corresponding exhibit numbers as specified in Item 601 of Regulation S-K. Cross-reference this table against the actual document sections to ensure complete alignment and verify that no required disclosure items have been omitted.\n\n## Part I - Financial Information: Comprehensive Financial Reporting\n\nPart I constitutes the core financial disclosure section and must present a complete and accurate picture of the company's financial position as of the quarter end. This section encompasses four critical items that work together to provide investors with material information necessary for informed decision-making.\n\n**Item 1 - Financial Statements** requires the preparation of unaudited condensed financial statements that include a condensed balance sheet comparing the current quarter end to the most recent fiscal year end, condensed statements of operations for both the current quarter and year-to-date period with comparative prior-year periods, condensed statements of comprehensive income using the same comparative periods, condensed statements of cash flows on a year-to-date basis with prior-year comparison, and condensed statements of stockholders' equity. Each financial statement must be prepared in accordance with GAAP and Article 10 of Regulation S-X governing interim financial statements. The accompanying notes must disclose significant accounting policies, any changes in accounting principles or estimates, contingent liabilities, subsequent events through the filing date, segment information if applicable, earnings per share calculations with dilution details, and any material transactions or events affecting comparability. Ensure all amounts are presented in thousands or millions as appropriate with clear notation, and verify mathematical accuracy across all statements including proper footing and cross-footing.\n\n**Item 2 - Management's Discussion and Analysis of Financial Condition and Results of Operations (MD&A)** demands a narrative explanation that enables readers to see the company through management's eyes. This section must provide context and analysis for the financial statements, discussing material changes in line items between periods and explaining the underlying business reasons for such changes. Begin with an executive overview that highlights the most significant developments, trends, and uncertainties affecting the business during the quarter. Analyze results of operations by comparing revenue, cost of revenue, operating expenses, and other income and expense items for the current quarter versus the prior-year quarter, and similarly for year-to-date periods. For each material variance (generally considered to be 10% or greater), provide both quantitative and qualitative explanations, breaking down changes into volume, price, mix, and other relevant factors. Address liquidity by discussing cash flows from operating, investing, and financing activities, explaining any significant changes in working capital components, and describing the company's capital resources including available credit facilities, debt covenants and compliance status, and planned capital expenditures. Discuss known trends, events, demands, commitments, and uncertainties that are reasonably likely to have a material effect on financial condition or operating results, in accordance with Item 303 of Regulation S-K. Ensure the MD&A avoids boilerplate language and provides specific, company-tailored analysis that adds value beyond what the financial statements alone convey.\n\n**Item 3 - Quantitative and Qualitative Disclosures About Market Risk** applies to companies meeting certain thresholds and requires disclosure of material market risk exposures. If the company is exposed to market risks from changes in interest rates, foreign currency exchange rates, commodity prices, or equity prices, describe both the nature of these exposures and how they are managed. Provide quantitative information about market risk using one of three permitted formats: tabular presentation of fair values and contract terms, sensitivity analysis showing hypothetical changes in market rates, or value-at-risk disclosures. Discuss any material changes from the risk exposures reported in the most recent Form 10-K, including new hedging strategies, changes in risk management policies, or significant changes in the magnitude of exposures. If there are no material changes since the last annual report, a brief statement to that effect is sufficient, but ensure this determination is based on a thorough review of current exposures.\n\n**Item 4 - Controls and Procedures** addresses the critical governance requirements under Sections 302 and 404 of the Sarbanes-Oxley Act. Report the conclusions of the principal executive officer and principal financial officer regarding the effectiveness of the company's disclosure controls and procedures as of the end of the period covered by the report. These conclusions must be based on their evaluation conducted within 90 days prior to the filing date. Describe any changes in internal control over financial reporting that occurred during the most recent fiscal quarter that have materially affected, or are reasonably likely to materially affect, the company's internal control over financial reporting. If material weaknesses were previously identified, discuss the remediation efforts undertaken and their current status. Ensure the language used precisely tracks the definitions in Exchange Act Rules 13a-15(e) and 15d-15(e) for disclosure controls and procedures.\n\n## Part II - Other Information: Non-Financial Disclosures and Risk Updates\n\nPart II addresses material developments and updates that fall outside the financial reporting scope but are nonetheless essential for a complete understanding of the company's current position and prospects. Each item in Part II should be included only if there is material information to report; if an item is inapplicable or there are no material changes, it may be omitted with appropriate notation.\n\n**Item 1 - Legal Proceedings** requires disclosure of any material pending legal proceedings, other than ordinary routine litigation incidental to the business. For each material proceeding, provide the names of the parties, the court or agency in which the proceeding is pending, the date instituted, the principal allegations, and the relief sought. Discuss any material developments in previously reported proceedings, including significant motions, rulings, settlements, or judgments. Apply the materiality threshold of Instruction 2 to Item 103 of Regulation S-K, which generally requires disclosure of proceedings involving potential monetary sanctions exceeding 10% of current assets, though qualitative factors may make smaller matters material. Include environmental proceedings as required by Item 103, even if sanctions would not exceed the monetary threshold, when such proceedings involve governmental authorities and potential monetary sanctions. Coordinate this disclosure with the contingencies note in the financial statements to ensure consistency while avoiding unnecessary duplication.\n\n**Item 1A - Risk Factors** must be updated whenever there are material changes to the risk factors previously disclosed in the company's most recent Form 10-K or subsequent Form 10-Q filings. Material changes include the emergence of new risks, the elimination of previously disclosed risks that are no longer applicable, and material changes in the nature or magnitude of existing risks. Each risk factor should be clearly articulated with a descriptive caption, explain how the risk could materially affect the company, and avoid generic or boilerplate language that could apply to any company. Organize risk factors logically by category such as business and operational risks, financial and economic risks, legal and regulatory risks, and risks related to the company's securities. Ensure risk factors are tailored to the company's specific circumstances and industry, and consider recent developments such as supply chain disruptions, cybersecurity threats, regulatory changes, or macroeconomic conditions that may have heightened certain risks since the last annual report.\n\n**Item 2 - Unregistered Sales of Equity Securities and Use of Proceeds** applies when the company has sold equity securities without registration during the quarter or has repurchased its own securities. For unregistered sales, provide the date of sale, title and amount of securities sold, the consideration received, the exemption from registration relied upon with citation to the specific section of the Securities Act, and the identity of purchasers if not sold in a public offering. For issuer repurchases, present a monthly tabular format showing the total number of shares purchased, the average price paid per share, the number of shares purchased as part of publicly announced programs, and the maximum number or approximate dollar value of shares that may yet be purchased under the programs. Ensure all repurchases are properly authorized under state corporate law and that any Rule 10b-18 safe harbor requirements are satisfied.\n\n**Item 3 - Defaults Upon Senior Securities** requires disclosure if there has been any material default in the payment of principal, interest, sinking fund, or purchase fund installment, or any other material default not cured within 30 days, with respect to any indebtedness exceeding 5% of total assets. Similarly, disclose any material arrearage in the payment of dividends on preferred stock. Provide specific details including the amount and nature of the default, the period of default, and the number of shares affected for dividend arrearages.\n\n**Item 4 - Mine Safety Disclosures** applies only to companies that are operators or have a subsidiary that is an operator of a coal or other mine in the United States, requiring specific safety-related disclosures under Section 1503(a) of the Dodd-Frank Act. If applicable, include all required information regarding mine safety violations, orders, citations, assessments, incidents, and related matters for each mine.\n\n**Item 5 - Other Information** serves as a catch-all provision for material information required to be disclosed on Form 8-K during the quarter but not previously reported, as well as any other information the company wishes to disclose. This item also requires disclosure of any material modifications to the procedures by which security holders may recommend nominees to the board of directors. Additionally, if any director or officer has adopted, modified, or terminated a Rule 10b5-1 trading arrangement or non-Rule 10b5-1 trading arrangement during the quarter, provide the required disclosures including the name and title of the individual, the date of adoption, modification, or termination, and the material terms of the arrangement.\n\n**Item 6 - Exhibits** must include a complete exhibit index listing all exhibits filed with or incorporated by reference into the Form 10-Q. Required exhibits include certifications pursuant to Section 302 of the Sarbanes-Oxley Act by the principal executive officer and principal financial officer, any material contracts entered into or amended during the quarter that are not made in the ordinary course of business, and if applicable, the certification pursuant to Section 906 of the Sarbanes-Oxley Act. Each exhibit must be numbered in accordance with Item 601 of Regulation S-K, with the exhibit number, description, and method of filing (filed herewith, incorporated by reference, or furnished) clearly indicated. For incorporated exhibits, provide the SEC filing from which the exhibit is incorporated, the exhibit number in that filing, and the filing date. Ensure that any exhibits containing the registrant's interactive data files in XBRL format are properly tagged and included as Exhibit 101 if required.\n\n## Signature Requirements and Certifications\n\nThe Form 10-Q must be signed on behalf of the registrant by a duly authorized officer and by the principal financial officer or chief accounting officer. The signature page must include the typed or printed name and title of each signatory, along with the date of signing, which must be within the prescribed filing deadline (40 days after quarter end for large accelerated filers and accelerated filers, 45 days for all other filers). Ensure the signatories have proper authority under the company's bylaws and applicable corporate resolutions.\n\nAttach as exhibits the required certifications under Section 302 of the Sarbanes-Oxley Act (Exhibit 31.1 for the CEO and Exhibit 31.2 for the CFO), which must certify that the signing officer has reviewed the report, that based on their knowledge the report does not contain untrue statements or omit material facts, that the financial statements fairly present the financial condition and results, that they are responsible for establishing and maintaining disclosure controls and procedures and internal control over financial reporting, and that they have disclosed to the auditors and audit committee any significant deficiencies or material weaknesses in internal controls and any fraud involving management or employees with significant roles in internal controls. Additionally, furnish the certification required by Section 906 of the Sarbanes-Oxley Act (Exhibit 32.1), which certifies that the report fully complies with Section 13(a) or 15(d) of the Securities Exchange Act and that the information fairly presents, in all material respects, the financial condition and results of operations. Note that Section 906 certifications are furnished rather than filed and should not be incorporated by reference into any Securities Act registration statement.\n\n## Final Document Assembly and Quality Control\n\nUpon completion of all sections, conduct a comprehensive review to ensure internal consistency across all parts of the Form 10-Q. Verify that financial data is consistent between the financial statements, MD&A, and any other sections where figures are referenced. Confirm that all cross-references to other sections, exhibits, or prior filings are accurate and complete. Check that all required disclosures under applicable SEC rules, GAAP standards, and industry-specific regulations have been included. Ensure the document complies with SEC plain English requirements under Rule 421(d) of Regulation C, using clear, concise language and avoiding legal jargon where possible. Verify that all monetary amounts use consistent units (thousands or millions) throughout the document with clear notation. Confirm that the document is formatted for electronic filing via EDGAR, with proper HTML or ASCII formatting, and that any required XBRL tagging has been completed accurately. Review the document for typographical errors, grammatical mistakes, and formatting inconsistencies that could detract from its professional presentation or create confusion for readers.\n\nThe completed Form 10-Q should provide investors, analysts, and regulators with a comprehensive, accurate, and transparent view of the company's financial performance and condition for the quarter, while fully satisfying all regulatory requirements and disclosure obligations under federal securities laws.",
+  "parent_skill_id": "83ed0182-52a7-4281-8773-85f057bf7d8d",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "securities_and_capital_markets"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:57:57.623921Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+
+thinking
+**Deciding slug and metadata for skill rewrite**
+
+I plan to simplify the slug to "form-10-q" for clarity and lowercase hyphenation. For metadata, I'll capitalize "Corporate" and "Regulatory" from practice_areas and set document_types to ["Report"] despite it being absent from legal_context, as the format requires a list.
+thinking
+**Drafting detailed Form 10-Q skill content**
+
+I'm preparing a comprehensive SKILL.md with front matter, structured prerequisites, detailed output with tables avoiding nested bullets, checklists, templates, guidelines with do/don't lists, and flagging uncertain legal citations with [VERIFY]. Document_types will include "Report" to meet format rules despite legal_context being empty.
+thinking
+**Finalizing skill structure and formatting**
+
+I'm confirming no nested bullets remain, numbered and bullet lists are appropriate, and the skill includes a clear title and one-line purpose statement matching the description with trigger keywords before outputting the final SKILL.md content.
+codex
+---
+name: form-10-q
+description: Drafts U.S. Form 10-Q quarterly reports compliant with SEC rules, GAAP, and Sarbanes-Oxley, covering the cover page, Part I financials, MD&A, market risk, controls, Part II updates, exhibits, and certifications. Use when preparing SEC quarterly filings, EDGAR-ready 10-Qs, or interim disclosure packages. Trigger keywords: Form 10-Q, 10-Q, quarterly report, MD&A, Regulation S-K, Regulation S-X, SOX 302, SOX 906, XBRL, EDGAR.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Regulatory
+  document_types:
+    - Report
+  skill_modes:
+    - Drafting
+---
+
+# Form 10-Q Quarterly Report
+
+Produce an SEC-compliant quarterly report with required financial and non-financial disclosures.
+
+## Prerequisites
+
+1. Registrant identity details: legal name, EIN, SEC file number, exchange ticker, jurisdiction of incorporation, principal office address, phone.
+2. Quarter period dates and filer status classification.
+3. Prior Form 10-K and most recent 10-Q for roll-forward disclosures.
+4. Unaudited interim financial statements and footnote support under GAAP.
+5. Accounting policy updates, estimates, contingencies, and subsequent events through filing date.
+6. MD&A variance drivers and segment data, including volume, price, mix, and cost drivers.
+7. Liquidity data: cash flows, credit facilities, covenants, and capital plans.
+8. Market risk exposures and hedging activities.
+9. Disclosure controls evaluation and internal control changes for the quarter.
+10. Legal proceedings updates and material risk factor changes.
+11. Equity issuances, repurchases, defaults, mine safety data if applicable.
+12. Material contracts and exhibit list, SOX certifications, XBRL tag set.
+
+## Output Structure / Process
+
+| Section | Required Content | Key Rules |
+| --- | --- | --- |
+| Cover Page | Exact registrant name, quarter end date, SEC file no., EIN, address/phone, jurisdiction, ticker/exchange, filer status checkboxes, shell company status, interactive data file status | Conform to Form 10-Q cover page and Reg S-K Item 101 [VERIFY]; match EDGAR header data |
+| Table of Contents | Part I and Part II items with page references and exhibit index | Verify against final pagination |
+| Part I Item 1 | Condensed balance sheet, statements of operations, comprehensive income, cash flows, stockholders' equity, notes | Reg S-X Article 10 interim format [VERIFY]; GAAP; consistent units and rounding |
+| Part I Item 2 | MD&A narrative for quarterly and YTD comparisons | Reg S-K Item 303 [VERIFY]; quantify material changes; explain drivers |
+| Part I Item 3 | Market risk disclosures | If no material changes since 10-K, state; otherwise quantify exposures using tabular, sensitivity, or VaR format |
+| Part I Item 4 | Disclosure controls and procedures; ICFR changes | Exchange Act Rules 13a-15(e), 15d-15(e) [VERIFY]; evaluation within 90 days of filing [VERIFY] |
+| Part II Item 1 | Legal proceedings updates | Reg S-K Item 103 [VERIFY]; apply materiality and 10% of current assets threshold [VERIFY] |
+| Part II Item 1A | Risk factor updates | Only material changes; tailored captions and impacts |
+| Part II Item 2 | Unregistered sales and issuer repurchases | Detail Securities Act exemption [VERIFY]; repurchase table by month; Rule 10b-18 safe harbor if used [VERIFY] |
+| Part II Item 3 | Defaults upon senior securities | Disclose defaults over 5% of total assets and dividend arrearages |
+| Part II Item 4 | Mine safety disclosures | Dodd-Frank §1503(a) [VERIFY] if applicable |
+| Part II Item 5 | Other information | Include required Form 8-K items not previously reported; 10b5-1 and non-10b5-1 trading arrangement updates [VERIFY] |
+| Part II Item 6 | Exhibits index | Reg S-K Item 601 [VERIFY]; include 31.1, 31.2, and 32.1 certifications [VERIFY] |
+| Signatures | Authorized officer and principal financial or accounting officer signatures and dates | Filing deadlines: 40/45 days after quarter end depending on filer status [VERIFY] |
+| EDGAR/XBRL | HTML or ASCII formatting, XBRL tags, Exhibit 101 if required [VERIFY] | Validate tags and exhibit cross-references |
+
+### Item 1 Financial Statements Checklist
+
+- Condensed balance sheet with current quarter end and prior fiscal year end.
+- Condensed statements of operations for quarter and YTD with prior-year comparatives.
+- Condensed statements of comprehensive income for quarter and YTD with comparatives.
+- Condensed statements of cash flows for YTD with prior-year comparative.
+- Condensed statements of stockholders' equity.
+- Footnotes: significant policies, changes in estimates, contingencies, subsequent events, segment info, EPS and dilution, related-party transactions.
+
+### MD&A Structure (Item 2)
+
+```text
+Executive Overview
+Results of Operations
+Liquidity and Capital Resources
+Known Trends, Events, Demands, Commitments, and Uncertainties
+Critical Accounting Policies and Estimates (if material changes)
+```
+
+### Repurchase Table (Item 2 Part II)
+
+| Month | Total Shares Purchased | Avg Price Paid | Shares Purchased Under Public Program | Max Shares or $ Remaining |
+| --- | --- | --- | --- | --- |
+
+### Exhibits Index Template
+
+| Exhibit No. | Description | Filing Method | Source Filing and Date |
+| --- | --- | --- | --- |
+
+### Final Quality Control Checklist
+
+- Cross-foot and foot all financial statements; reconcile to MD&A and notes.
+- Verify all cross-references, exhibit numbers, and incorporation-by-reference cites.
+- Ensure units and rounding are consistent across the filing.
+- Confirm consistency between legal proceedings and contingencies note.
+- Confirm risk factor updates reflect only material changes since last filing.
+- Confirm certification text matches required SEC form language.
+- Confirm EDGAR formatting and XBRL tagging pass validation.
+
+## Guidelines
+
+- Use company-specific, quantified explanations; avoid boilerplate.
+- Clearly label materiality thresholds and assumptions; mark uncertain items with `[VERIFY]`.
+- If an item is not applicable or has no material update, state that explicitly or omit per form instructions.
+- Do not incorporate SOX 906 exhibits into Securities Act registration statements [VERIFY].
+- Apply plain English standards and avoid legal jargon; Rule 421(d) of Regulation C [VERIFY].
+- Coordinate with finance and legal to ensure disclosures align with GAAP and SEC rules.
+tokens used
+9,273

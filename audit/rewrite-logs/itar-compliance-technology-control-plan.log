@@ -1,0 +1,341 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c84-e96e-79b1-9390-6e4a683bc6b1
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "75b4a0be-8330-4817-97dd-c54ff0d79af0",
+  "slug": "itar-compliance-technology-control-plan",
+  "name": "ITAR Compliance Technology Control Plan (TCP)",
+  "summary": "Drafts a comprehensive ITAR Compliance Technology Control Plan (TCP) as the primary framework for managing defense articles, technical data, and services under 22 CFR Parts 120-130. Incorporates organizational research, regulatory analysis, and tailored preventive measures suitable for DDTC submission and internal implementation. Use for organizations handling USML items to establish or update export control compliance programs.",
+  "content": "# ITAR Compliance Technology Control Plan (TCP) - Enhanced Prompt\n\nYou are an expert regulatory compliance attorney specializing in International Traffic in Arms Regulations (ITAR) and export control law. Your task is to draft a comprehensive, legally sound Technology Control Plan (TCP) that serves as the organization's primary compliance framework for managing defense articles, technical data, and defense services under 22 CFR Parts 120-130. This document must be suitable for submission to the Department of State Directorate of Defense Trade Controls (DDTC), implementation by compliance personnel, and review by senior management and legal counsel.\n\n## Research and Information Gathering Phase\n\nBefore drafting the TCP, conduct thorough research to understand the organization's specific ITAR obligations and operational context. Search all available documents to identify the organization's DDTC registration status, current export licenses or agreements, applicable United States Munitions List (USML) categories, defense contracts or programs involving controlled items, and any prior compliance assessments or audit findings. Extract specific details including contract numbers, program names, facility locations, organizational structure, and the identity of the empowered official designated under 22 CFR \u00a7120.25. Identify any existing policies, procedures, or compliance documentation that should be incorporated or referenced. If the organization has experienced prior violations or voluntary disclosures, review those incidents to inform preventive measures in the TCP.\n\nAnalyze the technical nature of the organization's defense-related activities to determine the scope of controlled technical data, including engineering drawings, specifications, manufacturing processes, software, algorithms, test data, and operational parameters. Understand the organization's workforce composition, particularly the presence of foreign nationals who may trigger deemed export considerations under 22 CFR \u00a7120.54. Examine facility layouts, IT infrastructure, document management systems, and existing physical and cybersecurity controls to assess current capabilities and gaps.\n\n## Regulatory Foundation and Executive Summary\n\nDraft an authoritative introduction that establishes this TCP as the organization's binding compliance instrument under ITAR. Begin with a clear statement of purpose explaining that this plan implements the regulatory requirements for preventing unauthorized access to or disclosure of defense articles and technical data, particularly to foreign persons. Provide the legal foundation by citing the controlling regulations, specifically 22 CFR \u00a7120.10 defining \"export\" to include any release of technical data to a foreign person whether in the United States or abroad, \u00a7120.17 defining \"defense article,\" and \u00a7120.33 defining \"technical data\" as information required for the design, development, production, manufacture, assembly, operation, repair, testing, maintenance or modification of defense articles.\n\nReference the specific USML categories under 22 CFR \u00a7121.1 that govern the organization's controlled items, explaining in concrete terms what types of articles and data fall within each applicable category. Articulate the severe consequences of non-compliance, including civil penalties up to $1,184,165 per violation under 22 CFR \u00a7127.1, criminal penalties including imprisonment under the Arms Export Control Act, and potential debarment from export privileges. State clearly that this TCP applies universally to all employees, contractors, consultants, visitors, and any other persons who may encounter ITAR-controlled materials within the organization's operations, and that compliance is a mandatory condition of employment or engagement with the organization.\n\n## Scope Definition and Jurisdictional Boundaries\n\nDefine with precision the operational boundaries of this TCP's application, using specific identifiers drawn from your research. Enumerate the particular defense programs, product lines, or contracts that involve ITAR-controlled items, providing contract numbers, government customer identities, and program designations where applicable. Describe the physical locations covered by the plan, including manufacturing facilities, laboratories, engineering offices, storage areas, and any remote or satellite locations where controlled activities occur. Address how the TCP applies to work-from-home arrangements, temporary work sites, or field service locations where employees may access controlled information.\n\nDelineate the categories of personnel subject to TCP requirements, distinguishing between employees with routine access to controlled areas, those requiring occasional or project-specific access, contractors and subcontractors, temporary workers, visitors including government representatives, and third-party service providers such as IT support or maintenance personnel. Specify how the plan governs collaborative arrangements including teaming agreements, joint ventures, licensing relationships, and technical assistance agreements where ITAR-controlled information may be shared with external parties. Clearly identify any exclusions from TCP coverage, such as information that is in the public domain under 22 CFR \u00a7120.11, items subject to other regulatory regimes like the Export Administration Regulations, or activities that have received commodity jurisdiction determinations placing them outside ITAR jurisdiction.\n\n## Identification, Classification, and Inventory Management\n\nEstablish a rigorous methodology for identifying and classifying all items and information subject to ITAR control. Describe the process for evaluating whether articles and technical data fall within the USML categories, beginning with a review of the item's characteristics against the category descriptions in 22 CFR \u00a7121.1. Provide guidance for conducting commodity jurisdiction determinations when classification is uncertain, including the procedures for preparing and submitting CJ requests to DDTC under 22 CFR \u00a7120.4, the information required in such requests, and the interim controls to be applied while awaiting DDTC's determination.\n\nDetail the systematic approach for evaluating technical data against the regulatory definition to determine whether it is directly related to defense articles or defense services, considering factors such as whether the information is required for the design, development, production, or use of defense articles. Establish protocols for maintaining a comprehensive, current inventory of all ITAR-controlled items that includes hardware components and assemblies with their specific USML classifications, technical documentation including drawings, specifications, and design files with version control, software and source code specially designed for defense applications, manufacturing processes and proprietary techniques, and test data, performance specifications, and operational parameters.\n\nPrescribe marking requirements for controlled items, specifying that all ITAR-controlled documents, drawings, media, and hardware must bear appropriate legends such as \"ITAR CONTROLLED - Export of this information to foreign persons is prohibited without prior approval from the U.S. Department of State.\" Include procedures for updating classifications when items are modified, when regulatory changes affect USML categories, or when commodity jurisdiction determinations are received. Assign responsibility for classification decisions to qualified personnel with appropriate technical and regulatory expertise, and establish a review process for ensuring classification accuracy.\n\n## Access Control Framework and U.S. Person Verification\n\nDevelop comprehensive procedures to ensure that access to ITAR-controlled information and materials is restricted exclusively to U.S. persons as defined in 22 CFR \u00a7120.62. This definition encompasses U.S. citizens, lawful permanent residents (green card holders), persons granted asylum or refugee status, and persons granted temporary protected status, but excludes all other foreign nationals regardless of their visa status or employment authorization. Establish a robust screening and verification process that occurs before any individual is granted access to controlled areas or information, including examination of original documentation such as U.S. passports, Permanent Resident Cards (Form I-551), or other official evidence of U.S. person status.\n\nDescribe the physical access control measures to be implemented, including electronic badge systems that restrict entry to controlled areas based on verified U.S. person status, locked storage for controlled materials with access limited to authorized personnel, visitor management protocols requiring advance approval, escort requirements, and sanitization of areas before foreign national visits, and clean desk policies requiring that controlled materials be secured when not in active use. Detail cybersecurity and information technology controls including network segmentation that isolates systems containing ITAR data from general networks, strong authentication requirements with multi-factor authentication for access to controlled systems, encryption standards meeting Federal Information Processing Standards (FIPS) for data at rest and in transit, and restrictions on use of personal devices, removable media, cloud storage services, or other technologies that could result in unauthorized disclosure.\n\nAddress the deemed export rule under 22 CFR \u00a7120.54, which treats any release of controlled technical data to a foreign person in the United States as an export to that person's country or countries of nationality. Provide specific guidance on preventing deemed exports through visual inspection or oral exchanges, including protocols for sanitizing workspaces, covering or removing controlled materials, and restricting discussions when foreign persons are present. Establish procedures for situations where disclosure to foreign persons is necessary for legitimate business purposes, including the requirement to obtain appropriate export authorizations such as Technical Assistance Agreements under 22 CFR \u00a7124, DSP-5 licenses for temporary exports, or other DDTC approvals before any disclosure occurs.\n\n## Secure Handling, Storage, and Transmission Protocols\n\nPrescribe detailed requirements governing the secure handling, storage, and transmission of ITAR-controlled materials throughout their entire lifecycle. For physical materials and hardware, specify storage requirements including locked cabinets or cages within controlled access areas, alarmed storage rooms for high-value or particularly sensitive items, inventory control systems with check-in and check-out procedures, and after-hours security protocols including building access restrictions and security patrols. For electronic information and technical data, mandate encryption using Advanced Encryption Standard (AES) with 256-bit keys or equivalent cryptographic protection for all controlled data whether stored on servers, workstations, laptops, or portable media.\n\nEstablish secure transmission protocols that prohibit sending ITAR-controlled technical data via standard commercial email systems, require use of approved secure file transfer mechanisms with end-to-end encryption, and mandate verification of recipient U.S. person status and need-to-know before any transmission. Address document lifecycle management including version control systems that track all revisions to controlled technical documents, change management procedures requiring review and approval of modifications, retention schedules consistent with 22 CFR \u00a7122.5 requiring five-year retention of export-related records, and destruction procedures ensuring complete sanitization of obsolete materials through shredding, degaussing, or other approved methods.\n\nProvide specific guidance on international travel with ITAR-controlled information, including the requirement to obtain temporary export licenses (DSP-73) or other authorizations before traveling abroad with laptops, technical documents, or other controlled materials. Address the use of ATA Carnets for temporary export of defense articles for demonstration or testing purposes. Establish restrictions on use of personal devices, personal email accounts, consumer cloud storage services, or any other systems not under organizational control for accessing or storing ITAR data. Include protocols for remote access to controlled systems, requiring virtual private networks (VPNs) with strong encryption, verification that remote locations provide adequate physical security, and prohibition of remote access from foreign countries without specific authorization.\n\n## Personnel Training and Compliance Awareness Program\n\nMandate a comprehensive ITAR compliance training program for all personnel who may encounter controlled information in the course of their duties. Require initial training to be completed before any access to ITAR-controlled materials is granted, with refresher training conducted annually at minimum to reinforce requirements and address regulatory updates. Specify core training content that must include the fundamentals of ITAR regulations and their applicability to the organization's activities, the definition and identification of defense articles and technical data, the concept of deemed exports and restrictions on disclosure to foreign persons, the organization's TCP requirements and individual responsibilities under the plan, the consequences of violations including civil and criminal penalties, and procedures for reporting compliance concerns, potential violations, or security incidents.\n\nRequire specialized, role-specific training for personnel with elevated compliance responsibilities or unique exposure to controlled information. This includes enhanced training for the empowered official on their regulatory duties under 22 CFR \u00a7120.25, export compliance officers on licensing procedures and regulatory interpretation, security personnel on access control implementation and incident response, managers supervising ITAR-controlled programs on their oversight responsibilities, engineering and technical staff on technical data controls and deemed export prevention, human resources personnel on screening foreign nationals and employment eligibility verification, information technology staff on cybersecurity requirements and system administration for controlled networks, and shipping and receiving personnel on export documentation, restricted party screening, and customs compliance.\n\nEstablish rigorous documentation requirements for all training activities, including attendance records with dates and participant signatures, training materials and presentation content with version control, signed acknowledgments that personnel understand their obligations and the restrictions on disclosure of controlled information, and competency assessments or testing to verify comprehension of critical requirements. Assign responsibility for training program administration to the export compliance officer or designated training coordinator, and require periodic evaluation of training effectiveness through assessments, audits, and incident analysis to identify areas requiring enhanced instruction.\n\n## Monitoring, Auditing, and Continuous Compliance Verification\n\nImplement ongoing monitoring mechanisms to verify TCP effectiveness and detect potential compliance deficiencies before they result in violations. Establish a formal internal audit schedule requiring comprehensive reviews of all TCP elements at least annually, with the scope encompassing access control systems and logs, training records and personnel screening documentation, export authorizations and licensing compliance, technical data transfer and disclosure records, foreign visitor logs and escort procedures, and information technology security controls and system configurations. Conduct targeted audits triggered by specific events such as organizational changes including acquisitions, divestitures, or restructuring, new programs or contracts involving different USML categories, compliance incidents or near-misses requiring root cause analysis, or regulatory changes affecting ITAR requirements or USML classifications.\n\nDescribe the audit methodology to include review of access control logs to verify that only U.S. persons accessed controlled areas and systems, examination of training records to confirm all personnel with access completed required training, validation of export documentation for any authorized disclosures to foreign persons, inspection of physical and electronic storage to verify proper safeguarding, and interviews with personnel to assess understanding of TCP requirements and identify practical implementation challenges. Specify record retention requirements consistent with 22 CFR \u00a7122.5, which mandates retention of export-related records for five years from the date of export or other relevant action, and detail the types of records to be maintained including DDTC registration and licensing correspondence, commodity jurisdiction requests and determinations, agreements with foreign parties such as Technical Assistance Agreements or Manufacturing License Agreements, shipping documents, bills of lading, and customs declarations, and training records and personnel screening documentation.\n\nAssign clear responsibility for record-keeping to specific positions such as the export compliance officer, document control administrator, or records manager, and establish secure archival systems with appropriate access controls, environmental protections, and backup procedures. Include detailed procedures for responding to government audits or inspections by DDTC, Department of Homeland Security, Defense Contract Management Agency, or other regulatory authorities, including designation of a primary point of contact, protocols for document production and facility access, and coordination with legal counsel to protect attorney-client privilege where applicable.\n\n## Incident Response and Violation Management Procedures\n\nEstablish clear, actionable protocols for identifying, reporting, investigating, and responding to potential ITAR violations, unauthorized disclosures, or security breaches. Define with specificity what constitutes a reportable incident, including unauthorized access to controlled areas or information by foreign persons, inadvertent exports or deemed exports occurring without required authorization, missing or unaccounted-for controlled items or technical data, cybersecurity breaches affecting systems containing ITAR data, discovery of unmarked controlled technical data in unrestricted areas, and any other deviation from TCP requirements that could result in unauthorized disclosure. Require immediate reporting of potential incidents to designated officials, typically including the empowered official, export compliance officer, legal counsel, and senior management as appropriate based on the incident's severity and potential regulatory implications.\n\nDetail the internal investigation procedures to be followed upon discovery of a potential violation, beginning with immediate containment actions to prevent further unauthorized access or disclosure, such as revoking access credentials, securing affected materials, or isolating compromised systems. Require preservation of all evidence related to the incident, including access logs, email communications, witness statements, and physical materials, with appropriate chain of custody documentation. Conduct a thorough assessment to determine the scope and impact of the incident, including what specific technical data or defense articles were involved, what USML categories and regulatory provisions are implicated, who accessed the information and their nationality or nationalities, the duration and extent of unauthorized access, and whether any foreign person obtained the information.\n\nDescribe the voluntary self-disclosure process under 22 CFR \u00a7127.12, explaining that when violations are discovered, the organization should consider promptly notifying DDTC's Office of Defense Trade Controls Compliance to potentially receive mitigation credit in any enforcement action. Specify that voluntary disclosures should be made through the empowered official in coordination with legal counsel, should include a complete description of the violation circumstances, the corrective actions taken or planned, and should be submitted within the timeframe that maximizes mitigation benefits. Address the root cause analysis requirement to identify why the violation occurred, whether it resulted from inadequate procedures, training deficiencies, human error, or systemic control failures, and develop corrective action plans that address identified deficiencies and prevent recurrence.\n\nInclude guidance on legal considerations such as coordination with outside export control counsel, protection of attorney-client privilege and work product doctrine during investigations, assessment of whether violations should be disclosed to government customers or other affected parties, and evaluation of potential civil or criminal liability. Establish a lessons-learned process requiring that incident findings and corrective actions be incorporated into TCP updates, training programs, and compliance communications to prevent similar violations across the organization.\n\n## TCP Governance, Review, and Continuous Improvement\n\nEstablish a formal governance structure for TCP administration, review, and continuous improvement to ensure the plan remains effective and current with regulatory requirements. Assign ultimate responsibility for TCP oversight to the empowered official designated under 22 CFR \u00a7120.25, with day-to-day administration delegated to the export compliance officer or compliance committee. Require comprehensive TCP reviews at least annually, with the review process encompassing assessment of regulatory changes including USML amendments, new DDTC guidance, or relevant enforcement actions, evaluation of incident trends and audit findings to identify systemic issues, analysis of organizational changes such as new programs, facility expansions, workforce changes, or technology implementations, and solicitation of feedback from personnel regarding TCP effectiveness and practical implementation challenges.\n\nEstablish interim review triggers requiring TCP assessment when significant events occur, including initiation of new defense programs or contracts involving different USML categories or technical data types, organizational restructuring, mergers, acquisitions, or divestitures affecting compliance responsibilities, changes in key personnel including the empowered official, export compliance officer, or security director, implementation of new information technology systems or infrastructure affecting controlled data, or receipt of government audit findings, warning letters, or other regulatory communications. Require that all TCP revisions be documented with version control, approved by senior management and the empowered official, and communicated to all affected personnel through training updates, policy announcements, or other effective means.\n\nImplement metrics and key performance indicators to measure TCP effectiveness, including the number and severity of compliance incidents or near-misses, audit findings and the timeliness of corrective actions, training completion rates and assessment scores, the percentage of personnel with current U.S. person verification, and the timeliness of responses to regulatory requirements such as license applications or registration renewals. Establish a continuous improvement process that incorporates industry best practices, lessons learned from incidents or audits, technological advances in security controls, and evolving regulatory expectations. Maintain comprehensive records of all TCP versions, approval dates, distribution lists, and review documentation to demonstrate ongoing compliance commitment to regulatory authorities and to support the organization's due diligence defense in any enforcement proceeding.\n\n## Document Preparation and Deliverable\n\nUpon completing your research and analysis, prepare a comprehensive Technology Control Plan document that incorporates all required sections with appropriate legal citations, regulatory references, and organization-specific details drawn from available information. Structure the document with a clear table of contents, numbered sections and subsections for easy reference, and appendices containing supporting materials such as forms, checklists, or reference guides. Ensure the final document is suitable for multiple audiences including presentation to senior management and the board of directors, submission to DDTC or other regulatory authorities if requested, implementation by export compliance personnel and operational managers, and training and reference use by employees subject to TCP requirements.\n\nFormat the document professionally with consistent styling, proper legal citations in Bluebook or regulatory citation format, and clear, authoritative language appropriate for a binding compliance instrument. Include signature blocks for approval by the empowered official, chief executive officer, or other senior executives as appropriate to the organization's governance structure. Provide an effective date and specify the process for distribution and acknowledgment by affected personnel. If any critical information needed for TCP completion is not available in the provided documents, clearly identify those gaps and provide placeholder language or recommendations for obtaining the necessary information through organizational stakeholders, regulatory consultation, or legal counsel.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:18.985492",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T22:00:48.126029Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Finalizing skill slug and metadata**
+
+I'm choosing the concise slug "itar-technology-control-plan" based on user preference to drop practice-area prefixes but keep relevant identifiers. I'll ensure the description and metadata reflect the regulatory context, include key ITAR citations with uncertainty marked, and conform to length and style guidelines.
+thinking
+**Marking uncertain legal citations and finalizing output structure**
+
+I'm clarifying which ITAR citations are uncertain and tagging them with [VERIFY] to ensure accuracy while retaining necessary authority references. The output structure will include comprehensive sections with checklists, tables, and templates for roles, controls, and processes, all formatted with flat lists and placeholders for org-specific data, targeting around 120 lines for conciseness and clarity.
+codex
+---
+name: itar-technology-control-plan
+description: Drafts an ITAR Technology Control Plan (TCP) memo/plan for U.S. export control compliance, covering USML scoping, technical data controls, U.S. person screening, deemed export safeguards, cybersecurity, training, audits, and incident response suitable for DDTC-facing or internal implementation. Use when creating or updating an ITAR TCP, export control program, or compliance plan; trigger keywords: ITAR, TCP, DDTC, USML, deemed export, technical data, defense article.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# ITAR Technology Control Plan
+
+Produces a defensible, organization-specific ITAR TCP that can be implemented and audited.
+
+## Prerequisites
+
+1. **Org profile** — legal entity names, DDTC registration status, empowered official identity, compliance contacts.
+2. **Programs & scope** — contracts/programs, USML categories, items/technical data in scope, facility list.
+3. **People & access** — roster of personnel, foreign nationals, visitor workflows, subcontractors/vendors.
+4. **Systems & storage** — IT architecture, data repositories, collaboration tools, physical storage locations.
+5. **Authorizations** — licenses/agreements (DSP-5/DSP-73/TAA/MLA), CJ determinations, prior disclosures.
+6. **Existing policies** — security, HR screening, IT, visitor control, incident response, records retention.
+
+## Output Structure / Process
+
+**Section Outline (required content):**
+
+| Section | Required Content |
+|---|---|
+| 1. Purpose & Authority | Binding TCP purpose, applicability, key regulatory authority (ITAR 22 CFR Parts 120-130) [VERIFY]. |
+| 2. Definitions | Defense article, technical data, export, U.S. person, deemed export with citations [VERIFY]. |
+| 3. Scope | Programs/contracts, USML categories (22 CFR 121.1) [VERIFY], facilities, remote work boundaries. |
+| 4. Roles & Governance | Empowered official duties, compliance officer, IT/security, HR, program owners. |
+| 5. Classification & Inventory | USML mapping, CJ workflow (22 CFR 120.4) [VERIFY], inventory/marking/version control. |
+| 6. Access Controls | U.S. person verification, badge logic, visitor escorts, need-to-know. |
+| 7. IT & Cybersecurity | Segmentation, MFA, encryption, logging, device/media restrictions. |
+| 8. Handling & Transmission | Storage rules, transfer mechanisms, travel, remote access constraints. |
+| 9. Training | Initial/annual training, role-based modules, records of completion. |
+| 10. Audits & Monitoring | Annual audits, trigger-based reviews, corrective actions. |
+| 11. Incident Response | Reportable events, containment, investigation, disclosure workflow (22 CFR 127.12) [VERIFY]. |
+| 12. Records & Retention | Five-year retention (22 CFR 122.5) [VERIFY], record types, custody. |
+| 13. Revision Control | Versioning, approvals, distribution, acknowledgment. |
+| Appendices | Forms, checklists, logs, access roster, facility maps. |
+
+**Role Responsibilities Matrix (fill-in):**
+
+| Role | Key TCP Duties |
+|---|---|
+| Empowered Official | Approves TCP, oversees disclosures and licensing. |
+| Export Compliance Officer | Maintains TCP, coordinates audits/training, classification oversight. |
+| IT/Security | Implements segmentation, logging, encryption controls. |
+| HR | U.S. person verification workflow, onboarding/offboarding. |
+| Program Manager | Enforces scope, need-to-know access, reporting. |
+
+**U.S. Person Verification Checklist (attach as appendix):**
+
+- Verify status with original documents (passport, I-551, asylum/refugee/TPS evidence) [VERIFY].
+- Record verifier, date, document type, expiration, and re-verification schedule.
+- Deny access until verification completed and logged.
+
+**Controlled Item/Data Inventory Schema (use table):**
+
+| Asset ID | Type | USML Cat | Location/System | Owner | Classification Date | Marking Applied |
+|---|---|---|---|---|---|---|
+
+**Marking Legend (insert):**
+
+`ITAR CONTROLLED — Export of this information to foreign persons is prohibited without authorization from the U.S. Department of State.`
+
+**Access Control Rules (minimum controls):**
+
+- Only verified U.S. persons may access controlled areas/systems.
+- Visitor pre-approval, escort required, sanitize workspaces before entry.
+- Deemed export prevention: cover/remove technical data, restrict conversations.
+
+**Cybersecurity Minimums (state baseline):**
+
+- Segmented network for ITAR data; no routing to general networks.
+- MFA for all access; least-privilege enforced.
+- Encryption at rest/in transit (AES-256 or equivalent) [VERIFY].
+- Prohibit personal devices, removable media, and consumer cloud storage.
+
+**Transmission Rules (state explicitly):**
+
+- No standard email for ITAR data.
+- Use approved secure transfer with recipient verification and need-to-know.
+- Verify export authorization before any foreign disclosure.
+
+**International Travel Rules:**
+
+- Pre-approval and licensing for temporary exports (e.g., DSP-73) [VERIFY].
+- No access to ITAR data abroad without specific authorization.
+
+**Training Matrix (table):**
+
+| Audience | Frequency | Core Topics |
+|---|---|---|
+| All with access | Initial + annual | ITAR basics, deemed export, TCP rules, reporting. |
+| Empowered Official | Annual + updates | Licensing, disclosures, penalties. |
+| IT/Security | Annual + updates | Segmentation, logging, incident response. |
+| HR | Annual + updates | U.S. person screening, onboarding/offboarding. |
+
+**Audit Plan (minimum):**
+
+- Annual full TCP audit with sampling of access logs, training records, inventories.
+- Triggered audits after org changes, new programs, incidents, or regulatory updates.
+- Document findings, corrective actions, and closure dates.
+
+**Incident Response Steps (checklist):**
+
+1. Contain exposure and revoke access.
+2. Preserve evidence and logs.
+3. Identify data/items, USML category, persons involved, duration.
+4. Assess authorization gap and potential export.
+5. Escalate to empowered official/legal.
+6. Consider voluntary disclosure timeline (22 CFR 127.12) [VERIFY].
+7. Implement corrective actions and update TCP.
+
+**Records Retention Table:**
+
+| Record Type | Retention | Owner |
+|---|---|---|
+| Licenses/agreements | 5 years from expiration/export [VERIFY] | Compliance |
+| CJ requests/determinations | 5 years [VERIFY] | Compliance |
+| Access logs/visitor logs | 5 years [VERIFY] | Security |
+| Training records | 5 years [VERIFY] | HR/Compliance |
+
+**Signature Block (insert):**
+
+```
+Approved by: ____________________  Title: ____________________  Date: __________
+Effective Date: __________  Version: ___  Supersedes: ___
+```
+
+## Guidelines
+
+- Use exact program names, contract numbers, facilities, and system identifiers; no placeholders in final.
+- Mark any public domain or EAR-controlled items explicitly and exclude them from ITAR controls (public domain 22 CFR 120.11) [VERIFY].
+- If classification or jurisdiction is unclear, require interim ITAR controls pending CJ determination.
+- Do not permit any foreign person access without an applicable authorization and documented approval.
+- Maintain a single source of truth for inventory and access lists; reconcile quarterly.
+- Escalate any ambiguity about definitions, penalties, or licensing to counsel; annotate with [VERIFY].
+tokens used
+7,389

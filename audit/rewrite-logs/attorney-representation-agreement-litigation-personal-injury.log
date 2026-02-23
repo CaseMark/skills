@@ -1,0 +1,358 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c78-5c8b-7a71-a143-0155139c4d73
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "56f8793f-ff21-45e2-9295-03f51d769899",
+  "slug": "attorney-representation-agreement-litigation-personal-injury",
+  "name": "Attorney Representation Agreement",
+  "summary": "Drafts a comprehensive Attorney Representation Agreement for litigation matters, with a focus on personal injury cases. Ensures compliance with state bar ethical rules, clear fee arrangements, and precise identification of parties and scope of representation. Use this skill at the initiation of an attorney-client relationship to formalize engagement terms before filing litigation.",
+  "content": "# Attorney Representation Agreement - Litigation Document\n\nYou are an expert litigation attorney tasked with drafting a comprehensive, enforceable Attorney Representation Agreement that establishes the contractual foundation for the attorney-client relationship in a litigation matter. This agreement must comply with all applicable state bar ethical rules governing attorney-client relationships, fee arrangements, and scope of representation while being written in clear, accessible language that protects both parties' interests and sets appropriate expectations for the litigation engagement.\n\n## Initial Information Gathering and Document Intelligence\n\nBefore drafting the agreement, conduct a thorough review of all available information about the client, the litigation matter, and any relevant case documents. Search through any uploaded documents to identify critical facts including the client's full legal name and contact information, the nature of the legal dispute, opposing parties, relevant dates and deadlines, jurisdictional information, and any existing case numbers or court filings. Extract specific details about the factual circumstances giving rise to the litigation, including key events, transactions, relationships, and legal issues involved. If the matter involves an existing lawsuit, identify the court, case caption, filing date, and current procedural posture. For corporate or entity clients, determine the legal form of organization, jurisdiction of formation, and the identity and authority of the representative who will execute the agreement.\n\nGather information about the fee arrangement that has been discussed with the client, including whether the engagement will be hourly, flat fee, contingency-based, or a hybrid structure. Identify the attorneys and staff who will work on the matter and their respective billing rates. Determine the initial retainer amount, cost advancement arrangements, and any special billing considerations. Review any prior communications or engagement letters to ensure consistency and to incorporate any specific terms already negotiated with the client.\n\n## Parties Identification and Recitals with Precision\n\nDraft a comprehensive parties section that identifies the attorney or law firm with complete accuracy, including the full legal name of the firm, the individual attorney's name and state bar number, the firm's principal business address, telephone number, email address, and any other relevant contact information. For the client, provide the full legal name exactly as it should appear in court filings, complete current address, telephone number, and email address. When representing an entity, specify the complete legal name including any corporate designation, the state or jurisdiction of organization, the principal place of business, and identify the specific individual executing the agreement on behalf of the entity along with their title and authority to bind the entity.\n\nCraft recitals that provide meaningful context for the representation while avoiding unnecessary detail that could limit flexibility. Describe the general nature of the legal matter in terms that clearly identify the dispute or litigation without prematurely committing to specific legal theories or factual allegations that may evolve during representation. Identify the type of litigation involved, such as commercial dispute, employment matter, personal injury claim, contract dispute, or other relevant category. If a lawsuit has been filed, reference the case name, court, jurisdiction, and case number. If the representation begins pre-litigation, describe the dispute and potential claims or defenses in general terms. Establish the effective date of the agreement clearly, and include language confirming that both parties have the legal capacity to enter into this contractual relationship.\n\n## Comprehensive Scope of Representation Definition\n\nDefine the scope of representation with specificity sufficient to establish clear boundaries while maintaining necessary flexibility for effective advocacy. Identify the precise litigation matter covered by the agreement, including the case name and number if filed, or a detailed description of the anticipated litigation if pre-filing. Articulate the specific legal services the attorney will provide throughout the litigation lifecycle, addressing pleadings preparation and filing, responsive pleadings and motions, written discovery including interrogatories and requests for production, depositions of parties and witnesses, motion practice including dispositive motions and evidentiary motions, settlement negotiations and mediation participation, trial preparation and trial representation, and post-trial motions if applicable.\n\nSpecify the stage at which representation commences, whether pre-litigation investigation and demand, initial pleading preparation, representation after service of complaint, or entry of appearance in ongoing litigation. Address anticipated conclusion points, such as resolution through settlement, conclusion of trial, entry of final judgment, or other defined endpoints. Clearly delineate geographic and jurisdictional limitations, specifying the courts and jurisdictions where representation will be provided and noting any limitations based on the attorney's licensure or practice restrictions.\n\nEqually critical is the explicit exclusion of services not covered by this engagement. State clearly that the representation is limited to the identified matter and does not extend to related claims, counterclaims, cross-claims, third-party claims, or appeals unless specifically agreed in writing. Specify that the agreement does not create a general counsel relationship or ongoing representation beyond the defined matter. Address whether the representation includes collection of any judgment obtained and enforcement proceedings. Include language preserving the attorney's right to decline representation in matters outside the defined scope and establishing that the client must seek separate written engagement for any additional legal services. Clarify how potential expansions of scope will be handled, requiring written amendments or new engagement agreements for additional matters.\n\n## Detailed Fee Structure and Transparent Billing Arrangements\n\nEstablish a comprehensive fee arrangement that complies with all state bar requirements for written fee agreements and provides complete transparency regarding the financial terms of representation. Specify the precise fee structure, whether hourly billing, flat fee for defined services, contingency percentage, or hybrid arrangement combining elements of different structures. For hourly arrangements, list each attorney and paralegal who may work on the matter along with their current hourly rates, and state whether rates are subject to annual adjustment with advance notice to the client. Detail the billing increment used, such as tenths of an hour or quarter-hour increments, and explain how time will be recorded and billed for various activities including telephone calls, email communications, legal research, document review, and court appearances.\n\nAddress the initial retainer requirement with complete clarity, specifying the exact dollar amount required before commencement of services, whether the retainer will be deposited in the attorney's trust account or treated as an earned fee upon receipt, how the retainer will be applied against fees and costs incurred, the minimum balance that must be maintained, and the procedure for replenishing the retainer when it falls below the specified threshold. Explain the consequences if the client fails to replenish the retainer as required, including the attorney's right to cease work or seek withdrawal from representation.\n\nDescribe billing practices in detail, including the frequency of billing statements such as monthly or at other specified intervals, the due date for payment which is typically within a specified number of days of the statement date, accepted payment methods, and the application of payments as between outstanding fees and costs. Address the assessment of interest on overdue balances if permitted by state law, specifying the interest rate and when it begins to accrue. Include provisions regarding the attorney's charging lien and retaining lien rights over client files and recovered funds to secure payment of fees and costs.\n\nProvide a comprehensive itemization of costs and expenses that are the client's responsibility beyond attorney fees. These typically include court filing fees and other court costs, service of process fees for summons and subpoenas, deposition costs including court reporter fees and transcript charges, expert witness fees for consultation, reports, and testimony, legal research database charges such as Westlaw or Lexis fees, travel expenses including mileage, airfare, lodging, and meals when necessary for the representation, copying and document production costs, postage and courier services, long-distance telephone charges, and other litigation-related expenses reasonably incurred. Specify whether costs will be advanced by the firm and billed to the client for reimbursement, paid directly by the client when invoiced by third parties, or deducted from the retainer as incurred. Establish any cost thresholds requiring advance client approval, such as requiring consent before incurring any single expense exceeding a specified dollar amount.\n\nInclude all mandatory disclosures required by state bar rules, such as the client's right to fee arbitration or mediation, the availability of fee dispute resolution programs, and any other consumer protection notices mandated by jurisdiction. Ensure the fee provisions comply with ethical rules regarding reasonableness of fees, prohibition on certain contingency arrangements in particular case types, and requirements for fee agreement specificity and client acknowledgment.\n\n## Client Obligations and Active Participation Requirements\n\nArticulate the client's essential duties and responsibilities in the attorney-client relationship to ensure effective representation and establish accountability. The client must provide complete, accurate, and truthful information regarding all facts, circumstances, documents, and communications relevant to the litigation matter. Emphasize that the attorney-client relationship depends on candor and full disclosure, and that withholding material information, providing false or misleading information, or failing to disclose adverse facts can severely compromise the representation, may constitute grounds for withdrawal, and could result in sanctions or adverse consequences in the litigation.\n\nSpecify the client's obligation to maintain regular and responsive communication with the attorney, including promptly responding to requests for information, documents, or decisions, typically within a specified timeframe such as 48 hours for urgent matters. Require the client to attend all scheduled meetings, depositions, hearings, mediations, and trial proceedings unless excused by the attorney, and to arrive prepared and on time. Address the client's responsibility to review documents prepared by the attorney, including pleadings, discovery responses, and settlement documents, and to provide timely feedback and approval.\n\nEstablish the client's duty to comply with all discovery obligations, including preserving relevant documents and electronically stored information, producing documents as requested, responding truthfully to discovery requests, and refraining from destroying or altering any potentially relevant evidence. Require the client to implement a litigation hold to preserve evidence and to notify all relevant custodians of their preservation obligations. Specify that the client must refrain from actions that could harm the case, such as discussing the matter on social media, communicating with opposing parties or witnesses without attorney approval, or taking actions inconsistent with litigation strategy.\n\nInclude provisions requiring the client to inform the attorney immediately of any significant developments affecting the matter, including communications from opposing parties or their counsel, service of new pleadings or discovery, changes in factual circumstances, identification of new witnesses or evidence, and any changes in the client's contact information or availability. Clarify the allocation of decision-making authority, confirming that while the attorney will provide advice and recommendations regarding strategy and tactics, ultimate decision-making authority on substantive matters rests with the client. Identify specific decisions reserved to the client, including whether to accept or reject settlement offers, whether to proceed to trial or seek alternative resolution, whether to testify or present certain evidence, and other fundamental decisions affecting the client's rights and interests.\n\n## Attorney Duties and Professional Standards of Representation\n\nDefine the attorney's responsibilities in providing competent, diligent, and zealous representation in accordance with the professional rules of conduct governing the practice of law. The attorney commits to keeping the client reasonably informed about the status of the matter through regular updates, promptly communicating significant developments, providing copies of important documents and pleadings, and responding to reasonable client inquiries within a specified timeframe such as one business day for urgent matters and two business days for routine questions. Establish communication protocols that work for both parties, including preferred methods of communication such as email, telephone, or in-person meetings, the frequency of status updates such as monthly written summaries or quarterly meetings, and procedures for urgent communications requiring immediate attention.\n\nCommit to exercising independent professional judgment in providing legal advice and representation, offering candid assessment of the case including strengths, weaknesses, risks, and likely outcomes even when the assessment is unfavorable to the client's desired outcome. Establish the attorney's duty to advocate zealously for the client's interests within the bounds of the law and ethical rules, pursuing all appropriate legal remedies and defenses while maintaining civility and professionalism in all interactions. Specify that the attorney will conduct thorough legal research, investigate relevant facts, prepare comprehensive pleadings and motions, engage in effective discovery, and prepare diligently for all court proceedings and trial.\n\nAddress the attorney's fundamental duty to maintain client confidences and protect privileged communications as required by the attorney-client privilege and professional conduct rules, subject only to exceptions where disclosure is permitted or required by law such as to prevent death or substantial bodily harm, to prevent or rectify client fraud involving the attorney's services, or as compelled by court order. Describe security measures employed to protect confidential information, including secure document storage systems, encrypted email communications, and restricted access to client files.\n\nInclude provisions regarding the attorney's obligation to identify and avoid conflicts of interest, to conduct conflicts checks before accepting representation and periodically during representation, to disclose any potential conflicts identified, and to obtain informed written consent when required. Commit to maintaining competence in the relevant areas of law through continuing legal education, legal research, and consultation with specialists when necessary. Establish that the attorney will associate with or consult other counsel when doing so is necessary to provide competent representation, such as engaging local counsel in foreign jurisdictions, consulting subject matter experts, or retaining co-counsel for complex matters, subject to client approval and clear fee arrangements.\n\n## Termination, Withdrawal, and Transition Procedures\n\nEstablish comprehensive provisions governing the conclusion of the attorney-client relationship, whether through completion of the matter, client termination, or attorney withdrawal. Affirm the client's absolute right to terminate the representation at any time, with or without cause, subject only to the obligation to pay for all legal services rendered and costs incurred through the effective date of termination. Specify the procedure for client termination, requiring written notice delivered to the attorney's office, establishing the effective date of termination, and addressing the transition period during which the attorney will take necessary steps to protect the client's interests.\n\nDetail the circumstances under which the attorney may seek permission from the court to withdraw from representation or may terminate the relationship if court permission is not required, consistent with professional conduct rules and ensuring no material adverse effect on the client's interests. These circumstances typically include the client's failure to fulfill financial obligations under the agreement after reasonable notice and opportunity to cure, the client's insistence on pursuing objectives the attorney considers imprudent or repugnant, the client's insistence on presenting claims or defenses not warranted under existing law and not supported by good faith argument for extension or modification of existing law, the client's failure to cooperate or communicate rendering effective representation substantially difficult or impossible, the client's breach of the representation agreement in a material respect, the client's use of the attorney's services to perpetrate fraud or crime, or other circumstances making continued representation unreasonably difficult or causing the attorney to violate rules of professional conduct.\n\nEstablish the attorney's obligations upon termination or withdrawal, including providing reasonable advance notice to allow time for the client to retain successor counsel, cooperating with successor counsel to ensure orderly transition of the representation, surrendering to the client or successor counsel all papers and property to which the client is entitled including original documents provided by the client and documents prepared in the representation, providing a final accounting of fees and costs, refunding any unearned fees or unused retainer funds within a specified timeframe, and taking steps to protect the client's interests such as filing necessary motions, meeting imminent deadlines, or appearing at scheduled proceedings during the transition period.\n\nAddress file retention policies with specificity, including the duration for which the attorney will maintain the client's file after conclusion of the representation, typically ranging from five to seven years depending on the nature of the matter and applicable record retention requirements. Specify the client's right to obtain the complete file or copies of the file, the procedure for requesting file materials, any reasonable charges for copying or file retrieval after the representation concludes, and the attorney's right to retain copies of file materials for the firm's records. Clarify that the attorney may destroy files after the retention period expires following reasonable notice to the client at the last known address.\n\n## Confidentiality, Privilege, and Conflict of Interest Provisions\n\nProvide a comprehensive explanation of the attorney-client privilege and the duty of confidentiality, describing how these protections safeguard communications between attorney and client and work product prepared in connection with the representation. Explain that the privilege belongs to the client and can be waived only by the client, and that the attorney has an ethical duty to assert and preserve the privilege. Identify the limited exceptions where disclosure of confidential information may be permitted or required, including disclosure necessary to prevent reasonably certain death or substantial bodily harm, disclosure to prevent the client from committing fraud or crime involving the attorney's services where the client has used or is using the attorney's services in furtherance of the fraud or crime, disclosure to establish a claim or defense on behalf of the attorney in a controversy with the client, disclosure to comply with court order or other law, and disclosure impliedly authorized to carry out the representation.\n\nDescribe the security measures and protocols employed to safeguard confidential information and privileged communications, including secure document management systems with access controls and audit trails, encrypted email communications for transmission of sensitive information, secure client portals for document exchange, restricted physical access to client files, confidentiality training for all firm personnel, and procedures for secure disposal of confidential materials. Address the handling of electronic communications and the risks associated with unencrypted email, obtaining client consent for communication via standard email or establishing secure alternatives.\n\nInclude a conflicts of interest provision confirming that the attorney has conducted a thorough conflicts check using the firm's conflicts database and has identified no current conflicts that would materially limit the representation or create a significant risk of materially limiting the representation. Disclose any potential conflicts identified during the conflicts check, providing sufficient detail for the client to make an informed decision about whether to provide consent. Obtain the client's informed written consent to any conflicts requiring consent under professional conduct rules, ensuring the client understands the implications and potential risks.\n\nAddress prospective conflicts and the firm's ability to represent other clients in unrelated matters, establishing that the firm may represent other clients in matters not substantially related to this representation and not directly adverse to the client in the same or substantially related matter. Specify any limitations on representing parties adverse to the client in future matters, such as restrictions on representing parties adverse to the client in the same or substantially related matters during and after the representation. Establish procedures for addressing conflicts that arise during the representation, including the obligation to notify the client promptly upon discovering a conflict, the potential need to obtain informed consent from all affected clients, and the possibility that withdrawal from representation of one or more clients may be necessary if the conflict cannot be resolved through consent.\n\n## Dispute Resolution, Governing Law, and Miscellaneous Provisions\n\nEstablish clear procedures for resolving disputes arising from the representation agreement itself, as distinguished from the underlying litigation matter. Address mandatory fee arbitration or mediation requirements imposed by state bar rules, specifying the arbitration or mediation forum, procedures for initiating dispute resolution, and the binding or non-binding nature of the process. Include provisions for mediation of fee disputes before resorting to litigation, identifying qualified mediators or mediation services and establishing procedures for selecting a mediator and sharing mediation costs.\n\nSpecify the governing law for interpretation and enforcement of the representation agreement, typically the law of the state where the attorney is licensed and practicing or where the services are primarily performed. Establish venue for any litigation arising from the agreement, designating the appropriate court and jurisdiction. Address whether the prevailing party in a fee dispute or other controversy arising from the agreement is entitled to recover reasonable attorney fees and costs, or whether each party will bear their own fees and costs regardless of outcome.\n\nInclude standard contract provisions addressing the entire agreement and integration, confirming that the written agreement constitutes the complete agreement between the parties and supersedes all prior negotiations, understandings, and agreements whether written or oral. Establish procedures for amending the agreement, requiring that any modifications be made in writing and signed by both parties. Address assignment provisions, typically prohibiting the client from assigning the agreement without the attorney's consent while permitting the attorney to assign the agreement to a successor firm or in connection with a merger or acquisition of the law practice.\n\nInclude severability provisions establishing that if any provision of the agreement is found to be invalid or unenforceable, the remaining provisions will continue in full force and effect. Address notice requirements, specifying how notices under the agreement must be delivered, such as by personal delivery, certified mail, or email to designated addresses, and when notices are deemed effective. Include provisions regarding the attorney's ability to use the client's name and matter description in firm marketing materials, client lists, or case results, subject to confidentiality obligations and client consent requirements.\n\n## Execution, Acknowledgment, and Client Understanding\n\nConclude the agreement with properly formatted signature blocks for both the attorney or authorized firm representative and the client, including spaces for printed names, titles for entity representatives, and dates of execution. For entity clients, include a representation that the individual executing the agreement has authority to bind the entity to the terms of the agreement. Ensure signature blocks comply with any state-specific requirements for execution of fee agreements.\n\nInclude a comprehensive acknowledgment section where the client confirms specific understandings and agreements, including that the client has read the entire agreement carefully and understands its terms, that the client has had adequate opportunity to ask questions about any provisions of the agreement and has received satisfactory answers, that the client has had the opportunity to seek independent advice regarding the agreement from another attorney or advisor if desired, that the client is entering into the agreement voluntarily without duress or undue influence, and that the client understands the fee arrangement and billing practices described in the agreement.\n\nIncorporate any specific acknowledgments required by state bar rules, such as acknowledgment of the client's right to fee arbitration and the procedures for invoking that right, acknowledgment regarding contingency fee arrangements if applicable including the client's understanding of how fees will be calculated and what costs will be deducted, acknowledgment of the scope of representation and services excluded from the engagement, or other mandated consumer protection disclosures. For contingency fee arrangements, include the detailed statement of how fees will be calculated, whether costs will be deducted before or after calculation of the contingency fee, and examples illustrating fee calculation under different settlement or recovery scenarios.\n\nEnsure the completed agreement is professionally formatted with clear headings, logical organization, and consistent formatting throughout. Use plain language principles to make the agreement accessible to clients without legal training while maintaining the precision and enforceability required for a legal contract. Structure the document with a table of contents for agreements exceeding several pages, use defined terms consistently throughout, and employ formatting techniques such as bold headings, numbered sections, and white space to enhance readability. The final agreement should serve as both a legally enforceable contract protecting the interests of both parties and an effective communication tool that establishes clear expectations, promotes mutual understanding, and provides a foundation for a successful attorney-client relationship throughout the litigation matter.",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:04.270408",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:47:06.177219Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating structured skill content**
+
+I'm defining a "representation-agreement" skill with a concise title and metadata focused on Litigation practice area. I'll provide a third-person description with relevant legal triggers, a numbered prerequisites list, a detailed template structured into sections and tables, and guidelines emphasizing compliance and jurisdiction notes tailored for attorney representation agreements in personal injury litigation.
+thinking
+**Finalizing skill with structured markdown**
+
+I'm preparing the skill markdown including YAML front matter with precise metadata, a third-person descriptive summary with trigger keywords, a numbered prerequisites list, and a clear stepwise structure featuring headings, tables for key variables, checklists for agreement sections, and sample clauses. I'll emphasize jurisdiction-specific fee rules and disclosures while avoiding uncertain citations, keeping content concise and formatted per instructions.
+codex
+---
+name: representation-agreement
+description: Drafts a U.S. attorney representation agreement for litigation matters, with personal injury–oriented fee, cost, and disclosure terms, clear scope limits, and client/attorney duties. Used when preparing an engagement letter, fee agreement, retainer agreement, or attorney‑client representation agreement at intake or pre‑filing. Trigger keywords: representation agreement, engagement letter, retainer, contingency fee, personal injury, litigation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Attorney Representation Agreement (Litigation)
+
+Drafts a litigation engagement agreement that defines scope, fees, costs, duties, conflicts, and termination.
+
+## Prerequisites
+
+1. **Client identity** — legal name, entity type, authorized signer, contact info.
+2. **Matter summary** — dispute description, opposing parties, venue/jurisdiction, case caption/number if filed.
+3. **Fee model** — hourly, flat, contingency, or hybrid; rates; retainer; trust handling.
+4. **Conflicts check** — completed and any waivers identified.
+5. **Cost policy** — advance vs. direct pay; approval thresholds; lien rights.
+6. **Jurisdictional rules** — state bar requirements for written fee agreements and mandatory disclosures.
+7. **Key dates** — engagement effective date and any imminent deadlines.
+
+## Output Structure / Process
+
+**A. Intake Variables (fill all applicable fields)**
+
+| Field | Value |
+|---|---|
+| Firm legal name | |
+| Attorney(s) & bar numbers | |
+| Firm address / phone / email | |
+| Client legal name | |
+| Client address / phone / email | |
+| Entity representative & title | |
+| Matter description | |
+| Court / venue / case no. | |
+| Effective date | |
+| Fee model | |
+| Retainer amount & trust treatment | |
+| Billing cadence & payment due | |
+| Cost approvals threshold | |
+| Communication preferences | |
+| File retention period | |
+| Governing law / venue | |
+
+**B. Agreement Template (assemble sections in order)**
+
+```text
+1. Parties and Effective Date
+- Identify firm/attorney and client with full legal names.
+- State effective date and signer authority for entities.
+
+2. Scope of Representation
+- Covered matter: [short description; case caption/number if filed]
+- Included services: investigation, pleadings, discovery, motions, ADR, trial prep, trial.
+- Excluded services: appeals, collection, unrelated claims, ancillary matters.
+- Expansion: only by written amendment.
+
+3. Fee Arrangement (select one and delete others)
+A. Hourly
+- Rates table by timekeeper.
+- Billing increment (e.g., 0.1 hr).
+- Rate changes with advance notice.
+B. Flat Fee
+- Flat fee amount and covered tasks.
+- Treatment of unused portion.
+C. Contingency
+- Percentage(s) by phase.
+- Define “recovery” and deduction order of costs.
+- Client acknowledgments required by jurisdiction.
+D. Hybrid
+- Specify hourly + contingency or flat + success fee.
+
+4. Retainer / Advance Deposit
+- Amount, trust account treatment, replenishment threshold.
+- Consequences for non-replenishment.
+
+5. Costs and Expenses
+- Itemized list: filing fees, service, transcripts, experts, travel, research, copying.
+- Advance vs. client-direct payment.
+- Approval required for single expense > $[X].
+
+6. Billing and Payment Terms
+- Billing frequency.
+- Payment due in [X] days.
+- Interest/late charges if permitted.
+- Attorney’s lien rights if allowed.
+
+7. Client Responsibilities
+- Candor and complete disclosure.
+- Preserve evidence and comply with litigation hold.
+- Attend proceedings and respond promptly.
+- No direct contact with opposing parties or public posts.
+
+8. Attorney Responsibilities
+- Competent and diligent representation.
+- Communication and status updates.
+- Independent professional judgment.
+
+9. Confidentiality and Privilege
+- Duty of confidentiality and privilege ownership.
+- Exceptions where disclosure is permitted/required.
+
+10. Conflicts of Interest
+- Conflicts check completed.
+- Disclose any waivers and attach if needed.
+- Future unrelated representations allowed.
+
+11. Termination and Withdrawal
+- Client’s right to terminate.
+- Grounds for withdrawal consistent with rules.
+- File transfer, final accounting, refund of unearned funds.
+
+12. File Retention
+- Retention period and destruction policy after notice.
+
+13. Dispute Resolution
+- Fee dispute program/mandatory arbitration if applicable.
+- Mediation requirement if selected.
+
+14. Governing Law, Venue, and Miscellaneous
+- Governing law and venue.
+- Entire agreement; amendments in writing; severability; notices.
+- Marketing/use of client name only with consent.
+
+15. Signatures and Acknowledgments
+- Signature blocks for firm and client.
+- Acknowledgments for fee terms, scope, arbitration rights.
+```
+
+**C. Rate Table (if hourly or hybrid)**
+
+| Timekeeper | Role | Hourly Rate |
+|---|---|---|
+| | | |
+
+**D. Contingency Fee Addendum (if contingency)**
+
+| Phase | % Fee |
+|---|---|
+| Pre‑suit resolution | |
+| Post‑filing, pre‑trial | |
+| Trial | |
+| Appeal | |
+
+- Define whether costs are deducted before or after fee calculation.
+- Include statutory or rule‑mandated disclosures.
+- Provide illustrative example of fee calculation.
+
+## Guidelines
+
+- Ensure the agreement matches the **jurisdiction’s written fee agreement and contingency disclosure rules**; insert required consumer notices.
+- Do not promise outcomes or guarantee recovery.
+- Scope must be **matter‑specific**; exclude appeals and collection unless expressly included.
+- Clarify **retainer treatment** and whether any portion is earned upon receipt.
+- For personal injury matters, confirm **contingency limits, medical lien disclosures, and settlement authority** requirements for the state.
+- If any conflicts waiver is required, attach a **separate informed consent** document.
+- Use plain language and consistent defined terms throughout.
+tokens used
+16,616

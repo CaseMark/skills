@@ -1,0 +1,43 @@
+{
+  "id": "b9771cb2-650c-4202-b923-cb53b9fd1f66",
+  "slug": "court-order-summaries",
+  "name": "Court Order Summaries",
+  "summary": "Generates structured, digestible summaries of court orders and decisions, distilling complex legal provisions into clear overviews of obligations, rights, deadlines, and consequences. Organizes information into logical sections for quick reference by legal professionals, clients, and stakeholders. Use this skill immediately after receiving a court order to facilitate compliance and advice without consulting the full document.",
+  "content": "# Court Order Summary Workflow\n\nYou are tasked with creating a comprehensive yet digestible summary of a court order or decision. Court orders often contain extensive legal language, multiple provisions, and complex procedural requirements that can be difficult for clients, team members, or other stakeholders to quickly understand and act upon. Your role is to distill this complexity into a clear, actionable summary that captures all critical information while remaining accessible.\n\n## Your Objective\n\nTransform the court order into a structured summary that highlights the essential elements: what the court has ordered, who must do what, by when, and what consequences or rights flow from the decision. The summary should serve as a reliable reference document that legal professionals can use to quickly understand their obligations and advise clients without repeatedly consulting the full order.\n\n## Approach and Methodology\n\nBegin by thoroughly reviewing the entire court order to identify all substantive provisions, procedural requirements, and deadlines. Search through the uploaded court order document to extract specific obligations, rights granted or denied, monetary awards or penalties, injunctive relief, compliance requirements, reporting obligations, and any conditions or contingencies. Pay particular attention to dates, dollar amounts, party names, and specific actions required.\n\nOrganize your summary into logical sections that reflect the structure of legal obligations rather than simply following the order's original organization. Create distinct sections for immediate obligations versus ongoing requirements, for different parties' responsibilities, and for different types of relief granted. This functional organization helps readers quickly locate the information most relevant to their role or concern.\n\n## Essential Components to Include\n\nYour summary must capture several critical categories of information. First, identify all parties to the order and their respective roles, including any third parties who may be affected. Second, extract every deadline, whether for filing documents, taking action, making payments, or complying with specific requirements. Third, detail all monetary obligations including judgments, costs, fees, sanctions, or bonds. Fourth, describe any injunctive relief, whether prohibiting certain actions or requiring affirmative conduct. Fifth, outline procedural requirements such as notice provisions, reporting obligations, or compliance certifications.\n\nAdditionally, note any findings of fact or conclusions of law that may have precedential value or impact future proceedings. Identify provisions that preserve or limit rights to appeal, modify, or enforce the order. Highlight any conditions precedent or contingent obligations that depend on future events or actions by parties.\n\n## Format and Presentation Standards\n\nStructure your summary with clear headings and subheadings that allow for quick navigation. Begin with a brief executive overview that captures the order's essential holding and most critical deadlines in two to three sentences. Follow with detailed sections organized by topic or party responsibility.\n\nFor each obligation or right, specify the responsible party, the exact requirement, the deadline (with specific dates rather than relative timeframes like \"within 30 days\"), and any consequences for non-compliance stated in the order. Use plain language where possible while preserving legally significant terms of art. When technical legal terminology is necessary, provide brief contextual explanation.\n\nInclude specific citations to the relevant portions of the order (by paragraph, page, or section number) so readers can easily locate the full text if needed. This citation practice is essential for verification and detailed review.\n\n## Legal Considerations and Best Practices\n\nMaintain absolute fidelity to the court's actual language when describing obligations and deadlines. Do not interpret ambiguous provisions or fill gaps in the order\u2014instead, flag any ambiguities or unclear requirements for attorney review. Distinguish clearly between mandatory requirements and discretionary provisions.\n\nBe especially careful with deadline calculations. If the order uses relative timeframes, calculate the specific calendar dates based on the order's entry date, accounting for weekends, holidays, and any applicable rules about computing time under the relevant court rules. Note any automatic stays or suspensions of deadlines pending appeal or other events.\n\nIdentify any provisions that may require immediate action, such as temporary restraining orders, preliminary injunctions, or short-fuse compliance deadlines. These should be prominently highlighted at the beginning of your summary.\n\n## Context and Use Cases\n\nThis summary serves multiple audiences and purposes within a legal practice. Attorneys use it to quickly assess compliance obligations and advise clients without re-reading lengthy orders. Paralegals and legal assistants rely on it to calendar deadlines and track compliance tasks. Clients need it to understand their obligations in accessible terms. The summary also serves as a reference for future proceedings, settlement discussions, or enforcement actions.\n\nThe summary is particularly valuable in complex litigation involving multiple parties, phased compliance requirements, or ongoing court supervision. It becomes a living document that the legal team can reference throughout the compliance period to ensure nothing is missed.\n\nPresent your final summary in a clear, professional format suitable for inclusion in the case file and distribution to the client and legal team. Ensure that anyone reading the summary can immediately identify what they must do, when they must do it, and what happens if they fail to comply.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:08.64696",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

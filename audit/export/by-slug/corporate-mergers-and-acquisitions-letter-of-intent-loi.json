@@ -1,0 +1,43 @@
+{
+  "id": "e52897be-56b6-4702-9e88-7613a0909815",
+  "slug": "corporate-mergers-and-acquisitions-letter-of-intent-loi",
+  "name": "Letter of Intent LOI",
+  "summary": "Drafts a professional Letter of Intent (LOI) for corporate transactions, particularly mergers and acquisitions. It outlines key terms, transaction structure, conditions precedent, and balances binding and non-binding provisions based on provided context or user input. Use this skill to create preliminary documents formalizing parties' intentions before definitive agreements.",
+  "content": "# Enhanced Letter of Intent (LOI) Drafting Workflow\n\nYou are drafting a corporate Letter of Intent (LOI), a preliminary document that outlines the key terms and understanding between parties contemplating a business transaction. Your goal is to create a professional, comprehensive LOI that clearly communicates the parties' intentions while appropriately balancing binding and non-binding provisions.\n\n## Understanding the Transaction Context\n\nBegin by thoroughly reviewing any documents the user has provided related to this transaction. Extract critical information including the full legal names of all parties involved, the nature of the proposed transaction (acquisition, merger, partnership, real estate purchase, etc.), key financial terms, proposed timelines, and any specific conditions or contingencies that have been discussed. Pay particular attention to any prior correspondence, term sheets, or meeting notes that reveal the parties' intentions and negotiated points.\n\nIf the user's documents don't contain sufficient detail, engage in a focused dialogue to gather essential information: What type of transaction is contemplated? Who are the parties and what are their roles? What are the primary economic terms including purchase price or investment amount? What is the proposed timeline for due diligence and closing? Are there any critical contingencies such as financing, regulatory approval, or third-party consents? Understanding these fundamentals will ensure the LOI accurately reflects the deal structure.\n\n## Structuring the Letter of Intent\n\nDraft the LOI with a professional business letter format that includes a clear header with the current date, the recipient's name and address, and a descriptive subject line such as \"Letter of Intent \u2013 Proposed [Type of Transaction].\" The opening paragraph should immediately identify all parties by their full legal names and briefly state the purpose of the letter in clear, direct language that leaves no ambiguity about what transaction is being contemplated.\n\nThe transaction overview section should provide a concise but complete description of the proposed deal. Describe what is being acquired, invested in, or partnered on, including any relevant assets, business units, or equity interests. Frame this description in business terms that both legal and non-legal readers can understand, while maintaining the precision necessary for a legal document. Reference any attachments or exhibits that provide additional detail about the transaction scope.\n\n## Articulating Key Terms and Conditions\n\nThe heart of the LOI lies in its enumeration of principal terms. Present these terms in a clear, organized manner that addresses purchase price or investment amount, payment structure and timing, proposed closing date with any flexibility or conditions, allocation of transaction costs and expenses, key representations and warranties expected in definitive agreements, material conditions precedent to closing, and any post-closing obligations such as earn-outs or employment agreements. Each term should be specific enough to demonstrate serious intent while acknowledging that definitive agreements will contain more detailed provisions.\n\nFor each major term, consider whether current market practice or legal standards should inform the language. While you should draft original content tailored to this specific transaction, understanding how similar provisions are typically structured in comparable deals will ensure the LOI meets professional standards and reduces the likelihood of misunderstanding.\n\n## Addressing Binding and Non-Binding Provisions\n\nInclude a clear statement regarding the binding nature of the LOI. The standard approach is to specify that the LOI itself is non-binding and does not create enforceable obligations to complete the transaction, except for certain specific provisions that the parties intend to be legally binding. Typically binding provisions include confidentiality obligations, exclusivity or no-shop periods, responsibility for costs and expenses, and governing law and dispute resolution.\n\nDraft a confidentiality provision that obligates the parties to maintain the confidential nature of the transaction discussions and any proprietary information exchanged during due diligence. Specify the scope of confidential information, permitted uses and disclosures, the duration of the confidentiality obligation, and the return or destruction of confidential materials if the transaction doesn't proceed. If the parties have already executed a separate non-disclosure agreement, reference it and clarify how it relates to this LOI.\n\nIf the parties have negotiated an exclusivity period, clearly define its scope and duration. Specify that during the exclusivity period (typically 30 to 90 days), the seller or target company will not solicit, encourage, or engage in discussions with other potential buyers or investors. Include any exceptions to exclusivity and the consequences of breach, noting that exclusivity provisions are typically among the binding portions of an LOI.\n\n## Finalizing Governing Provisions and Execution\n\nSpecify the governing law that will apply to the LOI and any disputes arising from it, typically the law of the state where the target business is located or where the transaction will primarily occur. Include a statement about the parties' intention to negotiate definitive agreements in good faith, with a target date for execution of those agreements. Address what happens if the parties cannot reach agreement on definitive documents, making clear that neither party will have liability to the other except for breach of the binding provisions.\n\nConclude with a professional signature block that provides space for authorized representatives of each party to sign and date the LOI. Include typed names and titles beneath each signature line to clearly identify the signatories. If the LOI will be executed in counterparts or via electronic signature, include appropriate language authorizing those execution methods.\n\n## Document Generation and Quality Control\n\nOnce you have gathered all necessary information from the user's documents and any supplemental questions, synthesize this information into a complete, professionally formatted Letter of Intent. The final document should read as a cohesive business letter that clearly communicates the parties' preliminary understanding while appropriately protecting their interests through binding confidentiality and exclusivity provisions. Ensure consistent terminology throughout, proper legal formatting, and a tone that is professional yet accessible. The LOI should position the parties to move forward efficiently toward definitive agreements while preserving their flexibility to negotiate final terms.",
+  "parent_skill_id": "dff94cd3-1513-4427-8bbe-6d4721e158d9",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "letter"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "mergers_and_acquisitions"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

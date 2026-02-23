@@ -1,0 +1,299 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c81-5ffa-7e50-ba0d-01f5ac53fd20
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "be8e16b5-de71-408f-bb83-3c09046ad110",
+  "slug": "expert-witness-impeachment-inconsistencies",
+  "name": "Impeachment - Expert Witness summary inconsistencies",
+  "summary": "Analyzes expert witness testimony, reports, declarations, and related materials to identify inconsistencies, contradictions, and methodological discrepancies. Documents impeachment points with precise citations, assessments of materiality, and impacts on credibility. Use in commercial litigation during discovery, pre-trial, or trial to challenge expert reliability.",
+  "content": "# Expert Witness Impeachment Analysis: Identifying Testimony and Report Inconsistencies\n\nYou are conducting a comprehensive impeachment analysis of an expert witness by systematically comparing their trial or deposition testimony against their written expert reports, prior declarations, curriculum vitae, published works, and any other discoverable materials. Your objective is to identify and document inconsistencies, contradictions, changes in opinion, unsupported assertions, and methodological discrepancies that could be used to challenge the expert's credibility, reliability, or the weight of their testimony.\n\n## Analysis Scope and Methodology\n\nBegin by thoroughly reviewing all available materials related to the expert witness. This includes their current expert report, any supplemental or rebuttal reports, deposition transcripts, trial testimony transcripts, declarations, affidavits, curriculum vitae, published articles, prior testimony in other cases if available, and any correspondence or communications that reveal their opinions or methodology. Search through all uploaded documents to locate every instance where the expert has expressed an opinion, described their methodology, cited credentials, or made factual assertions relevant to the case.\n\nYour analysis should focus on several critical dimensions of potential impeachment. First, examine substantive opinion changes where the expert has modified, reversed, or qualified their conclusions between different documents or testimony sessions. Second, identify methodological inconsistencies where the expert has applied different analytical approaches, relied on different data sets, or changed their testing protocols without adequate explanation. Third, scrutinize factual contradictions where the expert has made inconsistent statements about underlying facts, case circumstances, or the evidence they reviewed. Fourth, assess credential discrepancies where the expert's stated qualifications, experience, publications, or expertise differ across documents or testimony. Fifth, locate unsupported conclusions where the expert's testimony extends beyond what their report supports or where they make assertions not grounded in their stated methodology.\n\n## Detailed Documentation Requirements\n\nFor each identified inconsistency, create a detailed comparison that includes the specific source documents with page and line citations, the exact quoted language from each source showing the contradiction, the date or chronological sequence of each statement, and the substantive nature of the inconsistency. Analyze whether the inconsistency is material to the expert's ultimate conclusions or merely peripheral, whether the expert has provided any explanation for the difference, and how the inconsistency might affect the reliability or credibility of the expert's testimony.\n\nPay particular attention to areas where the expert's testimony appears to have evolved in response to opposing counsel's challenges, where opinions have strengthened or weakened without new data or analysis, where the expert has adopted positions inconsistent with their prior published work or testimony in other cases, and where the expert's methodology deviates from standards they have previously endorsed or from generally accepted practices in their field.\n\n## Strategic Impeachment Framework\n\nOrganize your findings in a manner that supports effective cross-examination and motion practice. Group related inconsistencies thematically to demonstrate patterns of unreliability rather than isolated errors. Distinguish between inconsistencies that suggest bias, lack of care, or advocacy versus those that might reflect legitimate evolution of opinion based on new information. Identify which inconsistencies are most likely to resonate with the factfinder and which might be effectively explained away by the expert.\n\nConsider the temporal sequence of the expert's opinions and whether the progression suggests responsiveness to litigation needs rather than independent analysis. Evaluate whether the expert has made concessions during deposition that contradict their report conclusions, whether they have expanded their opinions beyond their disclosed methodology, and whether their testimony reveals gaps in their actual knowledge or review of case materials.\n\nYour final analysis should provide a comprehensive impeachment roadmap that includes a prioritized list of the most significant inconsistencies with supporting citations, suggested cross-examination questions that highlight each contradiction, an assessment of whether the inconsistencies support a Daubert or Frye challenge to the expert's methodology or qualifications, and recommendations for how to present these inconsistencies most effectively in motion practice or at trial. The analysis should be thorough enough to support both written motions to exclude or limit the expert's testimony and live cross-examination, with every assertion supported by specific citations to the expert's own words in the record.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:56:56.004721Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Producing expert impeachment SKILL.md content**
+
+I'm creating a concise "expert-impeachment" SKILL.md with a third-person description, key trigger terms, metadata on practice area and document type, and structured guidance including checklists and templates covering analysis, sources, inconsistencies, materiality, cross exam questions, and Daubert/Frye standards with jurisdiction caveats.
+thinking
+**Crafting detailed expert impeachment SKILL.md structure**
+
+I've outlined a comprehensive SKILL.md with name, description including trigger keywords, metadata, clear prerequisites, and a structured output process featuring tables for source inventory and inconsistency log, plus checklists and templates for methodology audits, admissibility analysis, and cross-examination—all designed as flat lists without fluff and targeting about 120 lines.
+codex
+---
+name: expert-impeachment
+description: Analyzes expert testimony, reports, declarations, CVs, publications, and prior testimony to surface inconsistencies, opinion changes, methodological shifts, and credential discrepancies for impeachment, cross-exam, and exclusion motions. Use in litigation expert challenges, deposition prep, and trial; trigger keywords: expert impeachment, inconsistencies, expert report, deposition transcript, Daubert, Frye, credibility, methodology.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Analysis
+  skill_modes:
+    - Analysis
+---
+
+# Expert Witness Impeachment
+
+Builds a citation-ready inconsistency map to challenge expert credibility, reliability, and admissibility.
+
+## Prerequisites
+
+1. Complete expert materials list: reports, supplements, rebuttals, deposition/trial transcripts, declarations, CV, publications, prior testimony, data/appendices.
+2. Page/line or Bates-citable versions of each source.
+3. Case theory and key disputed issues for materiality ranking.
+4. Governing admissibility standard (Daubert, Frye, or local rule) and motion deadlines.
+
+## Output Structure / Process
+
+Use the following sections in order.
+
+### 1. Source Inventory
+
+| Source | Date | Type | Citation Format | Notes |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+### 2. Opinion Chronology
+
+| Date | Document/Testimony | Key Opinion Statement | Cite |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### 3. Inconsistency Log
+
+| ID | Category | Statement A (quote + cite) | Statement B (quote + cite) | Delta | Materiality (H/M/L) | Admissibility Impact | Explanation Offered | Cross-Exam Hook |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  | Opinion Change |  |  |  |  | Reliability / Fit / Qualifications |  |  |
+|  | Methodology |  |  |  |  | Reliability |  |  |
+|  | Facts/Assumptions |  |  |  |  | Fit |  |  |
+|  | Credentials |  |  |  |  | Qualifications |  |  |
+|  | Scope Creep |  |  |  |  | Reliability / Fit |  |  |
+
+Categories allowed: `Opinion Change`, `Methodology`, `Facts/Assumptions`, `Credentials`, `Scope Creep`, `Prior Testimony Conflict`, `Publication Conflict`, `Math/Calculation Error`.
+
+### 4. Methodology Audit Checklist
+
+- Identify each dataset, test, model, or protocol relied upon.
+- Confirm consistent application across reports and testimony.
+- Flag any change in assumptions, variables, or inputs without explanation.
+- Flag conclusions not supported by stated method.
+- Note departures from the expert’s own published standards or prior testimony.
+- Record any concessions on limitations, error rates, or missing data.
+
+### 5. Credentials and Bias Check
+
+| Claim | Source | Verification Status | Conflict | Materiality |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+
+### 6. Materiality & Strategy Ranking
+
+| ID | Why It Matters to Core Issues | Expected Defense | Risk of Backfire | Recommended Use |
+| --- | --- | --- | --- | --- |
+|  |  |  |  | Motion / Cross / Both |
+
+### 7. Cross-Examination Questions
+
+For each high-priority ID, draft 3–6 tight questions:
+
+```
+Q1. Lock-in Statement A (cite).
+Q2. Confirm Statement B (cite).
+Q3. Force inconsistency.
+Q4. Tie to reliability/fit.
+Q5. Concede impact on opinion.
+```
+
+### 8. Admissibility Analysis
+
+- Identify which inconsistencies support exclusion/limitation.
+- Map each to the governing standard element (reliability, relevance/fit, qualifications).
+- Note any curative explanations offered and whether they are supported by record.
+- Provide a short motion-ready paragraph per high-priority ID.
+
+## Guidelines
+
+- Use exact quotes and pinpoint citations for every inconsistency.
+- Prefer contradictions tied to core disputed issues or damages.
+- Treat evolving opinions as impeachment only when unsupported by new data or analysis.
+- Separate peripheral inconsistencies from motion-worthy defects.
+- Verify governing standard and local rules; do not assume Daubert vs Frye applies.
+- Flag any legal citations or standards with `[VERIFY]` if uncertain.
+- Avoid character attacks; focus on record-supported reliability and fit.
+tokens used
+3,243

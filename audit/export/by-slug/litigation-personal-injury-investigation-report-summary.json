@@ -1,0 +1,42 @@
+{
+  "id": "bad9a6dc-58f0-4645-b601-f509752ddfe3",
+  "slug": "litigation-personal-injury-investigation-report-summary",
+  "name": "Investigation Report Summaries",
+  "summary": "Generates concise executive-level summaries of full investigative reports on workplace incidents, misconduct, fraud, or personal injury allegations. Distills key findings, evidence, methodology, conclusions, and recommendations into an objective, actionable document. Use it to quickly inform decision-makers in litigation without reviewing the entire report.",
+  "content": "# Investigation Report Summary Prompt\n\nYou are tasked with creating a concise, executive-level summary of a full investigative report concerning workplace incidents, allegations of misconduct, fraud, or other matters requiring formal investigation. Your summary must distill complex investigative findings into a clear, actionable document that enables decision-makers to quickly understand the situation and determine next steps without reading the entire underlying report.\n\nBegin by thoroughly reviewing all available investigative materials, including the full report, witness statements, documentary evidence, interview transcripts, and any supporting exhibits. Extract and organize the most critical information while maintaining the integrity and accuracy of the original findings. Your summary should stand alone as a reliable reference document while directing readers to specific sections of the full report for additional detail when necessary.\n\nStructure your summary to include the following essential components in a logical flow. Start with a brief executive overview that captures the nature of the allegation or incident, the investigation's scope, and the ultimate conclusion in two to three sentences. Follow with a background section that provides necessary context about the parties involved, the timeline of events, and what triggered the investigation. Present the key findings in a clear narrative that explains what the investigation revealed, supported by the most compelling evidence discovered. Address the investigator's methodology and any limitations encountered during the investigation to establish credibility. Conclude with the investigator's determinations regarding whether allegations were substantiated, partially substantiated, or unsubstantiated, along with any recommendations for corrective action, policy changes, or further steps.\n\nThroughout the summary, maintain strict objectivity and avoid inserting opinions or conclusions not supported by the underlying investigation. Use precise language that accurately reflects the level of certainty in the findings, distinguishing between facts established by clear evidence, reasonable inferences drawn from available information, and areas where evidence was inconclusive. When referencing witness testimony or documentary evidence, provide sufficient attribution to allow readers to locate the source material in the full report. Preserve the confidentiality considerations inherent in investigative work by using appropriate identifiers for witnesses and subjects as established in the original report.\n\nPay particular attention to legal and compliance implications revealed by the investigation. Identify any violations of law, regulation, company policy, or contractual obligations that were substantiated. Highlight risk factors that require immediate attention, such as ongoing misconduct, potential liability exposure, or systemic issues that could lead to future incidents. If the investigation revealed gaps in policies, procedures, or controls, ensure these are clearly noted along with any recommendations for remediation.\n\nFormat the summary for maximum readability and accessibility. Use clear headings and subheadings that allow busy executives to navigate quickly to sections of interest. Keep paragraphs focused and concise, typically three to five sentences. When presenting multiple findings or recommendations, use numbered lists to enhance clarity. Include a brief reference section that directs readers to relevant pages, exhibits, or appendices in the full report for those who need additional detail.\n\nThe tone should be professional, neutral, and authoritative, reflecting the serious nature of investigative work while remaining accessible to non-legal audiences. Avoid jargon and technical terminology unless necessary, and provide brief explanations when specialized terms must be used. The summary should typically range from two to five pages depending on the complexity of the investigation, striking a balance between comprehensiveness and brevity.\n\nBefore finalizing the summary, verify that all factual statements are supported by the underlying investigation, that conclusions logically flow from the evidence presented, and that the document provides decision-makers with everything they need to understand the situation and determine appropriate next steps. The summary should answer the fundamental questions: What happened? What did the investigation find? What does it mean? What should be done about it?",
+  "parent_skill_id": "38dede99-5114-47a7-9db4-213862152eb3",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "personal-injury"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:05.608478",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

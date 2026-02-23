@@ -1,0 +1,43 @@
+{
+  "id": "f0e39e24-fbf4-4dd4-b9fc-ed43a67be63f",
+  "slug": "wage-loss-verification-summaries",
+  "name": "Wage Loss Verification Summaries",
+  "summary": "Generates comprehensive wage loss verification summaries for employment litigation or workers' compensation matters by analyzing employment and financial documents. Quantifies economic damages from lost wages, reduced earning capacity, or employment-related harm, including calculations of pre- and post-incident earnings with mitigation considerations. Use it to produce evidentiary documents with transparent breakdowns, tables, and conclusions for litigation support.",
+  "content": "# Wage Loss Verification Summary\n\nYou are tasked with creating a comprehensive wage loss verification summary for employment litigation or workers' compensation matters. This summary serves as a critical evidentiary document that quantifies economic damages related to lost wages, reduced earning capacity, or employment-related financial harm.\n\nYour analysis should begin by thoroughly examining all available employment and financial documentation. Search through uploaded materials to identify and extract key information including employment dates, wage rates, hours worked, pay periods, benefits, bonuses, commissions, and any other forms of compensation. Look for pay stubs, W-2 forms, tax returns, employment contracts, offer letters, personnel files, time records, and correspondence regarding compensation or termination.\n\nCalculate the claimant's pre-incident earnings by establishing their regular wage rate, typical hours worked, and standard compensation patterns. Account for overtime, shift differentials, bonuses, commissions, and benefits that constitute part of their regular compensation package. Determine the appropriate calculation period, typically using the most recent twelve months of employment or the period specified by applicable law or contract. If employment was irregular or seasonal, adjust your methodology to reflect actual earning patterns rather than theoretical full-time equivalents.\n\nQuantify the actual wage loss by comparing what the claimant would have earned absent the incident to what they actually earned during the loss period. Document any mitigation efforts including subsequent employment, unemployment benefits, disability payments, or other income sources that must be considered under applicable law. Address gaps in employment history and explain whether they relate to the incident in question or represent independent factors.\n\nPresent your findings in a clear, professionally formatted summary that includes distinct sections for background information, methodology, calculations, supporting documentation, and conclusions. Begin with an executive summary stating the total verified wage loss amount. Provide a detailed breakdown showing pre-incident earnings, post-incident earnings, the calculation period, and the resulting loss figure. Include tables or charts that illustrate wage patterns and make the calculations transparent and verifiable.\n\nAddress any complications or limitations in your analysis. Note missing documentation, inconsistencies in records, periods where calculation is uncertain, or alternative methodologies that might yield different results. If the claimant's employment history includes job changes, promotions, or other transitions, explain how you accounted for these factors. Consider whether future wage loss or diminished earning capacity should be addressed separately or falls outside the scope of this verification.\n\nEnsure your summary complies with relevant legal standards for wage loss calculations in the applicable jurisdiction. Reference any statutory formulas, case law precedents, or regulatory guidance that governs how wage loss should be calculated in this type of matter. Your summary should be sufficiently detailed and well-documented to withstand scrutiny from opposing counsel, serve as a foundation for expert testimony, or support settlement negotiations.\n\nThe final document should be suitable for attachment to pleadings, inclusion in settlement demands, presentation to insurance carriers, or use in mediation and trial proceedings. It must be both technically accurate for financial analysis and accessible to judges, mediators, and opposing parties who may not have specialized accounting expertise.",
+  "parent_skill_id": "22a32815-94e1-4019-82f5-f958b8a9672a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "employment-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "ba3a7b36-0ba1-4804-8d31-b83b8cb31d15",
+  "slug": "regulatory-data-privacy-and-cybersecurity",
+  "name": "data privacy and cybersecurity",
+  "summary": "Skills related to data privacy and cybersecurity within regulatory practice.",
+  "content": "# data privacy and cybersecurity\n\nThis is a sub-category under regulatory practice containing specialized skills.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "data-privacy-and-cybersecurity"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

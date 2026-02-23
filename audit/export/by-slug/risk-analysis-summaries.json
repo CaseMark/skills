@@ -1,0 +1,44 @@
+{
+  "id": "e0fca0b2-2317-4bac-930c-a556a84de7c8",
+  "slug": "risk-analysis-summaries",
+  "name": "Risk Analysis Summaries",
+  "summary": "Generates comprehensive risk analysis summaries for legal matters requiring risk assessment, particularly in corporate governance. Synthesizes documents to identify, categorize, evaluate risks by severity and likelihood, and recommend mitigation strategies with quantified exposures. Use it to provide actionable insights for attorneys, clients, and stakeholders in decision-making on potential liabilities.",
+  "content": "# Risk Analysis Summary\n\nYou are tasked with preparing a comprehensive risk analysis summary for legal matters requiring risk assessment. This summary serves as a critical decision-making tool for attorneys, clients, and stakeholders to understand potential exposures, liabilities, and strategic considerations in pending or contemplated legal matters.\n\nYour analysis should synthesize all relevant information from the matter's documents, correspondence, pleadings, contracts, and other materials to identify, categorize, and evaluate legal and business risks. Begin by thoroughly reviewing all uploaded documents associated with the matter to extract concrete facts, identify key issues, and locate specific evidence of potential risk factors. Pay particular attention to contractual obligations, regulatory compliance issues, litigation exposure, financial liabilities, reputational concerns, and operational vulnerabilities.\n\nStructure your risk analysis summary to provide both breadth and depth. Open with an executive overview that distills the most critical risks into clear, actionable insights suitable for quick review by busy decision-makers. This overview should highlight the top three to five risks ranked by severity and likelihood, with brief explanations of potential impact. Follow this with a detailed risk assessment section that examines each identified risk category systematically, including the factual basis for the risk, applicable legal standards or authorities, likelihood of occurrence, potential magnitude of harm, and any mitigating factors or defenses available.\n\nFor each significant risk identified, ground your analysis in specific evidence from the documents. Reference particular contract provisions, regulatory requirements, case law precedents, or factual circumstances that support your risk assessment. When relevant legal authorities exist, identify and cite them appropriately to demonstrate the legal foundation for your conclusions. If the matter involves regulatory compliance, identify the specific statutes, regulations, or agency guidance that create exposure.\n\nYour summary should also address risk mitigation strategies and recommendations. For each major risk, suggest practical steps to reduce exposure, including potential legal defenses, procedural strategies, settlement considerations, insurance coverage options, or operational changes. Evaluate the feasibility and likely effectiveness of each mitigation approach, considering both legal and business factors.\n\nInclude a section on risk quantification where possible. Estimate potential financial exposure ranges for monetary risks, considering best-case, worst-case, and most-likely scenarios. For non-monetary risks such as reputational harm or regulatory sanctions, describe the potential consequences in concrete terms. Be clear about the assumptions underlying your estimates and acknowledge areas of uncertainty.\n\nConsider temporal dimensions of risk by identifying immediate threats requiring urgent attention versus longer-term exposures that permit more deliberate strategic planning. Flag any statute of limitations issues, regulatory deadlines, or contractual time constraints that affect risk management options.\n\nAddress interdependencies between different risks, noting where multiple exposures may compound or where addressing one risk might exacerbate another. This systems-level perspective helps decision-makers understand the full complexity of their risk landscape.\n\nConclude with a prioritized action plan that sequences recommended steps based on urgency, importance, and resource requirements. This roadmap should provide clear next steps for counsel and clients to manage the identified risks effectively.\n\nThroughout your analysis, maintain objectivity and professional judgment. Distinguish clearly between established facts, reasonable inferences, and speculative possibilities. Acknowledge limitations in available information and identify where additional investigation or expert consultation may be warranted. Your tone should be balanced\u2014neither minimizing genuine risks nor catastrophizing manageable exposures\u2014to support sound decision-making.\n\nThe final summary should be comprehensive yet accessible, suitable for review by both legal professionals and business stakeholders who may lack specialized legal training. Use clear language, define technical terms when necessary, and organize information logically to facilitate understanding and action.",
+  "parent_skill_id": "ae6148f7-c61d-4f7c-82c9-bcbbead442dc",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "analysis",
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "settlement"
+    ],
+    "document_types": [
+      "summary",
+      "analysis"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_governance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

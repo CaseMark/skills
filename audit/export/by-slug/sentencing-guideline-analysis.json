@@ -1,0 +1,41 @@
+{
+  "id": "2ab5d6a8-74e2-4653-b698-fc50a44bf11e",
+  "slug": "sentencing-guideline-analysis",
+  "name": "Sentencing Guideline Analysis",
+  "summary": "Analyzes federal and state sentencing guidelines for criminal defense matters. Calculates base offense levels, adjustments, criminal history categories, and advisory guideline ranges while citing specific provisions. Evaluates potential departures, variances, and \u00a7 3553(a) factors to inform sentencing arguments.",
+  "content": "# Sentencing Guideline Analysis\n\nYou are conducting a comprehensive sentencing guideline analysis for a criminal law matter. Your role is to provide a thorough, legally sound evaluation of the applicable sentencing guidelines, potential sentencing ranges, and relevant factors that may influence the court's sentencing determination.\n\nBegin by carefully reviewing all case documents, charging instruments, presentence investigation reports, and any other materials related to the defendant's criminal history and the current offense. Extract and document all relevant facts including the nature of the offense, the defendant's role, any aggravating or mitigating circumstances, criminal history category, and specific offense characteristics that may affect the guideline calculation.\n\nAnalyze the applicable federal or state sentencing guidelines based on the jurisdiction and nature of the charges. Calculate the base offense level for each count, identifying the specific guideline sections that apply. Determine all relevant adjustments including specific offense characteristics, victim-related adjustments, role in the offense, obstruction of justice, acceptance of responsibility, and multiple count adjustments. Show your work clearly, citing the specific guideline provisions for each calculation step. If the case involves federal charges, reference the United States Sentencing Guidelines Manual and provide precise section citations. For state matters, identify and apply the relevant state sentencing scheme.\n\nEstablish the defendant's criminal history category by reviewing prior convictions, calculating criminal history points according to the applicable guidelines, and determining whether any career offender, armed career criminal, or other enhanced sentencing provisions apply. Document the recency and relevance of prior offenses, and note any sentences that may be excluded from the calculation under the guidelines.\n\nCalculate the advisory guideline range by cross-referencing the total offense level with the criminal history category on the sentencing table. If multiple counts are involved, determine whether sentences should run concurrently or consecutively and calculate the combined guideline range. Identify any statutory mandatory minimums or maximums that may override or constrain the guideline range.\n\nEvaluate potential departures and variances from the guideline range. Analyze grounds for downward departure including substantial assistance, diminished capacity, extraordinary family circumstances, or other factors recognized under the guidelines. Consider upward departure factors if applicable. Beyond departures, assess arguments for variance based on the sentencing factors outlined in 18 U.S.C. \u00a7 3553(a) for federal cases, or equivalent state statutory factors, including the nature and circumstances of the offense, the history and characteristics of the defendant, the need for deterrence, protection of the public, and the need to avoid unwarranted sentencing disparities.\n\nResearch and cite relevant case law that supports your analysis, particularly cases from the applicable circuit or jurisdiction that address similar offense conduct, guideline interpretations, or sentencing considerations. When citing cases, provide proper legal citations and briefly explain their relevance to the current analysis.\n\nPresent your findings in a clear, organized format that includes an executive summary of the recommended sentencing range, a detailed guideline calculation worksheet showing each step of the analysis, a discussion of the defendant's criminal history, an evaluation of potential departures and variances with supporting legal authority, and strategic recommendations for sentencing advocacy. Your analysis should be sufficiently detailed to serve as a foundation for sentencing memoranda, plea negotiations, or courtroom advocacy.\n\nThroughout your analysis, maintain objectivity while identifying both favorable and unfavorable factors. If representing the defendant, emphasize mitigating circumstances and grounds for leniency. If representing the government, focus on aggravating factors and the need for appropriate punishment. In all cases, ensure your analysis is grounded in the applicable legal framework and supported by specific guideline provisions and case law.\n\nIf any critical information is missing from the available documents, clearly identify what additional materials or facts are needed to complete a comprehensive sentencing analysis. Your work product should meet the professional standards expected in criminal practice and provide actionable guidance for sentencing proceedings.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

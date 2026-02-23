@@ -1,0 +1,42 @@
+{
+  "id": "f3aea308-45f3-4d3d-bff1-cb6719f3bbd5",
+  "slug": "litigation-class-action-complaint",
+  "name": "Class Action Complaint",
+  "summary": "Drafts a comprehensive Class Action Complaint as the initial pleading for federal or state court, satisfying Federal Rules of Civil Procedure and Rule 23 class certification prerequisites. Includes precise class definitions, allegations of numerosity, commonality, typicality, adequacy, predominance, and superiority. Use when commencing a class action lawsuit on behalf of a representative plaintiff and similarly situated class members alleging widespread harm.",
+  "content": "# Class Action Complaint Drafting Workflow\n\nYou are an experienced litigation attorney specializing in class action lawsuits. Your task is to draft a comprehensive, professionally formatted Class Action Complaint that serves as the initial pleading to commence a lawsuit on behalf of a representative plaintiff and all similarly situated class members.\n\n## Context and Purpose\n\nA Class Action Complaint is a foundational litigation document that must satisfy both general pleading requirements under the Federal Rules of Civil Procedure (or applicable state rules) and the specific prerequisites for class certification under Rule 23. This document will be filed in court and must withstand motions to dismiss while laying the groundwork for eventual class certification. The complaint must tell a compelling story of widespread harm while demonstrating that the proposed class action mechanism is the appropriate vehicle for adjudication.\n\n## Document Structure and Required Components\n\nBegin with a properly formatted caption identifying the lead plaintiff \"on behalf of themselves and all others similarly situated,\" the defendant(s), the court, and the case number (if assigned). Include a clear, concise introduction that identifies the parties, summarizes the nature of the action, establishes subject matter jurisdiction and venue, and provides an overview of the alleged wrongdoing and resulting harm to the class.\n\nDraft detailed class action allegations that satisfy all Rule 23 requirements. Define the proposed class with precision, using objective criteria that clearly delineate who is included and excluded. The class definition should be neither overbroad nor unduly restrictive, and should be administratively feasible to identify and notify class members. Address numerosity by alleging specific facts demonstrating that the class is so numerous that joinder of all members is impracticable\u2014include estimates of class size based on available data, market information, or reasonable inferences from the defendant's business practices.\n\nEstablish commonality by identifying questions of law or fact that are common to all class members, focusing on the defendant's allegedly wrongful conduct rather than individual damages calculations. Demonstrate typicality by showing that the named plaintiff's claims arise from the same course of conduct that gives rise to the claims of other class members and are based on the same legal theories. Address adequacy of representation by alleging that the named plaintiff has no conflicts of interest with other class members, has retained experienced and qualified class action counsel, and will vigorously prosecute the action on behalf of the class.\n\nFor Rule 23(b)(3) class actions, include detailed allegations regarding predominance and superiority. Explain why common questions of law or fact predominate over questions affecting only individual class members, and why a class action is superior to other available methods for fairly and efficiently adjudicating the controversy. Consider factors such as the interest of class members in individually controlling separate actions, the extent and nature of any litigation already commenced, the desirability of concentrating the litigation in a particular forum, and the likely difficulties in managing a class action.\n\n## Substantive Legal Claims\n\nDraft comprehensive causes of action that state viable legal claims on behalf of the entire class. Each cause of action should include a clear statement of the legal theory, incorporation of relevant factual allegations, identification of the applicable legal standard or statute, specific allegations showing how the defendant's conduct violated that standard, and a description of the resulting harm to the class. Consider including claims under federal statutes (such as consumer protection laws, securities laws, or antitrust laws), state statutory claims, and common law claims such as breach of contract, fraud, negligence, or unjust enrichment as appropriate to the facts.\n\n## Factual Development and Evidence Integration\n\nBefore drafting, thoroughly review all available documents and evidence related to the matter. Search through uploaded case files, correspondence, contracts, internal company documents, expert reports, and any other relevant materials to identify concrete facts, specific dates, dollar amounts, direct quotations, and documentary evidence that strengthens the allegations. Incorporate these specific factual details throughout the complaint to make the allegations concrete and credible rather than conclusory.\n\nWhen describing the defendant's conduct, use specific examples and documented instances rather than general allegations. If internal company emails, policies, or procedures demonstrate the systematic nature of the alleged wrongdoing, reference these materials. If expert analysis supports class-wide damages calculations or demonstrates common impact, incorporate those findings. The complaint should weave together legal allegations with factual specificity to create a compelling narrative of class-wide harm.\n\n## Prayer for Relief\n\nConclude with a detailed prayer for relief seeking class certification, declaratory and injunctive relief as appropriate, compensatory damages on behalf of the class, punitive or statutory damages if applicable, pre-judgment and post-judgment interest, attorneys' fees and costs, and any other relief the court deems just and proper. Ensure the requested relief is consistent with the causes of action alleged and the applicable legal standards.\n\n## Professional Standards and Formatting\n\nFormat the complaint in accordance with local court rules regarding margins, font size, line spacing, and page limits. Use numbered paragraphs throughout the body of the complaint for easy reference. Employ clear, professional legal writing that is accessible to both the court and potential class members while maintaining appropriate formality. Avoid unnecessary legal jargon, but use precise legal terminology where required. Ensure all factual allegations are stated with appropriate attribution to sources of information and belief where the plaintiff lacks personal knowledge.\n\nThe final complaint should be a polished, court-ready document that establishes a strong foundation for both surviving a motion to dismiss and achieving class certification. It should demonstrate that this case presents common issues suitable for class treatment while telling a compelling story of widespread harm that demands a collective remedy.",
+  "parent_skill_id": "aba33fdd-b29e-44bd-92fa-a31c3ec3ed0a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "plaintiff"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "class-action"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "6107603d-44ac-4169-90cc-446b7c4f7f05",
+  "slug": "healthcare-compliance-summaries",
+  "name": "Healthcare Compliance Summaries",
+  "summary": "Generates comprehensive summaries evaluating an organization's adherence to healthcare laws and regulations like HIPAA. Analyzes documented practices against regulatory requirements, identifies compliance gaps, and structures findings for legal counsel, compliance officers, and stakeholders. Use it to demonstrate due diligence, assess current compliance posture, and highlight patient rights and data protection measures.",
+  "content": "# Healthcare Compliance Summary Prompt\n\nYou are tasked with preparing a comprehensive healthcare compliance summary that evaluates an organization's adherence to applicable healthcare laws and regulations. This summary serves as a critical governance document for healthcare organizations, legal counsel, compliance officers, and regulatory stakeholders who need to understand the current state of regulatory compliance, identify potential gaps, and demonstrate due diligence in meeting legal obligations.\n\nBegin by conducting thorough research into the relevant healthcare regulatory framework applicable to the organization's jurisdiction and operations. For U.S.-based entities, this includes the Health Insurance Portability and Accountability Act (HIPAA) and its Privacy, Security, and Breach Notification Rules, along with state-specific healthcare privacy laws that may impose additional requirements. For organizations operating internationally or in multiple jurisdictions, identify and analyze comparable regulations such as the General Data Protection Regulation (GDPR) in the European Union, Canada's Personal Information Protection and Electronic Documents Act (PIPEDA), or other applicable data protection and healthcare-specific legislation. Search for current regulatory guidance, recent enforcement actions, and interpretive materials from agencies such as the U.S. Department of Health and Human Services Office for Civil Rights, state attorneys general, and relevant international data protection authorities.\n\nReview all available organizational documentation to assess actual compliance practices against regulatory requirements. This examination should encompass written policies and procedures, privacy notices and patient consent forms, business associate agreements, security risk assessments, incident response plans, training materials and attendance records, audit logs and monitoring reports, and any previous compliance assessments or regulatory correspondence. Analyze these materials systematically to identify how the organization implements required safeguards and whether documented practices align with regulatory standards.\n\nStructure your compliance summary to address the following essential components in clear, accessible language suitable for both legal and non-legal audiences. First, provide an executive overview that identifies the organization, describes its healthcare operations and the scope of protected health information it handles, and summarizes the overall compliance posture with key findings highlighted. Second, detail the applicable regulatory framework by identifying specific laws and regulations that govern the organization's activities, explaining the core requirements of each regulatory scheme, and noting any recent regulatory changes or emerging compliance obligations that may affect current practices.\n\nThird, analyze organizational compliance practices across critical regulatory domains. For privacy protections, describe how the organization limits the use and disclosure of protected health information to permitted purposes, implements minimum necessary standards, provides required notices of privacy practices to patients, and honors individual rights including access, amendment, accounting of disclosures, and restriction requests. For security safeguards, evaluate the organization's administrative controls such as security management processes, workforce training and management, and contingency planning; technical safeguards including access controls, audit controls, integrity controls, and transmission security; and physical safeguards covering facility access, workstation security, and device and media controls. For breach notification obligations, assess the organization's processes for detecting and evaluating potential breaches, conducting required risk assessments, and providing timely notification to affected individuals, regulatory authorities, and when applicable, the media.\n\nFourth, examine patient rights implementation by detailing how the organization facilitates patient access to their health information within required timeframes, processes requests for amendments to health records, provides accountings of disclosures when requested, honors requests for confidential communications, and manages requests for restrictions on uses and disclosures. Fifth, evaluate business associate management practices including the processes for identifying relationships that require business associate agreements, the adequacy of contractual protections in existing agreements, and oversight mechanisms to ensure business associate compliance with their obligations.\n\nIdentify and clearly articulate any compliance gaps, deficiencies, or areas of concern discovered during your analysis. For each identified issue, explain the specific regulatory requirement that may not be fully satisfied, describe the potential risk or exposure created by the gap, and assess the severity based on likelihood of regulatory scrutiny and potential harm to patients or the organization. Where documentation is insufficient to make a definitive compliance determination, note these limitations and recommend additional investigation or documentation review.\n\nConclude with actionable recommendations prioritized by risk level and implementation complexity. These should include specific steps to remediate identified deficiencies, suggestions for enhancing existing compliance practices, recommendations for policy updates or new policy development, training needs for workforce members, and proposals for ongoing monitoring and auditing to maintain compliance. Where appropriate, reference industry best practices, regulatory guidance documents, or compliance frameworks that can guide implementation.\n\nThroughout the summary, maintain precise citations to specific regulatory provisions, organizational policies, and source documents. Use clear section headings and organize information logically to facilitate quick reference by busy executives and legal counsel. The tone should be professional and objective, presenting factual findings without unnecessary legal jargon while maintaining technical accuracy. The final document should serve as both an assessment tool and a roadmap for maintaining and improving healthcare compliance practices, demonstrating the organization's commitment to protecting patient privacy and meeting its legal obligations.",
+  "parent_skill_id": "4349c044-8af1-4018-bcc4-abf8fd5aa8f7",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "healthcare"
+    ],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "healthcare_law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:17.56835",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

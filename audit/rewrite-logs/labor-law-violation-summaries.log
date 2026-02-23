@@ -1,0 +1,343 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c85-0efc-7293-85e1-7fabf01a6c9f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d3b03448-027a-4e01-a6bf-5ed3d4795d27",
+  "slug": "labor-law-violation-summaries",
+  "name": "Labor Law Violation Summaries",
+  "summary": "Analyzes investigative documents to produce structured summaries of labor law violations, including wage and hour issues, workplace safety infractions, and worker rights breaches. Generates executive overviews, categorized findings with evidence citations, affected worker counts, and recommended remedial actions. Use this skill for regulatory bodies, compliance teams, or legal counsel needing clear distillations of complex investigations.",
+  "content": "# Labor Law Violation Investigation Summary\n\nYou are tasked with creating a comprehensive summary of labor law violation investigations and findings. This summary will serve regulatory bodies, corporate compliance teams, legal counsel, and affected workers by distilling complex investigative materials into clear, actionable intelligence regarding worker rights violations, workplace safety infractions, and wage-related issues.\n\n## Your Objective\n\nAnalyze all available investigative documents, reports, complaints, inspection records, and related materials to produce a structured summary that captures the nature, scope, and severity of labor law violations. Your summary should enable readers to quickly understand what violations occurred, who was affected, what evidence supports the findings, and what remedial actions are required or recommended.\n\n## Approach and Methodology\n\nBegin by thoroughly reviewing all uploaded documents related to the investigation. Search through inspection reports, witness statements, payroll records, safety logs, complaint filings, correspondence between parties, and any regulatory agency findings. Extract concrete facts including specific dates of violations, names of affected workers, exact wage discrepancies, documented safety hazards, and direct quotes from investigative findings.\n\nWhen processing extensive document sets, analyze each document systematically to ensure no critical information is overlooked. Pay particular attention to recurring patterns of violations, multiple complaints about similar issues, and any evidence of willful or repeated non-compliance. If the investigation spans multiple locations, departments, or time periods, organize your findings to reflect these distinctions clearly.\n\n## Required Content and Structure\n\nYour summary must open with an executive overview that identifies the employer or entity under investigation, the time period covered, the types of violations alleged and confirmed, and the number of workers affected. This section should immediately convey the gravity and scope of the violations to orient the reader.\n\nThe body of your summary should address each category of violation separately. For wage and hour violations, specify the nature of the infraction such as unpaid overtime, minimum wage violations, illegal deductions, misclassification of employees, or failure to provide required breaks. Include the total amount of wages owed, the number of affected workers, and the time period during which violations occurred. Reference specific payroll records, timekeeping documents, or worker testimony that substantiates these findings.\n\nFor workplace safety violations, detail each hazardous condition or practice identified, citing relevant Occupational Safety and Health Administration standards or state safety regulations that were violated. Describe the potential or actual harm to workers, any injuries or illnesses that resulted, and whether the employer had prior notice of the hazard. Include information about required safety equipment that was not provided, inadequate training, or failure to implement mandatory safety protocols.\n\nRegarding worker rights violations, address issues such as retaliation against workers who complained or organized, interference with union activities, discrimination based on protected characteristics, denial of family or medical leave rights, or violations of whistleblower protections. Explain how these violations manifested, which workers were targeted, and what adverse actions were taken against them.\n\n## Legal Framework and Compliance Context\n\nGround your summary in the applicable legal framework by identifying the specific statutes, regulations, and standards that were violated. This may include the Fair Labor Standards Act, state wage payment laws, OSHA regulations, the National Labor Relations Act, anti-discrimination statutes, or industry-specific safety requirements. When regulatory agencies have issued citations or findings, reference these official determinations and any penalty assessments.\n\nDistinguish between violations that appear to result from negligence or lack of knowledge versus those that suggest willful disregard for legal obligations. Note any evidence of attempts to conceal violations, destroy records, or intimidate workers from reporting issues, as these factors significantly affect the legal and remedial response.\n\n## Remedial Actions and Recommendations\n\nConclude your summary with a clear account of required or recommended remedial measures. This includes back wages owed and to whom they should be paid, penalties or fines assessed by regulatory agencies, required changes to workplace policies or practices, mandatory safety improvements, reinstatement of terminated workers, and any ongoing monitoring or reporting obligations. If the investigation resulted in a settlement agreement or consent decree, summarize its key terms and compliance deadlines.\n\nWhere investigations remain ongoing or certain findings are preliminary, clearly indicate this status and explain what additional steps are pending. If workers have filed private lawsuits in addition to regulatory complaints, note this parallel litigation and how it relates to the administrative findings.\n\n## Presentation Standards\n\nPresent all information in clear, professional language accessible to both legal professionals and non-lawyers. Use precise terminology when describing legal violations, but explain technical concepts when necessary for clarity. Organize information logically with clear headings and transitions between topics. Support all factual assertions with specific references to source documents, including document names, page numbers, and relevant dates.\n\nMaintain objectivity by distinguishing between alleged violations, preliminary findings, and confirmed violations. When presenting disputed facts, acknowledge the dispute and explain what evidence supports each position. Your summary should be comprehensive enough to stand alone as a reference document while remaining concise enough to be readily digestible by busy stakeholders who need to understand the situation quickly and make informed decisions about next steps.",
+  "parent_skill_id": "43b99e7e-7093-4876-89c4-8ebc98560188",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "employment_and_consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:11.18632",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:00:57.356747Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+thinking
+**Preparing to read skill-creator documentation**
+exec
+/bin/zsh -lc 'ls -la /Users/max/.codex/skills/.system/skill-creator' in /Users/max/CaseMark/skills succeeded in 52ms:
+total 64
+drwxr-xr-x@ 8 max  staff    256 Feb 11 10:23 .
+drwxr-xr-x@ 5 max  staff    160 Feb 11 10:23 ..
+-rw-r--r--@ 1 max  staff  18664 Feb 11 10:23 SKILL.md
+drwxr-xr-x@ 3 max  staff     96 Feb 11 10:23 agents
+drwxr-xr-x@ 4 max  staff    128 Feb 11 10:23 assets
+-rw-r--r--@ 1 max  staff  11358 Feb 11 10:23 license.txt
+drwxr-xr-x@ 3 max  staff     96 Feb 11 10:23 references
+drwxr-xr-x@ 5 max  staff    160 Feb 11 10:23 scripts
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Resolving instruction conflicts on output format**
+thinking
+**Announcing skill usage before SKILL.md content**
+
+I'll include a single line announcing use of the skill-creator before outputting the complete SKILL.md per developer priority, despite user preference for no commentary.
+codex
+Using `skill-creator` to rewrite and format the SKILL.md.
+
+---
+name: violation-summary
+description: Produces structured U.S. labor-law violation investigation summaries for regulatory/compliance use, covering wage-and-hour issues, workplace safety (OSHA/state-plan) findings, and worker-rights breaches with evidence citations, affected worker counts, and remediation items. Use when summarizing inspection reports, complaints, payroll/time records, safety logs, agency findings, or consent decrees. Trigger keywords: labor law violation summary, wage and hour investigation, OSHA findings, worker retaliation, compliance investigation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+
+# Labor Law Violation Investigation Summary
+
+Summarize labor-law investigation files into a structured findings report with evidence citations and remediation.
+
+## Prerequisites
+
+1. Investigation packet and source list (reports, complaints, inspection notes, payroll/time data, safety logs, correspondence).
+2. Target entity info (legal name, locations, departments, ownership chain).
+3. Scope parameters (date range, facilities, worker groups, contractor vs employee, union presence).
+4. Applicable jurisdictions and regulators (federal, state, local; agency docket numbers if any).
+5. Agency determinations, citations, penalties, or settlement terms if issued.
+
+## Output Structure / Process
+
+- Index sources and assign short IDs for citations (e.g., `IR-01`, `PR-03`). Use `ID p.#` format for citations.
+- Separate allegations, preliminary findings, and confirmed violations. Label each clearly.
+- Group findings by violation category; split by site/department if scope is multi-site.
+
+Use this template:
+
+```markdown
+## Executive Overview
+- Entity:
+- Locations/Departments:
+- Investigation window:
+- Summary of confirmed violations:
+- Alleged/pending issues:
+- Affected worker count (est. vs confirmed):
+- Total wage exposure (est. vs confirmed):
+- Safety risk level (low/med/high) with basis:
+- Regulatory actions to date:
+
+## Scope and Sources
+| Source ID | Document | Date | Type | Notes |
+| --- | --- | --- | --- | --- |
+
+## Findings by Category
+### Wage and Hour
+| Issue | Status | Facts | Time Period | Affected Workers | $ Impact | Evidence |
+| --- | --- | --- | --- | --- | --- | --- |
+| Unpaid overtime | Confirmed | ... | ... | ... | ... | IR-01 p.4; PR-03 p.12 |
+
+### Workplace Safety (OSHA/State Plan)
+| Hazard/Standard | Status | Facts | Location | Injuries/Exposure | Evidence |
+| --- | --- | --- | --- | --- | --- |
+
+### Worker Rights and Retaliation
+| Issue | Status | Facts | Targeted Workers | Adverse Actions | Evidence |
+| --- | --- | --- | --- | --- | --- |
+
+### Recordkeeping/Posting/Notice (if applicable)
+| Issue | Status | Facts | Evidence |
+| --- | --- | --- | --- |
+
+## Legal Framework (identify applicable)
+- Wage and hour: FLSA; state wage payment and break laws.
+- Safety: OSHA or state-plan regulations.
+- Worker rights: NLRA, anti-discrimination statutes, FMLA, whistleblower protections, state analogs.
+
+## Willfulness and Aggravating Factors
+- Prior citations or notice:
+- Repeat patterns or multi-site recurrence:
+- Evidence of concealment/retaliation:
+- Mitigating actions or good-faith compliance efforts:
+
+## Remediation and Compliance
+| Required/Recommended Action | Responsible Party | Deadline | Basis | Evidence |
+| --- | --- | --- | --- | --- |
+| Back wages calculation and payment | ... | ... | ... | ... |
+
+## Parallel Proceedings
+- Private litigation or arbitration:
+- Union grievances or unfair labor practice charges:
+- Open investigations and next steps:
+```
+
+Checklist for calculations and counts:
+- Reconcile worker counts across sources; flag discrepancies.
+- Show calculation method for wage exposure (rate, hours, period).
+- Distinguish confirmed amounts from estimates.
+
+## Guidelines
+
+- Use objective language; never assume liability beyond confirmed findings.
+- Cite every material fact to a source and page/line.
+- If a statute/regulation is uncertain, mark it with `[VERIFY]`.
+- Explicitly separate federal vs state requirements when both apply.
+- Note missing data and what would resolve it.
+- Do not include legal advice; report findings and recommended compliance actions only.
+- Preserve confidentiality: use initials or anonymized IDs if documents require it.
+tokens used
+10,926
+
+OUTPUT:
+Using `skill-creator` to rewrite and format the SKILL.md.
+
+---
+name: violation-summary
+description: Produces structured U.S. labor-law violation investigation summaries for regulatory/compliance use, covering wage-and-hour issues, workplace safety (OSHA/state-plan) findings, and worker-rights breaches with evidence citations, affected worker counts, and remediation items. Use when summarizing inspection reports, complaints, payroll/time records, safety logs, agency findings, or consent decrees. 

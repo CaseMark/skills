@@ -1,0 +1,351 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c86-3596-7590-a7a1-9d16d541b517
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "db08e0d1-61ba-48ba-a945-875e1ed5a92c",
+  "slug": "license-agreement-summaries",
+  "name": "License Agreement Summaries",
+  "summary": "Generates comprehensive summaries of intellectual property license agreements, extracting core elements like parties, licensed IP details, exclusivity, financial terms, obligations, restrictions, risks, and termination provisions. Enables legal professionals to quickly grasp key terms and risks without reviewing the full document. Use for transactional IP licensing reviews by attorneys, in-house counsel, and stakeholders.",
+  "content": "# License Agreement Summary Prompt\n\nYou are tasked with creating a comprehensive summary of a license agreement for intellectual property matters. This workflow is essential for legal professionals who need to quickly understand the key terms, obligations, and risks within licensing arrangements without reading the entire agreement. Your summary will serve as a critical reference tool for attorneys, in-house counsel, and business stakeholders making decisions about IP licensing transactions.\n\nBegin by thoroughly analyzing the complete license agreement document to ensure no critical provisions are overlooked. Your analysis must capture every substantive term, as licensing agreements often contain crucial details buried in standard clauses that can significantly impact the parties' rights and obligations.\n\n## Core Elements to Extract and Summarize\n\nYour summary must identify and clearly present the fundamental structure of the license agreement. Start with the parties involved, specifying the licensor and licensee with their full legal names and any relevant jurisdictional information. Identify the licensed intellectual property with precision, including patent numbers, trademark registrations, copyright details, or trade secret descriptions as applicable. Clearly state whether this is an exclusive, non-exclusive, or sole license, and define the scope of the grant including any field of use restrictions, territorial limitations, or time-bound constraints.\n\nAddress the financial terms comprehensively, including upfront fees, running royalties, minimum royalties, milestone payments, and any equity considerations. Note the royalty calculation methodology, payment schedules, audit rights, and any provisions for royalty adjustments or reductions. Identify any sublicensing rights and the associated revenue sharing arrangements.\n\n## Critical Obligations and Restrictions\n\nExamine and summarize the performance obligations of both parties. For the licensee, this includes development milestones, commercialization timelines, diligence requirements, and any minimum sales or performance thresholds. For the licensor, identify obligations regarding patent maintenance, prosecution support, technology transfer, or ongoing technical assistance. Highlight any restrictions on the licensee's use of the IP, including limitations on modifications, improvements ownership, competitive restrictions, or non-compete provisions.\n\n## Risk Factors and Termination Provisions\n\nIdentify the term and termination structure, including the initial term, renewal options, and conditions for early termination by either party. Summarize termination rights for breach, insolvency, or convenience, and critically analyze the consequences of termination including wind-down periods, sell-off rights, and the fate of sublicenses. Note any survival provisions that extend beyond termination.\n\nAssess liability allocation by identifying indemnification obligations, warranty provisions (or disclaimers), liability caps, and insurance requirements. Flag any unusual or particularly favorable or unfavorable risk allocation terms that deviate from market standards.\n\n## Strategic and Operational Considerations\n\nHighlight provisions affecting business operations, including quality control requirements, marking obligations, enforcement rights and obligations regarding third-party infringement, and the handling of improvements or derivative works. Note any most-favored-nations clauses, rights of first refusal, or other strategic provisions that could impact future business decisions.\n\nPresent your summary in a clear, organized format that allows readers to quickly locate specific information while understanding the agreement's overall structure and implications. Use precise legal terminology while ensuring the summary remains accessible to business stakeholders. Where terms are ambiguous or potentially problematic, flag these issues with brief explanatory notes about the potential implications or risks. Your summary should enable the reader to understand the commercial deal, assess compliance requirements, identify key dates and obligations, and spot potential legal or business risks without referring to the full agreement for routine matters.",
+  "parent_skill_id": "5b460232-3c68-43e5-be24-101410c162fd",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "summary",
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "intellectual_property_licensing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: context7 starting
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T22:02:12.776326Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Preparing skill markdown content**
+
+I'm defining a "license-agreement-summary" skill with YAML front matter using legal context fields capitalized and legal document types as Summary and Agreement. The skill will include numbered prerequisites, a compressed 80-150 line structure with Intake, Summary Template in tables, Issues/Risks, Key Dates, and Deal Snapshot sections, plus checklists and guidelines, formatted as raw SKILL.md output with code blocks inside.
+thinking
+**Detailing skill metadata and structure**
+
+I'm specifying metadata triggers emphasizing license agreement and IP licensing keywords, plus practice areas capitalized, document types as Summary and Agreement, skill mode Summarization, and US-centric guidelines. The output structure includes multiple well-defined tables (Deal Snapshot, Financial Terms, Obligations, IP Management, Termination), checklist for risk flags, and sections for ambiguities and key dates, all formatted for clarity without nested bullets and with explicit instructions for missing data.
+codex
+---
+name: license-agreement-summary
+description: Produces a structured U.S. intellectual property license agreement summary capturing parties, licensed IP, grant scope, exclusivity, territory, field of use, financial terms, obligations, restrictions, IP management, risk allocation, and termination effects. Use when summarizing IP license agreements, extracting deal terms, or flagging licensing risks. Trigger keywords: license agreement, IP license, royalty, exclusivity, field of use, sublicense, audit, termination.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Summary
+    - Agreement
+  skill_modes:
+    - Summarization
+---
+
+# IP License Agreement Summary
+
+Create a concise, decision-ready summary of the license deal and its risks.
+
+## Prerequisites
+
+1. Complete, executed agreement and all exhibits/schedules
+2. Amendments, side letters, or addenda
+3. Any referenced policies or incorporated documents
+4. Definitions section (or a list of key defined terms)
+5. Business context if provided (product, market, commercialization plan)
+
+## Output Structure / Process
+
+1. **Deal Snapshot**
+   - Use the table below. If a term is missing, write `Not specified`.
+
+| Item | Summary |
+| --- | --- |
+| Licensor | |
+| Licensee | |
+| Effective Date | |
+| Agreement Term | |
+| Renewal | |
+| Territory | |
+| Field of Use | |
+| Exclusivity | |
+| Licensed IP | |
+| Grant Scope | |
+| Sublicensing | |
+| Assignment / Change of Control | |
+| Governing Law | |
+| Dispute Resolution | |
+| Confidentiality | |
+| Notice Method | |
+
+2. **Licensed IP Details**
+   - List each IP type and identifiers.
+   - Specify ownership and any retained rights.
+
+| IP Type | Identifier / Description | Owner | Notes |
+| --- | --- | --- | --- |
+| Patents | | | |
+| Trademarks | | | |
+| Copyright | | | |
+| Trade Secrets | | | |
+| Know-How / Data | | | |
+
+3. **Financial Terms**
+
+| Item | Summary |
+| --- | --- |
+| Upfront Fee | |
+| Running Royalty Rate | |
+| Royalty Base | |
+| Minimum Royalties | |
+| Milestones | |
+| Equity / Other Consideration | |
+| Reporting Frequency | |
+| Payment Timing | |
+| Audit Rights | |
+| Royalty Adjustments | |
+| Taxes / Withholding | |
+| Currency | |
+
+4. **Performance Obligations**
+
+| Party | Obligations | Deadlines / Metrics |
+| --- | --- | --- |
+| Licensee | | |
+| Licensor | | |
+
+5. **Restrictions and Use Limits**
+   - Enumerate each restriction as a single line.
+   - Include any non-compete, field carve-outs, or no-challenge clauses.
+
+| Restriction | Applies To | Notes |
+| --- | --- | --- |
+| | | |
+
+6. **IP Management and Enforcement**
+
+| Topic | Summary |
+| --- | --- |
+| Prosecution / Maintenance | |
+| Enforcement Rights | |
+| Defense of Infringement Claims | |
+| Improvements / Derivatives | |
+| Ownership of Improvements | |
+| Marking / Quality Control | |
+
+7. **Risk Allocation**
+
+| Topic | Summary |
+| --- | --- |
+| Warranties | |
+| Disclaimers | |
+| Indemnities | |
+| Liability Cap | |
+| Exclusions from Cap | |
+| Insurance | |
+
+8. **Termination and Effects**
+
+| Item | Summary |
+| --- | --- |
+| Termination for Breach | |
+| Termination for Convenience | |
+| Termination on Insolvency | |
+| Termination on Change of Control | |
+| Cure Periods | |
+| Wind-Down / Sell-Off | |
+| Sublicense Survival | |
+| Survival Clauses | |
+
+9. **Key Dates and Notices**
+
+| Event | Date / Timing | Notice Requirement |
+| --- | --- | --- |
+| Renewal Deadline | | |
+| Milestone Dates | | |
+| Reporting Deadlines | | |
+| Cure Deadlines | | |
+
+10. **Risk Flags and Ambiguities**
+   - Provide a short checklist of any material risks or unclear terms.
+   - Use `High`, `Medium`, `Low` severity labels.
+
+| Risk / Ambiguity | Severity | Why It Matters |
+| --- | --- | --- |
+| | | |
+
+## Guidelines
+
+- Prioritize contract language over assumptions; mark missing terms as `Not specified`.
+- Quote defined terms exactly; do not paraphrase defined scope or exclusivity.
+- Flag unusual clauses: MFN, grant-back, no-challenge, broad audit rights, termination at will.
+- Call out any inconsistency between exhibits and the main body.
+- Assume U.S. context unless the agreement specifies otherwise.
+- Do not provide legal advice; summarize and flag issues only.
+tokens used
+3,148

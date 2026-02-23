@@ -1,0 +1,630 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7b-7e49-7780-8ec5-65b0f0082960
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "a7e3a39f-8665-4372-be48-79a10c7b5b33",
+  "slug": "corporate-finance-secured-promissory-note-draft",
+  "name": "Promissory Note (Secured)",
+  "summary": "Drafts a comprehensive Secured Promissory Note for commercial lending transactions in corporate finance. Ensures enforceability under the Uniform Commercial Code and state laws while protecting lender interests with precise terms for principal, interest, collateral, and repayment. Use when creating secured debt obligations backed by specific collateral for corporate borrowers.",
+  "content": "# Enhanced Prompt: Secured Promissory Note - Corporate Document Drafting\n\nYou are an expert corporate finance attorney tasked with drafting a comprehensive Secured Promissory Note for a commercial lending transaction. This document must create an enforceable debt obligation backed by specific collateral, complying with the Uniform Commercial Code and applicable state lending laws. Your draft should be precise, commercially reasonable, and protective of the lender's interests while maintaining enforceability in court.\n\n## Initial Information Gathering and Document Research\n\nBefore beginning your draft, conduct a thorough review of any existing transaction documents, term sheets, or correspondence that may inform the note's terms. Search through all available materials to identify key transaction parameters including the loan amount, interest rate structure, repayment schedule, collateral description, and any special conditions negotiated between the parties. Extract specific details such as corporate entity names, addresses, identification numbers, and authorized signatories. If prior promissory notes or security agreements exist between these parties or similar transactions, review them to maintain consistency in drafting style and to identify any provisions that should be incorporated or modified. Pay particular attention to any board resolutions, corporate authorizations, or lending policies that may dictate required terms or limitations.\n\n## Parties Identification and Corporate Authority\n\nDraft the opening section with complete legal precision regarding party identification. For the borrower entity, include the exact legal name as registered with the state of incorporation, the corporate designation (Inc., LLC, Corp., LP, LLP), the state and date of formation or incorporation, the principal place of business with complete street address, and the federal taxpayer identification number. Provide identical specificity for the lender entity. When corporate representatives will execute the document, identify each signatory by full name and official title, and confirm their authority to bind the entity through reference to corporate resolutions, operating agreements, or other governing documents.\n\nEstablish the note's effective date with clarity, specifying whether it is the date of execution, the date of funding, or another agreed-upon date. State the principal loan amount using both numerical figures and written text to eliminate any possibility of ambiguity, such as \"Two Hundred Fifty Thousand and 00/100 Dollars ($250,000.00).\" Include a brief statement of the loan's business purpose if relevant to regulatory compliance or if it affects the transaction's characterization under applicable law.\n\n## Interest Rate Provisions and Calculation Mechanics\n\nStructure the interest rate provisions with mathematical precision and commercial clarity. For fixed-rate notes, specify the exact annual percentage rate and confirm it complies with the applicable state's usury limitations. For variable-rate notes, identify the specific index by its full name and publication source (such as \"the Prime Rate as published in the 'Money Rates' section of The Wall Street Journal\"), state the margin to be added to or subtracted from the index rate, establish any floor or ceiling rates that limit rate fluctuations, and specify the frequency and timing of rate adjustments with exact dates or intervals.\n\nDetail the interest calculation methodology by specifying whether interest is simple or compound, and if compound, the compounding frequency (daily, monthly, quarterly, or annually). Identify the day-count convention that will be used, choosing from actual/360, actual/365, or 30/360 based on market standards and the parties' agreement. Establish when interest begins to accrue, typically from the funding date, and describe precisely how accrued interest will be applied against payments received. Address the treatment of partial payments and specify whether any grace period exists before late charges or default interest rates apply.\n\nInclude a default interest rate provision that increases the applicable rate upon the occurrence of an event of default, ensuring this rate remains within legal usury limits. Incorporate a savings clause that automatically reduces any interest charge to the maximum lawful rate if any provision would otherwise result in usurious interest, preserving the lender's right to collect the highest rate permitted by law.\n\n## Repayment Terms and Payment Application\n\nEstablish an unambiguous repayment schedule that specifies the exact amount of each payment, the due date for each installment (including the specific day of each month or quarter), and the total number of payments required to satisfy the obligation. Indicate whether the payment structure is interest-only for an initial period followed by amortizing payments, fully amortizing from inception, or structured with a balloon payment at maturity. Provide an amortization schedule as an exhibit if the payment amounts vary or if clarity would be enhanced by a tabular presentation.\n\nDescribe the payment waterfall by specifying the order in which payments will be applied, typically first to any costs of collection or late fees, then to accrued and unpaid interest, and finally to principal reduction, unless otherwise required by applicable law. Identify all acceptable payment methods, including wire transfer, ACH debit, or check, and provide complete payment instructions with account numbers, routing information, bank names and addresses, and any reference numbers or notations required for proper crediting. Address the treatment of payments received on non-business days, typically providing that such payments will be credited as of the next business day without additional interest accrual.\n\nEstablish the prepayment terms by stating whether the borrower may prepay principal without penalty, and if prepayment penalties apply, specify the calculation method (such as a percentage of the prepaid amount or a yield-maintenance formula), the duration of the prepayment penalty period, and any exceptions for prepayment from specific sources such as casualty insurance proceeds or condemnation awards.\n\n## Collateral Description and Security Interest Grant\n\nProvide a detailed and legally sufficient description of all collateral securing the note, ensuring the description meets UCC Article 9 requirements for creating and perfecting a security interest. For tangible personal property such as equipment or vehicles, include the make, model, year, serial number or VIN, and current location. For inventory, describe the type of goods, their general location, and any distinguishing characteristics. For accounts receivable, identify the account debtors by name or category and specify any concentration limits or eligibility criteria. For intellectual property, identify each patent, trademark, copyright, or trade secret by its registration number, filing date, and jurisdictional scope.\n\nWhen real property secures the note, include the complete legal description as it appears in the deed or title commitment, reference the recording information for any mortgage or deed of trust being executed concurrently, and specify the property's street address for convenience. For securities or investment property, identify each security by its CUSIP number, issuer name, and number of shares or principal amount.\n\nDraft a comprehensive security interest grant stating that the borrower grants to the lender a continuing first-priority security interest in all described collateral, together with all proceeds, products, offspring, rents, profits, and accessions thereof. Reference any separate security agreement that contains additional terms governing the security interest, and specify that the note and security agreement are to be read together as a single integrated transaction. Establish the borrower's affirmative obligations regarding collateral maintenance, including maintaining insurance with the lender named as loss payee or additional insured with coverage amounts sufficient to protect the lender's interest, preserving and maintaining the collateral in good operating condition and repair, refraining from selling, transferring, or further encumbering the collateral without prior written consent, providing periodic reports on collateral value or condition at intervals specified by the lender, and permitting the lender to inspect the collateral at reasonable times upon reasonable notice.\n\nConfirm the lender's right to file UCC-1 financing statements in all appropriate jurisdictions to perfect its security interest, and include the borrower's authorization for such filings and agreement to execute any additional documents necessary for perfection or continuation of the security interest.\n\n## Events of Default and Cure Provisions\n\nDefine each event that constitutes a default under the note with sufficient specificity to avoid ambiguity while providing comprehensive protection to the lender. Include as primary defaults the failure to pay any installment of principal or interest within a specified number of days after the due date (typically ten to thirty days for monetary defaults), the failure to pay any balloon payment or final installment when due, and the breach of any representation, warranty, or covenant contained in the note or any related loan document.\n\nExpand the events of default to include the borrower's insolvency, the filing of any bankruptcy or receivership proceeding by or against the borrower, the making of an assignment for the benefit of creditors, or the admission in writing of the inability to pay debts as they become due. Include as defaults any material adverse change in the borrower's financial condition or business operations that impairs the borrower's ability to perform its obligations, the failure to maintain required insurance coverage on the collateral or to provide evidence of such coverage upon request, the creation of any lien or encumbrance on the collateral without the lender's prior written consent, and the dissolution, liquidation, merger, consolidation, or sale of substantially all assets without the lender's consent.\n\nIncorporate cross-default provisions that trigger default under this note if the borrower defaults under any other material debt obligation exceeding a specified threshold amount, and include as defaults the entry of any judgment against the borrower exceeding a specified amount that remains unsatisfied or unstayed for a defined period. Address defaults arising from misrepresentations by specifying that any material misrepresentation or warranty breach in the loan documents constitutes an immediate event of default.\n\nDistinguish between monetary and non-monetary defaults in terms of notice and cure rights. For monetary defaults, provide a brief cure period (typically ten to fifteen days) after written notice from the lender. For non-monetary defaults, provide a longer cure period (typically thirty days) after written notice, or if the default cannot reasonably be cured within thirty days, such additional time as is reasonably necessary to complete the cure provided the borrower commences the cure within the thirty-day period and diligently pursues it to completion. Specify that certain defaults, such as bankruptcy, insolvency, or material misrepresentation, constitute immediate defaults without any notice or cure period.\n\n## Remedies Upon Default and Enforcement Rights\n\nUpon the occurrence and continuation of any event of default beyond applicable cure periods, grant the lender the right to declare the entire unpaid principal balance, all accrued and unpaid interest, and all other amounts owing under the note immediately due and payable without further notice or demand. Specify that acceleration is at the lender's option and that the lender may choose to proceed against the borrower for payments as they become due rather than accelerating the entire debt.\n\nDetail the lender's rights to enforce its security interest under UCC Article 9, including the right to take immediate possession of the collateral without judicial process if it can be done without breach of the peace, the right to render the collateral unusable or to dispose of it on the borrower's premises, and the right to sell, lease, or otherwise dispose of the collateral at public or private sale after providing commercially reasonable notice to the borrower. Specify that the lender may purchase the collateral at any public sale and at a private sale if the collateral is customarily sold in a recognized market or is the subject of widely distributed standard price quotations.\n\nEstablish that all of the lender's remedies are cumulative and may be exercised concurrently or successively, and that the exercise of any remedy does not preclude the exercise of any other remedy available at law or in equity. Provide that the lender may pursue judicial foreclosure, replevin, or any other legal or equitable remedy without first pursuing non-judicial remedies. Address the application of proceeds from collateral disposition by specifying that proceeds will be applied first to the reasonable costs and expenses of retaking, holding, preparing for sale, and selling the collateral (including attorneys' fees), then to the satisfaction of the obligations under the note in such order as the lender may determine.\n\nImpose on the borrower the obligation to pay all costs of collection and enforcement, including reasonable attorneys' fees and legal expenses actually incurred (whether or not litigation is commenced), court costs and filing fees, costs of repossessing, storing, insuring, and selling the collateral, and any deficiency remaining after application of collateral sale proceeds to the outstanding obligations. Include a waiver of any statutory redemption rights to the extent permitted by applicable law, and incorporate waivers of presentment for payment, demand for payment, protest, notice of protest, notice of dishonor, and notice of acceleration or intent to accelerate.\n\n## Representations, Warranties, and Covenants\n\nInclude fundamental representations and warranties from the borrower regarding its corporate existence and good standing, its authority to enter into the note and related documents, the enforceability of its obligations, the absence of conflicts with other agreements or court orders, and the accuracy of all financial information provided to the lender. Represent that the borrower has good and marketable title to the collateral, free of all liens and encumbrances except those in favor of the lender, and that the collateral descriptions are accurate and complete.\n\nEstablish affirmative covenants requiring the borrower to maintain its corporate existence and good standing, comply with all applicable laws and regulations, pay all taxes and governmental charges when due, maintain adequate insurance on its properties and operations, maintain its properties in good condition, provide financial statements and other information to the lender at specified intervals, and permit the lender to inspect its books, records, and properties upon reasonable notice.\n\nInclude negative covenants restricting the borrower from incurring additional indebtedness beyond specified limits, creating liens on its assets other than permitted liens, making distributions or dividends if a default exists or would result, engaging in mergers or acquisitions without consent, selling assets outside the ordinary course of business, making loans or investments beyond specified limits, or materially changing the nature of its business operations.\n\n## Governing Law, Jurisdiction, and Dispute Resolution\n\nDesignate the specific state whose laws will govern the interpretation, validity, and enforcement of the note, selecting the jurisdiction most favorable to the lender's interests while considering where the borrower is located, where the collateral is situated, and where the lender conducts business. Specify that the chosen state's laws apply without regard to its conflict of laws principles that might otherwise apply the law of another jurisdiction. Confirm that the governing law includes both statutory law and applicable common law principles.\n\nEstablish exclusive venue and jurisdiction for any litigation arising from or related to the note in the state and federal courts located in a specified county and state, typically the lender's principal place of business or the location of the collateral. Include the borrower's consent to personal jurisdiction in the designated courts, waiver of any objection based on improper venue or inconvenient forum, and consent to service of process by any method permitted by applicable law, including by certified mail to the address specified in the notice provisions.\n\nConsider including a jury trial waiver, which is generally enforceable in commercial transactions between sophisticated business entities, stating that both parties knowingly, voluntarily, and intentionally waive their right to trial by jury in any action or proceeding arising from or related to the note. If alternative dispute resolution is desired, specify whether mediation or arbitration is required before litigation may be commenced, identify the administering organization and applicable rules (such as the Commercial Arbitration Rules of the American Arbitration Association), designate the location where proceedings will be conducted, specify the number of arbitrators and the selection process, and address the allocation of arbitration fees and costs.\n\n## General Provisions and Boilerplate\n\nInclude a comprehensive severability clause providing that if any provision of the note is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, such determination shall not affect the validity, legality, or enforceability of the remaining provisions, which shall continue in full force and effect. If a court finds any provision unenforceable, state that the court should modify the provision to the minimum extent necessary to make it enforceable while preserving the parties' original intent.\n\nEstablish that no amendment, modification, or waiver of any provision of the note shall be effective unless in writing and signed by both the borrower and the lender, and that no course of dealing or course of performance shall operate as a waiver or amendment. Specify that no waiver of any default or breach shall constitute a waiver of any subsequent default or breach, whether of the same or a different provision, and that the lender's failure to exercise any right or remedy shall not constitute a waiver of that right or remedy or preclude its exercise at any later time.\n\nInclude a complete integration clause stating that the note, together with any exhibits and schedules attached hereto and any documents expressly referenced herein, constitutes the entire agreement between the parties concerning the subject matter and supersedes all prior negotiations, understandings, and agreements, whether written or oral. If the note is part of a larger transaction involving related documents such as a security agreement, guaranty, subordination agreement, or intercreditor agreement, reference those documents specifically and describe their relationship to the note, specifying which document controls in the event of any conflict.\n\nAddress notice requirements by specifying the complete addresses for formal notices to each party, identifying acceptable delivery methods (personal delivery, nationally recognized overnight courier, certified or registered mail with return receipt requested, or email to specified addresses), and establishing when notices are deemed received (upon delivery if by personal delivery or overnight courier, three business days after mailing if by certified mail, or upon transmission if by email with confirmation of receipt). Include a provision allowing parties to change their notice addresses by providing written notice to the other party in accordance with the notice provisions.\n\nIncorporate a binding effect provision stating that the note shall be binding upon and inure to the benefit of the parties and their respective successors and permitted assigns, and address whether the borrower may assign its obligations (typically prohibited without lender consent) and whether the lender may assign its rights (typically permitted with notice to the borrower). Include a time is of the essence provision if strict compliance with deadlines is critical to the transaction.\n\n## Execution, Acknowledgment, and Perfection\n\nPrepare signature blocks for authorized representatives of both the borrower and lender entities, including lines for the printed name, official title, and date of execution. Verify that each signatory possesses actual authority to bind their respective entity by reviewing corporate resolutions, certificates of authority, operating agreements, or other governing documents. If the borrower is a partnership, confirm that the general partner or authorized partner is executing the note. If the borrower is a limited liability company, confirm that a manager or member with authority is executing the note in accordance with the operating agreement.\n\nDetermine whether notarization is required or advisable based on the governing state's law, whether the note will be recorded in any public records, or whether notarization would enhance enforceability. If notarization is required, include appropriate notary acknowledgment language that complies with the requirements of the state where the notarization will occur, ensuring the acknowledgment form is sufficient for recording if applicable. Consider whether witness signatures would enhance enforceability in the applicable jurisdiction, particularly if the note involves real property security or if the governing state's law favors witnessed instruments.\n\nAddress UCC perfection requirements by confirming that the collateral description is sufficient for filing UCC-1 financing statements, identifying all jurisdictions where financing statements must be filed based on the borrower's location and the location of the collateral, and preparing the necessary financing statements for filing concurrently with or immediately following execution of the note. If the collateral includes motor vehicles, vessels, or aircraft, address certificate of title notation requirements. If the collateral includes intellectual property, consider federal registration requirements for patents, trademarks, and copyrights.\n\n## Final Review and Compliance Verification\n\nBefore finalizing the document, conduct a comprehensive compliance review to ensure adherence to all applicable federal and state lending laws. Verify compliance with Truth in Lending Act requirements if the loan is subject to TILA, confirm that the interest rate and all fees comply with applicable state usury laws, and ensure that the lender possesses any required licenses for commercial lending in the applicable jurisdiction. Review the note for compliance with the Equal Credit Opportunity Act, Fair Credit Reporting Act, and any state-specific consumer protection laws if applicable.\n\nConfirm that all UCC Article 9 requirements for creating and perfecting a security interest are satisfied, including a sufficient collateral description, a clear grant of the security interest, and proper filing of financing statements in all necessary jurisdictions. Verify that the default and remedies provisions comply with UCC requirements for commercially reasonable disposition of collateral and proper notice to the borrower.\n\nReview the entire document for internal consistency, ensuring that all cross-references are accurate, all defined terms are used consistently as defined, all monetary amounts and percentages are consistent throughout, and all dates and time periods are clearly stated and non-contradictory. Verify that the document is professionally formatted with appropriate headings, section numbering, and pagination, and prepare the document for execution with sufficient originally executed copies for all parties, the lender's files, and any filing offices where UCC financing statements will be recorded.\n\nConsider whether any additional documentation is necessary to complete the transaction, such as a separate security agreement with more detailed provisions governing the security interest, a guaranty from principals or affiliates of the borrower, a subordination agreement if junior debt exists, an intercreditor agreement if multiple lenders are involved, or corporate resolutions authorizing the transaction. Ensure all such related documents are prepared, executed, and delivered concurrently with the note to create a complete and enforceable secured lending transaction.",
+  "parent_skill_id": "7c2ec6da-d0c6-4bed-9b73-15979d5d69d4",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement",
+      "contract"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "corporate_finance"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:50:30.296121Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+
+thinking
+**Preparing concise secured promissory note skill**
+
+I'm planning a skill with a clean slug dropping practice-area prefixes and a clear title. The output will include a third-person description with trigger keywords, metadata capitalized properly, and structured sections: prerequisites, core instructions in tables and checklists, guidelines with dos/donts, and compliance notes. Essential legal elements will be covered compactly, including UCC Article 9 and key clauses, using [VERIFY] only if unsure.
+thinking
+---
+name: secured-promissory-note
+description: Drafts U.S. secured promissory notes for commercial lending transactions with lender-protective terms covering principal, interest mechanics, repayment, collateral grant, UCC Article 9 perfection, defaults, and remedies while aligning with state usury limits. Use when preparing a secured promissory note, lender note, commercial loan note, or collateral-backed financing note; trigger keywords: secured promissory note, security interest, collateral, UCC-1, commercial loan, corporate finance.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+    - Contract
+  skill_modes:
+    - Drafting
+---
+
+# Secured Promissory Note
+
+Drafts a secured promissory note that creates an enforceable debt obligation backed by specified collateral.
+
+## Prerequisites
+
+1. Parties: legal names, entity types, jurisdiction, and principal addresses  
+2. Term sheet covering loan amount, interest, repayment terms  
+3. Collateral schedule describing assets securing the loan  
+4. Governing law and venue provisions  
+5. Related documents such as security agreement, guaranty, and UCC-1 filing
+
+## Output Structure / Process
+
+1. Populate intake table and confirm all required items with client.  
+2. Draft the note following the section checklist below.  
+3. Insert optional provisions only if applicable.  
+4. Perform final review checklist before delivery.
+
+**Intake Fields**
+
+| Field                                | Required | Notes                                 |
+| ----------------------------------- | -------- | ----------------------------------- |
+| Borrower legal name, entity type,    | Yes      | Include exact legal name and suffix.|
+| state of organization, address       | Yes      | Principal business or registered office. |
+| Lender legal name and address        | Yes      | Specify full legal entity details. |
+| Principal amount and currency        | Yes      |                                   |
+| Interest rate, default interest rate | Yes      | Specify periodic and default rates; confirm usury limits. |
+| Repayment schedule and prepayment    | Yes      | Include timing and prepayment terms. |
+| Collateral description               | Yes      | Use specific asset categories or all assets; see collateral instructions. |
+| Governing law and venue              | Yes      | Often jurisdiction of borrower or lender. |
+| Related documents                   | Yes      | Security agreement, guaranty, UCC-1 financing statement. |
+
+**Section Checklist**
+
+- [ ] Title and date  
+- [ ] Parties and defined terms  
+- [ ] Principal amount, loan purpose, and use of proceeds  
+- [ ] Interest rates, late fees, and usury savings clause  
+- [ ] Payment terms including amortization, prepayment, application order  
+- [ ] Collateral description and grant of security interest  
+- [ ] Representations and warranties of borrower and lender  
+- [ ] Covenants (affirmative and negative)  
+- [ ] Events of default, notice requirements, and cure periods  
+- [ ] Remedies and acceleration rights, including UCC Article 9 rights  
+- [ ] Costs and attorney fees  
+- [ ] Jury trial waiver and dispute resolution  
+- [ ] Notices provisions  
+- [ ] Integration, assignment, severability clauses  
+- [ ] Execution and notarization requirements  
+- [ ] UCC-1 filing instructions and debtor jurisdiction  
+
+**Drafting Template Skeleton**
+
+```text
+SECURED PROMISSORY NOTE
+
+Date: [DATE]
+
+Parties: [BORROWER LEGAL NAME], a [ENTITY TYPE] organized under the laws of [STATE], with principal address at [ADDRESS]; and [LENDER LEGAL NAME], [ENTITY TYPE], [STATE], at [ADDRESS].
+
+1. Defined Terms
+
+2. Promise to Pay
+   Borrower promises to pay Lender principal of [PRINCIPAL AMOUNT] at [INTEREST RATE] per annum.
+
+3. Interest
+   Interest shall accrue on the outstanding principal at the stated rate. Default interest rate: [DEFAULT RATE].
+
+4. Payment Terms
+   Payments shall be made according to the schedule attached or as otherwise agreed. Prepayment allowed without penalty.
+
+5. Collateral and Security Interest
+   Borrower grants Lender a security interest in the collateral described in the attached Collateral Schedule. This security interest shall be perfected by UCC-1 filing in applicable jurisdictions.
+
+6. Representations and Warranties
+
+7. Covenants
+
+8. Events of Default
+   Lists default events such as failure to pay, insolvency, breach of representations, cross-default provisions.
+
+9. Remedies
+   Upon default, Lender may accelerate the debt, repossess collateral, and enforce rights under UCC Article 9.
+
+10. Costs and Attorney Fees
+
+11. Notices
+
+12. Governing Law and Venue
+
+13. Assignment
+
+14. Integration and Severability
+
+15. Execution and Notarization
+```
+
+**Collateral Schedule Template**
+
+```text
+Collateral Schedule
+
+Description of Collateral:
+- [Specify categories, e.g., “all equipment,” “accounts receivable,” “inventory,” or specific assets.]
+- For real property collateral, use separate mortgage or deed of trust document.
+- Ensure note cross-references related security agreement.
+```
+
+**Guidelines**
+
+- Confirm borrower and lender legal entities exactly; verify signature authority.  
+- Ensure usury limits compliance; include a usury savings clause.  
+- If loan secures real property, include cross-default and use appropriate mortgage/deed instruments.  
+- For consumer-purpose loans, evaluate applicable consumer finance laws (TILA, ECOA, FCRA) [VERIFY].  
+- File UCC-1 financing statements in debtor’s primary jurisdiction and any fixture filing location.  
+- Include commercially reasonable sale provisions and notice requirements as per UCC Article 9.  
+- Do not waive lender’s rights unnecessarily; include jury trial waiver and preservation of presentment waivers.  
+- Provide clear cure periods for defaults and methods for acceleration.  
+- Ensure assignment clause allows lender to assign without borrower consent when possible.  
+- Confirm notice addresses and methods meet legal standards.  
+- Use clear integration, severability, and execution provisions including required notarization if applicable.
+thinking
+---
+name: secured-promissory-note
+description: Drafts U.S. secured promissory notes for commercial lending transactions with lender-protective terms covering principal, interest mechanics, repayment, collateral grant, UCC Article 9 perfection, defaults, and remedies while aligning with state usury limits. Use when preparing a secured promissory note, lender note, commercial loan note, or collateral-backed financing note; trigger keywords: secured promissory note, security interest, collateral, UCC-1, commercial loan, corporate finance.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+    - Contract
+  skill_modes:
+    - Drafting
+---
+
+# Secured Promissory Note
+
+Drafts a secured promissory note that creates an enforceable debt obligation backed by specified collateral.
+
+## Prerequisites
+
+1. Parties: legal names, entity types, jurisdiction, and principal addresses  
+2. Term sheet covering loan amount, interest, repayment terms  
+3. Collateral schedule describing assets securing the loan  
+4. Governing law and venue provisions  
+5. Related documents such as security agreement, guaranty, and UCC-1 filing
+
+## Output Structure / Process
+
+1. Populate intake table and confirm all required items with client.  
+2. Draft the note following the section checklist below.  
+3. Insert optional provisions only if applicable.  
+4. Perform final review checklist before delivery.
+
+**Intake Fields**
+
+| Field                                | Required | Notes                                 |
+| ----------------------------------- | -------- | ----------------------------------- |
+| Borrower legal name, entity type,    | Yes      | Include exact legal name and suffix.|
+| state of organization, address       | Yes      | Principal business or registered office. |
+| Lender legal name and address        | Yes      | Specify full legal entity details. |
+| Principal amount and currency        | Yes      |                                   |
+| Interest rate, default interest rate | Yes      | Specify periodic and default rates; confirm usury limits. |
+| Repayment schedule and prepayment    | Yes      | Include timing and prepayment terms. |
+| Collateral description               | Yes      | Use specific asset categories or all assets; see collateral instructions. |
+| Governing law and venue              | Yes      | Often jurisdiction of borrower or lender. |
+| Related documents                   | Yes      | Security agreement, guaranty, UCC-1 financing statement. |
+
+**Section Checklist**
+
+- [ ] Title and date  
+- [ ] Parties and defined terms  
+- [ ] Principal amount, loan purpose, and use of proceeds  
+- [ ] Interest rates, late fees, and usury savings clause  
+- [ ] Payment terms including amortization, prepayment, application order  
+- [ ] Collateral description and grant of security interest  
+- [ ] Representations and warranties of borrower and lender  
+- [ ] Covenants (affirmative and negative)  
+- [ ] Events of default, notice requirements, and cure periods  
+- [ ] Remedies and acceleration rights, including UCC Article 9 rights  
+- [ ] Costs and attorney fees  
+- [ ] Governing law, venue, and jury trial waiver  
+- [ ] Assignment and successors  
+- [ ] Amendments, waivers, integration, severability  
+- [ ] Execution and notarization requirements  
+- [ ] UCC-1 filing instructions and debtor jurisdiction  
+
+**Drafting Template Skeleton**
+
+```text
+SECURED PROMISSORY NOTE
+
+Date: [DATE]
+
+Parties: [BORROWER LEGAL NAME], a [ENTITY TYPE] organized under the laws of [STATE], with principal address at [ADDRESS]; and [LENDER LEGAL NAME], [ENTITY TYPE], [STATE], at [ADDRESS].
+
+1. Defined Terms
+
+2. Promise to Pay
+   Borrower promises to pay Lender principal of [PRINCIPAL AMOUNT] at [INTEREST RATE] per annum.
+
+3. Interest
+   Interest shall accrue on the outstanding principal at the stated rate. Default interest rate: [DEFAULT RATE].
+
+4. Payment Terms
+   Payments shall be made according to the schedule attached or as otherwise agreed. Prepayment allowed without penalty.
+
+5. Collateral and Security Interest
+   Borrower grants Lender a security interest in the collateral described in the attached Collateral Schedule. This security interest shall be perfected by UCC-1 filing in applicable jurisdictions.
+
+6. Representations and Warranties
+
+7. Covenants
+
+8. Events of Default
+   Lists default events such as failure to pay, insolvency, breach of representations, cross-default provisions.
+
+9. Remedies
+   Upon default, Lender may accelerate the debt, repossess collateral, and enforce rights under UCC Article 9.
+
+10. Costs and Attorney Fees
+
+11. Governing Law, Venue, and Jury Trial Waiver
+
+12. Assignment and Successors
+
+13. Amendments, Waivers, Integration, Severability
+
+14. Execution and Notarization
+```
+
+**Collateral Schedule Template**
+
+```text
+Exhibit A - Collateral
+
+Category: [Category of Asset]  
+Specific Description: [Detailed description of collateral]  
+Location: [Physical or registration location]  
+Title/Registration: [Title or registration details if applicable]
+```
+
+**Payment Terms Table**
+
+| Item              | Entry           |
+| ----------------- | --------------- |
+| Principal         | [Amount]        |
+| Interest Rate     | [Rate]          |
+| Day Count Method  | [e.g., Actual/360] |
+| Payment Frequency | [Monthly, Quarterly, etc.] |
+| Maturity Date     | [Date]          |
+| Prepayment Penalty| [Yes/No, Terms] |
+| Late Fee          | [Amount or %]   |
+| Default Rate      | [Rate]          |
+
+**Default Matrix**
+
+| Default                  | Cure Period | Notes                                    |
+| ------------------------ | ----------- | ----------------------------------------|
+| Failure to pay           | [Days]      | Typical grace period before default     |
+| Breach of covenant       | [Days]      | Cure period as negotiated                 |
+| Insolvency/Bankruptcy    | None        | Immediate default                         |
+| Cross-default (related docs) | [Days] | Align with related agreements             |
+
+**Guidelines**
+
+- Confirm exact legal names, entity types, and addresses of borrower and lender.  
+- Include a usury savings clause; ensure conformity with state maximum lawful rates.  
+- If secured by real property, use separate mortgage or deed of trust documents and cross-default provisions.  
+- For consumer-purpose or personal borrowers, check applicable consumer lending laws (e.g., TILA, ECOA, FCRA) [VERIFY].  
+- File UCC-1 financing statement in debtor’s jurisdiction of organization and any appropriate fixture filing jurisdictions.  
+- Provide commercially reasonable sale provisions and notice requirements consistent with UCC Article 9.  
+- Include jury trial waiver and waivers of presentment, demand, and protest.  
+- Assignments should allow lender to assign without borrower consent where possible; borrower assignment usually requires consent.  
+- Specify notice addresses and acceptable delivery methods clearly.  
+- Include thorough integration, severability, amendment, and waiver clauses.  
+- Execution should include signature blocks for authorized parties and notarization if required.
+codex
+---
+name: secured-promissory-note
+description: Drafts U.S. secured promissory notes for commercial lending transactions with lender-protective terms covering principal, interest mechanics, repayment, collateral grant, UCC Article 9 perfection, defaults, and remedies while aligning with state usury limits. Use when preparing a secured promissory note, lender note, commercial loan note, or collateral-backed financing note; trigger keywords: secured promissory note, security interest, collateral, UCC-1, commercial loan, corporate finance.
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+    - Transactional
+  document_types:
+    - Agreement
+    - Contract
+  skill_modes:
+    - Drafting
+---
+
+# Secured Promissory Note
+
+Drafts an enforceable secured promissory note for a commercial loan with collateral-backed repayment.
+
+## Prerequisites
+
+1. Borrower and lender legal names, entity types, states of organization, principal addresses, and authorized signatories.
+2. Deal terms: principal amount, interest structure, payment schedule, maturity, prepayment, fees, and default rate.
+3. Collateral schedule with sufficient detail for UCC Article 9 description.
+4. Governing law, venue, and dispute resolution preferences.
+5. Related documents list: security agreement, guaranty, subordination/intercreditor, board/manager approvals.
+
+## Output Structure / Process
+
+1. Populate intake fields and confirm unresolved items.
+2. Draft the note using the section checklist and template skeleton.
+3. Insert optional clauses only when applicable.
+4. Run the final review checklist.
+
+**Intake Fields**
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| Borrower legal name, entity type, state, address | Yes | Use exact registered name and suffix. |
+| Lender legal name, entity type, state, address | Yes | Match organizational documents. |
+| Effective date and funding date | Yes | Specify if different. |
+| Principal amount | Yes | Numeric and words. |
+| Interest rate type | Yes | Fixed or variable, index source, margin, floor/cap. |
+| Day-count convention | Yes | `actual/360`, `actual/365`, or `30/360`. |
+| Payment schedule | Yes | Installment dates, frequency, amortization or balloon. |
+| Late fee and grace period | Yes | If any. |
+| Default interest rate | Yes | Confirm within legal limits. |
+| Prepayment | Yes | Permitted, penalty terms, exceptions. |
+| Collateral description | Yes | Category and itemized detail. |
+| UCC filing jurisdictions | Yes | Debtor location and any fixture/real property filings. |
+| Covenants | Optional | Financial reporting, insurance, restrictions. |
+| Cross-default thresholds | Optional | Other debt, judgments, etc. |
+| Notice addresses and methods | Yes | Delivery methods and deemed receipt. |
+
+**Section Checklist**
+
+- [ ] Title, date, and parties.
+- [ ] Promise to pay; principal; use of proceeds if needed.
+- [ ] Interest rate mechanics; day-count; default rate; usury savings clause.
+- [ ] Payment schedule; application waterfall; non-business day handling.
+- [ ] Prepayment terms and penalties if any.
+- [ ] Collateral grant; proceeds; reference to security agreement.
+- [ ] Perfection authorization for UCC-1 filings.
+- [ ] Representations and warranties.
+- [ ] Affirmative and negative covenants.
+- [ ] Events of default; notice and cure periods.
+- [ ] Remedies; acceleration; UCC Article 9 enforcement; costs and fees.
+- [ ] Waivers (presentment, demand, notice, etc.) if desired.
+- [ ] Governing law; venue; jury trial waiver or ADR.
+- [ ] Notices; assignments; successors; integration; severability.
+- [ ] Signature blocks and execution formalities.
+
+**Core Clause Template**
+
+```text
+SECURED PROMISSORY NOTE
+
+Date: [DATE]
+
+Borrower: [LEGAL NAME], [ENTITY TYPE], [STATE], [ADDRESS]
+Lender: [LEGAL NAME], [ENTITY TYPE], [STATE], [ADDRESS]
+
+1. Promise to Pay; Principal.
+2. Interest Rate; Day-Count; Default Rate; Usury Savings.
+3. Payment Terms; Application of Payments; Late Charges; Non-Business Days.
+4. Prepayment.
+5. Collateral; Security Interest Grant; Proceeds; Perfection Authorization.
+6. Representations and Warranties.
+7. Covenants.
+8. Events of Default; Notice and Cure.
+9. Remedies; Acceleration; UCC Article 9 Rights; Costs and Attorneys' Fees.
+10. Waivers.
+11. Governing Law; Venue; Jury Trial Waiver or ADR.
+12. Notices.
+13. Assignments; Successors; Amendments; Integration; Severability.
+14. Execution.
+```
+
+**Collateral Schedule Template**
+
+```text
+Exhibit A - Collateral
+Category:
+Specific Description:
+Location:
+Title/Registration Data (if applicable):
+```
+
+**Optional Clauses**
+
+- [ ] Balloon payment provision.
+- [ ] Interest-only period.
+- [ ] Cross-default to other material debt.
+- [ ] Judgment default threshold.
+- [ ] MAC clause.
+- [ ] Subordination or intercreditor references.
+- [ ] Cash dominion or lockbox.
+
+**Final Review Checklist**
+
+- [ ] Defined terms used consistently.
+- [ ] Interest and fees within applicable limits.
+- [ ] Collateral description sufficient for UCC filing.
+- [ ] Cure periods aligned with lender policy.
+- [ ] Notice addresses and delivery methods complete.
+- [ ] Signatory authority confirmed.
+
+## Guidelines
+
+- Keep the security interest grant and collateral description UCC Article 9 compliant and commercially reasonable.
+- If collateral includes real property, reference the mortgage or deed of trust and do not rely on the note alone.
+- If collateral includes titled assets or IP, add perfection steps consistent with title or federal registration practices.
+- Use a usury savings clause and confirm default interest and late fees do not exceed lawful limits.
+- Distinguish monetary vs non-monetary defaults and provide explicit cure periods where intended.
+- Ensure remedies include acceleration and Article 9 disposition rights with commercially reasonable notice.
+- Do not include consumer-law disclosures unless the loan is consumer-purpose or to an individual borrower.
+- Match assignment language to the deal: borrower assignment typically prohibited; lender assignment typically permitted with notice.
+- Include jury trial waiver only if enforceable in the governing jurisdiction and the parties are sophisticated.
+tokens used
+19,664

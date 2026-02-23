@@ -1,0 +1,41 @@
+{
+  "id": "6456f778-30dd-4085-b8a9-0ed3a6bf4b1f",
+  "slug": "response-to-petition-dissolution-marriage",
+  "name": "Response to Petition",
+  "summary": "Drafts a comprehensive Response to Petition for Dissolution of Marriage on behalf of the respondent in family law litigation. It addresses all allegations in the petition, corrects inaccuracies, confirms or disputes statistical facts like marriage and separation dates, and states the respondent's positions on custody, support, and property. Use it during the pleadings phase to formally respond within statutory deadlines and avoid default judgment.",
+  "content": "# Enhanced Prompt: Response to Petition for Dissolution of Marriage\n\nYou are tasked with drafting a comprehensive Response to Petition for Dissolution of Marriage on behalf of the respondent. This is a critical litigation document that serves as the respondent's formal answer to all allegations and requests made in the divorce petition, and it establishes the respondent's position on all material issues in the case.\n\n## Document Purpose and Legal Context\n\nThe Response to Petition is the respondent's opportunity to admit or deny the petitioner's allegations, correct any inaccuracies, and affirmatively state their own requests for relief. This document must comply with all applicable family law procedural rules and local court requirements. The response must be filed within the statutory deadline (typically 30 days from service of the petition) to avoid default. Every allegation in the petition must be addressed\u2014failure to deny an allegation may constitute an admission.\n\n## Required Information Gathering\n\nBegin by thoroughly reviewing all available case documents, particularly the original Petition for Dissolution of Marriage. Search through the client's uploaded documents to identify and extract key factual information including the exact date of marriage, date of separation, names and birthdates of any minor children, details of marital property and debts, income information for both parties, and any existing custody or support arrangements. Pay careful attention to any allegations made in the petition that require specific denial or correction.\n\nIdentify the proper court name, case number, and ensure accurate spelling of both the petitioner's and respondent's full legal names as they appear in the original petition. Verify statistical information such as marriage date and separation date against available documentation, noting any discrepancies that the respondent needs to correct.\n\n## Document Structure and Content Requirements\n\n**Caption and Case Information**: Format the caption to match the court's requirements, including the full court name, county, case number, and parties' names exactly as they appear in the petition. The respondent's name should appear in the same format throughout.\n\n**Jurisdictional Allegations**: Address the petition's jurisdictional allegations regarding residency requirements and domicile. If the respondent agrees with the petitioner's statements about jurisdiction, indicate agreement. If there are any inaccuracies, provide the correct information with specificity.\n\n**Statistical Facts Response**: Confirm or correct the date of marriage and date of separation as stated in the petition. If the respondent disputes the separation date, provide the date the respondent believes is accurate and explain the basis for the disagreement. Address any other statistical information such as length of marriage and whether there are minor children of the marriage.\n\n**Child Custody and Visitation**: Articulate the respondent's position on legal and physical custody of any minor children. Specify whether the respondent seeks sole custody, joint custody, or a particular custodial arrangement. Detail the proposed visitation schedule if the respondent is not seeking primary physical custody. Address any concerns about the petitioner's proposed custody arrangement and explain why the respondent's proposal serves the children's best interests. Reference any relevant facts from case documents about parenting history, the children's current living situation, school enrollment, and each parent's involvement in the children's lives.\n\n**Child Support and Spousal Support**: State the respondent's position on child support, including whether the respondent agrees to pay support, seeks support from the petitioner, or requests a deviation from guideline support with justification. Address spousal support by indicating whether the respondent seeks support, opposes the petitioner's request for support, or agrees to pay support for a specified duration. Include relevant financial information from available documents about each party's income, earning capacity, and financial needs.\n\n**Property Division**: Provide the respondent's position on characterization and division of all significant assets, including the family residence, other real property, retirement accounts, bank accounts, vehicles, and business interests. Identify any separate property claims the respondent wishes to assert. Address the petitioner's proposed property division and state whether the respondent agrees or seeks a different division. Similarly, address responsibility for debts, including mortgages, credit cards, loans, and other liabilities, specifying which debts the respondent believes should be assigned to each party.\n\n**Attorney Fees and Costs**: State the respondent's position on attorney fees and costs, including any request for the petitioner to contribute to the respondent's legal fees based on disparity in access to funds or income.\n\n## Tone and Drafting Standards\n\nDraft the response in formal legal language appropriate for a court filing while remaining clear and accessible. Use numbered paragraphs for each separate allegation or statement. Maintain a professional, non-inflammatory tone even when denying allegations or disputing the petitioner's requests. Avoid argumentative language\u2014save legal arguments for supporting declarations or briefs.\n\nEach response to a petition allegation should follow this format: admit if true, deny if false, or state lack of sufficient information to admit or deny if the respondent genuinely lacks knowledge. When denying an allegation, consider whether a qualified response is more accurate (for example, \"Respondent admits X but denies Y\").\n\n## Verification and Signature Requirements\n\nInclude a verification section where the respondent declares under penalty of perjury that the contents of the response are true and correct to the best of their knowledge. Provide signature lines for the respondent's signature and date, and if the respondent is represented by counsel, include counsel's signature block with State Bar number, firm name, address, telephone number, and email address.\n\n## Final Output Format\n\nGenerate a complete, court-ready Response to Petition formatted as a formal legal pleading with appropriate spacing, margins, and pagination. Include a footer on each page with the document title and page numbers. Ensure all required sections are present and properly organized. The final document should be ready for the respondent's review and signature, requiring only case-specific customization based on the client's particular circumstances and strategic objectives.",
+  "parent_skill_id": "ea6bee4b-2309-49d2-850f-155824f2b288",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "respondent"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "family-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

@@ -1,0 +1,296 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c73-3f07-7890-8b9b-45ace1b1d224
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "50d9aee7-006d-48c1-bb98-86e312f0c40a",
+  "slug": "draft-pre-trial-statement-commercial-litigation",
+  "name": "Pre-Trial Statement",
+  "summary": "Drafts a comprehensive Pre-Trial Statement for commercial litigation cases, outlining the procedural history, undisputed facts, contested issues of fact and law, and trial requirements. Reviews pleadings, discovery, and depositions to ensure compliance with court-specific formatting and jurisdictional rules. Use this skill during the pre-trial phase to provide the court and opposing counsel with a clear case roadmap.",
+  "content": "# Pre-Trial Statement Drafting Workflow\n\nYou are tasked with drafting a comprehensive Pre-Trial Statement for litigation proceedings. This document serves as a critical roadmap for the court and opposing counsel, outlining the case's current posture, anticipated evidence, and trial requirements.\n\n## Initial Case Assessment and Document Review\n\nBegin by conducting a thorough review of all uploaded case materials to establish the factual and procedural foundation. Search through pleadings, discovery responses, deposition transcripts, and correspondence to extract key information about the parties, claims, defenses, and case timeline. Pay particular attention to any stipulations or agreements already reached between the parties, as these will form the basis of your undisputed facts section. Identify all witnesses mentioned across documents, noting their anticipated testimony and relevance to specific claims or defenses.\n\n## Caption and Jurisdictional Requirements\n\nDraft the caption according to the specific court's local rules and formatting requirements. Include the full court name, case number, judge assignment if applicable, and complete party designations with their procedural roles (plaintiff, defendant, cross-complainant, etc.). Research the jurisdiction's specific requirements for pre-trial statement formatting, as courts often have particular preferences regarding font, margins, section organization, and filing procedures. Verify whether the court requires electronic filing and any associated technical specifications.\n\n## Case Introduction and Procedural History\n\nCompose a concise introduction that provides the court with essential context. Summarize the nature of the action, the primary legal theories at issue, and the relief sought by each party. Include a brief procedural history highlighting key dates such as filing, service, significant motion practice, discovery cutoff, and any previous court conferences or orders. This section should be factual and neutral in tone, setting the stage for the more detailed sections that follow while giving the court an immediate understanding of the case's scope and current status.\n\n## Statement of Undisputed Facts\n\nCompile a comprehensive list of facts that all parties have agreed are not in dispute. Review stipulations, responses to requests for admission, and any joint pre-trial statements or meet-and-confer correspondence to identify these agreed-upon facts. Present each fact as a separate, numbered paragraph using clear, declarative sentences. These facts should establish uncontroversial background information, timeline elements, and foundational matters that will streamline the trial. Ensure each fact is truly undisputed\u2014if there is any ambiguity or partial disagreement, the matter belongs in the contested issues section instead.\n\n## Contested Issues of Fact and Law\n\nArticulate the specific factual disputes that require resolution at trial, presenting each party's position clearly and objectively. For each contested factual issue, briefly explain why it is material to the outcome. Then address the legal issues in dispute, identifying the applicable statutes, regulations, or common law principles at issue. Research and cite controlling authority for each legal proposition, ensuring citations are properly formatted in Bluebook style. When legal standards are disputed, present both parties' interpretations and the supporting authority for each position. This section should demonstrate to the court exactly what questions\u2014both factual and legal\u2014the trial must resolve.\n\n## Witness List and Testimony Summaries\n\nPrepare a detailed witness list organized by party. For each witness, provide their full name, address (or indicate if address is protected), and a concise summary of their anticipated testimony. Explain how each witness's testimony relates to specific claims, defenses, or elements that must be proven. Distinguish between fact witnesses and expert witnesses, providing expert qualifications and the general subject matter of their expected opinions. If expert reports have been exchanged, reference the key opinions and methodologies. Note any witnesses who may be called by multiple parties and indicate whether testimony will be live or by deposition designation.\n\n## Exhibits and Documentary Evidence\n\nCreate a comprehensive exhibit list identifying all documents, physical evidence, and demonstrative aids you anticipate introducing at trial. Organize exhibits logically, typically by chronological order or by topic, and assign each a unique identifier. For each exhibit, provide a brief description sufficient for the court and opposing counsel to identify it, note the source or custodian, and indicate whether authenticity or admissibility is disputed. Reference any exhibits that have been pre-marked during depositions. Address any anticipated evidentiary issues, such as hearsay objections, authentication requirements, or relevance disputes, and cite the applicable evidence rules. If voluminous documents will be introduced, explain your organization system and any summaries you plan to use.\n\n## Trial Logistics and Special Requirements\n\nProvide a realistic estimate of trial duration based on the number of witnesses, complexity of issues, and anticipated examination time. Break down the estimate by party if helpful (e.g., plaintiff's case-in-chief: 3 days; defendant's case: 2 days). Identify any special scheduling needs, such as witness availability constraints, interpreter requirements, or technology needs for presenting electronic evidence. Note any pending motions that may affect trial preparation, including motions in limine, Daubert challenges to expert testimony, or summary judgment motions. If jury instructions are at issue, identify the disputed instructions and the legal basis for your position. Specify any requests for special verdict forms or bifurcation of issues.\n\n## Settlement Posture and Alternative Dispute Resolution\n\nBriefly and professionally address the current settlement status without disclosing privileged communications or specific settlement positions. Indicate whether the parties have engaged in meaningful settlement discussions, participated in mediation, or are willing to participate in further settlement conferences. Note any court-ordered settlement conference dates. If settlement appears unlikely, state this diplomatically while remaining open to the possibility. This section demonstrates to the court that parties have fulfilled their obligation to explore resolution while managing expectations about the likelihood of trial.\n\n## Final Document Assembly and Quality Control\n\nOnce all sections are complete, assemble the full Pre-Trial Statement ensuring consistent formatting, proper pagination, and a complete table of contents if required by local rules. Verify that all citations are accurate and properly formatted, all cross-references are correct, and the document complies with any page limits or other restrictions. Include a signature block with the attorney's name, bar number, firm information, and contact details. Prepare the document for filing according to the court's requirements, whether electronic or paper filing. The final document should be professional, comprehensive, and demonstrate thorough trial preparation while serving as an effective roadmap for the court and all parties.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "plaintiff",
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: linear starting
+mcp: case-dev-docs starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:41:30.631928Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+2026-02-23T21:41:30.867093Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:41:31.882675Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:41:32.682804Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e34cae07a709-SJC)
+2026-02-23T21:41:33.721417Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e3533b9fcdb3-SJC)
+2026-02-23T21:41:35.247864Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e35c0b02df82-SJC)
+2026-02-23T21:41:37.325333Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e369d887da5a-SJC)
+2026-02-23T21:41:40.873228Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e3800fe3938c-SJC
+codex
+---
+name: pre-trial-statement
+description: Drafts a U.S. litigation pre-trial statement (pleading-stage roadmap) for civil/commercial matters. Use when preparing for pretrial conferences, final pretrial orders, or trial to convert pleadings/discovery/deposition materials into a court-compliant filing. Includes undisputed facts, contested issues, witness and exhibit summaries, trial logistics, and settlement posture. Trigger keywords: pre-trial statement, pretrial statement, trial roadmap, witness list, exhibit list, disputed issues of fact, disputed issues of law.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Pleading
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Trial Statement
+
+Draft a court-ready pre-trial statement that narrows issues, fixes trial assumptions, and prevents evidentiary surprises.
+
+## Prerequisites
+
+1. Confirm applicable jurisdiction and court-specific filing rules, including local rule templates, exhibit-labeling conventions, page/style limits, and electronic filing requirements.
+2. Gather core case file: complaint, answer/counterclaim, motions/orders, case management orders, discovery responses, deposition excerpts, correspondence, stipulations, admissions, and prior pretrial conferences.
+3. Identify and verify:
+   - Party identities and roles
+   - Claims, defenses, and relief requested
+   - Key deadlines (discovery cutoff, expert disclosure cutoff, trial date, conference dates)
+4. Confirm protected information and sealing requirements before describing addresses, medical records, trade secrets, or sensitive personal data.
+5. Confirm witness availability and whether testimony is live, by stipulation, or by deposition designations.
+6. Confirm exhibit status: produced, pre-marked, contested as to authenticity/admissibility, and any redactions.
+7. Confirm whether settlement/ADR obligations have been satisfied by case plan or court order.
+
+## Output Structure / Process
+
+### 1) Source matrix (required before drafting)
+| Item | Required inputs | Output in statement |
+|---|---|---|
+| Caption | Court info, case number, parties, judge | Exact caption line |
+| Procedural history | Filings and orders log | Timeline summary |
+| Undisputed facts | Stipulations, admissions, agreed items | Numbered facts section |
+| Contested issues | Pleadings/deposition conflicts | Fact/law dispute sections |
+| Witness roster | Interview notes, deposition designations, party witness lists | Party-organized witness table |
+| Exhibits | Document lists and custodians | Exhibit index + objections notes |
+| Trial posture | Motions, scheduling orders, trial settings | Trial requirements section |
+
+### 2) Build statement in this order
+1. Draft complete caption and trial-ready cover block.
+2. Insert procedural posture and case history in chronological, neutral style.
+3. Construct **Undisputed Facts** as numbered declarative paragraphs only (no mixed legal conclusions).
+4. Construct **Contested Facts of Fact** with issue title + why material.
+5. Construct **Contested Legal Issues** with each side position and basis for disagreement.
+6. Add **Witness Summaries** (party-organized):
+   - Full name
+   - Protected? (yes/no)
+   - Testimony topic
+   - Party to call
+   - Live or designation
+   - Expected objection hotspots
+7. Add **Exhibits** as indexed list.
+8. Add **Trial Logistics** and **Ancillary Matters** (motions in limine, evidentiary fights, expert challenges).
+9. Add settlement/ADR status statement without privileged detail.
+10. Run final quality pass against jurisdictional formatting and filing instructions, then paginate/sign.
+
+### 3) Structured templates
+
+```text
+COURT:
+CASE NO.:
+JUDGE:
+PLAINTIFF / DEFENDANT:
+NATURE OF ACTION:
+REMAND / HEARING / TRIAL DATE:
+PARTY RESPONSIBLE FOR FILEING:
+```
+
+```text
+DISPUTED ISSUE TABLE
+Issue | Governing Rule/Authority | Party A Position | Party B Position | Why Material | Proposed Relief
+```
+
+```text
+WITNESS TABLE
+Witness | Party | Type (Fact/Expert) | Core Testimony | Source | Objection Risks | Live/By Deposition
+```
+
+```text
+EXHIBIT TABLE
+Exhibit ID | Description | Custodian/Source | Evidentiary Dispute | Intended Use | Foundation Need
+```
+
+## Guidelines
+
+- Keep separate sections mandatory: caption, procedural history, undisputed facts, disputed facts/law, witnesses, exhibits, trial logistics, ADR posture.
+- Each disputed matter must be grounded in source citations from the file; never restate hearsay as fact.
+- Every paragraph in undisputed facts must be unequivocally non-controversial.
+- Use neutral tone; avoid argumentative rhetoric.
+- Preserve litigation positions, but do not reveal settlement demands, mediation positions, or privileged strategy.
+- If local rules conflict with this template, local rules govern.
+- For admissibility references, cite only authority and rule text you can verify in the case materials and governing law [VERIFY].
+tokens used
+5,123

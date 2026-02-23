@@ -1,0 +1,41 @@
+{
+  "id": "cd74d1ea-708d-42bf-8346-6b524af39e17",
+  "slug": "litigation-bankruptcy-means-test-calculation",
+  "name": "Means Test Calculation ",
+  "summary": "Analyzes paystub data and relevant documents to calculate the debtor's annualized gross income for the bankruptcy means test. Determines if the income falls below or above the applicable state median income based on household size and filing date. Use this skill during pre-filing assessment to evaluate eligibility for Chapter 7 bankruptcy.",
+  "content": "Here is a generic prompt for a system with access to paystub and other relevant documents to determine if an individual's income is under or over the median income for bankruptcy purposes. This prompt is designed to be comprehensive and adaptable to various scenarios.\n\n### **Prompt:**\n\n**Objective:** Determine if the debtor's annualized gross income is under or over the applicable state median income based on their household size for the purposes of the bankruptcy means test.\n\n**Required Information from Documents:**\n*   **Filing Date of the Bankruptcy Petition:** The exact date the case is filed.\n*   **Debtor's State of Residence:** The state where the debtor resides.\n*   **Debtor's Household Size:** The number of individuals in the debtor's household.\n*   **Paystub Information:** Access to all paystubs for at least the seven months prior to the bankruptcy filing date. This should include:\n    *   Pay Period Start and End Dates\n    *   Pay Date\n    *   Gross Pay for the Pay Period\n    *   Year-to-Date (YTD) Gross Pay\n    *   Deductions, specifically including:\n        *   Federal Withholding Tax\n        *   State Withholding Tax\n        *   Social Security Tax\n        *   Medicare Tax\n\n**Step-by-Step Calculation Instructions:**\n\n1.  **Determine the 6-Month Look-Back Period:** Identify the six full calendar months immediately preceding the bankruptcy filing date.\n    *   **Example:** For a case filed anytime in October 2025, the look-back period is April 1, 2025, to September 30, 2025. For a case filed in November 2025, the look-back period is May 1, 2025, to October 31, 2025.\n\n2.  **Calculate Total Gross Income for the 6-Month Period:**\n    *   **Primary Method (Year-to-Date Subtraction):**\n        a.  Find the last paystub received *before* the end of the 6-month look-back period (e.g., last paystub before October 1, 2025, for a filing in October). Note the YTD gross income.\n        b.  Find the last paystub received *before* the start of the 6-month look-back period (e.g., last paystub before April 1, 2025). Note the YTD gross income.\n        c.  Subtract the YTD gross from the earlier paystub from the YTD gross of the later paystub to get the total gross income for the look-back period.\n        d.  **Adjustments:** If a paystub's period crosses the start date of the look-back period, you must adjust the YTD amount to reflect income only up to the day before the look-back period begins. For example, if a paystub covers the period from March 20, 2025, to April 5, 2025, and the look-back period starts on April 1, 2025, you must deduct the pro-rated income for April 1-5 from the YTD figure of that paystub to accurately determine the YTD as of March 31, 2025.\n    *   **Secondary Method (If YTD is unavailable or unreliable):**\n        a.  Identify all paychecks received within the 6-month look-back period.\n        b.  Sum the gross income from each of these paychecks to determine the total gross income for the period. Be precise about pay dates falling within the period.\n\n3.  **Calculate Average Monthly Gross Income:**\n    *   Divide the total gross income for the 6-month period by 6.\n\n4.  **Calculate Annualized Gross Income:**\n    *   Multiply the average monthly gross income by 12.\n\n5.  **Identify Applicable Median Income:**\n    *   Using the provided state median income tables for cases filed on or after May 15, 2025, find the income limit corresponding to the debtor's state of residence and household size.\n    *   For households larger than 4, add $11,100 for each additional person to the 4-person household income limit for that state.\n\n6.  **Compare and Conclude:**\n    *   Compare the debtor's calculated annualized gross income to the applicable state median income.\n    *   If the debtor's annualized gross income is less than or equal to the state median income, the debtor is **under median**.\n    *   If the debtor's annualized gross income is greater than the state median income, the debtor is **over median**.\n\n**Deductible Expenses (for this initial median income test, focus on gross income; however, if further means testing is required for over-median debtors, the following deductions from the paystub will be relevant):**\n*   Federal Withholding tax\n*   State Withholding tax\n*   Social Security Tax\n*   Medicare Tax\n\n**Final Output:**\n*   The 6-month look-back period.\n*   The calculated total gross income for the 6-month period.\n*   The calculated average monthly gross income.\n*   The calculated annualized gross income.\n*   The applicable state median income for the debtor's household size.\n*   A clear statement indicating whether the debtor is \"Under Median\" or \"Over Median.\"",
+  "parent_skill_id": "e2706f93-2f57-48d2-adf6-247cbb765062",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "petitioner"
+    ],
+    "skill_modes": [
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "analysis"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "bankruptcy-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

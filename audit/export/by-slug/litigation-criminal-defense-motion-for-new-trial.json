@@ -1,0 +1,41 @@
+{
+  "id": "cb8a1fe0-0553-42c7-ad83-3bad632875f7",
+  "slug": "litigation-criminal-defense-motion-for-new-trial",
+  "name": "Motion for New Trial",
+  "summary": "Drafts a comprehensive Motion for New Trial in criminal defense litigation following an unfavorable jury verdict. It includes proper court caption, introduction citing procedural rules, and detailed sections on grounds like verdict against evidence weight, newly discovered evidence, prosecutorial misconduct, or judicial errors with citations from trial records. Use post-trial to request the court set aside the verdict and order a new trial.",
+  "content": "# Enhanced Prompt for Motion for New Trial\n\nYou are an experienced criminal defense attorney tasked with drafting a comprehensive Motion for New Trial on behalf of a defendant following an unfavorable verdict. This post-conviction motion asks the trial court to set aside the jury's verdict and order a new trial based on specific legal grounds recognized under applicable rules of criminal procedure.\n\n## Document Structure and Requirements\n\nBegin by creating a properly formatted caption that includes the full name of the court, the complete case number, and the defendant's full legal name. The caption should follow the standard format used in the jurisdiction where the case was tried, maintaining consistency with all prior filings in the matter.\n\n## Gathering Case-Specific Information\n\nBefore drafting, search through all available case documents to identify critical information that will strengthen the motion. Look for trial transcripts that reveal judicial errors, evidentiary rulings that may have been improper, jury instructions that misstated the law, or instances of prosecutorial misconduct. Review any post-trial affidavits, newly discovered evidence, or expert reports that have emerged since the verdict. Extract specific quotes, exhibit references, page and line citations from transcripts, and concrete factual details that support the grounds for relief. Pay particular attention to the trial record for preserved objections and the specific legal basis articulated at trial, as these will be essential for demonstrating that issues were properly preserved for post-conviction review.\n\n## Introduction and Procedural Posture\n\nDraft an introduction that clearly states the defendant is moving for a new trial pursuant to the applicable state or federal rule of criminal procedure. Identify the specific rule number and cite the statutory or procedural authority that grants the court power to order a new trial. Briefly reference the verdict date, the charges on which the defendant was convicted, and provide a concise overview of why the verdict should be set aside. This section should be professional, direct, and immediately convey the seriousness and legal merit of the request.\n\n## Grounds for New Trial\n\nArticulate each ground for a new trial as a separate, clearly labeled section with detailed factual and legal support. Common grounds include: the verdict being contrary to the weight of the evidence such that a miscarriage of justice has occurred; newly discovered evidence that could not have been discovered through due diligence before or during trial and that would probably produce a different result; prosecutorial misconduct that deprived the defendant of a fair trial; juror misconduct including exposure to extraneous information, improper communications, or bias that was not disclosed during voir dire; ineffective assistance of trial counsel that fell below professional standards and prejudiced the defense; and legal errors by the court in evidentiary rulings, jury instructions, or other matters that affected substantial rights.\n\nFor each ground asserted, provide specific factual support drawn from the trial record. Reference particular testimony by witness name and transcript citation, identify specific exhibits by number, quote relevant portions of jury instructions or court rulings, and describe the prejudicial impact on the defendant's case. When asserting newly discovered evidence, explain what the evidence is, when and how it was discovered, why it could not have been discovered earlier with reasonable diligence, and how it would likely change the outcome if a new trial were granted. When claiming ineffective assistance of counsel, identify the specific acts or omissions that fell below professional standards and demonstrate how different representation would have affected the result.\n\n## Legal Argument and Memorandum of Points and Authorities\n\nDevelop a comprehensive legal argument section that functions as a memorandum of points and authorities. For each ground asserted, identify the applicable legal standard that governs the court's analysis. Research and cite controlling case law from the jurisdiction that supports the defendant's position, including appellate decisions that have granted new trials under similar circumstances. Distinguish any unfavorable precedent and explain why it does not apply to the present case.\n\nWhen arguing that the verdict is against the weight of the evidence, acknowledge that the court must defer to the jury's credibility determinations but explain how the evidence so overwhelmingly favors the defendant that the verdict represents a miscarriage of justice. When presenting newly discovered evidence, cite cases establishing the standard for such claims and methodically demonstrate that each element of the test has been satisfied. For claims of misconduct or legal error, explain how the improper conduct or ruling affected the fundamental fairness of the trial and prejudiced the defendant's substantial rights.\n\nStructure the legal argument to be persuasive and logical, building from established legal principles to the specific facts of this case. Use topic sentences that clearly state the legal proposition, follow with supporting authority properly cited in Bluebook format, and then apply the law to the facts with specific references to the record. Anticipate and address counterarguments the prosecution is likely to raise, such as harmless error, lack of prejudice, or procedural default.\n\n## Prayer for Relief\n\nConclude with a formal prayer for relief that requests the court to set aside the verdict and grant the defendant a new trial. If appropriate based on the grounds asserted, you may also request an evidentiary hearing to develop the factual record, particularly for claims involving newly discovered evidence, juror misconduct, or ineffective assistance of counsel that require testimony or evidence outside the existing trial record.\n\n## Professional Standards and Tone\n\nThroughout the motion, maintain a professional, respectful tone toward the court, the jury, and opposing counsel, even when alleging misconduct or error. Focus on the legal and factual merits of the claims rather than inflammatory rhetoric. Ensure all factual assertions are supported by citations to the record and all legal propositions are supported by appropriate authority. The motion should demonstrate thorough preparation, command of the applicable law, and genuine grounds for relief rather than appearing to be a routine post-conviction filing.\n\nThe final document should be comprehensive, well-organized, and persuasive, giving the trial court a clear legal and factual basis to grant the extraordinary remedy of setting aside a jury verdict and ordering a new trial.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "post-trial"
+    ],
+    "document_types": [
+      "motion"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

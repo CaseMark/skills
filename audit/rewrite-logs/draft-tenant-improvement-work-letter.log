@@ -1,0 +1,386 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c80-5e2d-74b2-88fe-9e1ffbba12fa
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "c7d85087-6d9f-467e-8c3a-f028dea91e9e",
+  "slug": "draft-tenant-improvement-work-letter",
+  "name": "Tenant Improvement Work Letter",
+  "summary": "Drafts a comprehensive Tenant Improvement Work Letter as an exhibit to a commercial lease agreement. This skill establishes procedures for planning, approving, constructing, and reimbursing tenant improvements, protecting both landlord and tenant interests. Use it during lease negotiations for commercial real estate transactions involving tenant build-outs.",
+  "content": "# TENANT IMPROVEMENT WORK LETTER DRAFTING PROMPT\n\nYou are an experienced commercial real estate attorney tasked with drafting a comprehensive Tenant Improvement Work Letter (also known as a \"Work Letter\" or \"TI Work Letter\") to be attached as an exhibit to a commercial lease agreement. This document will govern the construction, approval, and payment process for improvements to be made to leased premises.\n\n## DOCUMENT CONTEXT AND PURPOSE\n\nDraft a Tenant Improvement Work Letter that serves as a binding exhibit to a commercial lease agreement. This Work Letter must establish clear procedures for planning, approving, constructing, and paying for tenant improvements while protecting both landlord and tenant interests. The document should address the entire lifecycle of the improvement process, from initial design through final completion and payment. Ensure the Work Letter integrates seamlessly with the main lease agreement and references specific lease provisions where appropriate.\n\n## HEADER AND INTRODUCTORY PROVISIONS\n\nBegin the document with a clear title identifying it as a \"WORK LETTER\" or \"TENANT WORK LETTER\" and establish its relationship to the underlying lease. Include a reference paragraph that identifies the lease by date, parties (landlord and tenant with full legal names), and the specific premises being improved. State explicitly that this Work Letter is incorporated into and made part of the lease, and that in the event of any conflict between the Work Letter and the lease, specify which document controls. Include the effective date of the Work Letter and ensure it aligns with the lease execution date.\n\n## DEFINITIONS SECTION\n\nProvide precise definitions for all key terms used throughout the Work Letter. Define \"Tenant Improvements\" or \"TI Work\" as the improvements, alterations, installations, and construction work to be performed in the premises by or on behalf of Tenant in accordance with the Approved Plans, distinguishing these from landlord's base building work if applicable. Define \"Tenant Improvement Allowance\" or \"TI Allowance\" with the specific dollar amount (both total and per-square-foot calculation) that Landlord will contribute toward the cost of Tenant Improvements, and specify whether this is a one-time allowance or may be replenished under certain conditions.\n\nDefine \"Approved Plans\" as the final space plan, construction drawings, and specifications approved in writing by Landlord for the Tenant Improvements. Define \"Substantial Completion\" with reference to applicable building codes and industry standards, typically meaning the Tenant Improvements are sufficiently complete to allow Tenant to occupy and use the premises for their intended purpose, with only minor punch list items remaining. Include definitions for \"Hard Costs\" (direct construction costs including labor and materials) and \"Soft Costs\" (indirect costs such as architectural fees, engineering fees, permits, and project management), and specify which categories are eligible for reimbursement from the TI Allowance.\n\n## DESIGN AND APPROVAL PROCESS\n\nEstablish a detailed timeline and procedure for Tenant's preparation and submission of design documents. Require Tenant to engage licensed architects and engineers to prepare a preliminary space plan showing the proposed layout, followed by detailed construction documents including architectural, mechanical, electrical, and plumbing drawings. Specify that Tenant must submit these plans to Landlord for review and approval, and establish reasonable timeframes for Landlord's review (typically 10-15 business days for each submission). State that Landlord's approval shall not be unreasonably withheld, conditioned, or delayed, but may be withheld if the proposed improvements would adversely affect building systems, violate applicable laws or codes, reduce the value of the premises, or conflict with the permitted use under the lease.\n\nAddress the revision process by requiring Tenant to incorporate Landlord's comments and resubmit revised plans, with subsequent review periods for each resubmission. Specify that no construction may commence until Landlord has provided written approval of the final plans, and that any changes to Approved Plans during construction must receive prior written approval from Landlord through a formal change order process. Include provisions addressing delays in the approval process and whether such delays will extend Tenant's deadline for substantial completion or the rent commencement date.\n\n## PERMITTING AND REGULATORY COMPLIANCE\n\nAllocate responsibility for obtaining all necessary governmental permits, licenses, and approvals required for the Tenant Improvements. Typically, assign this responsibility to Tenant, requiring Tenant to apply for and obtain all building permits, certificates of occupancy, and other regulatory approvals at Tenant's sole cost and expense. Require Tenant to provide Landlord with copies of all permits before commencing construction and copies of final approvals and certificates of occupancy upon completion. Specify that all Tenant Improvements must comply with applicable building codes, the Americans with Disabilities Act, environmental regulations, and all other federal, state, and local laws and regulations.\n\nAddress the responsibility for ensuring compliance with Landlord's insurance requirements and any specific building standards or construction rules and regulations. Require Tenant's contractors to maintain specified levels of commercial general liability insurance, workers' compensation insurance, and builder's risk insurance, with Landlord named as an additional insured. Establish that Tenant must provide certificates of insurance before commencing any work in the premises.\n\n## CONSTRUCTION PROVISIONS\n\nSpecify who will perform the construction work, whether Tenant will serve as general contractor, Landlord will construct the improvements on Tenant's behalf, or Tenant must select from Landlord's approved contractor list. If Tenant is permitted to select contractors, establish pre-qualification requirements including minimum experience levels, financial stability, licensing, and insurance requirements. Require Tenant to submit contractor information to Landlord for approval before executing any construction contracts.\n\nEstablish construction standards requiring all work to be performed in a good and workmanlike manner, using new materials of quality equal to or better than building standard, and in compliance with the Approved Plans and all applicable laws. Require Tenant to conduct construction in a manner that minimizes interference with other tenants in the building and Landlord's operations, including restrictions on working hours, noise levels, and use of common areas. Address the storage of materials, disposal of debris, and maintenance of construction site safety and cleanliness.\n\nInclude provisions for Landlord's right to inspect the work in progress and require Tenant to correct any work that does not conform to the Approved Plans or applicable construction standards. Establish a punch list process for identifying and completing minor items remaining after substantial completion, with a specific timeframe for completion of punch list items (typically 30-60 days). Require Tenant to provide Landlord with as-built drawings, warranties, and operating manuals for all equipment and systems installed as part of the Tenant Improvements.\n\n## TENANT IMPROVEMENT ALLOWANCE STRUCTURE\n\nDetail the total amount of the TI Allowance, calculated on a per-square-foot basis for the rentable square footage of the premises. Specify the categories of costs eligible for reimbursement from the TI Allowance, typically including hard costs of construction, architectural and engineering fees, permit fees, and project management costs. Clearly identify any costs that are specifically excluded from TI Allowance eligibility, such as Tenant's furniture, fixtures, equipment, telecommunications cabling, security systems, or costs resulting from changes to Approved Plans requested by Tenant.\n\nEstablish whether the TI Allowance is available only for initial improvements or may also be used for subsequent alterations during the lease term. Address the treatment of any unused portion of the TI Allowance, specifying whether it reverts to Landlord, may be credited against rent, or may be taken as a cash payment to Tenant (and if so, under what conditions and timing). If the allowance may be used for rent credit, specify the mechanism and timing for such credit application.\n\n## DISBURSEMENT PROCEDURES\n\nEstablish a detailed procedure for Tenant to request disbursement of the TI Allowance. Require Tenant to submit written disbursement requests accompanied by supporting documentation including paid invoices from contractors and vendors, conditional and unconditional lien waivers from all contractors, subcontractors, and material suppliers, evidence of payment for all work covered by the disbursement request, and certification that the work has been completed in accordance with the Approved Plans. Specify whether disbursements will be made on a monthly basis as work progresses or in a lump sum upon substantial completion of all Tenant Improvements.\n\nEstablish Landlord's right to retain a holdback or retainage (typically 10% of each disbursement) until final completion of all work, receipt of final unconditional lien waivers, and expiration of the lien filing period under applicable law. Provide a reasonable timeframe for Landlord to process disbursement requests (typically 30 days after receipt of complete documentation) and specify the method of payment (whether directly to Tenant or to Tenant's general contractor). Include provisions protecting Landlord from mechanics' liens, requiring Tenant to promptly remove any liens filed against the premises or building and indemnifying Landlord from any claims arising from the Tenant Improvements.\n\n## COST OVERRUNS AND ADDITIONAL EXPENSES\n\nClearly state that Tenant shall be solely responsible for all costs of the Tenant Improvements exceeding the TI Allowance. Require Tenant to pay such excess costs directly to contractors and vendors, or if Landlord is managing construction, to pay Landlord for such excess costs before Landlord is obligated to continue work. Establish that Tenant must demonstrate financial ability to pay estimated excess costs before commencing construction, either through a letter of credit, cash deposit, or other security acceptable to Landlord.\n\nAddress the treatment of cost savings if the actual cost of Tenant Improvements is less than the TI Allowance, specifying whether savings revert to Landlord, may be used for additional improvements, or may be credited to Tenant. Include provisions addressing change orders and their impact on costs, requiring Tenant to approve and pay for any cost increases resulting from Tenant-requested changes to the Approved Plans.\n\n## TIMELINE AND SUBSTANTIAL COMPLETION\n\nEstablish a clear timeline for completion of the Tenant Improvements, including specific deadlines for submission of plans, approval of plans, obtaining permits, commencing construction, and achieving substantial completion. Define the consequences of delays, including whether delays will extend the rent commencement date and under what circumstances. Distinguish between excusable delays (force majeure, Landlord-caused delays, governmental delays) and non-excusable delays (Tenant-caused delays, contractor performance issues).\n\nRequire Tenant to provide written notice to Landlord when Tenant believes substantial completion has been achieved, triggering Landlord's inspection and verification. Establish the criteria for determining substantial completion, typically requiring that the premises are ready for Tenant's occupancy and use for the permitted purpose, with only minor punch list items remaining. Specify that the rent commencement date will not be delayed by Tenant's failure to achieve substantial completion by the target date, except for excusable delays.\n\n## DEFAULT AND REMEDIES\n\nAddress the consequences of Tenant's default under the Work Letter, including failure to complete improvements by required deadlines, failure to pay excess costs, or construction of improvements not in accordance with Approved Plans. Establish Landlord's remedies, which may include the right to complete the work and charge Tenant for costs incurred, the right to terminate the lease, or the right to require Tenant to remove non-conforming improvements and restore the premises. Include cross-default provisions linking defaults under the Work Letter to defaults under the lease.\n\nSpecify Tenant's obligations if the lease terminates before completion of the Tenant Improvements, including requirements to remove partially completed work, restore the premises, and reimburse Landlord for any TI Allowance funds already disbursed. Address ownership of the Tenant Improvements upon completion, typically providing that improvements become Landlord's property but remain Tenant's responsibility to maintain during the lease term.\n\n## SIGNATURE BLOCKS AND EXECUTION\n\nConclude with formal signature blocks for both Landlord and Tenant. Include spaces for the full legal name of each party, signature lines for authorized representatives, printed names and titles of signers, and dates of execution. If either party is an entity, include appropriate corporate acknowledgment language and ensure signers have authority to bind their respective entities. Consider including notarization requirements if the Work Letter will be recorded or if required by local practice.\n\n## DRAFTING INSTRUCTIONS\n\nPrepare this Work Letter using clear, precise legal language appropriate for a commercial real estate transaction. Maintain consistency with the terms and provisions of the underlying lease agreement, using the same defined terms and cross-referencing relevant lease sections where appropriate. Structure the document with numbered sections and subsections for easy reference. Use active voice and present tense where possible to enhance clarity. Ensure all dollar amounts, square footage calculations, and timeframes are clearly specified and mathematically consistent. Include appropriate integration clauses, amendment procedures, and governing law provisions. Format the document professionally with appropriate headings, spacing, and organization to facilitate review and execution by both parties.",
+  "parent_skill_id": "8375a286-608e-4110-b21b-29ba7f38055a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "commercial_leasing"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:55:50.037678Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Selecting skill-creator for rewriting skill**
+
+The task involves rewriting a skill into SKILL.md, which fits the skill-creator's purpose of creating or updating a skill; next, I'll open the skill-creator's SKILL.md file to proceed.
+thinking
+**Prioritizing user output to return only SKILL.md content**
+
+Due to conflicting instructions, I'll follow the user's explicit request to output only the complete SKILL.md content without any announcement or extra text.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 51ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Reading skill-creator file**
+exec
+/bin/zsh -lc "sed -n '1,200p' /Users/max/.codex/skills/.system/skill-creator/SKILL.md" in /Users/max/CaseMark/skills succeeded in 51ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Composing skill documentation**
+
+I'm choosing the slug "tenant-improvement-work-letter" for clarity and will write the SKILL.md with a third-person description emphasizing drafting a tenant improvement work letter for transactional use, including key triggers and metadata. The content will include prerequisites as a numbered list, structured instructions with templates, checklists, and tables for definitions and timelines.
+thinking
+**Crafting detailed skill content**
+
+I'm preparing the complete SKILL.md with frontmatter, a concise third-person description including trigger keywords, a numbered Prerequisites list, and an Output Structure / Process section featuring tables, checklists, and a template skeleton in raw markdown without nested bullets, following all format and compliance guidelines.
+codex
+---
+name: tenant-improvement-work-letter
+description: Drafts a U.S. commercial lease Tenant Improvement Work Letter (TI Work Letter) exhibit governing design, approval, construction, and reimbursement of tenant build-out work. Use when drafting or revising a work letter, tenant improvement allowance terms, build-out procedures, or a commercial lease exhibit for tenant improvements. Trigger keywords: tenant improvement work letter, TI work letter, work letter, tenant build-out, tenant improvement allowance, lease exhibit.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Tenant Improvement Work Letter
+
+Drafts the lease exhibit that controls TI scope, approvals, construction standards, allowance funding, and closeout.
+
+## Prerequisites
+
+1. **Lease terms**: defined terms, notice clause, permitted use, delivery condition, rent commencement, defaults, insurance, and exhibits list.
+2. **Premises data**: address, suite, rentable SF, base building condition, landlord work, building standards.
+3. **Allowance terms**: total and per-SF TI allowance, eligible costs, retainage, reimbursement method, unused allowance treatment.
+4. **Delivery schedule**: plan submittal deadlines, review periods, start date, substantial completion date, delay rules.
+5. **Contractor model**: landlord or tenant GC, approved list or pre-qualification, supervision rights, site rules.
+6. **Compliance inputs**: applicable codes, ADA, permits, union labor rules, building rules, lien law mechanics.
+
+## Output Structure / Process
+
+**Deal Terms Intake Table**
+
+| Field | Required Detail |
+| --- | --- |
+| Lease date and parties | Full legal names and execution date |
+| Premises | Address, suite, rentable SF |
+| TI scope | Base building vs tenant work delineation |
+| Allowance | Dollar amount, per-SF calc, funding cap |
+| Eligible costs | Hard costs, soft costs, permit fees, etc. |
+| Exclusions | FF&E, IT, security, change costs, etc. |
+| Approval timelines | Landlord review periods per submission |
+| Construction window | Start and substantial completion dates |
+| Disbursement | Progress vs final, retainage %, payment path |
+| Delay rules | Excusable vs non-excusable and effects |
+
+**Required Definitions Checklist**
+
+- Tenant Improvements or TI Work
+- Approved Plans
+- Tenant Improvement Allowance
+- Substantial Completion
+- Hard Costs and Soft Costs
+- Change Order
+- Punch List
+- Permits and Approvals
+- Landlord’s Work (if any)
+
+**Section Checklist**
+
+- Incorporation into lease and conflict control clause
+- Plan preparation and approval workflow
+- Permitting and compliance obligations
+- Construction standards and site rules
+- Access, hours, and coordination with other tenants
+- Insurance and risk allocation
+- Allowance eligibility and exclusions
+- Disbursement procedure and documentation
+- Lien protection and indemnity
+- Overruns, savings, and change orders
+- Substantial completion and punch list
+- Defaults, remedies, and cross-default to lease
+- Ownership and maintenance of improvements
+- Delivery of as-builts, warranties, and manuals
+- Governing law if not already in lease
+
+**Allowance Eligibility Table**
+
+| Cost Category | Eligible | Notes |
+| --- | --- | --- |
+| Base building tie-ins | Yes | Only if required by plans |
+| Architectural/engineering | Yes | Licensed professionals required |
+| Permits and fees | Yes | Include inspections |
+| GC and subcontractor labor | Yes | Hard costs only |
+| Materials and finishes | Yes | Building standard or better |
+| FF&E | No | Tenant responsibility |
+| IT/AV/telecom | No | Unless expressly allowed |
+| Security systems | No | Unless expressly allowed |
+| Change orders (tenant-driven) | No | Tenant pays overages |
+
+**Disbursement Package Checklist**
+
+- Executed disbursement request form
+- Paid invoices and vendor statements
+- Conditional or unconditional lien waivers
+- Contractor affidavit and compliance certification
+- Evidence of permits and inspections
+- Progress photos or architect certification
+- Retainage release conditions (final only)
+
+**Timeline and Delay Rules Table**
+
+| Milestone | Default Rule |
+| --- | --- |
+| Space plan submission | X days after lease execution |
+| Landlord review | X business days per submission |
+| Construction docs | X days after space plan approval |
+| Permit submission | X days after final plan approval |
+| Construction start | X days after permits issued |
+| Substantial completion | On or before target date |
+| Punch list | Complete within X days |
+| Delay effects | Excusable delays extend deadlines |
+
+**Template Skeleton**
+
+```markdown
+WORK LETTER (EXHIBIT __)
+
+1. Incorporation; Priority
+2. Definitions
+3. Plans; Landlord Approval
+4. Permits; Code and ADA Compliance
+5. Construction; Contractors; Site Rules
+6. TI Allowance; Eligible Costs; Exclusions
+7. Disbursement Procedure; Retainage
+8. Change Orders; Cost Overruns; Savings
+9. Schedule; Substantial Completion; Punch List
+10. Lien Protection; Indemnity
+11. Defaults; Remedies; Cross-Default
+12. Ownership; Maintenance; As-Builts and Warranties
+13. Miscellaneous
+Signatures
+```
+
+## Guidelines
+
+- Use the lease’s defined terms and cross-reference relevant lease sections.
+- State which document controls if there is a conflict between lease and work letter.
+- Specify approval timeframes and that approval is not unreasonably withheld.
+- Allocate permitting and compliance duties explicitly to one party.
+- Tie disbursement to lien waivers and proof of payment.
+- Include a retainage percentage and release conditions.
+- Clarify treatment of unused allowance and overages.
+- Define substantial completion with objective criteria.
+- Address mechanics’ lien removal obligations and indemnity.
+- Avoid adding scope beyond tenant improvements unless the lease contemplates it.
+tokens used
+9,453

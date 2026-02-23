@@ -1,0 +1,42 @@
+{
+  "id": "dd5de3ba-3b4c-4b74-a160-6abf3d606cb0",
+  "slug": "corporate-distribution-of-assets-plan",
+  "name": "Distribution of Assets Plan",
+  "summary": "Drafts a comprehensive Distribution of Assets Plan for corporate dissolution or restructuring. Details asset inventory, beneficiary designations, distribution methodology, and timelines while ensuring compliance with state and federal regulations. Use when preparing corporate wind-down documents requiring precise asset allocation among stakeholders.",
+  "content": "# Distribution of Assets Plan - Corporate Document\n\nYou are tasked with drafting a comprehensive Distribution of Assets Plan, a critical corporate document that outlines how an entity's assets will be allocated among beneficiaries, heirs, or stakeholders. This document must be precise, legally sound, and tailored to the specific circumstances while adhering to applicable state and federal regulations.\n\n## Document Purpose and Scope\n\nBegin by establishing the foundational context of the plan. Identify the entity or individual creating the distribution plan, the effective date, and the triggering circumstances (such as dissolution, death, incapacity, or corporate restructuring). The preamble should clearly articulate the plan's purpose and legal authority. Research current best practices for preamble language in distribution plans, examining templates and guidance from reputable legal resources including state bar associations, Nolo, and LegalZoom estate planning materials to ensure the opening provisions meet professional standards.\n\n## Comprehensive Asset Inventory\n\nCreate a detailed and exhaustive inventory of all assets subject to distribution. This section requires meticulous attention to categorization and valuation. First, thoroughly examine any documents the user has provided to extract specific information about assets, including real property (with legal descriptions and addresses), financial accounts (with institution names and account numbers), business interests, intellectual property, personal property of significant value, and any other holdings. Each asset should be accompanied by its current fair market value or most recent appraisal. Research authoritative guidance on proper asset categorization methodologies from state bar associations and professional estate planning organizations to ensure the inventory follows industry-standard classification systems. The asset list must be sufficiently detailed to prevent ambiguity during actual distribution.\n\n## Beneficiary Designation and Identification\n\nClearly identify all beneficiaries, heirs, or recipients of the distributed assets. For each beneficiary, provide complete legal names, relationship to the grantor or entity, current contact information, and any relevant identification numbers. Distinguish between primary beneficiaries and contingent beneficiaries, establishing a clear order of succession. Research and verify the legal requirements for beneficiary designations in the relevant jurisdiction, consulting official state bar association resources and statutory guidance to ensure compliance with local laws governing inheritance, succession, and corporate distributions. Address any special considerations for minor beneficiaries, entities as beneficiaries, or beneficiaries with special needs.\n\n## Distribution Methodology and Timeline\n\nArticulate precise instructions for how assets will be distributed among the designated beneficiaries. Specify whether distribution will occur through percentage allocations, specific bequests of identified assets, or a combination of both methods. Include detailed timing provisions that address when distributions will occur, whether immediately upon the triggering event or according to a staged schedule. For any assets that require ongoing management before distribution, specify the management protocol. Research equitable distribution principles and best practices from established legal resources to ensure the distribution scheme is both legally sound and practically implementable. Address tax implications and consider including provisions for equalizing distributions when assets of unequal value are allocated.\n\n## Contingency Provisions and Administrative Powers\n\nDevelop comprehensive contingency provisions that address potential complications or changed circumstances. Specify what occurs if a beneficiary predeceases the distribution event, disclaims their interest, or cannot be located. Clearly delineate the powers and responsibilities of executors, administrators, trustees, or corporate officers responsible for implementing the plan. Include dispute resolution mechanisms such as mediation or arbitration clauses to address potential conflicts among beneficiaries. Examine the user's specific circumstances to identify unique contingencies that should be addressed, and supplement this analysis with research into standard contingency provisions from authoritative legal templates and official resources. Address the conditions under which the plan may be amended or revoked, and specify the procedures for making such changes.\n\n## Execution Formalities and Legal Compliance\n\nConclude the document with proper execution provisions that satisfy all legal requirements for validity and enforceability. Research the specific execution formalities required in the relevant jurisdiction, including signature requirements, witness provisions, notarization mandates, and any filing or recording obligations. Consult state statutes and bar association guidance to verify current legal requirements for proper execution of distribution plans. Include signature blocks for all necessary parties, witness attestation sections with appropriate language, and notary acknowledgment forms that comply with state-specific requirements. Ensure the execution section includes clear instructions about the number of original copies to be created and where they should be maintained.\n\n## Document Generation\n\nOnce you have gathered all necessary information through document review, legal research, and verification of jurisdictional requirements, generate a complete, professionally formatted Distribution of Assets Plan that incorporates all findings, properly cited legal authorities, and user-specific details. The final document should be immediately usable by legal professionals, requiring only review and customization for specific client circumstances.",
+  "parent_skill_id": "a268f17a-bb00-4f1c-b9bf-16df265c8942",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "closing"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate_dissolution"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

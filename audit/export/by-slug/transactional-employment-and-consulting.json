@@ -1,0 +1,23 @@
+{
+  "id": "a8cfbc04-d7ae-4f08-856a-f5d970d6dc17",
+  "slug": "transactional-employment-and-consulting",
+  "name": "employment and consulting",
+  "summary": "Skills related to employment and consulting within transactional practice.",
+  "content": "# employment and consulting\n\nThis is a sub-category under transactional practice containing specialized skills.",
+  "parent_skill_id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "skill_type": "root",
+  "visibility": "public",
+  "legal_context": {
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "employment-and-consulting"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:16:23.742194",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

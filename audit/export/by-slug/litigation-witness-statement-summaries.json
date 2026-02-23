@@ -1,0 +1,44 @@
+{
+  "id": "940a2a55-04c8-4445-9971-107def87e004",
+  "slug": "litigation-witness-statement-summaries",
+  "name": "Witness Statement Summaries",
+  "summary": "Generates comprehensive, structured summaries of witness statements for litigation proceedings. Extracts key facts, chronological narratives, credibility assessments, evidentiary value, and admissibility concerns. Use during discovery, deposition preparation, trial strategy, or case evaluation to quickly reference testimony without reviewing full documents.",
+  "content": "# Witness Statement Summaries\n\nYou are tasked with creating a comprehensive summary of witness statements for legal proceedings. This workflow is essential for attorneys preparing for depositions, trial preparation, witness examination, or case strategy development. A well-crafted witness statement summary enables legal teams to quickly understand the key facts, credibility issues, and evidentiary value of witness testimony without reviewing lengthy transcripts or statements repeatedly.\n\nYour summary should begin by identifying the witness and providing essential background information including their relationship to the case, their role in the events at issue, and any relevant biographical details that may affect their credibility or the weight of their testimony. Extract and present the witness's account of events in a clear, chronological narrative that preserves the substance of their testimony while eliminating unnecessary detail. Pay particular attention to specific dates, times, locations, and factual assertions that can be corroborated or challenged.\n\nAnalyze the witness statement for key evidentiary elements including admissions, contradictions with other evidence or witness accounts, and statements that support or undermine specific legal claims or defenses. Identify any hearsay issues, opinion testimony, or other potential admissibility concerns that counsel should address. Note the witness's demeanor, certainty level, and any qualifications or hedging language they use when describing events, as these factors affect credibility assessment.\n\nWhen processing witness statements from uploaded documents, search through all available materials to ensure you capture the complete testimony and any related exhibits or referenced documents. If multiple witness statements are being summarized, maintain consistency in format and level of detail to facilitate comparison. For cases involving numerous witnesses, consider organizing summaries by topic or chronology rather than solely by individual witness to reveal patterns and conflicts in the evidence.\n\nYour final summary should be structured to serve as a practical reference tool during case preparation. Include a brief executive summary at the beginning highlighting the most critical testimony, followed by detailed sections covering the witness's background, factual testimony, legal significance, credibility considerations, and any recommended follow-up actions such as additional questioning areas or corroborating evidence to obtain. Conclude with an assessment of how this witness's testimony fits within the broader case narrative and strategy, noting both strengths to emphasize and weaknesses to address or mitigate.",
+  "parent_skill_id": "97a4ca78-a19f-4c7f-996b-82fa71111b4a",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "discovery",
+      "pre-trial",
+      "trial"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:09.771451",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

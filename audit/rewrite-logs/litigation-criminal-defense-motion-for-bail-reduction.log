@@ -1,0 +1,199 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-234c-7b93-85da-94522005da70
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "9298542a-627e-4316-82a7-bdebe4ee52e5",
+  "slug": "litigation-criminal-defense-motion-for-bail-reduction",
+  "name": "Motion for Bail Reduction",
+  "summary": "Drafts a comprehensive Motion for Bail Reduction in criminal defense litigation. Generates a persuasive, jurisdictionally tailored document arguing that the current bail is excessive based on the defendant's financial circumstances, community ties, and low flight risk. Use this skill during pretrial phases to seek bail modification under Eighth Amendment principles.",
+  "content": "# Motion for Bail Reduction - Enhanced Legal Workflow Prompt\n\nYou are tasked with drafting a comprehensive Motion for Bail Reduction, a critical pretrial litigation document that seeks to modify the court's initial bail determination. This motion must be persuasive, legally sound, and tailored to the specific jurisdiction's requirements while presenting compelling arguments for why the current bail amount should be reduced.\n\n## Document Purpose and Strategic Approach\n\nBegin by understanding that a Motion for Bail Reduction serves to demonstrate that the defendant does not pose a flight risk or danger to the community, and that the current bail amount is excessive relative to the defendant's financial circumstances and constitutional rights. The motion must balance legal precision with human elements that illustrate the defendant's ties to the community, financial constraints, and likelihood of appearing for all court proceedings. Your approach should be respectful to the court while firmly advocating for your client's pretrial release rights under the Eighth Amendment's prohibition against excessive bail.\n\n## Caption and Jurisdictional Requirements\n\nDraft a complete caption that includes the full legal name of the court (including division and department if applicable), the complete case number as it appears on all court documents, the full legal names of all parties with proper designations (People v., State v., or Commonwealth v., as appropriate), and the precise title \"Motion for Bail Reduction\" or \"Motion to Reduce Bail\" as preferred in your jurisdiction. Research and apply the specific formatting requirements of your jurisdiction, including font specifications, margin requirements, line spacing, and any mandatory court forms or cover sheets. Verify whether your jurisdiction requires a notice of motion to be filed separately or incorporated into the motion itself, and confirm the proper method of filing (electronic, in-person, or mail) and any associated filing fees.\n\n## Introduction and Preliminary Statement\n\nOpen with a clear, concise statement identifying the defendant, the current bail amount set by the court, the date bail was set, and the specific relief sought (the proposed reduced bail amount). Provide immediate context by briefly noting the charges without admitting guilt, the defendant's current custody status, and any time already served. State affirmatively that the defendant seeks this reduction based on constitutional principles, statutory authority, and the specific facts of this case that demonstrate the current bail is excessive and unnecessary to ensure court appearance. Reference the applicable legal standard in your jurisdiction, whether it derives from state constitution, statute, court rules, or case law precedent.\n\n## Factual Foundation and Defendant's Circumstances\n\nPresent a detailed but organized narrative of the arrest circumstances, focusing on facts that support bail reduction rather than arguing the merits of the underlying charges. Describe the defendant's personal background with specificity: length of residence in the community (with exact addresses and durations), family ties (naming family members, their relationships, and their local presence), employment history (current employer, length of employment, position, and income), educational background, and any community involvement or volunteer activities. Address financial circumstances candidly and thoroughly, providing specific information about income, assets, debts, dependents, and monthly expenses that demonstrate the current bail amount is beyond the defendant's reasonable ability to pay. Include any medical conditions, caretaking responsibilities, or other circumstances that make pretrial detention particularly burdensome and that strengthen the argument for release.\n\n## Legal Arguments and Applicable Standards\n\nConstruct your legal argument around the specific bail factors that courts in your jurisdiction must consider, which typically include: the nature and circumstances of the charged offense, the weight of evidence against the defendant, the defendant's ties to the community, the defendant's employment and financial resources, the defendant's character and mental condition, the defendant's past criminal record (or lack thereof), and the defendant's history of court appearances. Argue systematically through each factor, applying the facts of your case to demonstrate why a reduced bail amount is legally justified. Cite controlling constitutional provisions (Eighth Amendment to the U.S. Constitution and relevant state constitutional provisions), applicable statutes governing bail in your jurisdiction, local court rules addressing pretrial release, and persuasive case law from your jurisdiction or similar jurisdictions that have granted bail reductions under comparable circumstances. Emphasize that bail serves only to ensure court appearance and protect public safety, not to punish the defendant before trial or to impose an impossible financial burden.\n\n## Evidentiary Support and Documentation\n\nIdentify and describe all supporting evidence that will accompany the motion, organizing it logically and referencing it appropriately throughout your argument. This should include: affidavits from the defendant attesting to their ties to the community, financial circumstances, and commitment to appear for all court proceedings; affidavits from family members, employers, or community members vouching for the defendant's character and reliability; financial documentation such as pay stubs, tax returns, bank statements, and bills that verify the defendant's inability to post current bail; letters from employers confirming employment and willingness to continue employment upon release; and any documentation of community ties such as lease agreements, utility bills, or membership in community organizations. Ensure all affidavits are properly formatted with notarization, and that all exhibits are clearly labeled and referenced in the motion text.\n\n## Prayer for Relief and Specific Request\n\nConclude with a specific, reasonable request for relief that provides the court with a clear alternative to the current bail amount. Propose a specific reduced bail amount that reflects the defendant's actual financial capacity while still providing adequate assurance of court appearance, supported by a brief explanation of how you calculated this amount based on the defendant's financial circumstances. Consider requesting alternative conditions of release that may make the court more comfortable with a reduced monetary bail, such as: electronic monitoring, regular check-ins with pretrial services, surrender of passport, geographic restrictions, no-contact orders, substance abuse testing or treatment, or release to a third-party custodian. Frame your request in terms that acknowledge the court's concerns while demonstrating that the proposed bail and conditions adequately address those concerns.\n\n## Procedural Compliance and Service Requirements\n\nEnsure the motion complies with all procedural requirements by including a proper signature block with the attorney's name, bar number, firm name, address, telephone number, email address, and designation as \"Attorney for Defendant\" (or if pro se, the defendant's signature and contact information). Include a certificate of service that specifies the date, method of service (personal delivery, mail, electronic service), and the names and addresses of all parties served, typically including the prosecuting attorney's office and any other parties of record. Verify the deadline for filing the motion in your jurisdiction, any required notice period before the hearing, and whether you need to separately notice a hearing date or whether the court will set the hearing upon filing. Confirm whether your jurisdiction requires a proposed order to be submitted with the motion, and if so, prepare an appropriate order granting the relief requested.\n\n## Final Document Assembly\n\nCompile the complete motion with all sections flowing logically and professionally, ensuring consistent formatting throughout. The final document should demonstrate legal competence, factual thoroughness, and persuasive advocacy while maintaining the respectful tone appropriate for court filings. Proofread carefully for typographical errors, citation accuracy, and factual consistency. Verify that all referenced exhibits are attached and properly labeled, that all legal citations are in the proper format for your jurisdiction (Bluebook, state-specific citation manual, or local rules), and that the document complies with any page limits or other restrictions imposed by local rules.",
+  "parent_skill_id": "9016ad6f-a7e1-48e5-9d4c-3877b4216033",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "defendant"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-trial"
+    ],
+    "document_types": [
+      "motion"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "criminal-defense"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:00.361076",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:42:29.034953Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:29.232865Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+2026-02-23T21:42:30.515547Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:31.340314Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4bb7a9e2599-SJC)
+2026-02-23T21:42:32.378959Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c17b04c68c-SJC)
+2026-02-23T21:42:33.752822Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c9ddc1ddff-SJC)
+2026-02-23T21:42:36.063829Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4d8de67eb30-SJC)
+2026-02-23T21:42:39.783591Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4f01b6d67c1-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-criminal-defense-motion-for-bail-reduction-tzxwruhe.md
+
+STDOUT:
+

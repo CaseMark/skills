@@ -1,0 +1,509 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7f-003f-78e1-9d80-e959eb49d359
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "2c134879-21f8-47c7-8e59-da96fd32c3b0",
+  "slug": "draft-hipaa-release-form-estate-planning",
+  "name": "HIPAA Release Form",
+  "summary": "Drafts a comprehensive HIPAA Release Authorization form compliant with 45 CFR \u00a7 164.508 for authorizing disclosure of protected health information. Used in estate planning to enable designated healthcare agents to access patient medical records for decision-making. Includes required elements like patient identification, authorized recipients, disclosing parties, scope of information, and purpose of disclosure.",
+  "content": "# HIPAA Release Form - Enhanced Legal Workflow Prompt\n\nYou are tasked with drafting a comprehensive HIPAA Release Authorization form that complies with federal privacy regulations under the Health Insurance Portability and Accountability Act. This transactional document is commonly used in estate planning contexts to authorize designated individuals to access a patient's protected health information for healthcare decision-making purposes.\n\n## Document Purpose and Legal Framework\n\nCreate a legally compliant HIPAA authorization form that permits the disclosure of protected health information (PHI) from healthcare providers to designated agents or representatives. The document must satisfy the minimum necessary requirements under 45 CFR \u00a7 164.508, including specific core elements and required statements that make the authorization valid under federal law. This authorization is typically executed in conjunction with healthcare powers of attorney or advance directives to ensure continuity of care and informed decision-making by designated agents.\n\n## Required Document Sections and Content\n\n**Patient Identification and Authorization Statement**: Begin with complete patient identification including full legal name and date of birth. Include a clear, unambiguous authorization statement such as: \"I authorize the use and disclosure of my protected health information (PHI) as described in this authorization.\" This statement establishes the patient's informed and voluntary consent.\n\n**Authorized Recipients**: Specify all persons or organizations authorized to receive the patient's PHI. In estate planning contexts, this typically includes the primary healthcare agent and any successor agents named in the healthcare power of attorney. Each authorized recipient should be identified by name and relationship to the patient. Include placeholder language that can be customized: \"[Agent's Name], designated as my Healthcare Agent\" and \"[Successor Agent's Name], designated as my Successor Healthcare Agent.\"\n\n**Authorized Disclosing Parties**: Identify the healthcare providers and entities authorized to disclose information. Use comprehensive language such as: \"Any health plan, physician, health care professional, hospital, clinic, laboratory, pharmacy, medical facility, or other covered entity that has provided payment, treatment, or services to me, or that possesses my protected health information.\"\n\n**Scope of Information**: Define the breadth of information to be disclosed. For comprehensive healthcare decision-making, specify: \"All of my protected health information, including but not limited to my complete medical record, mental health records, substance abuse treatment records, HIV/AIDS testing and treatment records, and genetic information.\" Address any special categories of sensitive information that require explicit authorization under applicable state law.\n\n**Purpose of Disclosure**: Articulate the specific purpose clearly: \"To enable my designated healthcare agent(s) to make informed healthcare decisions on my behalf, to communicate with my healthcare providers, and to access all information necessary to execute their duties under my Healthcare Power of Attorney or Advance Directive.\"\n\n**Duration and Expiration**: Specify the effective period of the authorization. Standard language includes: \"This authorization shall become effective immediately upon execution and shall remain in effect until revoked by me in writing, or upon my death, whichever occurs first.\" Consider whether the authorization should survive incapacity or terminate under specific conditions.\n\n**Revocation Rights and Limitations**: Include the federally required statement regarding the right to revoke: \"I understand that I have the right to revoke this authorization at any time by providing written notice to the healthcare provider or entity in possession of my records. I understand that revocation will not affect any actions taken in reliance on this authorization before revocation was received. I understand that information disclosed pursuant to this authorization may be subject to re-disclosure by the recipient and may no longer be protected by federal privacy regulations.\"\n\n**Additional Required Statements**: Include statements regarding the patient's right to refuse to sign the authorization, that treatment cannot be conditioned on signing (unless legally permitted exceptions apply), and that the patient has the right to receive a copy of the signed authorization.\n\n## Execution Requirements\n\nThe document must include signature lines for the patient with printed name, signature, and date fields. If the authorization is signed by a personal representative, include fields for the representative's name, signature, relationship to patient, and authority to act (such as court appointment documentation). Ensure adequate space for witness signatures if required by state law.\n\n## Output Format and Professional Standards\n\nGenerate a complete, professionally formatted HIPAA authorization form suitable for execution. Use clear headings, appropriate legal formatting, and plain language where possible while maintaining legal precision. The document should be structured logically with numbered or lettered sections for easy reference. Include a descriptive title such as \"Authorization for Release of Protected Health Information Pursuant to HIPAA\" at the top of the document.\n\nEnsure all placeholder text is clearly marked with brackets and descriptive labels so the attorney can easily customize the form for specific clients. The final document should be ready for attorney review and client execution with minimal additional drafting required. Include a footer notation indicating this is a legal document that should be reviewed by qualified legal counsel before execution.",
+  "parent_skill_id": "8bedabb0-a0e4-4136-9d06-540d72094eac",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [
+      "healthcare"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "estate_planning",
+      "healthcare-law"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: linear starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:54:20.191012Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+thinking
+**Opening skill-creator instructions**
+
+I'm opening SKILL.md from the skill-creator directory to review the skill creation instructions and confirm how to rewrite the skill.
+exec
+/bin/zsh -lc ls in /Users/max/CaseMark/skills succeeded in 52ms:
+CONTRIBUTING.md
+LICENSE
+README.md
+SKILL.md
+audit
+scripts
+skills
+spec
+template
+
+thinking
+**Accessing skill file**
+exec
+/bin/zsh -lc 'cat /Users/max/.codex/skills/.system/skill-creator/SKILL.md' in /Users/max/CaseMark/skills succeeded in 52ms:
+---
+name: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+metadata:
+  short-description: Create or update a skill
+---
+
+# Skill Creator
+
+This skill provides guidance for creating effective skills.
+
+## About Skills
+
+Skills are modular, self-contained folders that extend Codex's capabilities by providing
+specialized knowledge, workflows, and tools. Think of them as "onboarding guides" for specific
+domains or tasks—they transform Codex from a general-purpose agent into a specialized agent
+equipped with procedural knowledge that no model can fully possess.
+
+### What Skills Provide
+
+
+
+thinking
+**Reconciling SKILL.md format and slug**
+
+The user’s SKILL.md format with extended metadata takes precedence over skill-creator instructions limited to frontmatter, so I’ll follow the user’s required format fully. For the slug, I’ll choose a concise but descriptive form—likely "hipaa-release-authorization"—to balance clarity and brevity.
+thinking
+---
+name: hipaa-release-form
+description: Drafts U.S. HIPAA Release Authorization forms (45 CFR 164.508) for disclosure of protected health information, typically in estate planning or healthcare decision-making packets. Use for HIPAA authorization, medical records release, PHI disclosure consent, healthcare agent access, advance directive bundles, or when a client asks for a HIPAA release form.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# HIPAA Release Authorization
+
+Create a compliant authorization that allows designated recipients to obtain protected health information for healthcare decision-making.
+
+## Prerequisites
+
+1. Patient identity and contact information  
+2. Authorized recipients and their contact details  
+3. Disclosing parties or providers  
+4. Scope and timeframe of information disclosure  
+5. Purpose for release of information  
+6. Expiration date or revocation instructions  
+7. Authority documentation if signed by a personal representative  
+8. Applicable state-law requirements, including witness or notary where necessary and sensitive information handling
+
+## Output Structure / Process
+
+1. Assemble necessary inputs as listed in prerequisites  
+2. Draft sections according to required elements  
+3. Verify inclusion of mandatory statements and execution blocks  
+4. Provide structured template for the authorization form
+
+## Required Elements (45 CFR 164.508)
+
+| Element                                    | Description                                                                                                              |
+|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| Patient identifying information             | Full name, date of birth, address, and contact details                                                                  |
+| Person/entity authorized to disclose        | Name or role of those allowed to release the information                                                                 |
+| Person/entity authorized to receive         | Names and contact information of recipients authorized to receive PHI                                                    |
+| Description of protected health information | Specific data categories, date ranges, and sensitive categories if applicable                                             |
+| Purpose of the disclosure                     | Clearly stated reason for authorization                                                                                  |
+| Expiration date or event                      | Date or triggering event that ends authorization                                                                         |
+| Signature and date                            | Signature of patient or authorized representative, with authority description if applicable                              |
+| Required statements                           | Right to revoke authorization; method of revocation; effect on prior disclosures; no conditioning of treatment (except as permitted); potential for redisclosure; right to obtain a copy |
+
+## Sensitive Information Addenda
+
+Include explicit consent sections for sensitive categories when applicable, such as:
+
+- Mental health records  
+- Substance use disorder records (42 CFR Part 2) [VERIFY for specific requirements]  
+- HIV/AIDS-related information  
+- Genetic information
+
+*Include these only if state law requires separate authorization or explicit consent.*
+
+## Template for Authorization Form
+
+```
+Authorization for Release of Protected Health Information (HIPAA)
+
+1. Patient Information  
+   - Name: [PATIENT NAME]  
+   - Date of Birth: [DOB]  
+   - Address: [ADDRESS]  
+   - Phone: [PHONE]  
+   - Email: [EMAIL]  
+
+2. Person(s)/Entity Authorized to Disclose Information  
+   - [NAME OR ROLE, e.g., Any Health Care Provider or Specific Provider]  
+
+3. Person(s)/Entity Authorized to Receive Information  
+   - [NAME(S), TITLE(S), CONTACT INFORMATION]  
+
+4. Description of Information to be Disclosed  
+   - [ ] All medical records  
+   - [ ] Records from [START DATE] to [END DATE]  
+   - [ ] Sensitive categories (check all that apply):  
+     - [ ] Mental health records  
+     - [ ] Substance use disorder records (42 CFR Part 2) [VERIFY]  
+     - [ ] HIV/AIDS-related information  
+     - [ ] Genetic information  
+
+5. Purpose of Disclosure  
+   - [E.g., Healthcare decision-making, continuity of care, legal, estate planning]
+
+6. Expiration of Authorization  
+   - This authorization expires on [DATE] or upon the following event: [DESCRIPTION]  
+
+7. Right to Revoke  
+   - The individual may revoke this authorization at any time by providing written notice to the disclosing provider. Revocation does not apply to information already disclosed.
+
+8. No Conditioning of Treatment  
+   - Treatment, payment, enrollment, or eligibility cannot be conditioned on signing this authorization except as permitted by HIPAA [VERIFY].  
+
+9. Redisclosure Notice  
+   - Information disclosed may be subject to redisclosure by the recipient and no longer protected under HIPAA.
+
+10. Copy of Authorization  
+    - The individual is entitled to a copy of this authorization upon request.
+
+11. Signature  
+    - Signature of Individual or Personal Representative: _________________________  
+    - Date: _______________  
+
+12. If Signed by Personal Representative  
+    - Name: ___________________  
+    - Relationship to Individual: ___________________  
+    - Description of Authority: ___________________  
+
+13. Witness or Notary Section (if required by state law)  
+    - Witness Name and Signature: ___________________  
+    - Date: _______________  
+    - Notary Acknowledgment: ___________________  
+```
+
+## Guidelines and Compliance Notes
+
+- Ensure the authorization aligns with applicable estate planning documents such as healthcare powers of attorney.  
+- Obtain proper authority documentation if signed by a personal representative or guardian.  
+- Avoid overly broad authorizations; limit to specific providers, recipients, and purpose as feasible.  
+- Include the additional consent required for records protected under 42 CFR Part 2 for substance use disorder treatment if applicable [VERIFY].  
+- Follow applicable state laws for sensitive information categories including mental health, HIV/AIDS, and genetic information.  
+- Witness or notary requirements vary by jurisdiction; ensure compliance.  
+- When multiple recipients are authorized, list names specifically rather than using general descriptions.  
+- Advise that this document does not guarantee treatment or benefits and that treatment cannot generally be conditioned on signing, except as HIPAA permits [VERIFY].  
+- Use clear, plain language and fill all placeholders; avoid leaving blank fields.  
+- Provide copies of signed authorizations to the individual upon request.  
+- Include a footer note recommending review by legal counsel if used for critical or complex cases.
+codex
+---
+name: hipaa-release-form
+description: Drafts U.S. HIPAA Release Authorization forms (45 CFR 164.508) for disclosure of protected health information, typically in estate planning or healthcare decision-making packets. Use for HIPAA authorization, medical records release, PHI disclosure consent, healthcare agent access, advance directive bundles, or when a client asks for a HIPAA release form.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# HIPAA Release Authorization
+
+Create a compliant authorization that allows designated recipients to obtain PHI for healthcare decision-making.
+
+## Prerequisites
+
+1. Patient legal name, date of birth, and contact details.
+2. Authorized recipient(s) with full names, roles, and contact details.
+3. Disclosing party(ies) to be covered (named provider(s) or broad covered-entity language).
+4. Scope of PHI and date range, including any specially protected categories.
+5. Purpose of disclosure aligned with healthcare agent duties.
+6. Expiration date or event and revocation process.
+7. Personal representative authority documentation if patient is not the signer.
+8. State-specific execution requirements (witness, notary, special disclosures).
+
+## Output Structure / Process
+
+1. Populate the input checklist before drafting.
+2. Draft each required section using the template.
+3. Validate that all 45 CFR 164.508 elements and required statements are present.
+4. Add execution blocks and any state-required addenda.
+
+**Required Elements (45 CFR 164.508)**
+
+| Element | Include |
+| --- | --- |
+| Patient identification | Full name and DOB; add contact details if used by providers |
+| Disclosing parties | Specific provider(s) or broad covered-entity class |
+| Recipients | Names and roles of agents/representatives |
+| Description of PHI | Types of records and date range |
+| Purpose | Healthcare decision-making and agent duties |
+| Expiration | Date or event (e.g., revocation or death) |
+| Signature | Patient or personal representative with authority |
+| Required statements | Revocation rights; effect of revocation; no-conditioning notice; redisclosure warning; right to a copy |
+
+**Sensitive Information Addenda (include explicit consent if applicable)**
+
+| Category | Include? |
+| --- | --- |
+| Mental health records | Yes/No |
+| Substance use treatment records (42 CFR Part 2) | Yes/No [VERIFY] |
+| HIV/AIDS testing or treatment | Yes/No |
+| Genetic information | Yes/No |
+
+**Template**
+
+```text
+AUTHORIZATION FOR RELEASE OF PROTECTED HEALTH INFORMATION (HIPAA)
+
+1. Patient Information
+   Name: [PATIENT NAME]
+   Date of Birth: [DOB]
+   Address: [ADDRESS]
+   Phone: [PHONE]
+   Email: [EMAIL]
+
+2. Person(s)/Entity(ies) Authorized to Disclose
+   [PROVIDER OR "Any health plan, physician, health care professional, hospital,
+   clinic, laboratory, pharmacy, medical facility, or other covered entity
+   that has provided treatment, payment, or services to me."]
+
+3. Person(s)/Entity(ies) Authorized to Receive
+   [AGENT NAME], Healthcare Agent, [ADDRESS/PHONE/EMAIL]
+   [SUCCESSOR AGENT NAME], Successor Healthcare Agent, [ADDRESS/PHONE/EMAIL]
+
+4. Description of Information to Be Disclosed
+   [ ] All of my protected health information, including my complete medical record.
+   [ ] Only the following records: [SPECIFY]
+   Date range: [FROM DATE] to [TO DATE]
+   Sensitive categories (if applicable):
+   [ ] Mental health records
+   [ ] Substance use treatment records (42 CFR Part 2) [VERIFY]
+   [ ] HIV/AIDS testing or treatment
+   [ ] Genetic information
+
+5. Purpose of Disclosure
+   To enable my designated healthcare agent(s) to make informed healthcare
+   decisions, communicate with providers, and carry out duties under my
+   Healthcare Power of Attorney or Advance Directive.
+
+6. Expiration
+   This authorization expires on [DATE] or upon [EVENT], unless revoked earlier
+   in writing by me.
+
+7. Right to Revoke
+   I understand I may revoke this authorization at any time by written notice to
+   the disclosing provider. Revocation will not affect actions already taken in
+   reliance on this authorization.
+
+8. No Conditioning
+   I understand that treatment, payment, enrollment, or eligibility for benefits
+   will not be conditioned on signing this authorization except as permitted by law.
+
+9. Redisclosure Notice
+   I understand that information disclosed pursuant to this authorization may be
+   subject to redisclosure by the recipient and may no longer be protected by HIPAA.
+
+10. Right to a Copy
+    I understand I am entitled to a copy of this signed authorization.
+
+11. Signature
+    Patient Signature: __________________________  Date: ______________
+    Printed Name: _______________________________
+
+12. Personal Representative (if applicable)
+    Representative Name: ________________________
+    Relationship/Authority: ______________________
+    Signature: __________________________  Date: ______________
+
+13. Witness/Notary (if required by state law)
+    Witness/Notary: ______________________  Date: ______________
+
+Footer: This document should be reviewed by qualified legal counsel before execution.
+```
+
+## Guidelines
+
+- Align recipients and purpose with the healthcare power of attorney or advance directive.
+- Do not use a HIPAA authorization if the signer lacks capacity without valid representative authority.
+- Avoid "to whom it may concern"; name specific recipients whenever possible.
+- Include explicit consent lines for specially protected records when required by state law.
+- Use a clear expiration date or event; avoid indefinite language where state law restricts it.
+- If substance use disorder program records are involved, confirm Part 2 consent requirements. [VERIFY]
+- Add witness or notary blocks only if required by jurisdiction or provider policy.
+tokens used
+21,834

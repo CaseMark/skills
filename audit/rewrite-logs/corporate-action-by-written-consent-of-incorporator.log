@@ -1,0 +1,282 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c72-a56f-7e53-882b-7a971dcb603e
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "d8ce97b4-0be1-4f92-92ef-793c0569ed60",
+  "slug": "corporate-action-by-written-consent-of-incorporator",
+  "name": "Action by Written Consent of Incorporator",
+  "summary": "Drafts a comprehensive Action by Written Consent of Incorporator for newly formed corporations. This skill formalizes initial organizational actions such as adopting bylaws and appointing directors without a formal meeting, following the filing of Articles of Incorporation. Use it during the foundational governance setup phase under U.S. state corporation statutes.",
+  "content": "# Enhanced Prompt: Action by Written Consent of Incorporator\n\nYou are tasked with drafting a comprehensive Action by Written Consent of Incorporator, a critical corporate formation document that allows the incorporator to take necessary organizational actions without holding a formal meeting. This document establishes the foundational governance structure of a newly formed corporation.\n\n## Document Purpose and Legal Context\n\nThis consent document serves as the incorporator's formal written action to complete the initial organizational steps required after filing Articles of Incorporation. Under most state corporation statutes, incorporators have the authority to take actions by written consent in lieu of holding an organizational meeting. This document memorializes those actions and becomes part of the corporation's permanent records. The consent is legally binding once executed and should be filed with the corporate minute book.\n\n## Information Gathering and Document Assembly\n\nBegin by searching through any uploaded corporate formation documents to identify key information including the corporation's exact legal name, state of incorporation, date the Articles of Incorporation were filed with the Secretary of State, and the incorporator's full legal name. If bylaws have been prepared, locate them to reference as an exhibit. Look for any documentation regarding the intended initial board of directors.\n\nWhen gathering information about initial directors, you need the complete legal names of each person who will serve on the initial board. Verify the correct spelling of all names and confirm the number of directors is consistent with any requirements stated in the Articles of Incorporation or applicable state law. If the user has not provided this information, ask them to specify the names of all initial directors who should be appointed.\n\n## Document Structure and Required Elements\n\nThe document should open with a clear title identifying it as the \"Action by Written Consent of Incorporator of [Corporation Name]\" and include the effective date of the consent. The preamble must identify the incorporator by name, state that they are the sole incorporator (or identify all incorporators if multiple), reference the corporation's legal name and state of incorporation, and cite the specific date the Articles of Incorporation were filed with the state.\n\nThe substantive actions section should be organized as numbered resolutions. The first action typically adopts the corporation's bylaws, with specific reference to them being attached as Exhibit A. Ensure the bylaws are actually attached or note if they will be attached separately. The second action appoints the initial board of directors, listing each director's full legal name. You may include additional actions as appropriate, such as authorizing the opening of bank accounts, adopting a fiscal year, authorizing the issuance of stock, or ratifying actions taken by the incorporator.\n\nInclude a statement that the incorporator has completed all duties as incorporator of the corporation, which formally concludes the incorporator's role and transfers authority to the board of directors. The execution section should state that this written consent will be filed with the minutes of the corporation and include signature lines for the incorporator with their printed name beneath.\n\n## Formatting and Professional Standards\n\nFormat the document in a professional manner consistent with corporate legal documents. Use clear section headings, numbered paragraphs for each action taken, and proper spacing. Ensure all placeholder text in brackets is replaced with actual information. The document should be single-spaced with double spacing between sections. Use a professional font such as Times New Roman or Arial in 12-point size.\n\nPay careful attention to internal consistency\u2014the corporation name, state of incorporation, and filing date must match exactly throughout the document and correspond to the filed Articles of Incorporation. Verify that the number of directors appointed complies with any minimum or maximum stated in the Articles of Incorporation or required by state law.\n\n## State-Specific Considerations and Compliance\n\nBe aware that corporate formalities vary by state. Some states have specific requirements for incorporator actions or organizational meetings. If the state of incorporation is identified, consider whether any state-specific provisions should be included. Delaware corporations, for example, may have different customary practices than California corporations. When in doubt, include standard provisions that comply with the Model Business Corporation Act, which most states follow.\n\n## Final Review and Deliverables\n\nBefore presenting the final document, verify that all required information has been incorporated, all bracketed placeholders have been replaced with actual data, the document flows logically from preamble through actions to execution, and the formatting is professional and consistent. If any critical information is missing, clearly identify what additional details are needed from the user before the document can be finalized.\n\nPresent the completed document as a properly formatted legal instrument ready for execution. Note that the incorporator should sign the document in the presence of a notary if required by state law or corporate practice, though notarization is typically not mandatory for this type of consent. Remind the user that the executed consent should be filed in the corporate minute book along with the bylaws and Articles of Incorporation as part of the corporation's permanent organizational records.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "junior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate-formation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:40:50.657474Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+codex
+---
+name: written-consent-of-incorporator
+description: Drafts a U.S. corporate formation Action by Written Consent of Incorporator used in place of an organizational meeting. Generates a corporate resolution document that records initial incorporator actions such as adopting bylaws, appointing initial directors, and other formation actions that must be executed after Articles of Incorporation filing. Use when the prompt includes "written consent," "incorporator," "formation filing," "adopt bylaws," "appoint initial directors," or "organize corporation."  
+metadata:
+  author: casemark
+  practice_areas:
+    - Corporate
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Action by Written Consent of Incorporator
+
+Generates an execution-ready incorporator written-consent document for post-formation organizational actions and corporate minute-book filing.
+
+## Prerequisites
+
+1. Exact legal corporation name and state of incorporation.
+2. State filing date of Articles of Incorporation.
+3. Incorporator(s) full legal name(s) and execution authority.
+4. Complete list of initial directors’ full legal names.
+5. Bylaws text (or explicit instruction that bylaws will be attached separately).
+6. Any nonstandard organizational actions requested (bank account authorization, fiscal year, stock issuance ratification, etc.).
+7. Confirmation whether multiple incorporators are consenting jointly.
+
+## Output Structure / Process
+
+### 1) Input validation grid
+| Item | Source | Required | Validation rule |
+|---|---|---:|---|
+| Corporation legal name | Articles/formation docs | Yes | Must match exactly across all captions and recitals |
+| State of incorporation | Articles/formation docs | Yes | Use legal state name |
+| Filing date | Secretary of State filing records | Yes | Must be in full date format |
+| Incorporator identity | Formation packet | Yes | Match name(s) in incorporation records |
+| Director names | User input / board list | Yes | Match requested board size and statutory/charter limits |
+| Bylaws | Draft/bylaws file | Required unless deferred | If not attached, include explicit exhibit addendum instruction |
+
+### 2) Required drafting sequence
+1. Title page: `Action by Written Consent of Incorporator of [Corporation Name]`.
+2. Preamble:
+   - identify incorporator (sole or multiple),
+   - cite corporation name, state, filing date,
+   - state purpose of written consent under state corporation law.
+3. Resolution list (numbered):
+   - Adoption of bylaws, cited as Exhibit A (or note separate attachment).
+   - Appointment/election of initial directors.
+   - Optional additional organization resolutions only if requested.
+4. Closing/organizational transition clause:
+   - incorporator confirms completion of incorporator duties and transition of authority to board.
+5. Execution block:
+   - filing instruction for minute book,
+   - signature block for each incorporator with printed name/title/date.
+
+### 3) Template output
+```text
+ACTION BY WRITTEN CONSENT OF INCORPORATOR
+of [Corporation Name], a [State] Corporation
+
+[Effective Date]
+
+The undersigned [sole incorporator / incorporators], [name(s)],
+hereby adopt this written consent of incorporator on behalf of
+[Corporation Name], a [State] corporation, pursuant to the filing of
+its Articles of Incorporation on [Filing Date].
+
+RESOLVED THAT:
+1. [Adopt Bylaws as Exhibit A ...]
+2. [The following persons are elected/appointed as the initial board of directors: ...]
+3. [Additional organizational action(s) as requested.]
+
+RESOLVED FURTHER THAT the undersigned incorporator(s) is deemed to have
+completed all acts of an incorporator and all authority is transferred to
+the board of directors.
+
+Executed this [Date].
+
+_________________________________
+[Incorporator Printed Name]   Signature
+```
+
+### 4) Quality gate before final output
+- No bracketed placeholders remain.
+- Director count aligns with charter/state requirements.
+- No internal conflicts: name, state, filing date, incorporator identity consistent.
+- Professional corporate format: numbered resolutions, clear headings, consistent spacing, execution-ready text.
+
+## Guidelines
+
+- Use a separate subsection when there are multiple incorporators to avoid ambiguity on consent authority.
+- Keep language statutory-neutral unless a specific state rule is provided.
+- Include [VERIFY] tags for any jurisdictional rule not confirmed by source documents.
+- Default references may track MBCA-style defaults, but verify against governing state law when the state is known and any required formalities differ.
+- Never imply attorney-client legal advice; draft only the requested governance instrument.
+- Notarization is usually not required for written consent, but note jurisdictional or office-specific requirements before finalizing.
+tokens used
+3,331

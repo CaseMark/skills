@@ -1,0 +1,357 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-5a6b-7901-9944-0a83fe9b9ed9
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e7522aad-6602-4399-9b6c-aede7280c3ab",
+  "slug": "c-tpat-security-profile-draft",
+  "name": "C-TPAT Security Profile",
+  "summary": "Drafts a comprehensive C-TPAT Security Profile for submission to U.S. Customs and Border Protection to demonstrate supply chain security compliance. Incorporates company-specific details from policies, procedures, and operations to meet CBP minimum criteria and support certification or recertification. Use it for importers, brokers, or supply chain partners seeking C-TPAT program participation.",
+  "content": "# Enhanced C-TPAT Security Profile Development Prompt\n\nYou are tasked with drafting a comprehensive Customs-Trade Partnership Against Terrorism (C-TPAT) Security Profile that serves as both a critical regulatory submission to U.S. Customs and Border Protection and a strategic internal security framework. This document must demonstrate the company's unwavering commitment to supply chain security while meeting all CBP minimum security criteria for C-TPAT certification and ongoing compliance.\n\n## Strategic Approach and Document Foundation\n\nBefore beginning the drafting process, conduct a thorough review of all available company documentation to establish a factual foundation for every statement in the profile. Search through uploaded company documents to identify and extract specific security policies, operational procedures, organizational charts, facility specifications, training records, and any existing security assessments or audit reports. Gather concrete details including exact physical addresses, federal tax identification numbers, C-TPAT account numbers if already enrolled, names and titles of security personnel, specific equipment models and specifications, and documented procedures currently in use. This document must reflect actual implemented practices rather than aspirational goals, so every assertion should be verifiable through company records, policies, or observable operations.\n\nThe C-TPAT Security Profile will be subject to rigorous CBP review and may be examined during validation site visits where auditors will compare written statements against actual practices. Ensure absolute accuracy and consistency throughout the document, as discrepancies between the profile and observed operations can jeopardize certification status. The profile should demonstrate not only current compliance but also a culture of continuous improvement and proactive security management that exceeds minimum requirements where feasible.\n\n## Company Overview and Organizational Framework\n\nDevelop a comprehensive introduction that establishes the company's identity, business model, and position within the international supply chain. Present the complete legal name, headquarters address, all relevant facility locations, federal tax identification number, and DUNS number if applicable. Provide a detailed narrative of business operations that explains the nature and volume of imports, primary countries of origin, product categories handled, and the company's specific role in the supply chain whether as importer of record, customs broker, freight forwarder, consolidator, or other capacity.\n\nArticulate how the company meets C-TPAT eligibility requirements based on its import activity, demonstrating sufficient volume and regularity of imports to warrant participation in the program. If the company is already enrolled, include the C-TPAT account number and current tier status, along with a brief history of participation including dates of initial certification and any subsequent validations. For companies seeking initial enrollment, clearly specify the membership tier being pursued and explain how the company qualifies for that tier based on CBP guidelines.\n\nDescribe the organizational structure as it relates to supply chain security, identifying the designated C-TPAT coordinator or security officer by name and title, their position within the corporate hierarchy, and their direct reporting relationship to senior management. Explain the authority and resources allocated to this role, including budget for security initiatives, staff support, and access to executive decision-makers. Map out the broader security team including personnel responsible for physical security, IT security, compliance, and operations, showing how these functions coordinate to maintain comprehensive supply chain security. This organizational framework should demonstrate that security is integrated into business operations at all levels rather than treated as an isolated compliance function.\n\n## Comprehensive Risk Assessment Methodology\n\nPresent a detailed narrative explaining the company's systematic approach to identifying, analyzing, prioritizing, and mitigating supply chain security risks across all dimensions of operations. Describe the formal risk assessment methodology employed, including whether the company uses a proprietary framework, industry standard approach such as ISO 31000, or CBP-recommended assessment tools. Explain the frequency of comprehensive risk assessments, typically conducted annually at minimum, along with triggers for interim assessments such as entry into new markets, changes in business partners, or emerging threat intelligence.\n\nDetail the scope of risk evaluation, which should encompass geographic risks associated with countries of origin and transit routes, business partner risks related to suppliers and service providers, operational risks in cargo handling and transportation, personnel risks, physical security vulnerabilities, cybersecurity threats, and regulatory compliance risks. Describe the specific process for identifying vulnerabilities, including facility security surveys, supply chain mapping exercises, business partner assessments, and review of incident data from both internal sources and industry intelligence.\n\nExplain the methodology for evaluating identified risks, including the criteria used to assess likelihood of occurrence and potential impact on operations, cargo security, regulatory compliance, and business continuity. Describe how risks are prioritized using a risk matrix or scoring system that enables resource allocation to the highest-priority threats. Detail the mitigation strategies developed for each significant risk category, explaining how controls are selected, implemented, and validated for effectiveness.\n\nAddress the dynamic nature of risk management by explaining how the company monitors emerging threats through participation in industry associations, review of CBP security alerts and guidance, analysis of incident trends, and intelligence sharing with business partners. Describe the process for updating risk assessments in response to changing conditions, new trade lanes, modifications to the supply chain network, or evolving CBP minimum security criteria. Explain how risk assessment findings are documented in formal reports, communicated to relevant stakeholders including senior management and operational personnel, and integrated into strategic security planning and resource allocation decisions.\n\n## Physical Security Infrastructure and Controls\n\nArticulate the comprehensive physical security measures protecting all facilities involved in the supply chain, including warehouses, distribution centers, manufacturing sites, and office locations where sensitive cargo or information is handled. Begin with perimeter security, describing the specifications of fencing or barriers that create a secure boundary around facilities, including height, material composition, and any anti-climbing features. Detail the lighting systems that provide illumination of perimeter areas, entry points, cargo handling zones, and parking areas during hours of darkness, specifying lumen levels and coverage patterns that eliminate blind spots.\n\nDescribe the surveillance infrastructure including the number, placement, and capabilities of security cameras providing continuous monitoring of critical areas. Explain whether the system provides real-time monitoring by security personnel, digital recording with specified retention periods, or both, and detail the resolution quality and coverage patterns that enable identification of individuals and detection of security incidents. Address any advanced features such as motion detection, analytics capabilities, or integration with access control and alarm systems.\n\nDetail access control systems governing entry to facilities and restricted areas within them. Describe gate security procedures including staffing levels, hours of operation, visitor management protocols, and vehicle inspection processes. Explain employee identification systems including badge types, encoding features, and visual verification procedures. Describe electronic access control systems if deployed, including card readers, biometric devices, or other authentication mechanisms, along with the process for provisioning and revoking access rights. Address how different security zones are established within facilities based on sensitivity, with progressively stricter controls for areas containing high-value cargo, sensitive information, or critical infrastructure.\n\nExplain the security of cargo handling and storage areas, including measures to prevent unauthorized access, detect tampering, and maintain segregation between different customers' goods or between domestic and international cargo. Describe the security of loading docks, including physical barriers, access controls, and procedures to prevent unauthorized individuals from accessing trailers or containers during loading operations. Address parking area security for employee and visitor vehicles, as well as secure parking for loaded trailers awaiting dispatch.\n\nDetail intrusion detection and alarm systems covering facilities during non-operational hours, including the types of sensors deployed, monitoring arrangements, and response protocols when alarms are triggered. Explain whether alarm monitoring is conducted in-house or through a contracted central station, and describe the procedures for dispatching security personnel or law enforcement in response to alarms.\n\nDescribe security personnel deployment, specifying whether guards are employed directly or through a contracted security service, the number of personnel on duty during different shifts, their assigned posts and patrol routes, and their specific responsibilities. Detail the training and qualifications required for security personnel, including any licensing requirements, background screening, and specialized training in cargo security, threat recognition, or emergency response. Provide copies of post orders or standard operating procedures that guide security personnel in their duties.\n\nExplain how physical security measures are validated through security assessments, vulnerability testing, or third-party audits, and describe any continuous improvement initiatives to enhance physical security based on assessment findings, incident analysis, or evolving best practices.\n\n## Personnel Security and Workforce Integrity\n\nDetail the comprehensive personnel security program ensuring that all individuals with access to facilities, cargo, or sensitive information are properly vetted, trained, and monitored throughout their association with the company. Describe pre-employment screening procedures applied to all new hires, including the specific components of background checks such as criminal history verification covering a defined period and geographic scope, verification of employment history and educational credentials, reference checks with former employers or professional contacts, and confirmation of legal authorization to work in the United States.\n\nExplain enhanced screening requirements for positions with security-sensitive responsibilities, such as those with access to cargo handling areas, IT systems containing sensitive data, or financial systems. Detail any additional checks conducted for these roles, which may include credit history review for positions with financial responsibilities, motor vehicle record checks for drivers, or more extensive criminal background investigations. Address the use of third-party screening services and the company's process for reviewing and evaluating screening results before making hiring decisions.\n\nDescribe procedures for personnel security applicable to temporary workers, contractors, and third-party service providers who may require facility access or interaction with company systems. Explain how the company ensures these individuals meet the same security standards as direct employees, including background screening requirements imposed on staffing agencies or contractors, visitor management protocols for short-term access, and escort requirements for individuals without security clearance.\n\nDetail the comprehensive security awareness training program provided to all personnel, beginning with initial orientation for new employees that covers the company's security policies, the importance of C-TPAT compliance, individual responsibilities for maintaining security, procedures for reporting suspicious activities or security incidents, and consequences of security violations. Describe ongoing refresher training conducted at regular intervals to reinforce security awareness, update personnel on new threats or procedures, and maintain a culture of security consciousness throughout the organization.\n\nExplain specialized training provided to personnel in security-sensitive positions, such as cargo handlers trained in container inspection procedures and seal verification, security personnel trained in threat recognition and incident response, IT staff trained in cybersecurity protocols, and supervisors trained in their oversight responsibilities for security compliance. Address how training is documented, including attendance records, training materials, and assessment of comprehension through testing or practical demonstration.\n\nDescribe the disciplinary procedures for security violations, ranging from counseling and retraining for minor infractions to suspension or termination for serious breaches. Explain the investigation process for alleged violations, ensuring fair treatment while protecting security interests. Detail the procedures for terminating access rights when employment ends, including immediate deactivation of electronic access credentials, return of identification badges and keys, exit interviews covering security obligations, and any ongoing confidentiality requirements.\n\nAddress how personnel security records are maintained in compliance with applicable privacy laws and employment regulations while meeting C-TPAT documentation requirements. Explain the periodic re-screening procedures if conducted, such as updated background checks at defined intervals for personnel in sensitive positions, and the process for addressing adverse findings that emerge after initial employment.\n\n## Procedural Security and Supply Chain Integrity\n\nProvide a thorough description of the business processes, operational procedures, and internal controls that maintain supply chain integrity and prevent unauthorized access, tampering, or introduction of contraband from point of origin through final delivery. Begin with the company's business partner security program, explaining the comprehensive approach to selecting, evaluating, and monitoring suppliers, manufacturers, vendors, transportation providers, and other service providers who participate in the supply chain.\n\nDescribe the due diligence process for onboarding new business partners, including the distribution of security questionnaires that assess their security practices across physical security, personnel security, procedural controls, and information security. Explain how responses are evaluated against the company's security standards and C-TPAT minimum security criteria, and detail any verification procedures such as on-site security assessments, review of certifications or third-party audit reports, or reference checks with other customers. Address the criteria used to approve business partners, including any risk-based approach that applies more stringent requirements to partners in high-risk countries or handling sensitive cargo.\n\nDetail the ongoing monitoring of business partner security performance, including periodic reassessment through updated questionnaires, review of security incident reports, performance metrics related to cargo integrity and documentation accuracy, and any continuous improvement expectations. Explain the process for addressing deficiencies identified in business partner security, including corrective action requirements, timelines for remediation, and consequences for failure to maintain adequate security standards including potential termination of the business relationship.\n\nDescribe cargo handling procedures that maintain chain of custody and prevent unauthorized access or tampering throughout the company's operations. Detail receiving procedures including verification of shipment documentation against advance manifests, physical inspection of containers or trailers for signs of tampering or damage, verification of seal integrity and documentation of seal numbers, and reconciliation of cargo received against shipping documents. Explain how discrepancies are identified, investigated, and resolved, including notification procedures for short shipments, overages, or damaged cargo.\n\nAddress cargo storage security, including segregation of cargo by customer or security sensitivity, access controls limiting entry to authorized personnel, inventory management systems that track cargo location and movement, and procedures for detecting and investigating missing or damaged cargo. Describe loading procedures that ensure only authorized cargo is loaded into containers or trailers, verification that containers are structurally sound and free of unauthorized materials before loading, and supervision of loading operations to prevent unauthorized access.\n\nDetail manifest and documentation procedures ensuring accuracy and completeness of all shipping information provided to CBP and other authorities. Explain the process for preparing or receiving shipping documents, verification procedures to ensure accuracy of cargo descriptions, quantities, values, and consignee information, and internal controls such as segregation of duties and supervisory review that prevent fraudulent or erroneous documentation. Address how the company maintains documentation in compliance with recordkeeping requirements and makes records available for CBP review.\n\nExplain container and trailer inspection procedures, specifically addressing the seven-point inspection process recommended by CBP that examines the front wall, left side, right side, floor, ceiling or roof, inside and outside of doors, and outside undercarriage. Describe when inspections are conducted, such as before loading, upon receipt, or both, who performs inspections and their training in inspection techniques, how inspection findings are documented, and procedures for addressing anomalies discovered during inspection.\n\nDetail seal control procedures covering the entire lifecycle of high-security seals used to secure containers and trailers. Describe seal procurement from approved suppliers meeting ISO 17712 standards for high-security seals, receipt and inventory procedures ensuring accountability for all seals, storage security preventing unauthorized access to seal inventory, and issuance procedures that document which seal numbers are assigned to specific shipments. Explain seal application procedures including who is authorized to apply seals, verification that containers are properly secured before sealing, and documentation of seal numbers on shipping documents and in company systems. Address seal verification procedures upon receipt of shipments, investigation protocols for missing, broken, or mismatched seals, and reporting requirements for seal discrepancies to CBP and other stakeholders.\n\n## Conveyance Security and Transportation Integrity\n\nDescribe the comprehensive security measures applied to all conveyances used in the supply chain, including ocean containers, truck trailers, railcars, and any other transportation equipment used to move cargo. Explain the procedures for inspecting conveyances before loading to ensure they are structurally sound, free of unauthorized materials or modifications, and suitable for securing cargo. Detail the systematic inspection process that examines all accessible areas of the conveyance for signs of tampering, hidden compartments, or security vulnerabilities.\n\nProvide a detailed explanation of the seven-point container and trailer inspection process, describing how inspectors examine the front wall for structural integrity and absence of false panels or modifications, inspect the left and right sides for damage or tampering, check the floor for false bottoms or weak points, examine the ceiling or roof for unauthorized openings or modifications, inspect the inside and outside of doors for proper operation and security features, and examine the outside undercarriage for hidden compartments or attached devices. Explain how inspection findings are documented, including any photographic evidence for anomalies, and the procedures for removing conveyances from service when security concerns are identified.\n\nDetail seal usage and control procedures specific to conveyances, including the requirement that all loaded containers and trailers be secured with high-security seals meeting ISO 17712 standards. Describe the seal application process ensuring seals are properly installed through the locking mechanisms of container or trailer doors in a manner that prevents opening without breaking the seal. Explain the documentation procedures that record seal numbers on bills of lading, manifests, and internal tracking systems, creating an auditable chain of custody. Address seal verification procedures at each transfer point in the supply chain, including comparison of physical seal numbers against documentation, inspection of seals for signs of tampering or compromise, and immediate investigation of any seal discrepancies.\n\nDescribe the procedures for investigating and reporting seal discrepancies or evidence of tampering, including immediate notification to management and security personnel, documentation of the circumstances including photographs of the compromised seal, inspection of cargo for signs of theft or introduction of unauthorized materials, notification to CBP and other relevant authorities as required, and preservation of evidence for investigation. Explain how the company analyzes seal incidents to identify patterns or vulnerabilities and implements corrective actions to prevent recurrence.\n\nAddress the vetting and monitoring of drivers and transportation providers who handle the company's cargo. Describe the security requirements imposed on contracted carriers, including driver background screening, vehicle security standards, and procedural requirements for cargo handling and transportation. Explain how carrier compliance is verified through contractual requirements, periodic audits, and performance monitoring.\n\nDetail procedures for securing conveyances during transit, including requirements that loaded containers and trailers remain locked and sealed from point of loading until delivery, specifications for secure parking when vehicles must be left unattended such as well-lit areas with security presence or surveillance, route security considerations for high-risk areas, and any requirements for team drivers or expedited transit to minimize exposure time. Describe any technology deployed to enhance conveyance security, such as GPS tracking systems that monitor location and route adherence, electronic seals that provide real-time notification of tampering, temperature or shock sensors for sensitive cargo, or geofencing alerts when vehicles deviate from approved routes or enter unauthorized areas.\n\n## Information Technology Security and Cyber Resilience\n\nPresent a comprehensive overview of the cybersecurity measures protecting information systems, data, and electronic communications that support supply chain operations and C-TPAT compliance. Begin by describing the IT infrastructure relevant to supply chain security, including systems used for cargo tracking and visibility, customs documentation and filing, warehouse management, transportation management, access control and surveillance, and communication with business partners, CBP, and other stakeholders. Explain the architecture of these systems, including whether they are hosted on-premises or in cloud environments, and any integration points between systems that require security controls.\n\nDetail access control measures governing who can access IT systems and what actions they can perform. Describe user authentication requirements, including password complexity standards, password expiration and history requirements, and any multi-factor authentication deployed for remote access or access to sensitive systems. Explain the process for provisioning user accounts, including approval workflows, role-based access control that limits system privileges to those necessary for job functions, and periodic access reviews to ensure continued appropriateness of access rights. Address the procedures for promptly revoking access when employment terminates or job responsibilities change.\n\nExplain network security measures protecting against unauthorized access and cyber attacks. Describe firewall configurations that control traffic between networks and the internet, intrusion detection and prevention systems that monitor for suspicious activity, network segmentation that isolates sensitive systems, and any security monitoring or security operations center capabilities. Address remote access security, including virtual private network requirements, endpoint security for devices accessing company systems, and any restrictions on remote access to particularly sensitive systems.\n\nDetail data protection procedures ensuring the confidentiality, integrity, and availability of supply chain information. Describe encryption standards for data at rest, such as databases containing cargo information or business partner data, and data in transit, such as electronic communications with CBP or business partners. Explain backup procedures including frequency of backups, storage locations for backup media, testing of backup restoration, and any offsite or cloud backup arrangements for disaster recovery. Address procedures for secure disposal of data and storage media when no longer needed, ensuring sensitive information cannot be recovered.\n\nDescribe cybersecurity training provided to all personnel with system access, covering topics such as password security, recognition of phishing attempts and social engineering, safe internet and email practices, protection of sensitive information, and reporting procedures for suspected security incidents. Explain any specialized training for IT personnel covering secure system administration, security patch management, and incident response.\n\nDetail the procedures for maintaining IT security through ongoing activities such as security patch management with timelines for applying critical security updates, vulnerability scanning to identify system weaknesses, penetration testing to validate security controls, and security assessments or audits conducted by internal or external parties. Explain how vulnerabilities are prioritized and remediated based on risk, and how the company stays informed about emerging cyber threats relevant to supply chain operations.\n\nAddress incident response procedures for cybersecurity events, including detection and analysis of potential incidents, containment procedures to limit damage, eradication of threats, recovery of affected systems, and post-incident analysis to prevent recurrence. Describe notification procedures for significant incidents, including internal reporting to management and external reporting to law enforcement or regulatory authorities as required.\n\nExplain how IT security measures align with C-TPAT requirements for protecting trade-related information, industry standards such as NIST Cybersecurity Framework or ISO 27001, and any specific requirements for systems that interface with CBP such as the Automated Commercial Environment. Address any third-party security assessments or certifications obtained for IT systems, and describe the governance structure for IT security including designated personnel responsible for cybersecurity and their reporting relationship to senior management.\n\n## Compliance Framework and Continuous Improvement\n\nConclude with a comprehensive description of the organizational commitment to maintaining C-TPAT compliance, pursuing continuous improvement in supply chain security, and sustaining certification status through proactive management and accountability. Describe the internal compliance program structure, identifying the designated C-TPAT coordinator or compliance officer by name and title, their specific responsibilities for program management, their authority to implement security measures and allocate resources, and their direct reporting relationship to senior executive leadership demonstrating the importance placed on C-TPAT compliance at the highest levels of the organization.\n\nExplain the self-assessment process used to evaluate ongoing compliance with C-TPAT minimum security criteria and the company's own security standards. Describe the frequency of comprehensive self-assessments, typically conducted annually at minimum, the methodology employed such as structured checklists based on CBP minimum security criteria, the scope of assessment covering all elements of the security profile, and the personnel involved in conducting assessments including both security specialists and operational managers. Detail how self-assessment findings are documented in formal reports that identify areas of full compliance, areas requiring improvement, and any gaps in meeting minimum security criteria.\n\nDescribe the corrective action process for addressing deficiencies identified through self-assessments, incident investigations, or external audits. Explain how corrective actions are prioritized based on risk and compliance impact, assigned to responsible individuals with clear accountability, tracked through completion with defined timelines, and verified for effectiveness through follow-up assessment. Address how significant deficiencies are escalated to senior management and how resources are allocated to ensure timely remediation.\n\nDetail how the company maintains current knowledge of CBP requirements, policy updates, and evolving best practices in supply chain security. Describe participation in C-TPAT webinars, conferences, and training sessions offered by CBP, membership in industry associations focused on supply chain security such as the Coalition of New England Companies for Trade, subscription to trade publications and security bulletins, and any consultation with customs brokers, trade attorneys, or security consultants who provide expertise on regulatory requirements. Explain how new information is disseminated within the organization and incorporated into policies, procedures, and training programs.\n\nAddress record-keeping procedures ensuring that documentation supporting C-TPAT compliance is maintained, organized, and readily accessible for CBP review. Describe the types of records maintained, including security policies and procedures, training records documenting all security awareness and specialized training, incident reports and investigation findings, self-assessment reports and corrective action documentation, business partner security assessments, and any security audit reports. Explain the retention periods for different record types, storage methods ensuring security and accessibility, and the process for retrieving records in response to CBP requests.\n\nExplain how the company prepares for and supports CBP validation visits, which are conducted to verify that security measures described in the profile are actually implemented. Describe the preparation process including advance review of the security profile to ensure continued accuracy, organization of supporting documentation, coordination with facility personnel who will participate in the validation, and any facility preparations to ensure security measures are visible and operational. Detail the company's approach during validation visits, including designation of a primary point of contact for CBP validators, provision of requested documentation and access to facilities, candid discussion of security practices and any challenges encountered, and receptiveness to CBP recommendations for improvement.\n\nDescribe any additional certifications or security programs the company participates in that complement C-TPAT and demonstrate commitment to supply chain security. These may include ISO 28000 certification for supply chain security management systems, Authorized Economic Operator programs in other countries that provide mutual recognition benefits, industry-specific security initiatives such as TAPA for technology products, or participation in CBP trusted trader programs beyond C-TPAT. Explain how these programs align with and reinforce C-TPAT compliance.\n\nConclude with a formal statement of commitment signed by senior executive leadership, affirming the company's dedication to maintaining the highest standards of supply chain security, full compliance with C-TPAT minimum security criteria, continuous improvement in security practices based on evolving threats and best practices, and cooperation with CBP in validation activities and information sharing. This statement should reflect genuine organizational commitment rather than mere regulatory compliance, positioning supply chain security as a core business value that protects the company, its business partners, and the broader trading community.\n\n## Document Development and Quality Standards\n\nThroughout the drafting process, maintain a professional tone appropriate for regulatory submission while ensuring the document remains accessible and understandable to both CBP reviewers and internal stakeholders who will use it as a reference for security operations. Ground every statement in specific, verifiable facts drawn from company policies, documented procedures, and actual operational practices. Search company documents thoroughly to extract concrete details such as specific equipment models and quantities, exact procedures as written in standard operating procedures, names and titles of responsible personnel, dates of implementation for security measures, and results of security assessments or audits.\n\nAvoid vague or aspirational language that describes intentions rather than reality. Instead of stating what the company \"will\" or \"plans to\" do, describe what the company actually does as current practice. Where procedures reference specific CBP requirements or minimum security criteria, cite the relevant guidance documents, regulations, or CBP publications to demonstrate understanding and intentional compliance. Ensure consistency across all sections of the profile, carefully reviewing to eliminate contradictions, gaps in the security framework, or discrepancies that could raise questions during CBP review.\n\nUse clear, precise language that demonstrates sophisticated understanding of both supply chain operations and security principles, avoiding jargon that may obscure meaning while employing industry-standard terminology where appropriate. Organize the document with clear section headers, logical flow from one topic to the next, and appropriate use of subsections to break complex topics into manageable components. The final document should be comprehensive enough to satisfy CBP requirements and demonstrate the full scope of the company's security program while remaining focused and well-organized, typically ranging from fifteen to thirty pages depending on the complexity of operations, number of facilities, and scope of the supply chain network.\n\nInclude appropriate formatting elements such as a table of contents for documents exceeding ten pages, numbered sections and subsections for easy reference, headers and footers with document title and page numbers, and any appendices containing supporting materials such as organizational charts, facility diagrams, or sample forms. Ensure all factual information is current and accurate as of the date of submission, and include a document date and version number to facilitate future updates. Before finalizing, conduct a thorough quality review to verify accuracy, completeness, consistency, and professional presentation, ensuring the document reflects positively on the company's commitment to supply chain security and regulatory compliance.",
+  "parent_skill_id": "808212d6-ec1c-4ea4-9853-eb091f14cd66",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "international_trade_and_customs"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:18.54776",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:48:10.275905Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating structured SKILL.md for C-TPAT profile**
+
+I'm preparing a detailed SKILL.md file named "c-tpat-security-profile" with a clear title and purpose, covering prerequisites and well-organized sections like company overview, risk assessment, security categories, compliance, and validation. The content will include checklists and references to key standards like ISO 17712 and the 7-point inspection, structured for clarity and practical use.
+thinking
+**Preparing detailed SKILL.md with structured sections and guidelines**
+
+I'm including a precise description with trigger keywords, a one-line purpose, a focused prerequisites list, and a clear, numbered output process with tables and checklists for each security domain. The file follows no nested bullets, uses code blocks for templates, emphasizes verifiable, non-aspirational language aligned with CBP Minimum Security Criteria, and notes U.S. jurisdiction without legal citations.
+codex
+---
+name: c-tpat-security-profile
+description: Drafts a U.S. C-TPAT Security Profile for CBP submission, capturing verifiable supply chain security controls across physical, personnel, procedural, conveyance, and IT domains. Use when preparing C-TPAT enrollment, certification, validation, or recertification profiles, or when assembling a CBP-ready security narrative from company policies and records. Trigger keywords: C-TPAT, CBP, security profile, supply chain security, trusted trader, customs compliance, validation.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Memo
+  skill_modes:
+    - Drafting
+---
+
+# C-TPAT Security Profile
+
+Produces a CBP-ready C-TPAT Security Profile grounded in documented, verifiable practices.
+
+## Prerequisites
+
+1. **Corporate identifiers** — legal name, EIN, DUNS, headquarters, facility list, C-TPAT account/tier if enrolled.
+2. **Supply chain map** — roles (importer/broker/forwarder), trade lanes, origin countries, product categories, volume.
+3. **Security governance** — org chart, C-TPAT coordinator, reporting lines, budgets, authority.
+4. **Policies & SOPs** — physical, personnel, procedural, conveyance, IT security procedures.
+5. **Risk assessment artifacts** — methodology, frequency, recent assessments, mitigation plans.
+6. **Training records** — onboarding, refresher, role-based training, attendance logs.
+7. **Business partner vetting** — questionnaires, audits, certifications, corrective actions.
+8. **Incident logs** — security events, seal discrepancies, investigations, remediation.
+9. **Records management** — retention schedule and retrieval procedures.
+10. **Validation history** — prior CBP validations, findings, corrective actions.
+
+## Output Structure / Process
+
+1. **Document Control**
+| Field | Value |
+|---|---|
+| Document title | C-TPAT Security Profile |
+| Version | |
+| Date | |
+| Prepared by | |
+| Approved by | |
+| Confidentiality | |
+
+2. **Company Overview & Eligibility**
+| Item | Details |
+|---|---|
+| Legal name | |
+| EIN | |
+| DUNS | |
+| Headquarters | |
+| Facility locations | |
+| C-TPAT account/tier | |
+| Role in supply chain | |
+| Import volume/frequency | |
+| Primary origins | |
+| Product categories | |
+
+3. **Governance & Organization**
+- **C-TPAT Coordinator**: Name, title, authority, reporting line.
+- **Security team roles**: Physical, IT, compliance, operations.
+- **Management oversight**: Executive sponsor and cadence of review.
+
+4. **Risk Assessment Method**
+| Element | Description |
+|---|---|
+| Framework used | |
+| Frequency | |
+| Trigger events | |
+| Scope | |
+| Risk scoring | |
+| Documentation | |
+
+5. **Physical Security**
+- [ ] Perimeter controls documented (fencing, barriers, lighting).
+- [ ] CCTV coverage map and retention period documented.
+- [ ] Access controls documented for all zones.
+- [ ] Visitor management procedures documented.
+- [ ] Loading dock controls documented.
+- [ ] Alarm/monitoring response documented.
+- [ ] Guard force staffing and training documented.
+
+6. **Personnel Security**
+- [ ] Pre-employment screening scope documented.
+- [ ] Sensitive-role enhanced checks documented.
+- [ ] Contractor/temporary worker controls documented.
+- [ ] Security awareness training documented.
+- [ ] Disciplinary and access termination procedures documented.
+- [ ] Re-screening policy documented.
+
+7. **Procedural Security & Supply Chain Integrity**
+- [ ] Business partner vetting and re-assessment documented.
+- [ ] Receiving procedures and discrepancy handling documented.
+- [ ] Cargo storage access controls documented.
+- [ ] Shipping documentation accuracy checks documented.
+- [ ] Recordkeeping controls documented.
+
+8. **Conveyance Security**
+| Conveyance | Inspection Steps | Documentation |
+|---|---|---|
+| Containers/trailers | 7-point inspection | Logs/photos |
+| Rail/other | Equivalent protocol | Logs/photos |
+
+Seven-point inspection checklist:
+- [ ] Front wall
+- [ ] Left side
+- [ ] Right side
+- [ ] Floor
+- [ ] Ceiling/roof
+- [ ] Inside/outside doors
+- [ ] Outside/undercarriage
+
+9. **Seal Control**
+- [ ] High-security seals meet ISO 17712.
+- [ ] Seal inventory control documented.
+- [ ] Authorized applicators documented.
+- [ ] Seal number logging documented.
+- [ ] Seal verification at transfer points documented.
+- [ ] Discrepancy escalation documented.
+
+10. **Information Technology Security**
+| Area | Controls |
+|---|---|
+| Access control | MFA/role-based access |
+| Network security | Firewalls/IDS/segmentation |
+| Data protection | Encryption/backup/DR |
+| Patch management | Timelines and ownership |
+| Incident response | Detection/containment/recovery |
+
+11. **Compliance & Continuous Improvement**
+- [ ] Annual self-assessments documented.
+- [ ] Corrective actions tracked with owners/dates.
+- [ ] CBP updates monitoring process documented.
+- [ ] Training refresh cadence documented.
+
+12. **Recordkeeping & Validation**
+- [ ] Evidence repository organized and indexed.
+- [ ] Retention periods documented.
+- [ ] Validation visit readiness plan documented.
+
+13. **Statement of Commitment**
+```text
+[Company] affirms its commitment to maintaining C-TPAT security standards,
+continuous improvement, and full cooperation with CBP validation activities.
+Signed: ______________________  Title: ____________________  Date: ________
+```
+
+14. **Appendices**
+- Organizational chart
+- Facility diagrams
+- Sample inspection/seal logs
+- Training records
+- Risk assessment summary
+
+## Guidelines
+
+- Use only verifiable, current practices; avoid future-tense promises.
+- Mirror CBP Minimum Security Criteria structure where possible.
+- Ensure internal consistency across all sections and exhibits.
+- Identify all facilities and trade lanes; avoid omissions.
+- Do not claim certifications or tier status without documentation.
+- If citing regulations or specific CBP guidance, confirm accuracy and mark uncertain citations with `[VERIFY]`.
+- Keep confidentiality markings consistent with company policy and CBP submission expectations.
+tokens used
+18,228

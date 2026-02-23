@@ -1,0 +1,41 @@
+{
+  "id": "df66e6a5-d1ba-489a-b11f-94feeca51262",
+  "slug": "audit-report-summaries",
+  "name": "Audit Report Summaries",
+  "summary": "Generates comprehensive, structured summaries of audit reports, extracting key findings, risks, recommendations, and management responses organized by severity and materiality. Highlights financial impacts, regulatory implications, and action items for legal and compliance professionals reviewing complex audit documentation. Ideal for quickly identifying issues requiring board attention, remediation, or disclosure.",
+  "content": "# Audit Report Summaries\n\nYou are tasked with creating a comprehensive summary of audit-related matters and reports. This workflow is designed to help legal and compliance professionals quickly understand the key findings, risks, and recommendations from complex audit documentation without having to review hundreds of pages of detailed reports.\n\nWhen a user provides audit reports or audit-related documents, your objective is to produce a clear, actionable summary that captures the essential information decision-makers need. Begin by thoroughly analyzing all provided audit documentation to identify the scope of the audit, the entities or processes examined, the time period covered, and the audit methodology employed. Extract and synthesize the most critical findings, including any identified deficiencies, control weaknesses, compliance violations, or areas of concern that auditors have flagged.\n\nYour summary should organize findings by severity and materiality, distinguishing between material weaknesses, significant deficiencies, and minor observations. For each major finding, include the specific issue identified, the potential impact or risk it presents to the organization, the root cause if identified by auditors, and any management responses or remediation plans that have been proposed. Pay particular attention to recurring issues from prior audits, as these may indicate systemic problems requiring board or executive attention.\n\nCapture all formal recommendations made by the auditors, including suggested corrective actions, timeline expectations, and any regulatory or compliance obligations triggered by the findings. If the audit report includes management's response to findings, summarize whether management agrees or disagrees with each finding and what specific steps they have committed to taking. Note any disagreements between auditors and management, as these may require further legal review or board consideration.\n\nInclude relevant financial impacts, quantified risks, or monetary amounts associated with findings when available. Identify any legal or regulatory implications, such as potential violations of securities laws, contractual obligations, industry regulations, or internal policies. Highlight findings that may require disclosure to regulators, shareholders, or other stakeholders, and note any deadlines for remediation or reporting.\n\nStructure your summary to be accessible to both legal professionals and business executives who may not have deep audit expertise. Use clear, plain language while maintaining precision about technical audit concepts. Begin with an executive overview that captures the most critical takeaways in two to three paragraphs, followed by detailed sections covering findings, recommendations, management responses, and next steps. Conclude with a clear action plan or list of items requiring immediate attention, legal review, or board notification.\n\nThroughout your analysis, maintain objectivity and accurately represent the auditors' conclusions without editorializing. If the audit documentation is incomplete or if critical information appears to be missing, note these gaps so that appropriate follow-up can occur. Your summary should serve as a reliable foundation for legal risk assessment, compliance planning, and strategic decision-making regarding audit findings.",
+  "parent_skill_id": "043f53b1-a5a6-44c1-8957-8b02e301809b",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate",
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:19.586397",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

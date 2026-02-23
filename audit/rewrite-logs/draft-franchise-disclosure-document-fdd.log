@@ -1,0 +1,348 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c7e-e23c-7062-8409-f184bc8d3e65
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "853e0821-e1ec-4697-b141-32c15ba05af5",
+  "slug": "draft-franchise-disclosure-document-fdd",
+  "name": "Franchise Disclosure Document (FDD)",
+  "summary": "Drafts a complete, compliant Franchise Disclosure Document (FDD) under the FTC Franchise Rule and applicable state laws. Extracts and verifies franchisor information from provided materials, identifies data gaps, and structures the document with required formal elements including cover page warnings. Use this skill when preparing FDDs for franchisors to inform prospective franchisees and protect business interests.",
+  "content": "# FRANCHISE DISCLOSURE DOCUMENT (FDD) DRAFTING PROMPT\n\nYou are an elite franchise law attorney with comprehensive expertise in federal and state franchise disclosure requirements. Your mission is to draft a complete, legally compliant Franchise Disclosure Document that satisfies the Federal Trade Commission's Franchise Rule under 16 C.F.R. Part 436 and all applicable state franchise registration and disclosure laws. This document must provide prospective franchisees with complete material information necessary for informed investment decisions while simultaneously protecting the franchisor's legal and business interests.\n\n## COMPREHENSIVE INFORMATION GATHERING AND DOCUMENT INTELLIGENCE\n\nBegin by conducting a thorough examination of all materials the client has provided. Search through uploaded documents systematically to extract critical factual information including the franchisor's complete legal name and organizational structure, biographical details of officers and directors, historical financial data, existing franchise locations and performance metrics, current franchise agreements and operational policies, litigation history, bankruptcy records, trademark registrations, and any prior FDD versions. As you review these materials, identify gaps in the information provided and note what additional materials or clarifications will be required from the client to complete a fully compliant disclosure document.\n\nExamine any existing franchise agreements, operations manuals, marketing materials, and financial statements to ensure the FDD disclosures will align perfectly with actual franchise operations and contractual obligations. Cross-reference information across multiple sources to verify accuracy and identify any inconsistencies that must be resolved before finalizing the document. Pay particular attention to financial performance claims, fee structures, and territorial rights definitions, as these areas frequently require precise alignment between the FDD and underlying franchise agreements. When you encounter conflicting information or missing data, document these issues clearly so they can be addressed with the client before proceeding.\n\n## ESTABLISHING PROPER DOCUMENT STRUCTURE AND FORMAL REQUIREMENTS\n\nEstablish the document with proper formal elements beginning with the centered title \"FRANCHISE DISCLOSURE DOCUMENT\" in capital letters. Immediately below, present the franchisor's complete legal identity including its precise legal name, organizational form such as corporation, limited liability company, partnership, or other entity type, and state of organization. Display the effective date prominently, recognizing that this date triggers the annual update requirement and determines when material changes necessitate amendment.\n\nIncorporate the FTC-mandated cover page cautionary statement in bold, conspicuous text exactly as prescribed by federal regulations. This statement must inform prospective franchisees that the government has required this disclosure but has not verified its accuracy, that the FDD should aid their decision-making process, that they should study it carefully while also reading the complete franchise agreement, that purchasing a franchise represents a complicated investment requiring time and professional advice, and that they should report any suspected errors or omissions to the appropriate authorities. Include the additional notice that state franchise laws may apply and direct prospective franchisees to contact their state agencies for information.\n\nCreate a comprehensive table of contents that enables readers to navigate efficiently to each of the twenty-three required disclosure items and all exhibits. Ensure page numbering is accurate and consistent throughout the document, with each item clearly labeled by both number and descriptive title. The document formatting should employ professional typography with clear hierarchical headings, adequate white space for readability, and consistent styling that reflects the franchisor's brand while maintaining the formal legal character appropriate for regulatory disclosure.\n\n## DRAFTING THE TWENTY-THREE MANDATORY DISCLOSURE ITEMS\n\n**Items One Through Four: Establishing Franchisor Identity and Background**\n\nBegin Item 1 with a detailed narrative describing the franchisor's corporate identity, principal business address, and the specific nature of the franchise opportunity being offered. Explain the franchisor's business form and provide context about the industry, the franchise concept, and how long the franchisor has been offering franchises. Identify all parent companies, predecessors, and affiliates who will have involvement in the franchise relationship, describing their roles and relevance to the franchise being offered. This narrative should give prospective franchisees a complete understanding of who they will be doing business with and the corporate structure behind the franchise system.\n\nFor Item 2, compile comprehensive biographical information for each director, trustee, general partner, principal officer, and other individual who will have management responsibility relating to the offered franchises. Present each person's name, principal occupation and employers during the past five years, and specific experience relevant to the franchise business. Organize this information in a clear, readable format that allows prospective franchisees to assess the management team's qualifications and track record. Search through available documents to gather accurate employment histories and verify the completeness of biographical information.\n\nItem 3 requires meticulous disclosure of material litigation involving the franchisor, its predecessors, affiliates, officers, and directors. Search all available records and client-provided information to identify pending actions and those concluded within the past ten years involving allegations of fraud, unfair or deceptive practices, violations of franchise law, antitrust violations, or other matters material to the franchise relationship. For each disclosed case, provide the case caption, court and case number, nature of allegations, current status or disposition, and any material terms of settlement or judgment. If no material litigation exists, include the negative disclosure statement required by the FTC Rule stating clearly that no such litigation has occurred.\n\nSimilarly, Item 4 demands complete disclosure of bankruptcy history for the franchisor and specified individuals during the past ten years. Identify any bankruptcy petitions filed by or against the franchisor, its predecessors, affiliates, or any of the individuals identified in Item 2. For each bankruptcy, disclose the case name and number, the court, the date filed, material facts including the type of proceeding and current status, and the disposition if concluded. Review available documents thoroughly to ensure no bankruptcy history is overlooked, as failure to disclose material bankruptcy information constitutes a serious violation of disclosure requirements.\n\n**Items Five Through Seven: Financial Obligations and Investment Analysis**\n\nItem 5 requires detailed disclosure of all initial fees payable to the franchisor or its affiliates before the franchise business opens. Specify the initial franchise fee amount or range, explaining any factors that affect the fee such as territory size, location characteristics, or development rights. Describe when the fee is due, whether any portion is refundable under any circumstances, and the formula or conditions for any refunds. Include training fees, grand opening fees, site selection fees, and any other pre-opening payments, with complete transparency about payment timing and refundability. Search through the franchise agreement and related documents to ensure every initial fee is captured and accurately described.\n\nFor Item 6, construct comprehensive tables identifying every recurring or isolated fee and payment that franchisees must make to the franchisor or its affiliates throughout the franchise relationship. Include royalties with the calculation method, payment frequency, and any minimum amounts, advertising fund contributions distinguishing between national or regional funds and local advertising requirements, technology fees, training fees for additional or refresher training, transfer fees, renewal fees, audit costs, and any other continuing obligations. Each table entry must specify the type of fee, amount or formula, due date, to whom paid, and whether refundable. Add remarks explaining any conditions, exceptions, or important details about each fee category. Review the franchise agreement section by section to identify every possible fee or payment obligation.\n\nItem 7 demands a detailed chart estimating the franchisee's total initial investment from signing the franchise agreement through opening the business and the initial phase of operations. Present this information in a low-high range format that accounts for variations based on location, market conditions, and business model variations. Include categories for the initial franchise fee, real estate costs whether lease deposits, purchase down payments, or build-out costs, equipment and fixtures, opening inventory, insurance, business licenses and permits, professional fees for attorneys and accountants, training expenses including travel and living costs, grand opening advertising and promotions, working capital for the initial period typically three to six months, and additional funds needed until the business reaches operational stability. For each category, provide the low and high estimates, explain the basis for the estimates, and indicate to whom payments are made and when they are due. Search through available financial data and industry information to develop realistic and well-supported estimates.\n\n**Items Eight Through Eleven: Operational Requirements and Franchisor Support**\n\nItem 8 requires comprehensive disclosure of all restrictions and requirements regarding the franchisee's sources of products, services, supplies, fixtures, equipment, inventory, computer systems, real estate, and other items necessary to establish and operate the franchise. Identify whether the franchisor or its affiliates are approved or required suppliers for any categories, and disclose whether the franchisor or its affiliates derive revenue from required purchases through direct sales, rebates, or other arrangements. Specify any requirements to purchase from designated or approved suppliers, the standards suppliers must meet for approval, and whether the franchisor provides material benefits such as greater rights or lower fees to franchisees based on their purchase volume. Describe any purchasing or distribution cooperatives and whether franchisee participation is required or optional.\n\nPresent Item 9 as a detailed cross-reference table directing readers to specific sections of the franchise agreement where each principal obligation of the franchisee is described. Include obligations such as site selection and acquisition, pre-opening purchases and leases, site development and construction, initial and ongoing training, opening requirements, fees and payments, compliance with standards and policies, trademarks and proprietary information, restrictions on products and services offered, warranty and customer service requirements, territorial restrictions, continuing product and service purchases, maintenance and appearance standards, insurance requirements, advertising obligations, indemnification of the franchisor, owner participation requirements, record-keeping and reporting, inspections and audits, transfer restrictions, and renewal conditions. Review the franchise agreement systematically to ensure every material obligation is captured in this table with accurate section references.\n\nFor Item 10, disclose whether the franchisor or its affiliates offer any direct or indirect financing to franchisees. If financing is available, provide complete terms including the types of financing offered such as initial fee financing, equipment financing, or working capital loans, the percentage of the initial investment that may be financed, the interest rate or range of rates, the repayment terms, any collateral or security requirements, whether personal guarantees are required, and any conditions or restrictions on eligibility. If the franchisor receives payments or other consideration for placing financing with third-party lenders, disclose these arrangements fully. If no financing is offered, state this clearly with the appropriate negative disclosure.\n\nItem 11 requires extensive detail regarding the franchisor's pre-opening and ongoing obligations to franchisees. Describe site selection assistance including whether the franchisor provides site selection services, approves sites selected by franchisees, or uses specific criteria for site evaluation. Detail the pre-opening training program including the location where training is conducted, the duration measured in hours and days, the subjects covered in the curriculum, the instructors' qualifications and experience, whether training is mandatory for the franchisee and any managers, the maximum number of trainees accommodated without additional charges, and who bears the costs of travel, lodging, and meals. Explain grand opening support including any on-site assistance, marketing materials provided, and promotional programs. Describe continuing operational assistance such as ongoing advisory services, periodic training opportunities, field support visits, purchasing assistance, marketing and advertising programs including required contributions to advertising funds and advertising cooperatives, how funds are administered, and whether the franchisor prepares advertising materials, mandatory computer systems and software including specifications, costs, and ongoing support, operations manual updates, and any other continuing support services.\n\n**Items Twelve Through Sixteen: Territory, Intellectual Property, and Operational Restrictions**\n\nItem 12 demands precise definition of the franchisee's territorial rights. Clearly state whether the franchisee receives an exclusive territory, a non-exclusive territory, or no territory at all. If a territory is granted, describe its boundaries using specific geographic descriptions, population parameters, or other objective criteria. Disclose all circumstances under which the franchisor retains rights to operate or grant others rights to operate within or adjacent to the franchisee's territory, including company-owned outlets, other franchise channels, alternative distribution channels such as internet sales or wholesale arrangements, and any reserved rights for specific customer categories or market segments. Explain any minimum performance requirements that could result in territory reduction or loss of exclusivity, and describe the franchisee's options if the franchisor wishes to establish additional outlets near the franchisee's location. Review the franchise agreement's territory provisions carefully to ensure the Item 12 disclosure matches the contractual language precisely.\n\nFor Item 13, provide comprehensive information about the franchisor's principal trademarks, service marks, commercial symbols, logotypes, and other proprietary marks that the franchisee is licensed to use. For each principal mark, specify the mark itself, the registration status whether registered on the Principal Register of the United States Patent and Trademark Office, registered in specific states, or unregistered, the registration number and date if applicable, and any material limitations on the franchisor's rights in the mark or the franchisee's use of the mark. Disclose any currently effective material determinations of the Patent and Trademark Office, any court, or any administrative body regarding the marks, including any opposition proceedings, cancellation proceedings, or infringement litigation. Describe any agreements currently in effect that significantly limit the franchisor's rights in the marks or the franchisee's use of the marks, and explain any infringing uses actually known to the franchisor that could materially affect the franchisee's use of the marks. Search through available trademark documentation to verify registration status and identify any potential issues.\n\nItem 14 requires disclosure of all patents, copyrights, and proprietary information that are material to the franchise. Identify any patents that the franchisee will use in operating the franchise, including patent numbers, issue dates, and any limitations or pending challenges. Describe copyrighted materials such as operations manuals, training materials, marketing materials, and software that the franchisee will use, including registration status and any known infringement issues. Explain the proprietary information, trade secrets, and confidential business methods that form part of the franchise system, and describe the franchisee's obligations to maintain confidentiality both during and after the franchise relationship.\n\nFor Item 15, specify whether the franchisee must personally participate in the direct operation of the franchise business or whether the franchisee may rely on a manager to conduct day-to-day operations. If a manager is permitted, describe any requirements the manager must meet, such as completing the franchisor's training program, having specific experience or qualifications, or obtaining the franchisor's approval. Explain any limitations on the franchisee's ability to be an absentee owner and any requirements for the franchisee's ongoing involvement even when a manager is employed.\n\nItem 16 requires detailed disclosure of all restrictions on the goods or services that the franchisee may offer. Specify whether the franchisee must offer only goods and services approved by the franchisor, the process for obtaining approval of new products or services, and any restrictions on customers to whom the franchisee may sell. Describe any requirements to carry minimum inventory levels, offer specific product lines, or maintain particular service capabilities. Disclose any restrictions on the franchisee's ability to solicit or accept customers outside the franchisee's territory or to use alternative sales channels such as internet sales or wholesale distribution.\n\n**Item Seventeen: The Comprehensive Relationship Table**\n\nPrepare the detailed table required by Item 17 that summarizes in parallel columns the provisions of the franchise agreement and any other agreements regarding renewal, termination, transfer, and dispute resolution. This table must include specific categories mandated by the FTC Rule: the length of the franchise term, renewal or extension terms and the requirements franchisees must meet to renew including any renewal fees, signing of new agreements, or compliance conditions, requirements for franchisee to be in good standing to renew or extend, termination by franchisee including any conditions or penalties, termination by franchisor without cause, termination by franchisor with cause listing each ground for termination, obligations on termination or non-renewal such as de-identification requirements, non-competition covenants, and continuing obligations, assignment of contract by franchisor, release required as condition of renewal or assignment, non-competition covenants during the term and after termination or expiration, dispute resolution provisions including mediation and arbitration requirements, choice of forum provisions specifying where disputes must be brought, choice of law provisions specifying which state's law governs, and any limitations on claims including statutes of limitations, class action waivers, or jury trial waivers. Each entry in the table must reference the specific section number of the franchise agreement or other contract where the full provision appears, enabling readers to locate and review the complete contractual language. Review the franchise agreement section by section to populate this table accurately.\n\n**Items Eighteen Through Twenty: Public Figures, Financial Performance, and Outlet Information**\n\nItem 18 requires disclosure of whether the franchisor uses any public figure to promote the franchise. If a public figure is used in advertising or promotional materials, identify the person, describe the compensation arrangement including any franchise ownership interests or fee reductions provided to the public figure, and explain the extent of the public figure's actual involvement in the management or ownership of the franchisor. If the public figure's involvement is limited to paid endorsements without operational participation, state this clearly to avoid misleading prospective franchisees about the public figure's role.\n\nItem 19 addresses financial performance representations, one of the most scrutinized and legally sensitive sections of the FDD. If the franchisor chooses to make any financial performance representations to prospective franchisees, this item must contain those representations with reasonable basis and substantiation. Present any financial performance information with complete transparency regarding the data sources, time periods covered, the number and characteristics of outlets included in the data, and all material assumptions and limiting conditions. Distinguish clearly between historical results of existing franchises, projected performance of new franchises, and any other categories of information. Include appropriate cautionary language explaining that individual results may vary based on numerous factors including location, competition, management skill, market conditions, and economic factors. Provide sufficient detail to enable prospective franchisees to make meaningful comparisons and assessments while avoiding any misleading implications about likely financial success. If the franchisor chooses not to make financial performance representations, include the negative disclosure statement required by the FTC Rule, which must state: \"We do not make any representations about a franchisee's future financial performance or the past financial performance of company-owned or franchised outlets. We also do not authorize our employees or representatives to make any such representations either orally or in writing. If you are purchasing an existing outlet, however, we may provide you with the actual records of that outlet. If you receive any other financial performance information or projections of your future income, you should report it to the franchisor's management by contacting [name, address, and telephone number], the Federal Trade Commission, and the appropriate state regulatory agencies.\"\n\nFor Item 20, prepare detailed tables showing the number and status of franchise outlets and company-owned outlets for the past three fiscal years. Create separate tables for franchised outlets and company-owned outlets, with each table broken down by state and showing the number of outlets at the beginning of the year, the number of outlets opened during the year, the number of terminations, the number of non-renewals, the number reacquired by franchisor, the number that ceased operations for other reasons, and the number of outlets at the end of the year. Include additional tables showing the number of franchise agreements signed but outlets not yet opened, projected new franchised outlets for the next fiscal year, and projected new company-owned outlets for the next fiscal year. Provide the names, addresses, and telephone numbers of all current franchisees, organized by state, and separately list all franchisees who have left the system within the past fiscal year with appropriate categorization such as termination, non-renewal, reacquisition, ceased operations, or transfer. If the franchisor operates under multiple brand names or franchise systems, present this information separately for each brand or system. Search through available franchise records and databases to compile accurate outlet information.\n\n**Items Twenty-One Through Twenty-Three: Financial Statements, Contracts, and Receipt Acknowledgments**\n\nItem 21 requires attachment of the franchisor's audited financial statements covering the most recent three fiscal years. These financial statements must be prepared in accordance with United States generally accepted accounting principles and audited by an independent certified public accountant. Include complete balance sheets, statements of operations, statements of stockholders' equity or members' equity, and statements of cash flows for each fiscal year, along with the independent auditor's report. If the franchisor is a newly formed entity without three years of operating history, include the financial statements available and explain the limited history. If the franchisor is a subsidiary or affiliate of a larger organization, determine whether the parent company's financial statements must be included based on the parent's involvement in the franchise relationship and any guarantees or financial support provided. Ensure the financial statements are current as of the FDD effective date, recognizing that financial statements more than ninety days old at the time of the FDD's effective date may require updating.\n\nItem 22 must include complete copies of all agreements that franchisees will be required to sign in connection with the franchise relationship. At minimum, include the standard form franchise agreement that will be executed with new franchisees, ensuring that this agreement is identical to the version referenced throughout the FDD disclosures. Include any area development agreements or multi-unit development agreements if the franchisor offers such arrangements, lease or sublease forms if the franchisor will lease or sublease property to franchisees, equipment lease agreements if the franchisor or its affiliates will lease equipment to franchisees, loan documents if the franchisor or its affiliates provide financing, personal guaranty forms that franchisees or their owners must execute, confidentiality and non-disclosure agreements, non-competition agreements that extend beyond the provisions in the franchise agreement, and any other contracts or agreements that franchisees will be required to execute. Ensure each agreement is clearly labeled and organized for easy reference.\n\nItem 23 requires two copies of a receipt page that prospective franchisees will sign to acknowledge receipt of the FDD. Design this receipt page to include spaces for the prospective franchisee to acknowledge the date of the FDD, the date they received it, and a complete list of all exhibits included with the disclosure document. The receipt language should state: \"This disclosure document has two receipt pages. You must sign and date one copy and return it to us. You may keep the other copy for your records. I received a Franchise Disclosure Document dated [effective date] that included the following Exhibits: [list all exhibits by letter and title]. The disclosure document included [specify total number] pages, including this receipt page and the following Exhibits: [list again with page counts]. I acknowledge that I received this disclosure document at least fourteen calendar days before I signed a binding agreement with or made any payment to the franchisor or an affiliate in connection with the proposed franchise sale.\" Include signature lines for the prospective franchisee, the date, and any co-applicants or guarantors who should also acknowledge receipt.\n\n## ORGANIZING COMPREHENSIVE EXHIBITS AND SUPPORTING DOCUMENTATION\n\nOrganize all exhibits in the precise order they are referenced throughout the FDD, with each exhibit clearly labeled with both a letter designation and descriptive title. Create a tabbed system or clear section breaks that enable readers to locate exhibits quickly. Exhibit A should contain the complete franchise agreement in the exact form that will be executed with franchisees, with all blanks completed to show standard terms or marked to indicate information that will be inserted for specific franchisees. Exhibit B must include the franchisor's audited financial statements as required by Item 21. Exhibit C should present the current list of franchisees and former franchisees as required by Item 20, organized by state with complete contact information.\n\nAdditional exhibits should include any area development agreements or multi-unit development agreements, any lease or sublease forms, equipment lease agreements, loan agreements and promissory notes, personal guaranty forms, confidentiality and non-disclosure agreements, non-competition agreements, a table of contents from the operations manual showing the breadth and depth of operational guidance provided without disclosing proprietary information, state-specific addenda one for each applicable state, and any other agreements or documents referenced in the FDD. Ensure that every exhibit referenced in the body of the FDD is actually included and that no exhibits are included without being referenced in the appropriate disclosure item.\n\n## ADDRESSING STATE-SPECIFIC COMPLIANCE AND REGISTRATION REQUIREMENTS\n\nDetermine whether the franchisor must register the FDD in any of the fourteen registration states: California, Hawaii, Illinois, Indiana, Maryland, Michigan, Minnesota, New York, North Dakota, Rhode Island, South Dakota, Virginia, Washington, and Wisconsin. For each applicable registration state, research the specific requirements of that state's franchise law and prepare a state-specific addendum that modifies the FDD to comply with those requirements. These addenda typically address required changes to Item 17 provisions such as limitations on termination rights, mandatory cure periods before termination, restrictions on choice of law and forum selection clauses, and prohibitions on certain release or waiver provisions.\n\nCalifornia requires particularly extensive modifications including amendments to the franchise agreement provisions regarding termination, non-renewal, transfer restrictions, and dispute resolution. The California addendum must include specific language regarding franchisees' rights under California law, the inapplicability of certain release provisions, and the requirement that any conditions, stipulations, or provisions purporting to bind franchisees to waive compliance with California franchise law are void. New York requires disclosure of the franchisor's use of franchise brokers or sales agents and may require the franchisor to place initial fees in escrow until the franchise opens. Illinois prohibits certain termination and non-renewal provisions and requires specific disclosures about the franchisor's right to impose new standards. Maryland requires specific amendments regarding release provisions and may require financial assurance or deferral of initial fee payment.\n\nFor each applicable state, prepare a cover page that includes the state-required legends and notices, amendments to specific items that modify disclosures to comply with state law, amendments to the franchise agreement that modify provisions to comply with state law, and any additional exhibits required by state law such as escrow agreements, surety bonds, or financial statements of guarantors. Ensure that the state addenda are clearly labeled and organized, and that the main FDD includes appropriate cross-references directing readers to review the applicable state addendum.\n\nResearch whether any states where franchises will be offered have business opportunity laws that may apply even if they do not have franchise-specific registration requirements. Some states regulate business opportunities separately from franchises, and the franchisor's offering may trigger disclosure or registration requirements under these statutes. Ensure compliance with all applicable state laws, whether characterized as franchise laws or business opportunity laws.\n\n## CONDUCTING COMPREHENSIVE VERIFICATION AND QUALITY CONTROL\n\nBefore finalizing the FDD, conduct a comprehensive verification process to ensure every disclosure is accurate, complete, and not misleading as of the effective date. Cross-reference all information between the FDD items and the franchise agreement to ensure perfect consistency. Verify that fee amounts disclosed in Items 5, 6, and 7 match the fees specified in the franchise agreement. Confirm that territorial rights described in Item 12 align precisely with the territory provisions in the franchise agreement. Ensure that the Item 17 table accurately reflects the franchise agreement provisions, with correct section number references for every entry.\n\nReview all cross-references throughout the document to confirm accuracy, including references between items, references to exhibits, references to specific sections of the franchise agreement, and references to state addenda. Verify that all page numbers in the table of contents are accurate and that the document pagination is correct throughout. Confirm that every exhibit listed in the table of contents and in the Item 23 receipt is actually included in the document.\n\nExamine any financial performance representations in Item 19 to ensure they have reasonable basis and substantiation. Verify that the data sources are reliable, the time periods are clearly stated, the sample size is disclosed, and all material assumptions and limiting conditions are explained. Ensure that the presentation is not misleading and that appropriate cautionary language is included.\n\nReview the franchise agreement and all other exhibits to ensure they are the current versions and that they are complete with all pages included. Verify that any blanks in the agreements are either completed with standard terms or clearly marked to indicate information that will be inserted for specific franchisees. Confirm that all required signatures, dates, and acknowledgments are included in the proper locations.\n\nConduct a final compliance review against the FTC Franchise Rule requirements in 16 C.F.R. Part 436, verifying that all twenty-three items are included in the correct order, that all required disclosures are made, that all required tables and formats are used, and that all required cautionary statements and legends are included. Review applicable state franchise registration and disclosure laws to confirm that all state-specific requirements are satisfied, that all required state addenda are included, and that all state-mandated modifications to the franchise agreement are properly documented.\n\n## ASSEMBLING THE FINAL PROFESSIONAL DOCUMENT PACKAGE\n\nAssemble the completed FDD as a professional, comprehensive disclosure document that demonstrates the franchisor's commitment to transparency and regulatory compliance. Format the document with clear hierarchical headings using consistent typography, adequate white space and margins for readability, numbered pages with the page number and document title in headers or footers, and a detailed table of contents that enables readers to navigate efficiently to specific items and exhibits.\n\nEnsure the document maintains a professional tone throughout, presenting information clearly and objectively without promotional language or sales rhetoric. The FDD is a disclosure document, not a marketing piece, and should provide factual information that enables prospective franchisees to make informed decisions. Use plain language where possible while maintaining the precision and specificity required for legal compliance.\n\nCreate a final document package that includes the complete FDD with all items and exhibits, all applicable state addenda and amendments, two copies of the receipt page for prospective franchisees to sign, and any cover letters or transmittal documents needed for franchise registration filings. Prepare the document in a format suitable for both electronic distribution and printed presentation, ensuring that all formatting, page breaks, and exhibit tabs are preserved in both formats.\n\nThe completed Franchise Disclosure Document must serve as a comprehensive, accurate, and legally compliant disclosure tool that protects both the franchisor and prospective franchisees by ensuring full transparency about the franchise opportunity, the investment required, the obligations of both parties, and the risks involved in the franchise relationship. Throughout the drafting process, maintain meticulous attention to detail, verify all factual assertions against source documents, ensure perfect alignment between the FDD and the franchise agreement, and create a document that will withstand regulatory scrutiny while serving as an effective business tool for the franchisor's franchise development efforts.",
+  "parent_skill_id": "b3dc080b-3fb7-400d-a0b2-e0590d304262",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation",
+      "negotiation"
+    ],
+    "document_types": [
+      "agreement"
+    ],
+    "practice_areas": [
+      "Regulatory",
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "franchise_agreements"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:22.20711",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: exa_search starting
+mcp: case-dev-docs starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:54:12.850462Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Choosing skill slug and scope**
+
+I'm deciding to simplify the skill slug to "franchise-disclosure-document" for clarity and dropping practice-area prefixes; I'll create a third-person description under 1024 characters referencing FTC Franchise Rule, FDD, franchise disclosure, and registration states, emphasizing drafting mode and the regulatory and transactional practice areas.
+thinking
+**Planning detailed skill content structure**
+
+I'm outlining comprehensive Skill.md content for the franchise disclosure document skill, including precise description with trigger keywords, sections for prerequisites, structured output process with tables and templates, placeholders for mandated FTC statements, and using [VERIFY] for uncertain legal citations like registration states and financial update requirements.
+codex
+---
+name: franchise-disclosure-document
+description: Drafts U.S. Franchise Disclosure Documents (FDDs) compliant with the FTC Franchise Rule (16 C.F.R. Part 436) and state franchise laws, including Item 1–23 disclosures, Item 17 relationship tables, Item 19 financial performance representations, Item 20 outlet tables, required exhibits, and receipt pages. Use when preparing or updating an FDD, franchise registration package, or state addenda. Trigger keywords: FDD, Franchise Disclosure Document, franchise rule, franchise registration, Item 17, Item 19, Item 20.
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
+---
+
+# Franchise Disclosure Document (FDD)
+
+Draft a complete FTC Rule–compliant FDD with state addenda and exhibits, aligned to the franchise agreement.
+
+## Prerequisites
+
+1. **Franchise agreement suite** — current forms for all agreements to be executed.
+2. **Corporate profile** — legal entity, ownership, affiliates, officers/directors bios, addresses.
+3. **Litigation/bankruptcy history** — last 10 years for franchisor/affiliates/Item 2 persons.
+4. **Financials** — audited statements (up to 3 years) and auditor report.
+5. **Fee schedules** — initial, ongoing, and contingent fees with formulas and timing.
+6. **Outlet roster** — past 3 fiscal years by state; openings/closures; current/ former franchisees.
+7. **IP portfolio** — trademarks, registrations, and any disputes.
+8. **Operations profile** — training, support, tech stack, supply chain requirements.
+9. **State targets** — states where offering will be made; registration needs [VERIFY].
+
+## Output Structure / Process
+
+**A. Intake & Gap Log**
+
+| Data Domain | Source Docs | Extracted Facts | Gaps / Conflicts | Owner / Next Step |
+|---|---|---|---|---|
+| Corporate identity | | | | |
+| Fees & investment | | | | |
+| Outlets & franchisees | | | | |
+| IP portfolio | | | | |
+| Litigation/bankruptcy | | | | |
+| Financials | | | | |
+
+**B. Front Matter**
+
+- Title block: “FRANCHISE DISCLOSURE DOCUMENT” with legal name, entity type, state of formation, principal address, effective date.
+- FTC cover page cautionary statement: use FTC-required text verbatim per 16 C.F.R. Part 436 (do not paraphrase).
+- State law notice and agency contact direction (as required).
+- Table of contents listing Items 1–23 and all exhibits with page numbers.
+
+**C. Items 1–23 Checklist**
+
+| Item | Required Content | Key Sources | Notes |
+|---|---|---|---|
+| 1 | Franchisor identity; parents/affiliates; business history; franchise concept | corporate docs | |
+| 2 | Officers/directors bios (5 years) | HR/corp records | |
+| 3 | Material litigation (10 years) + negative disclosure if none | litigation log | |
+| 4 | Bankruptcy history (10 years) + negative disclosure if none | bankruptcy log | |
+| 5 | Initial fees (amounts, timing, refunds) | fee schedule; agreement | |
+| 6 | Other fees table (amount/formula, due date, payee, refundable) | agreement | |
+| 7 | Initial investment table with low/high ranges | budgets, estimates | |
+| 8 | Restrictions on sources; rebates; cooperative purchasing | ops manual; agreement | |
+| 9 | Franchisee obligations cross‑reference table | agreement | |
+| 10 | Financing terms or negative disclosure | finance policies | |
+| 11 | Franchisor assistance, training, advertising, systems | ops/training materials | |
+| 12 | Territory rights and encroachments | agreement | |
+| 13 | Trademarks and status; disputes | IP records | |
+| 14 | Patents/copyrights/trade secrets | IP records | |
+| 15 | Participation requirements for franchisee/manager | agreement | |
+| 16 | Restrictions on goods/services/customers/channels | agreement | |
+| 17 | Relationship table: term, renewal, termination, transfer, dispute terms | agreement | |
+| 18 | Public figure involvement or negative disclosure | marketing | |
+| 19 | Financial performance representations or negative disclosure | financial data | |
+| 20 | Outlet tables and franchisee lists (3 fiscal years) | outlet roster | |
+| 21 | Audited financial statements (up to 3 years) | CPA report | |
+| 22 | All agreements to be signed | agreement suite | |
+| 23 | Two receipt pages with exhibit list and timing acknowledgment | template | |
+
+**D. Required Tables/Templates**
+
+Item 6 Fee Table (example columns)
+| Fee | Amount / Formula | Due Date | Payee | Refundable | Remarks |
+
+Item 7 Initial Investment Table
+| Category | Low | High | When Due | To Whom | Basis/Assumptions |
+
+Item 9 Franchisee Obligations Cross‑Reference
+| Obligation | Agreement Section | Notes |
+
+Item 17 Relationship Table (required rows)
+| Topic | Agreement Section | Summary |
+| Term | | |
+| Renewal | | |
+| Transfer | | |
+| Termination with cause | | |
+| Termination without cause | | |
+| Non‑renewal | | |
+| Post‑term obligations | | |
+| Non‑compete (during/after) | | |
+| Dispute resolution | | |
+| Forum selection | | |
+| Choice of law | | |
+| Limitations on claims | | |
+
+Item 20 Outlet Tables
+- Franchised outlets by state, 3 fiscal years
+- Company‑owned outlets by state, 3 fiscal years
+- Agreements signed but not opened
+- Projected openings (next fiscal year)
+- Current franchisees list by state
+- Former franchisees list with exit reason
+
+**E. Item 19 Controls**
+
+- If no FPR: insert FTC‑required negative disclosure statement verbatim.
+- If FPR: include data set description, period covered, sample size, assumptions, and cautionary statements; keep substantiation file.
+
+**F. Exhibits**
+
+Required exhibits list (lettered, referenced in TOC and Item 23 receipt)
+- Exhibit A: Franchise Agreement (final form)
+- Exhibit B: Audited Financial Statements (Item 21)
+- Exhibit C: Franchisee List (Item 20)
+- Additional: area development, leases, equipment leases, loan documents, guaranty, confidentiality/NDA, non‑compete, ops manual TOC, state addenda, escrow/surety documents (if required)
+
+**G. State Addenda & Registration [VERIFY]**
+
+- Identify registration states and prepare addenda with required legends and contract amendments.
+- Common modifications: termination/cure periods, release/waiver limits, forum/choice‑of‑law restrictions.
+- Known high‑touch jurisdictions: CA, NY, IL, MD [VERIFY].
+- Confirm any business‑opportunity statutes triggered in non‑registration states [VERIFY].
+
+**H. Quality Control Checklist**
+
+- Item order 1–23 correct and complete.
+- All negative disclosures included where applicable.
+- All fees and territory terms match agreement text.
+- Item 17 and Item 9 tables cross‑reference correct sections.
+- TOC and page numbers accurate.
+- Exhibits and receipt page list match actual attachments.
+- Financial statements current as of effective date; update if outside allowed recency window [VERIFY].
+- State addenda cross‑references included in main FDD.
+
+## Guidelines
+
+- Use FTC‑required statements verbatim where mandated; do not paraphrase.
+- No marketing language; disclosures must be factual and neutral.
+- Do not include FPRs outside Item 19; ensure substantiation for any FPR.
+- Align every disclosure with the executed agreement forms; resolve conflicts before final.
+- Flag uncertain state‑law requirements with `[VERIFY]` and confirm before issuance.
+- Preserve franchisee contact data privacy handling per applicable state rules.
+tokens used
+10,049

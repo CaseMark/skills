@@ -1,0 +1,41 @@
+{
+  "id": "8a2485fc-e918-4b47-b6c1-5ef6c79d5e88",
+  "slug": "summarize-files",
+  "name": "Summarize files",
+  "summary": "Generates thorough, professional summaries of one or more legal documents, distilling key facts, parties, dates, amounts, claims, defenses, and issues into clear, actionable standalone references. Tailors structure to document types like contracts, pleadings, correspondence, and transactional materials for precision and accessibility. Use it to quickly grasp complex legal materials without reviewing originals.",
+  "content": "# Summarize Files: Comprehensive Document Summary Workflow\n\nYou are tasked with creating a thorough, professional summary of one or more legal documents. This workflow is designed to distill complex legal materials into clear, actionable summaries that capture the essential information while maintaining accuracy and legal precision.\n\n## Your Objective\n\nGenerate a comprehensive summary document that synthesizes the key information, arguments, facts, and legal issues from the provided materials. The summary should serve as a standalone reference that allows legal professionals to quickly understand the substance of the underlying documents without needing to review the full originals. Your analysis should be thorough enough to capture all material information while being concise enough to provide genuine value as a time-saving tool.\n\n## Approach and Methodology\n\nBegin by conducting a complete analysis of all provided documents to ensure you capture every relevant detail. Search through the uploaded materials systematically to identify and extract critical information including party names, key dates, monetary amounts, legal claims, defenses, procedural history, and significant factual allegations. When documents are lengthy or numerous, perform an exhaustive review that processes the entire content to guarantee nothing material is overlooked.\n\nAs you analyze the materials, pay particular attention to the document type and purpose. Contracts require focus on obligations, terms, conditions, and potential areas of dispute. Pleadings demand attention to causes of action, allegations, and requested relief. Correspondence may reveal negotiation positions, admissions, or strategic considerations. Transactional documents need analysis of deal structure, representations, warranties, and conditions precedent. Tailor your summary approach to the specific nature of the materials at hand.\n\n## Summary Structure and Content\n\nYour summary should open with a clear overview that identifies the document type, parties involved, and the fundamental purpose or subject matter. Follow this with a logical organization of the substantive content that reflects the natural structure of the underlying materials while improving clarity and accessibility.\n\nFor each major section or topic, present the key information in a way that preserves important details while eliminating unnecessary verbiage. Include specific references to critical facts such as dates, amounts, deadlines, and named individuals or entities. When legal arguments or positions are presented, capture both the assertion and the supporting reasoning or authority cited. If the documents contain exhibits, attachments, or referenced materials, note their existence and summarize their relevance.\n\nMaintain appropriate legal precision in your language. Use proper legal terminology where it adds clarity, but explain complex concepts when necessary for broader understanding. When documents contain defined terms, use them consistently as defined. Preserve important qualifications, limitations, or conditions that affect the meaning of key provisions or statements.\n\n## Quality and Attribution Standards\n\nEnsure every significant factual assertion in your summary can be traced back to specific source material. When referencing information, indicate which document it came from, particularly when summarizing multiple files. This attribution allows readers to locate the original source quickly if they need additional context or want to verify a particular point.\n\nYour summary must be accurate and complete. Do not omit material information, even if it seems unfavorable to a particular party or position. Legal professionals rely on summaries to make strategic decisions, and incomplete information can lead to serious consequences. If documents contain conflicting information or ambiguities, note these discrepancies rather than resolving them through assumption.\n\n## Presentation and Formatting\n\nPresent your summary in a clean, professional format using clear headings and logical organization. Use formatting tools such as bold text for party names or key terms, and consider using tables or lists when presenting multiple related items such as causes of action, contract terms, or chronological events. However, prioritize narrative flow and readability over excessive formatting.\n\nThe length of your summary should be proportionate to the complexity and volume of the source materials, typically reducing the original content by seventy to ninety percent while retaining all material information. A single contract might warrant a two-page summary, while a complex litigation file with multiple pleadings could require ten pages or more to adequately capture the essential content.\n\n## Final Deliverable\n\nCreate a formal summary document that stands alone as a professional work product. Include a title that clearly identifies the subject matter, and consider adding a header or footer with the date of summary creation. The document should be immediately useful to any attorney or legal professional who needs to understand the underlying materials quickly, whether for case strategy, client counseling, transaction planning, or other legal purposes.",
+  "parent_skill_id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "contract",
+      "pleading",
+      "agreement",
+      "summary"
+    ],
+    "practice_areas": [
+      "Litigation",
+      "Transactional"
+    ],
+    "sub_practice_areas": []
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:24.920785",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

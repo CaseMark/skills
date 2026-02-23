@@ -1,0 +1,38 @@
+{
+  "id": "79d3692e-855f-4df5-94cf-54fc29e47969",
+  "slug": "legal-conference-summaries",
+  "name": "Legal Conference Summaries",
+  "summary": "Generates comprehensive, structured summaries of legal conferences and seminars, capturing key insights, speaker credentials, citations, practical takeaways, and emerging trends. Ideal for law firms and legal departments to facilitate knowledge sharing after attending CLE events, industry symposia, or professional development gatherings. Highlights divergent viewpoints, consensus opinions, and recommended resources for quick reference and application in practice.",
+  "content": "# Legal Conference Summary Prompt\n\nYou are tasked with creating a comprehensive summary of a legal seminar or conference that captures the essential insights, developments, and practical takeaways for legal professionals who either attended the event or need to understand what was discussed.\n\nYour summary should serve as both a reference document and an educational resource that allows readers to quickly grasp the most important content presented across multiple sessions, panels, keynote addresses, and paper presentations. This type of summary is particularly valuable for law firms and legal departments that send representatives to continuing legal education events, industry conferences, or specialized legal symposia, as it enables knowledge sharing across the organization and helps justify the investment in professional development.\n\nBegin by establishing the context of the conference, including the event name, dates, location (or virtual format), sponsoring organizations, and the overall theme or focus area. Identify the primary legal practice areas or topics addressed, whether the conference focused on recent regulatory changes, emerging legal technologies, landmark cases, legislative developments, or evolving best practices in specific areas of law.\n\nFor each major session, panel discussion, or presentation, provide a structured analysis that includes the session title, speaker names and credentials, the core thesis or purpose of the discussion, and the key substantive points made. When speakers reference specific cases, statutes, regulations, or legal authorities, capture these citations accurately for future reference. If empirical data, statistics, or research findings were presented, include these with appropriate attribution to the source.\n\nPay particular attention to practical insights that attendees can apply in their practice, such as litigation strategies, compliance recommendations, risk management approaches, drafting techniques, or client counseling considerations. When panelists or speakers disagree on interpretations or approaches, note these divergent viewpoints and the reasoning behind each position, as these debates often illuminate the complexity and unsettled nature of developing legal issues.\n\nIdentify emerging trends, anticipated regulatory changes, or predicted developments in case law that speakers highlighted. Legal conferences often serve as early warning systems for shifts in the legal landscape, so capturing forward-looking insights is particularly valuable. Note any consensus views that emerged across multiple sessions or speakers, as these may indicate where the profession is heading on particular issues.\n\nInclude information about any materials distributed at the conference, such as white papers, practice guides, model forms, or research studies, and indicate how these resources can be accessed. If speakers recommended specific tools, technologies, databases, or resources, document these recommendations with enough detail that readers can follow up independently.\n\nFor networking sessions, roundtable discussions, or informal conversations that yielded valuable insights, summarize the key themes or concerns that practitioners expressed, as these often reflect real-world challenges not fully captured in formal presentations. However, maintain appropriate confidentiality and avoid attributing specific client matters or sensitive information to identifiable individuals or firms.\n\nStructure your summary in a way that allows readers to either review the entire document for comprehensive understanding or quickly locate information about specific topics of interest. Use clear headings organized by conference track, legal topic, or chronological session order, depending on which approach best serves the content. Consider including a brief executive summary at the beginning that highlights the top five to seven takeaways across all sessions.\n\nThroughout the summary, maintain objectivity while capturing the substance and nuance of what was presented. Your role is to inform, not to editorialize, though you should note when speakers made particularly compelling arguments or when certain sessions generated significant audience engagement or controversy. The summary should be written in clear, professional language accessible to legal professionals who may not have deep expertise in every topic covered at the conference.\n\nConclude with any action items, follow-up opportunities, or next steps that were identified during the conference, such as upcoming regulatory comment periods, proposed rule changes to monitor, or professional development opportunities in related areas. If the conference organizers announced future events or ongoing initiatives, include this information as well.\n\nYour final summary should typically range from three to ten pages depending on the length and scope of the conference, with longer multi-day conferences requiring more extensive documentation. The document should be formatted for easy distribution within a law firm or legal department and suitable for inclusion in knowledge management systems or professional development records.",
+  "parent_skill_id": "cd8ba660-92d7-4524-b018-fca76648372f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization",
+      "analysis"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": []
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

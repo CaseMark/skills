@@ -1,0 +1,42 @@
+{
+  "id": "58c86cba-4b76-4091-a5fc-c899d6cf8ab3",
+  "slug": "organizational-meeting-minutes",
+  "name": "Organizational Meeting Minutes",
+  "summary": "Drafts comprehensive Organizational Meeting Minutes for newly formed corporations or LLCs. Documents critical actions including quorum verification, adoption of bylaws or operating agreements, election of directors and officers, and procedural foundations. Use this skill during corporate formation to create legally sufficient records compliant with state laws for inclusion in the corporate book.",
+  "content": "# Organizational Meeting Minutes - Corporate Formation Document\n\nYou are tasked with drafting comprehensive Organizational Meeting Minutes for a newly formed corporation or limited liability company. These minutes serve as the official record of the initial organizational meeting and are critical corporate governance documents that establish the foundational structure, authorize key actions, and demonstrate compliance with state law requirements. The minutes must be precise, legally sufficient, and suitable for inclusion in the corporate record book.\n\n## Document Structure and Requirements\n\nBegin with a formal header that clearly identifies the document as \"Minutes of the Organizational Meeting\" followed by the complete legal name of the entity as stated in the articles of incorporation or organization. Include the exact date, time, and location of the meeting. If the meeting was conducted virtually or telephonically, specify the platform or method used and confirm that all participants could hear and communicate with one another. State the purpose of the meeting explicitly: to complete the organization of the corporation/LLC and to take all actions necessary to commence business operations. The header should reflect the formality appropriate to a permanent corporate record that may be reviewed by banks, investors, auditors, or regulatory authorities.\n\n## Attendance, Quorum, and Procedural Foundations\n\nDocument all individuals present at the meeting with their full legal names and their capacity (incorporator, initial director, proposed officer, or member). Verify and record that a quorum was present as required by the state's corporate statutes and the entity's governing documents. For corporations, this typically means a majority of directors if the board has been elected, or the presence of the incorporator(s) if directors have not yet been appointed. For LLCs, quorum requirements vary by state and operating agreement structure. Include a statement confirming that proper notice was given or waived by all participants. Record the election or designation of a chairperson to preside over the meeting and a secretary to record the minutes. If these individuals were not predetermined, document the nomination, second, and unanimous approval of each position. This procedural foundation establishes the meeting's legitimacy and ensures that all subsequent actions are properly authorized.\n\n## Organizational Resolutions and Corporate Actions\n\nThis section constitutes the substantive core of the minutes and must comprehensively document all foundational corporate actions. Record the formal adoption of the bylaws (for corporations) or operating agreement (for LLCs), including a statement that copies were made available to all participants for review. Document the election or appointment of the initial board of directors, specifying each director's name and the term of service, and record the election of officers with their specific titles and responsibilities (typically President, Secretary, Treasurer, and any Vice Presidents). For corporations, include resolutions authorizing the issuance of shares, specifying the number of shares authorized, the consideration received, and the names of initial shareholders. Document the adoption of the corporate seal if applicable, approval of the fiscal year end, and designation of the principal office address.\n\nBanking and financial resolutions require particular attention and specificity. Include a resolution authorizing the opening of corporate bank accounts, designating which officers or directors are authorized signatories, and specifying any limitations on check-signing authority or transaction amounts. If the corporation will assume obligations or contracts entered into by incorporators prior to formation, include a ratification resolution that specifically identifies each agreement by date and parties. Address tax elections, including S-corporation status if applicable, and authorize designated officers to execute IRS Form 2553 or other required filings. Consider including resolutions for:\n\n- Authorization to reimburse organizational expenses incurred by incorporators\n- Adoption of stock certificate forms and corporate record books\n- Approval of employee benefit plans or stock option arrangements if immediately contemplated\n- Authorization to qualify to do business in other states if necessary\n- Indemnification provisions for directors and officers beyond those in the bylaws\n\n## Additional Business and Compliance Matters\n\nRecord any other business conducted at the organizational meeting that does not fit within the standard organizational resolutions. This may include initial strategic discussions, approval of contracts with third parties, authorization to lease office space, or appointment of legal counsel and accountants. While these minutes should be comprehensive, avoid including sensitive strategic discussions or attorney-client privileged communications that are not necessary for the corporate record. If conflicts of interest were disclosed by any director or officer, document the disclosure and any recusal from voting on related matters. Note any decisions regarding the frequency of regular board meetings or the adoption of meeting schedules.\n\n## Adjournment and Authentication\n\nConclude the minutes with a formal record of the adjournment, including the time at which the meeting concluded and notation that the adjournment was properly moved, seconded, and approved. The minutes must be signed by the secretary of the meeting to authenticate them as the official record. Best practice includes a signature line for the chairperson as well, though this is not universally required. Include a statement such as \"The foregoing minutes were approved by the Board of Directors on [date]\" with space for subsequent approval signatures if the minutes will be formally approved at a later meeting. Ensure the completed minutes are maintained in the corporate record book along with the articles of incorporation, bylaws or operating agreement, stock certificates or membership certificates, and other foundational documents. These minutes may be requested during due diligence for financing, mergers, or acquisitions, and must demonstrate that the entity was properly organized and has maintained corporate formalities from inception.",
+  "parent_skill_id": "db0b2c5f-47d4-41fb-a9ac-dcb7bd61ceaa",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "formation"
+    ],
+    "document_types": [
+      "memo"
+    ],
+    "practice_areas": [
+      "Corporate"
+    ],
+    "sub_practice_areas": [
+      "corporate-formation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:54.665642",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

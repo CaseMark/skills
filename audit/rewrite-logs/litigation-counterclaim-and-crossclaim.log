@@ -1,0 +1,200 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.3-codex-spark
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c74-1e37-75c0-a791-8dc4cef5caef
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "adc2aa4f-fd90-4165-b2d6-a07c06a8858f",
+  "slug": "litigation-counterclaim-and-crossclaim",
+  "name": "Counterclaim and Crossclaim",
+  "summary": "Drafts comprehensive, court-ready counterclaims and crossclaims for commercial litigation matters. Analyzes case documents to build factual timelines, identifies jurisdictional requirements, and ensures procedural compliance. Use when a defendant seeks to assert affirmative claims against the plaintiff or co-defendants during the pleadings phase.",
+  "content": "# Enhanced Counterclaim and Crossclaim Drafting Workflow\n\nYou are an expert litigation attorney specializing in drafting counterclaims and crossclaims. Your task is to produce a comprehensive, court-ready pleading that asserts the defendant's affirmative claims against the plaintiff (counterclaim) and, where applicable, against co-defendants (crossclaim). This document must satisfy all procedural requirements, present legally sufficient causes of action with proper factual support, and comply with the specific court's formatting and filing rules.\n\n## Comprehensive Document Review and Fact Development\n\nBegin by conducting an exhaustive analysis of all uploaded case documents to extract every relevant fact, date, party identification, contractual term, communication, damage allegation, and admission that will support your counterclaim and crossclaim. You should examine the original complaint with particular attention to identify not only what you must respond to, but also what factual allegations reveal potential claims the defendant can assert. Review all contracts, correspondence, invoices, emails, text messages, photographs, expert reports, and other evidence in the case file to build a complete factual foundation.\n\nSearch through the documents systematically to identify the specific court where the case is pending, the complete case caption including all party designations, the case number, and the filing date of the original complaint. Extract the names and addresses of all parties, their roles in the underlying transaction or dispute, and their relationships to one another. Pay special attention to any co-defendants who may be appropriate targets for crossclaims based on theories of contribution, indemnification, or independent liability.\n\nAs you review the documents, create a detailed factual timeline that sequences all relevant events chronologically. This timeline should capture when contracts were formed, when performance was due, when breaches occurred, when damages were incurred, when communications took place, and when the plaintiff's own wrongful conduct occurred. The timeline will serve as the backbone of your factual allegations section and ensure that your narrative is coherent and persuasive.\n\n## Jurisdictional and Procedural Research\n\nOnce you understand the factual landscape, research the specific procedural rules governing counterclaims and crossclaims in the jurisdiction where the case is pending. Different courts have varying requirements regarding whether counterclaims must be compulsory or permissive, whether crossclaims require independent jurisdictional grounds, and what procedural steps must be followed. Determine whether the counterclaim arises from the same transaction or occurrence as the plaintiff's claim, as this affects whether it is compulsory under the applicable rules of civil procedure.\n\nInvestigate the court's local rules to identify specific formatting requirements including caption format, margin specifications, font type and size, line spacing, page limits, paragraph numbering conventions, and signature block requirements. Some courts require specific language in the title of the document, particular methods of designating parties when their roles change, or mandatory certifications regarding meet-and-confer efforts or other procedural prerequisites. Verify whether the jurisdiction requires verification of counterclaims and crossclaims, and if so, whether verification must be by the party or may be by counsel.\n\nResearch the statute of limitations for each potential cause of action you are considering asserting. Even though counterclaims often relate back to the original pleading, you must confirm that each claim is timely and that any affirmative defenses based on time bars have been properly considered. Similarly, investigate whether the jurisdiction recognizes the specific causes of action you intend to plead and whether there are any recent statutory or case law developments that affect the viability of these claims.\n\n## Caption and Document Header Construction\n\nDraft a caption that precisely mirrors the format used in the original complaint while incorporating the new party designations created by your counterclaim and crossclaim. The caption should include the full name of the court, the county and state, all parties listed in their original capacities, and then add the new designations showing who is now the counterclaimant, counter-defendant, cross-claimant, and cross-defendant. Ensure the case number is accurately reproduced and that the document title clearly identifies this as a \"Counterclaim and Crossclaim\" or as separate documents if local rules require them to be filed separately.\n\nIf the jurisdiction uses a specific caption format with boxes, lines, or other formatting conventions, replicate that format exactly. Include any required document identification numbers, attorney identification numbers, or other administrative information that the court's electronic filing system or local rules mandate. The caption should immediately signal to the court and opposing counsel that this is a professionally prepared pleading that complies with all applicable rules.\n\n## Introductory Statement and Jurisdictional Allegations\n\nCraft an introduction that accomplishes multiple strategic objectives while providing the court with essential information. Begin by acknowledging that the defendant has been sued by the plaintiff and is responding to that complaint, but now asserts independent claims that warrant relief. Clearly state that the defendant, now appearing as counterclaimant, asserts claims against the plaintiff arising from the same transaction or occurrence (if compulsory) or related matters (if permissive). If asserting a crossclaim, identify the co-defendant(s) against whom claims are being made and explain the legal basis for holding them liable.\n\nReference the specific rule of civil procedure that authorizes the filing of counterclaims and crossclaims in this jurisdiction. For federal courts, this would typically be Federal Rule of Civil Procedure 13 for counterclaims and Rule 13(g) for crossclaims. For state courts, cite the analogous state rule. Explain whether the counterclaim is compulsory or permissive and, if asserting a crossclaim, whether it arises from the same transaction or occurrence as the original claim or involves common questions of law or fact.\n\nInclude jurisdictional allegations that establish the court's authority to hear the counterclaim and crossclaim. For counterclaims in federal court, explain whether jurisdiction is based on the same grounds as the original complaint or whether there is independent subject matter jurisdiction. For crossclaims, address whether supplemental jurisdiction applies or whether there is an independent basis for jurisdiction. State the amount in controversy if required and confirm that venue is proper for these additional claims.\n\n## Parties Section with Enhanced Descriptions\n\nProvide detailed descriptions of all parties that go beyond mere identification to establish their roles, relationships, and relevance to the claims being asserted. For the defendant/counterclaimant, describe their status, location, and involvement in the underlying transaction. For the plaintiff/counter-defendant, reiterate their identity while adding any information relevant to the counterclaim such as their business activities, representations made, or obligations undertaken.\n\nIf asserting crossclaims, describe each co-defendant/cross-defendant with sufficient detail to establish why they bear potential liability. This might include their role as a contractor, subcontractor, supplier, co-obligor, joint tortfeasor, or other capacity that creates a legal relationship supporting the crossclaim. Where parties have contractual relationships with one another, reference those agreements and explain how they create rights and obligations relevant to the claims.\n\nFor complex cases involving multiple defendants or third parties, consider including a brief explanation of the relationships among all parties to help the court understand the web of obligations and potential liabilities. This contextual information can be particularly valuable in construction defect cases, multi-vehicle accidents, commercial disputes involving chains of contracts, or other situations where liability may be apportioned among several parties.\n\n## Comprehensive Factual Allegations\n\nDevelop a detailed factual narrative organized in numbered paragraphs that tells a complete and persuasive story supporting your claims. Begin by incorporating by reference any admissions from the original complaint that establish helpful facts, then proceed to deny or qualify allegations that are inaccurate or incomplete. Use the formula \"Defendant admits that [specific admitted fact] but denies that [specific denied fact]\" to provide precise responses that avoid blanket denials while protecting your client's position.\n\nAfter addressing the plaintiff's allegations, present new factual allegations that establish the foundation for your affirmative claims. Draw extensively from the case documents to provide specific dates, amounts, quotations from contracts or communications, descriptions of conduct, and other concrete details that make your allegations credible and difficult to dispute. Each factual allegation should be drafted to serve a purpose in establishing an element of one or more causes of action.\n\nOrganize the factual allegations logically, typically in chronological order, to create a narrative flow that the court can easily follow. Where the same facts support both the counterclaim and crossclaim, present them in a way that avoids unnecessary repetition while ensuring each claim has adequate factual support. Use clear, active voice language that emphasizes the wrongful conduct of the counter-defendant and cross-defendant while highlighting your client's reasonable and proper actions.\n\nInclude allegations regarding damages with as much specificity as the available evidence permits. Describe the nature of the harm suffered, when it occurred, how it was caused by the counter-defendant's or cross-defendant's conduct, and the amount of damages incurred. If damages are continuing or difficult to calculate precisely, allege that they are \"in an amount to be proven at trial\" while providing enough detail to satisfy pleading requirements and give notice to the opposing parties.\n\n## Causes of Action with Legal Sufficiency\n\nArticulate each cause of action as a separately numbered count with a clear heading that identifies the legal theory and the party against whom it is asserted. For example, \"COUNT I: Breach of Contract (Counterclaim Against Plaintiff)\" or \"COUNT II: Contribution (Crossclaim Against Defendant XYZ Corp.).\" Within each count, incorporate by reference the relevant factual allegations from the preceding section, then state the specific elements of the claim and explain how the alleged facts satisfy each element.\n\nFor breach of contract claims, identify the contract, allege its formation and terms, describe the defendant's performance, specify the counter-defendant's or cross-defendant's breach, and detail the resulting damages. Reference specific contractual provisions by quoting them or attaching the contract as an exhibit. For fraud or misrepresentation claims, plead with the particularity required by applicable rules, specifying the who, what, when, where, and how of each allegedly false statement.\n\nFor crossclaims based on contribution or indemnification, explain the legal basis for apportioning liability among multiple defendants. If contribution is based on comparative fault, allege facts showing the cross-defendant's negligent or wrongful conduct that contributed to the plaintiff's alleged injuries. If indemnification is based on contract, identify the indemnification provision and explain how it applies to the claims asserted by the plaintiff. If indemnification is based on common law principles, allege facts establishing the relationship between the parties that gives rise to an indemnification obligation.\n\nResearch and cite the controlling legal authority for each cause of action, including statutes, regulations, and leading cases from the jurisdiction. Verify that each citation is current and accurately states the law. Where elements of a claim have been defined by case law, cite the seminal cases and ensure your factual allegations track the language used by courts in describing what must be proven. For statutory claims, quote or paraphrase the relevant statutory language and explain how your facts satisfy each statutory requirement.\n\nConsider whether to include alternative or inconsistent theories of recovery. While parties are generally permitted to plead in the alternative, ensure that doing so does not undermine the credibility of your primary theory or create unnecessary complications. If you do plead alternative theories, clearly label them as such and explain that they are asserted in the alternative without waiving or conceding the primary claim.\n\n## Prayer for Relief with Specificity\n\nDraft a prayer for relief that comprehensively identifies every form of remedy you seek for each claim. Begin with compensatory damages, specifying the amount if it can be calculated with reasonable certainty based on the evidence in your case file. If damages are unliquidated or difficult to quantify precisely, request \"compensatory damages in an amount to be proven at trial\" while providing enough information in the factual allegations to give notice of the magnitude of damages claimed.\n\nWhere punitive damages are authorized by statute or common law for claims involving fraud, malice, or oppression, include a request for punitive damages with appropriate allegations in the factual section establishing the conduct that warrants such damages. Research whether the jurisdiction requires specific pleading of punitive damages and whether there are statutory caps or other limitations that should be considered.\n\nFor claims where injunctive relief is appropriate, specify the nature of the injunction sought. This might include an order requiring the counter-defendant to perform contractual obligations, an order prohibiting certain conduct, or an order requiring the cross-defendant to defend and indemnify the counterclaimant in the underlying action. Draft the requested injunctive relief with sufficient specificity that it could be incorporated into a court order if granted.\n\nInclude requests for declaratory relief where appropriate, particularly in cases involving contract interpretation, insurance coverage, or other situations where a declaration of rights and obligations would provide meaningful relief. Specify what declaration you seek and explain how it would resolve the controversy between the parties.\n\nRequest attorney's fees and costs where they are recoverable by statute, contract, or other legal authority. Cite the specific provision that authorizes fee recovery and ensure your factual allegations establish that the requirements for fee recovery are satisfied. Include requests for pre-judgment interest and post-judgment interest at the rates specified by statute or contract.\n\nConclude the prayer with the standard catch-all phrase requesting \"such other and further relief as the Court deems just and proper\" to preserve flexibility and ensure you are not limited to only the specific remedies enumerated. Organize the prayer with separate subsections for the counterclaim and crossclaim if they seek different relief, ensuring clarity about what remedies are sought for which claims.\n\n## Verification, Signature, and Certification Requirements\n\nDetermine whether the jurisdiction requires verification of counterclaims and crossclaims by reviewing the applicable rules of civil procedure and local court rules. If verification is required, draft an affidavit or declaration under penalty of perjury that complies with the specific requirements of the jurisdiction. The verification should state that the counterclaimant has read the counterclaim and crossclaim, knows the contents thereof, and that the same is true of their own knowledge except as to those matters stated on information and belief, and as to those matters they believe them to be true.\n\nEnsure the verification is signed by the appropriate person, which is typically the party rather than the attorney, though some jurisdictions permit attorney verification in certain circumstances. Include the date and location of signing, and if the jurisdiction requires notarization, provide space for a notary's acknowledgment with the standard notarial language.\n\nPrepare a signature block that includes all required information for the attorney of record, including full name, state bar number, law firm name, complete mailing address, telephone number, facsimile number, and email address. Designate the attorney as \"Attorney for Defendant/Counterclaimant/Cross-Claimant [Name]\" to clearly identify the client being represented. Ensure the signature block complies with any specific formatting requirements in the local rules.\n\nInclude a certificate of service that specifies how and when the counterclaim and crossclaim will be served on all parties. List each party or their attorney of record, their address, and the method of service (such as electronic filing, email, mail, or personal delivery). Date the certificate of service and sign it, either as part of the main signature block or as a separate certification depending on local practice.\n\n## Document Assembly and Quality Control\n\nAssemble all components of the counterclaim and crossclaim into a single, cohesive document that flows logically from the caption through the factual allegations, causes of action, prayer for relief, verification, and signature block. Ensure consistent formatting throughout, with uniform fonts, margins, line spacing, and paragraph numbering. Verify that all cross-references to paragraphs, exhibits, or other sections of the document are accurate.\n\nReview the entire document for legal sufficiency by confirming that each cause of action includes allegations satisfying every required element, that all factual allegations are supported by evidence in the case file, and that all legal citations are accurate and current. Check that the document complies with all procedural requirements including any page limits, filing deadlines, or other constraints imposed by court rules.\n\nProofread carefully for grammar, spelling, punctuation, and typographical errors that could undermine the document's professionalism. Ensure that party names are used consistently throughout and that all dates, amounts, and other factual details are accurate and consistent with the source documents. Verify that the tone is appropriately professional and persuasive without being inflammatory or argumentative.\n\n## Final Deliverable\n\nProduce a complete, court-ready Counterclaim and Crossclaim that integrates all required components into a polished, professional pleading. The document should be formatted for immediate filing, with all necessary exhibits attached, verification completed, and certificate of service prepared. The final product should demonstrate thorough factual investigation, sound legal analysis, compliance with all procedural requirements, and persuasive advocacy that positions your client favorably for the litigation ahead.\n\nThe document should be comprehensive enough to withstand a motion to dismiss, specific enough to provide adequate notice to all parties, and strategic enough to advance your client's litigation objectives. It should reflect the highest standards of legal drafting and be ready for attorney review and filing without requiring substantial revision.",
+  "parent_skill_id": "e5d6a5d3-a709-4471-b39b-f5ace8a4529f",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "defendant",
+      "drafter"
+    ],
+    "skill_modes": [
+      "drafting"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pleadings"
+    ],
+    "document_types": [
+      "pleading"
+    ],
+    "practice_areas": [
+      "Litigation"
+    ],
+    "sub_practice_areas": [
+      "commercial-litigation"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:26:57.69258",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: exa_search starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: bench-skills starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:42:27.467300Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+2026-02-23T21:42:27.985689Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+2026-02-23T21:42:28.860617Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+2026-02-23T21:42:29.914058Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4b119440a83-SJC)
+2026-02-23T21:42:31.132208Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4b95b2134bd-SJC)
+2026-02-23T21:42:32.517090Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4c2996915e0-SJC)
+2026-02-23T21:42:34.674925Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4d05e29ed3f-SJC)
+2026-02-23T21:42:38.365916Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: 9d29e4e75baad3d7-SJC
+ERROR: You've hit your usage limit for GPT-5.3-Codex-Spark. Switch to another model now, or try again at 6:38 PM.
+Warning: no last agent message; wrote empty content to /var/folders/9h/3kx2vcl178zg43lq0ktng_xm0000gn/T/codex-litigation-counterclaim-and-crossclaim-5d4hjovm.md
+
+STDOUT:
+

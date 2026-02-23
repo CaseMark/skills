@@ -1,0 +1,459 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c82-86a4-7ad1-a91e-b0f998d1732f
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "e42c4de4-6d67-4aff-bbaa-9ccddf6d6f59",
+  "slug": "form-adv-parts-1-and-2",
+  "name": "Form ADV Parts 1 and 2",
+  "summary": "Drafts comprehensive Form ADV Parts 1 and 2 for SEC- or state-registered investment advisers. Gathers firm-specific data from documents and ensures compliance with current SEC instructions under the Investment Advisers Act of 1940. Use for initial registrations, annual updates, or amendments to advisory filings.",
+  "content": "# Form ADV Parts 1 and 2 - Investment Adviser Registration Document\n\nYou are tasked with drafting a comprehensive Form ADV filing for an SEC-registered or state-registered investment adviser. This is a critical regulatory document that requires precision, completeness, and strict adherence to SEC requirements under the Investment Advisers Act of 1940.\n\n## Document Purpose and Regulatory Context\n\nForm ADV serves as the primary registration and disclosure document for investment advisers. Part 1 contains regulatory information filed with the SEC or state securities authorities, while Part 2 provides narrative disclosures delivered to clients. Your draft must comply with current SEC instructions, reflect accurate firm information, and meet both federal and applicable state requirements. This document is subject to regulatory review and potential enforcement action if materially inaccurate or incomplete.\n\n## Research and Information Gathering Strategy\n\nBegin by searching the user's uploaded documents for all firm-specific information including organizational documents, ownership structures, personnel records, client agreements, compliance policies, fee schedules, and any existing ADV filings or compliance manuals. Extract concrete details such as the firm's legal name, formation date, principal office address, ownership percentages, employee counts, assets under management figures, fee structures, and disciplinary history.\n\nSupplement document-based research with authoritative web searches for current SEC Form ADV instructions, official filing requirements, and regulatory guidance. Prioritize sources from sec.gov, particularly the current Form ADV instructions and General Instructions, as well as FINRA and state securities regulators. Verify that you are referencing the most recent version of the form and instructions, as the SEC periodically updates filing requirements.\n\n## Part 1A: Identifying Information and Business Operations\n\nDraft Part 1A to capture complete identifying information about the advisory firm. This includes the firm's full legal name, any DBAs, CRD number (if applicable), SEC file number, principal office and mailing addresses, website, and chief compliance officer contact information. Document the firm's legal structure (corporation, LLC, partnership, sole proprietorship) with formation jurisdiction and date.\n\nDetail ownership structure by identifying all persons with 25% or more ownership, including their names, titles, and ownership percentages. If the firm is publicly owned or has complex ownership through holding companies, clearly map the ownership chain. Describe all affiliated entities and material relationships with broker-dealers, other investment advisers, or financial industry participants.\n\nProvide comprehensive employee and client data including the number of employees performing advisory functions, total client counts broken down by category (individuals, high net worth individuals, pooled investment vehicles, pension plans, corporations, etc.), and total assets under management calculated according to SEC instructions. Specify the types of advisory services offered such as portfolio management, financial planning, pension consulting, or selection of other advisers.\n\nAddress participation or interest in client transactions including any soft dollar arrangements, principal trading, agency cross transactions, or recommendations of securities in which the adviser has a material financial interest. These disclosures are critical compliance items that require complete accuracy.\n\n## Part 1B: State-Specific Supplemental Information\n\nIf the firm is filing with any state securities authorities (typically advisers with less than $100 million in AUM), complete Part 1B with state-specific information. Search for the particular state's requirements, which may include additional questions about business practices, custody arrangements, bonding, or financial condition. Verify state registration thresholds and notice filing requirements, as these vary by jurisdiction.\n\n## Part 2A: Firm Brochure - Narrative Disclosures\n\nDraft Part 2A as a comprehensive narrative brochure written in plain English that provides clients with material information about the advisory firm. This document must be clear, organized, and free of legal jargon while remaining complete and accurate.\n\n**Advisory Business section** should describe when the firm was founded, its principal owners, the types of advisory services offered, whether advice is tailored to individual client needs, and whether clients may impose restrictions on investing in certain securities. Clearly state total assets under management on a discretionary and non-discretionary basis.\n\n**Fees and Compensation section** must detail all fee structures including asset-based fees (with specific percentage tiers), hourly rates, fixed fees, or performance-based fees. Explain billing practices, payment timing, whether fees are negotiable, and any additional costs clients may incur such as custodian fees, brokerage commissions, or mutual fund expenses. Disclose any compensation the firm receives from third parties in connection with client recommendations.\n\n**Performance-Based Fees and Side-by-Side Management section** applies if the firm charges any performance fees or manages accounts with different fee structures simultaneously. Explain the conflicts of interest this creates and how they are addressed.\n\n**Types of Clients section** should specify the categories of clients served and any minimum account size requirements.\n\n**Methods of Analysis, Investment Strategies, and Risk of Loss section** requires detailed explanation of the firm's investment approach. Describe whether the firm uses fundamental analysis, technical analysis, or cyclical analysis. Explain investment strategies such as long-term purchases, short-term purchases, trading, short sales, margin transactions, or option writing. Critically, provide comprehensive risk disclosures including market risk, interest rate risk, credit risk, liquidity risk, and any risks specific to the firm's strategies. Make clear that clients may lose money.\n\n**Disciplinary Information section** must disclose any material facts about legal or disciplinary events involving the firm or management persons, including criminal actions, civil actions, administrative proceedings, or self-regulatory organization proceedings. Search firm records and regulatory databases thoroughly, as failure to disclose is a serious violation.\n\n**Other Financial Industry Activities and Affiliations section** covers registrations with broker-dealers, futures commission merchants, or other financial industry entities, as well as material relationships or arrangements with related persons.\n\n**Code of Ethics, Participation or Interest in Client Transactions and Personal Trading section** should describe the firm's code of ethics and its availability to clients. Disclose whether the firm or related persons invest in the same securities recommended to clients, trade in securities at or about the same time as client accounts, or recommend securities in which the firm has a material financial interest. Explain how conflicts are managed.\n\n**Brokerage Practices section** must explain how the firm selects broker-dealers for client transactions, whether it receives research or other soft dollar benefits, how it allocates trades among clients, and whether it aggregates trades. If the firm recommends specific custodians, explain the basis for that recommendation and any benefits received.\n\n**Review of Accounts section** should describe the frequency and nature of account reviews, who conducts them, and what triggers special reviews. Explain what reports clients receive and how often.\n\n**Client Referrals and Other Compensation section** covers any economic benefits received from non-clients for providing advisory services, including referral fee arrangements. If the firm pays solicitors, describe the arrangement and confirm compliance with the SEC's cash solicitation rule.\n\n**Custody section** addresses whether the firm has custody of client funds or securities and what safeguards are in place. Note that direct fee deduction constitutes custody.\n\n**Investment Discretion section** explains whether the firm accepts discretionary authority and any limitations clients may impose.\n\n**Voting Client Securities section** must state whether the firm votes client proxies and describe the firm's proxy voting policies and procedures. If policies are available to clients, state how they can obtain them.\n\n**Financial Information section** applies if the firm requires prepayment of fees, has custody, or has a financial condition likely to impair its ability to meet commitments. Include a balance sheet if required.\n\n## Part 2B: Brochure Supplement - Individual Adviser Information\n\nPrepare a separate brochure supplement for each supervised person who formulates investment advice and has direct client contact. Search personnel files for educational background, business experience for the past five years, professional designations and credentials, and any disciplinary information. Each supplement must include formal education after high school, professional designations with the issuing organization, and a chronological employment history. Disclose any material disciplinary events using the same standards as Part 2A.\n\n## Document Assembly and Quality Control\n\nOnce all information has been gathered and verified, create a complete Form ADV document that integrates all parts in the proper format. Ensure internal consistency across all sections\u2014for example, assets under management figures must match between Part 1A and Part 2A, and ownership information must align with organizational documents. Cross-reference all factual statements against source documents and cite to specific uploaded files where appropriate.\n\nThe final document should be formatted for professional presentation with clear section headings matching the official Form ADV structure, proper numbering, and complete responses to all applicable items. Include a cover page identifying the firm and the filing date. Flag any items where information is incomplete or requires client confirmation before filing.\n\nVerify that all required disclosures are present, all conflicts of interest are adequately addressed, and the plain English narrative in Part 2A is accessible to retail investors while remaining legally accurate. The completed Form ADV must be ready for compliance review and regulatory filing.",
+  "parent_skill_id": "b5ab7115-707e-4537-ad00-f8dc8fa8fb69",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [
+      "financial-services"
+    ],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "pre-filing",
+      "formation"
+    ],
+    "document_types": [
+      "form"
+    ],
+    "practice_areas": [
+      "Regulatory"
+    ],
+    "sub_practice_areas": [
+      "financial_services",
+      "securities"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:15.277733",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: linear starting
+mcp: bench-skills starting
+mcp: context7 starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+2026-02-23T21:58:11.293698Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: context7, exa_search, bench-skills
+
+
+thinking
+**Drafting SKILL.md for Form ADV Parts 1 and 2**
+
+Deciding on slug "form-adv" to keep it concise yet descriptive; preparing metadata with practice area "Regulatory," document type "Form," and skill modes capitalized. Planning Title as "Form ADV Parts 1 and 2" with a detailed, third-person description including key terms around SEC filing and IA registration. The content will feature purpose statement, prerequisites as a numbered list, structured instructions with tables, checklists for each Part section, data intake, consistency checks, open-issue flags, and cautious citation markings for legal references.
+thinking
+```markdown
+---
+name: form-adv
+description: Drafts SEC/state Form ADV Parts 1A/1B/2A/2B for investment advisers, compiling firm data, conflicts, fees, custody, and disciplinary disclosures into compliant filings and client brochure/brochure supplements. Use for RIA registration, Form ADV annual updates, amendments, Part 2A brochure, Part 2B supplement, or IARD filing preparation. Trigger keywords: "Form ADV", "RIA registration", "investment adviser brochure", "Part 1A", "Part 1B", "Part 2A", "Part 2B", "IARD", "SEC filing", "state registration".
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Form
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Form ADV Parts 1 and 2
+
+**Purpose:** Produce a complete, internally consistent Form ADV (Parts 1A/1B/2A/2B) ready for compliance review and filing.
+
+## Prerequisites
+
+1. Firm legal information including entity documents, formation, and ownership details  
+2. Assets under management (AUM), client categories, advisory services, and fee schedules  
+3. Compliance policies covering code of ethics, custody, trading practices, proxy voting, and best execution  
+4. Personnel data for supervised persons and key employees  
+5. Disciplinary history encompassing regulatory and legal matters  
+6. Prior Form ADV filings and amendments  
+7. State registration targets and relevant requirements  
+8. Custody arrangements and financial statements if applicable  
+
+## Output Structure / Process
+
+1. **Intake & Verification**  
+   Use the following table to track data points, their sources, and notes or validation checks:
+
+   | Data point                          | Source                         | Notes / Checks                           |
+   |-----------------------------------|--------------------------------|----------------------------------------|
+   | Legal name / DBAs                  |                                |                                        |
+   | CRD and SEC file numbers           |                                |                                        |
+   | Principal office addresses          |                                |                                        |
+   | Chief Compliance Officer (CCO) info |                                |                                        |
+   | Fiscal year end                    |                                |                                        |
+   | Regulatory Assets Under Management | Discretionary / Non-discretionary | Cross-check for consistency with fees |
+   | Types and number of clients         |                                |                                        |
+   | Advisory services and business lines|                                |                                        |
+   | Participation in client transactions|                                | Soft dollar policies                   |
+   | Financial industry affiliations     |                                |                                        |
+   | Private fund reporting               |                                |                                        |
+   | Custody and client asset safeguards |                                |                                        |
+   | Disclosure of disciplinary events   |                                | Flag any missing info as `TBD`         |
+   | Ownership and control persons (Schedules A/B/C)|                 |                                        |
+
+2. **Part 1A Checklist** - Core categories to confirm:  
+- Identifying information (name, CRD, SEC file, addresses, CCO)  
+- Form of organization & fiscal year  
+- Regulatory assets under management by discretionary and non-discretionary  
+- Client types and number  
+- Advisory services and business activities  
+- Client transactions, soft dollars, and brokerage arrangements  
+- Financial industry affiliations  
+- Private fund reporting if applicable  
+- Custody and client asset safeguards  
+- Disclosure of disciplinary events  
+- Ownership and control schedules  
+- Disciplinary reporting pages if required  
+
+3. **Part 1B Checklist** (state-specific):  
+- Bonding requirements  
+- Custody and net capital requirements  
+- Review applicable state filing instructions carefully  
+
+4. **Part 2A Brochure Sections**  
+Use the following item numbering with associated section headings:  
+
+```  
+Item 4: Advisory Business  
+Item 5: Fees and Compensation  
+Item 6: Performance-Based Fees and Side-By-Side Management  
+Item 7: Types of Clients  
+Item 8: Methods of Analysis, Investment Strategies, and Risk of Loss  
+Item 9: Disciplinary Information  
+Item 10: Other Financial Industry Activities and Affiliations  
+Item 11: Code of Ethics, Participation, and Personal Trading  
+Item 12: Brokerage Practices  
+Item 13: Review of Accounts  
+Item 14: Client Referrals and Other Compensation  
+Item 15: Custody  
+Item 16: Investment Discretion  
+Item 17: Voting Client Securities  
+Item 18: Financial Information  
+```  
+
+5. **Part 2B Brochure Supplement**  
+Include all required personal disclosure fields for supervised persons as per SEC instructions.
+
+6. **Quality Control and Cross-Checks**  
+- Confirm RAUM figures across parts are consistent  
+- Verify ownership and fee disclosures match internal records  
+- Confirm disciplinary histories are fully disclosed  
+- Flag open issues or missing information in a dedicated "Open Issues" section labeled `TBD`
+
+## Guidelines
+
+- Use current SEC Form ADV instructions and applicable state filing rules; verify all thresholds and quantitative data [VERIFY]  
+- Confirm AUM calculations comply with SEC and state guidance  
+- Ensure all material conflicts of interest, soft dollar arrangements, and custody arrangements are clearly disclosed  
+- Do not guess or infer missing data; mark any unknown or incomplete fields as `TBD` and list in Open Issues  
+- Maintain consistent dates and terminology throughout the filing  
+- Avoid providing legal advice in submissions; focus on factual, verifiable disclosures  
+- Note jurisdiction-specific nuances; US and state-level variations may apply  
+- When referencing rules such as the SEC solicitation rule, avoid precise rule numbers unless verified; mark uncertain citations with [VERIFY]  
+- Verify recency and accuracy when referencing regulatory databases such as IAPD or FINRA  
+- File electronic responses and submissions via IARD where applicable  
+
+## Deliverables
+
+- Part 1A Form ADV Responses  
+- Part 1B State-Specific Addendum (if applicable)  
+- Part 2A Client Brochure  
+- Part 2B Brochure Supplement  
+- Cover page and signature page  
+- Open Issues and Data Gaps Log  
+
+---
+
+Flag any missing information clearly as `TBD`. Use flat lists only; avoid nested bullets in all sections. This skill supports drafting compliant, internally consistent SEC Form ADV filings and related client disclosures.
+```
+codex
+---
+name: form-adv
+description: Drafts SEC- or state-filed Form ADV Parts 1A/1B/2A/2B for investment advisers, compiling firm data, conflicts, fees, custody, disciplinary events, and brochure disclosures into a filing-ready package. Use for RIA registration, Form ADV annual updates, amendments, Part 2A brochure, Part 2B supplement, or IARD filing prep. Trigger keywords: "Form ADV", "RIA registration", "investment adviser brochure", "Part 1A", "Part 1B", "Part 2A", "Part 2B", "IARD", "SEC filing", "state registration".
+metadata:
+  author: casemark
+  practice_areas:
+    - Regulatory
+  document_types:
+    - Form
+  skill_modes:
+    - Drafting
+    - Research
+---
+
+# Form ADV Parts 1 and 2
+
+Produce a complete, internally consistent Form ADV (Parts 1A/1B/2A/2B) ready for compliance review and filing.
+
+## Prerequisites
+
+1. Entity formation documents and ownership cap table
+2. Current AUM calculations with discretionary and non-discretionary breakdowns
+3. Advisory agreements, fee schedules, and billing policies
+4. Compliance manual, code of ethics, custody policies, trade allocation, proxy voting policies
+5. Affiliations and related-person disclosures
+6. Disciplinary history for firm and management persons
+7. List of advisory services and client types
+8. Supervised person bios for Part 2B
+9. Prior Form ADV filings or amendments (if any)
+10. Target filing jurisdiction(s) and state-specific requirements
+
+## Output Structure / Process
+
+Deliverables:
+- Form ADV Part 1A responses (IARD-ready)
+- Form ADV Part 1B (if state-registered)
+- Form ADV Part 2A brochure
+- Form ADV Part 2B supplements
+- Cover page and filing date
+- Open Issues list for missing or unverified data
+
+Intake table:
+| Data point | Source | Notes/Checks |
+| --- | --- | --- |
+| Legal name / DBAs | | Match formation docs |
+| CRD/SEC file no. | | If existing |
+| Principal office / mailing | | Consistent across parts |
+| CCO name / contact | | Confirm authority |
+| Ownership 25%+ | | Schedule A/B support |
+| RAUM (disc/non-disc) | | Use current SEC instructions |
+| Client types / counts | | Match agreements |
+| Services offered | | Match marketing materials |
+| Fees / billing | | Match agreements |
+| Affiliations | | Related persons list |
+| Custody status | | Direct fee deduction flagged |
+| Disciplinary events | | Do not infer absence |
+
+Part 1A checklist:
+- Identifying information, form of organization, fiscal year
+- Owners and control persons, organizational chart
+- Business activities and advisory services
+- RAUM calculations and methodology
+- Client types and number of clients
+- Private funds reporting status, if applicable
+- Custody, client asset safeguards, account authority
+- Financial industry affiliations and related persons
+- Soft dollars, brokerage, principal/agency cross participation
+- Disclosure Reporting Pages (DRPs) if any event applies
+- Schedules A/B/C as required
+
+Part 1B checklist (state):
+- State-specific questions per jurisdiction
+- Bonding, net worth, or custody statements if required
+- Additional disclosures required by state regulator
+
+Part 2A structure template:
+```text
+Cover Page
+Item 1  Cover Page
+Item 2  Material Changes
+Item 3  Table of Contents
+Item 4  Advisory Business
+Item 5  Fees and Compensation
+Item 6  Performance-Based Fees and Side-By-Side Management
+Item 7  Types of Clients
+Item 8  Methods of Analysis, Investment Strategies, and Risk of Loss
+Item 9  Disciplinary Information
+Item 10 Other Financial Industry Activities and Affiliations
+Item 11 Code of Ethics, Participation or Interest in Client Transactions, and Personal Trading
+Item 12 Brokerage Practices
+Item 13 Review of Accounts
+Item 14 Client Referrals and Other Compensation
+Item 15 Custody
+Item 16 Investment Discretion
+Item 17 Voting Client Securities
+Item 18 Financial Information
+```
+
+Part 2A content requirements:
+- Plain-English narrative with consistent terminology
+- Conflicts disclosed with mitigation measures
+- Fee examples with tiers and billing timing
+- Specific risk disclosures tailored to strategies
+- Custody and safeguarding explanation
+- Solicitor/referral arrangements and compensation
+- Proxy voting policy availability
+
+Part 2B checklist (each supervised person):
+- Name, title, and business address
+- Education and business experience (last 5 years)
+- Professional designations and issuing bodies
+- Disciplinary events
+- Other business activities and additional compensation
+- Supervision and contact for questions
+
+Consistency checks:
+- RAUM and client counts match Part 1A and Part 2A
+- Ownership and control persons align with Schedules
+- Fees and services match agreements and marketing materials
+- Disciplinary disclosures consistent across Parts 1 and 2
+- Custody status consistently described
+
+Open Issues format:
+- `TBD` items listed with source needed and due date
+- Any regulatory ambiguity tagged for counsel review
+
+## Guidelines
+
+- Use current SEC Form ADV instructions and state guidance; do not rely on outdated filings.
+- Do not state “no disciplinary history” without verified sources.
+- Avoid legal conclusions; report facts and disclosures as required by the form.
+- If thresholds or state requirements are unclear, flag `[VERIFY]` and request confirmation.
+- Keep Part 2A plain-English and client-facing; avoid legalese.
+- Ensure all figures and dates are consistent across all parts and schedules.
+tokens used
+5,777

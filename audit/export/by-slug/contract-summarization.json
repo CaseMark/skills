@@ -1,0 +1,44 @@
+{
+  "id": "3efa5632-4242-4e21-afd3-dd69627443d3",
+  "slug": "contract-summarization",
+  "name": "Contract Summarization",
+  "summary": "Generates comprehensive, structured summaries of contracts or sets of contracts, capturing key terms, obligations, rights, risks, and special provisions. Organizes output with headings for parties, business terms, legal provisions, termination, and dispute resolution to enable quick understanding. Ideal for legal professionals reviewing lengthy agreements without full reads.",
+  "content": "# Contract Summarization Workflow\n\nYou are tasked with creating a comprehensive summary of a contract or set of contracts. This workflow is essential for legal professionals who need to quickly understand the key terms, obligations, rights, and risks within contractual agreements without reading through lengthy documents in their entirety.\n\n## Your Objective\n\nProduce a clear, accurate, and professionally structured contract summary that captures all material terms and provisions. The summary should enable attorneys, paralegals, business clients, or other stakeholders to understand the contract's essential elements, identify potential issues, and make informed decisions about the agreement.\n\n## Analysis Approach\n\nBegin by thoroughly reviewing the entire contract document to ensure no critical provisions are overlooked. Search through the uploaded contract documents to identify and extract key information including party names, effective dates, term duration, termination provisions, payment obligations, deliverables, warranties, indemnification clauses, limitation of liability provisions, dispute resolution mechanisms, and any special conditions or unusual terms.\n\nWhen multiple contracts are involved or when the contract references exhibits, schedules, or amendments, ensure you capture information from all related documents to provide a complete picture. If the contract is particularly complex or lengthy, conduct a comprehensive analysis that processes every section sequentially to guarantee accuracy and completeness.\n\n## Summary Structure and Content\n\nYour contract summary should be organized in a logical, easy-to-navigate format that typically includes the following elements presented in clear prose with strategic use of headings. Start with basic contract information identifying the parties, effective date, term length, and subject matter of the agreement. Follow with a substantive section covering the core business terms such as scope of work, deliverables, pricing and payment terms, and performance obligations of each party.\n\nAddress critical legal provisions including representations and warranties made by each party, indemnification obligations and scope, limitations of liability and damage caps, intellectual property ownership and licensing terms, confidentiality and non-disclosure requirements, and non-compete or non-solicitation restrictions if applicable. Cover termination and renewal provisions, specifying grounds for termination, notice requirements, effects of termination, and any automatic renewal clauses.\n\nInclude dispute resolution mechanisms such as governing law, jurisdiction and venue, arbitration or mediation requirements, and any waiver of jury trial. Highlight any special provisions, unusual terms, or areas of potential concern that warrant attention from the reviewing attorney or client.\n\n## Legal Considerations and Best Practices\n\nMaintain objectivity in your summary, presenting the contract terms as written without inserting legal opinions unless specifically requested. However, you should flag provisions that appear one-sided, ambiguous, or potentially problematic for further review. Use precise legal terminology while ensuring the summary remains accessible to non-lawyer business stakeholders when appropriate.\n\nPay particular attention to any missing standard provisions that might be expected in this type of contract, as their absence could create risk. Note any internal inconsistencies within the contract or conflicts between the main agreement and attached schedules or exhibits. When monetary amounts, dates, or specific obligations are referenced, quote them precisely as they appear in the contract.\n\n## Output Format\n\nPresent your summary as a well-organized document with clear headings and subheadings. Use concise paragraphs that convey information efficiently without sacrificing accuracy or completeness. When referencing specific contract provisions, cite the relevant section numbers or page numbers to enable quick verification. The summary should typically range from two to five pages depending on contract complexity, striking a balance between comprehensiveness and readability.\n\nThis contract summary serves as a critical tool for due diligence, transaction management, contract compliance monitoring, and risk assessment. It should empower legal teams and business clients to quickly grasp the contract's implications and make strategic decisions based on accurate information about their contractual rights and obligations.",
+  "parent_skill_id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "formation",
+      "closing"
+    ],
+    "document_types": [
+      "contract",
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:24.920785",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}

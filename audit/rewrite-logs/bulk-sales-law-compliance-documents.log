@@ -1,0 +1,349 @@
+OpenAI Codex v0.104.0 (research preview)
+--------
+workdir: /Users/max/CaseMark/skills
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c8c79-55cb-7132-9939-322638e4fd5a
+--------
+user
+# Skill Rewrite System Prompt
+
+You are rewriting a legal skill from a database export into a clean SKILL.md file following the CaseMark Agent Skills specification.
+
+## Input
+
+You will receive a JSON object with these fields:
+- `slug`: the database slug (may have verbose prefixes like `litigation-personal-injury-`)
+- `name`: display name
+- `summary`: original description
+- `content`: the full skill content (often bloated, verbose, over-explained)
+- `skill_type`: form, reference, etc.
+- `legal_context`: JSONB with practice_areas, document_types, skill_modes, sub_practice_areas, etc.
+
+## Your Task
+
+1. **Choose a new slug** — simplify the DB slug by dropping practice-area prefixes (e.g., `litigation-personal-injury-demand-letter` → `demand-letter`). Keep it descriptive but concise. Lowercase, hyphens only.
+
+2. **Write the SKILL.md** following this exact format:
+
+```markdown
+---
+name: {new-slug}
+description: {Third person, max 1024 chars. What it does + when to use it. Include trigger keywords.}
+metadata:
+  author: casemark
+  practice_areas:
+    - {from legal_context, capitalize first letter}
+  document_types:
+    - {from legal_context, capitalize first letter}
+  skill_modes:
+    - {from legal_context, capitalize first letter}
+---
+
+# {Title}
+
+{One-line purpose statement.}
+
+## Prerequisites
+
+{Numbered list of what's needed before this skill activates.}
+
+## Output Structure / Process
+
+{The core instructions — use tables, checklists, code blocks for templates.}
+
+## Guidelines
+
+{Brief list of do's/don'ts, compliance notes, jurisdiction caveats.}
+```
+
+## Quality Standards
+
+- **Compress aggressively**: The original content is typically 3-10x too verbose. Strip all explanations of things Claude already knows (what a contract is, how courts work, etc.)
+- **Preserve domain expertise**: Keep jurisdiction-specific rules, statutory citations, element lists, compliance checklists, and anything a lawyer would need that an AI wouldn't inherently know
+- **Use tables and structured formats**: Replace prose paragraphs with tables, checklists, and structured templates wherever possible
+- **Target length**: Most skills should be 80-150 lines. Small reference skills can be 40-60 lines. Complex multi-phase skills can be up to 250 lines.
+- **No fluff**: No "This skill helps you..." or "In legal practice, it is important to..." — get straight to the instructions
+- **Mark uncertain citations**: Use `[VERIFY]` for any legal citation you're not 100% sure about
+- **Description quality**: The description field is critical for semantic search. Include the document type, practice area, and specific trigger keywords
+
+## Examples of Good Output
+
+### Example 1: Form/Drafting Skill
+
+```markdown
+---
+name: demand-letter
+description: Drafts litigation-ready U.S. pre-suit demand letters that function as settlement instruments and defensible future exhibits. Enforces element-driven narratives, verified authority, FRE 408-aware framing, contractual notice compliance, preservation language, and ethics guardrails. Use when drafting pre-suit demands, breach-and-cure notices, or settlement demand correspondence.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Letter
+  skill_modes:
+    - Drafting
+---
+
+# Pre-Suit Demand Letter
+
+Drafts a litigation-ready demand letter that advances settlement leverage while building a clean evidentiary record for potential filing.
+
+## Prerequisites
+
+1. **Governing contract(s)** — including notice clauses, cure provisions, forum-selection
+2. **Correspondence** — emails, letters, texts organized chronologically
+...
+```
+
+### Example 2: Reference/Summarization Skill
+
+```markdown
+---
+name: case-summary
+description: Produces structured case summaries from litigation files, compressing complex case materials into a standardized analytical framework covering procedural posture, claims, key facts, evidence inventory, and risk assessment. Use when onboarding to a new matter, preparing for case review, or generating status reports.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Summary
+  skill_modes:
+    - Summarization
+    - Analysis
+---
+```
+
+## Output
+
+Return ONLY the complete SKILL.md content. No explanations, no markdown code fences wrapping it, no commentary. Just the raw file content starting with `---` and ending with the last line of the skill.
+
+
+---
+
+Rewrite this skill into a SKILL.md file. Here is the skill JSON:
+
+{
+  "id": "f0ebfcc5-0f20-4c55-a5a7-55f760063427",
+  "slug": "bulk-sales-law-compliance-documents",
+  "name": "Bulk Sales Law Compliance Documents",
+  "summary": "Drafts comprehensive Bulk Sales Law compliance documents for asset purchase transactions involving sales of business inventory outside the ordinary course. Conducts jurisdictional analysis under UCC Article 6, identifies creditors, and ensures creditor protections and statutory compliance. Use when handling bulk sales to safeguard against creditor claims in relevant US jurisdictions.",
+  "content": "# Enhanced Prompt: Bulk Sales Law Compliance Documents\n\nYou are a specialized transactional attorney tasked with preparing comprehensive Bulk Sales Law Compliance Documents for a commercial transaction involving the sale of substantially all of a business's inventory outside the ordinary course of business. These documents serve the critical function of protecting creditor rights while ensuring the parties achieve full compliance with applicable bulk sales laws under Article 6 of the Uniform Commercial Code as adopted in the relevant jurisdiction.\n\n## Initial Assessment and Jurisdictional Analysis\n\nBegin by conducting a thorough jurisdictional analysis to determine which bulk sales law provisions govern this transaction. The legal landscape varies significantly across states, with some jurisdictions having repealed Article 6 entirely, others adopting the revised 1989 version, and still others maintaining the original version with state-specific modifications. Search the user's uploaded documents for any information identifying the business location, the parties' domiciles, and where the assets are situated, as these factors determine applicable law. Once you identify the controlling jurisdiction, research the current statutory framework including specific UCC section numbers, timing requirements, notice provisions, and any available exemptions such as those for sales below statutory thresholds, transactions with minimal creditor exposure, or sales to certain qualified buyers. Verify your findings against authoritative sources including official state legislative websites, current commercial code annotations, and recent case law interpreting bulk sales requirements in that jurisdiction. Document your jurisdictional analysis clearly, explaining which version of Article 6 applies and citing the specific statutory authority that governs each compliance requirement.\n\n## Creditor Identification and Debt Verification\n\nUndertake a meticulous review of all available business records to compile a complete and accurate list of creditors and their claims. This foundational step requires examining the user's uploaded documents for accounts payable ledgers, general ledger entries, tax records, loan agreements, equipment leases, real property leases, employment agreements, vendor contracts, pending litigation files, and any correspondence indicating outstanding obligations. The creditor list must capture not only obvious trade creditors but also contingent creditors, disputed claimants, tax authorities, secured lenders, landlords, employees owed wages or benefits, and any parties with potential claims arising from warranties, indemnities, or pending legal proceedings. For each identified creditor, extract and verify the complete legal name, current mailing address, nature of the claim, amount owed, and whether the debt is disputed, contingent, or unliquidated. Pay particular attention to the statutory definition of \"creditor\" in the applicable jurisdiction, as this may include broader categories than traditional accounts payable. Cross-reference multiple document sources to ensure accuracy and completeness, noting any discrepancies or uncertainties that require clarification from the seller. The consequences of an incomplete or inaccurate creditor list can be severe, potentially exposing the buyer to successor liability for omitted creditors and undermining the entire compliance effort.\n\n## Notice of Intended Bulk Sale Preparation\n\nDraft a formal Notice of Intended Bulk Sale that satisfies every statutory requirement for creditor notification in the controlling jurisdiction. This notice serves as the primary mechanism for alerting creditors to the pending transaction and must contain specific mandatory elements. Include the complete legal names and business addresses of both the seller (transferor) and buyer (transferee), ensuring these match the names used in the underlying purchase agreement and corporate records. Provide a detailed description of the assets being transferred, specifying categories such as inventory, equipment, fixtures, and any other property included in the bulk sale. Identify the physical location where the assets are currently held and will be available for inspection. State the anticipated date of the bulk transfer with sufficient specificity to allow creditors to take protective action if necessary. Designate an address where the complete list of creditors and schedule of property may be inspected during normal business hours, typically the seller's principal place of business or the office of the seller's attorney. Research the exact timing requirements for delivering this notice in the applicable jurisdiction, as statutes typically mandate delivery between ten and forty-five days before the transfer date, with the specific period varying by state. Determine the acceptable methods of delivery, whether personal service, certified mail with return receipt requested, first-class mail, or other statutorily approved methods, and specify these requirements clearly in your compliance instructions. Format the notice professionally with clear headings, readable font, and any mandatory language prescribed by statute or recommended by authoritative practice guides.\n\n## Seller's Sworn Affidavit and Representations\n\nPrepare a comprehensive affidavit to be executed by the seller under oath, affirming compliance with all bulk sales law requirements and establishing the good faith nature of the transaction. This sworn statement serves multiple purposes including satisfying statutory requirements, providing evidentiary support for compliance, and creating personal accountability for the seller's representations. The affidavit should contain specific sworn statements addressing each critical compliance element. The seller must affirm that the attached creditor list is complete and accurate to the best of their knowledge, information, and belief after diligent inquiry into all business records and obligations. Include a statement that proper notice has been or will be timely delivered to all listed creditors in strict accordance with statutory requirements, with proof of delivery to be maintained in the transaction files. The seller should attest that the sale is being conducted in good faith for legitimate business purposes without any intent to defraud, hinder, or delay creditors in the collection of their claims. Add representations that no preferential payments have been made to insiders, related parties, or favored creditors in anticipation of the bulk sale, and that the purchase price represents fair and adequate consideration for the assets being transferred. The seller should confirm that all financial information, debt schedules, and business representations made to the buyer are true, complete, and correct in all material respects. Draft the affidavit with proper oath language required in the jurisdiction, including the standard jurat for notarization, and ensure it includes clear warnings that false statements may subject the affiant to criminal penalties for perjury. Review sample affidavits from reputable legal form providers and experienced transactional attorneys to ensure your draft incorporates best practices while remaining fully compliant with local requirements.\n\n## Escrow and Creditor Payment Framework\n\nEstablish a comprehensive framework for handling sale proceeds to ensure adequate creditor protection while allowing the transaction to close efficiently. The specific structure will depend on the transaction size, creditor exposure, and negotiated terms between buyer and seller, but should address several key elements. If an escrow arrangement is appropriate, designate a qualified escrow agent such as a bank, title company, or attorney with experience handling commercial transactions, and specify their duties and authority in detail. Calculate the escrow amount based on the total scheduled debts, a percentage of the purchase price, or another rational basis that provides reasonable assurance of creditor payment. Define the escrow period duration, which should align with the statutory claims period for creditors in the applicable jurisdiction and provide sufficient time for creditors to receive notice, evaluate their options, and submit claims. Establish clear conditions for releasing funds from escrow, including requirements for creditor releases, expiration of claims periods, or resolution of disputed claims through agreed procedures. If the buyer is assuming specific debts as part of the transaction consideration, identify each assumed obligation precisely, document the creditor's consent where required by the underlying agreement or applicable law, and clarify how assumed debts affect the escrow calculation. Create a structured claims process allowing creditors to submit claims against escrowed funds, specifying required documentation such as invoices, account statements, or proof of claim forms, establishing reasonable deadlines for submission, and outlining procedures for the escrow agent to evaluate, approve, or dispute submitted claims. Address the distribution of surplus funds remaining after all valid creditor claims are satisfied, typically returning such amounts to the seller, and establish procedures for handling any deficiency if valid claims exceed the escrowed amount. Research relevant UCC provisions and state law requirements governing escrow arrangements in bulk sales contexts, noting any mandatory terms or prohibited provisions.\n\n## Transaction Closing Procedures and Documentation\n\nDevelop detailed closing procedures that ensure all bulk sales law requirements are satisfied before the transaction is consummated and assets are transferred. The closing sequence should follow a logical progression that confirms compliance at each critical stage. Begin with final verification that all required notices have been properly delivered to every listed creditor, with proof of service documented through return receipts, affidavits of mailing, or other evidence acceptable under the applicable statute. Confirm that the mandatory statutory waiting period has fully elapsed, calculating the period precisely from the date of notice delivery to the proposed closing date and building in a safety margin to avoid any timing challenges. Prepare all transfer documents including bills of sale, assignments of contracts, intellectual property transfers, and any other instruments necessary to convey the assets from seller to buyer, ensuring these documents accurately describe the transferred property and contain appropriate representations and warranties. Arrange for the seller to deliver the sworn creditor list and property schedule to the buyer at closing, with the seller executing any required certifications regarding their accuracy and completeness. Coordinate the payment of the purchase price, including wire transfer instructions for funds going to the seller, funding of any required escrow account, and payment or assumption of specific debts as provided in the purchase agreement. Establish procedures for the physical transfer of possession, including inventory counts, equipment inspections, and delivery of keys, access codes, and other items necessary for the buyer to take control of the assets. Document the closing through a comprehensive closing statement or settlement sheet that accounts for all funds, a closing checklist confirming completion of each required step, and executed copies of all transaction documents for both parties' records.\n\n## Post-Closing Compliance and Claims Administration\n\nOutline the ongoing obligations and procedures that extend beyond the closing date to ensure full compliance with bulk sales laws and proper resolution of creditor claims. Specify the claims period during which creditors may assert rights against the transferred assets, escrowed funds, or the parties themselves, noting that this period typically ranges from six months to several years depending on the jurisdiction and the nature of the claims. Detail the buyer's responsibilities during this period, including maintaining complete transaction records, preserving evidence of compliance with all statutory requirements, cooperating with reasonable creditor inquiries, and potentially defending against creditor claims if they arise despite proper compliance. Establish procedures for the escrow agent to administer submitted claims, including initial review for completeness and facial validity, notification to the seller and buyer of claims received, investigation of disputed or questionable claims, and payment of approved claims in accordance with any statutory priority scheme. Create a timeline for final distribution of escrowed funds, typically occurring after the expiration of the claims period and resolution of all pending claims, with procedures for obtaining releases from satisfied creditors and documenting the completion of all bulk sales law obligations. Address the handling of late-arriving claims, including whether any reserve should be maintained and the legal consequences of claims submitted after statutory deadlines. Develop a comprehensive compliance checklist that can be used throughout the transaction to ensure no statutory requirement is overlooked, covering notice delivery and timing, creditor list accuracy and completeness, required public filings or recordings, fairness of the purchase price and good faith of the transaction, and satisfaction of all escrow and payment obligations to creditors.\n\n## Document Assembly and Client Deliverables\n\nSynthesize all of the foregoing analysis and drafting into a complete set of Bulk Sales Law Compliance Documents ready for execution and implementation. The final deliverable should include the formal Notice of Intended Bulk Sale formatted for delivery to all listed creditors, the comprehensive sworn creditor list organized in clear tabular format with all required information, the seller's affidavit of compliance and good faith properly formatted for notarization, escrow agreement or instructions if applicable detailing the escrow agent's duties and the claims process, closing checklist and procedures ensuring all compliance steps are completed in proper sequence, and a detailed compliance memorandum explaining the applicable legal requirements, the steps taken to satisfy them, and any ongoing obligations. Review all documents for internal consistency, ensuring that party names, addresses, asset descriptions, and transaction terms are identical across all instruments. Verify that all statutory requirements identified in your jurisdictional research are addressed in the compliance documents, with specific citations to the controlling law. Include practical guidance for the client regarding timing, delivery methods, record retention, and coordination with other transaction documents such as the purchase agreement, financing documents, and corporate authorizations. Provide clear instructions for execution, notarization, and delivery of each document, organized in a logical sequence that facilitates efficient implementation. If any aspects of the transaction raise compliance concerns or fall into gray areas of the law, identify these issues clearly and provide alternative approaches or recommendations for obtaining additional guidance through legal research or consultation with local counsel experienced in bulk sales transactions.",
+  "parent_skill_id": "6c2a6ddd-651e-44f1-a53d-233c0addcfe5",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "senior",
+    "industries": [],
+    "party_roles": [
+      "drafter",
+      "neutral"
+    ],
+    "skill_modes": [
+      "drafting",
+      "analysis",
+      "research"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "agreement",
+      "letter",
+      "checklist"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "asset_purchase"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:20.564688",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
+mcp: bench-skills starting
+mcp: case-dev-docs starting
+mcp: exa_search starting
+mcp: context7 starting
+mcp: linear starting
+mcp: exa_search failed: MCP client for `exa_search` failed to start: MCP startup failed: Environment variable 0647cde1-013e-4523-b75d-7581d22605f4 for MCP server 'exa_search' is not set
+mcp: context7 failed: MCP client for `context7` failed to start: MCP startup failed: Environment variable ctx7sk-6c474a0d-62ae-4c4d-ad37-4b0acf2644b4 for MCP server 'context7' is not set
+2026-02-23T21:48:09.076246Z ERROR rmcp::transport::worker: worker quit with fatal: Client error: error decoding response body, when send initialized notification
+mcp: bench-skills failed: MCP client for `bench-skills` failed to start: MCP startup failed: handshaking with MCP server failed: Send message error Transport [rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<reqwest::async_impl::client::Client>>] error: Transport channel closed, when send initialized notification
+mcp: case-dev-docs ready
+mcp: linear ready
+mcp startup: ready: case-dev-docs, linear; failed: exa_search, context7, bench-skills
+
+
+thinking
+**Creating bulk sales compliance skill**
+
+I'm drafting the SKILL.md content titled "Bulk Sales Law Compliance Documents" with simplified slug "bulk-sales-compliance," including properly capitalized metadata and structured sections: purpose, prerequisites as numbered list, detailed structure with tables and checklists, key jurisdiction notes on Article 6 repeal marked [VERIFY], plus templates and compliance guidelines emphasizing verification and variability.
+thinking
+**Refining skill metadata and structure**
+
+I’m sharpening the slug to "bulk-sales-compliance," finalizing the title as "Bulk Sales Compliance Documents," and crafting a precise description under 1024 characters covering core documents and jurisdictional nuances. The skill now features numbered prerequisites, an output process with labeled sections using tables and flat checklists, marked [VERIFY] for uncertain citations, and templates for key filings, ensuring all metadata fields are capitalized properly.
+codex
+---
+name: bulk-sales-compliance
+description: Drafts U.S. bulk sales law compliance packages for asset purchase transactions outside the ordinary course, including jurisdictional analysis of UCC Article 6 status, creditor schedule, notice of intended bulk sale, seller affidavit, escrow/claims framework, and closing checklist. Use when handling bulk sale, bulk transfer, inventory sale, asset purchase compliance, creditor notice, or successor liability avoidance.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+    - Letter
+    - Checklist
+  skill_modes:
+    - Drafting
+    - Analysis
+    - Research
+---
+
+# Bulk Sales Compliance Documents
+
+Produce a jurisdiction-accurate bulk sales compliance package that protects creditors and reduces successor liability risk.
+
+## Prerequisites
+
+1. **Governing jurisdiction(s)** for seller domicile, asset location, and place of transfer
+2. **Asset purchase agreement terms** including closing date, assets included/excluded, assumed liabilities
+3. **Seller records**: AP ledger, GL, tax liabilities, leases, secured debt, litigation, warranties, employee obligations
+4. **Transaction timeline**: target notice date, statutory waiting period, claims period
+5. **Escrow/holdback decision** and proposed escrow agent (if any)
+6. **Statutory status confirmation** for bulk sales law in the jurisdiction
+
+## Output Structure / Process
+
+1. **Jurisdictional Analysis Memo**
+   
+   Use this table and fill with authoritative citations and state-specific rules:
+   
+   | Item | Requirement |
+   | --- | --- |
+   | Bulk sales law status | In force / Repealed / Modified |
+   | Governing statute | State code citation [VERIFY] |
+   | UCC Article 6 version | Original / Revised 1989 / Other [VERIFY] |
+   | Covered transactions | Thresholds, asset types, ordinary-course exclusions |
+   | Notice timing | Minimum/maximum days before transfer [VERIFY] |
+   | Notice delivery methods | Certified mail, personal service, etc. [VERIFY] |
+   | Public filings | Required filings/recordings and offices [VERIFY] |
+   | Claims period | Duration and start trigger [VERIFY] |
+   | Buyer liability | Successor liability scope and defenses [VERIFY] |
+   | Exemptions | Asset value thresholds, buyer type, creditor consent [VERIFY] |
+
+2. **Creditor Schedule (Sworn List)**
+   
+   Produce a creditor list in this format:
+   
+   | Creditor Legal Name | Mailing Address | Claim Type | Amount | Secured? | Disputed/Contingent? | Source Document |
+   | --- | --- | --- | --- | --- | --- | --- |
+
+   Add a short narrative noting any gaps, disputes, or missing documentation.
+
+3. **Notice of Intended Bulk Sale (Template)**
+   
+   ```text
+   NOTICE OF INTENDED BULK SALE
+
+   Transferor (Seller): [Legal Name], [Entity Type], [Address]
+   Transferee (Buyer): [Legal Name], [Entity Type], [Address]
+
+   Description of Assets: [Inventory, equipment, fixtures, other assets]
+   Location of Assets: [Address(es)]
+   Date of Intended Transfer: [Date]
+   Inspection Location for Creditor List/Property Schedule: [Address], [Hours]
+
+   This notice is given pursuant to [State Statute Citation] [VERIFY].
+   Creditors may contact: [Contact Name, Email, Phone]
+   ```
+   Add any mandatory statutory language required by the jurisdiction.
+
+4. **Seller Affidavit of Compliance (Template)**
+   
+   ```text
+   AFFIDAVIT OF BULK SALE COMPLIANCE
+
+   I, [Name/Title], being duly sworn, state:
+   1. I am authorized to make this affidavit for [Seller].
+   2. The attached creditor list is complete and accurate to the best of my knowledge after diligent review.
+   3. Notices were/will be delivered to all listed creditors in compliance with [State Statute] [VERIFY].
+   4. The transaction is in good faith and not intended to hinder, delay, or defraud creditors.
+   5. No preferential payments to insiders or favored creditors have been made in anticipation of this sale.
+   6. The purchase price is fair and adequate consideration for the assets transferred.
+   7. All material disclosures to Buyer are true and complete.
+
+   Sworn and subscribed before me on [Date].
+   Notary: ____________________
+   ```
+
+5. **Escrow / Claims Framework**
+   
+   Provide a short term sheet using this checklist:
+   - [ ] Escrow agent identified and qualified
+   - [ ] Escrow amount and funding source defined
+   - [ ] Claims submission process and deadlines defined
+   - [ ] Claim review and dispute procedure defined
+   - [ ] Priority rules for payment stated
+   - [ ] Release conditions and surplus distribution stated
+   - [ ] Reserve for late or disputed claims stated
+
+6. **Closing Checklist**
+   
+   Use this checklist and mark required items:
+   - [ ] Statutory notice delivered to all creditors
+   - [ ] Proof of delivery retained
+   - [ ] Statutory waiting period elapsed
+   - [ ] Creditor schedule delivered to Buyer
+   - [ ] Seller affidavit executed and notarized
+   - [ ] Escrow funded (if required)
+   - [ ] Purchase price disbursed per closing statement
+   - [ ] Bills of sale and assignments executed
+   - [ ] Asset possession transferred
+   - [ ] Closing statement finalized
+
+7. **Post-Closing Administration**
+   
+   Summarize in 5-10 lines:
+   - Claims period start and end dates
+   - Escrow administration steps
+   - Record retention period
+   - Procedure for late claims
+   - Final escrow distribution steps
+
+8. **Client Deliverables**
+   
+   Provide a deliverables list:
+   - Jurisdictional analysis memo with citations
+   - Notice of Intended Bulk Sale
+   - Creditor schedule
+   - Seller affidavit
+   - Escrow instructions or agreement
+   - Closing checklist
+   - Post-closing claims administration memo
+
+## Guidelines
+
+- Confirm whether the jurisdiction has repealed Article 6 before drafting compliance documents.
+- Use exact statutory timing and delivery methods; do not infer defaults.
+- Require a comprehensive creditor list covering secured, unsecured, contingent, and disputed claims.
+- Keep party names, addresses, and asset descriptions identical across all documents.
+- Flag any missing statutory citations with `[VERIFY]` and resolve before finalizing.
+- If the law is repealed or unclear, document the finding and pivot to successor-liability risk controls.
+- Include record-retention instructions and proof-of-notice retention requirements.
+tokens used
+14,616

@@ -1,0 +1,43 @@
+{
+  "id": "a06ac36a-b48a-46ed-b255-9d576e5c0b6c",
+  "slug": "legal-opinion-summaries",
+  "name": "Legal Opinion Summaries",
+  "summary": "Generates concise professional summaries of full legal opinions, reducing length by 70-80% while preserving core legal questions, factual context, analysis, and conclusions. Optimizes for quick comprehension by clients, executives, and co-counsel in transactional matters. Use when providing rapid insights into lawyer's position without reading the entire document.",
+  "content": "# Legal Opinion Summary Generation\n\nYou are tasked with creating a concise, professional summary of a full legal opinion that enables clients and legal professionals to quickly grasp the essential legal analysis, conclusions, and recommendations without reading the complete document.\n\n## Your Objective\n\nTransform a comprehensive legal opinion into a clear, accessible summary that preserves the core legal reasoning while reducing length by approximately 70-80%. The summary must maintain the professional tone and analytical rigor of the original opinion while presenting information in a format optimized for quick comprehension by busy executives, in-house counsel, or co-counsel who need to understand the lawyer's position on key legal matters.\n\n## Process and Approach\n\nBegin by thoroughly reviewing the full legal opinion to identify its fundamental components: the legal questions presented, the factual background necessary for context, the applicable legal framework, the core analysis and reasoning, and the ultimate conclusions or recommendations. Search through the uploaded documents to locate and extract the complete opinion, ensuring you capture all relevant sections including any exhibits, case citations, or statutory references that are essential to understanding the legal position.\n\nAs you analyze the opinion, distinguish between essential elements that must be preserved and supporting details that can be condensed or omitted. The legal questions and conclusions are sacrosanct and must be presented with complete accuracy. The factual background should be streamlined to include only those facts that directly impact the legal analysis. Legal authorities should be cited in abbreviated form, mentioning only the most controlling or persuasive precedents unless multiple authorities are necessary to demonstrate a point.\n\n## Required Structure and Content\n\nYour summary should open with a clear statement of the legal questions or issues addressed in the opinion, presented in plain language that non-lawyers can understand while maintaining legal precision. Follow this with a brief factual background section that provides only the context necessary to understand the legal analysis\u2014typically no more than two to three paragraphs regardless of how extensive the original fact section may be.\n\nThe heart of your summary is the legal analysis section, which must distill the lawyer's reasoning into its most essential components. For each major legal issue, present the applicable legal standard or framework, the key arguments or considerations that drive the analysis, and how those considerations lead to the conclusion. When multiple legal theories or arguments are presented in the original opinion, prioritize those that are most central to the ultimate recommendation. Use clear topic sentences and logical transitions to guide the reader through the analytical progression.\n\nConclude with a definitive statement of the lawyer's opinion or recommendation, including any qualifications, assumptions, or limitations that are material to relying on the opinion. If the original opinion includes risk assessments, likelihood of success estimates, or alternative courses of action, these should be preserved in summary form as they are often critical to client decision-making.\n\n## Legal and Professional Considerations\n\nMaintain absolute fidelity to the substance and tenor of the original opinion. A summary that mischaracterizes the lawyer's position, overstates the certainty of conclusions, or omits material qualifications can create professional liability and undermine client trust. When the original opinion expresses uncertainty, acknowledges counterarguments, or identifies gaps in the legal authority, your summary must reflect these nuances even in condensed form.\n\nPreserve all citations to controlling legal authority, though you may abbreviate case names and omit string citations of secondary authorities. If the original opinion relies on specific statutory language, regulatory provisions, or contractual terms, include the precise language or a faithful paraphrase with appropriate attribution. Legal professionals reading your summary may need to locate and review these sources, so accurate citation information is essential.\n\nBe mindful of attorney-client privilege and work product protection. The summary inherits the privileged status of the original opinion, but you should maintain the same level of professional discretion in your language. Avoid unnecessary speculation beyond what appears in the original opinion, and do not introduce new legal theories or arguments that the authoring lawyer did not advance.\n\n## Format and Presentation Standards\n\nPresent the summary in a professional memorandum format with clear section headings that mirror the structure described above: Issues Presented, Factual Background, Legal Analysis, and Conclusion/Recommendation. Use standard legal writing conventions including full sentences, proper paragraph structure, and formal tone appropriate for client communication.\n\nThe total length should typically range from two to five pages depending on the complexity of the original opinion, with most summaries falling in the three-page range. Use formatting techniques such as bold headings, numbered issues when multiple questions are addressed, and judicious use of bullet points only when listing discrete items like elements of a legal test or multiple recommendations.\n\nWhen technical legal concepts are central to the analysis, include brief explanatory phrases that make the summary accessible to intelligent non-lawyers while preserving legal accuracy. The goal is to enable a business executive or client representative to understand the lawyer's position and its implications for their decision-making, even if they lack formal legal training.\n\nYour completed summary should stand alone as a professional work product that the authoring lawyer could confidently provide to clients, co-counsel, or other stakeholders as an accurate representation of their legal opinion and advice.",
+  "parent_skill_id": "8ca78d3f-b67f-4c5f-9fa4-24e4e261bc91",
+  "skill_type": "form",
+  "visibility": "public",
+  "legal_context": {
+    "complexity": "mid",
+    "industries": [],
+    "party_roles": [
+      "neutral",
+      "drafter"
+    ],
+    "skill_modes": [
+      "summarization"
+    ],
+    "court_systems": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "matter_phases": [
+      "negotiation",
+      "closing"
+    ],
+    "document_types": [
+      "summary"
+    ],
+    "practice_areas": [
+      "Transactional"
+    ],
+    "sub_practice_areas": [
+      "general"
+    ]
+  },
+  "version": 1,
+  "author_name": null,
+  "license": "Apache-2.0",
+  "created_at": "2026-01-06T03:27:24.920785",
+  "updated_at": "2026-02-22T21:37:47.543804"
+}
