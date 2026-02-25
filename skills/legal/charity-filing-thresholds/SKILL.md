@@ -1,6 +1,14 @@
 ---
 name: charity-filing-thresholds
-description: Researches state-specific charitable solicitation filing requirements keyed to gross revenue, producing a structured state-by-state compliance matrix of audit thresholds, financial-statement tiers, filing fees, and due dates with full citation documentation. Use when building charity compliance matrices, researching nonprofit filing thresholds, charitable solicitation registration renewals, or comparing state audit requirements for 501(c)(3) organizations.
+description: >
+  Researches state-specific charitable solicitation filing requirements keyed to
+  gross revenue, producing a structured state-by-state compliance matrix of audit
+  thresholds, financial-statement tiers, filing fees, and due dates with full
+  citation documentation. Use when building charity compliance matrices,
+  researching nonprofit filing thresholds, charitable solicitation registration
+  renewals, comparing state audit requirements for 501(c)(3) organizations, or
+  when the user mentions audit threshold, review threshold, compilation
+  requirement, charity filing deadline, or multi-state nonprofit compliance.
 tags:
   - analysis
   - checklist
@@ -12,9 +20,15 @@ tags:
 
 # State Charity Filing Threshold Research
 
-Produces a citation-backed, state-by-state compliance matrix of charitable solicitation filing requirements (audit/review/compilation thresholds, fees, deadlines) keyed to gross revenue.
+## Why This Skill Exists
 
-## Prerequisites
+States define the revenue trigger for audit, review, and compilation requirements differently — "gross annual revenue," "total revenue," "contributions," and "gross support and revenue" can map to materially different Form 990 lines and shift which financial-statement tier applies. An organization filing in 10+ states that assumes all thresholds work the same way risks under-filing (triggering enforcement) or over-filing (wasting audit fees). Thresholds, fees, and deadlines also change frequently through administrative action without legislation, making stale data a persistent risk. This skill produces a citation-backed, state-by-state matrix with verbatim statutory language and a decision log for ambiguities.
+
+---
+
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **Jurisdictions in scope** — specific states, or default to all 41 registration states + DC
 2. **Organization's gross revenue / total contributions** (per Form 990) — default: $1,000,000
@@ -22,14 +36,16 @@ Produces a citation-backed, state-by-state compliance matrix of charitable solic
 4. **Entity category** — public charity, private foundation, religious, educational (default: 501(c)(3) public charity)
 5. **Desired output format** — memo, spreadsheet, CSV, JSON (default: full compliance package)
 
-## Scope
+**If the user doesn't respond**, apply and clearly label these defaults: all 41 registration states + DC; $1,000,000 gross revenue; December 31 FYE; 501(c)(3) public charity; full compliance package output.
+
+### Scope
 
 - **In scope:** Charitable solicitation registration/renewal filings for 501(c)(3) organizations
 - **Out of scope:** Corporate annual reports, IRS filings, professional fundraiser/solicitor/commercial co-venturer regimes (unless requested)
 
-## Process
+---
 
-### Phase 1: Source Identification
+## Step 1: Source Identification
 
 For each state, locate and record:
 
@@ -52,9 +68,11 @@ For each state, locate and record:
 
 **Primary-source-first rule:** Prefer statute/regulation text over FAQ summaries. Flag guidance-only sources.
 
-### Phase 2: Data Extraction
+---
 
-Extract four rule categories per state using this template:
+## Step 2: Data Extraction
+
+Extract four rule categories per state:
 
 | Category | Field | Value | Citation | Quoted Language | Last Verified |
 |---|---|---|---|---|---|
@@ -70,7 +88,7 @@ Extract four rule categories per state using this template:
 | **Due Date** | Rule | | | e.g., "4.5 months after FYE" | |
 | **Due Date** | Extension available | Yes/No | | Length + mechanism | |
 
-#### Critical: Revenue Definition Variance
+### Critical: Revenue Definition Variance
 
 States define the revenue trigger differently. Capture verbatim and map to Form 990:
 
@@ -83,13 +101,15 @@ States define the revenue trigger differently. Capture verbatim and map to Form 
 
 **Do not assume** "gross revenue" equals "contributions" — capture each state's term verbatim.
 
-#### Extraction Rules
+### Extraction Rules
 
 - If instructions conflict with statute/regulation, **prioritize statute** and note the conflict
 - If a state uses IRS Form 990 line references, capture explicitly
 - If multiple programs exist (trust reporting vs. solicitation), label which program the threshold applies to
 
-### Phase 3: Normalization
+---
+
+## Step 3: Normalization
 
 Transform state-specific language into standardized fields:
 
@@ -110,16 +130,20 @@ Transform state-specific language into standardized fields:
 | `citations` | Statute/reg/instruction references |
 | `last_verified_date` | YYYY-MM-DD |
 
-Maintain a **decision log** for ambiguities:
+### Decision Log
+
+Maintain for ambiguities:
 
 | Issue | State | Sources | Decision | Follow-Up |
 |---|---|---|---|---|
 | Term not defined in statute | XX | Statute §…, Instructions | Treat as total revenue; flag | Confirm with agency |
 | Instructions vs. statute conflict | YY | Statute §…, Form | Use statute; note conflict | Attorney review |
 
-### Phase 4: Deliverables Assembly
+---
 
-#### Master Matrix
+## Step 4: Assemble Deliverables
+
+### Master Matrix
 
 | State | Audit At | Revenue Basis | Review At | Compilation Below | Fee (summary) | Due Date | Extension | Primary Sources | Verified |
 |---|---|---|---|---|---|---|---|---|---|
@@ -131,15 +155,43 @@ Maintain a **decision log** for ambiguities:
 | MA | ≥ $500K | Gross support & revenue | $200K–$500K | $200K | $300 | 4.5 mo | Yes (8868) | Form PC [VERIFY] | YYYY-MM-DD |
 | GA | ≥ $1M | Total revenue | $500K–$1M | $500K | — | — | — | C-100 [VERIFY] | YYYY-MM-DD |
 
-#### Attorney Review Memo (1–3 pages)
+### Attorney Review Memo (1–3 pages)
 
 Address:
 - **Definitional variances** — states where "gross revenue" means materially different things
 - **Guidance-only items** — thresholds found only in instructions/FAQs, not statute
 - **Conflicts** — between statutes and instructions
-- **Lowest thresholds** — states triggering audit/review first (MA at $500K, IL at $300K contributions)
-- **Strictest deadlines** — states with no extensions (FL) or short windows
+- **Lowest thresholds** — states triggering audit/review first
+- **Strictest deadlines** — states with no extensions or short windows
 - **Update cadence** — recommend quarterly re-verification given administrative changes
+
+---
+
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial matrix, ask:
+
+1. Does the jurisdictions list match the organization's actual registration footprint?
+2. Is the revenue figure and Form 990 line reference correct for threshold comparison?
+3. Should I expand the scope to include professional fundraiser/solicitor thresholds?
+4. Should the output be delivered in a different format (CSV, JSON, spreadsheet)?
+
+---
+
+## Quality Audit
+
+- Every threshold has a verified statutory/regulatory citation or is marked [VERIFY]
+- Revenue basis term captured verbatim for each state — not normalized away
+- Form 990 line mapping provided for each state's revenue definition
+- Fee schedules sourced from official agency pages
+- Extension mechanisms specified (not just "Yes/No")
+- Decision log maintained for all ambiguities
+- Conflicts between statutes and instructions noted and resolved
+- Last-verified date recorded for each state
+- Master matrix includes all jurisdictions in scope
+- No fabricated thresholds, fees, or deadlines
+
+---
 
 ## Guidelines
 
@@ -149,4 +201,9 @@ Address:
 - **Revenue ≠ contributions** — never assume equivalence across states; the definitional difference can shift which tier applies
 - **Flag staleness** — any source not verified within 90 days should be marked for re-verification
 - **Organization bylaws may impose lower thresholds** — board audit policies can require audits below state-mandated levels
+- Mark all uncertain citations or requirements with [VERIFY]
 - This skill is a research aid, not legal advice. A qualified attorney or CPA specializing in nonprofit compliance should review before filing.
+
+**Required disclaimer on every output:**
+
+> THIS RESEARCH REQUIRES INDEPENDENT VERIFICATION OF ALL THRESHOLDS, DEADLINES, AND STATUTORY CITATIONS BY A QUALIFIED ATTORNEY OR CPA BEFORE RELIANCE, AND DOES NOT CONSTITUTE LEGAL ADVICE.

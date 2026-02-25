@@ -1,6 +1,16 @@
 ---
 name: health-care-agent-letter
-description: Drafts a non-binding instruction letter (values letter / legacy letter) from a client to their designated health care agent, translating personal values, quality-of-life definitions, spiritual commitments, and scenario-based treatment preferences into operational bedside guidance for substituted judgment. Harmonizes with formal advance directives, anticipates family conflict, and includes ethics guardrails. Use when drafting health care agent instruction letters, values letters, legacy letters, or substituted judgment guidance documents.
+description: >
+  Drafts a non-binding instruction letter (values letter / legacy letter) from a
+  client to their designated health care agent, translating personal values,
+  quality-of-life definitions, spiritual commitments, and scenario-based treatment
+  preferences into operational bedside guidance for substituted judgment. Use this
+  skill when the user mentions health care agent letter, values letter, legacy
+  letter, substituted judgment guidance, instruction letter to healthcare proxy,
+  agent decision-making guide, or asks how to communicate treatment wishes to a
+  designated agent. Also trigger when the user wants to supplement a formal advance
+  directive with personal guidance or needs to address family conflict around
+  medical decisions.
 tags:
   - drafting
   - letter
@@ -10,27 +20,36 @@ tags:
 
 # Instruction Letter to Health Care Agent
 
-Drafts a client-voiced letter giving a designated health care agent the values, priorities, and scenario-based preferences needed to exercise substituted judgment during medical crises — complementing but not replacing formal advance directives.
+## Why This Skill Exists
 
-## Prerequisites
+Formal advance directives appoint an agent and set legal parameters, but they rarely give that agent enough information to make hard bedside decisions with confidence. When a crisis hits, agents face questions the legal form never anticipated — "Your mother's dementia has progressed; she has pneumonia; do you want antibiotics?" Without a values letter, agents guess, family members fight, and ethics consults multiply. In states applying a "clear and convincing evidence" standard (like New York), the letter also serves a critical evidentiary function.
 
-1. **Executed legal documents** — Health care power of attorney/proxy, living will or advance directive, POLST/MOLST (if any), HIPAA authorization, organ donation directives. If unavailable, frame the letter as "supplemental, pending harmonization with signed directives."
-2. **Identity and audience** — Client's preferred name; primary agent and alternates (full names, relationships); whether to share the letter now or only upon incapacity.
-3. **Medical context (non-diagnostic)** — Major diagnoses, chronic conditions, prior hospitalizations, cognitive baseline, formative experiences (e.g., caring for a parent with dementia, witnessing a hospice death).
-4. **Values and tipping points** — What makes life meaningful; definitions of independence; cognitive function thresholds; longevity vs. comfort tradeoffs; tolerance for pain, sedation, dependence; home vs. institutional care preferences.
-5. **Treatment preferences** — Views on CPR, ventilator support, dialysis, feeding tubes, antibiotics for recurrent infections, major surgery, time-limited trials of intensive treatment, palliative sedation.
-6. **Religious/spiritual/cultural commitments** — Rituals, sacraments, clergy contacts, dietary restrictions, modesty concerns, doctrinal positions affecting care decisions (e.g., Catholic proportionate/disproportionate means, Halakhic guidance).
-7. **Family dynamics** — Likely objectors, communication wishes, conflict-management preferences, who should be informed, whether family meetings or ethics consults are desired.
-8. **Post-death preferences** — Organ donation, autopsy views, immediate rituals (confirm alignment with formal documents).
-9. **Desired tone** — Intimate, direct, spiritual, humorous, or formal.
+This skill produces a client-voiced letter that translates values into operational guidance an agent can use at 2 AM in an ICU — not a legal document, but the most important supplement to one.
 
-Ask for any missing items before drafting. Never invent facts, diagnoses, relationships, dates, or beliefs.
+---
 
-## Output Structure
+## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-Draft a 1–3 page letter in the client's voice with these sections:
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
-### 1. Framing and Legal Harmonization
+1. **Executed legal documents** — health care power of attorney/proxy, living will or advance directive, POLST/MOLST, HIPAA authorization, organ donation directives. If unavailable, frame the letter as "supplemental, pending harmonization with signed directives"
+2. **Identity and audience** — client's preferred name; primary agent and alternates (full names, relationships); whether to share the letter now or only upon incapacity
+3. **Medical context (non-diagnostic)** — major diagnoses, chronic conditions, prior hospitalizations, cognitive baseline, formative experiences (e.g., caring for a parent with dementia, witnessing a hospice death)
+4. **Values and tipping points** — what makes life meaningful; definitions of independence; cognitive function thresholds; longevity vs. comfort tradeoffs; tolerance for pain, sedation, dependence; home vs. institutional care preferences
+5. **Treatment preferences** — views on CPR, ventilator support, dialysis, feeding tubes, antibiotics for recurrent infections, major surgery, time-limited trials, palliative sedation
+6. **Religious/spiritual/cultural commitments** — rituals, sacraments, clergy contacts, dietary restrictions, modesty concerns, doctrinal positions affecting care decisions
+7. **Family dynamics** — likely objectors, communication wishes, conflict-management preferences, who should be informed
+8. **Desired tone** — intimate, direct, spiritual, humorous, or formal
+
+**If the user doesn't respond**, apply and clearly label these defaults: supplement to existing advance directive; primary agent audience; comfort-focused values; moderate detail level; warm but direct tone.
+
+---
+
+## Step 1: Frame the Letter and Harmonize with Legal Documents
+
+Draft the opening to establish the letter's legal posture and relationship to formal documents.
+
+### Requirements
 
 | Element | Requirement |
 |---|---|
@@ -45,9 +64,11 @@ Draft a 1–3 page letter in the client's voice with these sections:
 - Flag any discrepancy between the letter and signed directives for attorney review
 - Never present the letter as binding instructions
 
-### 2. Core Values as Decision-Making Principles
+---
 
-Translate the client's values into operational statements addressing the "Big Three" functional thresholds:
+## Step 2: Translate Values into Operational Decision-Making Principles
+
+Address the "Big Three" functional thresholds that drive most bedside decisions:
 
 | Threshold | Address |
 |---|---|
@@ -55,11 +76,13 @@ Translate the client's values into operational statements addressing the "Big Th
 | Physical independence | What dependence is tolerable vs. unacceptable? |
 | Pain experience | What is the comfort vs. alertness tradeoff? |
 
-- **Dementia specifically**: Address whether life-prolonging care is wanted at various stages of cognitive decline. Use plain language, not clinical scales.
+- **Dementia specifically**: address whether life-prolonging care is wanted at various stages of cognitive decline — use plain language, not clinical scales
 - Distinguish temporary impairment (post-surgical delirium) from permanent loss (advanced dementia)
 - Pair every values statement with a concrete scenario to prevent misinterpretation
 
-### 3. Scenario-Based Treatment Guidance
+---
+
+## Step 3: Draft Scenario-Based Treatment Guidance
 
 Organize under plain-language headings. For each category, state the general preference + conditional scenarios:
 
@@ -76,9 +99,11 @@ Organize under plain-language headings. For each category, state the general pre
 
 - Frame as guidance ("If my doctors believe… then I would prefer…"), not rigid orders
 - Empower the agent to ask: "What are best/worst outcomes? What does recovery look like? What if we do nothing?"
-- **Never draft to resemble a POLST/MOLST** — recommend that as a separate clinical/legal workflow if appropriate
+- **Never draft to resemble a POLST/MOLST** — recommend that as a separate clinical/legal workflow
 
-### 4. Religious, Spiritual, and Cultural Commitments
+---
+
+## Step 4: Address Religious, Spiritual, and Cultural Commitments
 
 - State beliefs in the client's own words
 - Translate into concrete requests (clergy contact info, specific sacraments, dietary needs, modesty requirements)
@@ -86,7 +111,9 @@ Organize under plain-language headings. For each category, state the general pre
 - Address conscientious-objection scenarios: instruct agent on facility transfer if needed
 - If religiously significant refusals exist (e.g., blood products), ensure they are documented in formal legal/medical forms, not just this letter
 
-### 5. Agent Decision-Making Process and Conflict Management
+---
+
+## Step 5: Establish Agent Authority and Conflict Management Process
 
 **Authorize the agent to:**
 - Request ethics consults, palliative care consults, family meetings
@@ -101,7 +128,9 @@ Organize under plain-language headings. For each category, state the general pre
 - Do not create de facto co-agents by asking multiple people to "decide together"
 - Address information-sharing boundaries (HIPAA implications)
 
-### 6. Closing
+---
+
+## Step 6: Draft Closing and Distribution Plan
 
 | Element | Include |
 |---|---|
@@ -111,24 +140,27 @@ Organize under plain-language headings. For each category, state the general pre
 | Document location | Where formal legal documents are kept |
 | Signature line and date | Optional witness/notary recommendation for evidentiary weight |
 
-## Guidelines
+---
 
-### Compliance
-- **Model Rule 1.1**: Draft only as a supplemental narrative; never imply it changes legal rights
-- **Model Rule 1.14**: If diminished capacity, coercion, or undue influence is suspected, advise attorney-conducted capacity-sensitive interview
-- **Model Rule 1.6**: Client decides who receives the letter; warn that placement in medical records makes it broadly accessible
-- **Model Rules 1.7/1.8(f)**: Do not take instructions from agents or family members; flag third-party steering
+## Checkpoint B: Post-Draft Alignment (Mandatory)
 
-### Jurisdiction-Specific
-- Match terminology to the client's executed forms and local usage
-- In **New York** and similar jurisdictions applying a "clear and convincing evidence" standard (*In re Storar*, 52 N.Y.2d 363 (1981) [VERIFY]), draft with heightened specificity — the letter serves a critical evidentiary function
-- In **CA, TX, FL** and states allowing attachments to statutory forms, note that the letter may be incorporated by reference (attorney decision)
-- **MAID jurisdictions** (OR, WA, CA, etc.): An agent generally cannot request MAID on behalf of a principal. Flag as a separate legal/clinical workflow; do not imply agent MAID authority
-- Do not invent registry names; ask the user if a state registry is in use
+After delivering the initial draft, ask:
 
-### Quality Checks
+1. Does the letter accurately reflect your voice — would the agent recognize this as you?
+2. Are the dementia-stage and cognitive-decline preferences correctly stated?
+3. Is there anyone specific who might challenge the agent's decisions that we should address more directly?
+4. Should this letter be shared now or sealed until incapacity?
+
+If the user doesn't answer, recommend reviewing the dementia-specific guidance (most common gap) and proceed if authorized.
+
+---
+
+## Quality Audit
+
+Before finalizing, verify:
+
 - [ ] Letter identifies governing documents correctly (or uses placeholders)
-- [ ] No contradiction between letter and signed directives (flag discrepancies prominently)
+- [ ] No contradiction between letter and signed directives (discrepancies flagged prominently)
 - [ ] Values are operational, not abstract — agent can answer: "What would you want if doctors say you won't recover?"
 - [ ] No vague phrases ("no heroic measures," "vegetable") — replaced with functional descriptions
 - [ ] All facts, dates, and relationships are user-provided, not inferred
@@ -137,12 +169,31 @@ Organize under plain-language headings. For each category, state the general pre
 - [ ] Agent explicitly granted emotional/moral authority
 - [ ] Adversarial review: no sentence is easily weaponized out of context
 - [ ] Written at accessible reading level in client's voice
+- [ ] Family conflict management addressed
+- [ ] Distribution plan included
 
-### Do Not
-- Invent facts, diagnoses, family relationships, document dates, or religious beliefs
-- Draft language resembling a POLST/MOLST or medical order
-- Use legalese ("principal," "attorney-in-fact") in the client-facing letter
-- Include medical statistics without a citable source
-- State the letter is "legally binding" — explain that binding effect requires statutory forms
+---
+
+## Guidelines
+
+**Compliance:**
+- **Model Rule 1.1**: Draft only as a supplemental narrative; never imply it changes legal rights
+- **Model Rule 1.14**: If diminished capacity, coercion, or undue influence is suspected, advise attorney-conducted capacity-sensitive interview
+- **Model Rule 1.6**: Client decides who receives the letter; warn that placement in medical records makes it broadly accessible
+- **Model Rules 1.7/1.8(f)**: Do not take instructions from agents or family members; flag third-party steering
+
+**Jurisdiction-Specific:**
+- Match terminology to the client's executed forms and local usage
+- In **New York** and similar jurisdictions applying a "clear and convincing evidence" standard (*In re Storar*, 52 N.Y.2d 363 (1981) `[VERIFY]`), draft with heightened specificity — the letter serves a critical evidentiary function
+- In **CA, TX, FL** and states allowing attachments to statutory forms, note that the letter may be incorporated by reference (attorney decision)
+- **MAID jurisdictions** (OR, WA, CA, etc.): An agent generally cannot request MAID on behalf of a principal — flag as a separate legal/clinical workflow; do not imply agent MAID authority
+
+**Anti-Hallucination:**
+- Do not invent facts, diagnoses, family relationships, document dates, or religious beliefs
+- Do not draft language resembling a POLST/MOLST or medical order
+- Do not use legalese ("principal," "attorney-in-fact") in the client-facing letter
+- Do not include medical statistics without a citable source
+- Do not state the letter is "legally binding"
+- Do not invent registry names; ask the user if a state registry is in use
 
 **ATTORNEY REVIEW REQUIRED** — This draft must be reviewed by a licensed attorney before use to ensure it does not contradict executed documents or conflict with state-specific medical consent laws.

@@ -18,9 +18,15 @@ tags:
 
 # API License Agreement (US)
 
-Drafts a comprehensive, clickwrap-enforced API License Agreement for US technology companies licensing proprietary APIs to developers and third-party integrators.
+## Why This Skill Exists
 
-## Prerequisites
+API license agreements are the primary legal instrument governing the relationship between an API provider and its developer ecosystem. Getting the defaults wrong — an overbroad license grant, a missing competition restriction, an unenforceable browsewrap, or an ambiguous data rights clause — creates exposure that compounds with every developer who accepts the terms. Unlike negotiated enterprise agreements, click-wrap terms must be self-executing and defensible at scale, which means every clause must be clear enough for a developer to understand and robust enough to survive judicial scrutiny. This skill produces a structured, clickwrap-enforced agreement with clause election matrices and data mapping to ensure nothing is missed.
+
+---
+
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **Parties** — Provider legal name, state of incorporation, entity type, notice email/address
 2. **API identification** — API/product name, Documentation URL, Developer Portal URL
@@ -33,11 +39,7 @@ Drafts a comprehensive, clickwrap-enforced API License Agreement for US technolo
 9. **Branding** — Attribution required ("Powered by")? Trademark guidelines URL?
 10. **Deprecation policy** — Notice period for breaking changes; supported deprecation window
 
-## Output Structure / Process
-
-### Step 1 — Intake Snapshot
-
-If user does not answer, apply defaults below and mark every default with `[DEFAULT]` in the draft.
+**If the user doesn't respond**, apply and clearly label these defaults:
 
 | # | Item | Default | Placeholder if Customized |
 |---|---|---|---|
@@ -51,7 +53,9 @@ If user does not answer, apply defaults below and mark every default with `[DEFA
 | 8 | Breaking-change notice | 30 days | [INSERT PERIOD] |
 | 9 | Competition restriction | No replacement for Provider's core service | [DEFINE CORE SERVICE] |
 
-### Step 2 — Clause Elections Matrix
+---
+
+## Step 1: Clause Elections Matrix
 
 Apply **Balanced** default for any unelected topic.
 
@@ -66,7 +70,9 @@ Apply **Balanced** default for any unelected topic.
 | Indemnity | Limited mutual | Developer indemnifies Provider | Expanded + IP cross-indemnity |
 | Liability cap (paid) | 24-month fees | 12-month fees | 6-month fees + broad exclusions |
 
-### Step 3 — Data Map
+---
+
+## Step 2: Data Map
 
 | Data Type | Owner | License to Other Party | Key Restrictions | Post-Termination |
 |---|---|---|---|---|
@@ -75,9 +81,11 @@ Apply **Balanced** default for any unelected topic.
 | End-User Data (PII) | End user / Developer | Per DPA and end-user consents | Privacy law compliance; obtain consents | Delete per applicable law / DPA |
 | Usage Analytics (logs, metrics) | Provider | Provider: aggregate / de-identified use | De-identify where possible | Retained for security/operations |
 
-### Step 4 — Draft the Agreement
+---
 
-Generate a complete agreement with these sections; apply all elections and defaults from Steps 1–3:
+## Step 3: Draft the Agreement
+
+Generate a complete agreement with these sections; apply all elections and defaults from Steps 1–2.
 
 **Clickwrap Header** (bold/caps, before Table of Contents):
 > IMPORTANT — PLEASE READ CAREFULLY. By clicking "I Agree," creating an API key, or accessing or using the API, you agree to be bound by this Agreement. If you do not agree, do not access or use the API.
@@ -87,24 +95,26 @@ Generate a complete agreement with these sections; apply all elections and defau
 | § | Title | Key Drafting Notes |
 |---|---|---|
 | 1 | Definitions | Define: API (endpoints + SDKs + docs + credentials + updates), Documentation, Developer Application, Developer Data, Provider Data, Usage Limits, Confidential Information |
-| 2 | License Grant; Reservation of Rights | Non-exclusive, non-transferable, non-sublicensable, revocable; scope per Step 2 election; Provider retains all IP |
+| 2 | License Grant; Reservation of Rights | Non-exclusive, non-transferable, non-sublicensable, revocable; scope per election; Provider retains all IP |
 | 3 | Accounts & Credentials | Registration; Developer responsible for credential security and all activity under credentials |
 | 4 | Usage Limits; Tiers; Fees | Tier schedule by reference to [PRICING URL]; overages; auto-upgrade or suspension trigger; free-tier fee-introduction notice (30 days) |
-| 5 | Acceptable Use; Prohibited Conduct | Include full prohibited conduct list below |
-| 6 | API Changes; Versioning; Availability | Breaking-change notice per election; emergency exception (security/legal); no uptime guarantee unless SLA addendum attached (see @draft-service-level-agreement) |
+| 5 | Acceptable Use; Prohibited Conduct | Include full prohibited conduct list (Step 4) |
+| 6 | API Changes; Versioning; Availability | Breaking-change notice per election; emergency exception (security/legal); no uptime guarantee unless SLA addendum |
 | 7 | Support | No obligation unless separate support plan; status page at [STATUS URL] optional |
-| 8 | Data, Privacy & Security | Developer data responsibilities; privacy law compliance (CCPA/CPRA, state laws, GDPR if applicable); DPA trigger clause; security baseline; 72-hour breach notification; usage analytics rights; 30-day post-termination deletion + certification |
-| 9 | IP; Feedback; Branding | Provider owns API/docs/Provider Data; Developer owns Developer Application; Feedback: perpetual irrevocable royalty-free license to Provider; trademark use per Brand Guidelines at [URL]; attribution if required |
-| 10 | Term & Termination | Commences on first use; termination for convenience per tier election; immediate suspension/termination for cause (breach, security risk, IP infringement, AUP violation); survival clause |
-| 11 | Confidentiality | Mutual; standard exclusions (public domain, prior knowledge, independent development, rightful third-party receipt); compelled-disclosure carve-out with prior notice |
-| 12 | Representations; Disclaimers | Developer: authority, legal compliance, data rights; Provider: AS IS / AS AVAILABLE in full caps; no warranty of uptime, accuracy, fitness |
-| 13 | Limitation of Liability | Consequential damages excluded (both parties); cap per tier election; basis-of-the-bargain acknowledgment; caps apply even if limited remedy fails essential purpose |
-| 14 | Indemnification | Developer indemnifies Provider Indemnitees for: Developer Application, Developer Data, breach, unlawful use, IP infringement; procedural mechanics: prompt notice, sole control, settlement consent required |
+| 8 | Data, Privacy & Security | Developer data responsibilities; privacy law compliance; DPA trigger clause; security baseline; 72-hour breach notification; usage analytics rights; 30-day post-termination deletion + certification |
+| 9 | IP; Feedback; Branding | Provider owns API/docs/Provider Data; Developer owns Developer Application; Feedback: perpetual irrevocable royalty-free license to Provider; trademark use per Brand Guidelines; attribution if required |
+| 10 | Term & Termination | Commences on first use; termination for convenience per tier election; immediate suspension for cause; survival clause |
+| 11 | Confidentiality | Mutual; standard exclusions; compelled-disclosure carve-out with prior notice |
+| 12 | Representations; Disclaimers | Developer: authority, legal compliance, data rights; Provider: AS IS / AS AVAILABLE in full caps |
+| 13 | Limitation of Liability | Consequential damages excluded (both parties); cap per tier election; basis-of-the-bargain acknowledgment |
+| 14 | Indemnification | Developer indemnifies Provider Indemnitees; procedural mechanics: prompt notice, sole control, settlement consent required |
 | 15 | Export Controls & Sanctions | Comply with BIS/OFAC/State; Developer reps: not SDN-listed, not in sanctioned territory |
-| 16 | General Terms | Governing law; venue; [optional arbitration + class-action waiver]; modification mechanics (post + notice + continued use = acceptance); no assignment by Developer; severability; waiver; force majeure; notices; entire agreement; order of precedence: (1) Agreement → (2) DPA → (3) AUP → (4) Documentation; independent contractors |
+| 16 | General Terms | Governing law; venue; modification mechanics; no assignment by Developer; severability; waiver; force majeure; notices; entire agreement; order of precedence |
 | 17 | Acceptance | Repeat clickwrap/browsewrap block; entity authority representation |
 
-### Step 5 — Prohibited Conduct Checklist (§ 5)
+---
+
+## Step 4: Prohibited Conduct Checklist (§ 5)
 
 - [ ] No reverse engineering, decompiling, or disassembly of the API
 - [ ] No circumvention of rate limits, authentication, access controls, or metering
@@ -116,9 +126,11 @@ Generate a complete agreement with these sections; apply all elections and defau
 - [ ] No sharing of API credentials with unauthorized parties
 - [ ] No use to build a product replacing Provider's core service (if restriction elected)
 - [ ] No misrepresentation of affiliation with Provider
-- [ ] Incorporate AUP at [AUP URL] by reference (see @draft-acceptable-use-policy)
+- [ ] Incorporate AUP at [AUP URL] by reference
 
-### Step 6 — Liability & Indemnity Matrix (§§ 13–14)
+---
+
+## Step 5: Liability & Indemnity Matrix (§§ 13–14)
 
 | Feature | Provider Position | Developer Obligation |
 |---|---|---|
@@ -128,37 +140,74 @@ Generate a complete agreement with these sections; apply all elections and defau
 | Consequential damages | Excluded (both parties) | Excluded (both parties) |
 | Indemnity triggers | N/A | Developer Application; Developer Data; breach; IP infringement; unlawful use |
 
-### Step 7 — Clickwrap Presentation & Policy Cross-Reference Table
+---
+
+## Step 6: Clickwrap Presentation & Policy Cross-Reference
 
 **Recommended checkbox text:**
 > ☐ I have read and agree to the [API License Agreement](link), [Acceptable Use Policy](link), and [Privacy Policy](link).
 
-**Browsewrap fallback** (if no checkbox): Place bold conspicuous notice directly above "Create API Key" button: **"By creating an API key or using the API, you agree to the [API License Agreement]."** Link must also appear in documentation sidebar and account settings.
+**Browsewrap fallback** (if no checkbox): Bold conspicuous notice directly above "Create API Key" button with link to full terms. Link must also appear in documentation sidebar and account settings.
 
 | Incorporated Policy | Cross-Reference | URL |
 |---|---|---|
 | Documentation | — | [INSERT] |
-| Acceptable Use Policy | @draft-acceptable-use-policy | [INSERT] |
-| Privacy Policy | @draft-privacy-policy-us | [INSERT] |
-| Data Processing Addendum | @draft-data-processing-agreement | [INSERT] |
-| Brand Guidelines | @draft-trademark-usage-guidelines | [INSERT] |
-| SLA Addendum (optional) | @draft-service-level-agreement | [INSERT] |
+| Acceptable Use Policy | — | [INSERT] |
+| Privacy Policy | — | [INSERT] |
+| Data Processing Addendum | — | [INSERT] |
+| Brand Guidelines | — | [INSERT] |
+| SLA Addendum (optional) | — | [INSERT] |
 
 ### Output Modes
 
 | Mode | Description |
 |---|---|
-| **Mode 1 — Full Agreement** (default) | Complete 17-section clickwrap-ready agreement with all deliverables; suitable for developer portal |
-| **Mode 2 — Condensed Terms** | 3–6 page short-form retaining: acceptance, license grant, prohibited conduct, data/privacy, IP, termination, disclaimers, liability cap, indemnity, governing law |
+| **Mode 1 — Full Agreement** (default) | Complete 17-section clickwrap-ready agreement with all deliverables |
+| **Mode 2 — Condensed Terms** | 3–6 page short-form retaining key sections |
 | **Mode 3 — Quick Reference** | One-page developer-facing table: permitted use, tier overview, key restrictions, data rules, termination triggers, liability cap, support model, policy links |
+
+---
+
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial draft, ask:
+
+1. Do the clause elections (license scope, competition restriction, liability caps) match your commercial intent?
+2. Are there data categories or regulated data types (HIPAA, COPPA, PCI) that require a separate addendum?
+3. Should I produce additional output modes (condensed terms, quick reference)?
+4. Has your UX/product team confirmed the clickwrap presentation mechanism?
+
+---
+
+## Quality Audit
+
+- Every section from the 17-section outline addressed
+- Clause elections consistently applied throughout (no contradictions between election matrix and drafted text)
+- Data map entries reflected in §§ 8–9
+- Prohibited conduct list complete and incorporated in § 5
+- Liability caps match tier elections in both the matrix and the drafted text
+- Clickwrap header present and conspicuous
+- All [BRACKETED] placeholders clearly marked for attorney completion
+- DPA trigger clause present even if DPA not immediately executed
+- Export controls section included (§ 15)
+- Order of precedence specified in § 16
+- No invented legal standards or enforceability claims
+- Cross-reference table includes all incorporated policies
+
+---
 
 ## Guidelines
 
 - **Clickwrap enforceability**: Conspicuous presentation (bold/caps header) + affirmative act (checkbox/button) + clear link to full terms + timestamp/IP logging recommended
 - **Browsewrap risk**: Courts scrutinize browsewrap strictly; if only footer link is available, add enhanced conspicuous notice adjacent to every "Get Started" / "Create Key" CTA
-- **DPA trigger**: Always include a conditional DPA trigger clause even if DPA is not immediately executed; activates automatically if personal data is processed
-- **Regulated data**: If HIPAA, GLBA, FERPA, COPPA, or biometric data is in scope, flag for separate compliance review before finalizing; insert [VERIFY — regulated data addendum needed]
+- **DPA trigger**: Always include a conditional DPA trigger clause even if DPA is not immediately executed
+- **Regulated data**: If HIPAA, GLBA, FERPA, COPPA, or biometric data is in scope, flag for separate compliance review; insert [VERIFY — regulated data addendum needed]
 - **Export controls**: Do not remove § 15; APIs with encryption or dual-use functionality may require EAR classification review
 - **Modification mechanics**: "Posting + continued use = acceptance" is generally enforceable for material changes with advance notice; 15-day minimum notice recommended
-- **Change log**: Maintain public version archive at a stable URL; note effective date and summary of material changes for each revision
-- **Cross-references**: @draft-data-processing-agreement · @draft-service-level-agreement · @draft-acceptable-use-policy · @draft-trademark-usage-guidelines · @draft-privacy-policy-us · @negotiate-enterprise-api-addendum
+- **Change log**: Maintain public version archive at a stable URL
+- Mark all uncertain enforceability claims with [VERIFY]
+- Output requires attorney review before publication
+
+**Required disclaimer on every output:**
+
+> THIS AGREEMENT IS A DRAFTING AID AND REQUIRES REVIEW BY QUALIFIED LEGAL COUNSEL BEFORE USE. IT DOES NOT CONSTITUTE LEGAL ADVICE.

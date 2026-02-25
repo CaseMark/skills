@@ -1,6 +1,17 @@
 ---
 name: ca-discovery-response
-description: Drafts service-ready California responses to Requests for Production under CCP § 2031.010 et seq. Enforces the three statutory response options (compliance, inability, objection), provides objection modules grounded in California statutory and constitutional authority, and handles ESI issues and verification requirements. California Superior Court only — not for federal court.
+description: >
+  Drafts service-ready California responses to Requests for Production under
+  CCP § 2031.010 et seq. Use this skill when the user mentions California RFP
+  responses, requests for production responses, CCP 2031, California discovery
+  drafting, compliance statements, inability to comply, discovery objections,
+  privilege objections, privacy objections, or California Superior Court
+  discovery. Also trigger when the user references Bates numbering for
+  California productions, verification requirements for RFPs, or asks for help
+  responding to document requests in California state court. Even if the user
+  just says "draft responses to these RFPs" or "help me respond to this
+  production request in CA," use this skill. California Superior Court only —
+  not for federal court without substantial modification.
 tags:
   - drafting
   - litigation
@@ -9,13 +20,19 @@ tags:
 
 # California Discovery Response Builder
 
-Drafts code-compliant responses to Requests for Production under CCP §§ 2031.010–2031.320 for California Superior Court. Produces responses that are immediately usable with attorney-confirmed details inserted at marked placeholders.
+## Why This Skill Exists
+
+California RFP responses are governed by a rigid three-option statutory framework (compliance, inability, objection) under CCP §§ 2031.210–2031.320. Getting it wrong invites motions to compel and sanctions, but the most common failure is not outright error — it is boilerplate objections that lack factual specificity, over-objecting that signals obstruction, and under-responding that creates binding admissions. Each response must be drafted for the judge who will review it on a motion to compel, not just the opposing counsel who receives it.
+
+This skill produces code-compliant responses with attorney-confirmed details at marked placeholders, ready for verification and service.
 
 **Scope**: California state court RFP responses only. For federal court (FRCP 34), warn the user and do not proceed without substantial modification.
 
-## Prerequisites
+---
 
-Collect before drafting — pause for missing items:
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **Full RFP set** — including all definitions, instructions, and attachments
 2. **Case metadata** — exact caption, case number, county, department, assigned judge
@@ -29,24 +46,30 @@ Collect before drafting — pause for missing items:
 7. **Formatting preference** — pleading paper (28-line) vs. clean service format
 8. **Case type** — personal injury, employment, contract, coverage/bad faith, etc. (objection strategies differ)
 
-## Process
+**If the user doesn't respond**, apply and clearly label these defaults: hybrid objection + conditional compliance approach; clean service format; personal injury case type; standard privacy and overbreadth objections.
 
-### Step 1: Parse Requests
+---
+
+## Step 1: Parse and Reproduce Requests
 
 Reproduce every request **verbatim** including subparts, defined terms, and time limits. Mirror the propounding party's numbering convention. Include definitions section if extensive.
 
-### Step 2: Classify Each Request
+---
+
+## Step 2: Classify Each Request
 
 Select response per CCP § 2031.210(a):
 
 | Response Type | Statute | When to Use |
-|---------------|---------|-------------|
+|---|---|---|
 | Compliance (full/partial) | § 2031.220 | Documents exist, no valid objection |
 | Inability to comply | § 2031.230 | Documents don't exist or aren't in possession/custody/control |
 | Objection | § 2031.240 | Request is improper, overbroad, or seeks privileged material |
 | Objection + conditional compliance | Common | Object to scope but still produce non-privileged responsive documents |
 
-### Step 3: Draft Objections
+---
+
+## Step 3: Draft Objections
 
 Objections must be **specific to the request, fact-tethered, and legally grounded**. No boilerplate.
 
@@ -63,7 +86,9 @@ Objections must be **specific to the request, fact-tethered, and legally grounde
 
 **Citation integrity**: Rely on statutory citations (CCP, Evid. Code) over case law. Mark any case citation `[VERIFY CITATION BEFORE SERVICE]`.
 
-### Step 4: Draft Substantive Responses
+---
+
+## Step 4: Draft Substantive Responses
 
 **Compliance**:
 > Subject to and without waiving the foregoing objections, Responding Party will comply with this Request. Responsive, non-privileged documents are being produced concurrently herewith as Bates Nos. [INSERT BATES RANGE: _____ to _____].
@@ -75,7 +100,9 @@ State whether production is "as kept in ordinary course of business" or "organiz
 
 **ESI-specific**: Specify production format per CCP § 2031.280(c) — form ordinarily maintained or reasonably usable form.
 
-### Step 5: Assemble Document
+---
+
+## Step 5: Assemble Document
 
 1. **Attorney information block**
 2. **Court caption** — "SUPERIOR COURT OF THE STATE OF CALIFORNIA, COUNTY OF [COUNTY]"
@@ -85,7 +112,9 @@ State whether production is "as kept in ordinary course of business" or "organiz
 6. **Numbered responses** — "REQUEST FOR PRODUCTION NO. [X]:" (verbatim) → "RESPONSE TO REQUEST FOR PRODUCTION NO. [X]:" (objections + response)
 7. **Footer on every page**: "[PARTY]'S RESPONSES TO REQUESTS FOR PRODUCTION PROPOUNDED BY [PARTY] (SET [NUMBER])"
 
-### Step 6: Verification and Proof of Service
+---
+
+## Step 6: Add Verification and Proof of Service
 
 **Verification** (CCP § 2031.250) — required unless response contains only objections:
 > I, [NAME], am a party to this action. I have read the foregoing Responses and know the contents thereof. The matters stated therein are true of my own knowledge, except as to those matters stated on information and belief, and as to those I believe them to be true.
@@ -94,18 +123,39 @@ State whether production is "as kept in ordinary course of business" or "organiz
 
 **Proof of service** — California format matching service method (email/mail/personal service). Include `[INSERT SERVICE LIST]` placeholder.
 
-## Quality Checklist
+---
 
-- [ ] Every response fits CCP § 2031.210 (compliance, inability, or objection)
-- [ ] Requests reproduced verbatim — no paraphrasing
-- [ ] Factual assertions based on user-provided information (not assumed)
-- [ ] Bates range placeholders clearly marked `[INSERT BATES RANGE]`
-- [ ] Party names, case number, set number consistent throughout
-- [ ] Verification page included (if any substantive responses)
-- [ ] Proof of service included
-- [ ] All citations verified or marked `[VERIFY]`
-- [ ] No "none exist" claims without described search
-- [ ] Case-type-appropriate objections (not PI objections in a contract case)
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial responses, ask:
+
+1. Are the response classifications (compliance / inability / objection) correct for each request?
+2. Do the objections match your litigation strategy for this case type?
+3. Are there any documents you want to produce that I haven't accounted for?
+4. Should I generate the verification page and proof of service now, or will those be handled separately?
+
+If the user doesn't answer, recommend reviewing the objection strategy against the case type and proceed if authorized.
+
+---
+
+## Quality Audit
+
+Before finalizing, verify:
+
+- Every response fits CCP § 2031.210 (compliance, inability, or objection)
+- Requests reproduced verbatim — no paraphrasing
+- Factual assertions based on user-provided information (not assumed)
+- Bates range placeholders clearly marked `[INSERT BATES RANGE]`
+- Party names, case number, set number consistent throughout
+- Verification page included (if any substantive responses)
+- Proof of service included
+- All citations verified or marked `[VERIFY]`
+- No "none exist" claims without described search
+- Case-type-appropriate objections (not PI objections in a contract case)
+- Hybrid responses include both objection and conditional compliance language
+- ESI production format specified where applicable
+
+---
 
 ## Guidelines
 
@@ -114,3 +164,6 @@ State whether production is "as kept in ordinary course of business" or "organiz
 - Over-objecting invites motions to compel and sanctions (CCP § 2031.310, § 2023.010)
 - Under-responding creates admissions and constrains later testimony
 - Adapt objection strategy to case type — insurance, lien, and privacy objections vary dramatically
+- **Anti-hallucination** — all case citations must be verified or left as explicit placeholders; no plausible-sounding but unverified citations; rely on statutory citations over case law
+- **Attorney review required** — all output is practice-support work product; it must be reviewed by supervising counsel before service or filing
+- Ethics: comply with CRPC duties of competence, candor, and confidentiality [VERIFY specific rule numbers]

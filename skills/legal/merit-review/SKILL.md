@@ -1,6 +1,17 @@
 ---
 name: merit-review
-description: Analyzes state merit review for securities offerings not covered under NSMIA, applying NASAA Statements of Policy to cheap stock, promoter equity investment, voting rights, and promoter compensation. Produces examiner-ready comment responses with quantitative cap table analysis and negotiation strategy. Use when filing Regulation A, Rule 504, intrastate, or direct public offerings in merit review states, responding to Blue Sky examiner comments, or structuring offerings to avoid merit review conditioning.
+description: >
+  Analyzes state merit review for securities offerings not covered under NSMIA,
+  applying NASAA Statements of Policy to cheap stock, promoter equity investment,
+  voting rights, and promoter compensation. Produces examiner-ready comment
+  responses with quantitative cap table analysis and negotiation strategy. Use
+  this skill when filing Regulation A, Rule 504, intrastate, or direct public
+  offerings in merit review states, responding to Blue Sky examiner comments,
+  structuring offerings to avoid merit review conditioning, or analyzing NASAA
+  Statements of Policy. Also trigger when the user mentions cheap stock analysis,
+  promoter equity tests, unequal voting rights review, or state securities
+  examiner correspondence. Even if the user just says "the state examiner sent
+  comments" or "merit review issues," use this skill.
 tags:
   - analysis
   - corporate
@@ -11,20 +22,30 @@ tags:
 
 # State Merit Review Analysis
 
-Analyzes offering terms against NASAA Statements of Policy and state-specific merit standards, then drafts examiner-ready comment responses for non-covered securities offerings.
+## Why This Skill Exists
 
-## Prerequisites
+Merit review states can condition or deny registration of non-covered securities offerings based on substantive fairness — not just disclosure adequacy. The most common traps: cheap stock issued to promoters at deep discounts to the public offering price, inadequate promoter equity investment, dual-class voting structures, and excessive promoter compensation. These issues trigger examiner comments that delay or block offerings. Practitioners who don't understand NASAA Statements of Policy and state-specific variations waste weeks in avoidable back-and-forth with examiners.
+
+This skill produces a pre-filing analysis identifying merit review risks and, when comments arrive, drafts examiner-ready responses with quantitative support and negotiation fallback positions.
+
+---
+
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **Offering document** — Form 1-A, prospectus, PPM, or offering circular with all exhibits
 2. **Charter documents** — Articles/certificate of incorporation, certificates of designation, bylaws, all amendments
-3. **Capitalization table** — All issuances (equity, options, warrants, SAFEs, convertibles) since inception with dates, prices, consideration type, vesting, holder identity (Promoter vs. Non-Promoter)
+3. **Capitalization table** — All issuances since inception with dates, prices, consideration type, vesting, holder identity (Promoter vs. Non-Promoter)
 4. **Issuance chronology** — Board consents, subscription agreements, service agreements for equity grants
 5. **Promoter compensation schedule** — Cash comp, equity grants, consulting agreements, related-party contracts, loans, reimbursements
 6. **Selling compensation terms** — Underwriter/placement agent agreements, finder agreements, warrants, expense reimbursement
 7. **Historical financials** — Audited/reviewed balance sheets for promoter equity calculation
-8. **Target state list** — Filing pathway per state (qualification, coordination, notification), timelines
+8. **Target state list** — Filing pathway per state, timelines
 9. **Federal exemption** — Reg A Tier 1/2, Rule 504, intrastate, direct registration, or other
 10. **Prior examiner correspondence** — Deficiency/comment letters if any
+
+**If the user doesn't respond**, apply and clearly label these defaults: NASAA SOP standards applied; all persons meeting Rule 405 "promoter" definition included; 10% promoter equity investment benchmark used.
 
 ### Intake Questions
 
@@ -34,14 +55,14 @@ Before analysis, confirm:
 - Did promoters receive equity disproportionate to cash/tangible asset contributions?
 - Do voting or control rights deviate from economic ownership?
 - Will offering proceeds repay insiders?
-- Any contingencies (reverse splits, conversions) that change economics at closing?
+- Any contingencies that change economics at closing?
 - Has any state informally flagged issues?
 
-## Process
+---
 
-### Step 1: Confirm Merit Review Applicability
+## Step 1: Confirm Merit Review Applicability
 
-Determine whether offering is a "covered security" under 15 U.S.C. § 77r:
+Determine whether the offering is a "covered security" under 15 U.S.C. § 77r:
 
 | Covered (No Merit Review) | Not Covered (Merit Review Applies) |
 |---|---|
@@ -50,128 +71,108 @@ Determine whether offering is a "covered security" under 15 U.S.C. § 77r:
 | Sold only to "qualified purchasers" | Intrastate offerings |
 | | Direct public offerings not on national exchange |
 
-**Output**: Short posture memo stating pathway and why merit review applies, with verified citations.
+Produce short posture memo stating pathway and why merit review applies, with verified citations. Flag if covered status is at risk (general solicitation issues, bad actor disqualification, integration problems).
 
-Flag if covered status is at risk (general solicitation issues for 506(b), bad actor disqualification under Rule 506(d), integration problems).
+---
 
-### Step 2: Jurisdictional Mapping
+## Step 2: Map Jurisdictional Standards
 
 For each target state, verify and document:
 
 | Factor | Source to Verify |
 |---|---|
-| Statutory denial standard (typically "unfair, unjust, or inequitable") | State securities act (often Uniform Securities Act § 306 equivalent) |
+| Statutory denial standard ("unfair, unjust, or inequitable") | State securities act |
 | Registration method and merit review intensity | State regulator website |
-| Adoption of NASAA SOPs (Cheap Stock, Promoter's Equity, Unequal Voting) | State admin code or published guidance |
+| Adoption of NASAA SOPs (Cheap Stock, Promoter's Equity, Unequal Voting) | State admin code or guidance |
 | NASAA Coordinated Review availability (e.g., CR-3(b) for Reg A) | NASAA website |
 
-**Key state divergences** [VERIFY current status for each]:
+**Key state divergences** [VERIFY current status]:
 - **California**: Own standards under Corporate Securities Law of 1968; Cal. Code Regs. Tit. 10, § 260.140 et seq.
-- **Texas**: Strict merit; requires arm's-length demonstration for affiliated transactions
-- **Washington**: Heightened scrutiny for development-stage companies; may require proceeds impoundment
-- **New York**: Generally notice-filing; Martin Act may affect certain offering types
+- **Texas**: Strict merit; requires arm's-length for affiliated transactions
+- **Washington**: Heightened scrutiny for development-stage; may require proceeds impoundment
+- **New York**: Generally notice-filing; Martin Act may affect certain types
 
 All cited standards must include verified URLs or be flagged `[VERIFY]`.
 
-### Step 3: Cheap Stock Analysis
+---
 
-**Scope**: All equity issued to Promoters (officers, directors, 5%+ holders, service-for-equity recipients) at prices below the public offering price within 36-month look-back.
+## Step 3: Analyze Cheap Stock
 
-**Quantitative analysis**:
+**Scope**: All equity issued to Promoters at prices below public offering price within 36-month look-back.
+
+**Quantitative analysis:**
 1. Identify all Promoters per merit review definition
-2. Calculate effective price per share/unit for each issuance (including conversion terms, warrants, liquidation preferences)
+2. Calculate effective price per share for each issuance (including conversion terms, warrants, liquidation preferences)
 3. Compute dilutive effect: promoter price vs. public offering price
 4. Calculate post-money ownership percentages
 
-**Qualitative justification factors**:
-- Early-stage risk borne at time of issuance
-- Services actually rendered (with documentation)
-- Vesting schedules, lock-up restrictions, repurchase rights
-- Performance milestones
+**Qualitative justification:** Early-stage risk borne, services actually rendered (with documentation), vesting/lock-up/repurchase rights, performance milestones.
 
-**Common examiner remedies**:
-- Escrow of promotional shares until earnings milestones (Cheap Stock Escrow Agreement)
-- Contractual lock-ups restricting resale
-- Cancellations or reverse splits to reduce promotional overhang
-- Conditioning on use of proceeds for operations (not insider repayment)
-- Enhanced dilution disclosure
+**Common examiner remedies:** Escrow of promotional shares until earnings milestones, contractual lock-ups, cancellations or reverse splits, conditioning on operational use of proceeds, enhanced dilution disclosure.
 
-**Common errors to avoid**:
-- Excluding shares issued for intangible property or services from calculation
-- Cap tables that don't reconcile to charter authority
-- Omitting derivative securities
-- Conclusory "early investors took more risk" without board consents, subscription agreements, service descriptions
+**Errors to avoid:** Excluding shares for intangible property/services; cap tables that don't reconcile to charter authority; omitting derivative securities; conclusory risk justifications without documentation.
 
-### Step 4: Promoter's Equity Investment Analysis
+---
 
-NASAA standard: Promoters' equity (cash + tangible assets contributed − liabilities) should represent a meaningful percentage of total aggregate offering price. Common benchmark: **≥ 10% of total aggregate offering price**.
+## Step 4: Analyze Promoter's Equity Investment
 
-**Calculation method** (NASAA methodology, not GAAP):
+NASAA standard: Promoters' equity should represent a meaningful percentage of total aggregate offering price. Common benchmark: **≥ 10%**.
+
+**Calculation (NASAA methodology, not GAAP):**
 - Count: cash, tangible assets at documented fair value
 - Do not count: imputed value of services, goodwill
-- State-specific: verify whether personal guarantees of corporate debt count
+- State-specific: verify whether personal guarantees count
 
-**Response strategy for shortfall**:
-- Emphasize tangible asset contributions (equipment, inventory, IP with third-party valuation)
-- Document personal guarantees if state permits
-- Note that excessive cheap stock + inadequate promoter investment is the highest-risk combination
+**Shortfall strategy:** Emphasize tangible asset contributions, document personal guarantees if state permits, note that cheap stock + inadequate promoter investment is the highest-risk combination.
 
-### Step 5: Voting Rights and Governance
+---
+
+## Step 5: Review Voting Rights and Governance
 
 NASAA SOP on Unequal Voting Rights: voting rights should be proportionate to equity interest unless compelling business justification.
-
-**Review charter documents for**:
 
 | Issue | Risk Level |
 |---|---|
 | Dual-class super-voting shares | High — most merit states reject for retail offerings |
-| Blank check preferred stock (board creates new classes without shareholder vote) | High |
+| Blank check preferred stock | High |
 | Minority shareholder elects majority of board | High |
 | No class vote on mergers, liquidations, asset sales | Medium |
 | No sunset on control provisions | Medium |
 
-**Mitigation options**:
-- Sunset provisions (convert super-voting on founder departure, time-based, or transfer)
-- Independent director requirements
-- Class votes on major transactions
-- Enhanced plain-English disclosure of governance implications
+**Mitigation:** Sunset provisions, independent director requirements, class votes on major transactions, enhanced plain-English disclosure.
 
-Verify that "Description of Securities" in offering document matches actual charter/bylaws exactly.
+Verify "Description of Securities" in offering document matches actual charter/bylaws exactly.
 
-### Step 6: Promoter Compensation and Related-Party Transactions
+---
 
-Build comprehensive schedule:
-- Cash compensation, equity grants, consulting fees, transaction bonuses
-- Loans from company, related-party leases, IP assignment payments, reimbursements
-- Connect each item to use of proceeds
+## Step 6: Review Promoter Compensation and Related-Party Transactions
 
-Flag if proceeds repay insiders. Texas requires affiliated transactions on arm's-length terms.
+Build comprehensive schedule: cash compensation, equity grants, consulting fees, transaction bonuses, loans from company, related-party leases, IP assignment payments, reimbursements. Connect each item to use of proceeds.
 
-**Promoter definition may be broader than expected** — examiners may classify control persons, significant consultants, or paid finders as promoters.
+Flag if proceeds repay insiders. Texas requires affiliated transactions on arm's-length terms. Promoter definition may be broader than expected — examiners may classify control persons, significant consultants, or paid finders as promoters.
 
-### Step 7: Draft Comment Response Package
+---
 
-**Components**:
+## Step 7: Draft Comment Response Package
+
+**Components:**
 1. Cover letter responding point-by-point to each examiner comment
 2. Redline of offering document
 3. Supporting exhibits (revised charter provisions, escrow/lock-up agreements, updated cap table)
 
-**Response structure per comment**:
+**Per-comment structure:**
 1. Quote examiner comment verbatim
-2. Cite applicable NASAA SOP or state admin code section
+2. Cite applicable NASAA SOP or state admin code
 3. Explain how issuer meets standard or justify deviation
 4. Describe remedy with precise page/section references to redline
 
-**Template — global opening paragraph**:
-> The Company respectfully submits this response to the Division's comment letter dated [DATE]. The Company has revised the Offering Circular and supporting documents to address each comment as detailed below. Capitalized terms not defined herein have the meanings set forth in the Offering Circular.
+**Tone:** Respectful, solution-oriented, legally precise. Not a litigation brief. Offer only necessary concessions.
 
-**Tone**: Respectful, solution-oriented, legally precise. Not a litigation brief. Offer only necessary concessions.
+**Consistency check:** Every factual assertion must cite the record. Every legal assertion must have a verified citation or `[VERIFY]`. Restrictions promised in response must appear in binding agreements AND offering document.
 
-**Consistency check**: Every factual assertion must cite the record (cap table, agreements, minutes). Every legal assertion must have a verified citation or `[VERIFY]` flag. Restrictions promised in response must appear in binding agreements AND offering document.
+---
 
-### Step 8: Negotiation Strategy
-
-For each issue area, prepare:
+## Step 8: Prepare Negotiation Strategy
 
 | Issue | Primary Position | Fallback 1 | Fallback 2 |
 |---|---|---|---|
@@ -180,10 +181,37 @@ For each issue area, prepare:
 | Voting rights | Sunset clause + independent directors | Reduce super-voting ratio + class vote on majors | Eliminate dual-class |
 | Promoter comp | Full disclosure + market comparables | Cap reimbursements + defer consulting fees | Escrow promotional shares |
 
-**Cross-state considerations**:
-- Concession in one state may require updating disclosures for all states
-- Don't concede early without knowing other states' positions
-- Conditions must be operationally implementable and consistent with charter law
+**Cross-state:** Concession in one state may require updating disclosures for all states. Don't concede early without knowing other states' positions. Conditions must be operationally implementable.
+
+---
+
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial analysis, ask:
+
+1. Are the cap table and issuance chronology complete and reconciled to charter authority?
+2. Has the examiner indicated priority concerns or informal guidance?
+3. Should coordinated review (CR-3(b)) be pursued to avoid separate state battles?
+4. Are there concessions the client has already decided to accept or reject?
+
+---
+
+## Quality Audit
+
+Before finalizing, verify:
+
+- Preemption determination confirmed with verified citation
+- NASAA methodology used (not GAAP) for promoter equity calculation
+- Cap table reconciles to charter authority and matches "Principal Shareholders" and "Dilution" sections
+- All promoters identified under the merit review definition (broader than typical)
+- Cheap stock analysis covers all issuances within 36-month look-back
+- Voting rights review matches actual charter/bylaws, not just offering document description
+- Every citation verified with URL or flagged `[VERIFY]`
+- Adversarial scrub completed (would examiner find inconsistencies?)
+- Negotiation fallback positions prepared for each issue area
+- Assumptions and open items listed prominently
+
+---
 
 ## Guidelines
 
@@ -191,7 +219,7 @@ For each issue area, prepare:
 - **Separate internal strategy from external responses** — response letters become public records in many states; keep privileged analysis in internal memos
 - **Anti-fraud overlay**: Never attempt to solve a merit issue by obscuring it; disclose cheap stock, promoter compensation, and unequal voting plainly
 - **NASAA SOPs are a shared vocabulary, not a uniform rulebook** — always verify state-specific adoption
-- **Coordinated review (CR-3(b))**: Recommend where available to avoid fighting separate battles per state
-- **Quality checks before submission**: (1) Preemption determination confirmed, (2) math uses NASAA methodology not GAAP, (3) cap table matches "Principal Shareholders" and "Dilution" sections, (4) all citations verified with URLs, (5) adversarial scrub completed
-- **Professional responsibility**: Model Rules 1.1 (competence — conduct NASAA SOP audit), 1.3 (diligence — timely responses to avoid auto-withdrawal), 1.4 (communicate business impact of concessions to client), 3.3/4.1 (candor — all representations to examiners must be truthful)
-- **All output requires review by a licensed securities attorney before submission**
+- **Coordinated review (CR-3(b))**: Recommend where available
+- **Anti-hallucination**: Do not invent NASAA policy text, state administrative code sections, or examiner practices. Every regulatory assertion must be sourced or flagged
+- **Ethics**: Model Rules 1.1 (competence), 1.3 (diligence — timely responses), 1.4 (communicate business impact of concessions), 3.3/4.1 (candor — all representations to examiners must be truthful)
+- **Attorney review required**: All output requires review by a licensed securities attorney before submission
