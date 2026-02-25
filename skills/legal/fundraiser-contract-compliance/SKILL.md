@@ -1,6 +1,15 @@
 ---
 name: fundraiser-contract-compliance
-description: Audits professional solicitor, fundraising counsel, and commercial co-venturer contracts for state charitable solicitation compliance. Classifies fundraising relationships, verifies vendor registration, extracts compensation and custody-of-funds terms, checks state-mandated contract clauses, and produces disclosure-ready narratives, gap logs, and audit evidence packages for annual charity reports. Use when reviewing fundraiser agreements, preparing state charity filings, onboarding fundraising vendors, or auditing charitable solicitation compliance.
+description: >
+  Audits professional solicitor, fundraising counsel, and commercial co-venturer
+  contracts for state charitable solicitation compliance. Classifies fundraising
+  relationships, verifies vendor registration, extracts compensation and
+  custody-of-funds terms, checks state-mandated contract clauses, and produces
+  disclosure-ready narratives, gap logs, and audit evidence packages for annual
+  charity reports. Use when reviewing fundraiser agreements, preparing state
+  charity filings, onboarding fundraising vendors, auditing charitable
+  solicitation compliance, or when a user mentions professional solicitor
+  contracts, co-venturer filings, CHAR007, CT-2CF, or Schedule G disclosures.
 tags:
   - analysis
   - corporate
@@ -10,9 +19,15 @@ tags:
 
 # Professional Fundraiser Contract Compliance Check
 
-Audits third-party fundraising agreements to extract state-report disclosure data, verify registration, and confirm contracts include state-mandated clauses.
+## Why This Skill Exists
 
-## Prerequisites
+Charitable solicitation regulation is entirely state-based, with each state drawing different lines between professional solicitors, fundraising counsel, and commercial co-venturers — and attaching materially different registration, contract-filing, and disclosure obligations to each classification. Misclassifying a relationship (treating a solicitor as mere counsel when the vendor actually solicits and handles funds) is one of the most common compliance failures, and it cascades: wrong registration, missing contract filings, incorrect annual report disclosures, and potential solicitation suspensions. This skill produces a structured audit that correctly classifies each relationship, verifies registrations, extracts disclosure data, and maps every contract clause against state-mandated requirements.
+
+---
+
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **States in scope** — where the charity is registered and/or solicits
 2. **Contract documents** — executed agreements, amendments, SOWs, exhibits, fee schedules
@@ -21,7 +36,11 @@ Audits third-party fundraising agreements to extract state-report disclosure dat
 5. **Registration IDs** — fundraiser/solicitor/co-venturer and charity registration numbers per state (if known)
 6. **Solicitation start date** — needed for Notice of Intent / contract filing deadlines
 
-## Phase 1: Classify Relationship & Verify Registration
+**If the user doesn't respond**, apply and clearly label these defaults: all states where charity is registered; annual report/renewal filing target; highest-risk classification until clarified; no operational artifacts available. Mark missing items in "Open Items / Needed Inputs."
+
+---
+
+## Step 1: Classify Relationship and Verify Registration
 
 ### Relationship Classification
 
@@ -36,8 +55,6 @@ Audits third-party fundraising agreements to extract state-report disclosure dat
 
 ### Registration Verification Matrix
 
-Extract and verify per vendor:
-
 | Data Point | Contract Ref | Extracted Value | Verification Source | Status |
 |---|---|---|---|---|
 | Legal name | Preamble | | State registry | Confirmed / Mismatch |
@@ -48,7 +65,9 @@ Extract and verify per vendor:
 | Bond posted (if required) | | | State bond registry | Y / N / N/A |
 | Charity's own registration | | | State DB | Current / Expired |
 
-## Phase 2: Contract Data Extraction
+---
+
+## Step 2: Extract Contract Data
 
 ### Disclosure Data Extraction Table
 
@@ -82,54 +101,56 @@ Document for each arrangement:
 - Charity lacks bank-view or reconciliation rights
 - No segregation of charitable funds
 
-## Phase 3: Mandated-Clause Compliance Audit
+---
+
+## Step 3: Mandated-Clause Compliance Audit
 
 Check each contract against this baseline. **Verify exact requirements per state statute.**
 
-### A. Parties, Scope & Campaign
+**A. Parties, Scope & Campaign**
 - [ ] Charity and vendor clearly identified (legal names, addresses)
 - [ ] Services defined; whether vendor will solicit contributions
 - [ ] Campaign(s) and geographic scope specified
 
-### B. Compensation
+**B. Compensation**
 - [ ] Compensation stated clearly (%, fees, calculation base)
 - [ ] "Gross receipts" vs. "net proceeds" defined
 - [ ] Expenses and cost allocations defined
 - [ ] Possible to compute % of gross contributions charity retains
 
-### C. Custody of Funds (High Priority)
+**C. Custody of Funds (High Priority)**
 - [ ] Who has custody/control at each step
 - [ ] If vendor receives funds: segregation required, deposit/remittance timing stated
 - [ ] Cash/check handling, endorsements, payable-to instructions addressed
 - [ ] Refunds/chargebacks and processor fees addressed
 
-### D. Term & Cancellation
+**D. Term & Cancellation**
 - [ ] Term and renewal provisions clear
 - [ ] Charity termination rights included
 - [ ] Statutorily required cancellation right present (commonly 10–15 days; CA/NY require specific windows) [VERIFY per state]
 
-### E. Recordkeeping & Audit
+**E. Recordkeeping & Audit**
 - [ ] Vendor must maintain campaign records (commonly 3–7 years)
 - [ ] Charity access/inspection rights included
 - [ ] Periodic accountings required (frequency and content defined)
 - [ ] Written financial report required after campaign end (commonly 90 days) [VERIFY per state]
 
-### F. Solicitation Materials & Disclosures
+**F. Solicitation Materials & Disclosures**
 - [ ] Charity approval of scripts/materials required before use
 - [ ] Point-of-solicitation disclosures addressed (solicitor name, charity name, % retained)
 - [ ] Co-venture ads include: benefit amount/%, campaign duration, charity identity [VERIFY per state]
 
-### G. Registration & Filings
+**G. Registration & Filings**
 - [ ] Vendor represents current registration/licensing
 - [ ] Registration numbers and renewal evidence required
 - [ ] Responsibility for state filings/notices allocated
 - [ ] Pre-solicitation filing deadlines referenced (commonly 10–20 days before start)
 
-### H. Subcontractors
+**H. Subcontractors**
 - [ ] Subcontracting requires charity consent
 - [ ] Subs must meet same registration/recordkeeping requirements
 
-### I. Data & Privacy
+**I. Data & Privacy**
 - [ ] Donor data ownership and permitted use addressed
 - [ ] Unauthorized sale/rental of donor lists prohibited
 - [ ] Security measures and breach notification included
@@ -143,18 +164,14 @@ Check each contract against this baseline. **Verify exact requirements per state
 | FL | | Ch. 496, Fla. Stat. [VERIFY] | | | | |
 | IL | | 225 ILCS 460/ [VERIFY] | | | | |
 
-## Phase 4: Outputs
+---
+
+## Step 4: Produce Outputs
 
 ### Gap / Issue Log
 
 | Issue ID | Contract / Vendor | Type | Finding | Risk | Recommended Fix | Owner | Deadline |
 |---|---|---|---|---|---|---|---|
-| 1 | | Missing clause | Contract silent on custody/remittance timing | H | Amend: add deposit/remittance timeline + segregation | Legal | |
-| 2 | | Disclosure gap | Compensation % base ambiguous | M | Clarify gross receipts definition | Vendor Mgmt | |
-| 3 | | Registration | Vendor IDs missing/expired | H | Obtain proof; suspend solicitation if required | Compliance | |
-| 4 | | Cancellation | No statutory cancellation clause | H | Amend to add state-required cancellation right | Legal | |
-| 5 | | Disclosure | No point-of-solicitation script | M | Draft compliant disclosure; add script approval clause | Compliance | |
-| 6 | | Filing | Notice of Intent not filed pre-campaign | H | File retroactively where allowed; assess late-filing risk | Legal | |
 
 ### Disclosure Narrative Templates
 
@@ -190,25 +207,45 @@ Check each contract against this baseline. **Verify exact requirements per state
 - [ ] Annual report disclosure worksheet tied to source documents
 - [ ] Remediation correspondence with vendor
 
-## Top 10 Red Flags (Quick Scan)
+---
 
-- [ ] Vendor solicits in a state but is not registered (or cannot provide ID)
-- [ ] Compensation or percentage calculation base is unclear
-- [ ] Vendor takes custody of funds; contract silent on segregation/remittance timing
-- [ ] No charity approval right over scripts/solicitation materials
-- [ ] No recordkeeping obligation or access/inspection rights
-- [ ] Co-venture promotion terms unclear (amount/percent/dates not specified)
-- [ ] Subcontractors used without charity consent or registration controls
-- [ ] Donor data can be reused/sold; no privacy/security commitments
-- [ ] Cancellation rights missing or inconsistent with state mandates
-- [ ] Actual operations do not match contractual terms (especially funds flow)
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial audit, ask:
+
+1. Does the relationship classification match your understanding of each vendor's actual role and activities?
+2. Are there additional contracts, amendments, or SOWs not yet provided?
+3. Should I produce disclosure narratives for additional states beyond those covered?
+4. Are there funds-flow concerns that need immediate escalation to counsel?
+
+---
+
+## Quality Audit
+
+- Every relationship classification supported by contract language and operational evidence
+- Registration status verified or flagged as unverified for each vendor × state
+- Compensation base (gross vs. net) clearly identified and consistently applied
+- Funds flow documented with red flags surfaced
+- All mandated-clause checklist items addressed per state
+- Gap/issue log includes risk level, recommended fix, owner, and deadline
+- Disclosure narratives match extracted data and are internally consistent
+- State reporting data map cross-references Form 990 Schedule G
+- Pre-solicitation filing deadlines surfaced
+- No fabricated statutes, filing forms, or compliance requirements
+
+---
 
 ## Guidelines
 
-- Charitable solicitation regulation is **state-based** — requirements differ significantly by state and by relationship classification (solicitor vs. counsel vs. co-venturer)
+- Charitable solicitation regulation is **state-based** — requirements differ significantly by state and by relationship classification
 - Always verify current statutes before relying on any checklist item; these laws are frequently amended
 - If only a master agreement is available, treat missing SOWs/amendments as compliance risks
 - Confirm exact form field names per state (CA RRF-1/CT-2CF, NY CHAR500/CHAR007, Form 990 Schedule G)
 - Pre-solicitation filing deadlines (Notices of Intent, contract filings) are commonly 10–20 days before campaign start — check per state
 - If classification is unclear or mixed within one campaign, default to highest-risk category
+- Mark all uncertain citations or requirements with [VERIFY]
 - This workflow supports legal and compliance review — it is not legal advice
+
+**Required disclaimer on every output:**
+
+> THIS COMPLIANCE AUDIT REQUIRES INDEPENDENT ATTORNEY VERIFICATION OF ALL STATUTORY REQUIREMENTS, CLASSIFICATION DETERMINATIONS, AND FILING OBLIGATIONS, AND DOES NOT CONSTITUTE LEGAL ADVICE.

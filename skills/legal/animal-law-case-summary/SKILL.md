@@ -1,6 +1,16 @@
 ---
 name: animal-law-case-summary
-description: Produces litigation-grade case summaries for animal law disputes covering cruelty/neglect prosecutions, ownership/custody, dangerous animal designations, veterinary malpractice, and service/assistance animal accommodations. Builds exhibit-cited factual timelines, maps evidence to statutory elements, evaluates expert and veterinary evidence, and assesses remedies with jurisdiction-specific legal research and anti-hallucination controls. Use when summarizing animal law cases, analyzing animal cruelty charges, pet custody disputes, dangerous dog hearings, or assistance animal accommodation matters.
+description: >
+  Produces litigation-grade case summaries for animal law disputes covering
+  cruelty/neglect prosecutions, ownership/custody, dangerous animal designations,
+  veterinary malpractice, and service/assistance animal accommodations. Builds
+  exhibit-cited factual timelines, maps evidence to statutory elements, evaluates
+  expert and veterinary evidence, and assesses remedies with jurisdiction-specific
+  legal research. Use when summarizing animal law cases, analyzing animal cruelty
+  charges, pet custody disputes, dangerous dog hearings, veterinary malpractice
+  claims, or assistance animal accommodation matters. Also trigger when the user
+  mentions animal forfeiture, bite liability, wildlife possession, or asks for
+  help understanding an animal-related court filing.
 tags:
   - analysis
   - litigation
@@ -10,14 +20,20 @@ tags:
 
 # Animal Law Case Summary
 
-Produces a practitioner-grade case summary connecting record evidence to legal elements, procedural posture, and realistic remedies across the full spectrum of animal law disputes.
+## Why This Skill Exists
 
-## Prerequisites
+Animal law disputes span criminal, civil, administrative, and regulatory forums — each with distinct burdens of proof, remedies, and deadlines that are easy to conflate. Dangerous dog appeal windows can be as short as 5 days, forfeiture bond deadlines are strict, and the animal's legal classification (property, property-plus, or best-interest standard) controls standing, damages, and available relief. A case summary that fails to surface these distinctions or collapses allegations into findings creates real malpractice risk. This skill produces a structured, evidence-grounded summary that connects record citations to legal elements and realistic remedies across the full spectrum of animal law.
+
+---
+
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **Jurisdiction** — state, county, and forum (state/federal/administrative)
 2. **Procedural posture** — pre-suit, pleadings, TRO/PI, discovery, SJ, trial, sentencing, appeal
 3. **Parties and animal identification** — species, breed, microchip/license numbers, current custody
-4. **Core record** — varies by matter type (see below)
+4. **Core record** — varies by matter type (see minimum record table below)
 5. **Intended audience** — attorney work product, client-facing, or public/educational
 6. **Relief sought**
 
@@ -30,11 +46,11 @@ Produces a practitioner-grade case summary connecting record evidence to legal e
 | **Service/assistance animal** | Lease/HOA rules/accommodation policy, accommodation request + correspondence, verification documents, incident reports, internal decision records |
 | **Veterinary malpractice** | Complete vet records (all providers), expert opinions on standard of care, purchase/adoption docs, loss documentation |
 
-If any required document is missing, ask targeted follow-up questions. Mark content based on user description as "based on user description" with [VERIFY].
+**If the user doesn't respond**, apply and clearly label these defaults: attorney work product audience; procedural posture as stated or inferred from documents; all matter-type classifications that appear applicable. Mark content based on user description as "[VERIFY]."
 
-## Output Structure
+---
 
-### Step 1: Classify and Lock Procedural Posture
+## Step 1: Classify and Lock Procedural Posture
 
 Classify into one or more archetypes:
 
@@ -55,9 +71,11 @@ Write a **caption block**: court/agency, case number, judge/ALJ, filing date, ne
 - Do not collapse allegations into findings
 - Identify current animal custody/placement
 - Surface all deadlines — dangerous dog appeals can be 5–10 days [VERIFY]
-- Check for jurisdiction-specific "best interest" statutes (e.g., CA Fam. Code § 2605 for dissolution) [VERIFY]
+- Check for jurisdiction-specific "best interest" statutes (e.g., CA Fam. Code § 2605) [VERIFY]
 
-### Step 2: Build Record-Grounded Factual Timeline
+---
+
+## Step 2: Build Record-Grounded Factual Timeline
 
 Chronological timeline with exhibit-level citations. For each event:
 
@@ -72,7 +90,9 @@ Use neutral, observable descriptions (body condition scores, environmental condi
 
 Include exculpatory facts the opposing side will highlight.
 
-### Step 3: Map Claims/Charges to Elements and Evidence
+---
+
+## Step 3: Map Claims/Charges to Elements and Evidence
 
 For each claim, charge, or violation:
 
@@ -90,7 +110,9 @@ For each claim, charge, or violation:
 - Dog bite: strict liability vs. negligence; provocation/trespass/assumption-of-risk defenses
 - Accommodation: separate ADA "service animal" (task-trained dog only, 28 C.F.R. § 36.104) from FHA "assistance animal" (broader, 24 C.F.R. § 100.204) — never conflate
 
-### Step 4: Research and Verify Governing Law
+---
+
+## Step 4: Research and Verify Governing Law
 
 **Anti-hallucination protocol:** Every cited authority must be verified via research or marked [VERIFY].
 
@@ -106,9 +128,11 @@ Key federal frameworks:
 
 For state/local law: locate exact cruelty statute, dangerous dog statute, pet custody statute (if any), and municipal ordinances. Confirm text and effective dates — municipal codes change frequently.
 
-For each authority, provide: short parenthetical + verification URL. Use Bluebook format if requested.
+For each authority: short parenthetical + verification URL. Use Bluebook format if requested.
 
-### Step 5: Analyze Evidence Quality
+---
+
+## Step 5: Analyze Evidence Quality
 
 Evaluate each expert/professional witness:
 
@@ -127,7 +151,9 @@ Evaluate each expert/professional witness:
 - Lay witness observations: distinguish from medical conclusions
 - Vet malpractice: identify locality-specific standard of care
 
-### Step 6: Remedies, Damages, and Settlement Posture
+---
+
+## Step 6: Remedies, Damages, and Settlement Posture
 
 Map each available remedy to its legal mechanism:
 
@@ -142,7 +168,9 @@ Map each available remedy to its legal mechanism:
 
 Address bond/forfeiture deadlines and settlement leverage tied to animal's current placement.
 
-### Step 7: Draft Final Summary
+---
+
+## Step 7: Draft Final Summary
 
 Use these sections:
 
@@ -159,6 +187,35 @@ Use these sections:
 
 State the animal's legal status in the jurisdiction explicitly (property, property-plus, best-interest standard).
 
+---
+
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial summary, ask:
+
+1. Does this match the right case, parties, and procedural posture?
+2. Are there record documents I should incorporate that weren't provided?
+3. Should I expand any section (e.g., deeper remedies analysis, expert evidence critique, timeline detail)?
+4. Who is the final audience, and should privilege markings or redactions be adjusted?
+
+---
+
+## Quality Audit
+
+- Every factual assertion traceable to a record cite or labeled as assumption/[VERIFY]
+- Allegations distinguished from findings throughout — no conclusory characterizations
+- All deadlines surfaced with date and uncertainty flagged
+- Element mapping complete for each claim/charge
+- Evidence quality analysis covers all expert/professional witnesses
+- At least two opposition attack vectors identified per claim
+- Animal's legal classification stated explicitly
+- Remedies tied to legal mechanisms with jurisdiction verification
+- Chain of title and chain of care both tracked
+- No invented case citations — every authority verified or marked [VERIFY]
+- ADA service animal vs. FHA assistance animal never conflated
+
+---
+
 ## Guidelines
 
 - **Neutrality**: distinguish allegations vs. findings vs. stipulations vs. inference throughout
@@ -166,7 +223,7 @@ State the animal's legal status in the jurisdiction explicitly (property, proper
 - **Citation integrity**: every material factual assertion traceable to a record cite; every legal authority verified or marked [VERIFY]
 - **Audience calibration**: adjust tone, privilege handling, and strategic candor based on identified audience
 - **Scope**: this is a case summary — not a memorandum, motion, demand letter, or press statement
-- **Privilege**: label attorney work product appropriately; redact sensitive details (mental health, addresses, microchip numbers) in client-facing versions if not needed
+- **Privilege**: label attorney work product appropriately; redact sensitive details (mental health, addresses, microchip numbers) in client-facing versions
 - **Conflicts**: flag if a party (e.g., nonprofit/shelter) has dual roles as both representative and witness
 - **Defamation risk**: stick to record-supported facts; caution against publication without counsel review
 - **Deadline sensitivity**: animal law deadlines can be very short (5–10 days for dangerous dog appeals); always surface and flag deadline uncertainty

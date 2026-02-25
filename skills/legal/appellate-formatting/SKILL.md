@@ -1,6 +1,17 @@
 ---
 name: appellate-formatting
-description: Generates appellate-filing-ready Tables of Contents, Tables of Authorities, and Certificates of Compliance under FRAP 32(g) and related rules. Provides defensible word-count methodology with transparent exclusion calculations, strict anti-hallucination guardrails for pagination and citations, and cross-verification checklists. Covers federal circuits, state appellate courts, and U.S. Supreme Court formatting variations. Use when building TOC, TOA, compliance certificates, or assembling final appellate brief components for filing.
+description: >
+  Generates appellate-filing-ready Tables of Contents, Tables of Authorities,
+  and Certificates of Compliance under FRAP 32(g) and related rules. Provides
+  defensible word-count methodology with transparent exclusion calculations,
+  strict anti-hallucination guardrails for pagination and citations, and
+  cross-verification checklists. Covers federal circuits, state appellate courts,
+  and U.S. Supreme Court formatting variations. Use this skill when building
+  TOC, TOA, compliance certificates, or assembling final appellate brief
+  components for filing. Also trigger when the user mentions word count
+  calculation, FRAP 32 compliance, appellate brief assembly, page numbering,
+  or asks for help formatting a brief for filing. Even if the user just says
+  "I need a TOC and TOA" or "format this brief for filing," use this skill.
 tags:
   - analysis
   - brief
@@ -11,9 +22,17 @@ tags:
 
 # Appellate Document Formatting and Certification
 
-Produces Tables of Contents, Tables of Authorities, and Certificates of Compliance for appellate briefs with absolute accuracy against the filed document.
+## Why This Skill Exists
 
-## Prerequisites
+Appellate briefs are rejected at filing for formatting deficiencies more often than attorneys admit. A mismatched TOC heading, a fabricated page number, an incorrect word count, or a certificate citing the wrong rule subsection can delay filing past a jurisdictional deadline. These are mechanical errors with catastrophic consequences. The particular danger with AI-assisted formatting is hallucinated page numbers and citations that don't match the actual document.
+
+This skill produces TOCs, TOAs, and Certificates of Compliance with absolute accuracy guarantees and transparent placeholders where verification is required.
+
+---
+
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **Final or near-final brief text** — TOC/TOA integrity depends on stable headings and pagination; if still revising, label all output "DRAFT"
 2. **Forum and case metadata** — court, circuit/state, case number, short caption, brief type (opening, response, reply, amicus, cross-appeal, rehearing)
@@ -21,17 +40,19 @@ Produces Tables of Contents, Tables of Authorities, and Certificates of Complian
 4. **Filing method** — CM/ECF PDF, paper, or both; whether court requires separate or combined word-count certificate
 5. **Any court order** granting different length limits
 6. **Local rule requirements** — TOA format, hyperlinking, bookmarks, addendum rules
-7. **Word count source** — final count from drafting platform (Word, WordPerfect, Google Docs) and user's list of believed exclusions
+7. **Word count source** — final count from drafting platform and user's list of believed exclusions
+
+**If the user doesn't respond**, apply and clearly label these defaults: FRAP 32 federal circuit rules; proportional 14-point font; all page numbers as `[__]` placeholders; word count marked as estimate.
 
 If forum, brief type, or formatting details are missing, **stop and ask** — certificate language, limits, and exclusions all depend on these.
 
-## Process
+---
 
-### Step 1: Identify Governing Authority
+## Step 1: Identify Governing Authority
 
 | Forum | Primary Rules | Certificate Rule | Notes |
 |-------|--------------|-----------------|-------|
-| Federal (FRAP) | FRAP 28, 32 | FRAP 32(g) | Verify current word limits via search |
+| Federal (FRAP) | FRAP 28, 32 | FRAP 32(g) | Verify current word limits |
 | U.S. Supreme Court | Rules 33, 34 | Rule 33.1(g) (booklet) / 33.2 (letter) | Booklet vs. 8.5×11 have different limit types |
 | State appellate | Varies | Varies | Do NOT assume state rules mirror FRAP |
 
@@ -43,29 +64,23 @@ If forum, brief type, or formatting details are missing, **stop and ask** — ce
 | Reply brief | 6,500 |
 | Amicus brief (FRAP 29) | Verify per rule |
 
-- Search for circuit local rules: `"[Circuit] local rule table of authorities"` and `"[Circuit] certificate of compliance FRAP 32(g)"`
-- If search unavailable, flag local-rule dependence and request user provide rule text
+---
 
-### Step 2: Normalize Brief Structure
+## Step 2: Normalize Brief Structure and Generate TOC
 
-1. Confirm sections match FRAP 28 required components (if federal):
-   - Corporate Disclosure Statement, Jurisdictional Statement, Statement of Issues, Statement of the Case, Summary of Argument, Argument, Conclusion, Certificates
-2. Build a **heading map** preserving exact wording, capitalization, and numbering (Roman numerals, letters)
+1. Confirm sections match FRAP 28 required components (if federal)
+2. Build a heading map preserving exact wording, capitalization, and numbering
 3. **Never rewrite headings** for the TOC — must match brief verbatim
 4. Default TOC depth: major headings + two levels of subheadings; follow local rule if specified
-5. Flag divergences from conventional section order — ask if intentional
 
-### Step 3: Generate Table of Contents
-
+**Pagination rules:**
 - If paginated PDF provided → extract page numbers directly
 - If unpaginated text → use `[__]` placeholders and label: `"DRAFT—PAGE NUMBERS TO BE UPDATED AFTER PAGINATION"`
 - **Never fabricate page numbers**
-
-**Pagination convention:**
 - Front matter: lowercase Roman numerals (i, ii, iii)
 - Body: Arabic numerals (1, 2, 3)
 
-**TOC template:**
+### TOC Template
 
 ```
 TABLE OF CONTENTS
@@ -86,15 +101,11 @@ CERTIFICATE OF COMPLIANCE ...................... 31
 CERTIFICATE OF SERVICE ......................... 32
 ```
 
-**Verification checklist:**
-- [ ] Every TOC entry matches a body heading verbatim
-- [ ] No phantom headings from deleted sections
-- [ ] Indentation reflects heading hierarchy
-- [ ] All required sections included
+---
 
-### Step 4: Build Table of Authorities
+## Step 3: Build Table of Authorities
 
-**Parse all citations from brief text, then validate each one actually appears on listed pages.**
+Parse all citations from brief text, then validate each one actually appears on listed pages.
 
 **Required categories (in order):**
 
@@ -112,9 +123,8 @@ CERTIFICATE OF SERVICE ......................... 32
 - Use "passim" only when authority cited 5+ times and jurisdiction permits
 - Capture footnote citations
 - Handle "In re" and "Ex parte" sorting correctly
-- Sub-categorize (e.g., Supreme Court vs. Circuit) only if local rules require
 
-**TOA template:**
+### TOA Template
 
 ```
 TABLE OF AUTHORITIES
@@ -138,36 +148,31 @@ Other Authorities
   & Procedure § 3949 (5th ed. 2020) .............. 15
 ```
 
-### Step 5: Compute Word Count
+---
 
-**Bifurcated count method:**
+## Step 4: Compute Word Count and Draft Certificate
+
+### Bifurcated Count Method
 
 ```
 Total Words (entire document):        [X]
 − Excluded sections per FRAP 32(f):   [Y]
-  - Cover page
-  - Disclosure statement
-  - Table of Contents
-  - Table of Authorities
-  - Appearance of counsel
-  - Signature block
-  - Certificate of Compliance
-  - Certificate of Service
+  - Cover page, Disclosure statement, TOC, TOA
+  - Appearance of counsel, Signature block
+  - Certificate of Compliance, Certificate of Service
   - Addendum (statutes/rules/regulations)
 ─────────────────────────────────────────
 = Net Words for Compliance:           [Z]
 ```
 
 **Critical rules:**
-- Verify current FRAP 32(f) exclusion categories — do not rely on memorized list
+- Verify current FRAP 32(f) exclusion categories
 - Count from source document (Word/WordPerfect), NOT from PDF OCR
 - If within 2% of limit → flag explicitly and recommend trimming
-- If user asks to exclude non-exempt sections → **refuse** and explain options: edit brief or seek leave for overlength filing
+- If user asks to exclude non-exempt sections → **refuse** and explain options
 - Always state: *"Word count is an estimate based on supplied text. Attorney must perform final count using filing software."*
 
-### Step 6: Draft Certificate of Compliance
-
-**FRAP 32(g) template:**
+### FRAP 32(g) Certificate Template
 
 ```
 CERTIFICATE OF COMPLIANCE
@@ -186,13 +191,11 @@ _____________________________
 [Attorney Name]
 ```
 
-- Insert bracketed placeholders for any unconfirmed detail — never guess
-- If local rules prescribe specific certificate language, use that instead
-- If user references "Rule 37 certificate," clarify — FRAP 37 governs interest/mandates, not formatting; ask for the specific court instruction
+---
 
-### Step 7: Final Assembly Cross-Verification
+## Step 5: Final Assembly Cross-Verification
 
-**Pre-filing checklist:**
+### Pre-Filing Checklist
 
 - [ ] Every TOC heading matches body heading verbatim
 - [ ] Every TOA authority appears on listed pages
@@ -207,6 +210,8 @@ _____________________________
 
 State: *"This document was generated based on [Federal/State] rules for the [Specific Circuit/Court]. All word counts, page numbers, and citations must be independently verified before filing."*
 
+---
+
 ## Jurisdiction-Specific Notes
 
 | Jurisdiction | Key Variation |
@@ -217,7 +222,34 @@ State: *"This document was generated based on [Federal/State] rules for the [Spe
 | U.S. Supreme Court | Booklet format (Rule 33.1) vs. letter format (Rule 33.2) — different limit types |
 | State courts generally | May use page limits, different fonts/margins, separate word-count affidavits |
 
-For any court not listed: search for governing rules and cite with URLs. If search unavailable, provide template with placeholders and instruct attorney to consult applicable rules.
+---
+
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial formatting package, ask:
+
+1. Are all headings finalized, or should TOC entries be marked as draft?
+2. Does the word count from your drafting software match the estimate provided?
+3. Are there any local rule requirements I should verify for this specific court?
+4. Should I generate the addendum (statutes/rules) or is that handled separately?
+
+---
+
+## Quality Audit
+
+Before finalizing, verify:
+
+- Every TOC entry matches a body heading verbatim — no phantom headings
+- Every TOA citation copied exactly from brief text — nothing added or improved
+- Indentation reflects heading hierarchy correctly
+- All required sections included per governing rules
+- Page numbers are real (from PDF) or clearly marked as `[__]` placeholders
+- Word count methodology is transparent and defensible
+- Certificate cites the correct rule subsections for this forum and year
+- No fabricated page numbers, word counts, or citations anywhere in output
+- Assumptions and open items listed prominently
+
+---
 
 ## Guidelines
 
@@ -228,3 +260,5 @@ For any court not listed: search for governing rules and cite with URLs. If sear
 - Certificates are formal representations to the court — Model Rule 3.3 (Candor) applies
 - Do not disclose sealed or confidential material in public-facing components
 - If user requests a certificate citing wrong authority or wrong limits, refuse and explain the correct rule
+- **Anti-hallucination**: This skill's highest risk is fabricated page numbers and citation page references. Use placeholders aggressively rather than guessing
+- **Attorney review required**: Every deliverable must be verified against the final paginated document before filing

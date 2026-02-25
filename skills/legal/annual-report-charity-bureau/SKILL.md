@@ -1,6 +1,14 @@
 ---
 name: annual-report-charity-bureau
-description: Generates a U.S. nonprofit annual filing package for state charity-bureau/charity registration requirements. Use when drafting annual report submissions, renewal packets, and penalty-of-perjury certifications for charitable solicitation compliance. Triggers on state charity bureau annual report, annual filing, nonprofit report, Form-Field Mode, fundraiser disclosure, attachment index, and board-signoff packet requests. Produces a Full Compliance Package, Form-Field Mode, or Executive Briefing with source-citation matrix, required-disclosure cross-checks, and filing-instruction controls.
+description: >
+  Generates a U.S. nonprofit annual filing package for state charity-bureau
+  registration requirements. Produces a Full Compliance Package, Form-Field Mode,
+  or Executive Briefing with source-citation matrix, required-disclosure
+  cross-checks, and filing-instruction controls. Use when drafting annual report
+  submissions, renewal packets, penalty-of-perjury certifications, or state
+  charity bureau filings for charitable solicitation compliance. Also trigger when
+  the user mentions Form RRF-1, CHAR500, BCO-10, nonprofit annual report, charity
+  registration renewal, or fundraiser disclosure attachments.
 tags:
   - corporate
   - drafting
@@ -11,32 +19,36 @@ tags:
 
 # Annual Report for State Charity Bureau
 
-Creates a defensible annual filing document package for state charity bureau review, aligned to jurisdiction-specific solicitation rules, signatures, and exhibits.
+## Why This Skill Exists
 
-## Prerequisites
+State charity bureau annual filings carry penalty-of-perjury certifications and strict deadlines that vary by jurisdiction, fiscal year end, and revenue level. Missing a deadline can trigger late fees, solicitation suspensions, or loss of registration — and the requirements differ significantly across states (audit thresholds, oath language, required attachments, fee schedules). Organizations that treat these filings as a simple form-fill risk inconsistencies between the 990, financial statements, and state disclosures — inconsistencies that charity bureaus flag for investigation. This skill produces a cross-referenced, source-documented filing package that ensures internal consistency and jurisdiction-specific compliance.
 
-1. Confirm before drafting:
-   - Filing state/jurisdiction and filing year
-   - Reporting period (start/end dates, fiscal year end)
-   - Total revenue for the period (for thresholding audit/review rules)
-   - Whether professional fundraisers/solicitors/co-venturers were used
-   - Target output mode: `full-compliance`, `form-field`, or `executive-briefing`
-2. Upload source corpus:
-   - Articles/charter, bylaws, board minutes/resolutions
-   - IRS Form 990 or equivalent + schedules
-   - Financial statements (audited/reviewed/compiled or GL summary)
-   - Contracts, policy docs, fundraising records, registration correspondence
-3. If any item missing, continue with explicit `[ASSUMED]` marks and add `[TO BE CONFIRMED]` items.
+---
 
-## Output Structure / Process
+## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-1. Intake and defaults
-   - Resolve required inputs; otherwise apply defaults below and label as `[ASSUMED]`:
-     - Filing is annual renewal/financial solicitation report, not secretary-of-state corporate report
-     - Reporting period is last completed 12 months unless source indicates short year
-     - Audit/review/compilation to be researched and applied per state rule
-     - No professional fundraisers unless documents indicate usage
-2. Build intake normalization table and open-items tracker
+Ask every time unless the user says "use defaults" or "just draft." Gather:
+
+1. **Filing state/jurisdiction and filing year**
+2. **Reporting period** (start/end dates, fiscal year end)
+3. **Total revenue for the period** (for thresholding audit/review rules)
+4. **Whether professional fundraisers/solicitors/co-venturers were used**
+5. **Target output mode**: `full-compliance`, `form-field`, or `executive-briefing`
+
+### Documents to Request
+
+- Articles/charter, bylaws, board minutes/resolutions
+- IRS Form 990 or equivalent + schedules
+- Financial statements (audited/reviewed/compiled or GL summary)
+- Contracts, policy docs, fundraising records, registration correspondence
+
+**If the user doesn't respond**, apply and clearly label these defaults: filing is annual renewal/financial solicitation report (not secretary-of-state corporate report); reporting period is last completed 12 months; audit/review/compilation threshold to be researched per state rule; no professional fundraisers unless documents indicate usage. Mark all defaults as `[ASSUMED]`.
+
+---
+
+## Step 1: Intake Normalization
+
+Build the intake normalization table and open-items tracker:
 
 | Field | Value | Source | Conflict / Note |
 |---|---|---|---|
@@ -49,12 +61,17 @@ Creates a defensible annual filing document package for state charity bureau rev
 | Revenue basis used | | | |
 | Fundraiser use | | | |
 
-3. State-Requirements Research (official sources only)
-   - Official agency page, statute, admin code, filing instructions, fee schedule, portal guidance
-   - Record: source URL + publish/update date
-   - Conflicts -> cite both + `[CONFLICT — VERIFY WITH COUNSEL]`
-   - Unverified details -> `[TO BE CONFIRMED]`
-4. Requirements matrix
+Flag any conflicts between sources (e.g., 990 revenue vs. audited financials) with `[CONFLICT — VERIFY WITH COUNSEL]`.
+
+---
+
+## Step 2: State-Requirements Research
+
+Research requirements from official sources only: agency page, statute, admin code, filing instructions, fee schedule, portal guidance.
+
+Record for each source: URL + publish/update date. Mark unverified details as `[TO BE CONFIRMED]`.
+
+### Required Deliverable: Requirements Matrix
 
 | Topic | Requirement | Source | Applies? | Status |
 |---|---|---|---|---|
@@ -68,22 +85,22 @@ Creates a defensible annual filing document package for state charity bureau rev
 | Notarization / signature method | | | | |
 | Fundraiser disclosure fields | | | | |
 
-5. Draft report sections in this order unless state form dictates another order:
-   - Organizational identity
-   - Governance and leadership
-   - Financial position
-   - Charitable programs and impact
-   - Fundraising and compliance
-   - Attachments and filing execution
+---
 
-6. Assemble filing package
-   - Certification and signature block
-   - Filing instruction sheet
-   - Optional transmittal cover letter for executive review
+## Step 3: Draft Report Sections
 
-## Core Output Templates
+Draft in this order unless the state form dictates another:
 
-### Organizational Identity Block
+1. **Organizational Identity** — legal name, DBA, EIN, registration number, addresses, solicitation channels, reporting period, material changes
+2. **Governance and Leadership** — board roster with roles, terms, compensation, relationship disclosures
+3. **Financial Position** — comparative financial summary with variance analysis, financial ratios
+4. **Charitable Programs and Impact** — program descriptions, geography, beneficiaries, outputs, outcomes, expenses
+5. **Fundraising and Compliance** — fundraising disclosures by method, professional fundraiser schedule (if applicable)
+6. **Attachments and Filing Execution** — exhibits index, certification/signature block, filing instructions
+
+### Core Output Templates
+
+**Organizational Identity Block**
 
 | Field | Response |
 |---|---|
@@ -97,13 +114,12 @@ Creates a defensible annual filing document package for state charity bureau rev
 | Reporting period | |
 | Material changes during period | |
 
-### Governance Roster
+**Governance Roster**
 
 | Name | Role/title | Address (if required) | Term start | Term end | Compensation | Relationship/disclosure notes |
 |---|---|---|---|---|---|---|
-| | | | | | | |
 
-### Financial Summary (comparative)
+**Financial Summary (comparative)**
 
 | Line item | Current year | Prior year | Variance $ | Variance % | Source |
 |---|---:|---:|---:|---:|---|
@@ -121,7 +137,7 @@ Creates a defensible annual filing document package for state charity bureau rev
 | Total liabilities | | | | | |
 | Net assets | | | | | |
 
-### Financial Ratios
+**Financial Ratios**
 
 | Metric | Formula | Output | Audit note |
 |---|---|---|---|
@@ -129,13 +145,12 @@ Creates a defensible annual filing document package for state charity bureau rev
 | Fundraising efficiency | Fundraising expenses / total contributions | | |
 | Operating reserves (months) | Unrestricted net assets / (total expenses / 12) | | |
 
-### Programs and Impact Table
+**Programs and Impact Table**
 
 | Program | Purpose | Geography | Beneficiaries | Outputs | Outcomes | Program expenses | Volunteer hours |
 |---|---|---|---|---|---|---|---|
-| | | | | | | | |
 
-### Fundraising Disclosures
+**Fundraising Disclosures**
 
 | Method | Gross raised | Direct costs | Net proceeds | State-required notes |
 |---|---:|---:|---:|---|
@@ -146,11 +161,14 @@ Creates a defensible annual filing document package for state charity bureau rev
 | Other | | | | |
 | Total | | | | |
 
-### Professional Fundraiser Schedule (if applicable)
+**Professional Fundraiser Schedule** (if applicable)
 
 | Entity | Role | Contract dates | Amount paid | Amount raised | Registration ID | Attached? |
 |---|---|---|---|---|---|---|
-| | | | | | | |
+
+---
+
+## Step 4: Assemble Filing Package
 
 ### Attachments Index
 
@@ -164,14 +182,13 @@ Creates a defensible annual filing document package for state charity bureau rev
 
 ### Certification and Signatures
 
-Use exact statutory language when available; otherwise flag `[VERIFY]` or `[TO BE CONFIRMED]`.
+Use exact statutory language when available; otherwise flag `[VERIFY]`.
 
 **Default penalty statement:**
 "I declare under penalty of perjury under the laws of [STATE] that I have examined this report and attachments and believe them true, correct, and complete under penalty of perjury."
 
 | Role | Name | Title | Signature | Date |
 |---|---|---|---|---|
-| | | | | |
 
 ### Filing Instructions
 
@@ -184,19 +201,56 @@ Use exact statutory language when available; otherwise flag `[VERIFY]` or `[TO B
 | Number of originals/copies | |
 | Notarization requirement | |
 
-## Mode Packs
+---
 
-- **Full Compliance Package**: narrative + all tables + exhibits index + signature and filing instructions.
-- **Form-Field Mode**: field-by-field responses matching state form/portal, with linked source evidence.
-- **Executive Briefing**: concise leadership summary of filing posture, risks, and open issues.
+## Step 5: Mode-Specific Output
+
+| Mode | Description |
+|---|---|
+| **Full Compliance Package** (default) | Narrative + all tables + exhibits index + signature and filing instructions |
+| **Form-Field Mode** | Field-by-field responses matching state form/portal, with linked source evidence |
+| **Executive Briefing** | Concise leadership summary of filing posture, risks, and open issues |
+
+---
+
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial package, ask:
+
+1. Do the financial figures match your records, and are there any discrepancies between the 990 and the financial statements that need resolution?
+2. Are all board members and officers current, and should any compensation or relationship disclosures be updated?
+3. Should I produce a different output mode (form-field or executive briefing) in addition to what was delivered?
+4. Are there any professional fundraiser contracts or amendments not yet provided?
+
+---
+
+## Quality Audit
+
+- Values consistent across all tables and narrative; conflicts flagged with `[CONFLICT — VERIFY WITH COUNSEL]`
+- Every missing item marked `[OPEN]`, `[ASSUMED]`, or `[TO BE CONFIRMED]`
+- Filing deadline, fee, and extension process verified from official source
+- Audit/review/compilation threshold applied correctly for the organization's revenue level
+- Oath/certification language matches state statutory requirements or flagged [VERIFY]
+- Fundraiser disclosures complete if professional fundraisers were used
+- Attachments index cross-referenced against state requirements matrix
+- Board roster matches current organizational records
+- Financial ratios computed correctly from stated figures
+- No fabricated filing rules, deadlines, fee tiers, or audit requirements
+
+---
 
 ## Guidelines
 
-1. Use official state/legal sources only for statutory and form requirements; do not infer legal obligations.
-2. Keep values consistent across tables and narrative; if inconsistent, reconcile or flag conflict.
-3. Every missing item must be marked `[OPEN]`, `[ASSUMED]`, or `[TO BE CONFIRMED]`.
-4. Never fabricate filing rules, deadlines, fee tiers, or audit requirements.
-5. Ensure final package is internally cross-referenced by exhibit and requirement topic.
-6. Always include jurisdiction caveat if state rules vary by year or filing type.
-7. Preserve board/officer identities and compensation disclosures exactly as source documents state.
-8. Mark uncertain legal statements with `[VERIFY]` before final delivery.
+- Use official state/legal sources only for statutory and form requirements; do not infer legal obligations
+- Keep values consistent across tables and narrative; if inconsistent, reconcile or flag conflict
+- Every missing item must be marked `[OPEN]`, `[ASSUMED]`, or `[TO BE CONFIRMED]`
+- Never fabricate filing rules, deadlines, fee tiers, or audit requirements
+- Ensure final package is internally cross-referenced by exhibit and requirement topic
+- Always include jurisdiction caveat if state rules vary by year or filing type
+- Preserve board/officer identities and compensation disclosures exactly as source documents state
+- Mark uncertain legal statements with `[VERIFY]` before final delivery
+- Output requires attorney or compliance officer review before filing
+
+**Required disclaimer on every output:**
+
+> THIS FILING PACKAGE REQUIRES INDEPENDENT VERIFICATION OF ALL DEADLINES, THRESHOLDS, AND LEGAL REQUIREMENTS BY A QUALIFIED ATTORNEY OR CPA BEFORE SUBMISSION, AND DOES NOT CONSTITUTE LEGAL ADVICE.

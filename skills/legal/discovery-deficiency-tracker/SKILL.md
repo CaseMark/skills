@@ -1,6 +1,16 @@
 ---
 name: discovery-deficiency-tracker
-description: Builds and maintains a litigation-grade discovery deficiency and meet-and-confer tracker for compulsion motion practice. Logs deficiencies by request number using primary-source quotations, maps each to FRCP 26–37 (or state equivalents), tracks conferral cycles with evidentiary rigor, controls compel deadlines, assesses sanctions exposure, and generates both client-facing status reports and court-facing dispute charts or California Separate Statements. Use when managing deficient interrogatory, RFP, or RFA responses; preparing FRCP 37 motions to compel; documenting meet-and-confer efforts; or building joint discovery letters and informal conference requests.
+description: >
+  Builds and maintains a litigation-grade discovery deficiency and meet-and-confer
+  tracker for compulsion motion practice. Use this skill when the user mentions
+  deficient discovery responses, motion to compel preparation, meet-and-confer
+  tracking, FRCP 37 sanctions, discovery dispute charts, joint discovery letters,
+  informal discovery conferences, deficiency logging, or California Separate
+  Statements. Also trigger when the user references boilerplate objections,
+  privilege log deficiencies, incomplete productions, evasive answers, discovery
+  conferral documentation, or asks for help organizing disputes for court.
+  Even if the user just says "track these discovery problems" or "help me
+  build a compel motion," use this skill.
 tags:
   - analysis
   - checklist
@@ -12,9 +22,17 @@ tags:
 
 # Discovery Deficiency and Meet-and-Confer Tracker
 
-Produces a litigation-grade, request-by-request tracker that serves as the factual backbone for FRCP 37 motions to compel, sanctions requests, informal discovery conferences, and California Separate Statements.
+## Why This Skill Exists
 
-## Prerequisites
+Discovery disputes are won or lost on organization and documentation, not on the merits of any single objection. Without a structured, request-by-request tracker, deficiencies blur together, conferral history gets lost in email threads, deadlines slip, and the motion to compel becomes a credibility fight about who said what. Courts increasingly require detailed dispute charts and documented good-faith conferral before entertaining any compulsion motion.
+
+This skill produces a tracker that serves as the factual backbone for FRCP 37 motions to compel, sanctions requests, informal discovery conferences, joint letters, and California Separate Statements — with every assertion grounded in verbatim quotations from primary sources.
+
+---
+
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **Full discovery requests** — complete text of each disputed interrogatory, RFP, or RFA, including definitions, instructions, and identifiers
 2. **Complete written responses** — exact response text as served, including all general and specific objections, verifications, and any "subject to and without waiving" language
@@ -24,11 +42,15 @@ Produces a litigation-grade, request-by-request tracker that serves as the factu
 6. **Scheduling deadlines** — discovery cut-off, motion cut-off, and any forum-specific compel deadlines
 7. **Forum identity** — court, assigned judge, local rules URL, and standing/individual rules
 
+**If the user doesn't respond**, apply and clearly label these defaults: federal court; FRCP 26–37 governing rules; all disputed requests included; court-facing chart format.
+
 > If exact request/response text or applicable deadlines are missing, pause and prompt the user before generating a court-ready tracker. Label provisional entries **[ATTORNEY VERIFICATION NEEDED]**.
 
-## Output Structure
+---
 
-### Tracker Schema (per dispute entry)
+## Step 1: Build the Tracker Schema
+
+Create one entry per disputed request number. Never combine multiple requests in a single row.
 
 | Field | Content |
 |---|---|
@@ -56,7 +78,11 @@ Produces a litigation-grade, request-by-request tracker that serves as the factu
 | **Status** | See status taxonomy below |
 | **Relief Sought** | Order language for motion or joint letter |
 
-### Deficiency Taxonomy
+---
+
+## Step 2: Classify Deficiencies
+
+Apply the deficiency taxonomy to each entry:
 
 | Code | Deficiency | Governing Standard |
 |---|---|---|
@@ -83,7 +109,11 @@ Proposed Cure: Serve an amended response that (1) [concrete step], (2) [concrete
 Relief Sought: Order compelling [specific custodians / sources / date range / format] and amended response confirming search methodology.
 ```
 
-### Meet-and-Confer Log Format (per entry)
+---
+
+## Step 3: Document Meet-and-Confer History
+
+Log each conferral event per entry using this format:
 
 ```
 [DATE] [MODE: phone/video/in-person/email] | Participants: [Atty A / Atty B]
@@ -96,6 +126,10 @@ Next follow-up: [date / action]
 
 > After each substantive conferral, send a written confirmation to OC summarizing agreements, commitments, and dates. Attach that email to the tracker entry.
 
+---
+
+## Step 4: Assign Status and Flag Sanctions Exposure
+
 ### Status Taxonomy
 
 | Status | Meaning |
@@ -107,7 +141,11 @@ Next follow-up: [date / action]
 | `Escalated — joint letter due [date]` | Forum process initiated |
 | `Resolved — no further action` | Deficiency cured |
 
-### Output Views
+Flag entries where the same deficiency persists across ≥ 2 conferral cycles for FRCP 37(a)(5) fee-shifting analysis. Document the number of conferral events per entry.
+
+---
+
+## Step 5: Generate Output Views
 
 **Client-facing report:** Plain-language summary of each dispute, litigation value, cost-benefit of escalation, and timeline. Omit internal strategy notes. No "bad faith" labels without evidentiary basis and deliberate strategy.
 
@@ -122,14 +160,45 @@ Next follow-up: [date / action]
 | NY Commercial Division | Pre-motion conference required under Comm. Div. Rule 14 before formal motion |
 | Texas state court | Certificate of Conference under TRCP 191.2 — must confirm actual verbal contact or explain why impossible |
 
+---
+
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial tracker, ask:
+
+1. Does the tracker capture the correct set of disputed requests — any to add or remove?
+2. Are the deficiency classifications and severity flags accurate for your motion strategy?
+3. Which output view should be generated first — client-facing report, court-facing chart, or California Separate Statement?
+4. Are there any conferral events or OC commitments not yet reflected in the log?
+
+If the user doesn't answer, recommend generating the court-facing chart for impasse items and proceed if authorized.
+
+---
+
+## Quality Audit
+
+Before finalizing, verify:
+
+- Every request and response quoted verbatim — no paraphrasing
+- One entry per request number — no combined rows
+- Each deficiency statement cites a specific FRCP rule and identifies the precise failure
+- Meet-and-confer log entries include date, mode, participants, and commitments
+- All deadlines computed and labeled verified or unverified
+- Sanctions flags documented with conferral cycle count
+- Status taxonomy applied consistently
+- Materiality tied to specific claims, defenses, or issues
+- Forum-specific format requirements confirmed
+- Every factual assertion traceable to a document or labeled as assumption
+- No invented case citations
+
+---
+
 ## Guidelines
 
 - **Verbatim only** — quote requests and responses exactly; even minor paraphrase creates opposition ammunition
-- **One entry per request number** — never combine multiple requests in a single tracker row
 - **Citations** — provide URL to authoritative source for every rule and statute cited, or mark `[VERIFY]`; never generate unverified case citations
 - **Deadlines are mandatory** — California motion-to-compel deadlines are typically 45 days from service of response (CCP §§ 2030.300, 2031.310, 2033.290 [VERIFY for method-of-service extensions]); missing them forfeits the right to compel; label all deadlines unverified until confirmed via local rules
 - **Forum confirmation required** — ask for court, judge, and local rules at intake; treat all escalation procedures as unverified until checked against court website and standing order
-- **Sanctions assessment** — flag entries where same deficiency persists across ≥ 2 conferral cycles for FRCP 37(a)(5) fee-shifting analysis; document number of conferral events per entry
 - **Work-product protection** — tracker contains attorney mental impressions and strategy; treat as privileged work product under FRCP 26(b)(3); segregate strategy commentary from factual content before any sharing; confirm common-interest basis before sharing with co-counsel
 - **Regulatory constraints** — when withholding is justified by HIPAA, FERPA, GDPR, or state privacy law, note the specific statute and confirm applicability before asserting as a bar
 - **Anti-hallucination** — all case citations must be verified via web search and URL-cited, or left as explicit attorney-fill placeholders; no plausible-sounding but unverified citations

@@ -1,6 +1,15 @@
 ---
 name: enterprise-api-addendum
-description: Negotiates bespoke enterprise API addenda that override standard click-wrap API terms for high-value partners. Covers document architecture and precedence, indemnification and liability cap redlining, custom SLA and service-credit design, exclusivity and competitive restrictions, API versioning and deprecation governance, data rights, and internal alignment. Use when negotiating enterprise API agreements, API addenda, click-wrap overrides, API SLAs, or API licensing terms.
+description: >
+  Negotiates bespoke enterprise API addenda that override standard click-wrap API
+  terms for high-value partners. Covers document architecture and precedence,
+  indemnification and liability cap redlining, custom SLA and service-credit
+  design, exclusivity and competitive restrictions, API versioning and
+  deprecation governance, data rights, and internal alignment. Use when
+  negotiating enterprise API agreements, API addenda, click-wrap overrides, API
+  SLAs, API licensing terms, or when a user mentions enterprise partner terms,
+  API indemnity negotiation, SLA credits, breaking change governance, or MFN
+  clauses.
 tags:
   - agreement
   - drafting
@@ -9,9 +18,15 @@ tags:
 
 # Enterprise API Addendum Negotiation
 
-Negotiates a bilateral API addendum that overrides standard click-wrap terms for enterprise partners, delivering negotiation tables, clause snippets, and decision trees.
+## Why This Skill Exists
 
-## Prerequisites
+Enterprise partners demand bespoke terms that override standard click-wrap API agreements — custom SLAs, indemnification, liability caps, breaking-change governance, exclusivity protections, and data rights. The negotiation creates a layered document architecture (addendum → order form → DPA → SLA schedule → click-wrap) where a single precedence error can accidentally elevate or gut the click-wrap terms, and where a misaligned indemnity or SLA credit clause can create uncapped exposure. Legal, product, SRE, finance, and sales must align before terms are offered, but the negotiation moves faster than cross-functional review cycles. This skill produces negotiation tables, clause language, decision trees, and internal readiness checklists that keep the deal structured and the exposure controlled.
+
+---
+
+## Checkpoint A: Pre-Draft Intake (Mandatory)
+
+Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 1. **Standard click-wrap API Terms of Service** already in production
 2. **Governing contract(s)** — order form/SOW, any existing MSA
@@ -20,9 +35,7 @@ Negotiates a bilateral API addendum that overrides standard click-wrap terms for
 5. **Commercial parameters** — fees, term, liability posture, exclusivity asks, MFN requests
 6. **Partner requirements** — SLA metrics, indemnity expectations, audit rights, insurance demands
 
-## Default Assumptions
-
-Override any of these; otherwise they apply throughout.
+**If the user doesn't respond**, apply and clearly label these defaults:
 
 | Parameter | Default |
 |---|---|
@@ -33,11 +46,11 @@ Override any of these; otherwise they apply throughout.
 | Exclusivity | None; allow "preferred partner" marketing only |
 | Breaking changes | 90 days' notice; security patches exempt |
 
-## Output Structure
+---
 
-### Phase 1: Deal Architecture & Delta Analysis
+## Step 1: Deal Architecture and Delta Analysis
 
-**1A. Delta Analysis Table**
+### Delta Analysis Table
 
 Map gaps between click-wrap and enterprise requirements:
 
@@ -51,7 +64,7 @@ Map gaps between click-wrap and enterprise requirements:
 | Termination | Provider may terminate at will | For-cause only; wind-down | For-cause with cure period; add transition assistance |
 | Audit Rights | None | Annual security/compliance audit | Once/year at Customer's expense; more if breach occurs |
 
-**1B. Architecture Checklist**
+### Architecture Checklist
 
 - [ ] Click-wrap incorporated by reference or restated/attached?
 - [ ] Addendum applies to one entity or also affiliates/subsidiaries?
@@ -60,7 +73,7 @@ Map gaps between click-wrap and enterprise requirements:
 - [ ] MFN precedence clause accidentally elevates click-wrap?
 - [ ] Amendment-by-posting locked for this partner?
 
-**1C. Precedence Matrix**
+### Precedence Matrix
 
 | Document | Precedence | Conflict Handling |
 |---|---|---|
@@ -77,9 +90,9 @@ Map gaps between click-wrap and enterprise requirements:
 
 ---
 
-### Phase 2: Indemnification & Liability
+## Step 2: Indemnification and Liability
 
-**Negotiation Table**
+### Negotiation Table
 
 | Topic | Typical Customer Ask | Vendor Default | Fallback |
 |---|---|---|---|
@@ -109,9 +122,9 @@ Map gaps between click-wrap and enterprise requirements:
 
 ---
 
-### Phase 3: SLA / Support / Credits
+## Step 3: SLA, Support, and Credits
 
-**SLA Schedule Template**
+### SLA Schedule Template
 
 | Metric | Value |
 |---|---|
@@ -121,7 +134,7 @@ Map gaps between click-wrap and enterprise requirements:
 
 **Exclusions:** Scheduled maintenance (72h notice), emergency maintenance, force majeure, Partner's systems/network, rate-limit throttling from exceeding limits, beta features.
 
-**Service Credit Table (sole and exclusive remedy):**
+### Service Credit Table (sole and exclusive remedy)
 
 | Monthly Uptime % | Credit (% of Monthly Fees) |
 |---|---|
@@ -131,7 +144,7 @@ Map gaps between click-wrap and enterprise requirements:
 
 - Request within 30 days; max aggregate 20% of monthly fees; apply to future invoices (fallback: cash refund if no future invoices).
 
-**Support Defaults:**
+### Support Defaults
 
 | Item | Default | Premium Option |
 |---|---|---|
@@ -144,15 +157,11 @@ Map gaps between click-wrap and enterprise requirements:
 
 **Chronic Failure:** Termination right only if uptime < 99.0% for 2 consecutive months after documented cure plan.
 
-**Negotiation Map:**
-- *Tradable:* Faster response times, 24×7, dedicated TAM, higher uptime tier, custom dashboards
-- *Protect:* Credits as sole remedy, exclusions, Provider-controlled measurement, aggregate credit cap
-
 ---
 
-### Phase 4: Exclusivity & Competitive Restrictions
+## Step 4: Exclusivity and Competitive Restrictions
 
-**Decision Tree Checklist:**
+### Decision Tree Checklist
 
 - [ ] What consideration supports exclusivity? (minimum spend, committed volume, co-development)
 - [ ] Scope: which endpoints, use cases, verticals, territories?
@@ -161,20 +170,20 @@ Map gaps between click-wrap and enterprise requirements:
 - [ ] Remedy for breach: termination of exclusivity only (not broad damages)?
 - [ ] Antitrust review needed? (especially EU/UK competition law)
 
-**Graduated Clause Menu:**
+### Graduated Clause Menu
 
 | Option | Risk Level | Use When |
 |---|---|---|
 | No exclusivity (default) | None | Standard deals |
 | Preferred partner marketing | Low | Customer wants recognition without restriction |
-| Limited vertical exclusivity | High | Significant committed spend + milestones; bound by scope/term/territory |
+| Limited vertical exclusivity | High | Significant committed spend + milestones |
 | MFN | Medium-High | Use sparingly; limit to pricing only, similarly situated customers, with sunset |
 
 **MFN Guardrails:** Limit to similarly situated customers + pricing only; exclude promotional/pilot/strategic deals; prospective credit (not retroactive repricing); sunset after 12 months.
 
 ---
 
-### Phase 5: Technical Governance & Data Rights
+## Step 5: Technical Governance and Data Rights
 
 **Breaking Change Definition:**
 
@@ -183,9 +192,6 @@ Map gaps between click-wrap and enterprise requirements:
 **Notice & Sunset Clause:**
 
 > "Provider will give Partner at least [90] days' prior written notice before implementing a Breaking Change. Provider will maintain the prior version for at least [180] days following notice. This Section does not apply to changes required to address security vulnerabilities, comply with law, or prevent imminent harm."
-
-- 90 days is vendor-friendly floor; partners often request 180 days
-- Consider LTS versions for mission-critical integrations at premium pricing
 
 **Audit Rights:** Once per calendar year at Partner's expense with 30 days' notice; scope limited to security + DPA compliance; additional audits if breach occurs; may satisfy via current SOC 2 Type II or ISO 27001.
 
@@ -197,9 +203,9 @@ Map gaps between click-wrap and enterprise requirements:
 
 ---
 
-### Phase 6: Consolidation & Internal Alignment
+## Step 6: Consolidation and Internal Alignment
 
-**Term Sheet Template**
+### Term Sheet Template
 
 | Category | Agreed/Proposed | Fallback | Owner |
 |---|---|---|---|
@@ -213,7 +219,7 @@ Map gaps between click-wrap and enterprise requirements:
 | Breaking changes / versioning | | | Product / Engineering |
 | Term / termination | | | Legal / Sales |
 
-**Internal Readiness Checklist**
+### Internal Readiness Checklist
 
 - [ ] SRE confirms monitoring supports SLA measurement; maintenance windows defined
 - [ ] Support confirms hours, P1 definitions, escalation path, staffing achievable
@@ -223,6 +229,36 @@ Map gaps between click-wrap and enterprise requirements:
 - [ ] Product/Engineering confirms breaking-changes notice period is feasible
 - [ ] Legal confirms precedence clause prevents unilateral click-wrap changes
 - [ ] Compliance confirms exclusivity reviewed for antitrust implications
+
+---
+
+## Checkpoint B: Post-Draft Alignment (Mandatory)
+
+After delivering the initial package, ask:
+
+1. Does the delta analysis correctly identify the gaps between your click-wrap and this partner's requirements?
+2. Are the indemnity and liability positions within your approved risk tolerance?
+3. Has SRE confirmed the proposed SLA metrics and credit structure are operationally achievable?
+4. Should I produce specific clause language for any section, or is the negotiation table format sufficient?
+
+---
+
+## Quality Audit
+
+- Delta analysis covers all material clause categories
+- Precedence matrix is internally consistent and prevents accidental click-wrap elevation
+- Indemnity and liability clauses include caps, exclusions, and super-cap structure
+- SLA metrics, exclusions, and credit table are complete and consistent
+- Service credits specified as sole and exclusive remedy
+- Breaking Change definition is narrow enough to exclude bug fixes and security patches
+- Exclusivity (if any) has consideration, scope, term, exceptions, and remedy specified
+- Internal readiness checklist addresses all cross-functional stakeholders
+- "Fees paid" vs. "fees payable" clarified in liability cap
+- No MFN clause covering legal terms (pricing only)
+- Amendment-by-posting locked for this partner
+- All clause language marked as negotiation starting points, not final terms
+
+---
 
 ## Guidelines
 
@@ -239,9 +275,13 @@ Map gaps between click-wrap and enterprise requirements:
    - "Breaking Change" defined so broadly it covers bug fixes and security patches
 
 2. Clarify "fees paid" vs. "fees payable" in every liability cap — the distinction significantly affects exposure
-3. Always exempt security patches and legal compliance changes from breaking-change notice requirements
-4. Service credits must be the sole and exclusive remedy for SLA breach; do not allow expansion into general damages
-5. Regulatory fines as indemnifiable damages: enforceability varies by jurisdiction — flag for local counsel review
+3. Always exempt security patches and legal compliance changes from breaking-change notice
+4. Service credits must be sole and exclusive remedy for SLA breach
+5. Regulatory fines as indemnifiable damages: enforceability varies by jurisdiction — flag for local counsel
 6. Cross-reference DPA when personal data is in scope
 7. Verify all entity names, signature authority, and affiliate definitions before execution
-8. This skill provides general negotiation guidance — not legal advice. Consult qualified counsel for jurisdiction-specific enforceability, regulatory obligations, and antitrust issues.
+8. Mark all uncertain enforceability positions with [VERIFY]
+
+**Required disclaimer on every output:**
+
+> THIS NEGOTIATION GUIDANCE IS A DRAFTING AID AND REQUIRES REVIEW BY QUALIFIED LEGAL COUNSEL. IT DOES NOT CONSTITUTE LEGAL ADVICE.
