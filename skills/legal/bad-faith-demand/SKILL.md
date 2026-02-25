@@ -38,7 +38,7 @@ Ask every time unless the user says "use defaults" or "just draft." Gather:
 6. **Lien status** — health insurer, Medicare/Medicaid, ERISA, hospital, workers' comp
 7. **Settlement authority** — confirmed from client on amount and release scope
 
-**If the user doesn't respond**, apply and clearly label these defaults: pre-suit posture; full policy limits demand; standard release of named insured for bodily injury claims; 30-day response window; professional notice tone.
+**If the user doesn't respond**, apply and clearly label these defaults: pre-suit posture; full policy limits demand; standard release of named insured for bodily injury claims; response window marked `[VERIFY JURISDICTION]` (do not default to a fixed number of days); professional notice tone.
 
 If any core item is missing (especially settlement authority and policy limits), stop and request it before drafting.
 

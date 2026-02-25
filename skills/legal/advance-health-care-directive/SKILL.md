@@ -41,7 +41,7 @@ Ask every time unless the user says "use defaults" or "just draft." Gather:
 8. **Execution logistics** — signing location, notary availability, witness constraints, facility-specific rules, spouse/relative witness limitations
 9. **Conflict screening** — family tensions, beneficiary pressure, undue influence indicators flagged to attorney
 
-**If the user doesn't respond**, apply and clearly label these defaults: immediate-authority directive; primary agent with one alternate; comfort-focused treatment preferences; state statutory form where available; standard HIPAA authorization bridge.
+**If the user doesn't respond**, apply and clearly label these defaults: immediate-authority directive; primary agent with one alternate; comfort-focused treatment preferences; forum-neutral directive template with state-specific execution formalities and statutory form references marked `[VERIFY JURISDICTION]`; standard HIPAA authorization bridge.
 
 ### Documents to Request
 

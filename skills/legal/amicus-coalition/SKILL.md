@@ -41,7 +41,7 @@ Ask every time unless the user says "use defaults" or "just draft." Gather:
 8. **Funding/authorship disclosure inputs** — per FRAP 29(a)(4)(E) / Supreme Court Rule 37.6: (a) who authored, (b) who funded
 9. **Posture** — supporting which party, or neither; consent status or need for motion for leave
 
-**If the user doesn't respond**, apply and clearly label these defaults: FRAP 29 federal circuit rules; single-pen authority with lead counsel; hard sign-off cutoff 48 hours before filing deadline.
+**If the user doesn't respond**, apply and clearly label these defaults: forum-agnostic amicus draft with all rule-dependent requirements marked `[VERIFY FORUM]`; single-pen authority with lead counsel; hard sign-off cutoff 48 hours before filing deadline.
 
 Do not proceed until all prerequisites are collected or gaps are flagged.
 
