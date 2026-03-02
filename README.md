@@ -1,12 +1,14 @@
 # CaseMark Agent Skills
 
-Open-source agent skills for legal AI workflows and the [case.dev](https://case.dev) platform.
+Open-source agent skills for legal, medical, and financial AI workflows and the [case.dev](https://case.dev) platform.
 
-This repository contains two categories of skills:
+This repository contains four categories of skills:
 
 | Directory | Audience | Description |
 |-----------|----------|-------------|
-| `skills/legal/` | Legal professionals & legal AI builders | Skills for legal tasks (deposition summarization, motion drafting, etc.). Embedded into a vector DB on merge to power the [agentskills.legal](https://agentskills.legal) website and Legal Agent Skills API. |
+| `skills/legal/` | Legal professionals & legal AI builders | 874 skills for legal tasks (deposition summarization, motion drafting, etc.). Embedded into a vector DB on merge to power the [agentskills.legal](https://agentskills.legal) website and Legal Agent Skills API. |
+| `skills/med/` | Healthcare professionals & health AI builders | 30 skills for medical workflows (clinical documentation, lab analysis, medication reconciliation, etc.). Structured agentic workflows for processing and synthesizing healthcare information. |
+| `skills/finance/` | Financial professionals & fintech builders | 30 skills for financial workflows (earnings analysis, credit assessment, AML compliance, etc.). Structured agentic workflows for processing and synthesizing financial information. |
 | `skills/casedev/` | case.dev developers | Skills for building on the case.dev platform (vaults, OCR, transcription, search). File-based, consumed directly by Claude Code or any agent. |
 
 ## Quick Start
@@ -46,7 +48,33 @@ Use the `/v1/skills` endpoint or the `container.skills` parameter in Messages AP
 
 ### Legal Skills
 
-See [skills/legal/](skills/legal/) for legal practice skills. These are also searchable via the [agentskills.legal](https://agentskills.legal) website and the Legal Agent Skills MCP.
+See [skills/legal/](skills/legal/) for 874 legal practice skills. These are also searchable via the [agentskills.legal](https://agentskills.legal) website and the Legal Agent Skills MCP.
+
+### Medical Skills (30 skills)
+
+See [skills/med/](skills/med/) for healthcare and medical skills organized across six categories:
+
+| Category | Skills | Examples |
+|----------|--------|----------|
+| Summarization & Synthesis | 6 | Discharge notes, clinical trials, radiology reports, pathology reports |
+| Analysis & Assessment | 6 | Drug interactions, lab results, clinical risk scoring, symptom triage |
+| Document Generation | 6 | Clinical notes (SOAP/H&P), referral letters, prior authorizations, care plans |
+| Compliance & Regulatory | 4 | HIPAA auditing, ICD-10/CPT coding, IRB review, CDI validation |
+| Research & Discovery | 4 | PICO literature review, epidemiology, diagnostic accuracy, endpoint extraction |
+| Operational Workflows | 4 | Insurance claims, transitions of care, adverse events, medication reconciliation |
+
+### Finance Skills (30 skills)
+
+See [skills/finance/](skills/finance/) for financial services skills organized across six categories:
+
+| Category | Skills | Examples |
+|----------|--------|----------|
+| Summarization & Synthesis | 6 | Earnings calls, 10-K/10-Q analysis, credit reports, loan documents |
+| Analysis & Assessment | 6 | Financial ratios, credit risk, investment thesis, portfolio benchmarking |
+| Document Generation | 6 | Investment memos, client reports, pitch books, offering memoranda |
+| Compliance & Regulatory | 4 | AML transaction auditing, KYC review, regulatory exposure, SOX controls |
+| Research & Discovery | 4 | Market sector research, comparable transactions, investment screening |
+| Operational Workflows | 4 | Trade settlements, account reconciliation, covenant compliance, month-end close |
 
 ## Prerequisites
 
@@ -83,11 +111,12 @@ Every skill is a directory with a `SKILL.md` file following the [Agent Skills sp
 PR opened → skill-qa.yml validates format + quality
                     ↓
             PR merged to main
-                /           \
-skills/legal/**          skills/casedev/**
-      ↓                        ↓
-legal-embed.yml          Nothing extra.
-(embed → pgvector)       Files are the product.
+           /        |         \
+skills/legal/**  skills/med/**   skills/casedev/**
+skills/finance/**
+      ↓                              ↓
+legal-embed.yml                Nothing extra.
+(embed → pgvector)             Files are the product.
       ↓
 Powers:
 - agentskills.legal website
@@ -99,6 +128,8 @@ Powers:
 
 - [case.dev](https://case.dev)
 - [agentskills.legal](https://agentskills.legal)
+- [agentskills.med](https://agentskills.med) (coming soon)
+- [agentskills.finance](https://agentskills.finance) (coming soon)
 - [Agent Skills Specification](https://agentskills.io/specification)
 - [Claude Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
 
