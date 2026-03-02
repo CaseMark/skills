@@ -3,71 +3,43 @@ name: summarizing-discharge-notes
 description: Transforms hospital discharge paperwork into structured patient summaries with medications, follow-up appointments, activity restrictions, and warning signs. Use when processing discharge documents, creating patient handoffs, or preparing transition-of-care summaries.
 tags:
   - summarization
-  - clinical
+  - hospital-medicine
+  - patient-care
 metadata:
   author: casemark
   practice_areas:
     - Hospital Medicine
-    - Primary Care
+    - Internal Medicine
   document_types:
-    - Discharge Summary
+    - Summary Report
   skill_modes:
     - Summarization
 ---
 
 # Summarizing Discharge Notes
 
-Converts verbose discharge documentation into actionable, structured summaries.
+Transforms hospital discharge paperwork into structured patient summaries with medications, follow-up appointments, activity restrictions, and warning signs.
 
 ## Workflow
 
-1. **Extract** key sections from discharge note (diagnosis, procedures, medications, instructions)
-2. **Normalize** medication list (generic names, dosages, frequencies, duration)
-3. **Structure** follow-up requirements (provider, timeframe, purpose)
-4. **Flag** critical items (new medications, activity restrictions, red-flag symptoms)
-5. **Validate** completeness against discharge summary checklist
-
-## Output Template
-
-```markdown
-## Patient Discharge Summary
-
-### Primary Diagnosis
-[Diagnosis with ICD-10 if available]
-
-### Procedures Performed
-- [Procedure] — [Date]
-
-### Discharge Medications
-| Medication | Dose | Frequency | Duration | New/Changed? |
-|-----------|------|-----------|----------|--------------|
-
-### Follow-Up Schedule
-| Provider | Timeframe | Purpose |
-|----------|-----------|---------|
-
-### Activity Restrictions
-- [Restriction] — [Duration]
-
-### Red-Flag Symptoms (Seek Immediate Care)
-- [Symptom]
-
-### Patient Education Points
-- [Key instruction]
-```
+1. **Collect** source documents and verify completeness
+2. **Extract** key data points, findings, and structured elements
+3. **Normalize** terminology and format for consistency
+4. **Structure** output using the template below
+5. **Validate** completeness against source material — flag gaps explicitly
 
 ## Key Rules
 
-- Always distinguish NEW medications from CONTINUED medications
-- Flag any medication changes (dose adjustments, discontinuations)
-- If discharge note is missing expected sections, note the gap explicitly
-- Never infer diagnoses not stated in the source document
-- Include "return to ED if..." criteria verbatim when present
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
 
-## Common Pitfalls
+## Guidelines
 
-- Confusing admission medications with discharge medications
-- Missing conditional instructions ("if pain persists after 48 hours...")
-- Dropping PRN medications from the list
-
-For detailed discharge format variations (VA, academic, community), see [references/DISCHARGE-FORMATS.md](references/DISCHARGE-FORMATS.md).
+- This skill operates within the **Hospital Medicine** domain
+- Relevant practice areas: Hospital Medicine, Internal Medicine
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

@@ -1,67 +1,46 @@
 ---
 name: assessing-drug-interactions
-description: Evaluates medication lists for drug-drug interactions with severity ratings, mechanisms, and clinical management recommendations. Use when performing medication reconciliation, reviewing polypharmacy patients, or checking new prescription safety.
+description: Identifies clinically significant drug-drug, drug-food, and drug-disease interactions with severity grading and management recommendations. Use when checking drug interactions, evaluating polypharmacy risks, or managing medication combinations.
 tags:
-  - analysis
-  - pharmacology
-  - patient-safety
+  - assessment
+  - pharmacy
+  - risk
+  - clinical
 metadata:
   author: casemark
   practice_areas:
+    - Clinical Pharmacy
     - Pharmacy
-    - Clinical Pharmacology
   document_types:
-    - Medication List
-    - Interaction Report
+    - Assessment Report
   skill_modes:
-    - Analysis
     - Assessment
 ---
 
 # Assessing Drug Interactions
 
-Produces interaction matrices from medication lists.
+Identifies clinically significant drug-drug, drug-food, and drug-disease interactions with severity grading and management recommendations.
 
 ## Workflow
 
-1. **Normalize** medication list — map brand to generic, confirm doses
-2. **Check** pairwise interactions — severity (contraindicated/major/moderate/minor)
-3. **Identify** mechanism for each interaction (CYP450, QT prolongation, serotonergic, etc.)
-4. **Assess** clinical significance — is the interaction theoretical or clinically relevant at these doses?
-5. **Recommend** — monitoring, dose adjustment, timing separation, or substitution
-
-## Output Template
-
-```markdown
-## Drug Interaction Assessment
-
-### Medication List
-| # | Medication | Dose | Frequency | Indication |
-|---|-----------|------|-----------|------------|
-
-### Interactions Found
-
-#### [Severity]: [Drug A] + [Drug B]
-- **Mechanism**: [Pharmacokinetic/pharmacodynamic mechanism]
-- **Clinical Effect**: [What could happen]
-- **Risk Level**: [Contraindicated / Major / Moderate / Minor]
-- **Management**: [Recommended action]
-
-### Summary Matrix
-| | Drug 1 | Drug 2 | Drug 3 | ... |
-|---|--------|--------|--------|-----|
-| Drug 1 | — | [severity] | [severity] | |
-
-### High-Priority Alerts
-- [Interactions requiring immediate attention]
-```
+1. **Gather** input data and confirm scope of analysis
+2. **Apply** relevant frameworks, criteria, or scoring methodology
+3. **Identify** key findings, patterns, and outliers
+4. **Assess** significance and implications of findings
+5. **Document** analysis with supporting evidence and limitations
 
 ## Key Rules
 
-- Always note the interaction mechanism, not just the severity label
-- Distinguish pharmacokinetic (absorption, metabolism) from pharmacodynamic interactions
-- Consider cumulative effects (multiple QT-prolonging drugs, multiple serotonergic drugs)
-- Note renal/hepatic function if available — affects many interaction severities
-- Flag duplicate therapeutic classes (two SSRIs, two NSAIDs, etc.)
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
 
-For CYP450 substrate/inhibitor/inducer tables, see [references/CYP450-REFERENCE.md](references/CYP450-REFERENCE.md).
+## Guidelines
+
+- This skill operates within the **Pharmacy** domain
+- Relevant practice areas: Clinical Pharmacy, Pharmacy
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

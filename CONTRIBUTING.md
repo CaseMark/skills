@@ -58,7 +58,7 @@ Every PR touching `skills/**` triggers automated QA:
 
 ## Vertical Skills: Additional Metadata
 
-Legal, medical, and capital skills support extra metadata fields for the vector DB:
+Legal, medical (400 skills), and capital (400 skills) verticals support extra metadata fields for the vector DB:
 
 ```yaml
 metadata:

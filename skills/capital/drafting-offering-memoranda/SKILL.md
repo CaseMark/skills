@@ -1,81 +1,45 @@
 ---
 name: drafting-offering-memoranda
-description: Drafts offering memorandum sections for private placements and capital raises with business description, financial information, risk factors, and use of proceeds. Use when preparing private placement memoranda, information memoranda for debt offerings, or confidential information memoranda for M&A.
+description: Creates confidential information memoranda (CIM) for sell-side M&A with business description and financial presentation. Use when preparing CIMs, writing sell-side materials, or creating offering documents.
 tags:
   - drafting
-  - capital-markets
-  - securities
+  - investment-banking
 metadata:
   author: casemark
   practice_areas:
-    - Capital Markets
-    - Private Placements
+    - Investment Banking
+    - Mergers and Acquisitions
+    - Corporate Finance
   document_types:
-    - Offering Memorandum
-    - PPM
+    - Draft Document
   skill_modes:
     - Drafting
 ---
 
 # Drafting Offering Memoranda
 
-Produces structured content for capital raising documents.
+Creates confidential information memoranda (CIM) for sell-side M&A with business description and financial presentation.
 
 ## Workflow
 
-1. **Structure** — determine document type (PPM, CIM, IM) and required sections
-2. **Business** description — operations, strategy, competitive advantages
-3. **Financials** — historical performance, projections, use of proceeds
-4. **Risk** factors — comprehensive, ordered by materiality
-5. **Terms** — offering structure, rights, restrictions
-6. **Legal** — disclosures, disclaimers, subscription procedures
-
-## Output Template
-
-```markdown
-## Offering Memorandum: [Issuer] — [Offering Type]
-
-### Offering Summary
-| Term | Detail |
-|------|--------|
-| Issuer | |
-| Security Type | |
-| Amount | |
-| Price/Rate | |
-| Maturity/Term | |
-| Use of Proceeds | |
-| Min Investment | |
-
-### Business Description
-[Company overview, products/services, market position, strategy]
-
-### Management Team
-| Name | Title | Background |
-|------|-------|-----------|
-
-### Financial Summary
-| Metric | FY-2 | FY-1 | Current | Projected |
-|--------|------|------|---------|-----------|
-
-### Use of Proceeds
-| Use | Amount | % of Total |
-|-----|--------|-----------|
-
-### Risk Factors
-1. [Risk — ordered by materiality]
-
-### Terms and Conditions
-[Security-specific terms, restrictions, governance rights]
-
-### Disclaimers
-[Required legal disclaimers, accredited investor requirements, forward-looking statement warnings]
-```
+1. **Gather** required inputs and confirm deliverable requirements
+2. **Outline** structure using the appropriate template
+3. **Draft** content with domain-appropriate language and format
+4. **Review** against quality checklist and compliance requirements
+5. **Finalize** with proper formatting, citations, and required disclosures
 
 ## Key Rules
 
-- Risk factors: comprehensive and specific, not boilerplate — regulators scrutinize this
-- Forward-looking statements: always include safe harbor language
-- Accredited investor requirements must be clearly stated for Reg D offerings
-- Use of proceeds must be specific — "general corporate purposes" alone is insufficient
-- Projections must be labeled as such with clear assumption disclosure
-- This is a securities document — legal review is mandatory before distribution
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
+
+## Guidelines
+
+- This skill operates within the **Investment Banking** domain
+- Relevant practice areas: Investment Banking, Mergers and Acquisitions, Corporate Finance
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

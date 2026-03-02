@@ -1,97 +1,46 @@
 ---
 name: auditing-aml-transactions
-description: Screens transaction data for anti-money laundering red flags, generates suspicious activity analysis, and structures SAR narrative elements using FATF and FinCEN frameworks. Use when reviewing transaction patterns, preparing suspicious activity reports, or conducting AML compliance reviews.
+description: Screens transaction data for suspicious patterns using red flag typologies and structures SAR narrative elements. Use when reviewing transactions for AML, identifying suspicious activity, or drafting SAR narratives.
 tags:
-  - compliance
-  - aml
-  - financial-crime
+  - audit
+  - financial-compliance
 metadata:
   author: casemark
   practice_areas:
-    - AML Compliance
-    - Financial Crime
+    - Regulatory Compliance
+    - Financial Regulation
+    - Compliance
   document_types:
-    - SAR
-    - Transaction Review
+    - Audit Report
   skill_modes:
     - Audit
-    - Assessment
+    - Compliance
 ---
 
 # Auditing AML Transactions
 
-Identifies suspicious patterns and structures AML analysis.
+Screens transaction data for suspicious patterns using red flag typologies and structures SAR narrative elements.
 
 ## Workflow
 
-1. **Screen** transactions against red flag typologies
-2. **Analyze** patterns — velocity, structuring, layering, geographic risk
-3. **Profile** customer activity against expected behavior
-4. **Assess** risk level — low, medium, high
-5. **Document** findings for SAR filing decision
-6. **Draft** SAR narrative elements if filing threshold met
-
-## Red Flag Categories
-
-| Category | Indicators |
-|----------|-----------|
-| Structuring | Transactions just below reporting thresholds ($10K), split deposits |
-| Velocity | Unusual spike in transaction volume or value |
-| Geographic | Transactions involving high-risk jurisdictions (FATF list) |
-| Layering | Rapid movement through multiple accounts with no business purpose |
-| Round amounts | Large round-dollar transactions inconsistent with business type |
-| Cash intensive | Cash activity inconsistent with stated business |
-| Third party | Unexplained third-party involvement in transactions |
-
-## Output Template
-
-```markdown
-## AML Transaction Review
-
-### Subject
-| Field | Detail |
-|-------|--------|
-| Customer | [Name / ID] |
-| Account Type | |
-| Customer Since | |
-| Risk Rating | [Current] |
-| Review Period | |
-
-### Transaction Summary
-| Metric | Value | Expected Range | Flag |
-|--------|-------|---------------|------|
-| Total Volume | | | |
-| Transaction Count | | | |
-| Cash Activity | | | |
-| Wire Activity | | | |
-| High-Risk Jurisdiction Activity | | | |
-
-### Red Flags Identified
-| # | Red Flag | Transactions | Description | Severity |
-|---|----------|-------------|-------------|----------|
-
-### Pattern Analysis
-[Narrative description of suspicious patterns observed]
-
-### Risk Assessment: [Low / Medium / High]
-
-### Recommendation
-- [ ] No further action
-- [ ] Enhanced monitoring
-- [ ] SAR filing recommended
-- [ ] Account closure recommended
-
-### SAR Narrative Elements (if filing)
-[Who, what, when, where, why — structured for SAR filing]
-```
+1. **Define** review scope and applicable standards
+2. **Examine** subject matter against requirements systematically
+3. **Identify** findings with severity classification
+4. **Document** evidence supporting each finding
+5. **Recommend** corrective actions with priority and timeline
 
 ## Key Rules
 
-- SAR filing is mandatory within 30 days of detection for transactions >$5,000
-- Do NOT tip off the customer that a SAR has been or may be filed
-- Document the decision process even when deciding NOT to file
-- Structuring analysis: look at patterns, not just individual transactions
-- High-risk jurisdictions: reference current FATF list
-- Beneficial ownership: identify who ultimately controls the funds
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
 
-For AML red flag typologies, see [references/AML-RED-FLAGS.md](references/AML-RED-FLAGS.md).
+## Guidelines
+
+- This skill operates within the **Financial Compliance** domain
+- Relevant practice areas: Regulatory Compliance, Financial Regulation, Compliance
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

@@ -1,98 +1,47 @@
 ---
 name: assessing-credit-risk
-description: Evaluates borrower creditworthiness using quantitative and qualitative frameworks including financial analysis, industry assessment, and management evaluation. Use when underwriting loans, preparing credit committee presentations, or monitoring existing credit exposures.
+description: Evaluates borrower creditworthiness using financial analysis, industry assessment, and qualitative factors with structured credit opinions. Use when assessing credit risk, writing credit opinions, or evaluating borrower quality.
 tags:
   - assessment
+  - fixed-income
+  - risk
   - credit
-  - underwriting
 metadata:
   author: casemark
   practice_areas:
-    - Credit Analysis
-    - Commercial Lending
+    - Fixed Income
+    - Credit Research
+    - Bond Trading
   document_types:
-    - Credit Assessment
+    - Assessment Report
   skill_modes:
     - Assessment
 ---
 
 # Assessing Credit Risk
 
-Produces structured credit assessments for lending decisions.
+Evaluates borrower creditworthiness using financial analysis, industry assessment, and qualitative factors with structured credit opinions.
 
 ## Workflow
 
-1. **Profile** borrower — entity type, industry, size, history
-2. **Analyze** financials — ratios, trends, cash flow adequacy
-3. **Assess** industry risk — cyclicality, competitive dynamics, regulatory environment
-4. **Evaluate** management — track record, strategy, governance
-5. **Structure** assessment — risk rating with supporting factors
-6. **Recommend** — approve/decline with conditions
-
-## The Five C's Framework
-
-| C | Assessment Area | Key Questions |
-|---|----------------|--------------|
-| Character | Management quality, track record | Payment history, legal issues, reputation |
-| Capacity | Ability to repay | Cash flow analysis, debt service coverage |
-| Capital | Financial cushion | Net worth, equity contribution, reserves |
-| Collateral | Security for the loan | Asset quality, LTV, liquidation value |
-| Conditions | External factors | Industry trends, economic cycle, regulatory |
-
-## Output Template
-
-```markdown
-## Credit Assessment: [Borrower Name]
-
-### Borrower Profile
-| Field | Detail |
-|-------|--------|
-| Entity Type | |
-| Industry | [NAICS code and description] |
-| Years in Business | |
-| Annual Revenue | |
-| Requested Facility | [Type, amount, purpose] |
-
-### Financial Summary
-| Metric | Year -2 | Year -1 | Current | Trend |
-|--------|---------|---------|---------|-------|
-| Revenue | | | | |
-| EBITDA | | | | |
-| Net Income | | | | |
-| Debt/EBITDA | | | | |
-| DSCR | | | | |
-| Current Ratio | | | | |
-
-### Five C's Assessment
-| Factor | Rating | Key Observations |
-|--------|--------|-----------------|
-| Character | [1-5] | |
-| Capacity | [1-5] | |
-| Capital | [1-5] | |
-| Collateral | [1-5] | |
-| Conditions | [1-5] | |
-
-### Risk Rating: [1-10 scale with definition]
-
-### Strengths
-- [Key positive factor]
-
-### Weaknesses / Mitigants
-| Weakness | Mitigant |
-|----------|---------|
-
-### Recommendation
-[Approve / Approve with conditions / Decline]
-**Conditions**: [If applicable]
-```
+1. **Gather** input data and confirm scope of analysis
+2. **Apply** relevant frameworks, criteria, or scoring methodology
+3. **Identify** key findings, patterns, and outliers
+4. **Assess** significance and implications of findings
+5. **Document** analysis with supporting evidence and limitations
 
 ## Key Rules
 
-- DSCR (Debt Service Coverage Ratio) is the single most important ratio — must be >1.25x minimum
-- Cash flow analysis matters more than profitability for credit
-- Adjusted EBITDA: add back owner compensation, one-time items, but document adjustments
-- Global cash flow: include all entities under common ownership
-- Concentration risk: revenue, customer, supplier, geographic
-- Guarantor analysis: personal financial statements if guarantees are involved
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
 
-For credit scoring methodology, see [references/CREDIT-SCORING.md](references/CREDIT-SCORING.md).
+## Guidelines
+
+- This skill operates within the **Fixed Income** domain
+- Relevant practice areas: Fixed Income, Credit Research, Bond Trading
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

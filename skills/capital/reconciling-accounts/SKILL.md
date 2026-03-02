@@ -1,15 +1,15 @@
 ---
 name: reconciling-accounts
-description: Reconciles financial accounts across multiple data sources, identifying breaks, aging unresolved items, and producing exception reports with root cause analysis. Use when performing daily cash reconciliation, month-end account reconciliation, or investigating balance discrepancies.
+description: Compares multiple data sources to produce reconciliation reports with break identification and aging analysis. Use when reconciling accounts, identifying breaks, or performing bank reconciliations.
 tags:
-  - operations
-  - accounting
   - reconciliation
+  - accounting
 metadata:
   author: casemark
   practice_areas:
+    - Financial Reporting
+    - Audit
     - Accounting
-    - Operations
   document_types:
     - Reconciliation Report
   skill_modes:
@@ -18,67 +18,28 @@ metadata:
 
 # Reconciling Accounts
 
-Produces structured reconciliation reports from multiple data sources.
+Compares multiple data sources to produce reconciliation reports with break identification and aging analysis.
 
 ## Workflow
 
-1. **Import** data sources — GL, bank statements, custodian reports, sub-ledgers
-2. **Match** transactions — automated matching on key fields
-3. **Identify** breaks — unmatched items, amount differences, timing differences
-4. **Classify** breaks — timing (will self-clear) vs. real (needs investigation)
-5. **Age** outstanding items — track days unresolved
-6. **Investigate** root causes for recurring or large breaks
-
-## Output Template
-
-```markdown
-## Account Reconciliation: [Account Name] — [Date]
-
-### Summary
-| Metric | Value |
-|--------|-------|
-| Source A Balance | |
-| Source B Balance | |
-| Difference | |
-| Matched Items | [Count / Amount] |
-| Unmatched Items | [Count / Amount] |
-
-### Reconciliation
-| Category | Amount |
-|----------|--------|
-| Source A Balance | |
-| + Items in A not in B | |
-| - Items in B not in A | |
-| = Source B Balance | |
-
-### Unmatched Items
-| Date | Reference | Description | Source | Amount | Age (Days) | Category |
-|------|-----------|-------------|--------|--------|-----------|----------|
-
-### Aging Summary
-| Age Bucket | Count | Amount |
-|-----------|-------|--------|
-| 0-3 days | | |
-| 4-7 days | | |
-| 8-30 days | | |
-| 31-60 days | | |
-| 60+ days | | |
-
-### Root Cause Analysis (for items >30 days)
-| Item | Root Cause | Responsible Party | Resolution Plan |
-|------|-----------|-------------------|----------------|
-
-### Certification
-Prepared by: ___ | Reviewed by: ___ | Date: ___
-```
+1. **Collect** data sources to be reconciled
+2. **Standardize** formats and reference identifiers
+3. **Match** corresponding items across sources
+4. **Identify** discrepancies with categorization and aging
+5. **Resolve** or escalate breaks with documentation
 
 ## Key Rules
 
-- Timing differences (float, processing lag) are expected — classify them, don't investigate them
-- Stale items (>30 days) require escalation and root cause analysis
-- Three-way reconciliation for custody accounts (books vs. custodian vs. counterparty)
-- Dollar thresholds for investigation should be documented in policy
-- Reconciliation must be performed by someone independent of transaction processing
-- Month-end: all material reconciling items must be cleared or explained
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
 
-For matching algorithms and tolerance rules, see [references/RECONCILIATION-RULES.md](references/RECONCILIATION-RULES.md).
+## Guidelines
+
+- This skill operates within the **Accounting** domain
+- Relevant practice areas: Financial Reporting, Audit, Accounting
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

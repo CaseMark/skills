@@ -1,83 +1,47 @@
 ---
 name: scoring-esg-factors
-description: Evaluates companies against Environmental, Social, and Governance criteria using structured scoring frameworks with methodology transparency and materiality weighting. Use when assessing ESG risk, screening investments for sustainability criteria, or preparing ESG disclosure analysis.
+description: Structures ESG scoring methodology with environmental, social, and governance pillar assessment. Use when scoring ESG, evaluating sustainability, or building ESG frameworks.
 tags:
   - assessment
+  - sustainable-finance
   - esg
-  - sustainability
 metadata:
   author: casemark
   practice_areas:
-    - ESG Investing
-    - Compliance
+    - ESG
+    - Impact Investing
+    - Sustainable Finance
   document_types:
-    - ESG Assessment
+    - Score Card
   skill_modes:
     - Assessment
-    - Scoring
+    - Calculation
 ---
 
 # Scoring ESG Factors
 
-Produces structured ESG assessments with transparent methodology.
+Structures ESG scoring methodology with environmental, social, and governance pillar assessment.
 
 ## Workflow
 
-1. **Identify** material ESG factors for the industry (SASB materiality map)
-2. **Collect** data — company disclosures, third-party ratings, news
-3. **Score** each pillar — Environmental, Social, Governance
-4. **Weight** by materiality — industry-specific factor importance
-5. **Compare** to peers and sector benchmarks
-6. **Flag** controversies and momentum (improving/deteriorating)
-
-## Output Template
-
-```markdown
-## ESG Assessment: [Company]
-
-### Overall Score: [X/100]
-| Pillar | Score | Weight | Weighted Score | Peer Rank |
-|--------|-------|--------|---------------|-----------|
-| Environmental | | | | |
-| Social | | | | |
-| Governance | | | | |
-
-### Environmental
-| Factor | Score | Evidence | Materiality |
-|--------|-------|----------|-------------|
-| Carbon Emissions | | | [High/Med/Low] |
-| Energy Management | | | |
-| Water/Waste | | | |
-| Supply Chain | | | |
-
-### Social
-| Factor | Score | Evidence | Materiality |
-|--------|-------|----------|-------------|
-| Labor Practices | | | |
-| D&I | | | |
-| Community Impact | | | |
-| Data Privacy | | | |
-
-### Governance
-| Factor | Score | Evidence | Materiality |
-|--------|-------|----------|-------------|
-| Board Independence | | | |
-| Executive Comp | | | |
-| Audit/Accounting | | | |
-| Shareholder Rights | | | |
-
-### Controversies
-| Controversy | Severity | Date | Status |
-|------------|----------|------|--------|
-
-### ESG Momentum: [Improving / Stable / Deteriorating]
-```
+1. **Gather** input data and confirm scope of analysis
+2. **Apply** relevant frameworks, criteria, or scoring methodology
+3. **Identify** key findings, patterns, and outliers
+4. **Assess** significance and implications of findings
+5. **Document** analysis with supporting evidence and limitations
 
 ## Key Rules
 
-- Materiality varies by industry — carbon matters more for energy than software
-- Use SASB materiality map as the starting framework
-- Score based on disclosed data; note when scoring on absence of disclosure
-- Distinguish between policies (what they say) and performance (what they do)
-- Third-party rating disagreement is common — note it, don't hide it
-- Greenwashing check: compare marketing claims to actual metrics
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
+
+## Guidelines
+
+- This skill operates within the **Sustainable Finance** domain
+- Relevant practice areas: ESG, Impact Investing, Sustainable Finance
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

@@ -1,76 +1,47 @@
 ---
 name: tracking-regulatory-changes
-description: Monitors and analyzes regulatory changes and proposed rules across financial services with impact assessment, compliance timeline, and required action identification. Use when tracking new regulations, assessing rule change impact, or preparing regulatory change management plans.
+description: Monitors regulatory developments with impact assessment, gap analysis, and implementation timeline planning. Use when tracking regulatory changes, assessing compliance gaps, or planning implementation.
 tags:
-  - research
-  - regulatory
+  - monitoring
+  - financial-compliance
   - compliance
+  - regulatory
 metadata:
   author: casemark
   practice_areas:
     - Regulatory Compliance
-    - Government Affairs
+    - Financial Regulation
+    - Compliance
   document_types:
-    - Regulatory Change Analysis
+    - Tracking Report
   skill_modes:
-    - Research
-    - Analysis
+    - Monitoring
 ---
 
 # Tracking Regulatory Changes
 
-Structures regulatory change analysis and impact assessment.
+Monitors regulatory developments with impact assessment, gap analysis, and implementation timeline planning.
 
 ## Workflow
 
-1. **Identify** the change — new rule, amendment, guidance, enforcement action
-2. **Summarize** key provisions — what's changing
-3. **Assess** impact — who is affected, what processes change
-4. **Timeline** — comment periods, effective dates, compliance deadlines
-5. **Gap** analysis — what needs to change in current operations
-6. **Plan** implementation — actions, owners, resources needed
-
-## Output Template
-
-```markdown
-## Regulatory Change Analysis
-
-### Change Overview
-| Field | Detail |
-|-------|--------|
-| Regulator | |
-| Rule/Guidance | [Name, citation] |
-| Status | [Proposed / Final / Effective] |
-| Effective Date | |
-| Comment Deadline | [If proposed] |
-
-### Summary of Changes
-[Concise description of what is changing — old rule vs. new rule]
-
-### Impact Assessment
-| Business Area | Impact Level | Description |
-|--------------|-------------|-------------|
-
-### Compliance Timeline
-| Milestone | Date | Status |
-|-----------|------|--------|
-
-### Required Actions
-| # | Action | Owner | Deadline | Resources Needed |
-|---|--------|-------|---------|-----------------|
-
-### Cost/Benefit Analysis
-[Estimated cost of compliance, potential benefit or risk reduction]
-
-### Industry Response
-[How peers are responding, industry group positions]
-```
+1. **Identify** scope, stakeholders, and requirements
+2. **Assess** current state against standards or benchmarks
+3. **Execute** required actions with proper documentation
+4. **Monitor** progress against milestones and escalation criteria
+5. **Report** status, exceptions, and next steps
 
 ## Key Rules
 
-- Proposed rules can change significantly before finalization — track the evolution
-- Comment period deadlines are hard deadlines — don't miss them
-- Enforcement actions signal regulatory priorities even before new rules
-- State regulations can differ from and add to federal requirements
-- Implementation costs should include technology, training, and ongoing monitoring
-- Cross-border implications: US changes may affect global operations and vice versa
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
+
+## Guidelines
+
+- This skill operates within the **Financial Compliance** domain
+- Relevant practice areas: Regulatory Compliance, Financial Regulation, Compliance
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

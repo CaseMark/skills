@@ -1,82 +1,47 @@
 ---
 name: drafting-investment-memos
-description: Drafts structured investment memoranda with thesis, financial analysis, valuation, risks, and recommendation for investment committee review. Use when preparing buy/sell recommendations, documenting investment decisions, or creating research reports.
+description: Creates structured investment memoranda with business description, financial analysis, valuation, and risk assessment for deal review. Use when writing investment memos, preparing deal summaries, or documenting investment recommendations.
 tags:
   - drafting
+  - investment-banking
+  - risk
   - investment
-  - research
 metadata:
   author: casemark
   practice_areas:
-    - Investment Management
-    - Private Equity
+    - Investment Banking
+    - Mergers and Acquisitions
+    - Corporate Finance
   document_types:
-    - Investment Memo
+    - Draft Document
   skill_modes:
     - Drafting
 ---
 
 # Drafting Investment Memos
 
-Produces investment committee-ready memoranda.
+Creates structured investment memoranda with business description, financial analysis, valuation, and risk assessment for deal review.
 
 ## Workflow
 
-1. **Frame** the opportunity — what and why
-2. **Analyze** the business — competitive position, unit economics, moat
-3. **Present** financials — historical and projected
-4. **Value** — multiple approaches (DCF, comps, precedent transactions)
-5. **Assess** risks — with mitigants
-6. **Recommend** — action, position size, time horizon
-
-## Output Template
-
-```markdown
-## Investment Memorandum: [Company/Asset]
-
-### Recommendation: [Buy / Hold / Sell] — [Conviction Level]
-**Target Price**: [Price] | **Current Price**: [Price] | **Return**: [%]
-**Position Size**: [% of portfolio] | **Time Horizon**: [Period]
-
-### Executive Summary
-[2-3 paragraph thesis — why this, why now]
-
-### Business Overview
-- **Description**: [What the company does]
-- **Industry**: [Sector and competitive landscape]
-- **Competitive Advantages**: [Moat analysis]
-- **Management**: [Key people and track record]
-
-### Financial Analysis
-[Key historical and projected metrics — reference detailed projections]
-
-### Valuation
-| Methodology | Implied Value | Weight |
-|------------|--------------|--------|
-| DCF | | |
-| EV/EBITDA Comps | | |
-| Precedent Transactions | | |
-| **Blended** | **[Value]** | |
-
-### Risk Factors
-| Risk | Probability | Impact | Mitigant |
-|------|------------|--------|---------|
-
-### Key Assumptions & Monitoring
-| Assumption | Current Value | Trigger for Reassessment |
-|-----------|--------------|-------------------------|
-
-### Appendix
-[Detailed financial model, comp tables, DCF assumptions]
-```
+1. **Gather** required inputs and confirm deliverable requirements
+2. **Outline** structure using the appropriate template
+3. **Draft** content with domain-appropriate language and format
+4. **Review** against quality checklist and compliance requirements
+5. **Finalize** with proper formatting, citations, and required disclosures
 
 ## Key Rules
 
-- Lead with the recommendation — don't bury it
-- Thesis must answer: why is this mispriced? what's the catalyst?
-- Multiple valuation methods: never rely on just one
-- Risk section: don't just list risks — provide mitigants and probability
-- Position sizing should reflect conviction and risk
-- Include explicit criteria for when you'd change your mind
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
 
-For memo structure conventions, see [references/MEMO-FORMAT.md](references/MEMO-FORMAT.md).
+## Guidelines
+
+- This skill operates within the **Investment Banking** domain
+- Relevant practice areas: Investment Banking, Mergers and Acquisitions, Corporate Finance
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

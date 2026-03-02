@@ -1,70 +1,47 @@
 ---
 name: auditing-hipaa-compliance
-description: Evaluates systems, processes, or documentation against HIPAA technical and administrative safeguard requirements with gap identification and remediation recommendations. Use when assessing healthcare IT systems, reviewing data handling processes, or preparing for HIPAA audits.
+description: Conducts HIPAA compliance assessments with Privacy Rule, Security Rule, and Breach Notification analysis. Use when auditing HIPAA compliance, assessing privacy practices, or reviewing security controls.
 tags:
-  - compliance
-  - hipaa
   - audit
+  - healthcare-compliance
+  - compliance
 metadata:
   author: casemark
   practice_areas:
-    - Health IT
-    - Compliance
+    - Healthcare Compliance
+    - HIPAA
+    - Healthcare Regulation
   document_types:
-    - Compliance Audit
+    - Audit Report
   skill_modes:
-    - Checklist
-    - Assessment
+    - Audit
+    - Compliance
 ---
 
 # Auditing HIPAA Compliance
 
-Structured HIPAA compliance assessment against 45 CFR 164 requirements.
+Conducts HIPAA compliance assessments with Privacy Rule, Security Rule, and Breach Notification analysis.
 
 ## Workflow
 
-1. **Scope** — identify what is being audited (system, process, department)
-2. **Assess** Technical Safeguards (164.312) — access control, audit logs, integrity, auth, transmission
-3. **Assess** Administrative Safeguards (164.308) — risk analysis, workforce training, incident response
-4. **Assess** Physical Safeguards (164.310) — facility access, workstation security, device controls
-5. **Classify** findings — by severity and required vs. addressable
-6. **Recommend** remediation with priority
-
-## Output Template
-
-```markdown
-## HIPAA Compliance Audit
-
-### Scope
-[What was assessed, date, assessor]
-
-### Summary
-- **Compliant**: [X] / [Total] requirements
-- **Gaps Found**: [Count by severity]
-
-### Findings
-
-#### Critical (Immediate Action Required)
-| # | Requirement | CFR Reference | Finding | Remediation |
-|---|-----------|--------------|---------|-------------|
-
-#### High (Fix Before Next Audit)
-| # | Requirement | CFR Reference | Finding | Remediation |
-|---|-----------|--------------|---------|-------------|
-
-#### Medium / Low
-[Same format]
-
-### Remediation Priority
-1. [Highest priority action]
-2. [Next priority]
-```
+1. **Define** review scope and applicable standards
+2. **Examine** subject matter against requirements systematically
+3. **Identify** findings with severity classification
+4. **Document** evidence supporting each finding
+5. **Recommend** corrective actions with priority and timeline
 
 ## Key Rules
 
-- Reference specific CFR sections (e.g., "164.312(a)(1) — Access Control")
-- Distinguish Required vs. Addressable specifications
-- Addressable does not mean optional — it means "implement or document equivalent"
-- Audit logs must cover 6-year retention minimum
-- Risk assessment must be documented and current (updated annually minimum)
-- This is an assessment tool — not legal compliance certification
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
+
+## Guidelines
+
+- This skill operates within the **Healthcare Compliance** domain
+- Relevant practice areas: Healthcare Compliance, HIPAA, Healthcare Regulation
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high
