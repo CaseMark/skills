@@ -1,12 +1,14 @@
 # CaseMark Agent Skills
 
-Open-source agent skills for legal AI workflows and the [case.dev](https://case.dev) platform.
+Open-source agent skills for legal, medical, and capital markets AI workflows and the [case.dev](https://case.dev) platform.
 
-This repository contains two categories of skills:
+This repository contains four categories of skills:
 
 | Directory | Audience | Description |
 |-----------|----------|-------------|
-| `skills/legal/` | Legal professionals & legal AI builders | Skills for legal tasks (deposition summarization, motion drafting, etc.). Embedded into a vector DB on merge to power the [agentskills.legal](https://agentskills.legal) website and Legal Agent Skills API. |
+| `skills/legal/` | Legal professionals & legal AI builders | 874 skills for legal tasks (deposition summarization, motion drafting, etc.). Embedded into a vector DB on merge to power the [agentskills.legal](https://agentskills.legal) website and Legal Agent Skills API. |
+| `skills/med/` | Healthcare professionals & health AI builders | 400 skills across 20 medical subgroups (emergency medicine, cardiology, oncology, surgery, etc.). Structured agentic workflows for processing and synthesizing healthcare information. |
+| `skills/capital/` | Financial professionals & fintech builders | 400 skills across 20 capital subgroups (equity research, investment banking, risk management, etc.). Structured agentic workflows for processing and synthesizing financial information. |
 | `skills/casedev/` | case.dev developers | Skills for building on the case.dev platform (vaults, OCR, transcription, search). File-based, consumed directly by Claude Code or any agent. |
 
 ## Quick Start
@@ -46,7 +48,61 @@ Use the `/v1/skills` endpoint or the `container.skills` parameter in Messages AP
 
 ### Legal Skills
 
-See [skills/legal/](skills/legal/) for legal practice skills. These are also searchable via the [agentskills.legal](https://agentskills.legal) website and the Legal Agent Skills MCP.
+See [skills/legal/](skills/legal/) for 874 legal practice skills. These are also searchable via the [agentskills.legal](https://agentskills.legal) website and the Legal Agent Skills MCP.
+
+### Medical Skills (400 skills)
+
+See [skills/med/](skills/med/) for 400 healthcare and medical skills organized across 20 subgroups:
+
+| Subgroup | Skills | Examples |
+|----------|--------|----------|
+| Emergency Medicine | 20 | ED triage, trauma assessment, stroke pathways, sepsis bundles |
+| Hospital Medicine | 20 | Admission orders, discharge summaries, daily rounds, handoffs |
+| Primary Care | 20 | Wellness visits, chronic disease management, preventive screening |
+| Surgery | 20 | Operative reports, pre-op planning, post-op orders, wound care |
+| Radiology | 20 | Chest X-ray, CT/MRI interpretation, tumor response, RADS classification |
+| Pathology | 20 | Surgical pathology, cytology, molecular testing, flow cytometry |
+| Pharmacy | 20 | Drug interactions, anticoagulation, antimicrobial stewardship, PK dosing |
+| Oncology | 20 | Cancer staging, chemo toxicity, tumor boards, survivorship care |
+| Psychiatry | 20 | Psychiatric evaluation, suicide risk, psychotropics, capacity assessment |
+| Cardiology | 20 | ECG interpretation, echocardiography, heart failure, atrial fibrillation |
+| Obstetrics & Gynecology | 20 | Prenatal care, fetal monitoring, labor management, gynecologic screening |
+| Pediatrics | 20 | Newborn assessment, developmental milestones, immunizations, pediatric fever |
+| Medical Coding & Billing | 20 | ICD-10/CPT coding, E/M coding, DRG optimization, compliance audits |
+| Clinical Research | 20 | Trial design, IRB submissions, meta-analysis, regulatory submissions |
+| Nursing | 20 | Nursing assessments, care plans, medication administration, wound care |
+| Healthcare Compliance | 20 | HIPAA auditing, Stark Law, Anti-Kickback, EMTALA, accreditation |
+| Health Informatics | 20 | Clinical terminology mapping, EHR implementation, CDS design, NLP |
+| Public Health | 20 | Disease surveillance, outbreak investigation, vaccination campaigns |
+| Dental Medicine | 20 | Dental exams, treatment planning, periodontal assessment, oral surgery |
+| Rehabilitation Medicine | 20 | Functional assessment, gait analysis, neuro rehab, PT/OT/speech |
+
+### Capital Skills (400 skills)
+
+See [skills/capital/](skills/capital/) for 400 financial services skills organized across 20 subgroups:
+
+| Subgroup | Skills | Examples |
+|----------|--------|----------|
+| Equity Research | 20 | Earnings call analysis, financial ratios, valuation models, investment theses |
+| Fixed Income | 20 | Bond structures, credit analysis, yield curves, structured products |
+| Investment Banking | 20 | Pitch books, M&A analysis, LBO models, fairness opinions |
+| Private Equity | 20 | Deal evaluation, IC memos, portfolio monitoring, exit strategies |
+| Asset Management | 20 | Portfolio construction, performance attribution, factor analysis, rebalancing |
+| Risk Management | 20 | VaR calculation, stress testing, counterparty risk, operational risk |
+| Financial Compliance | 20 | AML screening, KYC review, trade surveillance, regulatory examinations |
+| Corporate Finance | 20 | Financial projections, capital structure, cash flow forecasting, hedging |
+| Accounting | 20 | Revenue recognition, month-end close, SOX compliance, SEC reporting |
+| Real Estate Finance | 20 | Property valuation, REIT analysis, loan underwriting, cap rate analysis |
+| Insurance | 20 | Underwriting analysis, loss reserves, catastrophe risk, reinsurance |
+| Quantitative Finance | 20 | Option pricing, volatility surfaces, derivatives risk, Monte Carlo |
+| Financial Technology | 20 | Payment flows, fintech evaluation, digital lending, blockchain analysis |
+| Tax | 20 | Corporate tax structures, transfer pricing, international tax, M&A tax |
+| Wealth Management | 20 | Financial planning, estate planning, retirement income, charitable giving |
+| Fund Operations | 20 | NAV calculation, fund accounting, investor reporting, trade operations |
+| FP&A | 20 | Annual operating plans, variance analysis, rolling forecasts, dashboards |
+| Commercial Banking | 20 | Loan underwriting, credit approval, trade finance, SBA lending |
+| Sustainable Finance | 20 | ESG scoring, carbon footprints, green bonds, climate scenarios |
+| Economic Analysis | 20 | Economic indicators, monetary policy, inflation dynamics, country risk |
 
 ## Prerequisites
 
@@ -83,11 +139,12 @@ Every skill is a directory with a `SKILL.md` file following the [Agent Skills sp
 PR opened → skill-qa.yml validates format + quality
                     ↓
             PR merged to main
-                /           \
-skills/legal/**          skills/casedev/**
-      ↓                        ↓
-legal-embed.yml          Nothing extra.
-(embed → pgvector)       Files are the product.
+           /        |         \
+skills/legal/**  skills/med/**   skills/casedev/**
+skills/capital/**
+      ↓                              ↓
+legal-embed.yml                Nothing extra.
+(embed → pgvector)             Files are the product.
       ↓
 Powers:
 - agentskills.legal website
@@ -99,6 +156,8 @@ Powers:
 
 - [case.dev](https://case.dev)
 - [agentskills.legal](https://agentskills.legal)
+- [agentskills.med](https://agentskills.med) (coming soon)
+- [agentskills.capital](https://agentskills.capital) (coming soon)
 - [Agent Skills Specification](https://agentskills.io/specification)
 - [Claude Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
 
