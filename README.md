@@ -1,6 +1,6 @@
 # CaseMark Agent Skills
 
-Open-source agent skills for legal, medical, and financial AI workflows and the [case.dev](https://case.dev) platform.
+Open-source agent skills for legal, medical, and capital markets AI workflows and the [case.dev](https://case.dev) platform.
 
 This repository contains four categories of skills:
 
@@ -8,7 +8,7 @@ This repository contains four categories of skills:
 |-----------|----------|-------------|
 | `skills/legal/` | Legal professionals & legal AI builders | 874 skills for legal tasks (deposition summarization, motion drafting, etc.). Embedded into a vector DB on merge to power the [agentskills.legal](https://agentskills.legal) website and Legal Agent Skills API. |
 | `skills/med/` | Healthcare professionals & health AI builders | 30 skills for medical workflows (clinical documentation, lab analysis, medication reconciliation, etc.). Structured agentic workflows for processing and synthesizing healthcare information. |
-| `skills/finance/` | Financial professionals & fintech builders | 30 skills for financial workflows (earnings analysis, credit assessment, AML compliance, etc.). Structured agentic workflows for processing and synthesizing financial information. |
+| `skills/capital/` | Financial professionals & fintech builders | 30 skills for financial workflows (earnings analysis, credit assessment, AML compliance, etc.). Structured agentic workflows for processing and synthesizing financial information. |
 | `skills/casedev/` | case.dev developers | Skills for building on the case.dev platform (vaults, OCR, transcription, search). File-based, consumed directly by Claude Code or any agent. |
 
 ## Quick Start
@@ -63,9 +63,9 @@ See [skills/med/](skills/med/) for healthcare and medical skills organized acros
 | Research & Discovery | 4 | PICO literature review, epidemiology, diagnostic accuracy, endpoint extraction |
 | Operational Workflows | 4 | Insurance claims, transitions of care, adverse events, medication reconciliation |
 
-### Finance Skills (30 skills)
+### Capital Skills (30 skills)
 
-See [skills/finance/](skills/finance/) for financial services skills organized across six categories:
+See [skills/capital/](skills/capital/) for financial services skills organized across six categories:
 
 | Category | Skills | Examples |
 |----------|--------|----------|
@@ -113,7 +113,7 @@ PR opened → skill-qa.yml validates format + quality
             PR merged to main
            /        |         \
 skills/legal/**  skills/med/**   skills/casedev/**
-skills/finance/**
+skills/capital/**
       ↓                              ↓
 legal-embed.yml                Nothing extra.
 (embed → pgvector)             Files are the product.
@@ -129,7 +129,7 @@ Powers:
 - [case.dev](https://case.dev)
 - [agentskills.legal](https://agentskills.legal)
 - [agentskills.med](https://agentskills.med) (coming soon)
-- [agentskills.finance](https://agentskills.finance) (coming soon)
+- [agentskills.capital](https://agentskills.capital) (coming soon)
 - [Agent Skills Specification](https://agentskills.io/specification)
 - [Claude Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
 

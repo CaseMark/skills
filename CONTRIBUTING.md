@@ -8,7 +8,7 @@ We welcome contributions to both legal and case.dev platform skills.
 |------|-----------|-----------------|----------------------|
 | Legal | `skills/legal/` | Legal professionals, law firms, legal AI builders | Embedded into vector DB, surfaced on agentskills.legal |
 | Medical | `skills/med/` | Healthcare professionals, health AI builders | Embedded into vector DB, surfaced on agentskills.med |
-| Finance | `skills/finance/` | Financial professionals, fintech builders | Embedded into vector DB, surfaced on agentskills.finance |
+| Capital | `skills/capital/` | Financial professionals, fintech builders | Embedded into vector DB, surfaced on agentskills.capital |
 | case.dev | `skills/casedev/` | case.dev developers, platform engineers | Nothing extra — files are the product |
 
 ## Creating a New Skill
@@ -19,7 +19,7 @@ We welcome contributions to both legal and case.dev platform skills.
     # or
     cp -r template/ skills/med/your-skill-name/
     # or
-    cp -r template/ skills/finance/your-skill-name/
+    cp -r template/ skills/capital/your-skill-name/
     # or
     cp -r template/ skills/casedev/your-skill-name/
    ```
@@ -58,7 +58,7 @@ Every PR touching `skills/**` triggers automated QA:
 
 ## Vertical Skills: Additional Metadata
 
-Legal, medical, and finance skills support extra metadata fields for the vector DB:
+Legal, medical, and capital skills support extra metadata fields for the vector DB:
 
 ```yaml
 metadata:
@@ -74,7 +74,7 @@ metadata:
     - Drafting
 ```
 
-These power filtering and discovery on [agentskills.legal](https://agentskills.legal), [agentskills.med](https://agentskills.med), and [agentskills.finance](https://agentskills.finance).
+These power filtering and discovery on [agentskills.legal](https://agentskills.legal), [agentskills.med](https://agentskills.med), and [agentskills.capital](https://agentskills.capital).
 
 ## Improving Existing Skills
 
