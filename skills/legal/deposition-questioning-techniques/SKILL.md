@@ -1,6 +1,6 @@
 ---
 name: deposition-questioning-techniques
-description: Master reference for deposition examination techniques covering the Funnel Method, Boxing-In, Looping, Three C's impeachment, evasive witness handling, and admission ladders. Generates specific question sequences tailored to examination goals. Use when preparing deposition outlines, developing question sequences for difficult topics, impeaching with prior inconsistent statements, or controlling evasive witnesses. Applies to plaintiff and defendant depositions across litigation matters.
+description: Generates deposition question sequences using six core examination techniques (Funnel, Boxing-In, Looping, Three C's impeachment, evasive witness handling, admission ladders). Use when preparing deposition outlines, building question sequences for specific topics, impeaching with prior inconsistent statements, or controlling evasive witnesses.
 tags:
   - analysis
   - checklist
@@ -10,17 +10,15 @@ tags:
 
 # Deposition Questioning Techniques
 
-Reference and question-sequence generator for deposition examination strategy across all six core techniques.
+Reference and question-sequence generator for six core deposition examination techniques.
 
 ## Prerequisites
 
-1. Identify the **examination goal** for each topic (discover, lock in, impeach, build admissions, control)
-2. Know what documents are available and any prior inconsistent statements
-3. Have a topic outline — this skill converts outlines into question sequences
+- Identify **examination goal** per topic (discover, lock in, impeach, build admissions, control)
+- Gather available documents and any prior inconsistent statements
+- Have a topic outline ready — this skill converts outlines into question sequences
 
----
-
-## Technique Selection by Goal
+## Technique Selection
 
 | Goal | Technique | Question Type |
 |------|-----------|---------------|
@@ -31,185 +29,95 @@ Reference and question-sequence generator for deposition examination strategy ac
 | Build inescapable admission | Admission Ladder | Short leading, one fact each |
 | Handle evasive witness | Redirect + Looping | Yes/No redirect, repeat |
 
----
-
 ## Technique 1: Funnel Method
 
-**Structure:** Open → Targeted (6Ws+H) → Closed lock-in
+**Open → Targeted (6Ws+H) → Closed lock-in**
 
-### Top — Open Questions
-Forms: *"Tell me about… / Describe… / Walk me through… / What happened…"*
+1. **Open** — "Tell me about… / Describe… / Walk me through…" then stop. Use silence. Do not interrupt.
+2. **Targeted** — Apply Who / What / When / Where / Why / Which / How to each thread from the narrative.
+3. **FWD Close** — Before leaving any topic:
+   - **F**: "Any **fact** about [topic] you haven't told me?"
+   - **W**: "Anyone with **knowledge** you haven't mentioned?"
+   - **D**: "Any **document** you haven't identified?"
+   - "Is that everything? Are you sure?"
 
-Ask, then **stop**. Use silence. Note follow-up areas. Do not interrupt.
+FWD close prevents witnesses from surfacing new information later and supports fabrication arguments for late-disclosed evidence.
 
-### Middle — Targeted Follow-Up
-After narrative, apply **6Ws+H** to each thread:
-
-| Probe | Purpose |
-|-------|---------|
-| Who | All people involved |
-| What | Exactly what occurred |
-| When | Specific dates/times |
-| Where | Location |
-| Why | Motivations, reasoning |
-| Which | Specific items/documents |
-| How | Process or mechanism |
-
-### Bottom — FWD Close
-Before leaving any topic:
-- **F** — "Is there any **fact** about [topic] you haven't told me?"
-- **W** — "Is there anyone with **knowledge** of [topic] you haven't mentioned?"
-- **D** — "Is there any **document** about [topic] you haven't identified?"
-- Then: "Is that everything? Are you sure?"
-
-> **Why it matters:** Prevents witnesses from "remembering" new information later; supports fabrication argument for late-disclosed evidence.
-
----
-
-## Technique 2: Boxing-In (Closing Escape Routes)
+## Technique 2: Boxing-In
 
 Eliminate alternative explanations *before* confronting with damaging evidence.
 
-**Sequence:**
-1. Get the commitment to current testimony
-2. Close escape routes (no confusion, no other information, no alternative explanation)
-3. Reveal the document or contradiction
+**Sequence: Commit → Close escapes → Confront**
 
-```
-Step 1 — Commit:
-Q: "The decision was based solely on qualifications, correct?"
-Q: "Not on age or any protected characteristic?"
-
-Step 2 — Close escapes:
-Q: "And that was your understanding at the time?"
-Q: "Nobody told you something different?"
-Q: "When you communicated about this decision, you communicated it was qualifications-based?"
-
-Step 3 — Confront:
-Q: "I'm showing you Exhibit 5, your email: 'We need to bring in some younger energy.'
-    Did I read that correctly?"
-```
-
-The witness has no escape: committed to one story, escape routes closed, contradiction revealed.
-
----
+Example:
+- Commit: "The decision was based solely on qualifications, correct?" / "Not on age or any protected characteristic?"
+- Close escapes: "That was your understanding at the time?" / "Nobody told you something different?" / "You communicated it was qualifications-based?"
+- Confront: "Showing you Exhibit 5, your email: 'We need to bring in some younger energy.' Did I read that correctly?"
 
 ## Technique 3: Looping
 
-Take a word or phrase from the witness's prior answer and embed it in your next question.
+Embed a word or phrase from the witness's prior answer into the next question.
 
-```
-Q: "What was discussed at the meeting?"
-A: "Various performance concerns."
+Example: A: "Various performance concerns." → Q: "These 'performance concerns' — who raised them first?" → A: "Janet." → Q: "When Janet raised these 'performance concerns,' what specifically did she say?"
 
-Q: "These 'performance concerns' — who raised them first?"
-A: "Janet."
+Uses witness's own words (harder to dispute), forces precision, prevents evasion. With documents, quote the document language and loop it forward.
 
-Q: "When Janet raised these 'performance concerns,' what specifically did she say?"
-```
-
-**Why it works:** Uses witness's own words (harder to dispute), forces precision, prevents evasion, builds a compounding record.
-
-**With documents:** Quote the document language and loop it forward:
-*"At the time you wrote that the project was 'hopelessly behind schedule,' who was responsible for keeping it on schedule?"*
-
----
-
-## Technique 4: Three C's — Impeachment
+## Technique 4: Three C's Impeachment
 
 ### Commit
-Lock the witness fully into current testimony:
-- "You testified X, correct?"
-- "You're certain about that?"
-- "You have a clear memory?"
+Lock witness into current testimony: "You testified X, correct?" / "You're certain?" / "Clear memory?"
 
 ### Credit
-Build reliability of the prior statement. For a prior deposition:
-- Under oath / understood duty to tell truth / counsel present / could ask for clarification / no reason to lie / memory was fresher then
-
-For a witness-authored document:
-- Witness wrote it / date relative to event / memory was fresh / trying to accurately describe events
+Build reliability of the prior statement:
+- **Prior deposition**: under oath, counsel present, could clarify, no reason to lie, memory fresher
+- **Witness-authored document**: witness wrote it, near event date, fresh memory, intended accuracy
 
 ### Confront
-**YOU read the prior statement. Do not let the witness read it.**
+**You read the prior statement aloud. Do not let the witness read it.**
 
-```
-Q: "Let me read from your deposition, page 47, lines 8-12.
-    Question: 'Who was at the meeting?' Answer: 'Myself, Sarah, Tom, and Bill Johnson.'
-    Did I read that correctly?"
-```
+"Let me read from your deposition, page 47, lines 8-12. Question: 'Who was at the meeting?' Answer: 'Myself, Sarah, Tom, and Bill Johnson.' Did I read that correctly?"
 
-**After confrontation — do NOT:**
-- Ask the witness to explain the inconsistency
-- Ask which version is true
-- Invite rehabilitation
+**After confrontation**: do not ask witness to explain the inconsistency, ask which version is true, or invite rehabilitation. Move on. Let the inconsistency stand for argument.
 
-Move on. Let the inconsistency stand for argument.
-
----
-
-## Technique 5: Handling Evasive Witnesses
+## Technique 5: Evasive Witnesses
 
 | Problem | Response |
 |---------|----------|
-| Non-responsive answer | "My question was [X]. Can you answer that specific question?" |
-| Narrative instead of answer | "Let me ask a question that calls for yes or no: [rephrase]." |
-| "I don't recall" | Distinguish "didn't happen" from "no memory" — "Do you *deny* that occurred?" |
-| Won't answer without documents | Establish no independent recollection, then show document to refresh |
+| Non-responsive | "My question was [X]. Can you answer that specific question?" |
+| Narrative instead of answer | "Let me ask a yes-or-no question: [rephrase]." |
+| "I don't recall" | "Do you *deny* that occurred?" → "So it may have happened — you just don't remember?" |
+| Won't answer without docs | Establish no independent recollection, then show document to refresh |
 | Argumentative / speeches | "Are you finished? Let me ask my question again: [repeat]." |
 
-**"I Don't Recall" sequence:**
-```
-Q: "Do you deny that this conversation took place?"
-A: "No."
-Q: "So it may have happened — you just don't remember?"
-A: "I suppose."
-Q: "Have you tried to remember this in preparing for today?"
-```
+Do not argue, show frustration, or repeat identical questions. Use the record: "The transcript will reflect your answer."
 
-**Do NOT:** argue, show frustration, repeatedly ask identical questions, let the witness bait you into confrontation. Use the record — "The transcript will reflect your answer."
-
----
-
-## Technique 6: Admission Ladder (Leading Questions)
+## Technique 6: Admission Ladder
 
 Stack undeniable facts until the conclusion is inescapable.
 
 **Rules:**
 - One fact per question — never compound
-- Keep questions short (harder to evade)
-- Use documents: "According to this email, [fact], correct?"
-- Use prior testimony: "Earlier you testified [fact], correct?"
+- Keep questions short
+- Anchor to documents ("According to this email, [fact], correct?") or prior testimony
 - Do NOT ask "why" — opens explanation; save for argument
-- Control pace; let each admission sink in
 
-**Structure:**
-```
-Undeniable Fact 1 → Undeniable Fact 2 → Undeniable Fact 3 → Conclusion
-```
+Example (establishing pre-termination knowledge of complaint): "Ms. Smith worked in your department?" → "You were her supervisor?" → "She filed a harassment complaint in January 2024?" → "HR notified you?" → "You read that email dated January 15?" → "Ms. Smith was terminated February 1?" → "So when you made that decision, you knew about her complaint?"
 
-Example ladder establishing pre-termination knowledge of harassment complaint:
-*"Ms. Smith worked in your department?" / "You were her supervisor?" / "She filed a harassment complaint in January 2024?" / "HR notified you?" / "You read that email dated January 15?" / "Ms. Smith was terminated February 1?" / "So when you made that decision, you knew about her complaint?"*
+## Generating Sequences
 
----
-
-## Generating Question Sequences
-
-To develop a sequence for a specific topic, provide:
+Provide these inputs to generate a question sequence:
 - **Topic** being examined
 - **Goal** (discover / lock in / impeach / build admission)
 - **Expected witness testimony**
 - **Available documents**
 - **Prior inconsistent statements** (source, date, substance)
 
-Output will include: question sequence with technique applied, document introduction points, anticipated answers and follow-ups, escape routes to close.
+Output includes: question sequence with technique applied, document introduction points, anticipated answers and follow-ups, escape routes to close.
 
----
-
-## Guidelines
+## Checks
 
 - FRE 607, 611, 613 govern impeachment and examination form [VERIFY jurisdiction-specific rules for state depositions]
-- Opposing counsel objections during depositions are generally limited to form — witness must still answer
+- Deposition objections generally limited to form — witness must still answer
 - "Asked and answered" is not a valid deposition objection in most federal courts [VERIFY local rules]
 - Preserve the record: state exhibits by number, read quoted language into the transcript
-- Cross-references: `deposition-preparation`, `deposition-objection-reference`, `deposition-30b6-corporate-rep`, `deposition-expert-witness`
+- Related skills: `deposition-preparation`, `deposition-objection-reference`, `deposition-30b6-corporate-rep`, `deposition-expert-witness`

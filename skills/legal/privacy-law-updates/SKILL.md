@@ -1,38 +1,35 @@
 ---
 name: privacy-law-updates
-description: Generates structured summaries of recent privacy and data protection law developments across US, EU, UK, and other jurisdictions. Organizes updates by jurisdiction with compliance deadlines, enforcement actions, legislative changes, and practical implications for digital platforms. Use when preparing privacy law briefings, compliance updates, regulatory change summaries, or data protection landscape reviews.
-tags:
-  - regulatory
-  - research
-  - summarization
-  - summary
+description: Generates structured privacy and data protection law briefings across US, EU, UK, and other jurisdictions. Organizes by jurisdiction with compliance deadlines, enforcement actions, and legislative changes. Use when preparing privacy law briefings, compliance updates, regulatory change summaries, or data protection landscape reviews.
 ---
 
-# Privacy Law Updates Summary
+# Privacy Law Updates
 
-Produces a structured briefing on recent privacy and data protection developments across key jurisdictions, oriented toward compliance planning and executive decision-making.
+Produces a structured briefing on recent privacy and data protection developments, oriented toward compliance planning and executive decision-making.
 
-## Prerequisites
+## Quick Start
 
-1. **Time window** — confirm reporting period (default: past 12–18 months)
-2. **Target jurisdictions** — confirm scope (default: US federal + state, EU/EEA, UK; add others as needed)
-3. **Industry context** — platform type, data categories collected, cross-border transfer patterns
-4. **Audience** — legal/compliance team, executive briefing, or both
+Confirm before generating:
 
-## Output Structure
+1. **Reporting period** — default: past 12–18 months
+2. **Jurisdictions** — default: US federal + state, EU/EEA, UK
+3. **Industry context** — platform type, data categories, cross-border transfers
+4. **Audience** — legal/compliance, executive, or both
 
-### 1. Executive Overview
+## Output Workflow
+
+### Step 1: Executive Overview
 
 | Element | Content |
 |---|---|
-| Critical deadlines | New compliance dates requiring immediate action |
-| Major enforcement | Significant fines/orders signaling regulatory priorities |
+| Critical deadlines | Compliance dates requiring immediate action |
+| Major enforcement | Fines/orders signaling regulatory priorities |
 | New obligations | Requirements not previously in effect |
-| Strategic flags | Developments affecting product roadmap or vendor relationships |
+| Strategic flags | Developments affecting product roadmap or vendors |
 
-### 2. Jurisdiction-by-Jurisdiction Developments
+### Step 2: Jurisdiction Developments
 
-For each jurisdiction, organize entries using this template:
+For each jurisdiction, use this entry template:
 
 ```
 ### [Jurisdiction]
@@ -48,35 +45,35 @@ For each jurisdiction, organize entries using this template:
 - **Exemptions/safe harbors**: [if any]
 ```
 
-### 3. Cross-Cutting Topics
+### Step 3: Cross-Cutting Topics
 
-Cover each of the following that had material developments:
+Cover only topics with material developments:
 
-| Topic | What to capture |
+| Topic | Capture |
 |---|---|
 | Cross-border transfers | New mechanisms, adequacy decisions, SCCs updates |
 | Consent & notice | Changed standards, dark-pattern enforcement |
 | Data subject rights | Access, deletion, portability changes |
-| Breach notification | New or amended timelines, reporting thresholds |
+| Breach notification | Amended timelines, reporting thresholds |
 | AI governance | Automated decision-making rules, transparency mandates |
 | Children's privacy | Age verification, parental consent, design codes |
 | Biometric data | New state/national laws, consent requirements |
 
-### 4. Forward-Looking Section
+### Step 4: Forward-Looking
 
-- Pending legislation and expected timelines
+- Pending legislation with expected timelines
 - Open regulatory consultations
-- Announced enforcement priorities by DPAs
+- Announced DPA enforcement priorities
 - Areas of legal uncertainty warranting monitoring
 
-## Guidelines
+## Checks and Pitfalls
 
-- **Organize by jurisdiction first**, then cross-reference in the cross-cutting section — avoid repeating the same development twice
-- **Cite primary sources** — statute sections, regulation articles, case names, DPA decision references
+- **Jurisdiction-first organization** — cross-reference in cross-cutting section; never repeat the same development twice
+- **Cite primary sources** — statute sections, regulation articles, case names, DPA decisions
 - **Mark unverified citations** with `[VERIFY]`
 - **Distinguish enacted law from proposals** — clearly label pending/proposed items
-- **Write for dual audiences** — precise enough for compliance implementation, clear enough for executive briefing
-- **Flag conflicting requirements** across jurisdictions where they create operational tension
-- **Include enforcement amounts** — fines and penalty figures contextualize regulatory seriousness
-- **Do not editorialize** on political likelihood of passage for pending legislation; state procedural status only
-- **Note sector-specific carve-outs** (HIPAA, GLBA, COPPA, ePrivacy) where they interact with general privacy frameworks
+- **Flag jurisdictional conflicts** where requirements create operational tension
+- **Include enforcement amounts** — fines contextualize regulatory seriousness
+- **No editorializing** on political likelihood; state procedural status only
+- **Note sector carve-outs** (HIPAA, GLBA, COPPA, ePrivacy) where they interact with general frameworks
+- **Dual-audience tone** — precise for compliance implementation, clear for executive briefing

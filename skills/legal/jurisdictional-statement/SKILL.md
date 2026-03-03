@@ -1,112 +1,101 @@
 ---
 name: jurisdictional-statement
-description: Drafts comprehensive jurisdictional statements for U.S. appellate courts establishing the court's authority to hear an appeal, demonstrating procedural compliance, and satisfying timeliness requirements. Covers 28 U.S.C. §§ 1291/1292, FRAP Rule 4, state appellate rules, finality analysis, interlocutory appeal exceptions, tolling provisions, and cross-appeals. Use when preparing initial appellate filings, jurisdictional briefs, or responding to jurisdictional challenges.
-tags:
-  - brief
-  - drafting
-  - litigation
+description: Drafts jurisdictional statements for U.S. appellate courts establishing authority to hear an appeal, procedural compliance, and timeliness. Covers 28 U.S.C. §§ 1291/1292, FRAP Rule 4, state appellate rules, finality analysis, interlocutory exceptions, tolling, and cross-appeals. Use when preparing appellate filings, jurisdictional briefs, or responding to jurisdictional challenges.
 ---
 
-# Appellate Jurisdictional Statement
+# Jurisdictional Statement
 
-Drafts a jurisdictional statement that establishes appellate authority and demonstrates full procedural compliance to prevent dismissal for want of jurisdiction.
+Drafts a jurisdictional statement establishing appellate authority and procedural compliance to prevent dismissal for want of jurisdiction.
 
 ## Prerequisites
 
-1. **Final judgment or appealable order** — the specific ruling being appealed, with docket entry
-2. **Notice of appeal** — filed copy with date stamp
-3. **Docket sheet** — full docket entries from trial and appellate courts
-4. **Post-trial motions** (if any) — FRCP 50/52/59 or state equivalents, with filing and disposition dates
-5. **Applicable court rules** — FRAP, local circuit rules, or state appellate rules
-6. **Party information** — all parties as designated below, with appellate designations
+Gather before drafting:
 
-## Output Structure
+- Final judgment or appealable order with docket entry number
+- Filed notice of appeal with date stamp
+- Full docket sheet (trial and appellate courts)
+- Post-trial motions (if any) — FRCP 50/52/59 or state equivalents, with filing and disposition dates
+- Applicable court rules — FRAP, local circuit rules, or state appellate rules
+- All parties with appellate designations
+
+## Quick Start
+
+1. Identify the jurisdictional basis (§ 1291 final decision, § 1292 interlocutory, collateral order, etc.)
+2. Build a timeliness timeline from judgment entry through notice of appeal
+3. Verify deadline arithmetic: entry date + period = due date; filing date ≤ due date
+4. Check for special issues (cross-appeals, multiple parties, standing)
+5. Format caption and citations per the specific court's rules
+
+## Drafting Workflow
 
 ### 1. Caption
 
-Format per the specific appellate court's rules. Must include:
-
-| Element | Requirement |
-|---------|-------------|
-| Court name | Full official name of appellate court |
-| Case title | All parties with appellate designations (appellant/appellee, petitioner/respondent) |
-| Case numbers | Both trial and appellate court numbers |
-| Document title | Per court rules (e.g., "Jurisdictional Statement" or "Statement of Jurisdiction") |
-| Formatting | Exact compliance with court's font, margin, spacing rules |
+Format per the appellate court's local rules. Include: full court name, all parties with appellate designations, both trial and appellate case numbers, and document title per court rules.
 
 ### 2. Basis for Jurisdiction
 
-State the statutory or constitutional grant of appellate jurisdiction:
+Identify the applicable grant of appellate jurisdiction:
 
-**Federal appeals — identify which applies:**
-
-| Basis | Statute | Scope |
-|-------|---------|-------|
-| Final decision | 28 U.S.C. § 1291 | Disposes of all claims as to all parties |
+| Basis | Authority | Scope |
+|-------|-----------|-------|
+| Final decision | 28 U.S.C. § 1291 | All claims, all parties disposed |
 | Interlocutory — injunctions | 28 U.S.C. § 1292(a)(1) | Granting/refusing/modifying injunctions |
 | Interlocutory — certified | 28 U.S.C. § 1292(b) | Controlling question of law, certified by district court |
-| Collateral order | *Cohen v. Beneficial Indus. Loan Corp.*, 337 U.S. 541 (1949) | Conclusive, resolves important question, effectively unreviewable |
+| Collateral order | *Cohen v. Beneficial Indus. Loan Corp.*, 337 U.S. 541 (1949) | Conclusive, important question, effectively unreviewable |
 | Partial final judgment | FRCP 54(b) | Express determination of no just reason for delay |
 | Mandamus | 28 U.S.C. § 1651 | All Writs Act, extraordinary circumstances |
 
-**State appeals:** Cite the specific state statute, constitutional provision, or court rule conferring jurisdiction.
+For state appeals, cite the specific state statute, constitutional provision, or court rule.
 
-- Explain why the order/judgment falls within the cited jurisdictional grant
-- If final judgment: address finality (all claims, all parties disposed)
-- If interlocutory: demonstrate the applicable exception with supporting authority
-- Cite controlling case law interpreting the jurisdictional provision
+Then explain why the order falls within the cited grant. For final judgments, address finality. For interlocutory appeals, demonstrate the applicable exception with authority.
 
-### 3. Timeliness of Appeal
+### 3. Timeliness
 
-Present a chronological timeline establishing compliance:
+Build a chronological timeline:
 
 ```
-[DATE] — Trial court enters judgment/order (Dkt. No. ___)
-[DATE] — Post-trial motion filed under FRCP ___  (if applicable)
+[DATE] — Judgment/order entered (Dkt. No. ___)
+[DATE] — Post-trial motion filed under FRCP ___ (if applicable)
 [DATE] — Post-trial motion decided (if applicable)
 [DATE] — Notice of appeal filed (Dkt. No. ___)
-[DATE] — Deadline for filing notice of appeal
+[DATE] — Filing deadline
 ```
 
 **Federal deadlines (FRAP Rule 4):**
 
 | Scenario | Deadline |
 |----------|----------|
-| Standard civil | 30 days from entry of judgment |
-| U.S. government party | 60 days from entry of judgment |
-| FRCP 50(b), 52(b), or 59 motion filed | 30/60 days from order disposing of last such motion |
-| Criminal | 14 days from entry of judgment |
-| Cross-appeal | 14 days after first notice of appeal or within original deadline, whichever is later |
+| Standard civil | 30 days from judgment entry |
+| U.S. government party | 60 days from judgment entry |
+| FRCP 50(b)/52(b)/59 motion pending | 30/60 days from disposition of last such motion |
+| Criminal | 14 days from judgment entry |
+| Cross-appeal | 14 days after first notice or within original deadline (whichever later) |
 
-**State deadlines:** Apply jurisdiction-specific rules — cite the exact rule and deadline.
+For state appeals, cite the exact rule and compute the deadline.
 
-- Show arithmetic: entry date + deadline period = due date; filing date ≤ due date
-- Address tolling from post-trial motions with specific rule citations
-- If premature notice filed: cite *FirsTier Mortgage Co. v. Investors Mortgage Ins. Co.*, 498 U.S. 269 (1991) [VERIFY] or FRAP 4(a)(2) (notice filed after announcement but before entry ripens upon entry)
+Address tolling from post-trial motions with rule citations. If notice was premature, cite FRAP 4(a)(2) (ripens upon entry) or *FirsTier Mortgage Co. v. Investors Mortgage Ins. Co.*, 498 U.S. 269 (1991) [VERIFY].
 
-### 4. Special Jurisdictional Issues
+### 4. Special Issues
 
 Address if applicable:
 
-- [ ] **Multiple parties** — notice identifies all appellants; all claims intended for appeal encompassed
-- [ ] **Cross-appeals** — separate jurisdictional basis and timeliness for each
-- [ ] **Amended notices** — relation back to original under FRAP 4(a)(4)(B)(ii) or state equivalent
-- [ ] **Jurisdictional defects** — identify, assess curability, cite authority for cure or waiver
-- [ ] **Standing/mootness** — confirm Article III requirements remain satisfied on appeal
-- [ ] **Sovereign immunity** — address if government entity is a party
+- **Multiple parties** — notice identifies all appellants and encompasses all claims on appeal
+- **Cross-appeals** — separate jurisdictional basis and timeliness for each
+- **Amended notices** — relation back under FRAP 4(a)(4)(B)(ii) or state equivalent
+- **Jurisdictional defects** — assess curability and cite cure/waiver authority
+- **Standing/mootness** — confirm Article III requirements remain satisfied
+- **Sovereign immunity** — address if government entity is a party
 
 ### 5. Record Citations
 
-Every factual assertion must cite to the appellate record using the court's required format:
-- Federal: typically `(R. at ___)` or `(App. ___)` per local rules
-- State: per jurisdiction-specific requirements
+Every factual assertion must cite to the appellate record per the court's format — federal: `(R. at ___)` or `(App. ___)`; state: per local requirements.
 
-## Guidelines
+## Pitfalls
 
-- **Verify every citation** — confirm statutes are current and cases are good law; mark uncertain citations with [VERIFY]
-- **Check local rules** — each circuit and state appellate court may impose additional requirements (e.g., separate jurisdictional statement vs. section within opening brief)
-- **Tone** — professional and persuasive; this document is both informational and advocacy
-- **Proactively address weaknesses** — if timeliness is arguable, confront and resolve it with authority rather than ignoring it
-- **Finality traps** — watch for unresolved counterclaims, pending attorney's fees motions, or unadjudicated parties that may defeat finality under § 1291
-- **Premature vs. late** — premature is often curable; late is almost never curable — verify timing with extreme care
-- **Format compliance** — even minor formatting deviations can result in clerk rejection; confirm all specifications before finalizing
+- **Finality traps** — unresolved counterclaims, pending fee motions, or unadjudicated parties defeat § 1291 finality
+- **Late vs. premature** — premature is often curable; late is almost never curable — verify timing with extreme care
+- **Local rules** — courts may require a separate jurisdictional statement or a section within the opening brief; check circuit/state-specific rules
+- **Citation verification** — confirm statutes are current and cases are good law; mark uncertain citations with [VERIFY]
+- **Format compliance** — minor formatting deviations can result in clerk rejection
+
+---

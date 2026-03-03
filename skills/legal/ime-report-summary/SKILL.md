@@ -1,6 +1,6 @@
 ---
 name: ime-report-summary
-description: Analyzes defense Independent Medical Examination (IME) reports by summarizing expert findings, comparing them against treating physician records, and identifying biases, contradictions, and cross-examination vulnerabilities. Produces a strategic critical analysis memorandum for trial preparation. Use when reviewing IME reports, preparing for defense expert depositions, or building rebuttal strategies in personal injury litigation.
+description: Critically analyzes defense IME reports by auditing record completeness, comparing findings against treating physician records, and surfacing bias indicators and cross-examination vulnerabilities. Triggers when reviewing an IME report, preparing for defense expert deposition, or building a rebuttal strategy in personal injury litigation.
 tags:
   - analysis
   - litigation
@@ -10,104 +10,100 @@ tags:
 
 # IME Report Critical Analysis
 
-Produces a strategic critical analysis of a defense IME report, identifying contradictions with treating physician records and vulnerabilities for cross-examination.
+Produce a plaintiff-side critical analysis memorandum of a defense IME report. The output is usable for cross-examination outlines, expert witness preparation, and admissibility motions.
 
 ## Prerequisites
 
 1. **IME report** — complete defense medical expert report
-2. **Treating physician records** — all notes, diagnoses, and treatment plans
-3. **Diagnostic imaging reports** — MRI, CT, X-ray results
+2. **Treating physician records** — notes, diagnoses, treatment plans
+3. **Diagnostic imaging** — MRI, CT, X-ray results
 4. **Therapy records** — PT, OT, pain management documentation
-5. **Prior medical examinations** — any pre-incident or subsequent exams
+5. **Prior medical exams** — pre-incident or subsequent examinations (if any)
 
-## Output Structure
+## Workflow
 
-### 1. IME Examination Overview
+### Step 1 — Examination Overview
+
+Populate this table from the IME report:
 
 | Field | Detail |
 |-------|--------|
 | Examiner | Name, credentials, specialty |
 | Referral source | Defense counsel / insurance carrier |
 | Date & location | When and where conducted |
-| Questions posed | Specific issues examiner asked to address |
+| Questions posed | Specific issues examiner addressed |
 | Scope limitations | Records not reviewed, tests not performed |
 
-### 2. Examinee Profile
+### Step 2 — Examinee Profile
 
-- Demographics and injury mechanism
-- Current symptoms and complaints
-- Complete treatment timeline
-- Legal context of the claim
+Summarize: demographics, injury mechanism, current symptoms, treatment timeline, legal context.
 
-### 3. Records Review Audit
+### Step 3 — Records Review Audit
 
-- List every document the IME examiner claims to have reviewed
-- Compare against the complete medical file
-- **Flag all omitted records** — missing records suggest incomplete analysis and provide grounds for challenge
+- List every document the IME examiner claims to have reviewed.
+- Compare against the complete medical file.
+- **Flag all omitted records** — missing records ground a challenge for incomplete analysis.
 
-### 4. History Discrepancy Analysis
+### Step 4 — History Discrepancy Analysis
 
 Compare the IME's recitation of patient history against treating records:
 
-| Issue | IME Report States | Treating Records Show | Significance |
-|-------|------------------|----------------------|--------------|
-| Symptom onset | ... | ... | ... |
-| Complaint severity | ... | ... | ... |
-| Functional limitations | ... | ... | ... |
-| Treatment response | ... | ... | ... |
+| Issue | IME States | Treating Records Show | Significance |
+|-------|-----------|----------------------|--------------|
+| Symptom onset | | | |
+| Complaint severity | | | |
+| Functional limitations | | | |
+| Treatment response | | | |
 
-Flag: symptoms minimized or absent from IME that appear in treating notes; physical exam findings that conflict with contemporaneous treating exams.
+Flag symptoms minimized or absent from the IME that appear in treating notes, and physical exam findings conflicting with contemporaneous treating exams.
 
-### 5. Comparative Medical Analysis
+### Step 5 — Comparative Medical Analysis
 
 Side-by-side comparison on each contested issue:
 
 | Issue | IME Opinion | Treating Physician Opinion | Supporting Authority |
 |-------|-------------|---------------------------|---------------------|
-| Causation | ... | ... | ... |
-| MMI status | ... | ... | ... |
-| Permanent impairment rating | ... | ... | ... |
-| Future care needs | ... | ... | ... |
-| Work restrictions / disability | ... | ... | ... |
+| Causation | | | |
+| MMI status | | | |
+| Permanent impairment rating | | | |
+| Future care needs | | | |
+| Work restrictions / disability | | | |
 
-Cite to: AMA Guides to the Evaluation of Permanent Impairment, specialty-specific clinical guidelines, peer-reviewed literature. Mark uncertain citations with [VERIFY].
+Cite AMA Guides, specialty clinical guidelines, and peer-reviewed literature. Mark uncertain citations with [VERIFY].
 
-### 6. Bias & Impeachment Indicators
+### Step 6 — Bias & Impeachment Indicators
 
-Check for and document each:
+Check each that applies:
 
 - [ ] Minimizes subjective complaints without objective basis
-- [ ] Selectively cites records supporting defense theory; ignores contrary evidence
+- [ ] Selectively cites records favoring defense; ignores contrary evidence
 - [ ] Uses outdated or non-standard diagnostic criteria
 - [ ] Offers causation opinions outside examiner's specialty
-- [ ] Conclusions appear predetermined / not supported by exam findings
-- [ ] Cursory examination (time spent vs. complexity of injuries)
-- [ ] Examiner's litigation history skews heavily defense-side
-- [ ] Substantial income derived from IME work vs. patient care
+- [ ] Conclusions not supported by exam findings
+- [ ] Cursory examination relative to injury complexity
+- [ ] Litigation history skews heavily defense-side
+- [ ] Substantial income from IME work vs. patient care
 - [ ] Financial relationship with referring party or insurer
-- [ ] Disciplinary history or published criticism of methodology
+- [ ] Disciplinary history or criticized methodology
 
-### 7. Strategic Recommendations
+### Step 7 — Strategic Recommendations
 
-**Top 3–5 vulnerabilities** for cross-examination, each with:
+**Top 3–5 cross-examination vulnerabilities**, each with:
 - The specific weakness
-- Documentary evidence or medical authority contradicting the examiner
+- Contradicting documentary evidence or medical authority
 - Suggested deposition/trial questions
 
-**Additional steps to consider:**
+**Next steps:**
 - Supplemental expert consultation needed
 - Additional medical evidence to obtain
 - Rebuttal report strategy
 
-**Case impact assessment:**
-- If IME undermines defense → note settlement leverage
-- If IME presents challenges → identify rehabilitation steps for client's medical case
+**Case impact:** Note settlement leverage if IME undermines defense, or rehabilitation steps if IME presents challenges.
 
-## Guidelines
+## Pitfalls & Checks
 
-- Extract and use **direct quotes** from both IME and treating records to demonstrate contradictions
-- Every factual assertion must cite a specific document and page/section in the record
-- Do not editorialize — let the discrepancies speak; frame analysis for attorney use
-- Note jurisdiction-specific rules on IME admissibility or Daubert/Frye challenges where relevant
-- The final memorandum must be usable for: expert witness preparation, cross-examination outlines, and motions challenging admissibility or weight of defense medical opinions
-- Plaintiff-side perspective; maintain professional tone suitable for work product
+- Use **direct quotes** from both IME and treating records to demonstrate contradictions.
+- Every factual assertion must cite a specific document and page/section.
+- Do not editorialize — let discrepancies speak; frame analysis for attorney use.
+- Note jurisdiction-specific IME admissibility rules and Daubert/Frye challenge opportunities.
+- Maintain professional tone suitable for attorney work product.

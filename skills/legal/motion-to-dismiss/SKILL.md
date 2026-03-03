@@ -1,6 +1,6 @@
 ---
 name: motion-to-dismiss
-description: Drafts a litigation-ready Motion to Dismiss for commercial cases under FRCP 12(b) or state equivalents. Structures caption, facts, legal standards (Twombly/Iqbal), element-by-element argument, and prayer for relief with jurisdiction-specific formatting. Use when drafting motions to dismiss, 12(b)(6) motions, jurisdictional challenges, venue motions, or pre-answer dispositive motions for defendants in the pleadings phase.
+description: Drafts FRCP 12(b) motions to dismiss for commercial litigation. Triggers on requests to draft motions to dismiss, 12(b)(6) motions, jurisdictional challenges, venue motions, or pre-answer dispositive motions during the pleadings phase.
 tags:
   - drafting
   - litigation
@@ -9,33 +9,31 @@ tags:
 
 # Motion to Dismiss
 
-Drafts a Rule 12(b) motion to dismiss that systematically attacks the legal sufficiency of a complaint or the court's authority, structured for court filing.
+Draft a Rule 12(b) motion attacking the legal sufficiency of a complaint or the court's authority, structured for filing.
 
 ## Prerequisites
 
-1. **The complaint** — full text with all counts/claims identified
-2. **Jurisdiction** — federal or state court, division, local rules, and any page/formatting limits
-3. **Case information** — court name, docket number, party names as captioned
-4. **Grounds for dismissal** — which 12(b) subsection(s) apply
-5. **Relevant contracts or public records** — if referenced in or central to the complaint
+Collect before drafting:
 
-## Output Structure
+1. **Complaint** — full text, all counts identified
+2. **Jurisdiction** — federal/state, division, local rules, page/formatting limits
+3. **Case info** — court name, docket number, party names as captioned
+4. **Grounds** — which 12(b) subsection(s) apply
+5. **Referenced documents** — contracts or public records central to the complaint
 
-### 1. Caption
+## Drafting Workflow
 
-Format per local rules. Must include:
+### Step 1: Caption
 
-| Element | Requirement |
-|---|---|
-| Court | Full name with division and location |
-| Parties | As they appear in the complaint |
-| Docket/Case No. | Assigned number |
-| Title | "Defendant's Motion to Dismiss Pursuant to Rule 12(b)(___)" |
+Format per local rules. Include court (full name, division, location), parties (as captioned), docket number, and title: "Defendant's Motion to Dismiss Pursuant to Rule 12(b)(__)."
 
-### 2. Introduction
+### Step 2: Introduction
 
-- Identify the moving party
-- State the specific 12(b) ground(s):
+- Identify the moving party and specific 12(b) ground(s)
+- State whether seeking dismissal of entire complaint or specific counts
+- Provide a one-paragraph argument roadmap
+
+**12(b) grounds reference:**
 
 | Rule | Ground |
 |---|---|
@@ -47,79 +45,54 @@ Format per local rules. Must include:
 | 12(b)(6) | Failure to state a claim |
 | 12(b)(7) | Failure to join a required party |
 
-- State whether seeking dismissal of the entire complaint or specific counts
-- Provide a one-paragraph roadmap of the argument
+### Step 3: Statement of Facts
 
-### 3. Statement of Facts
-
-- Recite facts from the complaint — neutral tone, strategic emphasis
-- For 12(b)(6): confine to the four corners of the complaint plus:
-  - Documents incorporated by reference
-  - Matters of public record
-  - Documents central to plaintiff's claim
+- Recite complaint facts — neutral tone, strategic emphasis
+- For 12(b)(6): confine to the four corners plus documents incorporated by reference, public records, and documents central to plaintiff's claim
 - Highlight gaps, conclusory allegations, and omissions
 - Organize chronologically or thematically to expose deficiencies
-- No argumentative characterization in this section
+- No argumentative characterization
 
-### 4. Legal Standard
+### Step 4: Legal Standard
 
-Tailor to the specific ground(s) asserted:
+Tailor to the ground(s) asserted:
 
-**12(b)(6) — Failure to State a Claim:**
-- Court accepts factual allegations as true, draws reasonable inferences for plaintiff
-- Court need not accept legal conclusions couched as factual allegations
-- *Bell Atlantic Corp. v. Twombly*, 550 U.S. 544 (2007) — plausibility standard
-- *Ashcroft v. Iqbal*, 556 U.S. 662 (2009) — two-step framework: (1) strip legal conclusions, (2) assess plausibility of remaining factual content
+- **12(b)(6):** Plausibility standard under *Twombly*, 550 U.S. 544 (2007) and *Iqbal*, 556 U.S. 662 (2009). Accept factual allegations as true; strip legal conclusions, then assess plausibility of remaining content.
+- **12(b)(1):** Distinguish facial vs. factual attack. Plaintiff bears the burden of establishing jurisdiction.
+- **12(b)(2):** Analyze under forum state long-arm statute + due process. Distinguish specific vs. general jurisdiction per *Daimler AG v. Bauman*, 571 U.S. 117 (2014).
 
-**12(b)(1) — Subject Matter Jurisdiction:**
-- Distinguish facial attack (allegations accepted as true) vs. factual attack (court may look beyond pleadings)
-- Plaintiff bears the burden of establishing jurisdiction
+### Step 5: Argument
 
-**12(b)(2) — Personal Jurisdiction:**
-- Analyze under forum state's long-arm statute + constitutional due process
-- Distinguish specific jurisdiction (claim-related contacts) vs. general jurisdiction (*Daimler AG v. Bauman*, 571 U.S. 117 (2014))
+Use Roman-numeral or lettered headings, one per ground or deficient element. For each:
 
-### 5. Argument
+- Quote the complaint's specific deficient allegations
+- Identify the legal element not plausibly pled
+- Cite controlling circuit/state authority with analogous dismissals
+- Distinguish anticipated contrary authority
+- For element-based claims: track each element systematically
 
-Structure with Roman-numeral or lettered headings, one per independent ground or deficient element.
+### Step 6: Conclusion & Prayer for Relief
 
-For each argument:
-- [ ] Quote the complaint's specific deficient allegations
-- [ ] Identify the legal element not plausibly pled
-- [ ] Cite controlling circuit/state authority with analogous dismissals
-- [ ] Distinguish anticipated contrary authority
-- [ ] For element-based claims: track each statutory/common-law element systematically
+Synthesize without repeating arguments. Specify relief:
 
-### 6. Conclusion & Prayer for Relief
-
-- Synthesize without repeating the full argument
-- Specify relief requested:
-
-| Relief Type | When Appropriate |
+| Relief | When appropriate |
 |---|---|
-| Dismissal with prejudice | Claim is fundamentally flawed; amendment would be futile |
-| Dismissal without prejudice | Curable pleading defects |
-| More definite statement (Rule 12(e)) | Complaint too vague to respond to (alternative relief) |
+| With prejudice | Amendment would be futile |
+| Without prejudice | Curable pleading defects |
+| More definite statement (12(e)) | Complaint too vague to respond to (alternative) |
 
-- Request costs and attorney's fees if authorized by statute or rule
-- Include "any other relief the Court deems just and proper"
+Include request for costs/fees if statute authorizes, plus "any other relief the Court deems just and proper."
 
-### 7. Signature Block & Certificate of Service
+### Step 7: Signature Block & Certificate of Service
 
-**Signature block:** Attorney name, bar number, firm, address, phone, email. Pro se: name, address, contact, "Pro Se" designation.
+- **Signature:** Attorney name, bar number, firm, address, phone, email. Pro se: name, address, "Pro Se."
+- **Certificate:** Service method (CM/ECF, email, mail), date, all parties served. Account for FRCP 6(d) (+3 days for mail).
 
-**Certificate of Service:**
-- Method (CM/ECF, email, mail, hand delivery)
-- Date of service
-- Names and addresses of all parties served
-- Account for FRCP 6(d) (+3 days for mail service) if applicable
+## Pitfalls & Checks
 
-## Guidelines
-
-- **Formatting:** Confirm local rules for font (typically Times New Roman 12pt), margins (1"), spacing (double), page limits, and page numbering
-- **Citations:** Bluebook format unless jurisdiction specifies otherwise; verify all case citations
-- **Table of contents/authorities:** Include if required by local rule or if motion exceeds 10 pages
-- **Tone:** Assertive, professional, respectful to opposing counsel and the court
-- **12(b)(6) constraint:** Do not rely on facts outside the complaint, incorporated documents, or public records
-- **Strategic note:** If multiple 12(b) grounds exist, lead with the strongest; jurisdictional arguments precede merits arguments
-- **E-filing:** Ensure PDF is text-searchable with bookmarks if required by court
+- **12(b)(6) constraint:** Never rely on facts outside complaint, incorporated documents, or public records
+- **Formatting:** Verify local rules for font, margins, spacing, page limits before finalizing
+- **Citations:** Bluebook format; verify every case citation is current
+- **Strategy:** Lead with strongest ground; jurisdictional arguments precede merits
+- **TOC/TOA:** Required by some local rules or when motion exceeds 10 pages
+- **E-filing:** Ensure text-searchable PDF with bookmarks if court requires

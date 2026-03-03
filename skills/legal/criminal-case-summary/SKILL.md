@@ -2,11 +2,9 @@
 name: criminal-case-summary
 description: >-
   Produces structured U.S. criminal case summaries covering charges, statutes,
-  evidence, procedural history, trial or plea, verdict, and sentencing. Use
-  when summarizing criminal defense or prosecution files, preparing case
-  overviews, drafting status memos, or compiling procedural histories. Trigger
-  keywords: criminal case summary, charges, statute, evidence summary,
-  procedural history, trial summary, plea summary, verdict, sentencing.
+  evidence, procedural history, disposition, and sentencing. Trigger when the
+  user requests a criminal case summary, charge overview, procedural history,
+  trial or plea summary, verdict recap, or sentencing breakdown.
 tags:
   - litigation
   - summarization
@@ -15,22 +13,27 @@ tags:
 
 # Criminal Case Summary
 
-Generate a neutral, verifiable summary of a criminal case from initiation through disposition.
+Neutral, verifiable summary of a criminal case from initiation through disposition.
 
-## Prerequisites
+## Required Inputs
 
 1. **Charging documents** — complaint, information, indictment, superseding filings
-2. **Docket or case timeline** — key dates, hearings, rulings
-3. **Motions and orders** — suppression, discovery, continuances, evidentiary rulings
+2. **Docket / timeline** — key dates, hearings, rulings
+3. **Motions and orders** — suppression, discovery, evidentiary rulings
 4. **Transcripts** — hearings, trial, plea, sentencing
 5. **Evidence inventory** — exhibits, reports, forensic results, witness lists
 6. **Disposition records** — verdict forms, plea agreement, judgment, sentencing order
 
-## Output Structure / Process
+## Quick Start
 
-Use the following structure and fill every section. If a section is not applicable, state “Not applicable” and explain why.
+1. Collect all available case materials from the list above.
+2. Walk through each section below in order; mark inapplicable sections "Not applicable" with a brief reason.
+3. Flag any unverified statute or procedural point with `[VERIFY]`.
+4. Review against the pitfalls checklist before delivering.
 
-### 1) Case Header
+## Output Sections
+
+### 1. Case Header
 
 | Field | Value |
 |---|---|
@@ -42,63 +45,44 @@ Use the following structure and fill every section. If a section is not applicab
 | Defense Counsel | |
 | Defendant Status | in custody / out / pretrial supervision |
 
-### 2) Charges
+### 2. Charges
 
-List all charges, including amended or dismissed counts.
+List all charges including amended or dismissed counts.
 
-| Count | Statute | Charge Name | Level | Enhancements / Special Allegations | Disposition |
+| Count | Statute | Charge | Level | Enhancements | Disposition |
 |---|---|---|---|---|---|
 | | | | felony / misdemeanor | | pending / dismissed / convicted / acquitted |
 
-Notes:
-- Include statute citations. If not fully verified, mark with `[VERIFY]`.
+- Include statute citations; mark unverified ones `[VERIFY]`.
 - Note charging changes with dates and authority (e.g., superseding indictment).
 
-### 3) Core Facts (Neutral)
+### 3. Core Facts (Neutral)
 
-Provide a concise, non-argumentative fact narrative.
-
-Checklist:
-- Key incident date(s)
-- Alleged conduct tied to each count
-- Victim and witness identifiers (use initials if privacy-sensitive)
+Concise, non-argumentative narrative covering:
+- Key incident date(s) and alleged conduct tied to each count
+- Victim/witness identifiers (initials if privacy-sensitive)
 - Arrest or charging basis
-- Any relevant context needed to understand the charges
+- Context needed to understand the charges
 
-### 4) Evidence Summary
+### 4. Evidence Summary
 
-Summarize both prosecution and defense evidence.
+Cover both prosecution and defense evidence.
 
-| Evidence Item | Source | Relevance to Count(s) | Admitted / Excluded | Ruling / Notes |
+| Item | Source | Relevant Count(s) | Admitted / Excluded | Ruling / Notes |
 |---|---|---|---|---|
-| | | | | |
 
-Checklist:
-- Physical evidence
-- Documentary evidence
-- Digital evidence
-- Witness testimony
-- Expert testimony
-- Forensic analysis
-- Demonstrative exhibits
-- Suppression issues and rulings
+Categories to address: physical, documentary, digital, witness testimony, expert testimony, forensic analysis, demonstrative exhibits, suppression issues.
 
-### 5) Procedural History
+### 5. Procedural History
 
 Chronological timeline of material events.
 
 | Date | Event | Outcome / Ruling | Citation |
 |---|---|---|---|
-| | | | |
 
-Include:
-- Arraignment
-- Pretrial motions and dispositions
-- Discovery disputes
-- Continuances or mistrials
-- Trial dates or plea hearings
+Include: arraignment, pretrial motions, discovery disputes, continuances, mistrials, trial or plea hearing dates.
 
-### 6) Trial Summary (If Tried)
+### 6. Trial Summary (if tried)
 
 | Phase | Key Points |
 |---|---|
@@ -107,57 +91,40 @@ Include:
 | Prosecution case | |
 | Defense case | |
 | Rebuttal | |
-| Closing arguments | |
+| Closings | |
 | Jury instructions | |
 | Deliberations | |
 
-Include significant objections and rulings only if outcome-relevant.
+Include objections/rulings only if outcome-relevant.
 
-### 7) Plea Summary (If Plea)
+### 7. Plea Summary (if plea)
 
-| Item | Details |
-|---|---|
-| Plea type | |
-| Counts pled | |
-| Dismissed counts | |
-| Factual basis | |
-| Sentencing terms | |
-| Waivers | |
+Cover: plea type, counts pled, dismissed counts, factual basis, sentencing terms, waivers.
 
-### 8) Verdict / Findings
+### 8. Verdict / Findings
 
 | Count | Verdict | Special Findings | Notes |
 |---|---|---|---|
-| | | | |
 
-### 9) Sentencing
+### 9. Sentencing
 
-| Count | Sentence | Concurrent / Consecutive | Credits | Fines / Restitution | Supervision Conditions |
+| Count | Sentence | Concurrent / Consecutive | Credits | Fines / Restitution | Supervision |
 |---|---|---|---|---|---|
-| | | | | | |
 
-Include:
-- Total custodial term
-- Probation or supervised release
-- Conditions (mandatory and special)
+Include total custodial term, probation/supervised release, and all conditions.
 
-### 10) Post-Trial / Post-Conviction
+### 10. Post-Trial / Post-Conviction
 
-Checklist:
-- Motions for new trial
-- Appeals filed and status
-- Post-conviction relief petitions
-- Sentence modifications
+Note any: motions for new trial, appeals filed and status, post-conviction relief petitions, sentence modifications.
 
-### 11) Open Issues / Unknowns
+### 11. Open Issues / Unknowns
 
-List missing documents or unresolved factual or procedural gaps.
+List missing documents or unresolved factual/procedural gaps.
 
-## Guidelines
+## Pitfalls
 
-- Maintain strict neutrality; no advocacy or opinion.
-- Tie evidence and facts to specific counts where possible.
-- Use citations to docket entries, transcripts, or exhibits when available.
-- Flag uncertain statutory citations or procedural points with `[VERIFY]`.
-- Respect jurisdictional variations in terminology (e.g., information vs indictment).
-- Do not infer facts not supported by the record.
+- **Neutrality** — no advocacy or opinion; do not infer facts beyond the record.
+- **Cite sources** — tie evidence and facts to specific counts; reference docket entries, transcripts, or exhibits.
+- **Jurisdiction terminology** — respect variations (information vs. indictment, etc.).
+- **`[VERIFY]` tag** — use on any uncertain statute citation or procedural point.
+- **Privacy** — use initials for victims/witnesses when appropriate.

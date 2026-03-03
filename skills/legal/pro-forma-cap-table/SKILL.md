@@ -1,6 +1,6 @@
 ---
 name: pro-forma-cap-table
-description: Drafts a pro forma capitalization table modeling a company's ownership structure before and after a financing event or corporate transaction. Calculates dilution effects, conversion mechanics, option pool impacts, and ownership percentages on as-converted and fully-diluted bases. Use when modeling seed rounds, Series A/B/C financings, convertible note conversions, SAFE conversions, option pool expansions, stock splits, or cap table restructurings in venture capital and private equity transactions.
+description: Drafts a pro forma capitalization table modeling ownership before and after a financing event or corporate transaction. Calculates dilution, conversion mechanics, option pool impacts, and ownership on as-converted and fully-diluted bases. Use when modeling seed rounds, Series A/B/C financings, convertible note or SAFE conversions, option pool expansions, stock splits, or cap table restructurings.
 tags:
   - analysis
   - corporate
@@ -37,7 +37,7 @@ Models a company's ownership structure before and after a contemplated transacti
 | Pre-money valuation | $ amount + derivation method |
 | New capital raised | $ amount |
 | Post-money valuation | $ amount |
-| Price per share | Show calculation: pre-money ÷ pre-money fully-diluted shares |
+| Price per share | Calculation: pre-money ÷ pre-money fully-diluted shares |
 | Liquidation preference | Multiple + participating/non-participating |
 | Anti-dilution | Weighted average / full ratchet / none |
 | Option pool timing | Pre-money or post-money inclusion |
@@ -46,29 +46,24 @@ Models a company's ownership structure before and after a contemplated transacti
 
 ### Section 2: Pre-Transaction Capitalization
 
-Table with columns:
-
 | Holder / Category | Class | Shares Held | As-Converted % | Fully-Diluted % |
 |---|---|---|---|---|
 
-Organization order:
+**Row order:**
 1. Preferred stock — reverse chronological by series
 2. Common stockholders — founders, employees, other
-3. Option pool breakdown:
-   - Outstanding grants (with exercise price range)
-   - Exercised (now common)
-   - Available for future grants
+3. Option pool: outstanding grants (exercise price range), exercised (now common), available for future grants
 4. Warrants / other derivatives (exercise price, expiration)
 
-Footnotes for each preferred series: liquidation preference amount, participation rights, accrued dividends.
+Footnote each preferred series with liquidation preference amount, participation rights, accrued dividends.
 
-**Calculation definitions:**
+**Definitions:**
 - **As-converted** = all preferred converts to common; excludes unissued pool shares
 - **Fully-diluted** = as-converted + all outstanding options/warrants + entire unissued pool
 
 ### Section 3: Transaction Adjustments
 
-Present each adjustment sequentially as it occurs:
+Present each adjustment sequentially.
 
 **New equity issuance:**
 
@@ -80,7 +75,7 @@ Present each adjustment sequentially as it occurs:
 | Holder | Principal | Accrued Interest | Total Converting | Conversion Price | Shares Issued |
 |---|---|---|---|---|---|
 
-Show conversion price derivation: min(cap-based price, discounted price).
+Conversion price = min(cap-based price, discounted price). Show derivation.
 
 **SAFE conversion:**
 
@@ -105,12 +100,12 @@ Note whether expansion is pre-money (dilutes existing holders) or post-money (di
 | Holder / Category | Class | Pre-Txn Shares | New / Converted | Post-Txn Shares | As-Converted % | Fully-Diluted % |
 |---|---|---|---|---|---|---|
 
-Organization: same order as Section 2, with new series listed first. Include subtotals per class and grand total.
+Same row order as Section 2; new series listed first. Include subtotals per class and grand total.
 
 **Verification checklist:**
 - [ ] All FD ownership percentages sum to 100.00%
 - [ ] All as-converted percentages sum to 100.00%
-- [ ] Post-txn share total = pre-txn total + new issuances + conversions + pool expansion − repurchases/cancellations
+- [ ] Post-txn shares = pre-txn + new issuances + conversions + pool expansion − repurchases
 - [ ] Price per share × new shares = total new investment
 
 ### Section 5: Exit Waterfall (if multi-series preferred)
@@ -127,7 +122,6 @@ Show how liquidation preference stacks and participation caps affect each class.
 
 ### Section 6: Notes & Disclaimers
 
-Include:
 - Methodology disclosure (option pool in/out of FD denominator)
 - Anti-dilution mechanics explanation (weighted average formula if applicable)
 - Contingencies: board/stockholder/regulatory approval required
@@ -135,11 +129,10 @@ Include:
 
 ## Guidelines
 
-- Display share counts as whole numbers; percentages to two decimal places
-- Bold subtotals and grand totals for visual clarity
-- Use consistent defined terms throughout ("Fully-Diluted Capitalization," "As-Converted Basis") — define on first use
-- Mark every page/section: "PRO FORMA — CONFIDENTIAL"
-- If any data is estimated or missing, flag with `[ESTIMATED]` or `[TBD]` and explain basis
-- For anti-dilution: weighted average is standard; full ratchet is rare — confirm which applies
-- Option pool convention: Silicon Valley standard is pre-money inclusion (investors' dilution is borne by existing holders); note if post-money convention is used instead
+- Share counts as whole numbers; percentages to two decimal places
+- Bold subtotals and grand totals; mark every section "PRO FORMA — CONFIDENTIAL"
+- Define terms on first use ("Fully-Diluted Capitalization," "As-Converted Basis") and use consistently
+- Flag missing or estimated data with `[ESTIMATED]` or `[TBD]` and explain basis
+- Anti-dilution: weighted average is standard; full ratchet is rare — confirm which applies
+- Option pool convention: Silicon Valley standard is pre-money inclusion (dilution borne by existing holders); note if post-money convention is used
 - Do not provide tax, securities compliance, or accounting treatment analysis

@@ -1,41 +1,37 @@
 ---
 name: notice-of-appeal
-description: Drafts a formal Notice of Appeal to initiate appellate review of a trial court judgment or order in US courts. Ensures precise identification of parties, courts, case numbers, and entry dates while complying with strict filing deadlines and formatting rules. Use when filing a notice of appeal, commencing appellate review, or preserving appellate jurisdiction after an adverse ruling.
-tags:
-  - drafting
-  - litigation
-  - pleading
+description: Drafts a Notice of Appeal to initiate appellate review of a trial court judgment or order in US federal and state courts. Use when filing a notice of appeal, commencing appellate review, or preserving appellate jurisdiction after an adverse ruling.
 ---
 
 # Notice of Appeal
 
-Drafts a jurisdictional Notice of Appeal that invokes appellate review and preserves the appellant's right to challenge a trial court ruling.
+Drafts a jurisdictional Notice of Appeal that invokes appellate review and preserves the appellant's right to challenge a trial court ruling. The notice contains no substantive arguments — it invokes jurisdiction only.
 
-## Prerequisites
+## Quick Start
 
-1. **Appealable judgment or order** — final judgment, partial judgment under FRCP 54(b), certified interlocutory order under 28 U.S.C. § 1292(b), or collateral order
-2. **Exact entry date** — date the judgment/order was entered on the docket (not signed or received)
-3. **Party information** — full legal names, trial court designations (plaintiff/defendant, petitioner/respondent), and appellate designations (appellant/appellee)
-4. **Case number(s)** — trial court case number; appellate case number if already assigned
-5. **Court identification** — trial court name and appellate court name
-6. **Filing deadline confirmed** — see deadline table below
-7. **Attorney information** — name, bar number, firm, address, phone, email
+Gather before drafting:
+
+1. **Appealable judgment/order** — final judgment, FRCP 54(b) partial judgment, 28 U.S.C. § 1292(b) interlocutory order, or collateral order
+2. **Exact docket entry date** — date entered on docket (not signed or received)
+3. **Party names** — full legal names with trial designations and appellate designations (appellant/appellee)
+4. **Case numbers** — trial court number; appellate number if assigned
+5. **Court names** — trial court and appellate court
+6. **Filing deadline** — confirmed per deadline table below
+7. **Attorney info** — name, bar number, firm, address, phone, email
 
 ## Filing Deadlines
 
 | Context | Deadline | Authority |
 |---|---|---|
-| Federal civil | 30 days from entry of judgment | FRAP 4(a)(1)(A) |
-| Federal civil (US party) | 60 days from entry of judgment | FRAP 4(a)(1)(B) |
-| Federal criminal | 14 days from entry of judgment | FRAP 4(b)(1)(A) |
-| Post-judgment motion pending (federal) | 30 days from disposition of motion | FRAP 4(a)(4)(A) |
-| State courts | Varies — confirm applicable rule | [VERIFY] jurisdiction-specific |
+| Federal civil | 30 days from entry | FRAP 4(a)(1)(A) |
+| Federal civil (US party) | 60 days from entry | FRAP 4(a)(1)(B) |
+| Federal criminal | 14 days from entry | FRAP 4(b)(1)(A) |
+| Post-judgment motion pending | 30 days from disposition | FRAP 4(a)(4)(A) |
+| State courts | Varies — confirm rule | [VERIFY] jurisdiction-specific |
 
-**Warning**: These deadlines are jurisdictional and non-waivable. Confirm the applicable deadline before drafting.
+**Warning**: Deadlines are jurisdictional and non-waivable. Confirm before drafting.
 
-## Output Structure
-
-### Document Template
+## Document Template
 
 ```
 [APPELLATE COURT NAME]
@@ -83,24 +79,23 @@ served on the following by [method of service]:
                         [Attorney Name]
 ```
 
-### Required Components Checklist
+## Completion Checklist
 
 - [ ] Dual caption (trial court + appellate court)
-- [ ] All party names with both trial and appellate designations
+- [ ] All party names with trial and appellate designations
 - [ ] Trial court case number (and appellate number if assigned)
-- [ ] Clear identification of the specific judgment/order appealed
-- [ ] Exact entry date for each order appealed
-- [ ] Signature block with bar number and full contact information
+- [ ] Specific identification of judgment/order appealed
+- [ ] Exact docket entry date for each order appealed
+- [ ] Signature block with bar number and full contact info
 - [ ] Certificate of service with date, method, and recipients
-- [ ] Any jurisdiction-required attachments (cover sheet, docketing statement)
+- [ ] Jurisdiction-required attachments (cover sheet, docketing statement)
 
-## Guidelines
+## Common Pitfalls
 
-- **No substantive arguments** — the notice invokes jurisdiction only; do not include reasons for appeal or assignments of error
-- **Entry date, not signing date** — always use the docket entry date
-- **Partial/interlocutory appeals** — describe the order with enough specificity to distinguish it from other rulings in the case
-- **Service** — serve all parties and the trial court clerk where required by local rule
-- **Format** — comply with local rules on margins, font, spacing; document is typically 1-2 pages
-- **E-filing** — confirm whether the jurisdiction requires electronic filing and any associated cover sheets
-- **Pro se appellants** — include the appellant's own address and contact information in the signature block
-- **Multiple appellants** — each appellant should be named; a single notice may cover all if permitted by local rule
+- **Wrong date** — use docket entry date, never the signing or receipt date
+- **Substantive arguments** — never include reasons for appeal or assignments of error
+- **Interlocutory appeals** — describe the order specifically enough to distinguish from other rulings
+- **Service gaps** — serve all parties and trial court clerk per local rule
+- **Format noncompliance** — check local rules for margins, font, spacing, e-filing requirements, and cover sheets
+- **Pro se appellants** — include appellant's own address and contact info in signature block
+- **Multiple appellants** — name each; a single notice may cover all if local rule permits

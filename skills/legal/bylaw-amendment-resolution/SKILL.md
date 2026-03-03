@@ -1,6 +1,6 @@
 ---
 name: bylaw-amendment-resolution
-description: Drafts a formal Bylaw Amendment Resolution authorizing and recording modifications to bylaws of U.S. corporations, LLCs, or non-profits. Produces WHEREAS/RESOLVED structure with exact amendment text, vote tallies, effective date, transitional provisions, and secretary certification suitable for minute books, bank submissions, state filings, or litigation. Use when a board, shareholders, or members approve bylaw changes, adopt governance reforms, or need a corporate record of bylaw amendments.
+description: Drafts a formal Bylaw Amendment Resolution for U.S. corporations, LLCs, or non-profits. Invoke when a board, shareholders, or members approve bylaw changes and need an auditable WHEREAS/RESOLVED record with amendment text, vote tallies, effective date, and secretary certification for minute books, bank submissions, or state filings.
 tags:
   - agreement
   - corporate
@@ -9,18 +9,30 @@ tags:
 
 # Bylaw Amendment Resolution
 
-Drafts a governance-compliant resolution authorizing and recording bylaw amendments for corporations, LLCs, or non-profits, creating an auditable record for minute books, financial institutions, state filings, and disputes.
+Produces a governance-compliant resolution recording bylaw amendments with exact text, voting record, and certification suitable for minute books, financial institutions, state filings, and litigation.
 
 ## Prerequisites
 
-1. **Entity information** — full legal name (as in formation documents), jurisdiction of incorporation/formation, entity type (corp/LLC/non-profit)
-2. **Current bylaws** — adoption date or last amendment date, article/section numbers of provision(s) being amended
-3. **Amendment text** — exact existing language and proposed replacement language
-4. **Approval authority** — who is acting (board, shareholders, or members); quorum and voting thresholds from bylaws or state statute
-5. **Meeting or consent details** — meeting date/location, or unanimous written consent with all required signatories
+Collect before drafting:
+
+1. **Entity info** — legal name (per formation docs), jurisdiction, entity type (corp/LLC/non-profit)
+2. **Current bylaws** — adoption or last-amendment date, article/section numbers being amended
+3. **Amendment text** — verbatim existing language and proposed replacement
+4. **Approval authority** — acting body (board/shareholders/members), quorum and vote thresholds per bylaws or statute
+5. **Meeting or consent details** — date, location, or unanimous written consent with all signatories
 6. **Effective date** — immediate, date-certain, contingent, or upon state filing
 
-## Output Structure
+## Quick Start
+
+1. Gather prerequisites above
+2. Draft header with entity name, acting body, resolution number, adoption date
+3. Build WHEREAS recitals establishing authority and rationale
+4. Draft RESOLVED clauses with verbatim amended text
+5. Record voting tally or consent confirmation
+6. Set effective date and any transitional provisions
+7. Add secretary certification block
+
+## Document Structure
 
 ### Header
 
@@ -31,20 +43,18 @@ TO AMEND THE BYLAWS OF [FULL LEGAL ENTITY NAME]
 Date of Adoption: [Date]
 ```
 
-### Recitals (WHEREAS Clauses)
+### WHEREAS Recitals
 
-| Recital | Content |
-|--------|---------|
-| 1 | Entity's bylaws originally adopted [date], last amended [date] |
-| 2 | Specific provision requiring amendment (Art. ___, § ___) and current text |
-| 3 | Business purpose/rationale for the amendment |
-| 4 | Statutory/documentary authority for amendment |
-| 5 | Governing body properly convened; adequate notice given; quorum present |
-| 6 (if applicable) | Special voting requirements (supermajority, class vote) and confirmation of compliance |
+1. Bylaws originally adopted [date], last amended [date]
+2. Provision requiring amendment (Art. ___, § ___) with current text
+3. Business purpose/rationale
+4. Statutory/documentary authority for amendment
+5. Governing body properly convened; notice given; quorum present
+6. *(if applicable)* Special voting requirements met (supermajority, class vote)
 
-Final recital closes with `"; and"` to transition to operative language.
+Close final recital with `"; and"` to transition to operative language.
 
-### Operative Resolutions
+### RESOLVED Clauses
 
 ```
 NOW, THEREFORE, BE IT RESOLVED, that Article ___, Section ___ of the
@@ -53,67 +63,60 @@ Bylaws of [Entity Name] is hereby amended to read in its entirety as follows:
 [ARTICLE/SECTION NUMBER AND TITLE]
 [Full text of amended provision]
 
-RESOLVED FURTHER, that all provisions of the Bylaws not expressly
-amended hereby remain in full force and effect.
+RESOLVED FURTHER, that all provisions not expressly amended hereby
+remain in full force and effect.
 
-RESOLVED FURTHER, that the officers of the Corporation are authorized
-to make technical, non-substantive corrections to formatting,
-cross-references, and section numbering as necessary for coherence.
+RESOLVED FURTHER, that officers are authorized to make technical,
+non-substantive corrections to formatting, cross-references, and
+section numbering as necessary.
 ```
 
-- Use `RESOLVED FIRST / RESOLVED SECOND ...` when adopting multiple distinct amendments simultaneously
-- Format amendment text showing: ~~deleted language~~ and **added language**, or bracket as `[DELETED]` / `[NEW]`
-- Add conforming-change resolutions for cross-references affected by the primary amendment
+- Multiple amendments: use `RESOLVED FIRST / RESOLVED SECOND ...`
+- Show changes: ~~deleted language~~ and **added language**, or `[DELETED]` / `[NEW]`
+- Add conforming-change resolutions for affected cross-references
 
 ### Voting Record
 
-| Item | Detail |
-|------|--------|
-| Action taken by | Board of Directors / Shareholders / Members |
+| Field | Value |
+|-------|-------|
+| Action taken by | Board / Shareholders / Members |
 | Meeting date & location | ___ |
-| Votes in favor | ___ |
-| Votes against | ___ |
-| Abstentions | ___ |
+| Votes in favor / against / abstentions | ___ / ___ / ___ |
 | Total eligible votes | ___ |
-| Required threshold met | Yes — [state threshold, e.g., majority / two-thirds] |
+| Required threshold met | Yes — [threshold] |
 
-If taken by **unanimous written consent**: state explicitly; confirm all required signatures obtained and on file.
+- **Written consent**: state explicitly; confirm all signatures on file
+- **Multi-stage** (e.g., board + shareholder): document each stage with separate date, tally, and threshold
 
-For multi-stage approvals (e.g., board + shareholder), document each stage separately with date, tally, and threshold confirmation.
+### Effective Date & Transition
 
-### Effective Date & Transitional Provisions
+- State operative date: immediate / specific date / triggering event / upon filing
+- Address pending matters under prior language or grandfathered arrangements
 
-- State operative date: immediate / [specific date] / upon [triggering event] / upon filing with [state authority]
-- Address any matters pending under prior language or grandfathered arrangements
-- Confirm all unamended provisions remain in full force
-
-### Certification Block
+### Secretary Certification
 
 ```
 CERTIFICATE OF SECRETARY
 
 The undersigned, [Name], [Title] of [Entity Name], a [State]
-[corporation/LLC/non-profit], hereby certifies that the foregoing
-resolution was duly adopted by the [Board of Directors/Shareholders/Members]
-on [Date] in accordance with applicable law and the entity's governing
-documents, and that this resolution remains in full force and effect
-as of the date of this certification.
+[corporation/LLC/non-profit], certifies that the foregoing resolution
+was duly adopted by the [Board/Shareholders/Members] on [Date] in
+accordance with applicable law and governing documents, and remains
+in full force and effect as of this date.
 
 _______________________________
-[Printed Name]
-[Title]
+[Printed Name], [Title]
 Date: _______________
-
 [CORPORATE SEAL, if required]
 ```
 
 Add countersignature line for president/chair if bylaws require it.
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Exact text**: Quote current and amended bylaw language verbatim; no paraphrasing
-- **State law**: Voting thresholds and amendment procedures vary by jurisdiction — flag any provision where state statute may override bylaw requirements [VERIFY applicable state corporate/LLC/non-profit statute]
-- **Non-profits**: Check whether members, board, or both must approve; some states require attorney general notice for charitable non-profit amendments
-- **Filing obligations**: Certain amendments (e.g., changing registered agent, principal office, or name-related provisions) may require concurrent amendment to articles of incorporation and state filing
-- **Bank/lender use**: Financial institutions often require a separate incumbency certificate alongside this resolution — note if needed
-- **Minute book**: Final document should stand alone without need for external reference; suitable for permanent corporate records
+- **Verbatim text** — quote current and amended language exactly; never paraphrase
+- **State law variance** — voting thresholds and procedures vary by jurisdiction; flag where statute may override bylaws `[VERIFY applicable statute]`
+- **Non-profits** — confirm whether members, board, or both must approve; some states require AG notice for charitable entities
+- **Filing triggers** — amendments to registered agent, principal office, or name may require concurrent articles amendment and state filing
+- **Bank/lender use** — financial institutions may require a separate incumbency certificate alongside this resolution
+- **Standalone record** — final document must be self-contained for permanent minute-book filing

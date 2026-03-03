@@ -1,25 +1,23 @@
 ---
 name: legal-letter
-description: Drafts professional legal letters for personal injury litigation including settlement demands, cease-and-desist, notice letters, and response correspondence. Formats headers, reference lines, and signature blocks. Tailors tone for opposing counsel or insurance companies. Includes preservation language, damage calculations, and deadline enforcement. Use when drafting demand letters, pre-suit correspondence, insurance claim letters, cease-and-desist notices, or litigation response letters.
-tags:
-  - drafting
-  - letter
-  - litigation
+description: Drafts professional legal letters for personal injury litigation including settlement demands, cease-and-desist, notice letters, and response correspondence. Tailors tone by recipient type. Use when drafting demand letters, pre-suit correspondence, insurance claim letters, cease-and-desist notices, or litigation response letters.
 ---
 
-# Legal Letter — Personal Injury Litigation
+# Legal Letter Drafting
 
-Drafts professional litigation correspondence that advances settlement positioning, preserves rights, and builds a clean evidentiary record.
+Drafts litigation correspondence that advances settlement positioning, preserves rights, and builds a clean evidentiary record for personal injury cases.
 
-## Prerequisites
+## Quick Start
 
-1. **Case identifiers** — case name (Plaintiff v. Defendant), docket number, internal matter number, insurance claim number
-2. **Recipient details** — name, title, firm/organization, email, delivery method
-3. **Strategic context** — purpose of letter, desired outcome, relevant deadlines
-4. **Supporting materials** — prior correspondence, medical records, contracts, incident reports
-5. **Damage documentation** — medical bills, lost wages, future costs (for demand letters)
+Gather before drafting:
 
-## Header Format
+- **Case identifiers** — case name, docket number, matter number, claim number
+- **Recipient** — name, title, firm/organization, delivery method
+- **Strategy** — purpose, desired outcome, deadlines
+- **Supporting docs** — prior correspondence, medical records, incident reports
+- **Damages** (demand letters) — medical bills, lost wages, future costs
+
+## Header Template
 
 ```
 [DATE]
@@ -41,29 +39,36 @@ Re: [Case Name]
 Dear [RECIPIENT NAME],
 ```
 
-## Audience & Tone
+## Body Structure
+
+Draft in this order:
+
+1. **Opening** — Identify client, state purpose, reference prior correspondence or deadlines
+2. **Factual foundation** — Chronological key facts with dates, amounts, parties; cite supporting docs
+3. **Legal basis** — Cite statutes, regulations, case law; connect to client's position
+4. **Damages** (if applicable) — Itemized monetary damages with calculations, non-economic damages, ongoing costs
+5. **Demand & deadline** — Specific demand or action requested, response deadline with consequences, payment instructions
+6. **Closing** — Invite communication, list enclosures, provide contact info
+
+When litigation is anticipated, include preservation language:
+
+> Please preserve all documents, electronically stored information, and physical evidence related to this matter as litigation may be reasonably anticipated.
+
+## Tone by Recipient
 
 | Recipient | Tone | Strategy |
 |-----------|------|----------|
 | Opposing counsel | Professional, firm, respectful | Position client favorably; negotiate or preserve rights |
 | Insurance company | Business-like, documentation-focused | Present clear liability and damages for coverage decision |
 
-## Letter Body Structure
+## Letter-Type Variations
 
-Draft the body in this order:
-
-1. **Opening** — Identify client, state purpose, reference prior correspondence or deadlines
-2. **Factual foundation** — Chronological key facts with dates, amounts, parties; reference supporting docs
-3. **Legal basis** — Cite statutes, regulations, case law; connect law to client's situation
-4. **Damages** (if applicable) — Itemized monetary damages with calculations, non-economic damages, ongoing costs
-5. **Demand & deadline** — Specific demand amount or action, response deadline with consequences, payment instructions
-6. **Closing** — Invite communication, list attachments, provide contact info
-
-## Preservation Language
-
-Include in every letter where litigation is anticipated:
-
-> Please preserve all documents, electronically stored information, and physical evidence related to this matter as litigation may be reasonably anticipated.
+| Type | Key Requirements |
+|------|-----------------|
+| **Settlement demand** | Lead with strongest liability facts; itemize damages; set firm deadline; leave negotiation room |
+| **Cease and desist** | Specify prohibited conduct; cite legal basis; state consequences; document prior violations |
+| **Statutory notice** | Meet statutory notice requirements exactly; use required delivery method; preserve proof of delivery |
+| **Response letter** | Address opposing points selectively; correct facts diplomatically; preserve position for future proceedings |
 
 ## Signature Block
 
@@ -77,24 +82,15 @@ cc: [Client name]
 Enclosures: [List attachments]
 ```
 
-## Letter-Type Variations
-
-| Type | Key Requirements |
-|------|-----------------|
-| **Settlement demand** | Lead with strongest liability facts; itemize damages; set firm deadline; leave negotiation room |
-| **Cease and desist** | Specify prohibited conduct; cite legal basis; state consequences; document prior violations |
-| **Statutory notice** | Meet notice requirements exactly; include all required information; use required delivery method; preserve proof of delivery |
-| **Response letter** | Address opposing points selectively (only what helps your position); correct facts diplomatically; preserve position for future proceedings |
-
-## Guidelines
+## Checks
 
 - Extract all available information from provided files before requesting user input; use placeholders for missing details
+- Verify all names, dates, case numbers, and amounts against the file
 - Base demands on documented losses; include interest and costs where appropriate
 - Set realistic deadlines — allow reasonable response time while creating urgency
 - Never disclose privileged or confidential information
-- Include all referenced attachments
-- Verify all names, dates, case numbers, and amounts against the file
-- Maintain firm but professional tone — avoid overtly aggressive language
-- Ensure client has reviewed and approved before sending (flag this in output)
-- For Illinois product liability: 735 ILCS 5/2-621 [VERIFY] governs strict liability for defective products
+- Include all referenced attachments in enclosures list
+- Maintain firm but professional tone — no overtly aggressive language
+- Flag in output that client must review and approve before sending
 - FRE 408 considerations apply to all settlement communications
+- For Illinois product liability: 735 ILCS 5/2-621 governs strict liability for defective products [VERIFY current statute]
