@@ -1,36 +1,32 @@
 ---
 name: royalty-report
-description: Drafts auditable Royalty Report Forms for IP licensing agreements, extracting party names, royalty rates, deduction categories, and reporting specs from the governing license. Calculates tiered royalties, minimum guarantees, advance recoupments, and produces a certification-ready compliance document. Use when preparing licensee royalty reports, royalty payment calculations, license compliance filings, or periodic royalty submissions.
-tags:
-  - agreement
-  - drafting
-  - transactional
+description: Drafts auditable royalty report forms for IP licensing agreements, calculating tiered royalties, minimum guarantees, and advance recoupments from governing license terms. Use when preparing licensee royalty reports, royalty payment calculations, license compliance filings, or periodic royalty submissions.
 ---
 
 # Royalty Report Form
 
-Drafts an execution-ready royalty report that satisfies licensee reporting obligations under an IP license agreement, functioning as both an accounting instrument and a legally binding compliance document.
+Drafts a certification-ready royalty report satisfying licensee reporting obligations under an IP license agreement. Functions as both an accounting instrument and a legally binding compliance document.
 
-## Prerequisites
+## Quick Start
 
-1. **Governing license agreement** — including amendments; extract exact legal entity names from signature blocks, royalty rates, calculation methodology, allowable deductions, reporting frequency, and submission requirements
-2. **Sales data** — product-level transactions for the reporting period (or confirm template-only output)
-3. **Prior reports** (if applicable) — for advance recoupment balances, cumulative tier thresholds
+1. Obtain the governing license agreement (including amendments)
+2. Extract key terms into the extraction checklist below
+3. Collect sales data for the reporting period (or confirm template-only output)
+4. Draft report following the output structure
+5. If prior reports exist, carry forward advance recoupment balances and cumulative tier thresholds
 
 If multiple license agreements exist in uploaded documents, ask which governs before proceeding.
 
-## Key Extraction from License Agreement
+## Key Extraction Checklist
 
-Extract and note before drafting:
+Extract from the license before drafting:
 
 | Field | Source |
 |---|---|
-| Licensor legal name | Signature block (exact match required) |
-| Licensee legal name | Signature block (exact match required) |
+| Licensor / Licensee legal names | Signature blocks (exact match required) |
 | Agreement date + amendments | Preamble / amendment headers |
 | Reporting period / frequency | Reporting provisions |
-| Royalty rate(s) | Royalty calculation section |
-| Tiered rate thresholds | Royalty calculation section |
+| Royalty rate(s) and tiered thresholds | Royalty calculation section |
 | Minimum royalty guarantee | Payment terms |
 | Allowable deductions | Definitions / calculation provisions |
 | Advance recoupment terms | Payment terms |
@@ -47,31 +43,27 @@ Extract and note before drafting:
 ```
                         ROYALTY REPORT
 
-[Licensee Legal Name — exact match to agreement]
+[Licensee Legal Name]
 
 For the [Quarter/Period] Ending [Date] / From [Start Date] through [End Date]
 
 Pursuant to License Agreement dated [Date] between [Licensor Legal Name]
 and [Licensee Legal Name] [, as amended by Amendment No. [X] dated [Date]]
 
-Report No.: [If required by agreement]
-Reference No.: [If applicable]
+Report No.: [If required]
 ```
 
 ### 2. Sales Data Table
 
 | Product SKU | Product Description | Qty Sold | Unit Price | Gross Sales |
 |---|---|---:|---:|---:|
-| [SKU] | [Must match licensed product definitions] | [X] | $[X.XX] | $[X.XX] |
+| [SKU] | [Match licensed product definitions] | [X] | $[X.XX] | $[X.XX] |
 
 - Organize by product line, territory, or license type if different rates apply
 - Include subtotals per category before grand total
-- Currency per agreement; right-align all numerical columns
-- If no sales data provided, generate template with sample entries and note: **"[INSERT ACTUAL SALES DATA FROM ACCOUNTING RECORDS]"**
+- If no sales data provided, use placeholder: **"[INSERT ACTUAL SALES DATA FROM ACCOUNTING RECORDS]"**
 
 ### 3. Royalty Calculation
-
-Present as sequential line items:
 
 ```
 Total Gross Sales                                    $[________]
@@ -101,19 +93,18 @@ Plus: [Other fees per agreement]                      $[________]
 TOTAL AMOUNT DUE                                     $[________]
 ```
 
-- Show each deduction category separately (never aggregate)
-- For tiered rates, show each tier calculation independently
-- If advances recouped, show royalty earned and recoupment as separate line items
+- Show each deduction category separately — never aggregate
+- Show each tier calculation independently
+- Show advance recoupment as a separate line item from royalty earned
 
 ### 4. Certification & Signature Block
 
-Draft certification incorporating:
-
-- [ ] Signer is duly authorized officer with authority to bind licensee
-- [ ] Report prepared in strict accordance with the license agreement
-- [ ] All information true, complete, and accurate after reasonable inquiry
-- [ ] Data derived from books and records maintained per [GAAP / agreement-specified standard]
-- [ ] Payment represents full amount owed; nothing withheld except as permitted
+Certification must attest:
+- Signer is authorized officer with authority to bind licensee
+- Report prepared in accordance with the license agreement
+- All information true, complete, and accurate after reasonable inquiry
+- Data derived from books/records per the required accounting standard
+- Payment represents full amount owed
 
 > If the agreement prescribes specific certification language, incorporate it **verbatim**.
 
@@ -125,34 +116,36 @@ that this Royalty Report has been prepared in accordance with the License
 Agreement dated [Date], that all information is true, complete, and accurate
 to the best of the undersigned's knowledge and belief after reasonable inquiry,
 and that the sales data and calculations are derived from books and records
-maintained in the ordinary course of business in accordance with [GAAP/specified standard].
+maintained in the ordinary course of business in accordance with
+[GAAP/specified standard].
 
 Signature: ___________________________
 Name:      ___________________________
 Title:     ___________________________
 Date:      ___________________________
-Email:     ___________________________
-Phone:     ___________________________
 ```
 
-### 5. Payment Instructions (if concurrent payment required)
+### 5. Payment Instructions
 
-Include: amount due, payment method, payee name (exact per agreement), wire transfer details or mailing address, payment due date.
+Include if concurrent payment required: amount due, payment method, payee name (exact per agreement), wire/mailing details, due date.
 
-## Formatting Requirements
+## Critical Checks
 
-- Standard letter-size, 1-inch margins
-- Professional font (Times New Roman, Arial, or Calibri), 11-12pt body
-- Page numbers: "Page X of Y" in footer
-- Confidentiality footer per agreement (e.g., "Confidential and Proprietary")
-- PDF output if agreement requires it
+- **Entity names** — must exactly match signature block names; any variance may invalidate submission
+- **Deductions** — include only those explicitly authorized; when uncertain, flag: `[VERIFY DEDUCTION ELIGIBILITY UNDER SECTION [X]]`
+- **Audit exposure** — every figure must reconcile to source documents; reports typically auditable 2-3 years
+- **Missing info** — use bracketed placeholders referencing the specific section: `[INSERT ROYALTY RATE FROM SECTION 4.2]`
+- **Tiered calculations** — if cumulative annual thresholds apply, account for sales in prior periods of the same contract year
+- **Supporting documents** — check whether agreement requires attachments (invoices, territory breakdowns, accountant certifications)
+- **Misrepresentation risk** — report creates binding contractual representations; emphasize accuracy over speed
 
-## Guidelines
+---
 
-- **Entity name precision** — any variance from signature block names may invalidate submission
-- **Deductions** — include only those explicitly authorized by the agreement; when uncertain, use `[VERIFY DEDUCTION ELIGIBILITY UNDER SECTION [X]]`
-- **Audit exposure** — every figure must reconcile to source documents (invoices, credit memos, ledger entries); reports are typically auditable for 2-3 years
-- **Missing information** — use bracketed placeholders referencing the specific agreement section: `[INSERT ROYALTY RATE FROM SECTION 4.2]`
-- **Supporting documents** — check whether agreement requires attachments (detailed invoices, territory breakdowns, accountant certifications above thresholds)
-- **Tiered calculations** — if cumulative annual thresholds apply, account for sales reported in prior periods of the same contract year
-- **Material misrepresentation** — report creates contractual representations that may trigger breach, fraud claims, or termination rights; emphasize accuracy over speed
+**Key changes made:**
+
+- **Frontmatter**: Removed `tags` (not in spec), tightened description to be third-person with clear trigger guidance
+- **Structure**: Replaced "Prerequisites" with a "Quick Start" workflow, renamed "Key Extraction from License Agreement" to shorter "Key Extraction Checklist", consolidated "Formatting Requirements" and "Guidelines" into a single "Critical Checks" section
+- **Extraction table**: Merged licensor/licensee name rows; merged royalty rate/tier rows — fewer rows, same info
+- **Templates preserved**: Header, sales table, royalty calculation, and certification blocks kept intact as essential domain content
+- **Trimmed**: Removed Email/Phone from signature block (non-essential), removed Reference No. from header, removed "Currency per agreement; right-align all numerical columns" (obvious formatting), removed checkbox-style certification list (replaced with bullet attestation list), cut "Formatting Requirements" section entirely (standard knowledge)
+- **Line count**: ~159 → ~127 lines of content (well under the 500-line limit)

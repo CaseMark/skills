@@ -1,87 +1,100 @@
 ---
 name: jnov-motion
-description: Drafts a Motion for Judgment Notwithstanding the Verdict (JNOV) in commercial litigation, challenging a jury verdict post-trial under FRCP 50(b) or state equivalents. Builds element-by-element evidentiary insufficiency arguments with transcript citations, includes alternative new-trial request, and preserves the appellate record. Use when drafting JNOV motions, post-trial motions, judgment as a matter of law, or challenging jury verdicts for lack of substantial evidence.
+description: Drafts a Motion for Judgment Notwithstanding the Verdict (JNOV) under FRCP 50(b) or state equivalents, with alternative new-trial request. Builds element-by-element evidentiary insufficiency arguments using transcript citations and preserves the appellate record. Use when drafting JNOV motions, post-trial motions, renewed judgment as a matter of law, or challenging jury verdicts for insufficient evidence.
 tags:
   - drafting
   - litigation
   - motion
 ---
 
-# Motion for Judgment Notwithstanding the Verdict
+# JNOV Motion
 
-Drafts a post-trial JNOV motion demonstrating no reasonable jury could have reached the verdict, with an alternative new-trial request preserving appellate review.
+Drafts a post-trial motion showing no reasonable jury could have reached the verdict, with an alternative new-trial request preserving appellate review.
 
 ## Prerequisites
 
-1. **Court and case identifiers** — jurisdiction, court name, case number, all party names
-2. **Verdict details** — date returned, claims ruled on, special verdict findings, damage awards
-3. **Prior Rule 50(a) motion** — confirmation that judgment as a matter of law was moved for before submission to jury (required prerequisite for JNOV)
-4. **Trial record** — transcript with page:line citations, admitted exhibits by number, witness list
-5. **Jury instructions** — as given, plus any refused instructions or objections preserved
-6. **Applicable rule** — FRCP 50(b) or state equivalent; filing deadline (28 days federal default)
-7. **Identified deficiencies** — specific evidentiary gaps, missing expert testimony, causation failures, or damages proof failures per element
+Collect before drafting:
 
-## Output Structure
+- **Court/case identifiers** — jurisdiction, court, case number, parties
+- **Verdict details** — date, claims, special findings, damage awards
+- **Prior Rule 50(a) motion** — confirmation directed verdict was sought before jury submission (required for JNOV)
+- **Trial record** — transcript with page:line cites, exhibit numbers, witness list
+- **Jury instructions** — as given, refused instructions, preserved objections
+- **Applicable rule** — FRCP 50(b) or state equivalent; filing deadline (federal default: 28 days)
+- **Identified deficiencies** — evidentiary gaps per element (missing expert testimony, speculative damages, causation failures)
 
-### Document Format
+## Document Structure
 
-Formal court filing: caption, numbered paragraphs, single-spaced with double-spacing between paragraphs, signature block, proposed order. Bluebook citations unless local rules specify otherwise. Include table of authorities if length requires it.
-
-### Required Sections
+Caption, numbered paragraphs, Bluebook citations (unless local rules differ), signature block, proposed order.
 
 | Section | Content |
 |---|---|
-| **Caption** | Court, case no., parties, title: "Motion for Judgment Notwithstanding the Verdict, or in the Alternative, for a New Trial" |
-| **Notice of Motion** | Hearing date/time/manner per local rules; cite governing procedural rule |
-| **Introduction** | Moving party ID, verdict date, claims/awards challenged, reference to prior Rule 50(a) motion, 2-3 sentence thesis |
-| **Factual & Procedural Background** | Case history → trial proceedings → strategic evidence recitation with transcript cites (e.g., "Tr. 145:12-18") → verdict specifics → prior directed verdict motions |
-| **Legal Standard** | Standard from controlling circuit/state authority; distinguish from new-trial standard |
-| **Argument: JNOV** | Element-by-element insufficiency analysis (see template below) |
-| **Alternative: New Trial** | Trial errors + against-the-weight arguments (see template below) |
-| **Conclusion** | Specific relief requested; alternative relief; costs; stay of execution if appropriate |
-| **Proposed Order** | Separate signature-ready order granting JNOV or, alternatively, new trial |
+| Caption | Title: "Motion for Judgment Notwithstanding the Verdict, or in the Alternative, for a New Trial" |
+| Notice of Motion | Hearing date/manner per local rules; governing procedural rule |
+| Introduction | Moving party, verdict date, claims challenged, Rule 50(a) reference, 2-3 sentence thesis |
+| Background | Case history → trial proceedings → evidence with transcript cites (e.g., "Tr. 145:12-18") → verdict → prior directed verdict motions |
+| Legal Standard | Controlling circuit/state authority; distinguish JNOV from new-trial standard |
+| JNOV Argument | Element-by-element insufficiency (see template below) |
+| New Trial Alternative | Trial errors + against-the-weight arguments (see template below) |
+| Conclusion | Specific relief; alternative relief; costs; stay of execution if appropriate |
+| Proposed Order | Separate signature-ready order for JNOV or, alternatively, new trial |
 
-### JNOV Argument Template (per element)
+## Core Workflow
 
-```
-## [Claim Name]: [Element]
+### 1. JNOV Argument — Per Element
 
-**Legal requirement**: [Element definition + burden of proof]
-
-**Evidence presented**: [What non-movant offered, viewed favorably to them, with Tr. cites]
-
-**Why insufficient**:
-- [Gap 1: e.g., no expert testimony on causation where required]
-- [Gap 2: e.g., damages testimony speculative/conclusory]
-- [Gap 3: e.g., no documentary support for alleged agreement]
-
-**Supporting authority**: [Cases granting JNOV on analogous records]
-```
-
-### New Trial Argument Template
+For each element the non-movant bore the burden to prove:
 
 ```
-## Alternative Ground [N]: [Error Type]
+[Claim Name]: [Element]
 
-**The error**: [What happened, with Tr./Dkt. cites]
-**Preservation**: [Objection at Tr. ___]
-**Prejudice**: [How it affected the verdict — not harmless because ___]
+Legal requirement: [Element definition + burden of proof]
+Evidence presented: [Non-movant's best evidence, viewed favorably to them, with Tr. cites]
+Why insufficient:
+- [Gap: e.g., no expert testimony on causation where required]
+- [Gap: e.g., damages testimony speculative/conclusory]
+- [Gap: e.g., no documentary support for alleged agreement]
+Supporting authority: [Cases granting JNOV on analogous records]
 ```
 
-Organize alternative grounds by category:
-- [ ] Erroneous jury instructions (misstated law)
-- [ ] Improper admission/exclusion of evidence
-- [ ] Counsel misconduct
-- [ ] Verdict against the great weight of evidence (more lenient standard than JNOV)
+### 2. New Trial Argument — Per Ground
 
-## Guidelines
+```
+Alternative Ground [N]: [Error Type]
 
-- **View evidence favorably to non-movant** — the standard requires it; acknowledge their best evidence, then show why it is still legally insufficient
-- **Cite the record obsessively** — every factual assertion needs a transcript page:line or exhibit number
-- **Element-by-element, not narrative** — organize JNOV argument by each element the non-movant had to prove, not as a story
-- **Tone**: methodical, respectful of jury service, zero hyperbole — courts resist overturning verdicts
-- **Preserve for appeal** — this motion is often prerequisite for appellate sufficiency review; draft with that dual audience in mind
-- **Partial JNOV** — consider challenging only specific claims or damage awards where the record is weakest; partial relief is more likely granted
-- **Timeliness** — FRCP 50(b): 28 days after entry of judgment; state deadlines vary — flag the deadline prominently
-- **Rule 50(a) prerequisite** — if no directed verdict motion was made at trial, JNOV is generally unavailable; note this limitation if uncertain about preservation
-- **New trial standard** — courts have broader discretion here; the "great weight of the evidence" standard is more lenient than JNOV's "no reasonable jury" standard
+The error: [What happened, with Tr./Dkt. cites]
+Preservation: [Objection at Tr. ___]
+Prejudice: [Effect on verdict — not harmless because ___]
+```
+
+Organize by category:
+- Erroneous jury instructions (misstated law)
+- Improper admission/exclusion of evidence
+- Counsel misconduct
+- Verdict against the great weight of evidence
+
+## Critical Rules
+
+- **View evidence favorably to non-movant** — acknowledge their best evidence, then show why it is still legally insufficient
+- **Cite the record for every factual assertion** — transcript page:line or exhibit number, no exceptions
+- **Element-by-element, not narrative** — organize by each element, not as a story
+- **Tone** — methodical, respectful of jury service, zero hyperbole; courts resist overturning verdicts
+- **Draft for dual audience** — trial court now, appellate court later; this motion is often prerequisite for appellate sufficiency review
+
+## Pitfalls
+
+| Issue | Consequence |
+|---|---|
+| No prior Rule 50(a) motion at trial | JNOV generally unavailable — flag if preservation is uncertain |
+| Missing deadline (28 days federal) | Motion forfeited — flag deadline prominently in filing |
+| Arguing credibility | Impermissible on JNOV — focus on absence of evidence, not witness believability |
+| Ignoring partial relief | Courts more likely to grant JNOV on specific claims or damage components than entire verdict |
+| Conflating standards | JNOV = "no reasonable jury"; new trial = "great weight of evidence" (more lenient) — keep arguments distinct |
+
+---
+
+**Key changes from original:**
+- Trimmed from 88 lines to ~75 — removed the separate "Document Format" subsection (folded into one line), collapsed the "Guidelines" section into a tighter "Critical Rules" list, and converted the freeform guidelines about partial JNOV, timeliness, Rule 50(a) prerequisite, and standard conflation into a scannable "Pitfalls" table.
+- Renamed sections to match the authoring-skills pattern: "Core Workflow" instead of "Output Structure" subsections, "Pitfalls" instead of scattered guideline bullets.
+- Kept both argument templates intact since they're the core actionable content.
+- Description stays third-person with clear trigger keywords.

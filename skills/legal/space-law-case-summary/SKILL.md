@@ -1,101 +1,104 @@
 ---
 name: space-law-case-summary
-description: Generates structured summaries of space law cases involving satellite deployment, space debris, orbital conflicts, launch licensing, and international treaties. Synthesizes the Outer Space Treaty, Liability Convention, U.S. Commercial Space Launch Act, FCC spectrum rules, FAA launch licensing, and ITAR/EAR export controls into accessible case overviews. Use when summarizing space law disputes, regulatory matters, orbital slot conflicts, debris liability claims, or international space treaty issues.
-tags:
-  - regulatory
-  - summarization
-  - summary
+description: Generates structured summaries of space law cases involving satellite deployment, space debris, orbital conflicts, launch licensing, and international treaty disputes. Synthesizes the Outer Space Treaty, Liability Convention, U.S. Commercial Space Launch Act, FCC/FAA regulations, and ITAR/EAR export controls. Use when summarizing space law disputes, debris liability claims, orbital slot conflicts, or regulatory matters.
 ---
 
 # Space Law Case Summary
 
-Produces a structured summary of a space law matter for government agencies, aerospace companies, satellite operators, and counsel.
+Produces a structured summary of a space law matter for agencies, aerospace companies, satellite operators, and counsel.
 
 ## Prerequisites
 
-1. **Case or matter materials** — pleadings, agency decisions, treaty interpretations, or regulatory filings
-2. **Party identification** — states, agencies, commercial operators, launch providers, payload customers
-3. **Technical context** — orbital parameters, frequency bands, debris data, or launch specifications as available
+- Case materials — pleadings, agency decisions, treaty interpretations, or regulatory filings
+- Party identification — states, agencies, operators, launch providers, payload customers
+- Technical context — orbital parameters, frequency bands, debris data, or launch specs (as available)
 
-## Output Structure
+## Quick Start
 
-### 1. Executive Overview
+Structure every summary using these sections in order:
+
+1. **Executive Overview** — one-page table
+2. **Factual Background** — chronology and technical context
+3. **Legal Framework** — applicable treaties, statutes, and soft law
+4. **Legal Analysis** — IRAC for each disputed issue
+5. **Emerging Issues** — flag unsettled areas
+6. **Practical Implications** — operational impact and risk mitigation
+
+## Executive Overview
 
 | Field | Content |
 |-------|---------|
 | Matter | One-line description |
-| Parties | Names + roles (launching state, operator, claimant, etc.) |
+| Parties | Names + roles (launching state, operator, claimant) |
 | Core Legal Issue | Single sentence |
 | Outcome / Status | Resolved, pending, or unsettled |
 | Key Takeaway | Practical implication for space operators |
 
-### 2. Factual Background
+## Factual Background
 
-- Nature of space activity (launch, deployment, on-orbit ops, reentry)
+Cover:
+
+- Nature of activity (launch, deployment, on-orbit ops, reentry)
 - Orbital regime (LEO, MEO, GEO, cislunar, deep space)
-- Technical facts bearing on legal analysis (explain for non-engineers)
+- Technical facts bearing on legal analysis (plain language for non-engineers)
 - Chronology of relevant events
 
-### 3. Applicable Legal Framework
+## Legal Framework
 
-#### International Treaties
+### International Treaties
 
-| Treaty | Year | Relevant Provisions |
-|--------|------|-------------------|
-| Outer Space Treaty | 1967 | Art. I (freedom of exploration), Art. II (non-appropriation), Art. VI (state responsibility), Art. VII (liability), Art. IX (harmful interference/consultation) |
-| Rescue Agreement | 1968 | Astronaut return obligations |
-| Liability Convention | 1972 | Art. II (absolute liability — surface/aircraft), Art. III (fault-based — in outer space), Art. V (joint launches) |
-| Registration Convention | 1975 | Art. II (registry obligations), Art. VI (identification) |
-| Moon Agreement | 1979 | Art. 11 (common heritage — note limited ratification) |
+Identify which apply; note customary international law where treaty gaps exist.
 
-- Identify which provisions apply; note customary international law where treaty gaps exist
-- Flag state responsibility under OST Art. VI for private activities
+- **Outer Space Treaty (1967)** — Art. I (freedom of exploration), II (non-appropriation), VI (state responsibility), VII (liability), IX (harmful interference)
+- **Liability Convention (1972)** — Art. II (absolute liability on surface/aircraft), III (fault-based in space), V (joint launches)
+- **Registration Convention (1975)** — Art. II (registry obligations), VI (identification)
+- **Rescue Agreement (1968)** — astronaut return obligations
+- **Moon Agreement (1979)** — Art. 11 (common heritage; note limited ratification)
 
-#### National Legislation (U.S.)
+Flag state responsibility under OST Art. VI for private activities.
 
-| Authority | Scope |
-|-----------|-------|
-| Commercial Space Launch Act (51 U.S.C. ch. 509) | Launch/reentry licensing |
-| FCC regulations (47 CFR) | Spectrum allocation, orbital slots, interference |
-| FAA launch licensing (14 CFR pt. 400+) | Safety, financial responsibility |
-| ITAR (22 CFR pts. 120–130) | Defense article export controls |
-| EAR (15 CFR pts. 730–774) | Dual-use export controls |
+### National Legislation (U.S.)
 
-- For non-U.S. matters, identify corresponding national frameworks of relevant states
+- **Commercial Space Launch Act** (51 U.S.C. ch. 509) — launch/reentry licensing
+- **FCC regulations** (47 CFR) — spectrum allocation, orbital slots, interference
+- **FAA launch licensing** (14 CFR pt. 400+) — safety, financial responsibility
+- **ITAR** (22 CFR pts. 120–130) — defense article export controls
+- **EAR** (15 CFR pts. 730–774) — dual-use export controls
 
-#### Soft Law / Guidelines
+For non-U.S. matters, identify corresponding national frameworks.
+
+### Soft Law
 
 - UN COPUOS Space Debris Mitigation Guidelines
 - ITU Radio Regulations (orbital slot coordination)
-- Inter-Agency Space Debris Coordination Committee guidelines
-- Any relevant industry standards
+- IADC guidelines
+- Relevant industry standards
 
-### 4. Legal Analysis
+## Legal Analysis
 
-For each disputed issue:
+For each disputed issue, follow IRAC:
 
-- **Issue statement** — one sentence
-- **Applicable rule** — treaty article, statute, regulation with citation
+- **Issue** — one sentence
+- **Rule** — treaty article, statute, or regulation with citation
 - **Application** — how rule maps to facts
-- **Competing positions** — strengths/weaknesses of each party
-- **Assessment** — likely outcome or range of outcomes
+- **Competing positions** — strengths and weaknesses of each party
+- **Conclusion** — likely outcome or range of outcomes
 
-#### Liability Analysis Checklist
+### Liability Checklist
 
+```
 - [ ] Identify "launching state(s)" per Liability Convention Art. I
-- [ ] Classify damage location: surface/aircraft (absolute) vs. outer space (fault-based)
+- [ ] Classify damage: surface/aircraft (absolute) vs. outer space (fault-based)
 - [ ] Assess joint/several liability for multi-party launches (Art. V)
 - [ ] Review insurance requirements (national law + contractual)
-- [ ] Check indemnification/cross-waiver provisions in commercial agreements
+- [ ] Check indemnification/cross-waiver provisions
+```
 
-#### Jurisdiction & Procedure
+### Jurisdiction
 
-- Diplomatic claims channel vs. domestic court vs. arbitration
-- Forum selection / choice of law clauses
-- Sovereign immunity considerations
-- Applicable administrative bodies (FCC, FAA, ITU)
+Address: diplomatic claims vs. domestic court vs. arbitration, forum selection, sovereign immunity, and applicable administrative bodies (FCC, FAA, ITU).
 
-### 5. Emerging / Unsettled Issues
+## Emerging Issues
 
 Flag if the matter touches:
 
@@ -103,22 +106,22 @@ Flag if the matter touches:
 - Mega-constellation regulation and orbital sustainability
 - Space debris as environmental harm
 - Space tourism passenger rights
-- On-orbit servicing / active debris removal ownership
-- Present competing interpretations without picking a winner unless well-supported
+- On-orbit servicing and active debris removal ownership
 
-### 6. Practical Implications
+Present competing interpretations; do not pick a winner unless well-supported.
+
+## Practical Implications
 
 - Impact on future operations, licensing, or compliance
-- Regulatory developments or pending legislation to monitor
+- Pending regulatory developments to monitor
 - Risk mitigation recommendations
 
-## Guidelines
+## Pitfalls and Guardrails
 
-- Cite specific treaty articles, statute sections, and regulatory provisions — not general references
-- Mark any citation not directly verified from source materials with `[VERIFY]`
+- Cite specific treaty articles, statute sections, and regulatory provisions — never general references
+- Mark unverified citations with `[VERIFY]`
 - Explain technical concepts (orbital mechanics, RF interference, delta-v) in plain language
-- Maintain neutral tone — this is analytical, not advocacy
+- Maintain neutral, analytical tone — not advocacy
 - Note where law is unsettled; do not overstate certainty
-- Structure for multidisciplinary readers (lawyers, engineers, executives, policymakers)
-- Distinguish between binding treaty obligations and non-binding guidelines/soft law
-- Flag export control sensitivities — do not reproduce ITAR-controlled technical data
+- Distinguish binding treaty obligations from non-binding soft law
+- **Never reproduce ITAR-controlled technical data**

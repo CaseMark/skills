@@ -1,6 +1,13 @@
 ---
 name: pi-intake-form
-description: Drafts a comprehensive personal injury client intake form for initial consultations. Collects client identification, accident details, injury/treatment history, insurance information, and prior legal representation for conflict checking, case evaluation, and engagement. Use when onboarding a new personal injury client, creating intake questionnaires, or building pre-filing client records.
+description: >-
+  Drafts a structured personal injury client intake form for initial
+  consultations covering client identification, incident details,
+  injury/treatment history, insurance, prior legal history, and authorizations.
+  Supports conflict checking, case evaluation, and engagement setup. Use when
+  onboarding a new PI client, creating intake questionnaires, or building
+  pre-filing client records. Trigger keywords: personal injury intake, client
+  onboarding, PI questionnaire, accident intake, injury claim intake.
 tags:
   - checklist
   - drafting
@@ -9,19 +16,19 @@ tags:
 
 # Personal Injury Client Intake Form
 
-Drafts a structured intake form for prospective personal injury clients that supports conflict checking, case evaluation, and engagement setup.
+Drafts a fillable intake form for prospective personal injury clients that supports conflict checking, statute-of-limitations tracking, case evaluation, and engagement setup.
 
 ## Prerequisites
 
-1. **Jurisdiction** — state where incident occurred and client resides (determines statute of limitations, comparative fault rules, damage caps)
-2. **Firm details** — firm name, address, contact info, and fee structure options (contingency percentage, cost advancement policy)
-3. **Any documents already provided** — accident reports, medical records, photos, correspondence — to pre-populate fields and generate targeted follow-up questions
+1. **Jurisdiction** — state of incident and client residence (determines SOL, comparative fault rules, damage caps, no-fault requirements).
+2. **Firm details** — firm name, address, contact info, fee structure (contingency percentage, cost advancement policy).
+3. **Documents already provided** — accident reports, medical records, photos, correspondence — to pre-populate fields and generate follow-up questions.
 
 ## Output Structure
 
-Generate a fillable intake form with the following sections in order.
+Generate a fillable intake form with the following sections in order. Calculate and flag the statute-of-limitations deadline prominently at the top based on jurisdiction and incident type.
 
-### Section 1: Client Identification
+### 1) Client Identification
 
 | Field | Notes |
 |---|---|
@@ -31,39 +38,36 @@ Generate a fillable intake form with the following sections in order.
 | SSN (last 4 only) | Include privacy notice |
 | Residential address | |
 | Mailing address (if different) | |
-| Marital status / spouse name | |
-| Dependents (names, ages) | Relevant for loss-of-consortium, wrongful death |
+| Marital status / spouse name | Loss-of-consortium relevance |
+| Dependents (names, ages) | Wrongful death relevance |
 
-### Section 2: Contact & Communication
+### 2) Contact & Communication
 
 | Field | Notes |
 |---|---|
-| Primary phone (mobile/landline) | |
+| Primary phone | Mobile / landline |
 | Secondary phone | |
 | Email (personal / work) | |
 | Preferred contact method | Phone / email / text / portal |
-| Preferred days/times | |
 | Do NOT contact at | Confidentiality concerns |
-| Text/email consent | Include security limitation warning |
-| Authorized recipients | Anyone else permitted case info |
-| Interpreter needed | Language / accommodation needs |
+| Text/email consent | Security limitation warning |
+| Authorized recipients | Others permitted case info |
+| Interpreter / accommodation | Language or accessibility needs |
 
-### Section 3: Incident Details
+### 3) Incident Details
 
-Structure as chronological narrative with these required fields:
+- **Date of incident** — flag SOL deadline (verify jurisdiction-specific period)
+- **Location** — street address, city, county, state
+- **Type** — motor vehicle, slip/fall, premises liability, product liability, medical malpractice, dog bite, workplace, other
+- **Narrative** — client's own words, chronological
+- **Conditions** — weather, road, environmental (if applicable)
+- **Police / incident report** — report number, agency
+- **Witnesses** — name, phone, relationship, observations
+- **Photos / video** — scene, injuries, property damage
 
-- **Date of incident** — flag statute of limitations (2-3 years in most states; verify jurisdiction)
-- **Location** (street address, city, county, state)
-- **Type of incident** — motor vehicle, slip/fall, premises liability, product liability, medical malpractice, dog bite, workplace, other
-- **Narrative** — what happened, in client's own words
-- **Weather / road / environmental conditions** (if applicable)
-- **Police / incident report filed?** — report number, agency
-- **Witnesses** — name, phone, relationship, what they observed
-- **Photos / video taken?** — at scene, of injuries, of property damage
+### 4) Parties Involved
 
-### Section 4: Parties Involved
-
-For each opposing party and any additional involved parties:
+For each opposing party and additional involved parties:
 
 | Field | Details |
 |---|---|
@@ -72,82 +76,95 @@ For each opposing party and any additional involved parties:
 | Contact info / address | |
 | Insurance carrier & policy # | If known |
 | Attorney (if represented) | Name, firm, contact |
-| Employer (if commercial vehicle / on-the-job) | |
+| Employer | If commercial vehicle / on-the-job |
 | Relationship to client | Stranger, employer, landlord, etc. |
 
-### Section 5: Injuries & Medical Treatment
+Ensure every named person/entity is captured for conflict-system intake.
+
+### 5) Injuries & Medical Treatment
 
 - **Injuries sustained** — body parts, diagnosis if known
-- **Transported by ambulance?** — to which facility
-- **ER / urgent care visit** — date, facility name
-- **Treating physicians** — name, specialty, facility, dates of treatment
-- **Ongoing treatment** — physical therapy, surgery scheduled, pain management
-- **Pre-existing conditions** — same body parts or related conditions (critical for causation)
-- **Lost work days** — dates missed, employer name, wage rate
+- **Ambulance transport** — destination facility
+- **ER / urgent care** — date, facility
+- **Treating physicians** — name, specialty, facility, treatment dates
+- **Ongoing treatment** — PT, scheduled surgery, pain management
+- **Pre-existing conditions** — same body parts or related (critical for causation)
+- **Lost work days** — dates, employer, wage rate
 - **Current symptom status** — improving / stable / worsening
 - **Medical records authorization** — HIPAA-compliant release attached
 
-### Section 6: Insurance Information
+### 6) Insurance Information
 
 | Type | Carrier | Policy # | Limits (if known) |
 |---|---|---|---|
-| Client's auto insurance | | | |
-| Client's health insurance | | | |
-| Client's UM/UIM coverage | | | |
-| MedPay / PIP coverage | | | |
-| At-fault party's liability | | | |
+| Client auto | | | |
+| Client health | | | |
+| UM/UIM coverage | | | |
+| MedPay / PIP | | | |
+| At-fault liability | | | |
 | Homeowner's / renter's | | | |
 | Umbrella | | | |
 
-- **Has client given a recorded statement?** — to whom, when
-- **Has client signed anything from opposing insurer?** — flag immediately
+- **Recorded statement given?** — to whom, when (flag as red flag)
+- **Signed anything from opposing insurer?** — flag immediately
 
-### Section 7: Property Damage
+Note: no-fault states require adjusted insurance sections [VERIFY jurisdiction].
+
+### 7) Property Damage
 
 - Vehicle year/make/model, current location
 - Repair estimate or total loss determination
 - Rental car status
 - Personal property damaged
 
-### Section 8: Prior Legal History
+### 8) Prior Legal History
 
 - **Prior attorneys on this matter** — name, firm, dates, reason ended
-- **Other pending or prior litigation** (past 10 years) — case name, court, status
-- **Prior personal injury claims** — critical for credibility and IME preparation
-- **Criminal history** — may be discoverable; need to know early
+- **Pending / prior litigation** (past 10 years) — case, court, status
+- **Prior PI claims** — critical for credibility and IME preparation
+- **Criminal history** — may be discoverable
 - **Bankruptcy filings** — affects claim ownership
-- **Family members with matters at this firm** — conflict check
+- **Family members with matters at firm** — conflict check
 
-### Section 9: Financial / Fee Discussion
+### 9) Financial / Fee Discussion
 
-- Current employment status and occupation
-- Income range (bracketed: under $25K / $25-50K / $50-100K / $100K+)
-- Fee structure preference explanation — include brief plain-language description of contingency fee model
+- Employment status and occupation
+- Income range (bracketed: <$25K / $25-50K / $50-100K / $100K+)
+- Contingency fee explanation — plain-language description
 - Cost advancement acknowledgment
 - Lien awareness — Medicare, Medicaid, ERISA, workers' comp, child support
 
-### Section 10: Authorizations & Disclosures
+State that a separate written contingency fee agreement will follow if the firm accepts the matter. Do not include a fee agreement in the intake form.
 
-Include the following provisions with signature lines:
+### 10) Authorizations & Disclosures
 
-- [ ] **No attorney-client relationship disclaimer** — intake does not create representation; firm will evaluate and respond within [X] business days
-- [ ] **Medical records authorization** — HIPAA-compliant, separate signature
-- [ ] **Employment records authorization**
-- [ ] **Insurance records authorization**
-- [ ] **Third-party communication consent**
-- [ ] **Data privacy notice** — how information is stored, used, protected
-- [ ] **Text/email communication consent** — with security warnings
-- [ ] **Acknowledgment** — client confirms information is accurate to best of knowledge
+Include with signature lines:
+
+- [ ] No attorney-client relationship disclaimer — intake does not create representation
+- [ ] Medical records authorization (HIPAA-compliant, separate signature)
+- [ ] Employment records authorization
+- [ ] Insurance records authorization
+- [ ] Third-party communication consent
+- [ ] Data privacy notice
+- [ ] Text/email communication consent (with security warnings)
+- [ ] Accuracy acknowledgment
 
 Signature blocks: prospective client, intake attorney, date.
 
 ## Guidelines
 
-- **Statute of limitations** — calculate and flag the deadline prominently at the top of the completed form based on jurisdiction and incident type
-- **Do not include a fee agreement** — the intake form should state that a separate written contingency fee agreement will follow if the firm accepts the matter
-- **Plain language** — avoid legal jargon; clients completing this are often injured and stressed
-- **Pre-populate from uploaded documents** — if the client has provided accident reports, medical records, or correspondence, extract names, dates, and facts to fill in fields and generate specific follow-up questions
-- **Conflict check fields** — ensure every person and entity named is captured in a format that can be run through the firm's conflict system
-- **Preserve formatting** — minimum 11pt body text, adequate white space, section headers, fillable fields
-- **State-specific variations** — note where rules differ (e.g., no-fault states require different insurance sections; pure comparative vs. modified comparative fault affects case evaluation)
-- **Flag red flags early** — prior recorded statements, signed releases, pre-existing conditions in same body part, approaching SOL deadline
+- Flag SOL deadline at top of completed form; verify jurisdiction-specific periods.
+- Use plain language throughout — clients are often injured and stressed.
+- Pre-populate from uploaded documents; generate specific follow-up questions for gaps.
+- Capture all named persons/entities in conflict-check-compatible format.
+- Note state-specific variations: no-fault insurance, pure vs. modified comparative fault, damage caps [VERIFY].
+- Flag red flags early: prior recorded statements, signed releases, pre-existing conditions in same body part, approaching SOL.
+- Formatting: minimum 11pt body, adequate white space, section headers, fillable fields.
+- Use [VERIFY] for all jurisdiction-specific rules before finalizing.
+
+## Cross-references
+
+- @demand-letter-personal-injury
+- @medical-records-summary
+- @contingency-fee-agreement
+- @hipaa-authorization

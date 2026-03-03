@@ -1,6 +1,6 @@
 ---
 name: unclaimed-property-policy
-description: Drafts a comprehensive Escheatment and Unclaimed Property Policy as an authoritative governance document for financial services organizations managing dormant accounts and abandoned property across all US state jurisdictions. Covers property identification, dormancy period matrices, due diligence notice procedures, NAUPA-format reporting, remittance workflows, recordkeeping, and audit preparedness. Use when establishing or updating an enterprise unclaimed property compliance framework, preparing for state audits, or implementing voluntary disclosure programs.
+description: Drafts an enterprise Escheatment and Unclaimed Property Policy covering property identification, dormancy matrices, due diligence notices, NAUPA-format reporting, remittance, recordkeeping, and audit preparedness across all US state jurisdictions. Use when establishing or updating an unclaimed property compliance framework, preparing for state audits, or evaluating voluntary disclosure programs.
 tags:
   - drafting
   - policy
@@ -10,81 +10,73 @@ tags:
 
 # Escheatment and Unclaimed Property Policy
 
-Drafts an enterprise governance policy ensuring systematic compliance with all 50 states' unclaimed property laws, covering identification through remittance and audit defense.
+Drafts a governance policy for systematic compliance with all 50 states' unclaimed property (escheat) laws, from identification through remittance and audit defense.
 
 ## Prerequisites
 
-1. **Organizational footprint** — states of incorporation, operation, and property-holding (determines reporting obligations)
-2. **Property type inventory** — list of all property categories held (deposits, checks, securities, credits, gift cards, etc.)
-3. **Existing compliance artifacts** — prior unclaimed property reports, audit correspondence, state VDA agreements if any
-4. **Designated policy owner** — role (CFO, General Counsel, or Compliance Officer) with authority over escheat compliance
-5. **Industry context** — financial services, insurance, utilities, or retail (drives industry-specific property type rules)
+1. **Organizational footprint** — states of incorporation, operation, and property-holding
+2. **Property type inventory** — all property categories held (deposits, checks, securities, credits, gift cards, etc.)
+3. **Existing compliance artifacts** — prior reports, audit correspondence, VDA agreements
+4. **Designated policy owner** — CFO, General Counsel, or Compliance Officer with escheat authority
+5. **Industry context** — financial services, insurance, utilities, or retail (drives property-type rules)
 
-> **Research step**: Before drafting, search uploaded org documents for existing policies, prior reports, and audit history. Supplement with current state statutory requirements for all jurisdictions in the org's footprint.
+> **Research step**: Search uploaded org documents for existing policies, prior reports, and audit history before drafting. Supplement with current state statutory requirements for all jurisdictions in the org's footprint.
 
-## Output Structure
+## Quick Start
+
+1. Gather prerequisites (footprint, property inventory, existing artifacts)
+2. Build dormancy period matrix for each state × property type
+3. Draft policy sections in order: governance → identification → dormancy → priority rules → due diligence → reporting → recordkeeping → audit preparedness
+4. Validate all state-specific periods and thresholds against current statutes
+5. Route for CFO/GC approval; schedule annual review cycle
+
+## Core Workflow
 
 ### 1. Purpose and Governance
 
 | Element | Content |
 |---|---|
-| Scope statement | All 50 states + D.C. + applicable U.S. territories; all employees/units holding third-party property |
+| Scope | All 50 states + D.C. + applicable territories; all units holding third-party property |
 | Policy owner | Named role with authority to interpret, grant exceptions, coordinate audits |
-| Stakeholder matrix | Business units (identify), Accounting (report/remit), Legal (guidance), Internal Audit (verify) |
+| Stakeholders | Business units (identify), Accounting (report/remit), Legal (guidance), Internal Audit (verify) |
 | Review cycle | Annual minimum; triggered updates on legislative changes |
 
----
+### 2. Property Identification
 
-### 2. Property Identification Procedures
-
-**Monitoring frequency by property type:**
-
-| Property Type | Review Frequency | Dormancy Trigger | Notes |
+| Property Type | Review Freq. | Dormancy Trigger | Notes |
 |---|---|---|---|
 | Demand/savings accounts | Quarterly | Last owner-initiated contact | Interest credits, fee debits ≠ owner contact |
 | Time deposits | Quarterly | Maturity date + dormancy period | — |
-| Uncashed checks (payroll) | Monthly | Date of issuance | Payroll often 1–3 yr dormancy |
+| Uncashed checks (payroll) | Monthly | Date of issuance | Often 1–3 yr dormancy |
 | Uncashed checks (vendor/refund) | Quarterly | Date of issuance | — |
-| Securities / dividends | Quarterly | Last owner activity or uncashed distribution | Street name, DRIP, and fractional shares included |
-| Customer credits / overpayments | Quarterly | Date credit was created | Includes utility deposits, insurance overpayments |
-| Gift cards / stored value | Quarterly | Last redemption activity | Federal CARD Act: no expiration < 5 years; state exemptions vary |
-| Insurance proceeds | Per policy terms | Date payable or date of last owner contact | — |
+| Securities / dividends | Quarterly | Last owner activity or uncashed distribution | Includes street name, DRIP, fractional shares |
+| Customer credits / overpayments | Quarterly | Date credit created | Includes utility deposits, insurance overpayments |
+| Gift cards / stored value | Quarterly | Last redemption activity | CARD Act: no expiration < 5 yrs; state exemptions vary |
+| Insurance proceeds | Per policy terms | Date payable or last owner contact | — |
 | Safe deposit box contents | Annually | Lease expiration + dormancy period | — |
 
-**Flagging rule**: Flag all items within **6 months** of reaching dormancy threshold for due diligence preparation.
-
-**Exclusions to document**: Property below state de minimis thresholds; property subject to valid liens; legally exempt instruments.
-
----
+- **Flag** items within 6 months of dormancy threshold for due diligence prep
+- **Exclude** property below de minimis thresholds, property under valid liens, legally exempt instruments
 
 ### 3. Dormancy Period Matrix
 
-Maintain a living matrix (update at least annually) organized by:
-- **Rows**: Property type (demand deposit, wages, uncashed check, securities, insurance proceeds, misc.)
-- **Columns**: Each state jurisdiction where the org holds or may hold reportable property
-- **Cell content**: Dormancy period in years + citation to current statute
-
-**Common ranges** (verify against current state law):
+Maintain a living matrix (update annually): rows = property types, columns = state jurisdictions, cells = dormancy period (years) + statute citation.
 
 | Property Type | Typical Range | Common Period |
 |---|---|---|
-| Bank accounts | 3–7 years | 5 years |
-| Wages / payroll | 1–3 years | 1–2 years |
-| Uncashed checks | 1–5 years | 3 years |
-| Securities | 3–5 years | 3 years |
-| Insurance proceeds | 3–5 years | 3 years |
-| Gift cards | 1–7 years | 5 years (many states exempt) |
-
----
+| Bank accounts | 3–7 yrs | 5 yrs |
+| Wages / payroll | 1–3 yrs | 1–2 yrs |
+| Uncashed checks | 1–5 yrs | 3 yrs |
+| Securities | 3–5 yrs | 3 yrs |
+| Insurance proceeds | 3–5 yrs | 3 yrs |
+| Gift cards | 1–7 yrs | 5 yrs (many states exempt) |
 
 ### 4. Jurisdictional Priority Rules
 
 Apply the Supreme Court priority hierarchy (*Texas v. New Jersey*, 379 U.S. 674 (1965); *Pennsylvania v. New York*, 407 U.S. 206 (1972) [VERIFY citations]):
 
-1. **First priority**: State of owner's last known address in holder's records
-2. **Second priority** (no address known, address outside US, or invalid): State of holder's incorporation (intangible property) or state where property is held (tangible property)
-
-**Special cases to address in policy:**
+1. **First priority**: State of owner's last known address
+2. **Second priority**: State of holder's incorporation (intangible) or state where property is held (tangible) — applies when no address known, address outside US, or address invalid
 
 | Scenario | Rule |
 |---|---|
@@ -92,120 +84,84 @@ Apply the Supreme Court priority hierarchy (*Texas v. New Jersey*, 379 U.S. 674 
 | Insurance proceeds | Insured's last known address state |
 | Business entity owner | Entity's state of incorporation or principal place of business |
 | Unknown/foreign address | Holder's state of incorporation |
-| Multi-state claims on same property | Follow priority hierarchy; document analysis; escalate to legal |
+| Multi-state claims | Follow priority hierarchy; document analysis; escalate to legal |
 
----
+### 5. Due Diligence
 
-### 5. Due Diligence Requirements
+**Notice thresholds** (verify per state):
 
-**Notice obligation triggers** (verify per state):
-
-| Threshold | Typical State Requirement |
+| Threshold | Typical Requirement |
 |---|---|
 | ≥ $50 | Some states require notice |
-| ≥ $50–$250 | Most states require written notice |
-| All amounts | Some states (e.g., California [VERIFY]) require notice regardless of value |
+| $50–$250 | Most states require written notice |
+| All amounts | Some states (e.g., California [VERIFY]) require notice regardless |
 
-**Timing**: Send notice **60–120 days** before state report due date (some states require up to **240 days** in advance — check each jurisdiction).
+**Timing**: 60–120 days before report due date (some states require up to 240 days).
 
-**Required notice content checklist:**
-- [ ] Statement that the organization holds property belonging to the owner
-- [ ] Property description (account number, type, approximate value)
-- [ ] Instructions for claiming directly from the organization
-- [ ] Response deadline before property is reported to the state
-- [ ] Organization contact information (name, phone, mailing address)
-- [ ] Plain language; no threatening or legalistic tone
+**Notice must include**: statement of held property; property description (account, type, value); claim instructions; response deadline; org contact info; plain language tone.
 
-**Documentation to retain:**
-- Copies of all notices sent
-- Mailing dates and addresses used
-- Returned mail with USPS notations
-- Owner responses received
-- Records of successful reunifications
+**Retain**: copies of notices, mailing dates/addresses, returned mail with USPS notations, owner responses, reunification records.
 
-**Returned mail protocol**: Conduct reasonable enhanced location efforts — address verification services, review of other org records, public database searches. Document all attempts.
-
----
+**Returned mail**: Use address verification services, review other org records, search public databases. Document all attempts.
 
 ### 6. Reporting and Remittance
 
-**Compliance calendar template** (work backward from each state's deadline):
+**Compliance calendar** (work backward from each state deadline):
 
-| Milestone | Target Timing |
+| Milestone | Timing |
 |---|---|
-| Property identification complete | 180 days before report deadline |
-| Due diligence notices sent | 60–240 days before deadline (state-specific) |
-| Report compilation and reconciliation | 45 days before deadline |
-| Internal review and approval | 30 days before deadline |
-| Report submission and remittance | On or before state deadline |
+| Property identification complete | 180 days before deadline |
+| Due diligence notices sent | 60–240 days before (state-specific) |
+| Report compilation & reconciliation | 45 days before |
+| Internal review & approval | 30 days before |
+| Submission & remittance | On or before deadline |
 
-**State filing deadlines**: Most states: March 1 – November 1 annually (varies by state and fiscal year). Maintain per-state calendar.
+**Filing deadlines**: Most states March 1 – November 1 annually. Maintain per-state calendar.
 
-**Report preparation checklist:**
-- [ ] Property aggregated by state per jurisdictional priority rules
-- [ ] Property categorized per each state's property type codes
-- [ ] Data elements complete: owner name, last known address, property type, last contact date, value, SSN/TIN where required
-- [ ] NAUPA II format file generated (or state-specific format/portal as required)
-- [ ] Interest calculated where required by state law
-- [ ] Reconciliation to accounting records completed
-- [ ] Senior approval obtained (CFO/GC sign-off)
+**Report checklist**: property aggregated by state per priority rules; categorized per state property-type codes; owner data complete (name, address, type, last contact, value, SSN/TIN); NAUPA II format (or state-specific portal); interest calculated where required; reconciled to accounting records; CFO/GC sign-off obtained.
 
-**Remittance methods**: Electronic funds transfer (cash); DTC or certificate delivery (securities); physical delivery (tangible property). Retain wire confirmations, delivery receipts, and state acknowledgment letters.
+**Remittance**: EFT (cash), DTC/certificate (securities), physical delivery (tangible). Retain confirmations and state acknowledgments.
 
-**Amended reports**: File promptly upon discovery of material errors or omissions. Document basis for amendment and obtain same approval level as original report.
+**Amended reports**: File promptly on discovering material errors; document basis; obtain same approval as original.
 
-**Voluntary disclosure**: When prior-year non-compliance is discovered, engage legal counsel to evaluate VDA options (reduced look-back, penalty/interest waivers) before self-reporting.
+**Voluntary disclosure**: When prior-year non-compliance found, engage counsel to evaluate VDA options (reduced look-back, penalty/interest waivers) before self-reporting.
 
----
+### 7. Recordkeeping
 
-### 7. Recordkeeping Requirements
-
-| Record Category | Minimum Retention | Notes |
+| Record Category | Retention | Notes |
 |---|---|---|
-| Original property records | 10 years from report date | Some states audit 10+ years back |
-| Due diligence documentation | 10 years from report date | Copies of notices, responses, reunifications |
-| Filed reports and remittances | 10 years from report date | Include state acknowledgment letters |
-| Audit correspondence and settlements | Permanent | — |
+| Property records | 10 yrs from report date | Some states audit 10+ yrs back |
+| Due diligence documentation | 10 yrs from report date | Notices, responses, reunifications |
+| Filed reports & remittances | 10 yrs from report date | Include state acknowledgments |
+| Audit correspondence & settlements | Permanent | — |
 
-**Electronic records**: Ensure continued accessibility through system migrations; maintain backup copies; preserve audit trails of record creation and modification.
-
----
+Ensure electronic records remain accessible through system migrations with backup copies and audit trails.
 
 ### 8. Audit Preparedness
 
-**Audit response structure:**
-
 | Role | Responsibility |
 |---|---|
-| Audit Coordinator (Finance/Legal/Compliance) | Primary state contact; document coordination; strategy |
+| Audit Coordinator | Primary state contact; document coordination; strategy |
 | Legal Counsel | Privilege review; assessment challenges; settlement negotiation |
 | Business Unit Managers | Produce records on request |
 | Senior Management | Approve settlement positions |
 
-**Audit lifecycle steps:**
-1. Scoping — provide preliminary org/operations overview; establish privilege boundaries
-2. Document production — organized, timely responses; log all productions
-3. Entrance/status/exit conferences — document all communications
-4. Work paper review — challenge factually or legally unsupported findings
-5. Assessment negotiation — engage counsel for material assessments
-6. Appeal — evaluate administrative or judicial appeal for strong grounds
-
----
+**Audit lifecycle**: scoping (establish privilege boundaries) → document production (log all productions) → conferences (document communications) → work paper review (challenge unsupported findings) → assessment negotiation → appeal (evaluate for strong grounds).
 
 ### 9. Continuous Improvement
 
-- Annual compliance review: assess error rates, audit findings, late filings
-- Monitor proposed legislation in key jurisdictions and industry association guidance
-- Train affected personnel on policy updates within 30 days of material changes
-- Update dormancy matrix and compliance calendar at least annually
+- Annual compliance review: error rates, audit findings, late filings
+- Monitor proposed legislation in key jurisdictions
+- Train personnel on policy updates within 30 days of material changes
+- Update dormancy matrix and compliance calendar annually
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Jurisdiction specificity**: Always verify current dormancy periods and notice requirements directly against state statutes — this policy provides a framework, not a substitute for jurisdiction-specific legal review
-- **Priority rules govern**: Do not report property to the holder's state by default; apply the *Texas v. New Jersey* priority hierarchy every time
-- **Owner-initiated contact only**: Bank fees, interest credits, and automated statements do not reset dormancy — clearly define this in internal training
-- **VDA before audit**: If material prior-year gaps are discovered, evaluate voluntary disclosure before a state-initiated audit forecloses that option
-- **Recordkeeping floor**: Retain for 10 years minimum given common audit look-back periods; some high-risk states may warrant longer
-- **CARD Act compliance**: Gift card provisions must align with federal law (no expiration < 5 years) and applicable state exemptions
-- **Industry-specific property**: Financial services holders should verify special rules for securities, insurance, and custody property in each operating state
-- **[VERIFY]**: All statutory citations and case citations should be confirmed against current law before finalizing the policy
+- **Always verify** current dormancy periods and notice requirements against state statutes — this policy is a framework, not a substitute for jurisdiction-specific legal review
+- **Priority rules govern**: Apply *Texas v. New Jersey* hierarchy every time; never default to holder's state
+- **Owner-initiated contact only**: Bank fees, interest credits, and automated statements do not reset dormancy
+- **VDA before audit**: Evaluate voluntary disclosure before a state-initiated audit forecloses the option
+- **10-year retention floor**: Some high-risk states may warrant longer
+- **CARD Act**: Gift card provisions must comply with federal law (no expiration < 5 yrs) and state exemptions
+- **Industry-specific rules**: Financial services holders must verify special rules for securities, insurance, and custody property per state
+- **[VERIFY]**: Confirm all statutory and case citations against current law before finalizing

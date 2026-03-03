@@ -1,138 +1,112 @@
 ---
 name: gambling-law-summary
 description: >-
-  Produces jurisdiction-specific U.S. gambling law regulatory summaries
-  covering legal status, oversight agencies, licensing, operational
-  restrictions, taxes/fees, enforcement, and pending reforms across commercial
-  casinos, tribal gaming, online platforms, sports betting, charitable gaming,
-  and lotteries. Use for regulatory research, compliance overviews, executive
-  memos, or market entry assessments. Trigger keywords: gambling law summary,
-  gaming regulation, casino licensing, sports betting compliance, online
-  gambling, tribal gaming, gaming commission, gaming tax.
-tags:
-  - analysis
-  - regulatory
-  - research
-  - summarization
-  - summary
+  Produces jurisdiction-specific U.S. gambling law regulatory summaries covering
+  legal status, licensing, taxes, enforcement, and pending reforms. Use when
+  asked about gaming regulation, casino licensing, sports betting compliance,
+  online gambling law, tribal gaming compacts, or market entry assessments.
 ---
 
 # Gambling Law Regulatory Summary
 
-Produces a jurisdiction-specific executive memorandum on gambling regulation with compliance and risk highlights.
+Generates an executive-ready memorandum on gambling regulation for a specific jurisdiction, with compliance and risk highlights.
 
-## Prerequisites
+## Quick Start
 
-1. Jurisdiction scope: federal, state, tribal, municipal, or multi-jurisdiction
-2. Gaming verticals: commercial casino, tribal gaming, sports betting, online casino, online poker, DFS, lottery, charitable, social gaming
-3. Business role: operator, platform, vendor, key employee, manufacturer, affiliate, payment processor
-4. Time horizon: current law only or include pending reforms
-5. Output constraints: length, audience, deadline, citation style
+Gather before drafting:
 
-## Output Structure / Process
+1. **Jurisdiction**: federal, state, tribal, municipal, or multi-jurisdiction
+2. **Verticals**: commercial casino, tribal gaming, sports betting, online casino/poker, DFS, lottery, charitable, social gaming
+3. **Role**: operator, platform, vendor, key employee, manufacturer, affiliate, payment processor
+4. **Scope**: current law only or include pending reforms
+5. **Output**: length, audience, citation style
 
-**Document Header**
-- Title
-- Jurisdiction(s)
-- Effective date range covered
-- Prepared date
-- Audience
+If jurisdiction is not specified, ask before proceeding.
 
-**Executive Summary (5–12 bullets)**
+## Output Template
+
+### Header
+
+Title, jurisdiction(s), effective date range, prepared date, audience.
+
+### Executive Summary (5–12 bullets)
+
 - Legal status by vertical
-- Primary regulator(s)
-- Market entry barriers
-- High-risk compliance obligations
-- Tax/fee exposure
-- Active enforcement priorities
-- Pending reforms with timeline
+- Primary regulator(s) and market entry barriers
+- High-risk compliance obligations and tax/fee exposure
+- Active enforcement priorities and pending reforms
 
-**Scope Table**
-| Item | Requirement |
-| --- | --- |
+### Scope Table
+
+| Item | Detail |
+|---|---|
 | Jurisdiction level | Federal / State / Tribal / Local |
 | Legal authority | Constitution, statute, regulation, compact |
-| Gaming verticals | List included and excluded |
+| Gaming verticals | Included and excluded |
 | Regulator(s) | Agency names and jurisdiction |
-| Sources used | Statutes, regs, agency guidance, case law |
+| Sources | Statutes, regs, agency guidance, case law |
 
-**Legal Status & Authority**
-- Permitted, prohibited, and restricted gaming categories
-- Constitutional or statutory basis
-- Preemption and hierarchy of authority
-- Tribal gaming framework and compact status where applicable
+### Legal Status & Authority
 
-**Regulatory Bodies**
-- Primary regulator(s)
-- Secondary oversight or enforcement agencies
-- Licensing board composition and powers
+- Permitted, prohibited, and restricted categories with statutory basis
+- Preemption hierarchy; tribal framework and compact status if applicable
 
-**Licensing & Suitability**
-| License Type | Who Needs It | Key Requirements | Term | Transferability |
-| --- | --- | --- | --- | --- |
+### Regulatory Bodies
+
+- Primary and secondary regulators; licensing board composition and powers
+
+### Licensing & Suitability
+
+| License Type | Who Needs It | Key Requirements | Term | Transferable? |
+|---|---|---|---|---|
 | Operator | | | | |
 | Vendor | | | | |
 | Key employee | | | | |
 | Manufacturer | | | | |
 
-**Application Process Checklist**
-- Eligibility criteria and disqualifiers
-- Background investigations
-- Financial suitability and capitalization
-- Ownership disclosure thresholds
-- Fees and renewal cadence
-- Grounds for denial, suspension, revocation
+- Eligibility, background checks, financial suitability, ownership thresholds
+- Fees, renewal cadence, grounds for denial/suspension/revocation
 
-**Operational Restrictions**
-- Responsible gaming program mandates
-- AML and KYC obligations
-- Age verification and access controls
-- Advertising and marketing limits
-- Game integrity testing and certification
-- Technical standards and audit requirements
-- Geolocation and server location rules (online)
-- Payment processing restrictions
-- Betting limits, payout ratios, and hours of operation
+### Operational Restrictions
 
-**Taxes, Fees, and Assessments**
+- Responsible gaming, AML/KYC, age verification, advertising limits
+- Game integrity testing, technical standards, audit requirements
+- Geolocation/server rules (online), payment restrictions, betting limits
+
+### Taxes & Fees
+
 | Category | Rate/Method | Trigger | Notes |
-| --- | --- | --- | --- |
+|---|---|---|---|
 | GGR tax | | | |
 | License fees | | | |
 | Regulatory assessments | | | |
 | Local taxes | | | |
 
-**Enforcement & Penalties**
-- Administrative sanctions
-- Civil penalties and fines
-- Criminal exposure
+### Enforcement & Penalties
+
+- Administrative, civil, and criminal sanctions
 - Recent enforcement trends and exemplar actions
 
-**Pending or Recent Reforms**
-- Bill or rule identifier
-- Current status and expected effective date
-- Transition or grandfathering rules
-- Operational impact assessment
+### Pending Reforms
 
-**Risk & Compliance Recommendations**
+- Bill/rule ID, status, expected effective date
+- Transition/grandfathering rules and operational impact
+
+### Risk & Compliance Recommendations
+
 - Top 5 compliance priorities by vertical
-- Immediate action items
-- Monitoring plan for legal changes
+- Immediate action items and monitoring plan
 
-**Citation Rules**
-- Bluebook format for statutes, regs, and cases
-- Hyperlink to official sources where available
-- Use `[VERIFY]` for any uncertain citation or authority
+### Citation & Disclaimer
 
-**Disclaimer**
-- Gambling law is fast-changing; summary is informational only and not legal advice.
+- Bluebook format; hyperlink official sources; mark uncertain items `[VERIFY]`
+- Disclaimer: gambling law changes rapidly; summary is informational, not legal advice
 
-## Guidelines
+## Pitfalls
 
-- Ask for jurisdiction if not specified before drafting
-- Separate federal, state, and tribal authorities; do not blend regimes
-- Flag IGRA, compacts, or federal preemption issues when relevant
-- Use only primary sources or regulator guidance for legal status
-- Include effective dates and recent amendment history
-- Avoid speculative conclusions; label uncertainty explicitly
+- Never blend federal, state, and tribal regimes — separate each authority clearly
+- Always flag IGRA, compacts, or federal preemption issues when relevant
+- Use only primary sources or regulator guidance for legal status assertions
+- Include effective dates and amendment history for all cited authorities
+- Label uncertainty explicitly — avoid speculative conclusions
 - Keep tone executive-ready and compliance-focused

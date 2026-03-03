@@ -1,6 +1,6 @@
 ---
 name: document-production-log-summary
-description: Generates a structured log and strategic summary of documents produced by the opposing party in U.S. litigation discovery. Categorizes materials by type (emails, contracts, financials, memos), date range, custodian, and case relevance; flags "hot documents"; tracks privilege assertions per FRCP 26(b)(5); and identifies production gaps. Use during discovery review to organize voluminous productions, surface critical evidence, assess completeness, and support meet-and-confer or motion to compel decisions.
+description: Generates a structured log and strategic summary of opposing-party document productions in U.S. litigation discovery. Categorizes by type, date, custodian, and relevance; flags hot documents; tracks privilege assertions per FRCP 26(b)(5); identifies production gaps. Use when organizing voluminous productions, surfacing critical evidence, assessing completeness, or supporting meet-and-confer and motion to compel decisions.
 tags:
   - analysis
   - litigation
@@ -15,8 +15,8 @@ Transforms raw discovery productions into an organized inventory with strategic 
 ## Prerequisites
 
 1. **Production materials** — all produced documents with Bates numbers assigned
-2. **Discovery requests** — the RFPs or subpoenas the production purports to answer
-3. **Case caption & case management orders** — any CMO provisions governing discovery format or tracking
+2. **Discovery requests** — RFPs or subpoenas the production answers
+3. **Case caption & CMO** — any provisions governing discovery format or tracking
 4. **Producing party's written response** — including blanket objections and privilege assertions
 
 ## Output Structure
@@ -35,39 +35,19 @@ Transforms raw discovery productions into an organized inventory with strategic 
 | Total docs / pages / GB | Aggregate counts |
 | Blanket objections | Summarize from written response |
 
----
-
 ### 2. Document Inventory
-
-For each document or document family:
 
 | Bates No. | Date | Type | Author | Recipient(s) | Custodian | Brief Description | Relevance Category | Priority |
 |---|---|---|---|---|---|---|---|---|
 | DEF000001 | | Email | | | | | | High/Med/Low |
 
-**Document types to categorize:**
-- Emails & correspondence
-- Contracts & agreements
-- Financial records
-- Internal memoranda
-- Reports & analyses
-- Meeting minutes
-- Text messages / chat logs
-- Photographs / multimedia
+**Document types:** Emails, contracts, financial records, internal memoranda, reports, meeting minutes, text messages / chat logs, photographs / multimedia.
 
-**Relevance categories** (map to contested issues, e.g.):
-- Breach / performance
-- Notice / knowledge
-- Damages / valuation
-- Causation
-- Credibility / impeachment
-- Affirmative defenses
-
----
+**Relevance categories** (map to contested issues): Breach / performance, notice / knowledge, damages / valuation, causation, credibility / impeachment, affirmative defenses.
 
 ### 3. Hot Documents
 
-For each flagged document, provide:
+For each flagged document:
 
 ```
 Bates No.: _______
@@ -77,33 +57,22 @@ Why Critical: [Contradicts position X / Establishes knowledge of Y / Corroborate
 Recommended Action: [Designate as exhibit / Depose custodian / Use in MSJ]
 ```
 
-Flag criteria:
+**Flag criteria:**
 - Contradicts opposing party's stated position
 - Establishes knowledge, intent, or notice
 - Corroborates liability or damages theory
 - Undermines witness credibility
 - Creates or breaks key timeline elements
 
----
-
 ### 4. Privilege Log (FRCP 26(b)(5))
-
-For each withheld or redacted document:
 
 | Log No. | Date | Type | Author | All Recipients | Subject Matter | Privilege Claimed | Basis |
 |---|---|---|---|---|---|---|---|
 | | | | | | | AC / WP / CI | |
 
-**Also note:**
-- Any privilege claims lacking adequate justification (potential motion to compel grounds)
-- Any apparent inadvertent disclosures or subject-matter waiver situations
-- Deficient entries that fail FRCP 26(b)(5) specificity requirements
-
----
+Flag: claims lacking adequate justification, apparent inadvertent disclosures or subject-matter waiver, entries failing FRCP 26(b)(5) specificity requirements.
 
 ### 5. Production Completeness Assessment
-
-**Coverage Analysis:**
 
 | Category | Expected | Produced | Gap? |
 |---|---|---|---|
@@ -116,24 +85,22 @@ For each withheld or redacted document:
 - Truncated or orphaned email threads
 - Time periods underrepresented vs. case chronology
 - Corrupted files, password-protected docs, unsearchable formats
-- Categories of requested documents entirely absent
-
----
+- Requested document categories entirely absent
 
 ### 6. Executive Summary
 
-Provide a 1–2 page narrative covering:
+1–2 page narrative covering:
 1. Overall production statistics
 2. Top 5–10 hot documents with significance
 3. Key evidentiary strengths surfaced
-4. Key gaps and recommended next steps (supplemental demand, meet-and-confer, motion to compel)
+4. Gaps and recommended next steps (supplemental demand, meet-and-confer, motion to compel)
 5. Open privilege disputes requiring resolution
 
 ## Guidelines
 
-- **FRCP Rule 34** governs production format obligations; note any non-compliance (e.g., failure to produce ESI in requested format)
-- **FRCP Rule 26(b)(5)** requires privilege logs to enable the requesting party to assess the claim — flag any entries that fall short
-- **Waiver risk**: Note inadvertent productions immediately; clawback procedures under FRCP 26(b)(5)(B) and FRE 502 may apply [VERIFY jurisdiction-specific orders]
-- Do not reproduce potentially privileged content in the log — use subject-matter descriptions only
-- Custodian gaps are often more strategically significant than document gaps — prioritize custodian completeness review
-- Production log should be delivered in two formats: spreadsheet (filterable) + narrative summary report
+- **FRCP 34** governs production format; note non-compliance (e.g., ESI not in requested format)
+- **FRCP 26(b)(5)** requires privilege logs sufficient for requesting party to assess the claim — flag deficient entries
+- **Waiver risk**: Note inadvertent productions immediately; clawback under FRCP 26(b)(5)(B) and FRE 502 may apply [VERIFY jurisdiction-specific orders]
+- Never reproduce potentially privileged content — use subject-matter descriptions only
+- Custodian gaps are often more strategically significant than document gaps — prioritize custodian completeness
+- Deliver in two formats: spreadsheet (filterable) + narrative summary report

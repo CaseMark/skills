@@ -78,9 +78,16 @@ jobs:
 
             const frontmatter = yaml.parse(match[1]);
             const body = match[2].trim();
+
+            // Extract human-readable title from first H1 heading or bold text in body.
+            // Falls back to the slug (frontmatter.name) if neither is found.
+            const titleMatch = body.match(/^#\s+(.+)$/m)
+              || body.match(/^\*\*([^*]+)\*\*/m);
+            const displayName = titleMatch ? titleMatch[1].trim() : frontmatter.name;
+
             return {
               slug: frontmatter.name,
-              name: frontmatter.name,
+              name: displayName,
               summary: frontmatter.description,
               content: body,
               tags: frontmatter.tags || [],
@@ -116,7 +123,7 @@ jobs:
                 updated_at = NOW()
             `;
 
-            console.log(`✓ Upserted: ${skill.slug}`);
+            console.log(`✓ Upserted: ${skill.slug} → "${skill.name}"`);
           }
 
           async function softDeleteSkill(slug) {

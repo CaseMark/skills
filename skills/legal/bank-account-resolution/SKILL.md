@@ -1,62 +1,59 @@
 ---
 name: bank-account-resolution
 description: >-
-  Drafts U.S. corporate board resolutions authorizing opening, maintenance,
-  and operation of corporate bank accounts, designating signatories, setting
-  transaction limits, and approving related banking documents with
-  ratification, supersession, and secretary certification language aligned to
-  bylaws and bank due diligence. Use when preparing board resolutions, written
-  consents, bank account opening packets, signatory authority letters, or
-  banking authorization documents for financial institutions. Trigger
-  keywords: bank account resolution, banking resolution, board consent,
-  signatory authority, account opening, ACH, wire, signature card.
-tags:
-  - agreement
-  - corporate
-  - drafting
+  Drafts U.S. corporate board resolutions authorizing bank account opening,
+  signatory designation, transaction limits, and related banking documents
+  with ratification, supersession, and secretary certification language.
+  Use when preparing board resolutions, written consents, bank account
+  opening packets, signatory authority letters, or banking authorization
+  documents. Trigger keywords: bank account resolution, banking resolution,
+  board consent, signatory authority, account opening, ACH, wire,
+  signature card.
 ---
 
 # Corporate Bank Account Resolution
 
-Authorize corporate banking relationships and signatory authority in a bank-acceptable board action format.
+Drafts board-level resolutions authorizing corporate banking relationships, signatory authority, and transaction limits in a format acceptable to financial institutions.
 
-## Prerequisites
+## Quick Start
 
-1. Exact legal name of the corporation and state of incorporation (from charter).
-2. Current bylaws and any charter provisions on board action, quorum, notice, written consent, and banking authority.
-3. Board action format: meeting (regular/special) or written consent, with required approval threshold.
-4. Current officers/directors, titles, and dates of appointment.
-5. Bank name(s), account types to be opened/maintained, and any bank-specific form requirements.
-6. Desired signatories, signature requirements (single/joint), and dollar thresholds.
-7. Scope of authority: deposits, withdrawals, ACH, wires, online banking, loans/credit, collateral pledges.
-8. Prior banking resolutions or actions to ratify or supersede.
+Gather before drafting:
 
-## Output Structure / Process
+1. Corporate legal name and state of incorporation (from charter)
+2. Bylaws provisions on board action, quorum, notice, written consent
+3. Board action format: meeting (regular/special) or written consent, with approval threshold
+4. Current officers/directors with titles and appointment dates
+5. Bank name(s), account types, and any bank-specific form requirements
+6. Signatories, signature requirements (single/joint), and dollar thresholds
+7. Authority scope: deposits, withdrawals, ACH, wires, online banking, loans/credit, collateral
+8. Prior banking resolutions to ratify or supersede
 
-Use this structure in order and tailor to the corporation's governance rules and the bank's requirements.
+## Resolution Sections
 
-**Required Sections**
+Draft sections in this order, tailored to governance rules and bank requirements:
 
-| Section | Required Content |
-| --- | --- |
-| Header | Corporate name, state, date, action method (meeting or written consent). |
-| Authority Recitals | Cite bylaws/charter authority; confirm notice/quorum or written consent threshold; business need for banking. |
-| Account Authorization | Name bank(s) and permitted account types; authority to open/maintain/close/modify accounts. |
-| Signatory Authority | Identify authorized persons by name and/or title; single vs joint signatures; threshold rules. |
-| Transaction Authority | Scope for checks, ACH, wires, online banking; any limits or approval steps. |
-| Borrowing Authority | If included, specify loan/credit limits, collateral, and approval constraints. |
-| Bank Forms | Authority to execute bank-required documents and signature cards. |
-| Ratification | Validate prior actions taken in good faith. |
-| Supersession | Replace prior conflicting banking resolutions. |
-| Effectiveness | Effective date; duration until amended/revoked. |
-| Changes in Officers | Automatic termination on separation vs board action; notice to bank. |
-| Certification | Secretary certification of adoption and current validity. |
-| Signatures | Secretary signature block; optional corporate seal. |
+| Section | Content |
+|---|---|
+| Header | Corporate name, state, date, action method (meeting or written consent) |
+| Authority Recitals | Bylaws/charter authority; quorum/notice or consent threshold; business need |
+| Account Authorization | Bank name(s), permitted account types; open/maintain/close/modify authority |
+| Signatory Authority | Authorized persons by name and/or title; single vs joint; threshold rules |
+| Transaction Authority | Checks, ACH, wires, online banking scope; limits and approval steps |
+| Borrowing Authority | Loan/credit limits, collateral, approval constraints (if applicable) |
+| Bank Forms | Authority to execute bank-required documents and signature cards |
+| Ratification | Validate prior actions taken in good faith |
+| Supersession | Replace prior conflicting banking resolutions |
+| Effectiveness | Effective date; duration until amended/revoked |
+| Officer Changes | Authority termination on separation; bank notification obligation |
+| Certification | Secretary certification of adoption and current validity |
+| Signatures | Secretary signature block; optional corporate seal |
 
-**Authority Matrix (fill in and mirror in clauses)**
+## Authority Matrix
+
+Complete this matrix and mirror values in resolution clauses:
 
 | Action | Authorized Person/Title | Signature Requirement | Dollar Limits | Notes |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | Open/close accounts | | | | |
 | Checks | | | | |
 | ACH | | | | |
@@ -65,7 +62,7 @@ Use this structure in order and tailor to the corporation's governance rules and
 | Loans/credit | | | | |
 | Collateral pledges | | | | |
 
-**Template**
+## Template
 
 ```text
 CORPORATE RESOLUTION OF [LEGAL NAME]
@@ -112,22 +109,21 @@ __________________________          Date: ____________
 [Corporate Seal, if used]
 ```
 
-**Compliance Checklist**
+## Compliance Checklist
 
-- [ ] Legal name and state match charter.
-- [ ] Board action method complies with bylaws and state law.
-- [ ] Quorum/notice or written consent threshold documented.
-- [ ] Signatories and limits align with internal approvals.
-- [ ] Borrowing authority scoped and limited if included.
-- [ ] Prior resolutions superseded or preserved as intended.
-- [ ] Ratification included if prior banking actions occurred.
-- [ ] Secretary certification included with current date.
+- [ ] Legal name and state match charter
+- [ ] Board action method complies with bylaws and state law
+- [ ] Quorum/notice or written consent threshold documented
+- [ ] Signatories and limits align with internal approvals
+- [ ] Borrowing authority scoped and limited if included
+- [ ] Prior resolutions superseded or preserved as intended
+- [ ] Ratification included only for actions taken in good faith within intended authority
+- [ ] Secretary certification included with current date
 
-## Guidelines
+## Pitfalls
 
-- Confirm state corporate statute requirements for written consent, notice, and quorum; adjust language to match.
-- Use names and titles exactly as in corporate records and officer appointments.
-- Do not grant broader authority than necessary; document dollar thresholds and joint signature rules.
-- If including borrowing or collateral authority, ensure board-approved limits and any required additional approvals are stated.
-- Include ratification only for actions already taken in good faith and within intended authority.
-- Banks may require their own forms; keep execution authority broad enough to sign those forms without new board action.
+- Verify state corporate statute requirements for written consent, notice, and quorum — adjust language to match.
+- Use names and titles exactly as in corporate records.
+- Do not grant broader authority than necessary — document dollar thresholds and joint signature rules.
+- If including borrowing/collateral authority, ensure board-approved limits and required additional approvals are stated.
+- Banks may require their own forms — keep execution authority broad enough to cover bank forms without new board action.

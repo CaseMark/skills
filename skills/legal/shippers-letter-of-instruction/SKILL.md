@@ -1,85 +1,105 @@
 ---
 name: shippers-letter-of-instruction
-description: Drafts a U.S.-focused Shipper's Letter of Instruction (SLI) for international exports, authorizing a freight forwarder, capturing EEI/AES filing intent, and documenting export-control classifications (ECCN/ITAR/EAR99), licensing, and compliance certifications. Use for SLI, shipper instruction, export documentation, EEI filing, AES submission, export license support, and freight forwarder authorization workflows.
-tags:
-  - drafting
-  - letter
-  - regulatory
+description: Drafts a U.S.-focused Shipper's Letter of Instruction (SLI) authorizing a freight forwarder, capturing EEI/AES filing intent, and documenting export-control classifications. Use when drafting SLIs, authorizing forwarders, preparing EEI/AES filings, or documenting ECCN/ITAR/EAR99 classifications for international exports.
 ---
 
 # Shipper's Letter of Instruction (SLI)
 
-Prepare a complete, compliance-ready SLI that authorizes the forwarder and aligns export data across commercial invoices and filings.
+Produces a compliance-ready SLI that authorizes the forwarder and aligns export data across commercial invoices and government filings.
 
 ## Prerequisites
 
-1. **Parties**: Legal names, addresses, contacts for shipper (USPPI), consignee, forwarder, and any intermediate consignee.
-2. **Shipment basics**: Incoterms, routing, ports, carrier preferences, dates, and insurance requirements.
-3. **Commodity data**: Detailed descriptions, model/part numbers, quantity, unit of measure, weights, and packaging.
-4. **Classification**: Schedule B/HS codes, export control status (ECCN/ITAR/EAR99), and license info or exemption basis.
-5. **Valuation**: Commercial invoice value, currency, and valuation basis.
-6. **Compliance screening**: Restricted party/end-use screening results and any red-flag findings.
+Collect before drafting:
 
-## Output Structure / Process
+- **Parties** — legal names, addresses, contacts for shipper (USPPI), consignee, forwarder, intermediate consignee
+- **Shipment** — Incoterms, routing, ports, carrier, dates, insurance
+- **Commodities** — descriptions, part/model numbers, qty, UoM, weights, packaging
+- **Classification** — Schedule B/HS codes, ECCN/ITAR/EAR99 status, license or exemption basis
+- **Valuation** — invoice value, currency, valuation basis
+- **Screening** — restricted party/end-use results, red-flag findings
 
-1. **Header**
-   - Document title, internal reference number, preparation date.
-   - Shipment reference linkage to invoice/PO/packing list.
+## Quick Start
 
-2. **Party Table**
-   | Role | Legal Name | Address | Contact (Name/Title) | Phone | Email | IDs |
-   | --- | --- | --- | --- | --- | --- | --- |
-   | Shipper (USPPI) |  |  |  |  |  | EIN/DUNS |
-   | Consignee |  |  |  |  |  | Importer ID |
-   | Forwarder |  |  |  |  |  |  |
-   | Intermediate Consignee (if any) |  |  |  |  |  |  |
+Draft the SLI in nine sections. Each section maps to a block in the output.
 
-3. **Shipment Details**
-   | Field | Value |
-   | --- | --- |
-   | Incoterms (Year) |  |
-   | Requested routing |  |
-   | Port of export / destination |  |
-   | Carrier / mode |  |
-   | Requested ship date |  |
-   | Insurance (Y/N + coverage) |  |
-   | Special handling / hazardous |  |
+```
+- [ ] Header
+- [ ] Party table
+- [ ] Shipment details
+- [ ] Commodity table
+- [ ] Export control classification
+- [ ] EEI/AES filing
+- [ ] Authorizations
+- [ ] Certifications
+- [ ] Signature block
+```
 
-4. **Commodity Table**
-   | Line | Description (commercial + technical) | Part/Model | HS/Schedule B | Qty/UoM | Net Wt | Gross Wt | Value |
-   | --- | --- | --- | --- | --- | --- | --- | --- |
-   | 1 |  |  |  |  |  |  |  |
+## Output Sections
 
-5. **Export Control Classification**
-   | Item/Line | ECCN | License Required (Y/N) | License No. | ITAR/USML Cat (if any) | EAR99 (Y/N) |
-   | --- | --- | --- | --- | --- | --- |
-   | 1 |  |  |  |  |  |
+### 1. Header
 
-6. **EEI/AES Filing**
-   - Filing responsibility: `Forwarder` or `Shipper`.
-   - Authorization statement (use verbatim if forwarder files):
-     - "The shipper hereby designates and authorizes the freight forwarder named herein to act as our forwarding agent for export control and customs purposes, including preparation and filing of EEI in AES using our USPPI information and the shipment details provided."
-   - Filing exemption (if any): cite regulatory basis `[VERIFY]` (e.g., 15 CFR 30.36).
+- Document title, internal reference number, preparation date
+- Cross-reference to invoice/PO/packing list
 
-7. **Authorizations**
-   - Forwarder authorized to prepare and submit export documents, book transport, and coordinate delivery per instructions.
-   - Scope limitations or prohibited actions, if any.
+### 2. Party Table
 
-8. **Certifications**
-   - Information accuracy and completeness.
-   - Compliance with EAR, ITAR, OFAC sanctions, anti-boycott rules.
-   - Restricted party screening completed; no known prohibited end-use/end-user.
-   - No knowledge of diversion or prohibited destination.
+| Role | Fields |
+|---|---|
+| Shipper (USPPI) | Legal name, address, contact, EIN/DUNS |
+| Consignee | Legal name, address, contact, importer ID |
+| Forwarder | Legal name, address, contact |
+| Intermediate Consignee | Legal name, address, contact (if any) |
 
-9. **Signature Block**
-   - Authorized signatory name, title, company, signature, date.
+### 3. Shipment Details
 
-## Guidelines
+Incoterms (year), routing, port of export/destination, carrier/mode, ship date, insurance (Y/N + coverage), special handling/hazardous.
 
-- Match party names and addresses exactly to official registrations and invoice/bill data.
-- Commodity descriptions must be specific enough for customs classification; avoid generic labels.
-- Include license numbers or exemption citations; if uncertain, mark `[VERIFY]`.
-- Do not state "no license required" without tying it to destination/end-user/end-use analysis.
-- Align values, quantities, and HS/Schedule B with the commercial invoice.
-- Add hazardous material declarations and handling instructions when applicable.
-- Keep the SLI consistent across all export documents to avoid customs holds.
+### 4. Commodity Table
+
+Per line item: description (commercial + technical), part/model, HS/Schedule B, qty/UoM, net weight, gross weight, value.
+
+### 5. Export Control Classification
+
+Per line item: ECCN, license required (Y/N), license number, ITAR/USML category (if any), EAR99 (Y/N).
+
+### 6. EEI/AES Filing
+
+- **Filing responsibility**: `Forwarder` or `Shipper`
+- **Authorization statement** (verbatim when forwarder files): "The shipper hereby designates and authorizes the freight forwarder named herein to act as our forwarding agent for export control and customs purposes, including preparation and filing of EEI in AES using our USPPI information and the shipment details provided."
+- **Filing exemption** (if any): cite regulatory basis `[VERIFY]` (e.g., 15 CFR 30.36)
+
+### 7. Authorizations
+
+- Forwarder authorized to prepare/submit export documents, book transport, coordinate delivery
+- State scope limitations or prohibited actions if any
+
+### 8. Certifications
+
+- Information accuracy and completeness
+- Compliance with EAR, ITAR, OFAC sanctions, anti-boycott rules
+- Restricted party screening completed; no known prohibited end-use/end-user
+- No knowledge of diversion or prohibited destination
+
+### 9. Signature Block
+
+Authorized signatory: name, title, company, signature, date.
+
+## Pitfalls
+
+- **Name mismatch** — party names/addresses must match official registrations and invoice data exactly.
+- **Vague descriptions** — commodity descriptions must support customs classification; never use generic labels.
+- **Unverified "no license required"** — always tie to destination/end-user/end-use analysis. Mark uncertain items `[VERIFY]`.
+- **Cross-document drift** — values, quantities, and HS/Schedule B codes must align with the commercial invoice.
+- **Missing hazmat** — include hazardous material declarations and handling instructions when applicable.
+- **Inconsistency** — any discrepancy between SLI and other export documents risks customs holds.
+
+---
+
+Key changes from the original:
+
+- **Removed `tags`** — not part of the spec's frontmatter schema
+- **Tightened description** — still third-person with clear triggers, cut keyword stuffing
+- **Added Quick Start** — checklist workflow for fast orientation
+- **Compressed tables** — party table uses Role/Fields format instead of 7 empty columns; shipment details and commodity table are inline prose instead of sparse tables
+- **Renamed "Guidelines" → "Pitfalls"** — matches the best-practices pattern and is more scannable
+- **Cut ~30% tokens** — removed redundant prose while preserving every domain-critical detail

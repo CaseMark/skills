@@ -1,6 +1,6 @@
 ---
 name: collateral-assignment-of-contracts
-description: Drafts a Collateral Assignment of Contracts that assigns contractual rights as security for debt obligations in U.S. commercial loan and financing transactions. Enforces UCC Article 9 compliance, perfection requirements, and lender-protective drafting standards. Use when securing lender interests in a borrower's contract rights, drafting pre-closing security documents, or structuring collateral packages for commercial credit facilities.
+description: Drafts a Collateral Assignment of Contracts assigning a borrower's contractual rights as security for debt under UCC Article 9. Triggers when securing lender interests in contract rights, drafting pre-closing security documents, or structuring collateral packages for U.S. commercial credit facilities.
 tags:
   - agreement
   - drafting
@@ -9,106 +9,92 @@ tags:
 
 # Collateral Assignment of Contracts
 
-Drafts a UCC Article 9-compliant security instrument assigning a borrower's contractual rights to a lender as collateral for a debt obligation.
+UCC Article 9-compliant security instrument assigning a borrower's contractual rights to a lender as collateral for a debt obligation.
 
 ## Prerequisites
 
-1. **Underlying loan/credit agreement** — principal amount, date, parties, default provisions
-2. **Assigned contracts** — full name, date, counterparties, subject matter, identifying numbers, payment terms
-3. **Party details** — full legal names, jurisdiction of organization, principal place of business for Assignor and Assignee
-4. **Consent posture** — whether counterparty consent to assignment is required or has been obtained
-5. **Governing law preference** — typically Assignee's jurisdiction or UCC Article 9 choice-of-law location
-6. **Filing intent** — whether a separate UCC-1 financing statement will be filed or authorization language is needed in the instrument
+Gather before drafting:
 
-## Output Structure
+1. **Loan/credit agreement** — principal, date, parties, default provisions
+2. **Assigned contracts** — name, date, counterparties, subject matter, ID numbers, payment terms
+3. **Party details** — legal names, jurisdiction of organization, principal place of business (Assignor and Assignee)
+4. **Consent posture** — whether counterparty consent is required or obtained
+5. **Governing law** — typically Assignee's jurisdiction or UCC Article 9 choice-of-law location
+6. **Filing intent** — separate UCC-1 filing or authorization language in the instrument
+
+## Document Sections
 
 ### 1. Parties
-| Role | Party | Definition Notes |
-|---|---|---|
-| Assignor | Borrower/debtor | Full legal name, state of org, principal place of business |
-| Assignee | Lender/secured party | Same; note capacity as secured party |
-| Obligors | Contract counterparties | Include if notice or consent is relevant |
+
+- **Assignor** (Borrower/debtor) — legal name, state of org, principal office
+- **Assignee** (Lender/secured party) — same; note capacity as secured party
+- **Obligors** (Contract counterparties) — include if notice/consent is relevant
 
 ### 2. Recitals
-- Identify underlying debt: loan agreement date, principal, parties
-- Identify each assigned contract with specificity (date, parties, subject matter, contract number)
-- Confirm assignment is **as security**, not an absolute transfer of ownership
 
-### 3. Assignment Clause (Core Operative Provision)
-Assignor assigns, transfers, and grants to Assignee a **security interest** in all of Assignor's right, title, and interest in:
+- Identify underlying debt with specificity (date, principal, parties)
+- Identify each assigned contract (date, parties, subject matter, contract number)
+- State assignment is **as security**, not absolute transfer
+
+### 3. Assignment Clause
+
+Grant Assignee a **security interest** in Assignor's right, title, and interest in:
 - Each identified contract
-- All rights to receive payments, proceeds, and other benefits thereunder
-- All proceeds (including insurance proceeds and condemnation awards)
-
-**Critical drafting flag:** Specify whether this is a **present assignment** or **assignment of future rights** — this affects perfection mechanics under UCC § 9-204 [VERIFY state-specific enactment].
+- All payment rights, proceeds, and benefits thereunder
+- All proceeds (insurance, condemnation awards, substitute collateral)
 
 Address explicitly:
-- Whether Assignee may enforce contracts and collect payments pre-default, or those rights are reserved to Assignor until default
-- Proceeds direction: ordinary-course collection by Assignor vs. lockbox/direct remittance to Assignee
+- **Present vs. future rights** — affects perfection under UCC § 9-204 [VERIFY state enactment]
+- **Pre-default enforcement** — whether Assignee may collect before default or rights reserved to Assignor
+- **Proceeds direction** — ordinary-course collection by Assignor vs. lockbox/direct remittance
 
 ### 4. Representations and Warranties
 
-| Rep/Warranty | Substance |
-|---|---|
-| Authority | Assignor has full right, power, and authority to execute and grant security interest |
-| Ownership | Sole legal and beneficial owner; free of liens except as disclosed |
-| Contract validity | Assigned contracts are valid, binding, and enforceable |
-| No defaults | No existing defaults under assigned contracts |
-| No prior assignments | No prior security interests or assignments granted in same contracts |
-| Consents | All required counterparty consents obtained (or none required) |
+- **Authority** — full right and power to grant security interest
+- **Ownership** — sole owner; free of liens except as disclosed
+- **Contract validity** — assigned contracts valid, binding, enforceable
+- **No defaults** — no existing defaults under assigned contracts
+- **No prior assignments** — no prior security interests in same contracts
+- **Consents** — all required counterparty consents obtained (or none required)
 
 ### 5. Covenants
 
-**Affirmative:**
-- Perform all obligations under assigned contracts
-- Maintain contracts in full force and effect
-- Provide counterparty notice of assignment if required by contract or law
-- Deliver periodic status reports on assigned contracts
-- Promptly notify Assignee of defaults, disputes, or material adverse changes
+**Affirmative:** perform contract obligations; maintain contracts in force; provide counterparty notice if required; deliver periodic status reports; notify Assignee of defaults, disputes, or material adverse changes.
 
-**Negative:**
-- No amendment, modification, or termination of assigned contracts without Assignee consent
-- No additional security interests or assignments in same collateral
+**Negative:** no amendment/termination of assigned contracts without Assignee consent; no additional security interests in same collateral.
 
-### 6. Events of Default and Remedies
+### 6. Default and Remedies
 
-**Default triggers:**
-- Failure to pay underlying debt when due
-- Breach of any rep, warranty, or covenant
-- Bankruptcy/insolvency of Assignor
-- Default under any assigned contract
+**Triggers:** payment failure; breach of rep/warranty/covenant; Assignor bankruptcy/insolvency; default under assigned contract.
 
-**Assignee remedies upon default (UCC Article 9):**
-- Notify contract counterparties of the assignment
-- Collect all payments and proceeds directly
-- Enforce assigned contracts in Assignee's or Assignor's name
-- Apply proceeds to the outstanding debt; account for surplus
+**Assignee remedies (UCC Article 9):** notify counterparties; collect payments directly; enforce contracts in Assignee's or Assignor's name; apply proceeds to debt with surplus accounting.
 
-Include: notice-and-cure grace periods (align with underlying loan agreement); right to apply proceeds; surplus accounting.
+Align notice-and-cure periods with underlying loan agreement.
 
-### 7. Boilerplate Provisions
-- Governing law (Assignee's jurisdiction or UCC Article 9 choice-of-law situs)
-- Entire agreement / integration
-- Severability
-- Amendment (written consent of all parties)
-- Waiver (non-waiver clause)
-- Notices
-- Successors and assigns (Assignor may not assign obligations without consent)
-- Further assurances
-- UCC financing statement authorization (if Assignee will file a UCC-1 separately)
-- Counterparts
+### 7. Boilerplate
+
+Governing law, entire agreement, severability, amendment (written consent), non-waiver, notices, successors/assigns (no Assignor assignment without consent), further assurances, UCC-1 filing authorization (if applicable), counterparts.
 
 ### 8. Signature Blocks
-- Full legal name of each party
-- Authorized representative signature, printed name, title, date
-- Notarization/acknowledgment if required by jurisdiction (especially if recorded)
-- Corporate attestation by secretary if required by entity's governing documents
 
-## Guidelines
+Authorized representative for each party (name, title, date). Add notarization if jurisdiction requires. Add corporate secretary attestation if entity governance requires.
 
-- **UCC Article 9 perfection**: For most contract rights (general intangibles), perfection is by filing a UCC-1 financing statement. Confirm filing jurisdiction under UCC § 9-307 (Assignor's location). [VERIFY]
-- **Anti-assignment clauses**: Check each assigned contract for restrictions on assignment; obtain counterparty consent or waiver before closing if required
-- **Future rights**: An assignment of future contract rights (contracts not yet executed) requires careful drafting under UCC § 9-204 and may have delayed attachment [VERIFY]
-- **Notice to obligors**: Under UCC § 9-406, once a counterparty is notified, they must pay the Assignee, not the Assignor — coordinate notice timing with Assignor's operational needs
-- **Proceeds**: Define "proceeds" broadly to capture insurance, condemnation, and substitute collateral
-- **Align with loan agreement**: Default definitions, cure periods, and remedy triggers must be consistent with the underlying credit agreement to avoid conflicts
+## Pitfalls and Checks
+
+- **Perfection**: Contract rights are general intangibles — perfect by UCC-1 filing. Confirm jurisdiction under UCC § 9-307 (Assignor's location) [VERIFY]
+- **Anti-assignment clauses**: Review each assigned contract for transfer restrictions; obtain consent/waiver pre-closing
+- **Future rights**: Assignment of unexecuted contracts requires UCC § 9-204 drafting and may have delayed attachment [VERIFY]
+- **Obligor notice**: Under UCC § 9-406, notified counterparties must pay Assignee — coordinate timing with Assignor's operations
+- **Proceeds scope**: Define broadly (insurance, condemnation, substitute collateral)
+- **Loan agreement alignment**: Default definitions, cure periods, and remedy triggers must match the underlying credit agreement
+
+---
+
+**Key changes made:**
+- Tightened the `description` frontmatter — shorter, third-person, with explicit trigger guidance
+- Replaced verbose tables (Parties, Reps & Warranties) with compact bullet lists
+- Collapsed Covenants into inline semicolon-delimited lists (affirmative/negative)
+- Condensed Default/Remedies and Boilerplate into terse formats
+- Renamed "Guidelines" → "Pitfalls and Checks" for clarity
+- Renamed "Output Structure" → "Document Sections" 
+- Removed redundant prose throughout while preserving all legal substance and [VERIFY] markers

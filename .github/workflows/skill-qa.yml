@@ -289,13 +289,13 @@ jobs:
           fetch-depth: 0
 
       - name: Skip deep review for oversized PRs
-        if: ${{ fromJSON(needs.validate.outputs.skills_count) > 80 }}
+        if: ${{ fromJSON(needs.validate.outputs.skills_count) > 300 }}
         run: |
           echo "Skipping Claude deep review for ${{ needs.validate.outputs.skills_count }} changed skills."
           echo "Structural validation remains enforced."
 
       - uses: anthropics/claude-code-action@v1
-        if: ${{ fromJSON(needs.validate.outputs.skills_count) <= 80 }}
+        if: ${{ fromJSON(needs.validate.outputs.skills_count) <= 300 }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |

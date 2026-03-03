@@ -1,126 +1,131 @@
 ---
 name: insurance-certificate-compliance-check
 description: >-
-  Performs a contract-driven legal review of insurance certificates and
-  endorsements for CRE/site-access and vendor contracts. Use for COI packet
-  intake and risk-control outputs that must determine compliance with
-  insured-coverage requirements, required limits, additional insured naming,
-  completed-operations extension, primary and non-contributory language,
-  waiver of subrogation, and notice/qualification terms. Best used when user
-  supplies Access Agreement terms plus ACORD forms and asks for a
-  pass/fail/conditional result, deficit list, broker-ready remediation, or
-  escalation guidance. Trigger keywords: COI, ACORD 25, additional insured,
-  primary and non-contributory, completion operations, umbrella, waiver of
-  subrogation, insurer rating, certificate holder, cancellation notice.
-tags:
-  - analysis
-  - drafting
-  - litigation
-  - memo
-  - regulatory
-  - transactional
+  Performs contract-driven compliance review of insurance certificates and
+  endorsements against CRE/site-access and vendor agreement requirements.
+  Produces pass/fail/conditional determinations, deficit lists, and
+  broker-ready remediation instructions. Use when reviewing COI packets,
+  ACORD 25 forms, or endorsements for additional insured, primary and
+  non-contributory, waiver of subrogation, completed operations, umbrella
+  alignment, limits adequacy, or insurer rating compliance. Trigger terms:
+  COI, ACORD, additional insured, certificate holder, cancellation notice.
 ---
 
 # Insurance Certificate Compliance Check
 
-Generates a defensible compliance determination comparing agreement requirements to COI and endorsement evidence.
+Compares Access Agreement insurance requirements to COI and endorsement evidence to produce a defensible compliance determination with actionable deficit remediation.
 
 ## Prerequisites
 
-1. Access Agreement (final version) with insurance clause, exhibits, schedules, and amendments.
-2. COIs for every required coverage line: CGL, auto, workers’ compensation/EL, umbrella, and any expressly required specialty lines.
-3. Endorsement and schedule copies for AI, completed operations AI, primary/non-contributory, waiver of subrogation, and umbrella terms.
-4. Recipient legal name(s), required AI entities, and exact work/product/project scope.
-5. Access dates and project locations, including any post-completion coverage carry-forward period.
-6. Governing-law/jurisdiction stated in agreement.
-7. Delivery recipients for the output and privilege instructions.
+1. Access Agreement (final) with insurance clause, exhibits, and amendments
+2. COIs for all required lines: CGL, auto, WC/EL, umbrella, specialty
+3. Endorsement copies: AI, completed-ops AI, primary/non-contributory, waiver of subrogation, umbrella schedule
+4. Recipient legal names, required AI entities, project scope
+5. Access dates, locations, post-completion carry-forward period
+6. Governing law / jurisdiction
+7. Delivery recipients and privilege instructions
 
-## Output Structure / Process
+## Quick Start
 
-### 1) Normalize agreement requirements into a matrix
+1. Extract all insurance requirements from the agreement into a requirements matrix
+2. Run COI baseline checks against each requirement
+3. Verify endorsement-level evidence for every core element — COI text alone is non-binding
+4. Assess risk and coverage-structure gaps
+5. Apply jurisdiction-specific considerations
+6. Output compliance determination with deficit list
 
-| Category | Required extraction | Normalized output |
+## Workflow
+
+### Step 1: Build Requirements Matrix
+
+Extract from agreement into normalized rows:
+
+| Category | Extract | Normalize to |
 |---|---|---|
-| Coverage types | CGL, auto, WC/EL, umbrella, etc. | `[line]: [required form/limits/scope]` |
-| Limits | Occurrence, agg, products-completed aggregate, per location/project | Numeric minimums + frequency |
-| AI scope | named entities and affiliates | Exact legal names + whether ongoing/completed |
-| Priority terms | Primary/non-contributory | Required for which policies/lines |
-| Waiver of subrogation | Which lines must include waiver | CGL/WC/auto/property |
-| Notice/ratings | cancellation notice, AM Best, insurer status | Required evidence/source |
-| Special clauses | exclusions, endorsements by form number | Must be provided and checked for fit |
+| Coverage types | CGL, auto, WC/EL, umbrella, specialty | `[line]: [form/limits/scope]` |
+| Limits | Occurrence, aggregate, products-completed, per location/project | Numeric minimums + frequency |
+| AI scope | Named entities and affiliates | Exact legal names + ongoing/completed |
+| Priority terms | Primary/non-contributory | Which policies/lines |
+| Waiver of subrogation | Which lines require waiver | CGL/WC/auto/property |
+| Notice/ratings | Cancellation notice, AM Best, insurer status | Required evidence |
+| Special clauses | Exclusions, endorsements by form number | Must be checked |
 
-If any clause is vague (`acceptable`, `sufficient`, `as required by owner`) flag as **Attorney Clarification Required**.
+Flag vague clauses (`acceptable`, `sufficient`, `as required by owner`) as **Attorney Clarification Required**.
 
-### 2) COI baseline checks (information-only)
+### Step 2: COI Baseline Checks
 
-1. Named insured must match Recipient entity exactly (name + suffix + related entity logic).
-2. Policy period covers required access window.
-3. Required coverages and stated limits appear in requested fields.
-4. Occurrence vs claims-made requirement confirmed where applicable.
-5. `Limits Apply` and aggregate designations align with contract (`per occurrence`, `per location`, `per project`).
-6. Confirm producer/broker contact exists.
-7. Capture red flags: expired/soon-expiring policies, wrong entity, missing policy numbers, suspicious operations descriptions.
+These are information-only — not proof of coverage:
 
-If COI evidence is incomplete, set status to `conditionally compliant` and list missing documents before final conclusion.
+1. Named insured matches recipient entity exactly (name + suffix + related entity logic)
+2. Policy period covers access window
+3. Required coverages and limits appear in correct fields
+4. Occurrence vs claims-made confirmed
+5. Aggregate designations align (`per occurrence`, `per location`, `per project`)
+6. Producer/broker contact present
+7. Red flags: expired/expiring policies, wrong entity, missing policy numbers
 
-### 3) Endorsement-level mandatory verification
+If incomplete, set `Conditionally Compliant` and list missing documents.
 
-For every core element below, COI text alone is non-binding.
+### Step 3: Endorsement Verification
 
-| Element | Required confirmation | Typical failure mode |
+COI text alone is non-binding. Require endorsement-level evidence for each:
+
+| Element | Required | Common failure |
 |---|---|---|
-| Additional insured | Endorsement or policy language identifies exact required entities | Blanket AI exists but entity mismatch |
-| Completed operations AI | Separate language/endorsement for completed ops if required | Only ongoing AI provided |
-| Primary/non-contributory | Separate PNC clause/endorsement for AI | AI marked on COI only |
-| Umbrella alignment | Underlying + umbrella include required AI/PNC and intended lines | No schedule showing AI/PNC extension |
-| Waiver of subrogation | Endorsement showing waiver on required lines | Narrative in COI only |
-| Cancellation/no-renewal notice | enforceable mechanism documented | Reliance on ACORD limitations only |
+| Additional insured | Endorsement naming exact entities | Blanket AI with entity mismatch |
+| Completed-ops AI | Separate completed-ops endorsement | Only ongoing AI provided |
+| Primary/non-contributory | PNC clause/endorsement for AI | PNC on COI only |
+| Umbrella alignment | AI/PNC in underlying + umbrella schedule | No schedule showing extension |
+| Waiver of subrogation | Endorsement on required lines | Narrative in COI only |
+| Cancellation notice | Enforceable mechanism documented | Reliance on ACORD boilerplate only |
 
-### 4) Risk and coverage-structure checks
+### Step 4: Risk and Coverage-Structure Checks
 
-1. Confirm required minimum limits versus exposed values at each line and project.
-2. Compute combined available limits where umbrella is intended to augment GL/auto/EL.
-3. Validate no contractual coverage-on-paper conflict with access-specific exclusions or geographic/type-of-work exclusions.
-4. Verify deductibles/SIR and exclusions if high risk or large retention exists (if provided by declarations/broker attestation).
-5. Confirm insurer rating requirements with explicit evidence (broker attestation, rating confirmation).
+1. Verify minimum limits vs exposed values per line and project
+2. Compute combined limits where umbrella augments GL/auto/EL
+3. Check for coverage-exclusion conflicts (geographic, type-of-work, access-specific)
+4. Review deductibles/SIR if high-risk or large retention (from declarations/broker attestation)
+5. Confirm insurer rating with explicit evidence
 
-### 5) Jurisdiction adaptation (mark uncertainties)
+### Step 5: Jurisdiction Adaptation
 
-- New York: construction/gravity-risk clauses and labor-law exclusionary terms need focused review `[VERIFY]`.
-- Texas: anti-indemnity construction impact on AI/enforcement pathways `[VERIFY]`.
-- California: active-negligence/AI enforceability constraints `[VERIFY]`.
-- Florida: policy/document disclosure and insurer-info rights if claim posture exists `[VERIFY]`.
+Apply `[VERIFY]` to all jurisdiction-specific conclusions:
 
-If governing law is uncertain or outside provided data, mark all jurisdictional conclusions as **requires legal verification**.
+- **New York**: Construction gravity-risk and labor-law exclusions `[VERIFY]`
+- **Texas**: Anti-indemnity impact on AI enforcement `[VERIFY]`
+- **California**: Active-negligence/AI enforceability constraints `[VERIFY]`
+- **Florida**: Policy disclosure and insurer-info rights `[VERIFY]`
 
-### 6) Output format
+If governing law is uncertain, mark all jurisdictional conclusions as **requires legal verification**.
 
-```text
+### Step 6: Output
+
+```
 Result: [Compliant | Conditionally Compliant | Non-Compliant]
 Jurisdiction: [state]
 Coverage period tested: [start] to [end]
 Review confidence: [High | Medium | Low]
 
 Requirements Matrix:
-- Requirement | Evidence reviewed | Status | Finding | Deficiency
+- Requirement | Evidence | Status | Finding | Deficiency
 - ...
 
 Escalation: [In-house counsel / Risk manager / Coverage counsel]
 Access decision: [Recommend allow / conditional / deny pending docs]
 ```
 
-Use entity-name exactness and numeric precision (`$1,000,000 each occurrence`, `requires PG-20/CG 20 37`, etc.).
+Use entity-name exactness and numeric precision (`$1,000,000 each occurrence`, `CG 20 37`).
 
-## Guidelines
+## Critical Guardrails
 
-- Treat every COI statement as documentary indication, not contractual proof.
-- Never state “fully covered” without endorsement/policy support.
-- Do not conflate `certificate holder` with `additional insured`.
-- Never infer AI scope from checkbox or `Description of Operations` only.
-- For each missing item, provide a precise broker instruction: exact document, exact endorsement form/edition, and deadline.
-- Keep a running list of `confirmed`, `indicated-not-verified`, and `not shown`.
-- Never provide coverage legal opinions; flag as **risk-control assessment**.
-- Include explicit attorney review requirement before operational reliance.
-- If unresolved deficiencies remain and access is allowed, document a written exception and mitigation controls.
-- If potential anti-indemnity/statutory effects drive outcome, escalate immediately.
-- Use `[VERIFY]` on all uncited or uncertain citations/authority claims.
+- COI statements are documentary indication, not contractual proof
+- Never state "fully covered" without endorsement/policy support
+- `Certificate holder` ≠ `additional insured` — never conflate
+- Never infer AI scope from checkbox or Description of Operations alone
+- For each deficit, provide precise broker instruction: exact endorsement form/edition and deadline
+- Track status as `confirmed`, `indicated-not-verified`, or `not shown`
+- This is a **risk-control assessment**, not a coverage legal opinion
+- Include attorney review requirement before operational reliance
+- If access allowed with unresolved deficits, document written exception and mitigation
+- If anti-indemnity/statutory effects drive outcome, escalate immediately
+- Use `[VERIFY]` on all uncited or uncertain authority claims

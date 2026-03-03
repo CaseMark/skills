@@ -1,6 +1,6 @@
 ---
 name: franchise-lease-rider
-description: Drafts a U.S. franchise lease rider/recognition agreement that makes the franchisor a third-party beneficiary and sets notice/cure, assignment rights, brand standards, IP, alteration approvals, and exclusivity protections. Use when preparing franchise location leases, franchisor recognition agreements, or lease addenda; triggers include "lease rider", "recognition agreement", "franchise lease", "third-party beneficiary", "notice and cure", "assignment option".
+description: Drafts a U.S. franchise lease rider/recognition agreement establishing franchisor as third-party beneficiary with notice/cure, assignment, brand, IP, alteration, and exclusivity protections. Triggers on "lease rider", "recognition agreement", "franchise lease", "third-party beneficiary", "notice and cure", "assignment option", or franchise location lease addenda.
 tags:
   - agreement
   - drafting
@@ -13,92 +13,65 @@ Adds franchisor-protective terms to a tenant lease while preserving landlord and
 
 ## Prerequisites
 
-1. Executed or near-final lease and all amendments.
-2. Executed or near-final franchise agreement and system standards summary.
-3. Party legal names, entity types, and notice addresses (mail + email).
-4. Premises description, lease term, renewals, rent schedule, use clause, exclusives, alteration clause, security deposit.
-5. Landlord consent requirements and any recorded lease/memo requirements.
+1. Executed or near-final lease (with amendments) and franchise agreement.
+2. Party legal names, entity types, notice addresses (mail + email).
+3. Premises description, lease term, renewals, rent schedule, use clause, exclusives, alteration clause, security deposit.
+4. Landlord consent requirements and any recording requirements.
 
-## Output Structure / Process
+## Quick Start
 
-Use this structure and fill the brackets.
+1. Collect all items in Prerequisites and the Variable Checklist below.
+2. Draft each section from the Rider Structure table, inserting Core Clauses.
+3. Run the Pitfalls checklist before finalizing.
 
-| Section | Required Content | Notes |
-| --- | --- | --- |
-| Title | "Franchisor Lease Rider and Recognition Agreement" | Match defined term style in lease. |
-| Parties/Recitals | Identify landlord, tenant, franchisor, premises, lease date, franchise agreement date | State rider is addendum; franchisor is third-party beneficiary. |
-| Priority | Rider controls for franchisor rights on conflict | Keep rest of lease in force. |
-| Notices | Concurrent notice to franchisor for all landlord-tenant notices | Condition precedent to effectiveness. |
-| Cure Rights | Franchisor cure window after tenant cure expires | Separate monetary vs non-monetary. |
-| Assignment Option | Franchisor option to take assignment or install substitute franchisee | Landlord pre-consent; no fees or rent bumps. |
-| Use/Brand | Exclusive use as approved concept; system changes allowed | Protect trade dress evolution. |
-| IP | Franchisor IP ownership; no landlord rights; de-identification duties | Include signage removal. |
-| Alterations | Prototype approval + deemed approval timelines | Remodel/upgrade rights. |
-| Inspections | Franchisor access to inspect for standards | Reasonable notice. |
-| Exclusivity/Radius | Landlord non-compete in project/radius | Define "compete". |
-| Collateral Assignment | Landlord consent to collateral assignment; priority | Subordinate landlord liens to franchisor property. |
-| Amendments | No amendment without franchisor consent | Void if missing. |
-| Governing Law | State of premises | Align with franchise agreement if required. |
-| Execution | Signature blocks for all three parties | Add notary blocks if required. |
+## Rider Structure
 
-### Core Clauses (Template Language)
+| Section | Content | Notes |
+|---|---|---|
+| Title | "Franchisor Lease Rider and Recognition Agreement" | Match lease defined-term style |
+| Parties/Recitals | Landlord, tenant, franchisor, premises, lease date, franchise agreement date | State rider is addendum; franchisor is third-party beneficiary |
+| Priority | Rider controls for franchisor rights on conflict | Rest of lease remains in force |
+| Notices | Concurrent notice to franchisor for all landlord-tenant notices | Condition precedent to effectiveness |
+| Cure Rights | Franchisor cure window after tenant cure expires | Separate monetary vs non-monetary |
+| Assignment Option | Franchisor option to assign or install substitute franchisee | Landlord pre-consent; no fees or rent bumps |
+| Use/Brand | Exclusive use as approved concept; system changes allowed | Protect trade dress evolution |
+| IP | Franchisor IP ownership; no landlord rights; de-identification duties | Include signage removal |
+| Alterations | Prototype approval + deemed approval timelines | Remodel/upgrade rights |
+| Inspections | Franchisor access to inspect for standards | Reasonable notice |
+| Exclusivity/Radius | Landlord non-compete in project/radius | Define "compete" |
+| Collateral Assignment | Landlord consent to collateral assignment; priority | Subordinate landlord liens to franchisor property |
+| Amendments | No amendment without franchisor consent | Void if missing |
+| Governing Law | State of premises | Align with franchise agreement if required |
+| Execution | Signature blocks for all three parties | Add notary blocks if required |
 
-```text
-Third-Party Beneficiary.
-This Rider is executed for the express benefit of Franchisor as a third-party beneficiary. As between Landlord and Tenant, Landlord acknowledges Franchisor’s rights under this Rider and agrees that Franchisor may enforce them directly.
-```
+## Core Clauses
 
-```text
-Notice to Franchisor; Condition Precedent.
-All notices of default, termination, non-renewal, expiration, or material communications under the Lease shall be concurrently delivered to Franchisor at the addresses below. Any notice to Tenant is ineffective unless and until delivered to Franchisor. All cure periods run from Franchisor’s receipt.
-```
+**Third-Party Beneficiary.** This Rider is executed for the express benefit of Franchisor as a third-party beneficiary. Landlord acknowledges Franchisor's rights under this Rider and agrees Franchisor may enforce them directly.
 
-```text
-Franchisor Cure Rights.
-Franchisor may, but is not obligated to, cure any Tenant default. For monetary defaults, Franchisor has not less than thirty (30) days after Tenant’s cure period to cure. For non-monetary defaults not reasonably curable within thirty (30) days, Franchisor receives additional time if it commences cure within thirty (30) days and diligently pursues completion. Landlord shall accept Franchisor’s cure as if performed by Tenant.
-```
+**Notice to Franchisor; Condition Precedent.** All notices of default, termination, non-renewal, expiration, or material communications under the Lease shall be concurrently delivered to Franchisor. Any notice to Tenant is ineffective until delivered to Franchisor. Cure periods run from Franchisor's receipt.
 
-```text
-Assignment Option.
-Upon any Trigger Event, Franchisor may elect by written notice to Landlord to take an assignment of the Lease or to substitute a franchisee designee. Landlord’s consent is granted in advance and shall not be conditioned on fees, additional deposits, rent increases, or other modifications. Assignee is liable only for obligations accruing after the effective assignment date.
-```
+**Franchisor Cure Rights.** Franchisor may, but is not obligated to, cure any Tenant default. Monetary defaults: not less than 30 days after Tenant's cure period. Non-monetary defaults not reasonably curable within 30 days: additional time if Franchisor commences cure within 30 days and diligently pursues completion. Landlord shall accept Franchisor's cure as if performed by Tenant.
 
-```text
-Trigger Events.
-(1) Termination or expiration of the Franchise Agreement; (2) Tenant default under Lease or Franchise Agreement; (3) bankruptcy/insolvency of Tenant; (4) unauthorized assignment or sublease; (5) abandonment or cessation of operations; (6) use of premises outside the approved concept.
-```
+**Assignment Option.** Upon any Trigger Event, Franchisor may elect to take assignment of the Lease or substitute a franchisee designee. Landlord consent is granted in advance, not conditioned on fees, deposits, rent increases, or other modifications. Assignee liable only for post-assignment obligations.
 
-```text
-Use and System Changes.
-Premises may be used solely for the approved franchise concept utilizing Franchisor’s trademarks and system standards. Reasonable system updates (trade dress, menu, methods) consistent with the concept are permitted without additional Landlord consent.
-```
+**Trigger Events.** (1) Termination/expiration of Franchise Agreement; (2) Tenant default under Lease or Franchise Agreement; (3) Tenant bankruptcy/insolvency; (4) unauthorized assignment/sublease; (5) abandonment/cessation of operations; (6) use outside approved concept.
 
-```text
-IP Ownership and De-Identification.
-Franchisor retains all rights in its marks, trade dress, and system. Landlord and Tenant shall not contest ownership. Upon termination (unless assignment to Franchisor/designee), Tenant shall remove all branded materials and de-identify the premises.
-```
+**Use and System Changes.** Premises used solely for approved franchise concept with Franchisor's marks and system standards. Reasonable system updates (trade dress, menu, methods) permitted without additional Landlord consent.
 
-```text
-Alterations and Prototype Approval.
-Landlord approves the Prototype Design attached as Exhibit A. Minor site-specific variations and system updates consistent with the Prototype are pre-approved. For other alterations, Landlord must approve or reasonably disapprove within [10-15] business days; no response equals approval.
-```
+**IP Ownership and De-Identification.** Franchisor retains all rights in marks, trade dress, and system. Neither Landlord nor Tenant may contest ownership. On termination (unless assignment to Franchisor/designee), Tenant removes all branded materials and de-identifies premises.
 
-```text
-Exclusivity and Radius.
-Landlord shall not lease other space in the Project or within [X] miles to a Competing Concept. “Compete” includes businesses offering substantially similar primary products or services.
-```
+**Alterations and Prototype Approval.** Landlord approves Prototype Design (Exhibit A). Minor site-specific variations and system-consistent updates are pre-approved. Other alterations: Landlord must approve or disapprove within [10-15] business days; no response equals approval.
 
-```text
-Collateral Assignment; Landlord Lien Waiver.
-Landlord consents to Tenant’s collateral assignment of the Lease to Franchisor. Landlord waives liens or distraint over Franchisor-owned personal property and branded equipment.
-```
+**Exclusivity and Radius.** Landlord shall not lease space in the Project or within [X] miles to a Competing Concept. "Compete" means businesses offering substantially similar primary products or services.
 
-### Variable Blocks Checklist
+**Collateral Assignment; Landlord Lien Waiver.** Landlord consents to Tenant's collateral assignment of Lease to Franchisor. Landlord waives liens or distraint over Franchisor-owned property and branded equipment.
 
-1. Party names, entity types, and addresses.
-2. Premises description and legal description if in the lease.
+## Variable Checklist
+
+1. Party names, entity types, addresses.
+2. Premises description (and legal description if in lease).
 3. Lease effective date, term, renewal options, rent schedule reference.
-4. Franchise agreement date and defined franchise concept name.
+4. Franchise agreement date and franchise concept name.
 5. Notice methods and delivery requirements (certified mail, courier, email).
 6. Cure periods (tenant vs franchisor).
 7. Assignment notice window (e.g., 30-60 days).
@@ -108,12 +81,12 @@ Landlord consents to Tenant’s collateral assignment of the Lease to Franchisor
 11. Governing law and dispute resolution alignment.
 12. Notarization or recording requirements.
 
-## Guidelines
+## Pitfalls
 
-1. Align defined terms with the lease and franchise agreement; do not re-define unless needed.
-2. Avoid creating a landlord-tenant relationship with franchisor unless assignment is exercised.
-3. Make notice a condition precedent and tie cure clocks to franchisor receipt.
-4. Cap landlord approval discretion with objective standards and deemed approval.
-5. Ensure assignment option includes no pre-assignment liability for franchisor/designee.
-6. Confirm state law rules on lease amendments, notarization, and recording.
-7. Add [VERIFY] only if you insert uncertain statutory or bankruptcy citations.
+- **Term alignment**: align defined terms with lease and franchise agreement; do not re-define unless needed.
+- **No implied landlord-tenant relationship**: franchisor must not become tenant absent exercised assignment.
+- **Notice as condition precedent**: cure clocks must run from franchisor receipt, not tenant receipt.
+- **Deemed approval**: cap landlord discretion with objective standards and response deadlines.
+- **Assignment liability**: no pre-assignment liability for franchisor or designee.
+- **State law**: confirm rules on lease amendments, notarization, and recording.
+- **Uncertain citations**: mark with [VERIFY] if inserting unconfirmed statutory or bankruptcy references.

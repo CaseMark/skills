@@ -1,6 +1,6 @@
 ---
 name: opinion-summary
-description: Produces concise U.S. transactional legal opinion summaries for clients, executives, and co-counsel, preserving issues presented, material facts, legal standards, analysis, conclusions, and qualifications with key authorities. Use when asked to summarize a legal opinion, opinion memorandum, legal analysis memo, or provide an executive opinion recap/brief.
+description: Summarizes U.S. transactional legal opinions into executive-ready briefs preserving issues, analysis, conclusions, qualifications, and key authorities. Triggers when asked to summarize a legal opinion, opinion memorandum, legal analysis memo, or produce an executive opinion recap.
 tags:
   - summarization
   - summary
@@ -9,80 +9,51 @@ tags:
 
 # Legal Opinion Summary
 
-Condense a full legal opinion into a professional, executive-ready summary that preserves substance and qualifications.
+Condense a full legal opinion into a professional summary that preserves substance and qualifications. Target 20–30% of original length unless instructed otherwise.
 
-## Prerequisites
+## Quick Start
 
-1. Full legal opinion text, including exhibits or appendices relied on.
-2. Identification of governing jurisdiction(s) and transaction context.
-3. Any confidentiality/privilege marking requirements for the output.
-4. Target audience and desired length range.
+Before summarizing, confirm:
+- Full opinion text (including relied-upon exhibits/appendices)
+- Governing jurisdiction(s) and transaction context
+- Privilege/confidentiality marking requirements
+- Target audience and desired length
 
-## Output Structure / Process
+## Required Sections
 
-Use the following structure and keep the summary approximately 20–30% of original length unless instructed otherwise.
+| Section | Content |
+|---|---|
+| Issues Presented | Plain-language statement of each legal question; number if multiple |
+| Factual Background | Material facts only; omit narrative detail |
+| Legal Analysis | Per issue: controlling standard, key reasoning, decisive facts |
+| Conclusion / Recommendation | Outcome, recommendation, reliance conditions |
+| Qualifications / Assumptions | Material limits, open questions, reliance assumptions |
+| Risk / Alternatives | If addressed: risks, likelihoods, alternatives |
+| Authorities | Controlling statutes, regs, or cases; short cites only |
 
-**Required Sections**
+## Issue Analysis Table
 
-| Section | Required Content |
-| --- | --- |
-| Issues Presented | Plain-language statement of each legal question. Number issues if more than one. |
-| Factual Background | Only facts material to the analysis; omit narrative detail. |
-| Legal Analysis | For each issue: controlling standard, key reasoning steps, and decisive facts. |
-| Conclusion / Recommendation | Definitive outcome, recommendation, and reliance conditions. |
-| Qualifications / Assumptions | Material limits, open questions, and reliance assumptions. |
-| Risk / Alternatives | If addressed in the opinion: risks, likelihoods, and alternatives. |
-| Authorities | Controlling statutes, regs, or cases; short cites only. |
-
-**Issue-by-Issue Analysis Table**
+For each issue, populate:
 
 | Issue | Standard | Key Facts | Reasoning | Conclusion |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 
-**Compression Checklist**
+## Compression Rules
 
-- Include all legal questions and final conclusions.
-- Preserve material qualifiers, uncertainties, and counterarguments.
-- Retain controlling statutory language or contract excerpts when central.
+- Include every legal question and final conclusion.
+- Preserve all material qualifiers, uncertainties, and counterarguments.
+- Retain controlling statutory language or contract excerpts when central to analysis.
 - Remove string citations and non-controlling authorities.
 - Use short citations sufficient for lookup.
 
-**Template**
+## Pitfalls
 
-Issues Presented  
-1.  
-2.
+- Never introduce theories or arguments absent from the original opinion.
+- Never overstate certainty — mirror all caveats, limits, and contingencies exactly.
+- Preserve privilege/work-product sensitivity; apply required markings.
+- Mark uncertain citations with `[VERIFY]`.
+- Maintain professional memorandum tone throughout.
 
-Factual Background  
--  
+---
 
-Legal Analysis  
-Issue 1  
-- Standard:  
-- Reasoning:  
-- Conclusion:  
-
-Issue 2  
-- Standard:  
-- Reasoning:  
-- Conclusion:  
-
-Conclusion / Recommendation  
--  
-
-Qualifications / Assumptions  
--  
-
-Risk / Alternatives  
--  
-
-Authorities  
--  
-
-## Guidelines
-
-- Do not introduce new theories or arguments not in the opinion.
-- Do not overstate certainty; mirror any caveats, limits, and contingencies.
-- Preserve privilege/work-product sensitivity and mark accordingly.
-- Use professional memorandum tone; avoid casual language.
-- If a legal citation is uncertain, mark it with `[VERIFY]`.
+Key changes: consolidated the description into a tighter trigger-focused sentence, removed the verbose template (the Required Sections table + Issue Analysis Table serve the same purpose more concisely), merged the guidelines into a "Pitfalls" section, eliminated the redundant "Compression Checklist" heading in favor of "Compression Rules", and cut ~30% of tokens while preserving all legal substance. Please grant write permission so I can save the file, or copy the content above directly.

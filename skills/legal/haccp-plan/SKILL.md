@@ -1,6 +1,6 @@
 ---
 name: haccp-plan
-description: Drafts U.S. HACCP plans for food production with FDA/USDA compliance, covering hazard analysis, critical control points (CCPs), critical limits, monitoring, corrective actions, verification/validation, and recordkeeping. Use for "HACCP plan", "food safety plan", "hazard analysis", "critical control points", "FSMA", "FDA", "USDA", "seafood HACCP", "meat and poultry HACCP".
+description: Drafts U.S. HACCP plans for food production under FDA or USDA regimes. Triggers on requests involving HACCP plans, food safety plans, hazard analysis, critical control points, FSMA compliance, seafood HACCP (21 CFR 123), or meat/poultry HACCP (9 CFR 417).
 tags:
   - analysis
   - drafting
@@ -10,103 +10,105 @@ tags:
 
 # HACCP Plan
 
-Produce a defensible HACCP plan tailored to the client's process and the applicable FDA or USDA regime.
+Produces a defensible HACCP plan tailored to the client's facility, products, and applicable FDA or USDA regulatory regime.
 
 ## Prerequisites
 
-1. Legal entity name, facilities, contacts, and HACCP team roster
-2. Product list with ingredients, formulations, packaging, shelf life, intended consumers
+Gather before drafting:
+
+1. Legal entity name, facility address(es), HACCP team roster
+2. Product list — ingredients, formulations, packaging, shelf life, intended consumers
 3. Process flow diagram(s) from receiving through distribution
 4. Facility layout and equipment list with calibration capability
-5. Supplier controls and specifications for incoming materials
-6. Existing SOPs, sanitation, allergen, and preventive control documents
-7. Regulatory scope decision: FDA vs USDA (or dual jurisdiction)
+5. Supplier controls and incoming-material specifications
+6. Existing SOPs (sanitation, allergen, preventive controls)
+7. Regulatory scope: FDA 21 CFR 117 | FDA 21 CFR 123 (seafood) | USDA 9 CFR 417 (meat/poultry) | dual jurisdiction
 
-## Output Structure / Process
+## Quick Start
 
-Section Map:
-- Cover and scope
-- Product description(s)
-- Process flow diagram and narrative
-- Hazard analysis
-- CCP determination
-- Critical limits
-- Monitoring procedures
-- Corrective actions
-- Verification and validation
-- Recordkeeping and retention
-- References and signature page
+1. Confirm jurisdiction and product category → select governing regulation
+2. Populate cover page and product descriptions from client intake
+3. Walk through process flow; flag each step for biological (B), chemical (C), and physical (P) hazards
+4. Run CCP decision tree on every hazard with a control measure
+5. Set critical limits with cited regulatory or scientific basis
+6. Define monitoring, corrective actions, verification, and recordkeeping for each CCP
+7. Compile references, add signature page, mark any unverified items `[VERIFY]`
 
-Cover and Scope Template:
-```text
-HACCP Plan for: [Legal Entity Name]
-Facility: [Address(es)]
-Products Covered: [List]
-Regulatory Regime: [FDA 21 CFR Part 117 / FDA 21 CFR Part 123 / USDA 9 CFR Part 417 / Other]
-Plan Effective Date: [Date]
-HACCP Team: [Names, Roles]
-```
+## Workflow
 
-Product Description Table:
+### 1. Cover and Scope
+
+Include: legal entity, facility, products covered, regulatory regime, effective date, HACCP team (names + roles).
+
+### 2. Product Descriptions
+
 | Product | Ingredients | Processing | Packaging | Storage | Shelf Life | Intended Use/Consumers | Distribution |
 |---|---|---|---|---|---|---|---|
 
-Process Flow:
-- Insert flow diagram(s)
-- Provide a narrative walk-through of each step
-- Confirm on-site verification of the flow diagram
+### 3. Process Flow
 
-Hazard Analysis Table:
-| Step | Hazard Type (B/C/P) | Hazard | Likelihood | Severity | Preventive Measure | CCP? | Justification/Source |
+- Insert or describe flow diagram(s)
+- Narrative walk-through of each step
+- Note: diagram must be verified on-site and updated when processes change
+
+### 4. Hazard Analysis
+
+| Step | Type (B/C/P) | Hazard | Likelihood | Severity | Preventive Measure | CCP? | Justification |
 |---|---|---|---|---|---|---|---|
 
-CCP Determination:
-- Apply a CCP decision tree for each hazard with a control measure
-- Record rationale for each CCP or non-CCP decision
+Include allergen hazards where applicable.
 
-CCP Decision Tree Record (per hazard):
+### 5. CCP Determination
+
+Apply decision tree per hazard. Record outcome:
+
 | Step | Hazard | Control Measure | Decision Tree Outcome | CCP? | Rationale |
 |---|---|---|---|---|---|
 
-Critical Limits Table:
+### 6. Critical Limits
+
 | CCP | Parameter | Critical Limit | Basis (Reg/Science) | Measurement Method | Frequency |
 |---|---|---|---|---|---|
 
-Monitoring Procedures Table:
+### 7. Monitoring
+
 | CCP | What | How | Frequency | Who | Instrument/Calibration | Record |
 |---|---|---|---|---|---|---|
 
-Corrective Actions Table:
+### 8. Corrective Actions
+
 | CCP | Deviation | Immediate Control | Product Disposition | Root Cause Fix | Authority | Record |
 |---|---|---|---|---|---|---|
 
-Verification and Validation Table:
+### 9. Verification and Validation
+
 | Activity | Purpose | Frequency | Responsible Party | Record |
 |---|---|---|---|---|
 
-Recordkeeping Matrix:
+Validation must cite scientific or technical evidence with explicit source.
+
+### 10. Recordkeeping
+
 | Record Type | Contents | Format | Retention Period | Storage Location | Access Controls |
 |---|---|---|---|---|---|
 
-References:
-- Cite applicable regulations and guidance
-- Use [VERIFY] for any uncertain citation or numeric limit
+Retention period must match governing regime; cite the exact rule or mark `[VERIFY]`.
 
-Signature Page:
-```text
-HACCP Team Approval
-Name | Title | Signature | Date
-Management Approval
-Name | Title | Signature | Date
-```
+### 11. References and Signatures
 
-## Guidelines
+- Cite all applicable regulations and guidance documents
+- Use `[VERIFY]` for any uncertain citation or numeric limit
+- Signature blocks for HACCP team approval and management approval
 
-- Confirm jurisdiction and product category before selecting the governing regulation.
-- Use FDA 21 CFR Part 117 for preventive controls, FDA 21 CFR Part 123 for seafood HACCP, and USDA 9 CFR Part 417 for meat/poultry HACCP.
-- Do not invent critical limits; each must have a cited regulatory or scientific basis.
-- Include allergen-related hazards where applicable, and tie to controls and monitoring.
-- Validation requires scientific or technical evidence; note the source explicitly.
-- Record retention must match the governing regime; insert the exact rule or mark [VERIFY].
-- Keep the plan specific to the facility, process, and products; avoid generic values.
-- Ensure the flow diagram is verified on-site and updated when processes change.
+## Pitfalls
+
+- **Wrong regime**: Confirm jurisdiction first — FDA Part 117 vs Part 123 vs USDA Part 417 changes plan requirements significantly
+- **Invented limits**: Never fabricate critical limits; each must have a cited regulatory or peer-reviewed scientific basis
+- **Generic plans**: Every value must be specific to the facility, process, and products — no boilerplate fill-in
+- **Stale flow diagrams**: Plans are indefensible if the flow diagram does not reflect actual current operations
+- **Missing allergen hazards**: Allergens must appear in the hazard analysis and link to monitoring and corrective actions
+- **Unsupported validation**: Stating "validated" without citing the supporting evidence is a common audit failure
+
+---
+
+It looks like I don't have write permission to the file. Want me to try writing it again so you can approve, or would you prefer to copy the content above?

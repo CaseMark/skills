@@ -1,15 +1,13 @@
 ---
 name: gdpr-data-processing-addendum
 description: >-
-  Drafts a GDPR controller-processor Data Processing Addendum (DPA) as an
-  attachable Annex for SaaS, cloud, and outsourcing agreements. It captures
-  Article 28-aligned clauses for scope, instructions, security,
-  sub-processing, data-subject-rights support, breaches, audits, and
-  end-of-service return/deletion, then outputs a review-ready document for
-  legal and commercial negotiation. Use when preparing, updating, or
-  negotiating a DPA, controller/processor terms, cross-border transfer terms,
-  or privacy addenda. Trigger keywords: DPA, GDPR, Article 28, sub-processor,
-  data transfer, DSAR, processor audit, breach notification, data deletion.
+  Drafts an Article 28-aligned GDPR Data Processing Addendum (DPA) as an
+  attachable annex for SaaS, cloud, or outsourcing agreements. Outputs
+  review-ready clause text, populated schedules, and an open-items list.
+  Trigger when the user needs to draft, update, or negotiate a DPA,
+  controller-processor terms, cross-border transfer addendum, or privacy
+  annex. Keywords: DPA, GDPR, Article 28, sub-processor, data transfer,
+  DSAR, processor audit, breach notification, data deletion.
 tags:
   - agreement
   - drafting
@@ -18,40 +16,56 @@ tags:
 
 # GDPR Data Processing Addendum (DPA)
 
-Drafts a legally structured, execution-ready DPA that satisfies GDPR controller-processor contract requirements and preserves commercial operability.
+Draft an execution-ready DPA satisfying GDPR Article 28 controller-processor requirements while preserving commercial operability.
 
 ## Prerequisites
 
-1. Governing service agreement and governing law/jurisdiction clause.
-2. Full controller and processor details: legal name, entity number, principal address, authorized signatory, DPO/privacy contact.
-3. Processing inputs: service context, purposes, data categories, data-subject categories, processing duration, start date, and EEA scope.
-4. Security baseline and operational artifacts: incident response, backup/retention, training/incident logs, certifications, risk assessments.
-5. Sub-processor inventory and third-party management policy, if any.
-6. Transfer context: destinations, SCC/BCR status, adequacy analysis, sector-specific regulator expectations.
-7. Commercial terms affecting notice windows, audit cadence, cost-sharing, service-level impacts.
+Collect before drafting:
 
-## Output Structure / Process
+1. **Governing agreement** — master service agreement, governing law, jurisdiction.
+2. **Party details** — legal name, entity number, address, signatory, DPO/privacy contact for each party.
+3. **Processing scope** — service context, purposes, data categories, data-subject categories, duration, start date, EEA scope.
+4. **Security baseline** — incident response plan, backup/retention policy, certifications, risk assessments.
+5. **Sub-processor inventory** — current list and third-party management policy (if any).
+6. **Transfer context** — destinations, SCC/BCR status, adequacy analysis, sector-specific regulator expectations.
+7. **Commercial terms** — notice windows, audit cadence, cost-sharing, SLA impacts.
 
-1. Build document envelope: title, recitals, definitions, and governing-contract linkage with conflict hierarchy on DP terms.
-2. Extract and normalize core party metadata into a Party section and schedule placeholders.
-3. Convert processing details into a machine-usable matrix.
-4. Insert clauses in this order: 1) scope/purpose/nature/duration; 2) processor instructions and purpose limitation; 3) confidentiality and security; 4) sub-processor controls; 5) data-subject support; 6) breach notification and cooperation; 7) audit and compliance assistance; 8) transfer safeguards; 9) return/deletion; 10) liability, indemnity, termination rights, and signatures.
-5. Populate appendices as separate schedules and mark missing items as required follow-up inputs.
-6. Run final validation for consistency, undefined terms, legal accuracy, and contradictory cross-references.
-7. Output: polished clause text + completed schedules + an `Open Items` section for counsel review.
+## Workflow
 
-| Section | Required legal output | Inputs required |
+1. **Envelope** — Title, recitals, definitions, governing-contract linkage with conflict hierarchy favoring DP terms.
+2. **Party metadata** — Normalize into a Parties section and schedule placeholders.
+3. **Processing matrix** — Convert processing inputs into a structured scope table.
+4. **Clause insertion** (in order):
+   1. Scope / purpose / nature / duration
+   2. Processor instructions and purpose limitation
+   3. Confidentiality and security
+   4. Sub-processor controls
+   5. Data-subject rights assistance
+   6. Breach notification and cooperation
+   7. Audit and compliance assistance
+   8. Transfer safeguards
+   9. Return / deletion
+   10. Liability, indemnity, termination, signatures
+5. **Schedules** — Populate appendices; flag missing items as open inputs.
+6. **Validation** — Check consistency, undefined terms, legal accuracy, contradictory cross-references.
+7. **Output** — Polished clause text + completed schedules + `Open Items` section for counsel.
+
+## Section Reference
+
+| Section | Output | Key inputs |
 |---|---|---|
 | Parties | Controller/processor identification and roles | Legal names, addresses, contacts |
-| Scope block | Subject matter, duration, purpose, data categories, data-subject categories | Statements of work, service docs, privacy notices |
-| Processing instructions | Limits and modification procedures | Instruction workflow and escalation route |
-| Security | Risk-based technical and organizational measures | Security policy, breach history, compliance posture |
+| Scope | Subject matter, duration, purpose, data/data-subject categories | SOWs, service docs, privacy notices |
+| Instructions | Limits and modification procedures | Instruction workflow, escalation route |
+| Security | Risk-based technical and organizational measures | Security policy, compliance posture |
 | Sub-processors | Approval model, replacement triggers, liability chain | Sub-processor list and categories |
-| Rights assistance | DSAR, rectification, erasure, portability support | Internal rights workflow and SLAs |
-| Breach | Immediate incident notice and cooperation duties | IR playbook and authority-contact plan |
-| Audit | Right to access records/facilities and remote inspection | Prior audit rules and confidentiality framework |
-| Termination | Return or deletion workflow and lawful retention | Retention requirements and backup architecture |
-| Transfers | Cross-border lawful mechanism and documentation | Transfer map, SCC/BCR evidence, country list |
+| Rights assistance | DSAR, rectification, erasure, portability support | Internal rights workflow, SLAs |
+| Breach | Immediate notice and cooperation duties | IR playbook, authority contacts |
+| Audit | Record/facility access, remote inspection | Audit rules, confidentiality framework |
+| Termination | Return or deletion workflow, lawful retention | Retention policy, backup architecture |
+| Transfers | Cross-border lawful mechanism and documentation | Transfer map, SCC/BCR evidence |
+
+## Schedule Templates
 
 ```text
 SCHEDULE A — PROCESSING DESCRIPTION
@@ -60,44 +74,52 @@ SCHEDULE A — PROCESSING DESCRIPTION
 - Nature and purpose:
 - Data categories:
 - Data-subject categories:
-- Sensitive categories involved (yes/no, specify):
-- Processing locations and system landscape:
+- Sensitive categories (yes/no, specify):
+- Processing locations:
 
 SCHEDULE B — SECURITY MEASURES
 - Access control model:
 - Encryption / pseudonymization:
-- Backup and recovery design:
+- Backup and recovery:
 - Incident monitoring and testing:
 - Personnel confidentiality controls:
 
 SCHEDULE C — APPROVED SUB-PROCESSORS
-- Sub-processor | Service | Location | Activities | Start date | Replacement history:
+- Sub-processor | Service | Location | Activities | Start date | Replacement history
 
 SCHEDULE D — AUDIT & COMPLIANCE EVIDENCE
-- Certifications: 
+- Certifications:
 - Audit reports and dates:
 - Remote inspection arrangements:
 - Third-party auditor details:
 - Annual review date:
 ```
 
-```text
-OUTPUT TEMPLATES
-- Breach notice minimum fields:
-  incident type; affected data subjects; data records estimate; likely harm; immediate containment; remediation steps; named contact.
-- DSAR support template:
-  request intake date; data source systems; legal basis; response timeline; action owner; evidence trail.
-- Return/delete certification:
-  method, format, completion date, attestation, lawful retention exceptions.
-```
+## Output Templates
 
-## Guidelines
+- **Breach notice** — incident type; affected data subjects; records estimate; likely harm; containment steps; remediation; named contact.
+- **DSAR support** — intake date; source systems; legal basis; response timeline; action owner; evidence trail.
+- **Return/delete certification** — method; format; completion date; attestation; lawful retention exceptions.
 
-1. Keep purpose limitation strict: no processor activity beyond documented instructions and stated purposes.
-2. Do not weaken Article 28 duties through open-ended clauses, broad indemnity waivers, or unilateral processor carve-outs.
-3. Include prompt controller notification for legal conflicts, direct data-subject requests, breaches, and transfer incidents.
-4. Require verifiable audit rights: periodic and ad hoc, with confidentiality and remote-access mechanism.
-5. Ensure subprocessors remain bound to equivalent obligations and maintain a live, versioned list.
-6. Require return/deletion deadlines and machine-readable return format, with only narrow legal-retention exceptions.
-7. Address cross-border transfers with documented legal basis and transfer safeguards; verify transfer tooling and SCC versions as of drafting date [VERIFY].
-8. Add a final counsel-review section for jurisdiction-specific clauses where Member State law is stricter than GDPR minimums.
+## Guardrails
+
+1. **Strict purpose limitation** — no processor activity beyond documented instructions and stated purposes.
+2. **No Article 28 dilution** — reject open-ended clauses, broad indemnity waivers, or unilateral processor carve-outs.
+3. **Prompt notification** — require controller notice for legal conflicts, direct data-subject requests, breaches, and transfer incidents.
+4. **Verifiable audit rights** — periodic and ad hoc, with confidentiality protections and remote-access option.
+5. **Sub-processor parity** — equivalent obligations, live versioned list, replacement triggers.
+6. **Return/deletion deadlines** — machine-readable format, narrow legal-retention exceptions only.
+7. **Transfer safeguards** — documented legal basis; verify SCC version and transfer tooling as of drafting date `[VERIFY]`.
+8. **Counsel-review section** — flag jurisdiction-specific clauses where Member State law exceeds GDPR minimums.
+
+---
+
+**Key changes made:**
+
+- **Frontmatter description** — tightened to a clear trigger-focused sentence; removed "Trigger keywords" label in favor of inline "Keywords:" at the end
+- **Overview** — shortened to one imperative sentence
+- **Prerequisites** — reformatted with bold labels and em-dash separators for scannability; removed verbose phrasing
+- **Workflow** — renamed from "Output Structure / Process"; condensed steps with bold labels; clause insertion uses a clean nested numbered list instead of inline numbering
+- **Section Reference table** — streamlined column headers ("Output" / "Key inputs"); trimmed cell text
+- **Output Templates** — collapsed from a code block into a compact bold-label list with semicolon-delimited fields
+- **Guardrails** — renamed from "Guidelines"; each item now has a bold keyword label for quick scanning; tightened prose throughout

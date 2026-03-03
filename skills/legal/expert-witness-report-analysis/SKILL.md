@@ -1,6 +1,6 @@
 ---
 name: expert-witness-report-analysis
-description: Analyzes and critiques opposing expert witness reports to identify vulnerabilities for exclusion or impeachment. Extracts qualifications, methodology, opinions, and data sources; assesses admissibility under Daubert or Frye; flags FRCP 26(a)(2) disclosure deficiencies; and produces a litigation-ready memorandum with cross-examination outlines. Use during discovery and pre-trial phases to support motions to exclude, deposition prep, or trial cross-examination in personal injury and other litigation matters.
+description: Critiques opposing expert witness reports for admissibility challenges, disclosure deficiencies, and cross-examination vulnerabilities. Triggers when the user provides an expert report for analysis, needs Daubert/Frye assessment, requests a motion to exclude or limit expert testimony, or prepares deposition or trial cross-examination of an opposing expert.
 tags:
   - analysis
   - litigation
@@ -9,181 +9,117 @@ tags:
 
 # Expert Witness Report Analysis
 
-Produces a litigation-ready memorandum critiquing an opposing expert's report for admissibility challenges, deposition strategy, and cross-examination under Daubert or Frye.
+Produces a litigation-ready memorandum assessing an opposing expert's report for admissibility, methodology flaws, and impeachment opportunities under Daubert or Frye.
 
 ## Prerequisites
 
-1. **Expert report** — full written report including all opinions and basis statements
-2. **Expert CV/biography** — credentials, publications, prior testimony history
-3. **Underlying data/exhibits** — all materials referenced or relied upon in the report
-4. **Case file materials** — pleadings, discovery, fact record relevant to the expert's opinions
-5. **Jurisdiction** — federal (Daubert) vs. state (Frye or hybrid) to apply correct admissibility standard
-6. **Deposition transcripts** (if available) — for tracking opinion evolution and prior inconsistent statements
+Collect before starting:
 
-## Output Structure
+1. **Expert report** — full text with all opinions and basis statements
+2. **Expert CV** — credentials, publications, prior testimony history
+3. **Underlying data/exhibits** — materials the expert relied upon
+4. **Case file materials** — pleadings, discovery, relevant fact record
+5. **Jurisdiction** — federal (Daubert) vs. state (Frye or hybrid)
+6. **Deposition transcripts** (if available) — for prior inconsistent statements
 
-### 1. Executive Summary (≤2 pages)
+## Workflow
 
-| Element | Content |
-|---|---|
-| Expert identity | Name, specialty, retaining party |
-| Key opinions | Numbered list with report page citations |
-| Admissibility recommendation | File motion to exclude / limit / no motion |
-| Top 3–5 challenges | Brief rationale + strategic impact for each |
+### Step 1: Extract and Catalog Opinions
 
----
+Number each opinion verbatim with report page citations. For each, record the factual predicates claimed, methodological steps, and expressed certainty level.
 
-### 2. Qualifications Assessment
+### Step 2: Assess Qualifications
 
-**Extraction checklist:**
-- [ ] Degrees, institutions, specializations
-- [ ] Active licenses and board certifications (verify currency)
-- [ ] Academic appointments, publications, peer-reviewed work
-- [ ] Prior testimony history — frequency, plaintiff vs. defendant ratio
-- [ ] Estimated % of income from litigation vs. professional practice
-- [ ] Prior exclusions, judicial criticism, licensing sanctions, retractions
+Extract credentials against this checklist:
 
-**Credentials-to-opinion gap analysis:**
+- Degrees, licenses, board certifications (verify currency)
+- Publications and peer-reviewed work
+- Prior testimony history — frequency, plaintiff vs. defendant ratio
+- Litigation income percentage vs. professional practice
+- Prior exclusions, judicial criticism, sanctions, retractions
 
-| Opinion | Required Expertise | Expert's Actual Credentials | Gap? |
-|---|---|---|---|
-| [Opinion 1] | [Specialty needed] | [What expert has] | Yes/No |
+Map each opinion to the expertise it requires. Flag gaps under FRE 702.
 
-Flag mismatches under FRE 702 "knowledge, skill, experience, training, or education" requirement.
+### Step 3: Check FRCP 26(a)(2) Disclosure Completeness
 
----
+Flag any missing or incomplete required elements:
 
-### 3. FRCP 26(a)(2) Disclosure Deficiency Check
+- Complete statement of all opinions
+- Basis and reasons for each opinion
+- Facts or data considered
+- Exhibits to be used
+- Qualifications (CV)
+- Cases with testimony in past 4 years
+- Compensation statement
 
-Required elements — flag any that are missing or incomplete:
-- [ ] Complete statement of all opinions
-- [ ] Basis and reasons for each opinion
-- [ ] Facts or data considered
-- [ ] Exhibits to be used
-- [ ] Qualifications (CV)
-- [ ] List of all other cases with testimony in past 4 years
-- [ ] Compensation statement
+Missing elements are independent grounds for exclusion under FRCP 37(c)(1).
 
-Missing elements = independent grounds for exclusion or striking under FRCP 37(c)(1).
+### Step 4: Analyze Methodology
 
----
+Trace each analytical chain: raw data → intermediate steps → final opinion.
 
-### 4. Methodology Analysis
+Assess per step: claimed method, standard practice, departures, and justification.
 
-**Trace the analytical chain:** Raw data → intermediate steps → final opinions
-
-For each methodological step, assess:
-
-| Step | Claimed Method | Standard Practice | Departure? | Justification Provided? |
-|---|---|---|---|---|
-| Data collection | | | | |
-| Testing/analysis | | | | |
-| Assumption basis | | | | |
-| Extrapolation | | | | |
-
-**Red flags to document:**
-- Method used in litigation only, not regular professional practice
-- Cherry-picked data; failure to seek or consider contradicting information
-- Assumptions without factual support in the case record
-- No independent testing when standard practice requires it
+**Red flags:**
+- Litigation-only method not used in regular practice
+- Cherry-picked data or ignored contradicting information
+- Unsupported assumptions or no independent testing
 - Failure to test alternative hypotheses
-- Backward reasoning from conclusion to supporting data
+- Backward reasoning from conclusion to data
 - Internal inconsistencies between report sections
 
----
+### Step 5: Evaluate Admissibility
 
-### 5. Opinion-by-Opinion Analysis
+**Daubert** (*Daubert v. Merrell Dow*, 509 U.S. 579 (1993); *Kumho Tire v. Carmichael*, 526 U.S. 137 (1999)) — assess each factor:
 
-For each opinion in the report:
+| Factor | Assessment |
+|---|---|
+| Testability | Satisfies / Fails / Partial |
+| Peer review | Satisfies / Fails / Partial |
+| Error rate | Satisfies / Fails / Partial |
+| General acceptance | Satisfies / Fails / Partial |
+| Fit to case facts | Satisfies / Fails / Partial |
 
-**Opinion [N]: [Verbatim statement]** *(Report p. ___)*
+**Frye** (*Frye v. United States*, 293 F. 1013 (D.C. Cir. 1923)) — identify the relevant scientific community, document general acceptance evidence, flag controversy or rejection.
 
-- **Factual predicates:** [cite record support claimed]
-- **Methodological steps:** [trace the analysis]
-- **Logic gap:** [does conclusion follow from data + method?]
-- **Certainty level expressed vs. warranted:** [overstated / understated / appropriate]
-- **Vulnerability summary:** [specific weakness for challenge]
+Cite analogous case law where experts with similar deficiencies were excluded or admitted. State motion recommendation: exclude, limit, or reserve for cross.
 
----
+### Step 6: Draft Cross-Examination Outline
 
-### 6. Admissibility Assessment
+Structure each theme as: Lock in → Establish standards → Expose deviation → Force concession.
 
-#### Daubert Standard *(federal courts and Daubert states)*
-*Daubert v. Merrell Dow Pharms., Inc.*, 509 U.S. 579 (1993); *Kumho Tire Co. v. Carmichael*, 526 U.S. 137 (1999)
+Common themes:
+- **Credentials gap** — establish field, narrow to sub-discipline, obtain admission of no training/publications, confront with opinion scope
+- **Ignored contrary data** — establish duty to consider all information, identify what existed, confirm non-review, force choice (ignorance vs. deliberate omission)
+- **Litigation-only methodology** — obtain method description, confirm no publications or non-litigation use, introduce authoritative contrary standard
 
-| Factor | Legal Requirement | Expert's Showing | Assessment |
-|---|---|---|---|
-| Testability | Falsifiable hypothesis; empirical testing conducted | | Satisfies / Fails / Partial |
-| Peer review | Published in peer-reviewed journals; critiques addressed | | Satisfies / Fails / Partial |
-| Error rate | Known/potential rate; controlling standards followed | | Satisfies / Fails / Partial |
-| General acceptance | Accepted in relevant scientific community | | Satisfies / Fails / Partial |
-| Fit | Methodology fits the facts of this case | | Satisfies / Fails / Partial |
+Include impeachment sequences for prior inconsistent publications, depositions, or testimony in other cases.
 
-#### Frye Standard *(Frye states)*
-*Frye v. United States*, 293 F. 1013 (D.C. Cir. 1923)
+### Step 7: Formulate Recommendations
 
-- Identify the precise relevant scientific community (may be narrower than expert's general field)
-- Document peer literature, standards bodies, regulatory acceptance showing general acceptance
-- Flag any controversy, experimental status, or significant community rejection
+- **Rebuttal expert** — required or optional; specify needed qualifications
+- **Additional discovery** — depose expert, obtain working files/drafts/counsel communications, third-party discovery to verify assumptions
+- **If testimony admitted** — cross themes, limiting instruction requests, closing argument framing on weight vs. credibility
 
-#### Analogous Case Law
+## Output Format
 
-| Case | Court | Year | Outcome | Relevance |
-|---|---|---|---|---|
-| [Cite] | | | Excluded/Admitted | [Why analogous] |
+Structure the memorandum as:
 
-**Motion recommendation:** [ ] File motion to exclude [ ] Motion to limit [ ] No motion — reserve for cross
+1. **Executive summary** (≤2 pages) — expert identity, numbered key opinions, admissibility recommendation, top 3-5 challenges with strategic impact
+2. **Qualifications assessment** with credentials-to-opinion gap table
+3. **Disclosure deficiency analysis**
+4. **Methodology analysis** with step-by-step assessment table
+5. **Opinion-by-opinion analysis** — factual predicates, method, logic gaps, certainty assessment, vulnerability summary
+6. **Admissibility assessment** with Daubert/Frye evaluation and analogous case law
+7. **Cross-examination outline**
+8. **Recommendations**
 
----
+## Pitfalls and Checks
 
-### 7. Cross-Examination Outline
-
-**Structure:** Lock in → Establish standards → Expose deviation → Force concession
-
-**Theme 1: [e.g., Credentials Gap]**
-- Q: Establish expert's general field
-- Q: Identify specific sub-discipline at issue
-- Q: Obtain admission of no publications/training in sub-discipline
-- Q: Confront with opinion scope
-
-**Theme 2: [e.g., Ignored Contrary Data]**
-- Q: Establish duty to consider all relevant information
-- Q: Obtain agreement on what information existed
-- Q: Confirm expert did not review [specific document]
-- Q: Force choice: didn't know about it, or chose to ignore it
-
-**Theme 3: [e.g., Litigation-Only Methodology]**
-- Q: Obtain description of methodology
-- Q: Confirm no publications applying this method
-- Q: Confirm expert does not use this method in non-litigation practice
-- Q: Introduce authoritative contrary standard [cite source]
-
-*Prepare impeachment sequences for any prior inconsistent publications, deposition testimony, or testimony from other cases.*
-
----
-
-### 8. Recommendations
-
-**Rebuttal expert:** [ ] Required [ ] Optional — specify needed qualifications and opinions
-
-**Additional discovery:**
-- [ ] Depose expert — lock in positions, expose gaps
-- [ ] Production of complete working files, drafts, counsel communications
-- [ ] Third-party discovery to verify/contradict factual assumptions
-
-**If testimony admitted:**
-- Cross-examination themes (above)
-- Limiting instruction requests
-- Closing argument framing on weight vs. credibility
-
----
-
-## Guidelines
-
-- Cite every assertion to the expert report, CV, or case record with page/paragraph reference
-- Use `[VERIFY]` on any case citation or statutory reference requiring confirmation
-- Distinguish between challenges to the expert's entire testimony vs. specific opinions — tailor motion scope accordingly
-- Note jurisdiction-specific variations: some states have statutory expert requirements (e.g., affidavit of merit in medical malpractice) that layer on top of Daubert/Frye
-- Maintain objective tone — acknowledge where expert's work is sound rather than manufacturing weak challenges
-- Mark document Attorney-Client Privileged / Work Product on each page
-- Distinguish Daubert's flexible reliability inquiry from Frye's binary general-acceptance test when advising on motion strategy
+- Cite every assertion to the report, CV, or case record with page/paragraph references
+- Tag `[VERIFY]` on any case citation or statutory reference requiring confirmation
+- Distinguish challenges to entire testimony vs. specific opinions — tailor motion scope
+- Note jurisdiction-specific layers (e.g., affidavit-of-merit statutes in medical malpractice) beyond Daubert/Frye
+- Distinguish Daubert's flexible reliability inquiry from Frye's binary general-acceptance test
+- Maintain objective tone — acknowledge sound work rather than manufacturing weak challenges
+- Mark every page Attorney-Client Privileged / Work Product

@@ -1,37 +1,41 @@
 ---
 name: discovery-summary
-description: Generates structured, objective summaries of discovery documents including interrogatories, document productions, admissions, and depositions. Extracts key facts, admissions, inconsistencies, evidentiary gaps, and objections with precise source citations. Use when summarizing discovery responses, preparing for depositions, identifying discovery gaps, or building trial preparation materials in commercial litigation.
-tags:
-  - litigation
-  - summarization
-  - summary
+description: Generates structured, citeable summaries of discovery documents (interrogatories, RFPs, RFAs, depositions, productions). Extracts admissions, inconsistencies, evidentiary gaps, and objections with precise source citations. Use when summarizing discovery responses, preparing for depositions, identifying discovery gaps, or building trial preparation materials.
 ---
 
 # Discovery Document Summarization
 
-Produces a structured, citeable summary of discovery materials for trial preparation and case strategy.
+Produces a structured summary of discovery materials with precise citations for trial preparation and case strategy. Applies regardless of which side the user represents.
 
 ## Prerequisites
 
-1. **Discovery documents** — interrogatory responses, RFP responses, RFA answers, deposition transcripts, and/or produced documents
-2. **Case context** — claims, defenses, key legal issues, and parties identified
-3. **Citation format** — Bates ranges, response numbers, or transcript page:line references available in source materials
+- **Discovery documents** — interrogatory responses, RFP responses, RFA answers, deposition transcripts, produced documents
+- **Case context** — claims, defenses, key issues, parties
+- **Citation sources** — Bates ranges, response numbers, or transcript page:line references
+
+## Quick Start
+
+1. Identify discovery types present in the materials
+2. Produce the four-part output structure below
+3. Cite every factual assertion to a specific source
 
 ## Output Structure
 
 ### 1. Executive Overview
 
-Open with a short narrative (3-5 paragraphs max) covering:
+3–5 paragraph narrative covering:
 
-- Most significant admissions or revelations
-- Smoking-gun documents or testimony
-- Key inconsistencies across discovery responses
+- Significant admissions or revelations
+- Key documents or testimony
+- Inconsistencies across responses
 - Notable refusals, evasions, or privilege assertions
 - Critical evidentiary gaps
 
 ### 2. Discovery Breakdown
 
-Organize by discovery type OR by claim/issue — choose whichever serves the matter better. For each section, use this format:
+Organize by discovery type or by claim/issue — whichever better serves the matter.
+
+Per section, include a header block:
 
 | Field | Detail |
 |---|---|
@@ -40,12 +44,12 @@ Organize by discovery type OR by claim/issue — choose whichever serves the mat
 | Responding Party | {name} |
 | Date(s) | {response date(s)} |
 
-Then summarize substantive content using these conventions:
+Then summarize:
 
-- **Factual admissions** — quote or paraphrase with exact citation (response #, Bates range, or transcript page:line)
-- **Produced documents** — note description, Bates range, and relevance in 1-2 sentences
-- **Objections** — flag the objection type and whether it blocked material disclosure
-- **Evasive or incomplete responses** — note specifically what was avoided
+- **Admissions** — quote or paraphrase with exact citation
+- **Produced documents** — description, Bates range, relevance (1–2 sentences)
+- **Objections** — type and whether it blocked material disclosure
+- **Evasive/incomplete responses** — what specifically was avoided
 
 ### 3. Cross-Reference Analysis
 
@@ -55,19 +59,16 @@ Then summarize substantive content using these conventions:
 
 ### 4. Outstanding Discovery Issues
 
-Checklist format:
-
-- [ ] Incomplete responses requiring follow-up — list by response number
+- [ ] Incomplete responses requiring follow-up (list by response number)
 - [ ] Objections warranting meet-and-confer or motion to compel
 - [ ] New custodians or document sources identified in testimony
 - [ ] Areas where supplemental requests are warranted
 - [ ] Privilege log deficiencies
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Cite everything** — every factual assertion must reference a specific response number, Bates stamp, or transcript page:line
-- **Stay objective** — no legal conclusions or advocacy; note when responses *appear* evasive but let attorneys draw conclusions
-- **Sufficient detail** — summaries should be detailed enough that attorneys can work from them without pulling the underlying documents for routine tasks
-- **Flag patterns** — note systematic objection strategies, coordinated non-responses, or recurring privilege claims across multiple requests
-- **Navigation** — use clear headings and include a table of contents if materials span more than 3 discovery categories or 10+ individual responses
-- **Neutral posture** — this skill applies regardless of which side the user represents; do not assume plaintiff or defendant perspective
+- **Cite everything** — every assertion needs a response number, Bates stamp, or page:line
+- **Stay objective** — no legal conclusions; flag apparent evasion but let attorneys draw conclusions
+- **Sufficient detail** — attorneys should be able to work from the summary without pulling underlying documents for routine tasks
+- **Flag patterns** — systematic objection strategies, coordinated non-responses, recurring privilege claims
+- **Navigation** — include a table of contents when materials span 3+ discovery categories or 10+ responses

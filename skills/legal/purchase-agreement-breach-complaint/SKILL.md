@@ -1,6 +1,11 @@
 ---
 name: purchase-agreement-breach-complaint
-description: Drafts a U.S. civil complaint pleading breach of a real estate purchase agreement, including jurisdiction, venue, parties, contract terms, breach, damages, and remedies. Use for pre-filing and pleadings when preparing a complaint, breach of purchase agreement claim, real estate contract dispute, or specific performance request.
+description: >-
+  Drafts a U.S. civil complaint for breach of a real estate purchase agreement,
+  covering jurisdiction, venue, parties, contract terms, breach allegations,
+  damages, and remedies including specific performance. Use when preparing a
+  breach of purchase agreement complaint, real estate contract dispute pleading,
+  or specific performance action.
 tags:
   - drafting
   - litigation
@@ -9,79 +14,100 @@ tags:
 
 # Complaint for Breach of Purchase Agreement
 
-Pleading template to assert breach of a real estate purchase agreement and related remedies.
+Drafts a complaint asserting breach of a real estate purchase agreement with jurisdiction-appropriate pleading structure, breach elements, damages analysis, and remedy-specific allegations.
 
 ## Prerequisites
 
-1. Executed purchase agreement and all addenda, disclosures, and amendments.
-2. Property identification details: address, legal description, parcel/APN.
-3. Parties and entity data: full legal names, entity types, formation states, principal places of business, registered agents.
-4. Timeline of performance: deposits, escrow instructions, conditions precedent, approvals, inspections, financing.
-5. Breach evidence: notice of breach, cure demands, refusal or failure to perform, communications.
-6. Damages support: contract price, market value, carrying costs, replacement transaction, mitigation efforts.
-7. Jurisdiction and venue facts: forum selection clause, place of performance, defendant residence or business location.
-8. Requested remedies: damages, specific performance, injunctive relief, attorneys’ fees, interest, costs.
+1. **Executed agreement** — purchase agreement plus all addenda, disclosures, and amendments.
+2. **Property identification** — street address, legal description, parcel/APN.
+3. **Party information** — full legal names, entity types, formation states, principal places of business, registered agents.
+4. **Performance timeline** — deposits, escrow instructions, conditions precedent, inspections, financing milestones.
+5. **Breach evidence** — notice of breach, cure demands, refusal or failure to perform, key communications.
+6. **Damages support** — contract price, market value, carrying costs, replacement transaction costs, mitigation efforts.
+7. **Jurisdiction and venue** — forum selection clause, place of performance, defendant residence or business location, party citizenship if diversity.
+8. **Requested remedies** — damages, specific performance, injunctive relief, attorneys' fees, interest, costs.
 
-## Output Structure / Process
+If any prerequisite is missing, pause and ask — do not assume or fill gaps.
 
-Use the outline and required content below. Tailor to local rules and pleading standard.
+## Output Structure
 
-| Section | Required Content | Inputs |
-| --- | --- | --- |
-| Caption | Court name, division, parties, case number placeholder, jury demand if required | Court, party names |
-| Preliminary Statement | 3–6 sentences summarizing contract, breach, and relief sought | Timeline, remedies |
-| Jurisdiction | Basis (state law, diversity, amount in controversy), choice-of-law clause | Party citizenship, amount |
-| Venue | Statutory basis, forum selection clause, location of property/performance | Property, contract clause |
-| Parties | Role in transaction, entity type, formation state, address, agency facts | Entity records |
-| Factual Allegations | Chronology: negotiation, execution, terms, performance, breach, notice, cure | Contract, correspondence |
-| Cause of Action | Elements of breach; specific contract provisions breached | Contract sections |
-| Remedy-Specific Allegations | Specific performance, escrow relief, injunctive relief, lis pendens | Remedy choice |
-| Damages | Categories, calculation methods, mitigation | Financial records |
-| Prayer for Relief | Numbered requests for each remedy | Remedy list |
-| Verification | Include only if jurisdiction requires | Local rules |
-| Signature Block | Attorney info, bar number, firm, contact | Attorney details |
-| Exhibits | Contract, addenda, notices, escrow instructions, key correspondence | Exhibit set |
+### Step 1 — Caption and Preliminary Statement
 
-Element checklist for breach of purchase agreement:
+Draft the caption with court name, division, parties, case number placeholder, and jury demand if applicable.
 
-| Element | Allegations to Plead | Evidence / Source |
-| --- | --- | --- |
+Follow with a preliminary statement (3–6 sentences) summarizing the contract, the breach, and relief sought.
+
+### Step 2 — Jurisdiction and Venue
+
+| Element | Plead |
+|---|---|
+| Subject matter jurisdiction | State law basis, diversity (citizenship + amount in controversy), or federal question |
+| Forum selection / choice-of-law | Quote clause; plead compliance or enforceability |
+| Venue | Statutory basis tied to property location, performance location, or defendant residence |
+
+`[VERIFY: Local rules for jurisdiction and venue pleading requirements.]`
+
+### Step 3 — Parties
+
+For each party: role in transaction, entity type, formation state, address, and agency or authority facts. Distinguish individuals from entities.
+
+### Step 4 — Factual Allegations
+
+Draft a chronological narrative covering: negotiation, execution, material terms, performance obligations, breach, notice, and cure demand/failure. Cite specific contract sections and dates.
+
+### Step 5 — Cause of Action (Breach of Contract)
+
+Plead each element with supporting allegations:
+
+| Element | Allegations Required | Source |
+|---|---|---|
 | Valid contract | Offer, acceptance, consideration, parties, signatures, effective date | Executed agreement |
 | Plaintiff performance | Deposits paid, conditions satisfied, readiness and ability to close | Escrow records |
-| Defendant breach | Specific obligation, failure, date of breach, refusal | Notices, emails |
-| Causation and damages | Direct and foreseeable losses from breach | Damages worksheet |
+| Defendant breach | Specific obligation breached, date of breach, failure or refusal to perform | Notices, correspondence |
+| Causation and damages | Direct and foreseeable losses resulting from breach | Damages worksheet |
 
-Jurisdiction and venue checklist:
+### Step 6 — Remedy-Specific Allegations
 
-- [ ] Identify forum selection and choice-of-law clauses; plead compliance or enforceability.
-- [ ] If diversity, allege citizenship of each party and amount in controversy.
-- [ ] Tie venue to property location, performance location, or defendant residence.
+Include as applicable:
 
-Damages worksheet:
+- **Specific performance** — allege uniqueness of real property, inadequacy of legal remedy, plaintiff's readiness and ability to perform
+- **Injunctive relief / lis pendens** — allege irreparable harm, property at risk of transfer or encumbrance
+- **Escrow relief** — allege entitlement to deposit return or disbursement
 
-| Category | Measure | Amount | Source |
-| --- | --- | --- | --- |
-| Benefit of bargain | Contract price vs. market value | $ | Appraisal, listing |
-| Consequential | Foreseeable losses (financing, relocation, taxes) | $ | Invoices |
-| Incidental | Transactional costs, escrow fees | $ | Receipts |
-| Reliance | Out-of-pocket costs in reliance | $ | Records |
-| Mitigation | Actions taken to reduce loss | $ | Timeline |
+### Step 7 — Damages
 
-Prayer for relief checklist:
+| Category | Measure | Source |
+|---|---|---|
+| Benefit of bargain | Contract price vs. market value | Appraisal, listing data |
+| Consequential | Foreseeable losses (financing, relocation, taxes) | Invoices, statements |
+| Incidental | Transactional costs, escrow fees | Receipts |
+| Reliance | Out-of-pocket expenditures in reliance on contract | Financial records |
+| Mitigation | Actions taken to reduce loss; offset amounts | Timeline, records |
 
-- [ ] Compensatory damages (specific or “according to proof,” per local rule).
-- [ ] Specific performance (if property is unique and legal remedy inadequate).
-- [ ] Pre-judgment and post-judgment interest at statutory rate.
-- [ ] Attorneys’ fees and costs if contract or statute allows.
-- [ ] Any equitable relief tied to escrow or title.
+### Step 8 — Prayer for Relief
+
+Number each request:
+
+- [ ] Compensatory damages (specific amount or "according to proof" per local rule) `[VERIFY]`
+- [ ] Specific performance (if property is unique and legal remedy inadequate)
+- [ ] Pre-judgment and post-judgment interest at statutory rate `[VERIFY: applicable rate]`
+- [ ] Attorneys' fees and costs (only if contractual or statutory basis exists)
+- [ ] Equitable relief tied to escrow or title
+
+### Step 9 — Execution and Filing Components
+
+- **Verification** — include only if jurisdiction requires `[VERIFY]`
+- **Signature block** — attorney name, bar number, firm, address, contact
+- **Exhibits** — contract, addenda, notices, escrow instructions, key correspondence
+- **Civil cover sheet** — attach per local court rules `[VERIFY]`
 
 ## Guidelines
 
-- State the property with both street address and legal description if available.
-- Quote or attach only the contract provisions necessary to show breach.
-- Plead conditions precedent as required by local rules.
-- If seeking specific performance, allege readiness, ability to perform, and uniqueness of the property.
-- Do not request attorneys’ fees absent a contractual or statutory basis.
-- Avoid including settlement communications or inadmissible offers.
-- Confirm verification, notarization, civil cover sheet, and exhibit rules for the filing court.
+- Identify property with both street address and legal description.
+- Quote or attach only the contract provisions necessary to establish breach.
+- Plead conditions precedent as required by local rules `[VERIFY]`.
+- Do not request attorneys' fees absent a contractual or statutory basis.
+- Do not include settlement communications or inadmissible offers (FRE 408).
 - Redact confidential personal information per court privacy rules.
+- For any jurisdiction-specific assumption not confirmed by provided materials, flag with `[VERIFY]`.
+- Output is draft work product for attorney review — not a filing-ready document.

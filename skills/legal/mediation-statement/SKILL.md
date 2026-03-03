@@ -1,156 +1,128 @@
 ---
 name: mediation-statement
-description: Drafts comprehensive mediation statements for personal injury litigation, structuring persuasive narratives across liability, damages, medical evidence, expert analysis, and settlement positioning. Covers both plaintiff and defense perspectives with strategic framing techniques. Use when preparing mediation briefs, settlement statements, ADR submissions, or pre-mediation filings.
-tags:
-  - brief
-  - drafting
-  - litigation
+description: Drafts persuasive mediation statements for litigation, structuring narrative across liability, damages, medical evidence, experts, and settlement positioning for plaintiff or defense. Use when preparing mediation briefs, settlement statements, ADR submissions, or pre-mediation filings.
 ---
 
 # Mediation Statement
 
-Drafts a persuasive mediation statement that educates the mediator on case strengths and positions the client for favorable settlement negotiations.
+Drafts a mediation statement that educates the mediator on case strengths and positions the client for favorable settlement. Works for both plaintiff and defense — adjust framing accordingly.
 
 ## Prerequisites
 
+Gather before drafting:
+
 1. **Case file** — complaint, answer, case number, mediation date, mediator name
-2. **Confidentiality designation** — confirm whether statement is mediator-only or shared with opposing counsel
-3. **Discovery materials** — deposition transcripts/summaries, interrogatory responses, document production
+2. **Confidentiality designation** — mediator-only or shared with opposing counsel
+3. **Discovery materials** — deposition transcripts, interrogatory responses, document production
 4. **Medical records** — treatment history, bills, expert reports (PI cases)
-5. **Settlement history** — chronological list of all demands and offers with dates
-6. **Key exhibits** — photos, contracts, communications, expert reports to attach
+5. **Settlement history** — all demands and offers with dates
+6. **Key exhibits** — photos, contracts, communications, expert reports
 
-## Output Structure
+## Quick Start
 
-Target 5–15 pages, single-spaced, with numbered exhibits. Submit 7–10 days before mediation unless mediator specifies otherwise.
+Target 5–15 pages, single-spaced, numbered exhibits. Submit 7–10 days before mediation unless mediator specifies otherwise.
+
+## Sections
 
 ### 1. Header & Introduction
 
-| Element | Content |
-|---------|---------|
-| Caption | Party v. Party, Case No. |
-| Date | Mediation date |
-| Mediator | Full name |
-| Opening | Brief thank-you and statement of cooperation |
+Caption (Party v. Party, Case No.), mediation date, mediator name, brief cooperative opening.
 
 ### 2. Executive Summary
 
-2–3 sentences maximum:
-- Case type (e.g., premises liability, motor vehicle)
-- Central disputed issue in one sentence
-- Client's position in broad terms
+2–3 sentences: case type, central disputed issue, client's position.
 
 ### 3. Factual Background
 
 Present chronologically with strategic framing:
 - Lead with context favorable to client
-- Include key dates, times, locations, witnesses
-- Reference attached exhibits by number
-- **Voice strategy**: Active voice for opponent's bad acts; passive for client's unfavorable facts
-- **Plaintiff framing**: Dangerous conditions, lack of warnings, defendant knowledge
-- **Defense framing**: Plaintiff's conduct, obvious hazards, proper maintenance
+- Key dates, times, locations, witnesses
+- Reference exhibits by number
+- Active voice for opponent's bad acts; passive for client's unfavorable facts
+- **Plaintiff**: dangerous conditions, lack of warnings, defendant knowledge
+- **Defense**: plaintiff's conduct, obvious hazards, proper maintenance
 
 ### 4. Liability Analysis
 
-Structure element-by-element (e.g., duty → breach → causation → comparative fault):
+Structure element-by-element (duty → breach → causation → comparative fault):
 - Cite applicable statutes and case law
 - Show why each element favors client
 - Distinguish adverse authority
-- Preemptively address and rebut opponent's strongest arguments
+- Preemptively rebut opponent's strongest arguments
 
-### 5. Testimony & Discovery Analysis
+### 5. Testimony & Discovery
 
 - Highlight favorable admissions from opposing party
-- Identify contradictions and credibility problems (changed stories, implausible explanations)
-- Note gaps or evasions in discovery responses
-- Cite specific deposition pages where available; otherwise summarize
-- Attach key excerpts as exhibits (selective — do not overwhelm mediator)
+- Identify contradictions, credibility problems, discovery gaps
+- Cite specific deposition pages; attach key excerpts as exhibits selectively
 
 ### 6. Medical/Injury Analysis
 
-**Personal injury cases:**
+**PI cases** — analyze each category with client-favorable framing:
 
-| Category | Analysis Focus |
-|----------|---------------|
+| Category | Focus |
+|----------|-------|
 | Pre-incident history | Frame favorably for client |
-| Post-incident treatment | What records actually show vs. what's claimed |
-| Causation | Medical evidence linking/not linking injuries to incident |
+| Post-incident treatment | Records vs. claims |
+| Causation | Medical evidence linking injuries to incident |
 | Objective vs. subjective | Emphasize objective findings |
 | Treatment gaps | Inconsistencies, delayed treatment |
-| Activity level | Evidence of exaggeration or genuine limitation |
+| Activity level | Exaggeration or genuine limitation |
 
-**Non-PI cases:** Analyze business records, contracts, communications; assess whether claimed damages have proper documentation.
+**Non-PI cases** — analyze business records, contracts, communications; assess damage documentation.
 
 ### 7. Damages Analysis
 
 Break down each category and assess credibility:
+- Medical bills — reasonable/necessary vs. excessive/unrelated
+- Lost wages — documented vs. speculative
+- Pain and suffering — objective support vs. subjective claims
+- Property/economic losses — properly calculated vs. speculative
+- Expert opinions — reliability, basis, methodology
 
-- **Medical bills** — reasonable/necessary vs. excessive/unrelated
-- **Lost wages** — documented vs. speculative
-- **Pain and suffering** — objective support vs. subjective claims
-- **Property damage** — actual vs. inflated
-- **Economic losses** — properly calculated vs. speculative
-- **Expert opinions** — reliability, basis, methodology
-
-Frame credibility analysis in the light most favorable to client.
+Frame in light most favorable to client.
 
 ### 8. Expert Witness Analysis
 
 - Client's expert: qualifications, methodology, key opinions
-- Opponent's expert: weaknesses in qualifications, methodology, potential bias
-- Anticipated impact at trial
+- Opponent's expert: weaknesses, potential bias
+- Anticipated trial impact
 
-### 9. Trial Outlook & Strategy
+### 9. Trial Outlook
 
-Paint a picture of likely trial outcome:
 - Jury appeal — which party benefits and why
 - Pending motions (MSJ, motions in limine)
-- Evidentiary problems opponent faces
-- Witness credibility issues
-- Recoverable costs/fees exposure
-- Appeal risks if opponent prevails
+- Evidentiary and credibility problems opponent faces
+- Costs/fees exposure; appeal risks
 
 ### 10. Settlement History
 
-Chronological table:
-
-| Date | Party | Amount | Notes |
-|------|-------|--------|-------|
-| | | | |
-
-Include analysis of movement in positions and why opponent's current position is unrealistic.
+Chronological table of all demands and offers (date, party, amount, notes). Analyze movement and why opponent's current position is unrealistic.
 
 ### 11. Settlement Path
 
 Do **not** propose a specific number. Instead:
-- Identify what opponent must concede or recognize
-- Describe consequences of non-settlement (cost, time, risk)
-- Address specific impediments to resolution and explain why opponent's position on each is wrong
+- Identify what opponent must concede
+- Describe non-settlement consequences (cost, time, risk)
+- Address impediments to resolution
 - Frame which side has further to move and why
 
 ### 12. Exhibits
 
-Attach only high-impact documents the mediator can use during the session:
-- Key deposition excerpts
-- Medical chronologies
-- Expert reports
-- Critical contracts/communications
-
-Limit volume — excessive exhibits dilute impact.
+Attach only high-impact documents: key deposition excerpts, medical chronologies, expert reports, critical communications. Limit volume — excess dilutes impact.
 
 ## Guidelines
 
-- **Tone**: Persuasive and professional. Advocate hard but maintain credibility — do not overstate facts the other side can easily disprove
-- **Adaptability**: Skill works for both plaintiff and defendant; adjust framing accordingly
-- **Confidentiality**: If statement is mediator-only, can be more candid about weaknesses and realistic ranges
-- **Jurisdiction**: U.S. practice; adjust procedural references for specific state rules on mediation confidentiality
-- **Ethics**: Do not misrepresent facts or law; strategic framing is appropriate, fabrication is not
+- **Tone**: Persuasive and professional — advocate hard but do not overstate disprovable facts
+- **Confidentiality**: Mediator-only statements can be more candid about weaknesses and realistic ranges
+- **Jurisdiction**: U.S. practice; adjust for state-specific mediation confidentiality rules
+- **Ethics**: Strategic framing is appropriate; misrepresentation of facts or law is not
 
-### Final Review Checklist
+## Checklist
 
-- [ ] Persuasive tone maintained throughout
+- [ ] Persuasive tone throughout
 - [ ] Client's position clearly articulated
-- [ ] Opponent's weaknesses highlighted with specific evidence
+- [ ] Opponent's weaknesses supported with specific evidence
 - [ ] Settlement path provided without proposing a number
 - [ ] Mediator name and date correct
 - [ ] Exhibits numbered and referenced in text

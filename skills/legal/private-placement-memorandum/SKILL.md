@@ -1,6 +1,6 @@
 ---
 name: private-placement-memorandum
-description: Drafts U.S. Regulation D Private Placement Memoranda (PPMs) for venture and private equity offerings, including required legends, full‑and‑fair disclosure, risk factors, use of proceeds, capitalization, securities terms, investor qualification, and subscription procedures. Use for PPMs, Reg D offerings, Rule 506(b) or 506(c) raises, accredited investor offerings, private placements, and when preparing disclosure to minimize 10b‑5 liability.
+description: Drafts U.S. Regulation D Private Placement Memoranda (PPMs) with required legends, risk factors, capitalization, securities terms, and subscription procedures. Trigger when drafting a PPM, preparing a Reg D (506(b) or 506(c)) offering, building accredited-investor disclosure, or structuring private placement documents to minimize 10b-5 liability.
 tags:
   - corporate
   - drafting
@@ -11,174 +11,132 @@ tags:
 
 # Private Placement Memorandum (PPM)
 
-Produce a Regulation D-compliant PPM that delivers full and fair disclosure and a defensible liability record.
+Draft a Regulation D-compliant PPM delivering full-and-fair disclosure with a defensible liability record.
 
-## Prerequisites
+## Quick Start
+
+Collect before drafting:
 
 1. **Issuer profile** — legal name, formation state/date, addresses, prior names/reorgs.
 2. **Offering terms** — security type, price/valuation, min/max raise, use of proceeds, timeline, escrow.
 3. **Cap table** — authorized/outstanding classes, options/warrants/convertibles, major holders.
-4. **Financials** — historical statements, burn, runway; audit status.
+4. **Financials** — historical statements, burn, runway, audit status.
 5. **Business materials** — deck, plan, key contracts, IP, regulatory posture.
 6. **Management bios** — roles, tenure, relevant history.
-7. **Compliance inputs** — 506(b) vs 506(c), investor eligibility plan, state blue sky scope.
+7. **Compliance inputs** — 506(b) vs 506(c), investor eligibility plan, blue sky scope.
 
-## Output Structure / Process
+## Core Workflow
 
-### 1) Determine Exemption & Offering Profile (Decision Table)
+### 1. Determine Exemption
 
-| Topic | 506(b) | 506(c) |
+| Factor | 506(b) | 506(c) |
 |---|---|---|
 | General solicitation | Prohibited | Permitted |
-| Investor types | Accredited + up to 35 sophisticated non‑accredited | Accredited only |
-| Verification | Reasonable belief (no mandatory verification) | Reasonable steps to verify accredited status |
-| Disclosure package | If any non‑accredited: enhanced disclosure | Accredited-only package |
+| Investors | Accredited + ≤35 sophisticated non-accredited | Accredited only |
+| Verification | Reasonable belief | Reasonable steps to verify |
+| Disclosure | Enhanced if non-accredited present | Accredited-only package |
 
-Record decision and its implications in the PPM.
+Record the exemption choice and its disclosure implications in the PPM.
 
-### 2) Intake & Gap Log (Checklist + Table)
+### 2. Intake & Gap Log
 
-Checklist:
-- Governing documents: charter, bylaws/operating agreement, investor rights, ROFR/co‑sale.
-- Security terms: dividend/interest, liquidation, conversion, voting, protective provisions.
-- Contracts: top customers/suppliers, IP licenses, debt.
-- Litigation/regulatory: claims, investigations, sanctions.
-- Financials: last 2–3 years or since inception; unaudited vs audited.
+Audit available documents against required inputs:
+- Governing docs (charter, bylaws/operating agreement, investor rights, ROFR/co-sale)
+- Security terms (dividend/interest, liquidation, conversion, voting, protective provisions)
+- Material contracts (top customers/suppliers, IP licenses, debt)
+- Litigation/regulatory (claims, investigations, sanctions)
+- Financials (last 2–3 years or since inception; audited vs unaudited)
 
-Gap Log Table:
-| Section | Missing Data | Source Needed | Owner | Deadline |
+Track gaps in a single table:
+
+| Section | Missing Data | Source | Owner | Deadline |
 |---|---|---|---|---|
 
-### 3) Cover Page + Legends (Template)
+### 3. Cover Page + Legends
 
-```text
-[ISSUER LEGAL NAME]
-PRIVATE PLACEMENT MEMORANDUM
-[Security Type] up to $[Max Amount]
-Date: [Month Day, Year]
+Required elements:
+- Issuer name, security type, max amount, date
+- **Confidentiality legend** — restrict distribution; require return/destroy
+- **Securities legend** — not registered under the 1933 Act or state laws; offered under exemptions; no government approval
+- **Transfer restrictions** — restricted securities; no public market; must hold indefinitely
 
-CONFIDENTIALITY LEGEND: [confidential use; no distribution; return/destroy; acceptance = agreement]
+### 4. Executive Summary
 
-SECURITIES LEGEND: The securities have not been registered under the Securities Act of 1933 or any state securities laws and are offered in reliance on exemptions. No governmental authority has passed on the merits or accuracy; any contrary representation is a criminal offense.
+Structured fields: issuer identity and state, offering terms (security, valuation, min/max, closings, escrow), key investor rights (dividend, liquidation preference, conversion, voting), top 3–5 use-of-proceeds categories with percentages, 3–5 highest-impact risks, investor eligibility and verification approach.
 
-TRANSFER RESTRICTIONS: Restricted securities; no public market; resale only in compliance with federal and state securities laws; investors must be prepared to hold indefinitely.
-```
+### 5. Risk Factors
 
-### 4) Executive Summary (Structured Bullet Fields)
+Minimum categories — each with bold heading and 2–5 sentences (what, why material, consequence):
+- Financial/capital (losses, burn, dilution)
+- Business/market (adoption, competition, market assumptions)
+- Regulatory/compliance (licensing, investigations)
+- Technology/IP (development risk, obsolescence, disputes)
+- Key personnel (dependence, recruiting)
+- Customer/supplier concentration
+- Securities-specific (illiquidity, transfer limits, no dividends, management discretion)
 
-- Issuer: [legal name], [state], [business summary].
-- Offering: [security], [price/valuation], [min/max], [closings], [escrow].
-- Key rights: [dividend/interest], [liq pref], [conversion], [voting].
-- Use of proceeds: [top 3–5 categories with %].
-- Top risks: [3–5 highest‑impact risks].
-- Investor eligibility: [accredited only? verification approach].
-
-### 5) Risk Factors (Category Checklist + Format)
-
-Use separate, bold headings per risk. Minimum categories:
-- Financial/capital: losses, burn, need for more capital, dilution.
-- Business/market: product adoption, competition, market size assumptions.
-- Regulatory/compliance: industry-specific rules, licensing, investigations.
-- Technology/IP: development risk, obsolescence, IP disputes.
-- Key personnel: dependence, recruiting risks.
-- Customer/supplier concentration.
-- Securities-specific: illiquidity, transfer limits, no dividends, management discretion.
-
-Format:
-- **[Risk Title]** — 2–5 sentences: what, why material, consequence.
-
-### 6) Use of Proceeds (Table)
+### 6. Use of Proceeds
 
 | Category | Min Raise | Max Raise | Description |
 |---|---|---|---|
 | Product/Engineering | $ | $ | Milestones, hires, infra |
 | Sales/Marketing | $ | $ | Channels, headcount |
 | Working Capital | $ | $ | Ops, inventory, receivables |
-| Debt Repayment (if any) | $ | $ | Lender, rate, maturity |
+| Debt Repayment | $ | $ | Lender, rate, maturity |
 | Fees/Offering Costs | $ | $ | Legal, accounting, escrow |
 
-Include discretion disclaimer and conditional uses if max not reached.
+Include discretion disclaimer and conditional allocations if max not reached.
 
-### 7) Business Description (Structured Sections)
+### 7. Business Description
 
-Sections:
-- Company history and milestones.
-- Products/services and roadmap.
-- Market size and customer profile.
-- Competitive landscape and differentiators.
-- Go‑to‑market and sales cycle.
-- Operations and supply chain.
-- Regulatory framework.
-- Intellectual property.
+Cover: company history/milestones, products/services and roadmap, market size and customer profile, competitive landscape, go-to-market, operations/supply chain, regulatory framework, intellectual property.
 
-### 8) Management & Board (Bio Template)
+### 8. Management & Board
 
-| Name | Role | Tenure | Relevant Experience | Education | Equity/Comp Notes |
+| Name | Role | Tenure | Relevant Experience | Education | Equity/Comp |
 |---|---|---|---|---|---|
 
-### 9) Capitalization (Tables + Assumptions)
+### 9. Capitalization
 
-- Pre‑offering cap table.
-- Post‑offering cap table (min and max).
-- Fully diluted schedule.
-- Notes on options/warrants/convertibles, conversion assumptions.
+Provide pre-offering cap table, post-offering cap table (min and max scenarios), fully diluted schedule, and notes on options/warrants/convertibles with conversion assumptions.
 
-### 10) Securities Terms (Term‑Sheet Style)
+### 10. Securities Terms
 
-Provide explicit terms:
-- Dividends/interest: rate, cumulative/non‑cumulative, payment.
-- Liquidation preference: multiple, participation, deemed liquidation events.
-- Conversion: ratio, adjustments, automatic conversion triggers.
-- Voting/protective provisions: list matters requiring class approval.
-- Redemption: optional/mandatory triggers and price.
-- Transfer restrictions: ROFR, co‑sale, lock‑ups, legends.
-- Registration rights (if any).
-- Preemptive rights (if any).
-- Information rights and board rights (if any).
+Term-sheet format covering: dividends/interest, liquidation preference (multiple, participation, deemed liquidation events), conversion (ratio, adjustments, auto-triggers), voting/protective provisions, redemption, transfer restrictions (ROFR, co-sale, lock-ups, legends), registration rights, preemptive rights, information and board rights.
 
-### 11) Plan of Distribution & Subscription Process
+### 11. Distribution & Subscription
 
-Include:
-- Direct vs placement agent; fees if any.
-- Offering timeline; closings; escrow terms.
-- Form D filing within 15 days of first sale [VERIFY].
-- State blue sky notice filings and timing [VERIFY].
-- Subscription steps:
-  1. Review PPM and exhibits.
-  2. Execute subscription agreement + investor questionnaire.
-  3. Provide accredited verification (for 506(c)).
-  4. Wire funds to escrow/issuer.
-  5. Acceptance notice and issuance.
+- Direct vs placement agent; fees
+- Offering timeline, closings, escrow terms
+- Form D filing within 15 days of first sale [VERIFY]
+- State blue sky notice filings and timing [VERIFY]
+- Subscription steps: (1) review PPM + exhibits → (2) execute subscription agreement + questionnaire → (3) accredited verification if 506(c) → (4) wire funds → (5) acceptance notice and issuance
 
-### 12) Legal Matters, Advisors, and Disclaimers
+### 12. Legal Matters & Disclaimers
 
-- Counsel and accountant identification.
-- Audit status disclaimer.
-- Forward‑looking statements cautionary language.
-- No update obligation; accuracy as of date.
+Counsel and accountant identification, audit status disclaimer, forward-looking statements cautionary language, no-update obligation.
 
-### 13) Investor Qualifications & Suitability
+### 13. Investor Qualifications
 
-State:
-- Accredited investor definition with thresholds [VERIFY].
-- Net worth test excludes primary residence [VERIFY].
-- Sophistication and illiquidity warning.
-- Company discretion to reject subscriptions.
+- Accredited investor definition with current thresholds [VERIFY]
+- Net worth test excludes primary residence [VERIFY]
+- Sophistication and illiquidity warning
+- Company discretion to reject subscriptions
 
-### 14) Final QA Checklist
+## Final QA Checklist
 
-- All defined terms consistent.
-- Numbers reconcile across sections.
-- Risk factors match facts.
-- Legends present and prominent.
-- No general solicitation language if 506(b).
-- Exhibits attached and referenced.
+- [ ] Defined terms consistent throughout
+- [ ] Numbers reconcile across all sections
+- [ ] Risk factors match issuer-specific facts
+- [ ] All three legends present and prominent
+- [ ] No general solicitation language if 506(b)
+- [ ] Exhibits attached and cross-referenced
+- [ ] All `[VERIFY]` items confirmed against current law
 
-## Guidelines
+## Pitfalls
 
-- Do not include marketing puffery or unsupported projections.
-- Use precise, neutral language; avoid absolute guarantees.
-- Flag all missing data in a single Gap Log.
-- Tailor risk factors to the issuer; avoid generic lists.
-- Mark any uncertain citations or thresholds with `[VERIFY]`.
-- Confirm jurisdictional variations for blue sky notice and filing deadlines.
+- **No puffery** — neutral language only; no unsupported projections or absolute guarantees.
+- **Tailor risks** — issuer-specific; never use generic boilerplate lists.
+- **Gap discipline** — every missing item goes in the Gap Log; do not draft around holes.
+- **Blue sky variance** — confirm state-specific notice filing requirements and deadlines.
+- **Mark uncertainties** — tag any unconfirmed citations or thresholds with `[VERIFY]`.

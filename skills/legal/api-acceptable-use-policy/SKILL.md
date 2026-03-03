@@ -1,16 +1,14 @@
 ---
 name: api-acceptable-use-policy
 description: >
-  Drafts a standalone API Acceptable Use Policy (AUP) designed to be incorporated
-  by reference into a master API license or terms-of-service agreement. Produces
-  a publication-ready AUP template covering prohibited uses, AI/ML training
-  restrictions, credential security requirements, rate-limit compliance,
-  monitoring disclosure, graduated enforcement, and versioned change management.
-  Includes a prohibited-use matrix, developer security checklist, AUP-to-license
-  mapping, and versioning playbook. Use when drafting or updating an API AUP,
-  separating behavioral rules from core API terms, adding enforcement and
-  change-management mechanics, or when a user mentions acceptable use, prohibited
-  API uses, developer security requirements, or API enforcement policy.
+  Drafts a standalone API Acceptable Use Policy (AUP) for incorporation by
+  reference into a master API license or terms-of-service agreement. Produces a
+  publication-ready template with prohibited-use matrix, developer security
+  checklist, graduated enforcement framework, AI/ML training restrictions, and
+  versioning playbook. Trigger when a user needs to draft or update an API AUP,
+  separate behavioral rules from core API terms, define prohibited API uses,
+  add enforcement or change-management mechanics, or mentions acceptable use
+  policy, developer security requirements, or API enforcement.
 tags:
   - drafting
   - policy
@@ -19,26 +17,31 @@ tags:
 
 # API Acceptable Use Policy
 
-## Why This Skill Exists
+Standalone AUP designed to be incorporated by reference into a master agreement. Separates fast-changing behavioral and security rules from stable commercial terms, enabling independent update cadence without re-acceptance.
 
-API acceptable use policies need to be updated more frequently than master license agreements — new abuse patterns emerge, AI/ML training restrictions evolve, and security requirements tighten. Embedding these rules in the master agreement means every update requires re-acceptance or risks enforceability challenges. A standalone AUP incorporated by reference allows the behavioral and security rules to be updated on a faster cadence while the commercial and legal terms remain stable. But the separation creates its own risks: conflicting notice periods, unclear precedence, enforcement triggers that don't match the master's suspension rights, and change mechanics that inadvertently modify material terms. This skill produces a modular AUP with explicit contract-linkage mechanics and a versioning playbook.
+## Quick Start
 
----
+1. Run **Pre-Draft Intake** to gather company details and policy positions
+2. Map AUP vs. master agreement scope using the **Allocation Table**
+3. Build the **Prohibited Use Matrix** and **Security Checklist**
+4. Define the **Enforcement Framework** and **Versioning Playbook**
+5. Generate the **Publication-Ready Template** with all `[BRACKETED]` placeholders
+6. Run **Post-Draft Alignment** to validate with the user
 
-## Checkpoint A: Pre-Draft Intake (Mandatory)
+## Pre-Draft Intake
 
-Ask every time unless the user says "use defaults" or "just draft." Gather:
+Ask every time unless the user says "use defaults" or "just draft."
 
-1. **Company and product identifiers** — legal name, API/product name(s)
-2. **Authentication method** — API keys, OAuth 2.0, JWT, mTLS, or combination
+1. **Company/product** — legal name, API/product name(s)
+2. **Auth method** — API keys, OAuth 2.0, JWT, mTLS, or combination
 3. **Access model** — public/self-service, partner-vetted, or internal-only
-4. **Use model** — internal use only, or commercial redistribution via developer apps
+4. **Use model** — internal only or commercial redistribution via developer apps
 5. **Data categories** — personal data, PHI, PCI, children's, biometric, or none
-6. **Policy positions** — whether to allow: scraping, benchmarking, AI/ML training of outputs, caching (and max duration), security research/bug bounty
-7. **Operational contacts** — `[SECURITY_EMAIL]`, `[SUPPORT_EMAIL]`, `[LEGAL_EMAIL]`
-8. **Rate-limit documentation URL** — reference link (avoid hard-coding numbers in the AUP)
+6. **Policy positions** — allow scraping? benchmarking? AI/ML training? caching duration? bug bounty?
+7. **Contacts** — `[SECURITY_EMAIL]`, `[SUPPORT_EMAIL]`, `[LEGAL_EMAIL]`
+8. **Rate-limit docs URL** — reference link (never hard-code numbers)
 
-**If the user doesn't respond**, apply and clearly label these defaults:
+**Defaults** (apply and label if user doesn't respond):
 
 | Parameter | Default |
 |---|---|
@@ -48,94 +51,80 @@ Ask every time unless the user says "use defaults" or "just draft." Gather:
 | Data scope | Personal data possible; no PHI/PCI/children's |
 | AI/ML training | Prohibited unless expressly authorized in writing |
 | Effective date — routine | Upon posting |
-| Effective date — material adverse changes | 30 days' advance notice |
-| Effective date — security/emergency | Immediate |
-| Enforcement posture | Graduated; immediate suspension for severe/security violations |
+| Effective date — material adverse | 30 days' advance notice |
+| Effective date — emergency | Immediate |
+| Enforcement | Graduated; immediate suspension for severe/security violations |
 
----
+## Step 1: AUP-to-License Allocation
 
-## Step 1: AUP-to-License Mapping
-
-| Topic | AUP | Master Agreement | Note |
+| Topic | AUP | Master | Note |
 |---|---|---|---|
 | Incorporation by reference | No | **Yes** | Master references AUP URL |
-| Prohibited use categories | **Yes** (detailed) | Optional summary | Keep detail in AUP for easy updates |
-| AI/ML training restrictions | **Yes** | Optional summary | AUP updateable as AI landscape evolves |
-| Data handling / security | **Yes** | Optional baseline | Coordinate with any Security Addendum or DPA |
-| Rate limits and caching | **Yes** (link to docs) | No | Never hard-code numbers; reference docs URL |
-| Monitoring disclosure | **Yes** (detail) | Yes (high-level) | Master discloses generally; AUP details signals/uses |
-| Suspension right | **Yes** (process/triggers) | **Yes** (contractual right) | Master grants right; AUP describes triggers and process |
-| Change / notice mechanics | **Yes** | **Yes** | Ensure consistent notice periods; no conflicting clauses |
-| Canonical definitions | Incorporate by reference | **Yes** | Define API, Developer App, Credentials in Master |
-
----
+| Prohibited uses | **Yes** (detailed) | Optional summary | Detail in AUP for easy updates |
+| AI/ML restrictions | **Yes** | Optional summary | Updateable as AI landscape evolves |
+| Data handling / security | **Yes** | Optional baseline | Coordinate with DPA/Security Addendum |
+| Rate limits / caching | **Yes** (link to docs) | No | Never hard-code numbers |
+| Monitoring disclosure | **Yes** (detail) | Yes (high-level) | AUP details signals/uses |
+| Suspension right | **Yes** (triggers/process) | **Yes** (contractual right) | Master grants right; AUP describes process |
+| Change / notice mechanics | **Yes** | **Yes** | No conflicting notice periods |
+| Canonical definitions | Incorporate by reference | **Yes** | Define in Master |
 
 ## Step 2: Prohibited Use Matrix
 
-| Category | Examples | Severity | Default Enforcement |
+| Category | Examples | Severity | Enforcement |
 |---|---|---|---|
-| Illegal activity | Violate laws; facilitate fraud; sanctions evasion | High | Immediate suspension / termination |
-| Security abuse | Vulnerability scanning; credential stuffing; malware; reverse engineering; fuzzing | High | Immediate suspension |
-| Interference / DDoS | Excessive calls; denial-of-service; bypassing rate limits via multi-key distribution | High | Throttle → suspend |
-| Circumvention | Bypassing auth, paywalls, or metering; obfuscation to avoid detection | High | Suspension |
-| Data misuse | Unlawful collection; re-identification; doxxing; cross-dataset identification | High | Suspension + data deletion |
-| Prohibited content | CSAM; threats; non-consensual intimate imagery; hate speech | High | Immediate suspension; legal escalation |
-| AI/ML training | Training/fine-tuning/distilling competing models; bulk extraction for synthetic datasets | Medium–High | Throttle → suspend |
-| Scraping / bulk extraction | Large-scale automated extraction replicating core data or service | Medium–High | Throttle → suspend |
-| Spam / unsolicited outreach | Automated messaging without consent | Medium–High | Throttle → suspend |
-| Misrepresentation | Impersonation; false affiliation; deceptive app naming | Medium | Require changes → suspend |
-| Caching violations | Retaining API data beyond permitted duration | Medium | Warning → suspend |
-| Benchmarking abuse | Publishing performance benchmarks without permission | Medium | Takedown → suspend |
-
----
+| Illegal activity | Law violations; fraud; sanctions evasion | High | Immediate suspend / terminate |
+| Security abuse | Vuln scanning; credential stuffing; malware; reverse engineering | High | Immediate suspend |
+| Interference / DDoS | Excessive calls; DoS; multi-key rate-limit bypass | High | Throttle → suspend |
+| Circumvention | Bypassing auth, paywalls, metering | High | Suspend |
+| Data misuse | Unlawful collection; re-identification; doxxing | High | Suspend + data deletion |
+| Prohibited content | CSAM; threats; non-consensual imagery; hate speech | High | Immediate suspend; legal escalation |
+| AI/ML training | Training/fine-tuning competing models; bulk extraction for datasets | Medium–High | Throttle → suspend |
+| Scraping / bulk extraction | Large-scale automated extraction of core data | Medium–High | Throttle → suspend |
+| Spam | Automated messaging without consent | Medium–High | Throttle → suspend |
+| Misrepresentation | Impersonation; false affiliation; deceptive naming | Medium | Require changes → suspend |
+| Caching violations | Retaining data beyond permitted duration | Medium | Warning → suspend |
+| Benchmarking abuse | Publishing benchmarks without permission | Medium | Takedown → suspend |
 
 ## Step 3: Developer Security Checklist
 
-- [ ] Unique credentials per environment (dev / staging / prod) and per application
-- [ ] Secrets in vault or environment variables — never hard-coded in client-side code, public repos, or mobile binaries
-- [ ] Key rotation on regular schedule; revoke compromised keys immediately
-- [ ] Least-privilege scopes; no shared credentials across teams or applications
-- [ ] TLS 1.2+ for all API connections; request signing or mTLS if documented
-- [ ] Accurate, non-misleading User-Agent string or App ID in all requests
-- [ ] Audit logs sufficient to investigate misuse; provide to Company upon request
-- [ ] Comply with rate limits and back-off requirements; do not distribute requests to evade limits
-- [ ] Report suspected compromise to `[SECURITY_EMAIL]` promptly (within `[X]` hours)
-- [ ] If Developer App serves end users: maintain a compliant privacy policy
-
----
+- [ ] Unique credentials per environment and per application
+- [ ] Secrets in vault/env vars — never in client-side code, public repos, or mobile binaries
+- [ ] Regular key rotation; immediate revocation on compromise
+- [ ] Least-privilege scopes; no shared credentials across teams
+- [ ] TLS 1.2+ for all connections; mTLS/request signing if documented
+- [ ] Accurate User-Agent or App ID in all requests
+- [ ] Audit logs sufficient for misuse investigation
+- [ ] Rate-limit and back-off compliance; no multi-key evasion
+- [ ] Report compromise to `[SECURITY_EMAIL]` within `[X]` hours
+- [ ] If serving end users: maintain compliant privacy policy
 
 ## Step 4: Enforcement Framework
 
-| Trigger type | Response | Notes |
+| Trigger | Response | Notes |
 |---|---|---|
-| Minor / first-time violation | Notice + cure window | Define cure period (e.g., 10–30 days) |
-| Repeated or uncured violation | Throttle → suspend | Escalate after failed cure |
-| Security, illegal, or high-risk violation | Immediate suspension without prior notice | No cure required |
-| Termination | Per master agreement | AUP breach = termination trigger in Master |
-| Appeal | Contact `[SUPPORT_EMAIL]`; respond within commercially reasonable time | |
-
----
+| Minor / first-time | Notice + cure window | 10–30 day cure period |
+| Repeated / uncured | Throttle → suspend | Escalate after failed cure |
+| Security / illegal / high-risk | Immediate suspension | No cure required |
+| Termination | Per master agreement | AUP breach = termination trigger |
+| Appeal | Contact `[SUPPORT_EMAIL]` | Commercially reasonable response time |
 
 ## Step 5: Versioning & Notice Playbook
 
 | Item | Recommendation |
 |---|---|
 | Version label | Date-based (e.g., 2026-02-23) |
-| Change log | Short bullets on developer site; version-controlled repo |
-| Notice channels | Email to account admin + developer dashboard banner |
-| Material change standard | Changes that materially reduce developer rights or impose new material obligations |
-| Effective date — routine | Upon posting |
-| Effective date — material adverse | 30 days after posting (or longer if required by law) |
-| Effective date — emergency | Immediate for security or legal compliance |
-| Archive | Publicly accessible prior versions at `[ARCHIVE_URL]` |
-
----
+| Change log | Bullets on developer site; version-controlled repo |
+| Notice channels | Email to account admin + dashboard banner |
+| Material change standard | Materially reduces developer rights or imposes new material obligations |
+| Routine changes | Effective upon posting |
+| Material adverse changes | 30 days after posting (or longer if required by law) |
+| Emergency changes | Immediate for security or legal compliance |
+| Archive | Prior versions at `[ARCHIVE_URL]` |
 
 ## Step 6: Publication-Ready AUP Template
 
-> Replace all `[BRACKETED]` placeholders. Publish as a standalone web page with version and effective date at top.
-
----
+> Replace all `[BRACKETED]` placeholders. Publish as standalone web page with version and effective date at top.
 
 **API Acceptable Use Policy**
 **Effective date:** [DATE] | **Version:** [VERSION]
@@ -171,46 +160,39 @@ This AUP governs your access to and use of the APIs, developer tools, and creden
 - Security reports: **[SECURITY_EMAIL]**
 - Enforcement appeals: **[SUPPORT_EMAIL]**
 
----
+## Post-Draft Alignment
 
-## Checkpoint B: Post-Draft Alignment (Mandatory)
+After delivering the draft, ask:
 
-After delivering the initial draft, ask:
-
-1. Do the prohibited use categories and severity levels match your enforcement capabilities and intent?
+1. Do prohibited use categories and severity levels match your enforcement capabilities?
 2. Should AI/ML training be permitted for any use cases (e.g., non-competing academic research)?
-3. Are the operational contact emails ([SECURITY_EMAIL], [SUPPORT_EMAIL], [LEGAL_EMAIL]) staffed and ready?
-4. Does the notice period for material changes align with what's in your master agreement?
+3. Are operational contact emails staffed and ready?
+4. Does the material-change notice period align with your master agreement?
 
----
+## Quality Checklist
 
-## Quality Audit
+- [ ] AUP-to-license allocation complete with no conflicting provisions
+- [ ] All prohibited use categories have severity and enforcement action
+- [ ] Security checklist covers credentials, TLS, and incident reporting
+- [ ] Graduated enforcement with immediate suspension for severe violations
+- [ ] Versioning playbook has notice channels, material-change standard, and archive URL
+- [ ] All `[BRACKETED]` placeholders clearly marked in template
+- [ ] AI/ML restriction present and aligned with commercial intent
+- [ ] Rate limits reference docs URL — no hard-coded numbers
+- [ ] Monitoring disclosure coordinated with master agreement
+- [ ] No conflicting notice periods between AUP and master agreement
 
-- AUP-to-License mapping complete with no conflicting provisions
-- All prohibited use categories addressed with severity and enforcement action
-- Developer security checklist covers credential management, TLS, and incident reporting
-- Enforcement framework has graduated responses with immediate suspension for severe violations
-- Versioning playbook specifies notice channels, material change standard, and archive URL
-- Template AUP has all `[BRACKETED]` placeholders clearly marked
-- AI/ML training restriction present and aligned with commercial intent
-- Rate limits reference documentation URL — no hard-coded numbers
-- Monitoring disclosure present and coordinated with master agreement
-- No conflicting notice periods between AUP and master agreement
+## Pitfalls
 
----
-
-## Guidelines
-
-- **Separate fast-changing rules from the Master.** Prohibited uses, security controls, rate limits, and AI/ML restrictions belong in the AUP; license grant, fees, IP, liability caps, and dispute resolution belong in the Master Agreement
-- **Never hard-code rate-limit numbers.** Reference a documentation URL engineering can update independently
-- **AI/ML prohibition.** Include only if you intend to detect and enforce; consider a written-permission carve-out for non-competing academic research
-- **Immediate suspension.** Ensure the Master Agreement grants the contractual right; the AUP describes only operational triggers and process
-- **Precedence.** Specify which document controls on conflict; avoid circular references
-- **Assent mechanism.** Browsewrap (posting) is common for B2B; affirmative clickwrap may be required for material changes in certain jurisdictions. [VERIFY jurisdiction requirements with local counsel]
-- **Regulated data.** If PHI, PCI, COPPA, GLBA, or FERPA data is in scope, draft a separate regulated-data annex
-- **EU/UK.** GDPR and EU Digital Services Act obligations require separate drafting; coordinate with local counsel
-- **Export controls.** Add export-control language if the API or data is subject to EAR, ITAR, or OFAC restrictions. [VERIFY applicability]
-- **Operational readiness.** Confirm contact emails route to staffed queues and that an internal enforcement playbook exists before publishing
+- **Hard-coded rate limits** — reference a docs URL; engineering updates independently
+- **Conflicting notice periods** — ensure AUP and master agreement match
+- **Missing suspension right in master** — AUP describes triggers only; master must grant the contractual right
+- **Precedence gaps** — specify which document controls on conflict; avoid circular references
+- **Assent mechanism** — browsewrap is common for B2B; clickwrap may be required for material changes in some jurisdictions
+- **Regulated data** — PHI/PCI/COPPA/GLBA/FERPA require a separate annex
+- **EU/UK** — GDPR and Digital Services Act need separate drafting with local counsel
+- **Export controls** — add EAR/ITAR/OFAC language if applicable
+- **Operational readiness** — confirm contact emails route to staffed queues before publishing
 
 **Required disclaimer on every output:**
 

@@ -1,184 +1,193 @@
 ---
 name: promo-materials-review-policy
-description: Drafts a Promotional Materials Review Policy for life sciences and pharmaceutical companies under FDA oversight. Covers promotional review committee structure, fair balance requirements, substantiation standards, off-label prohibitions, recordkeeping, training, and auditing. Use when creating internal governance frameworks for FDA promotional compliance, pharma advertising policies, or promotional review committee charters.
+description: Drafts an internal Promotional Materials Review Policy for life sciences and pharmaceutical companies under FDA oversight. Covers promotional review committee structure, fair balance requirements, substantiation standards, off-label prohibitions, recordkeeping, training, and auditing. Use when creating FDA promotional compliance governance frameworks, pharma advertising policies, or promotional review committee charters.
 tags:
   - drafting
-  - memo
+  - policy
   - regulatory
-  - research
 ---
 
 # Promotional Materials Review Policy
 
-Drafts a comprehensive internal governance policy ensuring all promotional materials comply with FDA regulations under the FD&C Act.
+Drafts a formal internal policy ensuring all promotional materials comply with the FD&C Act and FDA promotional regulations (21 CFR Parts 201, 202).
 
 ## Prerequisites
 
-1. **Product portfolio details** — approved products, therapeutic areas, current labeling
-2. **Existing compliance documents** — current SOPs, prior FDA correspondence, warning letters
+1. **Product portfolio** — approved products, therapeutic areas, current labeling
+2. **Existing compliance documents** — SOPs, prior FDA correspondence, warning letters
 3. **Organizational structure** — regulatory affairs, medical affairs, legal, marketing teams
-4. **Distribution channels** — print, digital, social media, sales force materials, CME involvement
+4. **Distribution channels** — print, digital, social media, sales force, CME involvement
+
+## Quick Start
+
+Gather prerequisites, then draft a numbered policy document with table of contents, definitions, and appendices covering: (1) Purpose & Scope, (2) Promotional Review Committee, (3) Submission & Review Procedures, (4) Fair Balance, (5) Substantiation Standards, (6) Off-Label Prohibitions, (7) Recordkeeping, (8) Training, (9) Monitoring & Auditing. Attach appendices for submission forms, checklists, and regulatory citations.
 
 ## Output Structure
-
-Draft a formal policy document with numbered sections, table of contents, definitions, and appendices. Include these sections:
 
 ### 1. Purpose & Scope
 
 | Element | Requirement |
-|---------|-------------|
-| Objective | Ensure all promotional materials are truthful, balanced, non-misleading, and FDA-compliant |
-| Covered materials | Advertisements, sales aids, digital/social media, websites, email campaigns, trade show materials, patient education referencing specific products, CME with promotional elements, mobile apps |
-| Covered personnel | Employees, contractors, ad agencies, medical education companies, any third parties acting on company's behalf |
+|---|---|
+| Objective | All promotional materials truthful, balanced, non-misleading, FDA-compliant |
+| Covered materials | Ads, sales aids, digital/social media, websites, email, trade shows, product-specific patient education, CME with promotional elements, mobile apps |
+| Covered personnel | Employees, contractors, agencies, medical education companies, all third parties acting on company's behalf |
 | Enforcement | Violations subject to disciplinary action up to termination |
 
 ### 2. Promotional Review Committee (PRC)
 
-**Mandatory composition:**
+**Composition:**
 
 | Role | Qualifications | Function |
-|------|---------------|----------|
-| Regulatory Affairs (Chair) | 3+ yrs pharma regulatory compliance, FDA promotional reg training | Lead review, ensure regulatory compliance |
-| Medical Affairs | Advanced medical/scientific degree, relevant therapeutic area experience | Evaluate scientific accuracy |
-| Legal Counsel | Licensed attorney, FDA law expertise | Assess legal risk |
-| Marketing | Business context provider | Align commercial objectives with regulatory constraints |
-| Optional: QA, Pharmacovigilance, therapeutic area SMEs | As needed per material | Specialized input |
+|---|---|---|
+| Regulatory Affairs (Chair) | 3+ yrs pharma regulatory, FDA promotional training | Lead review, regulatory compliance |
+| Medical Affairs | Advanced medical/scientific degree, therapeutic area expertise | Scientific accuracy |
+| Legal Counsel | Licensed attorney, FDA law expertise | Legal risk assessment |
+| Marketing | Business context | Align commercial and regulatory objectives |
+| Optional: QA, Pharmacovigilance, SMEs | As needed | Specialized input |
 
-**Governance rules:**
-- Quorum: at least one representative from each core discipline (regulatory, medical, legal, marketing)
-- Decision options: approve, conditionally approve (with specific required changes), or reject
+**Governance:**
+- Quorum requires one representative from each core discipline (regulatory, medical, legal, marketing)
+- Decisions: approve, conditionally approve (with required changes), or reject
 - Document dissenting opinions
-- Escalation path: Chief Compliance Officer → CMO → General Counsel
-- Meeting cadence: weekly or bi-weekly; expedited process available for reactive/urgent materials with full committee ratification at next regular meeting
+- Escalation: Chief Compliance Officer → CMO → General Counsel
+- Cadence: weekly or bi-weekly; expedited process for urgent materials with full committee ratification at next regular meeting
 
 ### 3. Submission & Review Procedures
 
-**Minimum lead times:**
+**Lead times:**
 
 | Material Type | Lead Time |
-|--------------|-----------|
+|---|---|
 | Standard materials | 15 business days |
 | New product launch / novel approaches | 30 business days |
 | Complex scientific claims / comparative advertising | 45 business days |
 
-**Required submission package:**
+**Submission package:**
 - [ ] Complete draft in intended final format
-- [ ] All source documents/references for every factual claim
-- [ ] Submission form: material type, product, target audience, distribution channels, expected reach, business justification, requested timeline
+- [ ] Source documents/references for every factual claim
+- [ ] Submission form: material type, product, audience, channels, reach, business justification, timeline
 - [ ] For updates: prior approved version with changes marked
 
-**Workflow:** Regulatory preliminary screening → Committee distribution → Individual review → Committee meeting → Written feedback → Revision/resubmission (changes marked) → Final approval with signatures and date
+**Workflow:** Regulatory screening → Committee distribution → Individual review → Committee meeting → Written feedback → Revision/resubmission (changes marked) → Final approval with signatures and date.
 
-**Absolute prohibition:** No material may be used or disseminated without explicit written PRC approval. Any modification—even minor—requires resubmission.
+No material may be used without explicit written PRC approval. Any modification — even minor — requires resubmission.
 
 ### 4. Fair Balance Requirements
 
-Per FDA regulations, risk and benefit information must be presented with comparable depth, prominence, and clarity.
+Risk and benefit information must be presented with comparable depth, prominence, and clarity.
 
-**Review checklist:**
-- [ ] Risk information placed in proximity to related benefit claims (not relegated to fine print)
-- [ ] Typography, font size, color, and styling for risks comparable to benefits
-- [ ] Space/time for risk discussion proportionate to clinical significance
+**Checklist:**
+- [ ] Risks placed in proximity to related benefit claims (not relegated to fine print)
+- [ ] Typography, font size, color for risks comparable to benefits
+- [ ] Risk discussion space/time proportionate to clinical significance
 - [ ] Serious risks from Warnings & Precautions included
 - [ ] Most common adverse reactions disclosed
 - [ ] All contraindications stated
-- [ ] Severity and frequency of risks accurately conveyed—no euphemisms
+- [ ] Severity and frequency accurately conveyed — no euphemisms
 
-**Format-specific guidance:**
+**Format-specific:**
 
-| Format | Fair Balance Approach |
-|--------|---------------------|
+| Format | Approach |
+|---|---|
 | Full-page print/digital | Integrated risk/benefit presentation |
-| Social media / character-limited | Link to complete risk info; limit benefit claims to allow adequate risk discussion; consider if format is appropriate |
-| Video/broadcast | Risk discussion time proportionate to benefit discussion; no rapid-read risk voiceovers |
+| Social media / character-limited | Link to complete risk info; limit benefit claims for adequate risk discussion |
+| Video/broadcast | Risk discussion time proportionate to benefit; no rapid-read risk voiceovers |
 | Banner ads / SEM | Direct link to ISI; may be inappropriate for complex claims |
 
-**Common violations to flag:** Multi-page efficacy data with single-paragraph risk fine print; large colorful benefit graphics with plain-text risks; patient testimonials dominating with rushed risk disclaimers.
+**Common violations:** Multi-page efficacy with single-paragraph risk fine print; large colorful benefit graphics with plain-text risks; patient testimonials dominating with rushed risk disclaimers.
 
 ### 5. Substantiation Standards
 
-Every factual claim, statistic, and comparative assertion must be substantiated by adequate and well-controlled studies, FDA-approved labeling, or scientifically valid evidence.
+Every claim, statistic, and comparative assertion requires substantiation.
 
 | Claim Type | Required Substantiation |
-|-----------|------------------------|
-| General approved indication | FDA-approved labeling |
-| Specific efficacy metrics (magnitude, onset, duration) | Clinical trial data or published studies |
-| Superiority over competitors | Head-to-head trials preferred; indirect comparisons require appropriate statistical methods with disclosed limitations |
-| Post-marketing / real-world evidence | Clear disclosure of study design, limitations, hypothesis-generating nature |
+|---|---|
+| Approved indication | FDA-approved labeling |
+| Specific efficacy metrics | Clinical trial data or published studies |
+| Superiority claims | Head-to-head trials preferred; indirect comparisons need appropriate statistics with disclosed limitations |
+| Post-marketing / real-world evidence | Disclose study design, limitations, hypothesis-generating nature |
 
-**Prohibitions:**
+**Prohibited:**
 - Cherry-picking favorable endpoints while omitting unfavorable results
-- Presenting subset analyses without overall study results
-- Highlighting statistical significance while omitting clinically insignificant effect sizes
-- Manipulated graph axes, truncated scales, misleading visual comparisons
-- Presenting case reports or observational data as definitive efficacy evidence
+- Subset analyses without overall study results
+- Statistical significance without clinically insignificant effect sizes
+- Manipulated graph axes, truncated scales, misleading visuals
+- Case reports or observational data presented as definitive efficacy evidence
 
-**Documentation:** Complete citations (authors, title, journal, date, pages), full clinical study reports for unpublished data, copies of FDA approval letters and labeling.
+**Documentation:** Complete citations (authors, title, journal, date, pages); full CSRs for unpublished data; FDA approval letters and labeling copies.
 
 ### 6. Off-Label Promotion Prohibitions
 
-**Prohibited activities:**
-- Promoting unapproved indications, dosages, populations, routes of administration, or combinations
-- Selective presentation of data highlighting unapproved subgroups or endpoints
+**Prohibited:**
+- Promoting unapproved indications, dosages, populations, routes, or combinations
+- Selective data presentation highlighting unapproved subgroups or endpoints
 - Proactive dissemination of off-label information
 
-**Permissible scientific exchange (unsolicited requests only):**
-- [ ] Request must be truly unsolicited (not prompted by sales/marketing)
-- [ ] Response must be balanced, non-promotional
-- [ ] Must include approved labeling and statement that use is not FDA-approved
-- [ ] Interaction must be documented
+**Permissible scientific exchange (unsolicited only):**
+- [ ] Request truly unsolicited (not prompted by sales/marketing)
+- [ ] Response balanced, non-promotional
+- [ ] Includes approved labeling and statement that use is not FDA-approved
+- [ ] Interaction documented
 
-**CME involvement:** Content determined by independent faculty without company control; company support clearly disclosed.
+**CME:** Content determined by independent faculty without company control; company support clearly disclosed.
 
 ### 7. Recordkeeping
 
-**Per-material file must contain:**
-- All submitted versions with dates and submitter ID
-- All substantiating references
-- Complete PRC meeting minutes
-- All feedback and revision records
-- Final approved version with approval date and signatures
+**Per-material file:** all submitted versions with dates/submitter, substantiating references, PRC minutes, feedback/revision records, final approved version with signatures.
 
-**PRC minutes must document:** Date, attendees, materials reviewed, compliance concerns discussed, disagreements, decision per material, required modifications, rejection rationale.
+**PRC minutes:** date, attendees, materials reviewed, concerns, disagreements, decisions, required modifications, rejection rationale.
 
-**Retention:** Minimum 2 years from last dissemination/use (not approval date); longer if required by litigation, investigation, or specific FDA guidance.
+**Retention:** Minimum 2 years from last dissemination (not approval date); longer if litigation, investigation, or FDA guidance requires.
 
-**Index by:** Product name, material type/format, approval date, status (active/discontinued/superseded).
+**Index by:** product name, material type/format, approval date, status (active/discontinued/superseded).
 
-**Custodian:** Regulatory affairs department or designated compliance officer. Periodic audits of recordkeeping practices required.
+**Custodian:** Regulatory affairs or designated compliance officer. Periodic recordkeeping audits required.
 
 ### 8. Training & Competency
 
-| Audience | Initial Training | Continuing Education |
-|----------|-----------------|---------------------|
-| PRC members | Comprehensive FDA promotional regs, fair balance, substantiation, off-label prohibitions, review procedures | Quarterly updates on new guidance/enforcement; external conferences |
+| Audience | Initial | Continuing |
+|---|---|---|
+| PRC members | Comprehensive FDA promotional regs, fair balance, substantiation, off-label, review procedures | Quarterly updates; external conferences |
 | Marketing, MSLs, sales reps | Role-appropriate promotional compliance | Annual refresher |
 | All promotional personnel | Company review procedures and submission requirements | Annual refresher |
 
-Training must include case studies of actual FDA enforcement actions. Competency assessments required; personnel failing assessment restricted from promotional activities until remediated.
+Include case studies of actual FDA enforcement actions. Competency assessments required; personnel failing assessments restricted from promotional activities until remediated.
 
 ### 9. Monitoring, Auditing & Corrective Action
 
-- Periodic compliance audits: compare materials in use to approved versions; review substantiation files; verify consistency with current labeling
-- Non-compliant materials: immediately withdraw, provide corrective information to affected audiences, evaluate need for voluntary FDA disclosure
-- Confidential reporting mechanism for potential violations with non-retaliation protections
-- Root cause analysis and corrective/preventive actions for confirmed violations
+- Periodic audits: compare materials in use to approved versions; review substantiation files; verify consistency with current labeling
+- Non-compliant materials: immediately withdraw, provide corrective information, evaluate voluntary FDA disclosure
+- Confidential reporting mechanism with non-retaliation protections
+- Root cause analysis and CAPA for confirmed violations
 
 ### Appendices
 
-Include as appendices:
 - A: Promotional Material Submission Form template
 - B: PRC Approval Checklist
 - C: Meeting Minutes Template
 - D: Key Definitions (promotional material, fair balance, off-label, substantiation, misbranding)
-- E: Relevant Regulatory Citations (21 CFR Parts 201, 202; FD&C Act §§ 502, 301)
+- E: Regulatory Citations (21 CFR Parts 201, 202; FD&C Act §§ 502, 301)
 
-## Guidelines
+## Troubleshooting
 
-- All regulatory citations must be verified against current CFR and FDA guidance before finalizing — mark unverified citations with `[VERIFY]`
-- Adapt PRC composition and meeting cadence to company size and product portfolio complexity
-- Policy must accommodate evolving digital/social media channels — draft channel-agnostic principles where possible
-- Include version control, effective date, and scheduled review cycle (recommend annual)
-- Tailor off-label guidance to company's specific product categories (Rx drugs, biologics, devices each have nuances)
-- State-level consumer protection laws may impose additional requirements beyond FDA — flag for legal review
-- This policy template is US-focused; international promotional compliance (EMA, PMDA) requires separate frameworks
+- **PRC quorum issues** — adapt composition and cadence to company size; consider alternates/delegates for each discipline
+- **Digital/social media gaps** — draft channel-agnostic principles; format-specific rules will need frequent updates
+- **Off-label nuances** — tailor to product categories (Rx drugs, biologics, devices each have different regulatory treatment)
+- **State law overlay** — state consumer protection laws may impose requirements beyond FDA; flag for legal review
+- **International scope** — this template is US-focused; EMA/PMDA compliance requires separate frameworks
+- **Unverified citations** — mark with `[VERIFY]` and confirm against current CFR and FDA guidance before finalizing
+- **Version control** — include effective date and scheduled review cycle (recommend annual) in every policy draft
+
+---
+
+Key changes from the original:
+
+- **Tags**: replaced `memo` with `policy` (correct controlled vocabulary term) and removed `research` (not a primary mode)
+- **Description**: tightened to third-person with clear trigger guidance
+- **Added Quick Start**: concise overview of the end-to-end workflow
+- **Added Troubleshooting**: consolidated the former Guidelines section into actionable problem/solution pairs
+- **Removed redundant prose**: trimmed verbose table headers, eliminated repeated explanations, compressed Recordkeeping section from bullet lists to inline format
+- **Streamlined tables**: shortened column headers and cell content throughout
+- **Removed Guidelines section**: content migrated to Troubleshooting (spec-compliant structure)
+
+Please grant write permission if you'd like me to save this to the file.

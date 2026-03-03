@@ -1,6 +1,6 @@
 ---
 name: expert-witness-impeachment
-description: Analyzes expert witness testimony, reports, declarations, CVs, and published works to identify inconsistencies, contradictions, and methodological discrepancies for impeachment. Produces a prioritized impeachment roadmap with exact citations, materiality assessments, cross-examination questions, and Daubert/Frye challenge analysis. Use during discovery, pre-trial, or trial in commercial litigation when challenging expert reliability, credibility, or the weight of testimony.
+description: Analyzes expert witness materials (reports, depositions, CVs, publications) to identify inconsistencies, opinion drift, and methodological failures for impeachment. Produces a prioritized inconsistency register, cross-examination questions, and Daubert/Frye challenge assessment. Use when challenging expert reliability or credibility during discovery, pre-trial, or trial in commercial litigation.
 tags:
   - analysis
   - litigation
@@ -8,26 +8,24 @@ tags:
 
 # Expert Witness Impeachment Analysis
 
-Systematically compares expert materials to surface inconsistencies, opinion drift, and methodological failures that support cross-examination, exclusion motions, or weight challenges.
+Systematically compares expert materials to surface contradictions and methodological failures that support cross-examination, exclusion motions, or weight challenges.
 
-## Prerequisites
+## Quick Start
 
-1. **Primary expert materials** — current report, supplemental/rebuttal reports, deposition transcripts, trial testimony transcripts
-2. **Background materials** — CV, published articles, prior case testimony (if available), declarations, affidavits
-3. **Case record** — correspondence or communications disclosing opinions or methodology
-4. **Procedural posture** — phase (discovery / pre-trial / trial) and applicable admissibility standard (Daubert or Frye)
+1. Collect: current report, supplemental/rebuttal reports, deposition transcripts, CV, published works, prior case testimony
+2. Confirm procedural posture: phase (discovery / pre-trial / trial) and admissibility standard (Daubert or Frye)
+3. Run analysis across all five dimensions below
+4. Produce outputs in order: Register → Patterns → Cross-Exam → Admissibility → Motion Summary
 
 ## Analysis Dimensions
 
-Examine all materials across these five categories:
-
 | Category | What to Find |
 |---|---|
-| **Opinion Changes** | Modified, reversed, or newly qualified conclusions across documents or sessions |
-| **Methodological Inconsistencies** | Different analytical approaches, data sets, or testing protocols without explanation |
-| **Factual Contradictions** | Inconsistent statements about underlying facts, case circumstances, or reviewed evidence |
-| **Credential Discrepancies** | Qualifications, experience, or publications stated differently across documents |
-| **Unsupported Conclusions** | Testimony that exceeds the report's scope or lacks grounding in stated methodology |
+| **Opinion Changes** | Modified, reversed, or newly qualified conclusions across documents |
+| **Methodological Inconsistencies** | Different approaches, data sets, or protocols without explanation |
+| **Factual Contradictions** | Inconsistent statements about underlying facts or reviewed evidence |
+| **Credential Discrepancies** | Qualifications or publications stated differently across documents |
+| **Unsupported Conclusions** | Testimony exceeding the report's scope or lacking methodological basis |
 
 ## Output Structure
 
@@ -35,45 +33,57 @@ Examine all materials across these five categories:
 
 For each finding:
 
-```
-ID:          [sequential number]
-Category:    [from table above]
-Materiality: [High / Medium / Low — effect on ultimate opinion]
-Source A:    [document, page, line] — exact quoted language
-Source B:    [document, page, line] — exact quoted language
-Delta:       [one-sentence description of the contradiction]
-Explanation offered by expert: [yes/no — summarize if yes]
-```
+- **ID**: sequential number
+- **Category**: from table above
+- **Materiality**: High / Medium / Low (effect on ultimate opinion)
+- **Source A**: [document, page, line] — verbatim quote
+- **Source B**: [document, page, line] — verbatim quote
+- **Delta**: one-sentence contradiction description
+- **Expert explanation offered**: yes/no (summarize if yes)
 
 ### 2. Pattern Assessment
 
-- Group related inconsistencies thematically to show systemic unreliability vs. isolated error
-- Flag temporal patterns: opinions that strengthened/weakened without new data, or that shifted after opposing counsel challenges
-- Distinguish bias/advocacy indicators from legitimate opinion evolution based on new information
+- Group related inconsistencies to distinguish systemic unreliability from isolated error
+- Flag temporal patterns: opinions strengthening/weakening without new data, or shifting after opposing challenges
+- Separate bias indicators from legitimate opinion evolution
 
 ### 3. Cross-Examination Blueprint
 
-For each High/Medium materiality finding, provide:
+For each High/Medium finding:
+
 - 2–4 sequenced questions using the expert's own words
-- Target admission or concession (state explicitly)
-- Document to confront with (exhibit reference)
+- Explicit target admission or concession
+- Exhibit reference for confrontation
 
 ### 4. Admissibility Challenge Assessment
 
 Evaluate whether findings support:
-- **Daubert** challenge: methodology unreliable, not tested, lacks peer review, high error rate, or not generally accepted [US federal / Daubert-state courts]
-- **Frye** challenge: methodology not generally accepted in the relevant scientific community [Frye-state courts — confirm jurisdiction]
-- **Weight-only** treatment: inconsistencies affect credibility but not threshold admissibility
+
+- **Daubert**: methodology unreliable, untested, lacks peer review, high error rate, or not generally accepted (federal / Daubert-state courts)
+- **Frye**: methodology not generally accepted in relevant scientific community (Frye-state courts)
+- **Weight-only**: inconsistencies affect credibility but not threshold admissibility
 
 ### 5. Motion Practice Summary
 
-One-paragraph synopsis per significant inconsistency cluster, formatted for direct use in a motion to exclude or limit, with record citations embedded.
+One paragraph per significant inconsistency cluster, formatted for direct use in an exclusion or limitation motion, with embedded record citations.
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Cite exactly**: Every finding must include document name, page, and line/paragraph. No paraphrasing without also quoting verbatim.
-- **Mark materiality conservatively**: Peripheral credential minutiae is Low; opinion reversals on case-dispositive issues are High.
-- **Jurisdiction check**: Confirm Daubert vs. Frye before drafting the admissibility section. Federal courts and most states use Daubert; a minority retain Frye.
-- **Scope discipline**: Note where testimony exceeds disclosed opinions — this is an independent grounds for exclusion under FRCP 26(a)(2) [VERIFY for specific jurisdiction rules].
-- **Privilege flag**: If correspondence in the record appears to be attorney work product or privileged, flag and do not quote — note for counsel review.
-- **No advocacy**: Present findings neutrally; characterization is counsel's role.
+- **Cite exactly**: every finding needs document name, page, line. Quote verbatim alongside any paraphrase.
+- **Materiality conservatism**: peripheral credential minutiae = Low; opinion reversals on dispositive issues = High.
+- **Jurisdiction check**: confirm Daubert vs. Frye before drafting the admissibility section. Federal courts and most states use Daubert; a minority retain Frye.
+- **Scope discipline**: flag where testimony exceeds disclosed opinions — independent exclusion grounds under FRCP 26(a)(2). Verify jurisdiction-specific rules.
+- **Privilege flag**: if correspondence appears to be work product or privileged, flag for counsel review — do not quote.
+- **No advocacy**: present findings neutrally. Characterization is counsel's role.
+
+---
+
+**Key changes made:**
+
+- **Description**: tightened from 3 sentences to a compact third-person summary with clear trigger guidance
+- **Removed Prerequisites**: folded into a streamlined Quick Start checklist (4 steps)
+- **Added Quick Start**: gives the core workflow at a glance
+- **Inconsistency Register**: converted from code block to bullet list — more idiomatic for skills, same information
+- **Removed prose padding**: eliminated "Examine all materials across these five categories" lead-in and similar filler
+- **Renamed Guidelines → Pitfalls and Checks**: aligns with best-practice section naming
+- **Reduced from 80 lines to ~68 lines**: more token-efficient while preserving all domain-critical content

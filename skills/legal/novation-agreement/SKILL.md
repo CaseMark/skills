@@ -1,6 +1,6 @@
 ---
 name: novation-agreement
-description: Drafts a tripartite U.S. novation agreement that fully substitutes an incoming party for an original obligor, achieving complete release of the original obligor with no residual liability. Distinguishes true novation from assignment. Covers government contracts, M&A-driven substitutions, and commercial restructurings. Use when drafting novation agreements, party substitution agreements, or contract assumption documents requiring full obligor discharge.
+description: Drafts tripartite U.S. novation agreements substituting an incoming party for the original obligor with full release. Use when drafting novation agreements, party substitution agreements, or contract assumption documents requiring complete obligor discharge. Covers government contracts (FAR 42.12), M&A substitutions, and commercial restructurings.
 tags:
   - agreement
   - drafting
@@ -10,112 +10,123 @@ tags:
 
 # Novation Agreement
 
-Drafts a tripartite novation agreement substituting an Incoming Obligor for the Original Obligor with the Continuing Obligee's consent and full release of the Original Obligor—no residual liability.
+Tripartite agreement substituting an Incoming Obligor for the Original Obligor with Continuing Obligee consent. Achieves full release—no residual liability for the exiting party.
 
 ## Prerequisites
 
-1. **Original contract** — full execution copy including all amendments, modifications, and any identifying contract numbers (critical for government contracts)
-2. **Business rationale docs** — asset purchase agreement, merger documents, board resolutions, or corporate restructuring records
-3. **Party authority docs** — organizational documents, certificates of good standing, and authorization resolutions for all three parties
-4. **Security/collateral instruments** — guarantees, letters of credit, performance bonds, or surety arrangements tied to the original contract
-5. **Incoming Obligor due diligence** — financial statements, licenses, permits, and operational capability evidence
-6. **Disclosed defaults** — any pre-existing breaches or defaults under the original contract must be identified before drafting
+Gather before drafting:
+
+1. **Original contract** — executed copy with all amendments and contract numbers
+2. **Business rationale** — APA, merger docs, board resolutions, or restructuring records
+3. **Authority docs** — org documents, good standing certificates, authorization resolutions (all three parties)
+4. **Security instruments** — guarantees, LCs, performance bonds tied to original contract
+5. **Incoming Obligor diligence** — financials, licenses, permits, operational capability evidence
+6. **Disclosed defaults** — identify all pre-existing breaches before drafting
 
 ## Party Roles
 
-| Designation | Role |
+| Party | Role |
 |---|---|
 | **Original Obligor** | Exiting party; receives full release on effective date |
-| **Continuing Obligee** | Remaining party; consents to substitution; releases Original Obligor |
+| **Continuing Obligee** | Remaining party; consents to substitution and releases Original Obligor |
 | **Incoming Obligor** | Substituted party; assumes all future rights and obligations |
 
-## Document Structure
+## Drafting Workflow
 
 ### 1. Recitals
-- Identify original contract: full title, execution date, contract number, subject matter, key obligations, payment terms, duration, and all amendments
-- State business rationale (M&A, restructuring, regulatory requirement, etc.)
-- Affirmatively state parties' intent: **true novation**, not assignment or delegation
-- Recite consideration flowing among all three parties
+
+- Identify original contract: title, date, number, subject matter, key terms, amendments
+- State business rationale (M&A, restructuring, regulatory)
+- Declare intent as **true novation** — not assignment or delegation
+- Recite consideration among all three parties
 
 ### 2. Operative Novation Clause
-Must include in present-tense operative language:
-- [ ] Incoming Obligor is **hereby substituted** for Original Obligor in all respects
-- [ ] Incoming Obligor assumes **all** obligations, duties, liabilities, and covenants—whether accruing before, on, or after the effective date
-- [ ] Incoming Obligor succeeds to **all** rights, benefits, privileges, and remedies of Original Obligor
-- [ ] Explicitly state no continuing liability (primary or secondary) for Original Obligor post-effective date
+
+Present-tense operative language must include:
+
+- [ ] Incoming Obligor **hereby substituted** for Original Obligor in all respects
+- [ ] Incoming Obligor assumes **all** obligations, liabilities, and covenants (pre- and post-effective date)
+- [ ] Incoming Obligor succeeds to **all** rights, benefits, and remedies
+- [ ] No continuing liability (primary or secondary) for Original Obligor post-effective date
 
 ### 3. Release Provision
-Continuing Obligee release must be:
-- [ ] Unconditional and absolute for post-effective date obligations
-- [ ] **Carve-out preserved**: all pre-existing defaults, accrued claims, and pre-novation breaches are expressly excluded from the release
-- [ ] Continuing Obligee acknowledges it will look **solely** to Incoming Obligor for future performance
 
-### 4. Representations and Warranties (all three parties)
+- [ ] Unconditional release for post-effective date obligations
+- [ ] **Carve-out**: pre-existing defaults, accrued claims, and pre-novation breaches excluded from release
+- [ ] Continuing Obligee looks **solely** to Incoming Obligor for future performance
+
+### 4. Representations and Warranties
 
 | Party | Key Reps |
 |---|---|
 | All parties | Authority, power, no violation of law or other agreements |
-| Original Obligor + Continuing Obligee | Original contract is valid, in full force; no undisclosed amendments, defaults, or litigation |
-| Incoming Obligor | Has reviewed all contract terms; possesses financial resources, licenses, permits, and operational capability to perform; has conducted independent due diligence; obtained all required third-party consents and regulatory approvals |
+| Original Obligor + Continuing Obligee | Contract valid and in force; no undisclosed amendments, defaults, or litigation |
+| Incoming Obligor | Reviewed all terms; has financial resources, licenses, capability to perform; completed diligence; obtained required consents and approvals |
 
 ### 5. Conditions Precedent
-Specify which conditions must be satisfied before novation is effective:
-- [ ] Regulatory approvals or governmental clearances (required for government contracts)
-- [ ] Third-party consents required under original contract
-- [ ] Evidence of insurance or performance bonds from Incoming Obligor
-- [ ] Payment of any assumption fee or consideration
-- [ ] Execution of ancillary instruments (security agreements, guarantees, IP assignments)
 
-### 6. Effective Date Mechanics
-- Define effective date precisely: execution date, specified calendar date, or last-condition-satisfied date
-- Require written certificate or notice confirming satisfaction of all conditions precedent
-- Address obligations and payments arising during any gap between execution and effective date
+- [ ] Regulatory/governmental approvals (mandatory for government contracts)
+- [ ] Third-party consents required under original contract
+- [ ] Insurance or bond evidence from Incoming Obligor
+- [ ] Assumption fee or consideration payment
+- [ ] Ancillary instrument execution (security agreements, guarantees, IP assignments)
+
+### 6. Effective Date
+
+- Define precisely: execution date, calendar date, or last-condition-satisfied date
+- Require written certificate confirming all conditions met
+- Address gap-period obligations between execution and effective date
 
 ### 7. Transitional Provisions
-- Original Obligor cooperation obligations: records transfer, introductions, work-in-progress handoff
-- Allocation of prepayments, deposits, advance payments, and outstanding invoices at the effective date cutoff
-- Proration mechanism for recurring or periodic payments
+
+- Original Obligor cooperation: records transfer, introductions, WIP handoff
+- Allocate prepayments, deposits, and outstanding invoices at cutoff
+- Prorate recurring or periodic payments
 
 ### 8. Ancillary Transfers
-- Security instruments: specify whether existing guarantees/bonds transfer or Incoming Obligor must provide new security
-- IP licenses: confirm Incoming Obligor assumes or replaces any licensing obligations
-- Regulatory licenses and permits: covenant that Incoming Obligor obtains all required authorizations before effective date
-- UCC filings or other perfection steps if collateral transfers
 
-### 9. Indemnification Framework
+- Security instruments: transfer existing or require new from Incoming Obligor
+- IP licenses: confirm assumption or replacement
+- Regulatory licenses/permits: covenant to obtain before effective date
+- UCC filings or perfection steps if collateral transfers
 
-| Indemnifying Party | Covers |
+### 9. Indemnification
+
+| Indemnifying Party | Scope |
 |---|---|
-| Incoming Obligor | Losses from Incoming Obligor's post-effective date performance or non-performance |
-| Original Obligor | Pre-effective date breaches, defaults, and violations (unless specifically disclosed and accepted) |
+| Incoming Obligor | Post-effective date performance or non-performance losses |
+| Original Obligor | Pre-effective date breaches and violations (unless disclosed and accepted) |
 
-Include: notice requirements, defense control rights, cooperation obligations, settlement authority limits, and survival period.
+Include notice requirements, defense control, cooperation obligations, settlement limits, and survival period.
 
-### 10. Governing Law and Dispute Resolution
-- Align governing law with original contract (unless change in domicile or multi-jurisdiction parties require otherwise)
-- Address whether original contract's arbitration clause binds Incoming Obligor
-- Establish separate dispute resolution path for three-party disputes over novation validity vs. two-party disputes over post-novation performance
+### 10. Governing Law and Disputes
 
-### 11. Standard Provisions Checklist
-- [ ] Entire agreement / integration clause (includes original contract as novated)
-- [ ] Amendment requires written consent of **all three parties**
-- [ ] Severability with good-faith replacement obligation
-- [ ] No-waiver clause (written waiver only)
-- [ ] Counterparts + electronic signatures accepted
-- [ ] Notices with addresses, delivery methods, and deemed-received timing for all three parties
+- Align governing law with original contract unless domicile/jurisdiction change warrants otherwise
+- Address whether original arbitration clause binds Incoming Obligor
+- Separate resolution paths: three-party (novation validity) vs. two-party (post-novation performance)
+
+### 11. Standard Provisions
+
+- [ ] Entire agreement / integration (includes original contract as novated)
+- [ ] Amendment requires **all three parties'** written consent
+- [ ] Severability with replacement obligation
+- [ ] No-waiver (written only)
+- [ ] Counterparts + electronic signatures
+- [ ] Notices: addresses, methods, deemed-received timing for all three parties
 - [ ] Further assurances covenant
-- [ ] Exhibits schedule: original contract copy, disclosed defaults, ancillary documents list, conditions precedent schedule, supporting diligence materials
+- [ ] Exhibits: original contract, disclosed defaults, ancillary docs, conditions schedule
 
-## Signature Blocks
+### 12. Signature Blocks
+
 - Individuals: signature, printed name, date
-- Entities: full legal name, "By:" line, signatory name, title (must match authorization resolution), date
-- Confirm whether notarization, witness attestation, or recording formalities required (government contracts and real property interests may require)
+- Entities: legal name, "By:" line, signatory name, title (must match authorization), date
+- Check notarization/witness/recording requirements (government contracts, real property)
 
-## Guidelines
+## Critical Pitfalls
 
-- **Novation vs. assignment**: Every operative provision must make clear the Original Obligor is fully discharged—use "novation" not "assignment" or "delegation" throughout
-- **Government contracts**: FAR 42.12 [VERIFY] governs novation of federal contracts; agency consent is typically mandatory and must be a condition precedent
-- **Pre/post split**: The effective date cutoff for liability allocation is the agreement's most legally significant date—define it precisely and reference it consistently
-- **Three-party execution**: All three parties must sign; a two-party document cannot achieve novation
-- **Residual liability trap**: Avoid language importing "guarantee," "backup obligation," or "secondary liability" for the Original Obligor—this converts the novation into an assignment with assumption
-- **Jurisdiction**: Enforceability of electronic signatures and counterparts varies; confirm governing state's requirements for the underlying contract type
+- **Novation ≠ assignment**: Use "novation" throughout; never "assignment" or "delegation." Every provision must confirm full discharge of Original Obligor
+- **Residual liability trap**: Language like "guarantee," "backup obligation," or "secondary liability" for Original Obligor converts novation into assignment-with-assumption
+- **Three-party execution required**: A two-party document cannot achieve novation
+- **Effective date precision**: The pre/post liability cutoff is the most legally significant date—define precisely and reference consistently
+- **Government contracts**: FAR 42.12 [VERIFY] governs federal novation; agency consent is mandatory and must be a condition precedent
+- **E-signature enforceability**: Varies by state and contract type; confirm governing jurisdiction requirements

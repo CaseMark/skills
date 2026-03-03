@@ -1,6 +1,6 @@
 ---
 name: construction-case-summary
-description: Produces structured U.S. construction law case summaries covering contract breaches, construction defects, and worker safety/OSHA issues, with timelines, holdings, damages, and practical risk takeaways. Use when drafting construction case summaries, construction defect analyses, payment dispute summaries, performance bond or mechanic's lien case reviews, OSHA violation case briefs, or construction litigation precedent digests.
+description: Produces structured U.S. construction law case summaries with timelines, holdings, damages, and risk takeaways. Triggers on construction case summaries, defect analyses, payment dispute summaries, bond or mechanic's lien reviews, OSHA violation briefs, or construction precedent digests.
 tags:
   - analysis
   - litigation
@@ -10,27 +10,28 @@ tags:
 
 # Construction Law Case Summary
 
-Creates a structured, citation-anchored summary of a construction law decision for rapid precedent and risk analysis.
+Structured, citation-anchored summary of a construction law decision for precedent and risk analysis.
 
-## Prerequisites
+## Quick Start
 
-1. Full case materials with citations to the record or opinion
-2. Jurisdiction, court level, and procedural posture
-3. Core project documents if referenced (contract, specs, change orders, bond, lien filings, safety reports)
-4. Party list with roles (owner, GC, subcontractors, design professionals, insurers)
-5. Appeal status and whether the decision is published/precedential
+Gather before drafting:
+- Full case materials with record/opinion citations
+- Jurisdiction, court level, procedural posture, published/precedential status
+- Referenced project documents (contract, specs, change orders, bond, lien filings, safety reports)
+- Party list with roles (owner, GC, subs, design professionals, insurers)
 
-## Output Structure / Process
+## Workflow
 
-1. Complete the intake checklist and confirm missing inputs.
-2. Populate the Case Metadata and Parties tables.
-3. Build a dated timeline of key events.
-4. Apply the relevant module(s): Contract Breach, Defects, Safety/OSHA.
+1. Run intake checklist; flag missing inputs.
+2. Populate Case Metadata and Parties tables.
+3. Build dated timeline with source cites.
+4. Apply relevant module(s): Contract Breach, Defects, Safety/OSHA.
 5. Extract holdings and reasoning with pinpoint cites.
-6. Add damages/relief and industry impact takeaways.
-7. If multiple cases, synthesize majority/minority rules by jurisdiction.
+6. Record damages/relief and practical takeaways.
+7. For multiple cases, synthesize majority/minority rules by jurisdiction.
 
-**Intake Checklist**
+## Intake Checklist
+
 - [ ] Court, jurisdiction, decision date
 - [ ] Case caption and citation
 - [ ] Procedural posture and standard of review
@@ -40,108 +41,108 @@ Creates a structured, citation-anchored summary of a construction law decision f
 - [ ] Damages claimed/awarded
 - [ ] Published vs unpublished status
 
+## Output Tables
+
 **Case Metadata**
+
 | Field | Entry |
-| --- | --- |
-| Caption |  |
-| Citation |  |
-| Court |  |
-| Decision Date |  |
-| Jurisdiction |  |
-| Procedural Posture |  |
-| Standard of Review |  |
-| Published / Precedential |  |
-| Outcome |  |
+|---|---|
+| Caption | |
+| Citation | |
+| Court | |
+| Decision Date | |
+| Jurisdiction | |
+| Procedural Posture | |
+| Standard of Review | |
+| Published / Precedential | |
+| Outcome | |
 
 **Parties and Roles**
+
 | Party | Role | Key Obligations / Exposure |
-| --- | --- | --- |
-|  |  |  |
+|---|---|---|
+| | | |
 
 **Timeline**
+
 | Date | Event | Source Cite |
-| --- | --- | --- |
-|  |  |  |
+|---|---|---|
+| | | |
 
-**Summary Template**
-```markdown
-## Issue Overview
-- Primary dispute type(s):
-- Project type and delivery method:
+## Summary Template
 
-## Key Facts
-- 
-- 
+- **Dispute type(s):** …
+- **Project type / delivery method:** …
+- **Key facts:** …
+- **Legal issues:** …
+- **Holdings:** …
+- **Court's reasoning:** …
+- **Damages / relief:** …
+- **Practical impact:** …
 
-## Legal Issues
-- 
+## Modules
 
-## Holdings
-- 
+### Contract Breach
 
-## Court’s Reasoning
-- 
+| Element | Notes |
+|---|---|
+| Contract form (written/oral) | |
+| Clauses at issue (scope, notice, payment, change orders, force majeure) | |
+| Breach theory and defenses (substantial performance, impossibility, waiver) | |
+| Payment disputes (prompt payment, retainage) | |
+| Performance/payment bond issues | |
+| Mechanic's lien posture and deadlines | |
+| Economic loss doctrine application | |
 
-## Damages / Relief
-- 
+### Construction Defects
 
-## Practical Impact
-- 
-```
+| Element | Notes |
+|---|---|
+| Defect type (structural, design, materials, workmanship) | |
+| Patent vs latent classification | |
+| Statute of limitations / repose analysis | |
+| Expert testimony and code/standard references | |
+| Warranty claims (express/implied) | |
+| Fault allocation among participants | |
+| Damages theory (repair, diminution, consequential) | |
 
-**Module: Contract Breach**
-| Required Elements | Notes |
-| --- | --- |
-| Contract form (written/oral) |  |
-| Clauses at issue (scope, notice, payment, change orders, force majeure) |  |
-| Breach theory and defenses (substantial performance, impossibility, waiver) |  |
-| Payment dispute details (prompt payment, retainage) |  |
-| Performance/payment bond issues |  |
-| Mechanic’s lien posture and deadlines |  |
-| Economic loss doctrine application |  |
+### Worker Safety / OSHA
 
-**Module: Construction Defects**
-| Required Elements | Notes |
-| --- | --- |
-| Defect type (structural, design, materials, workmanship) |  |
-| Patent vs latent classification |  |
-| Statute of limitations / repose analysis |  |
-| Expert testimony and code/standard references |  |
-| Warranty claims (express/implied) |  |
-| Allocation of fault among project participants |  |
-| Damages theory (repair, diminution, consequential) |  |
+| Element | Notes |
+|---|---|
+| OSHA standard(s) cited | |
+| Violation classification and penalties | |
+| GC vs sub safety responsibility | |
+| Workers' comp exclusivity impact | |
+| Third-party liability or indemnity | |
+| Willful or criminal findings | |
 
-**Module: Worker Safety / OSHA**
-| Required Elements | Notes |
-| --- | --- |
-| OSHA standard(s) cited |  |
-| Violation classification and penalties |  |
-| GC vs subcontractor safety responsibility |  |
-| Workers’ comp exclusivity impact |  |
-| Third-party liability or indemnity issues |  |
-| Willful or criminal findings |  |
+## Holdings and Damages
 
-**Holdings and Rule Synthesis**
+**Holdings / Rule Synthesis**
+
 | Issue | Holding | Rule/Standard | Cite |
-| --- | --- | --- | --- |
-|  |  |  |  |
+|---|---|---|---|
+| | | | |
 
 **Damages / Relief**
+
 | Category | Claimed | Awarded | Notes |
-| --- | --- | --- | --- |
-|  |  |  |  |
+|---|---|---|---|
+| | | | |
 
 **Practical Takeaways**
-- [ ] Contract clause drafting or notice practices affected
+
+- [ ] Contract drafting or notice practices affected
 - [ ] Documentation practices that controlled outcome
 - [ ] Insurance coverage or bond implications
 - [ ] Safety compliance or supervision adjustments
 
-## Guidelines
+## Pitfalls
 
-- Use exact citations for facts and holdings; do not paraphrase without a cite.
-- Distinguish holding from dicta; label dissent or concurrence explicitly.
+- Use exact citations for facts and holdings; never paraphrase without a cite.
+- Distinguish holding from dicta; label dissent/concurrence explicitly.
 - Flag uncertain statutes or regulatory citations with `[VERIFY]`.
-- Identify jurisdiction-specific doctrines (anti-indemnity, prompt payment, lien law) and note state variance.
-- If the decision is unpublished or nonprecedential, state the limitation.
-- Do not invent facts, timelines, or code/OSHA provisions.
+- Note jurisdiction-specific doctrines (anti-indemnity, prompt payment, lien law) and state variance.
+- State limitation if decision is unpublished or nonprecedential.
+- Never invent facts, timelines, or code/OSHA provisions.

@@ -1,34 +1,27 @@
 ---
 name: deposition-ip-supplement
-description: Practice-area supplement for intellectual property litigation depositions covering patent, trademark, copyright, and trade secret cases. Provides IP-specific examination frameworks for inventors, accused infringers, licensing witnesses, technical experts, and damages experts. Addresses claim construction, prior art, willfulness, reasonable royalty, Georgia-Pacific factors, likelihood of confusion, and trade secret identification. Use with @deposition-preparation and @deposition-expert-witness for complete IP deposition preparation.
-tags:
-  - analysis
-  - checklist
-  - drafting
-  - litigation
-  - transactional
+description: Provides IP-specific deposition examination frameworks for patent, trademark, copyright, and trade secret cases. Covers inventor, infringer, licensing, and expert witnesses with question maps for claim construction, prior art, willfulness, Georgia-Pacific factors, likelihood of confusion, and trade secret identification. Use when preparing IP litigation depositions alongside @deposition-preparation and @deposition-expert-witness.
 ---
 
 # IP Litigation Deposition Supplement
 
-IP-specific examination strategies for patent, trademark, copyright, and trade secret depositions. Use with @deposition-preparation as the primary framework.
+IP-specific examination strategies for patent, trademark, copyright, and trade secret depositions. Supplements `@deposition-preparation` as the primary framework.
 
-## Prerequisites
+## Quick Start
 
-1. Primary deposition framework active via @deposition-preparation
-2. Relevant IP registrations, prosecution history, or trade secret identification
-3. Claim construction order or list of disputed terms (patent cases)
-4. Expert reports if deposing experts — apply @deposition-expert-witness
-5. Licensing history and operative damages theory
+1. Activate `@deposition-preparation` as primary framework
+2. Gather: IP registrations, prosecution history, claim construction order, licensing history, expert reports
+3. Identify case type below and select relevant witness frameworks
+4. For expert depositions, also apply `@deposition-expert-witness`
 
-## IP Case Types — Key Issues & Witnesses
+## Case Types
 
-| Case Type | Key Legal Issues | Key Witnesses |
-|-----------|-----------------|---------------|
-| **Patent** | Claim construction, infringement (literal/DOE), validity (anticipation/obviousness/enablement), willfulness, damages (reasonable royalty/lost profits) | Inventors, prosecuting attorney (limited), R&D/engineering, licensing, technical expert, damages expert |
-| **Trademark** | Validity/distinctiveness, priority of use, likelihood of confusion, willfulness, damages | Mark owner/creator, marketing/brand witnesses, consumer survey experts, damages expert |
-| **Copyright** | Ownership/authorship, originality, access, copying, substantial similarity, fair use, damages | Authors/creators, access witnesses, similarity experts, damages expert |
-| **Trade Secret** | Trade secret existence, reasonable secrecy measures, misappropriation (acquisition/disclosure/use), damages | Secret owners/developers, accused misappropriators, security witnesses, damages expert |
+| Type | Key Issues | Key Witnesses |
+|------|-----------|---------------|
+| **Patent** | Claim construction, infringement (literal/DOE), validity, willfulness, damages | Inventors, R&D/engineering, licensing, technical/damages experts |
+| **Trademark** | Distinctiveness, priority, likelihood of confusion, willfulness, damages | Mark owner, marketing, survey experts, damages expert |
+| **Copyright** | Ownership, originality, access, substantial similarity, fair use, damages | Authors, access witnesses, similarity/damages experts |
+| **Trade Secret** | Existence, reasonable secrecy measures, misappropriation, damages | Secret owners, accused misappropriators, security, damages expert |
 
 ## Examination Frameworks
 
@@ -36,131 +29,127 @@ IP-specific examination strategies for patent, trademark, copyright, and trade s
 
 | Topic | Key Questions |
 |-------|--------------|
-| Conception | First conception date; problem being solved; records from that time; who was told |
-| Reduction to practice | Date; testing/prototyping done; corroborating documentation |
-| Prior art knowledge | What prior art was known; searches conducted; how invention differs from [specific ref] |
-| Claims | Witness's understanding of claim scope; meaning of [disputed term]; relationship of accused product to invention |
-| Prosecution | Involvement in prosecution; review of office actions; reasons for claim amendments |
+| Conception | First conception date; problem solved; contemporaneous records; who was told |
+| Reduction to practice | Date; testing/prototyping; corroborating documentation |
+| Prior art knowledge | Known prior art; searches conducted; how invention differs from [specific ref] |
+| Claims | Understanding of claim scope; meaning of [disputed term]; relationship to accused product |
+| Prosecution | Involvement; review of office actions; reasons for amendments |
 
 ### Patent — Accused Infringer Technical Witness
 
 | Topic | Key Questions |
 |-------|--------------|
-| Product/process | How [accused product] works; key technical components; development timeline and team |
-| Design process | Alternatives considered; why this approach chosen; awareness of patent during design; design-around efforts |
-| Claim mapping | Presence of [claim element] in accused product; how product performs [claim function] |
-| Non-infringement | Which claim limitation is not met; how product differs from claims |
-| Prior art | Prior products/publications using this technology before patent priority date |
+| Product/process | How [accused product] works; key components; development timeline |
+| Design process | Alternatives considered; why this approach; patent awareness; design-around efforts |
+| Claim mapping | Presence of [claim element]; how product performs [claim function] |
+| Non-infringement | Which limitation not met; how product differs from claims |
+| Prior art | Prior products/publications before patent priority date |
 
 ### Patent — Licensing/Damages Witness
 
 | Topic | Key Questions |
 |-------|--------------|
-| Licensing history | Existing licenses; royalty rates; negotiation process; comparable licenses |
-| Commercial success | Patented products; sales figures; whether success attributable to patented feature |
-| Market | Competitors; acceptable non-infringing alternatives; market share impact |
-| Hypothetical negotiation | Terms parties would have agreed pre-infringement; Georgia-Pacific factors; royalty rate and base |
+| Licensing history | Existing licenses; royalty rates; negotiation process; comparables |
+| Commercial success | Sales figures; success attributable to patented feature |
+| Market | Competitors; non-infringing alternatives; market share impact |
+| Hypothetical negotiation | Pre-infringement terms; Georgia-Pacific factors; royalty rate and base |
 
-### Patent — Technical Expert (Infringement/Validity)
+### Patent — Technical Expert
 
-Apply @deposition-expert-witness with these additions:
+Apply `@deposition-expert-witness` plus:
 
-- **Claim construction**: Basis for construing [disputed term]; prosecution history reviewed; specification support
-- **Infringement**: Element-by-element walkthrough; physical examination of accused product; source code review (software patents)
-- **Validity**: Prior art considered; whether [reference] discloses [element]; PHOSITA motivation to combine; TSM analysis
+- **Claim construction**: Basis for construing [disputed term]; prosecution history; specification support
+- **Infringement**: Element-by-element walkthrough; physical exam of accused product; source code review (software)
+- **Validity**: Prior art considered; whether [reference] discloses [element]; PHOSITA motivation to combine
 
 ### Patent — Damages Expert
 
 | Topic | Key Questions |
 |-------|--------------|
-| Reasonable royalty | Rate calculated; methodology; which Georgia-Pacific factors applied; comparable licenses analyzed; royalty base and why |
-| Lost profits | "But for" world defined; patentee's manufacturing capacity; non-infringing alternatives; market share capture methodology |
-| Apportionment | Method for apportioning value to patented feature; whether patented feature drives consumer demand |
+| Reasonable royalty | Methodology; Georgia-Pacific factors applied; comparable licenses; royalty base |
+| Lost profits | "But for" world; manufacturing capacity; non-infringing alternatives; market share methodology |
+| Apportionment | Method for isolating patented feature value; consumer demand driver analysis |
 
-### Trademark — Mark Owner/Creator
+### Trademark — Mark Owner
 
 | Topic | Key Questions |
 |-------|--------------|
-| Creation/adoption | When/who created mark; why chosen; first use in commerce date |
-| Use documentation | Products/services bearing mark; continuous use; early use records |
-| Distinctiveness | Inherent distinctiveness or acquired secondary meaning; consumer recognition evidence; advertising investment |
-| Confusion | Awareness of defendant's mark; actual confusion incidents; similarity of marks; relatedness of goods/services |
-| Damages | Lost sales; goodwill damage; costs incurred addressing confusion |
+| Creation/adoption | When/who created; why chosen; first use in commerce |
+| Distinctiveness | Inherent or acquired secondary meaning; consumer recognition; advertising investment |
+| Confusion | Awareness of defendant's mark; actual confusion incidents; similarity; relatedness of goods |
+| Damages | Lost sales; goodwill damage; costs addressing confusion |
 
 ### Trademark — Accused Infringer
 
 | Topic | Key Questions |
 |-------|--------------|
-| Adoption | When/who decided to use mark; prior trademark search conducted; awareness of plaintiff's mark |
-| Intent | Intent to trade on plaintiff's goodwill; legal advice received; good/bad faith indicators |
-| Confusion | Known confusion incidents; misdirected customers or orders received |
-| Market | How customers find and distinguish products from competitors |
+| Adoption | When/who decided to use mark; prior search; awareness of plaintiff's mark |
+| Intent | Intent to trade on goodwill; legal advice; good/bad faith indicators |
+| Confusion | Known confusion incidents; misdirected customers/orders |
+| Market | How customers find and distinguish products |
 
 ### Trade Secret — Owner
 
 | Topic | Key Questions |
 |-------|--------------|
-| Identification | Specific description of the trade secret; what makes it secret; development date and team |
-| Secrecy measures | Physical security; electronic security (passwords/encryption); NDAs and employment agreements; need-to-know restrictions; employee confidentiality training |
-| Value | Investment in development; competitive advantage conferred; cost of independent development |
-| Misappropriation | How defendant acquired the secret; supporting evidence; timing of misappropriation |
+| Identification | Specific description; what makes it secret; development date and team |
+| Secrecy measures | Physical/electronic security; NDAs; need-to-know restrictions; training |
+| Value | Development investment; competitive advantage; cost of independent development |
+| Misappropriation | How defendant acquired secret; evidence; timing |
 
 ### Trade Secret — Accused Misappropriator
 
 | Topic | Key Questions |
 |-------|--------------|
-| Relationship with plaintiff | Nature of relationship; access to confidential information; agreements signed; understood obligations |
-| Accused information | Awareness of claimed trade secret; how information obtained; independent development evidence |
-| Use/disclosure | Use of plaintiff's information; disclosure to third parties; relationship to accused product or process |
-| Notice | Knowledge that information was confidential; steps taken regarding confidentiality obligations |
+| Relationship | Nature of relationship; access; agreements signed; understood obligations |
+| Accused information | Awareness of trade secret; how obtained; independent development evidence |
+| Use/disclosure | Use of information; third-party disclosure; relation to accused product |
+| Notice | Knowledge of confidentiality; steps taken regarding obligations |
 
-## Document Topics
+## Document Focus Areas
 
-| Document Type | Topics to Cover |
-|---------------|-----------------|
-| Patent prosecution file | Amendments, arguments, prior art citations, examiner rejections |
-| Invention records | Lab notebooks, conception/reduction to practice dates and corroboration |
-| Prior art references | Knowledge, relevance, differences from claims |
+| Document | Topics |
+|----------|--------|
+| Prosecution file | Amendments, arguments, prior art, rejections |
+| Invention records | Lab notebooks, conception/RTP dates, corroboration |
 | Licensing agreements | Terms, comparability, negotiation history |
-| Design documents | Development process, alternatives considered |
-| Technical specifications | How accused product/process works |
-| Marketing materials | Features emphasized, performance claims made |
+| Design/technical docs | Development process, alternatives, product operation |
+| Marketing materials | Features emphasized, performance claims |
 | Confidentiality agreements | Scope, obligations, signatories |
 | Source code | Software patents, trade secret cases |
 | Financial records | Damages calculation support |
 
-## IP Deposition Checklist
+## Preparation Checklist
 
 - [ ] Review patents/registrations/trade secret identification
-- [ ] Review prosecution history and file wrapper (patent cases)
-- [ ] Map disputed claim terms and each party's proposed construction (patent cases)
-- [ ] Prepare claim element mapping chart for infringement analysis (patent cases)
-- [ ] Identify prior art references and evidentiary gaps (patent/copyright)
-- [ ] Understand technical operation of accused product/process
-- [ ] Review all licensing agreements and comparable licenses
-- [ ] Prepare likelihood of confusion factor analysis (trademark — DuPont or circuit equivalent)
+- [ ] Review prosecution history and file wrapper (patent)
+- [ ] Map disputed claim terms and proposed constructions (patent)
+- [ ] Prepare claim element mapping chart (patent)
+- [ ] Identify prior art references and gaps (patent/copyright)
+- [ ] Understand accused product/process technical operation
+- [ ] Review licensing agreements and comparables
+- [ ] Prepare likelihood of confusion analysis (trademark — DuPont)
 - [ ] Review confidentiality agreements and secrecy measures (trade secret)
 - [ ] Understand damages theory and expert methodology
-- [ ] Review expert reports — apply @deposition-expert-witness for technical and damages experts
+- [ ] Review expert reports — apply `@deposition-expert-witness`
 
-## Guidelines
+## Pitfalls
 
-- Pin claim construction positions before deposing technical witnesses — all questions must track the operative constructions
-- Lock inventors to specific conception/reduction-to-practice dates supported by corroborating documents; unsupported inventor testimony has limited weight
-- For trade secrets, force precise identification of the alleged secret before substantive questions — vague descriptions undermine the misappropriation claim and create indefiniteness defenses
-- Prosecution history estoppel: lock accused infringers into positions that may foreclose doctrine of equivalents arguments
-- Cover all 15 Georgia-Pacific factors with licensing/damages witnesses; gaps in expert analysis are grounds for Daubert challenge
-- Willfulness (§ 284 enhanced damages) requires pre-suit knowledge of the asserted patent — establish or negate the knowledge timeline carefully
-- DTSA vs. state UTSA: confirm governing law; misappropriation definitions and preemption scope vary by state
-- Copyright fair use is a fact-intensive four-factor test — explore each factor independently with relevant witnesses
+- Pin claim constructions before deposing technical witnesses — questions must track operative constructions
+- Lock inventors to specific conception/RTP dates with corroborating documents
+- Force precise trade secret identification before substantive questions — vague descriptions create indefiniteness defenses
+- Prosecution history estoppel: lock infringers into positions foreclosing DOE arguments
+- Cover all 15 Georgia-Pacific factors with damages witnesses; gaps invite Daubert challenge
+- Willfulness (§ 284): pre-suit patent knowledge required — establish/negate knowledge timeline
+- DTSA vs. state UTSA: confirm governing law; definitions and preemption scope vary
+- Copyright fair use: explore each of four factors independently with relevant witnesses
 
 ## References
 
-- 35 U.S.C. §§ 101–287 — Patent Act
-- 15 U.S.C. §§ 1051–1141 — Lanham Act (Trademarks)
-- 17 U.S.C. §§ 101–810 — Copyright Act
-- 18 U.S.C. §§ 1836–1839 — Defend Trade Secrets Act (DTSA)
-- *Georgia-Pacific Corp. v. U.S. Plywood Corp.*, 318 F. Supp. 1116 (S.D.N.Y. 1970) — 15-factor reasonable royalty framework
-- *Markman v. Westview Instruments*, 517 U.S. 370 (1996) — Claim construction as question of law for the court
-- *Halo Electronics, Inc. v. Pulse Electronics, Inc.*, 579 U.S. 93 (2016) — Willfulness standard for enhanced damages
-- State UTSA adoptions — secrecy standard and misappropriation definitions vary; confirm applicable state act
+- 35 U.S.C. §§ 101–287 (Patent Act)
+- 15 U.S.C. §§ 1051–1141 (Lanham Act)
+- 17 U.S.C. §§ 101–810 (Copyright Act)
+- 18 U.S.C. §§ 1836–1839 (DTSA)
+- *Georgia-Pacific v. U.S. Plywood*, 318 F. Supp. 1116 (S.D.N.Y. 1970)
+- *Markman v. Westview Instruments*, 517 U.S. 370 (1996)
+- *Halo Electronics v. Pulse Electronics*, 579 U.S. 93 (2016)

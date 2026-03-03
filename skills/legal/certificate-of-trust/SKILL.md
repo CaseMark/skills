@@ -1,6 +1,6 @@
 ---
 name: certificate-of-trust
-description: Drafts a Certificate of Trust (Memorandum/Abstract of Trust) that verifies trustee authority for real estate, banking, and business transactions without disclosing full trust terms. Enforces UTC-compliant structure, privacy-preserving disclosure, accurate trustee power recitals, and notarization requirements. Use when preparing trust certificates, trustee authority verifications, or trust abstracts for third-party reliance in estate planning transactions.
+description: Drafts a Certificate of Trust (Abstract/Memorandum of Trust) that verifies trustee authority for third-party reliance without disclosing full trust terms. Use when preparing trust certificates for real estate closings, bank account openings, business transactions, or any context requiring trustee authority verification with UTC-compliant, privacy-preserving disclosure.
 tags:
   - drafting
   - summary
@@ -9,92 +9,94 @@ tags:
 
 # Certificate of Trust
 
-Drafts a privacy-preserving trust summary that establishes trustee authority for third-party reliance without disclosing beneficiary details or distribution provisions.
+Drafts a privacy-preserving trust summary establishing trustee authority for third-party reliance without disclosing beneficiary details or distribution provisions.
 
 ## Prerequisites
 
-1. **Original trust instrument** — executed trust agreement including all amendments and restatements
-2. **Trustee identification** — full legal names, capacities (co-trustee, successor), and current acting status
-3. **Transaction context** — purpose of certificate (real estate closing, bank account, business dealing)
-4. **Governing jurisdiction** — state law governing trust; recording jurisdiction if applicable
-5. **Recipient requirements** — any specific demands from title company, lender, or institution
+Collect before drafting:
 
-## Output Structure
+- **Trust instrument** — executed agreement with all amendments/restatements
+- **Trustee identification** — full legal names, capacities, current acting status
+- **Transaction context** — purpose (real estate closing, bank account, business dealing)
+- **Governing jurisdiction** — state law; recording jurisdiction if applicable
+- **Recipient requirements** — demands from title company, lender, or institution
 
-### Section 1: Header
+## Quick Start
+
+Draft a seven-section certificate following this structure. Tailor the powers recital to the specific transaction (e.g., real property sale requires explicit real property authority).
+
+## Certificate Sections
+
+### 1. Header
 
 | Element | Requirement |
 |---------|-------------|
 | Title | "CERTIFICATE OF TRUST" or "ABSTRACT OF TRUST" per jurisdiction |
-| Trust name | Exact legal name from trust instrument |
+| Trust name | Exact legal name from instrument |
 | Governing law | State (and county if relevant) |
-| Certificate date | Date of execution of *this certificate* (not trust creation date) |
-| Reference/file number | If recorded or administratively tracked |
+| Certificate date | Execution date of *this certificate* (not trust creation) |
+| Reference number | If recorded or administratively tracked |
 
-### Section 2: Trust Identification
+### 2. Trust Identification
 
-- Full trust name, exact execution date
+- Full trust name and exact execution date
 - Settlor(s)/grantor(s)/trustor(s) — full legal names
-- **Revocable or irrevocable** — if originally revocable but now irrevocable (death/incapacity), state both statuses with date of change
-- List all amendments by date; note effect on revocability
+- Revocable or irrevocable status — if changed (death/incapacity), state both statuses with change date
+- All amendments listed by date; note effect on revocability
 
-### Section 3: Trustee Authority
+### 3. Trustee Authority
 
-Identify all current trustees with full legal name and capacity. Specify:
+Identify all current trustees by full legal name and capacity:
 
 - [ ] Joint action required vs. independent authority
-- [ ] Real/personal property: buy, sell, mortgage, lease
-- [ ] Borrowing, pledging trust assets, contracting
+- [ ] Property powers: buy, sell, mortgage, lease (real and personal)
+- [ ] Borrowing, pledging, contracting authority
 - [ ] Investment management, business operations, distributions
-- [ ] Specific limitations third parties must know
-- [ ] Successor trustees — names and succession trigger mechanism
+- [ ] Limitations third parties must know
+- [ ] Successor trustees — names and succession triggers
 
-### Section 4: Material Provisions Summary
+### 4. Material Provisions Summary
 
-Disclose in general terms only — **never include**:
-- Specific beneficiary identities
-- Distribution schedules or amounts
-- Detailed asset inventories
+**Never disclose**: beneficiary identities, distribution schedules/amounts, detailed asset inventories.
 
-**Do include**:
-- General trust purpose (estate planning, asset protection, charitable)
-- Transaction-affecting restrictions (property sale limits, consent requirements, borrowing caps)
-- Spendthrift/alienation restraints (noted generally for creditor-claim context)
+**Do disclose** (general terms only):
+- Trust purpose (estate planning, asset protection, charitable)
+- Transaction-affecting restrictions (sale limits, consent requirements, borrowing caps)
+- Spendthrift/alienation restraints (noted generally)
 
-### Section 5: Governing Law and Amendment Status
+### 5. Governing Law and Amendment Status
 
 - Governing jurisdiction (state + county if applicable)
-- Current revocability status; who holds revocation power
+- Current revocability status and who holds revocation power
 - Amendment/restatement history with dates
 - Confirmation certificate reflects trust as currently in effect
 - Choice-of-law provisions if multi-state property
 
-### Section 6: Trustee Certification
+### 6. Trustee Certification
 
-Sworn statement affirming under penalty of perjury:
+Sworn statement under penalty of perjury affirming:
 
 1. Trust is in full force and effect
 2. Named trustee(s) are duly qualified and acting
-3. Trust has not been revoked, modified, or amended except as disclosed
-4. Powers described are accurate and complete for the contemplated transaction
+3. Trust has not been revoked/modified/amended except as disclosed
+4. Powers described are accurate for the contemplated transaction
 5. No undisclosed provisions limit trustee authority
 6. Third parties may rely on these representations
 7. Trustee accepts personal liability for material misrepresentations
 
-### Section 7: Execution Block
+### 7. Execution Block
 
 - Signature line for each acting trustee (name, title, date)
-- Notarial acknowledgment — **must use jurisdiction-specific form**
-- Notary must confirm personal appearance, identification, and free act/deed
-- If recorded: verify compliance with local recording requirements (format, margins, font size)
-- If multi-jurisdiction use: assess need for additional acknowledgments
+- Notarial acknowledgment using **jurisdiction-specific form**
+- Notary confirms personal appearance, identification, free act/deed
+- If recorded: comply with local recording requirements (format, margins, font)
+- If multi-jurisdiction: assess need for additional acknowledgments
 
-## Guidelines
+## Pitfalls and Checks
 
-- Every factual statement must be verifiable against the original trust instrument — no legal conclusions or interpretations
-- Balance disclosure sufficiency against beneficiary privacy; this is the core function of the certificate
-- Many jurisdictions follow Uniform Trust Code §1013 [VERIFY] — confirm applicable state adoption and variations
-- If certificate will be recorded in land records, confirm local recording format requirements
+- Every factual statement must be verifiable against the original trust instrument — no legal conclusions
+- Balance disclosure sufficiency against beneficiary privacy — this is the certificate's core function
+- Confirm whether governing jurisdiction follows UTC §1013 and note any state variations
+- If recording in land records, verify local format requirements before execution
 - Ambiguity or omission exposes trustee to personal liability and can delay closings
-- Tailor scope of powers recital to the specific transaction (e.g., real property sale needs explicit real property authority)
 - Use formal legal language; avoid defined terms not established in the certificate itself

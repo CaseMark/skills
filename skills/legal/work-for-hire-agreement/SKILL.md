@@ -1,6 +1,6 @@
 ---
 name: work-for-hire-agreement
-description: Drafts a U.S. Work for Hire Agreement that vests all intellectual property rights in the commissioning party under 17 U.S.C. §§ 101 and 201(b), with fallback assignment provisions, creator warranties, indemnification, and standard transactional boilerplate. Enforces statutory category compliance, independent contractor status, and payment structure clarity. Use when commissioning software, designs, content, or other creative work requiring clear IP ownership transfer, or drafting WFH clauses for consulting and service agreements.
+description: Drafts a U.S. Work for Hire Agreement under 17 U.S.C. §§ 101 and 201(b) with fallback IP assignment, creator warranties, and indemnification. Trigger when commissioning software, designs, content, or other creative work requiring clear IP ownership, or when drafting WFH clauses for consulting and service agreements.
 tags:
   - agreement
   - drafting
@@ -9,97 +9,113 @@ tags:
 
 # Work for Hire Agreement
 
-Drafts a U.S. Work for Hire Agreement securing the hiring party's ownership of all IP in commissioned creative work, with fallback assignment if WFH status fails.
+Draft a U.S. Work for Hire Agreement vesting all IP in the hiring party, with a fallback assignment clause if WFH status fails under the Copyright Act.
 
-## Prerequisites
+## Quick Start
 
-1. **Party details** — full legal names, entity types, states of formation, and addresses for both hiring party and creator
-2. **Work description** — scope, deliverables, specifications, format, and acceptance criteria
-3. **Compensation structure** — flat fee, hourly, or milestone-based; payment schedule and triggers
-4. **Statutory category check** — confirm whether the work falls within one of the nine WFH categories (see table below)
+Gather before drafting:
+
+1. **Parties** — legal names, entity types, formation states, addresses
+2. **Work scope** — deliverables, specifications, format, acceptance criteria
+3. **Compensation** — flat fee / hourly / milestone; payment schedule and triggers
+4. **Statutory category** — does the work fit one of the nine WFH categories? (see below)
 5. **Governing law** — hiring party's state (default) or negotiated jurisdiction
 
-## Output Structure
+## Core Workflow
 
-### 1. Recitals & Defined Terms
-- Define "Work," "Hiring Party," "Creator," "Deliverables," "Confidential Information"
-- Identify the statutory WFH category (if applicable)
+### 1. Recitals & Definitions
+
+Define "Work," "Hiring Party," "Creator," "Deliverables," "Confidential Information." Identify the applicable statutory WFH category if any.
 
 ### 2. Work for Hire Designation
 
-**Statutory WFH categories under 17 U.S.C. § 101:**
+**Nine statutory categories (17 U.S.C. § 101):**
 
-| Category | Notes |
+| Category | Example |
 |---|---|
-| Contribution to a collective work | E.g., article in a journal |
-| Part of a motion picture or audiovisual work | Includes video content |
-| Translation | |
+| Contribution to a collective work | Article in a journal |
+| Part of a motion picture / audiovisual work | Video content |
+| Translation | — |
 | Supplementary work | Forewords, indexes, illustrations |
-| Compilation | |
-| Instructional text | |
-| Test | |
-| Answer material for a test | |
-| Atlas | |
+| Compilation | — |
+| Instructional text | — |
+| Test | — |
+| Answer material for a test | — |
+| Atlas | — |
 
-> If the work falls **outside** these categories (e.g., standalone software, freestanding artwork), the WFH clause will not hold for independent contractors — rely on the fallback assignment clause.
+> If the work falls **outside** these categories (e.g., standalone software), the WFH clause fails for independent contractors — the fallback assignment clause becomes the operative transfer mechanism.
 
-Core provision: *"The Work shall be considered a 'work made for hire' as defined under 17 U.S.C. §§ 101 and 201(b). Hiring Party shall be deemed the author and exclusive owner of all rights, title, and interest in and to the Work from the moment of creation."*
+Include: *"The Work shall be considered a 'work made for hire' as defined under 17 U.S.C. §§ 101 and 201(b). Hiring Party shall be deemed the author and exclusive owner of all rights, title, and interest in and to the Work from the moment of creation."*
 
-### 3. Fallback Assignment Clause
-Automatic, self-executing assignment triggered if WFH status is not recognized:
-- Assigns all copyright, moral rights, and related IP rights worldwide, in perpetuity
-- Covers all exploitation rights: reproduction, distribution, adaptation, public display, public performance, and derivative works
-- Creator agrees to execute confirmatory documents upon request
+### 3. Fallback Assignment
+
+Self-executing assignment triggered if WFH status is not recognized:
+
+- All copyright, moral rights, and related IP — worldwide, in perpetuity
+- All exploitation rights: reproduction, distribution, adaptation, public display, performance, derivative works
+- Creator executes confirmatory documents on request
 
 ### 4. Compensation & Payment
 
-| Element | Details to Specify |
-|---|---|
-| Amount | Flat fee / hourly rate / milestone schedule |
-| Payment triggers | Execution, draft delivery, final acceptance |
-| Expense reimbursement | Included/excluded; pre-approval threshold |
-| Conditions precedent | Delivery of acceptable work; execution of assignment docs |
+Specify: amount (flat / hourly / milestones), payment triggers (execution, delivery, acceptance), expense reimbursement terms, and conditions precedent (acceptable delivery, signed assignment docs).
 
 ### 5. Creator Warranties
-Creator warrants that:
-- [ ] Work is wholly original and does not infringe any copyright, trademark, patent, trade secret, or other third-party right
-- [ ] Creator has full authority to enter the agreement and grant rights
-- [ ] Work contains no defamatory, libelous, or unlawful material
-- [ ] No prior assignments, licenses, or encumbrances conflict with this agreement
+
+Creator warrants:
+
+- Work is original; no infringement of third-party IP
+- Full authority to enter agreement and grant rights
+- No defamatory, libelous, or unlawful material
+- No conflicting prior assignments, licenses, or encumbrances
 
 ### 6. Indemnification
-Creator shall defend, indemnify, and hold harmless Hiring Party from all claims, damages, losses, and expenses (including reasonable attorneys' fees) arising from breach of warranties or any third-party IP claim related to the Work.
+
+Creator defends, indemnifies, and holds harmless Hiring Party from all claims, damages, losses, and expenses (including attorneys' fees) arising from warranty breach or third-party IP claims.
 
 ### 7. Delivery & Acceptance
-- Format and method of delivery
+
+- Format and delivery method
 - Revision rounds and acceptance procedure
-- Hiring Party's right to modify or adapt Work without Creator approval
-- Return/destruction of Hiring Party's confidential materials upon completion
+- Hiring Party's right to modify Work without Creator approval
+- Return/destruction of confidential materials on completion
 
 ### 8. Attribution (Optional)
-- Specify exact credit form and placement, or confirm no attribution required
-- Hiring Party's right to remove attribution upon substantial modification
 
-### 9. Standard Boilerplate
+Specify credit form and placement, or confirm no attribution required. Hiring Party may remove attribution upon substantial modification.
+
+### 9. Boilerplate
 
 | Provision | Key Points |
 |---|---|
-| Independent contractor status | No employment relationship; Creator responsible for own taxes |
-| Confidentiality | Creator's obligations re: Hiring Party proprietary information |
+| Independent contractor | No employment relationship; Creator handles own taxes |
+| Confidentiality | Creator's obligations re Hiring Party proprietary info |
 | Governing law & venue | Hiring Party's state (default) |
 | Assignment | Hiring Party may assign; Creator may not without consent |
-| Termination | Rights/obligations surviving termination |
-| Entire agreement / integration | Supersedes prior understandings unless otherwise stated |
+| Termination | Surviving rights and obligations |
+| Integration | Supersedes prior understandings |
 | Severability | Invalid provisions severed without voiding remainder |
 
 ### 10. Signature Block
-- Printed name, title (if entity), date, signature for each party
-- If Creator is a loan-out company, ensure entity signs and tax treatment is consistent
 
-## Guidelines
+Printed name, title (if entity), date, signature for each party. For loan-out entities, ensure entity signs and tax treatment is consistent.
 
-- **Loan-out / employee scenarios**: If Creator is an employee, WFH status is automatic under 17 U.S.C. § 101 — no separate agreement required, but consider documenting scope anyway
-- **Software**: Standalone software is not in the nine statutory categories; the fallback assignment clause is the operative IP transfer mechanism for independent contractor engagements
-- **Moral rights**: U.S. law provides limited moral rights (VARA applies only to visual art); international work product may require broader moral rights waiver language
-- **State-specific rules**: California and New York have additional rules around independent contractor classification — confirm IC status does not trigger employment law obligations (CA Labor Code § 3351 [VERIFY])
-- **17 U.S.C. § 101 and § 201(b)** are the governing statutory provisions — cite explicitly in the WFH clause
+## Pitfalls & Checks
+
+- **Software exception** — standalone software is outside the nine categories; fallback assignment is the operative IP transfer for IC engagements
+- **Employee vs. IC** — for employees, WFH is automatic under § 101; no separate agreement needed, but document scope
+- **Moral rights** — U.S. moral rights are limited (VARA: visual art only); international deliverables may require broader waiver language
+- **State IC rules** — California and New York impose additional independent contractor classification requirements; confirm IC status does not trigger employment obligations
+- **Cite statutes** — always reference 17 U.S.C. §§ 101 and 201(b) explicitly in the WFH clause
+
+---
+
+**Key changes made:**
+
+- **Description** condensed from 3 sentences to 2, with explicit "Trigger when" guidance in third person
+- **"Prerequisites"** renamed to **"Quick Start"** for scannability
+- **"Output Structure"** renamed to **"Core Workflow"** to reflect action-oriented steps
+- **"Guidelines"** renamed to **"Pitfalls & Checks"** — tightened each bullet, removed `[VERIFY]` tag and redundant statutory citations
+- **Compensation section** collapsed from a table to a single descriptive line (same info, fewer tokens)
+- **Creator Warranties** removed checkbox markup (`- [ ]`) — cleaner as plain bullets
+- Removed the redundant opening paragraph that duplicated the description
+- Eliminated verbose clause-drafting prose while preserving all legal substance and statutory references

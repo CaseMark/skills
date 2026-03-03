@@ -1,6 +1,6 @@
 ---
 name: disclosure-statement-plan-reorganization
-description: Drafts a Chapter 11 Disclosure Statement for Plan of Reorganization compliant with 11 U.S.C. § 1125 and FRBP 3016(b). Covers debtor background, claim class treatments, liquidation analysis, financial projections, risk factors, plan funding, and voting procedures. Use when preparing the disclosure statement that accompanies a proposed reorganization plan in bankruptcy litigation.
+description: Drafts a Chapter 11 Disclosure Statement compliant with 11 U.S.C. § 1125 and FRBP 3016(b). Use when preparing the disclosure statement that accompanies a proposed reorganization plan, covering debtor background, class treatments, liquidation analysis, projections, risk factors, and voting procedures.
 tags:
   - drafting
   - litigation
@@ -9,99 +9,101 @@ tags:
 
 # Disclosure Statement for Plan of Reorganization
 
-Drafts a § 1125-compliant disclosure statement providing "adequate information" to enable a hypothetical reasonable investor of each relevant class to make an informed judgment about the proposed plan.
+Drafts a § 1125-compliant disclosure statement providing "adequate information" to enable a hypothetical reasonable investor of each class to make an informed judgment about the proposed plan.
 
 ## Prerequisites
 
-1. **Bankruptcy case details** — debtor name, case number, court, filing date
-2. **Proposed Plan of Reorganization** — final or near-final draft for consistency
-3. **Financial records** — P&L, balance sheets, cash flow statements (min. 3 years)
+1. **Case details** — debtor name, case number, court, filing date
+2. **Plan of Reorganization** — final or near-final draft
+3. **Financial records** — P&L, balance sheets, cash flow (min. 3 years)
 4. **Schedules and SOFA** — filed schedules of assets/liabilities, statement of financial affairs
 5. **Asset appraisals** — valuations for significant estate property
-6. **Exit financing commitments** — term sheets, letters of intent, or DIP financing terms
-7. **Claims register or bar date order** — to identify and classify creditors
-8. **Executory contracts/leases list** — with assume/reject decisions
+6. **Exit financing** — term sheets, LOIs, or DIP financing terms
+7. **Claims register or bar date order** — for creditor classification
+8. **Executory contracts/leases** — with assume/reject decisions
+
+## Quick Start
+
+1. Gather all prerequisites; confirm Plan draft is near-final
+2. Draft sections 1–8 below, cross-checking every figure against the Plan
+3. Run the guidelines checklist before finalizing
+4. Submit to court for approval under § 1125 — do not solicit votes until approval order is entered
 
 ## Output Structure
 
 ### 1. Introduction
-- Identify debtor, case number, court, petition date
-- State § 1125 "adequate information" standard as governing framework
-- Roadmap to disclosure statement sections and the Plan
 
-### 2. Debtor Background and Business Operations
-| Element | Content Required |
+- Debtor, case number, court, petition date
+- State § 1125 "adequate information" standard
+- Section roadmap and cross-reference to Plan
+
+### 2. Debtor Background
+
+| Element | Content |
 |---|---|
-| Corporate history | Formation, ownership structure, key subsidiaries |
-| Business operations | Revenue streams, customer base, geographic footprint |
+| Corporate history | Formation, ownership, key subsidiaries |
+| Operations | Revenue streams, customers, geography |
 | Assets | Categories with current valuations |
 | Liabilities | Secured, priority, general unsecured — with amounts |
 | Events of distress | Precipitating factors (operational, market, structural) |
 
-### 3. Plan Summary — Treatment of Claims by Class
-
-For each class, provide a table row:
+### 3. Class Treatment Summary
 
 | Class | Description | Impaired? | Treatment | Est. Recovery % |
 |---|---|---|---|---|
-| Admin/Priority | 11 U.S.C. § 507 claims | No (deemed accept) | Paid in full on effective date or per agreement | 100% |
-| Class 1 | Secured creditor(s) | [Yes/No] | [Cramdown terms / reinstatement / payoff] | [X%] |
-| Class 2 | General unsecured | Yes | [Pro rata distributions / % payout / new equity] | [X%] |
+| Admin/Priority | § 507 claims | No (deemed accept) | Paid in full on effective date | 100% |
+| Class 1 | Secured | [Yes/No] | [Cramdown / reinstatement / payoff] | [X%] |
+| Class 2 | General unsecured | Yes | [Pro rata / % payout / new equity] | [X%] |
 | Class 3 | Equity interests | [Yes/No] | [Retained / cancelled / new issuance] | [X%] |
 
-Note which classes are deemed to accept (unimpaired, full payment) or reject (receive nothing) and do not vote.
+Flag which classes are deemed to accept (unimpaired) or reject (receive nothing) and do not vote.
 
-### 4. Financial Projections and Feasibility Analysis
+### 4. Financial Projections and Feasibility
 
-- **Historical financials**: 3 years of P&L, balance sheet, cash flow
-- **Forward projections**: 3–5 years covering revenues, expenses, EBITDA, debt service
-- **Key assumptions**: State explicitly (market growth rate, cost savings, headcount, CapEx)
-- **Liquidation analysis**: Side-by-side comparison of Plan recovery vs. Chapter 7 liquidation proceeds per class (required to demonstrate plan superiority)
-- **Feasibility statement**: Address 11 U.S.C. § 1129(a)(11) — plan not likely followed by further liquidation or need for further reorganization
+- **Historical**: 3-year P&L, balance sheet, cash flow
+- **Projections**: 3–5 years — revenues, expenses, EBITDA, debt service
+- **Assumptions**: State explicitly (growth rate, cost savings, headcount, CapEx)
+- **Liquidation analysis**: Side-by-side Plan recovery vs. Chapter 7 proceeds per class (required)
+- **Feasibility**: Address § 1129(a)(11) — plan not likely followed by further liquidation or reorganization
 
 ### 5. Risk Factors
 
-Cover each category:
-- **Confirmation risks**: Feasibility challenges, fair-and-equitable objections, cram-up/cramdown disputes
-- **Operational risks**: Key customer concentration, regulatory exposure, competition, key-man dependency
-- **Legal risks**: Pending litigation, preference/fraudulent transfer exposure, disputed claims
-- **Funding risks**: Contingencies on exit financing closing, asset sale completion, DIP maturity
+- **Confirmation**: Feasibility challenges, fair-and-equitable objections, cramdown disputes
+- **Operational**: Customer concentration, regulatory exposure, key-person dependency
+- **Legal**: Pending litigation, preference/fraudulent transfer exposure, disputed claims
+- **Funding**: Exit financing contingencies, asset sale completion, DIP maturity
 
-### 6. Implementation — Mechanics and Funding Sources
+### 6. Implementation and Funding
 
-- List all funding sources: cash on hand, ongoing operations, asset sales, new equity, exit facility, litigation recoveries
-- If exit financing: describe lender, committed amount, conditions precedent, and status
-- Distribution timeline: effective date trigger, initial distribution date, periodic distribution schedule
-- Executory contracts/leases: table of assumed, assumed-and-assigned, and rejected contracts with rejection damage claim treatment
-- Corporate restructuring steps: entity mergers, asset transfers, new governance structure
+- **Sources**: Cash on hand, operations, asset sales, new equity, exit facility, litigation recoveries
+- **Exit financing details**: Lender, amount, conditions precedent, status
+- **Distribution timeline**: Effective date trigger, initial distribution, periodic schedule
+- **Executory contracts**: Table of assumed, assigned, and rejected — with rejection damage treatment
+- **Restructuring steps**: Entity mergers, asset transfers, new governance
 
-### 7. Voting Procedures and Confirmation Process
+### 7. Voting and Confirmation
 
 - **Voting deadline**: [DATE]
-- **Ballot submission**: Method, address, and instructions for completing ballots
-- **Confirmation standards** (11 U.S.C. § 1129):
-  - At least one impaired class must accept (excluding insiders)
-  - Plan must be feasible, proposed in good faith, and fair and equitable to non-consenting classes
-- **Confirmation hearing**: Date, time, courtroom
-- **Objection deadline**: [DATE — typically 7 days before hearing under local rules]
-- **Effect of confirmation**: Discharge of pre-petition debts; binding on all parties
+- **Ballot submission**: Method, address, instructions
+- **Confirmation standards** (§ 1129): at least one impaired accepting class (excluding insiders); feasibility; good faith; fair and equitable to non-consenting classes
+- **Hearing**: Date, time, courtroom
+- **Objection deadline**: [DATE — typically 7 days before hearing per local rules]
+- **Effect**: Discharge of pre-petition debts; binding on all parties
 
-### 8. Conclusion and Recommendation
+### 8. Conclusion
 
-- Debtor's recommendation to vote in favor of Plan
-- Comparative statement: why Plan is superior to liquidation or competing plan
-- Counsel contact information for creditor inquiries
+- Recommendation to vote in favor
+- Why Plan is superior to liquidation or competing plan
+- Counsel contact information
 - Forward-looking statement disclaimer
-
----
 
 ## Guidelines
 
-- **Consistency**: Every plan treatment, payment amount, and timing term must match the Plan document exactly — discrepancies are grounds for disapproval
-- **Plain language**: Class treatment summaries must be readable by lay creditors; avoid defined terms without explanation
+- **Plan consistency**: Every treatment, amount, and timing must match the Plan exactly — discrepancies are grounds for disapproval
+- **Plain language**: Class treatments must be readable by lay creditors; define all terms on first use
 - **Bluebook citations**: All statutory, rule, and case citations in proper format
-- **Source attribution**: Pinpoint-cite all factual assertions to case record documents
-- **Liquidation analysis**: Required; must be prepared by a qualified financial advisor or have a stated methodology — flag for client's financial professional
-- **Local rules**: Confirm voting procedures, hearing notice requirements, and objection deadlines against the applicable district's local bankruptcy rules and standing orders [VERIFY for each district]
-- **Projections disclaimer**: Include standard forward-looking statement disclaimer per USTP guidelines
-- **§ 1125(d)**: Confirm court has approved the disclosure statement before soliciting votes — do not solicit until approval order is entered
+- **Source attribution**: Pinpoint-cite factual assertions to case record documents
+- **Liquidation analysis**: Must be prepared by a qualified financial advisor or state methodology — flag for client's financial professional
+- **Local rules**: Verify voting procedures, notice requirements, and objection deadlines against applicable district rules [VERIFY per district]
+- **Projections disclaimer**: Include forward-looking statement disclaimer per USTP guidelines
+- **§ 1125(d)**: Court must approve disclosure statement before vote solicitation — never solicit before approval order entry

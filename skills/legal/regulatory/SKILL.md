@@ -1,6 +1,6 @@
 ---
 name: regulatory
-description: Root reference skill for regulatory compliance, government relations, and administrative law. Covers financial services regulation, healthcare law, environmental law, FDA compliance, data privacy, energy law, government contracts, international trade, and securities compliance. Use when handling regulatory matters, agency interactions, compliance programs, or administrative proceedings.
+description: Navigates regulatory compliance, government relations, and administrative law across financial services, healthcare, environmental, FDA, privacy, energy, government contracts, trade, and securities domains. Use when handling agency interactions, compliance programs, enforcement defense, rulemaking comments, or administrative proceedings.
 tags:
   - regulatory
   - research
@@ -8,34 +8,34 @@ tags:
 
 # Regulatory Practice
 
-Root skill for regulatory compliance, government relations, and administrative law matters.
+Root skill for regulatory compliance, government relations, and administrative law.
 
 ## Sub-Practice Areas
 
 | Area | Scope |
 |---|---|
-| Financial Services Regulation | Banking, insurance, fintech, consumer finance |
-| Healthcare Law | HIPAA, Stark, Anti-Kickback, CMS compliance |
-| Environmental Law | EPA, CERCLA, Clean Air/Water Act, NEPA |
-| FDA & Food/Drug Law | Drug/device approval, labeling, GMP, FSMA |
-| Data Privacy & Cybersecurity | CCPA, GDPR, state breach notification, NIST |
-| Energy Law | FERC, NERC, rate cases, renewable energy |
+| Financial Services | Banking, insurance, fintech, consumer finance |
+| Healthcare | HIPAA, Stark, Anti-Kickback, CMS |
+| Environmental | EPA, CERCLA, Clean Air/Water Act, NEPA |
+| FDA & Food/Drug | Drug/device approval, labeling, GMP, FSMA |
+| Data Privacy & Cyber | CCPA, GDPR, state breach notification, NIST |
+| Energy | FERC, NERC, rate cases, renewables |
 | Government Contracts | FAR/DFARS, procurement, bid protests, FOIA |
-| International Trade & Customs | Export controls, ITAR, EAR, sanctions, tariffs |
-| Securities Compliance | SEC reporting, insider trading, Reg D/S, SOX |
+| International Trade | Export controls, ITAR, EAR, sanctions, tariffs |
+| Securities | SEC reporting, insider trading, Reg D/S, SOX |
 
 ## Core Workflow
 
-1. **Identify applicable regulatory framework** — statute, implementing regulations, agency guidance, enforcement trends
-2. **Map compliance obligations** — permits, filings, reporting deadlines, recordkeeping requirements
-3. **Assess current posture** — gap analysis against regulatory requirements
-4. **Design compliance program** — policies, procedures, training, monitoring, internal audit
+1. **Identify framework** — governing statute, implementing regulations, agency guidance, enforcement trends
+2. **Map obligations** — permits, filings, reporting deadlines, recordkeeping
+3. **Gap analysis** — assess current posture against regulatory requirements
+4. **Design program** — policies, procedures, training, monitoring, internal audit
 5. **Manage agency interactions** — comment letters, no-action requests, examinations, enforcement defense
 
 ## Guidelines
 
-- Always identify the specific agency with jurisdiction and its current enforcement priorities
-- Track regulatory changes — proposed rules, final rules, guidance documents, enforcement actions
-- Preserve all agency correspondence and maintain privilege over internal compliance assessments
-- Note state vs. federal regulatory overlap and preemption issues
-- Flag any pending rulemaking or enforcement trends that may change compliance obligations
+- Identify the specific agency with jurisdiction and its current enforcement priorities
+- Track regulatory changes: proposed rules, final rules, guidance documents, enforcement actions
+- Preserve agency correspondence; maintain privilege over internal compliance assessments
+- Flag state vs. federal overlap and preemption issues
+- Note pending rulemaking or enforcement trends that may shift obligations

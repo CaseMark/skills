@@ -1,6 +1,6 @@
 ---
 name: cd-tolerance-reference
-description: Reference guide for TRID tolerance compliance under 12 CFR § 1026.19(e)(3), comparing Closing Disclosure fees to Loan Estimate fees across all three tolerance categories. Covers zero tolerance items (creditor fees, affiliate fees, transfer taxes, required services), 10% cumulative tolerance items (recording fees, shopped services from lender's list), and unlimited tolerance items (prepaid interest, escrow deposits, borrower-shopped services off lender's list). Includes valid changed circumstances that reset tolerances, cure calculation, and cure deadlines. Use when reviewing a Closing Disclosure for TRID compliance, calculating tolerance variances, determining whether a revised Loan Estimate is permitted, or curing post-closing tolerance violations.
+description: Guides the agent through TRID tolerance compliance under 12 CFR § 1026.19(e)(3), comparing Closing Disclosure fees to Loan Estimate fees across zero, 10% cumulative, and unlimited tolerance categories. Use when reviewing a CD for tolerance variances, determining whether a revised LE is permitted, calculating cure amounts, or resolving post-closing tolerance violations.
 tags:
   - analysis
   - policy
@@ -8,162 +8,119 @@ tags:
   - transactional
 ---
 
-# TRID Closing Disclosure Tolerance Reference
+# TRID CD Tolerance Reference
 
-Determines whether Closing Disclosure fees comply with TRID tolerance limits established by the most recent valid Loan Estimate, and calculates any required cure.
+Determines whether CD fees comply with TRID tolerance limits set by the most recent valid LE, and calculates any required cure.
 
 ## Prerequisites
 
-1. Most recent valid Loan Estimate (original or revised) with line-item fees
-2. Final Closing Disclosure with line-item fees
-3. Lender's written list of service providers (to classify shopped services)
-4. Documentation of any changed circumstances used to support a revised LE
+- Most recent valid LE (original or revised) with line-item fees
+- Final CD with line-item fees
+- Lender's written list of service providers (classifies shopped services)
+- Documentation of any changed circumstances supporting a revised LE
 
-## Tolerance Framework
+## Tolerance Categories
 
-**Governing authority:** 12 CFR § 1026.19(e)(3). Tolerances compare CD fees to the most recent valid LE.
+Authority: 12 CFR § 1026.19(e)(3). Always compare CD fees to the most recent valid LE.
 
-| Category | Rule | Measurement Method |
-|----------|------|--------------------|
-| **Zero Tolerance** | Cannot increase at all | Per-item comparison |
-| **10% Cumulative** | CD category total ≤ LE category total × 110% | Aggregate category total |
-| **Unlimited** | May change freely (good faith estimate required at LE) | No comparison required |
+| Category | Rule | Measurement |
+|----------|------|-------------|
+| Zero | Cannot increase at all | Per item |
+| 10% Cumulative | CD category total ≤ LE total × 110% | Aggregate |
+| Unlimited | May change freely (good faith at LE required) | None |
 
----
-
-## Zero Tolerance Items (0% — Cannot Increase)
+## Zero Tolerance (0%)
 
 Any increase from LE to CD is a violation requiring cure.
 
-| Category | Line Items |
-|----------|-----------|
-| **Creditor/broker fees** | Origination, application, underwriting, processing, discount points, commitment fees, rate lock fees |
-| **Affiliate fees** | Any fee paid to entity affiliated with creditor or broker (title, appraisal, etc.) |
-| **Transfer taxes** | State/local transfer taxes, mansion tax, documentary stamp tax |
-| **Services borrower cannot shop for** | Appraisal (creditor-selected), credit report, flood determination, tax monitoring/status research |
+| Category | Examples |
+|----------|---------|
+| Creditor/broker fees | Origination, application, underwriting, processing, discount points, commitment, rate lock |
+| Affiliate fees | Any fee to entity affiliated with creditor/broker |
+| Transfer taxes | State/local transfer taxes, mansion tax, documentary stamps |
+| Services borrower cannot shop | Appraisal (creditor-selected), credit report, flood determination, tax monitoring |
 
-**Worksheet:**
+Compliant: every item variance ≤ $0. Any positive variance = cure amount.
 
-| Item | LE Amount | CD Amount | Variance |
-|------|-----------|-----------|----------|
-| Origination/Underwriting/Processing | $ | $ | $ |
-| Affiliate fees | $ | $ | $ |
-| Transfer taxes | $ | $ | $ |
-| Required services (cannot shop) | $ | $ | $ |
-| **ZERO TOLERANCE TOTAL** | **$** | **$** | **$** |
+## 10% Cumulative Tolerance
 
-- ✅ Compliant: all variances ≤ $0
-- ⚠️ Violation: positive variance = cure amount
+Measured as **category aggregate**, not per item.
 
----
+| Category | Examples |
+|----------|---------|
+| Recording fees | Deed recording, mortgage recording, other recording |
+| Shopped services from lender's list | Title policies, title search, settlement/closing fee, notary, survey, pest inspection, settlement attorney |
 
-## 10% Cumulative Tolerance Items
+If borrower chose a provider **not** on lender's written list, that fee moves to unlimited tolerance.
 
-Measured as a **category aggregate**, not per item. CD total may not exceed LE total by more than 10%.
+Cure calculation:
+- Maximum permitted = LE total × 110%
+- Excess = CD total − maximum permitted (if positive)
 
-| Category | Line Items |
-|----------|-----------|
-| **Recording fees** | Deed recording, mortgage/deed of trust recording, all other recording fees |
-| **Shopped services — from lender's list** | Lender's title policy, owner's title policy, title search, settlement/closing fee, notary, survey, pest inspection, settlement attorney fees |
+## Unlimited Tolerance
 
-> **Key rule:** If borrower selected a provider **not** on the creditor's written list, that fee moves to **unlimited tolerance**.
+No cure required. Includes:
 
-**Worksheet:**
-
-| Item | LE Amount | CD Amount |
-|------|-----------|-----------|
-| Recording fees (subtotal) | $ | $ |
-| Shopped services from lender's list (subtotal) | $ | $ |
-| **10% CATEGORY TOTAL** | **$** | **$** |
-
-**Calculation:**
-- Variance = CD Total − LE Total: **$______**
-- Maximum permitted = LE Total × 110%: **$______**
-- Excess requiring cure = CD Total − Maximum Permitted: **$______**
-
----
-
-## Unlimited Tolerance Items
-
-No cure required regardless of increase, provided original LE was made in good faith.
-
-- Prepaid interest (per diem)
-- Homeowner's, flood, and hazard insurance premiums
+- Prepaid interest, insurance premiums (homeowner's, flood, hazard)
 - Initial escrow deposits (taxes, insurance, MIP, aggregate adjustment)
-- Property costs not required by creditor (prepaid taxes, HOA dues/assessments)
-- Services where borrower selected provider **not** on lender's written list
-- Optional services (home warranty, optional owner's title insurance, non-required inspection)
+- Property costs not required by creditor (prepaid taxes, HOA)
+- Services where borrower chose provider off lender's list
+- Optional services (home warranty, optional owner's title, non-required inspections)
 
----
+## Changed Circumstances
 
-## Changed Circumstances That Reset Tolerances
+A valid changed circumstance permits a revised LE that resets tolerances for **affected fees only**. Per 12 CFR § 1026.19(e)(3)(iv):
+- Deliver revised LE within **3 business days** of learning of the change
+- At least **4 business days** before consummation
 
-A valid changed circumstance permits issuance of a revised LE, which resets tolerances for **affected fees only**. Revised LE must be delivered within **3 business days** of learning of the change, and **at least 4 business days** before consummation. Citation: 12 CFR § 1026.19(e)(3)(iv).
+| Type | Examples |
+|------|---------|
+| Extraordinary event | Natural disaster, war, civil unrest |
+| Information inaccuracy | Income/assets differ; property differs from disclosed |
+| Previously unavailable info | Title defect, survey encroachment |
+| Borrower-requested change | Different product, property, or added borrower |
+| Rate lock | Borrower locks after floating |
+| LE expiration | Closing delayed beyond 10 business days after LE |
 
-| Type | Examples | Required Documentation |
-|------|----------|----------------------|
-| Extraordinary event | Natural disaster, war, civil unrest affecting property/title | Government declarations, news records |
-| Information inaccuracy | Income/assets differ from stated; property characteristics differ from disclosed | Updated application, appraisal |
-| Previously unavailable information | Title defect, survey encroachment discovered | Title commitment, survey report |
-| Borrower-requested change | Different loan product, different property, added borrower | Written borrower request |
-| Rate lock | Borrower locks after floating | Rate lock confirmation |
-| LE expiration | Closing delayed beyond 10 business days after LE issuance | Timeline documentation |
-
-**Invalid reasons for revised LE:**
-- Original estimate not made in good faith
-- Correcting a creditor error
-- Ordinary market fluctuation
-- Creditor's own processing delays
-- Simple underestimate
-
----
+**Invalid reasons:** creditor error, market fluctuation, processing delays, simple underestimates, bad-faith original estimate.
 
 ## Cure Requirements
 
-**Authority:** 12 CFR § 1026.19(f)(2)(v)
+Authority: 12 CFR § 1026.19(f)(2)(v). All within **60 calendar days** after consummation:
 
-| Requirement | Deadline |
-|-------------|----------|
-| Refund excess amount to borrower | Within **60 calendar days** after consummation |
-| Provide corrected CD reflecting cure | Within **60 calendar days** after consummation |
-| Document cure in loan file | At time of cure |
+1. Refund excess amount to borrower
+2. Provide corrected CD reflecting the cure
+3. Document cure in loan file
 
-**Cure calculation summary:**
+| Category | Maximum Permitted | Cure |
+|----------|-------------------|------|
+| Zero tolerance | = LE amount | CD − LE (if positive) |
+| 10% cumulative | = LE total × 110% | CD total − max permitted (if positive) |
 
-| Category | CD Total | LE Total | Maximum Permitted | Cure Required |
-|----------|----------|----------|-------------------|---------------|
-| Zero tolerance | $ | $ | = LE Total | CD − LE (if positive) |
-| 10% cumulative | $ | $ | = LE Total × 110% | CD − Maximum (if positive) |
-| **TOTAL CURE** | | | | **$** |
+## Pitfalls
 
----
-
-## Common Errors
-
-| Error | Correct Approach |
-|-------|-----------------|
+| Mistake | Correction |
+|---------|-----------|
 | Testing 10% items individually | Measure as cumulative category total |
-| Applying 10% tolerance to affiliate fees | Affiliate fees are zero tolerance |
-| Using changed circumstance to increase unrelated fees | Only revise fees affected by the triggering change |
-| Issuing revised LE more than 3 business days after learning of change | Issue within 3 business days |
-| Comparing net fees after seller/lender credits | Compare gross fees; credits don't affect tolerance calculation |
-| Failing to cure within 60 days | Calendar cure deadline at consummation |
+| Applying 10% to affiliate fees | Affiliate fees are zero tolerance |
+| Changed circumstance increasing unrelated fees | Only revise affected fees |
+| Revised LE > 3 business days after learning of change | Must issue within 3 business days |
+| Comparing net fees after credits | Compare **gross** fees; credits don't affect tolerance |
+| Missing 60-day cure deadline | Calendar from consummation date |
 
----
+## Key Rules
 
-## Guidelines
-
-- **Seller credits** reduce borrower costs but do not affect tolerance calculations; always compare gross fees
-- **Specific lender credits** tied to a particular fee reduce that fee for tolerance; **general lender credits** do not affect individual fee tolerance
-- **Construction loans:** tolerances apply separately to construction phase and permanent phase
-- **Simultaneous subordinate financing:** each loan carries independent tolerance requirements; fees cannot be shifted between loans
-- Always verify affiliate status of service providers — misclassification of affiliate fees as 10% items is a common exam finding
+- **Seller credits** don't affect tolerance — always compare gross fees
+- **Specific lender credits** tied to a fee reduce it for tolerance; **general credits** do not
+- **Construction loans:** tolerances apply separately per phase
+- **Subordinate financing:** each loan has independent tolerances; no fee-shifting between loans
+- Always verify affiliate status — misclassification as 10% item is a common exam finding
 
 ## References
 
-- 12 CFR § 1026.19(e)(3) — Good faith determination and tolerance categories
+- 12 CFR § 1026.19(e)(3) — Tolerance categories
 - 12 CFR § 1026.19(e)(3)(iv) — Changed circumstances
-- 12 CFR § 1026.19(f)(2)(v) — Cure/refund of excess
+- 12 CFR § 1026.19(f)(2)(v) — Cure requirements
 - CFPB Official Interpretation, Comments 19(e)(3)(i)-1 through -6
 - CFPB Official Interpretation, Comments 19(e)(3)(iv)-1 through -6
 - CFPB TRID Small Entity Compliance Guide, Section 7

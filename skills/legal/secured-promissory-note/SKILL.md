@@ -1,13 +1,10 @@
 ---
 name: secured-promissory-note
 description: >-
-  Drafts U.S. secured promissory notes for commercial lending transactions
-  with lender-protective terms covering principal, interest mechanics,
-  repayment, collateral grant, UCC Article 9 perfection, defaults, and
-  remedies while aligning with state usury limits. Use when preparing a
-  secured promissory note, lender note, commercial loan note, or
-  collateral-backed financing note; trigger keywords: secured promissory note,
-  security interest, collateral, UCC-1, commercial loan, corporate finance.
+  Drafts U.S. secured promissory notes for commercial lending with
+  lender-protective terms, UCC Article 9 collateral grants, and state
+  usury compliance. Trigger when the user needs a secured promissory note,
+  lender note, collateral-backed loan note, or UCC-1 financing instrument.
 tags:
   - agreement
   - corporate
@@ -17,124 +14,100 @@ tags:
 
 # Secured Promissory Note
 
-Drafts an enforceable secured promissory note for a commercial loan with collateral-backed repayment.
+Draft an enforceable secured promissory note for a commercial loan with collateral-backed repayment.
 
-## Prerequisites
+## Quick Start
 
-1. Borrower and lender legal names, entity types, states of organization, principal addresses, and authorized signatories.
-2. Deal terms: principal amount, interest structure, payment schedule, maturity, prepayment, fees, and default rate.
-3. Collateral schedule with sufficient detail for UCC Article 9 description.
-4. Governing law, venue, and dispute resolution preferences.
-5. Related documents list: security agreement, guaranty, subordination/intercreditor, board/manager approvals.
+Gather before drafting:
 
-## Output Structure / Process
+1. **Parties** — borrower and lender legal names, entity types, states, addresses, authorized signatories.
+2. **Deal terms** — principal, interest structure (fixed/variable, index, margin, floor/cap), day-count convention, payment schedule, maturity, prepayment, fees, default rate.
+3. **Collateral** — description with sufficient detail for UCC Article 9; filing jurisdictions (debtor location, fixture/real property).
+4. **Governing law** — state, venue, dispute resolution preference.
+5. **Related documents** — security agreement, guaranty, subordination/intercreditor, board/manager approvals.
 
-1. Populate intake fields and confirm unresolved items.
-2. Draft the note using the section checklist and template skeleton.
-3. Insert optional clauses only when applicable.
-4. Run the final review checklist.
+## Workflow
 
-**Intake Fields**
+1. Collect intake fields; flag unresolved items before drafting.
+2. Draft using the section outline and template below.
+3. Insert optional clauses only when deal-specific.
+4. Run the review checklist.
 
-| Field | Required | Notes |
-| --- | --- | --- |
-| Borrower legal name, entity type, state, address | Yes | Use exact registered name and suffix. |
-| Lender legal name, entity type, state, address | Yes | Match organizational documents. |
-| Effective date and funding date | Yes | Specify if different. |
-| Principal amount | Yes | Numeric and words. |
-| Interest rate type | Yes | Fixed or variable, index source, margin, floor/cap. |
-| Day-count convention | Yes | `actual/360`, `actual/365`, or `30/360`. |
-| Payment schedule | Yes | Installment dates, frequency, amortization or balloon. |
-| Late fee and grace period | Yes | If any. |
-| Default interest rate | Yes | Confirm within legal limits. |
-| Prepayment | Yes | Permitted, penalty terms, exceptions. |
-| Collateral description | Yes | Category and itemized detail. |
-| UCC filing jurisdictions | Yes | Debtor location and any fixture/real property filings. |
-| Covenants | Optional | Financial reporting, insurance, restrictions. |
-| Cross-default thresholds | Optional | Other debt, judgments, etc. |
-| Notice addresses and methods | Yes | Delivery methods and deemed receipt. |
+### Intake Fields
 
-**Section Checklist**
+| Field | Req | Notes |
+|---|---|---|
+| Borrower name, entity, state, address | Yes | Exact registered name and suffix |
+| Lender name, entity, state, address | Yes | Match org docs |
+| Effective date / funding date | Yes | Note if different |
+| Principal amount | Yes | Numeric and words |
+| Interest rate type | Yes | Fixed/variable; index, margin, floor/cap |
+| Day-count convention | Yes | actual/360, actual/365, or 30/360 |
+| Payment schedule | Yes | Frequency, amortization or balloon |
+| Late fee / grace period | Yes | — |
+| Default interest rate | Yes | Confirm within legal limits |
+| Prepayment terms | Yes | Penalty, exceptions |
+| Collateral description | Yes | Category + itemized detail |
+| UCC filing jurisdictions | Yes | Debtor location; fixture/real property filings |
+| Covenants | Opt | Reporting, insurance, restrictions |
+| Cross-default thresholds | Opt | Other debt, judgments |
+| Notice addresses / methods | Yes | Delivery methods, deemed receipt |
 
-- [ ] Title, date, and parties.
-- [ ] Promise to pay; principal; use of proceeds if needed.
-- [ ] Interest rate mechanics; day-count; default rate; usury savings clause.
-- [ ] Payment schedule; application waterfall; non-business day handling.
-- [ ] Prepayment terms and penalties if any.
-- [ ] Collateral grant; proceeds; reference to security agreement.
-- [ ] Perfection authorization for UCC-1 filings.
-- [ ] Representations and warranties.
-- [ ] Affirmative and negative covenants.
-- [ ] Events of default; notice and cure periods.
-- [ ] Remedies; acceleration; UCC Article 9 enforcement; costs and fees.
-- [ ] Waivers (presentment, demand, notice, etc.) if desired.
-- [ ] Governing law; venue; jury trial waiver or ADR.
-- [ ] Notices; assignments; successors; integration; severability.
-- [ ] Signature blocks and execution formalities.
+### Section Outline
 
-**Core Clause Template**
+1. Title, date, parties
+2. Promise to pay; principal; use of proceeds
+3. Interest rate; day-count; default rate; usury savings clause
+4. Payment schedule; application waterfall; late charges; non-business days
+5. Prepayment terms and penalties
+6. Collateral grant; proceeds; security agreement reference
+7. Perfection authorization (UCC-1 filings)
+8. Representations and warranties
+9. Affirmative and negative covenants
+10. Events of default; notice and cure periods
+11. Remedies; acceleration; UCC Article 9 enforcement; costs/fees
+12. Waivers (presentment, demand, notice)
+13. Governing law; venue; jury trial waiver or ADR
+14. Notices; assignments; successors; integration; severability
+15. Signature blocks and execution
 
-```text
-SECURED PROMISSORY NOTE
+### Collateral Schedule (Exhibit A)
 
-Date: [DATE]
-
-Borrower: [LEGAL NAME], [ENTITY TYPE], [STATE], [ADDRESS]
-Lender: [LEGAL NAME], [ENTITY TYPE], [STATE], [ADDRESS]
-
-1. Promise to Pay; Principal.
-2. Interest Rate; Day-Count; Default Rate; Usury Savings.
-3. Payment Terms; Application of Payments; Late Charges; Non-Business Days.
-4. Prepayment.
-5. Collateral; Security Interest Grant; Proceeds; Perfection Authorization.
-6. Representations and Warranties.
-7. Covenants.
-8. Events of Default; Notice and Cure.
-9. Remedies; Acceleration; UCC Article 9 Rights; Costs and Attorneys' Fees.
-10. Waivers.
-11. Governing Law; Venue; Jury Trial Waiver or ADR.
-12. Notices.
-13. Assignments; Successors; Amendments; Integration; Severability.
-14. Execution.
 ```
-
-**Collateral Schedule Template**
-
-```text
-Exhibit A - Collateral
 Category:
 Specific Description:
 Location:
 Title/Registration Data (if applicable):
 ```
 
-**Optional Clauses**
+### Optional Clauses
 
-- [ ] Balloon payment provision.
-- [ ] Interest-only period.
-- [ ] Cross-default to other material debt.
-- [ ] Judgment default threshold.
-- [ ] MAC clause.
-- [ ] Subordination or intercreditor references.
-- [ ] Cash dominion or lockbox.
+Include only when applicable:
 
-**Final Review Checklist**
+- Balloon payment provision
+- Interest-only period
+- Cross-default to other material debt
+- Judgment default threshold
+- MAC clause
+- Subordination / intercreditor references
+- Cash dominion or lockbox
 
-- [ ] Defined terms used consistently.
-- [ ] Interest and fees within applicable limits.
-- [ ] Collateral description sufficient for UCC filing.
-- [ ] Cure periods aligned with lender policy.
-- [ ] Notice addresses and delivery methods complete.
-- [ ] Signatory authority confirmed.
+## Review Checklist
 
-## Guidelines
+- [ ] Defined terms used consistently throughout
+- [ ] Interest and fees within applicable usury limits
+- [ ] Collateral description sufficient for UCC filing
+- [ ] Cure periods aligned with lender policy
+- [ ] Notice addresses and delivery methods complete
+- [ ] Signatory authority confirmed
 
-- Keep the security interest grant and collateral description UCC Article 9 compliant and commercially reasonable.
-- If collateral includes real property, reference the mortgage or deed of trust and do not rely on the note alone.
-- If collateral includes titled assets or IP, add perfection steps consistent with title or federal registration practices.
-- Use a usury savings clause and confirm default interest and late fees do not exceed lawful limits.
-- Distinguish monetary vs non-monetary defaults and provide explicit cure periods where intended.
-- Ensure remedies include acceleration and Article 9 disposition rights with commercially reasonable notice.
-- Do not include consumer-law disclosures unless the loan is consumer-purpose or to an individual borrower.
-- Match assignment language to the deal: borrower assignment typically prohibited; lender assignment typically permitted with notice.
-- Include jury trial waiver only if enforceable in the governing jurisdiction and the parties are sophisticated.
+## Pitfalls
+
+- **Usury** — always include a usury savings clause; verify default interest and late fees against governing-state limits.
+- **Real property collateral** — reference the mortgage or deed of trust; the note alone is insufficient.
+- **Titled assets / IP** — add perfection steps matching title or federal registration practices.
+- **Default categories** — distinguish monetary vs. non-monetary defaults with explicit cure periods.
+- **Remedies** — must include acceleration and Article 9 disposition rights with commercially reasonable notice.
+- **Consumer loans** — omit consumer-law disclosures unless the loan is consumer-purpose or to an individual borrower.
+- **Assignments** — borrower assignment typically prohibited; lender assignment typically permitted with notice.
+- **Jury trial waiver** — include only if enforceable in governing jurisdiction and parties are sophisticated.

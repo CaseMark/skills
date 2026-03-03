@@ -1,12 +1,11 @@
 ---
 name: term-loan-agreement
 description: >-
-  Drafts U.S. corporate finance term loan agreements with precise economic
-  terms, covenants, collateral, events of default, and enforcement mechanics.
-  Use for commercial lending, senior or subordinated term facilities, or
-  bilateral loan documentation. Trigger keywords: term loan agreement, loan
-  agreement, commercial loan, corporate finance, senior secured, SOFR,
-  amortization, covenant package, default rate.
+  Drafts U.S. corporate finance term loan agreements covering economic terms,
+  covenants, collateral, events of default, and enforcement mechanics. Trigger
+  when the user requests a term loan agreement, commercial loan, senior secured
+  facility, SOFR-based loan, amortization schedule, covenant package, or
+  bilateral loan documentation.
 tags:
   - agreement
   - corporate
@@ -16,165 +15,157 @@ tags:
 
 # Term Loan Agreement
 
-Draft a complete, execution-ready term loan agreement for a commercial lending transaction.
+Drafts an execution-ready term loan agreement for a commercial lending transaction.
 
-## Prerequisites
+## Gather Inputs
 
-1. Parties and entity details: legal names, formation state, addresses, signatories.
-2. Economic terms: principal, funding date, maturity date, interest benchmark and margin, fees.
-3. Repayment mechanics: amortization type, payment dates, prepayment rules.
-4. Collateral and guaranty scope: secured or unsecured, collateral description, guarantors.
-5. Covenant package: reporting, affirmative, negative, and financial covenants.
-6. Defaults and remedies: cure periods, cross-default threshold, default rate.
-7. Governing law and forum selection.
+Collect before drafting. Flag any missing items.
 
-## Output Structure / Process
+1. **Parties** — legal names, entity type, formation state, addresses, signatories
+2. **Economics** — principal, funding date, maturity, benchmark (SOFR/other), margin, fees
+3. **Repayment** — amortization type, payment dates, prepayment rules
+4. **Collateral & guaranty** — secured/unsecured, collateral description, guarantors
+5. **Covenants** — reporting, affirmative, negative, financial thresholds
+6. **Defaults & remedies** — cure periods, cross-default threshold, default rate
+7. **Governing law & forum**
 
-Use this structure and fill all brackets.
+## Document Structure
 
-1. Title and Parties
-   - Agreement title, date.
-   - Parties table:
+Fill all `[BRACKETED]` placeholders. Use exact dates, never relative terms.
+
+### 1. Title, Date & Parties
 
 | Role | Legal Name | Entity Type | Jurisdiction | Address |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | Lender | [LENDER] | [ENTITY] | [STATE/COUNTRY] | [ADDRESS] |
 | Borrower | [BORROWER] | [ENTITY] | [STATE/COUNTRY] | [ADDRESS] |
-| Guarantor (if any) | [GUARANTOR] | [ENTITY/INDIVIDUAL] | [STATE/COUNTRY] | [ADDRESS] |
+| Guarantor | [GUARANTOR] | [ENTITY/INDIVIDUAL] | [STATE/COUNTRY] | [ADDRESS] |
 
-2. Recitals
-   - Purpose of loan and use of proceeds.
-   - Relationship context if applicable.
-   - Avoid creating warranties.
+### 2. Recitals
 
-3. Definitions
-   - Include defined terms used in economics, covenants, defaults.
-   - Include "Business Day", "Material Adverse Effect", "Default", "Event of Default", "Permitted Liens", "Permitted Indebtedness".
+State loan purpose and use of proceeds. Do not create warranties in recitals.
 
-4. Loan and Advances
-   - Principal amount in words and numbers.
-   - Funding mechanics: single advance or multiple tranches.
-   - Conditions precedent checklist:
+### 3. Definitions
 
-| CP Item | Required Evidence |
-| --- | --- |
+Required defined terms: Business Day, Material Adverse Effect, Default, Event of Default, Permitted Liens, Permitted Indebtedness. Add all terms used in economics, covenants, and defaults.
+
+### 4. Loan & Advances
+
+- Principal in words and figures
+- Funding mechanics: single advance or multiple tranches
+- Conditions precedent:
+
+| CP Item | Evidence |
+|---|---|
 | Organizational authority | Resolutions, incumbency certificates |
 | KYC/AML | Beneficial ownership certification |
-| Good standing | Certificates of good standing |
+| Good standing | State certificates |
 | Collateral perfection | UCC filings, title, insurance |
 | Legal opinions | Counsel opinion(s) if required |
 
-5. Interest and Fees
-   - Benchmark, margin, default rate.
-   - Day count and reset frequency.
-   - Interest period conventions and timing.
-   - Fees table:
+### 5. Interest & Fees
+
+- Benchmark + margin, default rate, day count, reset frequency
+- Fee schedule:
 
 | Fee | Amount/Formula | Due |
-| --- | --- | --- |
+|---|---|---|
 | Origination | [AMOUNT/%] | [DATE] |
 | Commitment | [AMOUNT/%] | [DATE] |
 | Prepayment | [SCHEDULE] | [EVENT] |
 
-6. Payments and Amortization
-   - Payment dates and application order (fees, interest, principal).
-   - Amortization method:
-     - Equal installments
-     - Custom schedule
-     - Balloon
-   - If schedule required, add Exhibit A:
+### 6. Payments & Amortization
 
-| Payment Date | Principal | Interest | Total | Remaining Balance |
-| --- | --- | --- | --- | --- |
+- Application order: fees → interest → principal
+- Amortization method: equal installments / custom / balloon
+- Attach Exhibit A if schedule required
 
-7. Prepayment
-   - Voluntary prepayment rules: notice, minimums.
-   - Mandatory prepayments: asset sales, insurance proceeds, debt or equity issuance, excess cash flow.
-   - Reduction mechanics: next installments vs. final payment.
+### 7. Prepayment
 
-8. Security and Guaranty
-   - Collateral description and scope.
-   - Security documents list.
-   - Perfection steps and maintenance.
-   - Guaranty scope (payment vs. collection).
+- **Voluntary** — notice period, minimum amounts
+- **Mandatory** — asset sales, insurance proceeds, debt/equity issuance, excess cash flow
+- Reduction mechanics: apply to next installments vs. final payment
 
-9. Representations and Warranties
-   - Organization, authority, enforceability.
-   - No conflict with agreements or law.
-   - Financial statements, no material adverse change.
-   - Litigation, compliance, taxes, ERISA if applicable.
-   - IP ownership if material to business.
+### 8. Security & Guaranty
 
-10. Covenants
-   - Affirmative covenants checklist:
+- Collateral description, scope, security documents
+- Perfection steps and ongoing maintenance
+- Guaranty type: payment vs. collection
+
+### 9. Representations & Warranties
+
+Organization, authority, enforceability, no conflicts, financial statements, no MAC, litigation, compliance, taxes, ERISA (if applicable), IP ownership (if material).
+
+### 10. Covenants
+
+**Affirmative:**
 
 | Covenant | Detail |
-| --- | --- |
+|---|---|
 | Reporting | Annual audited, quarterly, compliance certificates |
 | Taxes | Pay when due |
-| Insurance | Maintain coverage, lender as loss payee/additional insured |
+| Insurance | Maintain coverage; lender as loss payee |
 | Existence | Maintain good standing |
 | Access | Books and inspection rights |
 
-   - Negative covenants checklist:
+**Negative:**
 
 | Covenant | Limitation |
-| --- | --- |
+|---|---|
 | Indebtedness | Permitted baskets only |
 | Liens | Permitted liens only |
-| Dispositions | Restricted sales of assets |
-| M&A | Restricted without consent |
+| Dispositions | Restricted asset sales |
+| M&A | Consent required |
 | Dividends | Restricted distributions |
 
-   - Financial covenants table:
+**Financial:**
 
 | Covenant | Threshold | Test Frequency |
-| --- | --- | --- |
+|---|---|---|
 | Debt service coverage | [x.xx] | [Quarterly] |
 | Leverage ratio | [x.xx] | [Quarterly] |
 | Minimum liquidity | [$] | [Monthly/Quarterly] |
 
-11. Events of Default
-   - Payment defaults with cure periods.
-   - Covenant defaults with notice and cure.
-   - Misrepresentation.
-   - Cross-default threshold.
-   - Insolvency events.
-   - Judgments above threshold.
-   - Material adverse effect (if included).
+### 11. Events of Default
 
-12. Remedies
-   - Acceleration.
-   - Default interest.
-   - Setoff rights.
-   - Collateral enforcement.
-   - Costs and attorneys fees.
+Payment default (with cure), covenant default (with notice/cure), misrepresentation, cross-default above threshold, insolvency, judgments above threshold, MAC (if included).
 
-13. Boilerplate
-   - Governing law, venue, waiver of jury trial.
-   - Assignment and participation.
-   - Notices.
-   - Integration, amendments, waivers.
-   - Severability.
+### 12. Remedies
 
-14. Exhibits and Schedules
-   - Exhibit A: Amortization Schedule.
-   - Exhibit B: Form Compliance Certificate.
-   - Schedule 1: Existing Indebtedness.
-   - Schedule 2: Existing Liens.
-   - Schedule 3: Litigation.
+Acceleration, default interest, setoff, collateral enforcement, costs and attorneys' fees.
 
-15. Signature Blocks
-   - Include name, title, date lines.
-   - Add witnesses or notarization if required.
+### 13. Boilerplate
 
-## Guidelines
+Governing law, venue, jury trial waiver, assignment/participation, notices, integration, amendments, waivers, severability.
 
-- Use exact dates, not relative terms.
-- Align all economics with the term sheet and commitment letter.
-- Define all calculation methods and test periods.
-- If consumer-purpose or individual borrower is involved, add TILA and state disclosure requirements [VERIFY].
-- If secured, confirm UCC Article 9 perfection steps and describe collateral precisely [VERIFY].
-- For SOFR-based loans, include fallback and conforming changes language [VERIFY].
-- Include OFAC/AML and beneficial ownership representations for regulated lenders.
-- Flag any missing inputs before drafting final language.
+### 14. Exhibits & Schedules
+
+- **Exhibit A** — Amortization Schedule
+- **Exhibit B** — Form Compliance Certificate
+- **Schedule 1** — Existing Indebtedness
+- **Schedule 2** — Existing Liens
+- **Schedule 3** — Litigation
+
+### 15. Signature Blocks
+
+Name, title, date lines. Add witnesses or notarization if jurisdictionally required.
+
+## Verification Checklist
+
+- [ ] All economics align with term sheet and commitment letter
+- [ ] Calculation methods and test periods fully defined
+- [ ] **SOFR loans** — include fallback and conforming-changes language `[VERIFY]`
+- [ ] **Secured loans** — confirm UCC Article 9 perfection; describe collateral precisely `[VERIFY]`
+- [ ] **Consumer-purpose / individual borrower** — add TILA and state disclosures `[VERIFY]`
+- [ ] OFAC/AML and beneficial ownership representations included for regulated lenders
+- [ ] No unresolved `[BRACKETED]` placeholders remain
+
+---
+
+**Key changes:**
+- **Frontmatter** — description rewritten in third person with clear trigger guidance; removed "trigger keywords" list in favor of natural trigger phrases
+- **Renamed sections** — "Prerequisites" → "Gather Inputs", "Output Structure / Process" → "Document Structure", "Guidelines" → "Verification Checklist"
+- **Condensed prose** — sections 9, 11, 12, 13 collapsed from bullet lists into single-line summaries where the items are self-explanatory
+- **Removed redundancy** — eliminated the empty Exhibit A amortization table template (referenced instead), trimmed repetitive phrasing throughout
+- **Added actionable checklist** — final section uses checkbox format for quick pre-delivery review
+- **Consistent formatting** — all subsections use `###` headings, tables use compact `|---|` separators

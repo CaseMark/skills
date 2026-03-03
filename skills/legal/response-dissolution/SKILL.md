@@ -1,6 +1,6 @@
 ---
 name: response-dissolution
-description: Drafts a Response to Petition for Dissolution of Marriage on behalf of the respondent in family law proceedings. Addresses each petition allegation with admit/deny/lack-of-information responses, corrects disputed facts (separation date, jurisdiction), and states positions on custody, support, property division, and fees. Use when responding to a divorce petition, filing an answer to dissolution, or avoiding default judgment in family law litigation.
+description: Drafts a Response to Petition for Dissolution of Marriage addressing each allegation with admit/deny/lack-of-information responses and stating positions on custody, support, property, and fees. Triggers when user needs to respond to a divorce petition, file an answer to dissolution, or avoid default judgment in family law proceedings.
 tags:
   - drafting
   - litigation
@@ -9,102 +9,62 @@ tags:
 
 # Response to Petition for Dissolution of Marriage
 
-Drafts the respondent's formal answer to a divorce petition, addressing every allegation and establishing positions on all contested issues to avoid default.
+Drafts the respondent's formal answer to a divorce petition, addressing every allegation and establishing positions on all contested issues to prevent default.
 
 ## Prerequisites
 
-1. **Original Petition for Dissolution** — the filed petition with case number, court, and all allegations
-2. **Client intake / instructions** — respondent's positions on custody, support, property, and any factual disputes (especially separation date)
-3. **Financial records** — income, assets, debts, retirement accounts, business interests
-4. **Children's information** — names, DOBs, current living/school arrangements, parenting history
-5. **Service date** — to confirm the response deadline (typically 30 days)
+- **Filed petition** — case number, court, all allegations
+- **Client instructions** — positions on custody, support, property; factual disputes (especially separation date)
+- **Financial records** — income, assets, debts, retirement, business interests
+- **Children's information** — names, DOBs, living/school arrangements, parenting history
+- **Service date** — confirms response deadline (typically 30 days)
 
-## Output Structure
+## Quick Start
 
-### Caption & Case Information
+1. Gather the petition and client instructions
+2. Mirror the petition's caption exactly (court, case number, party names)
+3. Respond to every allegation paragraph-by-paragraph using the response framework
+4. State positions on each contested issue in order
+5. Include verification and signature block
+6. Confirm filing deadline from service date
 
-Match the petition's format exactly:
-- Full court name and county
-- Case number
-- Parties' full legal names as they appear in the petition
-- Title: "RESPONSE TO PETITION FOR DISSOLUTION OF MARRIAGE"
+## Response Framework
 
-### Numbered-Paragraph Response Framework
+Every petition allegation must receive one response — an unaddressed allegation may be deemed admitted.
 
-For **every** petition allegation, use one of:
-
-| Response Type | When to Use |
+| Response | Use When |
 |---|---|
 | **Admit** | Allegation is true |
 | **Deny** | Allegation is false — state correct fact |
-| **Admit in part, deny in part** | Partially true — specify what is admitted and what is denied |
-| **Lack of information** | Respondent genuinely lacks knowledge to admit or deny |
+| **Admit in part, deny in part** | Partially true — specify each portion |
+| **Lack of information** | Respondent genuinely cannot confirm or deny |
 
-> An unaddressed allegation may be deemed admitted. Leave nothing unanswered.
-
-### Required Sections (in order)
+## Required Sections (in order)
 
 1. **Jurisdiction & Residency** — Admit or correct residency/domicile allegations
-2. **Statistical Facts** — Marriage date, separation date, length of marriage, minor children (Y/N). Flag any disputed separation date with respondent's asserted date and basis.
-3. **Child Custody & Visitation**
-   - Legal custody position (sole / joint)
-   - Physical custody position (sole / joint / primary-to-respondent)
-   - Proposed visitation schedule if not seeking primary custody
-   - Factual basis: parenting history, children's routines, school, each parent's involvement
-4. **Child Support**
-   - Agrees to pay / seeks support from petitioner / requests deviation from guidelines (with justification)
-5. **Spousal Support**
-   - Seeks support / opposes petitioner's request / agrees to pay (duration, amount basis)
-   - Relevant factors: income disparity, earning capacity, marital standard of living, marriage length
-6. **Property Division**
-   - Community vs. separate property characterization for major assets:
+2. **Statistical Facts** — Marriage date, separation date, marriage length, minor children. Flag any disputed separation date with respondent's asserted date and basis.
+3. **Child Custody & Visitation** — Legal custody (sole/joint), physical custody (sole/joint/primary-to-respondent), proposed visitation if not seeking primary, factual basis (parenting history, routines, involvement)
+4. **Child Support** — Agrees to pay / seeks from petitioner / requests guideline deviation with justification
+5. **Spousal Support** — Seeks / opposes / agrees to pay; cite income disparity, earning capacity, marital standard of living, marriage length
+6. **Property Division** — Characterize community vs. separate property for: residence, other real property, retirement/pension, accounts, vehicles, business interests. Include separate property tracing and debt allocation.
+7. **Attorney Fees & Costs** — Request contribution based on income/access disparity, or state no request
+8. **Affirmative Requests for Relief** — Any additional relief respondent seeks
 
-   | Asset Category | Respondent's Position |
-   |---|---|
-   | Family residence | |
-   | Other real property | |
-   | Retirement / pension | |
-   | Bank / investment accounts | |
-   | Vehicles | |
-   | Business interests | |
+## Verification Block
 
-   - Separate property claims with tracing basis
-   - Debt allocation (mortgage, credit cards, loans)
-7. **Attorney Fees & Costs** — Request contribution based on income/access-to-funds disparity, or state no request
-8. **Affirmative Requests for Relief** — Any relief respondent seeks beyond responding to allegations
+Include declaration under penalty of perjury with respondent name, state, date, and signature line. If represented, add attorney name, bar number, firm, address, and contact.
 
-### Verification & Signature Block
+## Formatting
 
-```
-VERIFICATION
+- Numbered paragraphs matching petition structure
+- Document title + page number in footer
+- Court-compliant margins, spacing, pagination
 
-I, [RESPONDENT NAME], declare under penalty of perjury under the laws of the
-State of [STATE] that the foregoing is true and correct to the best of my
-knowledge.
+## Pitfalls
 
-Date: _______________     ___________________________
-                          [Respondent Name]
-
-[If represented:]
-___________________________
-[Attorney Name], SBN [Number]
-[Firm Name]
-[Address]
-[Phone] | [Email]
-Attorney for Respondent
-```
-
-### Formatting
-
-- Numbered paragraphs throughout
-- Footer: document title + page number on every page
-- Court-compliant margins, spacing, and pagination
-
-## Guidelines
-
-- **Deadline-critical**: File within 30 days of service (varies by jurisdiction — verify local rule)
-- **Tone**: Formal, non-inflammatory. Deny factual inaccuracies without argument — save advocacy for declarations and briefs.
-- **Separation date disputes**: State respondent's date clearly; this affects community property cutoff and support duration
-- **Do not concede by omission**: Every allegation must receive a response
-- **No legal argument in the pleading**: Stick to factual admissions/denials and requests for relief
-- **Jurisdiction-specific forms**: Some states (e.g., California FL-120) require mandatory Judicial Council forms — flag if applicable and adapt content to form fields
+- **Deadline-critical** — File within 30 days of service; verify local rule for exact deadline
+- **No concession by omission** — every allegation must receive a response
+- **No legal argument** — stick to factual admissions/denials and requests for relief; save advocacy for declarations and briefs
+- **Separation date disputes** — state respondent's date clearly; affects community property cutoff and support duration
+- **Jurisdiction-specific forms** — some states (e.g., California FL-120) require mandatory court forms; flag and adapt content to form fields
+- **Tone** — formal, non-inflammatory; deny inaccuracies without argument

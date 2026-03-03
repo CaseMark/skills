@@ -1,116 +1,84 @@
 ---
 name: nov-response
-description: Drafts formal responses to Notices of Violation from regulatory authorities, covering acknowledgment, factual timeline, legal defenses, mitigation arguments, and proposed corrective action. Builds a favorable administrative record for dismissal, penalty reduction, or negotiated resolution. Use when responding to environmental enforcement actions, regulatory citations, compliance violations, or governmental NOVs.
-tags:
-  - drafting
-  - letter
-  - regulatory
+description: Drafts formal responses to governmental Notices of Violation, covering acknowledgment, factual timeline, legal defenses, mitigation, and proposed corrective action. Use when responding to environmental enforcement actions, regulatory citations, compliance violations, or governmental NOVs.
 ---
 
 # Notice of Violation Response
 
-Drafts a formal response to a governmental Notice of Violation that defends the client's position while building a cooperative administrative record.
+Drafts a formal NOV response that defends the client's position while building a cooperative administrative record for dismissal, penalty reduction, or negotiated resolution.
 
 ## Prerequisites
 
-1. **Original NOV** — case/citation number, date issued, date received, delivery method, cited regulatory provisions
-2. **Client facts** — chronological timeline of events, extenuating circumstances, compliance history
-3. **Supporting documentation** — permits, correspondence, photos, receipts, expert opinions, witness statements
-4. **Regulatory framework** — applicable statutes, regulations, administrative codes, response deadlines
-5. **Submission requirements** — deadline, delivery method (certified mail, e-filing portal, hand delivery), formatting rules, authentication requirements (notarization, verification under penalty of perjury)
+Gather before drafting:
 
-## Output Structure
+- **Original NOV** — case/citation number, dates (issued + received), delivery method, cited provisions
+- **Client facts** — chronological timeline, extenuating circumstances, compliance history
+- **Supporting docs** — permits, correspondence, photos, receipts, expert opinions, witness statements
+- **Regulatory framework** — applicable statutes, regulations, admin codes, response deadline
+- **Submission rules** — deadline, delivery method, formatting, authentication requirements (notarization, verification under penalty of perjury)
+
+## Response Structure
 
 ### 1. Header Block
 
-| Element | Detail |
-|---|---|
-| Sender | Full legal name, business name, address, phone, email |
-| Date | Full format |
-| Recipient | Official title, department, agency, full address |
-| Re: line | NOV case/citation number + date issued |
+Include sender (full legal name, business, address, contact), date, recipient (title, department, agency, address), and Re: line (NOV case number + date issued).
 
 ### 2. Introduction & Acknowledgment
 
-- State receipt of NOV with exact date received and delivery method
-- Summarize alleged violation(s) using exact language and citation numbers from the original notice
-- Reference all regulatory code sections, ordinance numbers, or statutory provisions cited
-- State purpose: to address allegations, provide factual context, and seek resolution
+- State receipt date and delivery method
+- Summarize alleged violations using exact language and citation numbers from the NOV
+- Reference all cited regulatory code sections
+- State purpose: address allegations, provide factual context, seek resolution
 
 ### 3. Factual Explanation & Timeline
 
-Present a chronological, objective account with specific dates, times, locations. Address applicable circumstances:
+Chronological, objective account with specific dates, times, locations. Address applicable items:
 
 - [ ] Unforeseen events or emergencies beyond respondent's control
 - [ ] Reliance on professional advice, permits, or prior approvals
 - [ ] Misunderstanding of complex or recently changed requirements
-- [ ] Good faith compliance efforts already underway at time of citation
-- [ ] Factual errors or misidentifications in the original notice
+- [ ] Good faith compliance efforts underway at time of citation
+- [ ] Factual errors in the original notice
 
-Reference supporting documentation by exhibit label for each factual assertion.
+Reference supporting documentation by exhibit label for each assertion.
 
 ### 4. Legal Defense & Mitigation
 
-Develop arguments from three frameworks:
+**Procedural defenses** — improper jurisdiction/service, statute of limitations, failure to follow required procedure
 
-**Procedural/Jurisdictional Defenses**
-- Improper jurisdiction or service
-- Statute of limitations expiration
-- Failure to follow required procedural steps
+**Substantive defenses** — conduct doesn't violate cited provision, regulatory ambiguity + reasonable interpretation, applicable exemption/variance, constitutional protections
 
-**Substantive Defenses**
-- Cited conduct does not violate the specific provision
-- Regulatory ambiguity + reasonable interpretation
-- Applicable exemption or variance
-- Constitutional protections
+**Mitigation factors** — unintentional violation, clean compliance history, minimal/no actual harm, corrective action already taken
 
-**Mitigation Factors**
-- Unintentional violation / good faith misunderstanding
-- Clean compliance history
-- Minimal or no actual harm
-- Corrective action already taken
+Cite statutory sections in proper legal citation format. Flag uncertain citations with [VERIFY].
 
-Cite specific statutory sections and regulatory provisions in proper legal citation format. Flag any uncertain citations with [VERIFY].
+### 5. Proposed Resolution
 
-### 5. Proposed Resolution & Corrective Action
-
-State the requested relief in order of preference:
+State requested relief in preference order:
 
 1. **Dismissal** — based on legal/factual defenses
 2. **Penalty reduction** — based on mitigation factors
-3. **Compliance agreement** — with specific performance benchmarks and timeline
-4. **Hearing request** — invoke procedural rights with preferred format and timing
-5. **Enhanced compliance measures** — beyond minimum requirements as goodwill
+3. **Compliance agreement** — specific benchmarks and timeline
+4. **Hearing request** — invoke procedural rights with preferred format/timing
+5. **Enhanced compliance** — beyond minimum requirements as goodwill
 
-For corrective actions:
-- Completed actions: describe with dates and supporting documentation
-- Ongoing actions: provide realistic timeline with specific milestones
+For corrective actions: completed actions with dates and documentation; ongoing actions with realistic milestones.
 
 ### 6. Conclusion
 
-- State specific relief sought
-- Reiterate commitment to compliance and willingness to cooperate
-- Provide preferred contact method for follow-up
-- Express availability to supply additional information
+State relief sought, reiterate compliance commitment, provide preferred contact method, offer to supply additional information.
 
 ### 7. Signature Block
 
-```
-[Full Legal Name]
-[Title / Relationship to Matter]
-[Date]
+Full legal name, title/relationship, date. If representative: "Authorized to act on behalf of [Respondent Name]." Include notarization or verification language if required.
 
-[If representative]: "Authorized to act on behalf of [Respondent Name]"
-[If required]: Notarization / verification under penalty of perjury language
-```
+## Pitfalls & Checks
 
-## Guidelines
-
-- **Tone**: Assertive on the merits but cooperative and respectful toward the regulatory authority — never dismissive or adversarial
-- **Accuracy**: Every factual statement must be verifiable; do not overstate or speculate
-- **Completeness**: Address every violation alleged in the NOV — omissions are treated as admissions in many jurisdictions
-- **FRE awareness**: Assume the response may become an exhibit; avoid admissions against interest unless strategically intended
-- **Deadlines**: Confirm and prominently note the response deadline; late responses may waive rights
-- **Proof of service**: Ensure delivery method creates a verifiable record (certified mail return receipt, e-filing confirmation, hand delivery with stamped copy)
-- **Retain copies**: Maintain complete copies of the response and all attachments for the client's file
-- **Jurisdiction-specific**: Verify whether the agency has specific response form requirements, page limits, or mandatory language before drafting
+- **Address every violation** — omissions are treated as admissions in many jurisdictions
+- **Tone** — assertive on merits but cooperative; never dismissive or adversarial
+- **No speculation** — every factual statement must be verifiable
+- **FRE awareness** — assume response may become an exhibit; avoid unintended admissions against interest
+- **Deadline** — confirm and prominently note; late responses may waive rights
+- **Proof of service** — use delivery method with verifiable record (certified mail return receipt, e-filing confirmation, stamped hand-delivery copy)
+- **Jurisdiction rules** — verify agency-specific form requirements, page limits, or mandatory language before drafting
+- **Retain copies** — complete copies of response and all attachments for client file

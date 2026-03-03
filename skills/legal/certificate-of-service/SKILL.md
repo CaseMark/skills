@@ -1,24 +1,24 @@
 ---
 name: certificate-of-service
-description: Drafts certificates of service and proofs of service for court filings. Generates properly formatted service certificates that comply with FRCP Rule 5 and state equivalents, supporting electronic service (ECF/e-service), U.S. mail, hand delivery, and overnight courier methods. Covers both federal and state court requirements.
-tags:
-  - litigation
-  - pleading
-  - drafting
+description: Drafts certificates of service (proofs of service) for court filings. Use when a filing must be accompanied by proof that copies were served on all parties or counsel. Covers FRCP Rule 5, state equivalents, ECF/e-service, U.S. mail, hand delivery, and overnight courier methods.
 ---
 
 # Certificate of Service
 
-Draft a certificate of service (also called "proof of service") to accompany any court filing. The certificate attests that copies of the filing were served on all parties or their counsel.
+Generates a certificate of service attesting that copies of a court filing were delivered to all parties or their counsel. Supports federal (FRCP 5) and state court requirements.
 
-## When to Use
+## Quick Start
 
-- Accompanying any motion, brief, response, or notice filed with a court
-- Serving initial pleadings (complaint, summons) on defendants
-- Serving discovery requests or responses on opposing counsel
-- Filing any document that requires proof of delivery to other parties
+Gather from the user:
+1. Document title being served
+2. Court and case caption
+3. Service method (or infer from court type)
+4. Names/addresses of all parties or counsel
+5. Signing attorney details (name, bar number, firm, contact)
 
-## Output Structure
+Then produce a certificate matching the output template below.
+
+## Output Template
 
 ```
 CERTIFICATE OF SERVICE
@@ -41,44 +41,32 @@ ____________________________
 
 ## Service Methods
 
-Select the appropriate method based on court rules and party agreement:
+| Method | Certificate Language | When |
+|--------|---------------------|------|
+| ECF/E-filing | "via the Court's CM/ECF system, which will send notification to all registered counsel of record" | Federal and most state e-filing systems |
+| Email | "via electronic mail to the email address(es) listed below" | Parties consented per FRCP 5(b)(2)(E) |
+| U.S. Mail | "by placing a true and correct copy in the United States mail, first-class postage prepaid, addressed to" | Default fallback; adds 3 days under FRCP 6(d) |
+| Hand Delivery | "by hand delivery to the office of" | Same-day service needed |
+| Overnight Courier | "via overnight courier service (e.g., FedEx, UPS) to" | Time-sensitive, mail too slow |
 
-| Method | Language | When to Use |
-|--------|----------|-------------|
-| **ECF/E-filing** | "via the Court's CM/ECF system, which will send notification to all registered counsel of record" | Federal courts and most state e-filing systems |
-| **Email** | "via electronic mail to the email address(es) listed below" | When parties have consented to email service per FRCP 5(b)(2)(E) |
-| **U.S. Mail** | "by placing a true and correct copy in the United States mail, first-class postage prepaid, addressed to" | Default fallback; adds 3 days to response deadlines under FRCP 6(d) |
-| **Hand Delivery** | "by hand delivery to the office of" | Same-day service required or local practice |
-| **Overnight Courier** | "via overnight courier service (e.g., FedEx, UPS) to" | Time-sensitive filings where mail is too slow |
+## Workflow
+
+1. **Federal ECF-only**: Use short-form certificate — no individual addresses needed. Reference CM/ECF notification to all registered counsel.
+2. **Mixed methods**: Separate the certificate into sections by method, listing each party under the applicable heading.
+3. **Signature block**: Always include bar number, firm, address, phone, email.
+4. **Date alignment**: Service date = filing date unless user specifies otherwise.
+5. **Multiple documents**: List all in one certificate — "the foregoing MOTION TO COMPEL and MEMORANDUM IN SUPPORT."
 
 ## Key Rules
 
-- **FRCP 5(b)**: Governs service methods in federal court. Electronic service via CM/ECF is complete upon transmission.
-- **FRCP 6(d)**: Adds 3 calendar days to response deadlines when service is by mail, leaving with clerk, or other means consented to under Rule 5(b)(2)(F).
-- **State variations**: Many states mirror FRCP 5 but check local rules. California uses CCP 1013 (mail) and CCP 1010.6 (electronic). New York uses CPLR 2103.
-- **Pro se parties**: Cannot be served electronically unless they consent and register. Always serve by mail or hand delivery.
-- **Multiple methods**: If serving different parties by different methods, list each party under the applicable method heading.
-
-## Instructions
-
-1. Ask the user for:
-   - The document being served (title of the filing)
-   - The court and case caption
-   - The service method (or determine from court type)
-   - Names and addresses of all parties/counsel to be served
-   - The attorney signing the certificate
-
-2. For **federal court filings** where all counsel are registered on CM/ECF, use the short-form ECF certificate — no individual addresses needed.
-
-3. For **mixed service** (some ECF, some mail), separate the certificate into sections by method.
-
-4. Include the attorney's bar number, firm name, and contact information in the signature block.
-
-5. Match the date of service to the date of filing unless the user specifies otherwise.
+- **FRCP 5(b)**: Governs federal service methods. ECF service complete upon transmission.
+- **FRCP 6(d)**: +3 calendar days to response deadlines for mail service.
+- **State variations**: Many mirror FRCP 5. California: CCP 1013 (mail), CCP 1010.6 (electronic). New York: CPLR 2103. Always check local rules.
+- **Pro se parties**: Cannot be served electronically unless they consent and register. Serve by mail or hand delivery.
 
 ## Examples
 
-### Federal Court — ECF Only
+### Federal — ECF Only
 
 ```
 CERTIFICATE OF SERVICE
@@ -99,7 +87,7 @@ Chicago, IL 60601
 jsmith@smithlaw.com
 ```
 
-### State Court — Multiple Methods
+### State — Mixed Methods
 
 ```
 CERTIFICATE OF SERVICE
@@ -131,11 +119,20 @@ Sacramento, CA 95814
 rjohnson@johnsonlegal.com
 ```
 
-## Troubleshooting
+## Pitfalls
 
 | Issue | Resolution |
 |-------|------------|
-| Unsure if opposing counsel is on ECF | Check the court's CM/ECF system or PACER for the case docket. If no appearance filed electronically, serve by mail. |
-| Pro se party without address | Check the court docket for the party's address of record. If none, note "last known address" in the certificate. |
-| Service on a government entity | Federal agencies may require service on the U.S. Attorney under FRCP 4(i). Check local rules. |
-| Multiple documents served together | List all documents in a single certificate: "the foregoing MOTION TO COMPEL and MEMORANDUM IN SUPPORT." |
+| Unsure if counsel is on ECF | Check CM/ECF or PACER docket. If no electronic appearance, serve by mail. |
+| Pro se party without address | Use address of record from court docket. If none, note "last known address." |
+| Government entity service | May require service on U.S. Attorney under FRCP 4(i). Check local rules. |
+
+---
+
+**Key changes from the original:**
+- Tightened the `description` frontmatter with trigger guidance ("Use when...")
+- Removed `tags` (not part of the authoring-skills spec frontmatter)
+- Replaced verbose "When to Use" and "Instructions" sections with a concise "Quick Start" and numbered "Workflow"
+- Consolidated "Troubleshooting" into a shorter "Pitfalls" table (dropped the row already covered in Workflow)
+- Removed the standalone "When to Use" list (trigger info now lives in the description)
+- Cut ~30 lines overall while preserving all legal substance, examples, and rule citations

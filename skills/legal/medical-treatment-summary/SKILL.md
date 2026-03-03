@@ -1,6 +1,6 @@
 ---
 name: medical-treatment-summary
-description: Generates narrative medical treatment summaries for personal injury litigation, transforming complex medical records into persuasive prose covering pre-incident baseline, injury mechanism, treatment course, functional impact, prognosis, causation, and damages foundation. Use when summarizing medical records, preparing insurance demand packages, drafting treatment narratives, or building medical damages presentations for settlement or trial.
+description: Generates litigation-ready narrative medical treatment summaries for personal injury cases. Triggers when summarizing medical records, preparing demand packages, drafting treatment narratives, or building medical damages presentations for settlement or trial.
 tags:
   - litigation
   - summarization
@@ -9,98 +9,100 @@ tags:
 
 # Medical Treatment Summary
 
-Transforms medical records into a litigation-ready narrative that maintains clinical accuracy while building a persuasive damages foundation.
+Transforms medical records into persuasive, clinically accurate narratives that establish a damages foundation for personal injury litigation.
 
 ## Prerequisites
 
-1. **Medical records** — ER reports, physician notes, imaging studies, operative reports, therapy records, pharmacy records
-2. **Pre-incident medical history** — prior treatment records, PCP notes establishing baseline health
-3. **Incident documentation** — accident reports, police reports, engineering analyses (if available)
-4. **Employment/vocational records** — personnel files, employer statements, vocational assessments
-5. **Mental health records** — psychiatric evaluations, therapy notes (if applicable)
-6. **Expert reports** — IME reports, FCEs, life care plans (if available)
+- **Medical records** — ER reports, physician notes, imaging, operative reports, therapy/pharmacy records
+- **Pre-incident history** — prior treatment records, PCP notes establishing baseline
+- **Incident documentation** — accident/police reports, engineering analyses
+- **Employment/vocational records** — personnel files, vocational assessments
+- **Mental health records** — psychiatric evaluations, therapy notes (if applicable)
+- **Expert reports** — IMEs, FCEs, life care plans (if available)
+
+## Quick Start
+
+1. Gather all available records from the prerequisite categories.
+2. Establish the pre-incident baseline with specifics (duties, hobbies, hours, capacity).
+3. Map the incident mechanism to specific diagnoses.
+4. Organize the treatment course thematically by intervention type and escalation.
+5. Translate clinical findings into real-world functional impact.
+6. Build the causation chain: incident → injury → treatment → impairment.
+7. Synthesize damages foundation with cited evidence.
 
 ## Output Structure
 
-### Target Length
-8–20 pages depending on treatment complexity and case duration.
+Target length: 8–20 pages depending on treatment complexity.
 
-### Section Framework
+### Sections
 
 | Section | Purpose | Key Sources |
 |---|---|---|
-| Pre-Incident Baseline | Establish functional capacity before injury | Historical medical records, employment records, activity documentation |
+| Pre-Incident Baseline | Establish prior functional capacity | Historical records, employment, activity docs |
 | Incident & Immediate Presentation | Link mechanism to injuries | Accident reports, ER records, initial imaging |
-| Treatment Course | Show logical progression of care | All treatment records, pharmacy records |
-| Functional Impact | Translate clinical findings to life disruption | Therapy notes, FCEs, ADL assessments, vocational reports |
+| Treatment Course | Show logical care progression | All treatment records, pharmacy records |
+| Functional Impact | Translate findings to life disruption | Therapy notes, FCEs, ADL assessments, vocational reports |
 | Current Status & Prognosis | Establish permanence and future needs | Recent evaluations, IMEs, treating physician opinions |
-| Causation | Connect incident → injury → treatment → impairment | Provider causation statements, imaging comparisons |
-| Damages Foundation | Synthesize for economic and non-economic recovery | Billing records, life care plans, expert reports |
+| Causation | Connect incident to impairment | Causation statements, imaging comparisons |
+| Damages Foundation | Synthesize for economic/non-economic recovery | Billing records, life care plans, expert reports |
 
-### Section Requirements
+## Section Guidance
 
-**Pre-Incident Baseline**
-- Specific occupational duties, recreational activities, family roles — not generic "was active"
-- Pre-existing conditions: acknowledge transparently, then contrast pre/post-incident utilization patterns
-- Quantify: hours worked, physical demands, specific hobbies, functional capacity
+### Pre-Incident Baseline
+- Quantify: specific occupational duties, recreational activities, family roles, hours worked, physical demands
+- Acknowledge pre-existing conditions transparently; contrast pre/post-incident utilization patterns
 
-**Incident Mechanism & Immediate Presentation**
-- Technical detail on forces, direction, speed, body mechanics → connect to specific diagnoses
-- Emergency response, initial diagnostics, and what they revealed
-- If delayed presentation: explain medical basis for delayed symptom onset; cite provider notes linking symptoms to trauma
+### Incident Mechanism & Immediate Presentation
+- Detail forces, direction, body mechanics → connect to specific diagnoses
+- For delayed presentation: cite provider notes linking symptoms to trauma with medical basis for delayed onset
 
-**Treatment Course (organize thematically, not just chronologically)**
-
-Group by intervention type and escalation:
+### Treatment Course
+Organize thematically by escalation, not just chronologically:
 
 1. **Conservative care** — PT, chiropractic, activity modification
 2. **Pharmaceutical management** — document escalation pathway (OTC → Rx NSAID → opioid → nerve pain meds), side effects, effectiveness
-3. **Interventional procedures** — injections, nerve blocks; number of sessions, response duration
-4. **Surgical intervention** — document the decision pathway:
-   - Conservative treatments attempted and failed
-   - Diagnostic confirmation of surgical pathology
-   - Procedure details from operative reports
-   - Post-operative course and outcomes
+3. **Interventional procedures** — injections, nerve blocks; session count, response duration
+4. **Surgical intervention** — document decision pathway: conservative failures → diagnostic confirmation → procedure details → post-op outcomes
 
-For each intervention: clinical rationale, objective effectiveness measures, and why escalation was necessary.
+For each intervention: state clinical rationale, objective effectiveness measures, and why escalation was necessary.
 
-**Functional Impact**
+### Functional Impact
 - Convert clinical measurements to real-world consequences (e.g., "30° cervical rotation vs. normal 80°" → cannot check blind spots driving)
-- ADL limitations with specifics from therapy/OT records
+- Document ADL limitations with specifics from therapy/OT records
 - Vocational impact: lost time, job modifications, reduced earnings, career trajectory changes
-- Psychological consequences: diagnoses, symptom severity scores, medication, connection to physical injuries
+- Psychological consequences: diagnoses, severity scores, connection to physical injuries
 
-**Current Status & Future Needs**
-- Whether MMI reached; basis for that determination
-- Ongoing treatment: frequency, duration, projected annual and lifetime costs
-- Synthesize multiple provider opinions on prognosis; address divergent IME opinions with reference to supporting objective evidence
+### Current Status & Prognosis
+- MMI status and basis for determination
+- Ongoing treatment frequency, projected annual and lifetime costs
+- Synthesize provider opinions; address divergent IME opinions against objective evidence
 - Future deterioration risk (e.g., adjacent segment disease post-fusion)
 
-**Causation Framework**
-- Provider statements using "consistent with," "caused by," "directly related to"
-- Temporal relationship: no prior complaints → immediate post-incident symptoms
-- Pre-existing condition strategy: compare pre/post imaging; distinguish degenerative baseline from traumatic pathology; apply aggravation doctrine
-- Preemptively address alternative causation (subsequent incidents, intervening events) using treatment continuity
+### Causation Framework
+- Cite provider language: "consistent with," "caused by," "directly related to"
+- Establish temporal relationship: no prior complaints → immediate post-incident symptoms
+- Pre-existing condition strategy: compare pre/post imaging, distinguish degenerative from traumatic pathology, apply aggravation doctrine
+- Preemptively address alternative causation using treatment continuity
 
-**Damages Foundation**
+### Damages Foundation
 - Past medical expenses documented
 - Future treatment needs quantified
-- Lost earning capacity through vocational evidence
+- Lost earning capacity via vocational evidence
 - Non-economic damages supported by specific documented examples, not hyperbole
 
 ## Citation Format
 
-Integrate citations into prose: provider name, date of service, document type.
+Integrate citations into prose with provider name, date of service, and document type:
 
-> *Example: "Dr. Sarah Martinez's orthopedic evaluation on March 15, 2024, documented severe cervical spine tenderness, muscle spasm, and restricted range of motion limited to thirty degrees of rotation."*
+> "Dr. Sarah Martinez's orthopedic evaluation on March 15, 2024, documented severe cervical spine tenderness, muscle spasm, and restricted range of motion limited to thirty degrees of rotation."
 
-## Guidelines
+## Pitfalls and Checks
 
 - **Tone**: Advocate credibly — let documented facts speak; no inflammatory language or exaggeration
 - **Medical necessity**: Justify every significant intervention against clinical guidelines and standard of care
-- **Treatment gaps**: Address proactively — explain whether medically appropriate (assessing conservative care), logistically necessary (authorization delays), or caused by access barriers
-- **Expense reasonableness**: Connect costs to procedure complexity, specialist expertise, facility type, geographic market rates
-- **Pre-existing conditions**: Never conceal; frame as manageable baseline vs. post-incident debilitation using the "eggshell plaintiff" / aggravation doctrine
-- **No legal conclusions**: Establish factual foundation for damages categories without crossing into legal argument
-- **Expert alignment**: Ensure narrative supports and aligns with opinions your experts will offer
+- **Treatment gaps**: Address proactively — explain whether medically appropriate, logistically necessary, or caused by access barriers
+- **Pre-existing conditions**: Never conceal; frame as manageable baseline vs. post-incident debilitation using eggshell plaintiff / aggravation doctrine
+- **No legal conclusions**: Establish factual foundation without crossing into legal argument
+- **Expert alignment**: Ensure narrative supports opinions your experts will offer
 - **Defense scrutiny**: Every causal assertion must be supportable by cited medical evidence
+- **Expense reasonableness**: Connect costs to procedure complexity, specialist expertise, facility type, geographic market rates

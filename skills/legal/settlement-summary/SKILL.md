@@ -1,23 +1,18 @@
 ---
 name: settlement-summary
-description: Generates structured summaries of settlement negotiations and agreements in commercial litigation, capturing chronology of offers/counteroffers, key terms, release provisions, confidentiality clauses, and strategic context. Use when summarizing settlement history, documenting negotiation timelines, analyzing settlement terms, or preparing post-settlement implementation checklists.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+description: Generates structured summaries of settlement negotiations and agreements in commercial litigation. Use when summarizing settlement history, documenting negotiation timelines, analyzing settlement terms, preparing implementation checklists, or reviewing release and confidentiality provisions.
 ---
 
 # Settlement Summary
 
-Produces a comprehensive summary of settlement negotiations and final agreement terms from litigation matter files.
+Summarizes settlement negotiations and final agreement terms from litigation matter files into a structured format covering chronology, key terms, strategic context, and implementation steps.
 
-## Prerequisites
+## Required Inputs
 
-1. **Settlement documents** — demand letters, offers, counteroffers, term sheets, executed agreements
-2. **Mediation materials** — mediation statements, mediator proposals (if applicable)
-3. **Correspondence** — emails, letters reflecting negotiation positions and developments
-4. **Case context** — claims at issue, parties involved, litigation posture at time of settlement
+- **Settlement documents** — demands, offers, counteroffers, term sheets, executed agreements
+- **Mediation materials** — statements, mediator proposals (if any)
+- **Correspondence** — emails/letters reflecting negotiation positions
+- **Case context** — claims, parties, litigation posture at settlement time
 
 ## Output Structure
 
@@ -25,58 +20,43 @@ Produces a comprehensive summary of settlement negotiations and final agreement 
 
 | Field | Content |
 |---|---|
-| Parties | All settling parties and their roles |
+| Parties | All settling parties and roles |
 | Settlement date | Date of executed agreement |
-| Total consideration | Monetary amount and structure |
+| Total consideration | Amount and structure |
 | Key non-monetary terms | Injunctive relief, practice changes, etc. |
 | Case disposition | Dismissal type (with/without prejudice) |
 
 ### 2. Negotiation Chronology
 
-For each significant event, capture:
+Capture each significant event in date order:
 
-| Date | Party | Action | Terms Proposed | Conditions/Contingencies |
+| Date | Party | Action | Terms Proposed | Conditions |
 |---|---|---|---|---|
-| ... | ... | Demand / Offer / Counter / Mediation | Specific amounts and terms | Any attached conditions |
+| _date_ | _party_ | Demand / Offer / Counter / Mediation | Amounts and terms | Attached conditions |
 
-Include mediator name and date for any mediation sessions. Note case developments (rulings, discovery) that influenced negotiation shifts.
+Include mediator name/date for mediation sessions. Note case developments (rulings, discovery) that influenced shifts.
 
 ### 3. Settlement Terms Analysis
 
-#### Monetary Consideration
-- Total amount and payment structure (lump sum vs. structured)
-- Allocation among claimants (if multiple)
-- Tax provisions or gross-up clauses
-- Payment deadlines and default provisions
+**Monetary consideration** — total amount, payment structure (lump sum vs. structured), allocation among claimants, tax provisions, payment deadlines, default provisions.
 
-#### Release Provisions
-- Scope: mutual or unilateral
-- Claims covered and any carve-outs
-- Parties covered (including affiliates, successors)
-- Quote key release language with section citations
+**Release provisions** — scope (mutual/unilateral), claims covered and carve-outs, covered parties (affiliates, successors). Quote key release language with section cites.
 
-#### Confidentiality
-- What is confidential (terms, amount, existence of settlement)
-- Permitted disclosures (tax, regulatory, legal obligations)
-- Consequences of breach
+**Confidentiality** — what is confidential (terms, amount, existence), permitted disclosures, breach consequences.
 
-#### Liability Language
-- Admission/denial clause — quote verbatim with section cite
+**Liability language** — quote admission/denial clause verbatim with section cite.
 
-#### Ongoing Obligations
-- Compliance monitoring or reporting
-- Cooperation requirements
-- Performance obligations with deadlines
+**Ongoing obligations** — compliance monitoring, cooperation requirements, performance obligations with deadlines.
 
 ### 4. Special Provisions
 
-Flag any of the following if present:
+Flag if present:
 
 - [ ] Court approval required (class action, minor, bankruptcy)
 - [ ] Board or third-party consent conditions precedent
 - [ ] Insurance allocation between covered/non-covered claims
 - [ ] Reservation of rights language
-- [ ] Enforcement dispute resolution mechanism (arbitration, mediation, specific forum)
+- [ ] Enforcement dispute resolution mechanism
 - [ ] Non-standard or unusual terms for the practice area
 
 ### 5. Strategic Assessment
@@ -84,8 +64,8 @@ Flag any of the following if present:
 | Factor | Analysis |
 |---|---|
 | Settlement vs. trial exposure | Compare to realistic verdict range |
-| Litigation costs avoided | Estimated remaining defense/prosecution costs |
-| Risk factors driving settlement | Key vulnerabilities for each side |
+| Litigation costs avoided | Estimated remaining costs |
+| Risk factors driving settlement | Key vulnerabilities per side |
 | Insurance implications | Coverage issues, policy limits, contribution |
 
 ### 6. Implementation Checklist
@@ -95,13 +75,13 @@ Flag any of the following if present:
 - [ ] Initial payment due — date: ___
 - [ ] Provide notice to third parties
 - [ ] Return/destroy confidential materials
-- [ ] Calendar any ongoing obligation deadlines
+- [ ] Calendar ongoing obligation deadlines
 
-## Guidelines
+## Pitfalls
 
-- Quote agreement language exactly when summarizing release, confidentiality, and liability provisions — cite section/paragraph numbers
-- Organize chronology strictly by date; do not group by party
-- If insurance is involved, separately address allocation between covered and non-covered claims
-- Note all conditions precedent that must be satisfied before the settlement is effective
-- Use plain language for client-facing sections; preserve legal precision for technical provisions
-- If settlement documents are incomplete or missing, flag gaps explicitly rather than inferring terms
+- **Never infer missing terms** — flag gaps explicitly when documents are incomplete
+- **Quote exactly** for release, confidentiality, and liability provisions — always cite section/paragraph numbers
+- **Chronology is date-ordered** — do not group by party
+- **Insurance allocation** — address covered vs. non-covered claims separately when insurance is involved
+- **Conditions precedent** — note all conditions that must be satisfied before the settlement is effective
+- **Plain language** for client-facing sections; preserve legal precision for technical provisions

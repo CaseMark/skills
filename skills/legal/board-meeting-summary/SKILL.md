@@ -1,30 +1,21 @@
 ---
 name: board-meeting-summary
-description: Produces a structured, objective summary of corporate board meetings with required metadata, quorum, attendance, conflicts, agenda discussions, resolutions with vote counts, committee reports, and significant corporate actions. Use for board meeting summary, board minutes summary, corporate governance record, director meeting recap, or post-meeting record for officers, shareholders, or regulators.
-tags:
-  - corporate
-  - summarization
-  - summary
+description: Produces a structured, objective summary of corporate board meetings covering metadata, quorum, attendance, conflicts, resolutions with vote counts, committee reports, and significant corporate actions. Use when summarizing board minutes, creating a corporate governance record, or preparing a post-meeting recap for officers, shareholders, or regulators.
 ---
 
 # Board Meeting Summary
 
-Create an official, concise board meeting summary suitable for the corporate minute book.
+Generates an official, concise board meeting summary suitable for the corporate minute book.
 
-## Prerequisites
+## Quick Start
 
-1. **Meeting materials** — agenda, minutes or notes, presentations, written reports.
-2. **Attendance list** — directors present/absent (excused or not), officers, guests/advisors.
-3. **Quorum/notice facts** — quorum count, notice method, any waivers.
-4. **Resolutions & votes** — text or precise summary, counts for/against/abstain/recused.
-5. **Committee reports** — audit, compensation, governance, special committees.
-6. **Action items** — approvals, authorizations, follow-ups, next meeting details.
+1. Collect inputs: agenda, minutes/notes, attendance list, resolutions, committee reports.
+2. Populate every section below. Mark missing information as `UNKNOWN` and flag it in the Issues checklist.
+3. Review against Guidelines before finalizing.
 
-## Output Structure / Process
+## Output Sections
 
-Use the following structure and populate every section. If information is missing, mark as `UNKNOWN` and flag in the Issues list.
-
-**1) Meeting Metadata (Table)**
+### 1. Meeting Metadata
 
 | Field | Value |
 |---|---|
@@ -37,35 +28,37 @@ Use the following structure and populate every section. If information is missin
 | Chair | |
 | Secretary/Recorder | |
 
-**2) Attendance (Table)**
+### 2. Attendance
 
 | Role | Name | Status | Notes |
 |---|---|---|---|
-| Director | | Present/Absent (Excused/Unexcused) | |
+| Director | | Present / Absent (Excused/Unexcused) | |
 | Officer | | Present | |
 | Guest/Advisor | | Present | |
 
-**3) Conflicts & Recusals (Table)**
+### 3. Conflicts & Recusals
 
 | Person | Matter | Disclosure | Recusal | Notes |
 |---|---|---|---|---|
 | | | Yes/No | Yes/No | |
 
-**4) Agenda Items (Table)**
+### 4. Agenda Items
 
-| Item | Topic | Summary of Discussion | Decision/Outcome | Follow-up |
+| # | Topic | Discussion Summary | Decision/Outcome | Follow-up |
 |---|---|---|---|---|
 | 1 | | | | |
 
-**5) Resolutions (Table)**
+### 5. Resolutions
 
-| Resolution | Summary (or text if provided) | Vote (For/Against/Abstain/Recused) | Result |
+| # | Summary (or verbatim text) | Vote (For/Against/Abstain/Recused) | Result |
 |---|---|---|---|
 | 1 | | | Approved/Denied/Tabled |
 
-**6) Significant Corporate Actions (Checklist)**
+### 6. Significant Corporate Actions
 
-- [ ] Approval of financial statements/audit reports
+Check all that apply. For each, add a short action summary with any conditions or limits.
+
+- [ ] Financial statement/audit report approval
 - [ ] Dividends or distributions
 - [ ] Major contracts/transactions
 - [ ] Stock issuance/repurchase
@@ -76,23 +69,21 @@ Use the following structure and populate every section. If information is missin
 - [ ] Litigation or claims decisions
 - [ ] Other material actions
 
-For each checked item, add a short action summary and any conditions or limits.
-
-**7) Committee Reports (Table)**
+### 7. Committee Reports
 
 | Committee | Key Findings/Recommendations | Board Action |
 |---|---|---|
-| Audit | | Accepted/Modified/Deferred |
+| | | Accepted/Modified/Deferred |
 
-**8) Executive Session**
+### 8. Executive Session
 
-Provide occurrence and general subject only. Do not disclose privileged content unless explicitly instructed.
+Note occurrence and general subject only. Do not disclose privileged content unless explicitly instructed.
 
-**9) Closing**
+### 9. Closing
 
-Include announcements, next meeting date/time (if set), and adjournment time.
+Announcements, next meeting date/time (if set), adjournment time.
 
-**10) Issues / Missing Information (Checklist)**
+### 10. Issues / Missing Information
 
 - [ ] Missing quorum/notice detail
 - [ ] Missing vote counts
@@ -102,8 +93,8 @@ Include announcements, next meeting date/time (if set), and adjournment time.
 
 ## Guidelines
 
-- Maintain neutral tone; do not editorialize or speculate.
-- Use precise vote counts and identify abstentions/recusals.
-- Summarize discussion; do not reproduce presentations verbatim.
-- Confirm recordkeeping requirements against the company’s bylaws and governing law; do not state compliance unless verified.
-- Preserve privilege: exclude attorney-client content or legal strategy unless specifically directed.
+- **Neutral tone** — do not editorialize or speculate.
+- **Precise votes** — always include exact counts; identify abstentions and recusals.
+- **Summarize, don't reproduce** — condense discussion; do not copy presentations verbatim.
+- **Verify compliance** — confirm recordkeeping against bylaws and governing law; do not assert compliance unless verified.
+- **Preserve privilege** — exclude attorney-client content or legal strategy unless specifically directed.

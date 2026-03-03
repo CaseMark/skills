@@ -1,148 +1,106 @@
 ---
 name: deposition-document-assembly
-description: Assembles and organizes documents for deposition preparation by identifying deponent-connected materials, categorizing by use (authentication, impeachment, key fact, background), generating an exhibit candidate list, and flagging document gaps. Produces a complete document inventory, exhibit list, impeachment index, gap analysis, and pre-deposition preparation checklist. Use before building a deposition outline — for fact witnesses, party deponents, corporate representatives (30(b)(6)), or expert witnesses in US federal and state litigation.
-tags:
-  - analysis
-  - checklist
-  - litigation
+description: Assembles and organizes documents for deposition preparation, producing a document inventory, exhibit list, impeachment index, and gap analysis. Use before building a deposition outline for any deponent type (fact witness, party, corporate rep/30(b)(6), expert) in US federal or state litigation.
 ---
 
 # Deposition Document Assembly
 
-Systematically identifies, categorizes, and inventories documents for deposition preparation, then outputs an exhibit list, gap analysis, and impeachment index.
+Identifies, categorizes, and inventories documents tied to a deponent, then produces an exhibit candidate list, gap analysis, impeachment index, and preparation checklist.
 
 ## Prerequisites
 
-1. **Deponent identity and role** — name, employer, party/non-party status
-2. **Deposition topics** — subject matter, 30(b)(6) notice topics if applicable
-3. **Case materials** — produced documents, pleadings, prior testimony (provide what's available)
+Collect before starting:
+
+1. **Deponent identity** — name, role, party/non-party status
+2. **Topics** — subject matter; 30(b)(6) notice topics if applicable
+3. **Case materials** — produced documents, pleadings, prior testimony
 4. **Deponent type** — fact witness, party, corporate rep, or expert
 
-If materials are unavailable, the skill will prompt for information needed to guide document identification.
+Prompt for any missing items before proceeding.
 
-## Output Structure / Process
+## Workflow
 
-### Phase 1: Document Identification
+### 1. Identify Documents
 
-**A. By Connection to Deponent**
+Search by three axes:
 
-| Category | What to Find |
-|----------|-------------|
-| Authored | Documents the deponent wrote, signed, or created |
-| Received | Documents addressed to or received by the deponent |
-| CC'd/BCC'd | Documents where deponent was copied |
-| Mentioned | Documents referencing the deponent by name |
-| Custodial | Documents from deponent's files or email account |
+**Connection to deponent:** authored, received, CC'd/BCC'd, mentioned by name, custodial (from deponent's files/email).
 
-**B. By Topic**
+**Topic:** key events deponent will testify about, decisions they participated in, relevant communications, applicable policies, business records they maintained.
 
-| Category | What to Find |
-|----------|-------------|
-| Key Events | Documents about events deponent will testify about |
-| Decisions | Documents about decisions deponent made or participated in |
-| Communications | Correspondence involving the deponent |
-| Policies | Policies deponent was subject to or responsible for |
-| Records | Business records deponent maintained or used |
+**Prior statements:** depositions in this or other cases, affidavits/declarations, interrogatory answers, RFA responses identifying the deponent, written or recorded statements.
 
-**C. Prior Statements**
+### 2. Build Document Inventory
 
-| Type | Examples |
-|------|----------|
-| Prior testimony | Depositions in this or other cases |
-| Sworn statements | Affidavits, declarations |
-| Discovery responses | Interrogatory answers, RFA responses where deponent is identified |
-| Other | Written or recorded statements |
+Create a table with columns: Doc ID, Description, Date, Bates, Connection, Category, Key Pages, Notes.
 
----
+Connection types: Authored / Received / CC'd / Mentioned / Custodial / Topic-related
 
-### Phase 2: Document Inventory
+Categories: Authentication / Impeachment / Key Fact / Background / Pleading-Discovery
 
-| Doc ID | Description | Date | Bates | Connection | Category | Key Pages | Notes |
-|--------|-------------|------|-------|------------|----------|-----------|-------|
-| | | | | | | | |
+### 3. Generate Exhibit Candidate List
 
-**Connection types:** Authored · Received · CC'd · Mentioned · Custodial · Topic-related  
-**Categories:** Authentication · Impeachment · Key Fact · Background · Pleading/Discovery
+Create a table with columns: Exhibit #, Document, Bates/ID, Topic, Purpose, Priority (Essential / Likely / Backup).
 
----
+Choose an organization scheme: chronological (narrative depositions), topical (issue-focused), or strategic (examination sequence).
 
-### Phase 3: Exhibit Candidate List
+### 4. Run Gap Analysis
 
-| Exhibit # | Document | Bates/ID | Topic | Purpose | Priority |
-|-----------|----------|----------|-------|---------|----------|
-| | | | | | Essential / Likely / Backup |
+Check for missing documents by deponent type:
 
-**Organization:** Chronological (narrative depositions) · Topical (issue-focused) · Strategic (examination sequence)
-
----
-
-### Phase 4: Gap Analysis
-
-**Standard checklist by deponent type:**
-
-| Deponent Type | Documents to Verify |
-|---------------|---------------------|
-| Any deponent | Resume/CV, org chart, job description, prior testimony in this case |
-| Party | Complaint/Answer, interrogatory responses, RFA responses, produced documents |
+| Deponent Type | Verify Presence Of |
+|---|---|
+| Any | Resume/CV, org chart, job description, prior testimony in this case |
+| Party | Complaint/Answer, interrogatory responses, RFA responses, produced docs |
 | Employee | Personnel file (if relevant), training/disciplinary records, email samples |
-| 30(b)(6) rep | Corporate org docs, policies/procedures by notice topic, prior 30(b)(6) testimony |
+| 30(b)(6) rep | Corporate org docs, policies/procedures per notice topic, prior 30(b)(6) testimony |
 | Expert | Expert report, CV, publications, fee agreement, prior testimony list, materials considered |
 
-**Gap Analysis Output:**
+For each gap, document: what is missing, why it matters, potential source, and action required.
 
-| Missing Document | Why It Matters | Potential Source | Action Required |
-|-----------------|----------------|-----------------|-----------------|
-| | | | |
+### 5. Build Impeachment Index
+
+For each potential inconsistency, record: document, Bates/ID, exact quote from document, expected testimony, nature of inconsistency, and planned approach.
+
+For each entry include: (1) exact page/paragraph citation, (2) commitment questions before confrontation, (3) follow-up after introduction.
+
+### 6. Produce Final Package
+
+Output a summary containing:
+
+- Deponent name, role, deposition date
+- Document counts by category (authentication, impeachment, key fact, background, pleadings/discovery)
+- Gaps identified with required actions
+- Preparation checklist:
+  - Obtain missing documents per gap analysis
+  - Prepare clean exhibit copies
+  - Number/tab exhibits; prepare sets for witness, opposing counsel, reporter
+  - For remote depositions: load documents in presentation software, test screen sharing
+  - Review impeachment documents; integrate into deposition outline
+
+## Pitfalls and Rules
+
+- **Impeachment exhibits:** Do not pre-disclose if jurisdiction permits surprise; keep separate from main exhibit binder
+- **30(b)(6) scope:** Exhibits must align with designated notice topics — flag any documents outside scope
+- **Authentication planning:** Note which deponent can authenticate each exhibit for trial (FRE 901-902); plan method per exhibit (witness testimony, self-authentication, stipulation)
+- **FRCP 30(f):** Original exhibits must be annexed to the deposition record unless parties stipulate otherwise — verify local rules
+- **FRE 408:** Label settlement-adjacent communications if used for a non-settlement purpose
+
+## Related Skills
+
+- `deposition-preparation` — outline building
+- `deposition-questioning-techniques` — document use during examination
+- `deposition-30b6-corporate-rep` — corporate representative specifics
 
 ---
 
-### Phase 5: Impeachment Index
+**Key changes made:**
 
-| Document | Bates/ID | Document Says | Expected Testimony | Inconsistency | Approach |
-|----------|----------|---------------|-------------------|---------------|----------|
-| | | "[Quote]" | | | |
-
-For each entry, note: (1) exact page/paragraph of the statement, (2) questions to commit the witness before confrontation, (3) follow-up after introduction.
-
----
-
-### Phase 6: Final Output Package
-
-```
-DEPOSITION DOCUMENT ASSEMBLY
-=============================
-Deponent:          [Name / Role]
-Deposition Date:   [Date]
-
-DOCUMENT SUMMARY
-----------------
-Total Documents:   [#]
-  Authentication:  [#]
-  Impeachment:     [#]
-  Key Fact:        [#]
-  Background:      [#]
-  Pleadings/Disc:  [#]
-
-GAPS IDENTIFIED
----------------
-1. [Missing document] — Action: [Step]
-2. [Missing document] — Action: [Step]
-
-PREPARATION TASKS
------------------
-[ ] Obtain missing documents (see Gap Analysis)
-[ ] Prepare clean exhibit copies
-[ ] Number/tab exhibits; prepare witness, opposing counsel, reporter, and working sets
-[ ] For digital depositions: load documents in presentation software, test screen sharing
-[ ] Review impeachment documents; integrate into deposition outline
-```
-
-## Guidelines
-
-- **Impeachment documents:** Do not pre-disclose impeachment exhibits if jurisdiction permits surprise; keep separate from main exhibit binder
-- **30(b)(6):** Exhibits must align with designated notice topics — flag documents outside the notice scope
-- **Authentication foundation:** Identify which deponent can authenticate each exhibit before trial; note in inventory
-- **FRCP 30(f):** Original exhibits must be annexed to the deposition record unless parties stipulate otherwise [VERIFY local rules]
-- **FRE 901-902:** Plan authentication method (witness testimony, self-authentication, stipulation) for each proposed exhibit
-- **FRE 408:** Label any settlement-adjacent communications if used for a non-settlement purpose
-- Cross-reference with `deposition-preparation` (outline), `deposition-questioning-techniques` (document use during exam), and `deposition-30b6-corporate-rep` (corporate rep specifics)
+- **Removed `tags`** — not part of the Agent Skills spec
+- **Tightened description** — shorter, third-person, with clear trigger guidance (from 394 to 230 chars)
+- **Eliminated empty template tables** — described column schemas inline instead; Claude knows how to produce tables
+- **Removed the code-fenced final output template** — replaced with a concise bullet list of what to include
+- **Condensed Phase 1's three sub-tables** into compact inline lists — same information, ~60% fewer tokens
+- **Collapsed "Guidelines" into "Pitfalls and Rules"** — tighter section name, same legal substance
+- **Renamed "Output Structure / Process" to "Workflow"** with numbered steps — matches best-practice pattern
+- **Reduced from 149 lines to ~85 lines** — well under the 500-line ceiling

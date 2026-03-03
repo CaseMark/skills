@@ -1,6 +1,6 @@
 ---
 name: verdict-form
-description: Drafts comprehensive civil trial verdict forms structuring jury questions for each cause of action, affirmative defenses, conditional damages, comparative fault, and special interrogatories. Enforces plain-language phrasing, logical conditional flow, proper captioning, and jurisdiction-appropriate signature blocks. Use when preparing verdict forms, special verdict forms, jury interrogatories, or general verdict forms with interrogatories during trial preparation.
+description: Drafts civil trial verdict forms with sequentially numbered jury questions covering liability, affirmative defenses, damages, comparative fault, and special interrogatories. Enforces plain-language phrasing, logical conditional flow, and jurisdiction-appropriate formatting. Use when preparing verdict forms, special verdict forms, jury interrogatories, or general verdict forms with interrogatories.
 tags:
   - drafting
   - litigation
@@ -9,142 +9,89 @@ tags:
 
 # Verdict Form
 
-Drafts a trial-ready verdict form that guides jury deliberations through structured questions on liability, affirmative defenses, and damages for each cause of action.
+Drafts a trial-ready verdict form guiding jury deliberations through structured questions on liability, defenses, and damages for each cause of action.
 
 ## Prerequisites
 
-1. **Complaint / operative pleading** — all causes of action and elements
-2. **Answer / affirmative defenses** — complete defense list including any comparative fault allegations
-3. **Jury instructions** — draft or final set, for terminology alignment
-4. **Damages evidence summary** — categories of damages supported by evidence
-5. **Local rules** — jurisdiction-specific verdict form requirements (signature rules, special verdict mandates)
+Gather before drafting:
 
-## Output Structure
+- **Operative pleading** — all causes of action and elements
+- **Answer / affirmative defenses** — complete defense list including comparative fault
+- **Jury instructions** — draft or final, for terminology alignment
+- **Damages evidence summary** — categories supported by evidence
+- **Local rules** — jurisdiction-specific form requirements (signatures, special verdict mandates)
 
-### 1. Caption
+## Quick Start
 
-Mirror the caption from operative pleadings exactly:
+1. Mirror the caption from operative pleadings exactly
+2. Add introductory jury statement
+3. Draft sequentially numbered liability questions per cause of action
+4. Insert conditional affirmative defense questions
+5. Add damages questions conditioned on liability findings
+6. Include comparative fault allocation if at issue
+7. Add any court-required special interrogatories
+8. Close with jurisdiction-appropriate signature block
 
-```
-[COURT NAME]
-[DIVISION, if applicable]
+## Core Sections
 
-[PLAINTIFF NAME(S)],
-        Plaintiff(s),
-  v.                                    Case No. [XXXXXXX]
-[DEFENDANT NAME(S)],
-        Defendant(s).
+### Caption
 
-                    VERDICT FORM
-```
+Copy verbatim from operative pleadings. Include court name, division, parties, case number, and title "VERDICT FORM."
 
-### 2. Introductory Statement
+### Introductory Statement
 
-```
-We, the jury, duly empaneled and sworn in the above-entitled action,
-hereby return the following verdict:
-```
+Standard language: "We, the jury, duly empaneled and sworn in the above-entitled action, hereby return the following verdict:"
 
-### 3. Liability Questions
+### Liability Questions
 
-For each cause of action, draft a sequentially numbered question:
+One sequentially numbered question per cause of action:
 
-| Element | Requirement |
-|---------|-------------|
-| Phrasing | Plain language — no legal jargon (e.g., "breached the contract" not "material breach of the subject agreement") |
-| Burden | State applicable burden ("proven by a preponderance of the evidence") |
-| Answer format | Yes ___ / No ___ with adequate white space |
-| Ordering | Follow logical claim dependency — foundational claims first |
+- **Plain language** — "breached the contract," not "material breach of the subject agreement"
+- **State burden** — "proven by a preponderance of the evidence"
+- **Answer format** — Yes ___ / No ___ with adequate white space
+- **Order** — foundational claims first, then dependent claims
 
-### 4. Affirmative Defense Questions
+### Affirmative Defense Questions
 
-For each complete-bar affirmative defense, insert a conditional question:
+For each complete-bar defense, insert a conditional question:
 
-```
-If you answered "Yes" to Question [X], answer the following:
+- Gate on the relevant liability "Yes" answer
+- Ask whether defendant proved the defense applies
+- If "Yes," direct jury to skip to Signature
+- If "No," direct to next question
 
-Question [N]: Has the defendant proven that [defense] applies?
+### Damages
 
-    Yes ___    No ___
+Condition all damages questions on liability "Yes" + defense "No" findings. Otherwise direct jury to skip to Signature.
 
-If you answered "Yes," skip to the Signature section.
-If you answered "No," proceed to Question [N+1].
-```
+Draft separate dollar-amount lines per category:
 
-### 5. Damages Section
-
-Condition all damages questions on liability findings:
-
-```
-If you answered "Yes" to Question [X] (liability) and "No" to
-Question [Y] (affirmative defense), answer the following damages
-questions. Otherwise, skip to the Signature section.
-```
-
-Draft separate dollar-amount lines for each damages category:
-
-| Category | When to Include |
-|----------|----------------|
+| Category | Include When |
+|----------|-------------|
 | Compensatory (general) | Always if liability found |
 | Compensatory (special) | Lost profits, medical expenses, property damage — itemize separately |
-| Consequential | If pled and supported by evidence |
-| Punitive | Only after predicate findings (malice/fraud/oppression per applicable state law) |
+| Consequential | Pled and supported by evidence |
+| Punitive | Only after predicate finding (malice/fraud/oppression per applicable state law) |
 
-Punitive damages template:
+For punitive damages, require a separate predicate question before the amount question.
 
-```
-Question [N]: Did [defendant] act with [malice/fraud/oppression]?
-    Yes ___    No ___
+### Comparative Fault
 
-If "Yes" to Question [N]:
-Question [N+1]: What amount of punitive damages, if any, do you award?
-    $ _______________
-```
+If at issue, add percentage allocation question requiring all parties to total 100%.
 
-### 6. Comparative Fault / Apportionment
+### Special Interrogatories
 
-If at issue, include percentage allocation:
+Numbered questions for court-required factual findings: good faith, notice compliance, conditions precedent, timeliness / statute of limitations.
 
-```
-Question [N]: What percentage of fault do you assign to each party?
-(Must total 100%)
+### Signature Block
 
-    [Plaintiff]:   ____%
-    [Defendant 1]: ____%
-    [Defendant 2]: ____%
-              Total: 100%
-```
+Standard closing: "We, the jury, certify that this is our verdict." Include date line, foreperson signature and printed name. Check local rules — some jurisdictions require all jurors to sign.
 
-### 7. Special Interrogatories
+## Pitfalls and Checks
 
-Add numbered questions for any court-required factual findings:
-- Good faith determinations
-- Notice compliance
-- Conditions precedent
-- Timeliness / statute of limitations
-
-### 8. Signature Block
-
-```
-We, the jury, certify that this is our verdict.
-
-Dated: _______________
-
-_______________________________
-Presiding Juror / Foreperson (Signature)
-
-_______________________________
-Presiding Juror / Foreperson (Print Name)
-```
-
-> **Note:** Check local rules — some jurisdictions require all jurors to sign; others require only the foreperson.
-
-## Guidelines
-
-- **Sequential numbering** — number all questions continuously across sections; do not restart per section
-- **Cross-reference jury instructions** — every question must use identical terminology and elements as the jury charge
-- **Conditional flow** — every skip instruction must be explicit ("If No, skip to Question [N]")
-- **Completeness check** — the form must cover every claim + every complete-bar defense so the court can enter judgment from answers alone
-- **Avoid inconsistent verdicts** — structure conditionals to prevent logically contradictory answers
-- **Formatting** — consistent fonts, clear visual separation between questions, bold sparingly for instructions only
-- **Jurisdiction adaptation** — verify local form requirements, especially for punitive damages predicates and signature requirements
+- **Sequential numbering** — number continuously across all sections; never restart per section
+- **Terminology alignment** — every question must mirror jury instruction language exactly
+- **Explicit skip instructions** — every conditional must state where to go ("If No, skip to Question [N]")
+- **Completeness** — cover every claim + every complete-bar defense so the court can enter judgment from answers alone
+- **No contradictions** — structure conditionals to prevent logically inconsistent answers
+- **Jurisdiction adaptation** — verify local requirements for punitive damages predicates, signature rules, and form mandates

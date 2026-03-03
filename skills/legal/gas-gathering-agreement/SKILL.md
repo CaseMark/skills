@@ -1,6 +1,6 @@
 ---
 name: gas-gathering-agreement
-description: Drafts a comprehensive Gas Gathering Agreement governing collection, compression, and transportation of natural gas between a midstream gathering company and an upstream producer. Enforces FERC compliance, AAPL form alignment, API/GPA measurement standards, risk allocation, and regulatory covenants. Use when drafting or negotiating midstream gathering contracts, producer-gatherer agreements, dedicated acreage agreements, or gas transportation arrangements in oil and gas energy law.
+description: Drafts a Gas Gathering Agreement for receipt, compression, dehydration, and transportation of natural gas from wellhead to delivery point. Enforces FERC compliance, AAPL form alignment, API/GPA measurement standards, and midstream risk allocation. Use when drafting or negotiating midstream gathering contracts, producer-gatherer agreements, dedicated acreage agreements, or gas transportation arrangements.
 tags:
   - agreement
   - drafting
@@ -10,118 +10,105 @@ tags:
 
 # Gas Gathering Agreement
 
-Drafts a producer-gatherer gas gathering agreement governing receipt, compression, dehydration, and transportation of natural gas from wellhead to delivery point, with FERC compliance and industry-standard risk allocation.
+Drafts a producer-gatherer agreement governing gathering services from receipt point to delivery point, with FERC compliance, industry-standard measurement, and mutual risk allocation.
 
 ## Prerequisites
 
-1. **Party information** — full legal names, state of formation, principal place of business, FERC designations or operator numbers
-2. **Well/acreage description** — well locations, dedicated acreage or contract area boundaries, existing production data
-3. **System description** — gathering system infrastructure scope (pipelines, compressors, meters, treating facilities)
-4. **Commercial structure** — fee type (per-MMBtu/Mcf gathering fee, percentage-of-proceeds, or hybrid), initial rate, escalation mechanism
-5. **Regulatory posture** — applicable jurisdiction (state PUC, FERC-jurisdictional or non-jurisdictional), environmental permit status
-6. **Desired term** — initial term length, renewal structure, any construction or regulatory conditions precedent
+1. **Party information** — legal names, state of formation, FERC designations or operator numbers
+2. **Well/acreage description** — well locations, dedicated acreage boundaries, production data
+3. **System description** — gathering infrastructure scope (pipelines, compressors, meters, treating facilities)
+4. **Commercial structure** — fee type (per-MMBtu/Mcf, percentage-of-proceeds, or hybrid), initial rate, escalation
+5. **Regulatory posture** — jurisdiction (state PUC, FERC-jurisdictional or non-jurisdictional), environmental permits
+6. **Desired term** — initial term, renewal structure, conditions precedent
+
+If any prerequisite is missing, pause and ask — do not assume.
 
 ## Output Structure
 
 ### 1. Parties & Recitals
 - Full party identification with organizational capacity and regulatory IDs
-- Recitals establishing: producer's gas ownership/control, gatherer's system ownership/operation, applicable regulatory framework, mutual intent to comply with all applicable laws
+- Recitals: producer's gas ownership, gatherer's system ownership, regulatory framework, compliance intent
 
 ### 2. Definitions
 
 | Term | Content |
 |------|---------|
 | Gas / Natural Gas | Quality specs, composition, heating value, contaminant limits |
-| Gathering System | Pipelines, compressors, meters, dehydration and treating facilities |
-| Point of Receipt / Point of Delivery | Custody and risk transfer locations |
-| Gathering Services | Enumerated scope: gather, compress, dehydrate, treat, transport |
-| Dedicated Acreage / Contract Area | Geographic scope with metes-and-bounds or plat reference |
-| Volume/Measurement | API or GPA [VERIFY current edition] measurement standards; pressure base, temperature correction, Btu specifications |
+| Gathering System | Pipelines, compressors, meters, dehydration/treating facilities |
+| Point of Receipt / Delivery | Custody and risk transfer locations |
+| Gathering Services | Scope: gather, compress, dehydrate, treat, transport |
+| Dedicated Acreage | Geographic scope with metes-and-bounds or plat reference |
+| Volume/Measurement | API MPMS or GPA standards [VERIFY current edition]; pressure base, temperature correction, Btu specs |
 
 ### 3. Grant of Rights & Services
 - Exclusive vs. non-exclusive dedication within contract area
-- Gatherer rights: construct, operate, maintain facilities; necessary easements/ROW
-- Producer obligations: deliver conforming gas to receipt points; scheduling and nomination protocols
+- Gatherer rights: construct, operate, maintain facilities; easements/ROW
+- Producer obligations: deliver conforming gas; scheduling and nomination protocols
 - Gatherer obligations: accept and transport subject to capacity and quality specs
-- Minimum volume commitments, take-or-pay, or ship-or-pay terms (if applicable) with calculation methodology
+- MVC, take-or-pay, or ship-or-pay terms if applicable
 
 ### 4. Rates, Fees & Payment
 
 | Element | Details |
 |---------|---------|
-| Fee structure | Per-MMBtu or Mcf gathering fee; percentage-of-proceeds; or hybrid |
-| Escalation | Fixed annual escalator OR index-based (specify index) OR periodic renegotiation |
-| Billing cycle | Monthly; payment due [X] days after invoice |
-| Disputed invoices | Written notice within [X] days; undisputed amounts paid timely |
+| Fee structure | Per-MMBtu/Mcf; percentage-of-proceeds; or hybrid |
+| Escalation | Fixed annual, index-based, or periodic renegotiation |
+| Billing | Monthly; payment due [X] days after invoice |
+| Disputes | Written notice within [X] days; undisputed amounts paid timely |
 | Late payment | Interest at [prime + X%] or statutory rate |
-| Audit rights | Producer right to audit meters and measurement equipment on [X] days' notice |
+| Audit rights | Producer audit of meters on [X] days' notice |
 
 ### 5. Term & Termination
-
-- **Initial term**: Typically 5–20 years (capital recovery driven); specify commencement date and any conditions precedent (regulatory approvals, construction milestones)
-- **Renewal**: Automatic for [X]-year terms unless [X] days' prior written notice of non-renewal; or mutual consent
-- **Termination for cause**: Material breach (with [30]-day cure period), bankruptcy/insolvency, regulatory prohibition
-- **Termination for convenience**: Specify if available; notice period and any early termination fee
-- **Post-termination obligations**: Facility decommissioning/removal, final settlement, survival of payment and indemnity obligations
-- **Effect on dedication**: Acreage dedication releases upon termination; specify any tail obligations
+- **Initial term**: 5–20 years (capital recovery driven); commencement date and conditions precedent
+- **Renewal**: Auto-renew [X]-year terms unless [X] days' notice of non-renewal
+- **For cause**: Material breach ([30]-day cure), bankruptcy, regulatory prohibition
+- **For convenience**: If available; notice period and early termination fee
+- **Post-termination**: Decommissioning, final settlement, survival of payment/indemnity
+- **Dedication release**: Acreage releases on termination; specify tail obligations
 
 ### 6. Representations, Warranties & Covenants
 
-**Producer**: Title to or right to produce gas; no conflicting dedications or encumbrances; gas will meet quality specs; compliance with all production-related laws and permits
+**Producer**: Title/right to produce; no conflicting dedications; gas meets quality specs; compliance with production laws
 
-**Gatherer**: Authority to operate system; all required permits and certifications current; system capable of receiving and transporting dedicated volumes
+**Gatherer**: Authority to operate; permits current; system capable of handling dedicated volumes
 
-**Mutual**: Corporate authority and due organization; execution does not violate other agreements; ongoing compliance with environmental laws; operation per prudent industry practices
+**Mutual**: Due organization; no conflicting agreements; environmental compliance; prudent industry practices
 
 ### 7. Indemnification & Insurance
 
-**Indemnification**: Mutual indemnity — each party indemnifies the other for claims arising from its own negligence or willful misconduct; specify knock-for-knock structure if applicable; address environmental contamination, personal injury, property damage, and third-party claims separately
-
-**Insurance minimums** (verify against current market standards):
-
-| Coverage | Minimum |
-|----------|---------|
-| Commercial General Liability | $[X]M per occurrence / $[X]M aggregate |
-| Automobile Liability | $[X]M combined single limit |
-| Workers' Compensation | Statutory limits |
-| Employer's Liability | $[X]M |
-| Pollution Liability | $[X]M |
-
-- Carriers rated A- or better by A.M. Best
-- Each party named as additional insured on applicable policies
-- 30-day notice of cancellation or material change
+- Mutual indemnity for each party's negligence/willful misconduct
+- Knock-for-knock structure if applicable
+- Address separately: environmental contamination, personal injury, property damage, third-party claims
+- Insurance: CGL, auto, workers' comp, employer's liability, pollution liability — all at $[X]M minimums [VERIFY market standards]
+- Carriers rated A- or better (A.M. Best); additional insured; 30-day cancellation notice
 
 ### 8. Force Majeure
-- Covered events: acts of God, war, terrorism, strikes, governmental action, fire, flood, earthquake, epidemic
-- Excluded: economic hardship, market changes, commodity price fluctuations, lack of profitability
-- Notice: prompt written notice with event description and estimated duration
-- Duty to mitigate and resume performance as soon as practicable
-- Extended force majeure: either party may terminate without liability if FM continues >[6–12] months
+- **Covered**: Acts of God, war, terrorism, strikes, governmental action, fire, flood, epidemic
+- **Excluded**: Economic hardship, market changes, commodity prices, lack of profitability
+- Prompt written notice with description and estimated duration; duty to mitigate
+- Extended FM (>[6–12] months): either party may terminate without liability
 
-### 9. Governing Law & Dispute Resolution
-- Governing law: state where gathering system primarily located
-- Tiered dispute resolution: (1) senior executive negotiation ([30] days); (2) mediation ([30] days); (3) binding arbitration under AAA Commercial Rules [VERIFY current rules] with [1 or 3] arbitrator(s) in [city]
-- Prevailing party attorneys' fees: specify if applicable
-- Jury trial waiver (if litigation elected)
+### 9. Governing Law & Disputes
+- Governing law: state where system primarily located
+- Tiered: (1) executive negotiation [30 days]; (2) mediation [30 days]; (3) binding arbitration under AAA Commercial Rules [VERIFY current rules]
+- Prevailing party fees if applicable; jury trial waiver
 
 ### 10. Miscellaneous
-- Notices: physical address, email, effective on receipt or [X] days after mailing
-- Assignment: consent required except to affiliates or in connection with asset sale; agreement runs with the land
-- Entire agreement; written amendment only
-- Severability; no waiver unless in writing; counterparts; no partnership or joint venture
+- Notices by physical address and email
+- Assignment: consent required except affiliates or asset sales; runs with the land
+- Entire agreement; written amendments only; severability; counterparts
 
 ### 11. Signature Blocks
-- Entity-appropriate blocks (corporation, LLC, LP) with name/title/date
-- Notary acknowledgment if agreement to be recorded in real property records
-- Electronic signature compliance confirmation
+- Entity-appropriate blocks with name/title/date
+- Notary acknowledgment if recordable; e-signature compliance
 
 ## Guidelines
 
-- **FERC jurisdiction**: Confirm whether gathering system is FERC-jurisdictional; non-jurisdictional gathering is state-regulated — provisions vary significantly [VERIFY current FERC gathering exemption standards]
-- **State PUC requirements**: Some states (TX, WY, CO, others) impose gathering-specific regulatory requirements; confirm applicable state rules
-- **AAPL model forms**: Reference AAPL model gathering agreement provisions where applicable; state bar energy sections may have jurisdiction-specific forms [VERIFY current editions]
-- **Environmental**: Include explicit SPCC, Clean Air Act, and state environmental compliance covenants; address produced water handling if applicable
-- **Dedications**: Confirm dedication language is consistent with any upstream lease, JOA, or mortgage/lien requirements — conflicts with senior liens are a common defect
-- **Measurement**: API MPMS [VERIFY current chapter citations] and GPA standards govern measurement disputes; specify edition in definitions
-- **Quality specifications**: Out-of-spec gas provisions must address gatherer's right to reject, curtail, or treat at producer's cost
-- All citations and regulatory references should be verified against current editions before filing or execution
+- **FERC jurisdiction**: Confirm jurisdictional vs. non-jurisdictional status — provisions vary significantly [VERIFY current FERC gathering exemption standards]
+- **State PUC**: TX, WY, CO and others impose gathering-specific rules; confirm applicable state requirements
+- **AAPL forms**: Reference AAPL model gathering agreement where applicable [VERIFY current editions]
+- **Environmental**: Include SPCC, Clean Air Act, and state compliance covenants; address produced water if applicable
+- **Dedications**: Confirm consistency with upstream lease, JOA, and mortgage/lien requirements — conflicts with senior liens are a common defect
+- **Measurement**: Specify API MPMS chapter and GPA standard editions in definitions [VERIFY current citations]
+- **Out-of-spec gas**: Address gatherer's right to reject, curtail, or treat at producer's cost
+- All regulatory citations must be verified against current editions before execution

@@ -1,6 +1,6 @@
 ---
 name: corporate-resolution-bank-account
-description: Drafts a corporate resolution authorizing the opening, maintenance, and transaction activities for corporate bank accounts. Produces board-level governance documents that satisfy both internal formality requirements and bank due diligence, including officer designation, signatory tiers, account type specification, borrowing authority, ratification of prior acts, and secretary certification. Use when a financial institution requires formal board authorization to establish or manage corporate accounts, when updating authorized signatories, or when documenting banking authority as part of entity formation or reorganization.
+description: Drafts a board resolution authorizing the opening and management of corporate bank accounts, including signatory designation, account types, borrowing authority, and secretary certification. Triggers when a financial institution requires formal board authorization to establish or manage accounts, when updating authorized signatories, or when documenting banking authority during entity formation or reorganization.
 tags:
   - corporate
   - drafting
@@ -8,18 +8,26 @@ tags:
 
 # Corporate Resolution — Bank Account Authorization
 
-Drafts a board resolution authorizing designated officers to open and manage corporate bank accounts, satisfying both corporate governance formalities and bank compliance requirements.
+Produces a board-level governance document that satisfies both internal corporate formality and bank due diligence for account opening, maintenance, and transaction authority.
 
-## Prerequisites
+## Required Inputs
 
-1. **Corporation's exact legal name** — as it appears in the articles of incorporation
+1. **Corporation legal name** — must match articles of incorporation exactly
 2. **State of incorporation**
-3. **Adoption method** — formal board meeting or written consent of directors
-4. **Named financial institution(s)** — or class of institutions (e.g., "any FDIC-insured institution")
-5. **Authorized signatories** — names, titles, and any tiered authority (single vs. dual signature thresholds)
-6. **Scope of authority** — account types, transaction types, borrowing authority (yes/no), dollar limits
-7. **Prior banking resolutions** — to supersede if applicable
-8. **Corporate governing documents** — bylaws provisions on banking authority and written consent requirements
+3. **Adoption method** — board meeting or written consent of directors
+4. **Financial institution(s)** — named institution or class (e.g., "any FDIC-insured institution")
+5. **Authorized signatories** — names, titles, tiered authority thresholds
+6. **Scope** — account types, transaction types, borrowing authority (yes/no), dollar limits
+7. **Prior resolutions** — to supersede, if any
+8. **Bylaws** — provisions on banking authority and consent requirements
+
+## Quick Start
+
+1. Collect all required inputs above.
+2. Confirm bylaw authorization for board delegation of banking authority.
+3. Confirm adoption-method validity under applicable state law.
+4. Draft resolution sections in order: Header → Operative Resolutions → Certification.
+5. Verify legal name, signatory tiers, and dollar thresholds before finalizing.
 
 ## Output Structure
 
@@ -27,72 +35,43 @@ Drafts a board resolution authorizing designated officers to open and manage cor
 
 | Field | Content |
 |---|---|
-| Document title | RESOLUTIONS OF THE BOARD OF DIRECTORS OF [CORP NAME] |
-| Adoption date | [Date] |
-| Adoption method | Board meeting (with quorum confirmation + notice) OR written consent (note state law: most require unanimous consent unless bylaws provide otherwise) |
-| Bylaw/charter reference | Cite specific bylaw provision authorizing banking resolutions |
-| Business purpose recital | Brief statement of operational need (payments, payroll, receivables, etc.) |
+| Title | RESOLUTIONS OF THE BOARD OF DIRECTORS OF [CORP NAME] |
+| Date | Adoption date |
+| Method | Board meeting (quorum + notice) OR written consent (check state unanimity requirement) |
+| Bylaw reference | Cite specific provision authorizing banking resolutions |
+| Purpose | Brief operational need (payments, payroll, receivables, etc.) |
 
----
+### 2. Operative Resolutions
 
-### 2. Core Operative Resolutions
+Draft each as a separate RESOLVED clause:
 
-**RESOLVED — Account Authority**
-> Authorize named officers (by title and/or name) to open, maintain, modify, and close the following account types at [Institution/class of institutions]: ☐ Checking ☐ Savings ☐ Money Market ☐ CD ☐ Other: ___
-
-**RESOLVED — Signatory Designation**
-
-| Tier | Authorized Signatories | Threshold |
-|---|---|---|
-| Single signature | [Title(s) / Name(s)] | Transactions up to $[___] |
-| Dual signature | [Title(s) / Name(s)] | Transactions exceeding $[___] |
-
-Cover: check signing, wire transfers, ACH approvals, online banking access, execution of bank-required forms and agreements.
-
-**RESOLVED — Transaction Scope**
-> Authorize deposits, withdrawals, and standard banking transactions. If borrowing authority is granted: specify dollar cap, obligation types permitted, and whether collateral pledges require separate board approval.
-
-**RESOLVED — Document Execution**
-> Authorize designated officers to execute all documents, agreements, signature cards, and instruments required by the financial institution to establish and maintain the banking relationship — without further board action for routine bank forms.
-
-**RESOLVED — Ratification**
-> Ratify and confirm all banking acts taken on the corporation's behalf prior to adoption of this resolution (if accounts or transactions predate formal authorization).
-
-**RESOLVED — Supersession**
-> This resolution supersedes and replaces all prior resolutions regarding banking authority, effective [date].
-
-**RESOLVED — Continuing Authority**
-> This resolution remains in effect until amended or revoked by subsequent board action. The corporation shall promptly provide the financial institution with certified copies of any amendment or revocation. [Optional: Authority terminates automatically upon an authorized signatory's separation from the corporation / requires affirmative board action to revoke.]
-
----
+- **Account Authority** — Authorize named officers to open, maintain, modify, and close specified account types (checking, savings, money market, CD, other) at designated institution(s).
+- **Signatory Designation** — Tiered structure:
+  - Single signature: transactions up to $[threshold]
+  - Dual signature: transactions exceeding $[threshold]
+  - Covers: checks, wires, ACH, online banking, bank-required forms
+- **Transaction Scope** — Deposits, withdrawals, standard transactions. If borrowing: specify dollar cap, permitted obligation types, whether collateral pledges need separate approval.
+- **Document Execution** — Officers may execute all bank-required documents, signature cards, and agreements without further board action for routine forms.
+- **Ratification** — Ratify prior banking acts if accounts/transactions predate formal authorization.
+- **Supersession** — Supersedes all prior banking-authority resolutions, effective [date].
+- **Continuing Authority** — Remains in effect until amended/revoked by board action. Corporation must notify institution of changes. Optionally: auto-terminate on signatory separation.
 
 ### 3. Secretary Certification
 
-```
-I, [Name], [Secretary / Assistant Secretary] of [Corporation],
-hereby certify that:
+Must certify:
+1. Resolutions were duly adopted on [date] per bylaws and state law
+2. Resolutions have not been amended, modified, or revoked
+3. Resolutions remain in full force and effect
 
-(1) The foregoing resolutions were duly adopted by the Board of Directors
-    on [Date] in accordance with the corporation's bylaws and applicable
-    law of the State of [State];
-(2) These resolutions have not been amended, modified, or revoked;
-(3) They remain in full force and effect as of the date of this certification.
+Include: printed name, title (Secretary/Assistant Secretary), date, corporate seal if required.
 
-____________________________    Date: ___________
-[Printed Name], [Title]
+## Pitfalls & Checks
 
-[Corporate Seal, if required]
-```
-
----
-
-## Guidelines
-
-- **Legal name precision**: Corporation name must match articles of incorporation exactly — mismatch is a common cause of bank rejection
-- **Bylaw alignment**: Confirm bylaws authorize board to delegate banking authority; if not, amend bylaws first
-- **Written consent**: Confirm whether state law requires unanimous director consent or if bylaws allow a lower threshold
-- **Quorum**: For meeting-based adoption, confirm quorum was present throughout — document in minutes
-- **Borrowing authority**: If included, be explicit on dollar caps; unlimited borrowing authority creates fiduciary exposure
-- **Signatory succession**: Address procedure for updating authority when officers change — many banks require re-certification of the resolution, not just updated signature cards
-- **Certification date**: Banks often require fresh certification (dated within 30–90 days); note this for recurring use
-- **Jurisdiction caveat**: State corporate law governs procedural validity (e.g., Delaware § 141, California Corp. Code § 307) — verify applicable statute [VERIFY specific citation for client's state]
+- **Name mismatch** — Corporation name must match articles exactly; most common cause of bank rejection
+- **Bylaw gap** — If bylaws don't authorize banking delegation, amend bylaws first
+- **Consent threshold** — Most states require unanimous written consent unless bylaws provide otherwise; verify state statute
+- **Quorum** — For meeting adoption, confirm quorum present throughout; document in minutes
+- **Borrowing caps** — Always specify dollar limits; unlimited borrowing authority creates fiduciary exposure
+- **Signatory changes** — Banks typically require re-certification of the resolution (not just new signature cards) when officers change
+- **Stale certification** — Banks often require certification dated within 30–90 days; flag for recurring use
+- **State law** — Procedural validity governed by state corporate code (e.g., Delaware § 141, California Corp. Code § 307) — verify applicable statute for client's jurisdiction

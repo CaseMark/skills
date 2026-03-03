@@ -1,45 +1,42 @@
 ---
 name: hipaa-release
-description: Drafts a HIPAA Release Authorization form compliant with 45 CFR § 164.508 for authorizing disclosure of protected health information. Used in estate planning to enable healthcare agents to access patient medical records. Covers patient identification, authorized recipients, disclosing parties, scope of PHI, purpose of disclosure, duration, revocation rights, and execution blocks. Use when drafting HIPAA authorizations, PHI release forms, medical records releases, or healthcare privacy waivers in conjunction with healthcare powers of attorney or advance directives.
-tags:
-  - agreement
-  - drafting
-  - regulatory
-  - transactional
+description: Drafts a HIPAA Release Authorization form compliant with 45 CFR § 164.508 for authorizing disclosure of protected health information. Use when drafting HIPAA authorizations, PHI release forms, medical records releases, or healthcare privacy waivers alongside healthcare powers of attorney or advance directives.
 ---
 
-# HIPAA Release Authorization Form
+# HIPAA Release Authorization
 
-Drafts a 45 CFR § 164.508-compliant authorization for disclosure of protected health information, typically executed alongside healthcare powers of attorney or advance directives.
+Drafts a 45 CFR § 164.508-compliant authorization for disclosure of protected health information, typically executed alongside healthcare powers of attorney or advance directives. Output is a single execution-ready form with all client-specific fields marked in `[BRACKETS]`.
 
 ## Prerequisites
 
-1. **Patient identifying information** — full legal name, date of birth
-2. **Designated healthcare agent(s)** — names and relationships (primary and successor)
-3. **Healthcare Power of Attorney or Advance Directive** — to cross-reference agent designations
-4. **State-specific requirements** — witness/notary rules, special consent categories
-5. **Scope instructions** — whether to include sensitive categories (mental health, substance abuse, HIV/AIDS, genetic)
+Gather before drafting:
 
-## Output Structure
+1. **Patient info** — full legal name, DOB, address
+2. **Healthcare agent(s)** — names and relationships (primary + successor)
+3. **Cross-reference document** — Healthcare POA or Advance Directive
+4. **Jurisdiction** — state witness/notary rules, sensitive-category consent requirements
+5. **Scope instructions** — whether to include mental health, substance abuse, HIV/AIDS, genetic info
 
-Generate a single execution-ready form with the following sections. Mark all client-specific fields with `[BRACKETS]`.
+## Form Sections
 
-### Required Sections
+Generate all sections in order:
 
-| # | Section | Content |
-|---|---------|---------|
-| 1 | **Title** | "Authorization for Release of Protected Health Information Pursuant to HIPAA" |
-| 2 | **Patient Identification** | Full legal name, DOB, address; clear authorization statement: "I authorize the use and disclosure of my protected health information (PHI) as described in this authorization." |
-| 3 | **Authorized Recipients** | Each agent by name and role: `[Agent Name], designated as my Healthcare Agent`; include successor agents |
-| 4 | **Disclosing Parties** | Broad coverage: "Any health plan, physician, health care professional, hospital, clinic, laboratory, pharmacy, medical facility, or other covered entity that has provided payment, treatment, or services to me, or that possesses my protected health information." |
-| 5 | **Scope of Information** | Default to comprehensive: complete medical record, mental health records, substance abuse treatment records, HIV/AIDS records, genetic information. Flag state-specific carve-outs requiring separate consent. |
-| 6 | **Purpose of Disclosure** | "To enable my designated healthcare agent(s) to make informed healthcare decisions on my behalf, to communicate with my healthcare providers, and to access all information necessary to execute their duties under my Healthcare Power of Attorney or Advance Directive." |
-| 7 | **Duration & Expiration** | Effective immediately; remains in effect until written revocation or death. Note whether authorization survives incapacity. |
-| 8 | **Revocation Rights** | Required § 164.508 language — see checklist below |
-| 9 | **Additional Required Statements** | Right to refuse; treatment not conditioned on signing; right to copy of signed authorization |
-| 10 | **Execution Block** | Patient signature, printed name, date; personal representative block (name, signature, relationship, authority); witness/notary lines per state law |
+| # | Section | Key Content |
+|---|---------|-------------|
+| 1 | Title | "Authorization for Release of Protected Health Information Pursuant to HIPAA" |
+| 2 | Patient Identification | Full legal name, DOB, address; statement: "I authorize the use and disclosure of my PHI as described in this authorization." |
+| 3 | Authorized Recipients | Each agent by name and role: `[Agent Name], designated as my Healthcare Agent`; include successors |
+| 4 | Disclosing Parties | Broad: "Any health plan, physician, healthcare professional, hospital, clinic, laboratory, pharmacy, medical facility, or other covered entity that has provided payment, treatment, or services to me or possesses my PHI." |
+| 5 | Scope of Information | Default comprehensive: complete medical record, mental health, substance abuse treatment, HIV/AIDS, genetic info. Flag state carve-outs needing separate consent. |
+| 6 | Purpose | "To enable my designated healthcare agent(s) to make informed healthcare decisions on my behalf, communicate with my providers, and access all information necessary to execute their duties under my Healthcare POA or Advance Directive." |
+| 7 | Duration & Expiration | Effective immediately; remains until written revocation or death. State whether authorization survives incapacity. |
+| 8 | Revocation Rights | Required § 164.508 statements — see checklist below |
+| 9 | Additional Statements | Right to refuse; treatment not conditioned on signing; right to copy |
+| 10 | Execution Block | Patient signature, printed name, date; personal representative block (name, signature, relationship, authority); witness/notary lines per state law |
 
-### § 164.508 Required Statements Checklist
+## § 164.508 Compliance Checklist
+
+Every authorization must include all six statements:
 
 - [ ] Right to revoke in writing at any time
 - [ ] Revocation does not affect actions taken in reliance before receipt
@@ -48,25 +45,25 @@ Generate a single execution-ready form with the following sections. Mark all cli
 - [ ] Treatment/payment not conditioned on authorization (unless exception applies)
 - [ ] Right to receive a copy of the signed authorization
 
-### Sensitive Information Categories
+## Sensitive Category Carve-Outs
 
-Some states require **separate explicit consent** beyond the general HIPAA authorization:
+Some categories require **separate consent** beyond the general HIPAA authorization:
 
-| Category | Federal Rule | Common State Carve-Outs |
-|----------|-------------|------------------------|
-| Mental health/psychotherapy notes | Separate authorization required (§ 164.508(a)(2)) | Many states add restrictions |
+| Category | Federal Rule | State Variation |
+|----------|-------------|-----------------|
+| Mental health / psychotherapy notes | Separate authorization required (§ 164.508(a)(2)) | Many states add restrictions |
 | Substance abuse treatment | 42 CFR Part 2 requires separate consent | Stricter re-disclosure rules |
-| HIV/AIDS | No federal carve-out beyond HIPAA | ~35 states require specific consent [VERIFY] |
-| Genetic information | GINA applies to employment/insurance | State genetic privacy laws vary |
+| HIV/AIDS | No federal carve-out beyond HIPAA | ~35 states require specific consent |
+| Genetic information | GINA covers employment/insurance | State genetic privacy laws vary |
 
 Flag applicable state rules and draft supplemental consent language where needed.
 
-## Guidelines
+## Drafting Rules
 
-- **All placeholder text** must use `[BRACKETS]` with descriptive labels
-- **Cross-reference** the named agents against the client's Healthcare Power of Attorney
-- **Plain language** where possible while maintaining legal precision; use numbered/lettered sections
-- **Personal representative signing** — include fields for representative's authority documentation (e.g., court appointment, POA)
-- **Footer** — include notation: "This is a legal document. Review by qualified legal counsel is recommended before execution."
-- **Do not** include HIPAA regulatory explanations in the form itself — keep it execution-ready
-- **State variations**: If jurisdiction is known, tailor witness/notary requirements and sensitive-information consent. If unknown, include optional witness and notary blocks with guidance notes.
+- All placeholders use `[BRACKETS]` with descriptive labels
+- Cross-reference named agents against the client's Healthcare POA
+- Plain language with legal precision; use numbered/lettered sections
+- Include personal representative authority documentation fields (court appointment, POA)
+- Footer: "This is a legal document. Review by qualified legal counsel is recommended before execution."
+- Do not include regulatory explanations in the form — keep it execution-ready
+- If jurisdiction known, tailor witness/notary and sensitive-info requirements; if unknown, include optional blocks with guidance notes

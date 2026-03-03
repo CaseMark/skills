@@ -1,75 +1,78 @@
 ---
 name: closing-resolutions
-description: Drafts closing resolutions (unanimous written consent) for buyer or seller in a US asset purchase transaction, authorizing execution of the APA and all ancillary documents. Covers corporate and LLC governance formats, recitals, operative resolutions, ratification, and counterpart execution provisions. Use when preparing closing deliverables, board resolutions, member consents, or corporate authorization documents for asset deals.
-tags:
-  - agreement
-  - corporate
-  - drafting
-  - transactional
+description: Drafts unanimous written consent resolutions authorizing a buyer or seller entity to execute an asset purchase agreement and all ancillary closing documents. Covers corporate (board) and LLC (member/manager) governance formats, recitals, operative resolutions, officer authorization, ratification, and counterpart execution provisions. Use when preparing closing deliverables, board resolutions, member consents, or corporate authorization documents for US asset purchase transactions.
 ---
 
-# Closing Resolutions — Asset Purchase Transaction
+# Closing Resolutions
 
-Drafts unanimous written consent resolutions authorizing a buyer or seller entity to execute and consummate an asset purchase transaction.
+Drafts ACTION BY UNANIMOUS WRITTEN CONSENT resolutions for a buyer or seller entity in a US asset purchase transaction.
 
 ## Prerequisites
 
-1. **Executed or near-final Asset Purchase Agreement** — exact legal names of parties, closing date, defined terms
-2. **Entity type** — corporation (board of directors) or LLC (members/managers)
-3. **Organizational documents** — articles/certificate, bylaws or operating agreement (to confirm consent-in-lieu-of-meeting authority and approval thresholds)
-4. **Closing checklist** — list of ancillary documents (bill of sale, assignment & assumption, TSA, non-competes, escrow agreement, etc.)
-5. **Role designation** — whether entity is buyer or seller
-6. **Governing body roster** — names and titles of all directors or members/managers who must sign
+Gather before drafting:
 
-## Output Structure
+- Executed or near-final APA with exact party names, closing date, defined terms
+- Entity type: corporation (board) or LLC (members/managers)
+- Organizational documents (articles/certificate, bylaws or operating agreement) to confirm consent-in-lieu authority and approval thresholds
+- Closing checklist of ancillary documents (bill of sale, assignment & assumption, TSA, non-competes, escrow agreement, etc.)
+- Role designation: buyer or seller
+- Governing body roster: names and titles of all directors or members/managers who must sign
+
+## Quick Start
+
+1. Confirm entity type and role (buyer/seller)
+2. Pull defined terms from APA ("Agreement," "Transaction," "Assets")
+3. Draft title block, recitals, operative resolutions, execution provisions
+4. Match signature block format to entity type
+5. Verify statutory citation for consent-in-lieu authority [VERIFY]
+
+## Core Workflow
 
 ### 1. Title Block
 
-| Element | Content |
-|---|---|
-| Document title | "ACTION BY UNANIMOUS WRITTEN CONSENT OF THE [BOARD OF DIRECTORS / MEMBERS] OF [ENTITY LEGAL NAME]" |
-| Effective date | Closing date or date last signature obtained |
-| Entity role | Buyer or Seller |
+```
+ACTION BY UNANIMOUS WRITTEN CONSENT
+OF THE [BOARD OF DIRECTORS / MEMBERS]
+OF [ENTITY LEGAL NAME]
+
+Effective as of [DATE]
+```
 
 ### 2. Recitals (WHEREAS Clauses)
 
-Draft 3–5 recitals covering:
+Draft 3-5 recitals:
 
-- [ ] Entity's role (buyer/seller) and counterparty's exact legal name
+- [ ] Entity's role and counterparty's exact legal name
 - [ ] Description of assets aligned with APA definitions
-- [ ] Statement that governing body has reviewed transaction terms and materials
-- [ ] Determination that transaction is in the best interests of the company and its stakeholders
-- [ ] Reference to fairness opinions or financial analyses, if applicable
+- [ ] Governing body reviewed transaction terms and materials
+- [ ] Determination that transaction is in best interests of company and stakeholders
+- [ ] Fairness opinions or financial analyses, if applicable
 
-### 3. Operative Resolutions (NOW, THEREFORE, BE IT RESOLVED)
-
-Draft sequentially:
+### 3. Operative Resolutions
 
 | Resolution | Scope |
 |---|---|
-| **APA Approval** | Approve the Asset Purchase Agreement by name and date; authorize execution, delivery, and performance; encompass pre-closing amendments that do not materially alter the transaction |
-| **Ancillary Documents** | Authorize all transaction documents — use omnibus language ("bills of sale, assignment and assumption agreements, transition services agreements, non-competition agreements, employment agreements, escrow agreements, certificates, opinions, and any other documents contemplated by or necessary to consummate the Transaction") |
-| **Officer Authorization** | Authorize named officers (or all officers generally) to execute and deliver all documents and take any actions deemed necessary or advisable; state that officer execution constitutes conclusive evidence of approval |
-| **Ratification** | Ratify and approve all prior actions taken by officers, employees, or agents in furtherance of the transaction (negotiations, due diligence, preliminary agreements) |
+| **APA Approval** | Approve APA by name and date; authorize execution, delivery, performance; encompass pre-closing amendments not materially altering the transaction |
+| **Ancillary Documents** | Authorize all transaction documents with omnibus language: "bills of sale, assignment and assumption agreements, TSAs, non-competition agreements, employment agreements, escrow agreements, certificates, opinions, and any other documents contemplated by or necessary to consummate the Transaction" |
+| **Officer Authorization** | Authorize named officers (or all officers generally) to execute and deliver all documents and take actions deemed necessary or advisable; officer execution constitutes conclusive evidence of approval |
+| **Ratification** | Ratify all prior actions by officers, employees, or agents in furtherance of the transaction |
 
 ### 4. Execution Provisions
 
-Include standard closing provisions:
-
-- [ ] Consent taken in lieu of meeting pursuant to [DGCL § 141(f) / applicable LLC statute / organizational documents]
-- [ ] Counterparts clause — any number of counterparts, each an original
-- [ ] Electronic delivery — PDF/facsimile signatures effective as manual execution
+- [ ] Consent in lieu of meeting pursuant to [DGCL Section 141(f) / applicable LLC statute / organizational documents] [VERIFY]
+- [ ] Counterparts clause: any number of counterparts, each an original
+- [ ] Electronic delivery: PDF/facsimile signatures effective as manual execution
 
 ### 5. Signature Blocks
 
 | Entity Type | Signatories |
 |---|---|
-| Corporation | All directors (unless org docs permit less-than-unanimous written consent) |
+| Corporation | All directors (unless org docs permit less-than-unanimous consent) |
 | LLC | Members, managers, or both per operating agreement |
 
 Each block: signature line, printed name, title (if applicable), date.
 
-## Template Shell
+## Template
 
 ```
 ACTION BY UNANIMOUS WRITTEN CONSENT
@@ -119,11 +122,11 @@ effective as manual delivery.
 [SIGNATURE BLOCKS]
 ```
 
-## Guidelines
+## Pitfalls
 
-- **Match defined terms exactly** to the APA — "Agreement," "Transaction," "Assets," etc.
-- **Corporation vs. LLC**: Adjust statutory citations — DGCL § 141(f) for Delaware corps; LLC Act equivalent for LLCs. Check state-specific requirements. [VERIFY]
-- **Unanimous vs. majority**: Default to unanimous written consent; flag if org docs permit a lower threshold.
-- **Do not over-narrow** the officer authorization — closing mechanics require flexibility for last-minute ancillary documents.
-- **Secretary's certificate**: These resolutions are typically attached as an exhibit to a secretary's/officer's certificate delivered at closing — confirm APA closing conditions for required format.
-- **Avoid substantive business terms** in the resolutions themselves; incorporate the APA by reference rather than restating deal terms.
+- **Defined term mismatch**: All terms ("Agreement," "Transaction," "Assets") must exactly match the APA. Do not introduce new definitions.
+- **Wrong statutory citation**: Corporation uses DGCL Section 141(f) (Delaware) or state equivalent; LLC uses applicable LLC Act provision. Always confirm jurisdiction. [VERIFY]
+- **Over-narrowing officer authorization**: Closing mechanics require flexibility for last-minute ancillary documents. Use broad authorization language.
+- **Unanimous vs. majority**: Default to unanimous written consent. Flag if org docs permit a lower threshold — the title and recital language must change accordingly.
+- **Restating deal terms**: Incorporate the APA by reference. Do not restate purchase price, asset descriptions, or other substantive business terms in the resolutions.
+- **Secretary's certificate**: These resolutions typically attach as an exhibit to a secretary's/officer's certificate at closing. Confirm APA closing conditions for required format.

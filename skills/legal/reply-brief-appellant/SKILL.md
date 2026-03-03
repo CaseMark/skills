@@ -1,6 +1,6 @@
 ---
 name: reply-brief-appellant
-description: Drafts a persuasive appellate Reply Brief for Appellant that surgically rebuts the appellee's arguments while reinforcing the opening brief's case for reversal. Enforces jurisdictional rule compliance, precise record citations, argumentative headings, strategic selectivity, and professional tone. Use when drafting appellant reply briefs, appellate rebuttals, or final pre-argument written submissions.
+description: Drafts an appellant's Reply Brief that rebuts the appellee's response and reinforces the case for reversal. Triggers when drafting appellant reply briefs, appellate rebuttals, or the final pre-argument written submission.
 tags:
   - brief
   - drafting
@@ -9,71 +9,61 @@ tags:
 
 # Reply Brief for Appellant
 
-Drafts a strategically focused Reply Brief that dismantles the appellee's response and reinforces the case for reversal as the appellant's final written submission before oral argument.
+Produces a strategically selective Reply Brief — the appellant's final written submission before oral argument — that dismantles the appellee's response while reinforcing grounds for reversal.
 
 ## Prerequisites
 
-1. **Opening Brief** — appellant's filed opening brief with all arguments and authorities
-2. **Appellee's Brief** — the response brief being rebutted
-3. **Appellate Record** — trial transcripts, exhibits, pleadings with precise page/line citations
-4. **Governing Rules** — identify the specific appellate court and its local rules for reply briefs (word/page limits, formatting, citation style, cover requirements)
-5. **Case caption and docket number** — exactly as they appear in the appellate record
+- Appellant's filed **opening brief** with all arguments and authorities
+- **Appellee's brief** (the response being rebutted)
+- **Appellate record** — transcripts, exhibits, pleadings with page/line citations
+- **Governing rules** — court-specific reply brief limits, formatting, citation style, cover requirements
+- **Case caption and docket number** — exactly as in the appellate record
 
-## Output Structure
+## Quick Start
 
-### Document Components
+1. Gather all prerequisites above.
+2. Triage the appellee's arguments — respond only to those that genuinely threaten appellant's position or are likely dispositive. Strategic silence is appropriate for weak or tangential points.
+3. Draft each rebuttal using the paragraph pattern: fair characterization → specific rebuttal with citation → explanation of why reversal follows.
+4. Assemble the document per the structure below, verify all citations, and confirm local-rule compliance.
+
+## Document Structure
 
 | Section | Requirements |
 |---|---|
-| **Cover Page** | Full caption (exact appellate record format), court name, docket number, document title per local rules ("Reply Brief for Appellant" / "Appellant's Reply Brief"), counsel info with bar number |
-| **Table of Contents** | Argumentative headings — each readable as a standalone persuasive statement the court can adopt |
-| **Table of Authorities** | Cases, constitutional provisions, statutes, regulations, rules, secondary sources — separately categorized with all page references |
-| **Introduction** | 2-3 pages: reframe core issue in light of appellee's response; identify 2-3 fatal weaknesses; correct any standard-of-review errors; affirmative tone throughout |
-| **Argument** | Organized rebuttals (see process below) |
-| **Conclusion** | 1-2 pages: synthesize (don't repeat); restate specific relief sought; formal prayer matching opening brief exactly; NO new arguments/citations/facts |
-| **Certificate of Compliance** | Exact word count, method used, font name/size/style, rule citation |
-| **Certificate of Service** | Date, method, all parties' complete contact information |
+| **Cover Page** | Full caption, court name, docket number, document title per local rules, counsel info with bar number |
+| **Table of Contents** | Argumentative headings — each a standalone persuasive statement the court can adopt |
+| **Table of Authorities** | Cases, statutes, regulations, secondary sources — separately categorized with page references |
+| **Introduction** | 2–3 pages: reframe core issue in light of appellee's response; identify 2–3 fatal weaknesses; correct any standard-of-review errors |
+| **Argument** | Organized rebuttals using techniques and headings below |
+| **Conclusion** | 1–2 pages: synthesize (don't repeat); restate specific relief matching opening brief exactly; no new arguments or citations |
+| **Certificate of Compliance** | Word count, method, font details, rule citation |
+| **Certificate of Service** | Date, method, all parties' contact information |
 
-### Argument Construction Process
+## Rebuttal Techniques (priority order)
 
-1. **Triage the appellee's arguments** — respond only to arguments that:
-   - Genuinely threaten appellant's position
-   - Expose fundamental weaknesses exploitable on rebuttal
-   - Address issues likely dispositive to the court
-   - Strategic silence is appropriate for weak/tangential points
-
-2. **For each rebuttal, apply these techniques in order of priority:**
-
-| Technique | When to Use |
+| Technique | Trigger |
 |---|---|
-| Record correction | Appellee mischaracterizes facts — quote the record verbatim with pinpoint citations |
-| Context restoration | Appellee cherry-picks — present full context showing how analysis changes |
-| Authority distinction | Appellee cites inapposite cases — identify specific factual/legal/procedural differences |
-| Omission highlighting | Appellee ignores controlling precedent from opening brief — emphasize silence as concession |
-| Standard-of-review leverage | Appellee applies wrong standard — correct it and show result under proper standard |
-| Concede-and-overcome | Appellee raises a genuinely strong point — acknowledge briefly, then demonstrate it doesn't change the outcome in full context |
+| Record correction | Appellee mischaracterizes facts — quote record verbatim with pinpoint cites |
+| Context restoration | Appellee cherry-picks — present full context showing changed analysis |
+| Authority distinction | Appellee cites inapposite cases — identify factual/legal/procedural differences |
+| Omission highlighting | Appellee ignores controlling precedent — emphasize silence as concession |
+| Standard-of-review leverage | Appellee applies wrong standard — correct and show result under proper standard |
+| Concede-and-overcome | Appellee raises a strong point — acknowledge briefly, then show it doesn't change the outcome |
 
-3. **Point headings must be argumentative and adoptable:**
-   - Bad: "Argument I: Standard of Review"
-   - Good: "The District Court Applied the Wrong Legal Standard When It Reviewed the Agency's Statutory Interpretation for Reasonableness Rather Than De Novo, Requiring Reversal"
+## Heading Style
 
-4. **New developments** — incorporate post-opening-brief decisions or statutory changes only if they genuinely advance the argument
+- Bad: "Argument I: Standard of Review"
+- Good: "The District Court Applied the Wrong Legal Standard When It Reviewed the Agency's Statutory Interpretation for Reasonableness Rather Than De Novo, Requiring Reversal"
 
-### Template: Rebuttal Paragraph Pattern
+Every point heading must be argumentative and adoptable by the court as a holding.
 
-```
-[Fair 1-2 sentence characterization of appellee's position].
-[Specific rebuttal with record citation or authority].
-[Explanation of why this compels reversal under the applicable standard].
-```
+## Pitfalls and Checks
 
-## Guidelines
-
-- **Length discipline** — reply briefs are typically half the opening brief's word limit; every sentence must earn its place
-- **Never introduce new arguments** — reply briefs are limited to rebutting the appellee's response and reinforcing opening brief arguments
-- **Pinpoint citations only** — every factual assertion needs a record cite (e.g., "R. at 247:12-15" or "JA 103"); every legal assertion needs authority
-- **Verify all authorities** — confirm every cited case remains good law; flag any with `[VERIFY]` if uncertain
-- **Tone** — professional, confident, restrained; no sarcasm, personal attacks, or inflammatory language; let the record and law demonstrate error
-- **Consistency** — relief requested must exactly match the opening brief's prayer; do not modify, expand, or abandon remedies
-- **Quotation preference** — use verbatim record quotes over paraphrasing to prevent mischaracterization claims
-- **Jurisdiction-specific compliance** — check local rules for: color-coded covers, binding requirements, paper vs. electronic filing, number of copies, trial court info on cover
+- **No new arguments** — reply briefs rebut the appellee's response and reinforce the opening brief only
+- **Length discipline** — typically half the opening brief's word limit; every sentence must earn its place
+- **Pinpoint citations** — every factual assertion needs a record cite (e.g., "R. at 247:12-15"); every legal assertion needs authority
+- **Verify authorities** — confirm cited cases remain good law; flag uncertain ones with `[VERIFY]`
+- **Consistent relief** — prayer must exactly match the opening brief; do not modify, expand, or abandon remedies
+- **Prefer verbatim quotes** — quote the record directly rather than paraphrasing to prevent mischaracterization claims
+- **Tone** — professional, confident, restrained; no sarcasm or personal attacks; let the record and law demonstrate error
+- **Local-rule compliance** — check cover color, binding, e-filing vs. paper, number of copies, trial court info on cover

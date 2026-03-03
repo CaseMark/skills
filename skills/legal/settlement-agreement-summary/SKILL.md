@@ -1,26 +1,21 @@
 ---
 name: settlement-agreement-summary
-description: Generates executive-ready summaries of complex, multi-party U.S. commercial settlement agreements. Extracts and structures payment architecture, business conduct covenants, release and waiver provisions, tax characterization and reporting obligations, and confidentiality terms into a polished legal memorandum suitable for C-suite stakeholders and internal case management. Use when summarizing fully executed settlement agreements post-negotiation, distilling multi-party commercial settlements, or preparing client-facing settlement summaries for board or executive review.
-tags:
-  - agreement
-  - litigation
-  - summarization
-  - summary
+description: Generates executive-ready summaries of multi-party U.S. commercial settlement agreements. Extracts payment structure, business conduct covenants, release and waiver provisions, tax obligations, and confidentiality terms into a structured legal memorandum. Use when summarizing fully executed settlement agreements, distilling multi-party commercial settlements for case management, or preparing client-facing settlement summaries for board or executive review.
 ---
 
-# Complex Settlement Agreement Summary
+# Settlement Agreement Summary
 
-Produces a structured, executive-ready summary of a fully executed multi-party commercial settlement agreement for internal case management and client communication.
+Produces a structured, executive-ready memorandum from a fully executed multi-party commercial settlement agreement for internal case management and client communication.
 
 ## Prerequisites
 
 1. **Fully executed settlement agreement** — final signed version (all counterparts)
-2. **Ancillary agreements** — any referenced exhibits, schedules, or incorporated side agreements
-3. **Matter identification** — case/matter name and settlement execution date
+2. **Ancillary agreements** — referenced exhibits, schedules, or side agreements
+3. **Matter identification** — case/matter name and execution date
 
-## Output Structure
+## Quick Start
 
-Produce a legal memorandum with the following header block, then the sections below in order:
+Begin with the header block, then produce sections 1-7 in order:
 
 ```
 SETTLEMENT AGREEMENT SUMMARY
@@ -30,99 +25,94 @@ Summary Prepared: [Today's Date]
 CONFIDENTIAL – ATTORNEY-CLIENT PRIVILEGED
 ```
 
----
+## Memorandum Sections
 
-### 1. Executive Overview *(write last; ≤150 words)*
+### 1. Executive Overview (write last; max 150 words)
 
-Narrative covering: dispute nature → primary consideration → key obligations per party → organizational significance.
-
----
+Narrative: dispute nature, primary consideration, key obligations per party, organizational significance.
 
 ### 2. Payment Structure & Financial Terms
 
 | Element | Detail |
 |---|---|
-| Payment amounts | Exact dollar figures per party/tranche |
-| Payment schedule | Dates, milestones, sequencing |
+| Amounts | Exact figures per party/tranche |
+| Schedule | Dates, milestones, sequencing |
 | Conditions precedent | Triggers, verification procedures |
 | Contingencies | Earn-outs, clawbacks, adjustments |
 | Non-cash consideration | Stock, property, services |
-| Security/credit support | Escrow, letters of credit, guarantees, security interests |
+| Security/credit support | Escrow, LOCs, guarantees |
 
-Flag any obligations extending beyond 12 months with a forward-looking timeline.
+Flag obligations extending beyond 12 months with a forward-looking timeline.
 
----
+### 3. Business Conduct Covenants
 
-### 3. Business Conduct Covenants & Operational Restrictions
-
-For each covenant, specify:
+For each covenant (non-compete, non-solicitation, confidentiality, transition cooperation, operational mandates), specify:
 
 - **What** — permitted, required, or prohibited conduct
-- **Who** — which parties and affiliated persons are bound
-- **Duration** — exact end date or triggering termination event
-- **Geography/scope** — market, product, or territory limitations
-- **Breach consequences** — as stated in the agreement
-- **Affirmative duties** — compliance programs, certifications, audits, insurance, cooperation obligations
-
-Common provisions to identify: non-compete, non-solicitation (employees/customers), confidentiality, transition cooperation, operational mandates/discontinuations.
-
----
+- **Who** — bound parties and affiliates
+- **Duration** — end date or triggering termination event
+- **Geography/scope** — market, product, or territory limits
+- **Breach consequences** — per the agreement
+- **Affirmative duties** — compliance programs, certifications, audits, insurance
 
 ### 4. Release & Waiver Provisions
 
-- **Scope** — broad general release (known and unknown) vs. claim-specific release
+- **Scope** — general release (known/unknown) vs. claim-specific
 - **Direction** — mutual or unilateral
-- **Extended parties** — whether releases bind/benefit affiliates, subsidiaries, officers, directors, employees, agents
-- **Carve-outs** — explicitly retained claims or rights (flag each individually)
-- **Unknown/future claims** — note any § 1542 waivers [VERIFY applicability by jurisdiction] or equivalent
-- **Statutory waivers** — flag any release of consumer protection, employment, or regulatory statutory rights (enforceability implications)
+- **Extended parties** — affiliates, subsidiaries, officers, directors, employees, agents
+- **Carve-outs** — retained claims or rights (flag each individually)
+- **Unknown claims** — note any Cal. Civ. Code 1542 waivers or equivalent; verify jurisdictional applicability
+- **Statutory waivers** — consumer protection, employment, or regulatory rights (note enforceability implications)
 
----
-
-### 5. Tax Implications & Reporting Obligations
+### 5. Tax Implications & Reporting
 
 | Item | Detail |
 |---|---|
-| Payment characterization | Compensatory damages / punitive / interest / attorneys' fees / other |
-| Payer/recipient tax treatment | Federal and state implications as stated |
+| Payment characterization | Compensatory / punitive / interest / fees / other |
+| Tax treatment | Federal and state implications as stated |
 | Gross-up clauses | Scope, caps, limitations |
-| Withholding obligations | Requirements and responsible party |
-| Reporting obligations | Forms 1099, informational returns, regulatory disclosures |
-| Tax indemnification | Scope, monetary cap, claim procedures, duration |
-| Audit cooperation | Consistent reporting position requirements, documentation duties |
-
----
+| Withholding | Requirements and responsible party |
+| Reporting | 1099s, informational returns, disclosures |
+| Tax indemnification | Scope, cap, procedures, duration |
+| Audit cooperation | Consistent position requirements, documentation |
 
 ### 6. Additional Material Terms
 
-Address each applicable item:
-
 - **Confidentiality** — duration, permitted disclosures (advisors, regulators, legal proceedings)
-- **Dispute resolution** — post-settlement mechanism (mediation → arbitration → litigation); governing law and venue
-- **Modification/amendment** — unanimous written consent vs. unilateral modification rights
+- **Dispute resolution** — post-settlement mechanism, governing law, venue
+- **Modification** — unanimous written consent vs. unilateral rights
 - **Representations & warranties** — scope and survival period
 - **Conditions precedent** — to settlement effectiveness
-- **Integration clause** — confirmation of agreement as complete expression
-- **Survival provisions** — which obligations survive completion vs. terminate
+- **Integration clause** — complete expression confirmation
+- **Survival provisions** — which obligations survive vs. terminate
 
----
+### 7. Implementation Flags (if applicable)
 
-### 7. Implementation Flags *(if applicable)*
+Include when settlement involves complex sequencing or cross-functional obligations:
 
-> Use this section when the settlement involves complex sequencing or cross-functional obligations.
+- **Immediate actions** — obligations due within 30 days of execution
+- **Upcoming deadlines** — chronological list of material dates
+- **Ongoing monitoring** — recurring compliance obligations by department (Finance, HR, Operations, Tax, Legal)
+- **Ambiguities** — unresolved cross-references or provisions requiring further diligence
 
-- ⚠️ **Immediate action items** — obligations due within 30 days of execution
-- 📅 **Upcoming deadlines** — chronological list of material dates
-- 🔄 **Ongoing monitoring** — recurring compliance obligations by department (Finance, HR, Operations, Tax, Legal)
-- ❓ **Ambiguities/external references** — unresolved cross-references or provisions requiring further diligence
+## Style Guidelines
 
----
-
-## Guidelines
-
-- Use the agreement's defined terms verbatim; flag each with *italics* or quotation marks on first use
-- Prefer narrative prose over bullet lists; use tables for financial schedules and parallel-structure comparisons
+- Use the agreement's defined terms verbatim; italicize on first use
+- Tables for financial schedules and parallel-structure comparisons; narrative prose for analysis
 - Active voice, present tense for ongoing obligations; past tense for completed actions
-- Target length: 3–7 pages depending on complexity
-- Include at document footer: *"This summary is prepared for informational purposes only, does not constitute legal advice, and is not a substitute for review of the complete settlement agreement."*
-- Flag any provision where the agreement's language is ambiguous or conflicts with another section
+- Target 3-7 pages depending on complexity
+- Flag ambiguous or conflicting provisions
+
+## Required Footer
+
+Include at document end:
+
+> *This summary is prepared for informational purposes only, does not constitute legal advice, and is not a substitute for review of the complete settlement agreement.*
+
+## Common Pitfalls
+
+- Missing carve-outs in release provisions — always enumerate retained claims individually
+- Overlooking Cal. Civ. Code 1542 waiver applicability outside California
+- Failing to flag obligations with durations beyond 12 months
+- Omitting cross-functional implementation deadlines from the flags section
+- Inconsistent use of defined terms from the agreement

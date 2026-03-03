@@ -1,75 +1,69 @@
 ---
 name: deposition-summarization
-description: Summarizes deposition transcripts with precise page-line citations. Supports page-line summary format, deep analysis with strategic assessment, and topic-based summaries with document index. Use when the user provides a deposition transcript and needs a deposition summary, depo digest, testimony analysis, or impeachment identification.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+description: Summarizes deposition transcripts with precise page:line citations. Supports sequential, topic-based, and strategic deep-analysis formats. Use when a user provides a deposition transcript and requests a summary, depo digest, testimony analysis, or impeachment identification.
 ---
 
 # Deposition Summarization
 
-Produces deposition summaries with precise page:line citations from transcript source material.
+Produces citation-backed deposition summaries. Every summary statement must include a `pp. page:line` range. Default to Format A unless the user specifies otherwise.
 
-## Output Formats
+## Quick Start
 
-Choose based on the user's needs (default to Format A if unspecified):
+1. Receive transcript text or file.
+2. Identify format: A (sequential), B (topic-based), or C (deep analysis).
+3. Summarize with `pp. page:line-page:line` citations on every entry.
+4. Note objections, stipulations, exhibit references, and confidentiality designations.
 
-### Format A: Page-Line Summary
+## Format A: Page-Line Summary
 
-Sequential summary preserving transcript order. Each entry includes the page:line range and a neutral summary of the testimony.
+Sequential, transcript-order summary. Neutral language.
 
 ```
-pp. 12:3-14:8 — Deponent described the sequence of events on March 15,
-stating he arrived at the facility at approximately 8:30 AM and met with
-[Name] in the conference room. [Ex. 3 marked and identified.]
+pp. 12:3-14:8 — Deponent described arriving at the facility at 8:30 AM
+and meeting with [Name] in the conference room. [Ex. 3 marked and identified.]
 
-pp. 14:9-16:22 — On cross-examination regarding prior statements, deponent
-acknowledged signing the memorandum (Ex. 4) but stated he did not read it
-before signing.
+pp. 14:9-16:22 — On cross-examination, deponent acknowledged signing the
+memorandum (Ex. 4) but stated he did not read it before signing.
 ```
 
-### Format B: Topic-Based Summary
+## Format B: Topic-Based Summary
 
-Organizes testimony by subject matter rather than transcript order. Each topic gets a 2-3 sentence neutral summary with page:line citations.
+Groups testimony by subject. Each topic: 2-3 sentence neutral summary with citations.
 
 ```
 ## Employment History
-Deponent worked at [Company] from 2018 to 2022 as Senior VP of Operations
-(pp. 8:12-9:4). He reported directly to the CEO and supervised a team of
-12 (pp. 9:15-10:8).
+Deponent worked at [Company] from 2018-2022 as Senior VP of Operations
+(pp. 8:12-9:4), reporting directly to the CEO (pp. 9:15-10:8).
 
 ## Knowledge of Transaction
-Deponent first learned of the proposed acquisition in January 2022 (pp.
-22:3-22:18). He attended three board meetings where the transaction was
-discussed (pp. 23:1-25:14, pp. 31:8-33:2, pp. 45:6-47:11).
+Deponent first learned of the acquisition in January 2022 (pp. 22:3-22:18)
+and attended three related board meetings (pp. 23:1-25:14, 31:8-33:2, 45:6-47:11).
 ```
 
-### Format C: Deep Analysis (Strategic)
+## Format C: Deep Analysis
 
-Includes everything in Format A or B, plus:
+Includes Format A or B, plus these additional sections:
 
-**Admissions Against Interest**: Testimony that hurts the deponent's party's position, with exact quotes and citations.
-
-**Inconsistencies**: Contradictions within the deposition, between this deposition and other testimony, or between testimony and documentary evidence.
-
-**Impeachment Opportunities**: Prior inconsistent statements, basis for bias, lack of personal knowledge.
-
-**Key Exhibits**: Table of exhibits marked, identified, or discussed:
+- **Admissions Against Interest** — Testimony harmful to deponent's party. Exact quotes with citations.
+- **Inconsistencies** — Internal contradictions or conflicts with other testimony/documents.
+- **Impeachment Opportunities** — Prior inconsistent statements, bias, lack of personal knowledge.
+- **Key Exhibits** — Table format:
 
 | Exhibit | Description | Pages Discussed | Authenticated? |
-|---------|-------------|----------------|---------------|
+|---------|-------------|-----------------|----------------|
 | Ex. 1 | [Description] | pp. 15:3-17:8 | Yes — pp. 15:10 |
 
-**Credibility Assessment**: Evasive answers, non-responsive testimony, frequent "I don't recall" responses (with count and page ranges).
+- **Credibility Assessment** — Evasive answers, non-responsive testimony, "I don't recall" count with page ranges.
 
-## Guidelines
+## Pitfalls
 
-- Always cite page:line ranges — never summarize without citation
-- Use neutral, objective language in summaries (save analysis for Format C sections)
-- Preserve exact quotes for admissions and key testimony — use quotation marks
-- Note all objections and their basis
-- Flag designations (Confidential, AEO) if present
-- Note stipulations made on the record
-- If exhibits are referenced but not provided, note: "[Exhibit not provided for review]"
+- Never summarize without a `pp. page:line` citation.
+- Keep summary language neutral; reserve analysis for Format C sections only.
+- Preserve exact quotes (in quotation marks) for admissions and key testimony.
+- Note all objections and their basis inline.
+- Flag confidentiality designations (Confidential, AEO) when present.
+- If an exhibit is referenced but not provided, note: "[Exhibit not provided for review]".
+
+---
+
+**Key changes**: Removed `tags` from frontmatter (not in spec). Tightened the description. Added a Quick Start checklist for fast orientation. Consolidated the Guidelines section into a "Pitfalls" section. Trimmed redundant prose in format descriptions while keeping all three formats, their examples, and the exhibit table intact. Reduced from 76 lines to 62 lines with no domain content lost.

@@ -1,16 +1,15 @@
 ---
 name: fda-device-registration
-description: Drafts FDA Establishment Registration and Device Listing documents compliant with 21 CFR Part 807 for medical device manufacturers. Structures filings with establishment details, owner/operator information, device inventories, compliance certifications, and signature blocks using current FDA forms. Use for initial registrations, annual renewals, listing updates, or foreign establishment filings with US agent designations.
+description: Drafts FDA Establishment Registration and Device Listing documents compliant with 21 CFR Part 807. Structures filings with establishment details, owner/operator information, device inventories, compliance certifications, and signature blocks mirroring FDA Form 2830. Triggers on initial registrations, annual renewals, listing updates, or foreign establishment filings requiring US agent designations.
 tags:
-  - drafting
-  - memo
   - regulatory
-  - research
+  - drafting
+  - checklist
 ---
 
 # FDA Establishment Registration & Device Listing
 
-Drafts a complete 21 CFR Part 807 registration and device listing document suitable for FDA submission.
+Drafts a 21 CFR Part 807 registration and device listing document structured for FDA submission via FURLS.
 
 ## Prerequisites
 
@@ -28,20 +27,19 @@ Drafts a complete 21 CFR Part 807 registration and device listing document suita
 |-------|---------|
 | Title | Establishment Registration and Device Listing |
 | Regulatory basis | 21 CFR Part 807 |
-| FDA Form | 2830 (or current equivalent — confirm version at FDA.gov) |
+| FDA Form | 2830 (confirm current version at FDA.gov) |
 | Preparation date | [Date] |
 | Filing type | Initial / Annual Renewal / Update |
 
-### Section 1: Establishment Information
+### 1. Establishment Information
 
 - Legal owner name (must match corporate records)
 - FEI number
 - Physical address and mailing address (if different)
 - Phone, fax, email
-- Business activities — use FDA-recognized terms:
-  - Manufacturer, Contract Manufacturer, Repackager/Relabeler, Specification Developer, Reprocessor of Single-Use Devices, Foreign Manufacturer, Sterilizer, Component Manufacturer
+- Business activities — use only FDA-recognized terms: Manufacturer, Contract Manufacturer, Repackager/Relabeler, Specification Developer, Reprocessor of Single-Use Devices, Foreign Manufacturer, Sterilizer, Component Manufacturer
 
-### Section 2: Owner/Operator Details
+### 2. Owner/Operator Details
 
 For each responsible party:
 - Full legal name and title
@@ -49,9 +47,9 @@ For each responsible party:
 - Contact information
 - Confirmation of legal authority to bind establishment
 
-### Section 3: Device Listing
+### 3. Device Listing
 
-For each device, provide:
+For each device:
 
 | Field | Requirement |
 |-------|-------------|
@@ -62,39 +60,53 @@ For each device, provide:
 | Listing number | If previously assigned |
 | 510(k) number | If applicable |
 | Predicate device | If applicable |
-| Exempt from premarket? | Yes/No with regulatory citation |
+| Premarket exempt? | Yes/No with regulatory citation |
 
-### Section 4: Compliance & Certifications
+### 4. Compliance Certifications
 
-Include statements covering:
-
-- [ ] Adherence to 21 CFR Part 807 registration requirements
+- [ ] 21 CFR Part 807 registration requirements
 - [ ] QSR compliance (21 CFR Part 820) where applicable
-- [ ] Accurate representation of device classifications
-- [ ] US agent designation (foreign establishments — 21 CFR 807.40)
-- [ ] Any claimed exemptions with specific regulatory citations and justifications
+- [ ] Device classifications accurately represented
+- [ ] US agent designated (foreign establishments — 21 CFR 807.40)
+- [ ] Claimed exemptions cited with regulatory authority and justification
 - [ ] MDR reporting obligations acknowledged (21 CFR Part 803)
 
-### Section 5: Foreign Establishment Requirements
+### 5. Foreign Establishment — US Agent
 
-If applicable, document the US Agent:
+If applicable:
 - Agent name, company, address, phone, email
 - Written agreement confirmation per 21 CFR 807.40(c)
 
-### Section 6: Signatures & Attestations
+### 6. Signatures & Attestations
 
-Signature block must include:
 - Printed name, title, date, signature line
-- Attestation language: accuracy/completeness of information, acknowledgment of 18 U.S.C. § 1001 (false statements), authority to bind establishment
+- Attestation: accuracy/completeness of information, acknowledgment of 18 U.S.C. § 1001, authority to bind establishment
 - Owner/operator signature required; additional signatories as needed
 
 ## Guidelines
 
-- **Terminology**: Use only FDA-recognized activity descriptions and product codes — do not paraphrase
-- **FEI consistency**: Verify FEI number matches FURLS (FDA Unified Registration and Listing System) records
-- **Annual renewal**: Registration must be renewed between October 1 and December 31 each year
-- **Listing updates**: Submit within 30 days of any change in device commercial distribution status
-- **Cross-reference**: All device classifications must match the current FDA Product Classification Database
-- **Format**: Structure output to mirror FDA Form 2830 field order for ease of transfer to electronic submission
-- **Do not fabricate** product codes, FEI numbers, or 510(k) numbers — flag missing data with `[REQUIRED — obtain from client]`
-- **Mark uncertain citations** with `[VERIFY]` — particularly any guidance document references that may have been superseded
+- Use only FDA-recognized activity descriptions and product codes — never paraphrase
+- Verify FEI number matches FURLS records
+- All device classifications must match the current FDA Product Classification Database
+- Structure output to mirror FDA Form 2830 field order for electronic submission transfer
+- Do not fabricate product codes, FEI numbers, or 510(k) numbers — flag missing data with `[REQUIRED — obtain from client]`
+- Mark unverified citations with `[VERIFY]`
+
+## Troubleshooting
+
+- **Missing FEI number** — flag as `[REQUIRED — obtain from client]`; do not guess or generate
+- **Unrecognized business activity** — map to the closest FDA-recognized term and flag with `[VERIFY]`
+- **Foreign establishment without US agent** — halt drafting of Sections 4–5 and request agent designation details
+- **Annual renewal window** — registration renews October 1–December 31 each year; listing updates due within 30 days of any distribution status change
+
+---
+
+Key changes from the original:
+
+- **Tags**: Replaced `memo` and `research` with `checklist` — this skill produces a regulatory filing with checklists, not a memo or research output
+- **Description**: Tightened to third-person with explicit trigger guidance ("Triggers on...")
+- **Section headers**: Removed redundant "Section N:" prefix pattern, simplified to numbered headings
+- **Compliance section**: Stripped "Include statements covering:" preamble — the checklist speaks for itself
+- **Guidelines**: Consolidated from 8 verbose bullet points to 6 concise ones; moved the annual renewal/listing update deadlines into Troubleshooting where they serve as actionable guidance
+- **Added Troubleshooting**: Required by the spec — covers the four most common blocking scenarios
+- **Reduced from 101 to 93 lines** while adding a new section

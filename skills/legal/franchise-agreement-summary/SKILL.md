@@ -1,36 +1,33 @@
 ---
 name: franchise-agreement-summary
-description: Summarizes US franchise agreements into a structured, actionable overview covering parties, term, territory, fees, operations, IP, transfer, termination, restrictive covenants, dispute resolution, and key risks. Use when asked to summarize a franchise agreement, franchise contract, franchisor-franchisee terms, or to extract deal terms for review, diligence, or negotiation.
-tags:
-  - agreement
-  - analysis
-  - summarization
-  - summary
-  - transactional
+description: Summarizes US franchise agreements into a structured overview of parties, term, territory, fees, operations, IP, transfer, termination, covenants, dispute resolution, and risks. Triggers when the user asks to summarize a franchise agreement, franchise contract, or franchisor-franchisee terms, or to extract deal terms for review, diligence, or negotiation.
 ---
 
 # Franchise Agreement Summary
 
-Produce a structured summary that captures the commercial deal, legal obligations, and risk points without omitting material terms.
+Produce a structured summary capturing the commercial deal, legal obligations, and risk points of a franchise agreement.
 
-## Prerequisites
+## Quick Start
 
-1. Complete franchise agreement, including all exhibits, schedules, and amendments.
-2. Definitions section and any incorporated manuals or policies (or a list of incorporated docs if not provided).
-3. Any referenced ancillary agreements (development agreement, lease, guaranty, supply agreement).
-4. Confirm jurisdiction or governing law if stated.
+1. Collect the complete agreement with all exhibits, schedules, and amendments.
+2. Gather the definitions section and any incorporated manuals or policies.
+3. Identify any ancillary agreements (development agreement, lease, guaranty, supply agreement).
+4. Confirm governing law / jurisdiction.
 
-## Output Structure / Process
+## Workflow
 
-1. Read the full agreement end-to-end, including exhibits and attachments.
-2. Extract exact figures, time periods, and thresholds; do not infer missing numbers.
+1. Read the full agreement end-to-end, including exhibits.
+2. Extract exact figures, time periods, and thresholds — never infer missing numbers.
 3. Note defined terms that control interpretation.
-4. Populate the summary using the template below. If a field is not specified, state "Not specified."
+4. Populate each section below. If a field is absent, state "Not specified."
+5. Cite section numbers where available.
+
+## Output Template
 
 ### Deal Snapshot
 
 | Field | Detail |
-| --- | --- |
+|---|---|
 | Agreement title | |
 | Effective date | |
 | Parties (Franchisor / Franchisee) | |
@@ -43,7 +40,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Parties and Relationship
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Franchisor identity and role | |
 | Franchisee entity and principals | |
 | Ownership / control requirements | |
@@ -53,7 +50,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Fees and Financial Obligations
 
 | Fee / Obligation | Amount / Formula | Timing | Notes |
-| --- | --- | --- | --- |
+|---|---|---|---|
 | Initial franchise fee | | | |
 | Royalty | | | |
 | Marketing / ad fund | | | |
@@ -67,7 +64,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Territory and Development
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Territory type (exclusive / protected / non-exclusive) | |
 | Geographic definition | |
 | Franchisor reservation of rights | |
@@ -78,7 +75,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Operations and Standards
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Training requirements | |
 | Operating manual compliance | |
 | Quality control and inspections | |
@@ -92,7 +89,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Franchisor Support
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Initial training / opening support | |
 | Ongoing support / field visits | |
 | Marketing support | |
@@ -102,7 +99,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Intellectual Property and Data
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Trademark / brand license scope | |
 | Brand standards and QC | |
 | Local marketing approvals | |
@@ -112,7 +109,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Transfer, Assignment, and Succession
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Transfer rights and approvals | |
 | Right of first refusal | |
 | Transferee qualifications | |
@@ -123,7 +120,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Term, Renewal, and Termination
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Initial term length | |
 | Renewal conditions | |
 | For-cause termination grounds | |
@@ -135,7 +132,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Restrictive Covenants
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Non-compete (during term) | |
 | Post-term non-compete (duration / geography / scope) | |
 | Non-solicitation (customers / employees) | |
@@ -144,7 +141,7 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Dispute Resolution
 
 | Topic | Summary |
-| --- | --- |
+|---|---|
 | Arbitration or litigation | |
 | Venue and forum | |
 | Mediation requirements | |
@@ -154,16 +151,16 @@ Produce a structured summary that captures the commercial deal, legal obligation
 ### Exhibits and Attachments
 
 | Exhibit | Material Terms |
-| --- | --- |
+|---|---|
 | Territory description | |
 | Approved suppliers | |
 | Required forms / notices | |
 | Financial schedules | |
 | Other | |
 
-### Unusual Terms / Red Flags
+### Red Flags
 
-List any provisions that are atypical, one-sided, or unusually burdensome. Examples: aggressive development schedules, unusually broad non-compete, sweeping indemnities, unilateral amendment rights, mandatory remodels on renewal, or liquidated damages.
+List provisions that are atypical, one-sided, or unusually burdensome (e.g., aggressive development schedules, broad non-competes, sweeping indemnities, unilateral amendment rights, mandatory remodels on renewal, liquidated damages).
 
 ### Ambiguities and Follow-Ups
 
@@ -171,13 +168,20 @@ List unclear terms, missing figures, or external documents that control key obli
 
 ### Recommendations
 
-Provide concise next-step items for counsel review or negotiation focus.
+Concise next-step items for counsel review or negotiation focus.
 
-## Guidelines
+## Pitfalls
 
-- Use exact numbers, dates, and thresholds; do not round or infer.
-- Cite section numbers if available.
-- Flag any incorporated documents that were not provided.
-- Note any state-specific franchise relationship or termination statutes if referenced.
-- If language is ambiguous, present possible interpretations and note the risk.
-- Keep the summary neutral; do not provide legal advice or business recommendations beyond identifying risks.
+- Never round or infer numbers — use exact figures from the agreement.
+- Flag any incorporated documents not provided for review.
+- Note state-specific franchise relationship or termination statutes if referenced.
+- Where language is ambiguous, present possible interpretations and note the risk.
+- Stay neutral — identify risks but do not provide legal advice or business recommendations.
+
+**Key changes made:**
+- Removed `tags` from frontmatter (not part of the required format)
+- Tightened description to third-person with clear trigger guidance
+- Renamed "Prerequisites" → "Quick Start" and "Output Structure / Process" → split into "Workflow" + "Output Template"
+- Renamed "Unusual Terms / Red Flags" → "Red Flags" for brevity
+- Renamed "Guidelines" → "Pitfalls" and consolidated into concise bullet checks
+- Removed redundant prose throughout while preserving all domain-accurate tables and legal coverage

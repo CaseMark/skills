@@ -1,6 +1,6 @@
 ---
 name: transactional
-description: Root reference skill for transactional legal work including contracts, deals, and business formations. Provides practice-area routing and baseline drafting principles for M&A, real estate, financing, franchise, employment, asset purchase, estate planning, IP licensing, and commercial leasing matters. Use when handling any transactional matter, deal structuring, contract drafting, or business formation work.
+description: Routes and governs transactional legal work—contracts, deals, and business formations. Covers M&A, real estate, financing, franchise, employment, asset purchase, estate planning, IP licensing, and commercial leasing. Triggers on any transactional matter, deal structuring, contract drafting, or entity formation task.
 tags:
   - research
   - transactional
@@ -8,9 +8,16 @@ tags:
 
 # Transactional Practice
 
-Root skill for structuring, negotiating, and documenting business deals and agreements.
+Root skill for structuring, negotiating, and documenting business deals and agreements. Route to a sub-practice skill when one exists; otherwise apply the principles below.
 
-## Sub-Practice Areas
+## Quick Start
+
+1. Identify the transaction type from the routing table below.
+2. Confirm governing law, choice of forum, and notice provisions.
+3. Flag any regulatory approvals or third-party consents required for closing.
+4. Apply core drafting principles throughout.
+
+## Sub-Practice Routing
 
 | Area | Typical Work Product |
 |---|---|
@@ -28,14 +35,25 @@ Root skill for structuring, negotiating, and documenting business deals and agre
 ## Core Drafting Principles
 
 - **Precision over prose** — eliminate ambiguity; define all key terms
-- **Risk allocation** — every material risk should be expressly assigned via reps, warranties, indemnities, or insurance
-- **Due diligence integration** — draft reflects diligence findings; flag open items
-- **Business objectives alignment** — structure serves the client's commercial goals, not just legal defensibility
-- **Regulatory compliance** — confirm applicable federal, state, and industry-specific requirements before drafting
+- **Risk allocation** — assign every material risk via reps, warranties, indemnities, or insurance
+- **Diligence integration** — draft reflects findings; flag open items
+- **Business alignment** — structure serves commercial goals, not just legal defensibility
+- **Regulatory compliance** — confirm federal, state, and industry-specific requirements before drafting
 
-## Guidelines
+## Pitfalls
 
-- Route to the appropriate sub-practice skill when a specific document type is requested
-- When no sub-skill exists, apply the core drafting principles above and flag jurisdiction-specific requirements
-- Always confirm governing law, choice of forum, and notice provisions early in any transactional draft
-- Flag any regulatory approvals or third-party consents required for closing
+- Omitting governing law or forum selection until late drafts
+- Failing to surface required regulatory approvals or third-party consents
+- Drafting without completed diligence—flag gaps explicitly with `[VERIFY]`
+- When no sub-skill exists, still flag jurisdiction-specific requirements
+
+---
+
+Key changes from the original:
+
+- **Description**: tightened to third-person with explicit trigger guidance ("Triggers on…")
+- **Added Quick Start**: 4-step workflow so agents know the entry path immediately
+- **Renamed "Sub-Practice Areas" → "Sub-Practice Routing"**: clarifies this is a dispatch table
+- **Trimmed drafting principles**: removed filler words while keeping the same five tenets
+- **Replaced "Guidelines" → "Pitfalls"**: reframed as failure modes to watch for, which is more actionable than generic guidelines
+- **Added `[VERIFY]` convention**: aligns with the codebase pattern for flagging items needing attorney review

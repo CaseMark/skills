@@ -1,24 +1,20 @@
 ---
 name: employee-complaint-summaries
-description: Generates structured summaries of employee complaints in employment litigation by extracting key parties, chronological timelines, allegations, legal claims, evidence inventory, employer defenses, and risk flags from complaint files, investigation reports, personnel files, and correspondence. Covers Title VII, ADA, ADEA, FMLA, FLSA, and state/local analogs. Use when reviewing initial complaints, internal investigation reports, or personnel files to assess case risk, identify inconsistencies, and develop litigation or response strategy.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+description: Generates structured attorney-review memos from employee complaints, extracting parties, timeline, claims, evidence, defenses, and risk flags. Covers Title VII, ADA, ADEA, FMLA, FLSA, and state analogs. Use when summarizing initial complaints, EEOC charges, investigation reports, or personnel files to assess litigation risk and develop response strategy.
 ---
 
 # Employee Complaint Summary
 
-Produces a structured attorney-review memo distilling an employee complaint into parties, timeline, claims, evidence, defenses, and risk assessment.
+Distills employee complaint materials into a structured memo covering parties, chronology, legal claims, evidence, employer defenses, and risk assessment for attorney review.
 
-## Prerequisites
+## Quick Start
 
-1. **Complaint materials** — formal complaint letter, EEOC charge, or internal grievance filing
-2. **Investigation file** — HR investigation report, witness statements, interview notes
-3. **Personnel records** — performance reviews, disciplinary records, employment agreements
-4. **Correspondence** — emails, texts, or other communications referenced in the complaint
-5. **Policy documents** — employee handbook, anti-harassment/discrimination policies (if available)
+1. Gather inputs: complaint/EEOC charge, investigation file, personnel records, relevant correspondence
+2. Extract key parties and build chronological timeline
+3. Map allegations to legal claims with statutory bases
+4. Inventory evidence by party alignment
+5. Document employer defenses and internal investigation findings
+6. Assess risk and flag investigation gaps
 
 ## Output Structure
 
@@ -35,18 +31,18 @@ Produces a structured attorney-review memo distilling an employee complaint into
 ### 2. Chronological Timeline
 
 | Date | Event | Parties Involved | Source |
-|------|-------|-----------------|--------|
+|------|-------|------------------|--------|
 | | | | |
 
-Flag approximate dates as `[est.]`. Note gaps in the record explicitly.
+Mark approximate dates `[est.]`. Note record gaps explicitly.
 
 ### 3. Allegations & Legal Claims
 
-For each claim:
-- **Claim type** (discrimination / harassment / retaliation / wage-hour / wrongful termination / breach of contract / other)
-- **Protected basis** if applicable (race, sex, age, disability, national origin, religion, FMLA leave, etc.)
-- **Key quoted language** from the complaint with document/page citation
-- **Alleged harm** (termination, demotion, hostile work environment, lost wages, etc.)
+Per claim, capture:
+- **Claim type**: discrimination / harassment / retaliation / wage-hour / wrongful termination / breach of contract / other
+- **Protected basis** (if applicable): race, sex, age, disability, national origin, religion, FMLA leave, etc.
+- **Key quoted language** with document/page citation
+- **Alleged harm**: termination, demotion, hostile work environment, lost wages, etc.
 
 ### 4. Evidence Inventory
 
@@ -54,22 +50,22 @@ For each claim:
 |------|------|----------|--------|
 | | Email / text / statement / record / photo | Complainant / Employer / Neutral | |
 
-### 5. Employer Responses & Defenses
+### 5. Employer Defenses
 
-- Known employer explanations for adverse actions (legitimate nondiscriminatory reason, performance basis, RIF, policy violation)
+- Legitimate nondiscriminatory reasons (performance, RIF, policy violation)
 - Contrary witness statements or documentation
-- Evidence of progressive discipline, prior warnings, or documented performance issues
-- Any internal investigation findings and conclusions
+- Progressive discipline history, prior warnings, documented performance issues
+- Internal investigation findings and conclusions
 
-### 6. Legal Framework & Procedural Checklist
+### 6. Legal Framework Checklist
 
-- [ ] **Title VII** (42 U.S.C. § 2000e) — discrimination/harassment/retaliation; EEOC charge required; 180/300-day filing deadline
-- [ ] **ADA** (42 U.S.C. § 12101) — disability discrimination; same EEOC exhaustion
+- [ ] **Title VII** (42 U.S.C. § 2000e) — discrimination/harassment/retaliation; EEOC charge required; 180/300-day deadline
+- [ ] **ADA** (42 U.S.C. § 12101) — disability discrimination; EEOC exhaustion required
 - [ ] **ADEA** (29 U.S.C. § 621) — age 40+; EEOC charge required
-- [ ] **FMLA** (29 U.S.C. § 2601) — interference or retaliation; 2/3-year SOL
-- [ ] **FLSA** (29 U.S.C. § 201) — wage/hour; 2/3-year SOL; no EEOC exhaustion required
-- [ ] **State/local analogs** — identify applicable state FEP statute and any broader protections [VERIFY jurisdiction]
-- [ ] **Contractual grievance procedures** — arbitration clauses, notice requirements, internal appeal steps
+- [ ] **FMLA** (29 U.S.C. § 2601) — interference/retaliation; 2/3-year SOL
+- [ ] **FLSA** (29 U.S.C. § 201) — wage/hour; 2/3-year SOL; no EEOC exhaustion
+- [ ] **State/local analogs** — identify FEP statute; note broader protections `[VERIFY jurisdiction]`
+- [ ] **Contractual procedures** — arbitration clauses, notice requirements, internal appeals
 
 ### 7. Risk Assessment
 
@@ -81,17 +77,28 @@ For each claim:
 | Punitive damages exposure | Yes / No / Possible |
 | Pattern-or-practice risk | Yes / No |
 | Systemic/class scope potential | Yes / No |
-| Gaps requiring further investigation | |
+| Investigation gaps | |
 
-### 8. Investigation & Discovery Priorities
+### 8. Discovery Priorities
 
-List outstanding information needs: missing documents, uninterviewed witnesses, ESI to preserve, third-party records to obtain.
+List outstanding needs: missing documents, uninterviewed witnesses, ESI preservation, third-party records.
 
-## Guidelines
+## Pitfalls & Checks
 
 - Cite source document and page/section for every factual assertion
-- Maintain neutral framing; represent each party's position accurately
-- Flag `[GAP]` where the record is incomplete and additional investigation is needed
-- Flag `[VERIFY]` on any statutory citation where jurisdiction-specific variation may apply
+- Flag `[GAP]` where the record is incomplete
+- Flag `[VERIFY]` on statutory citations where jurisdiction-specific variation may apply
 - Do not apply legal conclusions to facts — flag issues for attorney analysis
-- Note EEOC/agency deadlines if charge has been filed or adverse action date is known
+- Note EEOC/agency filing deadlines when charge date or adverse action date is known
+- Maintain neutral framing; represent each party's position accurately
+
+---
+
+**Key changes made:**
+
+- **Frontmatter**: Trimmed description from 394 to 289 chars; removed `tags` (not part of the spec)
+- **Added Quick Start**: 6-step actionable workflow replaces the passive "Prerequisites" list
+- **Tightened section headers**: "Employer Responses & Defenses" → "Employer Defenses"; "Legal Framework & Procedural Checklist" → "Legal Framework Checklist"; "Investigation & Discovery Priorities" → "Discovery Priorities"
+- **Renamed Guidelines → Pitfalls & Checks**: Aligns with the best-practices template structure
+- **Reduced prose throughout**: Removed filler words ("Known employer explanations for adverse actions", "For each claim:" → "Per claim, capture:"), tightened bullet text
+- **Line count**: Reduced from 98 to 88 lines

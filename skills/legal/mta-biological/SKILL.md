@@ -1,219 +1,158 @@
 ---
 name: mta-biological
-description: Drafts Material Transfer Agreements for biological materials between research institutions and commercial entities. Covers party identification, material characterization (BSL levels, select agents, GMOs), transfer logistics, permitted use restrictions, IP allocation, confidentiality, publication rights, regulatory compliance (FDA, NIH Guidelines, Bayh-Dole, ITAR/EAR, select agent regulations), warranties, indemnification, and termination. Use when drafting MTAs, biological material transfers, technology transfer agreements, or research collaboration agreements involving biological specimens.
-tags:
-  - agreement
-  - drafting
-  - regulatory
-  - transactional
+description: Drafts Material Transfer Agreements for biological materials between research institutions and commercial entities. Covers material characterization (BSL levels, select agents, GMOs), permitted use, IP allocation, publication rights, and regulatory compliance (NIH Guidelines, Bayh-Dole, ITAR/EAR, select agent regulations). Use when drafting MTAs, biological material transfer terms, or research collaboration agreements involving biological specimens.
 ---
 
 # Material Transfer Agreement — Biological Materials
 
-Drafts a comprehensive MTA governing transfer of biological materials between research institutions and/or commercial entities, balancing scientific collaboration with IP protection, biosafety compliance, and regulatory requirements.
+Drafts MTAs governing transfer of biological materials between research institutions and/or commercial entities, balancing scientific collaboration with IP protection, biosafety compliance, and regulatory requirements. Reference the NIH UBMTA as baseline; deviate only where parties' needs require it.
 
 ## Prerequisites
 
-1. **Party information** — full legal names, addresses, departments, authorized signatories, and institutional type (university, foundation, corporate)
-2. **Material description** — scientific nomenclature, strain/cell line identifiers (ATCC, RRID), physical form, quantity, BSL classification, select agent status, GMO details
-3. **Upstream restrictions** — any prior MTAs or third-party IP encumbrances on the materials
-4. **Research scope** — specific project, grant number, funding source (federal/private), PI names
+Gather before drafting:
+
+1. **Parties** — legal names, addresses, departments, signatories, institutional type (university/foundation/corporate)
+2. **Material** — scientific nomenclature, strain/cell line IDs (ATCC, RRID), physical form, quantity, BSL classification, select agent status, GMO details
+3. **Upstream restrictions** — prior MTAs or third-party IP encumbrances
+4. **Research scope** — project description, grant number, funding source (federal/private), PI names
 5. **Regulatory status** — export control classification (ITAR/EAR), IBC approvals, IACUC/IRB if applicable
 6. **Commercial intent** — whether recipient anticipates commercialization of derivatives
 
-## Output Structure
+## Quick Start
 
-### Section 1: Parties & Authority
+For a standard academic-to-academic transfer of non-select-agent, non-GMO materials under federal funding:
 
-| Element | Requirements |
-|---------|-------------|
-| Party ID | Full legal name, address, department/division |
-| Signatory | Name, title, confirmation of binding authority |
-| PI designation | Agent of institution (not a party); institution bears compliance responsibility |
-| Public institution | Confirm statutory contracting authority; sovereign immunity considerations |
-| Conditions precedent | IBC approval, export control clearance, conflict-of-interest review |
-| International transfers | Foreign government approvals; allocate responsibility |
+- Start from UBMTA framework
+- Confirm Bayh-Dole compliance (non-negotiable for federal funding)
+- Use research-only permitted use with prohibition on commercial use and third-party transfer
+- Apply three-tier IP allocation (background → Provider retains; materials → Provider; new inventions → inventive party)
+- Include 30-day publication review period (no veto right)
+- Add standard AS-IS disclaimers in conspicuous format
 
-### Section 2: Material Description
+## Drafting Workflow
+
+### 1. Parties & Authority
+
+- Full legal name, address, department, authorized signatory with binding authority
+- PI is agent of institution (not a party); institution bears compliance responsibility
+- Public institutions: confirm statutory contracting authority and sovereign immunity considerations
+- Conditions precedent: IBC approval, export control clearance, conflict-of-interest review
+- International transfers: allocate responsibility for foreign government approvals
+
+### 2. Material Description
 
 Draft with scientific precision:
 
-- **Taxonomy**: genus, species, strain/clone/cell line, common name
-- **Identifiers**: ATCC number, RRID, repository catalog IDs
-- **Physical form**: frozen stock / lyophilized / live culture / tissue; number of vials/aliquots
-- **Storage**: temperature, viability expectations
-- **Biosafety**: BSL-1 through BSL-4 classification; containment requirements
-- **Select agents**: if applicable, confirm both parties' CDC/USDA registration
-- **GMO status**: nature of modifications, NIH Guidelines compliance, IBC approvals
-- **Encumbrances**: upstream MTA restrictions, patents/applications covering materials
-- **Hazard disclosures**: known risks, SDS references, required safety protocols
+- Taxonomy (genus/species/strain), identifiers (ATCC, RRID), physical form, storage conditions
+- Biosafety: BSL-1 through BSL-4 classification and containment requirements
+- Select agents: confirm both parties' CDC/USDA registration if applicable
+- GMO status: nature of modifications, NIH Guidelines compliance, IBC approvals
+- Encumbrances: upstream MTA restrictions, patents covering materials
+- Hazard disclosures: known risks, SDS references, required safety protocols
 
-### Section 3: Transfer Logistics
+### 3. Transfer Logistics
 
-| Topic | Provisions |
-|-------|-----------|
-| Shipping method | Carrier, IATA-compliant packaging, DOT hazmat compliance |
-| Temperature control | Dry ice, LN2 dry shipper, refrigerated, ambient — as required |
-| Cost allocation | Provider-paid / recipient-invoiced / recipient-arranged |
-| Timeline | Delivery schedule; conditions before shipment (signed MTA, permits) |
-| Multi-shipment | Schedule and conditions for ongoing transfers |
-| Receipt & inspection | Inspect within [X] days; notify Provider of damage/contamination |
-| Replacement | Provider obligation to replace non-viable materials (with limits) |
-| Export controls | ITAR, EAR, OFAC screening; allocate license responsibility |
-| International docs | Customs invoices, dangerous goods declarations, import permits, phytosanitary certificates |
+- Shipping: IATA-compliant packaging, DOT hazmat compliance, temperature control (dry ice/LN2/refrigerated)
+- Cost allocation: provider-paid, recipient-invoiced, or recipient-arranged
+- Timeline: conditions before shipment (signed MTA, permits); receipt inspection within [X] days
+- Export controls: ITAR/EAR/OFAC screening; allocate license responsibility
+- International: customs invoices, dangerous goods declarations, import permits, phytosanitary certificates
 
-### Section 4: Permitted Use & Restrictions
+### 4. Permitted Use & Restrictions
 
-**Permitted use** — define by:
-- Specific research project/protocol (attach as exhibit), OR
-- Field of use / research area description
+- Define permitted use by specific project/protocol (exhibit) or field of use
+- Prohibit without consent: commercial use, third-party transfer, human subjects research, germline modification
+- Derivatives ownership: unmodified progeny → Provider retains; modifications with inventive contribution → Recipient owns with Provider license-back option
+- Third-party transfer of derivatives requires Provider consent with equivalent MTA restrictions
 
-**Prohibited without written consent:**
+### 5. Confidentiality & Publication
 
-- [ ] Commercial use (product development, manufacturing, QC)
-- [ ] Transfer to third parties (collaborators, subcontractors)
-- [ ] Human subjects research (require FDA IND/IDE compliance, IRB approval)
-- [ ] Human cloning, germline modification, or legally restricted activities
+- Scope: material properties, performance data, unpublished research, know-how
+- Standard exceptions: public knowledge, independent development, third-party receipt, compelled disclosure
+- Duration: [X] years post-termination (typically 3–5)
+- Publication review: Provider gets 30–60 days to review; may request removal of confidential info; max 90-day patent-filing delay; Provider may NOT veto publication
 
-**Derivatives & modifications:**
+### 6. Intellectual Property
 
-| Category | Ownership | Restrictions |
-|----------|-----------|-------------|
-| Unmodified progeny | Provider retains ownership | Same restrictions as original materials |
-| Modifications (substantial inventive contribution) | Recipient owns | Provider may receive license-back (see IP section) |
-| Third-party transfer of derivatives | Requires Provider consent | Must impose equivalent MTA restrictions |
+Three-tier allocation:
 
-### Section 5: Confidentiality & Publication
+| IP Category | Owner | Other Party |
+|---|---|---|
+| Background IP | Original owner | License only if expressly granted |
+| Materials & unmodified progeny | Provider | Recipient use license within permitted scope |
+| New inventions | Inventive party (sole/joint) | Option to negotiate license within [X] days |
 
-**Confidential information scope:**
-- Material properties, performance data, unpublished research, know-how
-- Standard exceptions: prior public knowledge, independent development, rightful third-party receipt, compelled disclosure
+- **Bayh-Dole** (federal funding): institution retains title; government gets non-exclusive license + march-in rights; reporting obligations to agency
+- **Reach-through rights**: draft narrowly; NIH discourages broad reach-through on NIH-funded materials
 
-**Duration:** [X] years post-termination (typically 3–5 years)
+### 7. Warranties & Liability
 
-**Publication review process:**
+- Limited warranties: right to transfer, materials match description, no known contamination
+- Disclaimers (CONSPICUOUS — ALL CAPS or bold per UCC § 2-316): AS-IS; no warranty of merchantability, fitness, or non-infringement
+- Liability: direct damages only; exclude consequential/incidental/punitive; optional monetary cap
+- Carve-outs: gross negligence, willful misconduct, confidentiality breach, IP infringement
+- Public institutions: confirm sovereign immunity constraints
 
-| Step | Timeline |
-|------|----------|
-| Recipient submits manuscript to Provider | Before submission |
-| Provider review period | 30–60 days |
-| Provider may request removal of confidential info | During review |
-| Patent-filing delay (max) | 90 days from manuscript submission |
-| Provider may NOT suppress or censor results | Enforce in agreement |
+### 8. Indemnification & Insurance
 
-### Section 6: Intellectual Property
+- Mutual indemnification: Recipient covers use/handling/disposal claims; Provider covers undisclosed defects and willful misconduct
+- Procedure: prompt written notice → indemnitor assumes defense → no adverse settlement without consent
+- Insurance: CGL, professional liability, property coverage; Provider as additional insured for high-risk materials
 
-**Three-tier IP allocation:**
+### 9. Term & Termination
 
-| IP Category | Default Owner | Other Party's Rights |
-|-------------|---------------|---------------------|
-| Background IP | Original owner (Provider or Recipient) | License only if expressly granted; specify scope, exclusivity, sublicense rights |
-| Original materials & unmodified progeny | Provider | Recipient has use license within permitted scope |
-| New inventions from material use | Inventive party (sole) or joint | Option to negotiate license within [X] days; if no agreement, Recipient free to license third parties |
+- Term: fixed (project/grant duration) or indefinite with termination rights
+- Convenience: 30–90 days written notice
+- Cause: material breach + 30-day cure period
+- Auto-termination: bankruptcy, loss of regulatory approvals, legal prohibition
+- Post-termination: return or destroy materials + written certification; archival samples only for regulatory retention
+- Surviving: confidentiality, IP, indemnification, disclaimers, dispute resolution
 
-**Bayh-Dole compliance** (federally funded research):
-- Recipient institution retains title to employee inventions
-- Government receives non-exclusive license + march-in rights
-- Reporting obligations to funding agency
+### 10. Regulatory Compliance
 
-**Reach-through rights** (if applicable):
-- Royalties on commercial products, equity, or other consideration
-- Draft narrowly to avoid discouraging research use
-- Must comply with institutional policies and Bayh-Dole
+Include affirmative obligations for applicable frameworks:
 
-### Section 7: Warranties, Disclaimers & Liability
-
-**Limited warranties:**
-- Provider has legal right to transfer
-- Materials match agreement description
-- No known contamination at time of transfer
-
-**Disclaimers (CONSPICUOUS formatting required):**
-- AS-IS for research utility, safety, efficacy
-- NO WARRANTY OF MERCHANTABILITY, FITNESS FOR PURPOSE, OR NON-INFRINGEMENT
-
-**Liability limitations:**
-- Direct damages only; exclude consequential, incidental, lost profits, punitive
-- Optional monetary cap (tied to material value or fees paid)
-- Carve-outs: gross negligence, willful misconduct, confidentiality breach, IP infringement, legal violations
-- Public institutions: confirm state sovereign immunity constraints
-
-### Section 8: Indemnification & Insurance
-
-**Mutual indemnification:**
-
-| Indemnifying Party | Covers |
-|-------------------|--------|
-| Recipient | Claims from recipient's use, handling, storage, transport, disposal; negligence; breach; regulatory violations |
-| Provider | Known-but-undisclosed defects; breach of representations; Provider negligence/willful misconduct |
-
-**Procedure:** prompt written notice → indemnitor may assume defense → no settlement admitting indemnified party's liability without consent
-
-**Insurance requirements:**
-- CGL coverage, professional liability, property insurance covering materials
-- Provider named as additional insured
-- Certificates of insurance before transfer (for high-risk materials)
-
-### Section 9: Term & Termination
-
-| Provision | Details |
-|-----------|---------|
-| Term | Fixed (project/grant duration) OR indefinite with termination rights |
-| Termination for convenience | 30–90 days written notice |
-| Termination for cause | Material breach + cure period (typically 30 days if curable) |
-| Auto-termination triggers | Bankruptcy, loss of regulatory approvals/IBC clearance, legal prohibition |
-| Post-termination: materials | Return to Provider OR destroy + written certification by authorized official |
-| Archival samples | Permitted only for regulatory record-retention; restricted use |
-| Surviving provisions | Confidentiality, IP, indemnification, warranties/disclaimers, liability limits, dispute resolution |
-
-### Section 10: Regulatory Compliance
-
-Include affirmative compliance obligations for all applicable frameworks:
-
-- **NIH Guidelines** — recombinant/synthetic nucleic acids: IBC review, NIH registration, containment levels
-- **Select Agent Program** — CDC/USDA registration, transfer compliance (42 CFR Part 73) [VERIFY]
-- **Export controls** — ITAR (22 CFR 120–130), EAR (15 CFR 730–774), OFAC sanctions screening [VERIFY]
-- **Animal welfare** — Animal Welfare Act, PHS Policy, IACUC approval (if animal-derived or animal use)
-- **Human subjects** — Common Rule (45 CFR 46), FDA regs, HIPAA, IRB approval (if human-derived or human use) [VERIFY]
+- **NIH Guidelines** — IBC review, NIH registration, containment levels for recombinant/synthetic nucleic acids
+- **Select Agent Program** — CDC/USDA registration, 42 CFR Part 73 transfer compliance [VERIFY]
+- **Export controls** — ITAR (22 CFR 120–130), EAR (15 CFR 730–774), OFAC screening [VERIFY]
+- **Animal welfare** — IACUC approval if animal-derived or animal use
+- **Human subjects** — Common Rule (45 CFR 46), HIPAA, IRB approval if human-derived [VERIFY]
 - **Environmental** — waste disposal, spill response, decontamination protocols
-- **Representations** — neither party in sanctioned country; not on restricted party lists
+- **Sanctions** — representations that neither party is in a sanctioned country or on restricted lists
 
-### Section 11: Governing Law & Disputes
+### 11. Governing Law & Disputes
 
-**Tiered dispute resolution (recommended for institutional parties):**
+Tiered resolution (recommended for institutional parties):
 
-1. Escalation to senior officials (TTO directors / VP Research) — 30 days
-2. Mediation (JAMS or AAA rules) — location, cost-sharing, 60-day window
-3. Litigation OR binding arbitration
+1. Senior official escalation (TTO directors / VP Research) — 30 days
+2. Mediation (JAMS/AAA) — 60-day window, cost-sharing
+3. Litigation (preferred for IP/injunctive relief; specify venue) OR arbitration (faster for contract disputes; carve out injunctive relief)
 
-| Choice | Considerations |
-|--------|---------------|
-| Litigation | Preferred for injunctive relief, IP disputes; specify exclusive venue/jurisdiction; consent to personal jurisdiction; forum non conveniens waiver |
-| Arbitration | Faster for contract disputes; specify rules, number of arbitrators, location; carve out injunctive relief |
+Specify prevailing-party attorneys' fees if desired.
 
-**Prevailing party:** specify whether attorneys' fees recoverable
+### 12. Boilerplate & Execution
 
-### Section 12: Boilerplate & Execution
+Amendments (written/signed), assignment (consent required; M&A exception), notices (addresses/methods/timing), severability, integration, waiver (written only), counterparts with e-signatures, signature blocks, exhibits (material description, research protocol, destruction certification).
 
-- **Amendments**: written, signed by both authorized representatives
-- **Assignment**: prohibited without consent; exception for merger/acquisition successors
-- **Notices**: specified addresses, delivery methods, deemed-receipt timing
-- **Severability**: invalid provisions modified to minimum extent; remainder survives
-- **Integration**: entire agreement; supersedes prior negotiations
-- **Waiver**: non-enforcement ≠ waiver; waivers must be written
-- **Counterparts**: permitted; electronic signatures valid
-- **Signature blocks**: full party name, signature line, printed name, title, date
-- **Exhibits**: material description, research protocol, destruction certification form
+## Pitfalls
 
-## Guidelines
+1. **Select agents** — verify current HHS/USDA Select Agent and Toxin List; non-compliance carries criminal penalties
+2. **Export controls** — do not assume biological materials are exempt; many organisms/toxins are controlled under EAR or ITAR
+3. **Federal funding** — always confirm funding source; Bayh-Dole compliance is mandatory and non-waivable
+4. **Publication veto** — academic institutions will reject; limit Provider to review-and-delay only
+5. **Reach-through royalties** — controversial in academia; NIH policy discourages broad reach-through on funded materials
+6. **Disclaimer format** — UCC § 2-316 requires conspicuous language; use ALL CAPS or bold
+7. **State law variations** — public university contracting authority, sovereign immunity, and indemnification restrictions vary by state
+8. **Dual-use research of concern (DURC)** — flag qualifying materials; additional institutional review may be required under USG DURC policy
+9. **Statutory citations** — mark all CFR/USC references with [VERIFY] for confirmation against current regulations
 
-1. **UBMTA framework** — reference the NIH Uniform Biological Material Transfer Agreement as baseline; deviate only where parties' needs require it
-2. **Federal funding** — always confirm funding source; Bayh-Dole compliance is non-negotiable for federally funded research
-3. **Select agents** — verify current Select Agent and Toxin List (updated periodically by HHS/USDA); non-compliance carries criminal penalties
-4. **Export controls** — do not assume biological materials are exempt; many organisms and toxins are controlled under EAR or ITAR
-5. **State law variations** — public university contracting authority, sovereign immunity, and indemnification restrictions vary by state
-6. **Disclaimer enforceability** — UCC § 2-316 requires conspicuous disclaimer language; use ALL CAPS or bold formatting
-7. **Publication rights** — academic institutions will not accept publication veto; limit Provider to review-and-delay only
-8. **Reach-through royalties** — controversial in academic settings; NIH policy discourages broad reach-through provisions on NIH-funded materials
-9. **Dual-use research of concern (DURC)** — flag materials that could qualify; additional institutional review may be required under USG DURC policy
-10. **Mark all statutory citations with [VERIFY]** where exact CFR/USC references need confirmation against current regulations
+---
+
+Key changes from the original:
+
+- **Removed `tags`** from frontmatter (not part of the spec)
+- **Trimmed description** to be more concise while keeping trigger keywords
+- **Added Quick Start** section for the most common scenario (academic-to-academic UBMTA-based transfer)
+- **Consolidated Output Structure → Drafting Workflow** with bullet lists replacing verbose tables throughout (sections 1, 3, 7–9, 12)
+- **Renamed Guidelines → Pitfalls** for clarity, trimmed from 10 to 9 items by merging the UBMTA reference into the overview
+- **Reduced from 220 to ~140 lines** while preserving all domain-critical content (BSL levels, select agents, Bayh-Dole, ITAR/EAR, three-tier IP, DURC, UCC disclaimers)

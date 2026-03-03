@@ -1,6 +1,6 @@
 ---
 name: stay-relief-motion
-description: Drafts a Motion for Relief from Automatic Stay under 11 U.S.C. § 362(d) for bankruptcy proceedings. Covers § 362(d)(1) cause/adequate protection, § 362(d)(2) no equity/not necessary, and § 362(d)(3) single asset real estate grounds. Ensures compliance with FRBP 4001, 9014, and local rules. Use when a creditor needs to lift the automatic stay to foreclose, repossess collateral, or continue state court litigation against a debtor in bankruptcy.
+description: Drafts a Motion for Relief from Automatic Stay under 11 U.S.C. § 362(d). Covers § 362(d)(1) cause/adequate protection, (d)(2) no equity/not necessary, and (d)(3) single asset real estate grounds. Use when a creditor needs to lift the automatic stay to foreclose, repossess collateral, or continue state court litigation against a debtor in bankruptcy.
 tags:
   - drafting
   - litigation
@@ -9,16 +9,25 @@ tags:
 
 # Motion for Relief from Automatic Stay
 
-Drafts a persuasive, procedurally compliant motion under 11 U.S.C. § 362(d) to lift the automatic stay and allow a creditor to proceed against debtor collateral.
+Drafts a procedurally compliant motion under 11 U.S.C. § 362(d) to lift the automatic stay. Ensures compliance with FRBP 4001, 9014, and local rules.
 
 ## Prerequisites
 
-1. **Loan/lease documents** — promissory note, security agreement, deed of trust, UCC filings, amendments
-2. **Perfection evidence** — recording info, UCC-1 filing receipts, title reports
-3. **Payment history** — account ledger showing all payments, defaults, arrearage calculation
-4. **Valuation evidence** — appraisal, BPO, tax assessment, or comparable sales data
-5. **Bankruptcy case info** — case number, chapter, filing date, court/district/division, debtor name as petitioned
-6. **Post-petition facts** — adequate protection payments (made/missed), insurance status, property condition, any prior stay relief orders
+1. **Loan/lease documents** — note, security agreement, deed of trust, UCC filings
+2. **Perfection evidence** — recording info, UCC-1 receipts, title reports
+3. **Payment history** — account ledger, defaults, arrearage calculation
+4. **Valuation evidence** — appraisal, BPO, tax assessment, or comparables
+5. **Bankruptcy case info** — case number, chapter, filing date, court/district/division, debtor name
+6. **Post-petition facts** — adequate protection payments, insurance status, property condition
+
+## Quick Start
+
+1. Gather all prerequisites; confirm statutory ground(s): § 362(d)(1), (d)(2), and/or (d)(3)
+2. Draft caption with exact debtor name, case number, chapter, and movant capacity
+3. Build chronological fact section from loan origination through post-petition default
+4. Draft legal argument matching each ground to evidentiary support
+5. Prepare supporting declaration with FRE 803(6) foundation and exhibit list
+6. Verify service list and 21-day notice requirement under FRBP 4001
 
 ## Output Structure
 
@@ -26,104 +35,69 @@ Drafts a persuasive, procedurally compliant motion under 11 U.S.C. § 362(d) to 
 
 | Element | Requirement |
 |---------|-------------|
-| Court | Full formal name: U.S. Bankruptcy Court, [District], [Division] |
+| Court | U.S. Bankruptcy Court, [District], [Division] |
 | Debtor | Exact legal name from petition; entity type |
 | Case No. | Jurisdiction-specific format |
 | Chapter | 7, 11, 12, or 13 |
 | Movant | Full legal name + capacity (e.g., "as holder of a first-priority deed of trust") |
 | Title | "MOTION FOR RELIEF FROM AUTOMATIC STAY PURSUANT TO 11 U.S.C. § 362(d)" |
 
-Include TOC/TOA if motion exceeds 10 pages per local rule.
-
 ### 2. Introduction
 
-- [ ] Movant identity, relationship to debtor, and description of collateral
-- [ ] Specific relief sought: termination / modification / annulment of stay
-- [ ] Statutory basis: § 362(d)(1), (d)(2), and/or (d)(3)
-- [ ] Procedural context: filing date, stay duration, prior motions, relevant deadlines
+- Movant identity, relationship to debtor, collateral description
+- Specific relief sought: termination / modification / annulment
+- Statutory basis and procedural context (filing date, stay duration, deadlines)
 
-### 3. Factual Background (Chronological)
+### 3. Factual Background
 
-**Pre-bankruptcy relationship:**
-- Original transaction date, principal amount, rate, terms, maturity, balloon provisions
-- Guarantors/co-borrowers and their current status
+Present chronologically:
 
-**Collateral & security interest:**
-
-| Collateral Type | Required Detail |
-|----------------|-----------------|
-| Real property | Full legal description, address, recording date, instrument no., county |
-| Personal property | Make, model, serial/VIN, UCC-1 filing date and number |
-| Both | Date perfected, method of perfection, priority position with evidence |
-
-**Default chronology:**
-- Date of first missed payment and default pattern
-- Arrearage itemization: principal, interest, late charges, fees, costs
-- Pre-petition collection efforts: demand letters, NOD, foreclosure initiation, judgments
-- Failed workout/modification attempts
-
-**Post-petition impact:**
-- How stay halted foreclosure/repossession/litigation
-- Insurance lapse (dates, exposure)
-- Waste/deterioration (specific instances)
-- Missed adequate protection payments
+- **Pre-petition:** Transaction date, principal, rate, terms, maturity; guarantors/co-borrowers
+- **Collateral:** Legal description (real property) or make/model/VIN (personal property); recording/UCC-1 data; perfection method and priority position
+- **Default:** First missed payment, arrearage itemization (principal, interest, late charges, fees), pre-petition collection efforts, failed workout attempts
+- **Post-petition impact:** How stay halted remedies; insurance lapses; waste/deterioration; missed adequate protection payments
 
 ### 4. Legal Argument
 
-#### § 362(d)(1) — Cause / Lack of Adequate Protection
+**§ 362(d)(1) — Cause / Lack of Adequate Protection**
 
 - Define adequate protection under § 361 (cash payments, replacement liens, indubitable equivalent)
-- Present evidence of declining collateral value (petition-date vs. current, with appraisal support)
-- Calculate equity cushion; cite circuit authority on minimum cushion (typically ≥ 20%)
+- Show declining collateral value with appraisal support (petition-date vs. current)
+- Calculate equity cushion; cite circuit authority on minimum threshold (typically ≥ 20%)
 - Show post-petition payments insufficient to cover accruing interest + depreciation
-- Address additional cause if applicable:
-  - Bad faith / serial filing (prior case history, timing relative to foreclosure)
-  - No realistic reorganization prospect
-  - Violation of prior adequate protection orders
+- Additional cause if applicable: bad faith/serial filing, no reorganization prospect, violation of prior orders
+- Burden: under § 362(g)(2), debtor bears burden on adequate protection
 
-**Burden of proof:** Under § 362(g)(2), debtor bears burden on adequate protection.
+**§ 362(d)(2) — No Equity + Not Necessary for Reorganization**
 
-#### § 362(d)(2) — No Equity + Not Necessary for Reorganization
+- *No equity (movant's burden, § 362(g)(1)):* Current FMV, all liens in priority order, total encumbrances > FMV
+- *Not necessary for reorganization:*
+  - Ch. 7: liquidation; reorganization element inapplicable
+  - Ch. 11: no plan filed / not confirmable / business not viable
+  - Ch. 13: cannot afford payments + cure / insufficient income
+- Cite circuit authority: debtor must show "reasonable possibility of successful reorganization within a reasonable time"
 
-**Element 1 — No equity (movant's burden under § 362(g)(1)):**
-- Current FMV with authenticated valuation evidence
-- All liens/encumbrances in priority order
-- Total encumbrances > FMV = no equity
+**§ 362(d)(3) — Single Asset Real Estate (if applicable)**
 
-**Element 2 — Not necessary for effective reorganization:**
-
-| Chapter | Argument |
-|---------|----------|
-| Ch. 7 | Liquidation proceeding; "reorganization" element inapplicable |
-| Ch. 11 | No plan filed / plan not confirmable / business not viable / alternative property available |
-| Ch. 13 | Cannot afford payments + cure / income insufficient for plan |
-
-Cite circuit authority requiring debtor to show "reasonable possibility of successful reorganization within a reasonable time." Speculation insufficient.
-
-#### § 362(d)(3) — Single Asset Real Estate (if applicable)
-
-- Debtor is SARE under § 101(51B)
-- 90-day deadline to file plan or begin interest payments per § 362(d)(3)
-- Failure to meet either triggers relief
+- Debtor qualifies as SARE under § 101(51B)
+- Failed to file plan or begin interest payments within 90 days
 
 ### 5. Prayer for Relief
 
-- [ ] Relief from stay to exercise all non-bankruptcy remedies (specify: foreclose, repossess, litigate, execute)
-- [ ] Address FRBP 4001(a)(3) 14-day stay: request waiver if emergency, or accept standard stay
-- [ ] Without prejudice to seek further relief (modification, adequate protection, conversion/dismissal)
-- [ ] Attorney's fees and costs (cite contractual or statutory basis)
-- [ ] Such other relief as court deems just
+- Relief from stay to exercise non-bankruptcy remedies (specify: foreclose, repossess, litigate)
+- Address FRBP 4001(a)(3) 14-day stay: request waiver if emergency
+- Without prejudice to seek further relief
+- Attorney's fees and costs (cite contractual or statutory basis)
 
 ### 6. Supporting Declaration
 
-Declarant: person with personal knowledge (loan servicer, asset manager, corporate representative).
+Declarant must have personal knowledge (loan servicer, asset manager, corporate representative).
 
-Required foundation:
-- [ ] Position, responsibilities, familiarity with account
-- [ ] Business records reviewed in ordinary course (FRE 803(6) foundation)
-- [ ] Complete factual narrative supporting all motion allegations
-- [ ] Post-petition communications and adequate protection history
-- [ ] Current collateral condition and value
+- Position, responsibilities, familiarity with account
+- Business records foundation under FRE 803(6)
+- Factual narrative supporting all motion allegations
+- Post-petition communications and adequate protection history
+- Current collateral condition and value
 
 ### 7. Exhibits
 
@@ -138,30 +112,24 @@ Required foundation:
 | G | Property condition photos (if applicable) |
 | H | Post-petition correspondence re: adequate protection |
 
-Each exhibit must be referenced in declaration with FRE 803(6) authentication (made at/near time, by person with knowledge, regular course of business, regular practice to make).
+Each exhibit referenced in declaration with FRE 803(6) authentication.
 
 ### 8. Service & Certificate
 
-**Mandatory service list:**
-- Debtor (address per petition)
-- Debtor's counsel
-- U.S. Trustee
-- Ch. 7 / Ch. 13 Trustee (if appointed)
-- Parties requesting special notice under Rule 2002
-- Corporate debtors: comply with Rule 7004
+**Service list:** Debtor, debtor's counsel, U.S. Trustee, Ch. 7/13 Trustee (if appointed), special notice parties (Rule 2002), corporate debtors per Rule 7004.
 
-**Timing:** Serve ≥ 21 days before hearing (or file motion to shorten time for emergency).
+**Timing:** Serve ≥ 21 days before hearing. File motion to shorten time if emergency.
 
-**Certificate of service:** Party name, address, method (CM/ECF or mail), date served.
+**Certificate:** Party name, address, method (CM/ECF or mail), date served.
 
-## Guidelines
+## Checks
 
-- Use persuasive point headings that state conclusions (e.g., "The Debtor's Failure to Maintain Insurance Constitutes Cause for Relief")
-- Cite specific numbers, dates, and exhibits — never conclusory statements
-- Prioritize binding circuit/district authority; use parentheticals to show relevance
+- Use persuasive point headings stating conclusions, not neutral labels
+- Cite specific numbers, dates, and exhibits — avoid conclusory statements
+- Prioritize binding circuit/district authority with parentheticals
 - Preemptively distinguish likely adverse authority
-- Comply with local formatting: typically 12pt Times New Roman/Arial, 1" margins, double-spaced, consecutive paragraph numbering
-- Signature block: /s/ format for e-filing, bar number, firm, address, phone, email, party representation
-- Verify all Bluebook citations; check local standing orders for stay relief-specific requirements (mandatory mediation, certification, proposed order format)
-- If seeking emergency/expedited relief, file separate motion to shorten time with emergency justification
-- Tone: professional, forceful, respectful — credibility is paramount
+- Verify all Bluebook citations and local standing orders (mediation, certification, proposed order format)
+- Local formatting: 12pt Times New Roman/Arial, 1" margins, double-spaced, consecutive paragraph numbering
+- Signature block: /s/ format, bar number, firm, address, phone, email
+- Emergency relief requires separate motion to shorten time
+- Tone: professional, forceful, respectful

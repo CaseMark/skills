@@ -1,225 +1,171 @@
 ---
 name: om-agreement
-description: Drafts comprehensive Operations and Maintenance (O&M) agreements for energy facilities, covering scope of services, performance standards, compensation, risk allocation, and regulatory compliance. Integrates with PPAs, financing agreements, and permit requirements. Use when drafting O&M contracts, energy facility service agreements, maintenance contracts for power plants, solar farms, wind projects, or other energy infrastructure.
-tags:
-  - agreement
-  - drafting
-  - regulatory
-  - transactional
+description: Drafts Operations and Maintenance agreements for energy facilities covering scope, performance standards, compensation, risk allocation, and regulatory compliance. Use when drafting O&M contracts, maintenance agreements for power plants, solar farms, wind projects, or energy infrastructure.
 ---
 
-# Operations and Maintenance (O&M) Agreement
+# O&M Agreement
 
-Drafts a commercially balanced O&M agreement governing the relationship between a project owner and O&M contractor for an energy facility.
+Drafts a commercially balanced O&M agreement between a project owner and contractor for an energy facility. Integrates with PPAs, financing documents, and permit requirements.
 
 ## Prerequisites
 
-1. **Facility details** — type (solar, wind, gas, storage, etc.), capacity, location, technology, COD status
-2. **Related project documents** — PPA, financing/loan agreements, EPC contract, interconnection agreement, permits
-3. **Party information** — full legal names, formation jurisdiction, regulatory IDs/licenses for both owner and contractor
-4. **Commercial terms** — compensation model preference (fixed, variable, cost-plus, hybrid), term length, renewal expectations
-5. **Lender requirements** — any direct agreement obligations, consent rights, or reporting covenants from financing documents
-6. **Regulatory context** — applicable environmental permits, grid codes, safety regulations, renewable attribute requirements
+Gather before drafting:
 
-## Output Structure
+1. **Facility details** — type (solar, wind, gas, storage), capacity, location, technology, COD status
+2. **Related documents** — PPA, financing/loan agreements, EPC contract, interconnection agreement, permits
+3. **Party information** — full legal names, jurisdiction, regulatory IDs/licenses for owner and contractor
+4. **Commercial terms** — compensation model (fixed, variable, cost-plus, hybrid), term length, renewal expectations
+5. **Lender requirements** — direct agreement obligations, consent rights, reporting covenants
+6. **Regulatory context** — environmental permits, grid codes, safety regulations, renewable attribute requirements
 
-### Article 1: Definitions & Recitals
+## Quick Start
 
-- Define all capitalized terms in a standalone section
-- Recitals must reference: facility specs, related agreements (PPA, financing, EPC), regulatory approvals, commercial purpose
-- Identify parties with full legal names, entity type, jurisdiction, addresses, license numbers
+1. Collect all prerequisites and related project documents
+2. Draft articles 1–9 per the structure below
+3. Attach schedules A–H with facility-specific detail
+4. Cross-check against PPA, financing docs, and permits for consistency
+5. Verify LD provisions, insurance, and force majeure alignment across all project agreements
 
-### Article 2: Scope of Services
+## Agreement Structure
 
-Organize into these categories:
+### Art. 1: Definitions & Recitals
+
+- Standalone defined-terms section for all capitalized terms
+- Recitals reference: facility specs, related agreements (PPA, financing, EPC), regulatory approvals
+- Party identification: full legal names, entity type, jurisdiction, addresses, license numbers
+
+### Art. 2: Scope of Services
 
 | Category | Key Items |
 |---|---|
-| **Preventive maintenance** | Scheduled inspections, testing protocols, calibration, predictive maintenance programs |
-| **Corrective maintenance** | Emergency response, troubleshooting, unscheduled repairs |
-| **Major maintenance** | Planned outages, overhauls, component replacements on extended cycles |
-| **Inventory management** | Spare parts, OEM coordination, warranty compliance |
-| **Environmental compliance** | Emissions monitoring, reporting, waste management, EMS implementation |
-| **Health & safety** | Safety programs, incident reporting, OSHA compliance, certifications |
-| **Staffing** | Minimum on-site presence, personnel qualifications, training, replacement procedures |
-| **Performance optimization** | Data collection, monitoring systems, best practices, continuous improvement |
-| **Records & reporting** | Documentation standards, operational records, maintenance logs |
+| Preventive maintenance | Scheduled inspections, testing, calibration, predictive programs |
+| Corrective maintenance | Emergency response, troubleshooting, unscheduled repairs |
+| Major maintenance | Planned outages, overhauls, component replacements |
+| Inventory management | Spare parts, OEM coordination, warranty compliance |
+| Environmental compliance | Emissions monitoring, reporting, waste management |
+| Health & safety | Safety programs, incident reporting, OSHA compliance |
+| Staffing | Minimum on-site presence, qualifications, training |
+| Performance optimization | Data collection, monitoring systems, continuous improvement |
+| Records & reporting | Documentation standards, operational records, maintenance logs |
 
-- Clearly delineate owner vs. contractor responsibility for: capital improvements, major equipment replacement, facility modifications, technology upgrades
+Delineate owner vs. contractor responsibility for capital improvements, major equipment replacement, facility modifications, and technology upgrades.
 
-### Article 3: Performance Standards
-
-Define quantifiable metrics:
+### Art. 3: Performance Standards
 
 | Metric | Specification |
 |---|---|
-| **Availability** | Minimum % over measurement period; calculation methodology for available vs. unavailable |
-| **Equivalent availability factor** | If applicable to facility type |
-| **Forced outage rate** | Maximum threshold |
-| **Planned outage limits** | Annual allowance in hours/days |
-| **Efficiency** | Heat rate, thermal efficiency, fuel consumption, auxiliary power consumption (as applicable) |
-| **Environmental** | Emissions limits, permit compliance, REC/environmental attribute preservation |
-| **Output** | Minimum production levels, capacity factor targets |
+| Availability | Minimum % over measurement period; calculation methodology |
+| Equivalent availability factor | If applicable to facility type |
+| Forced outage rate | Maximum threshold |
+| Planned outage limits | Annual allowance in hours/days |
+| Efficiency | Heat rate, thermal efficiency, fuel consumption (as applicable) |
+| Environmental | Emissions limits, permit compliance, REC preservation |
+| Output | Minimum production levels, capacity factor targets |
 
-Include:
-- Measurement methodology, data sources, monitoring systems, calculation procedures
-- Adjustments for: partial operations, seasonal variation, equipment degradation, curtailment
-- **Excused performance events**: force majeure, owner-caused delays, directed outages, fuel supply interruptions, grid constraints
-- Testing/verification protocols and third-party verification requirements
+Include: measurement methodology and data sources; adjustments for partial operations, seasonal variation, degradation, curtailment; excused events (force majeure, owner-caused delays, directed outages, grid constraints); third-party verification protocols.
 
-### Article 4: Compensation
+### Art. 4: Compensation
 
-Structure options (select based on commercial terms):
-
-- **Fixed fee** — monthly/annual payments for standard scope
-- **Variable fee** — tied to availability or production
-- **Cost-plus** — actual costs + management fee
-- **Hybrid** — combination approach
+Select model based on commercial terms: fixed fee, variable (tied to availability/production), cost-plus, or hybrid.
 
 Required provisions:
 - [ ] Base fee and rate schedule
-- [ ] Additional services rates (out-of-scope work)
-- [ ] Reimbursable expense categories and approval process
-- [ ] Escalation provisions (CPI, labor index, or other)
-- [ ] Invoicing schedule, documentation requirements, payment terms
-- [ ] Annual budget process, cost forecasting, variance reporting
-- [ ] Scope change compensation adjustments
+- [ ] Additional services rates and reimbursable expenses
+- [ ] Escalation provisions (CPI, labor index)
+- [ ] Invoicing schedule, payment terms
+- [ ] Annual budget process and variance reporting
+- [ ] Scope change adjustments
 
-**Incentive/penalty structure:**
-- Performance bonuses for exceeding availability thresholds, efficiency improvements, cost savings, safety records
-- Liquidated damages for failure to meet minimum standards — structured as reasonable pre-estimates of actual damages
-- LD calculation methodology based on severity and duration of shortfall
-- Aggregate LD caps
-- Cure periods before LDs accrue
-- Specify whether LDs are exclusive remedy or operate alongside other remedies (termination, step-in)
+**Incentive/penalty structure:** Performance bonuses for exceeding thresholds; LDs for failures below minimum standards. LDs must be structured as genuine pre-estimates of loss. Include: calculation methodology, aggregate caps, cure periods, and relationship to other remedies (termination, step-in).
 
-### Article 5: Term & Transition
+### Art. 5: Term & Transition
 
-- Commencement date (tied to effective date, COD, or other milestone)
-- Initial term duration and expiration
-- Renewal: automatic vs. mutual agreement vs. unilateral option; notice periods; renegotiation rights
-- Conditions precedent for renewal (performance history, updated terms, third-party consents)
+- Commencement date (tied to effective date, COD, or milestone)
+- Initial term, renewal mechanism (automatic vs. mutual vs. option), notice periods
+- Conditions precedent for renewal (performance history, third-party consents)
 
-**Transition provisions:**
-- [ ] Transition services period (knowledge transfer, training)
+Transition checklist:
+- [ ] Knowledge transfer and training period
 - [ ] Records and documentation handover
 - [ ] Spare parts and inventory disposition
 - [ ] Software license transfers
 - [ ] Cooperation with successor contractor
 
-### Article 6: Termination
+### Art. 6: Termination
 
-**Termination for cause** (either party):
-- Persistent performance standard failures
-- Repeated safety violations
-- Environmental compliance failures
-- Payment defaults
-- Breach of critical covenants
-- Notice and cure: specify form, content, cure period appropriate to breach type
+- **For cause** — persistent performance failures, safety violations, environmental noncompliance, payment defaults, breach of critical covenants; notice and cure periods by breach type
+- **For convenience** (owner) — notice period, termination fee, wind-down costs
+- **Event-triggered** — extended force majeure, insolvency, loss of licenses, regulatory impossibility, insurance failure
 
-**Termination for convenience** (owner):
-- Notice period, termination fee/wind-down costs, payment obligations
-
-**Event-triggered termination:**
-- Extended force majeure (specify duration threshold)
-- Insolvency/bankruptcy
-- Loss of required licenses or permits
-- Regulatory changes making performance impossible/impracticable
-- Insurance coverage failure
-
-**Post-termination:**
-- [ ] Wind-down obligations
-- [ ] Transition assistance
+Post-termination:
+- [ ] Wind-down and transition assistance
 - [ ] Return of owner property and confidential information
-- [ ] Final accounting and payment reconciliation
-- [ ] Release of security/retainage
+- [ ] Final accounting, payment reconciliation, release of security
 
-**Owner step-in rights** — conditions for temporary assumption of operations; contractor property protections during step-in
+**Owner step-in rights** — conditions for temporary assumption of operations; contractor property protections during step-in.
 
-### Article 7: Risk Allocation
+### Art. 7: Risk Allocation
 
-**Representations & warranties:**
-- Contractor: qualifications, experience, financial capacity, license status
-- Owner: facility ownership, authority, disclosure of known conditions
+**Reps & warranties:** Contractor — qualifications, financial capacity, license status. Owner — facility ownership, authority, known conditions.
 
-**Indemnification:**
-- Mutual indemnification for negligence, willful misconduct, breach
-- Specify limitations, exclusions, claim procedures, defense obligations
+**Indemnification:** Mutual for negligence, willful misconduct, breach. Specify limitations, exclusions, claim procedures, defense obligations.
 
-**Insurance requirements:**
+**Insurance:**
 
 | Coverage | Notes |
 |---|---|
 | Commercial general liability | Specify minimum limits |
 | Professional liability (E&O) | |
 | Workers' compensation | Statutory limits |
-| Employer's liability | |
-| Automobile liability | |
 | Pollution/environmental | If applicable |
 | Builder's risk / property | During major maintenance |
 
-- Additional insured endorsements, waiver of subrogation, certificate requirements, cancellation notice
+Additional insured endorsements, waiver of subrogation, certificate requirements.
 
-**Liability limitations:**
-- Aggregate liability cap (typically tied to annual fee or contract value)
-- Consequential/indirect damages exclusion
-- Carve-outs: indemnification, confidentiality, willful misconduct, IP infringement
+**Liability caps:** Aggregate cap (typically tied to annual fee or contract value). Consequential damages exclusion with carve-outs for indemnification, confidentiality, willful misconduct, IP infringement.
 
-### Article 8: Compliance & Governance
-
-- Compliance with all applicable laws, regulations, permits, grid codes, industry standards
-- Reporting schedule:
+### Art. 8: Compliance & Governance
 
 | Report | Frequency |
 |---|---|
-| Operational reports | Daily |
-| Performance summaries | Monthly |
-| Financial reports | Quarterly |
-| Budget submissions | Annually |
-| Incident reports | As-needed |
-| Regulatory filings | Per regulatory schedule |
+| Operational | Daily |
+| Performance | Monthly |
+| Financial | Quarterly |
+| Budget | Annually |
+| Incident / Regulatory | As-needed |
 
-- Governance: regular operational meetings, quarterly business reviews, annual planning sessions, emergency protocols
-- Owner audit rights (records, facilities, operations)
-- Change management procedures for scope, regulatory, or facility modifications
+Governance: operational meetings, quarterly business reviews, annual planning, emergency protocols. Owner audit rights over records, facilities, and operations. Change management procedures for scope/regulatory/facility modifications.
 
-### Article 9: Dispute Resolution & General Provisions
+### Art. 9: Dispute Resolution & General Provisions
 
-**Tiered dispute resolution:**
-1. Good faith negotiation between designated representatives (30 days)
-2. Escalation to senior executives (30 days)
-3. Mediation (optional, 60 days)
-4. Arbitration or litigation (specify governing law and forum)
+Tiered resolution: (1) negotiation 30 days → (2) executive escalation 30 days → (3) optional mediation 60 days → (4) arbitration or litigation.
 
-**Standard provisions:**
 - [ ] Force majeure definition and procedures
-- [ ] Confidentiality and trade secret protections
-- [ ] Notice requirements (method, addresses)
-- [ ] Assignment/subcontracting restrictions (with financing assignment carve-out)
-- [ ] Entire agreement and amendment provisions
-- [ ] Severability, waiver, counterparts
+- [ ] Confidentiality protections
+- [ ] Notice requirements
+- [ ] Assignment/subcontracting restrictions (financing assignment carve-out)
+- [ ] Entire agreement, amendment, severability, waiver
 - [ ] Document hierarchy for conflicts with related project agreements
 
-### Schedules/Exhibits
+### Schedules
 
-Include as separate schedules:
-- **Schedule A** — Facility technical specifications
-- **Schedule B** — Detailed scope of services
-- **Schedule C** — Performance standards and calculation methodologies
-- **Schedule D** — Compensation and fee schedule
-- **Schedule E** — Key personnel and staffing requirements
-- **Schedule F** — Insurance requirements
-- **Schedule G** — Form of monthly/quarterly reports
-- **Schedule H** — Approved subcontractors (if any)
+- **A** — Facility technical specifications
+- **B** — Detailed scope of services
+- **C** — Performance standards and calculations
+- **D** — Compensation and fee schedule
+- **E** — Key personnel and staffing
+- **F** — Insurance requirements
+- **G** — Report forms
+- **H** — Approved subcontractors
 
-## Guidelines
+## Critical Checks
 
-- Align all performance metrics with PPA delivery obligations and lender availability covenants
-- Ensure force majeure definitions are consistent across O&M agreement, PPA, and financing documents
-- LD provisions must be structured as genuine pre-estimates of loss — not penalties — to ensure enforceability
-- Verify contractor insurance requirements satisfy lender direct agreement obligations
-- Include lender consent rights for assignment, termination, and material amendments if required by financing documents
-- Address NERC reliability standards compliance if facility is subject to bulk power system regulation [VERIFY]
-- For renewable facilities, ensure O&M scope preserves eligibility for tax credits (ITC/PTC) and renewable attribute certification
-- Step-in rights must be carefully balanced — broad enough for owner protection, narrow enough to avoid re-characterization of contractor as employee/agent
-- Confirm governing law selection is consistent with facility siting jurisdiction and any forum-selection clauses in related agreements
+- Align performance metrics with PPA delivery obligations and lender availability covenants
+- Ensure force majeure definitions are consistent across O&M, PPA, and financing documents
+- Structure LDs as genuine pre-estimates of loss — not penalties — for enforceability
+- Verify contractor insurance satisfies lender direct agreement obligations
+- Include lender consent rights for assignment, termination, material amendments where required
+- Address NERC reliability standards if facility is subject to bulk power system regulation [VERIFY]
+- For renewables: preserve ITC/PTC eligibility and renewable attribute certification in O&M scope
+- Balance step-in rights — broad enough for owner protection, narrow enough to avoid re-characterization of contractor as employee/agent
+- Confirm governing law is consistent with facility siting jurisdiction and related agreement forum-selection clauses

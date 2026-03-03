@@ -1,238 +1,166 @@
 ---
 name: pfs-analyzer
 description: >
-  Extracts and reconciles medical provider, employment/wage-loss, and
-  insurance/lien data from personal injury plaintiff fact sheets, initial
-  disclosures, and discovery materials against draft builder responses. Use this
-  skill when the user mentions plaintiff fact sheet analysis, PFS extraction,
-  medical provider reconciliation, wage loss audit, insurance lien tracking,
-  PI discovery reconciliation, disclosure completeness checking, builder
-  response validation, or MDL plaintiff data extraction. Also trigger when the
-  user references FRCP 26(a)(1) initial disclosures, treatment chronologies,
-  specials spreadsheets, or asks for help organizing plaintiff injury data.
-  Even if the user just says "analyze this fact sheet" or "check these PI
-  disclosures," use this skill.
-tags:
-  - analysis
-  - litigation
-  - pleading
-  - summarization
-  - summary
+  Extracts and reconciles medical provider, wage-loss, and insurance/lien data
+  from personal injury plaintiff fact sheets and initial disclosures against
+  builder draft responses. Use when the user mentions PFS analysis, medical
+  provider reconciliation, wage loss audit, insurance lien tracking, PI
+  discovery reconciliation, builder response validation, MDL plaintiff data
+  extraction, FRCP 26(a)(1) disclosures, treatment chronologies, or specials
+  spreadsheets.
 ---
 
-# Personal Injury Plaintiff Fact Sheet Analyzer
+# PFS Analyzer
 
-## Why This Skill Exists
+Extracts structured data from PI plaintiff fact sheets and initial disclosures, reconciles against draft builder responses, and produces an issues memo with variance flags and full source traceability.
 
-Plaintiff fact sheets and initial disclosures are the foundation of every personal injury case, but they are also the most common source of discovery sanctions, supplementation failures, and impeachment at trial. Provider lists are incomplete, wage loss data conflicts with tax returns, insurance information is outdated, and draft builder responses drift from the source documents. When these discrepancies surface during opposing counsel's deposition or at summary judgment, the damage is severe and often irreversible.
+All output requires attorney review before service or filing.
 
-This skill extracts structured data from PI plaintiff disclosures, reconciles it against draft builder responses, and produces a defensible issues memo with variance flags — all with source traceability for every data point.
+## Quick Start
 
----
+1. Gather source documents (PFS, provider lists, wage docs, insurance disclosures, builder draft)
+2. Extract providers, employers, and insurance/lien entities with source citations
+3. Reconcile extractions against builder draft — flag all variances
+4. Deliver builder-ready output + lawyer-facing issues memo
 
-## Checkpoint A: Pre-Draft Intake (Mandatory)
+## Intake Checklist
 
-Ask every time unless the user says "use defaults" or "just draft." Gather:
+Ask every time unless user says "use defaults" or "just draft":
 
-1. **Plaintiff Fact Sheet or Initial Disclosures** — executed PFS, FRCP 26(a)(1) packet, or MDL CMO-mandated form with attachments
-2. **Medical provider list** — specials spreadsheet, treatment chronology, or HIPAA authorization list
-3. **Wage loss package** — employer verification, disability notes, pay stubs, W-2s, tax returns
-4. **Insurance/benefits disclosures** — health insurance cards, EOBs, PIP/MedPay declarations, lien letters, subrogation notices, Medicare/Medicaid status letters, declaration pages
-5. **Client intake notes** — internal questionnaires with raw details potentially omitted from formal PFS
-6. **Current draft builder responses** — the discovery responses to validate against
-7. **Forum and jurisdiction** — federal vs. specific state court
-8. **Key context** — incident date(s), disclosed prior injury history, date range disclosures cover, cash-pay/LOP/workers' comp treatment, complete pharmacy list, employment gaps exceeding six months
+1. **PFS / Initial Disclosures** — executed PFS, FRCP 26(a)(1) packet, or MDL CMO form
+2. **Medical provider list** — specials spreadsheet, treatment chronology, HIPAA auth list
+3. **Wage loss package** — employer verification, pay stubs, W-2s, tax returns
+4. **Insurance disclosures** — EOBs, PIP/MedPay, lien letters, subrogation notices, Medicare/Medicaid status
+5. **Client intake notes** — internal questionnaires with details possibly omitted from PFS
+6. **Draft builder responses** — discovery responses to validate
+7. **Forum/jurisdiction** — federal vs. state court
+8. **Key context** — DOI, prior injury history, date range, cash-pay/LOP/workers' comp, pharmacy list, employment gaps >6 months
 
-**If the user doesn't respond**, apply and clearly label these defaults: federal court; FRCP 26(a)(1) framework; all available documents included; partial output if source materials are incomplete.
+**Defaults** (if user doesn't respond): federal court, FRCP 26(a)(1) framework, all available docs, partial output if incomplete.
 
-> If any item is missing, label output as **"Partial"** and identify exactly what is absent and how it limits confidence.
+If any source is missing, label output **"Partial"** and identify what is absent.
 
----
+## Core Workflow
 
-## Step 1: Build Traceable Extraction Map
+### 1. Build Extraction Map
 
-Treat the disclosure packet as the controlling source of truth. For every extracted data point, record:
+Every extracted data point must include:
 
 | Field | Format |
 |---|---|
-| Source document | "Doc 1, p. 4" or "Provider List §2" or Bates range |
+| Source document | "Doc 1, p. 4" or Bates range |
 | Verbatim text | Exact wording from source |
-| Confidence | **High** = explicitly listed with address + dates; **Medium** = entity listed, missing dates or address; **Low** = inferred from context, requires verification |
+| Confidence | **High** (explicit with address + dates) / **Medium** (listed, missing details) / **Low** (inferred, needs verification) |
 
-**Rules:**
-- Every fact must trace to specific source text — if untraceable, do not present as extracted data
-- Preserve spelling exactly in `verbatim_name`; create separate `normalized_name` for dedup
-- Never silently correct spelling or expand abbreviations
-- Never merge duplicate-looking entities without confirmation
-- Distinguish "treatment facility" from "billing entity"
+Rules:
+- Untraceable facts must not be presented as extracted data
+- Preserve spelling in `verbatim_name`; create separate `normalized_name`
+- Never silently correct spelling, expand abbreviations, or merge duplicate-looking entities
+- Distinguish treatment facility from billing entity
 
----
+### 2. Extract Medical Providers
 
-## Step 2: Extract Medical Provider Data
+Per provider, capture: name (verbatim + normalized), type (hospital/clinic/physician/PT/imaging/pharmacy/lab/ambulance), address/phone/fax, service dates, NPI, records/bills status, category (injury-related / pre-existing / billing-lien), source citation.
 
-For each provider entity, capture:
-
-| Field | Notes |
-|---|---|
-| Full facility/provider name | Verbatim + normalized |
-| Provider type | Hospital, clinic, physician, PT, imaging, pharmacy, lab, ambulance |
-| Address, phone, fax | As disclosed |
-| Dates of service | Range or single; preserve vagueness if source is vague |
-| NPI | If available |
-| Records/bills status | Disclosed, identified-only, or production pending |
-| Category | **Injury-related** / **Pre-existing/Prior** / **Billing/Lien entity** |
-| Source citation | Document, page, Bates |
-
-**Categorization rules:**
-- Treatment before DOI → mark "Prior/Pre-existing" (do not omit)
+Rules:
+- Pre-DOI treatment → "Prior/Pre-existing" (never omit)
 - Separate radiology reads, pathology, facility fees as distinct billing entities
-- Do not treat referrals as treatment encounters
+- Referrals are not treatment encounters
 - Do not collapse multiple locations of a provider network
-- Flag providers who may later be designated as non-retained treating experts
-- Ensure extraction includes pharmacies, PTs, imaging, and labs — not only physicians
+- Flag potential non-retained treating experts
+- Include pharmacies, PTs, imaging, labs — not only physicians
 
----
+### 3. Extract Employment & Wage Loss
 
-## Step 3: Extract Employment and Wage Loss Data
+Per employer, capture: legal name (+ DBA), address/contacts, job title/schedule/pay rate (exact phrasing), start/end dates, wage documentation, injury impact (first missed date, total days, PTO, return status), benefits applied for (STD/LTD/SSDI/workers' comp).
 
-For each employer:
+Rules:
+- Preserve vague references as "reported estimate per disclosure"
+- Distinguish employer from worksite (staffing agencies)
+- Capture self-employment separately
+- Flag mitigation issues and employment gaps
 
-| Field | Notes |
-|---|---|
-| Legal employer name | Verbatim; note any DBA |
-| Address, supervisor/HR contact | As disclosed |
-| Job title, schedule, pay rate | Preserve exact phrasing (hourly vs. salary) |
-| Start/end dates | Flag gaps; do not fabricate precision from estimates |
-| Wage documentation | Pay stubs, W-2s, tax returns, employer letters |
-| Injury impact | First missed date, total days missed, PTO used, return status |
-| Benefits applied for | STD, LTD, SSDI, workers' comp |
+### 4. Extract Insurance, Liens & Prior Claims
 
-**Rules:**
-- Preserve vague time references as "reported estimate per disclosure"
-- Distinguish employer from worksite (staffing agency situations)
-- Capture self-employment details separately
-- Flag mitigation issues (job search, return to work)
-- Flag employment gaps for defense scrutiny
+Per entity, capture: insurer/lienholder name (verbatim), plan type, member/group/claim/policy IDs (distinguish each), named insured, contact info, lien status (asserted/pending/final + amount), source citation.
 
----
+Rules:
+- Extract only what documents contain — never guess limits, coverage, or validity
+- Letter of protection is not an insurance lien
+- Silent on Medicare → flag: "Confirm Medicare beneficiary status and SSDI; may trigger MSP reporting"
+- Capture prior accidents/claims/settlements; flag for builder consistency
 
-## Step 4: Extract Insurance, Benefits, Liens, and Prior Claims
+### 5. Reconcile Against Builder Draft
 
-For each insurance/benefit/lien:
+Three-dimension diff:
 
-| Field | Notes |
-|---|---|
-| Insurer/lienholder name | Verbatim |
-| Plan type | Health, auto (PIP/MedPay/UIM), workers' comp, disability, Medicare/Medicaid |
-| Member ID, group #, claim #, policy # | Distinguish these; do not conflate |
-| Named insured | If stated |
-| Contact info | Adjuster, claims dept |
-| Lien status | Asserted / Pending / Final; amount if stated |
-| Source citation | Document, page |
-
-**Critical rules:**
-- Extract only what documents contain — never guess policy limits, coverage, or lien validity
-- Do not treat a letter of protection as an insurance lien
-- If silent on Medicare status → flag: "Confirm Medicare beneficiary status and SSDI application; may trigger MSP reporting"
-- Capture prior accidents, prior claims, prior settlements and flag for builder consistency
-
----
-
-## Step 5: Reconcile Against Builder Draft
-
-Perform a three-dimension diff:
-
-| Dimension | Check | Flag Format |
+| Dimension | Check | Flag |
 |---|---|---|
-| **Completeness** | Entity-by-entity comparison | "Missing in builder" / "New — not in disclosures, confirm supplementation" |
-| **Consistency** | Names, dates, amounts, addresses | "Spelling mismatch" / "Date range conflict" / "Amount discrepancy" |
-| **Characterization** | Builder vs. disclosure support | "Builder overstates" / "Builder understates" |
+| Completeness | Entity-by-entity | "Missing in builder" / "New — confirm supplementation" |
+| Consistency | Names, dates, amounts | "Spelling mismatch" / "Date conflict" / "Amount discrepancy" |
+| Characterization | Builder vs. disclosure | "Overstates" / "Understates" |
 
-**Priority flags:**
-- **RED ALERT** — Contradiction between documents (e.g., PFS says not working; medical record references work activity). Requires immediate attorney intervention before service.
+Priority levels:
+- **RED ALERT** — Document contradictions (e.g., PFS says not working but records reference work). Requires attorney intervention before service.
 - **HIGH** — Undisclosed prior accidents, missing providers, inconsistent injury mechanism
 - **MEDIUM** — Spelling variations, missing addresses, incomplete date ranges
-- **LOW** — Formatting inconsistencies, optional fields unpopulated
+- **LOW** — Formatting issues, optional fields unpopulated
 
-**Rules:**
-- Never silently overwrite builder data — always show the variance
+Rules:
+- Never silently overwrite builder data
 - Distinguish "disclosed but not produced" from "entirely undisclosed"
-- Do not override intentional attorney narrowing of scope — flag and defer to counsel
-- Include supplementation timing sensitivity (FRCP 26(e); note state analogs may impose stricter deadlines)
+- Do not override intentional attorney scope narrowing — flag and defer
+- Note FRCP 26(e) supplementation timing (state analogs may be stricter)
 
----
+### 6. Deliver Output
 
-## Step 6: Produce Deliverables
+**A. Builder-Ready Output**: Separate `verbatim_name`/`normalized_name`, include `source_citation` and `confidence` per record, match builder schema, include reservation language.
 
-### A. Builder-Ready Structured Output
-- Separate `verbatim_name` and `normalized_name` fields
-- Include `source_citation` and `confidence` for every record
-- Match builder's exact schema and field constraints
-- Include standard reservation language: *"Plaintiff continues to treat and reserves the right to supplement."*
+**B. Issues Memo** (label: DRAFT — Attorney Work Product / For Counsel Review Only):
+1. Client follow-up questions
+2. Supplementation needs with timing
+3. Defense focus areas and impeachment vectors
+4. Red flags with recommended action
+5. Entity verification results (NPI checks)
+6. Privilege flags — exclude attorney-client communications from extraction
 
-### B. Lawyer-Facing Issues Memo
-Label: **DRAFT — Attorney Work Product / For Counsel Review Only**
+## Post-Draft Check
 
-1. **Follow-up questions** for client (missing dates, unknown insurance, pharmacy history)
-2. **Supplementation needs** with timing sensitivity
-3. **Defense focus areas** and impeachment vectors (treatment gaps, employment gaps, prior claims)
-4. **Red flags** with recommended action
-5. **Entity verification results** (NPI registry checks; flag unverifiable entities)
-6. **Privilege flags** — if attorney-client communications found in intake notes, exclude from extraction and flag
+Ask after delivering initial output:
+1. Are RED ALERT/HIGH flags accurate — known explanations to incorporate?
+2. Providers/employers client mentioned but absent from disclosures?
+3. Generate supplementation timeline from identified gaps?
+4. Builder schema match confirmed?
 
----
+Default: address RED ALERT items first.
 
-## Checkpoint B: Post-Draft Alignment (Mandatory)
+## Quality Checklist
 
-After delivering the initial extraction and reconciliation, ask:
+- [ ] Every field has source citation or labeled "client to confirm"
+- [ ] Forum-specific law references match actual jurisdiction
+- [ ] Provider names checked against CMS NPI Registry; unverifiable names flagged
+- [ ] Treatment dates consistent with DOI; pre-DOI marked "Prior"
+- [ ] Date formats consistent; no false precision from estimates
+- [ ] Identifiers transcribed accurately; OCR-sourced values flagged
+- [ ] All provider types included (pharmacies, PTs, imaging, labs)
+- [ ] No omission construable as concealment (adversarial review)
+- [ ] Builder output matches schema constraints
+- [ ] All variances shown — nothing silently overwritten
 
-1. Are the RED ALERT and HIGH-priority flags accurate — any known explanations I should incorporate?
-2. Are there providers or employers the client mentioned but that don't appear in the disclosure documents?
-3. Should I generate a supplementation timeline based on the gaps identified?
-4. Does the builder-ready output match your builder's schema requirements?
+## Compliance Guardrails
 
-If the user doesn't answer, recommend addressing RED ALERT items first and proceed if authorized.
+- **ABA 1.1/1.3**: Attorney must verify; LLM extraction does not satisfy competence/diligence
+- **Model Rule 1.6**: Mask identifiers in memo (last four only); full values in secure builder fields
+- **Model Rules 3.3/3.4/4.1**: Distinguish documented facts from reported estimates; never assert completeness if record is incomplete
+- **FRCP 37**: Incomplete provider lists are common sanctions targets
+- **HIPAA**: All extracted data is PHI; handle per firm protocols
+- **Conflicts**: Multiple potential claimants → flag for Model Rule 1.7 screening
+- **Anti-hallucination**: Every data point traceable to source; never invent names, dates, identifiers; unverified citations must be flagged
 
----
+## Jurisdiction Notes
 
-## Quality Audit
-
-Before finalizing, verify:
-
-- Every builder field has source citation or is labeled "client to confirm"
-- Governing law references match actual forum (federal vs. state)
-- Provider names verified against CMS NPI Registry where possible; unverifiable names flagged
-- Treatment dates consistent with DOI; pre-DOI treatment marked "Prior"
-- Date formats consistent throughout; no false-specific conversions from estimates
-- Identifiers (policy #, claim #) transcribed accurately; image-source identifiers flagged for OCR error check
-- Extraction includes pharmacies, PTs, imaging, labs — not only physicians
-- Adversarial review: no omission or discrepancy could be construed as concealment
-- Builder output matches builder schema constraints exactly
-- Reconciliation shows all variances — nothing silently overwritten
-
----
-
-## Guidelines
-
-### Jurisdiction Adaptation
-- **Federal MDL**: Follow CMO-mandated PFS headers exactly; non-compliance risks administrative dismissal
-- **California**: CCP governs; plaintiff verification form required alongside data extract
-- **Florida**: Align extraction with Form 1.977 standard interrogatories (10-year provider history) [VERIFY]
-- **Texas**: Map extraction to Rule 194 Required Disclosure categories [VERIFY]
-- **State-specific authorization forms**: Flag "state-specific medical authorization requirements — attorney to confirm"; do not recommend provider contact
-
-### Compliance and Ethics
-- **ABA Model Rules 1.1/1.3**: Attorney must verify all extracted data; LLM extraction does not satisfy competence/diligence duty
-- **Model Rule 1.6**: Mask sensitive identifiers in issues memo (last four digits); full values only in secure builder fields
-- **Model Rules 3.3/3.4/4.1**: Distinguish "documented facts" from "reported estimates"; never state completeness where record is incomplete
-- **FRCP 37 / state sanctions**: Incomplete provider lists are common sanctions targets
-- **HIPAA**: All extracted data is PHI; handle per firm data privacy protocols
-- **Conflicts**: If documents indicate multiple potential claimants, flag for Model Rule 1.7 conflict screening
-
-### Anti-Hallucination
-- All legal citations must be verified via available search tools or flagged as unverified
-- Never invent provider names, dates, identifiers, or policy details
-- Every data point must trace to a specific source document
-
-### Attorney Review Required
-- All output requires attorney review before service or filing
+- **Federal MDL**: Follow CMO-mandated PFS headers exactly; non-compliance risks dismissal
+- **California**: CCP governs; plaintiff verification form required
+- **Florida**: Align with Form 1.977 interrogatories (10-year history) [VERIFY]
+- **Texas**: Map to Rule 194 Required Disclosure categories [VERIFY]
+- **State auth forms**: Flag "state-specific medical authorization — attorney to confirm"

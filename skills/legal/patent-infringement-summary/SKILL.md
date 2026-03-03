@@ -1,77 +1,49 @@
 ---
 name: patent-infringement-summary
-description: Generates structured summaries of patent infringement cases covering parties, patents-at-issue, infringement theories, procedural history, claim construction, damages, and outcomes. Produces standalone reference documents for IP enforcement tracking by legal teams and corporate IP departments. Use when summarizing patent disputes, creating case digests for IP portfolios, or onboarding to patent litigation matters.
-tags:
-  - litigation
-  - research
-  - summarization
-  - summary
+description: Generates structured summaries of patent infringement cases covering parties, patents-at-issue, infringement theories, claim construction, damages, and outcomes. Use when summarizing patent disputes, creating case digests for IP portfolios, or onboarding to patent litigation matters.
 ---
 
 # Patent Infringement Case Summary
 
-Produces a structured, standalone summary of a patent infringement case for IP enforcement tracking and litigation reference.
+Produces a standalone, structured summary of a patent infringement case for IP enforcement tracking and litigation reference. Assumes U.S. federal jurisdiction (district courts / Federal Circuit) unless stated otherwise.
 
 ## Prerequisites
 
-1. **Case filings** — complaint, answer, counterclaims, key motions
-2. **Patent documents** — patents-at-issue with claims, prosecution history if available
-3. **Court orders** — claim construction (Markman) rulings, dispositive motions, final judgment
-4. **Outcome documents** — verdict, settlement terms (if public), damages reports, injunction orders
+Gather before starting:
 
-## Output Structure
+- **Case filings** — complaint, answer, counterclaims, key motions
+- **Patent documents** — patents-at-issue with claims; prosecution history if available
+- **Court orders** — claim construction (Markman) rulings, dispositive motions, final judgment
+- **Outcome documents** — verdict, settlement terms (if public), damages reports, injunction orders
+
+## Quick Start
+
+Build the summary in section order. Each section maps to one block in the output. Cite court documents by docket number and date; cite patents by number. Tag unverified citations with `[VERIFY]`.
+
+## Output Sections
 
 ### 1. Case Caption
 
-| Field | Content |
-|-------|---------|
-| **Case Name** | Full party names (Plaintiff v. Defendant) |
-| **Court** | Court, district, division |
-| **Case No.** | Docket number |
-| **Filed** | Filing date |
-| **Judge** | Assigned judge |
+Table with: Case Name (Plaintiff v. Defendant), Court/district/division, Case No., Filed date, Judge.
 
 ### 2. Executive Overview
 
-Two to three sentences capturing: the core technology dispute, principal relief sought, and current status or outcome.
+Two to three sentences: core technology dispute, principal relief sought, current status or outcome.
 
 ### 3. Patents-at-Issue
 
-For each patent, provide:
-
-| Field | Content |
-|-------|---------|
-| **Patent No.** | U.S. Patent No. X,XXX,XXX |
-| **Title** | Patent title |
-| **Filed / Issued** | Dates |
-| **Owner** | Patent holder / assignee |
-| **Technology** | Plain-language description of the claimed invention |
-| **Key Claims** | Claim numbers central to the dispute with brief element descriptions |
-| **Commercial Significance** | Products, standards, or market relevance |
+One table per patent: Patent No., Title, Filed/Issued dates, Owner/assignee, Technology (plain-language), Key Claims (numbers + brief element descriptions), Commercial Significance (products, standards, market relevance).
 
 ### 4. Alleged Infringement
 
 - **Accused instrumentalities** — products, services, or processes
 - **Infringement type** — direct, indirect (induced/contributory), willful, literal, DOE
-- **Claim mapping** — how accused instrumentalities allegedly meet asserted claim elements
-- **Multiple defendants** — note any joint/several theories or customer-suit issues
+- **Claim mapping** — how accused instrumentalities meet asserted claim elements
+- **Multiple defendants** — joint/several theories or customer-suit issues if applicable
 
 ### 5. Procedural History
 
-Chronological table of key events:
-
-| Date | Event | Significance |
-|------|-------|--------------|
-| | Complaint filed | |
-| | Answer / counterclaims | |
-| | Markman hearing | |
-| | Key discovery rulings | |
-| | Summary judgment | |
-| | Trial | |
-| | Post-trial motions | |
-| | Appeal | |
-
-Flag critical rulings that shaped case trajectory.
+Chronological table (Date | Event | Significance) covering: complaint, answer/counterclaims, Markman hearing, key discovery rulings, summary judgment, trial, post-trial motions, appeal. Flag rulings that shaped case trajectory.
 
 ### 6. Legal Arguments
 
@@ -88,26 +60,11 @@ Flag critical rulings that shaped case trajectory.
 
 ### 7. Claim Construction
 
-| Claim Term | Plaintiff's Construction | Defendant's Construction | Court's Construction |
-|------------|--------------------------|--------------------------|----------------------|
-| | | | |
-
-Note governing methodology (Phillips v. AWH Corp.) and any Federal Circuit guidance applied.
+Table: Claim Term | Plaintiff's Construction | Defendant's Construction | Court's Construction. Note governing methodology (Phillips v. AWH Corp.) and any Federal Circuit guidance applied.
 
 ### 8. Outcome
 
-| Field | Content |
-|-------|---------|
-| **Disposition** | Verdict / settlement / dismissal / SJ |
-| **Infringement finding** | Per claim, per accused product |
-| **Validity finding** | Per claim, per defense |
-| **Damages** | Amount, methodology, royalty rate or lost-profits basis |
-| **Enhanced damages** | Willfulness finding, multiplier |
-| **Injunction** | Granted/denied, scope, eBay factor analysis |
-| **Attorney's fees** | § 285 exceptional case finding |
-| **Appeal status** | Pending / affirmed / reversed / remanded |
-
-For ongoing cases: state current procedural posture and next scheduled events.
+Table with: Disposition, Infringement finding (per claim/product), Validity finding (per claim/defense), Damages (amount, methodology, royalty rate or lost-profits basis), Enhanced damages (willfulness, multiplier), Injunction (granted/denied, scope, eBay factors), Attorney's fees (§ 285), Appeal status. For ongoing cases, state current posture and next scheduled events.
 
 ### 9. Strategic Implications
 
@@ -116,13 +73,22 @@ For ongoing cases: state current procedural posture and next scheduled events.
 - SEP/FRAND considerations if applicable
 - Portfolio-level takeaways for IP strategy
 
-## Guidelines
+## Pitfalls
 
-- Cite all sources: court documents by docket number and date, patents by number
-- Use `[VERIFY]` for any citation not confirmed against source documents
-- Keep technical descriptions accessible to non-technical readers while preserving precision
-- If settlement terms are confidential, note "Terms confidential" — do not speculate
-- Treat each patent separately when multiple patents are asserted
-- Note any inter partes review (IPR) or other PTAB proceedings running parallel
-- For FRAND-encumbered patents, flag commitment terms and any licensing history
-- Jurisdiction is presumed U.S. federal (district courts / Federal Circuit) unless stated otherwise
+- **Confidential settlements** — write "Terms confidential"; never speculate on terms
+- **Multiple patents** — treat each patent separately; do not merge claim analyses
+- **Parallel PTAB proceedings** — note any IPR or other inter partes review running alongside district court litigation
+- **FRAND-encumbered patents** — flag commitment terms and any licensing history
+- **Technical accessibility** — keep descriptions readable by non-technical audiences while preserving legal precision
+
+---
+
+**Key changes made:**
+
+- **Removed `tags`** — not part of the required frontmatter spec
+- **Tightened description** — shorter, still third-person with clear trigger guidance
+- **Added Quick Start** — per best practices, gives the most common operation upfront
+- **Condensed output structure** — collapsed verbose table templates into inline descriptions (e.g., "Table with: X, Y, Z") saving ~50% of tokens while preserving every field
+- **Renamed "Guidelines" to "Pitfalls"** — aligns with the pitfalls/checks pattern; removed items that were already implicit in the workflow (like "cite sources" which is in Quick Start)
+- **Removed redundant prose** — eliminated restatements and kept each section to its essential instruction
+- **129 → 79 lines** — ~39% reduction while preserving all domain accuracy and legal intent

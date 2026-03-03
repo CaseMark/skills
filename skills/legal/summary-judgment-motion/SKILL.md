@@ -1,6 +1,6 @@
 ---
 name: summary-judgment-motion
-description: Drafts a Motion for Summary Judgment for personal injury litigation in US federal or state court. Produces caption, notice of motion, statement of undisputed material facts, memorandum of points and authorities with FRCP 56 analysis, supporting declarations, and proposed order. Use when drafting MSJ, summary judgment brief, dispositive motion, no genuine dispute motion, or judgment as a matter of law motion in pre-trial or discovery phases.
+description: Drafts a Motion for Summary Judgment package for personal injury litigation under FRCP 56 or state equivalent. Trigger when the user needs an MSJ, summary judgment brief, dispositive motion, no-genuine-dispute motion, or judgment-as-a-matter-of-law motion during pre-trial or discovery phases.
 tags:
   - drafting
   - litigation
@@ -9,107 +9,73 @@ tags:
 
 # Motion for Summary Judgment
 
-Drafts a complete MSJ package demonstrating no genuine dispute of material fact exists and the moving party is entitled to judgment as a matter of law under FRCP 56 or state equivalent.
+Produces a complete MSJ filing package showing no genuine dispute of material fact and entitlement to judgment as a matter of law under FRCP 56 or state equivalent.
 
 ## Prerequisites
 
-1. **Complaint and Answer** — all claims/defenses at issue identified
+Collect before drafting:
+
+1. **Complaint & Answer** — all claims/defenses at issue
 2. **Discovery record** — depositions, interrogatory responses, RFAs, document productions with Bates numbers
-3. **Jurisdiction and local rules** — page limits, separate statement requirements, briefing schedule, formatting rules
-4. **Contracts/policies** — if breach or coverage claims are at issue
-5. **Expert reports** — if needed to establish or negate elements (e.g., causation, damages)
+3. **Jurisdiction & local rules** — page limits, separate-statement requirements, briefing schedule, formatting
+4. **Contracts/policies** — if breach or coverage claims involved
+5. **Expert reports** — if needed for causation, damages, or standard of care
 
-## Output Structure
-
-Assemble the following components as a single filing package:
+## Filing Package Components
 
 ### 1. Caption & Notice of Motion
 
-| Element | Requirement |
-|---------|-------------|
-| Court | Full court name per local rules |
-| Case title | All parties as they appear in operative pleading |
-| Case number | As assigned |
-| Document title | "Motion for Summary Judgment" or "Motion for Partial Summary Judgment" |
-| Relief requested | Specify exact claims/counts/issues |
-| Rule citation | FRCP 56 or state equivalent |
-| Hearing date/time | If scheduled or required to be requested |
-| Supporting docs list | Memo, SUF, declarations, exhibits, proposed order |
+Include: full court name, case title (all parties per operative pleading), case number, document title ("Motion for Summary Judgment" or "Partial"), exact claims/counts sought, FRCP 56 or state rule citation, hearing date if required, and list of supporting documents.
 
 ### 2. Memorandum of Points and Authorities
 
-Structure in this order:
+Draft in this order:
 
-1. **Introduction** (1–2 paragraphs) — parties, claims at issue, why MSJ is warranted
+1. **Introduction** (1–2 paragraphs) — parties, claims, why MSJ is warranted
 2. **Statement of the Case** — procedural history + factual background with record citations
-3. **Legal Standard** — cite the trilogy:
+3. **Legal Standard** — cite the trilogy plus controlling circuit/state authority:
    - *Celotex Corp. v. Catrett*, 477 U.S. 317 (1986)
    - *Anderson v. Liberty Lobby, Inc.*, 477 U.S. 242 (1986)
    - *Matsushita Elec. Indus. Co. v. Zenith Radio Corp.*, 475 U.S. 574 (1986)
-   - Plus controlling circuit/state authority
-4. **Argument** — for each claim or defense:
-   - Identify elements under governing substantive law
-   - Map each element to undisputed record evidence
-   - Explain why opponent lacks evidence to create genuine dispute
-   - Address anticipated counterarguments
-   - Cite cases granting MSJ on analogous facts (with parentheticals)
+4. **Argument** — per claim/defense: identify elements under governing law → map to undisputed evidence → show opponent lacks evidence for genuine dispute → address counterarguments → cite analogous MSJ grants with parentheticals
 5. **Conclusion** — restate entitlement, request specific relief
 
 ### 3. Statement of Undisputed Material Facts (SUF)
 
-Format as numbered paragraphs. Each fact must be:
+Numbered paragraphs. Each fact must be a single discrete assertion, material to an element, with pinpoint citation to admissible evidence.
 
-- A single, discrete assertion (not compound)
-- Material to at least one element of a claim or defense
-- Supported by pinpoint citation to admissible evidence:
+Citation formats:
 
-| Citation Type | Format |
-|---------------|--------|
+| Type | Format |
+|------|--------|
 | Deposition | [Name] Dep. [page]:[line]–[line] |
 | Interrogatory | [Party] Resp. to Interrog. No. [#], at [page] |
 | Document | [Description], [Bates range] or Ex. [letter] |
 | RFA | [Party] Resp. to RFA No. [#] |
 | Declaration | [Name] Decl. ¶ [#] |
 
-Cross-check every fact against uploaded source documents for accuracy of quotes, dates, and figures.
+Cross-check every fact against source documents for accuracy of quotes, dates, and figures.
 
 ### 4. Supporting Declarations
 
-Each declaration must:
+Each declaration must: open with personal-knowledge/competency statement; contain only direct-knowledge facts (no conclusions, speculation, or "information and belief"); authenticate exhibits by reference; close with perjury declaration for the relevant jurisdiction.
 
-- Open with personal knowledge and competency statement
-- Contain only facts within declarant's direct knowledge (no legal conclusions, no speculation, no "information and belief")
-- Authenticate attached exhibits by reference (creation, receipt, or business-records foundation)
-- Close with: "I declare under penalty of perjury under the laws of [jurisdiction] that the foregoing is true and correct."
-
-Draft declarations for:
-- Moving party (fact narrative)
-- Percipient witnesses (key events)
-- Expert witnesses (causation, damages, standard of care) if applicable
-- Custodian of records (document authentication)
+Draft for: moving party, percipient witnesses, expert witnesses (if applicable), custodian of records.
 
 ### 5. Proposed Order
 
-One to two pages:
-
-- Grants MSJ on specified claims/counts
-- States finding of no genuine dispute of material fact
-- Directs entry of judgment or identifies remaining claims if partial MSJ
-- Signature line per local rules
+1–2 pages: grants MSJ on specified claims/counts, states no-genuine-dispute finding, directs judgment entry or identifies remaining claims (if partial), includes signature line per local rules.
 
 ### 6. Signature Block & Certifications
 
-- Attorney name, bar number, firm, address, phone, email
-- Certificate of service (method, date, all parties served)
-- Word-count certification if required by local rules
-- Meet-and-confer certification if required by jurisdiction
+Attorney identification (name, bar number, firm, address, phone, email), certificate of service, word-count certification (if required), meet-and-confer certification (if required).
 
-## Guidelines
+## Critical Checks
 
-- **Viewing standard**: Present all evidence in the light most favorable to the non-moving party; then show why judgment is still compelled
-- **Admissibility gate**: Every cited piece of evidence must be admissible at trial — authenticate documents, ensure declarations are based on personal knowledge, apply hearsay rules
-- **Pinpoint citations**: Never cite a deposition or document generally; always include page, line, or Bates number
-- **Citation format**: Use Bluebook unless local rules specify otherwise
-- **Local rule compliance**: Verify page limits, font/margin requirements, separate statement format, and any jurisdiction-specific MSJ procedures before finalizing
-- **Partial MSJ**: If not all claims are ripe for summary judgment, clearly delineate which claims/issues are addressed and which remain for trial
-- **Personal injury elements**: For PI claims, map evidence to duty, breach, causation (both actual and proximate), and damages — causation and damages are the most common genuine-dispute battlegrounds
+- **Viewing standard**: present all evidence in the light most favorable to the non-moving party, then show judgment is still compelled
+- **Admissibility gate**: every cited item must be trial-admissible — authenticate documents, verify personal-knowledge basis, apply hearsay rules
+- **Pinpoint citations**: never cite depositions or documents generally; always include page, line, or Bates number
+- **Bluebook format**: use Bluebook unless local rules specify otherwise
+- **Local rule compliance**: verify page limits, font/margins, separate-statement format, and jurisdiction-specific MSJ procedures before finalizing
+- **Partial MSJ**: clearly delineate which claims are addressed vs. which remain for trial
+- **PI element mapping**: for personal injury claims, map evidence to duty, breach, causation (actual + proximate), and damages — causation and damages are the most common genuine-dispute battlegrounds

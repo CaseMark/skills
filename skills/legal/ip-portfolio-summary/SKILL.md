@@ -1,80 +1,94 @@
 ---
 name: ip-portfolio-summary
-description: Produces a U.S. corporate intellectual property portfolio summary and analysis covering patents, trademarks, copyrights, and trade secrets with status, coverage, and strategic assessment. Use for IP portfolio summary, IP audit, due diligence, licensing strategy, M&A review, executive briefing, or portfolio optimization.
-tags:
-  - analysis
-  - corporate
-  - summarization
-  - summary
+description: Summarizes and analyzes a U.S. corporate IP portfolio covering patents, trademarks, copyrights, and trade secrets. Use when conducting an IP audit, due diligence review, M&A assessment, licensing strategy, executive briefing, or portfolio optimization.
 ---
 
 # IP Portfolio Summary
 
-Summarizes and analyzes a company's IP assets for executive and legal decision-making.
+Produces a structured IP portfolio summary with inventory, status tracking, strategic analysis, and action items for executive and legal decision-making.
 
 ## Prerequisites
 
-1. **Source materials** — patent docket, trademark docket, copyright records, trade secret inventories, licensing agreements, and prior IP audits.
-2. **Business context** — current products/services, planned markets, and strategic priorities.
-3. **Jurisdiction scope** — confirm U.S.-only or include foreign portfolios.
+Gather before starting:
 
-## Output Structure / Process
+- **Source materials** — patent docket, trademark docket, copyright records, trade secret inventories, licensing agreements, prior IP audits
+- **Business context** — current products/services, planned markets, strategic priorities
+- **Jurisdiction scope** — confirm U.S.-only or whether to include foreign portfolios
 
-**1. Executive Summary**
+## Quick Start
+
+1. Collect and validate source documents
+2. Build the portfolio inventory tables (section 2 below)
+3. Populate the deadline tracker
+4. Draft strategic analysis and risk assessment
+5. Produce prioritized action items
+6. Mark report **Privileged & Confidential / Attorney Work Product** when applicable
+
+## Output Structure
+
+### 1. Executive Summary
+
 - Total counts by asset type and status
 - Top 5 strategically critical assets
 - Key deadlines in next 6–12 months
 - Immediate risks and opportunities
 
-**2. Portfolio Inventory (by asset type)**
+### 2. Portfolio Inventory
 
-Patents
-| Asset ID | Title | Jurisdiction | Filing Date | Grant Date | Expiration | Status | Inventors | Tech Area | Product Link | Strategic Value |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+**Patents**
 
-Trademarks
-| Mark | Type | Jurisdiction | App/Reg No. | Filing Date | Reg Date | Renewal | Classes | Status | Brand Importance | Enforcement Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-
-Copyrights
-| Work | Type | Reg No. | Reg Date | Author/Owner | Term | Status | Commercial Use | Registration Gap |
+| Asset ID | Title | Jurisdiction | Filing / Grant / Expiration | Status | Inventors | Tech Area | Product Link | Strategic Value |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-Trade Secrets
+**Trademarks**
+
+| Mark | Type | Jurisdiction | App/Reg No. | Filing / Reg / Renewal | Classes | Status | Brand Importance | Enforcement Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+**Copyrights**
+
+| Work | Type | Reg No. / Date | Author/Owner | Term | Status | Commercial Use | Registration Gap |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+**Trade Secrets**
+
 | Asset | Description | Business Owner | Protection Measures | Access Controls | Risk Level | Core Product Link |
 | --- | --- | --- | --- | --- | --- | --- |
 
-**3. Status & Deadline Tracker**
-- Maintenance fees (patents)
-- Trademark renewals / declarations of use
+### 3. Deadline Tracker
+
+- Patent maintenance fees
+- Trademark renewals and declarations of use
 - Office action response deadlines
 - Upcoming expirations
 
-**4. Strategic Analysis**
+### 4. Strategic Analysis
+
 - Coverage vs. current and planned markets
 - Portfolio age distribution and cliff risks
 - Gaps by product line or technology
 - Defensive vs. offensive value
-- Licensing / monetization opportunities
-- Competitive positioning summary
+- Licensing and monetization opportunities
+- Competitive positioning
 
-**5. Risks, Disputes, and Encumbrances**
+### 5. Risks, Disputes, and Encumbrances
+
 - Litigation, oppositions, cancellations
 - Joint ownership, licenses granted, security interests
 - Invalidity or non-use risks
 
-**6. Action Items**
-- Specific filings / registrations to close gaps
+### 6. Action Items
+
+- Filings or registrations to close gaps
 - Assets to abandon or consolidate
 - Enforcement or watch actions
 - Portfolio management improvements
 
-## Guidelines
+## Pitfalls and Checks
 
-- Verify status and dates against the most current source documents.
-- Mark the report **Privileged & Confidential / Attorney Work Product** when applicable.
-- Separate facts from assessments; label any assumptions.
-- Note jurisdictional scope and do not generalize beyond it.
-- Flag missing source data and request it explicitly.
-- Do not opine on validity or infringement without supporting evidence.
-- Use consistent status labels: `pending`, `granted/registered`, `abandoned`, `expired`, `lapsed`.
+- Verify all status and dates against the most current source documents
+- Separate facts from assessments — label any assumptions explicitly
+- Do not generalize beyond the stated jurisdictional scope
+- Flag missing source data and request it before proceeding
+- Do not opine on validity or infringement without supporting evidence
+- Use consistent status labels: `pending`, `granted/registered`, `abandoned`, `expired`, `lapsed`

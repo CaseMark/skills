@@ -1,46 +1,49 @@
 ---
 name: restated-certificate
-description: Drafts an Amended and Restated Certificate of Incorporation for Delaware corporations in preferred stock financing rounds. Implements authorized capital structure, preferred stock rights (dividends, liquidation preferences, conversion, anti-dilution), protective provisions, and DGCL compliance from term sheets and cap tables. Use when drafting charter documents, restated certificates, venture financing corporate documents, or Delaware certificate amendments.
-tags:
-  - agreement
-  - corporate
-  - drafting
+description: Drafts an Amended and Restated Certificate of Incorporation for Delaware corporations in preferred stock financing rounds. Covers authorized capital, preferred stock rights (dividends, liquidation, conversion, anti-dilution), protective provisions, and DGCL compliance. Use when drafting charter documents, restated certificates, venture financing corporate documents, or Delaware certificate amendments from term sheets and cap tables.
 ---
 
 # Amended and Restated Certificate of Incorporation
 
-Drafts a filing-ready Amended and Restated Certificate of Incorporation for a Delaware corporation, typically in connection with a preferred stock financing round.
+Drafts a filing-ready Amended and Restated Certificate of Incorporation for a Delaware corporation in connection with a preferred stock financing round. Delaware-specific — do not apply to other states without modification.
 
 ## Prerequisites
 
+Collect before drafting:
+
 1. **Term sheet** — pricing, liquidation preference multiple, anti-dilution method, protective provisions, board composition
-2. **Prior Certificate of Incorporation** — current authorized capital, existing preferred series, any unusual provisions
-3. **Capitalization table** — shares outstanding, option pool, warrants, convertible notes
+2. **Prior Certificate** — current authorized capital, existing preferred series, unusual provisions
+3. **Cap table** — shares outstanding, option pool, warrants, convertible notes
 4. **Transaction documents** — SPA, IRA, voting agreement, ROFR/co-sale (for cross-reference)
-5. **Registered agent info** — name, physical Delaware street address, county
+5. **Registered agent** — name, physical Delaware street address (no P.O. boxes), county
+
+## Quick Start
+
+1. Gather all prerequisites above
+2. Run pre-draft verification (cross-check term sheet against cap table and SPA)
+3. Draft articles I–VII using the document skeleton
+4. Verify anti-dilution formula and liquidation waterfall with sample numbers
+5. Cross-check all defined terms against transaction documents
+6. Confirm filing readiness with Delaware Secretary of State requirements
 
 ## Pre-Draft Verification
 
-Before drafting, extract and cross-check:
+Extract and cross-check — flag discrepancies before drafting:
 
 | Data Point | Source | Verify Against |
 |---|---|---|
 | Pre/post-money valuation | Term sheet | Cap table |
 | Price per share | Term sheet | SPA, cap table math |
 | Shares issued this round | Term sheet | SPA |
-| Total authorized Common | Cap table | Outstanding + option pool + all conversions + cushion |
+| Total authorized Common | Cap table | Outstanding + pool + all conversions + cushion |
 | Total authorized Preferred (per series) | Term sheet | Shares issued + warrant/note conversions + anti-dilution cushion |
 | Option pool size | Term sheet | Board resolutions, cap table |
 | Liquidation preference multiple | Term sheet | SPA |
-| Dividend rate & type | Term sheet | — |
+| Dividend rate and type | Term sheet | — |
 | Anti-dilution method | Term sheet | — |
 | Board composition | Term sheet | Voting agreement |
 
-Flag any discrepancies before proceeding.
-
-## Output Structure
-
-### Document Skeleton
+## Document Skeleton
 
 ```
 AMENDED AND RESTATED CERTIFICATE OF INCORPORATION
@@ -67,21 +70,15 @@ IN WITNESS WHEREOF...
 [Signature block: name, title, date]
 ```
 
-### Article-by-Article Drafting Guide
+## Core Articles
 
-**Article I — Name**
-- Must include corporate designator (Corp., Inc., Incorporated, etc.) per DGCL §102(a)(1)
-- Must match name across all transaction documents exactly
+**Article I — Name.** Must include corporate designator (Corp., Inc., etc.) per DGCL §102(a)(1). Must match across all transaction documents exactly.
 
-**Article II — Registered Office**
-- Physical street address in Delaware (no P.O. boxes), include county
-- Named registered agent who has consented to serve
+**Article II — Registered Office.** Physical street address in Delaware with county. Named registered agent who has consented to serve.
 
-**Article III — Purpose**
-- Standard broad clause: "any lawful act or activity for which corporations may be organized under the DGCL"
-- Narrow only if regulatory/tax reasons require it
+**Article III — Purpose.** Standard broad clause: "any lawful act or activity for which corporations may be organized under the DGCL." Narrow only if regulatory/tax reasons require.
 
-**Article IV — Authorized Capital**
+**Article IV — Authorized Capital.**
 
 ```
 Total authorized: [X] shares
@@ -89,28 +86,48 @@ Total authorized: [X] shares
   Preferred Stock: [X] shares, $[0.0001] par value
     Series Seed: [X] shares
     Series A: [X] shares
-    [Additional series as needed]
     Undesignated: [X] shares (blank check authority)
 ```
 
-Verify Common Stock covers: outstanding + option pool + all preferred as-converted + warrants/notes + cushion.
+Common must cover: outstanding + option pool + all preferred as-converted + warrants/notes + cushion.
 
-**Article V — Preferred Stock Rights**
-
-Draft each section in this order:
+**Article V — Preferred Stock Rights.** Draft in this order:
 
 | Section | Key Decisions |
 |---|---|
-| **Dividends** | Cumulative vs. non-cumulative; rate (% of OIP/annum); when-as-if-declared vs. auto-accruing; priority among series; treatment on conversion |
-| **Liquidation Preference** | Define "Liquidation Event" broadly (dissolution + deemed liquidation: M&A, asset sale); preference amount (OIP × multiple + accrued dividends); series priority (pari passu vs. senior); participating vs. non-participating; participation cap if applicable |
-| **Optional Conversion** | Conversion ratio = OIP ÷ Conversion Price; initial CP = OIP; mechanics (certificate surrender, no fractional shares — round or cash out) |
-| **Mandatory Conversion** | Triggers: qualified IPO (min gross proceeds + min per-share price as multiple of OIP); vote/consent of [majority/⅔] of Preferred voting as-converted as single class |
-| **Anti-Dilution** | Broad-based weighted average formula (see below); define "fully diluted" broadly (outstanding + as-converted preferred + options + warrants + pool); enumerate carve-outs |
-| **Voting Rights** | As-converted voting with Common as single class; separate class vote for protective provisions |
-| **Protective Provisions** | Require [majority/⅔] Preferred consent for enumerated actions (see checklist below) |
-| **Board Designation** | Seats allocated to Common holders, each Preferred series, independent/mutual (if in certificate rather than voting agreement) |
+| Dividends | Cumulative vs. non-cumulative; rate; when-as-if-declared vs. auto-accruing; series priority |
+| Liquidation Preference | Preference amount (OIP × multiple + accrued dividends); pari passu vs. senior; participating vs. non-participating; cap |
+| Optional Conversion | Ratio = OIP ÷ Conversion Price; initial CP = OIP; no fractional shares |
+| Mandatory Conversion | Qualified IPO trigger (min proceeds + min price); majority/supermajority Preferred vote |
+| Anti-Dilution | Broad-based weighted average; enumerate carve-outs |
+| Voting Rights | As-converted with Common; separate class vote for protective provisions |
+| Protective Provisions | Majority/supermajority Preferred consent for enumerated actions |
+| Board Designation | Seats for Common, each Preferred series, independent/mutual |
 
-**Anti-Dilution Formula (Broad-Based Weighted Average):**
+See `references/DETAILS.md` for anti-dilution formula, carve-out checklist, protective provisions checklist, and liquidation waterfalls.
+
+**Article VI — Director Exculpation.** DGCL §102(b)(7) maximum exculpation with statutory carve-outs (loyalty breach, bad faith, §174, improper personal benefit). Include future-amendment auto-update clause.
+
+**Article VII+ — Optional Provisions.** Indemnification + mandatory advancement; D&O insurance authority; corporate opportunity waiver; forum selection (Court of Chancery); written consent/special meeting provisions.
+
+## Pitfalls and Checks
+
+1. **Defined terms** — define once, use consistently; cross-check against SPA/IRA/voting agreement definitions
+2. **Mathematical verification** — test liquidation waterfall at multiple exit values; verify anti-dilution formula with sample down-round
+3. **Cross-references** — verify all internal section references and subsection numbering
+4. **DGCL compliance** — cite §§242, 245 in recitals; §102(a)(1) for name; §102(b)(7) for exculpation; §151 for stock rights
+5. **Blank check preferred** — if authorized, ensure protective provisions cover future series designation
+6. **Par value consistency** — match across Common and Preferred unless justified
+7. **Filing readiness** — document must be executable and fileable as-is
+8. **Never guess** share numbers, valuations, or pricing — flag gaps and request clarification
+
+---
+
+And the companion **references/DETAILS.md** (the detailed checklists, formulas, and waterfalls extracted from the original):
+
+# Restated Certificate — Detailed References
+
+## Anti-Dilution Formula (Broad-Based Weighted Average)
 
 ```
 Adjusted CP = CP × (A + B) / (A + C)
@@ -122,7 +139,8 @@ Where:
   C   = Number of shares actually issued in new issuance
 ```
 
-**Standard Anti-Dilution Carve-Outs:**
+## Anti-Dilution Carve-Outs Checklist
+
 - [ ] Employee/consultant equity under board-approved plans
 - [ ] Bank/equipment lender securities
 - [ ] Strategic partner/vendor/customer securities (board-approved)
@@ -132,7 +150,8 @@ Where:
 - [ ] Stock splits, stock dividends, recapitalizations
 - [ ] Securities approved by requisite Preferred holders
 
-**Protective Provisions Checklist:**
+## Protective Provisions Checklist
+
 - [ ] Amend certificate or bylaws adversely affecting Preferred
 - [ ] Authorize/create senior or pari passu stock
 - [ ] Increase/decrease authorized Preferred or Common
@@ -147,37 +166,14 @@ Where:
 
 Determine whether series vote together or have separate series votes for specific matters.
 
-**Liquidation Waterfall — Non-Participating:**
+## Liquidation Waterfalls
+
+**Non-Participating:**
 1. Pay Preferred liquidation preference (OIP × multiple + accrued dividends)
 2. Remaining proceeds to Common only
 3. Each Preferred holder may elect to convert and take Common pro rata instead
 
-**Liquidation Waterfall — Participating (with cap):**
+**Participating (with cap):**
 1. Pay Preferred liquidation preference
 2. Remaining proceeds shared pro rata among Preferred (as-converted) and Common
 3. Preferred participation ceases at cap (e.g., 3× OIP); further proceeds to Common only
-
-**Article VI — Director Exculpation**
-- DGCL §102(b)(7) maximum exculpation
-- Carve-outs required by statute: duty of loyalty breach, bad faith/intentional misconduct, §174 liability, improper personal benefit
-- Include future-amendment auto-update clause
-
-**Article VII+ — Optional Additional Provisions**
-- Indemnification to fullest extent of Delaware law + mandatory advancement
-- D&O insurance authority
-- Corporate opportunity waiver (if applicable for investor-affiliated directors)
-- Forum selection clause (Court of Chancery for internal affairs)
-- Written consent / special meeting provisions
-
-## Guidelines
-
-1. **Defined terms** — define once, use consistently; cross-check against SPA/IRA/voting agreement definitions
-2. **Mathematical verification** — test liquidation waterfall at multiple exit values; verify anti-dilution formula produces correct adjusted CP for a sample down-round
-3. **Cross-reference accuracy** — verify all internal section references and subsection numbering
-4. **DGCL compliance** — cite §§242, 245 in recitals; §102(a)(1) for naming; §102(b)(7) for exculpation; §151 for stock rights; §174 for exculpation carve-out
-5. **Blank check preferred** — if authorized, ensure protective provisions give Preferred consent rights over future series designation
-6. **Par value consistency** — match across Common and Preferred unless specific reason to differ
-7. **Filing readiness** — document must be executable and fileable with Delaware Secretary of State as-is
-8. **Edge case testing** — verify conversion mechanics for partial conversion, mandatory triggers, and acquisition scenarios
-9. **Do not** guess at share numbers, valuations, or pricing — flag gaps and request clarification
-10. **Jurisdiction** — this skill is Delaware-specific; do not apply to other states without modification

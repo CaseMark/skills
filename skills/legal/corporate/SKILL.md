@@ -1,38 +1,43 @@
 ---
 name: corporate
-description: Root skill for corporate legal practice covering entity formation, governance, finance, M&A, securities, venture capital, non-profits, and dissolution. Establishes foundational principles—fiduciary duties, corporate formalities, shareholder/stakeholder balance—that apply across all corporate matters. Use when advising on any corporate law issue, drafting governance documents, structuring transactions, or navigating organizational legal questions.
-tags:
-  - corporate
+description: Advises on corporate law matters including entity formation, governance, finance, M&A, securities, venture capital, non-profits, and dissolution. Use when drafting governance documents, structuring transactions, selecting entity types, or navigating fiduciary duties and corporate formalities.
 ---
 
 # Corporate Practice
 
-Root skill governing all corporate legal matters, from entity formation through dissolution.
+Root skill for all corporate legal matters — entity formation through dissolution. Establishes fiduciary duties, corporate formalities, and stakeholder-balance principles that apply across every sub-area.
 
 ## Sub-Areas
 
 | Sub-Area | Scope |
 |---|---|
-| Corporate Formation | Entity selection, articles, bylaws, initial capitalization |
-| Corporate Governance | Board duties, minutes, resolutions, officer authority |
-| Corporate Finance | Equity/debt structures, dividends, capitalization tables |
-| Securities & Capital Markets | Registered offerings, exemptions, disclosure obligations |
-| Mergers & Acquisitions | Asset/stock deals, due diligence, closing mechanics |
-| Venture Capital & Private Equity | Preferred equity, term sheets, investor rights |
-| Non-Profit Organizations | 501(c) formation, governance, charitable compliance |
-| Corporate Dissolution | Wind-down, asset distribution, regulatory filings |
+| Formation | Entity selection, articles, bylaws, initial capitalization |
+| Governance | Board duties, minutes, resolutions, officer authority |
+| Finance | Equity/debt structures, dividends, cap tables |
+| Securities | Registered offerings, exemptions, disclosure obligations |
+| M&A | Asset/stock deals, due diligence, closing mechanics |
+| VC & PE | Preferred equity, term sheets, investor rights |
+| Non-Profits | 501(c) formation, governance, charitable compliance |
+| Dissolution | Wind-down, asset distribution, regulatory filings |
+
+## Quick Start
+
+1. Confirm jurisdiction of formation — state law governs internal affairs
+2. Identify entity type (C-corp, S-corp, LLC, PBC, non-profit) and match to tax, governance, and financing goals
+3. Flag fiduciary duty issues (care + loyalty) and any conflicts of interest
+4. Check whether securities law (federal + blue sky) applies to the transaction
 
 ## Core Principles
 
-- **Fiduciary duties** — Duty of care and loyalty govern all board/officer conduct; identify conflicts early
-- **Corporate formalities** — Maintain minutes, resolutions, and records to preserve liability protection
-- **Entity selection** — Match structure (C-corp, S-corp, LLC, PBC, non-profit) to tax, governance, and financing goals
-- **Stakeholder balance** — Distinguish obligations to shareholders, creditors, employees, and beneficiaries by entity type and jurisdiction
+- **Fiduciary duties** — Care and loyalty govern all board/officer conduct; surface conflicts early
+- **Corporate formalities** — Minutes, resolutions, and records preserve liability protection
+- **Entity selection** — Structure must align with tax, governance, and financing objectives
+- **Stakeholder balance** — Obligations differ by entity type: shareholders, creditors, employees, beneficiaries
 - **Risk management** — Flag indemnification gaps, D&O exposure, and regulatory triggers at each stage
 
-## Guidelines
+## Pitfalls
 
-- Always confirm jurisdiction of formation; state law governs internal affairs
-- Delaware default rules apply to most venture-backed C-corps — note when client's state of formation diverges
-- Securities law (federal + blue sky) intersects with nearly every financing transaction — flag early
-- Non-profits require separate analysis: no equity, restricted assets, and IRS compliance layer
+- Delaware defaults apply to most venture-backed C-corps — note divergences when client formed elsewhere
+- Securities law intersects nearly every financing transaction — flag early, not after closing
+- Non-profits require separate analysis: no equity, restricted assets, IRS compliance layer
+- Missing corporate formalities (e.g., skipped annual minutes) can pierce the liability veil

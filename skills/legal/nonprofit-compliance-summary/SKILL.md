@@ -1,82 +1,92 @@
 ---
 name: nonprofit-compliance-summary
-description: Generates a structured regulatory compliance summary for U.S. non-profit and charitable organizations. Assesses 501(c)(3) federal tax-exempt status requirements, multi-state charitable registration obligations, and governance practices to surface risks and remediation priorities. Use when conducting internal compliance audits, preparing for IRS or state AG examinations, onboarding to a new nonprofit matter, or producing board-level compliance reports.
-tags:
-  - analysis
-  - corporate
-  - regulatory
-  - summarization
-  - summary
+description: Generates a structured regulatory compliance summary for U.S. 501(c)(3) nonprofit organizations covering federal tax-exempt status, multi-state charitable registration, and governance. Use when conducting compliance audits, preparing for IRS or state AG examinations, onboarding to a nonprofit matter, or producing board-level compliance reports.
 ---
 
-# Charitable Organization Compliance Summary
+# Nonprofit Compliance Summary
 
-Produces a prioritized compliance assessment covering federal tax-exempt status, multi-state charitable registration, and governance for nonprofit organizations.
+Produces a prioritized compliance assessment for charitable organizations across federal tax, state registration, and governance domains.
 
 ## Prerequisites
 
-1. **Organizational documents** — Articles of incorporation, bylaws, IRS determination letter
-2. **IRS filings** — Forms 990, 990-EZ, or 990-N for prior 3 years; Form 990-T if applicable
+Gather before starting:
+
+1. **Organizational docs** — Articles of incorporation, bylaws, IRS determination letter
+2. **IRS filings** — Forms 990/990-EZ/990-N (prior 3 years); Form 990-T if applicable
 3. **State filings** — Charitable registration certificates and annual reports for all solicitation states
-4. **Governance records** — Board meeting minutes, conflict of interest disclosure statements, compensation approval records
-5. **Correspondence** — Any IRS or state AG inquiry letters, audit notices, or compliance warnings
+4. **Governance records** — Board minutes, conflict-of-interest disclosures, compensation approval records
+5. **Correspondence** — IRS or state AG inquiry letters, audit notices, compliance warnings
+
+Note any unavailable documents — qualify findings accordingly.
 
 ## Output Structure
 
 ### 1. Executive Overview
-- Overall compliance status: **Full Compliance / Minor Deficiencies / Significant Gaps**
-- Critical issues requiring immediate action (flagged prominently)
-- Upcoming filing deadlines (next 90 days)
+
+- Overall status: **Full Compliance / Minor Deficiencies / Significant Gaps**
+- Critical issues requiring immediate action
+- Filing deadlines within next 90 days
 
 ### 2. Federal Tax Compliance
 
 | Area | Requirement | Status | Notes |
 |------|-------------|--------|-------|
-| Annual filing | Form 990/990-EZ/990-N timely filed (3-year lookback) | | Revocation triggers after 3 consecutive missed years |
-| Exempt purpose | Activities consistent with IRS determination | | Flag any material program changes |
-| UBI | Form 990-T filed for unrelated business income | | Apply substantially related test; note volunteer/donated goods exceptions |
-| Private inurement | No prohibited benefit to insiders | | |
-| Excess benefit transactions | No §4958 violations | | |
-| Political activity | No 501(c)(3) campaign intervention | | |
-| Lobbying | Within permissible limits (substantial part test or §501(h) election) | | |
-| Contribution records | Contemporaneous written acknowledgments for gifts ≥$250 | | |
-| Public charity status | Passes public support test (§509(a)(1)/(2)) or other classification | | Flag private foundation risk |
+| Annual filing | 990/990-EZ/990-N timely filed (3-year lookback) | | Auto-revocation after 3 consecutive misses |
+| Exempt purpose | Activities consistent with determination letter | | Flag material program changes |
+| UBI | 990-T filed for unrelated business income | | Apply substantially-related test |
+| Private inurement | No prohibited insider benefit | | |
+| Excess benefit | No IRC §4958 violations | | |
+| Political activity | No campaign intervention | | |
+| Lobbying | Within limits (substantial-part test or §501(h) election) | | |
+| Contribution records | Written acknowledgments for gifts ≥ $250 | | |
+| Public charity status | Passes §509(a)(1)/(2) public support test | | Flag private foundation risk |
 
-### 3. State Compliance (by Jurisdiction)
+### 3. State Compliance (per Jurisdiction)
 
 For each state where the organization solicits donations:
 
-| State | Registration Status | Annual Report Due | Professional Fundraiser Reg. | Disclosure Compliance |
-|-------|--------------------|--------------------|------------------------------|----------------------|
-| [State] | Active / Expired / Not Filed | [Date] | N/A / Current / Missing | Website ✓/✗ · Materials ✓/✗ |
+| State | Registration | Annual Report Due | Fundraiser Reg. | Disclosure |
+|-------|-------------|-------------------|-----------------|------------|
+| [State] | Active / Expired / Not Filed | [Date] | N/A / Current / Missing | Web ✓/✗ · Materials ✓/✗ |
 
-> Note states requiring pre-registration before any solicitation (including email/web appeals to residents).
+Flag states requiring pre-registration before any solicitation (including digital appeals).
 
 ### 4. Governance & Operations
 
 | Area | Standard | Status | Finding |
 |------|----------|--------|---------|
 | Board composition | Minimum size; majority independent | | |
-| Conflict of interest policy | Adopted; annual disclosures collected | | |
-| Executive compensation | Rebuttable presumption satisfied: (1) independent approval, (2) comparability data, (3) contemporaneous documentation | | |
-| Corporate records | Minutes, resolutions, financial statements maintained | | |
-| Financial controls | Segregation of duties; audit/review commensurate with revenue | | |
-| Joint ventures / subsidiaries | Special compliance analysis conducted | | |
+| Conflict of interest | Policy adopted; annual disclosures collected | | |
+| Executive compensation | Rebuttable presumption: (1) independent approval, (2) comparability data, (3) contemporaneous documentation | | |
+| Corporate records | Minutes, resolutions, financials maintained | | |
+| Financial controls | Segregation of duties; audit commensurate with revenue | | |
+| Joint ventures | Special compliance analysis conducted | | |
 
 ### 5. Recommendations
 
-| Priority | Issue | Required Action | Deadline | Citation |
+| Priority | Issue | Action Required | Deadline | Citation |
 |----------|-------|-----------------|----------|----------|
 | **Critical** | | | | |
 | **High** | | | | |
 | **Routine** | | | | |
 
-## Guidelines
+## Workflow
 
-- **Cite specifically**: Reference form numbers, filing dates, and statutory provisions (IRC §§ 501(c)(3), 4958, 6033; state statutes) for each finding
-- **Revocation risk**: Flag any organization missing 3+ consecutive 990 filings — automatic revocation applies retroactively
-- **Compensation**: Do not conclude reasonableness without all three rebuttable presumption elements documented
-- **State solicitation**: Apply the multi-state analysis even if solicitation is incidental; most states require registration before digital solicitation to residents
-- **Audience**: Write findings so non-lawyer board members can understand their fiduciary obligations; legal conclusions should be flagged for counsel review
-- **Mark uncertain citations**: Use `[VERIFY]` for any statutory or regulatory citation not confirmed against source documents
-- **Scope limitation**: Note if key documents were unavailable and qualify findings accordingly
+```
+- [ ] Collect and inventory prerequisite documents
+- [ ] Assess federal tax compliance (Section 2 table)
+- [ ] Assess state registration for each solicitation state (Section 3 table)
+- [ ] Assess governance and operations (Section 4 table)
+- [ ] Draft executive overview with status rating
+- [ ] Compile prioritized recommendations with deadlines and citations
+- [ ] Mark uncertain citations with [VERIFY]
+```
+
+## Critical Checks
+
+- **Revocation risk**: 3+ consecutive missed 990 filings triggers automatic retroactive revocation — always flag this prominently
+- **Compensation**: Never conclude reasonableness without all three rebuttable-presumption elements documented
+- **State solicitation**: Apply multi-state analysis even for incidental solicitation; most states require registration before digital solicitation to residents
+- **Citations**: Reference specific form numbers, filing dates, and statutory provisions (IRC §§ 501(c)(3), 4958, 6033; state statutes) for every finding
+- **Uncertain citations**: Mark `[VERIFY]` for any citation not confirmed against source documents
+- **Audience**: Write so non-lawyer board members understand fiduciary obligations; flag legal conclusions for counsel review

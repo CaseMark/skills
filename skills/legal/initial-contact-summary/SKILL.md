@@ -1,6 +1,6 @@
 ---
 name: initial-contact-summary
-description: Creates comprehensive initial contact summaries documenting a potential client's first interaction with the firm. Captures case facts, liability indicators, damages, insurance information, and intake screening criteria for conflict checks, case evaluation, and engagement decisions. Use during client intake.
+description: Generates a structured initial contact summary memorandum from a potential client's first interaction with the firm. Captures case facts, liability indicators, damages, insurance details, and screening criteria. Use during client intake to support conflict checks, case evaluation, and engagement decisions.
 tags:
   - litigation
   - summarization
@@ -9,102 +9,75 @@ tags:
 
 # Initial Contact Summary
 
-Creates a structured internal memorandum documenting a potential client's first contact with the firm, serving as the foundation for conflict checking, case evaluation, and engagement decisions.
+Produces a privileged internal memo from a potential client's first contact — the foundation for conflict checking, case evaluation, and engagement decisions. Mark all output as **PRIVILEGED AND CONFIDENTIAL**.
 
-## Prerequisites
+## Required Inputs
 
 Gather from intake interview, referral, or initial documents:
 
-1. **Contact information** — name, phone, email, address, preferred contact method
+1. **Contact info** — name, phone, email, address, preferred contact method
 2. **Incident details** — date, location, description of events
 3. **Injuries/damages** — physical, financial, emotional, property
 4. **Parties involved** — opposing parties, witnesses, employers, insurers
-5. **Insurance information** — client's and adverse party's coverage
+5. **Insurance** — client's and adverse party's coverage
 6. **Prior legal actions** — existing attorneys, filed claims, administrative complaints
 7. **Referral source** — how client found the firm
-8. **Statute of limitations** — deadline for filing (flag if approaching)
+8. **Statute of limitations** — calculate deadline; flag if < 6 months
 
-## Output Structure
+## Output Sections
 
-### Contact Information
+### 1. Contact Information
 
-| Field | Details |
-|-------|---------|
-| Name | |
-| Phone | |
-| Email | |
-| Address | |
-| Preferred contact | |
-| Intake date | |
-| Intake by | |
-| Referral source | |
+Table with: Name, Phone, Email, Address, Preferred contact, Intake date, Intake by, Referral source.
 
-### Conflict Check Information
+### 2. Conflict Check
 
-- All parties to be checked: potential client, opposing parties, employers, insurers, witnesses
-- Related entities (parent companies, subsidiaries)
-- **Flag**: conflict check completed / pending
+- List all parties to check: potential client, opposing parties, employers, insurers, witnesses, related entities (parent companies, subsidiaries)
+- Flag: conflict check **completed** or **pending**
 
-### Incident Summary
+### 3. Incident Summary
 
-- **Date and time** of incident
-- **Location** (specific address, jurisdiction)
-- **Type** of matter (auto accident, slip-and-fall, employment, medical malpractice, etc.)
-- **Narrative** — chronological account in client's own words
-- **Police/incident report** — report number, agency, obtained/requested
+- Date/time, location (address + jurisdiction), matter type
+- Chronological narrative in client's own words (use quotation marks for key statements)
+- Police/incident report: number, agency, obtained/requested status
 
-### Liability Assessment
+### 4. Liability Assessment
 
-- **Client's theory** of fault
-- **Adverse party conduct** — specific negligent/wrongful acts
-- **Comparative fault concerns** — any contributory negligence
-- **Evidence available** — photos, video, documents, electronic data
-- **Witnesses** — names, contact info, relationship, anticipated testimony
-- **Preservation needs** — surveillance footage, vehicle, medical devices (flag deadlines)
+- Client's theory of fault
+- Adverse party conduct (specific negligent/wrongful acts)
+- Comparative fault concerns
+- Available evidence: photos, video, documents, electronic data
+- Witnesses: names, contact info, relationship, anticipated testimony
+- Preservation needs: surveillance footage, vehicles, medical devices — **flag deadlines**
 
-### Damages Assessment
+### 5. Damages
 
-**Physical Injuries**:
-- Description of injuries
-- Treatment to date (providers, facilities)
-- Ongoing treatment needs
-- Pre-existing conditions
+**Physical**: injuries, treatment to date (providers, facilities), ongoing needs, pre-existing conditions
 
-**Economic Damages**:
-- Medical expenses (current and estimated future)
-- Lost wages (dates missed, rate of pay, employer)
-- Property damage
-- Out-of-pocket expenses
+**Economic**: medical expenses (current + estimated future), lost wages (dates, rate, employer), property damage, out-of-pocket costs
 
-**Non-Economic Damages**:
-- Pain and suffering indicators
-- Impact on daily activities
-- Emotional distress factors
+**Non-economic**: pain/suffering indicators, daily activity impact, emotional distress factors
 
-### Insurance Information
+### 6. Insurance
 
-| Party | Carrier | Policy # | Limits | Claim # | Adjuster |
-|-------|---------|----------|--------|---------|----------|
-| Client | | | | | |
-| Adverse | | | | | |
-| UM/UIM | | | | | |
+Table with rows for Client, Adverse, and UM/UIM. Columns: Carrier, Policy #, Limits, Claim #, Adjuster.
 
-### Critical Dates
+### 7. Critical Dates
 
-- [ ] Date of incident: ___
-- [ ] Statute of limitations: ___ (**[CALCULATE AND FLAG IF < 6 MONTHS]**)
-- [ ] Government claim deadline (if applicable): ___
-- [ ] Insurance claim deadline: ___
-- [ ] Evidence preservation deadline: ___
+- Date of incident
+- **Statute of limitations** — calculate and prominently display; **flag if < 6 months**
+- Government claim deadline (if applicable)
+- Insurance claim deadline
+- Evidence preservation deadline
 
-### Screening Assessment
+### 8. Screening Assessment
 
-**Case strength**: Strong / Moderate / Weak — with brief explanation
-**Damages potential**: High / Medium / Low
-**Recommended action**: Accept / Decline / Further investigation needed
-**Conflicts**: Clear / Potential conflict identified
+- **Case strength**: Strong / Moderate / Weak — with brief explanation
+- **Damages potential**: High / Medium / Low
+- **Recommended action**: Accept / Decline / Further investigation needed
+- **Conflicts**: Clear / Potential conflict identified
 
-### Follow-Up Actions
+### 9. Follow-Up Checklist
 
 - [ ] Conflict check completed
 - [ ] Statute of limitations calendared
@@ -115,12 +88,10 @@ Gather from intake interview, referral, or initial documents:
 - [ ] Engagement letter prepared
 - [ ] Declined letter prepared (if not accepting)
 
-## Guidelines
+## Pitfalls
 
-- Document client's own words for key statements — use quotation marks
-- Flag any inconsistencies in the narrative for follow-up
-- Always calculate and prominently display the statute of limitations deadline
-- Include all potential parties for thorough conflict checking
-- Note client's emotional state and communication style (relevant to case evaluation)
-- If declining, document the reason and confirm a declination letter is sent with limitations warning
-- This is an internal document — mark as privileged and confidential
+- **Statute of limitations**: always calculate and display prominently — missed deadlines are malpractice risk
+- **Conflict check gaps**: include all parties and related entities, not just named opponents
+- **Narrative inconsistencies**: flag contradictions for follow-up rather than resolving them
+- **Declining representation**: document reason and confirm declination letter includes limitations warning
+- **Client demeanor**: note emotional state and communication style — relevant to case evaluation

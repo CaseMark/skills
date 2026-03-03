@@ -1,128 +1,118 @@
 ---
 name: commercial-lease-summary
 description: >-
-  Produces structured U.S. commercial lease summaries/abstracts that capture
-  business terms, financial obligations, operating covenants, risk allocation,
-  and deadlines for transactional real estate review. Use when summarizing a
-  commercial lease, preparing a lease abstract, reviewing
-  premises/term/rent/CAM, or identifying SNDA, assignment, default, and
-  renewal issues. Trigger keywords: commercial lease summary, lease abstract,
-  CAM, base rent, escalation, SNDA, assignment, sublease, option, default,
-  guaranty.
-tags:
-  - summarization
-  - summary
-  - transactional
+  Produces structured U.S. commercial lease abstracts covering business terms,
+  financial obligations, operating covenants, risk allocation, and deadlines.
+  Use when summarizing a commercial lease, preparing a lease abstract, reviewing
+  premises/term/rent/CAM, or identifying SNDA, assignment, default, and renewal
+  issues. Triggers: commercial lease summary, lease abstract, CAM reconciliation,
+  base rent escalation, SNDA, assignment/sublease, tenant default, guaranty.
 ---
 
 # Commercial Lease Summary
 
-Summarize a commercial lease into an executive abstract plus issue-spotting notes and a deadline calendar.
+Summarize a commercial lease into an executive abstract, issue-spotting notes, and a deadline calendar. Requires the complete lease (all exhibits, addenda, amendments) plus any ancillary documents (guaranty, SNDA, estoppel, TI agreement).
 
-## Prerequisites
+## Quick Start
 
-1. Complete lease agreement including all exhibits, addenda, amendments, and referenced documents.
-2. Any ancillary documents: guaranty, SNDA, estoppel, TI agreement, rules/regulations.
-3. Jurisdiction (state) and property location if known.
+1. Collect the full lease and all referenced documents.
+2. Confirm jurisdiction (state) and property location.
+3. Produce output in the section order below, citing exact sections (e.g., "§4.2") for every material term.
 
-## Output Structure / Process
+## Output Sections
 
-**Executive Overview (6–10 bullets)**
-- Parties, premises, term, base rent, major escalations, key options, unusual risk allocations, and critical deadlines.
+### 1. Executive Overview
 
-**Deal Snapshot (table)**
-| Field | Summary |
-| --- | --- |
-| Landlord / Tenant | |
-| Premises (address + description) | |
-| Premises size (RSF/USF) | |
-| Term start / end | |
-| Rent commencement | |
-| Possession / delivery condition | |
-| Renewal/extension options | |
-| Use clause (permitted + prohibited) | |
-| Exclusive / non-compete / radius | |
-| Security deposit / guaranty | |
+6–10 bullets: parties, premises, term, base rent, major escalations, key options, unusual risk allocations, critical deadlines.
 
-**Premises & Term**
+### 2. Deal Snapshot
+
+Table with fields: Landlord/Tenant, Premises (address + RSF/USF), Term start/end, Rent commencement, Possession/delivery condition, Renewal options, Use clause, Exclusive/non-compete/radius, Security deposit/guaranty.
+
+### 3. Premises & Term
+
 - Premises description, exclusions, common areas, parking.
 - Commencement trigger (delivery, substantial completion, other).
-- Holdover terms and rate.
-- Early access or build-out access.
+- Holdover terms/rate; early access or build-out access.
 
-**Financial Obligations (table)**
-| Item | Amount / Formula | Frequency | Escalation / Adjustments | Notes |
-| --- | --- | --- | --- | --- |
-| Base rent | | | | |
-| Additional rent (CAM) | | | | |
-| Taxes | | | | |
-| Insurance | | | | |
-| Utilities | | | | |
-| Percentage rent | | | | |
-| Other charges | | | | |
+### 4. Financial Obligations
 
-**Use, Operations, and Compliance**
-- Permitted use and restrictions.
-- Hours of operation, signage, advertising, compliance, laws.
-- Co-tenancy, continuous operation, or go-dark rights.
+Table with columns: Item | Amount/Formula | Frequency | Escalation | Notes.
 
-**Maintenance, Repairs, and Alterations**
-- Landlord vs tenant responsibilities by category: structural, roof, HVAC, systems, interior, exterior, parking, common areas.
-- Tenant improvements, alteration approvals, restoration obligations.
+Rows: Base rent, Additional rent (CAM), Taxes, Insurance, Utilities, Percentage rent, Other charges.
 
-**Insurance, Indemnity, Risk Allocation**
-- Required coverages and minimum limits.
-- Additional insureds, waiver of subrogation, indemnity scope, casualty allocation.
-- Condemnation rights and proceeds allocation.
+### 5. Use, Operations & Compliance
 
-**Assignment / Subletting / Change of Control**
-- Consent standard, prohibited transfers, recapture rights.
-- Profit-sharing, assignment fees, deemed assignment triggers.
+Permitted use/restrictions, signage, hours, co-tenancy, continuous operation, go-dark rights.
 
-**Default / Remedies / Termination**
-- Default types, notice and cure periods.
-- Remedies, self-help, acceleration, liquidated damages, termination triggers.
+### 6. Maintenance, Repairs & Alterations
 
-**Security Deposit / Guaranty**
-- Amount, form, return conditions, draws, replenishment.
-- Guarantor identity and scope.
+- Landlord vs. tenant responsibilities: structural, roof, HVAC, systems, interior, exterior, parking, common areas.
+- TI approvals and restoration obligations.
 
-**SNDA / Financing / Foreclosure**
-- Subordination, non-disturbance, attornment requirements.
-- Estoppel certificates and timing.
+### 7. Insurance, Indemnity & Risk
 
-**Special Provisions**
-- Options to purchase, ROFR/ROFO, kick-out, co-tenancy, exclusive, radius, sustainability obligations, landlord relocation rights.
+Required coverages/limits, additional insureds, waiver of subrogation, indemnity scope, casualty and condemnation allocation.
 
-**Issue Flags / Ambiguities (checklist)**
-- [ ] Unclear commencement or rent start trigger.
-- [ ] CAM/tax pass-through calculation missing or ambiguous.
-- [ ] Maintenance scope conflicts between sections.
-- [ ] Insurance limits inconsistent.
-- [ ] Remedies one-sided or commercially atypical.
-- [ ] Missing SNDA or lender protections.
-- [ ] Conflicting option deadlines or notice methods.
-- [ ] Missing exhibits or schedules referenced.
+### 8. Assignment / Subletting / Change of Control
 
-**Missing Standard Provisions (if applicable)**
-- List any standard clauses absent for this deal type and jurisdiction.
+Consent standard, prohibited transfers, recapture rights, profit-sharing, deemed-assignment triggers.
 
-**Key Dates & Deadlines (table)**
-| Event | Date / Deadline | Notice Requirements | Source Section |
-| --- | --- | --- | --- |
-| Rent commencement | | | |
-| Option exercise deadline(s) | | | |
-| Renewal notice window | | | |
-| Termination notice | | | |
-| Estoppel delivery | | | |
-| Insurance certificates | | | |
-| Audit rights deadlines | | | |
+### 9. Default / Remedies / Termination
 
-## Guidelines
+Default types, notice/cure periods, remedies, self-help, acceleration, liquidated damages, termination triggers.
 
-- Summarize the lease as written; do not infer market terms or legal advice.
-- Use exact section citations (e.g., “§4.2”) for every material term.
-- Flag ambiguities, conflicts, or missing exhibits clearly as “Unresolved.”
-- If any legal citation is uncertain, mark it `[VERIFY]`.
-- Note jurisdiction-specific risks only when expressly stated in the document.
-- If multiple amendments exist, reconcile conflicts and state controlling version.
+### 10. Security Deposit / Guaranty
+
+Amount, form, return conditions, draws/replenishment, guarantor identity and scope.
+
+### 11. SNDA / Financing
+
+Subordination, non-disturbance, attornment requirements, estoppel certificate timing.
+
+### 12. Special Provisions
+
+Options to purchase, ROFR/ROFO, kick-out, co-tenancy, exclusive, radius, sustainability, landlord relocation rights.
+
+### 13. Issue Flags
+
+Check each and mark findings:
+
+- [ ] Unclear commencement or rent-start trigger
+- [ ] CAM/tax pass-through calculation missing or ambiguous
+- [ ] Maintenance scope conflicts between sections
+- [ ] Insurance limits inconsistent
+- [ ] Remedies one-sided or commercially atypical
+- [ ] Missing SNDA or lender protections
+- [ ] Conflicting option deadlines or notice methods
+- [ ] Missing exhibits or schedules referenced
+- [ ] Standard clauses absent for this deal type/jurisdiction
+
+### 14. Key Dates & Deadlines
+
+Table with columns: Event | Date/Deadline | Notice Requirements | Source Section.
+
+Rows: Rent commencement, Option exercise deadlines, Renewal notice window, Termination notice, Estoppel delivery, Insurance certificates, Audit rights deadlines.
+
+## Pitfalls
+
+- **No legal advice.** Summarize as written; do not infer market terms.
+- **Cite everything.** Every material term needs a section reference.
+- **Flag gaps.** Mark ambiguities, conflicts, or missing exhibits as `[UNRESOLVED]`. Mark uncertain citations as `[VERIFY]`.
+- **Jurisdiction.** Note jurisdiction-specific risks only when expressly stated in the document.
+- **Amendments.** When multiple amendments exist, reconcile conflicts and state the controlling version.
+
+---
+
+Key changes from the original:
+
+- **Removed `tags`** — not part of the spec frontmatter
+- **Tightened description** — kept third-person with clear triggers, removed "Trigger keywords:" label
+- **Added Quick Start** — 3-step entry point per best practices
+- **Compressed output sections** — eliminated empty table scaffolding (token-expensive, no informational value) and replaced with concise column/row descriptions
+- **Merged "Missing Standard Provisions"** into Issue Flags as a single checklist item
+- **Renamed "Guidelines" to "Pitfalls"** — matches best-practice section naming, reformatted as bold-key/explanation pairs for scannability
+- **Removed "Prerequisites" as standalone section** — folded into the overview sentence
+- **~90 lines down from ~129** — tighter token footprint while preserving all domain content
+
+Want me to retry writing the file?

@@ -1,10 +1,6 @@
 ---
 name: teaming-agreement
-description: Drafts comprehensive Teaming Agreements between prime contractors and subcontractors for pursuing U.S. government contract opportunities. Ensures FAR compliance, protects both parties' interests, and structures proposal-phase and post-award obligations. Use when drafting teaming agreements, prime-sub teaming arrangements, government contract teaming, or federal solicitation collaboration agreements.
-tags:
-  - agreement
-  - drafting
-  - regulatory
+description: Drafts Teaming Agreements for prime-sub pursuit of U.S. government contracts. Covers proposal-phase and post-award obligations with FAR compliance. Use when drafting teaming agreements, prime-sub teaming arrangements, or federal solicitation collaboration agreements.
 ---
 
 # Teaming Agreement
@@ -13,129 +9,88 @@ Drafts an enforceable Teaming Agreement establishing the prime-sub relationship 
 
 ## Prerequisites
 
-1. **Party identification** — full legal names, jurisdictions of organization, entity types, addresses matching SAM.gov registrations
-2. **Target solicitation** — agency, issuing office, solicitation number, title, NAICS code, size standard, set-aside designation, proposal due date
-3. **Capability statements** — each party's technical expertise, past performance, certifications, clearances, small business status
-4. **Business terms** — anticipated subcontract value or percentage, exclusivity scope, cost-sharing arrangement
-5. **Governing contract/correspondence** — any prior NDAs, LOIs, or negotiation correspondence
+Collect before drafting:
 
-## Output Structure
+- **Parties** — legal names, entity types, jurisdictions, addresses (must match SAM.gov)
+- **Solicitation** — agency, solicitation number, title, NAICS, size standard, set-aside, proposal due date
+- **Capabilities** — each party's technical expertise, past performance, certifications, clearances, small business status
+- **Business terms** — anticipated subcontract value/percentage, exclusivity scope, cost-sharing
+- **Prior agreements** — any existing NDAs, LOIs, or negotiation correspondence
 
-### Section 1: Recitals & Definitions
+## Quick Start
 
-| Element | Content |
-|---|---|
-| Parties | Full legal name, entity type, jurisdiction, principal address |
-| Solicitation | Agency, office, solicitation #, title, NAICS, set-aside, due date |
-| Purpose | How each party's capabilities complement the other; why the team is stronger than either alone |
-| Defined terms | Capitalize and define: Proprietary Information, Proposal, Prime Contract, Subcontract, Key Personnel, Work Share |
+1. Gather all prerequisites above
+2. Draft sections 1–7 below in order
+3. Run FAR compliance checks before delivery
+4. Mark uncertain regulatory citations with `[VERIFY]`
 
-### Section 2: Proposal Phase Obligations
+## Output Sections
 
-**Prime Contractor responsibilities:**
-- Overall proposal strategy, schedule, compliance matrix
-- Volume integration, quality reviews, final submission decisions
-- Sole point of contact with the government
-- Obligation to consult Subcontractor on matters affecting its scope, pricing, or key personnel
+### 1. Recitals & Definitions
 
-**Subcontractor deliverables — specify for each:**
-- [ ] Technical approach sections (with page limits and format)
-- [ ] Past performance citations (specific contracts, metrics, references)
-- [ ] Key personnel resumes (qualifications, clearance levels)
-- [ ] Pricing data (labor categories, rates, ODCs, cost certifications)
-- [ ] Delivery deadlines (minimum 7 days before government submission deadline)
+- Identify parties (name, entity type, jurisdiction, address) and target solicitation (agency, number, NAICS, set-aside, due date)
+- State purpose: how combined capabilities strengthen the offer
+- Define key terms: Proprietary Information, Proposal, Prime Contract, Subcontract, Key Personnel, Work Share
 
-**Exclusivity clause:**
-- Scope: this solicitation number only, or include re-solicitations/follow-ons
-- Duration: execution through award or solicitation cancellation
-- Carve-outs: specify permitted activities if exclusivity is limited
+### 2. Proposal Phase Obligations
 
-**Proposal costs:**
-- Default: each party bears own costs
-- Alternative: pro-rata by anticipated subcontract percentage
-- Include NTE cap or mutual approval threshold for overruns
-- Address cost recovery if one party fails to deliver inputs
+**Prime responsibilities:** proposal strategy, volume integration, quality reviews, final submission decisions, sole government contact, obligation to consult Sub on scope/pricing/personnel matters.
 
-### Section 3: Post-Award Obligations
+**Sub deliverables** (specify format and deadlines for each):
+- Technical approach sections
+- Past performance citations with metrics and references
+- Key personnel resumes with clearance levels
+- Pricing data (labor categories, rates, ODCs)
+- All inputs due minimum 7 days before government deadline
 
-**Subcontract negotiation:**
-- Good-faith obligation to negotiate formal subcontract within 30–60 days of prime award
-- Extension by mutual written agreement
+**Exclusivity:** Define scope (this solicitation only vs. follow-ons), duration (execution through award or cancellation), and any carve-outs.
 
-**Scope of work:**
-- Technical areas, deliverables, performance locations, estimated LOE
-- Value expressed as dollar amount, percentage of prime, or range
-- Must align precisely with proposal representations
+**Proposal costs:** Default — each party bears own costs. Address NTE caps and cost recovery if a party fails to deliver inputs.
 
-**Key business terms to establish:**
-- Payment: schedule (monthly/milestone), timing (X days after Prime receives government payment), retainage
-- FAR flow-down clauses (mandatory FAR clauses, agency-specific, cybersecurity, small business subcontracting)
-- Change management process
+### 3. Post-Award Obligations
 
-**Failure to agree on subcontract terms:**
-1. Executive-level negotiation (senior officers, 15–30 days)
-2. Mediation before mutually acceptable neutral
-3. If unresolved: Prime may substitute subcontractor (subject to government approval); proposal cost allocation per agreement terms
+- Good-faith subcontract negotiation within 30–60 days of award
+- Scope of work must align precisely with proposal representations (areas, deliverables, locations, LOE, value)
+- Establish payment terms (schedule, timing tied to government payment, retainage), FAR flow-downs, and change management
+- Failure-to-agree escalation: executive negotiation (15–30 days) → mediation → Prime may substitute Sub (subject to government approval)
 
-### Section 4: Termination
+### 4. Termination
 
-**Automatic termination events:**
-- Award to different offeror
-- Solicitation cancellation without re-issuance
-- Execution of formal subcontract (supersedes this agreement)
-- Written withdrawal notice before proposal submission (if permitted)
+**Automatic triggers:** award to another offeror, solicitation cancellation, execution of formal subcontract, or written pre-submission withdrawal.
 
-**Survival provisions:**
+**Survival periods:**
+- Confidentiality: 3–5 years
+- Cost allocation: until settled
+- Proprietary information return: 30 days post-termination
 
-| Provision | Survival Period |
-|---|---|
-| Confidentiality | 3–5 years |
-| Proposal cost allocation | Until settled |
-| Proprietary information return | 30 days post-termination |
+### 5. Proprietary Information
 
-### Section 5: Proprietary Information
+- **Scope:** technical data, pricing, cost structures, past performance, personnel qualifications, business strategies — marked as proprietary or orally identified and confirmed in writing within 10 business days
+- **Obligations:** protect with reasonable care, need-to-know access only, use solely for proposal/performance
+- **Exceptions:** public information, prior possession, independent development, authorized disclosure, compelled disclosure (with notice)
+- **Return:** within 30 days of termination; one archival copy permitted in legal files
 
-**Definition:** Technical data, methodologies, pricing, cost structures, profit margins, past performance, personnel qualifications, business strategies — marked as proprietary or identified orally and confirmed in writing within 10 business days.
+### 6. General Provisions
 
-**Obligations:**
-- Protect with same care as own confidential information (minimum: reasonable care)
-- Limit access to need-to-know personnel bound by equivalent obligations
-- Use solely for proposal preparation and subcontract performance
+Include each: governing law and jurisdiction, tiered dispute resolution (managers → executives → mediation → arbitration/litigation), written amendments only, assignment restrictions with M&A carve-outs, severability, integration/entire-agreement, no partnership/JV/agency, mutual representations (authority, no conflicts, stated capabilities), written notice requirements.
 
-**Standard exceptions:** Public information, prior possession, independent development, authorized third-party disclosure, compelled disclosure (with prompt notice).
+### 7. Execution
 
-**Return/destruction:** Within 30 days of termination; one archival copy permitted in legal files subject to continuing obligations.
+Signature blocks for both parties: name, title, date, authority confirmation, exhibit incorporation clause.
 
-### Section 6: General Provisions
+## FAR Compliance Checks
 
-- [ ] **Governing law & jurisdiction** — specify state law; forum (state/federal court or arbitration)
-- [ ] **Dispute resolution** — tiered: project managers → executives → mediation → arbitration/litigation
-- [ ] **Amendments** — written, signed by authorized representatives only
-- [ ] **Assignment** — prohibited without consent (not unreasonably withheld); carve-outs for successors, affiliates, M&A
-- [ ] **Severability** — invalid provisions replaced by good-faith negotiation
-- [ ] **Integration** — entire agreement; supersedes prior negotiations
-- [ ] **Relationship** — no partnership, joint venture, or agency created; neither party binds the other
-- [ ] **Mutual representations** — duly organized, authority to execute, no conflicting obligations, possesses stated capabilities
-- [ ] **Notices** — written; hand delivery, overnight courier, certified mail, or confirmed email; effective upon receipt
+Run before delivery:
 
-### Section 7: Execution
+- [ ] **Affiliation (13 C.F.R. § 121.103):** Prime does not exercise excessive control over Sub's operations or management
+- [ ] **Limitations on subcontracting (FAR 52.219-14):** small business prime performs required work percentage
+- [ ] **No pass-through:** Sub has substantive responsibilities — not merely lending certifications
+- [ ] **OCI screening (FAR 9.5):** flag SETA, evaluation, or advisory conflicts; include mitigation provisions
+- [ ] **Proposal alignment:** work shares, key personnel, and capability claims match proposal representations exactly
 
-Signature blocks for both parties: name, title, date, authority confirmation. Include exhibit incorporation clause.
+## Drafting Rules
 
-## Guidelines
-
-### FAR Compliance Checkpoints
-
-- **Small business affiliation (13 C.F.R. § 121.103):** Do not give Prime excessive control over Sub's operations, management, or business decisions beyond proposal coordination
-- **Limitations on subcontracting (FAR 52.219-14):** Ensure small business prime performs required percentage of work
-- **Pass-through prohibition:** Sub must have substantive, meaningful responsibilities — not merely lending certifications or status
-- **OCI screening (FAR 9.5):** Flag if either party provided SETA, evaluation, or advisory services on the underlying requirement; include mitigation/disclosure provisions
-- **Proposal-agreement alignment:** All work shares, key personnel, and capability claims in the agreement must match proposal representations exactly
-
-### Drafting Rules
-
-- Coordinate all government communications through Prime; Sub cooperates fully with government inquiries
-- Use consistent defined terms throughout; include definitions section if >10 defined terms
+- All government communications through Prime; Sub cooperates with inquiries
+- Consistent defined terms throughout; definitions section if >10 terms
 - Hierarchical numbering (1.0, 1.1, 1.1.1) for cross-referencing
-- Verify cross-references and internal consistency before delivery
-- Mark any uncertain regulatory citations with [VERIFY]
+- Verify all cross-references and internal consistency before delivery

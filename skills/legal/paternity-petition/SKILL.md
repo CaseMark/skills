@@ -1,6 +1,6 @@
 ---
 name: paternity-petition
-description: Drafts a Petition to Establish Paternity for family court filings to judicially determine biological parentage and establish parental rights and obligations. Incorporates state-specific jurisdictional requirements, court captions, petitioner standing, and factual allegations supporting relief. Use when initiating paternity actions, child support petitions, custody filings tied to parentage, or birth certificate amendments in family law proceedings.
+description: Drafts a Petition to Establish Paternity for family court filings. Covers court captions, standing allegations, factual bases, and relief requests with state-specific statutory requirements. Use when initiating paternity actions, child support petitions tied to parentage, custody filings requiring parentage determination, or birth certificate amendments.
 tags:
   - drafting
   - litigation
@@ -9,123 +9,107 @@ tags:
 
 # Petition to Establish Paternity
 
-Drafts a family court petition to obtain a judicial declaration of paternity, establishing the legal parent-child relationship and foundation for support, custody, visitation, and inheritance orders.
+Drafts a family court petition for judicial declaration of paternity, establishing the legal parent-child relationship as foundation for support, custody, visitation, and inheritance orders.
 
 ## Prerequisites
 
-1. **Jurisdiction identified** — state, county, and specific family court division
-2. **Petitioner information** — full legal name, address, standing basis (mother, alleged father, guardian, or state agency)
-3. **Respondent information** — full legal name, last known address; note if whereabouts unknown
-4. **Child's information** — full legal name, DOB, place of birth, current residence, birth certificate details
-5. **Relationship facts** — timeline of relationship, conception window, any prior acknowledgments or denials
-6. **Prior proceedings** — any existing custody, support, or paternity orders; pending related cases
-7. **Desired relief** — support, custody, name change, birth certificate amendment, genetic testing
+Gather before drafting:
 
-## Output Structure
+- **Jurisdiction** — state, county, family court division
+- **Petitioner** — full name, address, standing basis (mother, alleged father, guardian, state agency)
+- **Respondent** — full name, last known address; flag if whereabouts unknown
+- **Child** — full name, DOB, birthplace, current residence, birth certificate details
+- **Relationship facts** — timeline, conception window, prior acknowledgments or denials
+- **Prior proceedings** — existing custody/support/paternity orders or pending cases
+- **Desired relief** — support, custody, name change, birth certificate amendment, genetic testing
+
+## Quick Start
+
+1. Confirm jurisdiction and identify governing paternity statute (UPA or state equivalent)
+2. Collect party and child information per prerequisites
+3. Draft petition sections in order below
+4. Verify against filing checklist before finalizing
+
+## Petition Sections
 
 ### 1. Court Caption
 
 | Element | Requirement |
 |---------|------------|
 | Court name | Full name with county/district designation |
-| Location | Court's physical address |
-| Case number | Assigned number or "Case No. To Be Assigned" |
-| Party designations | Use **Petitioner** / **Respondent** (not plaintiff/defendant) |
-| Additional fields | Check for judge name, division number, case type code, form number per local rules |
+| Case number | Assigned or "Case No. To Be Assigned" |
+| Parties | **Petitioner** / **Respondent** (not plaintiff/defendant) |
+| Local fields | Judge name, division, case type code per local rules |
 
-### 2. Petitioner Identification & Standing
+### 2. Petitioner Standing
 
-- Full legal name, residential address, phone, email
-- Attorney info if represented (name, bar number, firm, address)
-- **Standing basis**: state relationship to child (biological mother, alleged father, guardian, state agency)
+- Full name, address, phone, email; attorney info if represented (name, bar number, firm)
+- Standing basis: state relationship to child
 - Address confidentiality if DV protections apply
 
 ### 3. Respondent Information
 
-- Full legal name, last known address, contact info
-- If location unknown: document last known address, flag need for service by publication
-- If identity uncertain or multiple potential fathers: address factual complexity while maintaining legal sufficiency
+- Full name, last known address, contact info
+- Location unknown → flag service by publication
+- Identity uncertain → address factual complexity while maintaining legal sufficiency
 
 ### 4. Child Information
 
-- Full legal name (as on birth certificate), DOB, place of birth (city, county, state)
-- Current age, current residence, custodial arrangement
-- Whether birth certificate lists a father (challenge or confirmation)
-- Born during marriage? → address marital presumption of paternity
-- Any prior paternity determination or pending proceedings involving the child
+- Full name (as on birth certificate), DOB, birthplace, current residence
+- Whether birth certificate lists a father
+- Born during marriage → address marital presumption
+- Any prior paternity determination or pending proceedings
 
 ### 5. Factual Allegations
 
-Draft numbered paragraphs in chronological order covering:
+Draft numbered paragraphs chronologically:
 
-- [ ] Relationship between petitioner and respondent (when, where, duration)
-- [ ] Conception timeframe and circumstances establishing opportunity
-- [ ] Any acknowledgments of paternity (verbal, written, conduct):
-  - Attending prenatal appointments or birth
-  - Signing hospital documents
-  - Providing financial support
-  - Holding child out as own
-- [ ] Respondent's involvement with child (visitation, support, public acknowledgment)
-- [ ] Genetic testing results if already conducted, or explanation of why not yet done
-- [ ] Any denial of paternity by respondent
-- [ ] Why establishment of paternity is necessary now
+- [ ] Relationship between parties (when, where, duration)
+- [ ] Conception timeframe and opportunity
+- [ ] Acknowledgments of paternity (prenatal involvement, hospital documents, financial support, holding out)
+- [ ] Respondent's involvement with child
+- [ ] Genetic testing results or why not yet conducted
+- [ ] Any denial of paternity
+- [ ] Why establishment is necessary now
 
 ### 6. Legal Grounds
 
-- Cite state's **Uniform Parentage Act** provisions or equivalent family code sections
+- Cite state **Uniform Parentage Act** or equivalent family code sections
 - Identify applicable presumptions (marriage, cohabitation, acknowledgment)
-- If challenging existing presumption: cite statutory challenge provisions and **time limitations**
-- Note relevant case law only for unusual circumstances (assisted reproduction, surrogacy, posthumous claims)
+- If challenging presumption: cite challenge provisions and **time limitations** [VERIFY]
+- Case law only for unusual circumstances (assisted reproduction, surrogacy, posthumous)
 
 ### 7. Relief Requested
 
-| Relief | Details |
-|--------|---------|
-| **Paternity declaration** | Judicial determination that respondent is biological and legal father |
-| **Genetic testing** | Order testing if contested; allocate costs per state law |
-| **Child support** | Current support per guidelines, medical support, retroactive support to birth or establishment date |
-| **Custody/visitation** | Legal and physical custody, or reserve for subsequent proceedings |
-| **Name change** | Change child's surname if requested |
-| **Birth certificate amendment** | Order vital records office to amend |
-| **Fees and costs** | Attorney's fees and court costs per state law |
+Frame all relief in terms of **child's best interests**:
 
-Frame all relief in terms of **child's best interests**.
+- **Paternity declaration** — judicial determination of biological and legal fatherhood
+- **Genetic testing** — order if contested; allocate costs per state law
+- **Child support** — current per guidelines, medical, retroactive to birth or establishment
+- **Custody/visitation** — legal and physical custody, or reserve for later proceedings
+- **Name change** — child's surname if requested
+- **Birth certificate amendment** — order vital records to amend
+- **Fees and costs** — attorney's fees and court costs per state law
 
 ### 8. Verification & Signature
 
-```
-VERIFICATION
+- Perjury declaration under state law, dated and signed by petitioner
+- Attorney signature block if represented (name, bar number, firm, address)
+- Check: notarization required vs. unsworn declaration sufficient [VERIFY]
+- E-filing: comply with electronic signature rules
 
-I, [Petitioner Name], declare under penalty of perjury under the laws of the
-State of [State] that I have read the foregoing Petition to Establish Paternity,
-know its contents, and believe them to be true and correct.
+## Pitfalls and Checks
 
-Dated: _______________
+- **Marital presumption**: if child born during marriage, must address and rebut presumption with statutory authority — time limitations are strict [VERIFY]
+- **Retroactive support**: state limits vary significantly; verify maximum lookback period [VERIFY]
+- **Service requirements**: paternity-specific service rules may differ from general civil — confirm method (personal, certified mail, publication after diligent search) [VERIFY]
+- **Privacy**: use child's initials if jurisdiction requires; apply address confidentiality where applicable
+- **Formatting**: follow local court rules (typically 12pt serif, 1" margins, double-spaced, numbered paragraphs, case caption footer)
 
-_______________________________
-[Petitioner Name], Petitioner
+## Filing Checklist
 
-[If represented:]
-_______________________________
-[Attorney Name], Bar No. [Number]
-[Firm Name]
-[Address]
-Attorney for Petitioner
-```
-
-- Check jurisdiction: notarization required vs. unsworn declaration sufficient
-- If notarized: include notary acknowledgment block with signature, seal, commission number, expiration
-- E-filing: comply with electronic signature and verification rules
-
-## Guidelines
-
-- **Numbered paragraphs** throughout for easy reference
-- **Formatting**: follow local court rules (typically Times New Roman 12pt, 1" margins, double-spaced, page numbers, case caption footer on each page)
-- **Tone**: professional and objective; state facts without legal conclusions unsupported by allegations
-- **Privacy**: use initials for child if jurisdiction requires; apply address confidentiality protections where applicable
-- **Filing checklist** — verify before submission:
-  - [ ] Current filing fee amount (or fee waiver application if indigent)
-  - [ ] Required copies count
-  - [ ] Concurrent documents: summons, confidential information form, child support worksheet, income/expense declaration
-  - [ ] Service method compliant with state paternity-specific rules (personal service, certified mail, or publication after diligent search)
-- **Jurisdiction-specific**: paternity statutes, presumption rules, and retroactive support limits vary significantly by state — always verify current statutory authority [VERIFY]
+- [ ] Filing fee amount confirmed (or fee waiver if indigent)
+- [ ] Required copies count verified
+- [ ] Concurrent documents prepared: summons, confidential info form, child support worksheet, income/expense declaration
+- [ ] Service method compliant with state paternity rules
+- [ ] All statutory citations verified as current [VERIFY]

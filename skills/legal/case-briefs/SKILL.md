@@ -1,57 +1,33 @@
 ---
 name: case-briefs
-description: Generates structured case briefs from judicial opinions, extracting caption, procedural posture, facts, issues, holdings, reasoning, and significance. Use when the user provides a court opinion and needs a case brief, case summary for research, or a distillation of a judicial decision.
-tags:
-  - analysis
-  - brief
-  - corporate
-  - litigation
-  - regulatory
-  - summarization
-  - transactional
+description: Generates structured case briefs from judicial opinions. Use when the user provides a court opinion and needs a case brief, case summary, or distillation of a judicial decision for legal research.
 ---
 
 # Case Brief Generation
 
-Produces a structured case brief from a judicial opinion or case reporter entry.
+Produces a structured case brief from a judicial opinion or case reporter entry. Extracts caption, procedural posture, facts, issues, holdings, reasoning, and significance into a standardized format.
 
-## Output Structure
+## Quick Start
 
-```
-1. Case Caption & Procedural Posture
-   - Full case name, court, date, citation
-   - How the case reached this court
-   - Lower court decision and basis for review
+Given a court opinion, produce a brief with these six sections in order:
 
-2. Statement of Facts
-   - Material facts chronologically
-   - Distinguish background, operative, and procedural facts
-   - Only facts the court deemed relevant
+1. **Caption & Procedural Posture** — full case name, court, date, citation; how the case reached this court; lower court decision and basis for review
+2. **Statement of Facts** — material facts chronologically; distinguish background, operative, and procedural facts; include only facts the court deemed relevant
+3. **Issues Presented** — frame as precise yes/no or standard-identification questions; one issue per entry
+4. **Holding & Disposition** — court's answer to each issue; narrow holding vs. broader principles; affirmed / reversed / remanded / other
+5. **Reasoning & Analysis** — doctrines, statutes, precedents relied upon; analytical framework or test applied; concurrences and dissents with key departures
+6. **Significance** — new precedent, clarification, or notable application; impact on future cases and practice
 
-3. Legal Issues Presented
-   - Frame as precise yes/no questions or standard-identification questions
-   - One issue per entry
+## Core Guidelines
 
-4. Holding & Disposition
-   - Court's answer to each issue
-   - Narrow holding vs. broader principles announced
-   - Affirmed / reversed / remanded / other
-
-5. Reasoning & Analysis
-   - Doctrines, statutes, precedents relied upon
-   - Analytical framework or test applied
-   - Concurrences and dissents with key departures
-
-6. Significance & Implications
-   - New precedent, clarification, or notable application
-   - Impact on future cases and practice
-```
-
-## Guidelines
-
-- Use exact language from the opinion for legal standards, tests, and doctrines
+- Use the opinion's exact language for legal standards, tests, and doctrines
 - Mark direct quotations clearly
-- Target 1-3 pages depending on complexity
-- If the source is incomplete on any element, note the limitation rather than speculating
-- For opinions addressing multiple issues, organize systematically with clear separation
+- Target 1–3 pages depending on complexity
+- For multi-issue opinions, separate each issue with its own holding and reasoning
 - Maintain objective, analytical tone throughout
+
+## Pitfalls
+
+- **Speculation on gaps**: if the source is incomplete on any element, note the limitation — never fill in missing details
+- **Overbroad holdings**: state the narrow holding first, then any broader principle the court announced
+- **Conflating facts and analysis**: keep the facts section purely factual; save legal characterization for reasoning

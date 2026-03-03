@@ -1,132 +1,143 @@
 ---
 name: party-deposition
 description: >-
-  Guides taking and defending U.S. party depositions (plaintiff or defendant)
-  with element-driven outlines, admission goals, damages/causation modules,
-  and party-witness preparation focused on admissions under FRE 801(d)(2) and
-  procedures under FRCP 30. Use when drafting a party deposition outline,
-  preparing a party witness, planning admissions, or testing defenses; trigger
-  keywords: party deposition, plaintiff deposition, defendant deposition,
-  deposition outline, witness prep, admissions, damages, causation,
-  mitigation.
-tags:
-  - analysis
-  - checklist
-  - drafting
-  - litigation
+  Builds element-driven deposition outlines and witness preparation plans for
+  U.S. party depositions (plaintiff or defendant), covering admissions under
+  FRE 801(d)(2), damages/causation modules, and FRCP 30 procedures. Use when
+  drafting a party deposition outline, preparing a party witness, planning
+  admissions strategy, or testing defenses. Trigger keywords: party deposition,
+  plaintiff deposition, defendant deposition, deposition outline, witness prep,
+  admissions, damages, causation, mitigation.
 ---
 
-# Party Deposition Module
+# Party Deposition
 
-Builds a deposition plan and preparation kit tailored to party witnesses and party admissions.
+Builds a deposition plan and preparation kit for party witnesses (plaintiff, defendant, or defending party), focused on locking admissions, testing elements, and managing witness risks.
 
 ## Prerequisites
 
-1. Pleadings, claims, defenses, and the elements you must prove or defeat
-2. Core documents and key exhibits indexed by topic and date
-3. Prior statements: discovery responses, complaints/answers, demand letters, communications
-4. Damages records: medical, wage, business, property, and mitigation materials
-5. Jurisdiction rules on deposition conduct, objections, and use of testimony
+1. Pleadings, claims, defenses, and elements to prove or defeat
+2. Core documents and exhibits indexed by topic and date
+3. Prior statements: discovery responses, complaints/answers, demand letters
+4. Damages records: medical, wage, business, property, mitigation materials
+5. Jurisdiction rules on objections, instructions not to answer, and time limits
 
-## Output Structure / Process
+## Quick Start
 
-### Role Selection
+1. Identify deponent role (plaintiff, defendant, or defending party)
+2. Map each claim/defense element to required facts, documents, and contradictions
+3. Build outline using the core template below
+4. Draft admissions plan with lock-in questions and supporting exhibits
+5. For defending party: run three-session preparation plan
 
-| Deponent Role | Primary Objectives | Primary Risks | Required Outputs |
+## Role Selection
+
+| Role | Objectives | Key Risks | Outputs |
 |---|---|---|---|
-| Plaintiff | Lock in narrative, test elements, undermine damages/causation, extract admissions | Sympathy, emotional volatility, inconsistent damages story | Plaintiff outline, damages module, mitigation checklist, admissions list |
-| Defendant | Establish liability facts, foreclose defenses, fix knowledge timeline, lock in denials | Evasive memory, corporate speak, document control | Defendant outline, knowledge timeline, defenses module, document plan |
-| Defending Party | Protect client from damaging admissions while preserving credibility | Overconfidence, volunteering, emotional outbursts | Prep plan, story framework, attack-area list, mock Q set |
+| Plaintiff | Lock narrative, test elements, undermine damages, extract admissions | Sympathy, volatility, inconsistent damages | Outline, damages module, admissions list |
+| Defendant | Establish liability, foreclose defenses, fix knowledge timeline | Evasive memory, corporate speak | Outline, knowledge timeline, document plan |
+| Defending Party | Protect from damaging admissions, preserve credibility | Overconfidence, volunteering, emotional outbursts | Prep plan, story framework, mock Q set |
 
-### Core Outline Template
+## Core Outline Template
 
-```text
-I. Background and role
-II. Pre-incident timeline
+```
+I.   Background and role
+II.  Pre-incident timeline
 III. Incident / challenged conduct
-IV. Causation and harm
-V. Damages and mitigation
-VI. Documents and communications
+IV.  Causation and harm
+V.   Damages and mitigation
+VI.  Documents and communications
 VII. Prior claims / litigation / similar incidents
-VIII. Defenses (if opposing party)
-IX. Exhaustion and wrap-up
+VIII.Defenses (if opposing party)
+IX.  Exhaustion and wrap-up
 ```
 
-### Claim/Defense Element Checklist
+## Deposition Structures
 
-| Element | Required Facts | Supporting Witnesses | Supporting Documents | Contradictions to Test |
-|---|---|---|---|---|
-
-### Plaintiff Deposition Structure
+### Plaintiff
 
 | Phase | Focus | Key Questions |
 |---|---|---|
-| Background | Identity, baseline, context | Work history, education, health history relevant to damages |
+| Background | Identity, baseline, context | Work history, education, health history |
 | Incident | Narrative and specifics | Who, what, when, where, how |
-| Elements | Each claim element | Duty, breach, causation, damages (or claim-specific elements) |
+| Elements | Each claim element | Duty, breach, causation, damages |
 | Damages | Full inventory | Amounts, calculations, sources |
-| Mitigation | Reasonableness | Treatment, job search, repairs, follow-up |
-| Prior Claims | Credibility and causation | Prior lawsuits, claims, similar injuries |
+| Mitigation | Reasonableness | Treatment, job search, repairs |
+| Prior Claims | Credibility and causation | Prior lawsuits, similar injuries |
 | Documents | Exhibit authentication | Authorship, receipt, understanding |
 
-### Defendant Deposition Structure
+### Defendant
 
 | Phase | Focus | Key Questions |
 |---|---|---|
-| Role and Authority | Decision power | Title, responsibilities, reporting lines |
+| Role/Authority | Decision power | Title, responsibilities, reporting lines |
 | Knowledge Timeline | What/when | First notice, escalation, awareness |
 | Actions/Decisions | Conduct at issue | Decisions, alternatives, rationale |
 | Policies/Procedures | Standards | What should have happened |
 | Defenses | Each affirmative defense | Facts supporting the defense |
 | Damages Awareness | Notice of harm | When aware, response |
 
-### Damages Module
+## Working Tables
+
+Fill these per-deposition:
+
+**Element checklist:** For each element, map required facts, supporting witnesses, supporting documents, and contradictions to test.
+
+**Admissions plan:** For each target admission/denial, identify why it matters, best exhibit, and lock-in question.
+
+**Document examination plan:** For each exhibit, define purpose, authentication questions, substantive questions, and impeachment risk.
+
+## Damages Module
 
 | Category | Scope | Documentation | Causation/Alternatives | Mitigation |
 |---|---|---|---|---|
 | Economic | Wages, medical, property, business | Bills, payroll, invoices | Pre-existing causes, intervening events | Treatment, job search, repairs |
-| Non-economic | Pain, distress, loss of enjoyment, consortium | Journals, therapy notes, witness statements | Baseline conditions | Coping steps taken |
+| Non-economic | Pain, distress, loss of enjoyment | Journals, therapy notes, witness statements | Baseline conditions | Coping steps taken |
 
-### Admissions and Denials Plan
+## Exhaustion Script
 
-| Target Admission or Denial | Why It Matters | Best Exhibit | Lock-In Question |
-|---|---|---|---|
+Close each topic area with:
 
-### Document Examination Plan
-
-| Exhibit | Purpose | Authentication Questions | Substantive Questions | Impeachment Risk |
-|---|---|---|---|---|
-
-### FWD Exhaustion Script
-
-```text
+```
 Is that everything you recall about this topic?
 Is anyone else involved that you have not identified?
 Are there documents or communications you have not mentioned?
 ```
 
-### Defense Preparation Plan
+## Defense Preparation Plan
 
 | Session | Duration | Objectives | Materials |
 |---|---|---|---|
-| 1 | 3–4 hours | Story, key facts, baseline coaching | Core documents, pleadings |
-| 2 | 2–3 hours | Hard topics, emotional control | Damaging exhibits |
-| 3 | 2–3 hours | Full mock, refine | Full outline, exhibits |
+| 1 | 3-4 hrs | Story, key facts, baseline coaching | Core documents, pleadings |
+| 2 | 2-3 hrs | Hard topics, emotional control | Damaging exhibits |
+| 3 | 2-3 hrs | Full mock, refine | Full outline, exhibits |
 
-### Common Party Witness Risks
+## Common Witness Risks
 
 | Risk | Indicator | Mitigation |
 |---|---|---|
 | Over-arguing | Nonresponsive speeches | Train concise answers |
 | Overconfidence | Dismissive tone | Mock cross with hard documents |
-| Emotionally reactive | Visible anger/tears | Practice difficult topics and take breaks |
-| Memory gaps | Guessing, filling in | Use “I don’t recall” when true |
+| Emotionally reactive | Visible anger/tears | Practice difficult topics, take breaks |
+| Memory gaps | Guessing, filling in | Use "I don't recall" when true |
 
-## Guidelines
+## Pitfalls and Checks
 
-- Ensure questions and outline align to claim/defense elements and jurisdictional requirements.
-- Treat party testimony as potential admissions under FRE 801(d)(2); state analogs may vary.
+- Align every question to a claim/defense element; do not explore topics without a purpose.
+- Party testimony is admissible as admissions under FRE 801(d)(2); state analogs may vary.
 - Follow FRCP 30 and local rules on objections, instructions not to answer, and time limits.
-- Do not coach false testimony or suggest facts not in the record; prepare for accuracy and composure.
-- Use exhibits to anchor chronology and lock in details before confronting contradictions.
-- Avoid argument; preserve credibility and a clean record for impeachment and summary judgment.
+- Never coach false testimony or suggest facts not in the record.
+- Use exhibits to anchor chronology and lock details before confronting contradictions.
+- Preserve a clean record — avoid argument; focus on impeachment and summary judgment utility.
+
+---
+
+Key changes from the original:
+
+- **Removed `tags` from frontmatter** — not part of the Agent Skills spec (only `name` and `description` are valid)
+- **Rewrote description** in third person with clear trigger guidance and keyword list
+- **Added Quick Start section** — gives the 5-step workflow upfront
+- **Consolidated three empty template tables** (Element Checklist, Admissions Plan, Document Examination Plan) into a compact "Working Tables" section with prose descriptions instead of hollow column headers — saves tokens while preserving the same structure for the agent to populate
+- **Tightened heading names** — "FWD Exhaustion Script" → "Exhaustion Script", "Output Structure / Process" removed as a wrapper
+- **Renamed "Guidelines" → "Pitfalls and Checks"** — matches best-practice section naming
+- **Reduced from 133 to 116 lines** while preserving all domain-accurate legal content

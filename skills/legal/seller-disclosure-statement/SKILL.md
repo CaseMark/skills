@@ -1,6 +1,6 @@
 ---
 name: seller-disclosure-statement
-description: Drafts a U.S. residential Seller Disclosure Statement that captures property condition facts, system ages, known defects, environmental hazards, title/HOA matters, and buyer acknowledgment with state-specific timing. Use for seller disclosures, property condition disclosure, TDS, SPDS, lead-based paint disclosure, or pre-close compliance in residential transactions.
+description: Drafts a U.S. residential Seller Disclosure Statement covering property condition, system ages, defects, environmental hazards, title/HOA matters, and buyer acknowledgment. Triggered by requests for seller disclosures, property condition disclosure, TDS, SPDS, lead-based paint disclosure, or pre-close compliance in residential sales.
 tags:
   - agreement
   - drafting
@@ -9,82 +9,85 @@ tags:
 
 # Seller Disclosure Statement (Residential)
 
-Produces a complete, state-compliant seller disclosure for a residential property sale.
+Produces a state-compliant seller disclosure for a residential property sale.
 
-## Prerequisites
+## Quick Start
 
-1. **Jurisdiction** — state and county; identify the governing disclosure statute and required forms.
-2. **Property identifiers** — address, APN/parcel ID, legal description, year built.
-3. **Seller identities** — all record owners as shown on title.
-4. **Property records** — inspections, repair invoices, permits, warranties, HOA docs, surveys.
-5. **Known issues** — defects, prior damage, environmental conditions, disputes, encumbrances.
-6. **Transaction timing** — contract date, statutory delivery window, closing date.
+Gather before drafting:
 
-## Output Structure / Process
+1. **Jurisdiction** — state, county, governing disclosure statute, required form
+2. **Property** — address, APN/parcel ID, legal description, year built
+3. **Sellers** — all record owners per title
+4. **Records** — inspections, repair invoices, permits, warranties, HOA docs, surveys
+5. **Known issues** — defects, prior damage, environmental conditions, disputes, encumbrances
+6. **Timing** — contract date, statutory delivery window, closing date
 
-**Document Header**
+## Document Structure
+
+### Header
 
 - Title: `Seller Disclosure Statement`
-- Seller(s): full legal names
-- Property: street address, county, APN, legal description, year built
+- Seller(s) full legal names
+- Property: address, county, APN, legal description, year built
 - Governing statute/form: `[STATE STATUTE / REQUIRED FORM NAME]`
-- Knowledge qualifier: “to the best of Seller’s knowledge and belief”
-- Buyer inspection notice: disclosure is not a substitute for inspections
+- Knowledge qualifier: "to the best of Seller's knowledge and belief"
+- Notice: disclosure is not a substitute for buyer inspections
 
-**Core Disclosure Sections (complete all; use `N/A` where not applicable)**
+### Core Disclosure Sections
 
-| Section | Required Fields |
-| --- | --- |
-| Property Overview | Occupancy status, year built, additions/remodels, known boundary/survey issues |
-| Structural | Foundation type, cracks/settlement/water intrusion, prior repairs with dates/contractor/warranty |
-| Roof/Exterior | Roof age/material, leaks/repairs, siding/doors/windows condition |
-| Plumbing/Septic/Sewer | Pipe materials, leaks/clogs, sewer vs septic, last septic pump/inspection date |
-| Electrical | Panel amperage, aluminum wiring, known code issues, GFCI/AFCI presence, prior repairs |
-| HVAC/Appliances | System types, age, fuel, maintenance history, known defects |
+Complete all; use `N/A` where not applicable.
+
+| Section | Key Fields |
+|---|---|
+| Property Overview | Occupancy, year built, additions/remodels, boundary/survey issues |
+| Structural | Foundation type, cracks/settlement/water intrusion, repairs (dates/contractor/warranty) |
+| Roof/Exterior | Age/material, leaks/repairs, siding/doors/windows condition |
+| Plumbing/Septic/Sewer | Pipe materials, leaks, sewer vs septic, last pump/inspection date |
+| Electrical | Panel amperage, aluminum wiring, code issues, GFCI/AFCI, repairs |
+| HVAC/Appliances | Type, age, fuel, maintenance history, defects |
 | Water Heater | Age, capacity, fuel, condition |
-| Interior Conditions | Water damage, mold, pests, floor/wall issues |
-| Environmental | Lead-based paint (pre-1978), asbestos, radon, USTs, soil contamination, flood history |
-| Natural Hazards | Earthquake, wildfire, landslide, flood zone per state-required report |
+| Interior | Water damage, mold, pests, floor/wall issues |
+| Environmental | Lead paint (pre-1978), asbestos, radon, USTs, soil contamination, flood history |
+| Natural Hazards | Earthquake, wildfire, landslide, flood zone per state report |
 | Legal/Title | Easements, encroachments, boundary disputes, liens, judgments |
-| HOA/CC&Rs | HOA name, dues, special assessments, violations, pending litigation |
-| Zoning/Permits | Zoning, nonconforming use, permits pulled and finaled, known unpermitted work |
-| Governmental | Notices of violation, code enforcement, condemnation, compliance orders |
+| HOA/CC&Rs | Name, dues, special assessments, violations, pending litigation |
+| Zoning/Permits | Zoning, nonconforming use, permits finaled, unpermitted work |
+| Governmental | Violation notices, code enforcement, condemnation, compliance orders |
 | Neighborhood | Nuisances, nearby industrial/ag uses, planned public projects |
-| Deaths | Disclose only as required by state law |
-| Other Material Facts | Any fact a reasonable buyer would consider material |
+| Deaths | Disclose only as state law requires |
+| Other Material Facts | Anything a reasonable buyer would consider material |
 
-**Federal Lead-Based Paint Disclosure (if built before 1978)**
+### Lead-Based Paint Disclosure (pre-1978 only)
 
-- Seller knowledge checkbox: `Known present / Known absent / Unknown`
-- Reports provided: list any lead reports
+- Seller knowledge: `Known present / Known absent / Unknown`
+- List any lead reports provided
 - Buyer 10-day inspection right (or negotiated period)
 - EPA pamphlet delivery acknowledgment
 
-**Exhibit List**
+### Exhibits
 
-- Index every attached document with title and date.
-- Attach: inspections, repair invoices, warranties, HOA docs, surveys, environmental reports.
+Index every attachment by title and date. Include inspections, repair invoices, warranties, HOA docs, surveys, environmental reports.
 
-**Certification and Acknowledgment**
+### Certification & Acknowledgment
 
-- Seller certification under penalty of perjury (if required by state)
-- Ongoing duty to update prior to closing
-- No warranty disclaimer
+- Seller certification (under penalty of perjury if state requires)
+- Ongoing duty to update through closing
+- No-warranty disclaimer
 - Signature lines for all sellers with dates
 - Buyer receipt acknowledgment with dates
 
-**Delivery Timing**
+### Delivery Timing
 
-- State-required delivery window: `[INSERT STATUTORY WINDOW]`
+- Statutory delivery window: `[INSERT STATUTORY WINDOW]`
 - Buyer rescission/renegotiation rights: `[STATE-SPECIFIC]`
 
-## Guidelines
+## Pitfalls & Checks
 
-- Use factual, objective statements only; no marketing language.
-- Cite document sources by name/date when a disclosure is based on a report or invoice.
-- Do not leave blanks; use `N/A` and initial where required.
-- Disclose unpermitted work explicitly and list related risks if known.
-- Deaths, crime, and sex offender disclosures vary by state; confirm statutory limits before inclusion.
-- Flood zone and natural hazard disclosures must align with state-mandated reports.
-- If a legal citation is uncertain, mark it `[VERIFY]` and request confirmation.
-- Ensure every owner signs; missing signatures can invalidate delivery.
+- Use factual, objective language only — no marketing.
+- Cite sources by document name and date.
+- Never leave blanks; use `N/A` and initial where required.
+- Disclose unpermitted work explicitly with known risks.
+- Deaths, crime, sex-offender disclosures vary by state — confirm statutory limits before including.
+- Flood zone and natural hazard disclosures must match state-mandated reports.
+- Mark uncertain citations `[VERIFY]` and request confirmation.
+- All owners must sign; missing signatures can invalidate delivery.

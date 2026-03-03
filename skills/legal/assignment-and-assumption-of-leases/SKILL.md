@@ -1,6 +1,6 @@
 ---
 name: assignment-and-assumption-of-leases
-description: Drafts a commercial real estate Assignment and Assumption of Leases agreement transferring all tenant leases from seller (Assignor) to buyer (Assignee) as an ancillary closing document to a purchase and sale agreement. Covers assignment and assumption clauses, pre/post-closing indemnification split, security deposit transfer, rent proration, and Exhibit A lease schedule. Use when closing a commercial property sale with existing tenant leases.
+description: Drafts an Assignment and Assumption of Leases transferring tenant leases from seller (Assignor) to buyer (Assignee) as a closing document to a commercial property PSA. Trigger when closing a commercial property sale with existing tenant leases or when a user needs lease assignment/assumption language for a real estate transaction.
 tags:
   - agreement
   - drafting
@@ -9,88 +9,92 @@ tags:
 
 # Assignment and Assumption of Leases
 
-Drafts a closing-ready Assignment and Assumption of Leases transferring all landlord rights and obligations under existing tenant leases from Assignor (seller) to Assignee (buyer) in connection with a commercial property sale.
+Drafts a closing-ready agreement transferring all landlord rights and obligations under existing tenant leases from Assignor (seller) to Assignee (buyer) in a commercial property sale.
 
 ## Prerequisites
 
-1. **Purchase and Sale Agreement (PSA)** — including closing date, governing law, and any lease-specific provisions
-2. **Lease schedule / rent roll** — tenant names, suite numbers, lease dates, terms, base rent, security deposits
-3. **Party details** — full legal names, entity types, and principal addresses of Assignor and Assignee
-4. **Effective date** — typically the PSA closing date
-5. **Security deposit total** — aggregate amount being transferred at closing
+Collect before drafting. Use `[INSERT]` placeholders for missing items and prepend a required-information checklist.
 
-If any item is missing, draft with `[INSERT]` placeholders and prepend a required-information checklist.
+1. **PSA** — closing date, governing law, lease-specific provisions
+2. **Lease schedule / rent roll** — tenant names, suites, dates, terms, rent, deposits
+3. **Party details** — legal names, entity types, addresses for Assignor and Assignee
+4. **Effective date** — typically the PSA closing date
+5. **Security deposit total** — aggregate amount transferred at closing
+
+## Quick Start
+
+1. Gather prerequisites above
+2. Draft document following the output structure below
+3. Run through the pitfalls checklist before finalizing
 
 ## Output Structure
 
-### Document Header
+### Header
 - Title: `ASSIGNMENT AND ASSUMPTION OF LEASES`
 - Dated: `as of [Month Day, Year]`
-- Party identification: full legal entity names, types, and addresses
+- Full legal entity names, types, and addresses
 
 ### Recitals (3–4 lettered paragraphs)
+
 | Recital | Content |
 |---------|---------|
 | A | PSA reference — date, property address/legal description |
-| B | Assignor is landlord under leases listed on Exhibit A |
-| C | Parties intend to assign/assume all landlord rights per PSA |
-| D *(if needed)* | Material facts: estoppels, lease modifications, known disputes |
+| B | Assignor is landlord under leases on Exhibit A |
+| C | Intent to assign/assume all landlord rights per PSA |
+| D *(if needed)* | Material facts: estoppels, modifications, known disputes |
 
-### Core Operative Provisions
+### Operative Provisions
 
-**1. Assignment**
-Transfer all of Assignor's right, title, and interest in and to the Leases, expressly including:
+**1. Assignment** — Transfer all of Assignor's right, title, and interest in the Leases, including:
 - Accrued and future rents
-- Security deposits, letters of credit, and guaranties
-- Tenant improvement allowances
-- Options, renewal rights, and expansion rights
+- Security deposits, letters of credit, guaranties
+- TI allowances, options, renewal/expansion rights
 
-**2. Assumption**
-Assignee assumes and agrees to perform all landlord obligations under the Leases arising **on or after** the Effective Date, including honoring security deposits, TI obligations, and surviving tenant rights/options.
+**2. Assumption** — Assignee assumes all landlord obligations arising **on or after** Effective Date, including honoring deposits, TI obligations, and surviving tenant rights.
 
 **3. Indemnification**
 
-| Party | Covers |
-|-------|--------|
-| Assignor indemnifies Assignee | All claims, liabilities, damages, costs, attorneys' fees arising from landlord obligations/defaults **before** Effective Date (including pre-closing arrearages, maintenance, tenant disputes) |
-| Assignee indemnifies Assignor | Same categories arising **on or after** Effective Date |
+| Party | Scope |
+|-------|-------|
+| Assignor → Assignee | Claims from landlord obligations/defaults **before** Effective Date |
+| Assignee → Assignor | Claims arising **on or after** Effective Date |
 
-- Both obligations survive closing
-- Include standard notice, defense rights, and settlement approval mechanics
+Both survive closing. Include notice, defense rights, and settlement approval mechanics.
 
-**4. Security Deposit Transfer**
-- Assignor transfers all deposits (plus statutory interest if required) totaling `$[AMOUNT]` per closing statement
-- Assignee acknowledges receipt and assumes all return obligations per lease terms and applicable law
-- Assignor released from deposit liability from and after Effective Date
+**4. Security Deposit Transfer** — Assignor transfers all deposits (plus statutory interest if required) totaling `$[AMOUNT]`. Assignee acknowledges receipt and assumes return obligations. Assignor released from deposit liability after Effective Date.
 
-**5. Rent Proration**
-Assignor entitled to rents accruing before Effective Date; Assignee entitled to rents accruing on or after Effective Date. Prorations governed by PSA or closing statement.
+**5. Rent Proration** — Assignor entitled to rents before Effective Date; Assignee on or after. Governed by PSA or closing statement.
 
-**6. Relationship to PSA**
-Assignment made pursuant to and subject to PSA terms. In any conflict, PSA controls. Cross-reference relevant PSA sections on lease assignment, estoppels, and prorations.
+**6. Relationship to PSA** — Assignment subject to PSA terms; PSA controls on conflict. Cross-reference PSA sections on lease assignment, estoppels, prorations.
 
 ### General Provisions
-- Governing law: state where Property is located (or per PSA)
-- Successors and assigns
-- Counterpart execution (including electronic)
-- Entire agreement / written amendment only
-- Severability
+- Governing law (property state or per PSA), successors/assigns, counterparts (including electronic), entire agreement, severability
 
 ### Signature Blocks
-Entity name → Signatory name and title → Date (both Assignor and Assignee)
+Entity name → Signatory name/title → Date (both parties)
 
 ### Exhibit A — Lease Schedule
 
-| Tenant | Suite/Premises | Lease Date | Commencement | Expiration | Base Rent/Mo. | Security Deposit | Notes |
-|--------|---------------|------------|--------------|------------|---------------|-----------------|-------|
+| Tenant | Suite | Lease Date | Commencement | Expiration | Base Rent/Mo. | Security Deposit | Notes |
+|--------|-------|------------|--------------|------------|---------------|-----------------|-------|
 | [Name] | [#] | [Date] | [Date] | [Date] | $[Amount] | $[Amount] | Amendments, options, disputes |
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Anti-assignment clauses**: Check each lease for assignment restrictions or consent requirements; confirm sale-of-property exception applies or obtain tenant consent before closing
-- **Ownership-change triggers**: Review for co-tenancy clauses, exclusive use provisions, or recapture rights activated by change in landlord
-- **Tenant notice**: Some states require landlord to notify tenants of assignment and provide new landlord contact within a set period — flag applicable jurisdiction requirements [VERIFY by state]
-- **Security deposit statutes**: State law may dictate interest accrual, escrow requirements, or transfer procedures for security deposits — verify for governing jurisdiction
-- **Consistency**: Align effective date and defined terms with deed, bill of sale, closing statement, and any estoppel certificates
-- **Problem leases**: If any lease has active tenant default, ongoing dispute, or open landlord cure obligation, add specific carve-out or disclosure provision
-- **Defined terms**: Capitalize and apply consistently — Assignor, Assignee, Leases, Property, Purchase Agreement, Effective Date
+- **Anti-assignment clauses**: Verify sale-of-property exception applies per each lease or obtain tenant consent
+- **Ownership-change triggers**: Review co-tenancy, exclusive use, and recapture rights triggered by landlord change
+- **Tenant notice**: Flag state-specific requirements for notifying tenants of assignment and new landlord contact `[VERIFY by state]`
+- **Security deposit statutes**: Verify state rules on interest accrual, escrow, and transfer procedures `[VERIFY by state]`
+- **Cross-document consistency**: Align effective date and defined terms with deed, bill of sale, closing statement, and estoppel certificates
+- **Problem leases**: Add carve-outs for leases with active defaults, disputes, or open cure obligations
+- **Defined terms**: Capitalize consistently — Assignor, Assignee, Leases, Property, Purchase Agreement, Effective Date
+
+---
+
+**Key changes made:**
+- **Description**: Tightened and added explicit trigger guidance ("Trigger when...")
+- **Added Quick Start** section for fast orientation
+- **Consolidated prose**: Removed redundant heading-level overview (was restating the description), compressed operative provisions into single-line intros with sub-bullets
+- **Renamed "Guidelines" → "Pitfalls and Checks"** for scannability
+- **Compressed General Provisions** into a single bullet line instead of five separate bullets
+- **Reduced token count** throughout while preserving all legal substance and domain accuracy
