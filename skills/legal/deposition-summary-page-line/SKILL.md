@@ -69,14 +69,3 @@ Every response must include **Page X, Lines Y–Z** references. When testimony s
 - **Jurisdiction** — U.S. federal and state civil litigation; no jurisdiction-specific rules unless specified.
 
 ---
-
-Key changes from the original:
-
-- **Description** trimmed from 3 sentences to 2, with clear trigger guidance ("Trigger when...")
-- **Removed** the separate "Prerequisites" section and folded it into a compact **Quick Start**
-- **Consolidated** Phase 1 and Phase 2 into a numbered **Core Workflow** with two clear steps
-- **Removed** the output format table (PDF/DOCX requirements) — now a single line in the overview
-- **Simplified** the Q&A table by dropping the "Example" column (low signal-to-token ratio)
-- **Renamed** "Guidelines" to **Pitfalls and Checks** for scannability
-- **Removed** the "Work product handling" bullet (generic advice, not actionable)
-- **Removed** the horizontal rule between phases (unnecessary visual break)

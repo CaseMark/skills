@@ -92,14 +92,3 @@ Drafts a governance-grade Code of Business Conduct and Ethics that satisfies SEC
 - Establish Board reporting expectations to Audit Committee or Ethics & Compliance Committee
 
 ---
-
-Key changes from the original:
-
-- **Removed `tags`** from frontmatter (not part of the Agent Skills spec)
-- **Tightened description** — shorter, still includes trigger guidance
-- **Added Quick Start** section for the most common workflow
-- **Removed verbose templates** (Reporting Channels template, Acknowledgment template) — these are boilerplate an LLM can generate on demand and don't justify their token cost
-- **Renamed "Guidelines" to "Drafting Guidelines"** and condensed to essentials
-- **Added "Common Pitfalls"** section consolidating actionable warnings (previously buried in guidelines or implicit)
-- **Restructured "Information Gathering"** into the Quick Start flow instead of a standalone section
-- **Reduced from 128 lines to ~95 lines** while preserving all regulatory detail (SOX, NYSE, NASDAQ, industry tables)

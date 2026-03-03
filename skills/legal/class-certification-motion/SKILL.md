@@ -111,12 +111,3 @@ Restate class definition, specify requested relief (certify class, appoint repre
 - **Length** — 25–50 pages depending on complexity and local rules.
 
 ---
-
-Key changes from the original:
-- **Trimmed description** — removed redundant enumeration, kept trigger guidance
-- **Added Quick Start** — 6-step overview for fast orientation
-- **Flattened Output Structure → Core Workflow** — renumbered as a single workflow with concise section headings instead of Roman numerals
-- **Removed checkbox syntax** — replaced `- [ ]` items with plain bullet lists (checklists add visual noise without agent utility)
-- **Consolidated Guidelines → Pitfalls and Checks** — shorter, scannable format
-- **Removed redundant prose** — e.g., the Introduction table was replaced with a single sentence listing the same elements, the Class Definition checklist became a plain list
-- **Preserved all legal substance** — case citations, Rule 23 subsection analysis, anticipatory defense table, and jurisdiction-awareness guidance all retained

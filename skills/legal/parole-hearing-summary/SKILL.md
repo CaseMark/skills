@@ -95,14 +95,3 @@ Cover: disciplinary records, risk assessments, parole plans, expert reports, sup
 - **Confidentiality** — note sealed or redacted portions; never reconstruct sealed content
 
 ---
-
-**Key changes from the original:**
-
-- **Removed `tags`** — not part of the Agent Skills spec (only `name` and `description` are valid frontmatter)
-- **Tightened description** — shorter, still includes trigger keywords
-- **Added Quick Start** — 3-step entry point per best practices
-- **Compressed Prerequisites** — from numbered verbose list to concise bullets
-- **Consolidated inmate testimony checklist** — merged "acceptance of responsibility" and "expressions of remorse" into one item
-- **Collapsed Board Decision** — from nested bullet lists to inline sentences per outcome, cutting ~15 lines
-- **Trimmed Guidelines** — removed redundant wording while preserving all six rules
-- **~85 lines vs ~107 lines** — ~20% reduction while preserving all domain-critical content

@@ -152,14 +152,3 @@ Include negotiation timeline with milestones.
 - **Cross-jurisdictional matters**: Identify each jurisdiction's settlement privilege rules separately; flag conflicts.
 
 ---
-
-Key changes from the original:
-
-- **Description**: Tightened from 294 to 186 chars; removed redundant output enumeration, kept trigger keywords
-- **Tags**: Removed `drafting`, `summary` (not primary modes); kept `analysis`, `memo`, `litigation`, `transactional` per controlled vocabulary
-- **Added Quick Start**: 5-step minimal workflow for immediate use
-- **Added Troubleshooting**: 4 common edge cases with resolution guidance
-- **Compressed tables**: Shortened column headers (e.g., "Opening Position" → "Opening", "Mitigation Strategy" → "Mitigation")
-- **Removed verbose preambles**: Eliminated "For each party, build this matrix" and similar prose; tables are self-explanatory
-- **Consolidated Tactical Recommendations**: Collapsed the bullet-list approach into a single-line summary
-- **Reduced from 142 to 130 lines** while adding two new sections (Quick Start, Troubleshooting)

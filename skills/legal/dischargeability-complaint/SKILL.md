@@ -91,10 +91,3 @@ Collect before drafting:
 - Preserve exhibit organization and authentication trail.
 
 ---
-
-Key changes from the original:
-
-- **Description**: Trimmed from ~3 sentences to a focused single statement with clear trigger guidance
-- **Structure**: Reorganized from 5 numbered "Steps" with verbose headings into Quick Start → Core Workflow → Constraints → Pitfalls
-- **Removed**: Redundant "Prerequisites" section (merged into Quick Start), the `code` fence around the mandatory sections list, the separate "Guidelines" section (merged into Pitfalls), and the "Core legal constraints" subsection buried mid-workflow (promoted to its own section)
-- **Token savings**: ~40% reduction while preserving all legal substance — every §523 theory, every FRBP rule, every verification check

@@ -107,13 +107,3 @@ Per item: **Action**, **Owner** (if identifiable), **Deadline** (date or trigger
 - Reference privileged communications by date and subject only; never quote verbatim
 
 ---
-
-Key changes from the original:
-
-- **Removed `tags`** from frontmatter (not part of the spec's required frontmatter)
-- **Trimmed description** — kept third-person voice with trigger guidance, reduced length
-- **Added Quick Start** section for the core workflow at a glance
-- **Flattened Motion Strategy** — replaced code block template with a bullet list for consistency
-- **Consolidated "Guidelines"** into **"Pitfalls & Checks"** — more scannable, matches best-practice naming
-- **Removed redundant prose** throughout (e.g., "Numbered list with:" preamble, verbose table headers)
-- **Reduced from 112 to ~90 lines** — tighter token footprint while preserving all domain substance

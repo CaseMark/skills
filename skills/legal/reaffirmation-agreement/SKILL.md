@@ -102,14 +102,3 @@ Include signature lines for:
 - **Plain language** — maintain legal precision while ensuring the debtor can actually understand the obligation
 
 ---
-
-**Key changes from the original:**
-
-- **Removed `tags`** — not part of the agent skills spec; discovery relies on `description` keywords
-- **Tightened `description`** — shorter, third-person, with clear trigger ("Use when...")
-- **Added compliance note to overview** — surfaces Rule 4008 and Form 240A upfront
-- **Compressed prerequisites** — shorter labels, same content
-- **Removed checkbox syntax** from certifications — these are document requirements, not interactive checklists
-- **Removed verbatim signature block code fence** — replaced with concise list of required signature lines (the agent generates the actual formatting at draft time)
-- **Renamed "Guidelines" to "Pitfalls and Checks"** — matches the authoring-skills pattern and signals actionable guardrails
-- **Cut ~30% token count** while preserving all legal substance

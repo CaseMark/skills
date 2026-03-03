@@ -118,14 +118,3 @@ Post-petition amounts are noted separately — not included in the filed claim a
 | Claim objection received | Review objection basis, gather responsive evidence, and file response within the court's deadline |
 
 ---
-
-**Key changes from the original:**
-
-- **Added Quick Start** — a 6-step procedural overview for immediate orientation
-- **Added Troubleshooting** — required by SKILL-SPEC.md, covers 5 common failure scenarios with resolutions
-- **Converted Output Structure to tables** — Part 1 and Part 4 now use tables instead of bullet lists for scannability
-- **Consolidated Part 3 priority categories** into a table instead of loose bullets
-- **Tightened Guidelines** — removed redundant phrasing, made each point a single-line bold-key + dash pattern
-- **Removed duplicate overview** — the intro paragraph no longer repeats the frontmatter description verbatim
-- **Description updated** — added "amend" as a trigger keyword for broader skill matching
-- **Line count reduced** — from 88 to ~105 lines while adding two new required sections (Quick Start, Troubleshooting)

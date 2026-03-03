@@ -72,12 +72,3 @@ Formalizes the incorporator's organizational actions after Articles of Incorpora
 - Never deliver with unfilled bracketed placeholders
 
 ---
-
-**Key changes:**
-
-- **Frontmatter description** — Trimmed to one clear sentence plus trigger guidance; removed keyword list.
-- **Added Quick Start** — Five-step workflow for fast orientation.
-- **Collapsed Output Structure** — Replaced verbose subsections (code-fenced header/execution blocks, long prose for preamble) with compact one-line descriptions. Resolution table kept but tightened.
-- **Extracted State Variance** — Pulled statutory citations into their own scannable section instead of burying in guidelines.
-- **Renamed Guidelines → Checks** — Tightened each item to one line; removed explanatory padding.
-- **Net reduction** — ~40% fewer tokens while preserving all legal substance.

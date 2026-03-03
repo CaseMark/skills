@@ -123,15 +123,3 @@ Title: [Officer Title]
 - **EDGAR formatting**: Maintain compatible formatting; avoid typographical inconsistencies.
 
 ---
-
-Key changes from the original:
-
-- **Removed `tags`** — not part of the Agent Skills spec (only `name` and `description` in frontmatter)
-- **Tightened description** — third-person, clear trigger guidance, under 1024 chars
-- **Restructured body** — Overview, Quick Start, Core Workflow sections, Quality Checks as checklist, Pitfalls
-- **Condensed cover page** — bullet list instead of two-column table (source is always "10-K/10-Q cover")
-- **Merged narrative rules** into a single compact paragraph before the templates
-- **Added filed vs furnished** inline explanation at the exhibit index instead of relying on scattered references
-- **Converted quality control** to a copyable checklist format
-- **Removed redundant "Guidelines"** section — merged actionable items into Pitfalls, dropped items Claude already knows
-- **~107 lines** (down from ~137), preserving all domain-critical content

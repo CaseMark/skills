@@ -135,13 +135,3 @@ Note pending litigation, administrative proceedings, or investigations.
 - Tribal consultation is mandatory under federal law for projects with federal nexus; some states impose independent obligations.
 
 ---
-
-Key changes from the original:
-
-- **Added Quick Start** section per skill authoring conventions
-- **Merged Land Use Analysis + Property Rights** (sections 5 & 6 → single section 5) — eliminates redundant framing while preserving both tables
-- **Trimmed Permitting Inventory** — consolidated `Application requirements`, `Public comment period`, and `Appeal rights` into fewer rows
-- **Removed `Regulatory challenge` risk row** — already covered by permit denial and enforcement rows
-- **Shortened labels** throughout (e.g., CWA/CAA abbreviations in regulatory framework, "Species/habitat" instead of "Habitat/species")
-- **Dropped `Comprehensive plan consistency` and `Community opposition indicators`** from land use — these are covered implicitly by zoning and conflicting-use findings
-- **Reduced from 141 → ~113 lines** while preserving all domain-critical legal content

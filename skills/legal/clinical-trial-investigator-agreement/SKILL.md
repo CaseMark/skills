@@ -128,13 +128,3 @@ Adjust to protocol/IRB policy.
 - Flag any unclear regulatory citation with `[VERIFY]`.
 
 ---
-
-Key changes from the original:
-
-- **Added Troubleshooting section** (required by spec) with five common real-world issues and resolutions
-- **Removed the template clause code block** — single-clause examples don't justify the token cost; the Agreement Sections table already covers the deviation requirement
-- **Tightened description** — added "clinical research agreement" and "site agreement" trigger keywords; stays third-person
-- **Compressed process steps** — bold labels with em-dash format instead of verbose sentences
-- **Added `[VERIFY]` check** to Final Checks checklist
-- **Minor table compression** — shortened column headers ("Authority and notes" → "Authority"), removed redundant words in cells
-- **120 lines** total, within the 80–150 target range

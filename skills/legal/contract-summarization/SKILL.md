@@ -70,13 +70,3 @@ Produces a structured summary of all material terms, obligations, rights, and ri
 - **U.S. jurisdiction** — optimized for U.S. agreements; flag if non-U.S. law governs
 
 ---
-
-Key changes from the original:
-
-- **Removed `tags`** — not part of the Agent Skills spec (only `name` and `description` are valid frontmatter fields)
-- **Replaced "Prerequisites" with "Quick Start"** — reframed as actionable steps instead of a passive input list
-- **Compressed "Guidelines" into "Checks"** — tighter bullet format, removed the length guidance (Claude can judge appropriate length contextually)
-- **Tightened section labels** — e.g., "Reps & Warranties" instead of "Representations & Warranties", "Liability Cap" instead of "Limitation of Liability"
-- **Removed inline sub-explanations** — e.g., dropped "(quote figures exactly)" where the Checks section already covers quoting precisely
-- **Dropped the "Special Provisions &" prefix** from Risk Flags — the section name alone is sufficient
-- **~73 lines → ~63 lines** — trimmed without losing any domain-accurate extraction targets

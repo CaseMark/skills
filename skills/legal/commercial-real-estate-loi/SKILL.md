@@ -90,13 +90,3 @@ Create a discrete section titled "Binding Provisions" expressly stating these te
 - If seller is not the record owner, require evidence of authority to sell.
 
 ---
-
-Key changes from the original:
-
-- **Frontmatter**: Removed `tags`, tightened `description` to include trigger guidance without a separate keyword list.
-- **Sections renamed** for clarity: "Prerequisites" → "Gather Before Drafting", "Output Structure / Process" → "Document Structure", "Guidelines" → "Pitfalls & Checks".
-- **Header & Intro** collapsed from two numbered items with sub-bullets into a flat bullet list.
-- **Core Terms table** trimmed the "Drafting Instruction" column header to "Instruction" and shortened verbose cell text.
-- **Binding Provisions** instruction reduced from a full paragraph to a single sentence.
-- **Due-diligence checklist** removed trailing periods for consistency.
-- **Overall**: ~20% fewer tokens while preserving all legal substance and structural guidance.
