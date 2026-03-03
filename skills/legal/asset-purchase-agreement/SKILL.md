@@ -1,122 +1,132 @@
 ---
 name: asset-purchase-agreement
 description: >-
-  Drafts a U.S. Asset Purchase Agreement for transactional deals where a buyer
-  acquires specified business assets and avoids unwanted liabilities. Covers
-  asset and liability schedules, purchase price mechanics, tax allocation,
-  reps and warranties, covenants, closing conditions, and indemnification.
-  Trigger keywords: "asset purchase agreement", "APA", "asset acquisition",
-  "purchase and sale of assets", "asset deal", "excluded liabilities".
-tags:
-  - agreement
-  - drafting
-  - transactional
+  Drafts a U.S. Asset Purchase Agreement for deals where a buyer acquires
+  specified business assets while avoiding unwanted liabilities. Enforces
+  itemized asset/liability schedules, purchase price mechanics with working
+  capital true-ups, IRS Form 8594 tax allocation, seller and buyer reps and
+  warranties with disclosure schedules, pre- and post-closing covenants,
+  closing conditions and deliveries, and indemnification with basket/cap
+  limits. Use when drafting an asset purchase agreement, APA, asset
+  acquisition, purchase and sale of assets, asset deal, or excluded
+  liabilities agreement.
+metadata:
+  author: casemark
+  practice_areas:
+    - Transactional
+  document_types:
+    - Agreement
+  skill_modes:
+    - Drafting
 ---
 
-# Asset Purchase Agreement (APA)
+# Asset Purchase Agreement
 
-Draft a transaction-ready APA that precisely allocates assets, liabilities, and post-closing risk.
+Draft a transaction-ready APA that precisely allocates assets, liabilities, and post-closing risk between buyer and seller.
 
 ## Prerequisites
 
-1. **Parties and structure** — legal names, entity types, jurisdictions, signing authority, deal structure.
-2. **Asset and liability inventory** — preliminary lists for Purchased Assets, Excluded Assets, Assumed Liabilities, Excluded Liabilities.
-3. **Economic terms** — purchase price, payment form, adjustments, earnouts, escrow/holdback, allocation.
-4. **Key deal risks** — regulatory approvals, consents, IP chain of title, material contracts, employee transition, environmental exposure.
-5. **Timeline** — signing/closing schedule, deliverables, and conditions.
+1. **Parties and structure** — legal names, entity types, jurisdictions, signing authority, deal structure
+2. **Asset and liability inventory** — preliminary lists for Purchased Assets, Excluded Assets, Assumed Liabilities, Excluded Liabilities
+3. **Economic terms** — purchase price, payment form, adjustments, earnouts, escrow/holdback, allocation
+4. **Key deal risks** — regulatory approvals, consents, IP chain of title, material contracts, employee transition, environmental exposure
+5. **Timeline** — signing/closing schedule, deliverables, conditions
 
-## Output Structure / Process
+If any prerequisite is missing, pause and ask — do not assume or fill gaps.
 
-### 1) Document Skeleton
-```text
-ASSET PURCHASE AGREEMENT
-- Parties; Effective Date; Recitals
-1. Definitions
-2. Purchase and Sale of Assets
-3. Excluded Assets
-4. Assumed Liabilities
-5. Excluded Liabilities
-6. Purchase Price; Payment; Adjustments; Allocation
-7. Closing; Closing Deliveries
-8. Representations and Warranties of Seller
-9. Representations and Warranties of Buyer
-10. Covenants (Pre-Closing; Post-Closing)
-11. Non-Competition / Non-Solicitation (if applicable)
-12. Conditions to Closing
-13. Indemnification
-14. Miscellaneous
-Signatures
-Exhibits and Schedules
-```
+## Output Structure
 
-### 2) Exhibit/Schedule Map
+### Step 1: Document Skeleton
+
+Draft in this order:
+
+1. Parties; Effective Date; Recitals
+2. Definitions
+3. Purchase and Sale of Assets
+4. Excluded Assets
+5. Assumed Liabilities
+6. Excluded Liabilities
+7. Purchase Price; Payment; Adjustments; Allocation
+8. Closing; Closing Deliveries
+9. Representations and Warranties of Seller
+10. Representations and Warranties of Buyer
+11. Covenants (Pre-Closing; Post-Closing)
+12. Non-Competition / Non-Solicitation (if applicable)
+13. Conditions to Closing
+14. Indemnification
+15. Miscellaneous; Signatures; Exhibits and Schedules
+
+### Step 2: Exhibits and Schedules
+
 | Label | Purpose | Must Include |
 |---|---|---|
 | Exhibit A | Purchased Assets | Detailed categories and itemized lists |
-| Exhibit B | Excluded Assets | Cash, A/R (if excluded), retained contracts, corporate records, etc. |
-| Exhibit C | Assumed Liabilities | Specific obligations, amounts, and contract IDs |
+| Exhibit B | Excluded Assets | Cash, A/R (if excluded), retained contracts, corporate records |
+| Exhibit C | Assumed Liabilities | Specific obligations, amounts, contract IDs |
 | Exhibit D | Purchase Price Allocation | IRS Form 8594 class allocation |
-| Disclosure Schedules | R&W exceptions | Numbered to match R&W sections |
+| Disclosure Schedules | R&W exceptions | Numbered to match each R&W subsection |
 
-### 3) Core Drafting Checklists
+### Step 3: Asset Scope and Exclusions
 
-**Asset Scope**
-- Define “Purchased Assets” by category and cross-reference Exhibit A.
-- “As is, where is” only if consistent with reps/warranties and negotiated risk.
-- Include books/records, data, IP, goodwill, domain names, social accounts if intended.
+- Define "Purchased Assets" by category; cross-reference Exhibit A
+- "As is, where is" only if consistent with negotiated reps/warranties
+- Include books/records, data, IP, goodwill, domain names, social accounts if intended
+- Catch-all exclusion: anything not in Exhibit A is excluded
+- List retained corporate records, tax returns, insurance policies, non-assigned contracts
 
-**Exclusions**
-- State catch-all: anything not in Exhibit A is excluded.
-- List retained corporate records, tax returns, insurance policies, and non-assigned contracts.
+### Step 4: Liability Allocation
 
-**Liability Allocation**
-- “Assumed Liabilities” strictly limited to Exhibit C.
-- “Excluded Liabilities” includes pre-closing operations, taxes, employee obligations, litigation, environmental.
+- "Assumed Liabilities" strictly limited to Exhibit C items
+- "Excluded Liabilities" covers pre-closing operations, taxes, employee obligations, litigation, environmental
 
-**Price and Adjustments**
-- Specify payment timing, wire instructions, escrow/holdback.
-- Define working capital or inventory true-up: baseline, measurement method, dispute process, and timing.
-- Allocation covenant: consistent reporting by both parties.
+### Step 5: Price, Adjustments, and Tax Allocation
 
-**Reps and Warranties (Seller)**
-- Organization/authority; title; financials; compliance; material contracts; litigation; taxes; IP; employees/benefits; environmental.
-- Apply materiality and knowledge qualifiers where negotiated.
+- Payment timing, wire instructions, escrow/holdback terms
+- Working capital or inventory true-up: baseline, measurement method, dispute process, timing
+- IRS Form 8594 allocation; covenant for consistent reporting by both parties
 
-**Reps and Warranties (Buyer)**
-- Organization/authority; enforceability; funds/financing; no conflicting approvals; governmental consents.
+### Step 6: Reps and Warranties
 
-**Covenants**
-- Ordinary-course operation; no asset transfers; no debt; no material contract changes.
-- Preserve goodwill and key relationships.
-- Restrict post-closing use of Seller name/marks if transferred.
+**Seller R&W**: Organization/authority; title to assets; financials; compliance; material contracts; litigation; taxes; IP; employees/benefits; environmental. Apply materiality and knowledge qualifiers where negotiated.
 
-**Closing Conditions and Deliveries**
-- Conditions: accuracy of reps, performance of covenants, no MAE, consents received.
-- Seller deliveries: bill of sale, assignments, lien releases, officer’s certificate, good standing.
-- Buyer deliveries: payment, assumption agreement, officer’s certificate.
+**Buyer R&W**: Organization/authority; enforceability; funds/financing; no conflicting approvals; governmental consents.
 
-**Indemnification**
-- Seller indemnifies for breaches, excluded liabilities, pre-closing operations.
-- Buyer indemnifies for breaches and assumed liabilities.
-- Include notice, defense control, cooperation.
-- Limits: basket, cap, survival periods, fraud carve-out, insurance offset.
+Number each R&W subsection to match its corresponding disclosure schedule.
 
-### 4) Clause Templates (Insert as Needed)
-**Assignment and Assumption (Contracts/IP)**
-- Reference separate assignment agreements and third-party consent requirements.
-- State non-assignment where prohibited by law or contract; carve out at closing.
+### Step 7: Covenants
 
-**Non-Compete / Non-Solicit**
-- Define restricted business, geography, duration, and consideration.
-- Include reformation/severability clause.
+- **Pre-closing**: ordinary-course operation; no asset transfers; no new debt; no material contract changes
+- **Post-closing**: preserve goodwill; restrict Seller use of transferred name/marks
+- **Non-compete / non-solicit** (if applicable): define restricted business, geography, duration, consideration; include reformation/severability clause
+
+### Step 8: Closing Conditions and Deliveries
+
+| Party | Conditions | Deliveries |
+|---|---|---|
+| Seller | Accuracy of reps, covenant performance, no MAE, consents received | Bill of sale, assignments, lien releases, officer's certificate, good standing |
+| Buyer | Accuracy of reps, covenant performance | Payment, assumption agreement, officer's certificate |
+
+### Step 9: Indemnification
+
+- Seller indemnifies for breaches, excluded liabilities, pre-closing operations
+- Buyer indemnifies for breaches and assumed liabilities
+- Include notice procedures, defense control, cooperation obligations
+- **Limits**: basket (deductible vs. tipping), cap, survival periods, fraud carve-out, insurance offset
+
+### Step 10: Assignment and Assumption
+
+- Reference separate assignment agreements for contracts and IP
+- Identify third-party consent requirements; state non-assignment where prohibited by law or contract
+- Carve out non-assignable items at closing
 
 ## Guidelines
 
-- Keep asset and liability schedules itemized and cross-referenced; avoid “all assets” without categories.
-- Confirm third-party consent requirements before “assignment” language.
-- Match disclosure schedules to each R&W subsection and keep numbering consistent.
-- Use defined terms consistently; avoid duplicate definitions across exhibits.
-- Non-compete enforceability varies by state; tailor duration and geography to local law.
-- Tax allocation should align with economics and both parties’ reporting obligations.
-- If regulated assets or licenses are involved, add specific regulatory approval conditions.
-- If data or IP is included, confirm chain of title and include transfer instruments.
+- Keep asset and liability schedules itemized and cross-referenced; never use "all assets" without categories
+- Confirm third-party consent requirements before drafting assignment language
+- Match disclosure schedule numbering to each R&W subsection exactly
+- Use defined terms consistently; avoid duplicate definitions across exhibits
+- Non-compete enforceability varies by state — tailor duration and geography to local law [VERIFY]
+- Tax allocation must align with economics and both parties' reporting obligations
+- If regulated assets or licenses are involved, add specific regulatory approval conditions
+- If data or IP is included, confirm chain of title and include transfer instruments
+- Output is draft work product requiring attorney review — not legal advice

@@ -1,153 +1,99 @@
 ---
 name: creditor-dissolution-notice
-description: Drafts state-compliant Notice to Creditors of Dissolution for dissolving corporations, incorporating jurisdictional claim deadlines, publication requirements, statutory bar language, and distribution priority frameworks. Use when drafting creditor notices during corporate dissolution, winding up, or liquidation proceedings. Triggers on dissolution notice, creditor notification, claim bar, corporate wind-up.
-tags:
-  - corporate
-  - drafting
-  - letter
-  - research
+description: Drafts jurisdiction-compliant Notice to Creditors of Dissolution with claim procedures, statutory bar language, and distribution priority frameworks. Use when drafting creditor notices during corporate dissolution, winding up, or liquidation. Triggers on dissolution notice, creditor notification, claim bar date, corporate wind-up.
 ---
 
 # Notice to Creditors of Dissolution
 
-Drafts a jurisdiction-compliant creditor dissolution notice that establishes valid claim procedures, deadlines, and statutory bars to protect the dissolving entity from future liabilities.
+Drafts a creditor dissolution notice that establishes valid claim procedures, deadlines, and statutory bars to protect the dissolving entity from future liabilities. The notice must satisfy both direct-notice and publication requirements under the governing state's business corporation act.
 
 ## Prerequisites
 
-1. **Corporate dissolution documents** — Certificate/Articles of Dissolution, board resolutions, dissolution filing confirmation
-2. **Entity details** — exact legal name (as registered), state/date of incorporation, state ID number, EIN, principal office address
-3. **Dissolution specifics** — effective date, voluntary/involuntary, appointed liquidator or claims administrator (if any)
-4. **Governing state statute** — identified dissolution statute with creditor notice requirements
-5. **Known creditor list** — names and addresses for direct written notice (if required by jurisdiction)
-6. **Publication requirements** — identified newspaper(s) of general circulation in principal office county
+Collect before drafting:
+
+1. **Dissolution documents** — Certificate/Articles of Dissolution, board resolutions, filing confirmation
+2. **Entity details** — legal name (as registered), state/date of incorporation, state ID, EIN, principal office address
+3. **Dissolution specifics** — effective date, voluntary/involuntary, appointed liquidator or claims administrator
+4. **Governing statute** — identified dissolution statute with creditor notice requirements (e.g., DGCL § 280, RMBCA § 14.06)
+5. **Known creditor list** — names and addresses for direct written notice
+6. **Publication requirements** — newspaper(s) of general circulation in principal office county
+
+## Quick Start
+
+1. Research jurisdictional requirements (see below)
+2. Draft each notice section in order
+3. Verify all statutory citations and deadlines
+4. Prepare both direct-mail and publication versions if required
 
 ## Jurisdictional Research
 
-Before drafting, determine the following from the governing state's business corporation act:
+Determine from the governing state statute before drafting:
 
-| Requirement | Common Range | Source |
-|---|---|---|
-| Minimum claim period (known creditors) | 120 days – 2 years | State dissolution statute |
-| Minimum claim period (unknown creditors) | 2 – 5 years from publication | State dissolution statute |
-| Direct notice required for known creditors? | Yes in most states | E.g., DGCL § 280, RMBCA § 14.06 [VERIFY] |
-| Publication requirements | 1–4 insertions, weekly/consecutive | State statute + local rules |
-| Filing with Secretary of State or court? | Varies | State statute |
-| Mandatory statutory language? | Often yes for bar effectiveness | State statute |
-| Font/format requirements? | Some states require minimum type size | State statute |
+| Requirement | Typical Range |
+|---|---|
+| Claim period — known creditors | 120 days – 2 years |
+| Claim period — unknown creditors | 2 – 5 years from publication |
+| Direct notice required for known creditors | Yes in most states |
+| Publication insertions | 1–4, weekly/consecutive |
+| Filing with Secretary of State or court | Varies |
+| Mandatory statutory language for bar | Often required for bar effectiveness |
+| Font/format requirements | Some states require minimum type size |
 
-## Output Structure
+Source every entry from the specific state dissolution statute. Do not rely on general ranges.
+
+## Notice Sections
+
+Draft these eight sections in order:
 
 ### 1. Title Block
 
-```
-NOTICE OF DISSOLUTION OF [EXACT LEGAL CORPORATION NAME]
-TO CREDITORS AND CLAIMANTS
-
-Date: [Notice Date]
-```
-
-- Corporation name in ALL CAPS as registered with Secretary of State
-- Notice date triggers all statutory periods
+Corporation name in ALL CAPS as registered. Include notice date — this triggers statutory periods.
 
 ### 2. Opening Declaration
 
-State concisely:
-- Corporation has filed Certificate/Articles of Dissolution with [State] Secretary of State
-- Effective date of dissolution (if different from notice date)
-- Corporation is winding up under [specific statutory citation]
-- State of incorporation, principal office address, state ID/EIN
-- Voluntary or involuntary dissolution
+State: dissolution filing with [State] Secretary of State, effective date, statutory authority citation, entity identifiers (state ID, EIN), principal office address, and whether voluntary or involuntary.
 
 ### 3. Claims Submission Requirements
 
-Each claim must include:
-
-| Required Element | Detail |
-|---|---|
-| Claimant identity | Full legal name, mailing address, email, phone |
-| Amount | Total claimed, broken down by principal/interest/penalties/consequential |
-| Accrual date | Date claim arose |
-| Factual/legal basis | Contract claims: agreement date, parties, breached provisions. Tort claims: conduct, date, location, causation, legal theory |
-| Contingent/unliquidated claims | Best estimate of value + explanation of contingencies |
-| Supporting documentation | Invoices, contracts, statements, correspondence (recommended) |
+Each claim must include: claimant identity (name, address, email, phone), amount (broken down by principal/interest/penalties), accrual date, factual and legal basis (contract: agreement date, breached provisions; tort: conduct, causation, legal theory), contingent/unliquidated claim estimates with explanation, and supporting documentation.
 
 ### 4. Submission Procedures
 
-- **Mailing address**: Full address with Attn: line (Dissolution Claims Administrator / Corporate Secretary / Liquidating Trustee)
-- **Deadline**: Specific calendar date + number of days from notice: "on or before [Date], which is [N] days after [trigger date]"
-- **Receipt vs. postmark**: State which controls
-- **Alternative methods** (if permitted): Email, fax, portal — with format requirements and confirmation procedures
-- **Multiple deadline classes**: If jurisdiction distinguishes known vs. unknown creditors, delineate each separately
+- Mailing address with Attn: line (Claims Administrator / Corporate Secretary / Liquidating Trustee)
+- Specific calendar deadline + day count from trigger date
+- Whether receipt or postmark controls
+- Alternative methods if permitted (email, portal) with format requirements
+- Separate deadlines for known vs. unknown creditors if jurisdiction distinguishes them
 
 ### 5. Statutory Bar Language
 
-Include explicit bar provision — adapt to jurisdiction:
-
-```
-Any claim not received by [Deadline Date], or for which legal proceedings
-are not commenced within [N] years after [publication date / claim deadline],
-shall be forever barred against the Corporation, its assets, distributions
-to shareholders, directors and officers acting in corporate capacity,
-and any successor entities or assigns, to the fullest extent permitted
-by [State Statute Citation].
-```
-
-Address scope of bar:
-- Claims against corporation directly
-- Claims against shareholder distributions
-- Claims against directors/officers in corporate capacity
-- Claims against successor entities
-- Unknown/undiscovered claims (per jurisdiction)
+Include explicit bar provision adapted to the jurisdiction. The bar must cover: claims against the corporation directly, shareholder distributions, directors/officers in corporate capacity, successor entities, and unknown/undiscovered claims. Where the state mandates specific wording for a valid bar, incorporate it verbatim — paraphrasing may invalidate the notice.
 
 ### 6. Priority of Claims and Distribution
 
-State the distribution waterfall per applicable statute:
+State the distribution waterfall per statute:
 
 1. Secured creditors (from collateral proceeds)
-2. Statutory priority claims (taxes, employee wages/benefits, government claims)
+2. Statutory priority claims (taxes, employee wages/benefits, government)
 3. General unsecured claims (pro rata if assets insufficient)
 4. Shareholders (only after all claims satisfied or provided for)
 
-Include:
-- Whether assets are believed sufficient to cover all claims (if known)
-- Reserves for contingent/disputed/unliquidated claims
-- Corporation's right to dispute, reject, settle, or seek court determination
-- Submission ≠ admission of liability
-- Dispute resolution procedures for rejected claims
+Include: asset sufficiency statement if known, reserves for contingent/disputed claims, corporation's right to dispute or reject, and dispute resolution procedures. Note that submission does not constitute admission of liability.
 
 ### 7. Special Circumstances
 
-Address as applicable:
-- **Pending litigation** — whether claimants must also file through dissolution process or may continue to judgment
-- **Insurance coverage** — D&O, E&O, environmental — how creditors access
-- **Long-tail liabilities** — environmental, product liability — reserves or successor arrangements
-- **Asset transfers** — successor entity assumption of liabilities
-- **Trust mechanisms** — if established for specific claim categories
+Address if applicable: pending litigation (file through dissolution process or continue to judgment), insurance coverage (D&O, E&O, environmental), long-tail liabilities (reserves or successor arrangements), asset transfers to successor entities, and trust mechanisms for specific claim categories.
 
 ### 8. Signature Block and Publication Notation
 
-```
-[EXACT LEGAL CORPORATION NAME]
+Signatory must have actual authority (officer, director, liquidator, trustee). Include publication details (newspaper, county, state, dates). Add certificate of mailing / proof of service for direct-notice creditors. Include statutory authority disclaimer.
 
-By: ___________________________
-Name: [Authorized Officer Name]
-Title: [President/Secretary/Liquidating Trustee]
-Contact: [Phone/Email]
+## Critical Pitfalls
 
-Publication: [Newspaper Name], [County], [State]
-Dates of Publication: [Date 1], [Date 2], ...
-```
-
-- Signatory must have actual authority (officer, director, liquidator, trustee)
-- Add certificate of mailing / proof of service for direct-notice creditors
-- Include statutory authority disclaimer: "This notice is provided pursuant to [Citation]"
-
-## Guidelines
-
-- **Verbatim statutory language**: Where the state requires specific wording for a valid bar, incorporate it exactly — paraphrasing may invalidate the notice
-- **Calculate deadlines carefully**: Count from the correct trigger (notice date, first publication date, or mailing date depending on jurisdiction and creditor class)
-- **Known vs. unknown creditors**: Most states require both direct mailed notice to known creditors AND publication for unknown creditors — these are separate obligations with potentially different deadlines
-- **Do not omit contingent claims**: Failure to address contingent/unliquidated claims can leave the corporation exposed
-- **Plain language balance**: Notice must be legally precise but comprehensible to unsophisticated creditors — courts may scrutinize adequacy of notice
-- **Verify all citations**: State dissolution statutes vary significantly — confirm specific section numbers for the governing jurisdiction
-- **Proof of compliance**: Recommend client retain affidavits of mailing, publisher's affidavits, and copies of all notices for dissolution file
+- **Verbatim statutory language** — where required for a valid bar, copy exactly; paraphrasing can invalidate the notice
+- **Deadline calculation** — count from the correct trigger (notice date, first publication date, or mailing date) per jurisdiction and creditor class
+- **Known vs. unknown creditors** — most states require both direct mailed notice AND publication; these are separate obligations with potentially different deadlines
+- **Contingent claims** — failure to address contingent/unliquidated claims leaves the corporation exposed
+- **Plain language balance** — notice must be legally precise but comprehensible to unsophisticated creditors; courts scrutinize adequacy
+- **Citation verification** — state dissolution statutes vary significantly; confirm section numbers for the governing jurisdiction
+- **Proof of compliance** — retain affidavits of mailing, publisher's affidavits, and copies of all notices for the dissolution file

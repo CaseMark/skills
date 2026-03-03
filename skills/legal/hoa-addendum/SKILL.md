@@ -1,6 +1,6 @@
 ---
 name: hoa-addendum
-description: Drafts a Homeowners Association (HOA) Addendum to supplement residential real estate purchase agreements, covering mandatory membership disclosure, governing documents, financial obligations, restrictive covenants, buyer acknowledgments, and review contingencies. Use when drafting HOA addenda, HOA disclosure forms, residential purchase addenda for HOA-governed properties, or CC&R disclosure documents.
+description: Drafts an HOA Addendum to a residential purchase agreement covering mandatory membership, financial obligations, governing documents, use restrictions, and buyer acknowledgments. Use when drafting HOA addenda, HOA disclosure forms, purchase addenda for HOA-governed properties, or CC&R disclosure documents.
 tags:
   - agreement
   - drafting
@@ -9,17 +9,25 @@ tags:
 
 # HOA Addendum
 
-Drafts a binding HOA addendum to a residential purchase agreement ensuring full disclosure of association obligations, financial commitments, and use restrictions.
+Drafts a binding addendum to a residential purchase agreement ensuring full disclosure of HOA obligations, financial commitments, and use restrictions.
 
 ## Prerequisites
 
-1. **Executed purchase agreement** — date, parties, property identification
-2. **HOA identification** — legal name, address, management company, incorporation status
-3. **Current financials** — regular assessments, special assessments, reserve fund status, transfer/capital contribution fees
-4. **Governing documents** — CC&Rs, bylaws, articles, rules, architectural guidelines (with recording info if available)
-5. **Property details** — full legal description, APN, subdivision name
+Gather before drafting:
 
-## Output Structure
+- **Executed purchase agreement** — date, parties, property ID
+- **HOA identification** — legal name, address, management company, incorporation status
+- **Current financials** — regular/special assessments, reserve fund status, transfer and capital contribution fees
+- **Governing documents** — CC&Rs, bylaws, articles, rules, architectural guidelines (recording info if available)
+- **Property details** — legal description, APN, subdivision name
+
+## Quick Start
+
+1. Collect all prerequisites above
+2. Draft sections 1–6 below in order
+3. Run the checks in Drafting Rules before finalizing
+
+## Addendum Sections
 
 ### 1. Recitals & Identification
 
@@ -34,26 +42,25 @@ Drafts a binding HOA addendum to a residential purchase agreement ensuring full 
 
 - [ ] HOA legal name, address, phone, email, website
 - [ ] Management company name and contact
-- [ ] Incorporation state and status
-- [ ] Fiscal year
-- [ ] Statement: membership is **mandatory and automatic** upon transfer of title
+- [ ] Incorporation state, status, fiscal year
+- [ ] Statement: membership is **mandatory and automatic** upon title transfer
 - [ ] Statement: buyer bound by all governing documents; noncompliance may result in fines, liens, or enforcement
 
 ### 3. Financial Obligations
 
-| Item | Details to Include |
-|------|--------------------|
-| Regular assessments | Amount, frequency (monthly/quarterly/annual), due dates |
+| Item | Details |
+|------|---------|
+| Regular assessments | Amount, frequency, due dates |
 | Special assessments | Pending/approved amounts, purpose, schedule, buyer/seller allocation |
 | Reserve fund | Current status, known upcoming capital improvements |
-| Delinquency consequences | Late fees, interest rates, lien rights |
+| Delinquency | Late fees, interest rates, lien rights |
 | Transfer/closing fees | Transfer fees, capital contribution fees, document production fees |
 | Increase process | Governing document provisions on assessment increases and caps |
 
 ### 4. Governing Documents & Restrictions
 
-List all binding documents:
-- Declaration of CC&Rs (recording info: book/page or instrument number)
+List all binding documents with recording info (book/page or instrument number):
+- Declaration of CC&Rs
 - Articles of Incorporation
 - Bylaws
 - Rules and Regulations
@@ -64,16 +71,16 @@ Disclose key restriction categories:
 
 | Category | Typical Restrictions |
 |----------|---------------------|
-| Architectural | Exterior modifications, landscaping, paint colors, structural changes — require committee approval |
-| Use | Rental limits/prohibitions, home business restrictions, parking rules |
+| Architectural | Exterior modifications, landscaping, paint colors — committee approval required |
+| Use | Rental limits, home business restrictions, parking rules |
 | Pets | Species, size, number limits |
 | Common areas | Usage rules, exclusive-use assignments |
 
-Include: buyer's right to obtain and review all governing documents before closing, with cost disclosure for document production.
+Include buyer's right to obtain and review all governing documents before closing, with document production cost disclosure.
 
 ### 5. Buyer Acknowledgments & Contingencies
 
-**Acknowledgment block must include:**
+**Acknowledgment block:**
 - [ ] Receipt of addendum and all referenced HOA documents (or right to receive within specified period)
 - [ ] Agreement to be bound by current and future HOA rules adopted per governing documents
 - [ ] Opportunity to consult legal counsel
@@ -81,37 +88,29 @@ Include: buyer's right to obtain and review all governing documents before closi
 - [ ] Seller's good-faith limitation of liability for HOA information accuracy
 
 **Document review contingency (if applicable):**
-- Contingency period: typically 3–10 days from receipt of documents
-- Termination procedure: written notice, method of delivery
+- Contingency period: typically 3–10 days from document receipt
+- Termination procedure: written notice with specified delivery method
 - Earnest money disposition upon termination
 
 ### 6. Execution Block
 
-```
-BUYER:
-_________________________    _________________________
-Printed Name                 Printed Name
-_________________________    _________________________
-Signature            Date    Signature            Date
-
-SELLER:
-_________________________    _________________________
-Printed Name                 Printed Name
-_________________________    _________________________
-Signature            Date    Signature            Date
-```
-
-- Separate signature line for each party
+- Separate signature line (printed name, signature, date) for each buyer and seller
 - Effective only when executed by all parties
 - Survives closing unless otherwise specified
-- **Conflict provision:** This addendum controls over the purchase agreement on all HOA-related matters
+- **Conflict provision:** addendum controls over purchase agreement on all HOA-related matters
 
-## Guidelines
+## Drafting Rules
 
-- Reference the underlying purchase agreement by date and parties in the opening recital
-- Use plain language but maintain legal precision on obligation and remedy terms
-- Comply with applicable state real estate disclosure statutes — requirements vary by state; flag jurisdiction-specific provisions (e.g., resale certificate requirements in VA, HOA disclosure requirements in FL, CA Civil Code §4525 disclosure packet rules) [VERIFY]
-- Number all sections for easy cross-reference
+- Reference the purchase agreement by date and parties in the opening recital
+- Use plain language; maintain legal precision on obligation and remedy terms
+- Number all sections for cross-reference
 - Include header (property address + "HOA Addendum") and footer (page numbers) on every page
-- Do not opine on the adequacy of the HOA's financial health — present disclosed facts only
-- If governing document recording information is unavailable, note as "to be provided" rather than omitting
+- Do not opine on HOA financial health — present disclosed facts only
+- If recording info is unavailable, note "to be provided" rather than omitting
+
+## Pitfalls
+
+- **Jurisdiction variance**: state disclosure requirements differ significantly — flag jurisdiction-specific provisions (e.g., VA resale certificate, FL HOA disclosure, CA Civil Code §4525 packet rules) [VERIFY]
+- **Missing special assessments**: always confirm whether pending or approved special assessments exist; omission creates liability
+- **Stale financials**: verify assessment amounts and reserve status are current as of drafting date
+- **Unsigned governing documents**: ensure buyer receives executed/recorded versions, not drafts

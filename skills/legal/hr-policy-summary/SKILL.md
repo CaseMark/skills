@@ -1,62 +1,58 @@
 ---
 name: hr-policy-summary
 description: >-
-  Produces plain-language summaries of U.S. HR policies and employee handbooks
-  with employment-law compliance framing, organized by topic (EEO, wage/hour,
-  leave, safety, privacy, complaints) and highlighting employee rights,
-  obligations, and procedures. Use when summarizing HR policies, employee
-  handbook provisions, compliance guides, or onboarding materials. Trigger
-  keywords: HR policy summary, employee handbook summary, employment
-  compliance summary, leave policy summary, wage and hour summary,
-  anti-harassment summary.
+  Summarizes U.S. HR policies and employee handbooks into plain-language,
+  topic-organized briefs covering employee rights, obligations, and procedures
+  with employment-law compliance framing. Use when a user provides an employee
+  handbook, HR policy document, compliance guide, or onboarding material and
+  asks for a summary, overview, or compliance breakdown.
 tags:
   - analysis
   - regulatory
   - summarization
-  - summary
 ---
 
 # HR Policy Compliance Summary
 
-Create a thematically organized, employee-facing summary of HR policies with clear rights, obligations, and procedures.
+Produce a thematic, employee-facing summary of HR policies with clear rights, obligations, and procedures.
 
-## Prerequisites
+## Quick Start
 
-1. **Source policies** — employee handbook, HR policies, codes of conduct, safety manuals, and any addenda.
-2. **Jurisdictions** — U.S. federal plus applicable state and local locations for the workforce.
-3. **Audience** — intended readers, reading level, and preferred tone.
-4. **Contacts** — HR, compliance, reporting channels, EAP, and escalation paths.
-5. **Effective dates** — version dates and any recent updates or pending changes.
+Collect before drafting:
 
-## Output Structure / Process
+1. **Source documents** — handbook, policies, codes of conduct, safety manuals, addenda.
+2. **Jurisdictions** — U.S. federal plus applicable state/local.
+3. **Audience** — readers, reading level, tone.
+4. **Contacts** — HR, compliance, reporting channels, EAP, escalation paths.
+5. **Effective dates** — version dates, recent updates, pending changes.
 
-Use this structure and process.
+## Workflow
 
-**Process Checklist**
-
-1. Inventory all documents and map to policy areas.
+1. Inventory documents; map each to a policy area.
 2. Extract enforceable rights, obligations, and procedures.
-3. Note legal frameworks referenced by the policy.
-4. Identify policy terms that exceed legal minimums.
+3. Note cited legal frameworks; mark uncertain citations `[VERIFY]`.
+4. Identify terms that exceed legal minimums.
 5. Flag gaps, conflicts, or missing procedural details.
-6. Draft summary blocks by policy area using the template.
-7. Add procedures, contacts, deadlines, and workflow steps.
-8. Add misconceptions and clarifications.
-9. Add resources and a controlling-documents disclaimer.
+6. Draft per-area blocks using the template below.
+7. Add procedures, contacts, deadlines, misconceptions, and disclaimer.
 
-**Required Sections**
+## Output Structure
+
+### Required Sections
 
 1. Executive Summary
-2. Policy Area Summaries (thematic)
+2. Policy Area Summaries (thematic blocks)
 3. Procedures and Contacts
 4. Common Misconceptions / Clarifications
 5. Updates, Overrides, and Enhancements
 6. Resources and Next Steps
 7. Disclaimer (summary is non-controlling)
 
-**Policy Areas to Cover**
+### Policy Areas
 
-- Equal Employment Opportunity and Non-Discrimination
+Cover each that appears in the source documents:
+
+- EEO and Non-Discrimination
 - Anti-Harassment and Retaliation
 - Wage and Hour (classification, overtime, breaks, timekeeping)
 - Leave and Accommodation (FMLA, ADA, state leave, pregnancy, military)
@@ -64,65 +60,45 @@ Use this structure and process.
 - Privacy, Monitoring, and Data Protection
 - Workplace Conduct (discipline, attendance, conflicts, substance use)
 - Complaint, Investigation, and Non-Retaliation Procedures
-- Arbitration, ADR, or Internal Dispute Resolution (if present)
-- Union/Concerted Activity Rights (if relevant)
+- Arbitration / ADR / Internal Dispute Resolution (if present)
+- Union / Concerted Activity Rights (if relevant)
 - Remote Work and BYOD (if present)
 
-**Policy Area Summary Matrix**
+### Per-Area Block Template
 
-| Policy area | What the policy requires | Legal framework cited | Employee rights | Employee obligations | How to act (steps + contacts) | Deadlines/time limits |
-|---|---|---|---|---|---|---|
-| Example: Leave & Accommodation | | | | | | |
+For each policy area, produce:
 
-**Policy Area Block Template**
+**What this policy covers** — plain-language scope.
 
-```text
-## {Policy Area}
+**Key requirements** — what employees must do; what managers/HR must do.
 
-**What this policy covers**
-- {Plain-language scope}
+**Employee rights** — rights and protections.
 
-**Key requirements**
-- {What employees must do}
-- {What managers/HR must do}
+**Legal basis** — statutes/regulations cited; use `[VERIFY]` if unsure.
 
-**Employee rights**
-- {Rights and protections}
+**How to use this policy** — steps to request/report, required forms, primary and backup contacts.
 
-**Legal basis**
-- {Statutes/regulations named in policy; use [VERIFY] if unsure}
+**Deadlines** — notice periods, reporting windows, appeal timelines.
 
-**How to use this policy**
-- {Steps to request/report}
-- {Required forms or documentation}
-- {Primary contact and backup}
+**Notes** — where policy exceeds legal minimums or clarifies internal rules.
 
-**Deadlines**
-- {Notice periods, reporting windows, appeal timelines}
+### Misconceptions Format
 
-**Notes**
-- {Policy exceeds legal minimums or clarifies internal rules}
-```
+- **Myth:** {short statement}
+- **Reality:** {correct statement with policy basis}
 
-**Misconceptions Section Format**
-
-- Myth: {Short statement}
-- Reality: {Correct statement and the policy basis}
-
-**Procedures and Contacts Table**
+### Procedures and Contacts Table
 
 | Issue type | Primary contact | Alternate contact | How to submit | Expected response time |
 |---|---|---|---|---|
 
-## Guidelines
+## Pitfalls and Checks
 
-- Use plain language and define unavoidable legal terms once.
-- If a policy is silent on a point, state “Not addressed in policy” rather than guessing.
+- Use plain language; define unavoidable legal terms once on first use.
+- If a policy is silent on a point, state "Not addressed in policy" — never guess.
 - Distinguish legal requirements from employer-enhanced benefits.
 - Clarify at-will employment limits and anti-retaliation protections where stated.
-- Highlight time-sensitive requirements with exact timelines.
-- Preserve policy-defined thresholds and eligibility rules; do not generalize.
-- Include statutory names when policies cite them; mark uncertain citations with `[VERIFY]`.
+- Preserve policy-defined thresholds and eligibility rules exactly; do not generalize.
+- Use the organization's own labels for departments and channels.
 - Do not provide legal advice or interpret beyond the policy text.
-- Use the organization’s labels for departments and channels.
-- Add a clear disclaimer that the underlying policies control in case of conflict.
+- Always include a disclaimer that underlying policy documents control in case of conflict.

@@ -1,131 +1,101 @@
 ---
 name: lpa-agreement
-description: Drafts institutional-quality Limited Partnership Agreements for private equity and venture capital fund formation. Covers formation, capital commitments, distribution waterfall, management fees, carried interest, LPAC governance, clawback, transfer restrictions, tax provisions, and dissolution. Use when drafting LPA, fund formation agreement, limited partnership agreement, GP/LP terms, or PE/VC fund documents.
-tags:
-  - agreement
-  - corporate
-  - drafting
+description: Drafts institutional-quality Limited Partnership Agreements for PE/VC fund formation. Covers GP/LP terms, capital commitments, distribution waterfall, carried interest, LPAC governance, clawback, and tax provisions. Use when drafting LPA, fund formation agreement, limited partnership terms, or PE/VC fund documents.
 ---
 
 # Limited Partnership Agreement (LPA)
 
-Drafts a comprehensive Limited Partnership Agreement governing the GP/LP relationship across a fund's full lifecycle (typically 10–12 years with extensions).
+Drafts a formal "Amended and Restated Agreement of Limited Partnership" governing the GP/LP relationship across a fund's full lifecycle.
 
 ## Prerequisites
 
-1. **Fund basics** — legal name, jurisdiction of formation, target fund size, investment strategy/thesis
-2. **Economic terms** — management fee rate/basis, carried interest %, preferred return %, waterfall structure (deal-by-deal vs. whole-fund)
-3. **Term sheet or PPM** — if available, for confirmed deal terms
-4. **Key persons** — named individuals triggering key person provisions
-5. **Investor requirements** — any side letter commitments, regulatory constraints, or co-investment arrangements
-6. **Governing law** — state RULPA or equivalent statute
+Gather before drafting — prompt the user for any missing items:
 
-## Output Structure
+- Fund name, jurisdiction, target size, investment strategy
+- Management fee rate/basis, carry %, preferred return %, waterfall type (deal-by-deal vs. whole-fund)
+- Key persons triggering key person provisions
+- Term sheet or PPM (if available)
+- Side letter commitments, co-investment arrangements
+- Governing law (state RULPA)
 
-Draft as a formal "Amended and Restated Agreement of Limited Partnership of [Fund Name], L.P." with table of contents and consistent defined-term capitalization.
+## Quick Start
 
-### Article Outline
+Draft with table of contents and consistent defined-term capitalization. Follow this article structure:
 
-| Article | Subject | Key Contents |
-|---------|---------|-------------|
-| I | Formation & Purpose | Statutory authority, fund name, registered agent, purpose clause (sectors, geography, stage, sizing), investment thesis limitations |
-| II | Definitions | All capitalized terms in alphabetical order |
-| III | Term | Initial term from final closing, investment period (typically 5 yrs), extension mechanism (up to 2 × 1-yr with LPAC or LP % approval) |
-| IV | Capital Commitments & Contributions | Per-partner commitments via Subscription Agreements; pro rata capital calls; notice period (10–30 days); default remedies table (below) |
-| V | Allocations & Distributions | IRC § 704(b)-compliant allocations; four-tier waterfall; tax distribution provisions |
-| VI | Management & Governance | GP authority; key person provisions; management fee; fee offsets; LPAC composition and mandate |
-| VII | GP Obligations & LP Protections | Clawback (after-tax, escrow or guaranty); LP liability cap; fiduciary standards |
-| VIII | Transfer Restrictions | Consent requirement; permitted transfers (affiliates, other LPs, estate planning vehicles); conditions on transferees |
-| IX | Tax Provisions | Pass-through status; K-1 delivery timeline; § 754 election; BBA audit regime procedures; withholding authority |
-| X | Dissolution & Liquidation | Triggering events; wind-up procedures; final accounting; LP objection period (90 days) |
-| XI | General Provisions | Amendments, notices, confidentiality, governing law, severability, counterparts |
+| Art. | Subject | Key Contents |
+|------|---------|-------------|
+| I | Formation & Purpose | Statutory authority, registered agent, purpose clause, investment thesis limitations |
+| II | Definitions | Capitalized terms, alphabetical |
+| III | Term | Initial term from final closing, investment period (~5 yrs), extension mechanism (2 x 1-yr, LPAC/LP approval) |
+| IV | Capital Commitments | Subscription Agreements, pro rata capital calls, 10-30 day notice, default remedies |
+| V | Allocations & Distributions | IRC 704(b) allocations, four-tier waterfall, tax distributions |
+| VI | Management & Governance | GP authority, key person provisions, management fee, fee offsets, LPAC |
+| VII | GP Obligations & LP Protections | Clawback, LP liability cap, fiduciary standards |
+| VIII | Transfer Restrictions | Consent, permitted transfers (affiliates, estate vehicles), transferee conditions |
+| IX | Tax Provisions | Pass-through status, K-1 delivery, 754 election, BBA audit regime, withholding |
+| X | Dissolution & Liquidation | Triggering events, wind-up, final accounting, 90-day LP objection period |
+| XI | General Provisions | Amendments, notices, confidentiality, governing law, severability |
 
-### Default Remedies Table
+## Core Economic Terms
 
-| Remedy | Detail |
-|--------|--------|
-| Default interest | Specified rate from due date until cure |
-| Commitment reduction | Pro rata reduction of commitment and economic interest |
-| Capital forfeiture | Partial or full forfeiture of prior contributions |
-| Forced sale | GP may sell defaulting LP's interest at discount to FMV |
-| Cure period | Specify days; procedural notice requirements |
-
-### Distribution Waterfall Template
+### Distribution Waterfall
 
 ```
-Tier 1 — Return of Capital
-  → 100% to LPs until aggregate distributions = contributed capital
-
-Tier 2 — Preferred Return
-  → 100% to LPs until cumulative [8]% IRR on contributed capital
-    [Specify: compounding vs. simple]
-
-Tier 3 — GP Catch-Up
-  → 100% to GP until GP has received [carried interest %] of
-    cumulative Tier 2 + Tier 3 distributions
-
-Tier 4 — Carried Interest Split
-  → [80]% to LPs / [20]% to GP
+Tier 1 — Return of Capital: 100% to LPs until distributions = contributed capital
+Tier 2 — Preferred Return: 100% to LPs until [8]% IRR (specify compounding)
+Tier 3 — GP Catch-Up: 100% to GP until GP has [carry %] of Tiers 2+3
+Tier 4 — Carried Interest Split: [80]% LPs / [20]% GP
 ```
 
-- State whether waterfall is **deal-by-deal** (include interim clawback + escrow) or **whole-fund**
-- Address mandatory vs. discretionary distribution timing
-- Include reserve authority for expenses, follow-ons, contingent liabilities
+- Specify deal-by-deal (add interim clawback + escrow) or whole-fund
+- Address distribution timing (mandatory vs. discretionary) and reserve authority
 
-### Management Fee Structure
+### Management Fee
 
 ```
-During Investment Period:
-  [2]% × aggregate capital commitments, paid quarterly in advance
-
-Post-Investment Period:
-  [2]% × [cost basis / FMV] of remaining investments
-
+Investment Period: [2]% x commitments, quarterly in advance
+Post-Investment: [2]% x [cost basis / FMV] of remaining investments
 Adjustments: prorate for final closing; suspend during key person event
-Fee Offset: [50–100]% of transaction, monitoring, directors' fees
+Fee Offset: [50-100]% of transaction/monitoring/directors' fees
 ```
 
-### LPAC Provisions Checklist
+### Default Remedies
 
-- [ ] Composition: [3–7] representatives elected by majority of commitments
-- [ ] Term length, removal, replacement procedures
+Include: default interest, pro rata commitment reduction, capital forfeiture, forced sale at discount to FMV, cure period with notice requirements.
+
+### Clawback
+
+- GP returns excess carry so LPs receive capital + preferred return first
+- Calculate on after-tax basis (gross-up for taxes on returned carry)
+- Secure with escrow holdback (institutional) or personal guaranty with net worth covenant (emerging managers)
+
+## LPAC Checklist
+
+- [ ] Composition: [3-7] reps elected by majority of commitments
+- [ ] Term, removal, replacement procedures
 - [ ] Meeting frequency (minimum quarterly)
-- [ ] Advisory-only capacity (non-binding except where consent required)
-- [ ] Consent matters:
-  - GP co-investments / affiliate transactions
-  - Related party transactions
-  - Material agreement amendments
-  - Valuation policy changes
-  - Auditor removal
-  - Fund term extensions
+- [ ] Advisory-only except where consent required
+- [ ] Consent matters: GP co-investments, affiliate/related-party transactions, material amendments, valuation changes, auditor removal, term extensions
 
-### Clawback Mechanics
+## Tax and Regulatory
 
-- Obligation: GP returns excess carried interest so LPs receive contributed capital + full preferred return before GP retains carry
-- Calculation: after-tax basis (gross-up for taxes paid on returned carry)
-- Security: escrow holdback **or** personal guaranty with net worth covenant
+| Item | Detail |
+|------|--------|
+| Classification | Partnership pass-through |
+| K-1 delivery | March 15 (calendar-year) |
+| 754 election | GP discretion |
+| BBA audit | Designate partnership rep; push-out election rights |
+| Investor quals | Accredited (Reg D) and/or qualified purchaser (ICA 3(c)(7)) |
+| AML/KYC | BSA/CIP compliance, beneficial ownership verification |
+| Withholding | GP authorized; charge to partner's account |
 
-### Tax & Regulatory Provisions
+## Pitfalls and Checks
 
-| Requirement | Detail |
-|-------------|--------|
-| Entity classification | Partnership (pass-through); no entity-level tax |
-| K-1 delivery | By March 15 for calendar-year funds |
-| § 754 election | GP discretion to make/revoke |
-| BBA audit regime | Designate partnership representative; push-out election rights |
-| Investor qualifications | Accredited investor (Reg D) and/or qualified purchaser (ICA § 3(c)(7)) |
-| Tax forms | W-9 (US) / W-8 series (non-US) |
-| AML/KYC | BSA compliance; CIP and beneficial ownership verification |
-| Withholding | GP authorized to withhold as required; charge to partner's account |
-
-## Guidelines
-
-1. **Statutory precision** — cite the specific state RULPA (e.g., Delaware Revised Uniform Limited Partnership Act, 6 Del. C. § 17-101 et seq.) [VERIFY specific citation for chosen jurisdiction]
-2. **Cross-reference accuracy** — verify all internal section references before finalizing
-3. **Market terms** — flag any terms that deviate from ILPA Principles (v3.0) as non-standard
-4. **Side letters** — note where MFN provisions or side letter commitments override base LPA terms
-5. **ERISA** — if fund may accept benefit plan investors, include ERISA compliance provisions and the 25% threshold analysis
-6. **Securities law** — LPA interests are unregistered securities; include appropriate legends and transfer restrictions referencing Securities Act § 4(a)(2) and Reg D
-7. **Ask before assuming** — if investment period length, preferred return rate, carry percentage, or waterfall structure is unspecified, prompt the user rather than defaulting
-8. **Escrow vs. guaranty** — recommend escrow for institutional funds; note guaranty alternative for smaller/emerging managers
-9. **No tax advice** — include standard disclaimer that LPs should consult their own tax advisors
+1. **Cite specific RULPA** — e.g., Delaware RULPA, 6 Del. C. 17-101 et seq. [VERIFY for chosen jurisdiction]
+2. **Cross-references** — verify all internal section references before finalizing
+3. **ILPA compliance** — flag deviations from ILPA Principles v3.0 as non-standard
+4. **Side letters** — note where MFN provisions override base LPA terms
+5. **ERISA** — if benefit plan investors possible, include compliance provisions and 25% threshold analysis
+6. **Securities law** — include unregistered securities legends referencing Securities Act 4(a)(2) and Reg D
+7. **Ask, don't assume** — prompt user for unspecified investment period, preferred return, carry %, or waterfall structure
+8. **No tax advice** — include disclaimer that LPs should consult their own tax advisors

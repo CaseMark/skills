@@ -1,6 +1,14 @@
 ---
 name: ops-manual-acknowledgement
-description: Drafts an Operations Manual Acknowledgement form documenting an employee's or franchisee's receipt, understanding, and agreement to comply with company policies. Produces an enforceable record suitable for disputes, terminations, or litigation with affirmative statements, at-will disclaimers, and signature blocks. Use when onboarding employees, franchisees, or creating policy acknowledgement forms.
+description: >-
+  Drafts an enforceable Operations Manual Acknowledgement form recording an
+  employee's or franchisee's receipt, understanding, and agreement to comply
+  with company policies. Produces a litigation-ready record with affirmative
+  statements, at-will disclaimers, policy cross-references, and signature
+  blocks. Use when onboarding employees, onboarding franchisees, creating
+  policy acknowledgement forms, or documenting manual receipt (trigger
+  keywords: operations manual, policy acknowledgement, employee handbook
+  receipt, onboarding form, manual compliance).
 tags:
   - agreement
   - drafting
@@ -14,16 +22,16 @@ Drafts an enforceable acknowledgement form recording receipt, understanding, and
 ## Prerequisites
 
 1. **Company legal name** and any d/b/a
-2. **Operations manual version/edition** — title, effective date, revision number
+2. **Manual version** — title, effective date, revision number
 3. **Relationship type** — employee (at-will or contract) or franchisee
 4. **Jurisdiction** — state/territory for employment law compliance
-5. **Key policies requiring express reference** — e.g., anti-discrimination, harassment, safety, confidentiality, trade secrets
+5. **Key policies requiring express reference** — e.g., anti-discrimination, harassment, safety, confidentiality
 6. **Witness/countersignature requirements** — whether HR or supervisor must co-sign
 7. **Multilingual requirements** — whether translation is needed under applicable law
 
 ## Output Structure
 
-### Document Header
+### 1. Document Header
 
 | Field | Content |
 |---|---|
@@ -33,17 +41,17 @@ Drafts an enforceable acknowledgement form recording receipt, understanding, and
 | Document date | Date of execution |
 | Reference no. | Internal tracking number (if used) |
 
-### Preamble
+### 2. Preamble
 
 One paragraph establishing:
-- Employee/franchisee is acknowledging receipt of the identified manual
+- Employee/franchisee acknowledges receipt of the identified manual
 - Specific version/edition and effective date
 - Whether this version supersedes prior versions
-- Relationship to the employment/franchise agreement (supplements vs. incorporates)
+- Relationship to employment/franchise agreement (supplements vs. incorporates)
 
-### Affirmative Acknowledgement Statements
+### 3. Affirmative Acknowledgement Statements
 
-Draft as a numbered list of clear, first-person affirmations:
+Draft as numbered first-person affirmations:
 
 1. I have received a complete copy of the Operations Manual (version _____, effective _____)
 2. I have read and understand its contents
@@ -53,9 +61,9 @@ Draft as a numbered list of clear, first-person affirmations:
 6. I will stay informed of updates and amendments to the Manual
 7. I will return all company property, including the Manual, upon separation
 
-### Key Policy Cross-References
+### 4. Key Policy Cross-References
 
-If provided, include express acknowledgement of heightened-significance policies:
+If provided, include express acknowledgement of heightened-significance policies as an initialed checklist:
 
 - Anti-discrimination and equal opportunity
 - Harassment prevention
@@ -65,13 +73,11 @@ If provided, include express acknowledgement of heightened-significance policies
 - Drug and alcohol
 - Social media / acceptable use
 
-Format as a checklist with initials line for each.
+### 5. Disclaimers
 
-### Disclaimers
+Include all three; each is legally critical:
 
-Include all of the following:
-
-```
+```text
 AT-WILL DISCLAIMER (employment context):
 This Acknowledgement and the Operations Manual do not constitute a contract
 of employment. Unless a separate written agreement provides otherwise,
@@ -87,9 +93,9 @@ Nothing in the Operations Manual or this Acknowledgement creates
 contractual rights or entitlements beyond those required by applicable law.
 ```
 
-For **franchisee** context, replace at-will disclaimer with language preserving the franchise agreement as the governing instrument.
+For **franchisee** context, replace the at-will disclaimer with language preserving the franchise agreement as the governing instrument; do not inadvertently create an employment relationship.
 
-### Employee/Franchisee Information Block
+### 6. Employee/Franchisee Information Block
 
 | Field | Entry |
 |---|---|
@@ -99,9 +105,9 @@ For **franchisee** context, replace at-will disclaimer with language preserving 
 | Employee/Franchisee ID | _________________________ |
 | Start date | _________________________ |
 
-### Signature Block
+### 7. Signature Block
 
-```
+```text
 By signing below, I acknowledge that I have received, read, and understood
 the Operations Manual and agree to comply with all policies contained therein.
 
@@ -123,11 +129,11 @@ Printed Name                       Title
 
 ## Guidelines
 
-- **Plain language** — avoid unnecessary legalese; the form must be accessible to all education levels while remaining legally precise
-- **Contra proferentem risk** — ambiguous terms will be construed against the drafter; use short, declarative sentences
-- **Multilingual compliance** — some jurisdictions (e.g., California for certain industries) require translated versions; flag when applicable
-- **Integration with onboarding** — design for immediate use in HR systems; keep to 1–2 pages
+- **Plain language** — accessible to all education levels while remaining legally precise; ambiguous terms are construed against the drafter (contra proferentem)
 - **Version control** — always tie acknowledgement to a specific manual version; never use open-ended references
-- **Electronic signatures** — if e-signature is used, confirm compliance with ESIGN Act / UETA and state equivalents
-- **Retention** — note that signed originals should be maintained in personnel files per applicable record-retention schedules
-- **Franchisee variant** — when drafting for franchise context, cross-reference the franchise agreement and FDD; do not inadvertently create an employment relationship
+- **Multilingual compliance** — some jurisdictions (e.g., California for certain industries) require translated versions; flag when applicable `[VERIFY]`
+- **Electronic signatures** — if e-signature is used, confirm compliance with ESIGN Act / UETA and state equivalents `[VERIFY]`
+- **Retention** — signed originals must be maintained in personnel files per applicable record-retention schedules
+- **Franchisee variant** — cross-reference the franchise agreement and FDD; do not create language that could be construed as an employment relationship `[VERIFY]`
+- Keep to 1–2 pages for immediate use in HR/onboarding systems
+- **All outputs require attorney review** in the applicable jurisdiction

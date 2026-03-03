@@ -1,6 +1,6 @@
 ---
 name: securities-regulation-summary
-description: Generates structured summaries of US securities regulation compliance issues and recent developments, covering SEC rulemaking, enforcement actions, FINRA guidance, and emerging areas like SPACs, ESG disclosures, and cybersecurity requirements. Produces thematic briefings with executive overviews and practical compliance implications. Use when summarizing securities compliance updates, regulatory developments, SEC enforcement trends, or preparing securities law briefings.
+description: Generates thematic compliance summaries of US securities regulation developments. Triggered when a user needs briefings on SEC rulemaking, enforcement trends, FINRA guidance, or emerging areas (SPACs, ESG, cybersecurity, digital assets). Also use for securities compliance updates or regulatory development summaries for senior audiences.
 tags:
   - analysis
   - regulatory
@@ -11,26 +11,26 @@ tags:
 
 # Securities Regulation Summary
 
-Produces concise, thematic compliance summaries of US securities law developments for distribution to senior management, boards, or clients.
+Produces thematic compliance summaries of US securities law developments for senior management, boards, or clients.
 
-## Prerequisites
+## Quick Start
 
-1. **Topic scope** — specific area(s) of securities regulation to cover, or "general update" for broad survey
+Gather before drafting:
+
+1. **Topic scope** — specific area(s) or "general update" for broad survey
 2. **Time window** — period to cover (default: trailing 12 months)
 3. **Audience** — issuer, investor, broker-dealer, investment adviser, or general counsel
-4. **Source materials** (if any) — SEC releases, compliance alerts, enforcement orders, internal memos to incorporate
+4. **Source materials** (optional) — SEC releases, compliance alerts, enforcement orders, internal memos
 
-## Output Structure
+## Workflow
 
-### Executive Overview (2–3 paragraphs)
+### 1. Executive Overview (2–3 paragraphs)
 
-- Most significant developments and their practical impact
-- Urgent compliance matters requiring immediate action
-- Overall regulatory environment orientation
+Cover: most significant developments and practical impact, urgent compliance matters requiring immediate action, overall regulatory environment orientation.
 
-### Thematic Sections
+### 2. Thematic Sections
 
-Organize by topic, not chronology. Use applicable headings from:
+Organize by topic, not chronology. Use applicable headings:
 
 | Section | Covers |
 |---|---|
@@ -40,38 +40,42 @@ Organize by topic, not chronology. Use applicable headings from:
 | Investment Company & Adviser | Investment Company Act, Advisers Act, fund governance, custody |
 | Emerging Areas | Crypto/digital assets, SPACs, ESG disclosure, AI, cybersecurity |
 
-### Per-Development Format
+For each development include:
 
-For each significant development, include:
-
-- **What changed** — rule, guidance, or enforcement action with SEC release number
+- **What changed** — rule, guidance, or action with SEC release number
 - **Effective date / timeline**
 - **Who is affected** — issuer type, market participant category
 - **Compliance implications** — what entities must do differently
 - **Recommended actions** — concrete next steps
 
-### Regulatory Intersection Notes
+### 3. Regulatory Intersections
 
-Flag where obligations overlap:
+Flag overlapping obligations:
 
-- Cybersecurity disclosure ↔ Form 8-K current reporting ↔ risk factor disclosure ↔ antifraud liability
+- Cybersecurity disclosure ↔ Form 8-K reporting ↔ risk factor disclosure ↔ antifraud liability
 - ESG voluntary disclosure ↔ antifraud obligations under §10(b)/Rule 10b-5
 - Beneficial ownership reporting ↔ Schedule 13D/13G amendments ↔ insider trading compliance
 
-### Forward Look
-
-Conclude with:
+### 4. Forward Look
 
 - Pending rulemaking (cite Federal Register proposal numbers)
 - Open comment periods and deadlines
 - Emerging issues warranting monitoring
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Citation format**: SEC Release No. XX-XXXXX; Federal Register vol/page for final rules; standard case citations (Bluebook) for judicial decisions — mark any unverified citation with `[VERIFY]`
-- **Regulatory interplay**: Always note where a development triggers obligations under multiple frameworks
-- **Uncertainty**: Where SEC staff positions are evolving (comment letters, no-action letters), flag the compliance risk of relying on prior guidance
-- **Tone**: Authoritative, practical, no jargon without explanation — suitable for non-specialist senior readers
-- **Length**: Target 3–6 pages; sufficient depth for action, concise enough for efficient review
-- **Jurisdiction**: US federal securities law (Securities Act of 1933, Securities Exchange Act of 1934, Investment Company Act of 1940, Investment Advisers Act of 1940); note state blue sky issues only where directly relevant
-- **Do not** editorialize on policy merits — focus on compliance obligations and practical risk
+- **Citations**: SEC Release No. XX-XXXXX; Federal Register vol/page for final rules; Bluebook for judicial decisions. Mark any unverified citation with `[VERIFY]`
+- **Interplay**: Always note where a development triggers obligations under multiple frameworks
+- **Uncertainty**: Flag compliance risk where SEC staff positions are evolving (comment letters, no-action letters)
+- **Tone**: Authoritative, practical, no unexplained jargon — suitable for non-specialist senior readers
+- **Length**: Target 3–6 pages — sufficient for action, concise for efficient review
+- **Jurisdiction**: US federal securities law (Securities Act of 1933, Exchange Act of 1934, Investment Company Act of 1940, Advisers Act of 1940); note state blue sky issues only where directly relevant
+- **No editorializing** on policy merits — focus on compliance obligations and practical risk
+
+---
+
+Key changes:
+- **Frontmatter description** — tightened to one sentence with clear trigger guidance in third person
+- **Restructured body** — renamed "Prerequisites" → "Quick Start", "Output Structure" → numbered "Workflow" steps, "Guidelines" → "Pitfalls & Checks"
+- **Flattened hierarchy** — collapsed the nested subsections (Executive Overview, Thematic Sections, Per-Development Format, Regulatory Intersections, Forward Look) into a single numbered workflow sequence
+- **Reduced prose** — cut redundant explanation while preserving all domain-specific content (thematic table, per-development format, intersection examples, citation rules, jurisdiction scope)

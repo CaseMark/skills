@@ -1,55 +1,50 @@
 ---
 name: deposition-summary
-description: Generates topic-based deposition summaries for commercial litigation with integrated exhibit indexing, condensing transcript testimony into neutral 2-3 sentence overviews per topic in a two-column table (page:line | summary). Links each topic to referenced exhibits and key transcript citations. Use when summarizing depositions, creating deposition digests, indexing deposition exhibits, or preparing witness testimony summaries during discovery.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+description: Generates topic-based deposition summaries for commercial litigation with exhibit cross-referencing. Produces a two-column table (page:line | neutral summary) with embedded exhibit citations. Use when summarizing depositions, creating deposition digests, indexing exhibits, or preparing witness testimony summaries during discovery.
 ---
 
 # Deposition Summary with Key Document Index
 
-Transforms a deposition transcript into a topic-based summary table with integrated exhibit cross-references, enabling rapid navigation between testimony and documentary evidence.
+Transforms a deposition transcript into a topic-based summary table with integrated exhibit cross-references for rapid navigation between testimony and documentary evidence.
 
 ## Prerequisites
 
-1. **Complete deposition transcript** — standard format with page and line numbering
-2. **Exhibit list and files** — all exhibits referenced or marked during the deposition
-3. **Case context** — party names, key contract sections, and claims at issue
+- Complete deposition transcript with page and line numbering
+- Exhibit list and files referenced or marked during deposition
+- Case context: party names, key contract sections, claims at issue
 
-## Process
+## Workflow
 
-### Step 1: Full Transcript Review
+### 1. Review Transcript
 
-Read the entire transcript and identify:
-- Natural topic breaks (explicit subject changes + subtle thematic shifts)
-- Every exhibit reference — formal (by number/letter) and informal ("the email we just reviewed," "this invoice")
+Read the full transcript and identify:
+- Natural topic breaks (explicit subject changes and thematic shifts)
+- Every exhibit reference — formal ("Exhibit 3") and informal ("the email we just reviewed")
 - Key admissions, contradictions, evasive answers, and authentication testimony
 
-### Step 2: Topic Extraction
+### 2. Extract Topics
 
-For each topic identified:
+For each topic, capture:
 
 | Element | Requirement |
 |---|---|
-| **Topic heading** | Specific and descriptive — e.g., "Witness Knowledge of Payment Default Under Section 4.2" not "Payment Issues" |
-| **Page:line range** | Start and end of testimony on that topic |
-| **Summary** | 2-3 sentences, neutral, no legal conclusions |
-| **Exhibits referenced** | Exhibit number + how witness characterized/authenticated it |
-| **Notable moments** | Admissions, contradictions, refusals to answer |
+| Topic heading | Specific — "Witness Knowledge of Payment Default Under §4.2" not "Payment Issues" |
+| Page:line range | Start and end of testimony on that topic |
+| Summary | 2-3 sentences, neutral, no legal conclusions |
+| Exhibits referenced | Exhibit number + how witness characterized/authenticated it |
+| Notable moments | Admissions, contradictions, refusals to answer |
 
-### Step 3: Exhibit Index
+### 3. Build Exhibit Index
 
-Build a master exhibit cross-reference:
+Create a master exhibit cross-reference table:
 
-| Exhibit | Description | Transcript References (pg:ln) | Witness Characterization |
+| Exhibit | Description | Transcript Refs (pg:ln) | Witness Characterization |
 |---|---|---|---|
-| Ex. 1 | [doc type] | 45:3-47:12, 102:8-103:1 | [how witness described/authenticated] |
+| Ex. 1 | [doc type] | 45:3-47:12, 102:8-103:1 | [how witness described it] |
 
-### Step 4: Assemble Summary Table
+### 4. Assemble Summary Table
 
-Produce a two-column table as the primary deliverable:
+Primary deliverable — two-column table:
 
 ```
 | Transcript Cite | Topic & Summary |
@@ -62,33 +57,30 @@ Produce a two-column table as the primary deliverable:
 ```
 
 Within each summary cell:
-- Embed references to exhibit files discussed
-- Cite specific page:line for key admissions or important statements
+- Embed exhibit references discussed during that testimony
+- Cite specific page:line for key admissions
 - Use hierarchical headings for major topics vs. subtopics
 
-### Step 5: Output Formats
+### 5. Output
 
 Produce both:
-1. **DOCX** — formatted table with functional hyperlinks to exhibits and transcript locations, editable styling
-2. **PDF** — preserved hyperlinks, full-text searchable, locked format for filing/distribution
+- **DOCX** — formatted table with hyperlinks to exhibits and transcript locations
+- **PDF** — preserved hyperlinks, full-text searchable, locked for filing
 
-## Quality Checklist
-
-- [ ] Every exhibit mentioned in testimony appears in the summary and exhibit index
-- [ ] No exhibits referenced that weren't actually discussed
-- [ ] All page:line citations verified against transcript
-- [ ] Summaries reflect actual testimony — no interpretation or legal conclusions
-- [ ] All hyperlinks resolve to correct targets (exhibits and transcript locations)
-- [ ] Topic headings are specific enough for at-a-glance navigation
-- [ ] No privileged communications, work product, or improperly redacted material included
-- [ ] Consistent formatting: uniform heading hierarchy, font styling, spacing
-- [ ] Grammar and spelling reviewed
-
-## Guidelines
+## Key Rules
 
 - **Neutral tone only** — summarize what the witness said, not what it means for the case
 - **Specificity over brevity** — "Witness denied receiving the October 14 demand letter" not "Witness denied receiving correspondence"
-- **Capture authentication testimony** — note when a witness identifies, authenticates, or disputes a document
-- **Flag evasive responses** — mark where witness was non-responsive, claimed lack of memory, or gave qualified answers
-- **Organize by substance, not by questioner** — if redirect revisits a topic from direct, consolidate under the same heading
-- **Commercial litigation focus areas** — contract formation/interpretation, business communications, financial transactions, performance obligations, damages calculations
+- **Organize by substance, not questioner** — consolidate redirect and direct testimony on the same topic under one heading
+- **Capture authentication testimony** — note when witness identifies, authenticates, or disputes a document
+- **Flag evasive responses** — mark non-responsive answers, memory claims, and qualified answers
+
+## Quality Checklist
+
+- [ ] Every exhibit mentioned in testimony appears in summary and exhibit index
+- [ ] No exhibits referenced that weren't actually discussed
+- [ ] All page:line citations verified against transcript
+- [ ] Summaries reflect actual testimony — no interpretation or legal conclusions
+- [ ] Topic headings specific enough for at-a-glance navigation
+- [ ] No privileged communications or work product included
+- [ ] Hyperlinks resolve to correct targets

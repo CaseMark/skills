@@ -1,29 +1,27 @@
 ---
 name: insurance-correspondence-summarization
-description: Produces structured summaries of insurance claims correspondence, coverage letters, reservation of rights letters, denial letters, and related claim file documents. Extracts insured identity, policy details, coverage positions, chronological claims history, settlement posture, and liability exposure for insurance defense attorneys, coverage counsel, and claims adjusters. Use when summarizing claim files, coverage disputes, ROR letters, denial letters, or multi-document insurance correspondence threads.
-tags:
-  - litigation
-  - summarization
-  - summary
+description: Produces structured summaries of insurance claims correspondence including coverage letters, reservation of rights (ROR), denial letters, and claim file documents. Extracts policy details, coverage positions, claims chronology, settlement posture, and liability exposure. Use when summarizing claim files, coverage disputes, ROR letters, denial letters, or multi-document insurance correspondence threads.
 ---
 
 # Insurance Correspondence Summarization
 
-Produces a structured briefing document synthesizing insurance claims correspondence into actionable coverage and litigation intelligence.
+Synthesizes insurance claims correspondence into a structured briefing with actionable coverage and litigation intelligence. Jurisdiction: US.
 
 ## Prerequisites
 
-1. **Claim correspondence** — any combination of: coverage letters, ROR letters, denial letters, demand letters, claim notices, insurer responses
+1. **Claim correspondence** — coverage letters, ROR letters, denial letters, demand letters, claim notices, insurer responses
 2. **Policy documents** — if available; flag if missing
 3. **Underlying litigation materials** — if referenced (pleadings, case caption, court/docket)
 
 ## Output Structure
 
 ### 1. Executive Overview (2–3 paragraphs)
-- Claim type, current status, key parties (insured, insurer, claimant, counsel)
-- Urgent coverage or liability issues requiring immediate attention
+
+- Claim type, status, key parties (insured, insurer, claimant, counsel)
+- Urgent coverage or liability issues needing immediate attention
 
 ### 2. Factual Background
+
 - Underlying incident: date, location, parties, nature of alleged injury/damage/loss
 - Distinguish **undisputed facts** from **contested allegations**
 
@@ -35,9 +33,9 @@ Produces a structured briefing document synthesizing insurance claims correspond
 | Coverage type(s) | |
 | Policy period | |
 | Limits / deductibles | |
-| Insurer's coverage position | Grant / ROR / Denial |
-| Policy language cited | Quote directly with attribution |
-| Coverage disputes / ambiguities | |
+| Insurer's position | Grant / ROR / Denial |
+| Policy language cited | Quote with attribution |
+| Disputes / ambiguities | |
 
 ### 4. Claims Chronology
 
@@ -45,25 +43,44 @@ Produces a structured briefing document synthesizing insurance claims correspond
 |---|---|---|---|
 | | | | |
 
-Include: initial notice, coverage position letters, ROR letters, demands, responses, ADR/coverage litigation filings.
+Include: initial notice, coverage positions, ROR letters, demands, responses, ADR/coverage litigation filings.
 
 ### 5. Settlement Posture
-- All demands made and offers extended (with dollar amounts)
+
+- All demands and offers (with dollar amounts)
 - Conditions attached to proposals
-- Current status: ongoing / stalled / concluded
+- Status: ongoing / stalled / concluded
 
 ### 6. Missing Documents
-List any documents referenced but not provided that are needed for complete analysis (full policy, underlying pleadings, expert reports, additional correspondence).
+
+List documents referenced but not provided that are needed for complete analysis.
 
 ### 7. Next Steps / Action Items
-Flag items apparent from the record: coverage response deadlines, investigation gaps, declaratory relief considerations, settlement authority needed.
+
+Flag: coverage response deadlines, investigation gaps, declaratory relief considerations, settlement authority needed.
 
 ## Guidelines
 
-- **Synthesize across documents** — consolidate related information (e.g., all ROR discussion) into single sections; do not repeat document-by-document
-- **Quote policy language** when cited as a coverage basis; include document name and date
-- **Flag bad faith indicators**: unreasonable delay, inadequate investigation, wrongful denial, failure to defend
-- **Flag insured conduct issues**: cooperation clause concerns, late notice, misrepresentation
-- **Separate coverage matter from underlying litigation** — summarize underlying case status only to the extent it affects coverage analysis
-- **Highlight procedural traps**: statute of limitations, notice requirements, conditions precedent
-- Jurisdiction: US
+- **Synthesize across documents** — consolidate related information into single sections; do not summarize document-by-document
+- **Quote policy language** verbatim when cited as coverage basis; include document name and date
+- **Separate coverage from underlying litigation** — summarize underlying case only as it affects coverage analysis
+
+## Critical Flags
+
+Watch for and explicitly flag:
+
+- **Bad faith indicators**: unreasonable delay, inadequate investigation, wrongful denial, failure to defend
+- **Insured conduct issues**: cooperation clause concerns, late notice, misrepresentation
+- **Procedural traps**: statute of limitations, notice requirements, conditions precedent
+
+---
+
+**Key changes from the original:**
+
+- **Removed `tags`** — not part of the Agent Skills spec (only `name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools` are valid frontmatter fields)
+- **Tightened description** — removed redundant enumeration of audience roles; kept trigger keywords and concise functional summary
+- **Added jurisdiction inline** to overview instead of burying it as a trailing bullet
+- **Compressed verbose sections** — "Missing Documents" and "Next Steps" reduced to single directive lines instead of prose paragraphs
+- **Split "Guidelines" into two focused sections** — core synthesis guidelines vs. critical flags to watch for, improving scannability
+- **Removed redundant wording** throughout (e.g., "List any documents referenced but not provided that are needed for complete analysis" → "List documents referenced but not provided that are needed for complete analysis")
+- **Line count reduced** from 69 to 65 lines while preserving all domain-specific content

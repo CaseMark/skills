@@ -1,175 +1,145 @@
 ---
 name: deposition-objections
 description: >-
-  Quick reference for deposition objections under FRCP 30(c)(2): form
-  objections, substantive objections, instructions not to answer, and
-  strategic guidance for both taking and defending depositions. Covers proper
-  phrasing, waiver rules, privilege assertions, and bad-faith termination
-  procedure. Use when preparing for depositions, making objections during
-  testimony, defending witnesses, or handling 30(b)(6) corporate
-  representative depositions.
-tags:
-  - analysis
-  - checklist
-  - litigation
+  Provides deposition objection reference under FRCP 30(c)(2) covering form
+  objections, substantive objections, instructions not to answer, and strategy
+  for taking and defending depositions. Use when preparing for depositions,
+  making or responding to objections during testimony, defending witnesses,
+  handling 30(b)(6) corporate representative depositions, or drafting
+  deposition-related motions.
 ---
 
-# Deposition Objection Reference
+# Deposition Objections
 
-Quick reference for making, defending, and responding to deposition objections under the Federal Rules of Civil Procedure.
+Quick reference for making, defending, and responding to deposition objections under the Federal Rules of Civil Procedure. Applies to federal practice; verify local rules for state court.
 
 ## Prerequisites
 
-1. Identify whether this is a fact witness, expert, or 30(b)(6) corporate representative deposition
-2. Review any operative protective orders or court-ordered topic limitations
-3. Know which privileges apply and which communications are protected
-4. Have FRCP 30(c)(2) and 30(d)(3) available for citation if disputes arise
+1. Identify deposition type: fact witness, expert, or 30(b)(6) corporate representative
+2. Review operative protective orders and court-ordered topic limitations
+3. Confirm applicable privileges and protected communications
+4. Have FRCP 30(c)(2) and 30(d)(3) ready for citation
 
----
+## Core Rules
 
-## Foundational Rules
+- **Most objections preserve, not block** — witness answers; ruling comes at trial or on motion
+- **Concise and non-suggestive** — FRCP 30(c)(2) requires objections "stated concisely in a nonargumentative and nonsuggestive manner"
+- **Form objections waive if not made** — per FRCP 32(d)(3)
+- **Instructions not to answer** — only 3 valid grounds under FRCP 30(c)(2)
 
-| Rule | Substance |
-|------|-----------|
-| Most objections preserve — they don't stop | Witness answers; objection is ruled on if testimony is later offered at trial or in a motion |
-| Objections must be concise | FRCP 30(c)(2): "stated concisely in a nonargumentative and nonsuggestive manner" |
-| Form objections are waived if not made | If you don't object at the deposition, you lose the objection |
-| Instructions not to answer are rare | Only 3 valid grounds under FRCP 30(c)(2) — see below |
+Proper: `"Objection, form."` / `"Objection, leading."` / `"Objection, assumes facts."`
+Improper (speaking): `"Objection, the question is confusing and compound and assumes facts not in evidence."`
+Improper (coaching): `"Objection, the witness already told you he doesn't remember that meeting."`
 
-**Proper:** `"Objection, form."` / `"Objection, leading."` / `"Objection, assumes facts."`  
-**Improper (speaking objection):** `"Objection, the question is confusing and compound and assumes facts not in evidence."`  
-**Improper (coaching):** `"Objection, the witness already told you he doesn't remember that meeting."`
+## Objection Reference Table
 
----
+### Form Objections (waived if not made at deposition)
 
-## Objection Quick Reference
+| Objection | Phrasing |
+|-----------|----------|
+| Compound | `"Objection, compound."` |
+| Leading | `"Objection, leading."` |
+| Assumes facts | `"Objection, assumes facts."` |
+| Vague / Ambiguous | `"Objection, vague."` |
+| Calls for speculation | `"Objection, speculation."` |
+| Calls for narrative | `"Objection, narrative."` |
+| Mischaracterizes testimony | `"Objection, mischaracterizes the witness's testimony."` |
+| Argumentative | `"Objection, argumentative."` |
+| Asked and answered | `"Objection, asked and answered."` |
+| Lacks foundation | `"Objection, foundation."` |
+| Unintelligible | `"Objection, unintelligible."` |
 
-| Objection | Type | Waived if Not Made | Phrasing |
-|-----------|------|--------------------|----------|
-| Compound | Form | ✅ Yes | `"Objection, compound."` |
-| Leading | Form | ✅ Yes | `"Objection, leading."` |
-| Assumes facts not in evidence | Form | ✅ Yes | `"Objection, assumes facts."` |
-| Vague / Ambiguous | Form | ✅ Yes | `"Objection, vague."` |
-| Calls for speculation | Form | ✅ Yes | `"Objection, speculation."` |
-| Calls for narrative | Form | ✅ Yes | `"Objection, narrative."` |
-| Mischaracterizes testimony | Form | ✅ Yes | `"Objection, mischaracterizes the witness's testimony."` |
-| Argumentative | Form | ✅ Yes | `"Objection, argumentative."` |
-| Asked and answered | Form | ✅ Yes | `"Objection, asked and answered."` |
-| Lacks foundation | Form | ✅ Yes | `"Objection, foundation."` |
-| Unintelligible | Form | ✅ Yes | `"Objection, unintelligible."` |
-| Relevance | Substantive | ❌ No | `"Objection, relevance."` |
-| Hearsay | Substantive | ❌ No | `"Objection, hearsay."` |
-| Privilege | Substantive | ❌ No | `"Objection, attorney-client privilege."` [specify] |
-| Beyond scope (30(b)(6)) | Substantive | ❌ No | `"Objection, beyond the scope of the noticed topics."` |
+### Substantive Objections (not waived — preserved for trial)
 
-**Discovery threshold note:** Under FRCP 26(b)(1), relevance is broad — discoverable if relevant to any claim or defense and proportional. Don't overuse relevance objections; they rarely succeed and can appear obstructionist.
+| Objection | Phrasing |
+|-----------|----------|
+| Relevance | `"Objection, relevance."` |
+| Hearsay | `"Objection, hearsay."` |
+| Privilege | `"Objection, attorney-client privilege."` (specify) |
+| Beyond scope (30(b)(6)) | `"Objection, beyond the scope of the noticed topics."` |
 
----
+Note: Under FRCP 26(b)(1), discovery relevance is broad. Overusing relevance objections appears obstructionist.
 
 ## Instructions Not to Answer — FRCP 30(c)(2)
 
-> "A person may instruct a deponent not to answer only when necessary to preserve a privilege, to enforce a limitation ordered by the court, or to present a motion under Rule 30(d)(3)."
+Only three valid grounds exist. All others are improper.
 
 ### Ground 1: Privilege
 
-**Procedure:**
-1. State objection and identify the privilege on the record
-2. Instruct the witness not to answer
-3. State the basis (e.g., communication between attorney and client for purposes of obtaining legal advice)
-4. Be prepared to provide a privilege log if demanded
+1. State objection, identify the privilege on the record
+2. Instruct witness not to answer
+3. State basis (e.g., attorney-client communication for legal advice)
+4. Be prepared to produce privilege log
 
-**Example:**
-> Q: "What did your attorney advise you to do about the contract?"  
-> Counsel: "Objection, attorney-client privilege. I instruct the witness not to answer. The question seeks communications between my client and counsel made for the purpose of obtaining legal advice."
+> Q: "What did your attorney advise you about the contract?"
+> Counsel: "Objection, attorney-client privilege. I instruct the witness not to answer. The question seeks communications made for the purpose of obtaining legal advice."
 
-**Waiver caution:** Privilege is waived if the communication was previously disclosed or made in the presence of third parties not within the privilege.
+Waiver risk: privilege lost if communication was disclosed or made before unprotected third parties.
 
 ### Ground 2: Court-Ordered Limitation
 
-**Procedure:**
-1. Object and cite the specific order by date and docket entry
-2. Instruct the witness not to answer
-3. Offer to take the dispute to the court if questioner objects
+1. Object and cite the specific order (date, docket entry)
+2. Instruct witness not to answer
+3. Offer to present dispute to the court
 
-**Example:**
-> "Objection. The Court's protective order dated [date] specifically prohibits inquiry into [topic] at deposition. I instruct the witness not to answer."
+> "Objection. The Court's protective order dated [date] prohibits inquiry into [topic]. I instruct the witness not to answer."
 
-### Ground 3: Termination for Bad Faith — FRCP 30(d)(3)
+### Ground 3: Bad-Faith Termination — FRCP 30(d)(3)
 
-Use only when questioning is so harassing, embarrassing, or oppressive that termination is warranted.
+Use only when questioning is harassing, embarrassing, or oppressive enough to warrant termination.
 
-**Procedure:**
-1. State on the record that you are suspending the deposition
-2. Promptly file a Rule 30(d)(3) motion for protective order
+1. State on the record you are suspending the deposition
+2. Promptly file Rule 30(d)(3) motion for protective order
 3. Be prepared to justify — courts sanction abuse of this provision
 
-**Example:**
-> "Counsel, your questions have become harassing and designed to embarrass the witness. I am suspending this deposition to file a motion for protective order under Rule 30(d)(3)."
+> "Counsel, your questions have become harassing. I am suspending this deposition to file a motion for protective order under Rule 30(d)(3)."
 
-### ❌ NOT Valid Grounds for Instruction Not to Answer
+### Invalid Grounds for Instruction Not to Answer
 
-- Relevance alone — witness must answer (object to preserve)
-- Embarrassment — unless it rises to harassment warranting termination
-- Harmful answer — cannot instruct solely because the answer hurts your case
-- Witness doesn't know — witness answers "I don't know"
-- Form defects (compound, vague, leading) — witness answers after objection
+- Relevance alone — witness answers; object to preserve
+- Embarrassment — unless rising to FRCP 30(d)(3) harassment
+- Harmful answer — cannot block solely because answer hurts your case
+- "I don't know" — witness states that themselves
+- Form defects — witness answers after objection
 - Hearsay — admissibility decided later
-- Beyond scope in a non-30(b)(6) deposition
+- Beyond scope in non-30(b)(6) depositions
 
----
+## Strategy
 
-## Strategic Guidance
-
-### When Taking Depositions
+### Taking Depositions
 
 | Situation | Action |
 |-----------|--------|
-| Form objection with merit | Consider rephrasing for cleaner record |
-| Meritless objection | Say "the witness may answer" and proceed |
-| Opposing counsel coaching through objections | Note it on the record; raise with court if persistent |
-| Improper instruction not to answer | Ask counsel to state specific FRCP 30(c)(2) ground; if invalid, note for the court and consider moving on or seeking judicial intervention |
+| Meritorious form objection | Rephrase for a cleaner record |
+| Meritless objection | "The witness may answer" — proceed |
+| Coaching through objections | Note on record; raise with court if persistent |
+| Improper instruction not to answer | Demand FRCP 30(c)(2) ground; note for court; seek judicial intervention if needed |
 
-### When Defending Depositions
+### Defending Depositions
 
-- **Don't over-object** — signals to witness what's important; appears obstructionist
-- **Do object** when: form defects can be cured, privilege is implicated, testimony is being mischaracterized, or conduct is genuinely harassing
-- **Speaking objections are prohibited** — "Objection, calls for speculation, and the witness should only testify to what he personally knows" = improper coaching
-- **Train your witness** that your objections do not signal how to answer; they must testify from their own knowledge
+- **Don't over-object** — signals importance to witness, appears obstructionist
+- **Do object** for curable form defects, privilege, mischaracterization, or genuine harassment
+- **No speaking objections** — adding rationale or context is improper coaching
+- **Prepare witness** — objections do not signal how to answer; testify from own knowledge
 
----
+## Pre-Deposition Checklist (Defending)
 
-## Pre-Deposition Checklist (Defending Counsel)
-
-**Form objections:**
-- [ ] Compound questions — will object; witness still answers
-- [ ] Leading questions — object if excessive; witness answers
-- [ ] Assumes facts — object to protect record
-- [ ] Mischaracterization — object to correct the record
-- [ ] Vague questions — object; witness should ask questioner for clarification
-
-**Privilege:**
-- [ ] Identify all attorney-client communications at issue
-- [ ] Identify any work product concerns
-- [ ] Identify other applicable privileges (spousal, medical, etc.)
-
-**Court orders:**
-- [ ] Pull all operative protective orders and identify specific topic limitations
-- [ ] Flag any confidentiality designations that limit disclosure at deposition
-
-**Escalation threshold:**
-- [ ] Know when conduct crosses the line into FRCP 30(d)(3) territory
-- [ ] Have draft motion for protective order ready if harassment is anticipated
-
----
+```
+- [ ] Identify form objection triggers (compound, leading, assumes facts, vague, mischaracterization)
+- [ ] Map all attorney-client communications at issue
+- [ ] Identify work product and other privileges (spousal, medical)
+- [ ] Pull operative protective orders; note specific topic limitations
+- [ ] Flag confidentiality designations limiting deposition disclosure
+- [ ] Set escalation threshold for FRCP 30(d)(3) motion
+- [ ] Draft protective order motion if harassment anticipated
+```
 
 ## Key Authorities
 
-| Citation | Relevance |
-|----------|-----------|
-| FRCP 30(c)(2) | Objection form; instruction not to answer grounds |
+| Citation | Subject |
+|----------|---------|
+| FRCP 30(c)(2) | Objection form; instruction not to answer |
 | FRCP 30(d)(3) | Motion to terminate for bad faith |
 | FRCP 32(d)(3) | Waiver of form objections |
-| FRE 103, 611 | Objections and mode of examination at trial |
-| *Hall v. Clifton Precision*, 150 F.R.D. 525 (E.D. Pa. 1993) | Seminal case on speaking objections and coaching |
-
-**State court note:** State rules vary. This skill applies to federal practice under the FRCP. Verify applicable local rules and state case law for state court depositions.
+| FRE 103, 611 | Objections and examination mode |
+| *Hall v. Clifton Precision*, 150 F.R.D. 525 (E.D. Pa. 1993) | Speaking objections and coaching |

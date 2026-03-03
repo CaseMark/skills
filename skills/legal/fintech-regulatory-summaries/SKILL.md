@@ -1,74 +1,74 @@
 ---
 name: fintech-regulatory-summaries
-description: Generates concise, actionable regulatory summaries covering recent developments impacting fintech sectors including mobile banking, cryptocurrency, digital assets, electronic payments, money transmission, and peer-to-peer lending. Covers federal and state-level changes from CFPB, SEC, CFTC, FinCEN, OCC, Federal Reserve, and state regulators. Prioritizes developments from the past 90 days with urgency triage and compliance deadlines. Use when compliance officers or legal teams need to navigate recent financial regulation changes, monitor agency guidance, or produce regulatory status reports.
-tags:
-  - analysis
-  - regulatory
-  - research
-  - summarization
-  - summary
+description: Generates structured regulatory summaries for fintech compliance covering crypto, payments, lending, mobile banking, and money transmission. Covers CFPB, SEC, CFTC, FinCEN, OCC, Federal Reserve, and state regulators with urgency triage and compliance deadlines. Use when compliance officers or legal teams need recent regulatory updates, agency guidance monitoring, or regulatory status reports.
 ---
 
-# Fintech Regulatory Summary
+# Fintech Regulatory Summaries
 
-Produces a structured regulatory update enabling fintech compliance officers and legal counsel to quickly identify critical developments, compliance deadlines, and required actions.
+Produces structured regulatory updates for fintech compliance officers and legal counsel to identify critical developments, deadlines, and required actions.
 
-## Prerequisites
+## Quick Start
 
-1. **Scope parameters** — sectors of interest (crypto, payments, lending, mobile banking, regtech) and any specific agencies or topics to prioritize
-2. **Time window** — default is past 90 days; adjust if narrower/broader coverage needed
-3. **Jurisdictions** — federal only, specific states, or full multi-jurisdictional sweep
-4. **Business context** (optional) — company's regulated activities to tailor materiality assessments
+Gather before generating:
+
+1. **Sectors** — crypto, payments, lending, mobile banking, regtech
+2. **Time window** — default 90 days; adjust as needed
+3. **Jurisdictions** — federal only, specific states, or multi-jurisdictional
+4. **Business context** (optional) — company's regulated activities for materiality tailoring
 
 ## Output Structure
 
 ### 1. Executive Overview
-3–5 bullet items, each covering:
-- **What changed** (rule/guidance/enforcement action + agency)
-- **Who it affects** (specific fintech activity or model)
-- **Urgency** (`Immediate` / `Near-Term` / `Monitor`)
-- **Deadline** (effective date or comment period close)
 
-### 2. Detailed Analysis by Topic/Agency
+3–5 bullets, each with:
+- **What changed** — rule/guidance/enforcement action + agency
+- **Who it affects** — specific fintech activity or model
+- **Urgency** — `Immediate` / `Near-Term` / `Monitor`
+- **Deadline** — effective date or comment period close
 
-For each significant development, provide:
+### 2. Detailed Analysis
+
+Per development:
 
 | Field | Content |
 |---|---|
-| **Source** | Agency, document title, FR citation or docket no. [VERIFY] |
-| **Effective/Comment Date** | Specific date or "Proposed — Comment by [date]" |
-| **Sectors Affected** | Crypto exchanges / Payment processors / Lenders / MSBs / etc. |
-| **Key Requirements** | Numbered compliance obligations extracted from regulatory text |
-| **Ambiguities** | Areas of interpretive uncertainty or pending agency guidance |
-| **Recommended Action** | Specific next steps (update policies, file comments, conduct gap analysis) |
+| **Source** | Agency, title, FR citation or docket no. `[VERIFY]` |
+| **Effective/Comment Date** | Date or "Proposed — Comment by [date]" |
+| **Sectors Affected** | Crypto exchanges / Processors / Lenders / MSBs |
+| **Key Requirements** | Numbered compliance obligations from regulatory text |
+| **Ambiguities** | Interpretive uncertainty or pending guidance |
+| **Recommended Action** | Next steps: update policies, file comments, gap analysis |
 
-### 3. Regulatory Interaction Map
-Note where multiple frameworks overlap on a single development (e.g., a crypto custody rule implicating SEC + OCC + FinCEN simultaneously). Flag conflict or gap between federal and state approaches.
+### 3. Regulatory Overlap Map
+
+Flag where multiple frameworks apply to one development (e.g., crypto custody implicating SEC + OCC + FinCEN). Note federal/state conflicts or gaps.
 
 ### 4. State Spotlight (if applicable)
-Highlight notable state-level divergence in:
-- Money transmitter licensing (MTL) requirements
-- State crypto or digital asset frameworks
-- State consumer lending rate caps or disclosure rules
 
-### 5. International Context (crypto/cross-border payments only)
-Note alignment or divergence with EU MiCA, FATF guidance, or major foreign regulator actions when material to U.S.-based multinationals.
+Cover divergence in:
+- Money transmitter licensing (MTL)
+- State crypto/digital asset frameworks
+- Consumer lending rate caps or disclosure rules
 
-## Agency Coverage Checklist
+### 5. International Context (crypto/cross-border only)
 
-- [ ] CFPB — consumer protection, BNPL, open banking (1033 rulemaking)
-- [ ] SEC — digital asset securities, investment adviser rules, broker-dealer
-- [ ] CFTC — crypto derivatives, commodity token classification
+Note alignment or divergence with EU MiCA, FATF guidance, or major foreign regulator actions material to U.S. multinationals.
+
+## Agency Checklist
+
+- [ ] CFPB — consumer protection, BNPL, open banking (1033)
+- [ ] SEC — digital asset securities, broker-dealer
+- [ ] CFTC — crypto derivatives, commodity tokens
 - [ ] FinCEN/Treasury — AML/BSA, beneficial ownership, travel rule
 - [ ] OCC — bank charter, crypto custody, fintech partnerships
-- [ ] Federal Reserve — payments, FedNow, Reg E/Z amendments
-- [ ] State regulators — MTL, lending, state-chartered bank rules
+- [ ] Federal Reserve — payments, FedNow, Reg E/Z
+- [ ] State regulators — MTL, lending, state bank rules
 
-## Guidelines
+## Pitfalls
 
-- Cite only primary sources (Federal Register, agency press releases, official guidance); use `[VERIFY]` on any citation not confirmed against the source
-- Distinguish **final rules**, **proposed rules**, **guidance/no-action letters**, and **enforcement actions** — compliance obligations differ materially
-- Do not conflate "guidance" with binding regulation; flag where agency position lacks formal rulemaking
-- For proposed rules, include comment period deadlines and note whether industry has raised significant objections
-- Urgency tiers: **Immediate** = effective or past due; **Near-Term** = effective within 90 days; **Monitor** = proposed or 90+ days out
-- Acknowledge interpretive ambiguity rather than asserting false certainty on unsettled regulatory questions
+- **Cite primary sources only** — Federal Register, agency releases, official guidance. Tag unconfirmed citations `[VERIFY]`.
+- **Distinguish document types** — final rules, proposed rules, guidance/no-action letters, and enforcement actions carry different compliance weight.
+- **Never conflate guidance with binding regulation** — flag where agency position lacks formal rulemaking.
+- **Include comment deadlines for proposed rules** — note significant industry objections.
+- **Urgency tiers** — Immediate: effective/past due. Near-Term: within 90 days. Monitor: proposed or 90+ days.
+- **Acknowledge ambiguity** — do not assert false certainty on unsettled regulatory questions.

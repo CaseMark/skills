@@ -1,126 +1,72 @@
 ---
 name: hipaa-release-authorization
 description: >-
-  Drafts U.S. HIPAA-compliant PHI release authorizations for estate-planning
-  workflows, enabling designated healthcare agents or representatives to
-  access a patient’s medical information. Use for drafting release forms,
-  healthcare POA support documents, and record-access instruments. Trigger
-  keywords: HIPAA release, PHI authorization, estate planning, healthcare
-  agent, healthcare power of attorney, advance directive support. Enforces 45
-  CFR §164.508 core authorization elements, scope of disclosure controls,
-  revocation statement, notice language, and execution requirements.
-tags:
-  - agreement
-  - drafting
-  - regulatory
-  - transactional
+  Drafts HIPAA-compliant PHI release authorizations for estate-planning
+  workflows under 45 CFR §164.508. Use when drafting release forms,
+  healthcare POA support documents, or record-access instruments. Triggers:
+  HIPAA release, PHI authorization, healthcare agent access, advance
+  directive support, medical record release.
 ---
 
-# HIPAA Release Authorization Form
+# HIPAA Release Authorization
 
-Drafts an estate-planning-oriented HIPAA authorization form that permits selected recipients to access specified protected health information from covered entities.
+Generates a 45 CFR §164.508-compliant authorization permitting designated recipients to access a patient's protected health information (PHI) from covered entities, typically in an estate-planning context.
 
-## Prerequisites
+## Quick Start
 
-1. Jurisdiction (state) identified for signature/agent-execution formalities.
-2. Patient/authorizing individual data: legal name, DOB, and contact details.
-3. Defined recipients: healthcare agent, successor agent(s), and any additional representatives.
-4. Defined disclosing parties: providers, hospitals, labs, pharmacies, health plans, and entities likely to possess PHI.
-5. PHI scope decision: all records vs. limited categories.
-6. Disclosure purpose and duration (expiration date/event) confirmed.
-7. Representative authority verification when client lacks capacity (POA, guardian order, court appointment docs).
-8. Prior estate-planning documents uploaded for consistency (e.g., healthcare proxy, advance directive language references).
+Gather before drafting:
 
-## Output Structure / Process
+1. **Jurisdiction** — state governs signature and witness/notary formalities
+2. **Patient identity** — legal name, DOB, contact details
+3. **Recipients** — healthcare agent, successor agent(s), other representatives
+4. **Disclosing entities** — providers, hospitals, labs, pharmacies, health plans
+5. **PHI scope** — all records or limited categories
+6. **Purpose and duration** — expiration date, event, or condition
+7. **Representative authority** (if applicable) — POA, guardianship order, court appointment
+8. **Related documents** — healthcare proxy, advance directive for terminology alignment
 
-### Required sections checklist
+## Required Sections
 
-| Section | Inputs required | Compliance target |
-|---|---|---|
-| Title + declaration | Form purpose and legal basis | Clear, single-purpose authorization |
-| Patient authorization statement | Identity + capacity check | Voluntary, specific written consent |
-| Authorized recipients | Agent names, roles, relationships | Precise, no ambiguous recipients |
-| Disclosing entities | Covered entities/record holders | Broad only when intended |
-| PHI scope | Records/categories requested | Include exclusions if any |
-| Purpose | Decision-making function and use case | Specific estate-planning healthcare purpose |
-| Expiration/termination | End date, event, or condition | Must be explicit |
-| HIPAA disclosures/limits | Re-disclosure, treatment non-conditioning | Required notices |
-| Revocation | How/where written revocation is sent | Clear patient rights statement |
-| Execution block | Signatures, printed names, dates | Patient-first, then representative if needed |
-| Optional witness/notary block | State-law requirements | Add only where applicable [VERIFY] |
-| Footer counsel note | Review/disclaimer | Optional but recommended |
+Every authorization must include these elements per §164.508:
 
-### Draft template
+| Section | Key requirement |
+|---|---|
+| Patient identification | Name, DOB, contact |
+| Authorization statement | Voluntary, specific written consent |
+| Authorized recipients | Agent names, roles, relationships — no ambiguity |
+| Disclosing entities | Covered entities / record holders |
+| PHI scope | Explicit categories; do not mix "all records" with narrow limits |
+| Purpose | Specific estate-planning healthcare decision-making purpose |
+| Expiration | Explicit end date, event, or condition |
+| Required notices | Re-disclosure warning, treatment non-conditioning, right to refuse |
+| Revocation | How and where written revocation is sent; prospective-only effect |
+| Execution block | Patient signature first, then representative if applicable |
+| Witness/notary | Only where state law requires [VERIFY] |
 
-```markdown
-AUTHORIZATION FOR RELEASE OF PROTECTED HEALTH INFORMATION
-Pursuant to 45 CFR §164.508
+## Draft Workflow
 
-1) Authorizing Individual (Patient)
-- Name:
-- Date of Birth:
-- Address:
-- Phone/Email:
+1. **Confirm inputs** against the Quick Start checklist; flag any gaps.
+2. **Select PHI scope** — if client wants full-record access, state it unambiguously; otherwise enumerate categories. Sensitive categories (substance use, mental health, genetic, HIV/AIDS) require explicit inclusion [VERIFY].
+3. **Draft the form** using this structure:
+   - Title citing 45 CFR §164.508
+   - Patient identification block
+   - Authorization statement
+   - Disclosers list
+   - Recipients list (match names/roles to healthcare POA document)
+   - PHI scope with checkbox-style selection
+   - Purpose statement tied to healthcare directives
+   - Duration clause (date, revocation, or death — whichever first)
+   - Patient rights / required statements (all six §164.508 notices)
+   - Execution block (patient, then representative if signing on behalf)
+   - Witness/notary block if state law applies
+4. **Validate** — all placeholders visible, recipients consistent across sections, terminology aligns with governing POA/directive.
+5. **Add state-specific addendum** only when confirmed for target jurisdiction.
 
-2) Authorization
-I authorize the use and disclosure of my protected health information (PHI) as described below.
+## Pitfalls
 
-3) Person(s) authorized to disclose PHI (Disclosers)
-- [Covered entity or healthcare facility 1]
-- [Covered entity or healthcare facility 2]
-
-4) Person(s) authorized to receive PHI (Recipients)
-- [Agent Name], designated Healthcare Agent
-- [Successor Agent Name], designated Successor Healthcare Agent
-- [Other Representative/Attorney/Family Member, if any]
-
-5) PHI to be disclosed
-- [ ] All PHI
-- [ ] Limited to: [Specify medical record categories]
-- [ ] Sensitive categories if included: [substance use, mental health, genetic, HIV/AIDS, etc.] [VERIFY]
-
-6) Purpose of disclosure
-To permit recipients to obtain, discuss, review, and rely on my PHI for healthcare decision-making under my healthcare directives and/or healthcare power of attorney.
-
-7) Duration
-This authorization is effective upon execution and remains effective until:  
-- [ ] A stated date: [__] or  
-- [ ] Revocation by me in writing, or  
-- [ ] Death, whichever occurs first.
-
-8) Patient rights / required statements
-- I may revoke this authorization at any time with written notice to the entity that possesses the records.
-- Revocation applies prospectively to future uses/disclosures by covered entities after notice.
-- PHI disclosed under this authorization may be re-disclosed and may lose some HIPAA protection.
-- I understand I may refuse to sign this authorization and this refusal cannot be used against me.
-- Treatment or services will not be conditioned on signing unless required by law.
-- I have the right to receive a signed copy.
-
-9) Execution
-Patient Signature: ____________________  Date: _______
-Printed Name: ________________________
-
-If signed by representative:
-Representative Name: ______________  Signature: __________  Date: _______
-Authority/Relationship: _______________  Document: _______________
-
-Witness/Notary (if required by state law): ____________________________________________________ [VERIFY]
-```
-
-### Final generation rules
-
-1. Always render all bracketed placeholders visibly.
-2. Prefer complete clauses over undefined references.
-3. Keep medical categories explicit; do not mix “all records” and narrow categories.
-4. Validate for internal consistency (recipient appears in same section, same spelling throughout).
-5. Add state-specific addendum blocks only when confirmed for target jurisdiction.
-
-## Guidelines
-
-- Do not authorize disclosures broader than needed unless client requests full-record access.
-- Do not omit the identity of recipients or disclosers.
-- Do not include blank signature authority fields for representative execution.
-- Include written revocation mechanism and contact target in the revocation paragraph.
-- Never represent federal law as exclusive when state mandates may override form requirements [VERIFY].
-- Include attorney review language in cover memo if template will be client-facing.
-- Estate planning variants should align with the governing healthcare POA terminology and naming in the core delegation document [VERIFY].
+- Never authorize broader disclosure than needed unless client explicitly requests full-record access.
+- Never leave recipient or discloser fields unidentified.
+- Never leave representative signature fields blank without authority documentation.
+- Federal law is not exclusive — state mandates may impose additional form requirements [VERIFY].
+- Estate-planning variants must match healthcare POA terminology in the core delegation document [VERIFY].
+- Include attorney-review language in cover memo if template is client-facing.

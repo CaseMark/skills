@@ -1,6 +1,6 @@
 ---
 name: motion-to-convert
-description: Drafts a Motion to Convert Case for bankruptcy proceedings under 11 U.S.C. § 706, requesting conversion between chapters (e.g., Chapter 7 to Chapter 13 or vice versa). Builds caption, factual background, statutory arguments, and prayer for relief from case documents. Use when drafting bankruptcy conversion motions, chapter conversion requests, or § 706/§ 1307 motions.
+description: Drafts a Motion to Convert Case for bankruptcy proceedings under 11 U.S.C. §§ 706, 1112, or 1307. Builds caption, factual background, statutory arguments, and prayer for relief from case documents. Use when the user needs a bankruptcy conversion motion between chapters (e.g., Chapter 7 to 13 or vice versa).
 tags:
   - drafting
   - litigation
@@ -9,15 +9,25 @@ tags:
 
 # Motion to Convert Case
 
-Drafts a bankruptcy Motion to Convert Case that satisfies federal rules, local court requirements, and Bluebook citation standards.
+Drafts a bankruptcy Motion to Convert Case compliant with federal rules, local court requirements, and Bluebook citation standards.
 
 ## Prerequisites
 
-1. **Case documents** — schedules, statements of financial affairs, amendments, financial records
-2. **Current case status** — case number, filing date, current chapter, prior conversion history
-3. **Target chapter** — which chapter the debtor seeks to convert to
-4. **Jurisdiction details** — bankruptcy court, district, applicable local rules
-5. **Changed circumstances** — documentation of income changes, employment shifts, asset changes, or debt composition changes since filing
+Gather before drafting:
+
+1. **Case documents** — schedules, statements of financial affairs, financial records
+2. **Case status** — case number, filing date, current chapter, prior conversion history
+3. **Target chapter** — which chapter debtor seeks
+4. **Jurisdiction** — bankruptcy court, district, local rules
+5. **Changed circumstances** — income changes, employment shifts, asset or debt composition changes since filing
+
+## Quick Start
+
+1. Identify current chapter and target chapter
+2. Select controlling statute: § 706 (Ch. 7 debtor-initiated), § 1307 (Ch. 13), § 1112 (Ch. 11)
+3. Confirm § 109 eligibility for target chapter (debt limits, income thresholds, means test)
+4. Extract factual support from uploaded documents
+5. Draft sections in order below
 
 ## Output Structure
 
@@ -25,81 +35,77 @@ Drafts a bankruptcy Motion to Convert Case that satisfies federal rules, local c
 
 | Element | Requirement |
 |---|---|
-| Court name | Full name with jurisdiction (e.g., "United States Bankruptcy Court for the [District]") |
+| Court name | Full name with jurisdiction |
 | Case number | Complete case number |
 | Parties | Debtor, trustee, relevant creditors |
-| Title | "Motion to Convert Case Under 11 U.S.C. § 706" (or § 1307 as applicable) |
-| Formatting | Comply with local rules for font, margins, line spacing |
+| Title | "Motion to Convert Case Under 11 U.S.C. § [706/1112/1307]" |
+| Formatting | Per local rules (font, margins, spacing) |
 
 ### 2. Introduction
 
-- Identify movant and specific relief sought
-- State current chapter and target chapter
-- Cite controlling statute:
-  - **Debtor-initiated**: 11 U.S.C. § 706
-  - **Chapter 13 conversion**: 11 U.S.C. § 1307
-  - **Chapter 11 conversion**: 11 U.S.C. § 1112
-- State case filing date, current status, prior conversion history (extracted from documents)
+- Identify movant and relief sought
+- State current chapter → target chapter
+- Cite controlling statute
+- State filing date, current status, prior conversion history
 
 ### 3. Factual Background
 
-Build an objective narrative covering:
+Build objective narrative with record references:
 
-- [ ] Circumstances of original filing
-- [ ] Material changes since filing (with specific dollar amounts and dates)
-- [ ] Reasons necessitating conversion
-- [ ] Documentary references for each factual assertion
-
-Extract from uploaded documents: income figures, employment status, asset acquisitions/losses, debt composition shifts. Cite to specific schedules and exhibits.
+- Circumstances of original filing
+- Material changes since filing (specific dollar amounts and dates)
+- Reasons necessitating conversion
+- Citations to specific schedules and exhibits
 
 ### 4. Legal Argument
 
-**Statutory framework — layer arguments as follows:**
+Layer arguments:
 
-1. **Right to convert** — Under § 706(a), debtor-initiated conversion is generally a matter of right unless:
-   - Case was previously converted to current chapter under §§ 1112, 1208, or 1307
-   - Debtor is ineligible for target chapter under § 109
-2. **Eligibility** — Demonstrate compliance with 11 U.S.C. § 109 requirements for target chapter (e.g., § 109(e) debt limits for Chapter 13)
-3. **Circuit/district precedent** — Cite controlling cases interpreting conversion standards in the applicable jurisdiction `[VERIFY citations]`
-4. **Equitable factors** — Good faith, full disclosure, changed circumstances, benefit to creditors
+1. **Right to convert** — § 706(a) grants debtor-initiated conversion as of right unless previously converted under §§ 1112/1208/1307 or debtor is ineligible under § 109
+2. **Eligibility** — demonstrate § 109 compliance for target chapter (e.g., § 109(e) debt limits for Ch. 13)
+3. **Jurisdiction precedent** — cite controlling circuit/district cases `[VERIFY citations]`
+4. **Equitable factors** — good faith, full disclosure, changed circumstances, creditor benefit
 
-**Preemptive rebuttal of anticipated objections:**
+**Rebut anticipated objections:**
 
-| Likely Objection | Response Strategy |
+| Objection | Strategy |
 |---|---|
-| Bad faith | Show full disclosure, circumstances beyond debtor's control |
-| Abuse of process | Demonstrate legitimate changed circumstances |
-| Creditor prejudice | Show equal or better creditor recovery under target chapter |
+| Bad faith | Full disclosure, circumstances beyond debtor's control |
+| Abuse of process | Legitimate changed circumstances |
+| Creditor prejudice | Equal or better recovery under target chapter |
 | Serial filing | Distinguish prior history or explain gaps |
 
 ### 5. Prayer for Relief
 
-Request specifically:
-- [ ] Order converting case from [current chapter] to [target chapter]
-- [ ] Effective date of conversion
-- [ ] Hearing date (if required by local rules)
-- [ ] Deadlines for new chapter compliance (plan filing, amended schedules)
-- [ ] Fee waiver or time extensions if applicable
+- Order converting from current chapter to target chapter
+- Effective date of conversion
+- Hearing date (if local rules require)
+- Deadlines for new chapter compliance (plan filing, amended schedules)
+- Fee waiver or time extensions if applicable
 
 ### 6. Signature Block & Certificate of Service
 
-**Signature block**: Attorney name, bar number, firm, address, phone, email, party designation, date.
+**Signature**: Attorney name, bar number, firm, address, phone, email, party, date.
 
-**Certificate of service** — confirm service on:
-- [ ] Case trustee
-- [ ] United States Trustee
-- [ ] All creditors entitled to notice under local rules
-- [ ] Any party who has filed a notice of appearance
+**Service list**: case trustee, U.S. Trustee, all creditors entitled to notice, any party with notice of appearance. Comply with local rules on method and timing.
 
-Comply with local rules on service method and timing.
+## Pitfalls & Checks
 
-## Guidelines
-
-- Format all citations in Bluebook style
-- Verify exact statutory text of §§ 706, 1307, 1112, and 109 before citing
 - Mark any citation not verified against primary source with `[VERIFY]`
-- Maintain professional objectivity — persuasive but restrained tone
-- Support every factual assertion with a record reference
-- Check local court website for current formatting requirements and local rules
-- If converting from Chapter 13 to 7, address § 1307(b) (debtor's absolute right) vs. § 1307(c) (cause-based conversion)
-- Do not assume eligibility — confirm debt limits, income thresholds, and means test implications for target chapter
+- Verify exact statutory text of §§ 706, 1307, 1112, 109 before citing
+- For Ch. 13 → 7: address § 1307(b) (absolute right) vs. § 1307(c) (cause-based)
+- Never assume eligibility — confirm debt limits, income thresholds, means test for target chapter
+- Every factual assertion must have a record reference
+- All citations in Bluebook format
+- Check local court rules for formatting and service requirements
+
+---
+
+**Key changes made:**
+
+- **Description** — tightened wording; added all three statute sections (§§ 706, 1112, 1307) upfront
+- **Added Quick Start** — 5-step workflow so the agent can orient immediately
+- **Consolidated Output Structure** — removed checkbox syntax and verbose prose; kept tables and bullet lists for scannability
+- **Renamed "Guidelines" → "Pitfalls & Checks"** — clearer intent, action-oriented
+- **Trimmed redundancy** — removed repeated explanations (e.g., certificate of service details folded into one line), collapsed signature block, shortened factual background instructions
+- **Token reduction** — ~30% shorter while preserving all legal substance and statutory references

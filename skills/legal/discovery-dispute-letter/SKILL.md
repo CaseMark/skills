@@ -1,6 +1,6 @@
 ---
 name: discovery-dispute-letter
-description: Drafts discovery dispute resolution letters documenting good faith meet-and-confer efforts and unresolved discovery issues in U.S. litigation. Structures case details, conference references, and specific disputes into a court-ready record suitable as a motion exhibit. Covers document production disputes, deposition disputes, interrogatory disputes, deadline-setting, and preservation language. Use when drafting meet-and-confer letters, discovery conference follow-ups, pre-motion to compel correspondence, or discovery dispute documentation during the discovery phase.
+description: Drafts discovery dispute resolution letters documenting meet-and-confer efforts and unresolved issues in U.S. litigation. Use when drafting meet-and-confer letters, discovery conference follow-ups, or pre-motion to compel correspondence during the discovery phase.
 tags:
   - drafting
   - letter
@@ -9,92 +9,66 @@ tags:
 
 # Discovery Dispute Resolution Letter
 
-Drafts a litigation-ready discovery dispute letter that documents meet-and-confer efforts, memorializes agreements, and creates a court-ready record for potential motions to compel.
+Drafts a court-ready letter that documents meet-and-confer efforts, memorializes agreements, and builds the record for potential motions to compel.
 
-## Prerequisites
+## Required Inputs
 
-1. **Case and procedural info** — caption, court, case number, judge, discovery deadline, CMC date
-2. **Discovery conference details** (if held) — date, participants, type, outcomes
-3. **Disputed discovery requests** — exact request language, objections raised, compromises discussed
-4. **Scheduling order** — discovery cut-off date, motion deadlines
-5. **Correspondence history** — prior meet-and-confer communications
+1. **Case info** — caption, court, case number, judge, discovery deadline
+2. **Conference details** — date, participants, outcomes (if conference held)
+3. **Disputed requests** — exact request language, objections raised, compromises discussed
+4. **Scheduling order** — discovery cut-off, motion deadlines
 
-## Output Structure
+## Letter Structure
 
-### Header Format
+**Header:** Date, opposing counsel address, Re line with full caption, case number, client name, matter number, discovery cut-off date. Include "Via Email" with address.
 
-```
-[DATE]
+**Body sections in order:**
 
-[OPPOSING COUNSEL NAME]
-[TITLE]
-[FIRM NAME]
-[ADDRESS]
-[CITY, STATE ZIP]
+1. **Opening** — Reference conference date/participants, acknowledge agreements, identify remaining disputes. Note motion practice may follow.
+2. **Agreements Reached** — Numbered list of compromises with compliance deadlines. Request written confirmation.
+3. **Outstanding Disputes** — Organized by discovery method (RFPs, interrogatories, depositions). Use the per-dispute format below.
+4. **Deadlines** — Specific response date tied to court schedule. State motion to compel and sanctions consequences.
+5. **Closing** — Invite further discussion, propose specific follow-up date/time. Include preservation reminder.
+6. **Signature Block** — Name, title, contact info, cc list, attachments (original requests, conference notes, scheduling order).
 
-Via Email: [email]
+## Per-Dispute Format
 
-Re: [Full Case Caption]
-    [Court] Case No. [Number]
-    Our Client: [Client Name]
-    Matter No.: [Internal Number]
-    [Discovery Conference Follow-Up / Discovery Dispute Resolution]
-    Discovery Cut-Off: [Date]
-```
+Each disputed item must include all four elements:
 
-### Letter Body Sections
+1. **Exact Request Language** — quote verbatim as served
+2. **Opposing Objection** — quote verbatim
+3. **Why Objection Lacks Merit** — cite applicable rules and authority
+4. **Proposed Compromise** — narrowed alternative demonstrating reasonableness
 
-| Section | Content | Key Requirements |
-|---------|---------|-----------------|
-| **Opening** | Reference conference date/participants, acknowledge agreements, identify remaining disputes | Set firm but professional tone; note motion practice may follow |
-| **Agreements Reached** | Numbered list of compromises with compliance deadlines | Request written confirmation of mutual understanding |
-| **Outstanding Disputes** | Organized by discovery method (RFPs, interrogatories, depositions) | Use format below for each dispute |
-| **Deadlines** | Specific response date tied to court schedule | State motion to compel and sanctions consequences |
-| **Closing** | Invite further discussion, propose specific follow-up time | Include preservation reminder |
-| **Signature Block** | Name, title, contact info, cc list, attachments | List original requests, conference notes, scheduling order |
+## Letter Type Variations
 
-### Per-Dispute Format
-
-For each disputed item, include all four elements:
-
-1. **Exact Request Language** — Quote the discovery request verbatim
-2. **Opposing Objection** — Quote their objection verbatim
-3. **Why Objection Lacks Merit** — Cite applicable rules and authority
-4. **Proposed Compromise** — Demonstrate reasonableness with a narrowed alternative
-
-### Letter Type Variations
-
-| Type | Tone | Purpose | Timing |
-|------|------|---------|--------|
-| **Pre-conference agenda** | Professional, collaborative | Outline issues for conferral | Before meet-and-confer |
-| **Post-conference follow-up** | Collaborative, precise | Memorialize agreements, narrow disputes | Within 24-48 hours |
-| **Pre-motion to compel** | Firm, formal | Final attempt before court involvement; build exhibit record | Allow response time before filing deadline |
+- **Pre-conference agenda** — collaborative tone; outlines issues for conferral; sent before meet-and-confer
+- **Post-conference follow-up** — precise, collaborative; memorializes agreements, narrows disputes; sent within 24–48 hours
+- **Pre-motion to compel** — firm, formal; final attempt before court involvement; allow response time before filing deadline
 
 ## Guidelines
 
-- **Write for the judge** — every sentence may become a motion exhibit; make the client look reasonable and opposing counsel obstructionist
-- **Quote exactly** — discovery requests and objections must be quoted verbatim as served
+- **Write for the judge** — every sentence may become a motion exhibit; make the client look reasonable
+- **Quote exactly** — requests and objections must be verbatim as served
 - **Characterize fairly** — describe opposing responses accurately even when inadequate
-- **Cite authority** — reference FRCP 26(b)(1) (proportionality), FRCP 30(a)(1) (deposition rights), FRCP 33(d) (interrogatory completeness), and relevant local rules
+- **Cite authority** — FRCP 26(b)(1) (proportionality), FRCP 30(a)(1) (depositions), FRCP 33(d) (interrogatories), plus local rules
 - **Demonstrate good faith** — show willingness to compromise on scope, timing, or format
-- **Pin down follow-up** — always propose a specific date/time for a callback if no response, to prevent indefinite delay
-- **Include preservation language** — remind opposing counsel of ongoing duty to preserve documents and ESI
+- **Pin down follow-up** — always propose a specific callback date/time to prevent indefinite delay
+- **Preservation language** — remind of ongoing duty to preserve documents and ESI
 
-### Court-Specific Considerations
+## Court-Specific Notes
 
-| Court | Key Rules |
-|-------|-----------|
-| **Federal (FRCP)** | Rule 26(f) meet-and-confer; Rule 26(b)(1) proportionality; magistrate referral; case management order deadlines |
-| **State** | Verify local meet-and-confer requirements; check different objection standards and discovery cut-off calculations |
-| **Complex commercial** | Address e-discovery protocols, protective orders, voluminous production, privilege log disputes |
+- **Federal** — Rule 26(f) meet-and-confer required; Rule 26(b)(1) proportionality; magistrate referral; CMO deadlines
+- **State** — verify local meet-and-confer requirements; check objection standards and discovery cut-off calculations
+- **Complex commercial** — address e-discovery protocols, protective orders, voluminous production, privilege log disputes
 
-### Final Review Checklist
+## Checklist
 
-- [ ] Local meet-and-confer rules satisfied
-- [ ] Reasonable response deadline provided
-- [ ] All disputed items specifically identified with exact request language
-- [ ] Good faith compromise demonstrated for each dispute
-- [ ] Legal authority cited for contested positions
-- [ ] Tone is firm but professional throughout
-- [ ] Preservation language included
-- [ ] Letter is court-exhibit ready
+- Local meet-and-confer rules satisfied
+- Reasonable response deadline provided
+- All disputed items identified with exact request language
+- Good faith compromise demonstrated for each dispute
+- Legal authority cited for contested positions
+- Firm but professional tone throughout
+- Preservation language included
+- Letter is court-exhibit ready

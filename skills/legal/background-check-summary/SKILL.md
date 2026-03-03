@@ -1,32 +1,33 @@
 ---
 name: background-check-summary
-description: Summarizes background check data into structured executive reports with risk categorization. Covers criminal records, court filings, employment and education verification, sanctions screening, and adverse media. Use when processing raw background investigation data for pre-employment screening, executive due diligence, or investment-grade investigations.
-tags:
-  - analysis
-  - corporate
-  - litigation
-  - summarization
-  - summary
-  - transactional
+description: Summarizes raw background check data into structured executive reports with risk categorization (GREEN/YELLOW/RED). Use when processing criminal records, court filings, employment/education verification, sanctions screening, or adverse media for pre-employment screening, executive due diligence, or investment-grade investigations.
 ---
 
 # Background Check Summarization
 
-Transforms raw background check data into a decision-ready summary with risk categorization and compliance flags.
+Transforms raw background check data into a decision-ready summary with risk categorization and compliance flags. Output has three sections: executive summary, detailed findings, and methodology.
+
+## Quick Start
+
+1. Identify subject (name, DOB, SSN last 4, search scope)
+2. Categorize each check type as Pass / Flag / Pending
+3. Assign overall status: GREEN, YELLOW, or RED
+4. Surface top 2–3 findings and any compliance flags
+5. Append methodology and coverage limitations
 
 ## Output Structure
 
-### 1. Executive Summary
+### Executive Summary
 
 - **Subject**: Full name, DOB, SSN (last 4), search scope
 - **Overall Status**: GREEN (clear) / YELLOW (requires review) / RED (adverse findings)
-- **Category Table**: Pass/Flag/Pending for each check type
-- **Key Findings**: 2-3 most significant items
+- **Category Table**: Pass/Flag/Pending per check type
+- **Key Findings**: 2–3 most significant items
 - **Compliance Flags**: Jurisdiction-specific requirements
 
-### 2. Detailed Findings by Category
+### Detailed Findings
 
-Present each with findings or explicit "No records found":
+Present each category with findings or explicit "No records found":
 
 | Category | Key Data Points |
 |----------|----------------|
@@ -39,9 +40,9 @@ Present each with findings or explicit "No records found":
 | Sanctions/Watchlist | OFAC, BIS, state debarment |
 | Adverse Media | Source, date, relevance assessment |
 
-### 3. Methodology & Limitations
+### Methodology & Limitations
 
-Sources searched and any limitations (e.g., jurisdictions not covered, records sealed).
+State sources searched and gaps (jurisdictions not covered, sealed records, database lag).
 
 ## Risk Categorization
 
@@ -52,13 +53,14 @@ Sources searched and any limitations (e.g., jurisdictions not covered, records s
 | RED | Significant adverse findings, verification failures, recent serious offenses | Enhanced review / adverse action |
 
 ### Escalation Factors
-- **Criminal**: Felony, violence/fraud/theft-related, recency (<7 years), relevance to position, pending charges
-- **Employment**: Title inflation, date gaps >3 months, overlapping employment, employer not found
-- **Education**: Degree or institution mismatch, unaccredited institution
 
-## Compliance Requirements
+- **Criminal**: Felony; violence/fraud/theft-related; recency (<7 yrs); position relevance; pending charges
+- **Employment**: Title inflation; date gaps >3 months; overlapping employment; employer not found
+- **Education**: Degree or institution mismatch; unaccredited institution
 
-- **FCRA**: All summaries must note that adverse action requires pre-adverse action notice, copy of report, and Summary of Rights
+## Compliance Checks
+
+- **FCRA**: Adverse action requires pre-adverse notice, report copy, and Summary of Rights — always note this
 - **Ban-the-Box / Fair Chance**: Flag jurisdictions restricting criminal history inquiries at specific hiring stages
-- **EEOC Guidance**: Criminal history must be evaluated for nature of offense, time elapsed, and job-relatedness
-- **State-specific lookback limits**: Note applicable 7-year or other limitations on reportable records
+- **EEOC Guidance**: Evaluate criminal history for nature of offense, time elapsed, and job-relatedness
+- **State lookback limits**: Note applicable 7-year or other reportable-record limitations

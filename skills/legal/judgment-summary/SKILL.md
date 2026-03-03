@@ -1,33 +1,30 @@
 ---
 name: judgment-summary
-description: Produces structured U.S. litigation judgment summaries from court opinions or final orders, covering caption, procedural history, facts, issues, standards of review, holdings, precedent treatment, concurrences/dissents, disposition, and practical implications with pinpoint citations. Use for judgment summary, opinion summary, final decision summary, post-trial review, appeal analysis, or case outcome briefs.
-tags:
-  - litigation
-  - summarization
-  - summary
+description: Produces structured U.S. litigation judgment summaries from court opinions or final orders. Use when summarizing a judgment, opinion, final decision, post-trial ruling, appeal outcome, or case disposition brief. Covers caption, procedural history, facts, issues, standards of review, holdings, precedent treatment, concurrences/dissents, disposition, and practical implications with pinpoint citations.
 ---
 
 # Judgment Summary
 
-Delivers a citation-ready summary of a final judgment or opinion with holdings, standards of review, and practical impact.
+Citation-ready summary of a final judgment or opinion — holdings, standards of review, precedent treatment, and practical impact.
 
 ## Prerequisites
 
-1. Full opinion or judgment text with page or paragraph numbering.
-2. Case citation details: court, docket number, decision date, judge or panel.
-3. Procedural posture and relevant lower court rulings.
-4. Record of key filings or orders referenced by the court.
+1. Full opinion or judgment text with page/paragraph numbering.
+2. Case citation details: court, docket number, decision date, judge/panel.
+3. Procedural posture and any relevant lower court rulings.
 
-## Output Structure / Process
+## Quick Start
 
-1. Extract case metadata and confirm jurisdiction.
+1. Extract case metadata; confirm jurisdiction.
 2. Identify issues, standards of review, and holdings with pinpoint cites.
 3. Separate background, material, and disputed facts.
-4. Track precedent treatment and any split implications.
-5. Capture disposition details, remand instructions, and deadlines.
-6. Translate holdings into practical implications without advocacy.
+4. Track precedent treatment and circuit-split implications.
+5. Capture disposition, remand instructions, and deadlines.
+6. Translate holdings into practical implications — no advocacy.
 
-Use the following template and fill every section. If a field is missing, write `Not stated`.
+Fill every section below. If a field is missing, write `Not stated`.
+
+## Template
 
 ```
 CASE CAPTION
@@ -86,14 +83,26 @@ KEY CITATIONS
 - Notable reasoning:
 ```
 
-Target length: 1,500 to 3,000 words unless the decision is unusually short.
+Target length: 1,500–3,000 words unless the decision is unusually short.
 
-## Guidelines
+## Pitfalls
 
-- Neutral tone; no advocacy or editorial framing.
-- Distinguish holdings from dicta explicitly.
-- Preserve the court’s terminology for standards and tests.
-- If a legal citation is uncertain, mark it `[VERIFY]`.
-- Do not infer facts or procedural steps not stated in the opinion.
-- If non-U.S. or specialized court, note deviations from U.S. practice in the Synopsis.
-- Use pinpoint cites for every holding and for any fact the court labels material.
+- **Holdings vs. dicta**: Distinguish explicitly; never elevate dicta to holding status.
+- **Neutral tone**: No advocacy or editorial framing.
+- **Court terminology**: Preserve the court's exact language for standards and tests.
+- **Uncertain citations**: Mark with `[VERIFY]`.
+- **No inference**: Do not infer facts or procedural steps absent from the opinion.
+- **Non-U.S. courts**: Note deviations from U.S. practice in the Synopsis.
+- **Pinpoint cites required**: Every holding and every court-labeled material fact needs one.
+
+---
+
+**Key changes made:**
+
+- **Frontmatter**: Removed `tags` (not in spec), tightened `description` to be third-person with clear trigger keywords while staying under 1024 chars.
+- **Overview**: Condensed to a single line with em-dash for scannability.
+- **Prerequisites**: Dropped item 4 (redundant with the template's procedural history section), tightened wording.
+- **Renamed "Output Structure / Process" → "Quick Start"**: Aligns with best-practice section naming; same 6 steps, punchier phrasing.
+- **Renamed section to "Template"**: Clearer label; template content unchanged since it's the core value of the skill.
+- **Renamed "Guidelines" → "Pitfalls"**: Reformatted as bold-label list items for faster scanning; same 7 rules, zero content loss.
+- **Removed redundant prose**: Eliminated the bridging sentence before the template ("Use the following template…") and folded its instruction ("If a field is missing, write `Not stated`") into Quick Start.

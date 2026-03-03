@@ -1,6 +1,6 @@
 ---
 name: bail-hearing-summary
-description: Generates structured bail hearing summaries for criminal defense matters, extracting charges, prosecution/defense arguments, bail conditions, risk factors, and court rulings from transcripts and case documents. Use when summarizing bail hearings, pretrial detention decisions, bond hearings, or release condition orders.
+description: Generates structured bail hearing summaries from transcripts and case documents, extracting charges, arguments, conditions, and rulings. Use when summarizing bail hearings, pretrial detention decisions, bond hearings, or release condition orders.
 tags:
   - litigation
   - summarization
@@ -9,21 +9,30 @@ tags:
 
 # Bail Hearing Summary
 
-Produces a structured summary of a bail hearing from transcripts and case documents for quick attorney reference.
+Produces a structured summary of a bail hearing for quick attorney reference. Extracts charges, prosecution/defense arguments, bail conditions, risk factors, and the court's ruling.
 
 ## Prerequisites
 
-1. **Charging documents** — complaint, indictment, or information with statute citations
-2. **Hearing transcript or recording** — the bail/bond hearing itself
-3. **Defendant background** — criminal history, FTA history if available
-4. **Party submissions** — prosecution and defense bail memoranda, if filed
+1. Charging documents — complaint, indictment, or information with statute citations
+2. Hearing transcript or recording
+3. Defendant background — criminal history, FTA history if available
+4. Party submissions — prosecution/defense bail memoranda, if filed
+
+## Quick Start
+
+1. Gather all source documents (charging docs, transcript, memoranda)
+2. Build the header block with case identifiers
+3. Extract charges into the charges table
+4. Summarize prosecution and defense arguments by category
+5. Document the court's ruling, bail amount, and all conditions
+6. Note upcoming dates and pending motions
 
 ## Output Structure
 
 ### Header Block
 
 | Field | Content |
-|-------|---------|
+|---|---|
 | Case Name | *People/State/United States v. [Defendant]* |
 | Case Number | |
 | Court / Jurisdiction | |
@@ -32,61 +41,62 @@ Produces a structured summary of a bail hearing from transcripts and case docume
 | Prosecution Counsel | |
 | Defense Counsel | |
 
-### Section 1: Charges
-
-Table format:
+### Charges
 
 | Count | Statute | Offense | Classification | Degree |
-|-------|---------|---------|---------------|--------|
+|---|---|---|---|---|
 | 1 | | | Felony/Misdemeanor | |
 
-### Section 2: Prosecution Arguments
+### Prosecution Arguments
 
-Extract and organize under these categories:
-- **Flight risk factors** — prior FTAs, out-of-jurisdiction ties, passport/travel access, financial resources
+Organize under these categories:
+
+- **Flight risk** — prior FTAs, out-of-jurisdiction ties, passport/travel access, financial resources
 - **Danger to community** — nature of charges, prior violent history, threats, weapons
-- **Strength of evidence** — key evidence cited by prosecution
-- **Bail request** — specific amount, conditions sought (detention, high bail, monitoring, no-contact, passport surrender, geographic restrictions)
+- **Strength of evidence** — key evidence cited
+- **Bail request** — amount, conditions sought (detention, monitoring, no-contact, passport surrender, geographic restrictions)
 
-### Section 3: Defense Arguments
+### Defense Arguments
 
-Extract and organize under these categories:
+Organize under these categories:
+
 - **Community ties** — residence stability, employment, family responsibilities
-- **Mitigating factors** — no/limited criminal history, cooperation, health conditions
-- **Proposed conditions** — ROR, reduced bail amount, supervision alternatives
+- **Mitigating factors** — limited criminal history, cooperation, health conditions
+- **Proposed conditions** — ROR, reduced bail, supervision alternatives
 - **Bail request** — specific amount or release type requested
 
-### Section 4: Court Ruling
+### Court Ruling
 
 | Element | Detail |
-|---------|--------|
+|---|---|
 | Bail granted/denied | |
 | Amount (if set) | |
 | Acceptable form | Cash / Surety / Property / Percentage |
 | Court's stated reasoning | |
 
-**Conditions imposed** — numbered list of all conditions:
-- [ ] Reporting requirements
-- [ ] Travel restrictions
-- [ ] Electronic monitoring
-- [ ] No-contact orders
-- [ ] Substance abuse testing
-- [ ] Mental health treatment
-- [ ] Other special conditions
+Conditions imposed (include all that apply):
 
-If bail denied: note remand to custody and court's reasoning.
+- Reporting requirements
+- Travel restrictions
+- Electronic monitoring
+- No-contact orders
+- Substance abuse testing
+- Mental health treatment
+- Other special conditions
 
-### Section 5: Upcoming Dates & Procedural Notes
+If bail denied: note remand to custody and reasoning.
+
+### Upcoming Dates & Procedural Notes
 
 - Next court date and purpose
 - Filing deadlines
 - Pending motions (reconsideration, appeal of bail decision)
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Objectivity** — present facts and arguments as stated; no advocacy or legal conclusions
-- **Quote key statements** — use direct quotes from transcript for significant judicial findings or counsel statements
-- **Attribute all facts** — tie assertions to source documents
+- **No advocacy** — present facts and arguments as stated; do not draw legal conclusions
+- **Quote key statements** — use direct quotes for significant judicial findings or counsel statements
+- **Attribute all facts** — tie every assertion to its source document
+- **Jurisdiction awareness** — note which bail statute the court applied (e.g., federal Bail Reform Act 18 U.S.C. § 3142, or state equivalent); never assume jurisdiction unless documents specify
 - **Length** — target 2–4 pages depending on hearing complexity
-- **Format** — use headings, tables, and bullet lists for scannability
-- **Jurisdiction awareness** — note which bail statute or standard the court applied (e.g., federal Bail Reform Act 18 U.S.C. § 3142, state equivalent) without assuming a specific jurisdiction unless documents indicate one
+- **Scannability** — use headings, tables, and bullet lists throughout

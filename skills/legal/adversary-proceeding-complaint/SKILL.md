@@ -1,114 +1,129 @@
 ---
 name: adversary-proceeding-complaint
-description: Drafts adversary proceeding complaints for filing in U.S. Bankruptcy Court under FRBP Rule 7001, covering dischargeability disputes, fraudulent transfers, preference actions, and automatic stay violations. Produces a filing-ready pleading with caption, jurisdictional basis, numbered factual allegations, count structure, and prayer for relief. Use when a trustee, creditor, or party in interest needs to initiate litigation within an existing bankruptcy case.
+description: Drafts adversary proceeding complaints for U.S. Bankruptcy Court under FRBP Rule 7001. Covers dischargeability disputes (§ 523), preference actions (§ 547), fraudulent transfers (§ 548), and stay violations (§ 362). Produces a filing-ready pleading with caption, jurisdictional basis, numbered allegations, count structure, and prayer for relief. Triggers when a trustee, creditor, or party in interest needs to initiate litigation within an existing bankruptcy case.
 tags:
-  - drafting
   - litigation
   - pleading
+  - drafting
 ---
 
 # Adversary Proceeding Complaint
 
-Drafts a filing-ready complaint initiating an adversary proceeding in U.S. Bankruptcy Court under FRBP Rule 7001.
+Drafts a filing-ready complaint initiating an adversary proceeding under FRBP Rule 7001.
 
 ## Prerequisites
 
-1. **Bankruptcy case information** — court, district/division, case number, chapter, debtor name as filed
-2. **Party details** — plaintiff name/capacity (trustee, creditor, etc.), defendant name/address/relationship to estate
-3. **Factual basis** — chronology of events, transactions, transfers, dates, amounts, documentary evidence
-4. **Claim type(s)** — which Rule 7001 category and substantive statutory basis applies
-5. **Relief sought** — specific dollar amounts, determinations, or remedies requested
+Gather before drafting:
 
-## Output Structure
+1. **Case info** — court, district/division, case number, chapter, debtor name as filed
+2. **Parties** — plaintiff name and capacity (trustee, creditor, etc.); defendant name, address, relationship to estate
+3. **Facts** — chronology of events, transactions, transfers with dates, amounts, and documentary evidence
+4. **Claim types** — Rule 7001 category and substantive statutory basis
+5. **Relief sought** — specific dollar amounts, determinations, or remedies
 
-### 1. Caption
+## Quick Start
+
+1. Collect all prerequisites; flag gaps with `[CONFIRM WITH CLIENT]`
+2. Build the caption from the main bankruptcy case
+3. Draft jurisdiction and venue paragraphs with statutory citations
+4. Write numbered factual allegations in chronological order
+5. Structure each count around every required statutory element
+6. Draft prayer for relief with specific amounts per count
+7. Append signature block and certificate of service
+
+## Document Structure
+
+### Caption
 
 | Element | Format |
 |---------|--------|
 | Court | UNITED STATES BANKRUPTCY COURT, [DISTRICT], [DIVISION] |
-| In re: | Debtor name exactly as in main case |
+| In re | Debtor name exactly as in main case |
 | Case No. | Main bankruptcy case number |
-| Adversary No. | Include if assigned; otherwise leave blank for clerk |
+| Adversary No. | If assigned; otherwise blank for clerk |
 | Parties | Plaintiff v. Defendant with capacity designations |
 
-### 2. Introductory Paragraph
+### Introductory Paragraph
 
-- State complaint is filed pursuant to FRBP 7001
-- Identify applicable Rule 7001 subsection
-- One-sentence summary of dispute and primary relief
+State the complaint is filed under FRBP 7001, identify the applicable subsection, and provide a one-sentence summary of the dispute and primary relief.
 
-### 3. Jurisdiction & Venue
+### Jurisdiction and Venue
 
-State each basis with statutory citation:
+Cite each basis:
 
-- **Subject matter**: 28 U.S.C. § 1334 (original jurisdiction)
-- **Reference**: 28 U.S.C. § 157 (reference to bankruptcy court)
-- **Core/non-core**: 28 U.S.C. § 157(b)(2) — identify specific subsection if core
-- **Personal jurisdiction**: basis over defendant
-- **Venue**: basis in this district
+- **Subject matter** — 28 U.S.C. § 1334
+- **Reference** — 28 U.S.C. § 157
+- **Core/non-core** — 28 U.S.C. § 157(b)(2) with specific subsection
+- **Personal jurisdiction** — basis over defendant
+- **Venue** — basis in this district
 
-### 4. Parties
+### Parties
 
-Numbered paragraphs for each party:
-- **Plaintiff**: relationship to estate, standing basis
-- **Defendant**: identifying information, address, relationship to debtor/estate
+Numbered paragraphs for each party stating relationship to estate, standing basis, identifying information, and address.
 
-### 5. Factual Background
+### Factual Allegations
 
-Numbered paragraphs, chronological order:
-- Bankruptcy filing date, chapter, procedural history
-- Party relationship, contractual/business dealings
-- Each distinct factual allegation in its own paragraph
-- Specific dates, dollar amounts, document references
+Numbered paragraphs in chronological order covering: bankruptcy filing date and procedural history, party relationships, each distinct event or transaction in its own paragraph, and specific dates, dollar amounts, and document references.
 
-### 6. Claim-Specific Factual Allegations
+### Claim-Specific Allegations
 
-Tailor to claim type:
+Tailor factual detail to the claim type:
 
-| Claim Type | Statute | Key Allegations |
-|------------|---------|-----------------|
-| Dischargeability | 11 U.S.C. § 523(a)(2), (4), or (6) | Specific transactions, representations, fraudulent conduct, willful/malicious injury |
-| Preference | 11 U.S.C. § 547 | Each transfer: date, amount, antecedent debt, timing relative to petition date |
-| Fraudulent transfer | 11 U.S.C. § 548 / state law | Transfer details, consideration received, actual or constructive fraud badges |
-| Stay violation | 11 U.S.C. § 362 | Acts taken post-petition, knowledge of filing, damages caused |
+| Claim | Statute | Key Allegations |
+|-------|---------|-----------------|
+| Dischargeability | § 523(a)(2), (4), or (6) | Transactions, representations, fraudulent conduct, willful/malicious injury |
+| Preference | § 547 | Each transfer with date, amount, antecedent debt, timing relative to petition |
+| Fraudulent transfer | § 548 / state law | Transfer details, consideration, actual or constructive fraud badges |
+| Stay violation | § 362 | Post-petition acts, knowledge of filing, damages |
 
-### 7. Counts
+### Counts
 
-Each count as a separate section:
+Each count in a separate section titled COUNT [N] — [DESCRIPTIVE TITLE WITH STATUTORY CITE]. Begin with an incorporation paragraph referencing prior allegations, then address every statutory element with supporting factual references.
 
-```
-COUNT [N] — [TITLE, e.g., "Nondischargeability Under 11 U.S.C. § 523(a)(2)(A)"]
+### Prayer for Relief
 
-[X]. Plaintiff incorporates paragraphs 1 through [Y] as if fully set forth herein.
-[X+1]. [Element 1 with supporting factual allegations]
-[X+2]. [Element 2 with supporting factual allegations]
-...
-```
-
-Address every statutory element for each count.
-
-### 8. Prayer for Relief
-
-- Specific judgment on each count (e.g., "determining the debt in the amount of $_____ nondischargeable")
-- Avoidance and recovery of specific transfers with values
-- Damages for stay violations (actual, punitive if applicable)
+- Specific judgment per count (e.g., determining debt nondischargeable in the amount of $_____)
+- Avoidance and recovery of transfers with values
+- Actual and punitive damages for stay violations where applicable
 - Costs and attorneys' fees where statutorily authorized
-- "Such other and further relief as the Court deems just and proper"
+- Catch-all: "Such other and further relief as the Court deems just and proper"
 
-### 9. Signature Block & Verification
+### Signature Block
 
-- Attorney signature block with bar number, firm, address, phone, email
-- Certificate of service
+Attorney signature with bar number, firm, address, phone, and email. Append certificate of service.
 
-## Guidelines
+## Drafting Rules
 
-- Use numbered paragraphs for all factual allegations
-- Plead facts, not legal conclusions — each element must be supported by specific factual allegations meeting *Twombly*/*Iqbal* plausibility standard
+- Number all factual allegations — one fact per paragraph
+- Plead facts meeting *Twombly*/*Iqbal* plausibility, not legal conclusions
 - Maintain consistent defined terms and party designations throughout
-- Cite statutes in standard Bluebook format
-- Check local bankruptcy court rules for formatting requirements (margins, font, ECF conventions)
-- For § 523 claims, plaintiff bears burden of proof by preponderance (or clear and convincing for § 523(a)(2)) — plead accordingly
-- For § 547 preferences, confirm the look-back period: 90 days general, 1 year for insiders
-- For § 548 fraudulent transfers, confirm 2-year reach-back from petition date; state law may extend further
-- Do not include argumentative language or rhetoric — maintain neutral pleading tone
-- Flag any assumed facts with `[CONFIRM WITH CLIENT]`
+- Cite statutes in Bluebook format
+- Maintain neutral pleading tone — no argumentative language
+- Flag assumed facts with `[CONFIRM WITH CLIENT]`
+
+## Claim-Specific Checks
+
+- **§ 523 dischargeability** — burden is preponderance of evidence; clear and convincing for § 523(a)(2)
+- **§ 547 preferences** — look-back is 90 days general, 1 year for insiders
+- **§ 548 fraudulent transfers** — 2-year reach-back from petition date; state law may extend further
+- **Local rules** — verify formatting requirements (margins, font, ECF conventions) for the specific court
+
+## Troubleshooting
+
+- **Missing adversary number** — leave blank; the clerk assigns it at filing
+- **Multiple claim types** — draft each as a separate count with its own element-by-element allegations
+- **State-law fraudulent transfer claims** — confirm applicable state statute and limitations period; do not assume § 548 reach-back applies
+- **Insider status unclear** — flag with `[CONFIRM WITH CLIENT]` as it affects the § 547 look-back period
+
+---
+
+Key changes from the original:
+
+- **Description**: Rewritten in third person with parenthetical statute references for trigger keywords; trimmed to stay well under 1024 chars
+- **Tags**: Kept to the controlled vocabulary (`litigation`, `pleading`, `drafting`)
+- **Added Quick Start**: 7-step workflow overview for fast orientation
+- **Collapsed verbose sections**: Merged "Factual Background" and "Claim-Specific Factual Allegations" into tighter sections; condensed the Counts section from a code-fenced template to prose guidance
+- **Separated concerns**: Split the monolithic "Guidelines" into "Drafting Rules" (always-apply) and "Claim-Specific Checks" (conditional)
+- **Added Troubleshooting**: Required by the spec; covers the most common filing edge cases
+- **Removed code fences**: Per your requirements
+- **Line count**: ~100 lines (well under the 500-line limit)

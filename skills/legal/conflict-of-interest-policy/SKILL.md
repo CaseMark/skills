@@ -1,141 +1,113 @@
 ---
 name: conflict-of-interest-policy
 description: >-
-  Drafts U.S. corporate and nonprofit conflict of interest policies with clear
-  definitions, disclosure mechanics, review/recusal procedures, and
-  enforcement controls aligned to IRS governance guidance and common state
-  corporate/nonprofit standards. Use when creating or updating governance
-  policies, board COI rules, related‑party transaction procedures, or Form
-  990/board disclosure practices. Trigger keywords: conflict of interest, COI,
-  related party, interested person, board disclosure, nonprofit governance,
-  Form 990, disclosure questionnaire, recusal.
-tags:
-  - agreement
-  - corporate
-  - drafting
-  - memo
-  - research
+  Drafts U.S. corporate and nonprofit conflict-of-interest policies with
+  disclosure mechanics, review/recusal procedures, and enforcement controls
+  aligned to IRS governance guidance and state corporate/nonprofit standards.
+  Use when creating or updating COI policies, board disclosure rules,
+  related-party transaction procedures, or Form 990 governance practices.
+  Trigger: conflict of interest, COI, related party, interested person,
+  board disclosure, nonprofit governance, Form 990, recusal.
 ---
 
 # Conflict of Interest Policy
 
-Creates an adoptable policy for identifying, disclosing, evaluating, and resolving conflicts in U.S. corporate or nonprofit governance.
+Produces an adoptable policy for identifying, disclosing, evaluating, and resolving conflicts in U.S. corporate or nonprofit governance.
 
 ## Prerequisites
 
-1. Organization type and jurisdiction (e.g., nonprofit corporation in California, Delaware corporation)
-2. Governing documents and notice/approval rules (bylaws, charter, committee charters)
-3. Board/management structure and covered persons list
+Gather before drafting:
+
+1. Organization type and jurisdiction (e.g., Delaware corp, California nonprofit)
+2. Governing documents — bylaws, charter, committee charters
+3. Board/management structure and covered-persons list
 4. Current related-party transactions and disclosure history
 5. Industry-specific rules, if any (healthcare, education, financial services)
 
-## Output Structure / Process
+## Quick Start
 
-**Policy Assembly Checklist**
+1. Confirm entity type (corporate vs. nonprofit) and jurisdiction.
+2. Identify covered persons (board, officers, key employees, committee members).
+3. Draft policy sections using the assembly checklist below.
+4. Attach disclosure form and annual acknowledgment as appendices.
+5. Obtain board adoption and schedule annual certification cycle.
 
-1. Scope and applicability
-2. Definitions
-3. Disclosure obligations
-4. Review, recusal, and approval procedure
-5. Documentation and recordkeeping
-6. Training and annual certification
-7. Enforcement and remedies
-8. Appendices: disclosure form + annual acknowledgment
+## Policy Assembly Checklist
 
-**Section Requirements Table**
+- [ ] Scope and applicability
+- [ ] Definitions
+- [ ] Disclosure obligations
+- [ ] Review, recusal, and approval procedure
+- [ ] Documentation and recordkeeping
+- [ ] Training and annual certification
+- [ ] Enforcement and remedies
+- [ ] Appendices: disclosure form + annual acknowledgment
+
+## Section Requirements
 
 | Section | Required Content |
-| --- | --- |
-| Purpose & Scope | Integrity, fiduciary duties, decision-making protection; applies to board, officers, key employees, committee members, and other covered persons. |
-| Definitions | Conflict of interest, interested person, disinterested/independent director, financial interest, family member, material interest. |
-| Disclosure | Timing (annual + ad hoc), written form, recipients, and record retention. |
-| Review & Resolution | Recusal rules, quorum handling, decision standard, approval options, documentation. |
-| Monitoring | Annual training, conflicts register, periodic related-party review. |
-| Enforcement | Consequences and remedial actions; nonprofit tax status risk. |
-| Records | Minutes detail, disclosure forms, approvals, and retention period. |
+|---|---|
+| Purpose & Scope | Integrity, fiduciary duties, decision-making protection; applies to board, officers, key employees, committee members, covered persons |
+| Definitions | Conflict of interest, interested person, disinterested/independent director, financial interest, family member, material interest |
+| Disclosure | Timing (annual + ad hoc), written form, recipients, record retention |
+| Review & Resolution | Recusal rules, quorum handling, decision standard, approval options, documentation |
+| Monitoring | Annual training, conflicts register, periodic related-party review |
+| Enforcement | Consequences, remedial actions; nonprofit tax-status risk |
+| Records | Minutes detail, disclosure forms, approvals, retention period |
 
-**Definitions (Insert in Policy)**
+## Key Definitions
 
-- **Conflict of Interest**: A situation where personal, financial, or professional interests could impair impartial decision-making on behalf of the organization.
-- **Interested Person**: Any covered person with a direct or indirect interest in a transaction or arrangement involving the organization.
-- **Financial Interest**: Ownership, investment, compensation, or prospective employment with a party to a transaction; include indirect interests through family or affiliated entities.
-- **Family Member**: Spouse/domestic partner, parents, children, siblings, in‑laws; extend if jurisdiction requires [VERIFY].
+- **Conflict of Interest** — Personal, financial, or professional interests that could impair impartial decision-making on behalf of the organization.
+- **Interested Person** — Any covered person with a direct or indirect interest in a transaction or arrangement involving the organization.
+- **Financial Interest** — Ownership, investment, compensation, or prospective employment with a party to a transaction; includes indirect interests through family or affiliated entities.
+- **Family Member** — Spouse/domestic partner, parents, children, siblings, in-laws; extend if jurisdiction requires [VERIFY].
 
-**Disclosure Procedure**
+## Conflict Review Workflow
 
-1. Annual written disclosure by all covered persons.
-2. Immediate disclosure when a potential conflict arises.
-3. Disclosures submitted to designated officer or committee.
-4. Maintain a conflicts register and retain forms with governance records.
+1. Determine whether a conflict exists.
+2. Interested person recuses from discussion and vote.
+3. Disinterested decision-makers assess materiality and fairness.
+4. Approve only if in the organization's best interest and on fair terms.
+5. Document the basis for decision and voting results.
 
-**Conflict Review Workflow**
-
-1. Determine if a conflict exists.
-2. Require interested person to recuse from discussion and vote.
-3. Assess materiality and fairness using disinterested decision-makers.
-4. Approve only if best interest and fair to the organization.
-5. Document basis for decision and voting results.
-
-**Approval Safeguards (Select as Appropriate)**
-
+Approval safeguards (select as appropriate):
 - Competitive bids or alternatives review
-- Independent valuation or third‑party benchmarking
-- Written terms approval by disinterested directors
+- Independent valuation or third-party benchmarking
+- Written terms approved by disinterested directors
 - Conditions or limitations to mitigate influence
 
-**Quorum & Voting**
+## Quorum and Voting
 
-- Specify how quorum is calculated when conflicts exist.
+- Define how quorum is calculated when conflicts exist.
 - If quorum fails, refer to alternate committee or independent directors.
 
-**Recordkeeping Requirements**
+## Recordkeeping
 
+Maintain and retain:
 - Disclosure forms
 - Meeting minutes with recusal and voting details
-- Rationale for approval or rejection
+- Rationale for each approval or rejection
 - Related-party transaction register
 
-**Appendix A: Disclosure Form (Template)**
+## Appendix Templates
 
-```text
-Conflict of Interest Disclosure
-Name:
-Role/Title:
-Date:
+### Disclosure Form
 
-1) Do you, your family, or affiliated entities have a financial or personal interest in any
-transaction, arrangement, or relationship involving the organization?  Yes / No
-If Yes, describe:
-- Parties involved:
-- Nature of interest:
-- Estimated value or compensation:
-- Dates and terms:
-- How the organization is involved:
+Fields: Name, Role/Title, Date, then:
 
-2) Are you aware of any potential conflicts not listed above?  Yes / No
-If Yes, describe:
+1. Does the person, their family, or affiliated entities have a financial or personal interest in any transaction involving the organization? (Yes/No; if yes: parties, nature of interest, estimated value, dates/terms, organization involvement)
+2. Awareness of any other potential conflicts? (Yes/No; if yes: describe)
+3. Certification that disclosure is complete and accurate; signature and date.
 
-Certification:
-I certify that the above is complete and accurate to the best of my knowledge.
-Signature: _______________________  Date: _______________
-```
+### Annual Acknowledgment
 
-**Appendix B: Annual Acknowledgment (Template)**
+One-page form confirming the person has received, read, and understands the policy; agrees to comply and disclose conflicts; certifies all known conflicts disclosed or none to disclose. Signature and date.
 
-```text
-Annual Conflict of Interest Acknowledgment
-I acknowledge that I have received, read, and understand the Conflict of Interest Policy.
-I agree to comply with it and to disclose any actual or potential conflicts.
-I certify that I have disclosed all known conflicts or have none to disclose.
+## Pitfalls and Checks
 
-Name: __________________  Signature: __________________  Date: __________
-```
-
-## Guidelines
-
-- Use U.S. governance standards consistent with IRS nonprofit guidance (Form 990, Publication 557, Form 1023 instructions) and common state corporate/nonprofit norms.
-- If citing model acts (e.g., Model Nonprofit Corporation Act, Revised Model Business Corporation Act), avoid section numbers unless verified [VERIFY].
-- Ensure policy aligns with bylaws, committee charters, and any related-party transaction rules.
-- Require written disclosures and documented approvals; avoid informal verbal-only processes.
-- For nonprofits, flag tax‑exempt risk and intermediate sanctions exposure if applicable [VERIFY].
-- Do not approve transactions without disinterested review, documented rationale, and recorded vote.
+- Use U.S. governance standards consistent with IRS guidance (Form 990, Pub 557, Form 1023 instructions) and state corporate/nonprofit norms.
+- If citing model acts (MNCA, RMBCA), avoid section numbers unless verified [VERIFY].
+- Align policy with bylaws, committee charters, and related-party transaction rules.
+- Require written disclosures and documented approvals — never informal verbal-only processes.
+- For nonprofits, flag tax-exempt risk and intermediate sanctions exposure [VERIFY].
+- Never approve transactions without disinterested review, documented rationale, and recorded vote.

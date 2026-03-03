@@ -1,14 +1,12 @@
 ---
 name: amended-restated-certificate-of-incorporation
 description: >-
-  Drafts a filing-ready Delaware Amended and Restated Certificate of
-  Incorporation for venture-financing rounds, converting term-sheet economics
-  and negotiated governance terms into a defensible charter document. Use when
-  updating or reauthorizing capital structure, preferred stock terms, or
-  investor protections before/after closing. Trigger keywords: Delaware,
-  242/245, cap table, Series A preferred, anti-dilution, liquidation
-  preference, conversion, mandatory conversion, board seats, protective
-  provisions, charter filing.
+  Drafts filing-ready Delaware Amended and Restated Certificates of
+  Incorporation for venture-financing rounds. Converts term-sheet economics
+  and governance terms into a defensible charter document under DGCL 242/245.
+  Trigger when user needs to reauthorize capital structure, designate preferred
+  stock series, set investor protections, or prepare a charter filing for
+  closing.
 tags:
   - agreement
   - corporate
@@ -17,116 +15,120 @@ tags:
 
 # Amended and Restated Certificate of Incorporation (Delaware)
 
-Creates a drafting workflow for a Delaware Amended and Restated Certificate of Incorporation that is ready for filing and aligned to term-sheet, stock purchase, and governance documentation.
+Drafts a Delaware A&R COI aligned to term sheet, SPA, and governance documents, ready for filing.
 
 ## Prerequisites
 
-1. Exact legal name, Delaware formation date, and current charter text.
-2. Board resolution and stockholder approval route (DGCL 242 vs. 245 pathway).
-3. Term sheet + definitive documents (SPA, investors’ rights, voting agreement, registration/ROFR/Co-sale where applicable).
-4. Cap table with current issuances, option pool, convertible instruments, warrants, and contemplated financing amounts.
-5. Final economics by series: OIP, liquidation multiple, conversion mechanics, anti-dilution method, voting/protective rights.
-6. Delaware registered office/agent name and physical address with county.
-7. Planned series authority and board composition rights, including any carve-outs by series.
-8. Authorized signer and corporate authorization evidence for execution.
+Collect before drafting. Stop and request any missing item.
 
-## Output Structure / Process
+1. Exact legal name, Delaware formation date, current charter text
+2. Board resolution and stockholder approval route (DGCL 242 vs. 245)
+3. Term sheet + definitive docs (SPA, investors' rights, voting agreement, ROFR/co-sale)
+4. Cap table: outstanding shares, option pool, convertibles, warrants, financing amounts
+5. Per-series economics: OIP, liquidation multiple, conversion mechanics, anti-dilution method, voting/protective rights
+6. Delaware registered agent name, physical office address with county
+7. Board composition rights and series-specific carve-outs
+8. Authorized signer with corporate authorization evidence
 
-Use this sequence and stop if any required data is missing.
+## Quick Start
 
-| Step | Input Validation | Required Output |
+1. Gather all prerequisites above
+2. Walk through the six-step workflow sequentially
+3. Halt at any step where required data is missing—request it before continuing
+4. Output complete certificate text or redline-ready draft with assumptions log
+
+## Workflow
+
+| Step | Gate | Output |
 |---|---|---|
-| 1 | Deal parsing | Confirm transaction math and legal term consistency before drafting |
-| 2 | Entity compliance | Confirm jurisdiction, registered details, and adoption path |
-| 3 | Capital math | Produce authorized share tables with rounding/cushion checks |
-| 4 | Preferred architecture | Draft Series provisions, voting, protections, conversion, anti-dilution |
-| 5 | Governance layer | Add Section 102(b)(7), optional indemnification, forum/consent mechanics |
-| 6 | Filing hardening | Build witness/signature execution block and final filing check |
+| 1. Deal parsing | Transaction math and term consistency confirmed | Validated term summary |
+| 2. Entity compliance | Jurisdiction, registered details, adoption path verified | Entity confirmation |
+| 3. Capital math | Authorized share tables with rounding/cushion checks | Share authorization schedule |
+| 4. Preferred architecture | Series provisions, voting, protections, conversion, anti-dilution drafted | Preferred stock articles |
+| 5. Governance layer | 102(b)(7), indemnification, forum/consent mechanics added | Governance articles |
+| 6. Filing hardening | Witness/signature block, signatory authority confirmed | Execution-ready document |
 
-### Required Input Matrix
+## Required Inputs
 
-| Item | Required? | Source | Validation check |
-|---|---|---|---|
-| Legal name | Required | Delaware certificate / formation docs | Matches all transaction docs exactly |
-| Registered office + agent | Required | Corporate records | Physical address; county present |
-| Series designations | Required | Term sheet | Unique identifiers and share counts |
-| OIP / Conversion price | Required | Cap table + pricing | Convertible math tested |
-| Liquidation waterfall | Required | Term sheet/SPA | Participating vs non-participating logic explicit |
-| Anti-dilution | Required | Term sheet | Full formula with carve-outs specified |
-| Protective provisions | Required | Term sheet + voting agreement | Series-specific treatment resolved |
-| Officer execution | Required | Corporate records | Authorized signer identified |
+| Item | Source | Validation |
+|---|---|---|
+| Legal name | Formation docs | Exact match across all transaction docs |
+| Registered office + agent | Corporate records | Physical address with county |
+| Series designations | Term sheet | Unique identifiers, share counts |
+| OIP / Conversion price | Cap table + pricing | Convertible math tested |
+| Liquidation waterfall | Term sheet / SPA | Participating vs. non-participating explicit |
+| Anti-dilution | Term sheet | Full formula with carve-outs |
+| Protective provisions | Term sheet + voting agreement | Series-specific treatment resolved |
+| Officer execution | Corporate records | Authorized signer identified |
 
-### Drafting Framework (Section-by-Section)
+## Drafting Structure
 
-1. **Preface/Recitals**
-   - Heading: “Amended and Restated Certificate of Incorporation of [Exact Legal Name]”
-   - Opening statement: Delaware corporation + DGCL 242/245 basis.
-   - Include supersession clause and full textual restatement statement.
+### Preface / Recitals
+- Heading: "Amended and Restated Certificate of Incorporation of [Exact Legal Name]"
+- DGCL 242/245 basis, supersession clause, full textual restatement statement
 
-2. **Article I–III (core identity)**
-   - **Name**: exact legal name + Delaware naming compliance.
-   - **Registered office/agent**: Delaware physical office, county, consent posture.
-   - **Purpose**: broad Delaware-purpose clause unless narrowed by deal terms.
+### Articles I–III: Identity
+- **Name**: exact legal name, Delaware naming compliance
+- **Registered office/agent**: physical address, county, consent posture
+- **Purpose**: broad Delaware-purpose clause unless deal terms narrow it
 
-3. **Article IV (Capitalization)**
-   - Include:
-     - Common authorized shares/par value
-     - Preferred authorized shares/par value
-     - Per-series designation and share count
-     - Any undesignated preferred (“blank check”) authorization if negotiated
-   - Math checks:
-     - common authorized >= outstanding + reserved option pool + convertibles + reasonable cushion
-     - preferred authorized includes pre/post financing and anti-dilution reserve buffer
+### Article IV: Capitalization
+- Common authorized shares / par value
+- Preferred authorized shares / par value, per-series designation and count
+- Blank-check preferred if negotiated
+- **Math checks**: common authorized ≥ outstanding + option pool + convertibles + cushion; preferred includes anti-dilution reserve buffer
 
-4. **Article V (Preferred Stock rights)**
-   - Dividends: cumulative/non-cumulative, rate, declaration conditions, payout priority.
-   - Liquidation preference and distribution waterfall: 1x default unless negotiated higher multiple.
-   - Participation/election logic for non-participating structures.
-   - Conversion: optional + mandatory mechanics, surrender/issuance, fractional handling, conversion-effective timing.
-   - Anti-dilution: weighted-average formula unless narrow instruction (full ratchet) exists.
-   - Protective provisions: include standard veto rights thresholds, define affected actions and exceptions.
-   - Voting: as-converted voting framework + class/series voting where required.
+### Article V: Preferred Stock Rights
+- **Dividends**: cumulative/non-cumulative, rate, priority
+- **Liquidation**: preference multiple (1x default), waterfall, participation/election logic
+- **Conversion**: optional + mandatory mechanics, fractional handling, timing
+- **Anti-dilution**: broad-based weighted average default; full ratchet only if explicitly instructed
+- **Protective provisions**: veto rights thresholds, affected actions, exceptions
+- **Voting**: as-converted framework, class/series voting where required
 
-5. **Article VI (Directors)**
-   - Include 102(b)(7) exculpation language and future DGCL-compliance fallback.
-   - Add indemnification/advice-of-counsel-typical sections only if negotiated/consistent with rights docs.
-   - Optional: forum-selection for internal corporate claims; board action/bylaw/meeting call mechanics.
+### Article VI: Directors / Governance
+- 102(b)(7) exculpation with DGCL-compliance fallback
+- Indemnification only if negotiated in rights docs
+- Optional: forum selection, board action mechanics
 
-6. **Execution**
-   - “IN WITNESS WHEREOF” block + officer signature/date lines.
-   - Ensure signatory authority is supported in corp action record.
+### Execution
+- "IN WITNESS WHEREOF" block, officer signature/date lines
+- Signatory authority backed by corporate action record
 
-### Templates
+## Templates
 
-```text
-AMENDED AND RESTATED CERTIFICATE OF INCORPORATION OF [LEGAL NAME]
-Filed under Section 242 and, if applicable, Section 245 of the DGCL.
-...
-```
+Series designation summary format:
 
-```text
-Series [X] Preferred Stock - [Term]
+Series [X] Preferred Stock
 - Designated Shares: [__]
-- OIP: [$__]  Conversion Price: [$__]
+- OIP: [$__] / Conversion Price: [$__]
 - Liquidation: [__]x non-participating
 - Conversion: Optional [yes/no], Mandatory: [trigger list]
 - Anti-dilution: [broad-based weighted avg / other]
 - Voting: [as-converted rights text]
 - Protective actions: [list with vote threshold]
-```
 
-## Guidelines
+## Pitfalls and Checks
 
-- Use exact defined terms once, then reference consistently across sections.
-- Align all charter economics with SPA, investor rights, and voting agreement; resolve conflicts explicitly before drafting.
-- Keep statutory references in filing text anchored to current DGCL language and confirm latest amendments before finalizing `[VERIFY]`.
-- Do not include investor-specific terms that are outside preferred stock mechanics (e.g., repurchase discounts, drag thresholds) unless documents require charter language.
-- Require clear missing-data checkpoints for:
-  - adoption path (242 vs 245),
-  - minimum and maximum authorized share totals,
-  - series-specific protective voting split,
-  - anti-dilution carve-outs.
-- For Delaware-only charter filing, include county and physical registered office address only; avoid non-Delaware filing forms.
-- Reconcile waterfall outputs under at least three exit-value scenarios and two dilution scenarios before output.
-- Preserve flexibility where possible, but do not overbroaden to the point of investor intent drift.
-- Output only the complete certificate text if requested; otherwise provide a redline-ready draft and assumptions log separately.
+- **Term consistency**: align all charter economics with SPA, investor rights, and voting agreement—resolve conflicts before drafting
+- **Defined terms**: define once, reference consistently; never introduce synonyms
+- **Statutory anchoring**: confirm DGCL references against current statute text; mark unverified references with `[VERIFY]`
+- **Scope discipline**: exclude investor-specific terms outside preferred stock mechanics (repurchase discounts, drag thresholds) unless charter language is required
+- **Missing-data gates**: enforce checkpoints for adoption path (242 vs. 245), min/max authorized totals, series-specific protective voting splits, anti-dilution carve-outs
+- **Delaware-only**: include county and physical registered office only; no non-Delaware filing forms
+- **Waterfall testing**: reconcile liquidation outputs under ≥3 exit-value scenarios and ≥2 dilution scenarios before finalizing
+- **Flexibility vs. drift**: preserve optionality but do not overbroaden beyond investor intent
+- **Output mode**: complete certificate text if requested; otherwise redline-ready draft + assumptions log
+
+---
+
+**Key changes made:**
+
+- **Description**: tightened to third-person with clear trigger guidance, removed "trigger keywords" list in favor of action-oriented triggers
+- **Removed** the redundant "Required Input Matrix" table (merged validation info into the streamlined "Required Inputs" table)
+- **Added** "Quick Start" section for fast onboarding
+- **Consolidated** the workflow table with gate/output columns instead of the vaguer "Input Validation / Required Output"
+- **Flattened** the drafting framework from deeply nested prose into scannable subsections with bullet points
+- **Renamed** "Guidelines" → "Pitfalls and Checks" with bolded labels for scannability
+- **Removed** code-fenced templates in favor of inline format (per requirements)
+- **Cut** ~30% of token count while preserving all domain-critical content

@@ -1,189 +1,141 @@
 ---
 name: discovery-separate-statement
 description: >
-  Drafts and quality-controls a California-compliant discovery Separate Statement
-  for motions to compel under Cal. Rules of Court rule 3.1345. Use this skill
-  when the user mentions California motion to compel, further responses, Separate
-  Statement, Rule 3.1345, CCP 2023.030 sanctions, discovery motion support,
-  interrogatory disputes, RFP disputes, RFA disputes, or deposition-question
-  disputes in California Superior Court. Also trigger when the user references
-  verbatim request-response formatting, meet-and-confer documentation for CA
-  motions, or asks for help with California discovery motion practice. Even if
-  the user just says "I need a sep stat" or "help me with this compel motion
-  in California," use this skill.
+  Drafts a California-compliant discovery Separate Statement for motions to compel
+  under Cal. Rules of Court rule 3.1345. Trigger when the user mentions a California
+  motion to compel, Separate Statement, "sep stat," Rule 3.1345, CCP 2023.030 sanctions,
+  interrogatory/RFP/RFA/deposition disputes, or verbatim request-response formatting
+  for CA Superior Court discovery motions.
 tags:
-  - analysis
   - drafting
   - litigation
   - motion
-  - pleading
 ---
 
-# California Discovery Separate Statement Generator
+# California Discovery Separate Statement
 
-## Why This Skill Exists
+Produces a request-by-request Separate Statement that is verbatim-accurate and aligned with the motion package (memorandum, declaration, proposed order). Required under Cal. R. Ct. 3.1345 — omission renders the motion procedurally defective.
 
-California motions to compel further responses require a Separate Statement under Cal. Rules of Court rule 3.1345 — without it, the motion is procedurally defective and may be denied on that basis alone. The Separate Statement must reproduce verbatim text of each disputed request and response, making it the most labor-intensive and error-prone document in California discovery motion practice. Paraphrasing, misquoting, or omitting adverse language creates ammunition for opposition and risks sanctions.
+## Quick Start
 
-This skill produces a request-by-request Separate Statement that is complete, quote-accurate, and aligned with the rest of the motion package — memorandum, declaration, and proposed order.
+1. Collect verbatim request/response text and meet-and-confer record
+2. Build a disputed-item ledger locking sources
+3. Draft per-item blocks (request → response → meet-and-confer → reasons → remedy)
+4. Run consistency pass against the full motion package
+5. Deliver for attorney review
 
----
+## Pre-Draft Intake
 
-## Checkpoint A: Pre-Draft Intake (Mandatory)
+Gather before drafting (apply labeled defaults if user says "use defaults" or "just draft"):
 
-Ask every time unless the user says "use defaults" or "just draft." Gather:
+1. **Discovery set** — verbatim propounding text, definitions, latest responses (objections, qualifications, verification status, production references)
+2. **Meet-and-confer record** — letters, emails, declarations with dates; concessions or supplements
+3. **Case framing** — complaint/answer (claims, defenses tied to each request); protective orders, ESI protocols
+4. **Motion posture** — motion type, proposed relief, hearing date, 45-day deadline calculation including service method
+5. **Court requirements** — local/department preferences (IDC/JCCP, format, tables vs. sequential text)
 
-1. **Governing discovery set** — discovery requests at issue (propounding text, all instructions, relevant definitions) and latest served responses, including objections, qualifications, subject-to language, verification status, and any production references
-2. **Meet-and-confer record** — all notices, emails, letters, and declarations with dates; any concessions, narrowing, or supplements
-3. **Case framing** — complaint and answer (claims, theories, defenses tied to each request); protective orders, ESI protocols, confidentiality agreements, sealing orders
-4. **Motion posture** — motion type (compel further responses, failure-to-respond, etc.); proposed relief and hearing date; deadline calculation method including service method for 45-day filing windows
-5. **Court requirements** — department/county local preferences (IDC/JCCP requirements, exhibit format preferences, filing quirks); judicial preferences for tables vs. sequential text
+**Defaults if user skips:** compel further responses; all disputed requests; sequential text; sanctions under CCP § 2023.030.
 
-**If the user doesn't respond**, apply and clearly label these defaults: motion to compel further responses; all disputed requests included; sequential text format; sanctions requested under CCP § 2023.030.
+> **Hard stop:** If verbatim request/response text is missing, halt and request it before drafting.
 
-> If verbatim request/response text is missing, halt and request it before drafting. This is non-negotiable for a Separate Statement.
+## Core Workflow
 
----
+### 1. Classify Motion
 
-## Step 1: Validate Intake and Classify Motion
+Produce a single-line taxonomy and gap check:
 
-Produce a single-line taxonomy memo and compliance gap check:
+`Taxonomy: Motion to compel further responses to [device/set]: Nos. [range], plus [relief/sanctions].`
 
-| Input | Required Output |
-|---|---|
-| Motion theory | Single-line taxonomy memo |
-| Motion scope | Discovery set list and item identifiers |
-| Relief targets | Specific item-level remedies |
-| Compliance gaps | Missing text/date conflicts identified before drafting |
+- Further-response motion with deficient responses → Separate Statement required (Cal. R. Ct. 3.1345(a)) [VERIFY]
+- Pure failure-to-respond → may use alternate CCP tracks [VERIFY]
 
-Template: `Taxonomy: Motion to compel further responses to [device/set]: Nos. [range], plus [relief/sanctions].`
+### 2. Build Disputed-Item Ledger
 
-Decision rule:
-- Further-response motion with served response and deficiencies: generally requires Separate Statement (Cal. R. Ct. 3.1345(a)) [VERIFY].
-- Pure failure-to-respond contexts may use alternate CCP tracks [VERIFY].
+One row per disputed item — source-lock table preventing drift:
 
----
-
-## Step 2: Build the Disputed-Item Ledger
-
-Create one row per disputed item — this is the source-lock table that prevents drift:
-
-| Item ID | Discovery Device | Request Text Source | Response Source | Last Service Date | Dispute Type |
+| Item ID | Device | Request Source | Response Source | Service Date | Dispute Type |
 |---|---|---|---|---|---|
-| RFA-1-8 | RFA | RFA Set One No. 8 | Response served 3/01/2026 | 3/01/2026 | Evasive response |
-| RFP-2-12 | RFP | RFP Set Two No. 12 | Supplemental response 3/15/2026 | 3/15/2026 | No definitive production statement |
+| RFA-1-8 | RFA | RFA Set One No. 8 | Response 3/01/2026 | 3/01/2026 | Evasive response |
 
-Rules:
-- Copy request and response verbatim, punctuation included
-- If response references another response, include referenced text inline
-- Preserve "subject to and without waiving" language and all qualifications
-- If only "no response at all" exists, flag as failure-to-respond posture and branch logic
+- Copy verbatim including punctuation
+- Include cross-referenced responses inline
+- Preserve "subject to and without waiving" language
+- Flag no-response items for failure-to-respond branching
 
----
+### 3. Draft Per-Item Blocks
 
-## Step 3: Draft Per-Item Micro-Structure
+Each disputed item follows this structure:
 
-Use the same structure for every disputed item:
+**REQUEST [ID]:** verbatim request + relevant definitions
+**RESPONSE:** verbatim response + objections + qualifications + supplements
+**MEET-AND-CONFER:** date, issue, cure requested, outcome
+**FACTS AND LEGAL REASONS:** device-specific deficiency + relevance to pleadings + authority + burden/privacy handling
+**ORDER SOUGHT:** single, enforceable, narrow, date-certain remedy
 
-```text
-REQUEST [ID]:
-[verbatim request + relevant definitions]
+Prefer labeled blocks for e-filing stability. Use tables only if court preference supports it.
 
-RESPONSE:
-[verbatim response + objections + any qualifications + supplemental text]
+### 4. Apply Device-Specific Analysis
 
-MEET-AND-CONFER:
-[date, issue raised, cure requested, response, supplemental status]
-
-FACTS AND LEGAL REASONS:
-[device-specific deficiency analysis + relevance to pleadings + legal authority + burden/privacy handling]
-
-ORDER SOUGHT:
-[single, enforceable, narrow, date-certain remedy]
-```
-
-Formatting: Prefer clear labeled blocks for e-filing stability. Use two-column tables only if court preference supports it and consistent with PDF behavior.
-
----
-
-## Step 4: Apply Device-Specific Reasons
-
-| Device | Deficiency Focus | Typical Orderable Remedy |
+| Device | Deficiency Focus | Typical Remedy |
 |---|---|---|
-| Interrogatory (CCP §§ 2030.210–2030.310) [VERIFY] | Non-verified, incomplete, evasive, unexplained unknowns | Further verified response; detailed inability statement |
-| Production (CCP §§ 2031.210–2031.320) [VERIFY] | "Will comply" only, incomplete/no-search showing, privilege without log | Further production by custodian/date/topic/form; privilege log with required specificity |
-| Admission (CCP §§ 2033.210–2033.300) [VERIFY] | Boilerplate objections, qualified/noncommittal admissions | Clear admit/deny response; strike unsupported objections |
-| Deposition question disputes | Refusal/inadequate answer, privilege overreach | Further response or appearance stipulation/production order |
-
-### Reasons and Privilege/Privacy Integration
+| Interrogatory (CCP §§ 2030.210–.310) [VERIFY] | Non-verified, incomplete, evasive | Further verified response; inability statement |
+| Production (CCP §§ 2031.210–.320) [VERIFY] | "Will comply" only, no search showing, missing privilege log | Production by custodian/date/form; privilege log |
+| Admission (CCP §§ 2033.210–.300) [VERIFY] | Boilerplate objections, noncommittal answers | Clear admit/deny; strike unsupported objections |
+| Deposition | Refusal, privilege overreach | Further response or appearance order |
 
 - Tie every reasons paragraph to a pleaded issue (liability, damages, causation, impeachment)
-- Privacy/trade secret claims: include narrowing, redaction, protective measures, or AEO language
-- Burden objections: require evidentiary support before crediting the claim; flag lack of declaration/evidence
+- Privacy/trade-secret claims: include narrowing, redaction, protective measures
+- Burden objections: require evidentiary support; flag missing declarations
 
----
+### 5. Draft Remedies and Sanctions
 
-## Step 5: Draft Remedies and Sanctions
-
-Keep relief narrow and court-enforceable:
+Permissible relief (keep narrow and enforceable):
 - Further response without objections
-- Duty-to-state existence of documents
+- Document-existence statement
 - Production by fixed date
 - Privilege log
 - Verified inability-to-comply statement
 
-If seeking sanctions under CCP § 2023.030 [VERIFY], identify conduct item-by-item and align with motion language. Avoid introducing new substantive requests not in original discovery unless explicitly narrowed with justification.
+For sanctions under CCP § 2023.030 [VERIFY]: identify conduct item-by-item; align with motion language. Do not introduce requests beyond original discovery.
 
----
+### 6. Consistency Pass
 
-## Step 6: Run Consistency Pass
+- Verify quoted text matches exhibits page-accurate
+- Cross-check IDs, dates, relief language across memorandum, declaration, and Separate Statement
+- Remove moot/fully cured items
+- Keep chronology factual; no hyperbole
 
-- Verify each quoted request/response matches exhibits page-accurate
-- Cross-check that request IDs, dates, and relief language are identical across memorandum, declaration, and Separate Statement
-- Remove moot/fully cured items after supplemental responses
-- Keep chronology factual and non-hyperbolic
+## Post-Draft Alignment
 
----
+Ask after delivering initial draft:
 
-## Checkpoint B: Post-Draft Alignment (Mandatory)
+1. Correct set of disputed requests — any to add or remove?
+2. Meet-and-confer summaries accurate for each item?
+3. Per-item relief matches memorandum and proposed order?
+4. Court-specific formatting adjustments needed?
 
-After delivering the initial Separate Statement, ask:
+If no answer, recommend consistency cross-check against memorandum and proceed if authorized.
 
-1. Does the Separate Statement cover the correct set of disputed requests — any to add or remove?
-2. Are the meet-and-confer summaries accurate and complete for each item?
-3. Does the relief sought per item match what is requested in the memorandum and proposed order?
-4. Are there any court-specific formatting requirements I should adjust for?
+## Quality Checklist
 
-If the user doesn't answer, recommend a consistency cross-check against the memorandum and proceed if authorized.
+- [ ] All requests/responses verbatim — no paraphrasing
+- [ ] Motion type consistent throughout
+- [ ] Every item has documented meet-and-confer support
+- [ ] Deadline + service method verified
+- [ ] Citations verified or marked `[VERIFY]`
+- [ ] Relief is enforceable and date-certain
+- [ ] IDs, dates, party names consistent across motion documents
+- [ ] No moot/cured items remaining
+- [ ] Device-specific analysis applied correctly
+- [ ] Privacy/privilege handling includes narrowing proposals
 
----
+## Pitfalls
 
-## Quality Audit
-
-Before finalizing, verify:
-
-- All requests and responses reproduced verbatim — no paraphrasing
-- Motion type correctly identified and consistent throughout
-- Every item has meet-and-confer support documented
-- Deadline + service method verified and noted
-- All statutory/case citations verified or marked `[VERIFY]`
-- Relief language is enforceable and date-certain
-- Request IDs, dates, and party names consistent across all motion documents
-- No moot or fully cured items remaining
-- Device-specific deficiency analysis applied correctly
-- Privacy/privilege handling includes narrowing proposals
-- Attorney verification flags present for all uncertainties
-
----
-
-## Guidelines
-
-- Do not draft from paraphrased memory; use source documents only
-- Do not include arguments better placed in the memorandum
-- Do not overstate meet-and-confer efforts
-- Do not omit adverse response portions that weaken your position
-- Do not copy citations from memory without verification; flag doubtful law with `[VERIFY]`
-- Use California terminology and avoid federal substitutions unless user confirms federal/local rules override
-- Respect CRPC duties: competence (1.1) [VERIFY], candor (3.3) [VERIFY], confidentiality (1.6) [VERIFY], fairness (3.4) [VERIFY]
-- **Anti-hallucination** — all case citations must be verified or left as explicit attorney-fill placeholders; no plausible-sounding but unverified citations
-- **Attorney review required** — all output is practice-support work product; it must be reviewed by supervising counsel before filing or service
+- Never draft from paraphrased memory — use source documents only
+- Never omit adverse response portions
+- Never include arguments belonging in the memorandum
+- Never overstate meet-and-confer efforts
+- Flag doubtful citations with `[VERIFY]` — no plausible-sounding unverified law
+- Use California terminology; avoid federal substitutions unless user confirms
+- Respect CRPC duties: competence (1.1), candor (3.3), confidentiality (1.6), fairness (3.4) [VERIFY]
+- **All output is practice-support work product — attorney review required before filing**

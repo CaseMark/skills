@@ -1,24 +1,23 @@
 ---
 name: witness-summary
-description: Generates structured summaries of witness statements for litigation, extracting chronological narratives, key facts, credibility indicators, admissibility concerns, and evidentiary value. Use when summarizing witness statements, deposition transcripts, witness testimony, or preparing witness examination outlines during discovery, pre-trial, or trial phases.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+description: Generates structured summaries of witness statements for litigation, extracting chronological narratives, key facts, credibility indicators, and evidentiary value. Use when summarizing depositions, declarations, affidavits, or witness testimony during discovery, pre-trial, or trial preparation.
 ---
 
 # Witness Statement Summary
 
-Produces a structured, reference-ready summary of one or more witness statements for use in case preparation, deposition planning, and trial strategy.
+Produces a structured, reference-ready summary of witness statements for case preparation, deposition planning, and trial strategy.
 
-## Prerequisites
+## Inputs
 
 1. **Witness statement(s)** — transcripts, declarations, affidavits, or deposition excerpts
-2. **Case context** — claims at issue, parties, and key disputed facts (if available)
-3. **Related exhibits** — documents referenced in or attached to the statement (if available)
+2. **Case context** (if available) — claims at issue, parties, key disputed facts
+3. **Related exhibits** (if available) — documents referenced in the statement
 
-## Output Structure
+## Quick Start
+
+For each witness statement, produce sections 1–7 below in order. Preserve factual specificity throughout — never generalize away dates, amounts, or names. Quote significant language verbatim with transcript/paragraph citations.
+
+## Output Sections
 
 ### 1. Executive Summary
 
@@ -28,70 +27,77 @@ Produces a structured, reference-ready summary of one or more witness statements
 | Relationship to case | Connection to parties and events |
 | Statement type | Declaration, deposition, interview, affidavit |
 | Date of statement | When given; date(s) of events described |
-| Bottom line | 2-3 sentences: what this witness establishes and its strategic significance |
+| Bottom line | 2–3 sentences: what this witness establishes and strategic significance |
 
 ### 2. Witness Background
 
 - Biographical details relevant to credibility or weight
 - Relationship to parties
-- Basis of knowledge (percipient, expert, custodian, etc.)
+- Basis of knowledge (percipient, expert, custodian)
 - Prior involvement in related proceedings
 
 ### 3. Chronological Fact Narrative
 
-Present the witness's account as a chronological table:
-
 | Date/Time | Location | Event/Observation | Certainty | Corroboration |
 |---|---|---|---|---|
-| Specific date | Where | What the witness describes | High / Hedged / Uncertain | Supporting or conflicting evidence |
+| Specific date | Where | What witness describes | High / Hedged / Uncertain | Supporting or conflicting evidence |
 
-- Preserve specific factual assertions (names, numbers, sequences)
-- Flag hedging language verbatim (e.g., "I believe," "to the best of my recollection")
-- Note gaps or periods the witness cannot account for
+- Flag hedging language verbatim ("I believe," "to the best of my recollection")
+- Note temporal gaps the witness cannot account for
 
 ### 4. Key Evidentiary Points
 
-Organize by legal significance:
-
-- **Admissions** — statements against interest or acknowledging elements of opposing claims
-- **Corroborations** — testimony that aligns with other witnesses or documentary evidence
-- **Contradictions** — conflicts with other witness accounts, documents, or prior statements by this witness
+- **Admissions** — statements against interest or acknowledging opposing elements
+- **Corroborations** — alignment with other witnesses or documents
+- **Contradictions** — conflicts with other accounts, documents, or this witness's prior statements
 - **Unique facts** — information only this witness provides
 
 ### 5. Admissibility Concerns
 
-Flag each issue with the relevant rule:
+Flag each issue with the governing rule:
 
 | Issue | Detail | Rule |
 |---|---|---|
-| Hearsay | Quote or paraphrase the statement-within-a-statement | FRE 801-807 |
-| Opinion / speculation | Lay opinion exceeding FRE 701 scope | FRE 701-702 |
-| Authentication gaps | Referenced documents not yet authenticated | FRE 901 |
-| Privilege risk | Statements potentially implicating attorney-client or work product | — |
-| Character / propensity | Testimony that may trigger FRE 404 issues | FRE 404 |
+| Hearsay | Quote the statement-within-a-statement | FRE 801–807 |
+| Opinion/speculation | Lay opinion exceeding scope | FRE 701–702 |
+| Authentication gaps | Referenced docs not yet authenticated | FRE 901 |
+| Privilege risk | Attorney-client or work product implications | — |
+| Character/propensity | Testimony triggering propensity issues | FRE 404 |
 
 ### 6. Credibility Assessment
 
 | Factor | Observation |
 |---|---|
-| Internal consistency | Contradictions within the statement itself |
-| External consistency | Alignment with documentary or physical evidence |
-| Bias / motive | Financial interest, relationship to party, litigation motivation |
-| Demeanor indicators | Certainty, qualifications, volunteered vs. elicited testimony |
+| Internal consistency | Contradictions within the statement |
+| External consistency | Alignment with documentary/physical evidence |
+| Bias/motive | Financial interest, party relationship, litigation motivation |
+| Demeanor indicators | Certainty, qualifications, volunteered vs. elicited |
 | Impeachment material | Prior inconsistent statements, convictions (FRE 609), bias |
 
 ### 7. Strategic Assessment
 
-- **Strengths** — what this testimony establishes favorably
-- **Vulnerabilities** — lines of cross-examination or rebuttal
-- **Recommended follow-up** — additional discovery, corroborating evidence to obtain, deposition topics
+- **Strengths** — what testimony establishes favorably
+- **Vulnerabilities** — cross-examination and rebuttal lines
+- **Recommended follow-up** — additional discovery, corroborating evidence, deposition topics
 
-## Guidelines
+## Multi-Witness Sets
 
-- Preserve factual specificity — never generalize away dates, amounts, or names
-- Quote significant language verbatim with transcript/paragraph citations
-- When summarizing multiple witnesses, use consistent format and flag inter-witness conflicts explicitly
-- For multi-witness sets, add a **Conflict Matrix** cross-referencing disputed facts across witnesses
-- Do not editorialize beyond credibility and strategic observations — keep factual sections neutral
-- Adapt evidentiary rules to applicable jurisdiction when specified (default: U.S. federal)
-- If the statement references exhibits or documents not provided, note them as **[NOT REVIEWED]**
+When summarizing multiple witnesses, add a **Conflict Matrix** cross-referencing disputed facts across witnesses. Use consistent formatting and flag inter-witness conflicts explicitly.
+
+## Pitfalls
+
+- **Generalizing facts** — preserve all dates, amounts, names, and sequences exactly
+- **Missing hedging language** — always quote qualifiers verbatim; they affect evidentiary weight
+- **Unreferenced exhibits** — mark documents referenced but not provided as **[NOT REVIEWED]**
+- **Editorializing** — keep factual sections neutral; reserve opinion for credibility and strategic sections
+- **Jurisdiction assumptions** — default to U.S. federal rules; adapt when jurisdiction is specified
+
+---
+
+**Key changes made:**
+
+- **Frontmatter**: Removed `tags` (not in the spec), tightened `description` with clearer trigger guidance
+- **Structure**: Reorganized into Quick Start → Output Sections → Pitfalls pattern per best practices
+- **Conciseness**: Removed the separate "Guidelines" prose section; distilled rules into a "Pitfalls" checklist and embedded key instructions in Quick Start
+- **Multi-witness**: Extracted from Guidelines into its own short section for discoverability
+- **Token savings**: Trimmed redundant wording across tables and bullet points while preserving all domain-accurate legal content (FRE rules, credibility factors, evidentiary categories)

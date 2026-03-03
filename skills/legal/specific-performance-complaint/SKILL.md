@@ -1,6 +1,6 @@
 ---
 name: specific-performance-complaint
-description: Drafts a court-ready Complaint for Specific Performance compelling fulfillment of contractual obligations through equitable relief. Structures caption, jurisdiction/venue, parties, factual allegations, cause of action, prayer for relief, and verification. Use when filing suit for specific performance, real estate breach of contract, unique property disputes, or equitable remedy pleadings.
+description: Drafts a Complaint for Specific Performance compelling contractual fulfillment through equitable relief. Use when filing suit for specific performance, real estate breach, unique property disputes, or equitable remedy pleadings.
 tags:
   - drafting
   - litigation
@@ -9,85 +9,79 @@ tags:
 
 # Complaint for Specific Performance
 
-Drafts a complaint seeking equitable relief to compel contractual performance, primarily in real estate and unique-property disputes.
+Drafts a complaint seeking equitable relief to compel contractual performance, primarily in real estate and unique-property disputes. Plaintiff's perspective; U.S. state courts.
 
 ## Prerequisites
 
-1. **Executed contract** — with all relevant terms, signatures, and exhibits
-2. **Party information** — full legal names, addresses, entity types, capacities
+1. **Executed contract** — terms, signatures, exhibits
+2. **Party information** — legal names, addresses, entity types, capacities
 3. **Performance history** — evidence of plaintiff's performance or tender
-4. **Breach details** — what defendant failed to do, when, and how
-5. **Inadequacy of damages** — facts showing why money cannot make plaintiff whole
+4. **Breach details** — what defendant failed to do, when, how
+5. **Inadequacy of damages** — facts showing money cannot make plaintiff whole
 6. **Jurisdictional basis** — court, statutory authority, venue facts
 
-## Output Structure
+## Quick Start
+
+1. Gather contract, party details, and breach evidence
+2. Confirm subject matter is unique or damages are inadequate
+3. Draft sections in order below
+4. Verify local court formatting rules before finalizing
+
+## Drafting Workflow
 
 ### 1. Caption
 
-| Element | Requirement |
-|---------|-------------|
-| Court | Full name with proper designation (e.g., "Superior Court of [County], State of [State]") |
-| Parties | Full legal names, plaintiff(s) v. defendant(s), with capacities |
-| Case number | Space for clerk assignment if not yet assigned |
-| Title | "COMPLAINT FOR SPECIFIC PERFORMANCE" |
-| Formatting | Comply with local rules (font, margins, line spacing) |
+- Court: full name with proper designation
+- Parties: full legal names, plaintiff(s) v. defendant(s), with capacities
+- Case number: space for clerk assignment
+- Title: "COMPLAINT FOR SPECIFIC PERFORMANCE"
+- Format per local rules (font, margins, spacing)
 
 ### 2. Jurisdiction and Venue
 
-- [ ] Subject matter jurisdiction — cite statutory/constitutional basis (amount in controversy, nature of claim, or diversity)
-- [ ] Personal jurisdiction over defendant
-- [ ] Venue — cite statute; base on defendant's residence, place of performance, or property location
-- [ ] All citations include section numbers
+- Subject matter jurisdiction — cite statutory/constitutional basis
+- Personal jurisdiction over defendant
+- Venue — cite statute; base on defendant's residence, place of performance, or property location
+- Include all statutory section numbers
 
 ### 3. Parties
 
-For each party, allege:
-
-| Detail | Plaintiff | Defendant |
-|--------|-----------|-----------|
-| Full legal name | ✓ | ✓ |
-| Address | Current | Last known |
-| Role in transaction | ✓ | ✓ |
-| Entity type (if applicable) | State of formation, principal place of business | Same |
-| Representative capacity (if applicable) | Individual + capacity | Same |
+For each party allege: full legal name, address (current for plaintiff, last known for defendant), role in transaction, entity type with state of formation and principal place of business if applicable, representative capacity if applicable.
 
 ### 4. Factual Allegations
 
-Draft as numbered paragraphs in chronological order:
+Numbered paragraphs, chronological order:
 
 1. **Contract formation** — date, location, parties, consideration
-2. **Material terms** — provisions defendant must perform (quote key language)
+2. **Material terms** — provisions defendant must perform; quote key language verbatim
 3. **Plaintiff's performance** — actions taken or tendered; readiness to perform remaining obligations
 4. **Defendant's breach** — specific acts/omissions, dates due, manner of failure
-5. **Inadequacy of monetary damages** — allege:
-   - Uniqueness of subject matter (real property is presumptively unique)
-   - Inability to obtain equivalent substitute
-   - No adequate remedy at law
+5. **Inadequacy of damages** — uniqueness of subject matter (real property is presumptively unique), inability to obtain substitute, no adequate remedy at law
 6. **Resulting harm** — delay damages, lost opportunity, ongoing injury
 
-### 5. Cause of Action: Breach of Contract / Specific Performance
+### 5. Cause of Action
 
-Plead each element as a separate numbered paragraph:
+Plead each element as a separate numbered paragraph.
 
-**Breach of Contract Elements:**
-1. Existence of valid, enforceable contract
-2. Plaintiff's performance or excuse for non-performance
-3. Defendant's material breach
-4. Resulting damages/harm
+**Breach of contract:**
+1. Valid, enforceable contract exists
+2. Plaintiff performed or has excuse for non-performance
+3. Defendant materially breached
+4. Damages/harm resulted
 
-**Specific Performance Elements:**
+**Specific performance:**
 5. Subject matter is unique OR monetary damages are inadequate
 6. Contract terms are sufficiently definite and certain
 7. No adequate remedy at law
 8. Enforcement would not cause undue hardship or violate public policy
 
-Cite applicable state law governing specific performance (statutes and/or common law).
+Cite applicable state statutes and/or common law.
 
 ### 6. Prayer for Relief
 
-Request in this order:
+Request in order:
 
-1. **Specific performance** — order compelling defendant to perform, described with enforcement-level specificity
+1. **Specific performance** — order compelling performance, described with enforcement-level specificity
 2. **Compensatory damages** — for delay and ancillary breaches
 3. **Pre- and post-judgment interest** — per applicable statute
 4. **Costs of suit** — filing fees, service costs
@@ -97,41 +91,13 @@ Request in this order:
 
 ### 7. Verification and Signature
 
-```
-VERIFICATION
+Include verification block (penalty of perjury declaration with plaintiff name, date, location) and attorney signature block (name, bar number, firm, address, contact). Adapt to jurisdiction — some require notarization, others accept unsworn declaration.
 
-I, [Plaintiff Name], declare under penalty of perjury under the laws
-of the State of [State] that I have read the foregoing Complaint,
-that the facts alleged therein are true to my knowledge, except as to
-matters stated on information and belief, which I believe to be true.
+## Pitfalls and Checks
 
-Executed on [Date], at [City], [State].
-
-_______________________________
-[Plaintiff Name]
-
-
-DATED: [Date]
-
-Respectfully submitted,
-
-_______________________________
-[Attorney Name], Bar No. [Number]
-[Firm Name]
-[Address]
-[Phone] | [Email]
-Attorney for Plaintiff [Name]
-```
-
-Adapt verification format to jurisdiction (some require notarization; others accept unsworn declaration).
-
-## Guidelines
-
-- **Uniqueness presumption**: Real property is presumptively unique in most U.S. jurisdictions — allege this explicitly
-- **Specificity over conclusions**: Every factual allegation must be specific enough to survive a 12(b)(6) motion
-- **Quote contract language**: Incorporate key contractual provisions verbatim where possible
-- **Number all paragraphs**: Factual allegations and cause of action paragraphs must be individually numbered
-- **Local rules**: Verify caption formatting, page limits, cover sheets, and filing requirements for the specific court
-- **Party role**: This skill drafts from the **plaintiff's** perspective only
-- **Jurisdiction**: U.S. state courts primarily; adapt statutory citations to the filing jurisdiction
-- **Do not fabricate citations**: If unsure of a specific statute number, flag with [VERIFY]
+- **Uniqueness presumption**: Real property is presumptively unique — allege this explicitly
+- **12(b)(6) survival**: Every factual allegation must be specific, not conclusory
+- **Quote the contract**: Incorporate key provisions verbatim
+- **Number all paragraphs**: Factual allegations and cause of action paragraphs individually numbered
+- **Local rules**: Verify caption format, page limits, cover sheets, filing requirements
+- **No fabricated citations**: If unsure of a statute number, flag with [VERIFY]

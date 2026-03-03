@@ -1,85 +1,71 @@
 ---
 name: field-of-use-restriction-clause
 description: >-
-  Drafts U.S. Transactional IP licensing agreement language that defines and
-  enforces a Field of Use, including permitted/restricted applications,
-  sublicense limits, derivative-use treatment, audit/compliance mechanics, and
-  remedy framework. Use during negotiation and formation for patent, software,
-  trade secret, or know-how licenses when narrowing exploitation rights,
-  setting enforcement triggers, and preserving licensor-only rights outside
-  scope. Trigger keywords: field of use, permitted use, restricted use,
-  sublicensing, derivative works, audit rights, termination, injunction,
-  patent software licensing, IP licence scope.
-tags:
-  - agreement
-  - drafting
-  - transactional
+  Drafts enforceable Field of Use restriction clauses for U.S. IP licensing
+  agreements (patent, software, trade secret, know-how). Covers permitted and
+  restricted applications, sublicense limits, derivative-use treatment, audit
+  and compliance mechanics, and remedy framework. Use when narrowing licensee
+  exploitation rights, setting enforcement triggers, or preserving licensor
+  rights outside scope during negotiation or formation. Triggers: field of use,
+  permitted use, restricted use, sublicensing, derivative works, audit rights,
+  IP licence scope, patent software licensing.
 ---
 
 # Field of Use Restriction Clause
 
-Draft a narrow, enforceable licensing clause that limits exploitation rights to a defined field while preserving licensor control outside that field.
+Drafts a narrow, enforceable licensing clause that limits exploitation rights to a defined field while preserving licensor control outside that field. U.S.-focused; cross-border enforcement may require localization. [VERIFY]
 
 ## Prerequisites
 
-1. Transaction scope and grant model defined: IP type, exclusive/non-exclusive status, term, royalty logic, and territory.
-2. Technology and portfolio data collected: patents, know-how, trademarks, software modules, versions, and related IP.
-3. Business boundaries collected: industries, customer types, channels, geographies, end-use applications, and prohibited markets.
-4. Source documents available: draft agreement, SOW, schedules, prior licenses, and confidentiality provisions.
-5. Enforcement preferences set: audit cadence, reporting format, cure policy, and remedy priorities.
-6. Jurisdiction and dispute posture selected: governing law, venue/forum, and immediate injunctive flexibility requirements.
+Before drafting, confirm:
 
-## Output Structure / Process
+1. **Grant model defined** — IP type, exclusive/non-exclusive, term, royalty logic, territory.
+2. **Portfolio data collected** — patent IDs, software modules/versions, know-how, related IP.
+3. **Business boundaries set** — industries, customer types, channels, geographies, prohibited markets.
+4. **Source documents available** — draft agreement, SOW, schedules, prior licenses.
+5. **Enforcement preferences** — audit cadence, reporting format, cure policy, remedy priorities.
+6. **Jurisdiction selected** — governing law, venue/forum, injunctive relief requirements.
 
-### A. Input Matrix
+## Quick Start
 
-| Field | Capture | Draft impact |
+Gather inputs across five dimensions, then assemble clause sections in order:
+
+| Input | Capture | Drives |
 |---|---|---|
-| Field scope | Industry, use case, geography, customer type, channel | Definition of `Field of Use` and negative examples |
-| IP scope | Patent IDs, software versions, manuals, process assets | Definition precision and covered subject matter |
-| Commercial rights | grant type, exclusivity, sublicensing rights | Reservation of rights outside scope |
-| Compliance controls | reporting cadence, records, audit access | Section 6-7 mechanics |
-| Enforcement posture | cure tolerance, injunction needs, termination triggers | Remedies and transition provisions |
+| Field scope | Industry, use case, geography, customer type, channel | `Field of Use` definition and negative examples |
+| IP scope | Patent IDs, software versions, process assets | Covered subject-matter precision |
+| Commercial rights | Grant type, exclusivity, sublicensing | Reservation-of-rights language |
+| Compliance controls | Reporting cadence, records, audit access | Audit and reporting mechanics |
+| Enforcement posture | Cure tolerance, injunction needs, termination triggers | Remedies and transition provisions |
 
-### B. Clause Assembly Checklist
+## Clause Assembly
 
-1. Add definitions first: `Licensed Property`, `Field of Use`, `Permitted Applications`, `Restricted Fields`, plus any technology-specific terms from patents/specs.
-2. Draft grant language that confers rights only within `Field of Use`, reserves all rights outside, and ties term/milestones to any scope evolution.
-3. Insert sublicense/assignment logic: who may sublicense, in what scope, with mandatory field-of-use notices and licensor approval where required.
-4. Draft use controls: direct/indirect exploitation outside scope prohibited; no affiliate or third-party circumvention; restrict derivative use consistent with intent.
-5. Add compliance architecture: licensee records by product/application/customer; periodic reports; audit rights with access scope and notice.
-6. Add remedy stack: cure rules (if any), material breach termination, injunction, enhanced royalties/profits remedies, and IP clawback/assignment where lawful.
-7. Add post-termination controls: immediate cessation, return/destruction of materials, ongoing confidentiality and field restrictions.
-8. Add governing law and dispute section aligned to chosen forum plus carve-out for expedited injunctive relief.
+Draft sections in this order:
 
-### C. Template Skeleton
+1. **Definitions** — `Licensed Property`, `Field of Use`, `Permitted Applications`, `Restricted Fields`, plus technology-specific terms from patents/specs.
+2. **Grant** — Confer rights only within `Field of Use`; reserve all rights outside; tie term/milestones to any scope evolution.
+3. **Sublicense/assignment** — Scope limits, mandatory field-of-use flow-down notices, licensor approval where required.
+4. **Use controls** — Prohibit direct/indirect exploitation outside scope; explicit anti-circumvention for affiliates, contractors, distributors.
+5. **Derivatives** — Restrict derivative use consistent with field intent; address improvements and new IP ownership.
+6. **Compliance** — Licensee records by product/application/customer; periodic reports; audit rights with access scope and notice.
+7. **Remedies** — Cure rules (if any), material breach termination, injunction, enhanced royalties/profits, IP clawback where lawful.
+8. **Post-termination** — Immediate cessation, return/destruction of materials, ongoing confidentiality and field restrictions.
+9. **Governing law and disputes** — Chosen forum plus carve-out for expedited injunctive relief.
+10. **Survival** — Confidentiality, indemnity, continuing restraint obligations.
 
-```text
-1. Definitions
-2. Grant of License Limited to Field of Use
-3. Permitted Uses
-4. Restricted Fields and Prohibited Activities
-5. Sublicensing and Transfers
-6. Improvements, Derivatives, and New IP
-7. Compliance, Records, and Audit Rights
-8. Breach, Cure, Termination, and Remedies
-9. Post-Termination Obligations
-10. Governing Law and Dispute Resolution
-11. Survival
-```
+## Validation Checklist
 
-### D. Pre-Release Validation
+Before finalizing:
 
-1. Confirm no operative verb permits off-scope commercial activity (`sell`, `use`, `offer`, `distribute`, `import`).
-2. Confirm all cross-references resolve and terminology is uniform across definitions and obligations.
-3. Confirm reporting fields tie to royalty and audit triggers.
-4. Confirm survival obligations include confidentiality, indemnity, and continuing restraint obligations where intended.
+- [ ] No operative verb (`sell`, `use`, `offer`, `distribute`, `import`) permits off-scope commercial activity
+- [ ] All cross-references resolve; terminology uniform across definitions and obligations
+- [ ] Reporting fields tie to royalty and audit triggers
+- [ ] Survival clause covers confidentiality, indemnity, and continuing restraints
+- [ ] Grant language and exclusion language are consistent (no contradictions)
 
-## Guidelines
+## Pitfalls
 
-1. Prefer objective scope controls over subjective standards; ambiguity is enforcement risk.
-2. Use exhaustive exclusion language but avoid contradictions with grant language.
-3. In software licenses, split field definitions by platform, module, deployment model, and customer class.
-4. Keep anti-circumvention language explicit for affiliates, contractors, distributors, and value-chain intermediaries.
-5. Document any jurisdiction-specific drafting assumptions; this is U.S.-focused and may need localization for cross-border enforcement. [VERIFY]
-6. Use calibrated liquidated damages language only if demonstrably tied to anticipated loss and proportionate.
+- **Ambiguous scope** — Prefer objective controls over subjective standards; ambiguity defeats enforcement.
+- **Software licenses** — Split field definitions by platform, module, deployment model, and customer class.
+- **Liquidated damages** — Use only if demonstrably tied to anticipated loss and proportionate.
+- **Anti-circumvention gaps** — Cover affiliates, contractors, distributors, and value-chain intermediaries explicitly.

@@ -1,36 +1,38 @@
 ---
 name: representation-agreement
 description: >-
-  Drafts a U.S. attorney representation agreement for litigation matters, with
-  personal injury–oriented fee, cost, and disclosure terms, clear scope
-  limits, and client/attorney duties. Used when preparing an engagement
-  letter, fee agreement, retainer agreement, or attorney‑client representation
-  agreement at intake or pre‑filing. Trigger keywords: representation
-  agreement, engagement letter, retainer, contingency fee, personal injury,
-  litigation.
-tags:
-  - agreement
-  - drafting
-  - litigation
+  Drafts a U.S. litigation representation agreement covering scope, fees,
+  costs, duties, conflicts, and termination. Use when preparing an engagement
+  letter, fee agreement, retainer, or attorney-client representation agreement
+  at intake or pre-filing. Trigger: representation agreement, engagement
+  letter, retainer, contingency fee, personal injury, litigation.
 ---
 
-# Attorney Representation Agreement (Litigation)
+# Representation Agreement (Litigation)
 
-Drafts a litigation engagement agreement that defines scope, fees, costs, duties, conflicts, and termination.
+Generates a matter-specific engagement agreement between attorney/firm and client for U.S. litigation, with personal-injury-oriented fee structures.
 
 ## Prerequisites
 
-1. **Client identity** — legal name, entity type, authorized signer, contact info.
-2. **Matter summary** — dispute description, opposing parties, venue/jurisdiction, case caption/number if filed.
-3. **Fee model** — hourly, flat, contingency, or hybrid; rates; retainer; trust handling.
-4. **Conflicts check** — completed and any waivers identified.
-5. **Cost policy** — advance vs. direct pay; approval thresholds; lien rights.
-6. **Jurisdictional rules** — state bar requirements for written fee agreements and mandatory disclosures.
-7. **Key dates** — engagement effective date and any imminent deadlines.
+Collect before drafting:
 
-## Output Structure / Process
+1. **Client identity** — legal name, entity type, authorized signer, contact info
+2. **Matter summary** — dispute description, opposing parties, venue/jurisdiction, case caption if filed
+3. **Fee model** — hourly, flat, contingency, or hybrid; rates; retainer; trust handling
+4. **Conflicts check** — completed; waivers identified
+5. **Cost policy** — advance vs. direct pay; approval thresholds; lien rights
+6. **Jurisdictional rules** — state bar written-fee-agreement and disclosure requirements
+7. **Key dates** — effective date, imminent deadlines
 
-**A. Intake Variables (fill all applicable fields)**
+## Quick Start
+
+1. Populate the intake table below with all known values
+2. Select the applicable fee model (Section 3) and delete the others
+3. Assemble agreement sections 1–15 in order
+4. Attach rate table or contingency addendum as applicable
+5. Verify against jurisdiction-specific rules (see Pitfalls)
+
+## Intake Variables
 
 | Field | Value |
 |---|---|
@@ -46,121 +48,62 @@ Drafts a litigation engagement agreement that defines scope, fees, costs, duties
 | Fee model | |
 | Retainer amount & trust treatment | |
 | Billing cadence & payment due | |
-| Cost approvals threshold | |
+| Cost approval threshold | |
 | Communication preferences | |
 | File retention period | |
 | Governing law / venue | |
 
-**B. Agreement Template (assemble sections in order)**
+## Agreement Sections
 
-```text
-1. Parties and Effective Date
-- Identify firm/attorney and client with full legal names.
-- State effective date and signer authority for entities.
+Assemble in this order:
 
-2. Scope of Representation
-- Covered matter: [short description; case caption/number if filed]
-- Included services: investigation, pleadings, discovery, motions, ADR, trial prep, trial.
-- Excluded services: appeals, collection, unrelated claims, ancillary matters.
-- Expansion: only by written amendment.
+1. **Parties and Effective Date** — full legal names; signer authority for entities
+2. **Scope of Representation** — covered matter and services (investigation, pleadings, discovery, motions, ADR, trial); excluded services (appeals, collection, unrelated claims); expansion by written amendment only
+3. **Fee Arrangement** — select one:
+   - *Hourly* — rates table by timekeeper, billing increment, rate-change notice
+   - *Flat Fee* — amount, covered tasks, treatment of unused portion
+   - *Contingency* — percentage(s) by phase, definition of "recovery," cost-deduction order, jurisdictional client acknowledgments
+   - *Hybrid* — hourly + contingency or flat + success fee
+4. **Retainer / Advance Deposit** — amount, trust account treatment, replenishment threshold, non-replenishment consequences
+5. **Costs and Expenses** — itemized categories (filing fees, service, transcripts, experts, travel, research, copying); advance vs. client-direct; approval required above $[X]
+6. **Billing and Payment** — frequency, payment terms, interest/late charges if permitted, attorney lien rights
+7. **Client Responsibilities** — candor, evidence preservation, litigation hold compliance, attendance, no direct opposing-party contact
+8. **Attorney Responsibilities** — competent/diligent representation, communication cadence, independent professional judgment
+9. **Confidentiality and Privilege** — duty of confidentiality, privilege ownership, permitted/required disclosure exceptions
+10. **Conflicts of Interest** — check completed, waivers disclosed/attached, future unrelated representations
+11. **Termination and Withdrawal** — client termination right, withdrawal grounds per rules, file transfer, final accounting, unearned-fund refund
+12. **File Retention** — retention period, destruction policy after notice
+13. **Dispute Resolution** — fee dispute program / mandatory arbitration; optional mediation
+14. **Governing Law and Miscellaneous** — governing law, venue, entire agreement, amendments in writing, severability, notices, client-name use only with consent
+15. **Signatures and Acknowledgments** — signature blocks for firm and client; acknowledgments for fee terms, scope, arbitration rights
 
-3. Fee Arrangement (select one and delete others)
-A. Hourly
-- Rates table by timekeeper.
-- Billing increment (e.g., 0.1 hr).
-- Rate changes with advance notice.
-B. Flat Fee
-- Flat fee amount and covered tasks.
-- Treatment of unused portion.
-C. Contingency
-- Percentage(s) by phase.
-- Define “recovery” and deduction order of costs.
-- Client acknowledgments required by jurisdiction.
-D. Hybrid
-- Specify hourly + contingency or flat + success fee.
+## Fee-Model Addenda
 
-4. Retainer / Advance Deposit
-- Amount, trust account treatment, replenishment threshold.
-- Consequences for non-replenishment.
-
-5. Costs and Expenses
-- Itemized list: filing fees, service, transcripts, experts, travel, research, copying.
-- Advance vs. client-direct payment.
-- Approval required for single expense > $[X].
-
-6. Billing and Payment Terms
-- Billing frequency.
-- Payment due in [X] days.
-- Interest/late charges if permitted.
-- Attorney’s lien rights if allowed.
-
-7. Client Responsibilities
-- Candor and complete disclosure.
-- Preserve evidence and comply with litigation hold.
-- Attend proceedings and respond promptly.
-- No direct contact with opposing parties or public posts.
-
-8. Attorney Responsibilities
-- Competent and diligent representation.
-- Communication and status updates.
-- Independent professional judgment.
-
-9. Confidentiality and Privilege
-- Duty of confidentiality and privilege ownership.
-- Exceptions where disclosure is permitted/required.
-
-10. Conflicts of Interest
-- Conflicts check completed.
-- Disclose any waivers and attach if needed.
-- Future unrelated representations allowed.
-
-11. Termination and Withdrawal
-- Client’s right to terminate.
-- Grounds for withdrawal consistent with rules.
-- File transfer, final accounting, refund of unearned funds.
-
-12. File Retention
-- Retention period and destruction policy after notice.
-
-13. Dispute Resolution
-- Fee dispute program/mandatory arbitration if applicable.
-- Mediation requirement if selected.
-
-14. Governing Law, Venue, and Miscellaneous
-- Governing law and venue.
-- Entire agreement; amendments in writing; severability; notices.
-- Marketing/use of client name only with consent.
-
-15. Signatures and Acknowledgments
-- Signature blocks for firm and client.
-- Acknowledgments for fee terms, scope, arbitration rights.
-```
-
-**C. Rate Table (if hourly or hybrid)**
+### Rate Table (hourly or hybrid)
 
 | Timekeeper | Role | Hourly Rate |
 |---|---|---|
 | | | |
 
-**D. Contingency Fee Addendum (if contingency)**
+### Contingency Fee Schedule
 
 | Phase | % Fee |
 |---|---|
-| Pre‑suit resolution | |
-| Post‑filing, pre‑trial | |
+| Pre-suit resolution | |
+| Post-filing, pre-trial | |
 | Trial | |
 | Appeal | |
 
-- Define whether costs are deducted before or after fee calculation.
-- Include statutory or rule‑mandated disclosures.
-- Provide illustrative example of fee calculation.
+- State whether costs deducted before or after fee calculation
+- Include statutory/rule-mandated disclosures
+- Provide illustrative fee-calculation example
 
-## Guidelines
+## Pitfalls
 
-- Ensure the agreement matches the **jurisdiction’s written fee agreement and contingency disclosure rules**; insert required consumer notices.
-- Do not promise outcomes or guarantee recovery.
-- Scope must be **matter‑specific**; exclude appeals and collection unless expressly included.
-- Clarify **retainer treatment** and whether any portion is earned upon receipt.
-- For personal injury matters, confirm **contingency limits, medical lien disclosures, and settlement authority** requirements for the state.
-- If any conflicts waiver is required, attach a **separate informed consent** document.
-- Use plain language and consistent defined terms throughout.
+- **Jurisdiction compliance** — match the state's written-fee-agreement and contingency-disclosure rules; insert required consumer notices
+- **No outcome promises** — never guarantee recovery
+- **Scope creep** — exclude appeals and collection unless expressly included
+- **Retainer clarity** — specify whether any portion is earned on receipt
+- **Personal injury specifics** — verify state contingency limits, medical-lien disclosures, and settlement-authority requirements
+- **Conflicts waivers** — attach as a separate informed-consent document
+- **Plain language** — use consistent defined terms throughout

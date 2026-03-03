@@ -1,32 +1,45 @@
 ---
 name: incident-report-summary
-description: Generates structured, litigation-ready summaries from police reports, workplace incident reports, or similar investigative documents. Extracts parties, officer narratives, citations, witness details, contributing factors, and diagram descriptions into a standardized analytical format. Use when summarizing police reports, accident reports, incident reports, crash reports, or investigative documentation for case assessment, discovery planning, or liability evaluation.
+description: >-
+  Generates structured, litigation-ready summaries from police reports,
+  crash reports, workplace incident reports, or investigative documents.
+  Extracts parties, narratives, citations, witnesses, contributing factors,
+  and visual documentation into a standardized format. Use when summarizing
+  an incident report for case assessment, discovery planning, or liability
+  evaluation; trigger keywords: police report, accident report, crash report,
+  incident summary, report summary, investigative report.
 tags:
   - litigation
   - summarization
-  - summary
 ---
 
-# Police/Incident Report Summary
+# Incident Report Summary
 
-Produces a structured, litigation-ready summary from police or incident reports optimized for case assessment, discovery planning, and liability evaluation.
+Extracts a structured, self-sufficient summary from a police or incident report so an attorney can assess facts, parties, and issues without the original document.
 
 ## Prerequisites
 
-1. **Source report** — police report, crash report, workplace incident report, or similar investigative document (PDF, scan, or text)
-2. **All attachments** — supplemental reports, continuation sheets, witness statement forms, diagrams, photos
-3. **Matter identifier** — case name or number for document labeling
+1. Source report (police, crash, workplace, or investigative document).
+2. All attachments — supplements, witness forms, diagrams, photos.
+3. Matter identifier — case name or number.
 
-## Output Structure
+## Quick Start
 
-Produce a summary with the following sections in order:
+1. Identify report type and adapt extraction fields accordingly (e.g., skip vehicle info for workplace incidents).
+2. Extract each section below in order.
+3. Flag every gap, contradiction, or ambiguity.
+4. Verify every fact traces to specific source language — no inference.
+
+## Output Sections
+
+Produce sections in the order listed.
 
 ### 1. Header
 
 | Field | Extract |
-|-------|---------|
-| Report/Case Number | Official identifier from document |
-| Incident Date/Time | With time zone if available |
+|---|---|
+| Report/Case Number | Official identifier |
+| Incident Date/Time | Include time zone if available |
 | Report Filed Date | If different from incident date |
 | Location | Full address, intersection, or mile marker |
 | Agency | Name, officer/investigator, badge number |
@@ -34,81 +47,75 @@ Produce a summary with the following sections in order:
 
 ### 2. Parties Involved
 
-For each party, extract into a structured block:
+Per party, extract:
 
-- **Role**: Driver / Passenger / Pedestrian / Victim / Suspect / Reporting Party / Employee
-- **Name**: Full legal name
+- **Role** — Driver / Passenger / Pedestrian / Victim / Suspect / Reporting Party / Employee
+- **Name** — full legal name
 - **DOB / Age**
-- **Address**
-- **Contact**: Phone, email
-- **ID**: Driver's license number + state, or employee ID
-- **Vehicle** (if applicable): Year, make, model, color, VIN, plate number
-- **Insurance** (if applicable): Carrier, policy number, agent
-- **Injuries noted**: As described in report
+- **Address**, **Contact** (phone, email)
+- **ID** — license number + state, or employee ID
+- **Vehicle** (if applicable) — year, make, model, color, VIN, plate
+- **Insurance** (if applicable) — carrier, policy number
+- **Injuries noted** — as described in report
 
 ### 3. Narrative Summary
 
 Provide two versions:
 
-- **Complete narrative**: Preserve the officer/investigator's full account
-- **Key facts extract**: Condensed list of legally significant facts only:
-  - Admissions of fault
-  - Observations of impairment, recklessness, distraction
+- **Complete narrative** — preserve the officer/investigator's full account.
+- **Key facts extract** — legally significant facts only:
+  - Fault admissions
+  - Impairment / recklessness / distraction observations
   - Physical evidence (skid marks, distances, measurements)
   - Injury descriptions
   - Safety equipment use or non-use
-  - Environmental conditions at time of incident
+  - Environmental conditions
 
-Flag: ambiguities, contradictions, or temporal gaps in the narrative.
+Flag ambiguities, contradictions, and temporal gaps.
 
-### 4. Citations / Charges / Violations
+### 4. Citations / Charges
 
-| Person Cited | Statute/Code | Violation Description | Issued At Scene? | Court Date | Fine/Penalty |
+| Person Cited | Statute/Code | Description | Issued At Scene? | Court Date | Penalty |
 |---|---|---|---|---|---|
 
-### 5. Witness Information
+### 5. Witnesses
 
-For each witness:
+Per witness:
 
 | Field | Detail |
-|-------|--------|
+|---|---|
 | Name | Full name |
 | Contact | Phone, address, email |
-| Relationship | Independent / party-related |
-| Location at incident | Where they were, what direction they faced |
+| Relationship | Independent or party-related |
+| Location at incident | Position and facing direction |
 | Statement summary | Key observations in their words |
 
-Note:
-- Preserve direct quotes verbatim (potential excited utterances / hearsay exceptions)
-- Flag witnesses identified but not interviewed
-- Flag references to unidentified potential witnesses
+- Preserve direct quotes verbatim (excited utterances / hearsay exceptions).
+- Flag witnesses identified but not interviewed.
+- Flag references to unidentified potential witnesses.
 
 ### 6. Contributing Factors
 
-Categorize each factor and note its evidentiary basis:
-
-| Category | Factor | Evidence Source |
-|----------|--------|-----------------|
+| Category | Examples | Evidence Source |
+|---|---|---|
 | Environmental | Weather, lighting, road surface, visibility | Physical evidence / narrative |
-| Human | Speed, inattention, impairment, fatigue, violations | Witness / admission / observation |
-| Equipment | Mechanical failure, defects, maintenance | Inspection / narrative |
-| Systemic | Training gaps, supervision, hazardous conditions | Report findings |
+| Human | Speed, inattention, impairment, fatigue | Witness / admission / observation |
+| Equipment | Mechanical failure, defects | Inspection / narrative |
+| Systemic | Training gaps, hazardous conditions | Report findings |
 
 Flag factors suggesting:
-- **Third-party liability** (road design defects, product defects, employer violations)
-- **Affirmative defenses** (comparative negligence, assumption of risk, intervening cause)
+- **Third-party liability** — road design defects, product defects, employer violations
+- **Affirmative defenses** — comparative negligence, assumption of risk, intervening cause
 
 ### 7. Visual Documentation
 
-For each diagram, sketch, or photo in the report, provide a textual description covering:
+Describe each diagram, sketch, or photo:
 
-- **Collision diagrams**: Road configuration, lanes, traffic controls, vehicle positions (pre/during/post impact), direction of travel, point of impact, final rest positions, measurements
-- **Photos**: Subject depicted, perspective, visible damage/injuries, environmental conditions, evidence markers
-- Note any information in visuals not mentioned in the narrative
+- **Collision diagrams** — road layout, lanes, traffic controls, vehicle positions (pre/during/post), point of impact, final rest, measurements.
+- **Photos** — subject, perspective, visible damage/injuries, evidence markers.
+- Note information in visuals absent from the narrative.
 
-### 8. Gaps and Follow-Up Items
-
-Checklist of missing or unclear information requiring further investigation:
+### 8. Gaps and Follow-Up
 
 - [ ] Missing party contact information
 - [ ] Uninterviewed or unidentified witnesses
@@ -117,12 +124,11 @@ Checklist of missing or unclear information requiring further investigation:
 - [ ] Unclear measurements or diagram elements
 - [ ] Pending lab results, toxicology, or reconstruction reports
 
-## Guidelines
+## Checks
 
-- Every fact in the summary must trace to specific language in the source report — no inference or speculation
-- Distinguish between officer's direct observations and information relayed by others
-- Use consistent date format (MM/DD/YYYY) and time format (12h or 24h) throughout
-- Adapt extraction fields to report type — not all fields apply to all incident types (e.g., vehicle info irrelevant for workplace incidents)
-- Protect sensitive PII not relevant to liability or damages
-- Format for immediate incorporation into case files: clear headings, tables for repetitive data, scannable structure
-- The summary must be self-sufficient — an attorney should understand essential facts, parties, and issues without the original report
+- Every fact must trace to specific source language — no inference or speculation.
+- Distinguish officer's direct observations from relayed information.
+- Use consistent date (MM/DD/YYYY) and time format throughout.
+- Adapt fields to report type — omit inapplicable sections.
+- Protect PII not relevant to liability or damages.
+- Use [VERIFY] on any uncertain extraction.

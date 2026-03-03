@@ -1,97 +1,76 @@
 ---
 name: nda-summary
-description: Generates structured summaries of Non-Disclosure Agreements, extracting parties, confidential information definitions, permitted disclosures, exclusions, standard of care, term/survival provisions, breach remedies, and risk flags into a scannable reference format. Use when summarizing NDAs, reviewing confidentiality agreements, distilling NDA obligations, or onboarding stakeholders to NDA terms in corporate or transactional contexts.
-tags:
-  - corporate
-  - summarization
-  - summary
-  - transactional
+description: Generates structured summaries of Non-Disclosure Agreements, extracting parties, confidential information scope, permitted disclosures, term/survival, breach remedies, and risk flags. Use when summarizing NDAs, reviewing confidentiality agreements, distilling NDA obligations, or onboarding stakeholders to NDA terms.
 ---
 
 # NDA Summary
 
-Distills a Non-Disclosure Agreement into a structured, scannable reference covering all material terms, obligations, and risk areas.
+Distills an NDA into a structured, scannable reference covering material terms, obligations, and risk areas.
 
 ## Prerequisites
 
-1. **Complete NDA document** — fully executed or near-final draft
-2. **Any amendments or side letters** modifying the original NDA terms
+- Complete NDA (executed or near-final draft)
+- Any amendments or side letters modifying original terms
 
-## Output Structure
+## Quick Start
+
+1. Read the full NDA and any amendments
+2. Extract terms into each section below, citing section numbers
+3. Flag gaps, ambiguities, and non-market terms in Risk Flags
+4. Mark silent topics as **[NOT ADDRESSED]** and uncertain citations as **[VERIFY]**
+
+## Output Sections
 
 ### 1. Overview
 
-| Field | Extract |
-|-------|---------|
-| Parties | Full legal names, roles (Disclosing / Receiving / Mutual) |
-| Effective Date | — |
-| Purpose / Context | Transaction type, employment, vendor, etc. |
-| Agreement Type | Unilateral or Mutual |
-| Governing Law | Jurisdiction, venue, choice of law |
+Extract: parties (full legal names, Disclosing/Receiving/Mutual roles), effective date, purpose/context, agreement type (unilateral/mutual), governing law and venue.
 
 ### 2. Confidential Information
 
-| Element | Details |
-|---------|---------|
-| **Definition** | Quoted or paraphrased definition with scope |
-| **Categories / Examples** | Listed categories from agreement |
-| **Exclusions** | Publicly available, independently developed, prior knowledge, authorized disclosure |
-| **Standard of Care** | Same as own confidential info / reasonable care / heightened standard |
-| **Marking Requirements** | Whether written marking or oral designation follow-up required |
+Extract:
+- **Definition** — quote or paraphrase with scope
+- **Categories** — listed categories from agreement
+- **Exclusions** — publicly available, independently developed, prior knowledge, authorized disclosure
+- **Standard of care** — same-as-own / reasonable care / heightened
+- **Marking requirements** — written marking, oral designation follow-up
 
 ### 3. Disclosure Parameters
 
-| Topic | Details |
-|-------|---------|
-| **Permitted Recipients** | Employees, contractors, advisors, affiliates — note any need-to-know or binding requirements |
-| **Permitted Uses** | Evaluation, due diligence, specific project scope |
-| **Prohibited Uses** | Reverse engineering, competitive use, etc. |
-| **Compelled Disclosure** | Legal process / regulatory — note advance notice requirement and right to seek protective order |
+Extract:
+- **Permitted recipients** — employees, contractors, advisors, affiliates; note need-to-know or binding requirements
+- **Permitted uses** — evaluation, due diligence, project scope
+- **Prohibited uses** — reverse engineering, competitive use, etc.
+- **Compelled disclosure** — legal process / regulatory; note advance-notice and protective-order rights
 
 ### 4. Term and Survival
 
-| Element | Details |
-|---------|---------|
-| **Term** | Duration of agreement |
-| **Survival Period** | How long obligations continue post-termination |
-| **Return / Destruction** | Requirements for materials upon termination, certification obligations |
+Extract: agreement duration, survival period post-termination, return/destruction requirements and certification obligations.
 
-### 5. Breach Consequences and Remedies
+### 5. Breach Remedies
 
-| Remedy | Present? | Details |
-|--------|----------|---------|
-| Injunctive Relief | Y/N | Bond waiver? |
-| Liquidated Damages | Y/N | Amount / formula |
-| Indemnification | Y/N | Scope, legal fees included? |
-| Liability Cap | Y/N | Amount or exclusions (consequential, punitive) |
-| Dispute Resolution | Y/N | Arbitration, mediation, forum |
+For each, note whether present (Y/N) and details:
+- **Injunctive relief** — bond waiver?
+- **Liquidated damages** — amount/formula
+- **Indemnification** — scope, legal fees
+- **Liability cap** — amount, exclusions (consequential, punitive)
+- **Dispute resolution** — arbitration, mediation, forum
 
-### 6. Additional Material Terms
+### 6. Additional Terms
 
-Extract if present:
-
-- Non-solicitation or non-compete restrictions
-- IP ownership or licensing terms for exchanged information
-- Representations and warranties re: authority to disclose
-- Assignment restrictions
-- Third-party beneficiary provisions
+Extract if present: non-solicitation/non-compete, IP ownership or licensing, representations re authority to disclose, assignment restrictions, third-party beneficiary provisions.
 
 ### 7. Risk Flags
 
-Identify and flag:
-
-- [ ] **Unusual terms** — provisions deviating from market-standard NDAs
+- [ ] **Unusual terms** — deviations from market-standard NDAs
 - [ ] **Onerous obligations** — asymmetric burdens, broad definitions, long survival
-- [ ] **Ambiguities** — vague definitions, internally inconsistent provisions
-- [ ] **Gaps** — missing standard of care, no survival period, no return/destruction clause, no compelled-disclosure carve-out
+- [ ] **Ambiguities** — vague definitions, internal inconsistencies
+- [ ] **Gaps** — missing standard of care, survival period, return/destruction, compelled-disclosure carve-out
 - [ ] **Enforceability concerns** — overbroad scope, unreasonable duration
 
-## Guidelines
+## Pitfalls
 
-- Cite section numbers or page references for every extracted term
-- Use exact contract language in quotes for definitions and key obligations; paraphrase elsewhere for brevity
-- Flag silent topics as **[NOT ADDRESSED]** — especially standard of care, survival period, and return/destruction
-- Mark any uncertain legal citations with **[VERIFY]**
-- Keep tone neutral and precise; accessible to non-lawyers but legally accurate
-- Target 1–3 pages depending on NDA complexity
-- Do not provide legal advice or enforceability opinions — flag issues for attorney review
+- **Silent topics**: Always flag missing standard of care, survival period, and return/destruction — these are the most commonly omitted
+- **Quoting vs. paraphrasing**: Quote definitions and key obligations exactly; paraphrase elsewhere for brevity
+- **No legal advice**: Flag issues for attorney review — do not opine on enforceability
+- **Section citations**: Every extracted term must reference a section number or page
+- **Length**: Target 1–3 pages depending on NDA complexity

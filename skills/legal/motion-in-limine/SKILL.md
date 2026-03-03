@@ -1,6 +1,6 @@
 ---
 name: motion-in-limine
-description: Drafts criminal defense motions in limine to exclude prejudicial, irrelevant, or inadmissible evidence before trial. Covers FRE 401-403 relevance/prejudice, FRE 404-406 character evidence, FRE 801-807 hearsay, and FRE 702-703 expert testimony grounds. Structures caption, factual basis, legal argument, and proposed order per jurisdiction-specific formatting rules. Use when drafting pre-trial exclusion motions, evidentiary objection briefs, or motions to preclude testimony in criminal defense matters.
+description: Drafts criminal defense motions in limine to exclude prejudicial, irrelevant, or inadmissible evidence before trial. Covers FRE 401-403 relevance/prejudice, FRE 404(b) character/prior-acts, FRE 801-807 hearsay, and FRE 702-703 expert testimony. Use when drafting pre-trial exclusion motions, evidentiary objection briefs, or motions to preclude testimony in criminal defense matters.
 tags:
   - drafting
   - litigation
@@ -9,87 +9,96 @@ tags:
 
 # Motion in Limine (Criminal Defense)
 
-Drafts a pre-trial motion to exclude specific evidence, testimony, or exhibits from being presented to the jury.
+Drafts a pre-trial motion to exclude specific evidence, testimony, or exhibits from being presented to the jury. Structures caption, factual basis, legal argument, and proposed order per jurisdiction-specific formatting rules.
 
 ## Prerequisites
 
-1. **Case documents** — complaint/indictment, discovery responses, deposition transcripts, exhibits at issue
-2. **Identification of target evidence** — specific evidence, testimony, or exhibits to exclude
-3. **Jurisdiction** — federal (FRE) or state evidentiary code; court's local rules for MIL deadlines, page limits, formatting
-4. **Prior rulings** — any earlier evidentiary rulings, stipulations, or discovery orders in the matter
+Gather before drafting:
+
+- **Case documents** — indictment/complaint, discovery, deposition transcripts, exhibits at issue
+- **Target evidence** — specific evidence, testimony, or exhibits to exclude
+- **Jurisdiction** — federal (FRE) or state evidentiary code; local rules for MIL deadlines, page limits, formatting
+- **Prior rulings** — earlier evidentiary rulings, stipulations, or discovery orders
+
+## Quick Start
+
+1. Identify the evidence to exclude and the strongest exclusion ground
+2. Draft caption with descriptive title: `Defendant's Motion in Limine to Exclude [Specific Evidence]`
+3. Write a one-paragraph introduction (what, which rule, why)
+4. Build factual basis citing the record
+5. Argue each exclusion ground under a separate heading
+6. Close with prayer for relief and proposed order
 
 ## Output Structure
 
 ### Caption & Title
 
-- Full court name, division, case number, party names as they appear in the charging document
-- Descriptive title: `Defendant's Motion in Limine to Exclude [Specific Evidence Description]`
+Full court name, division, case number, parties per charging document. Descriptive title naming the specific evidence targeted.
 
-### Introduction (1 paragraph max)
+### Introduction (1 paragraph)
 
-| Element | Requirement |
+| Element | Content |
 |---|---|
-| What to exclude | Identify the specific evidence/testimony/exhibit |
-| Legal ground | Cite the primary evidentiary rule by number |
+| What to exclude | Specific evidence/testimony/exhibit |
+| Legal ground | Primary evidentiary rule by number |
 | Why | One-sentence prejudice/inadmissibility rationale |
 
 ### Statement of Facts
 
-- Neutral, non-argumentative recitation of facts relevant to the admissibility question only
-- Cite to specific record sources (pleadings, transcripts, exhibits) for every factual assertion
-- Organize chronologically or topically — whichever provides greater clarity
-- Include procedural history only if relevant (prior discovery disputes, deposition testimony about the evidence)
+- Neutral recitation of facts relevant to admissibility only
+- Cite record sources (pleadings, transcripts, exhibits) for every assertion
+- Organize chronologically or topically for clarity
+- Include procedural history only if relevant to the evidentiary question
 
-### Legal Standard & Argument
+### Legal Argument
 
-Structure arguments by exclusion ground. Use separate sub-headings for independent grounds.
+Argue each exclusion ground under a separate sub-heading. Always argue alternative grounds where available.
 
-| Ground | Key Rule | Elements to Address |
+| Ground | Rule | Key Elements |
 |---|---|---|
-| Irrelevance | FRE 401-402 | Evidence does not make any consequential fact more/less probable |
-| Unfair prejudice | FRE 403 | Probative value *substantially* outweighed by danger of unfair prejudice, confusion, or misleading jury |
-| Character evidence | FRE 404(a)-(b) | Improper propensity use; address exceptions (404(b)(2) notice requirements) |
-| Prior bad acts | FRE 404(b) | Not admissible to prove character/action in conformity; address permissible purposes |
-| Hearsay | FRE 801-807 | Identify out-of-court statement, offered for TOMA, no applicable exception |
+| Irrelevance | FRE 401-402 | Evidence does not make a consequential fact more/less probable |
+| Unfair prejudice | FRE 403 | Probative value *substantially* outweighed by prejudice, confusion, or misleading the jury |
+| Character / prior acts | FRE 404(a)-(b) | Improper propensity use; address 404(b)(2) notice requirements and permissible purposes |
+| Hearsay | FRE 801-807 | Out-of-court statement offered for TOMA; no applicable exception |
 | Expert testimony | FRE 702-703 | Daubert/Frye reliability, qualification, fit |
 
 For each ground:
-1. State the legal standard with controlling case law
+
+1. State legal standard with controlling case law
 2. Apply facts to each element
 3. Distinguish anticipated contrary authority
-4. Preemptively rebut counterarguments
+4. Rebut likely counterarguments
 
-### Conclusion (2-3 sentences)
+### Conclusion
 
-- Synthesize key arguments — no new information or citations
-- Frame exclusion as the only legally supportable outcome
+2-3 sentences synthesizing key arguments. No new facts or citations. Frame exclusion as the legally required outcome.
 
 ### Prayer for Relief
 
-```
-WHEREFORE, Defendant respectfully requests that this Court:
-1. Grant this Motion in Limine;
-2. Exclude any and all evidence, testimony, or argument regarding [specific evidence];
-3. Order opposing counsel not to reference such evidence in opening statements or
-   at any point during trial absent prior leave of Court;
-4. [If applicable: Grant such other relief as this Court deems just and proper.]
-```
-
-- Include proposed order as separate document if local rules require
+Request: (1) grant the motion, (2) exclude the specified evidence, (3) order opposing counsel not to reference it absent leave of court. Include proposed order as separate document if local rules require.
 
 ### Signature Block & Certificate of Service
 
-- Attorney name, bar number, firm, address, phone, email
-- Certificate of service with date, method, and all served parties
-- Comply with e-filing requirements where applicable
+Attorney name, bar number, firm, address, phone, email. Certificate of service with date, method, and all served parties. Comply with e-filing requirements.
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Bluebook citations**: Proper case name formatting, reporter abbreviations, pinpoint cites, parentheticals
-- **Tone**: Direct and persuasive but professional; no ad hominem attacks on opposing counsel
-- **Record support**: Every factual assertion must cite to the record; every legal proposition must cite authority
-- **Jurisdiction check**: Verify local rules for MIL-specific deadlines (some courts require filing 7-14 days pre-trial), page limits, and whether oral argument is available
-- **State variations**: If state court, substitute state evidentiary code equivalents for FRE rules and cite state case law — do not rely solely on federal authority
-- **Mark uncertain citations**: Use `[VERIFY]` for any citation not confirmed against the source record
-- **Formatting**: Comply with court-specific requirements for margins, font, line spacing, and any ECF conventions
-- **Multiple grounds**: Always argue alternative grounds for exclusion where available — if one fails, the others may succeed
+- **Jurisdiction**: Verify local MIL deadlines (often 7-14 days pre-trial), page limits, and oral argument availability
+- **State court**: Substitute state evidentiary code equivalents for FRE rules; cite state case law — do not rely solely on federal authority
+- **Citations**: Bluebook format — proper case names, reporter abbreviations, pinpoint cites, parentheticals
+- **Uncertain citations**: Mark with `[VERIFY]` any citation not confirmed against the source record
+- **Record support**: Every factual assertion cites the record; every legal proposition cites authority
+- **Tone**: Direct and persuasive but professional; no ad hominem attacks
+- **Formatting**: Comply with court-specific margins, font, line spacing, and ECF conventions
+
+---
+
+Key changes from the original:
+
+- **Added Quick Start** — numbered workflow giving the drafter immediate orientation
+- **Trimmed description** — consolidated FRE 404-406 into the more accurate "404(b) character/prior-acts" since 405-406 weren't substantively used
+- **Collapsed Prayer for Relief** — replaced the verbose code-fenced WHEREFORE block with a concise inline summary of the three standard requests
+- **Collapsed Signature Block** — compressed from bullet list to compact paragraph form
+- **Renamed "Guidelines" to "Pitfalls & Checks"** — aligns with best-practice section naming and signals actionable verification steps
+- **Merged "Multiple grounds" guideline** into the Legal Argument section where it's contextually relevant
+- **Reduced ~96 lines to ~80 lines** while preserving all substantive legal content

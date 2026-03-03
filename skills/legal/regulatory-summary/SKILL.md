@@ -1,30 +1,27 @@
 ---
 name: regulatory-summary
-description: Generates structured summaries of regulatory documents including agency rules, guidance, enforcement actions, and compliance frameworks. Extracts key provisions, requirements, deadlines, obligations, penalties, safe harbors, and actionable compliance insights with pinpoint citations. Use when summarizing regulations, agency guidance, rulemaking notices, enforcement orders, compliance advisories, or administrative decisions for regulatory matters.
-tags:
-  - analysis
-  - regulatory
-  - summarization
-  - summary
+description: Generates structured, citation-grounded summaries of regulatory documents (agency rules, guidance, enforcement actions, compliance frameworks). Extracts provisions, requirements, deadlines, penalties, safe harbors, and compliance actions with pinpoint citations. Use when summarizing regulations, rulemaking notices, enforcement orders, or administrative decisions.
 ---
 
 # Regulatory Document Summarization
 
-Produces a structured, citation-grounded summary of regulatory documents that serves as both a standalone reference and a roadmap for deeper analysis.
+Produces a structured summary of regulatory documents grounded in pinpoint citations, serving as both a standalone reference and a compliance roadmap.
 
-## Prerequisites
+## Quick Start
 
-1. **Regulatory document(s)** — final rules, proposed rules, guidance, enforcement actions, no-action letters, compliance frameworks, or administrative decisions
-2. **Context** (if available) — client industry, existing compliance posture, specific questions to address
+1. Collect the regulatory document(s) — final/proposed rules, guidance, enforcement actions, no-action letters, compliance frameworks, or administrative decisions
+2. Note any available context: client industry, compliance posture, specific questions
+3. Generate summary following the output structure below
 
 ## Output Structure
 
 ### 1. Executive Overview (2–3 sentences)
-- Issuing authority and document type
-- Core purpose and most significant takeaway
+
+- Issuing authority, document type, core purpose
+- Most significant takeaway
 - Effective date or comment deadline
 
-### 2. Document Metadata Table
+### 2. Document Metadata
 
 | Field | Detail |
 |---|---|
@@ -39,37 +36,32 @@ Produces a structured, citation-grounded summary of regulatory documents that se
 
 ### 3. Key Provisions
 
-For each major provision, provide:
-
-| # | Provision | Requirement / Prohibition | Citation (§, ¶, p.) | Compliance Action Required |
+| # | Provision | Requirement / Prohibition | Citation (§, ¶, p.) | Compliance Action |
 |---|---|---|---|---|
 | 1 | | | | |
 
 - Quote operative definitions and critical language verbatim
-- Flag areas of ambiguity or discretionary agency interpretation with `[AMBIGUOUS]`
+- Flag ambiguity or discretionary interpretation with `[AMBIGUOUS]`
 
 ### 4. Changes from Prior Framework
 
 | Area | Prior Rule | New Rule | Impact |
 |---|---|---|---|
-| | | | |
 
-Skip this section if the document is not amending a prior framework.
+Omit if document does not amend a prior framework.
 
 ### 5. Safe Harbors & Exemptions
 
-- List each safe harbor, exemption, or de minimis threshold with citation
-- Note qualifying conditions
+- Each safe harbor, exemption, or de minimis threshold with citation
+- Qualifying conditions
 
 ### 6. Enforcement & Penalties
 
 | Violation Type | Penalty Range | Enforcement Mechanism | Citation |
 |---|---|---|---|
-| | | | |
 
 ### 7. Cross-References
 
-List referenced statutes, regulations, or guidance with brief relevance explanation:
 - **[Citation]** — relevance to this document
 
 ### 8. Compliance Action Items
@@ -82,17 +74,17 @@ List referenced statutes, regulations, or guidance with brief relevance explanat
 
 ### 9. Open Questions & Ambiguities
 
-- Areas where regulatory text is unclear or subject to interpretation
+- Unclear or interpretation-dependent regulatory text
 - Expected future guidance or rulemaking
-- Issues requiring follow-up research or specialist consultation
+- Issues requiring specialist follow-up
 
-## Guidelines
+## Guardrails
 
-- Ground every statement in the source text; never infer requirements not present in the document
-- Provide pinpoint citations (section, paragraph, page) for every substantive claim
-- Quote verbatim when precision matters: definitions, operative requirements, deadlines
-- Use plain language alongside technical regulatory terminology
-- Flag interpretive uncertainty with `[AMBIGUOUS]` — do not resolve ambiguity by guessing agency intent
-- Scale summary length to document complexity: 1 page for simple guidance, up to 3 pages for complex final rules
-- If the document is part of a broader rulemaking initiative, note the procedural posture (NPRM, final rule, interim final rule)
-- Do not editorialize on policy merits; maintain analytical neutrality
+- **Source-grounded**: Never infer requirements absent from the document
+- **Pinpoint citations**: Section, paragraph, or page for every substantive claim
+- **Verbatim quoting**: Definitions, operative requirements, deadlines
+- **Plain language**: Pair with technical regulatory terminology
+- **`[AMBIGUOUS]` flag**: Mark interpretive uncertainty — do not guess agency intent
+- **Scale appropriately**: ~1 page for simple guidance, up to ~3 pages for complex final rules
+- **Procedural posture**: Note NPRM, interim final rule, or final rule when part of broader rulemaking
+- **Analytical neutrality**: Do not editorialize on policy merits

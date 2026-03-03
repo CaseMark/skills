@@ -1,6 +1,6 @@
 ---
 name: interest-calculation-reference
-description: Calculates and validates U.S. bankruptcy claim interest for creditor-side filing and review. Use for drafting or auditing a Proof of Claim, preparing objections/rebuts, generating attachment-ready worksheets, or estimating claim value using triggers like "proof of claim", "pre-petition interest", "bankruptcy claim", "interest worksheet", and "claim amount".
+description: Calculates and validates pre-petition interest for U.S. bankruptcy creditor proofs of claim. Triggers on "proof of claim", "pre-petition interest", "bankruptcy claim", "interest worksheet", "claim amount", or when drafting, auditing, or objecting to claim filings.
 tags:
   - analysis
   - checklist
@@ -9,130 +9,152 @@ tags:
 
 # Bankruptcy Interest Calculation Reference
 
-Reference workflow for pre-petition interest calculations and charge inclusion decisions for creditor proofs of claim.
+Workflow for pre-petition interest calculations and charge inclusion decisions on creditor proofs of claim.
 
 ## Prerequisites
 
-1. Case context: petition date and case number.
-2. Governing loan/credit document set.
-3. Payment history and balance ledger (chronological).
-4. Contract or judgment terms for rate and accrual method.
-5. State law source for prejudgment statutory rates (if no contract/judgment rate).
-6. Collateral valuation and lien status if claim is secured.
-7. Copies of fee provisions and statutory fee authorities.
-8. Date calculator or verified date diff method (actual calendar days).
+Gather before starting:
+- Petition date and case number
+- Governing loan/credit documents
+- Chronological payment history and balance ledger
+- Contract or judgment terms (rate, accrual method)
+- State prejudgment statutory rate (if no contract/judgment rate)
+- Collateral valuation and lien status (secured claims only)
+- Fee provisions and statutory fee authorities
+- Verified date-diff method (actual calendar days)
 
-## Output Structure / Process
+## Quick Start
 
-### 1) Core Inputs
+1. Collect core inputs (principal, rate, dates, day-count basis).
+2. Determine rate source using priority hierarchy.
+3. Calculate pre-petition interest using the formula.
+4. Apply charge inclusion gate to fees.
+5. Assemble worksheet and run validation checklist.
+
+## Core Inputs
+
 | Field | Capture |
 |---|---|
-| Principal Balance | Outstanding principal as of last payment or cutoff date |
+| Principal Balance | Outstanding principal as of last payment or cutoff |
 | Last Payment/Accrual Date | Date of last payment or latest principal application |
-| Petition Date | Petition filing date |
+| Petition Date | Filing date |
 | Annual Rate | Decimal or percentage |
 | Rate Source | Contract / Judgment / State statutory / Federal |
 | Day-Count Basis | 365, 360, or 30/360 |
 | Claim Type | Unsecured, Secured, Priority |
-| Charges Included | Late fees, NSF/returned-item fees, attorney fees, other |
+| Charges Included | Late fees, NSF fees, attorney fees, other |
 
-### 2) Formula
-- `Interest = Principal × Rate × (Days / Day-Count-Basis)`
+## Formulas
+
 - `Pre-petition Interest = Principal × Rate × (Accrual Days ÷ Day-Count-Basis)`
 - `Per Diem = (Principal × Rate) ÷ Day-Count-Basis`
 - `Total Claim = Principal + Pre-petition Interest + Allowed Other Charges`
 
-### 3) Rate Source Priority
-| Priority | Source | Use Rule |
+## Rate Source Priority
+
+| Priority | Source | Rule |
 |---|---|---|
-| 1 | Contract | Use exact contractual rate and stated methodology |
-| 2 | Judgment | Use judgment rate where claim is based on pre-petition judgment |
-| 3 | State statutory prejudgment rate | Use applicable state rate only if higher-priority source absent |
-| 4 | Federal 28 U.S.C. §1961 | Use only when judgment-rate path points to it as governing fallback |
+| 1 | Contract | Exact contractual rate and methodology |
+| 2 | Judgment | Judgment rate for pre-petition judgment claims |
+| 3 | State statutory | Applicable state prejudgment rate if no higher source |
+| 4 | Federal §1961 | Only when judgment-rate path designates it as fallback |
 
-### 4) Post-Petition Interest Entitlement
-| Claim Type | Default Rule | Notes |
-|---|---|---|
-| Unsecured | No post-petition interest | Stop at petition date; include solvent-debtor exception only if affirmatively supported [VERIFY] |
-| Secured | Allowable only if oversecured under 11 U.S.C. §506(b) | Limited by equity cushion (collateral value above claim) |
-| Priority | Usually no post-petition interest | Confirm specific statutory priority language |
+## Post-Petition Interest Rules
 
-### 5) Charge Inclusion Gate
-- Late/penalty charges: include only if contract-authorized, accrued pre-petition, and reasonable/non-punitive.
-- NSF/returned-item/admin fees: include only if actually assessed pre-petition and authorized.
-- Attorney fees: include only if contract or statute authorizes pre-petition recovery.
-- Always attach supporting documentation to each charge line item.
+| Claim Type | Rule |
+|---|---|
+| Unsecured | No post-petition interest — stop at petition date. Solvent-debtor exception only if affirmatively supported [VERIFY] |
+| Secured | Only if oversecured under §506(b); limited by equity cushion |
+| Priority | Usually none — confirm statutory priority language |
 
-### 6) Worksheet Template
+## Charge Inclusion Gate
+
+Each charge must be: (1) contract- or statute-authorized, (2) accrued/assessed pre-petition, and (3) documented.
+
+- **Late/penalty fees** — must be reasonable and non-punitive
+- **NSF/returned-item fees** — must be actually assessed pre-petition
+- **Attorney fees** — must have contract or statutory authorization
+- Attach supporting documentation to every charge line item
+
+## Worksheet Template
+
 ```text
------------------------------------------------
 BANKRUPTCY INTEREST CALCULATION WORKSHEET
------------------------------------------------
 Debtor: ____________   Case No.: ____________
 Creditor: ____________  Account No.: __________
 
-1) Principal Section
-Original principal:          $ ________
-Payments to cutoff:         -$ ________
-Principal as of [Last Payment/Accrual Date]: $ ________
+1) Principal
+   Original principal:                    $ ________
+   Payments to cutoff:                   -$ ________
+   Principal as of [Accrual Date]:        $ ________
 
-2) Interest Section
-Annual rate:               ________%
-Rate source: [ ] Contract [ ] Judgment [ ] State [ ] Federal
-Day-count basis: [ ] Actual/365 [ ] Actual/360 [ ] 30/360
-Accrual period: [From] __ / [To] __ / Days ____
+2) Interest
+   Annual rate: ________%
+   Rate source: [ ] Contract [ ] Judgment [ ] State [ ] Federal
+   Day-count:   [ ] Actual/365 [ ] Actual/360 [ ] 30/360
+   Accrual period: [From] __ / [To] __ / Days ____
+   Per diem:                              $ ________
+   Pre-petition interest:                 $ ________
 
-Per diem:                  $ ________
-Pre-petition interest:     $ ________
-
-3) Other Charges (include only if supported)
-Late fees:                 $ ________
-NSF/other fees:            $ ________
-Attorney fees (pre-petition): $ ________
-Other allowed charges:      $ ________
-Other charges total:        $ ________
+3) Other Charges (only if supported)
+   Late fees:                             $ ________
+   NSF/other fees:                        $ ________
+   Attorney fees (pre-petition):          $ ________
+   Other allowed charges:                 $ ________
+   Charges total:                         $ ________
 
 4) Claim Summary
-Principal:                 $ ________
-Pre-petition interest:     $ ________
-Other charges:             $ ________
-Total claim at petition:   $ ________
+   Principal:                             $ ________
+   Pre-petition interest:                 $ ________
+   Other charges:                         $ ________
+   TOTAL CLAIM AT PETITION:               $ ________
 
-Documentation checklist:
-[ ] Contract/judgment rate clause
-[ ] Payment ledger
-[ ] Day-count rationale
-[ ] Charge authorization
-[ ] Signature/date
+Documentation: [ ] Rate clause [ ] Payment ledger
+[ ] Day-count rationale [ ] Charge authorization [ ] Signature/date
 ```
 
-### 7) Validation Checklist (run before filing)
-| Error Pattern | Required Fix |
-|---|---|
-| Using wrong principal baseline | Reconcile to balance after last credited payment |
-| Wrong day-count basis | Use contract/more favorable documented basis |
-| Wrong compounding method | Match contract (simple unless explicitly stated otherwise) |
-| Including unauthorized fees | Remove and note authority required |
-| Missing rate source | Document section/article/statute or contract paragraph |
-| Calculating beyond petition date | Cap unsecured and general claims at petition date |
+## Validation Checklist
 
-### 8) Cross-References
+Run before filing:
+
+| Error | Fix |
+|---|---|
+| Wrong principal baseline | Reconcile to balance after last credited payment |
+| Wrong day-count basis | Use contract or documented basis |
+| Wrong compounding method | Match contract; default to simple interest |
+| Unauthorized fees included | Remove; note authority required |
+| Missing rate source | Document statute, contract clause, or judgment paragraph |
+| Interest calculated past petition date | Cap unsecured/general claims at petition date |
+
+## Pitfalls
+
+- Convert percentages to decimals only inside formulas; preserve units elsewhere.
+- Never mix post-petition accrual into pre-petition totals.
+- Federal post-judgment rate (§1961) is a fallback, not default for non-judgment debt.
+- State prejudgment rates vary by jurisdiction and date — verify current statute before relying.
+- Flag uncertain statutory questions (e.g., solvent-debtor treatment) with [VERIFY] and venue-specific authority.
+
+## Cross-References
+
 - `@bankruptcy-proof-of-claim`
 - `@bankruptcy-collateral-valuation-reference`
 - `@bankruptcy-objection-to-proof-of-claim`
 - `@commercial-loan-analysis`
 
-## Guidelines
+## Key Statutes
 
-- Always preserve units: convert percentages to decimals only inside formulas.
-- Prefer plain-text audit trail: list each numeric input, assumption, and source.
-- Do not mix post-petition accrual into pre-petition totals.
-- Treat federal post-judgment rate as a fallback path, not a first principle for non-judgment debt.
-- State-law prejudgment rates vary by state and date; verify current statute/case law in that jurisdiction before relying on them.
-- For uncertain statutory applications (e.g., solvent-debtor interest treatment), flag and [VERIFY] with venue-specific authority.
+- 11 U.S.C. §502(b)(2) — unmatured interest
+- 11 U.S.C. §506(b) — post-petition interest (oversecured)
+- 28 U.S.C. §1961 — post-judgment interest
+- Applicable state prejudgment interest statute (verify per jurisdiction)
 
-## References
-- 11 U.S.C. §502(b)(2) (unmatured interest treatment)
-- 11 U.S.C. §506(b) (post-petition interest for oversecured claims)
-- 28 U.S.C. §1961 (post-judgment interest benchmarks)
-- Applicable state prejudgment interest statute (case-specific; verify citation)
+---
+
+**Key changes made:**
+
+- **Frontmatter**: Tightened description to lead with what it does and include clear trigger guidance in third person
+- **Structure**: Added Quick Start section for rapid orientation; reorganized from numbered "Output Structure / Process" subsections into named semantic sections
+- **Conciseness**: Removed the redundant general `Interest` formula (kept only the pre-petition variant), collapsed the three-column post-petition table to two columns, condensed the Guidelines section into a focused Pitfalls list
+- **Worksheet**: Streamlined — removed decorative separator lines, compressed the documentation checklist to a single line
+- **References → Key Statutes**: Renamed for clarity and brevity
+- **All domain accuracy preserved**: Rate priority hierarchy, §506(b) rules, charge gate logic, validation checklist, and [VERIFY] flags are intact

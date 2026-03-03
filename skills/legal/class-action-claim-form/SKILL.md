@@ -1,131 +1,109 @@
 ---
 name: class-action-claim-form
-description: Drafts official claim forms for class action settlement members, balancing plain-language accessibility with legal enforceability under FRCP 23. Covers claimant identification, claim categories, supporting documentation requirements, certification/attestation under penalty of perjury, release provisions, and submission instructions. Use when creating class member claim forms, settlement claim submissions, or class action proof-of-claim documents.
+description: Drafts official class action claim forms balancing plain-language accessibility with FRCP 23 enforceability. Trigger when creating settlement claim forms, proof-of-claim documents, or class member claim submissions.
 tags:
   - drafting
   - litigation
   - pleading
 ---
 
-# Claim Form for Class Members
+# Class Action Claim Form
 
-Drafts an enforceable class action claim form that enables lay claimants to submit settlement claims while satisfying FRCP 23, court orders, and settlement agreement requirements.
+Draft an enforceable claim form enabling lay claimants to submit settlement claims while satisfying FRCP 23, court orders, and the settlement agreement.
 
 ## Prerequisites
 
-1. **Settlement agreement** — approved or pending approval, with defined class, claim categories, and compensation structure
-2. **Court orders** — preliminary/final approval orders with any form-specific requirements
-3. **Class definition** — precise membership criteria (dates, transactions, geography, etc.)
-4. **Settlement administrator details** — name, address, email, phone, website, hours
-5. **Release scope** — identified released parties, released claims, any statutory waiver requirements
+Gather before drafting:
 
-## Output Structure
+1. **Settlement agreement** — approved or pending, with class definition, claim categories, compensation structure
+2. **Court orders** — preliminary/final approval with any form-specific requirements
+3. **Class definition** — precise membership criteria (dates, transactions, geography)
+4. **Administrator details** — name, address, email, phone, website
+5. **Release scope** — released parties, released claims, statutory waiver requirements
+
+## Quick Start
+
+1. Confirm jurisdiction (FRCP 23 vs. state equivalent) and adapt statutory language accordingly
+2. Draft each section below in order
+3. Write at 8th-grade reading level — short sentences, active voice, defined terms
+4. Do not simplify release or certification language to the point of unenforceability
+5. Run the checks in Pitfalls before finalizing
+
+## Form Sections
 
 ### 1. Header & Case Identification
 
-| Element | Requirement |
-|---------|-------------|
-| Title | "OFFICIAL CLAIM FORM" — prominent, bold |
-| Case caption | Full names of all named plaintiffs/defendants |
-| Court & jurisdiction | Complete court name |
-| Case number | Full docket number |
-| Administrator contact | Mailing address, email, phone, website |
-| **Deadline** | Bold, specific date/time with timezone; state postmark vs. receipt rule |
-| Intro paragraph | Plain-language: who is eligible, what this form is for, reference to settlement agreement date and approval order |
+- Title: "OFFICIAL CLAIM FORM" — bold, prominent
+- Full case caption, court name, docket number
+- Administrator contact (mail, email, phone, website)
+- **Deadline**: bold, specific date/time with timezone; state postmark vs. receipt rule
+- Intro paragraph: plain-language eligibility summary, reference to settlement agreement date and approval order
 
 ### 2. Claimant Information
 
-Collect in structured fields:
+Structured fields:
 
-- Full legal name (as it appeared during class period)
-- Current legal name (if different)
-- Current mailing address
-- Email address and telephone
-- Alternative contact information
-- **Class-specific identifiers**: purchase dates, account numbers, employment periods — with brief explanation of why each is needed
-- **Special claimant fields** (if applicable):
-  - Deceased members: executor/administrator name, documentation of authority
-  - Minors/incapacitated: guardian name, required supporting docs
-  - Entity claimants: entity name, authorized representative
-
-Include privacy disclosure statement re: how personal information will be used and protected.
+- Full legal name (as during class period), current name if different
+- Current address, email, phone, alternative contact
+- **Class-specific identifiers**: purchase dates, account numbers, employment periods — explain why each is needed
+- **Special claimants** (if applicable): deceased (executor + authority docs), minors/incapacitated (guardian + docs), entities (name + authorized rep)
+- Privacy disclosure: how personal information will be used and protected
 
 ### 3. Claim Details & Documentation
 
-For each claim category defined in the settlement:
+Per claim category from the settlement:
 
-```
-☐ Category A: [Description]
-    Applicable period: [date range]
-    Amount paid / damages: $________
-    Reference/account number: ________
-    Description of harm: ________________________________
+- Checkbox, category description, applicable date range
+- Fields for amount/damages, reference number, description of harm
 
-☐ Category B: [Description]
-    [Same structure]
-```
+Documentation tiers:
 
-**Documentation requirements table:**
+| Claim Amount | Required | Acceptable Forms |
+|---|---|---|
+| Under threshold | Declaration only | N/A |
+| Above threshold | Submit with form | Receipts, statements, contracts, correspondence |
 
-| Claim Amount | Documentation Required | Acceptable Forms |
-|-------------|----------------------|-----------------|
-| Under $[threshold] | None (declaration sufficient) | N/A |
-| $[threshold]+ | Must submit with form | Receipts, account statements, contracts, correspondence |
-
-Specify: copies acceptable (not originals). Include warning: *Submission of false information may result in claim denial, civil penalties, or criminal prosecution.*
+Specify copies acceptable (not originals). Include false-information warning (claim denial, civil penalties, criminal prosecution).
 
 ### 4. Certification & Release
 
 **Certification** — under penalty of perjury, claimant affirms:
 
-- [ ] All information is true, accurate, and complete
-- [ ] Claimant meets the class definition
-- [ ] Claims have not been previously released
-- [ ] No prior compensation received for these claims through other means
-- [ ] Claimant understands they are bound by settlement terms and court orders
+- Information is true, accurate, and complete
+- Claimant meets the class definition
+- Claims not previously released; no prior compensation received
+- Bound by settlement terms and court orders
 
-**Release clause** (separate section with own acknowledgment checkbox):
+**Release** (separate section, own acknowledgment checkbox):
 
-- Identify all released parties (defendants, affiliates, officers, directors, agents, successors)
-- Describe released claims scope — specific enough to be enforceable, plain enough for lay readers
-- If unknown claims are released, include applicable statutory waiver language (e.g., Cal. Civ. Code § 1542 [VERIFY] if California class members are included)
-- State consequences: bound by settlement/judgment, waive right to sue separately, bound by appeals
-
-```
-☐ I have read and understand the Release of Claims above.
-```
+- List all released parties (defendants, affiliates, officers, directors, agents, successors)
+- Describe released claims — enforceable specificity, lay-reader clarity
+- Include statutory waiver for unknown claims where applicable (e.g., Cal. Civ. Code § 1542 — verify jurisdiction)
+- State consequences: bound by settlement/judgment, waive separate suit, bound by appeals
 
 ### 5. Signature Block
 
-```
-Signature: ________________________  Date: ___________
-Printed Name: _____________________
-Title/Relationship (if applicable): ___________________
-```
-
-- State that electronic signatures are acceptable and legally binding (if e-filing permitted)
-- For representatives: require statement of authority and relationship to claimant
+- Signature line, date, printed name
+- Title/relationship field for representatives
+- Note electronic signatures acceptable if e-filing permitted
+- Representatives must state authority and relationship
 
 ### 6. Submission Instructions
 
 | Method | Details |
-|--------|---------|
-| Mail | [Full address]; postmark by [deadline] |
-| Email | [Address]; received by [deadline, timezone] |
-| Online | [URL]; uploaded by [deadline, timezone] |
+|---|---|
+| Mail | Full address; postmark by deadline |
+| Email | Address; received by deadline with timezone |
+| Online | URL; uploaded by deadline with timezone |
 
-Include:
-- How to obtain confirmation of receipt
-- What to do if no confirmation received within [X] business days
-- Post-submission timeline: review period, approval/denial notification, challenge process
-- Reminder: **Retain copies of completed form and all supporting documentation**
+Include: receipt confirmation process, what to do if no confirmation within stated business days, post-submission timeline (review, notification, challenge process).
 
-## Guidelines
+Remind claimant: **retain copies of form and all supporting documentation**.
 
-- **Plain language first**: Write at 8th-grade reading level; use short sentences, active voice, defined terms
-- **Legal precision preserved**: Do not simplify release language or certification to the point of unenforceability
-- **Accessibility**: Form must be screen-reader compatible; note if translations are required for the class
-- **Page formatting**: Number all pages; case name and number in header/footer; if >2 pages, add first-page checklist
-- **Required disclaimers**: (1) Submission does not guarantee payment; (2) Settlement subject to court approval; (3) Attorney fees/costs deducted from fund as applicable
-- **Jurisdiction check**: Confirm whether FRCP 23 or state-equivalent applies; adapt statutory waiver language to applicable jurisdictions
-- **No legal advice**: Form must not constitute or appear to constitute legal advice to claimants
+## Pitfalls & Checks
+
+- **Required disclaimers**: (1) submission does not guarantee payment; (2) settlement subject to court approval; (3) attorney fees/costs deducted as applicable
+- **Accessibility**: screen-reader compatible; note if translations required for the class
+- **Page formatting**: number all pages; case name/number in header/footer; if >2 pages, add first-page checklist
+- **No legal advice**: form must not constitute or appear to constitute legal advice
+- **Jurisdiction**: confirm FRCP 23 vs. state equivalent; adapt waiver language to all applicable jurisdictions

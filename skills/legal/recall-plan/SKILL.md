@@ -1,222 +1,189 @@
 ---
 name: recall-plan
-description: Drafts comprehensive FDA product recall plans and procedures compliant with 21 CFR Part 7. Establishes Recall Committee governance, health hazard evaluation frameworks, recall classification criteria, notification protocols, effectiveness checks, product disposition procedures, and termination requirements. Use when developing recall SOPs, updating recall procedures, drafting recall readiness plans, or preparing FDA-regulated product recall documentation.
-tags:
-  - checklist
-  - drafting
-  - memo
-  - regulatory
+description: Drafts FDA product recall plans compliant with 21 CFR Part 7, covering Recall Committee governance, health hazard evaluation, recall classification, notification protocols, effectiveness checks, product disposition, and termination procedures. Use when developing recall SOPs, updating recall procedures, drafting recall readiness plans, or preparing FDA-regulated product recall documentation.
 ---
 
 # Recall Plan and Procedure
 
-Drafts an FDA-compliant recall plan serving as the company's official protocol for managing product recalls under 21 CFR Part 7.
+Drafts the company's official FDA-compliant recall protocol under 21 CFR Part 7 and the FD&C Act.
 
 ## Prerequisites
 
-1. **Company profile** — product categories, therapeutic areas, distribution channels, manufacturing sites
-2. **Existing QMS documents** — quality manual, CAPA procedures, complaint handling SOPs
-3. **Regulatory filings** — NDC numbers, device identification codes, 510(k)/PMA references
-4. **Organizational chart** — key personnel in QA, Regulatory, Legal, Operations, Supply Chain, Executive leadership
-5. **Distribution records** — channel structure, geographic scope, direct accounts vs. sub-distribution
-6. **Prior recall history** (if any) — previous recall files, FDA correspondence, lessons learned
+Gather before drafting:
+- Company profile — product categories, distribution channels, manufacturing sites
+- Existing QMS documents — quality manual, CAPA procedures, complaint handling SOPs
+- Regulatory filings — NDC numbers, device ID codes, 510(k)/PMA references
+- Organizational chart — key personnel in QA, Regulatory, Legal, Operations, Communications, Executive
+- Distribution records — channel structure, geographic scope, sub-distribution
+- Prior recall history (if any) — FDA correspondence, lessons learned
 
-## Output Structure
+## Quick Start
+
+1. Collect prerequisites and confirm product scope
+2. Draft each section below in order
+3. Flag evolving guidance with `[VERIFY CURRENT GUIDANCE]`
+4. Route draft through Legal and Regulatory review
+
+## Core Sections
 
 ### 1. Purpose and Scope
 
-Draft a purpose statement covering:
-- Commitment to consumer safety and regulatory compliance as paramount
-- Applicability to all FDA-regulated products manufactured or distributed by the company
-- Governing authority: 21 CFR Part 7, FD&C Act, applicable FDA guidance documents
+State commitment to consumer safety, applicability to all FDA-regulated products, and governing authority (21 CFR Part 7, FD&C Act).
 
-### 2. Recall Committee Governance
+### 2. Recall Committee
 
-| Role | Position | Responsibilities |
-|------|----------|-----------------|
-| Chair | VP Quality or above | Final recall decision authority, FDA liaison oversight |
-| Regulatory Lead | Head of Regulatory Affairs | FDA notifications, classification coordination, progress reports |
-| Legal Counsel | General Counsel / Outside Counsel | Legal risk assessment, notification review, litigation hold |
-| Operations Lead | Head of Manufacturing/Supply Chain | Product retrieval logistics, inventory quarantine, disposition |
-| Communications Lead | Head of Corporate Communications | Press releases, social media, consumer notifications |
-| Quality Lead | QA Director | Health hazard evaluation, effectiveness checks, CAPA |
+Define these roles with named personnel:
 
-**Convening requirements:**
-- Business hours: within 4 hours of potential recall identification
-- After-hours: within 12 hours
-- Require after-hours emergency contact tree with 2 backup contacts per role
-- Document succession/alternate decision-makers for each role
+| Role | Typical Position | Key Duties |
+|------|-----------------|------------|
+| Chair | VP Quality+ | Final recall decisions, FDA liaison oversight |
+| Regulatory Lead | Head of RA | FDA notifications, classification coordination |
+| Legal Counsel | GC / Outside Counsel | Risk assessment, notification review, litigation hold |
+| Operations Lead | Head of Mfg/Supply Chain | Retrieval logistics, inventory quarantine |
+| Communications Lead | Head of Corp Comms | Press releases, social media, consumer contact |
+| Quality Lead | QA Director | HHE, effectiveness checks, CAPA |
 
-**Decision protocol:**
-- Consensus when time permits; Chair has unilateral authority in emergencies
-- All decisions documented with rationale, attendees, dissenting views
+**Convening:** Within 4 hours (business) / 12 hours (after-hours). Maintain emergency contact tree with 2 backups per role and documented alternates.
+
+**Decisions:** Consensus preferred; Chair has unilateral emergency authority. Document rationale, attendees, and dissenting views.
 
 ### 3. Health Hazard Evaluation (HHE)
 
-Draft a formal HHE framework assessing:
+Assess these factors in a formal report with supporting data:
 
-| Factor | Assessment Criteria |
-|--------|-------------------|
-| Nature of defect | Type of violation, contamination, mislabeling, device malfunction |
-| Adverse outcomes | Disease/injury likelihood based on scientific/medical evidence |
-| Vulnerable populations | Pediatric, immunocompromised, elderly — heightened risk analysis |
-| Severity × Probability | Combined assessment of harm severity and occurrence likelihood |
-| Defect prevalence | Proportion of distributed product affected |
+- Nature of defect (contamination, mislabeling, malfunction)
+- Adverse outcome likelihood (scientific/medical evidence)
+- Vulnerable populations (pediatric, immunocompromised, elderly)
+- Severity x probability of harm
+- Defect prevalence in distributed product
 
-**Recall classification (per FDA):**
+**FDA recall classification:**
 
 | Class | Standard | Examples |
 |-------|----------|----------|
-| I | Reasonable probability of serious adverse health consequences or death | Pathogen contamination, wrong active ingredient, life-threatening device failure |
-| II | May cause temporary/reversible adverse consequences; remote probability of serious consequences | Minor contamination, labeling errors causing misuse, device defects causing temporary harm |
-| III | Not likely to cause adverse health consequences | Minor labeling violations, aesthetic defects |
+| I | Reasonable probability of serious harm or death | Pathogen contamination, wrong active ingredient, life-threatening device failure |
+| II | Temporary/reversible consequences; remote serious risk | Minor contamination, labeling errors, device defects causing temporary harm |
+| III | Not likely to cause adverse consequences | Minor labeling violations, aesthetic defects |
 
-- HHE must be documented in a formal report with supporting data and expert opinions
-- Company proposes classification; FDA assigns final classification
-- Timeline: complete HHE within timeframe proportionate to urgency
+Company proposes classification; FDA assigns final. Complete HHE proportionate to urgency.
 
 ### 4. Recall Strategy
 
-For each recall, document decisions on:
-
 **Depth of recall:**
 
-| Level | Scope | When Appropriate |
-|-------|-------|-----------------|
-| Consumer/User | Extends to end users; public warnings | Product reached consumers + serious hazard |
-| Retail | Extends to retailers/dispensers, not consumers | Hazard manageable at retail level; product distinguishable |
-| Wholesale | Wholesale distribution chain only | Product not yet at retail; easily identified |
+| Level | Scope | When |
+|-------|-------|------|
+| Consumer/User | End users; public warnings | Serious hazard + product reached consumers |
+| Retail | Retailers/dispensers only | Hazard manageable at retail; product distinguishable |
+| Wholesale | Wholesale chain only | Product not yet at retail |
 
-**Public warning criteria** — required when:
-- Class I recall + product has reached consumers
-- Recalled product not easily distinguished from safe product
-- FDA specifically requests public notification
+**Public warning required when:** Class I + product reached consumers, product not easily distinguished from safe product, or FDA requests it.
 
-**Strategy documentation must include:**
-- Depth justification
-- Public warning plan (press releases, social media, direct consumer contact)
-- Timeline with milestones
-- FDA consultation record before implementation
-- Flexibility provisions for strategy adjustment
+**Document:** Depth justification, public warning plan, timeline, FDA consultation record, adjustment provisions.
 
 ### 5. Notification Protocols
 
 #### FDA Notification (21 CFR 7.46)
-- **Timeline:** Immediately upon initiating voluntary recall; no later than 10 working days
-- **Submit to:** FDA district office with jurisdiction over manufacturing facility
 
-**Required elements checklist:**
-- [ ] Complete product identity (NDC/device ID codes, lot numbers)
-- [ ] Reason for recall — specific violation/defect description
-- [ ] Health hazard evaluation and proposed classification
-- [ ] Total quantity produced and production time span
-- [ ] Total quantity estimated in distribution
-- [ ] Distribution pattern (geographic areas, customer types)
-- [ ] Proposed recall strategy (depth, public warnings, effectiveness check level)
+Submit to jurisdictional FDA district office immediately upon initiating recall; no later than 10 working days.
+
+```
+- [ ] Product identity (NDC/device ID, lot numbers)
+- [ ] Reason for recall — specific defect
+- [ ] HHE and proposed classification
+- [ ] Quantity produced and time span
+- [ ] Quantity in distribution
+- [ ] Distribution pattern (geography, customer types)
+- [ ] Proposed strategy (depth, warnings, effectiveness level)
+```
 
 #### Trade Notifications
-All notifications reviewed and approved by Legal + Regulatory before distribution.
 
-**Required content:**
-- [ ] Prominent "RECALL NOTICE" identification
-- [ ] Complete product identification with lot numbers and visual aids
-- [ ] Plain-language explanation of recall reason
+Legal + Regulatory must approve before distribution.
+
+```
+- [ ] Prominent "RECALL NOTICE" header
+- [ ] Product ID with lot numbers and visual aids
+- [ ] Plain-language recall reason
 - [ ] Instructions for identifying affected inventory
 - [ ] Required actions (quarantine, return, destroy)
 - [ ] Lot verification procedure
-- [ ] Contact information for questions
-- [ ] Request for written receipt/implementation confirmation
+- [ ] Contact information
+- [ ] Request for written confirmation
+```
 
 #### Public/Consumer Notifications
-- Press releases: coordinate with FDA; include product info, reason, consumer instructions, contact info
-- Social media: rapid dissemination maintaining message consistency across platforms
-- Direct consumer contact: when contact info available via warranty/patient registries
 
-**Documentation requirements:** Maintain records of all notifications — date/time, recipient list, method, copies sent, responses received.
+Coordinate press releases with FDA. Use social media for rapid dissemination. Contact consumers directly when registry data available.
+
+**Record all notifications:** date/time, recipients, method, copies, responses.
 
 ### 6. Effectiveness Checks
 
-| Level | Assigned To | Requirement |
-|-------|-------------|-------------|
-| A | Typically Class I | Contact 100% of direct accounts |
-| B | Typically Class II | Contact representative sample of direct accounts |
-| C | Typically Class III | Minimal follow-up; confirm notification receipt |
+| Level | Typical Class | Requirement |
+|-------|--------------|-------------|
+| A | I | Contact 100% of direct accounts |
+| B | II | Contact representative sample |
+| C | III | Confirm notification receipt |
 
-**Data to collect per check:**
-- Confirmation of notification receipt
-- Verification that affected product identified
-- Confirmation of quarantine/hold
-- Quantity received vs. quantity returning/destroyed
-- Sub-distribution information (further downstream accounts)
+**Collect per check:** notification receipt confirmation, product identified, quarantine confirmed, quantity reconciliation, sub-distribution info.
 
-**Reporting cadence:** Submit to FDA at 2-week, 4-week, and 8-week intervals (or as FDA directs).
+**Report to FDA:** At 2-week, 4-week, and 8-week intervals (or as directed).
 
-**Non-responsive consignee escalation:**
-1. Repeated contact attempts via multiple channels
-2. Certified mail with return receipt
-3. Personal visit by company representative
-4. Notify FDA of non-cooperating consignees
+**Non-responsive escalation:** Repeated contact → certified mail with return receipt → personal visit → notify FDA.
 
-### 7. Product Recovery and Disposition
+### 7. Product Disposition
 
-**Disposition options:**
+| Option | When | Requirements |
+|--------|------|-------------|
+| Destruction | Contamination, fundamental defects (default) | Witnessed, certificate (date/method/qty/lots), photo/video for high-value |
+| Reconditioning | Correctable defect; FDA pre-approval | Detailed proposal, QC verification per unit, batch records |
+| Relabeling | Labeling-only; FDA pre-approval | Proposal, per-unit verification, records |
+| Return to mfg | Evaluation/rework | Full chain of custody |
 
-| Option | When Appropriate | Requirements |
-|--------|-----------------|--------------|
-| Destruction | Contamination, fundamental defects, default conservative option | Witnessed destruction, certificate with date/method/quantity/lot numbers, photo/video for high-value products |
-| Reconditioning | Specific correctable defect; FDA pre-approval required | Submit detailed proposal; QC verification of each unit; batch records |
-| Relabeling | Labeling-only violations; FDA pre-approval required | Submit proposal; verify each unit corrected; maintain records |
-| Return to manufacturer | Evaluation and potential rework | Full chain of custody documentation |
+**Storage:** Segregated, restricted access, conspicuously marked, full inventory controls.
 
-**Storage of recalled product:**
-- Clearly identified and segregated from non-recalled inventory
-- Restricted access to authorized personnel only
-- Inventory controls maintaining complete accountability
-- Storage areas conspicuously marked
-
-**Accountability audit:** Periodic reconciliation of quantity distributed vs. returned vs. in possession vs. disposed. Investigate and document all discrepancies. Include provisions to detect/prevent unauthorized diversion back into distribution.
+**Accountability:** Periodic reconciliation of distributed vs. returned vs. disposed quantities. Investigate discrepancies. Prevent unauthorized re-entry into distribution.
 
 ### 8. Recall Termination
 
-**Termination criteria — FDA decides, not the company:**
-- All reasonable removal/correction efforts exhausted
-- High percentage of distributed product accounted for
-- Company must request FDA concurrence; never unilaterally declare completion
+**FDA decides termination, not the company.** Never unilaterally declare completion or make public statements suggesting recall has concluded without written FDA agreement.
 
-**Termination package to FDA:**
-- [ ] Final effectiveness check results (% product accounted for)
-- [ ] Quantity reconciliation: distributed vs. recovered vs. unaccounted (with explanation)
+```
+- [ ] Final effectiveness check results (% accounted for)
+- [ ] Quantity reconciliation with explanations for gaps
 - [ ] Complete disposition records
-- [ ] Copies of all recall notifications/communications
-- [ ] Recall outcome summary with lessons learned
+- [ ] All recall notifications/communications
+- [ ] Outcome summary with lessons learned
 - [ ] Formal termination request
+```
 
-**Critical:** Do not cease recall activities, make public statements about completion, or take any action suggesting recall has concluded until written FDA agreement is obtained.
+### 9. Post-Recall Review
 
-### 9. Post-Recall Review and Records
+**Monitoring:** Handle recalled product surfacing after termination; notify FDA if significant quantities found.
 
-**Post-termination monitoring:** Procedures for handling recalled product that surfaces after termination; notify FDA if significant quantities discovered.
+**Retention:** Complete recall file minimum 2 years beyond termination (longer per litigation holds).
 
-**Record retention:** Complete recall file maintained minimum 2 years beyond termination (or longer per other regulations/litigation holds).
+**Review checklist:**
 
-**Post-recall review agenda:**
+```
 - [ ] Timeliness of initial HHE
-- [ ] Adequacy of recall strategy; mid-course adjustments needed?
-- [ ] Effectiveness of notifications and communications
+- [ ] Adequacy of recall strategy and mid-course adjustments
+- [ ] Effectiveness of notifications
 - [ ] Efficiency of recovery and disposition
 - [ ] Resource and personnel adequacy
-- [ ] Plan gaps identified during execution
-- [ ] Root cause / systemic quality issues contributing to recall
+- [ ] Plan gaps identified
+- [ ] Root cause / systemic quality issues
+```
 
 Produce written report with CAPA recommendations tracked through QMS.
 
-## Guidelines
+## Pitfalls
 
-- All regulatory citations reference 21 CFR Part 7 and FD&C Act; verify current applicability for specific product types
-- Tailor HHE criteria and examples to the company's specific product categories (pharma, biologics, devices, combination products)
-- FDA guidance documents evolve — flag any sections that may need updating with `[VERIFY CURRENT GUIDANCE]`
-- Plan must function as both strategic framework and tactical field manual during live recall events
-- Maintain legally precise language reviewed by counsel while keeping operational sections accessible to non-legal staff
-- Include jurisdiction-specific considerations if company distributes internationally (coordinate with foreign regulatory authorities)
-- For medical devices, cross-reference MDR reporting requirements (21 CFR Part 803) [VERIFY]
-- For drugs/biologics, cross-reference field alert reporting requirements (21 CFR 314.81) [VERIFY]
+- **Never self-terminate:** Only FDA can authorize recall completion
+- **Classification is FDA's call:** Company proposes; FDA assigns final classification
+- **Reconditioning/relabeling require pre-approval:** Do not proceed without FDA authorization
+- **Guidance evolves:** Flag sections with `[VERIFY CURRENT GUIDANCE]` where FDA guidance may have changed
+- **Cross-reference requirements:** Medical devices — MDR reporting (21 CFR Part 803) `[VERIFY]`; Drugs/biologics — field alert reporting (21 CFR 314.81) `[VERIFY]`
+- **International distribution:** Coordinate with foreign regulatory authorities if distributing outside the US
+- **Dual audience:** Maintain legal precision for counsel while keeping operational sections accessible to non-legal staff

@@ -1,140 +1,141 @@
 ---
 name: cognovit-promissory-note
 description: >-
-  Drafts a U.S. cognovit promissory note with confession of judgment
-  provisions, jurisdictional enforceability checks, and execution formalities.
-  Use when preparing commercial loan notes that may include a cognovit clause,
-  confession of judgment language, or waiver of notice/hearing rights. Trigger
-  keywords: cognovit, confession of judgment, promissory note, commercial
-  loan, warrant of attorney, waiver of defenses.
-tags:
-  - agreement
-  - analysis
-  - drafting
-  - research
-  - transactional
+  Drafts a U.S. cognovit promissory note with confession of judgment clause,
+  enforceability gate, and execution formalities. Use when preparing a
+  commercial loan note with cognovit language, confession of judgment,
+  warrant of attorney, or waiver of notice/hearing rights. Triggers:
+  cognovit, confession of judgment, warrant of attorney, waiver of defenses.
 ---
 
 # Cognovit Promissory Note
 
-Draft a cognovit promissory note that is enforceable, properly disclosed, and compliant with governing law.
+Draft an enforceable cognovit promissory note compliant with governing-state law. A cognovit clause lets a borrower authorize entry of judgment without prior notice or hearing — most states prohibit or heavily restrict this, so enforceability must be confirmed before drafting.
 
 ## Prerequisites
 
-1. **Governing law and forum** — proposed state law and venue for enforcement
-2. **Parties** — full legal names, entity types, formation states, addresses, authorized signers
-3. **Loan terms** — principal, interest type, rate, term, payment schedule, fees, prepayment
-4. **Transaction type** — commercial vs consumer classification and any statutory exemptions
-5. **Authority docs** — resolutions, incumbency certificates, or member/partner consents
-6. **Collateral/guaranties** — if secured or guaranteed, summary of related documents
+Collect before drafting:
 
-## Output Structure / Process
+- **Governing law / forum** — state and venue for enforcement
+- **Parties** — legal names, entity types, formation states, addresses, authorized signers
+- **Loan terms** — principal, rate, term, payment schedule, fees, prepayment
+- **Transaction type** — commercial vs consumer classification; any statutory exemptions
+- **Authority docs** — resolutions, incumbency certificates, consents (if entity borrower)
+- **Collateral / guaranties** — summary of related security documents, if any
 
-**1) Enforceability Gate (Do first)**
+## Quick Start
+
+1. Run the **Enforceability Gate** (below) — if cognovit is prohibited, stop and output a standard note + guaranty + security agreement instead.
+2. Draft the note using the **Document Sections** outline.
+3. Walk the **Checks** list before finalizing.
+
+## Enforceability Gate (Do First)
+
 | Check | Action | Output |
-| --- | --- | --- |
-| Cognovit permitted for this transaction type? | Research statutes + recent case law for the governing state. | Allow/deny with citations or `[VERIFY]`. |
-| Consumer restriction? | Confirm borrower classification and any consumer protections. | If consumer or mixed-use, treat as prohibited unless clearly permitted. |
-| Required warnings/format? | Identify mandatory warning language, font size, capitalization, separate acknowledgment. | Insert exact statutory warning or `[VERIFY]`. |
-| Execution formalities? | Check witness/notary/affidavit or attorney requirements. | Add signature formalities and exhibits. |
+|---|---|---|
+| Cognovit permitted? | Research governing-state statutes + recent case law | Allow / deny with citations or `[VERIFY]` |
+| Consumer restriction? | Confirm borrower classification | If consumer or mixed-use, treat as **prohibited** unless clear statutory exception |
+| Required warnings / format? | Identify mandatory warning text, font size, capitalization, separate acknowledgment | Insert exact statutory warning or `[VERIFY]` |
+| Execution formalities? | Check witness / notary / affidavit / attorney requirements | Add required signature formalities |
 
-If prohibited or materially restricted: output alternative structure (standard note + guaranty + security agreement) and stop before drafting a cognovit clause.
+**If prohibited or materially restricted:** output alternative structure (standard note + guaranty + security agreement) and stop.
 
-**2) Party and Authority Block**
-| Field | Required |
-| --- | --- |
-| Lender legal name | Entity type, formation state, address, signatory title |
-| Borrower legal name | Entity type or individual, address, signatory title |
-| Authority evidence | Resolution/consent, incumbency, power/authority certification |
+## Document Sections
 
-**3) Core Economic Terms**
-| Term | Required Details |
-| --- | --- |
-| Principal | Numeric and words; fees/points treatment |
+### 1. Preamble and Parties
+
+- Date, principal (numeric and words)
+- Lender and Borrower: legal name, entity type, formation state, address, signatory title
+- Authority evidence: resolution/consent, incumbency, power/authority certification
+
+### 2. Economic Terms
+
+| Term | Details |
+|---|---|
+| Principal | Amount; fees/points treatment |
 | Interest | Fixed/variable; index, margin, caps/floors; accrual method; day-count |
 | Payments | Amounts, dates, schedule type, grace period |
-| Application | Order of application: fees, interest, principal (or specified alternative) |
-| Prepayment | Allowed? Penalty? Formula and compliance check |
+| Application | Order: fees → interest → principal (or specified) |
+| Prepayment | Permitted? Penalty? Formula; usury compliance |
 
-**4) Confession of Judgment Clause**
-Include all of the following:
-- **Authority grant**: borrower authorizes any attorney to confess judgment after default
-- **Scope**: principal, interest, fees, costs, attorney fees
-- **Timing**: immediately upon default or after cure period
-- **Forum**: courts permitted; tie to governing law and venue clause
-- **Waivers**: notice, hearing, defenses, discovery, jury trial (if allowed)
-- **Statutory warning**: required text and formatting
+### 3. Confession of Judgment Clause
 
-**5) Defaults and Remedies**
-| Category | Include |
-| --- | --- |
-| Monetary default | failure to pay, grace period |
-| Cross-default | if applicable, specify thresholds |
-| Insolvency events | bankruptcy, insolvency, assignment for benefit |
-| Misrepresentation | material statements |
-| Collateral events | if secured, impairment/transfer/insurance failures |
-| Remedies | acceleration, confession of judgment, collection costs |
+Include all of:
 
-**6) Governing Law, Jurisdiction, Venue**
-- Governing law with substantial relationship
+- **Authority grant** — borrower authorizes any attorney to confess judgment after default
+- **Scope** — principal, interest, fees, costs, attorney fees
+- **Timing** — upon default or after cure period
+- **Forum** — permitted courts; must align with governing-law / venue clause
+- **Waivers** — notice, hearing, defenses, discovery, jury trial (if allowed)
+- **Statutory warning** — exact required text and formatting per governing state
+
+### 4. Defaults and Remedies
+
+- Monetary default (failure to pay; grace period)
+- Cross-default (thresholds, if applicable)
+- Insolvency events (bankruptcy, assignment for benefit of creditors)
+- Misrepresentation (material statements)
+- Collateral events (if secured: impairment, transfer, insurance failures)
+- Remedies: acceleration, confession of judgment, collection costs
+
+### 5. Governing Law, Jurisdiction, Venue
+
+- Governing law with substantial relationship to transaction
 - Consent to jurisdiction and venue
 - Waiver of forum non conveniens (if allowed)
-- Jury trial waiver (conspicuous)
+- **Jury trial waiver** — must be conspicuous
 
-**7) Execution and Acknowledgments**
+### 6. Execution and Acknowledgments
+
 - Signature blocks with titles and entity capacity
-- Witness and notary blocks if required
-- Separate cognovit acknowledgment if required
+- Witness / notary blocks (if required by state)
+- Separate cognovit acknowledgment (if required by state)
 
-**8) Exhibits (Optional but common)**
-| Exhibit | Purpose |
-| --- | --- |
-| Amortization schedule | verify payment amounts |
-| Authority documents | show signatory power |
-| Collateral schedule | if secured |
+### 7. Exhibits (as needed)
 
-**Template Skeleton**
+- Amortization schedule
+- Authority documents
+- Collateral schedule
+
+## Template Skeleton
+
 ```text
 COGNOVIT PROMISSORY NOTE
 
 Date: [Date]
-Principal Amount: $[Numeric] ([Words])
+Principal Amount: $[Amount] ([Words])
 
-FOR VALUE RECEIVED, [Borrower], a [Entity Type] organized under the laws of [State], with its principal place of business at [Address] (“Borrower”), promises to pay to the order of [Lender], a [Entity Type] organized under the laws of [State], with its principal place of business at [Address] (“Lender”), the Principal Amount plus interest as set forth below.
+FOR VALUE RECEIVED, [Borrower] ("Borrower") promises to pay to the
+order of [Lender] ("Lender") the Principal Amount plus interest:
 
-1. Interest. [Fixed/Variable; rate; index; margin; caps; accrual; day-count; compounding].
-2. Payments. [Schedule, due dates, grace period, payment methods].
-3. Application of Payments. [Fees → interest → principal].
-4. Prepayment. [Permitted/penalty; formula].
-5. Events of Default. [List].
-6. Remedies; Acceleration. [Optional acceleration; costs; attorneys’ fees].
-7. Confession of Judgment. [Full clause + statutory warning + waivers].
-8. Governing Law; Jurisdiction; Venue. [State; court; consent].
-9. Jury Trial Waiver. [Conspicuous].
-10. Notices. [Addresses and method].
-11. Miscellaneous. [Severability, amendments, counterparts, integration].
+1.  Interest.
+2.  Payments.
+3.  Application of Payments.
+4.  Prepayment.
+5.  Events of Default.
+6.  Remedies; Acceleration.
+7.  Confession of Judgment. [Full clause + statutory warning + waivers]
+8.  Governing Law; Jurisdiction; Venue.
+9.  Jury Trial Waiver. [CONSPICUOUS]
+10. Notices.
+11. Miscellaneous.
 
-BORROWER:
-[Name]
-By: ______________________
-Name/Title:
-Date:
-
-LENDER:
-[Name]
-By: ______________________
-Name/Title:
-Date:
+BORROWER:                         LENDER:
+By: ______________                By: ______________
+Name/Title:                       Name/Title:
+Date:                             Date:
 
 [Notary / Witness Blocks if required]
+[Separate Cognovit Acknowledgment if required]
 ```
 
-## Guidelines
+## Checks
 
-- Do not draft a cognovit clause unless enforceability is confirmed for the transaction type in the governing state.
-- Consumer or mixed-use transactions: treat cognovit clauses as prohibited unless a clear statutory exception exists.
-- Required warning language must be exact, conspicuous, and placed per statute; use `[VERIFY]` if unsure.
-- Ensure the confession clause and forum selection align with governing law and have a substantial relationship to the transaction.
-- Usury analysis must include fees/charges treated as interest; note any exemptions.
-- Keep waivers conspicuous and separate; avoid burying them in standard boilerplate.
-- If enforceability is unclear, recommend a standard note plus guaranty/security agreement.
+- [ ] Enforceability gate passed — cognovit is permitted for this transaction type in the governing state
+- [ ] Consumer / mixed-use classification confirmed; if consumer, cognovit clause omitted
+- [ ] Statutory warning language is exact, conspicuous, and placed per statute
+- [ ] Confession clause forum aligns with governing law and has substantial relationship to transaction
+- [ ] Usury analysis complete — includes all fees/charges treated as interest; exemptions noted
+- [ ] Waivers are conspicuous and not buried in boilerplate
+- [ ] Execution formalities match governing-state requirements (witnesses, notary, acknowledgment)
+- [ ] If enforceability is unclear, alternative structure (standard note + guaranty + security agreement) recommended instead

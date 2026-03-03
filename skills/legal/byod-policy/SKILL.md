@@ -1,92 +1,78 @@
 ---
 name: byod-policy
-description: Drafts a comprehensive Bring Your Own Device (BYOD) policy for U.S. employers governing employee use of personal devices (smartphones, tablets, laptops, wearables) to access company systems. Covers acceptable use, MDM requirements, encryption, remote wipe authority, privacy expectations, data classification, regulatory compliance (HIPAA, GLBA, SOX, GDPR), and employee acknowledgment. Use when creating or updating internal BYOD policies, personal device programs, or mobile device security policies in data privacy and cybersecurity contexts.
-tags:
-  - agreement
-  - drafting
-  - regulatory
+description: Drafts a Bring Your Own Device (BYOD) policy for U.S. employers governing personal device access to company systems. Covers MDM enrollment, encryption, remote wipe authority, privacy expectations, data classification, and regulatory overlays (HIPAA, GLBA, SOX, GDPR). Use when creating or updating BYOD policies, mobile device security policies, or personal device programs.
 ---
 
 # BYOD Policy
 
-Drafts an employer-facing Bring Your Own Device policy balancing operational flexibility with data security, regulatory compliance, and enforceable employee obligations.
+Generates an employer-facing BYOD policy balancing operational flexibility with data security, regulatory compliance, and enforceable employee obligations.
 
 ## Prerequisites
 
-1. **Organization profile** — industry, size, applicable regulations (HIPAA, GLBA, SOX, GDPR, CCPA, etc.)
-2. **Device scope** — which device types are covered (smartphones, tablets, laptops, wearables)
-3. **MDM platform** — name of company-approved mobile device management software, if any
-4. **Data classification scheme** — what tiers of data exist and which are permitted on personal devices
-5. **IT support boundaries** — scope of helpdesk support for personal vs. company apps
-6. **Stipend or reimbursement terms** — any agreed compensation for device use, if applicable
+Gather before drafting:
+
+1. **Organization profile** — industry, size, applicable regulations (HIPAA, GLBA, SOX, GDPR, CCPA)
+2. **Device scope** — smartphones, tablets, laptops, wearables
+3. **MDM platform** — company-approved mobile device management software, if any
+4. **Data classification** — which tiers are permitted on personal devices
+5. **IT support boundaries** — helpdesk scope for personal vs. company apps
+6. **Stipend terms** — any reimbursement for device use
 
 ## Output Structure
 
-| Section | Key Contents |
+| # | Section | Key Contents |
+|---|---------|-------------|
+| 1 | Purpose & Scope | Why BYOD is permitted; covered employees, devices, systems |
+| 2 | Eligibility & Enrollment | Approval process; IT registration; MDM installation |
+| 3 | Security Requirements | Minimum device standards (see checklist below) |
+| 4 | Company Rights | Remote access, monitoring, wipe authority and triggers |
+| 5 | Privacy Expectations | What company may/may not access; commingled data |
+| 6 | Employee Responsibilities | Reporting obligations; financial responsibility |
+| 7 | Data Handling | Permitted classifications; backup, retention, deletion |
+| 8 | Regulatory Compliance | Industry-specific overlays |
+| 9 | Support & Liability | IT support scope; negligence liability |
+| 10 | Acknowledgment | Signature block; disciplinary consequences |
+
+## Key Section Details
+
+### Security Requirements (Section 3)
+
+Include minimum standards:
+
+- Screen lock: PIN/password ≥ [X] chars, biometric, or MFA
+- Patching: OS/security updates within [X] days of release
+- MDM agent installed and active
+- Full-device or work-profile encryption enabled
+- Auto-lock timeout ≤ [X] minutes
+- Remote wipe confirmed before enrollment
+- Prohibited: jailbroken/rooted devices; sideloaded apps
+
+### Remote Wipe (Section 4)
+
+Enumerate trigger conditions: termination/resignation, lost/stolen device, confirmed/suspected breach, sustained non-compliance (after notice), employee opt-out.
+
+Distinguish **selective wipe** (corporate data only) from **full device wipe** and specify which MDM capability applies to each.
+
+### Privacy Scope (Section 5)
+
+| Company MAY access | Company will NOT access |
 |---|---|
-| 1. Purpose & Scope | Why BYOD is permitted; which employees, devices, and systems are covered |
-| 2. Eligibility & Enrollment | Approval process; IT registration; MDM installation requirement |
-| 3. Security Requirements | Minimum standards before device may access company resources |
-| 4. Company Rights | Remote access, monitoring, and wipe authority; triggering conditions |
-| 5. Privacy Expectations | What company may/may not access; commingled data handling |
-| 6. Employee Responsibilities | Reporting obligations; financial responsibility for device |
-| 7. Data Handling | Permitted data classifications; backup, retention, and deletion procedures |
-| 8. Regulatory Compliance | Industry-specific overlays (HIPAA, GLBA, SOX, GDPR, etc.) |
-| 9. Support & Liability | IT support scope; employee liability for negligence-caused breaches |
-| 10. Acknowledgment | Signature block; disciplinary consequences for violations |
-
-### Section 3 — Security Requirements Checklist
-
-- [ ] Screen lock with PIN/password ≥ [X] characters, biometric, or MFA
-- [ ] OS and security patches applied within [X] days of release
-- [ ] Company MDM agent installed and active
-- [ ] Full-device or work-profile encryption enabled
-- [ ] Auto-lock timeout ≤ [X] minutes
-- [ ] Remote wipe capability confirmed prior to enrollment
-- [ ] Prohibited: jailbroken/rooted devices; apps sideloaded from untrusted sources
-
-### Section 4 — Remote Wipe Trigger Conditions
-
-Enumerate conditions authorizing company to remotely wipe corporate data:
-
-- Termination or resignation
-- Device reported lost or stolen
-- Confirmed or suspected security breach
-- Sustained non-compliance with policy (after notice, where practicable)
-- Employee opts out of BYOD program
-
-Policy must distinguish **selective wipe** (corporate data and apps only) from **full device wipe**, and specify which MDM capability applies to each scenario.
-
-### Section 5 — Privacy Scope Table
-
-| Company MAY access or monitor | Company will NOT access (absent legal obligation) |
-|---|---|
-| Business email, calendar, contacts synced to company systems | Personal photos, texts, personal email accounts |
+| Business email, calendar, contacts synced to company systems | Personal photos, texts, personal email |
 | Company app activity and data | Personal app data outside company systems |
-| Network traffic routed through company VPN or infrastructure | Personal browsing not routed through company infrastructure |
-| Documents stored in company cloud storage | Personal files never synced to company systems |
+| Traffic routed through company VPN | Personal browsing not on company infrastructure |
+| Documents in company cloud storage | Personal files never synced to company systems |
 
-### Section 10 — Acknowledgment Block
+### Acknowledgment (Section 10)
 
-```
-Employee Name (print): ________________________________
-Employee Signature: ____________________________  Date: ___________
-Department / Manager: ________________________________
-Witness / HR Signature (if required): ________________  Date: ___________
+Include: employee printed name, signature, date, department/manager, optional witness/HR signature. Statement must confirm employee has read, understands, and agrees to comply, with notice that violations may result in discipline up to termination, BYOD revocation, and/or legal action.
 
-By signing, I acknowledge I have read, understand, and agree to comply with this
-BYOD Policy. I understand that violations may result in disciplinary action up to
-and including termination, revocation of BYOD privileges, and/or legal action.
-```
+## Drafting Checks
 
-## Guidelines
-
-- **Jurisdiction**: Tailored for U.S. employers; state-specific privacy laws (CA CPRA, IL BIPA, NY SHIELD) may require additional employee notice — flag and adjust per state
-- **Regulated industry overlays**:
-  - *Healthcare*: HIPAA minimum necessary standard; assess whether PHI on personal devices triggers BAA obligations
-  - *Finance*: GLBA Safeguards Rule technical controls; SOX records retention if device stores covered records
-  - *Cross-border workforce*: GDPR Art. 32 technical measures; data transfer restrictions if EU employee data is involved
-- **Enforceability**: Obtain signed acknowledgment before granting device access; retain copies in personnel files
-- **MDM transparency**: Clearly disclose what MDM software monitors (e.g., app inventory, location, call logs) to reduce privacy claims and comply with state wiretapping statutes
-- **Stipend documentation**: If a device stipend is paid, document in a separate written agreement to avoid wage-and-hour classification issues
-- **Review cadence**: Recommend annual review; mandatory update upon material change to MDM platform, applicable regulation, or company data classification policy
+- **Jurisdiction**: U.S.-focused; flag state-specific laws (CA CPRA, IL BIPA, NY SHIELD) requiring additional notice
+- **Healthcare**: HIPAA minimum necessary standard; assess BAA obligations if PHI on personal devices
+- **Finance**: GLBA Safeguards Rule controls; SOX retention if device stores covered records
+- **Cross-border**: GDPR Art. 32 measures; data transfer restrictions for EU employee data
+- **Enforceability**: Require signed acknowledgment before granting access; retain in personnel files
+- **MDM transparency**: Disclose what MDM monitors (app inventory, location, call logs) to reduce privacy claims and comply with state wiretapping statutes
+- **Stipend**: Document device stipends in separate written agreement to avoid wage-and-hour issues
+- **Review cadence**: Annual review; mandatory update on MDM platform change, new regulation, or data classification change

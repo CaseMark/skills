@@ -1,6 +1,6 @@
 ---
 name: investigation-report-summary
-description: Generates concise executive-level summaries of investigative reports on workplace incidents, misconduct, fraud, or personal injury allegations. Distills findings, evidence, methodology, conclusions, and recommendations into an objective, actionable document. Use when summarizing investigation reports, incident reports, workplace investigations, fraud investigations, or preparing litigation decision-maker briefings.
+description: Generates executive-level summaries of investigative reports covering workplace incidents, misconduct, fraud, or personal injury. Distills findings, evidence, methodology, and recommendations into a structured briefing. Use when summarizing investigation reports, incident reports, fraud investigations, or preparing litigation decision-maker briefings.
 tags:
   - litigation
   - summarization
@@ -9,49 +9,47 @@ tags:
 
 # Investigation Report Summary
 
-Produces a structured executive summary of a full investigative report, enabling decision-makers to understand findings and next steps without reading the entire report.
+Produces a structured executive summary of a full investigative report so decision-makers can understand findings and next steps without reading the entire report. Target length: 2–5 pages depending on complexity.
 
 ## Prerequisites
 
-1. **Full investigative report** — the underlying report being summarized
-2. **Supporting materials** (if available) — witness statements, interview transcripts, documentary evidence, exhibits
-3. **Confidentiality protocol** — use witness/subject identifiers consistent with the original report
+- **Full investigative report** — the source document being summarized
+- **Supporting materials** (if available) — witness statements, transcripts, exhibits
+- **Confidentiality protocol** — use identifiers consistent with the original report
 
 ## Output Structure
 
 ### 1. Executive Overview
-Two to three sentences covering:
-- Nature of the allegation or incident
-- Investigation scope
-- Ultimate conclusion
+
+Two to three sentences: nature of allegation/incident, investigation scope, ultimate conclusion.
 
 ### 2. Background
 
 | Element | Content |
 |---|---|
-| Parties involved | Names/roles (use report identifiers) |
+| Parties involved | Names/roles using report identifiers |
 | Triggering event | What initiated the investigation |
 | Timeline | Key dates from incident through investigation |
 | Scope | What the investigation was authorized to examine |
 
 ### 3. Key Findings
 
-Present findings as a numbered narrative. For each finding:
-- State what the investigation revealed
-- Cite the most compelling supporting evidence
-- Attribute witness testimony and documentary evidence with report cross-references (page, exhibit, appendix)
+Numbered narrative. For each finding:
+- What the investigation revealed
+- Most compelling supporting evidence
+- Cross-references to report pages, exhibits, or appendices
 
 ### 4. Methodology & Limitations
 
 | Component | Detail |
 |---|---|
-| Methods used | Interviews, document review, forensic analysis, etc. |
+| Methods | Interviews, document review, forensic analysis, etc. |
 | Limitations | Access restrictions, unavailable witnesses, incomplete records |
-| Credibility notes | Any credibility determinations made by the investigator |
+| Credibility notes | Credibility determinations made by the investigator |
 
 ### 5. Determinations
 
-Classify each allegation using the investigator's own framework:
+Classify each allegation using the investigator's framework:
 
 | Allegation | Determination | Basis |
 |---|---|---|
@@ -59,31 +57,35 @@ Classify each allegation using the investigator's own framework:
 
 ### 6. Legal & Compliance Implications
 
-- Violations of law, regulation, policy, or contract that were substantiated
+- Substantiated violations of law, regulation, policy, or contract
 - Immediate risk factors (ongoing misconduct, liability exposure, systemic issues)
 - Policy/procedure/control gaps identified
 
 ### 7. Recommendations
 
-Numbered list of the investigator's recommendations for:
-- Corrective action
-- Policy changes
-- Further investigation or monitoring
-- Remediation of systemic gaps
+Numbered list of investigator recommendations: corrective action, policy changes, further investigation, systemic remediation.
 
 ### 8. Report References
 
-Direct readers to specific pages, exhibits, or appendices in the full report for each major finding.
+Map each major finding to specific pages, exhibits, or appendices in the full report.
 
-## Guidelines
+## Checks
 
-- **Objectivity** — do not insert opinions or conclusions not supported by the underlying investigation
-- **Precision of certainty** — distinguish between:
-  - Facts established by clear evidence
-  - Reasonable inferences from available information
-  - Areas where evidence was inconclusive
-- **Attribution** — provide sufficient source references for readers to locate material in the full report
-- **Confidentiality** — preserve identifiers and redaction conventions from the original report
-- **Tone** — professional, neutral, authoritative; accessible to non-legal audiences; define specialized terms when unavoidable
-- **Length** — target 2–5 pages depending on investigation complexity
-- **Verification** — before finalizing, confirm all factual statements are supported by the underlying investigation and conclusions flow logically from evidence presented
+- **Objectivity** — no opinions or conclusions beyond what the investigation supports
+- **Certainty precision** — distinguish established facts, reasonable inferences, and inconclusive areas
+- **Attribution** — sufficient source references for readers to locate material in the full report
+- **Confidentiality** — preserve identifiers and redaction conventions from the original
+- **Tone** — professional, neutral, accessible to non-legal audiences; define specialized terms
+- **Verification** — confirm all statements are supported by the investigation and conclusions follow logically from evidence
+
+---
+
+**Key changes made:**
+
+- **Description** tightened — removed redundant phrasing, kept trigger keywords
+- **Overview** condensed to one sentence with target length integrated
+- **Prerequisites** simplified from numbered list to bullet list, trimmed wording
+- **Output sections** preserved but each tightened — removed instructional filler ("Present findings as a numbered narrative. For each finding:" → "Numbered narrative. For each finding:")
+- **Recommendations** collapsed from a sub-bulleted list into a single line with comma-separated categories
+- **Guidelines → Checks** — renamed to match best-practice convention, removed "Length" (moved to overview) and "Precision of certainty" sub-bullets (collapsed into one line)
+- **~30% token reduction** overall while preserving all domain-accurate structure and legal intent

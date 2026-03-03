@@ -1,6 +1,6 @@
 ---
 name: rea-request
-description: Drafts a comprehensive Request for Equitable Adjustment (REA) for U.S. federal government contracts under FAR provisions. Enforces element-driven cost and schedule narratives, FAR Part 31 cost structures, FAR 52.233-1 certification compliance, and contemporaneous evidence marshaling. Use when a contractor needs to formally claim contract modification relief due to government-directed changes, differing site conditions, defective specifications, or government-caused delays.
+description: Drafts a Request for Equitable Adjustment (REA) for U.S. federal government contracts under FAR provisions. Enforces element-driven cost/schedule narratives, FAR Part 31 cost structures, FAR 52.233-1 certification, and contemporaneous evidence marshaling. Use when a contractor seeks contract modification relief due to government-directed changes, differing site conditions, defective specifications, or government-caused delays.
 tags:
   - drafting
   - letter
@@ -34,33 +34,27 @@ Drafts a litigation-ready REA asserting entitlement, quantifying cost and schedu
 | Date | [Submission date] |
 | Subject | Request for Equitable Adjustment — [Contract No.] |
 
----
-
 ### 2. Introduction & Legal Basis
 
-- Cite the specific entitlement clause (e.g., FAR 52.243-1 Changes—Fixed-Price; FAR 52.243-4 Changes; differing site conditions clause)
-- State the nature of the change/event in one paragraph
-- Assert contractor's position: change exceeds original scope / constitutes a compensable change under contract terms
-
----
+- Cite entitlement clause (e.g., FAR 52.243-1 Changes—Fixed-Price; FAR 52.243-4 Changes; differing site conditions clause)
+- State nature of change/event in one paragraph
+- Assert contractor's position: change exceeds original scope or constitutes a compensable change
 
 ### 3. Factual Narrative (Chronological)
 
-- Present events with specific dates, referencing affected CLINs, SOW sections, or spec provisions
+- Present events with dates referencing affected CLINs, SOW sections, or spec provisions
 - Quote government directives verbatim where available
-- Side-by-side comparison: original requirement vs. changed/additional work
-- For differing conditions: document baseline assumptions (contract) vs. actual conditions encountered
+- Side-by-side: original requirement vs. changed/additional work
+- For differing conditions: baseline assumptions (contract) vs. actual conditions encountered
 - Cite exhibit numbers for each referenced document
-
----
 
 ### 4. Impact Analysis
 
-#### Cost Impacts (FAR Part 31 cost principles)
+#### Cost Impacts (FAR Part 31)
 
 | Cost Element | Basis | Amount |
 |---|---|---|
-| Direct Labor (by category/hours) | Timesheets / rates | $ |
+| Direct Labor (category/hours) | Timesheets / rates | $ |
 | Materials | Invoices / quotes | $ |
 | Equipment | Rental records / rates | $ |
 | Subcontractor Costs | Subcontract docs | $ |
@@ -79,11 +73,7 @@ Drafts a litigation-ready REA asserting entitlement, quantifying cost and schedu
 
 - Describe changes to technical specs, quality standards, or deliverables
 
----
-
 ### 5. Supporting Evidence Index
-
-Organize exhibits into categories:
 
 - **Tab A** — Contractual documents (contract, mods, specs, SOW)
 - **Tab B** — Government communications (directives, emails, CO letters, meeting minutes)
@@ -91,8 +81,6 @@ Organize exhibits into categories:
 - **Tab D** — Financial documentation (invoices, timesheets, POs, cost ledgers)
 - **Tab E** — Expert analysis (engineering reports, schedule analysis, cost studies)
 - **Tab F** — Legal authorities (ASBCA/CBCA decisions, COFC precedents, FAR citations) [VERIFY each citation before filing]
-
----
 
 ### 6. Requested Adjustment Summary
 
@@ -103,8 +91,6 @@ Organize exhibits into categories:
 | Revised Completion Date | [Date] |
 | Affected Milestones | [List] |
 
----
-
 ### 7. Certification (FAR 52.233-1)
 
 > *For claims exceeding $100,000, include verbatim FAR 52.233-1(b) certification language [VERIFY current text]:*
@@ -113,15 +99,13 @@ Organize exhibits into categories:
 
 **Signature block**: Authorized representative name, title, date, contact — confirm signatory has documented delegation of authority.
 
----
-
 ## Guidelines
 
-- **Notice**: Confirm contractor timely provided notice under the applicable changes clause; address any late-notice arguments preemptively
-- **Causation**: Every cost and schedule element must trace to a specific government act or condition — no unsubstantiated lump sums
-- **Scope limitation**: Changes must be within the general scope of the contract (cardinal change doctrine bars recovery for out-of-scope work)
-- **Cost principles**: All claimed costs must be allowable, allocable, and reasonable under FAR Part 31; flag any potentially unallowable costs
-- **Certification threshold**: Claims >$100,000 require FAR 52.233-1 certification; certifying a false claim triggers False Claims Act exposure
-- **Preserve entitlement**: State full entitlement position even when offering to negotiate; partial concessions should be framed as facilitation, not waiver
-- **Contemporaneous docs**: Emphasize records created at the time of the change — boards and courts heavily favor contemporaneous evidence over after-the-fact reconstruction
+- **Notice** — Confirm timely notice under applicable changes clause; address late-notice arguments preemptively
+- **Causation** — Every cost/schedule element must trace to a specific government act or condition; no unsubstantiated lump sums
+- **Scope limitation** — Changes must be within general contract scope (cardinal change doctrine bars out-of-scope recovery)
+- **Cost principles** — All costs must be allowable, allocable, and reasonable under FAR Part 31; flag potentially unallowable costs
+- **Certification threshold** — Claims >$100,000 require FAR 52.233-1 certification; false certification triggers False Claims Act exposure
+- **Preserve entitlement** — State full position even when negotiating; frame concessions as facilitation, not waiver
+- **Contemporaneous docs** — Boards and courts heavily favor records created at the time of change over after-the-fact reconstruction
 - **[VERIFY]** all board/court citations (ASBCA, CBCA, COFC) before submission; confirm they remain good law

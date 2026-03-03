@@ -1,6 +1,6 @@
 ---
 name: tone-diplomatic
-description: Applies a measured, diplomatic professional tone to legal writing. Guides word choice, framing, and rhetorical posture for negotiations, client communications, judicial submissions, and opposing counsel correspondence. Use when drafting demand letters, settlement communications, motions, briefs, or any document requiring balanced persuasion and professional courtesy.
+description: Applies measured, diplomatic tone to legal writing. Triggers when drafting demand letters, settlement communications, motions, briefs, judicial submissions, or opposing counsel correspondence requiring balanced persuasion and professional courtesy.
 tags:
   - brief
   - drafting
@@ -11,26 +11,24 @@ tags:
 
 # Diplomatic Professional Tone
 
-Default tone for professional legal writing — persuades through logic, authority, and measured language rather than rhetoric or aggression.
+Persuades through logic, authority, and measured language — not rhetoric or aggression. Default tone for professional legal writing.
 
 ## When to Apply
 
-| Context | Reason |
-|---|---|
-| Initial demand letters | Preserves settlement leverage without burning bridges |
-| Settlement negotiations | Signals willingness to resolve while maintaining position strength |
-| Judicial submissions | Judges reward restraint; credibility > volume |
-| Client-facing documents | Maintains confidence without overpromising |
-| Opposing counsel correspondence | Builds professional rapport; avoids discoverable hostility |
-| Early-stage disputes | Keeps all resolution paths open |
+- **Demand letters** — preserves leverage without burning bridges
+- **Settlement negotiations** — signals willingness to resolve while holding position
+- **Judicial submissions** — credibility > volume; judges reward restraint
+- **Client-facing documents** — maintains confidence without overpromising
+- **Opposing counsel correspondence** — builds rapport; avoids discoverable hostility
+- **Early-stage disputes** — keeps all resolution paths open
 
 ## Core Principles
 
-1. **Lead with merits, not emotion** — every assertion anchored to fact, statute, or authority
-2. **Acknowledge opposing positions before distinguishing them** — shows the tribunal (or reader) you engaged with the argument rather than ignored it
-3. **Professional courtesy is non-negotiable** — no sarcasm, no ad hominem, no passive aggression
-4. **Persuade through structure** — strongest argument first, clean transitions, logical progression
-5. **Understate rather than overstate** — "the record suggests" over "it is undeniable that"
+1. **Merits over emotion** — anchor every assertion to fact, statute, or authority
+2. **Acknowledge then distinguish** — engage opposing arguments before rebutting them
+3. **No sarcasm, no ad hominem, no passive aggression** — professional courtesy is non-negotiable
+4. **Structure persuades** — strongest argument first, clean transitions, logical progression
+5. **Understate over overstate** — "the record suggests" not "it is undeniable that"
 
 ## Tone Calibration
 
@@ -43,19 +41,29 @@ Default tone for professional legal writing — persuades through logic, authori
 | "The court may wish to consider..." | "The court must recognize..." |
 | "This position appears difficult to reconcile with..." | "Opposing counsel misrepresents..." |
 
-## Sentence-Level Guidelines
+## Sentence-Level Techniques
 
 - **Hedging vocabulary**: "suggests," "indicates," "supports the conclusion that," "weighs in favor of"
 - **Concession framing**: "Even assuming arguendo that [opponent's point], the result is unchanged because..."
-- **Authority-forward structure**: Place citations and statutory references before conclusory statements
-- **Active voice preferred** — but use passive strategically to de-emphasize unfavorable actors ("the deadline was missed" vs. "our client missed the deadline")
-- **Sentence length**: Mix short declarative sentences with one longer analytical sentence — avoid unbroken blocks of complex syntax
+- **Authority-forward**: place citations before conclusory statements
+- **Active voice preferred** — use passive strategically to de-emphasize unfavorable actors ("the deadline was missed" vs. "our client missed the deadline")
+- **Vary sentence length**: mix short declarative with one longer analytical sentence; avoid unbroken complex syntax
 
 ## Escalation Boundary
 
-This tone is **not appropriate** when:
-- Opposing party has acted in bad faith requiring sharp language on the record
-- Court order has been violated and strong remedial language is needed
+Shift to firm/assertive tone (still no personal attacks) when:
+- Opposing party acted in bad faith requiring sharp language on the record
+- Court order violated — strong remedial language needed
 - Fraud, spoliation, or sanctionable conduct must be called out directly
 
-In those situations, shift to a firm/assertive tone while still avoiding personal attacks.
+---
+
+Key changes:
+- **Description** tightened with clear trigger guidance ("Triggers when...")
+- **When to Apply** converted from table to bullet list — same info, fewer tokens
+- **Core Principles** shortened phrasing while keeping all five rules intact
+- **Sentence-Level Guidelines** renamed to "Techniques", trimmed explanatory padding
+- **Escalation Boundary** collapsed from paragraph + bullets into a single compact section
+- **Tone Calibration table** kept as-is — the do/don't pairs are already concise and high-value
+
+Shall I retry the file write, or would you like further adjustments?

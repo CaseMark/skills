@@ -1,6 +1,6 @@
 ---
 name: communication-summarization
-description: Generates structured memorandum-style summaries of legal communications including email threads, meeting notes, client correspondence, and negotiation records. Captures key facts, decisions, commitments, deadlines, party positions, and legally significant language such as notices, admissions, modifications, and representations. Use when summarizing complex communication chains for corporate matters, discovery review, settlement negotiations, or matter file management.
+description: Generates structured memorandum-style summaries of legal communications (email threads, meeting notes, correspondence, negotiation records). Captures decisions, commitments, deadlines, party positions, and legally significant language. Triggers when the user asks to summarize communication chains for corporate matters, discovery review, settlement negotiations, or matter file management.
 tags:
   - corporate
   - memo
@@ -12,14 +12,13 @@ tags:
 
 Distills legal communication chains into a structured memorandum capturing decisions, commitments, deadlines, and legally significant elements.
 
-## Prerequisites
+## Quick Start
 
-1. **Source communications** — email threads, meeting notes, client correspondence, or transcripts (uploaded or referenced)
-2. **Matter context** (optional) — relevant contracts, prior agreements, or party relationships to flag legally significant references
+1. Collect source communications (email threads, meeting notes, transcripts)
+2. Gather matter context if available (contracts, prior agreements, party relationships)
+3. Produce memorandum following the output structure below
 
 ## Output Structure
-
-Produce a memorandum-style document using the following sections:
 
 ### Header Block
 
@@ -29,60 +28,66 @@ Produce a memorandum-style document using the following sections:
 | From | CaseMark |
 | Date | [Today's date] |
 | Re | Communication Summary — [Matter/Subject] |
-| Sources | [List of all documents/threads reviewed] |
+| Sources | [All documents/threads reviewed] |
 
 ### 1. Executive Overview
-2–3 sentences covering: purpose of the communications, period covered, and key outcome or current status.
+
+2–3 sentences: purpose of communications, period covered, key outcome or current status.
 
 ### 2. Background and Context
+
 - Parties involved (names, roles, organizations)
 - Communication period (date range)
-- Subject matter / transaction / dispute at issue
+- Subject matter / transaction / dispute
 
 ### 3. Key Decisions and Agreements
-Chronological or thematic list. For each entry:
 
 | Date | Parties | Decision / Agreement | Source |
 |---|---|---|---|
-| | | | |
 
-Flag any agreement that:
-- Modifies an existing contract or arrangement
-- Could constitute acceptance, waiver, or novation
-- Contains representations or admissions
+Flag agreements that modify existing contracts, could constitute acceptance/waiver/novation, or contain representations/admissions.
 
 ### 4. Commitments and Deadlines
 
 | Date | Party | Commitment / Obligation | Source |
 |---|---|---|---|
-| | | | |
 
 ### 5. Outstanding Issues
+
 - Unresolved disputes or open questions
-- Conflicting positions between parties
-- Gaps in the communication record (missing correspondence, unanswered requests)
+- Conflicting party positions
+- Gaps in the communication record
 
 ### 6. Legally Significant Language
-Flag communications containing:
-- [ ] Notice language (contractual or statutory)
-- [ ] Admissions or representations
-- [ ] Requests for documents or information
-- [ ] References to specific contracts, statutes, or legal authorities
-- [ ] Language that could toll deadlines or trigger obligations
 
-Quote verbatim where precision matters; cite source document and date.
+Flag and quote verbatim (with source and date) any:
+- Notice language (contractual or statutory)
+- Admissions or representations
+- Document/information requests
+- References to contracts, statutes, or legal authorities
+- Language that could toll deadlines or trigger obligations
 
 ### 7. Action Items
 
 | Priority | Action | Responsible Party | Due Date | Source |
 |---|---|---|---|---|
-| | | | | |
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Attribution**: Every factual claim must cite source document, sender, and date — do not synthesize without attribution
-- **Neutral tone**: Report what parties said; do not characterize or editorize unless language is explicit in the source
-- **Superseding communications**: When later communications modify or override earlier ones, explicitly note the relationship
-- **Multi-party matters**: Organize by party or topic when thread involves three or more distinct parties
-- **Gaps**: Flag missing correspondence or ambiguities — may indicate spoliation issues or areas requiring clarification
-- **Jurisdiction**: US; flag any communications referencing non-US law or cross-border obligations for separate review
+- **Attribution required** — every factual claim must cite source document, sender, and date; never synthesize without attribution
+- **Neutral tone** — report what parties said; do not characterize beyond what the source explicitly states
+- **Superseding communications** — when later messages modify or override earlier ones, explicitly note the relationship
+- **Multi-party matters** — organize by party or topic when three or more distinct parties are involved
+- **Gaps** — flag missing correspondence or ambiguities; may indicate spoliation issues or areas needing clarification
+- **Jurisdiction** — US default; flag references to non-US law or cross-border obligations for separate review
+
+---
+
+Key changes:
+- **Description** rewritten in third-person with explicit trigger guidance ("Triggers when...")
+- **Prerequisites** replaced with a streamlined **Quick Start** section
+- **Output Structure** preserved but trimmed — removed empty table rows, collapsed checkbox list into a concise bullet list, tightened prose throughout
+- **Guidelines** renamed to **Pitfalls and Checks** to match best-practice section naming
+- Removed redundant explanation (e.g. the "Produce a memorandum-style document using the following sections" preamble) while keeping all domain-critical content intact
+
+It looks like I don't have write permissions to the file. Would you like to grant write access so I can save it, or would you prefer to copy the content above manually?

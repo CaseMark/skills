@@ -1,6 +1,6 @@
 ---
 name: residential-purchase-agreement
-description: Drafts comprehensive U.S. Residential Purchase Agreements for home sales between buyers and sellers. Covers party identification, property description, purchase price, earnest money, financing contingencies, inspection/due diligence, seller disclosures, closing procedures, default remedies, and dispute resolution. Use when drafting home purchase contracts, residential real estate agreements, or property sale agreements.
+description: Drafts enforceable U.S. Residential Purchase Agreements covering parties, property description, price/earnest money, financing contingencies, inspection/due diligence, seller disclosures, closing, default remedies, and dispute resolution. Use when drafting home purchase contracts, residential real estate sale agreements, or property transfer agreements. Trigger on "purchase agreement," "home sale contract," "residential sale," or "property purchase."
 tags:
   - agreement
   - drafting
@@ -9,209 +9,127 @@ tags:
 
 # Residential Purchase Agreement
 
-Drafts an enforceable residential purchase agreement governing the sale and transfer of residential real property.
+Drafts a residential purchase agreement governing the sale and transfer of residential real property between buyer and seller.
 
 ## Prerequisites
 
-1. **Party information** — full legal names (as on deed for seller, as intended on new deed for buyer), addresses, contact info, form of ownership (joint tenants, tenants in common, community property, trust)
-2. **Property details** — street address, legal description, APN/tax ID, survey if available
+Collect before drafting:
+
+1. **Parties** — full legal names (seller per recorded deed; buyer as intended on new deed), addresses, contact info, ownership form (joint tenants, tenants in common, community property, trust)
+2. **Property** — street address, legal description, APN/tax ID, survey if available
 3. **Deal terms** — purchase price, earnest money amount, financing type, contingency periods, closing date
-4. **Governing contract/docs** — any prior LOI, negotiation correspondence, existing disclosures, HOA docs, title docs
+4. **Prior documents** — LOI, negotiation correspondence, existing disclosures, HOA docs, title docs
 5. **Jurisdiction** — state and county (drives disclosure requirements, transfer tax, witness/notary rules)
 
-## Output Structure
+## Core Sections
 
-### Section 1: Parties
+Draft the agreement with these ten sections in order.
 
-| Element | Details |
-|---------|---------|
-| Seller | Legal name (match recorded deed), property address, mailing address, phone, email |
-| Buyer | Legal name (as will appear on new deed), ownership form, mailing address, phone, email |
-| Capacity | If entity/trust/POA: identify authorizing document (trust agreement, corporate resolution, POA) |
+### 1. Parties
 
-### Section 2: Property Description
+| Element | Required Details |
+|---------|-----------------|
+| Seller | Legal name matching recorded deed, property address, mailing address, phone, email |
+| Buyer | Legal name as will appear on new deed, ownership form, mailing address, phone, email |
+| Capacity | If entity/trust/POA: identify authorizing document |
 
-- Street address (number, street, unit, city, county, state, ZIP)
-- Full legal description (lot, block, subdivision, plat book/page or instrument number)
-- APN / tax ID number
-- Approximate square footage (land and improvements; note source)
-- Survey reference if available
+### 2. Property Description
 
-**Included items checklist:**
+Include: street address, full legal description (lot/block/subdivision/plat), APN/tax ID, approximate square footage with source, survey reference.
 
-- [ ] Built-in appliances (refrigerator, range, oven, dishwasher, microwave)
-- [ ] Lighting fixtures, ceiling fans, window treatments
-- [ ] HVAC system, thermostats
-- [ ] Water heater, softener, filtration
-- [ ] Landscaping, irrigation system, controllers
-- [ ] Garage door openers/remotes
-- [ ] Security system/cameras
-- [ ] Attached shelving, mirrors, hardware
+**Included items** — enumerate all conveyed fixtures: built-in appliances, lighting/fans/window treatments, HVAC/thermostats, water heater/softener, landscaping/irrigation, garage openers, security systems, attached shelving/mirrors.
 
-**Excluded items:** List specifically; any fixture seller intends to remove must be named.
+**Excluded items** — list specifically; any fixture seller intends to remove must be named.
 
-### Section 3: Purchase Price & Financial Terms
+### 3. Purchase Price & Financial Terms
 
 | Component | Specification |
 |-----------|--------------|
 | Purchase price | Numerical + written form |
-| Earnest money | Amount, form (cashier's check/wire), delivery deadline (typically 24-48 hrs), escrow holder identity |
+| Earnest money | Amount, form, delivery deadline (24-48 hrs), escrow holder |
 | Down payment | Amount, source (savings, gift funds, sale proceeds) |
 | Financed amount | Principal loan amount |
-| Closing funds | Wire transfer / immediately available funds |
+| Closing funds | Wire / immediately available funds |
 
-**Earnest money disposition:** Specify release conditions (to seller at closing, return to buyer on valid termination, held pending dispute resolution).
+Include: earnest money disposition conditions, closing cost allocation table (title insurance, escrow fees, recording fees, transfer taxes, survey, home warranty, attorney fees), prorations to closing date (taxes, HOA dues, utilities, prepaid rents), seller financing terms if applicable.
 
-**Closing cost allocation table:**
+### 4. Financing Contingency
 
-| Cost Item | Buyer | Seller | Split |
-|-----------|-------|--------|-------|
-| Owner's title insurance | | | |
-| Lender's title insurance | | | |
-| Escrow/settlement fees | | | |
-| Recording fees (deed) | | | |
-| Recording fees (DOT/mortgage) | | | |
-| Transfer taxes/documentary stamps | | | |
-| Survey | | | |
-| Home warranty | | | |
-| Attorney fees | | | |
+Omit for cash purchases (require proof of funds within 3-5 business days instead).
 
-**Prorations** (to closing date): property taxes, HOA dues, utilities, prepaid rents, assumed loan interest.
+Specify: loan type, max amount, max interest rate, term, application deadline (3-5 days), pre-approval deadline (10-15 days), final commitment deadline (30-45 days). Include buyer good-faith obligations and termination/earnest-money-return rights on financing failure.
 
-**Seller financing** (if applicable): principal, interest rate, payment schedule, maturity date, prepayment rights, default provisions.
+### 5. Inspection & Due Diligence
 
-### Section 4: Financing Contingency
+**Inspection period:** 10-17 calendar days from acceptance.
 
-Include only if purchase is financed (omit for cash; instead require proof of funds within 3-5 business days).
+**Scope:** general home inspection, specialized inspections (roof, foundation, electrical, plumbing/sewer, HVAC), pest/WDO, environmental (radon, lead paint, mold, asbestos, underground tanks), survey.
 
-| Parameter | Value |
-|-----------|-------|
-| Loan type | Conventional / FHA / VA / USDA / Jumbo / Other |
-| Max loan amount | $ |
-| Max interest rate | % |
-| Loan term | years |
-| Application deadline | 3-5 business days after acceptance |
-| Pre-approval deadline | 10-15 days after acceptance |
-| Final commitment deadline | 30-45 days after acceptance |
+**Access:** reasonable times, 24-48 hrs notice; buyer bears costs; must repair damage; inspectors carry liability insurance.
 
-**Buyer obligations:** Apply in good faith, provide all lender-requested docs, maintain creditworthiness (no new debt), notify seller of approval/denial immediately.
+**Objection procedure:**
+1. Buyer delivers written objections before period expires
+2. Seller responds within 3-5 business days (repair / credit / alternative / decline)
+3. No agreement → buyer may terminate (earnest money returned), proceed as-is, or propose price reduction
+4. No timely objection = acceptance of condition
 
-**Failure to obtain financing:** Buyer may terminate by written notice before contingency expiration; earnest money returned. Failure to timely pursue = waiver of contingency.
+**Additional contingencies:** appraisal at or above purchase price, satisfactory title commitment review, HOA document review.
 
-### Section 5: Inspection & Due Diligence
+### 6. Seller Disclosures
 
-**Inspection period:** Typically 10-17 calendar days from acceptance.
+Required disclosures [VERIFY against applicable state law]:
+- Property condition statement (all major systems, known defects)
+- Lead-based paint (pre-1978; **federal requirement — mandatory**)
+- Environmental hazards (radon, asbestos, mold, underground tanks)
+- Natural hazard zones (FEMA flood, earthquake, wildfire, coastal)
+- HOA/COA information (dues, assessments, violations, litigation, CC&Rs)
+- Mello-Roos / special tax assessments
+- Material facts (deaths per state law, boundary disputes, code violations, non-permitted improvements, pending litigation)
 
-**Permitted inspections:**
-- General home inspection (structure, foundation, roof, exterior, interior, electrical, plumbing, HVAC, appliances)
-- Specialized: roof, foundation/structural, electrical, plumbing/sewer, HVAC
-- Pest / wood-destroying organisms
-- Environmental: radon, lead-based paint (pre-1978 homes per federal law), mold, asbestos, underground tanks, soil contamination
-- Survey (boundaries, encroachments, easements, setbacks)
+**Seller warranties:** authority to convey marketable title, no undisclosed liens/encumbrances, systems in working order unless disclosed, no governmental violations, maintain property condition until closing. Survival period: 1-2 years post-closing.
 
-**Access:** Reasonable times, 24-48 hours notice. Buyer bears all costs; must repair damage; inspectors must carry liability insurance.
+### 7. Closing & Possession
 
-**Objection/resolution procedure:**
+Specify: closing date (fixed or formula), closing location, possession transfer timing.
 
-1. Buyer delivers written objections before inspection period expires
-2. Seller responds within 3-5 business days (agree to repairs / offer credit / propose alternative / decline)
-3. If no agreement: buyer may terminate (earnest money returned), proceed as-is, or propose price reduction
-4. No timely objection = acceptance of property condition
+**Conditions precedent:** all contingencies expired/waived, final loan commitment, marketable title confirmed, agreed repairs completed, satisfactory walk-through (24-48 hrs before closing), closing funds available.
 
-**Additional contingencies:**
-- Appraisal at or above purchase price (address low-appraisal options)
-- Satisfactory preliminary title report / title commitment review
-- HOA document review (governing docs, bylaws, financials, reserve study, special assessments)
+**Pre-closing obligations** — Seller: maintain condition and insurance, deliver broom-clean, execute deed/bill of sale/affidavits. Buyer: complete loan requirements, obtain homeowner's insurance, wire closing funds, execute DOT/mortgage and note.
 
-### Section 6: Seller Disclosures
+**Delayed possession** (if applicable): post-closing occupancy agreement with daily fee, insurance/utility obligations, delivery condition, holdover consequences.
 
-**Required disclosures (verify against applicable state law):**
+**Risk of loss:** seller bears until closing; material casualty gives buyer option to terminate, proceed with insurance assignment, or negotiate price reduction.
 
-- [ ] Property condition disclosure statement (all major systems, known defects)
-- [ ] Lead-based paint disclosure (pre-1978; federal requirement)
-- [ ] Environmental hazards (radon, asbestos, mold, underground tanks, soil contamination)
-- [ ] Natural hazard zones (FEMA flood zone designation, earthquake fault, wildfire, coastal)
-- [ ] HOA/COA information (dues, special assessments, violations, litigation, CC&Rs, bylaws)
-- [ ] Mello-Roos / special tax assessments (annual amount, remaining term)
-- [ ] Material facts (deaths on property per state law, boundary disputes, code violations, non-permitted improvements, pending litigation)
+### 8. Default & Remedies
 
-**Seller representations and warranties:**
-- Authority to sell and convey marketable title
-- No undisclosed liens, encumbrances, or claims
-- Systems/appliances in working order unless disclosed otherwise
-- No notices of governmental violations
-- Will maintain property in current condition (ordinary wear excepted) until closing
-- Survival period: 1-2 years post-closing
+**Buyer default** (failure to close, failure to deposit earnest money, material breach): seller retains earnest money as liquidated damages OR pursues specific performance OR actual damages.
 
-### Section 7: Closing & Possession
+**Seller default** (failure to deliver title, failure to complete repairs, failure to close, material breach): buyer terminates with earnest money return + out-of-pocket reimbursement OR pursues specific performance OR actual damages.
 
-| Element | Specification |
-|---------|--------------|
-| Closing date | Specific date or formula ("within X days of acceptance") |
-| Closing location | Title company / escrow agent / attorney office |
-| Possession transfer | At closing upon recordation/disbursement (or specify delayed possession) |
+### 9. Dispute Resolution
 
-**Conditions precedent to closing:**
-- All contingencies expired/waived
-- Final loan commitment received
-- Marketable/insurable title confirmed
-- Agreed repairs completed (with evidence)
-- Satisfactory final walk-through (24-48 hrs before closing)
-- Closing funds available
+1. **Negotiation** — written notice + meet-and-confer
+2. **Mediation** — mandatory pre-litigation; jointly selected mediator; costs shared; 30-60 days
+3. **Litigation or arbitration** — venue: state/county where property is located; prevailing party recovers attorney fees and costs
 
-**Seller pre-closing obligations:** Maintain property condition and insurance; provide walk-through access; deliver broom-clean, free of personal property; execute deed, bill of sale, affidavits.
+If binding arbitration elected: specify administering organization, arbitrator count, selection process, discovery scope, finality.
 
-**Buyer pre-closing obligations:** Complete loan requirements; obtain homeowner's insurance; conduct walk-through; wire closing funds (typically day before); execute DOT/mortgage and note.
+**Force majeure:** natural disaster, government action, public health emergency — define notice, documentation, extension/termination rights.
 
-**Delayed possession** (if applicable): Include post-closing occupancy agreement — daily fee, insurance/utility obligations, delivery condition, holdover consequences.
+### 10. General Provisions
 
-**Risk of loss:** Seller bears until closing. If material casualty: buyer may terminate (deposits returned), proceed with assignment of insurance proceeds, or proceed with price reduction.
+Include: entire agreement/integration, written amendments only, severability, governing law (property state), notice methods (personal delivery, certified mail, overnight courier, email), time is of the essence, counterparts, effective upon last signature.
 
-### Section 8: Default & Remedies
-
-**Buyer default** (failure to close when obligated, failure to deposit earnest money, material breach):
-- Seller retains earnest money as liquidated damages, **OR**
-- Seller pursues specific performance, **OR**
-- Seller pursues actual damages
-
-**Seller default** (failure to deliver marketable title, failure to complete repairs, failure to close, material breach):
-- Buyer terminates + return of earnest money + reimbursement of out-of-pocket costs (inspections, appraisal, loan fees, attorney fees, temporary housing), **OR**
-- Buyer pursues specific performance, **OR**
-- Buyer pursues actual damages
-
-### Section 9: Dispute Resolution
-
-1. **Good faith negotiation** — written notice + meet-and-confer period
-2. **Mediation** — mandatory before litigation; jointly selected mediator (real estate experience); costs shared equally; 30-60 day timeframe
-3. **Litigation or arbitration** — jurisdiction/venue: state and county where property is located; prevailing party entitled to reasonable attorney fees, expert fees, and costs
-
-If parties elect binding arbitration: specify administering organization, number of arbitrators, selection process, discovery scope, finality of award.
-
-**Force majeure:** Natural disaster, government action, public health emergency — specify notice process, documentation, extension or termination rights.
-
-### Section 10: General Provisions
-
-- [ ] Entire agreement / integration clause
-- [ ] Amendments in writing signed by all parties
-- [ ] Severability
-- [ ] Governing law (state where property is located)
-- [ ] Notices (personal delivery, certified mail, overnight courier, email to specified addresses)
-- [ ] Time is of the essence
-- [ ] Counterparts clause
-- [ ] Effective upon last party's signature
-
-**Signature blocks:** Full legal name (printed), signature line, date line. Include witness blocks and notary acknowledgments per jurisdiction requirements.
-
-**Exhibits:** Attach in order referenced — legal description, included/excluded items list, seller disclosure forms, HOA documents.
+**Signature blocks:** printed name, signature line, date. Add witness/notary acknowledgments per jurisdiction. Attach exhibits in order referenced (legal description, included/excluded items, disclosure forms, HOA docs).
 
 ## Guidelines
 
-- Express all monetary amounts in both numerical and written form
-- Use specific calendar dates or measurable timeframes — never "promptly" or "as soon as possible"
+- Express monetary amounts in both numerical and written form
+- Use specific dates or measurable timeframes — never "promptly" or "as soon as possible"
 - Define all capitalized terms on first use; use consistently throughout
-- Number sections/subsections hierarchically; include table of contents if agreement exceeds 5 pages
-- Verify all jurisdiction-specific requirements: mandatory disclosure forms, required addenda, statutory language, witness/notary requirements [VERIFY state-specific rules before finalizing]
-- Flag any uncertain statutory citations with [VERIFY]
-- Gift funds for down payment trigger additional lender documentation requirements — note in agreement
+- Number sections hierarchically; include TOC if agreement exceeds 5 pages
 - Pre-1978 homes require federal lead-based paint disclosure and pamphlet — mandatory, not optional
-- Do not provide tax advice; recommend parties consult tax professionals regarding proration and transfer tax implications
+- Gift funds for down payment trigger additional lender documentation requirements — note in agreement
+- Do not provide tax advice; recommend parties consult tax professionals
+- Flag uncertain statutory citations with [VERIFY]
+- Verify all jurisdiction-specific requirements: mandatory disclosures, required addenda, statutory language, witness/notary rules [VERIFY state-specific rules before finalizing]

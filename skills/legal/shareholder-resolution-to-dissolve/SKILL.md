@@ -1,48 +1,42 @@
 ---
 name: shareholder-resolution-to-dissolve
-description: Drafts a shareholder resolution to voluntarily dissolve a corporation, with state-specific compliance, proper voting documentation, recitals, winding-up authorizations, and certification. Use when shareholders formally approve voluntary dissolution, corporate wind-down, or liquidation of an entity.
-tags:
-  - agreement
-  - corporate
-  - drafting
+description: Drafts a shareholder resolution authorizing voluntary dissolution of a corporation with state-specific compliance, voting documentation, recitals, winding-up authorizations, and certification. Use when shareholders formally approve voluntary dissolution, corporate wind-down, or entity liquidation.
 ---
 
 # Shareholder Resolution to Dissolve
 
-Drafts a formal shareholder resolution authorizing voluntary dissolution of a corporation, ensuring statutory compliance and proper corporate formalities.
+Drafts a formal shareholder resolution authorizing voluntary corporate dissolution with proper statutory compliance and corporate formalities.
 
 ## Prerequisites
 
-1. **State of incorporation** — dissolution statutes vary significantly (voting thresholds, notice, filings)
-2. **Articles of incorporation and bylaws** — governing document requirements for dissolution votes
-3. **Board resolution recommending dissolution** — date and substance of board action
-4. **Shareholder register** — outstanding shares by class, voting rights, contact info
-5. **Business reason for dissolution** — purpose completion, unprofitability, shareholder dispute, strategic decision
-6. **Liability inventory** — pending litigation, creditor claims, contracts, employee obligations, environmental issues
-7. **Meeting or consent procedure** — special meeting, annual meeting, or written consent in lieu of meeting
+Gather before drafting:
 
-## Output Structure
+- **State of incorporation** — voting thresholds, notice periods, and filing requirements vary by state
+- **Articles of incorporation and bylaws** — governing document requirements for dissolution votes
+- **Board resolution recommending dissolution** — date and substance of board action
+- **Shareholder register** — outstanding shares by class, voting rights
+- **Business reason** — purpose completion, unprofitability, dispute, strategic decision
+- **Liability inventory** — pending litigation, creditor claims, contracts, employee obligations, environmental issues
+- **Adoption method** — special meeting, annual meeting, or written consent in lieu of meeting
 
-### Section 1: Heading & Corporate Identification
+## Quick Start
 
-| Element | Detail |
-|---|---|
-| Document title | "SHAREHOLDER RESOLUTION TO DISSOLVE [CORPORATE NAME]" |
-| Corporate name | Exact legal name per articles of incorporation |
-| State of incorporation | Full state name |
-| Principal place of business | If different from state of incorporation |
-| Adoption method | Special meeting / annual meeting / written consent in lieu of meeting |
-| Date, time, location | Full meeting details (or consent effective date) |
-| Notice confirmation | Proper notice given per bylaws and state law, or waiver by unanimous written consent |
+Structure the resolution in five sections: heading, recitals, resolutions, voting record, and certification. Each section must reflect the specific state dissolution statute. Identify the governing statute first (e.g., DGCL section 275, MBCA section 14.02, Cal. Corp. Code section 1900) and build every section around its requirements. [VERIFY statute]
+
+## Document Structure
+
+### Section 1: Heading and Corporate Identification
+
+Include: exact legal corporate name (per articles), state of incorporation, principal place of business (if different), adoption method (meeting or written consent), date/time/location or consent effective date, and notice confirmation per bylaws and state law.
 
 ### Section 2: Recitals (WHEREAS Clauses)
 
-Each recital as a separate WHEREAS clause covering:
+Draft each as a separate WHEREAS clause:
 
 - [ ] Business reason for dissolution
-- [ ] Board of directors recommendation and date of board resolution
+- [ ] Board recommendation with date of board resolution
 - [ ] Statutory prerequisites satisfied (creditor notifications, tax clearances, regulatory approvals)
-- [ ] Summary plan for winding up: asset liquidation, liability satisfaction, shareholder distributions
+- [ ] Summary winding-up plan: asset liquidation, liability satisfaction, shareholder distributions
 - [ ] Special considerations: pending litigation, contractual obligations, employee matters, environmental liabilities
 
 ### Section 3: Resolutions (RESOLVED Clauses)
@@ -51,52 +45,28 @@ Draft separate RESOLVED clauses for each authorization:
 
 - [ ] Approval of dissolution under applicable state business corporation act
 - [ ] Authorization to prepare, execute, and file articles/certificate of dissolution with secretary of state
-- [ ] Designation of officers/directors as liquidating trustees with authority to:
-  - Sell/transfer assets
-  - Settle claims and pay debts
-  - Make distributions to shareholders per liquidation preferences
-  - Execute all necessary documents, contracts, deeds, instruments
-- [ ] Disposition of corporate books and records — custodian designation and statutory retention period
+- [ ] Designation of officers/directors as liquidating trustees with authority to sell/transfer assets, settle claims, pay debts, make distributions per liquidation preferences, and execute all necessary documents
+- [ ] Disposition of corporate books and records with custodian designation and statutory retention period
 - [ ] Cancellation of shares, surrender of stock certificates, mechanics of final distributions
 
 ### Section 4: Voting Record
 
-| Element | Value |
-|---|---|
-| Total shares outstanding | [number], by class if applicable |
-| Shares present/represented | [number] |
-| Quorum confirmed | Yes — per bylaws § [X] |
-| Votes FOR | [number] shares ([X]%) |
-| Votes AGAINST | [number] shares |
-| Abstentions | [number] shares |
-| Separate class vote (if applicable) | Results per class |
-| Threshold met | State law requires [majority/two-thirds/other] of outstanding shares — CONFIRMED |
+Document: total shares outstanding (by class if applicable), shares present/represented, quorum confirmation citing bylaws section, votes FOR (count and percentage), votes AGAINST, abstentions, separate class vote results if applicable, and confirmation that the statutory threshold was met.
 
-> **Jurisdiction note:** Common thresholds — Delaware: majority of outstanding shares (DGCL § 275); California: majority of outstanding shares (Corp. Code § 1900); MBCA states: majority of outstanding shares (§ 14.02). Always verify against the specific state statute and articles. [VERIFY]
+**Common thresholds:** Delaware — majority of outstanding shares (DGCL section 275); California — majority of outstanding shares (Corp. Code section 1900); MBCA states — majority of outstanding shares (section 14.02). Always verify against specific state statute and articles. [VERIFY]
 
-### Section 5: Certification & Execution
+### Section 5: Certification and Execution
 
-**If adopted at a meeting:**
-- Corporate secretary certification attesting: (1) review of minutes, (2) resolution duly adopted by required vote, (3) resolution in full force and effect
-- Signature lines for: secretary, presiding officer
+**Meeting adoption:** Corporate secretary certification attesting review of minutes, resolution duly adopted by required vote, and resolution in full force and effect. Signature lines for secretary and presiding officer.
 
-**If adopted by written consent:**
-- Signature block for each consenting shareholder:
+**Written consent adoption:** Signature block for each consenting shareholder (printed name, signature, date, shares held). Include notarization block if required by state law or needed for filing. Cite statutory provision permitting action without a meeting.
 
-```
-_________________________    _________________________    __________    __________
-Shareholder Name (print)     Signature                    Date          Shares Held
-```
+## Pitfalls and Checks
 
-- Include notarization block if required by state law or needed for filing
-
-## Guidelines
-
-- **State-specific compliance is mandatory** — do not assume uniform rules; confirm voting threshold, notice period, and filing requirements for the specific state of incorporation
-- **Match corporate name exactly** as it appears in the articles of incorporation
-- **Reference the specific statute** authorizing voluntary dissolution (e.g., DGCL § 275, MBCA § 14.02, Cal. Corp. Code § 1900) [VERIFY]
-- **If written consent:** cite the statutory provision permitting action without a meeting
-- **Liquidation preferences:** if multiple share classes exist, distributions must follow the liquidation waterfall in the articles
-- **Record retention:** most states require maintenance of books and records for a minimum period post-dissolution (commonly 3–7 years) [VERIFY]
-- **Do not draft tax clearance certificates or regulatory filings** — flag these as separate required actions
+- **State-specific compliance is mandatory** — do not assume uniform rules; confirm voting threshold, notice period, and filing requirements for the specific state [VERIFY]
+- **Corporate name must match exactly** as it appears in the articles of incorporation
+- **Reference the specific statute** authorizing voluntary dissolution in the resolution text
+- **Multiple share classes** — distributions must follow the liquidation waterfall in the articles
+- **Record retention** — most states require books and records maintenance for 3-7 years post-dissolution [VERIFY]
+- **Do not draft** tax clearance certificates or regulatory filings — flag these as separate required actions
 - Use formal legal drafting conventions: numbered paragraphs, consistent defined terms, no ambiguity

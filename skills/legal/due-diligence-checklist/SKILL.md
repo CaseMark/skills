@@ -1,173 +1,127 @@
 ---
 name: due-diligence-checklist
-description: Drafts a comprehensive due diligence checklist for U.S. corporate transactions including mergers, acquisitions, asset purchases, investments, joint ventures, and restructurings. Covers corporate structure, governance, financials, tax, material contracts, IP, litigation, employment, benefits, insurance, and environmental compliance. Surfaces change-of-control triggers, consent requirements, and red flags. Use when preparing for deal closing, board presentations, or investor disclosure in M&A or transactional matters.
-tags:
-  - checklist
-  - corporate
-  - drafting
-  - transactional
+description: Drafts due diligence checklists for U.S. corporate transactions (M&A, asset purchases, investments, JVs, restructurings). Covers corporate structure, financials, tax, contracts, IP, litigation, employment, benefits, insurance, and environmental compliance. Surfaces change-of-control triggers, consent requirements, and red flags. Use when preparing for deal closing, board presentations, or investor disclosure.
 ---
 
 # Due Diligence Checklist
 
-Produces a structured, transaction-ready due diligence checklist covering all standard review categories for U.S. M&A and corporate transactions.
+Generates a structured, transaction-ready due diligence checklist for U.S. M&A and corporate transactions.
 
-## Prerequisites
+## Quick Start
 
-1. **Transaction type** — merger, acquisition, asset purchase, investment, joint venture, or restructuring
-2. **Target company name** and jurisdiction(s) of incorporation and operation
-3. **Deal timeline** and anticipated closing date
-4. **Scope parameters** — business units, subsidiaries, time periods, materiality thresholds
-5. **Client priorities** — known areas of concern, industry-specific risks, or regulatory focus
+Collect before drafting:
 
-## Output Structure
+1. **Transaction type** — merger, acquisition, asset purchase, investment, JV, or restructuring
+2. **Target** — company name, incorporation/operation jurisdictions
+3. **Timeline** — anticipated closing date
+4. **Scope** — business units, subsidiaries, time periods, materiality thresholds
+5. **Priorities** — known concerns, industry-specific risks, regulatory focus
 
-Produce a checklist organized by section below. For each line item include columns: **Item** | **Documents/Info Requested** | **Received (Y/N/Partial)** | **Issues/Notes**.
+Output each line item as: **Item** | **Documents Requested** | **Received (Y/N/Partial)** | **Issues/Notes**
 
----
+## Checklist Sections
 
 ### 1. Corporate Structure & Governance
 
-| Category | Items to Request |
-|---|---|
-| Formation | Certificate/articles of incorporation, bylaws/operating agreement, all amendments |
-| Good Standing | Certificates from state of incorporation + all foreign qualification states |
-| Ownership | Cap table, stock ledger, shareholder agreements, voting trusts, proxies, transfer restrictions |
-| Subsidiaries | Org chart; formation docs and ownership % for all subs, affiliates, JVs, VIEs |
-| Minutes | Board and shareholder meeting minutes — last 3 years |
-| Authority | Resolutions authorizing the transaction; officer/director authorization |
+- Formation docs (articles, bylaws, amendments), good standing certificates
+- Cap table, stock ledger, shareholder agreements, voting trusts, transfer restrictions
+- Subsidiary org chart with formation docs and ownership % for all subs/affiliates/JVs/VIEs
+- Board and shareholder minutes (last 3 years); resolutions authorizing the transaction
 
-**Flag:** Governance irregularities, corporate formality gaps, piercing-the-veil risk, conflicted approvals.
-
----
+**Red flags:** Governance irregularities, corporate formality gaps, piercing-the-veil risk, conflicted approvals.
 
 ### 2. Financial Records & Tax
 
-| Category | Items to Request |
-|---|---|
-| Audited Financials | Balance sheets, P&L, cash flow, footnotes — last 3–5 fiscal years; management letters |
-| Interim Financials | Current period + prior-year comparable (unaudited) |
-| Tax Returns | Federal, state, local, foreign — applicable periods |
-| Tax Disputes | Audits, assessments, settlements, open examinations |
-| AR/AP | Accounts receivable aging; accounts payable schedule |
-| Debt | Debt schedule with covenant compliance status; off-balance-sheet obligations |
-| Accounting | Revenue recognition policies; related-party transactions; restatements |
+- Audited financials (3–5 years): balance sheets, P&L, cash flow, footnotes, management letters
+- Interim financials (current period + prior-year comparable)
+- Tax returns (federal, state, local, foreign); audits, assessments, open examinations
+- AR/AP aging, debt schedule with covenant compliance, off-balance-sheet obligations
+- Revenue recognition policies, related-party transactions, restatements
 
-**Flag:** Covenant defaults, audit qualifications, restatements, contingent liabilities, aggressive revenue recognition.
-
----
+**Red flags:** Covenant defaults, audit qualifications, restatements, contingent liabilities, aggressive revenue recognition.
 
 ### 3. Material Contracts
 
-| Category | Items to Request |
-|---|---|
-| Customer/Supplier | Top contracts by revenue/spend; change-of-control and consent provisions |
-| Distribution/Agency | Distribution, sales rep, franchise, dealer, referral agreements |
-| Real Property | All leases (options, renewal rights, assignment restrictions); deeds for owned property |
-| Equipment/Financing | Equipment leases, capital leases, financing arrangements |
-| Debt Instruments | Loan agreements, credit facilities, security agreements, guarantees |
-| Other Material | JV agreements, partnership agreements, NDAs, settlement agreements |
+- Top customer/supplier contracts; change-of-control and consent provisions
+- Distribution, franchise, dealer, referral agreements
+- Real property leases (options, renewal, assignment restrictions); deeds for owned property
+- Equipment/capital leases, financing arrangements
+- Loan agreements, credit facilities, security agreements, guarantees
+- JV agreements, partnership agreements, NDAs, settlement agreements
 
-**Flag:** Change-of-control triggers, consent requirements, acceleration clauses, unusual indemnification, oral agreements lacking written documentation, post-termination obligations.
-
----
+**Red flags:** Change-of-control triggers, consent requirements, acceleration clauses, unusual indemnification, oral agreements, post-termination obligations.
 
 ### 4. Intellectual Property & Technology
 
-| Category | Items to Request |
-|---|---|
-| Registered IP | Patents (issued + pending), trademarks/service marks, copyright registrations, domain names |
-| Unregistered IP | Trade secrets, know-how, common law marks |
-| Licenses In/Out | All IP licenses — exclusivity, territory, field of use, royalties, termination rights |
-| Ownership | Assignment agreements from founders, employees, contractors |
-| Employee IP | Invention assignment agreements, confidentiality/NDA agreements, IP policies |
-| Technology | Software licenses (proprietary + open source), SaaS/cloud agreements, data processing agreements |
+- Registered IP: patents, trademarks, copyrights, domain names
+- Trade secrets, know-how, common law marks
+- All IP licenses (in/out): exclusivity, territory, royalties, termination rights
+- Assignment agreements from founders, employees, contractors
+- Software licenses (proprietary + open source), SaaS/cloud agreements, DPAs
 
-**Flag:** Unassigned founder IP, open-source license conflicts (GPL/AGPL copyleft), freedom-to-operate gaps, missing work-for-hire agreements, consent requirements in key licenses.
+**Red flags:** Unassigned founder IP, GPL/AGPL copyleft conflicts, freedom-to-operate gaps, missing work-for-hire agreements.
 
----
+### 5. Litigation & Regulatory
 
-### 5. Litigation, Disputes & Regulatory Compliance
+- Pending lawsuits, arbitrations, mediations (status + exposure)
+- Demand letters, cease-and-desist, threatened claims
+- Agency investigations, consent decrees, administrative proceedings
+- Settlement agreements, ongoing monitoring obligations
+- Operating licenses/permits (expiration, violations)
+- Regulatory compliance: antitrust, export controls, FCPA/UK Bribery Act
+- Data privacy: GDPR, CCPA, HIPAA — policies, breach history, DPAs
+- Whistleblower complaints, internal investigations
 
-| Category | Items to Request |
-|---|---|
-| Pending Litigation | All lawsuits, arbitrations, mediations — list with status and exposure |
-| Threatened Claims | Demand letters, cease-and-desist notices, informal complaints |
-| Government/Regulatory | Administrative proceedings, agency investigations, consent decrees |
-| Past Settlements | Settlement agreements, consent orders, ongoing monitoring obligations |
-| Permits & Licenses | All material operating licenses, permits, approvals — expiration dates, violations |
-| Regulatory Compliance | Antitrust, consumer protection, advertising, export controls, FCPA/UK Bribery Act |
-| Data Privacy | GDPR, CCPA, HIPAA, state equivalents — policies, breach history, DPAs |
-| Internal Matters | Whistleblower complaints, internal investigations, ethics violations |
-
-**Flag:** Unquantified exposure, systemic compliance failures, successor liability risk, required regulatory approvals for deal closing.
-
----
+**Red flags:** Unquantified exposure, systemic compliance failures, successor liability risk, required regulatory approvals for closing.
 
 ### 6. Employment, Labor & Benefits
 
-| Category | Items to Request |
-|---|---|
-| Employee Census | Headcount by role, title, compensation, location, status (EE/contractor/PT) |
-| Key Employee Agreements | Employment agreements, offer letters, severance, equity grants |
-| Restrictive Covenants | Non-competes, non-solicits, confidentiality agreements for key personnel |
-| Policies | Employee handbook, PTO, leave policies (FMLA, state leave), accommodation policies |
-| Retirement Plans | 401(k)/pension plan docs, most recent Form 5500, funding status |
-| Health & Welfare | Benefits plan summaries, insurance carrier agreements |
-| Equity Plans | Option plan, RSA/RSU plan, grant agreements, vesting schedules |
-| Bonus/Incentive | Commission structures, bonus plans, deferred compensation (check 409A compliance) |
-| Labor Relations | Union contracts, CBAs, NLRB charges, organizing activity |
-| Employment Claims | Discrimination, harassment, retaliation, wage/hour, misclassification claims |
+- Employee census: headcount by role, compensation, location, status (EE/contractor/PT)
+- Key employee agreements, offer letters, severance, equity grants
+- Non-competes, non-solicits, confidentiality agreements
+- Employee handbook, leave policies (FMLA, state leave)
+- 401(k)/pension docs, Form 5500, funding status; health/welfare plan summaries
+- Equity plans (options, RSA/RSU), vesting schedules; bonus/commission plans
+- Union contracts, CBAs, NLRB charges
+- Employment claims: discrimination, wage/hour, misclassification
 
-**Flag:** Misclassified contractors, 409A violations, underfunded pension liability, change-of-control severance triggers, key-man dependency.
+**Red flags:** Misclassified contractors, 409A violations, underfunded pensions, change-of-control severance triggers, key-man dependency.
 
----
+### 7. Assets, Insurance & Risk
 
-### 7. Assets, Liabilities, Insurance & Risk
+- Real property: deeds, title insurance, surveys, zoning, Phase I/II environmental
+- Personal property: equipment list, liens, UCC filings, security interests
+- Insurance: GL, E&O, D&O, property/casualty, cyber, industry-specific
+- 5-year claims history; contingent liabilities (warranty, product liability, indemnification)
+- DR/BCP plans, crisis protocols
 
-| Category | Items to Request |
-|---|---|
-| Real Property | Deeds, title insurance, surveys, zoning compliance, Phase I/II environmental assessments |
-| Personal Property | Equipment list, liens, UCC filings, security interests, title issues |
-| Intangibles | Customer lists, databases, goodwill documentation |
-| Insurance Policies | GL, E&O/professional liability, D&O, property/casualty, BI, cyber, industry-specific |
-| Claims History | 5-year claims history for all lines |
-| Contingent Liabilities | Warranty obligations, product liability, indemnification commitments |
-| Risk Management | DR/BCP plans, crisis protocols |
-
-**Flag:** Coverage gaps, claims-made vs. occurrence tail exposure, uninsured losses, liens on key assets.
-
----
+**Red flags:** Coverage gaps, claims-made vs. occurrence tail exposure, uninsured losses, liens on key assets.
 
 ### 8. Environmental, Health & Safety
 
-| Category | Items to Request |
-|---|---|
-| Environmental Permits | Air, water, waste, hazmat — all jurisdictions |
-| Site Assessments | Phase I (all owned/leased property); Phase II where concerns identified |
-| Compliance History | Violations, NOVs, consent orders, remediation obligations |
-| Hazardous Materials | Generation, storage, disposal records; manifests; disposal site ID |
-| OSHA | 300/300A logs (last 5 years), citations, safety programs |
-| ESG | Carbon/sustainability commitments, public reporting obligations, climate risk disclosures |
+- Environmental permits: air, water, waste, hazmat (all jurisdictions)
+- Phase I assessments (all owned/leased); Phase II where concerns identified
+- Compliance history: violations, NOVs, consent orders, remediation
+- Hazardous materials: generation, storage, disposal records, manifests
+- OSHA 300/300A logs (5 years), citations, safety programs
+- ESG: carbon/sustainability commitments, climate risk disclosures
 
-**Flag:** CERCLA/Superfund exposure, ongoing remediation, unresolved NOVs, ESG commitments creating future compliance obligations.
+**Red flags:** CERCLA/Superfund exposure, ongoing remediation, unresolved NOVs, ESG obligations creating future compliance burdens.
 
----
+## Closing Summary
 
-## Summary Section (Include in Final Output)
-
-Conclude the checklist with:
+Conclude every checklist with:
 
 - **Critical Findings** — material risks requiring deal-team escalation
-- **Required Consents/Approvals** — third-party, regulatory, or lender consents needed to close
-- **Recommended Follow-Up** — additional investigations, specialist engagement (environmental, benefits, IP)
+- **Required Consents/Approvals** — third-party, regulatory, or lender consents to close
+- **Recommended Follow-Up** — specialist engagement (environmental, benefits, IP)
 - **Open Items** — documents requested but not yet received
 
-## Guidelines
+## Pitfalls
 
-- Tailor scope to transaction type: asset purchases require extra focus on assumed liabilities and excluded assets; investments require focus on cap table, anti-dilution, and governance rights
+- Tailor scope to transaction type: asset purchases → assumed liabilities and excluded assets; investments → cap table, anti-dilution, governance rights
 - Adjust materiality thresholds to deal size and industry
-- Flag any agreement lacking written documentation — oral arrangements create successor liability risk
-- For cross-border targets, flag jurisdiction-specific requirements (foreign investment review, local labor law, non-US tax obligations)
-- Do not render legal opinions on adequacy of compliance — flag issues for attorney review
-- Verify all regulatory citations for the applicable jurisdiction and year [VERIFY] before relying on specific statutory references
+- Flag oral agreements — they create successor liability risk
+- For cross-border targets, flag jurisdiction-specific requirements (foreign investment review, local labor law, non-US tax)
+- Do not render legal opinions — flag issues for attorney review
+- Verify all regulatory citations for applicable jurisdiction and year [VERIFY]

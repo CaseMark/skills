@@ -29,7 +29,7 @@ Convert raw intake materials into a structured, source-cited matter overview for
 
 Use the template below and populate with extracted facts. Every factual statement should include a source tag in the form `(Source: {doc id/page/line or email date})`. If missing, mark as `Unknown`.
 
-```markdown
+```
 # Executive Overview (2–3 sentences)
 - [Summary of issue, client objective, and urgency with source tags.]
 

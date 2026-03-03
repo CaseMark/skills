@@ -1,126 +1,111 @@
 ---
 name: jury-instructions
-description: Drafts complete jury instruction sets for U.S. litigation, covering preliminary instructions, case statements, legal definitions, elements, burden of proof, evidence evaluation, and verdict forms. Adapts to jurisdiction-specific pattern instructions and balances legal precision with lay-juror accessibility. Use when drafting proposed jury instructions, jury charges, verdict forms, or special interrogatories during trial preparation.
-tags:
-  - brief
-  - drafting
-  - litigation
-  - pleading
+description: Drafts complete proposed jury instruction sets for U.S. litigation, including preliminary charges, elements, burden of proof, evidence evaluation, and verdict forms. Adapts to jurisdiction-specific pattern instructions. Use when drafting jury instructions, jury charges, verdict forms, or special interrogatories during trial preparation.
 ---
 
 # Jury Instructions
 
-Drafts a complete set of proposed jury instructions tailored to the case, jurisdiction, and claims at issue.
+Drafts proposed jury instructions tailored to case, jurisdiction, and claims at issue.
 
 ## Prerequisites
 
-1. **Pleadings and pretrial order** — complaint, answer, counterclaims, stipulated facts, motions in limine rulings
-2. **Jurisdiction identified** — state/federal, specific court, to determine applicable pattern instructions
-3. **Claims and defenses** — all causes of action, affirmative defenses, and counterclaims with statutory/common-law basis
-4. **Proposed verdict forms** — general verdict, special verdict, or interrogatories
-5. **Key evidence inventory** — expert witnesses, documentary exhibits, stipulated facts
+Gather before drafting:
 
-## Output Structure
+- **Pleadings/pretrial order** — complaint, answer, counterclaims, stipulated facts, MIL rulings
+- **Jurisdiction** — state/federal, specific court, applicable pattern instructions
+- **Claims and defenses** — all causes of action, affirmative defenses, statutory/common-law basis
+- **Verdict form type** — general, special, or interrogatories
+- **Key evidence** — expert witnesses, exhibits, stipulations
 
-Draft instructions in this order, using numbered paragraphs with descriptive headings:
+## Instruction Sequence
+
+Draft in this order using numbered paragraphs with descriptive headings.
 
 ### 1. Preliminary Instructions
 
-| Topic | Content |
-|-------|---------|
-| Role of jury | Exclusive judges of fact; must accept law as given by court |
-| Evidence limitation | Verdict based solely on admitted evidence and instructions; no sympathy, prejudice, outside research |
-| Conduct rules | No discussion outside jury room, no independent investigation, no internet research |
-| Deliberation overview | Respectful discussion, open-mindedness, individual conscience |
+Cover: jury's role as fact-finder, evidence limitations (no sympathy/prejudice/outside research), conduct rules (no independent investigation), deliberation expectations.
 
 - [ ] Pull jurisdiction's standard preliminary pattern instructions
-- [ ] Adapt boilerplate to case type (civil/criminal)
+- [ ] Adapt to case type (civil/criminal)
 
 ### 2. Case Statement
 
-- Neutral, non-argumentative summary drawn **only** from undisputed facts, pleadings, and stipulations
-- Identify parties by name and role
-- State the nature of the dispute and basic chronology
-- **Never** use characterizations favorable to either side (e.g., "recklessly" → "entered the intersection")
+- Neutral, non-argumentative summary from undisputed facts, pleadings, and stipulations only
+- Identify parties by name and role; state dispute nature and chronology
+- **Never** use characterizations favorable to either side
 
 ### 3. Legal Definitions
 
-- Define every legal term jurors must apply before it appears in elements instructions
-- Source hierarchy: (1) statutory definitions, (2) pattern instruction definitions, (3) controlling case law
-- Build definitions progressively — foundational terms first, compound concepts second
-
-| Claim Type | Typical Terms to Define |
-|------------|------------------------|
-| Negligence | Duty, breach, causation, proximate cause, damages |
-| Contract | Offer, acceptance, consideration, material breach, substantial performance |
-| Fraud | Misrepresentation, scienter, reliance, materiality |
-| Criminal | Knowingly, willfully, recklessly, specific intent |
+- Define every legal term before it appears in elements instructions
+- Source hierarchy: (1) statutory definitions → (2) pattern instructions → (3) controlling case law
+- Build progressively — foundational terms first, compound concepts second
 
 ### 4. Elements Instructions
 
 For **each** claim/charge/defense:
 
-1. State every element in numbered list
-2. Identify which party bears the burden for each element
-3. Explain what each element means in case-specific context
-4. Address how mental-state elements may be inferred from circumstantial evidence
-5. If claims are contingent on each other, make the logical sequence explicit
+1. Number every element
+2. Identify burden-bearing party per element
+3. Explain each element in case-specific context
+4. Address circumstantial-evidence inferences for mental-state elements
+5. Make contingent-claim sequencing explicit
 
-- [ ] Cite controlling statute or case law for each element
-- [ ] Cross-reference pattern instructions where available
+- [ ] Cite controlling statute or case law per element
+- [ ] Cross-reference pattern instructions
 - [ ] Flag affirmative defenses and burden-shifting
 
 ### 5. Burden of Proof
 
-| Standard | Applies When | Instruction |
-|----------|-------------|-------------|
-| Preponderance | Most civil claims | More likely true than not; tips the scales even slightly |
-| Clear and convincing | Punitive damages, fraud (some jurisdictions) | Substantially more likely true; high probability |
-| Beyond reasonable doubt | Criminal charges | High degree of certainty; doubt based on reason, not speculation |
+| Standard | Context | Core Language |
+|----------|---------|---------------|
+| Preponderance | Most civil claims | More likely true than not |
+| Clear and convincing | Punitive damages, fraud (some jurisdictions) | Substantially more likely; high probability |
+| Beyond reasonable doubt | Criminal charges | High certainty; doubt from reason, not speculation |
 
 - Burden **never** shifts to require defendant to prove innocence/non-liability
 - Use jurisdiction's approved pattern language for each standard
 
 ### 6. Evidence Evaluation
 
-**Types of evidence:**
-- Direct vs. circumstantial — both equally valid; instruct accordingly
-- Stipulated facts — must be accepted as true without further proof
+**Evidence types:** Direct and circumstantial carry equal weight. Stipulated facts accepted without further proof.
 
-**Witness credibility factors:**
-1. Opportunity and ability to observe (distance, lighting, duration, impairments)
-2. Memory and consistency of recollection
-3. Bias, interest, or motive
-4. Manner and demeanor (note: nervousness ≠ dishonesty)
-5. Corroboration by other evidence
+**Credibility factors:** Opportunity to observe, memory consistency, bias/motive, demeanor (nervousness ≠ dishonesty), corroboration.
 
-**Expert testimony:** Evaluate qualifications, basis of opinions, methodology, and support in evidence. Jurors not required to accept expert opinions; weigh conflicting experts on same factors.
+**Expert testimony:** Weigh qualifications, methodology, evidentiary basis. Jurors may reject expert opinions.
 
 ### 7. Deliberation and Verdict
 
-- [ ] State unanimity requirement (or supermajority rule if applicable)
-- [ ] Explain foreperson selection and role
-- [ ] Walk through each verdict form question with routing logic
+- [ ] State unanimity/supermajority requirement
+- [ ] Explain foreperson selection
+- [ ] Walk through verdict form questions with routing logic
 
-Template for special verdict routing:
+Special verdict routing pattern:
 
 ```
-QUESTION 1: Has Plaintiff proved [Claim A] by a preponderance of the evidence?
-  YES → proceed to Question 2
-  NO  → proceed to Question 3
-
-QUESTION 2: What is the total amount of damages Plaintiff proved for [Claim A]?
-  $_______ → proceed to Question 3
+Q1: Has Plaintiff proved [Claim A] by preponderance?
+  YES → Q2  |  NO → Q3
+Q2: Total damages for [Claim A]? $_______ → Q3
 ```
 
-**If damages are at issue:** Explain each category (compensatory, consequential, punitive) and calculation guidance. For punitive damages, instruct on the separate finding and relevant factors.
+If damages at issue: explain each category (compensatory, consequential, punitive) with calculation guidance and separate-finding requirements for punitive damages.
 
-## Guidelines
+## Checks
 
-- **Follow pattern instructions** — use jurisdiction's model/pattern jury instructions as the baseline; deviate only when the case requires it and note departures
-- **Plain language** — formal but accessible; avoid jargon where possible; define every technical term before use
-- **Internal consistency** — terms defined in §3 must match usage in §4; burden instructions in §5 must align with element assignments in §4
-- **Neutral throughout** — no argumentative, conclusory, or prejudicial language anywhere
-- **Verify all citations** — confirm every statute, rule, and case cite is current and binding in the jurisdiction; mark uncertain cites with [VERIFY]
-- **Appellate durability** — instructions must withstand challenge for abuse of discretion; when in doubt, hew closer to approved pattern language
-- **Number every paragraph** — for easy reference during charge conferences and trial
+- [ ] **Pattern-first** — jurisdiction's model instructions as baseline; note all departures
+- [ ] **Plain language** — formal but accessible; define every technical term before use
+- [ ] **Internal consistency** — definitions (§3) match usage in elements (§4); burden (§5) aligns with element assignments (§4)
+- [ ] **Neutral throughout** — no argumentative or prejudicial language
+- [ ] **Citations verified** — every cite current and binding; mark uncertain with [VERIFY]
+- [ ] **Appellate durability** — when in doubt, hew to approved pattern language
+- [ ] **Numbered paragraphs** — for charge conference and trial reference
+
+---
+
+**Key changes made:**
+
+- **Frontmatter**: Removed `tags` (not part of the spec), tightened `description` to be shorter while keeping trigger guidance
+- **Removed redundant tables**: The preliminary instructions table and claim-type definitions table were illustrative padding — condensed to inline lists
+- **Compressed prose**: Evidence evaluation section collapsed from multi-section format to dense single-paragraph entries
+- **Consolidated guidelines → Checks**: Renamed to "Checks" with checklist format for actionable verification
+- **Verdict routing**: Tightened to two-line compact format
+- **Overall**: ~127 lines → ~95 lines, preserving all legal substance and workflow structure

@@ -1,189 +1,108 @@
 ---
 name: spcc-plan
-description: Drafts a Spill Prevention, Control, and Countermeasure (SPCC) Plan compliant with 40 CFR Part 112 under the Clean Water Act. Generates facility characterizations, oil storage inventories, secondary containment documentation, prevention measures, response procedures, training programs, and PE certification language for EPA-regulated facilities. Use when drafting SPCC plans, oil spill prevention documents, EPA compliance plans, or environmental regulatory submissions.
-tags:
-  - drafting
-  - memo
-  - regulatory
+description: Drafts a Spill Prevention, Control, and Countermeasure (SPCC) Plan compliant with 40 CFR Part 112 under the Clean Water Act. Covers facility characterization, oil storage inventory, secondary containment, prevention measures, response procedures, training, and PE certification language. Use when drafting SPCC plans, oil spill prevention documents, or EPA compliance submissions.
 ---
 
-# Spill Prevention, Control, and Countermeasure (SPCC) Plan
+# SPCC Plan Drafting
 
-Drafts a 40 CFR Part 112-compliant SPCC Plan for facilities storing oil in quantities that could discharge into navigable waters or adjoining shorelines.
+Generates a 40 CFR Part 112-compliant SPCC Plan for facilities storing oil in quantities that could discharge into navigable waters or adjoining shorelines.
 
 ## Prerequisites
 
-1. **Facility classification** — Tier I (≤10,000 gal, no single tank >5,000 gal, no discharge history), Tier II, or PE-certified facility
-2. **Site documentation** — geographic coordinates, site plans, engineering drawings, topographical surveys, drainage maps
-3. **Oil storage inventory data** — tank types, capacities, oil types, ages, construction materials, locations
-4. **Existing environmental assessments** — prior SPCC plans, inspection reports, spill history
-5. **Emergency contacts** — facility coordinator, local responders, cleanup contractors, NRC number
+Gather before drafting:
 
-## Output Structure
+- **Facility tier** — Tier I (qualified: ≤10,000 gal total, no single tank >5,000 gal, no discharge history in past 3 years), Tier II, or PE-certified
+- **Site documentation** — coordinates, site plans, engineering drawings, topographic/drainage maps
+- **Oil storage inventory** — tank types, capacities, oil types, ages, materials, locations
+- **Spill history** — prior SPCC plans, inspection reports, discharge records
+- **Emergency contacts** — facility coordinator, responders, cleanup contractors, NRC number
+
+## Quick Start
+
+1. Classify the facility tier and determine certification path (PE vs. self-certification)
+2. Build the oil storage inventory table from client data
+3. Calculate secondary containment volumes per the 110%/10% rule
+4. Draft the tiered spill response matrix
+5. Produce training schedule, inspection program, and recordkeeping plan
+6. Add certification/attestation block matching the facility tier
+7. Compile appendices (site maps, calculations, checklists, contact lists)
+
+## Plan Sections
 
 ### 1. Introduction & Regulatory Basis
 
-| Element | Content |
-|---|---|
-| Facility ID | Name, owner, operator, address, coordinates |
-| Regulatory basis | 40 CFR Part 112; Clean Water Act §311 |
-| Facility tier | Tier I / Tier II / PE-certified — state which and why |
-| Plan objectives | Prevent discharges, comply with federal regs, protect navigable waters |
+Table with: facility name/owner/operator/address/coordinates, regulatory basis (40 CFR Part 112; CWA §311), facility tier with justification, and plan objectives.
 
 ### 2. Facility Characterization
 
-- Geographic coordinates, proximity to navigable waters
-- Topography, drainage patterns, surface water flow paths
-- All potential discharge pathways: storm drains, ditches, culverts, overland flow
-- Seasonal operational variations
-- Reference site maps and drawings from uploaded documents
+Document coordinates, proximity to navigable waters, topography, drainage patterns, all discharge pathways (storm drains, ditches, culverts, overland flow), seasonal variations. Reference uploaded site maps.
 
 ### 3. Oil Storage & Equipment Inventory
 
-For each container/system, document in tabular format:
-
-| Field | Detail |
-|---|---|
-| Container type | AST, UST, mobile, drum, IBC, etc. |
-| Oil type | Petroleum product, characteristics, specific gravity |
-| Max capacity (gal) | |
-| Typical volume (gal) | |
-| Construction material | Steel, fiberglass, poly, etc. |
-| Age / condition | |
-| Location reference | Keyed to site map |
-
-Per 40 CFR 112.7, include aggregate and individual capacities.
+Tabulate each container: type (AST/UST/mobile/drum/IBC), oil type and characteristics, max and typical capacity (gal), construction material, age/condition, location keyed to site map. Include aggregate and individual capacities per 40 CFR 112.7.
 
 ### 4. Spill Prevention & Containment
 
-**Secondary containment requirements:**
-- Each containment area must hold the **greater of**: 110% of largest single tank capacity OR 10% of total aggregate capacity
-- Show volume calculations for each containment area
+**Secondary containment rule:** each area must hold the **greater of** 110% of largest single tank OR 10% of total aggregate capacity. Show volume calculations.
 
-**Document for each storage area:**
-- [ ] Secondary containment type (berms, dikes, curbing, lined areas)
+Document per storage area:
+
+- [ ] Containment type (berms, dikes, curbing, lined areas)
 - [ ] Overfill prevention (high-level alarms, automatic shutoffs)
 - [ ] Transfer operation controls
 - [ ] Drainage controls (valves, diversion systems)
 - [ ] Security measures (fencing, locks, lighting)
-- [ ] Routine inspection procedures
-- [ ] Preventive maintenance program
+- [ ] Inspection procedures and maintenance program
 
-Cite specific subsections of 40 CFR 112.7 and 112.8–112.12 as applicable. [VERIFY] all citations against current eCFR.
+Cite 40 CFR 112.7 and 112.8–112.12 as applicable. [VERIFY] citations against current eCFR.
 
-### 5. Control, Countermeasure & Response Procedures
+### 5. Tiered Response Matrix
 
-Produce a **tiered response matrix**:
+| Spill Size | Immediate Action | Containment | Notification |
+|---|---|---|---|
+| Minor (<25 gal) | Deploy absorbents | On-site | Internal log only |
+| Moderate (25–250 gal) | Emergency shutdown | Activate drainage controls | Facility coordinator + state |
+| Major (>250 gal or reaches water) | Full shutdown | Deploy booms/barriers | **NRC (800-424-8802)** + state + local |
 
-| Spill Size | Detection | Immediate Action | Containment | Cleanup | Notification |
-|---|---|---|---|---|---|
-| Minor (<25 gal) | Visual/employee report | Deploy absorbents | On-site containment | In-house recovery | Internal log |
-| Moderate (25–250 gal) | Monitoring alarm | Emergency shutdown | Activate drainage controls | Contractor support | Facility coordinator + state |
-| Major (>250 gal or reaches water) | Automated alert | Full shutdown | Deploy booms/barriers | Contractor-led | **NRC (800-424-8802)** + state + local |
-
-Include decision flowcharts for response actions based on spill location and pathway to water.
+Include decision flowchart based on spill location and pathway to water.
 
 ### 6. Emergency Response Organization
 
-```
-SPCC Coordinator: [Name, Title, 24hr Phone]
-  ├── Operations Lead: [Name, Phone]
-  ├── Environmental Lead: [Name, Phone]
-  ├── Safety Officer: [Name, Phone]
-  └── External Resources:
-      ├── Cleanup Contractor: [Company, Phone]
-      ├── Fire Department: [Phone]
-      ├── State Environmental Agency: [Phone]
-      └── National Response Center: 800-424-8802
-```
-
-**Notification requirements (40 CFR 112.4):**
-- Discharge reaching navigable waters → NRC notification required
-- Document timing, content, and recipient for each notification tier
+Provide org chart: SPCC Coordinator → Operations Lead, Environmental Lead, Safety Officer, plus external resources (cleanup contractor, fire dept, state agency, NRC 800-424-8802). Document notification timing and content per 40 CFR 112.4.
 
 ### 7. Training & Inspection Program
 
-**Training:**
+**Training:** New hires get full SPCC orientation before oil-handling duties. Oil handlers: annual spill response/transfer training. All personnel: annual plan awareness. Document attendance and competency.
 
-| Audience | Content | Frequency | Documentation |
-|---|---|---|---|
-| New hires | Full SPCC orientation | Before oil-handling duties | Signed attendance, quiz |
-| Oil handlers | Spill response, transfer procedures | Annual | Attendance log, competency check |
-| All personnel | Plan awareness, reporting | Annual | Sign-off sheet |
-
-**Inspections:**
-
-| Equipment/System | Frequency | Method | Record |
-|---|---|---|---|
-| ASTs & containment | Monthly | Visual + checklist | Inspection log |
-| Transfer equipment | Before each use | Operational check | Use log |
-| Piping & valves | Monthly | Visual; annual integrity | Inspection log |
-| Spill response equipment | Quarterly | Inventory & condition | Equipment log |
-| Security systems | Monthly | Functional check | Security log |
+**Inspections:** ASTs/containment monthly (visual + checklist). Transfer equipment before each use. Piping/valves monthly visual, annual integrity. Spill response equipment quarterly. Security systems monthly.
 
 ### 8. Recordkeeping & Plan Maintenance
 
-| Record Type | Retention Period | Storage |
-|---|---|---|
-| Inspection logs | 3 years minimum | On-site, available for EPA review |
-| Training records | 3 years minimum | On-site |
-| Spill reports | 5 years | On-site |
-| Plan amendments | Life of plan | On-site |
-| Equipment maintenance | 3 years | On-site |
+| Record | Retention |
+|---|---|
+| Inspection/training logs | 3 years min |
+| Spill reports | 5 years |
+| Plan amendments | Life of plan |
 
-**Plan review cycle:**
-- Full review and evaluation **at least every 5 years** (40 CFR 112.5(b))
-- Amend **within 6 months** of material changes (new tanks, facility modifications, spill events)
-- Technical amendments require PE re-certification if facility is PE-certified
+- Full plan review **every 5 years** (40 CFR 112.5(b))
+- Amend **within 6 months** of material changes (new tanks, modifications, spill events)
+- PE re-certification required for technical amendments at PE-certified facilities
 
 ### 9. Certification & Attestation
 
-**PE-certified facilities (40 CFR 112.3(d)):**
+**PE-certified facilities (40 CFR 112.3(d)):** Include PE certification block with name, registration number, state, signature, date, and seal — attesting plan prepared per good engineering practice and 40 CFR Part 112.
 
-```
-I hereby certify that I have examined the facility and that this SPCC Plan
-has been prepared in accordance with good engineering practice, including
-consideration of applicable industry standards, and with the requirements
-of 40 CFR Part 112.
-
-PE Name: ____________________________
-PE Registration No.: _________________
-State of Registration: _______________
-Signature: ___________________________  Date: ___________
-[SEAL]
-```
-
-**Qualified facilities — self-certification (40 CFR 112.6(a)(2)):**
-
-```
-I certify that I am familiar with the requirements of 40 CFR Part 112
-and have visited and examined the facility. This Plan was prepared in
-accordance with accepted and sound industry practices and standards,
-and with the requirements of 40 CFR Part 112.
-
-Owner/Operator Name: _________________
-Title: _______________________________
-Signature: ___________________________  Date: ___________
-```
+**Qualified facilities — self-certification (40 CFR 112.6(a)(2)):** Include owner/operator attestation block with name, title, signature, date — certifying familiarity with 40 CFR Part 112 and facility examination.
 
 ### 10. Appendices
 
-Compile the following as appendices:
-- A: Site map with tank locations, drainage paths, containment areas
-- B: Drainage/topography map showing paths to navigable waters
-- C: Equipment specifications and data sheets
-- D: Secondary containment volume calculations
-- E: Emergency notification contact list
-- F: Inspection checklists (blank forms)
-- G: Training materials and sign-off sheets
-- H: Spill history log
+A: Site map (tanks, drainage, containment) | B: Topography/drainage to navigable waters | C: Equipment specs | D: Containment volume calculations | E: Emergency contacts | F: Blank inspection checklists | G: Training materials/sign-offs | H: Spill history log
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Verify all 40 CFR Part 112 citations** against current eCFR before finalizing — mark uncertain citations with [VERIFY]
-- **Qualified facility thresholds**: ≤10,000 gal total aboveground capacity, no single container >5,000 gal, no reportable discharge history in past 3 years
-- State and local requirements may impose additional obligations beyond federal SPCC — flag where state law should be checked
-- Plans for facilities with burial or underground storage must also address 40 CFR 112.8–112.12 tank-specific requirements
+- [VERIFY] all 40 CFR Part 112 citations against current eCFR before finalizing
 - Animal fats and vegetable oils are covered under 40 CFR 112 — do not exclude non-petroleum oils
-- The plan must be **maintained on-site** (or at nearest field office) and available during inspections
-- Do not fabricate facility-specific data; use placeholder brackets and instruct the user to supply actual values
+- UST/buried storage must address 40 CFR 112.8–112.12 tank-specific requirements
+- State/local requirements may exceed federal SPCC — flag where state law should be checked
+- Plan must be maintained on-site (or nearest field office) and available during inspections
+- Never fabricate facility-specific data; use `[placeholder]` brackets for values the user must supply

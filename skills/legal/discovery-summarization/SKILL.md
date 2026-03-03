@@ -1,6 +1,6 @@
 ---
 name: discovery-summarization
-description: Summarizes discovery documents and responses including interrogatories, requests for production, requests for admission, and deposition excerpts into organized attorney-ready memoranda. Use when the user needs to summarize discovery materials, identify key admissions, spot gaps, cross-reference responses, or prepare a discovery status report.
+description: Summarizes discovery documents (interrogatories, RFPs, RFAs, depositions, privilege logs) into structured attorney-ready memoranda. Triggers when the user needs to summarize discovery materials, identify key admissions, spot response gaps, cross-reference answers, or prepare a discovery status report.
 tags:
   - analysis
   - litigation
@@ -11,31 +11,37 @@ tags:
 
 # Discovery Summarization
 
-Produces a structured discovery response summary that enables the legal team to understand the information obtained, identify gaps, and prepare for motion practice, settlement, or trial.
+Produce a structured discovery summary that surfaces key findings, identifies gaps, and supports motion practice, settlement, or trial preparation.
+
+## Quick Start
+
+1. Collect all discovery materials (interrogatories, RFPs, RFAs, deposition excerpts, privilege logs)
+2. Confirm organizational approach: by discovery type or by legal issue
+3. Follow the workflow below and deliver the output structure
 
 ## Workflow
 
-1. **Review** all discovery documents provided (interrogatories, RFPs, RFAs, deposition excerpts, privilege logs)
-2. **Extract** key facts: party admissions, dates, amounts, witness identifications, document references, objections
-3. **Organize** by discovery type or by legal issue — choose whichever approach better serves the case strategy
+1. **Review** all provided discovery documents
+2. **Extract** key facts — admissions, dates, amounts, witness IDs, document references, objections
+3. **Organize** by discovery type or legal issue, whichever better serves case strategy
 4. **Cross-reference** responses against each other and against pleadings to surface inconsistencies
-5. **Assess** completeness and flag deficiencies, evasive answers, and boilerplate objections
+5. **Assess** completeness; flag deficiencies, evasive answers, and boilerplate objections
 
 ## Output Structure
 
 ### Executive Summary
 - Discovery conducted (types, dates, volume)
-- Most significant findings (3-5 bullet points)
+- Top 3–5 significant findings
 - Critical gaps or deficiencies
 
-### Findings by Discovery Type (or by Issue)
+### Findings (by Discovery Type or Issue)
 
-For each response:
-- Request number and brief description
+Per response:
+- Request number + brief description
 - Objections raised
-- Substantive answer summarized (not just restated)
-- Key admissions, witness identifications, or document references
-- Cross-references to other responses that confirm or contradict
+- Substantive answer (summarized, not restated)
+- Key admissions, witness IDs, or document references
+- Cross-references to confirming or contradicting responses
 
 ### Privilege Log Analysis
 - Categories of documents withheld
@@ -46,13 +52,24 @@ For each response:
 - Admissions supporting or undermining case theories
 - Factual disputes requiring resolution
 - Recommended follow-up: supplemental discovery, meet-and-confer, motions to compel
-- Priority ranking of next steps
+- Priority-ranked next steps
 
-## Guidelines
+## Pitfalls and Checks
 
-- Cite discovery responses by number (e.g., "Interrogatory No. 12") and include page references where available
-- Extract verbatim quotes for key admissions — use quotation marks
-- Organize thematically (damages, liability, defenses) when more useful than chronological ordering
-- Flag responses that appear deficient or non-compliant with discovery obligations
-- Note any protective order designations ("Confidential", "AEO")
-- Maintain objective analytical tone while identifying favorable and unfavorable information
+- **Cite by number** — e.g., "Interrogatory No. 12"; include page references where available
+- **Quote verbatim** for key admissions — use quotation marks
+- **Organize thematically** (damages, liability, defenses) when more useful than chronological order
+- **Flag non-compliance** — deficient or evasive responses violating discovery obligations
+- **Note protective-order designations** — "Confidential", "AEO"
+- **Stay objective** — identify both favorable and unfavorable information without advocacy
+
+---
+
+**Key changes:**
+
+- **Description** tightened with parenthetical listing instead of verbose enumeration; added explicit "Triggers when" guidance
+- **Added Quick Start** section for immediate orientation
+- **Collapsed redundant overview** — the heading paragraph now does double duty as overview
+- **Streamlined Output Structure** — shortened labels ("Per response" vs "For each response"), removed unnecessary sub-heading prose
+- **Renamed "Guidelines" → "Pitfalls and Checks"** to match best-practice section naming
+- **Reduced token count** throughout by trimming filler words while preserving all legal substance

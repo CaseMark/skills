@@ -1,25 +1,19 @@
 ---
 name: quiet-title-complaint
-description: Drafts a court-ready Complaint to Quiet Title for real property disputes. Guides through client intake, document analysis, chain-of-title verification, adverse claim identification, and strategic pleading to eliminate clouds on title. Use when drafting quiet title complaints, clearing title defects, challenging adverse possession claims, resolving boundary disputes, removing invalid liens, or establishing superior title against recorded or unrecorded interests.
-tags:
-  - drafting
-  - litigation
-  - pleading
+description: Drafts a court-ready Complaint to Quiet Title for real property disputes. Guides through intake, chain-of-title verification, adverse claim identification, and strategic pleading. Use when drafting quiet title complaints, clearing title defects, challenging adverse possession, resolving boundary disputes, removing invalid liens, or establishing superior title.
 ---
 
 # Complaint to Quiet Title
 
-Drafts a comprehensive quiet title complaint that establishes the plaintiff's superior title and eliminates adverse claims or clouds on real property.
+Drafts a quiet title complaint establishing the plaintiff's superior title and eliminating adverse claims or clouds on real property.
 
-## Prerequisites
+## Quick Start
 
-1. **Deed and chain-of-title documents** — plaintiff's deed with recording info (book/page, instrument number, date), prior conveyances
-2. **Title report** — preliminary title report or commitment identifying all exceptions and adverse claims
-3. **Property description** — full legal description, APN, street address, subdivision/tract info
-4. **Adverse claim documentation** — recorded liens, deeds of trust, judgment abstracts, correspondence, boundary survey results
-5. **Tax records** — proof of property tax payments
-6. **Defendant identification** — names, addresses, and nature of claimed interest for each adverse claimant
-7. **Jurisdictional rules** — target court, state quiet title statute, local filing rules, verification requirements
+1. Gather intake information (see checklist below)
+2. Research controlling state quiet title statute and local court rules
+3. Draft complaint sections in order (caption through verification)
+4. Validate cross-references, legal descriptions, and paragraph numbering
+5. Determine lis pendens requirements — draft concurrently if needed
 
 ## Intake Checklist
 
@@ -28,116 +22,100 @@ Extract from uploaded documents and client interview:
 | Category | Required Information |
 |---|---|
 | Property | Legal description (metes & bounds or lot/block), APN, street address |
-| Acquisition | Grantor name, deed type, execution date, recording info, consideration paid |
-| Possession | Date possession began, improvements made (dates/costs), tax payments, exclusive use details |
+| Acquisition | Grantor, deed type, execution date, recording info (book/page, instrument #), consideration |
+| Possession | Date begun, improvements (dates/costs), tax payments, exclusive use |
 | Defendants | Full legal name, last known address, nature of claimed interest, supporting instrument |
-| Adverse Claims | For each: type (lien, adverse possession, easement, boundary, oral agreement), factual basis, recording info if any |
-| Title Issues | All exceptions from title report, unrecorded claims, pending litigation |
-| Surveys | Surveyor name, date, findings re: boundaries, encroachments |
+| Adverse Claims | For each: type (lien, adverse possession, easement, boundary, oral agreement), factual basis, recording info |
+| Title Report | All exceptions, unrecorded claims, pending litigation |
+| Surveys | Surveyor, date, boundary/encroachment findings |
+| Jurisdiction | Target court, state quiet title statute, local filing rules, verification requirements |
 
-## Output Structure
+## Complaint Structure
 
 ### 1. Caption
 
 - Court name, county, department/division per local rules
-- Plaintiff's full legal name exactly as on deed; entity type if applicable
-- All known defendants with full legal names
+- Plaintiff's full legal name as on deed; entity type if applicable
+- All known defendants by full legal name
 - Unknown defendants using jurisdictional statutory language (e.g., "All Persons Unknown Claiming Any Legal or Equitable Right, Title, Estate, Lien, or Interest in the Property Described Herein")
-- Case number placeholder
-- Document title per local convention ("Complaint to Quiet Title" / "Complaint for Declaratory Relief and to Quiet Title" / "Petition to Quiet Title")
+- Case number placeholder; document title per local convention
 
-### 2. Introduction / Nature of Action
+### 2. Nature of Action
 
-- Identify as action to quiet title to specifically described real property
-- State plaintiff is lawful owner seeking judicial declaration of superior title
-- Identify property by address and reference to full legal description
-- Frame need for equitable relief: clouds on title impair marketability, prevent title insurance/financing/sale
-- Monetary damages inadequate — only judicial determination can restore clear title
+- Action to quiet title to specifically described real property
+- Plaintiff is lawful owner seeking judicial declaration of superior title
+- Identify property by address with reference to full legal description
+- Clouds on title impair marketability; monetary damages inadequate
 
-### 3. Party Allegations
+### 3. Parties
 
-**Plaintiff paragraphs:**
-- Full legal name, residence, status as legal and equitable owner
-- Acquisition details: grantor, deed type, execution date, recording info
-- Continuous possession since acquisition: improvements, tax payments, exclusive use, boundary markers
+**Plaintiff:** Full legal name, residence, ownership status, acquisition details (grantor, deed type, date, recording info), continuous possession (improvements, taxes, exclusive use).
 
-**Defendant paragraphs (each separately numbered):**
-- Full legal name, last known address
-- Nature of claimed interest with particularity
-- For recorded claims: identify instrument by date, recording info, substance
-- For unrecorded claims (adverse possession, prescriptive easement, oral agreement): describe factual basis with sufficient detail for notice
+**Each defendant (separately numbered):** Full legal name, address, nature of claimed interest. For recorded claims: instrument date, recording info, substance. For unrecorded claims: factual basis with sufficient detail for notice.
 
-**Unknown defendant paragraph:**
-- Allege diligent investigation (recorder search, title report review, court records, physical inspection)
-- State identities unknown despite reasonable efforts
+**Unknown defendants:** Allege diligent investigation (recorder search, title report, court records, physical inspection); identities unknown despite reasonable efforts.
 
 ### 4. Jurisdiction and Venue
 
-- Subject matter jurisdiction: cite state quiet title statute authorizing court to determine property rights
-- In rem jurisdiction: property located within county
-- Venue: cite venue statute for actions affecting real property
-- Amount in controversy if required (use appraisal, tax assessment, or comparable sales)
+- Subject matter: cite state quiet title statute
+- In rem: property within county
+- Venue: cite venue statute for real property actions
+- Amount in controversy if required
 
-### 5. Factual Allegations — Chain of Title
+### 5. Chain of Title Allegations
 
 - Complete legal description (separate paragraph or exhibit)
-- Trace plaintiff's acquisition with full instrument details
-- Proper execution allegations (notary acknowledgment, recording)
-- Continuous possession allegations with specific acts of ownership
+- Plaintiff's acquisition with full instrument details
+- Proper execution (notary, recording)
+- Continuous possession with specific acts of ownership
 
-### 6. Factual Allegations — Adverse Claims
+### 6. Adverse Claim Allegations
 
-Address each claim systematically using the applicable attack:
+Address each claim using the applicable attack:
 
-| Claim Type | Key Allegations to Negate |
+| Claim Type | Key Negation Allegations |
 |---|---|
-| Expired lien | Recording date, statutory enforcement period, no foreclosure action filed |
+| Expired lien | Recording date, statutory period elapsed, no foreclosure filed |
 | Satisfied debt | Original obligation, evidence of payment/release |
-| Oral agreement | Statute of frauds bars unwritten real property transfers; cite state provision |
-| Adverse possession | Negate element(s): permission given (defeats hostility), insufficient time (cite statutory period), intermittent use (defeats continuity), taxes not paid (if required) |
-| Prescriptive easement | Permission granted, statutory period unsatisfied, use interrupted or varied |
-| Boundary dispute | Survey results, monument locations, legal description controls, encroachment dimensions |
+| Oral agreement | Statute of frauds bars unwritten property transfers; cite state provision |
+| Adverse possession | Permission (defeats hostility), insufficient time (cite statutory period), intermittent use (defeats continuity), taxes unpaid (if required) |
+| Prescriptive easement | Permission granted, period unsatisfied, use interrupted |
+| Boundary dispute | Survey results, monument locations, legal description controls |
 | Judgment lien | Satisfaction, expiration, renewal failure, exemption |
 
-### 7. Cause of Action — Quiet Title
+### 7. Cause of Action
 
 - Plaintiff owns fee simple absolute (or specify estate)
 - Entitled to peaceful possession free from adverse claims
-- Defendants' claims are adverse to plaintiff's title (reference prior allegations)
-- Claims create cloud impairing marketability
-- Claims are without legal foundation — state specific legal basis for invalidity of each
+- Defendants' claims adverse to plaintiff's title (reference prior allegations)
+- Claims create cloud impairing marketability; without legal foundation
 - Irreparable harm; no adequate remedy at law
-- Plead under state quiet title statute and/or declaratory judgment act as jurisdiction requires
+- Plead under state quiet title statute and/or declaratory judgment act
 
 ### 8. Prayer for Relief
 
-- [ ] Judgment declaring plaintiff owner in fee simple, free and clear of all adverse claims
-- [ ] Order quieting title in plaintiff's name
-- [ ] Permanent injunction against defendants asserting adverse claims
-- [ ] Declaration that each specific adverse claim is invalid and unenforceable
-- [ ] Order directing county recorder to cancel/release void instruments (if applicable)
-- [ ] Establishment of true boundary line (if boundary dispute)
-- [ ] Costs of suit
-- [ ] Attorney's fees (cite statutory or contractual basis if available)
-- [ ] Such other relief as the court deems just and proper
+- Judgment declaring plaintiff owner in fee simple, free of all adverse claims
+- Order quieting title in plaintiff's name
+- Permanent injunction against defendants asserting adverse claims
+- Declaration that each adverse claim is invalid and unenforceable
+- Order directing recorder to cancel void instruments (if applicable)
+- Boundary line establishment (if boundary dispute)
+- Costs of suit; attorney's fees (cite basis); further just relief
 
 ### 9. Verification and Signature
 
-- Verification signed by plaintiff personally (not counsel) using jurisdiction-required language
-- If entity plaintiff: authorized officer/representative with stated authority
-- Notarization or declaration under penalty of perjury per jurisdiction
-- Attorney signature block: name, bar number, firm, address, phone, fax, email
+- Verification by plaintiff personally (not counsel) per jurisdiction
+- Entity plaintiff: authorized officer with stated authority
+- Notarization or perjury declaration per jurisdiction
+- Attorney signature block: name, bar number, firm, address, phone, email
 
-## Guidelines
+## Pitfalls
 
-- **Jurisdiction-first**: Research the controlling quiet title statute and local rules before drafting; requirements vary significantly by state
-- **Lis pendens**: Determine whether jurisdiction requires recording before or with filing; draft concurrently if needed
-- **Formatting**: Follow local rules for margins, font, spacing, page numbering, paragraph numbering
-- **Consecutively number** all factual allegations
-- **Legal description consistency**: Verify identical in all locations or properly incorporated by reference
-- **Cross-reference accuracy**: Verify all paragraph number references after final assembly
-- **Statute of limitations**: Research and confirm the quiet title action is timely; anticipate laches/limitations defenses
-- **Unknown defendants**: Service by publication may be required — verify statutory requirements for content and duration
-- **Do not fabricate** recording information, case citations, or statutory references; mark uncertain citations with [VERIFY]
-- **Entity plaintiffs**: Verify authority requirements for verification — some states require specific officers
-- **Multiple claims**: If combining quiet title with slander of title, accounting, or other claims, plead each as separate cause of action with independent factual support
+- **Jurisdiction-first**: Requirements vary significantly by state — research before drafting
+- **Legal description consistency**: Must be identical everywhere or properly incorporated by reference
+- **Cross-references**: Verify all paragraph number references after final assembly
+- **Statute of limitations**: Confirm action is timely; anticipate laches defenses
+- **Unknown defendants**: Service by publication may be required — verify statutory requirements
+- **Do not fabricate** recording info, citations, or statutory references; mark uncertain items with [VERIFY]
+- **Formatting**: Follow local rules for margins, font, spacing, paragraph numbering
+- **Multiple claims**: If combining with slander of title or other claims, plead each as separate cause of action

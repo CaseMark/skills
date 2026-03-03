@@ -1,10 +1,6 @@
 ---
 name: claim-construction-chart
-description: Drafts Joint Claim Construction Charts for patent litigation Markman hearings in US federal courts. Extracts disputed claim terms from patent documents, organizes plaintiff and defendant proposed constructions with intrinsic/extrinsic evidence citations, identifies points of agreement/disagreement, and ensures compliance with district-specific local patent rules. Use when preparing claim construction charts, Markman hearing exhibits, or joint prehearing statements in IP litigation.
-tags:
-  - drafting
-  - litigation
-  - pleading
+description: Drafts Joint Claim Construction Charts for patent litigation Markman hearings in US federal courts. Organizes disputed claim terms with competing party constructions, intrinsic/extrinsic evidence citations, and agreement status. Use when preparing claim construction charts, Markman hearing exhibits, or joint prehearing statements in IP litigation.
 ---
 
 # Joint Claim Construction Chart
@@ -13,91 +9,84 @@ Drafts a joint claim construction chart presenting parties' competing interpreta
 
 ## Prerequisites
 
-1. **Asserted patent(s)** — patent number, title, issue date, inventors, full claim text
-2. **Case caption** — all party names, federal district court and division, civil action number
-3. **Identified disputed terms** — from preliminary infringement/invalidity contentions or meet-and-confer
-4. **Parties' proposed constructions** — with supporting intrinsic evidence citations
-5. **Prosecution history** — office action responses, amendments, examiner statements
-6. **Applicable local patent rules** — district-specific formatting and procedural requirements (e.g., N.D. Cal., E.D. Tex., D. Del.)
+- Asserted patent(s): number, title, issue date, inventors, full claim text
+- Case caption: party names, court/division, civil action number
+- Identified disputed terms from contentions or meet-and-confer
+- Parties' proposed constructions with supporting intrinsic evidence
+- Prosecution history: office action responses, amendments, examiner statements
+- Applicable local patent rules (e.g., N.D. Cal., E.D. Tex., D. Del.)
+
+## Quick Start
+
+1. Gather patent documents, disputed terms, and both parties' proposed constructions
+2. Identify the district's local patent rules for formatting requirements
+3. Build the disputed terms table with per-term evidence citations
+4. Classify each term as agreed, partially agreed, or disputed
+5. Add certifications and signature blocks per local rules
 
 ## Output Structure
 
-### 1. Caption & Cover
+### Caption and Cover
 
-| Element | Details |
-|---------|---------|
-| Court | Full designation with division |
-| Parties | All plaintiffs/defendants as in complaint |
-| Case No. | Civil action number |
-| Patent(s) | Number, title, issue date, inventors (for each) |
-| Document Title | "Joint Claim Construction Chart" or "Joint Claim Construction and Prehearing Statement" per local rules |
+Include: court (full designation with division), all parties, civil action number, patent(s) with number/title/issue date/inventors, and document title per local rules ("Joint Claim Construction Chart" or "Joint Claim Construction and Prehearing Statement").
 
-### 2. Disputed Terms Table
+### Disputed Terms Table
 
-For each disputed term, produce one row:
+One row per disputed term with these columns:
 
 | Column | Content |
 |--------|---------|
-| **No.** | Sequential or claim-order number |
-| **Claim Term** | Exact language from patent |
-| **Claim No(s).** | All claims where term appears |
-| **Context** | Surrounding claim language for court reference |
-| **Plaintiff's Construction** | Plain-language meaning + intrinsic evidence |
-| **Defendant's Construction** | Plain-language meaning + intrinsic evidence |
-| **Agreement Status** | Agreed / Partial / Disputed |
+| No. | Sequential or claim-order number |
+| Claim Term | Exact language from patent |
+| Claim No(s). | All claims where term appears |
+| Context | Surrounding claim language for court reference |
+| Plaintiff's Construction | Plain-language meaning + intrinsic evidence |
+| Defendant's Construction | Plain-language meaning + intrinsic evidence |
+| Agreement Status | Agreed / Partial / Disputed |
 
-### 3. Intrinsic Evidence Citations
+### Evidence Citations
 
-For each proposed construction, cite:
+For each proposed construction, cite intrinsic evidence:
 
-- **Specification** — column:line (utility) or paragraph number (applications)
+- **Specification** — col:line (utility) or paragraph number (applications)
 - **Claims** — related claim language providing definitional context
 - **Prosecution history** — office action responses, amendments, applicant arguments
-- **Figures/embodiments** — specific figures or examples illustrating term meaning
+- **Figures/embodiments** — specific figures illustrating term meaning
 
-All constructions must follow *Phillips v. AWH Corp.*, 415 F.3d 1303 (Fed. Cir. 2005) (en banc): terms receive ordinary and customary meaning to a POSITA at time of invention, read in light of specification and prosecution history.
+All constructions follow *Phillips v. AWH Corp.*, 415 F.3d 1303 (Fed. Cir. 2005) (en banc): terms receive ordinary and customary meaning to a POSITA at time of invention, read in light of specification and prosecution history.
 
-### 4. Points of Agreement / Disagreement
+If extrinsic evidence is used, it is subordinate to intrinsic evidence per *Phillips*. Acceptable types: contemporaneous technical dictionaries/treatises, expert declarations (with qualifications and POSITA basis), prior art showing terminology usage, admissible inventor testimony.
 
-For each term, state one of:
+### Agreement and Disagreement
+
+For each term, classify as:
 
 - **Full agreement** — present agreed construction; note no judicial construction needed
 - **Partial agreement** — state agreed portions, isolate remaining disputes
-- **Full disagreement** — summarize nature of dispute (scope, embodiment limitation, prosecution history impact, indefiniteness)
+- **Full disagreement** — summarize dispute nature (scope, embodiment limitation, prosecution history impact, indefiniteness)
 
-### 5. Extrinsic Evidence (if applicable)
+### Indefiniteness Contentions
 
-| Type | Requirements |
-|------|-------------|
-| Technical dictionaries/treatises | Full citation; must be contemporaneous with invention; field-relevant |
-| Expert declarations | Qualifications, basis for opinion, POSITA perspective |
-| Prior art | How references use same/similar terminology |
-| Inventor testimony | Only where admissible and relevant to term meaning |
+If a term is challenged under 35 U.S.C. § 112(b):
 
-Note: Extrinsic evidence is subordinate to intrinsic evidence per *Phillips*.
-
-### 6. Indefiniteness Contentions
-
-If defendant contends a term is indefinite under 35 U.S.C. § 112(b):
-
-- State position explicitly in defendant's construction column
+- State position in defendant's construction column
 - Apply *Nautilus, Inc. v. Biosig Instruments, Inc.*, 572 U.S. 901 (2014): whether claim "inform[s] those skilled in the art about the scope of the invention with reasonable certainty"
 - Provide factual and legal basis
 
-### 7. Certifications & Signatures
+### Certifications and Signatures
 
 - Signature blocks for lead counsel (each party): name, bar number, firm, address, phone, email
 - Meet-and-confer certification: dates, participants, good-faith compliance with local patent rules
-- Any additional certifications required by local rules (e.g., efforts to narrow disputes)
+- Any additional certifications required by local rules
 
-## Guidelines
+## Checks and Pitfalls
 
-- **Group related terms** — by technology concept or claim element when logical; otherwise follow claim number order
+- **Pin-cite everything** — specification col:line, prosecution history date/page, case reporter/page
 - **Mirror structure** — defendant's section must parallel plaintiff's format exactly
-- **Pin-cite everything** — specification col:line, prosecution history date and page, case reporter and page
 - **Bluebook citations** — proper case names, reporters, pinpoints, parentheticals
-- **USPTO conventions** — patent number, inventor names, issue date, col:line for specification references
-- **District-specific compliance** — check local patent rules for: required number of meet-and-confer sessions, page limits, font/margin requirements, whether chart must be filed as joint or separate submission
-- **Jury-suitable constructions** — proposed plain-language meanings should be understandable to a lay jury
-- **Do not include agreed terms** — unless local rules require listing them; focus court attention on genuine disputes
-- **Flag same-term-different-context** — note where a term appearing in multiple claims may warrant different constructions based on context
+- **USPTO conventions** — patent number, inventor names, issue date, col:line references
+- **District-specific compliance** — check local rules for meet-and-confer requirements, page limits, font/margin rules, joint vs. separate filing
+- **Jury-suitable constructions** — plain-language meanings understandable to a lay jury
+- **Omit agreed terms** unless local rules require listing them
+- **Flag same-term-different-context** — a term in multiple claims may warrant different constructions
+- **Group related terms** by technology concept or claim element when logical

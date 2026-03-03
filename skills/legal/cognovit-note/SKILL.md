@@ -1,143 +1,117 @@
 ---
 name: cognovit-note
-description: Drafts cognovit promissory notes with confession of judgment provisions, including jurisdictional enforceability analysis, usury compliance, and required statutory disclosures. Advises on alternatives (guarantees, security agreements) where cognovit clauses are prohibited. Use when drafting cognovit notes, confession of judgment instruments, or loan documents requiring waiver-of-defense provisions in permitting jurisdictions.
-tags:
-  - agreement
-  - analysis
-  - drafting
-  - research
-  - transactional
+description: Drafts cognovit promissory notes with confession of judgment provisions, gated by mandatory jurisdictional enforceability research, usury compliance, and statutory disclosure requirements. Advises on alternatives where cognovit clauses are prohibited. Use when drafting cognovit notes, confession of judgment instruments, or loan documents requiring waiver-of-defense provisions.
 ---
 
 # Cognovit Promissory Note
 
-Drafts an enforceable cognovit promissory note with confession of judgment provisions, gated by mandatory jurisdictional enforceability research.
+Drafts an enforceable cognovit promissory note with confession of judgment provisions. Enforceability varies dramatically by jurisdiction — the jurisdictional gate must be completed before any drafting begins.
 
 ## Prerequisites
 
-1. **Governing jurisdiction confirmed** — cognovit enforceability varies dramatically by state
-2. **Party identification documents** — legal names, entity formation docs, signatory authority (resolutions, operating agreements)
-3. **Loan terms** — principal, rate, term, repayment structure, collateral (if any)
-4. **Prior agreements** — any existing contracts, guarantees, or security interests between parties
-5. **Transaction type** — consumer vs. commercial (consumer cognovit notes are prohibited in most jurisdictions)
+Gather before starting:
+
+- **Governing jurisdiction** — state where cognovit will be enforced
+- **Transaction type** — consumer vs. commercial (consumer cognovit is prohibited in most jurisdictions)
+- **Party identification** — legal names, entity formation docs, signatory authority
+- **Loan terms** — principal, rate, term, repayment structure, collateral (if any)
+- **Prior agreements** — existing contracts, guarantees, or security interests between parties
+
+## Quick Start
+
+1. Complete jurisdictional gate (Phase 1) — stop if cognovit is prohibited
+2. Draft document with all required provisions (Phase 2)
+3. Run compliance checklist (Phase 3)
+4. Prepare enforceability memo (Phase 4)
 
 ## Phase 1: Jurisdictional Gate
 
-Before drafting, research and document:
+Research and document ALL of the following before drafting:
 
-| Check | Detail |
-|---|---|
-| Statutory authority | Current statutes governing confession of judgment in governing state |
-| Consumer vs. commercial | Most states prohibit cognovit in consumer transactions entirely |
-| Execution formalities | Witness, notarization, separate acknowledgment requirements |
-| Warning language | Statutory cautionary language, format requirements (bold, caps, font size) |
-| Attorney requirements | Whether confessing attorney must be barred in-state, independent of lender |
-| Recent case law | Appellate decisions on enforceability, procedural fairness scrutiny |
-| Ethics opinions | State bar guidance on attorney participation in cognovit proceedings |
+- **Statutory authority** — current statutes governing confession of judgment
+- **Consumer vs. commercial** — most states prohibit cognovit in consumer transactions entirely
+- **Execution formalities** — witness, notarization, separate acknowledgment requirements
+- **Warning language** — statutory cautionary language with format requirements (bold, caps, font size)
+- **Attorney requirements** — whether confessing attorney must be barred in-state, independent of lender
+- **Recent case law** — appellate decisions on enforceability and procedural fairness
+- **Ethics opinions** — state bar guidance on attorney participation
 
-**Key jurisdictions permitting cognovit (commercial only):**
+Key permitting jurisdictions (commercial only):
+
 - Ohio — R.C. § 2323.12 et seq. (warning notice required) [VERIFY]
-- Pennsylvania — Pa.R.C.P. 2950 et seq. (authorized in commercial) [VERIFY]
+- Pennsylvania — Pa.R.C.P. 2950 et seq. [VERIFY]
 - Illinois — historically permitted; verify current status [VERIFY]
 
-> **If prohibited or restricted:** Stop drafting. Advise user and recommend alternatives: personal guarantees, security agreements with collateral, standard acceleration clauses, or confession of judgment obtained post-default by stipulation.
+> **If prohibited or restricted:** Stop drafting. Recommend alternatives: personal guarantees, security agreements with collateral, standard acceleration clauses, or confession of judgment obtained post-default by stipulation.
 
 ## Phase 2: Document Structure
 
-### Header & Recitals
+### Header and Recitals
+
 - Title: "COGNOVIT PROMISSORY NOTE"
-- Date of execution vs. effective date vs. disbursement date (distinguish if different)
-- Party identification (see table below)
-- Business purpose recital and relationship context
+- Distinguish execution date, effective date, and disbursement date if different
+- Full party identification (legal names, entity type, formation state, registered agent for entities)
+- Business purpose recital
 
-### Party Identification Requirements
-
-| Party Type | Required Information |
-|---|---|
-| Individual | Full legal name, residential address, DOB/SSN if appropriate |
-| Entity | Legal name (as registered), entity type, state of formation, principal place of business, registered agent |
-| Representative signer | Title, capacity, authority documentation (resolution/certificate of incumbency) |
-
-### Principal & Interest
+### Principal and Interest
 
 - State amount in figures AND words (words control on discrepancy)
-- Specify whether amount is gross proceeds or net of fees/points
-- Fixed rate: state annual rate
-- Variable rate: index + margin + adjustment frequency + caps/floors + determination method
-- Calculation method: simple/compound, accrual period, 360-day vs. 365-day year
-- Payment application order: late charges → accrued interest → principal (or as specified)
+- Specify gross proceeds vs. net of fees/points
+- For variable rates: index + margin + adjustment frequency + caps/floors
+- Calculation method: simple/compound, 360-day vs. 365-day year
+- Payment application order: late charges → accrued interest → principal
 
 **Usury compliance (mandatory):**
+
 - Research governing state's usury ceiling
 - Include all fees/charges that may be recharacterized as interest
-- Document any commercial transaction or threshold exemptions
-- Note: some states impose criminal penalties for usurious lending
+- Document commercial transaction or threshold exemptions
+- Some states impose criminal penalties for usurious lending
 
 ### Repayment Terms
 
-- Payment amount, due dates, number of installments
-- Structure: amortizing / interest-only + balloon / other
-- Acceptable payment methods and delivery address/account
-- Business day convention and cutoff time
-- Prepayment: permitted without penalty, or specify premium/yield maintenance (must comply with state limits)
-- Attach amortization schedule as exhibit if applicable
+- Payment amount, due dates, installment count, structure (amortizing / interest-only + balloon)
+- Acceptable payment methods, business day convention
+- Prepayment terms (must comply with state limits on prepayment penalties)
 
-### Confession of Judgment Clause (Core Provision)
+### Confession of Judgment Clause
 
-Draft must include ALL of the following:
+This is the core provision. Draft must include ALL of the following:
 
-1. **Grant of authority** — Borrower irrevocably authorizes any attorney-at-law to appear in any court of competent jurisdiction and confess judgment for unpaid principal + interest + fees + attorney's fees
-2. **Waiver inventory** — Explicitly list each right waived:
-   - Notice of confession proceeding
-   - Hearing before judgment entry
-   - Presentation of defenses/counterclaims
-   - Discovery
-   - Appeal (if applicable)
-3. **Trigger** — Default required before exercise, or immediate upon execution (specify; include cure period if any)
-4. **Court designation** — Specific courts where judgment may be confessed
-5. **Statutory warning language** — Exact language required by governing jurisdiction, in required format (bold/caps/minimum font)
-6. **Separate acknowledgment** — If jurisdiction requires borrower to sign separate confirmation of understanding
+1. **Grant of authority** — borrower irrevocably authorizes any attorney-at-law to appear and confess judgment for unpaid principal + interest + fees + attorney's fees
+2. **Waiver inventory** — explicitly list each right waived: notice, hearing, defenses/counterclaims, discovery, appeal (if applicable)
+3. **Trigger** — specify whether default is required or immediate upon execution; include cure period if any
+4. **Court designation** — specific courts where judgment may be confessed
+5. **Statutory warning language** — exact language required by governing jurisdiction in required format (bold/caps/minimum font)
+6. **Separate acknowledgment** — if jurisdiction requires borrower to sign separate confirmation
 
 ### Events of Default
 
-| Default Event | Grace Period |
-|---|---|
-| Payment failure | 3-5 business days (commercial standard) |
-| Cross-default (lender's other agreements) | None / as specified |
-| Cross-default (third-party, if material) | Materiality threshold |
-| Bankruptcy (voluntary) | Immediate |
-| Bankruptcy (involuntary) | 60-90 days undismissed |
-| Material misrepresentation | Immediate |
-| Death/dissolution of borrower | Immediate |
-| Collateral impairment (if secured) | Cure period if any |
-| Failure to maintain insurance (if secured) | Notice + cure |
-| Unauthorized transfer of collateral | Immediate |
+Include at minimum: payment failure (3-5 business day grace), cross-default, voluntary/involuntary bankruptcy (60-90 day dismissal period for involuntary), material misrepresentation, death/dissolution, and collateral-related defaults if secured.
 
-### Remedies & Default Charges
+### Remedies
 
-- Acceleration: optional at lender's election (preserve workout flexibility)
+- Acceleration at lender's election (preserve workout flexibility)
 - Confession of judgment per cognovit clause
-- All other legal/equitable remedies, collection costs
 - Default interest rate (verify ≤ usury ceiling)
-- Late charge: typically 4-5% of overdue payment or flat fee, lesser of the two
-- Structure all charges as liquidated damages, not penalties
+- Late charges structured as liquidated damages, not penalties
+- All other legal/equitable remedies, collection costs
 
-### Governing Law & Forum
+### Governing Law and Forum
 
 - Choose law of a state where cognovit is enforceable AND with sufficient nexus to transaction
 - Exclusive jurisdiction + consent to personal jurisdiction + venue waiver
 - Jury trial waiver (conspicuous, separate paragraph, caps/bold)
-- Confirm choice-of-law enforceability — courts may reject if no reasonable relationship to transaction
+- Courts may reject choice-of-law with no reasonable relationship to transaction
 
 ### Execution Formalities
 
-- Signature blocks: signature line, printed name, title (if representative), date
-- Witness requirements per jurisdiction
-- Notarization: required for cognovit clause in many jurisdictions; advisable even if not required
+- Signature blocks with printed name, title, date
+- Witness and notarization requirements per jurisdiction (notarization advisable even if not required)
 - Entity signers: attach authority documentation as exhibit
 - Separate cognovit acknowledgment/affidavit if jurisdictionally required
 
-## Phase 3: Compliance Verification Checklist
+## Phase 3: Compliance Checklist
 
 Before finalizing, confirm:
 
@@ -155,16 +129,17 @@ Before finalizing, confirm:
 ## Phase 4: Enforceability Memorandum
 
 Prepare a brief memo documenting:
+
 - Jurisdictional research findings with specific citations
 - Enforceability risks and mitigation steps taken
 - Recommendations for additional documentation or procedures
 - Alternative approaches if enforceability is uncertain
 
-## Guidelines
+## Common Pitfalls
 
-- **Never draft a cognovit note without completing the jurisdictional gate** — an unenforceable cognovit may void the entire instrument
-- **Consumer transactions**: presume cognovit is prohibited unless jurisdiction-specific research confirms otherwise
-- **Mark all statutory citations with [VERIFY]** unless confirmed against current authority
-- **Ethical obligations**: if borrower is unrepresented, note that some jurisdictions require disclosure or independent counsel recommendation
-- **Courts increasingly scrutinize** cognovit provisions for procedural fairness — document that borrower had opportunity to negotiate and/or obtain counsel
-- **Do not assume enforceability across state lines** — a cognovit judgment entered in one state may face full faith and credit challenges in another
+- **Never skip the jurisdictional gate** — an unenforceable cognovit may void the entire instrument
+- **Presume consumer cognovit is prohibited** unless jurisdiction-specific research confirms otherwise
+- **Mark all statutory citations [VERIFY]** unless confirmed against current authority
+- **Unrepresented borrowers** — some jurisdictions require disclosure or independent counsel recommendation
+- **Procedural fairness scrutiny is increasing** — document that borrower had opportunity to negotiate and obtain counsel
+- **Do not assume cross-state enforceability** — a cognovit judgment may face full faith and credit challenges in another state

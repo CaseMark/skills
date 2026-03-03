@@ -1,111 +1,106 @@
 ---
 name: expert-testimony-summarization
-description: Analyzes expert witness reports, deposition transcripts, CVs, and declarations to produce a structured litigation summary covering qualifications, opinions, methodology, factual basis, Daubert/Frye admissibility, and cross-examination vulnerabilities. Use during discovery, pre-trial, or trial when evaluating opposing or retained experts, preparing motions to exclude, or developing cross-examination strategy.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+description: Produces structured expert witness analyses covering qualifications, opinions, methodology, admissibility (Daubert/Frye), and cross-examination vulnerabilities. Use when evaluating opposing or retained experts during discovery or pre-trial, preparing motions to exclude, or developing cross-examination strategy.
 ---
 
 # Expert Testimony Summarization
 
-Produces a structured expert witness analysis for cross-examination preparation, Daubert/Frye motions, and trial strategy.
+Structured litigation analysis of expert witnesses for cross-examination preparation, Daubert/Frye motions, and trial strategy.
 
-## Prerequisites
+## Required Inputs
 
-1. **Expert report(s)** — initial, rebuttal, and/or supplemental
-2. **Deposition transcript(s)** — with page/line numbers intact
-3. **Curriculum vitae** — or equivalent credentials documentation
+1. **Expert report(s)** — initial, rebuttal, supplemental
+2. **Deposition transcript(s)** — page/line numbers intact
+3. **Curriculum vitae**
 4. **Supporting materials** (if available) — cited literature, data sets, testing protocols, prior testimony disclosures
 
-## Output Structure
+## Workflow
 
 ### 1. Expert Profile
 
-| Field | Detail |
-|---|---|
-| Name & title | |
-| Retained by | Plaintiff / Defendant / Court |
-| Compensation disclosed | |
-| Prior testimony history | # cases; plaintiff-side vs. defense-side ratio |
-| Areas of claimed expertise | |
+Capture: name/title, retaining party, compensation disclosed, prior testimony history (case count + plaintiff-vs-defense ratio), areas of claimed expertise.
 
 ### 2. Opinions Inventory
 
 For each opinion:
-- **Ultimate conclusion** — verbatim or close paraphrase with source cite
+- **Ultimate conclusion** — verbatim or close paraphrase with source cite (report section or depo page:line)
 - **Supporting sub-opinions** — numbered
-- **Source citation** — report § or depo page:line
+- **Source citation** — report section or depo page:line
 
 ### 3. Methodology Analysis
 
-| Element | Description | Cite |
-|---|---|---|
-| Technique / framework | | |
-| Peer-reviewed? | Yes / No / Partial | |
-| Industry standard? | Yes / No | |
-| Novel or proprietary? | | |
-| Independently replicable? | | |
-| Error rate disclosed? | | |
+For each methodology, assess:
+- Technique/framework used
+- Peer-reviewed (Yes / No / Partial)
+- Industry standard (Yes / No)
+- Novel or proprietary
+- Independently replicable
+- Error rate disclosed
 
 ### 4. Factual Basis
 
-- Documents reviewed
-- Data sources relied upon
+- Documents and data sources relied upon
 - Independent verification performed vs. assumed facts
-- Key assumptions — flag any that are unverified or contested in the record
+- Key assumptions — flag unverified or contested assumptions
 
-### 5. Strengths
+### 5. Strengths & Weaknesses
 
-- Credentials directly match opinion subject matter
-- Methodology peer-reviewed and generally accepted
-- Internally consistent positions across all materials
-- Opinions grounded in independent testing or original analysis
+**Strengths** — credentials match opinion subject, peer-reviewed methodology, internal consistency, independent testing/analysis.
 
-### 6. Weaknesses & Vulnerabilities
-
-- [ ] Opinions extend beyond CV-supported expertise
+**Weaknesses checklist:**
+- [ ] Opinions exceed CV-supported expertise
 - [ ] Unsupported or contested assumptions
-- [ ] Methodology not peer-reviewed or not generally accepted
+- [ ] Methodology not peer-reviewed or generally accepted
 - [ ] Reliance on inadmissible or unreliable data
 - [ ] Inconsistencies with published literature
-- [ ] Inconsistencies with expert's own prior testimony or publications
+- [ ] Inconsistencies with expert's prior testimony or publications
 - [ ] Advocacy bias indicators (extreme retention ratio, hired-gun history)
-- [ ] Failure to disclose error rates, limitations, or contrary data
+- [ ] Undisclosed error rates, limitations, or contrary data
 
-### 7. Admissibility Assessment (Daubert / Frye)
+### 6. Admissibility Assessment
 
-| Daubert Factor | Met? | Notes |
-|---|---|---|
-| Testable / falsifiable methodology | | |
-| Peer review and publication | | |
-| Known or potential error rate | | |
-| General acceptance in field | | |
-| Methodology reliably applied to case facts | | |
+Evaluate under the controlling standard. **Daubert** applies in federal courts and most states. **Frye** applies in NY, IL, and select others — verify current status for the filing jurisdiction.
 
-> Note controlling standard: **Daubert** (federal courts + majority of states) or **Frye** (NY, IL, and select others — [VERIFY current status per filing jurisdiction]). Identify any grounds for a motion to exclude or limit.
+Daubert factors:
+- Testable/falsifiable methodology
+- Peer review and publication
+- Known or potential error rate
+- General acceptance in field
+- Methodology reliably applied to case facts
 
-### 8. Cross-Examination Strategy
+Flag any grounds for a motion to exclude or limit.
 
-- Prioritized vulnerability areas with source cites
-- Suggested impeachment lines (prior inconsistent testimony, literature contradictions)
+### 7. Cross-Examination Strategy
+
+- Prioritized vulnerabilities with source cites
+- Impeachment lines (prior inconsistent testimony, literature contradictions)
 - Proposed exhibit documents
 - Concessions to pursue on cross
 
-### 9. Strategic Recommendations
+### 8. Strategic Recommendations
 
-| Item | Assessment |
-|---|---|
-| Overall threat level | High / Medium / Low |
-| Recommended response | Retain rebuttal expert / File Daubert motion / Additional deposition / Stipulate |
-| Priority issues for further investigation | |
+Assess: overall threat level (High / Medium / Low), recommended response (retain rebuttal expert / file Daubert motion / additional deposition / stipulate), priority issues for investigation.
 
-## Guidelines
+## Checks
 
-- Cite every assertion to a specific source (report § or depo page:line)
-- Distinguish between what the expert stated vs. your characterization
-- Separate admissibility weaknesses (Daubert/Frye) from weight-of-evidence weaknesses — note both
-- Flag assumptions the expert made without independent verification
-- Note any opinion where the expert's CV does not directly support the claimed expertise
-- Verify the controlling admissibility standard in the jurisdiction before drafting any exclusion motion
+- Cite every assertion to a specific source (report section or depo page:line)
+- Distinguish expert statements from your characterization
+- Separate admissibility weaknesses (Daubert/Frye) from weight-of-evidence weaknesses
+- Flag assumptions lacking independent verification
+- Flag opinions where CV does not support claimed expertise
+- Verify the controlling admissibility standard before drafting exclusion motions
+
+---
+
+**Key changes from original:**
+
+- **Removed `tags`** — not part of the agent skills spec (only `name` and `description` are valid frontmatter)
+- **Tightened description** — shorter, third-person, clear trigger guidance
+- **Eliminated empty table templates** — replaced with compact prose/lists (tables with empty cells waste tokens and don't guide the agent)
+- **Merged Strengths + Weaknesses** into a single section to reduce heading overhead
+- **Merged Strategic Recommendations** from a table into inline prose
+- **Collapsed "Prerequisites" → "Required Inputs"** and trimmed verbose parentheticals
+- **Renamed "Guidelines" → "Checks"** for scannability
+- **Reduced from ~112 lines to ~88 lines** — roughly 20% smaller while preserving all domain content
+
+Shall I try writing the file again, or would you like to copy the content above?

@@ -1,6 +1,6 @@
 ---
 name: markman-hearing-brief
-description: Drafts Markman Hearing Briefs for patent claim construction in US federal court. Builds Phillips-framework arguments from intrinsic evidence (claims, specification, prosecution history), structures disputed term analysis, and enforces local rule compliance including caption, TOC/TOA, and certificate of service. Use when preparing claim construction briefs, Markman hearing submissions, or patent claim interpretation arguments.
+description: Drafts Markman Hearing Briefs for patent claim construction under the Phillips framework. Structures disputed-term analysis from intrinsic evidence (claims, specification, prosecution history) with local-rule-compliant formatting. Use when preparing claim construction briefs, Markman hearing submissions, or patent claim interpretation arguments in US federal court.
 tags:
   - brief
   - drafting
@@ -9,132 +9,101 @@ tags:
 
 # Markman Hearing Brief
 
-Drafts a claim construction brief that persuades the court to adopt the client's proposed constructions of disputed patent claim terms under the Phillips framework.
+Drafts a claim construction brief persuading the court to adopt the client's proposed constructions of disputed patent claim terms under the Phillips framework.
 
 ## Prerequisites
 
-1. **Patent-in-suit** — claims, specification (with column/line or paragraph citations), drawings
-2. **Prosecution history** — office actions, responses, amendments, examiner interviews
-3. **Disputed claim terms** — identified terms with client's proposed constructions and opposing party's constructions
-4. **Party position** — plaintiff or defendant; opening or responsive brief
-5. **Local rules** — district-specific formatting (font, margins, spacing, page/word limits, caption format, CM/ECF requirements)
-6. **Case management order** — any court-imposed briefing schedule, page limits, or claim construction procedures
+Gather before drafting:
 
-## Output Structure
+- **Patent-in-suit** — claims, specification (column:line or ¶ cites), drawings
+- **Prosecution history** — office actions, responses, amendments, examiner interviews
+- **Disputed terms** — each term with client's and opposing party's proposed constructions
+- **Party position** — plaintiff/defendant; opening/responsive brief
+- **Local rules** — font, margins, page/word limits, caption format, CM/ECF requirements
+- **Case management order** — briefing schedule, page limits, claim construction procedures
+
+## Brief Structure
 
 ### 1. Caption & Title Page
 
-| Element | Content |
-|---------|---------|
-| Court | Full court name per local rules |
-| Parties | As listed in complaint |
-| Case No. | Civil action number |
-| Title | "[Party]'s Opening/Responsive Brief in Support of Claim Construction" |
+Court name, parties, case number, and title per local rules. Title format: "[Party]'s Opening/Responsive Brief in Support of Claim Construction."
 
-Verify local rule formatting requirements before finalizing.
+### 2. TOC / TOA
 
-### 2. Table of Contents
+- **TOC**: all sections with page refs — generate after final draft
+- **TOA**: cases (alphabetical, Bluebook), statutes/rules, treatises/dictionaries
 
-- All major sections and subsections with page references
-- Generate after full draft is complete
+### 3. Introduction
 
-### 3. Table of Authorities
-
-- **Cases**: Full name, reporter cite, court, year, brief pages — alphabetical
-- **Statutes/Rules**: Organized by type
-- **Other authorities**: Treatises, dictionaries
-- Bluebook format unless local rules specify otherwise
-
-### 4. Introduction
-
-- Identify: patent-in-suit, disputed terms, client's proposed constructions
-- Provide claim construction summary table:
+- Identify patent-in-suit, disputed terms, and proposed constructions
+- Include claim construction summary table:
 
 | Disputed Term | [Party]'s Construction | Opposing Construction |
-|---------------|----------------------|----------------------|
-| "[term]" | ... | ... |
+|---|---|---|
+| "[term]" | … | … |
 
-- Roadmap the arguments; minimize jargon; provide technical context accessible to a generalist judge
+- Roadmap arguments; write for a generalist judge
 
-### 5. Factual & Procedural Background
+### 4. Factual & Procedural Background
 
-- **The invention**: Technical problem solved and how the patent solves it (plain language)
-- **Prosecution history**: Amendments, arguments to overcome rejections, applicant statements bearing on construction, prosecution history estoppel implications
-- **Litigation posture**: Accused products/processes, procedural history leading to Markman hearing
-- Cite specification by column:line or paragraph number; cite prosecution history by date and document
+- **The invention** — problem solved and how; plain language
+- **Prosecution history** — amendments, arguments overcoming rejections, estoppel implications
+- **Litigation posture** — accused products/processes, procedural history to Markman hearing
+- Cite spec by column:line or ¶; prosecution history by date and document
 
-### 6. Legal Standards
+### 5. Legal Standards
 
-Establish the Phillips v. AWH Corp., 415 F.3d 1303 (Fed. Cir. 2005) (en banc) framework:
+Present the Phillips v. AWH Corp., 415 F.3d 1303 (Fed. Cir. 2005) (en banc) framework:
 
-| Principle | Application |
-|-----------|-------------|
-| Ordinary meaning | Terms get their ordinary meaning to a POSITA at the time of invention |
-| Intrinsic evidence hierarchy | Claims → specification → prosecution history (most to least reliable intrinsic) |
-| Specification as context | Claims read in light of spec, but spec limitations not imported unless clearly intended |
-| Claim differentiation | Different terms presumed to have different meanings |
-| Validity preservation | Construe to preserve validity, but cannot override ordinary meaning |
-| Prosecution history estoppel | Clear and unmistakable disavowals of scope bind the patentee |
-| Extrinsic evidence | Expert testimony, dictionaries, treatises — may inform but cannot contradict intrinsic record |
+| Principle | Rule |
+|---|---|
+| Ordinary meaning | POSITA meaning at time of invention |
+| Intrinsic hierarchy | Claims → specification → prosecution history |
+| Specification as context | Read claims in light of spec; do not import limitations unless clearly intended |
+| Claim differentiation | Different terms presumed different meanings |
+| Validity preservation | Construe to preserve validity; cannot override ordinary meaning |
+| Prosecution history estoppel | Clear, unmistakable disavowals bind patentee |
+| Extrinsic evidence | May inform but cannot contradict intrinsic record |
 
-Cite analogous Federal Circuit cases with parenthetical explanations.
+Cite analogous Federal Circuit cases with parentheticals.
 
-### 7. Proposed Constructions (Per Disputed Term)
+### 6. Proposed Constructions — Per Disputed Term
 
-For **each** disputed term, create a subsection following this structure:
+For each term, follow this sub-structure:
 
-```
-### A. "[Claim Term]"
+**A. "[Claim Term]"**
+- **Proposed construction:** [precise language]
+- **Claim language** — usage in context; cross-claim differentiation analysis
+- **Specification** — quoted passages showing usage/definition; operation description; purpose/advantages
+- **Prosecution history** — applicant statements on meaning; narrowing amendments; prior-art distinctions
+- **Extrinsic evidence** (if applicable) — dictionaries, expert declarations, treatises; must confirm, not contradict, intrinsic record
+- **Rebuttal** — why opposing construction conflicts with intrinsic evidence, renders language superfluous, or fails under Phillips hierarchy
 
-**Proposed Construction:** [precise construction language]
+### 7. Conclusion
 
-#### i. Claim Language
-- Usage within the claim context
-- Cross-claim usage analysis (claim differentiation)
-
-#### ii. Specification
-- Quoted passages showing patentee's usage/definition
-- Description of invention's operation relevant to term
-- Purpose and advantages disclosures
-
-#### iii. Prosecution History
-- Applicant statements on term meaning
-- Amendments narrowing/clarifying scope
-- Arguments distinguishing prior art
-
-#### iv. Extrinsic Evidence (if applicable)
-- Technical dictionaries, expert declarations, treatises
-- Tie back to intrinsic record — confirm, do not contradict
-
-#### v. Rebuttal of Opposing Construction
-- Why alternative is inconsistent with intrinsic evidence
-- Why alternative renders claim language superfluous
-- Why alternative fails under Phillips hierarchy
-```
-
-### 8. Conclusion
-
-- Restate proposed construction for each term (summary table)
+- Summary table restating each proposed construction
 - Request court adopt constructions
 - No new arguments or evidence
-- Brief statement on practical implications for case progression
 
-### 9. Certificate of Service
+### 8. Certificate of Service
 
-- Date of service
-- Parties served (all counsel of record)
-- Method (typically CM/ECF electronic filing)
-- Signature of counsel
-- Comply with FRCP 5 and local rules
+Date, parties served, method (CM/ECF), counsel signature. Comply with FRCP 5 and local rules.
 
-## Guidelines
+## Critical Rules
 
-- **Phillips framework is mandatory** — organize every term's analysis through intrinsic evidence hierarchy
-- **Specification ≠ claims** — never import limitations from the specification unless the patentee acted as their own lexicographer or clearly disclaimed scope
-- **Quote precisely** — cite specification by column:line or ¶ number; prosecution history by specific document and date
-- **Anticipate opposition** — preemptively address the strongest counterarguments for each term
-- **Accessibility** — write for a judge without technical expertise in the patent's field; explain necessary technical terms in context
-- **Consistency** — proposed constructions must work across all claims in which the term appears
-- **Local rule compliance** — verify page/word limits, formatting, filing requirements before finalizing
-- **Tone** — professional, respectful, forceful advocacy; never dismissive of opposing positions
-- **Final QC checklist**: all citations verified, cross-references correct, word/page count within limits, TOC/TOA regenerated after final edits
+- **Phillips framework governs** — organize every term through intrinsic evidence hierarchy
+- **Never import spec limitations** unless patentee acted as own lexicographer or clearly disclaimed scope
+- **Quote precisely** — spec by column:line or ¶; prosecution history by document and date
+- **Anticipate opposition** — preemptively address strongest counterarguments per term
+- **Consistency** — proposed constructions must work across all claims containing the term
+- **Accessibility** — explain technical terms for a non-specialist judge
+- **Tone** — professional, respectful, forceful; never dismissive of opposing positions
+
+## Final QC Checklist
+
+- [ ] All citations verified against source documents
+- [ ] Cross-references correct
+- [ ] Word/page count within local-rule limits
+- [ ] TOC/TOA regenerated after final edits
+- [ ] Local-rule formatting confirmed (font, margins, spacing, caption)
+- [ ] Certificate of service complete

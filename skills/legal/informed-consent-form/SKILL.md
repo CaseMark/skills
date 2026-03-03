@@ -1,38 +1,35 @@
 ---
 name: informed-consent-form
-description: Drafts comprehensive, legally compliant informed consent forms for healthcare procedures, treatments, research participation, or professional services. Conducts jurisdictional assessment to incorporate HIPAA, FDA, IRB, Common Rule, and ICH-GCP requirements while maintaining plain-language accessibility. Use when drafting informed consent documents, surgical consent forms, research participant agreements, clinical trial consent, or treatment authorization forms.
-tags:
-  - agreement
-  - drafting
-  - regulatory
-  - research
+description: Drafts regulatory-compliant informed consent forms for healthcare procedures, clinical trials, research participation, or professional services. Incorporates HIPAA, FDA, IRB/Common Rule, and ICH-GCP requirements as applicable. Use when drafting surgical consent, research participant agreements, clinical trial consent, or treatment authorization forms.
 ---
 
 # Informed Consent Form
 
-Drafts a regulatory-compliant informed consent form that satisfies disclosure obligations and creates a defensible record of voluntary, knowing authorization.
+Drafts a defensible informed consent form satisfying disclosure obligations and documenting voluntary, knowing authorization.
 
-## Prerequisites
+## Quick Start
 
-1. **Jurisdiction and applicable legal standard** — professional standard, reasonable person standard, or subjective standard
-2. **Regulatory framework** — identify which apply: HIPAA, FDA, IRB/Common Rule, ICH-GCP, state medical board rules, licensing board standards
-3. **Procedure/treatment/research details** — protocol, personnel, timeline, devices, medications
-4. **Institutional policies** — existing templates, mandatory language, formatting requirements
-5. **Participant population** — capacity issues (minors, cognitively impaired), language needs, literacy considerations
+Gather before drafting:
 
-## Output Structure
+1. **Jurisdiction** — which consent standard applies (professional, reasonable person, or subjective)
+2. **Regulatory framework** — HIPAA, FDA, IRB/Common Rule, ICH-GCP, state rules
+3. **Procedure details** — protocol, personnel, timeline, devices, medications
+4. **Participant population** — capacity issues, language needs, literacy level
+5. **Institutional requirements** — templates, mandatory language, formatting
 
-### Section 1: Procedure Description
+## Core Sections
 
-| Element | Requirement |
+### 1. Procedure Description
+
+| Element | Include |
 |---|---|
-| Process overview | Prep, intervention, follow-up — plain language, define technical terms parenthetically |
-| Timeline | Frequency, duration, total commitment, long-term obligations |
-| Personnel | Qualifications and credentials of those performing/supervising |
-| Materials | Equipment, medications, devices — purpose explained in lay terms |
-| Participant burden | Physical demands, time, lifestyle modifications, emotional impact |
+| Process overview | Prep, intervention, follow-up in plain language; define terms parenthetically |
+| Timeline | Frequency, duration, total commitment |
+| Personnel | Qualifications of those performing/supervising |
+| Materials | Equipment, medications, devices with lay explanations |
+| Participant burden | Physical demands, time, lifestyle changes, emotional impact |
 
-### Section 2: Risk Disclosure and Benefits
+### 2. Risk Disclosure and Benefits
 
 **Risk frequency tiers** — use consistently:
 
@@ -43,96 +40,81 @@ Drafts a regulatory-compliant informed consent form that satisfies disclosure ob
 | Rare | <1% | "rarely" |
 | Isolated | Case reports only | "in isolated cases" |
 
-For each material risk, state: nature of harm, severity, temporary vs. permanent, available mitigation.
+For each material risk: nature of harm, severity, temporary vs. permanent, mitigation.
 
-**Benefits** — realistic expectations only. No outcome guarantees. State explicitly if experimental/investigational. Include statistical context (success rates, comparative effectiveness) when available. Acknowledge limitations.
+Benefits: realistic expectations only, no guarantees. State if experimental. Include statistical context when available.
 
-### Section 3: Alternatives and Right to Refuse
+### 3. Alternatives and Right to Refuse
 
-- [ ] Each viable alternative with comparative risk/benefit/cost/recovery analysis
+- [ ] Each viable alternative with comparative risk/benefit/cost analysis
 - [ ] Less invasive options and conservative management
-- [ ] Option to decline entirely — with natural course/consequences explained factually
-- [ ] No-coercion language: refusal will not result in abandonment or loss of other care
-- [ ] If no reasonable alternatives exist, explain clinical basis
+- [ ] Option to decline — natural course explained factually
+- [ ] No-coercion language: refusal won't cause abandonment or care loss
+- [ ] If no alternatives exist, state clinical basis
 
-### Section 4: Privacy and Information Governance
+### 4. Privacy and Information Governance
 
-- [ ] What information is collected, how, for what purpose, retention duration
-- [ ] Who has access (care team, researchers, regulators, third parties)
+- [ ] Data collected, purpose, retention, access (care team, researchers, regulators)
 - [ ] Applicable privacy framework (HIPAA, FERPA, state statutes)
-- [ ] Confidentiality limitations: mandatory reporting (abuse, harm to self/others), court orders, safety exceptions
-- [ ] Secondary uses (QI, teaching, research databases, publication) — require separate explicit consent
-- [ ] Technical/physical/administrative safeguards described
-- [ ] Participant rights to access and correct information
-- [ ] Certificate of Confidentiality status (if research)
+- [ ] Confidentiality limits: mandatory reporting, court orders, safety exceptions
+- [ ] Secondary uses require separate consent (QI, teaching, research, publication)
+- [ ] Safeguards described; participant rights to access/correct data
+- [ ] Certificate of Confidentiality status (research)
 
-### Section 5: Participant Rights and Withdrawal
+### 5. Participant Rights and Withdrawal
 
-- [ ] Unconditional right to withdraw at any time without penalty
-- [ ] Withdrawal process: whom to contact, written notice requirements, disposition of collected data/specimens
-- [ ] Practical withdrawal limitations stated honestly (irreversible steps, published aggregate data)
-- [ ] Right to ask questions at any point — not only at signing
-- [ ] Contact information for questions, concerns, adverse event reporting
-- [ ] Complaint procedures: institutional channels, regulatory bodies, patient advocates
-- [ ] Financial transparency: covered costs, out-of-pocket, research compensation, complication treatment costs
+- [ ] Unconditional right to withdraw without penalty
+- [ ] Withdrawal process: contact, written notice, data/specimen disposition
+- [ ] Honest disclosure of practical limitations (irreversible steps, published aggregates)
+- [ ] Right to ask questions at any point
+- [ ] Contact info for questions, adverse events, complaints
+- [ ] Financial transparency: covered costs, out-of-pocket, compensation
 
-### Section 6: Signature and Execution Block
+### 6. Signature and Execution Block
 
-**Primary participant:**
-```
-☐ I have read (or had read to me) and understand this form
-☐ I have had the opportunity to ask questions and received satisfactory answers
-☐ I consent voluntarily without coercion
+Include all that apply:
 
-Participant Signature: _________________ Date: _________
-Printed Name: _________________________
-```
+**Primary participant** — attestations: read/understood, opportunity to ask questions, voluntary consent. Signature, printed name, date.
 
-**If participant lacks capacity** — add authorized representative block:
-```
-Authorized Representative Signature: _________________ Date: _________
-Printed Name: _________________________
-Relationship to Participant: _________________________
-Legal Basis for Authority: _________________________
-```
+**Authorized representative** (if participant lacks capacity) — signature, printed name, date, relationship, legal basis for authority.
 
-**Person obtaining consent:**
-```
-I have explained the procedure, answered questions, and believe the
-participant/representative has sufficient understanding to provide informed consent.
+**Person obtaining consent** — attestation that procedure was explained and participant demonstrated understanding. Signature, printed name/title, date.
 
-Signature: _________________ Date: _________
-Printed Name / Title: _________________________
-```
+**Witness** (when required by regulation/policy) — attestation of observing consent process. Signature, printed name, date.
 
-**Witness** (when required by regulation, policy, or risk level):
-```
-I observed the consent process.
-Witness Signature: _________________ Date: _________
-Printed Name: _________________________
-```
-
-**Separate authorization blocks** — create individual opt-in/opt-out for each:
-- Photography/video recording
-- Biological specimen use for future research
+**Separate opt-in/opt-out blocks** for each ancillary authorization:
+- Photography/video
+- Specimen use for future research
 - Contact for additional studies
-- Release of information to named third parties
+- Third-party information release
 
-**Document control footer:**
-```
-Version: [X.X] | Effective Date: [DATE] | Supersedes: [PRIOR VERSION DATE]
-Page ___ of ___
-```
+**Document control footer**: version number, effective date, supersedes date, page X of Y.
 
-Statement: "You will receive a complete copy of this signed form."
+Include statement: participant receives a complete signed copy.
 
-## Guidelines
+## Drafting Rules
 
-1. **Plain language** — active voice, short sentences, common words; minimum 12-point font; 3–8 pages typical
-2. **Jurisdiction-first** — confirm the applicable informed consent standard before drafting; requirements vary significantly by state
+1. **Jurisdiction-first** — confirm applicable consent standard before drafting; requirements vary by state
+2. **Plain language** — active voice, short sentences, common words; define technical terms parenthetically; 12pt minimum font
 3. **Material risk standard** — disclose any risk a reasonable person would consider significant; err toward over-disclosure
-4. **No guarantees** — never promise outcomes; use "may," "expected," "typical" language
-5. **Selective consent** — participants must be able to decline ancillary authorizations without affecting primary consent
-6. **Capacity accommodations** — address literacy barriers, language translation, cognitive limitations in the consent process attestation
-7. **Recommend review** — flag that legal counsel, compliance, and (if research) IRB/ethics committee should review before implementation
-8. **Version control** — every page must carry document title, page numbering (X of Y), version date, and participant identifier space if institutionally required
+4. **No guarantees** — use "may," "expected," "typical"; never promise outcomes
+5. **Selective consent** — participants must decline ancillary authorizations without affecting primary consent
+6. **Capacity accommodations** — address literacy, language, cognitive limitations in the attestation
+
+## Pitfalls
+
+- **Skipping jurisdictional analysis** — consent standards differ significantly by state; a form valid in one may be inadequate in another
+- **Burying risks** — material risks must be prominent, not hidden in dense paragraphs
+- **Coercive framing** — refusal language must be neutral; never imply negative consequences for declining
+- **Missing withdrawal limits** — state honestly which steps are irreversible; omission undermines defensibility
+
+## Final Check
+
+- [ ] Applicable regulatory frameworks identified and addressed
+- [ ] All material risks disclosed with frequency tier labels
+- [ ] Alternatives section includes option to decline
+- [ ] Privacy section covers confidentiality limitations
+- [ ] Signature blocks match participant population (capacity, witnesses)
+- [ ] Ancillary authorizations are separate opt-in/opt-out
+- [ ] Document control footer with version, date, pagination
+- [ ] Flag for review by legal counsel, compliance, and IRB/ethics committee (if research)

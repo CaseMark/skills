@@ -1,6 +1,6 @@
 ---
 name: heritage-protection-summary
-description: Generates structured legal development summaries on cultural heritage protection, covering repatriation, site protection, illicit trafficking, armed conflict, underwater heritage, intangible cultural heritage, and indigenous cultural rights. Synthesizes judicial decisions, legislative changes, treaty updates, and regulatory developments from international tribunals, national courts, and administrative bodies. Applies frameworks including the 1970 UNESCO Convention, 1954 Hague Convention, and UNIDROIT Convention. Use when producing periodic briefings, policy updates, or thematic research digests for governments, NGOs, cultural institutions, or international organizations working in cultural property and heritage preservation.
+description: Generates structured legal briefings on cultural heritage protection developments. Synthesizes judicial decisions, legislation, treaty updates, and regulatory changes across repatriation, trafficking, armed conflict, underwater heritage, intangible cultural heritage, and indigenous rights. Trigger when producing periodic briefings, policy digests, or thematic research for governments, NGOs, cultural institutions, or international organizations working in cultural property law.
 tags:
   - regulatory
   - research
@@ -8,59 +8,67 @@ tags:
   - summary
 ---
 
-# Cultural Heritage Protection Legal Developments Summary
+# Cultural Heritage Protection Legal Summary
 
-Synthesizes recent judicial decisions, legislation, treaty developments, and regulatory changes in cultural heritage protection into a structured briefing for governments, NGOs, cultural institutions, and international organizations.
+Produces structured briefings on cultural heritage law developments for institutional stakeholders.
 
-## Prerequisites
+## Quick Start
 
-1. **Scope definition** — jurisdiction(s), date range, and thematic focus areas (repatriation, trafficking, armed conflict, etc.)
-2. **Audience** — legal advisors, policy makers, enforcement officials, or repatriation advocates (affects depth and framing)
-3. **Source materials** — any case decisions, legislative texts, or treaty updates to incorporate; otherwise skill conducts independent research
+1. **Define scope** — jurisdiction(s), date range, thematic focus (repatriation, trafficking, armed conflict, etc.)
+2. **Identify audience** — legal advisors, policy makers, enforcement officials, or repatriation advocates
+3. **Gather sources** — case decisions, legislative texts, treaty updates; conduct independent research if none provided
 
-## Output Structure
+## Workflow
 
-### 1. Executive Overview (½–1 page)
+### Step 1: Executive Overview
+
+Open with a ½–1 page summary:
 - 3–5 most significant developments in the period
 - Jurisdictional snapshot (international / regional / national)
-- Flagged emerging conflicts or trends requiring immediate attention
+- Emerging conflicts or trends requiring immediate attention
 
-### 2. Thematic Sections
+### Step 2: Thematic Sections
 
-| Section | Coverage |
+Include only sections with material developments:
+
+| Section | Scope |
 |---|---|
-| **Repatriation & Restitution** | Court decisions and diplomatic agreements on artifact returns; provenance disputes; good-faith purchaser conflicts |
-| **Armed Conflict & Emergency Protection** | 1954 Hague Convention enforcement; UNSC resolutions; prosecution of cultural property destruction as war crime |
-| **Illicit Trafficking & Enforcement** | Criminal prosecutions; customs seizures; import/export controls; market-state vs. source-state disputes |
-| **Underwater Cultural Heritage** | 2001 UNESCO Convention application; salvage law conflicts; maritime jurisdiction disputes |
-| **Intangible Cultural Heritage** | 2003 UNESCO Convention developments; traditional knowledge protections; IP interface |
-| **Indigenous Cultural Rights** | UNDRIP applications; NAGPRA enforcement (U.S.) [VERIFY recent amendments]; indigenous patrimony claims |
-| **Legislative & Regulatory Updates** | New statutes, amendments, administrative regulations at international / regional / national level |
+| Repatriation & Restitution | Artifact return decisions; provenance disputes; good-faith purchaser conflicts |
+| Armed Conflict & Emergency | 1954 Hague Convention enforcement; UNSC resolutions; destruction as war crime |
+| Illicit Trafficking | Prosecutions; customs seizures; import/export controls; market-state vs. source-state |
+| Underwater Heritage | 2001 UNESCO Convention; salvage law conflicts; maritime jurisdiction |
+| Intangible Cultural Heritage | 2003 UNESCO Convention; traditional knowledge; IP interface |
+| Indigenous Cultural Rights | UNDRIP applications; NAGPRA enforcement [VERIFY recent amendments]; patrimony claims |
+| Legislative & Regulatory | New statutes, amendments, administrative regulations |
 
-### 3. Case Entries (per decision)
+### Step 3: Case Entries
 
-```
-Case: [Style]
-Court/Tribunal: | Date: | Jurisdiction:
-Heritage at Issue: [artifact / site / intangible property]
-Legal Framework: [UNESCO 1970 / Hague 1954 / UNIDROIT 1995 / national law]
-Key Question: 
-Holding:
-Practical Significance:
-Cross-Jurisdictional Note: [if decision may influence other systems]
-```
+Per decision, use this structure:
 
-### 4. Emerging Trends & Recommendations
-- Pattern analysis across multiple developments
-- Areas of anticipated future litigation or legislation
+- **Case** — style of cause
+- **Court/Tribunal** — name, date, jurisdiction
+- **Heritage at Issue** — artifact / site / intangible property
+- **Legal Framework** — UNESCO 1970 / Hague 1954 / UNIDROIT 1995 / national law
+- **Key Question** — central legal issue
+- **Holding** — court's determination
+- **Practical Significance** — impact on practice or policy
+- **Cross-Jurisdictional Note** — if decision may influence other systems
+
+### Step 4: Trends & Recommendations
+
+- Pattern analysis across developments
+- Anticipated litigation or legislation
 - Actionable recommendations for stakeholders
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Verify all citations** — flag any uncertain case citations or statutory references with `[VERIFY]`
-- **Date and source every entry** — decisions without confirmed dates/courts should be excluded or flagged
-- **Distinguish hard law from soft law** — clearly mark resolutions, guidelines, and model laws vs. binding instruments
-- **Note customary international law formation** — flag decisions or state practice that may contribute to emerging CIL
-- **Target length** — 3–7 pages depending on volume; executive overview always leads
-- **Do not conflate frameworks** — 1970 UNESCO (illicit trade), 1954 Hague (armed conflict), UNIDROIT 1995 (private law restitution), and 2001 UNESCO (underwater) have distinct scopes and are frequently misapplied
-- **Climate/development pressures** — note when heritage destruction arises from development, extractive industry, or climate events rather than deliberate trafficking
+- **Flag uncertain citations** with `[VERIFY]` — exclude decisions lacking confirmed dates or courts
+- **Do not conflate frameworks** — each has a distinct scope:
+  - 1970 UNESCO → illicit trade
+  - 1954 Hague → armed conflict
+  - UNIDROIT 1995 → private law restitution
+  - 2001 UNESCO → underwater heritage
+- **Distinguish hard law from soft law** — mark resolutions, guidelines, and model laws vs. binding instruments
+- **Flag CIL formation** — note decisions or state practice contributing to emerging customary international law
+- **Non-trafficking destruction** — capture heritage loss from development, extractive industry, or climate events
+- **Target length** — 3–7 pages; executive overview always leads

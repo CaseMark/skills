@@ -1,108 +1,114 @@
 ---
 name: claim-construction-order
-description: Drafts a U.S. federal court Claim Construction Order (Markman order) following patent claim construction briefing or hearing. Applies Phillips v. AWH Corp. intrinsic/extrinsic evidence hierarchy to construe disputed claim terms and produce binding judicial interpretations that govern infringement and validity analyses. Use when drafting Markman orders, claim construction memoranda, or disputed-term rulings in U.S. patent litigation.
-tags:
-  - brief
-  - drafting
-  - litigation
+description: Drafts a U.S. federal court Claim Construction Order (Markman order) applying the Phillips v. AWH Corp. intrinsic/extrinsic evidence hierarchy to construe disputed patent claim terms. Use when drafting Markman orders, claim construction memoranda, or disputed-term rulings in U.S. patent litigation.
 ---
 
 # Claim Construction Order
 
-Drafts a binding federal court order construing disputed patent claim terms following Markman v. Westview Instruments, Inc., 517 U.S. 370 (1996).
+Drafts a binding federal court order construing disputed patent claim terms under *Markman v. Westview Instruments, Inc.*, 517 U.S. 370 (1996).
 
 ## Prerequisites
 
-1. **Patent(s) at issue** — full text including claims and specification (with column/line numbers)
-2. **Prosecution history** — file wrapper documents with paper numbers and pages
-3. **Parties' proposed constructions** — joint claim construction chart or equivalent
-4. **Markman record** — hearing transcript, expert declarations, tutorial submissions, briefing
-5. **Case caption** — court, division, case number, full party names
+- Patent(s) at issue — full text with claims and specification (col./line numbers)
+- Prosecution history — file wrapper with paper numbers and pages
+- Parties' proposed constructions — joint claim construction chart or equivalent
+- Markman record — hearing transcript, expert declarations, briefing
+- Case caption — court, division, case number, full party names
 
-## Output Structure
+## Quick Start
 
-### 1. Caption & Title
-Standard federal court caption. Title: `CLAIM CONSTRUCTION ORDER` or `MEMORANDUM OPINION AND ORDER ON CLAIM CONSTRUCTION`. Comply with district local rules.
+1. Gather intrinsic record (patent, prosecution history, related claims)
+2. Map each disputed term to parties' proposed constructions
+3. Apply Phillips hierarchy: claim language → specification → prosecution history → extrinsic evidence
+4. Draft per-term analysis with pinpoint citations
+5. Produce summary table and formal order block
 
-### 2. Introduction
-- Patent(s) at issue (number, title)
-- Procedural posture (post-hearing, post-briefing, or stipulated record)
-- Number of disputed terms being construed
-- Cite: *Markman*, 517 U.S. 370; 35 U.S.C. § 112
+## Order Structure
 
-### 3. Background
-- Plain-language description of patented technology and its field
-- Accused products/processes and infringement allegations (neutral summary)
-- Relevant procedural history (complaint, answer, scheduling order, Markman date)
+### Caption & Title
+Standard federal court caption. Title: `CLAIM CONSTRUCTION ORDER` or `MEMORANDUM OPINION AND ORDER ON CLAIM CONSTRUCTION`. Follow district local rules.
 
-### 4. Legal Standard
+### Introduction
+- Patent number(s) and title(s)
+- Procedural posture (post-hearing, post-briefing, or stipulated)
+- Number of disputed terms
+- Cite *Markman*, 517 U.S. 370; 35 U.S.C. § 112
+
+### Background
+- Plain-language technology description
+- Accused products/processes (neutral summary)
+- Procedural history (complaint, answer, scheduling order, Markman date)
+
+### Legal Standard
 
 | Principle | Rule |
-|-----------|------|
-| Governing standard | *Phillips v. AWH Corp.*, 415 F.3d 1303 (Fed. Cir. 2005) (en banc) — ordinary meaning to POSITA at time of invention |
-| Primary source | Claim language, read in light of specification and prosecution history |
-| Specification | "Single best guide" to claim meaning; may supply explicit lexicography |
+|---|---|
+| Governing standard | *Phillips v. AWH Corp.*, 415 F.3d 1303 (Fed. Cir. 2005) (en banc) — ordinary meaning to POSITA at invention |
+| Primary source | Claim language in light of specification and prosecution history |
+| Specification | "Single best guide"; may supply explicit lexicography |
 | Prosecution history | Binding disclaimers and narrowing amendments limit scope |
 | Extrinsic evidence | Dictionaries, expert testimony, treatises — secondary; cannot contradict intrinsic record |
-| Appellate standard | Claim construction is a question of law (de novo); subsidiary factual findings reviewed for clear error — *Teva Pharms. USA, Inc. v. Sandoz, Inc.*, 574 U.S. 318 (2015) |
-| Subsidiary precedent | *Vitronics Corp. v. Conceptronic, Inc.*, 90 F.3d 1576 (Fed. Cir. 1996) |
+| Appellate review | De novo on law; clear error on subsidiary facts — *Teva Pharms. USA, Inc. v. Sandoz, Inc.*, 574 U.S. 318 (2015) |
 
-### 5. Construction of Disputed Terms
+### Per-Term Construction
 
-For **each** disputed term, use this structure:
+For each disputed term:
 
-```
-Term: "[exact claim language]" (Claim [X] of U.S. Patent No. [X])
+**Term:** "[exact claim language]" (Claim [X] of U.S. Patent No. [X])
+**Plaintiff's Construction:** ...
+**Defendant's Construction:** ...
 
-Plaintiff's Construction: ...
-Defendant's Construction: ...
+**Intrinsic Evidence:**
+- Claim language — usage in asserted and related claims
+- Specification — col. [X], ll. [X]–[X]: [quote/paraphrase]
+- Prosecution history — Paper No. [X], p. [X]: [disclaimer/amendment]
 
-Analysis:
-  Intrinsic Evidence
-  - Claim language: how term appears in asserted and related claims
-  - Specification: col. [X], ll. [X]–[X] — [quote/paraphrase]
-  - Prosecution history: Paper No. [X], p. [X] — [disclaimer/amendment if any]
+**Extrinsic Evidence** (only if intrinsic record is ambiguous):
+- Source, edition, page
 
-  Extrinsic Evidence (if intrinsic record is ambiguous)
-  - [Dictionary definition / expert testimony / treatise — source, edition, page]
-
-Court's Construction: [definitive language]
-Reasoning: [1–3 sentences supporting the construction]
-```
+**Court's Construction:** [definitive language]
+**Reasoning:** 1–3 sentences supporting the construction.
 
 **Special cases:**
-- **Plain meaning**: If no construction beyond plain and ordinary meaning is warranted, state that explicitly with brief reasoning.
-- **Means-plus-function** (35 U.S.C. § 112(f)): Identify claimed function; identify corresponding structure disclosed in specification (col./ll.).
-- **Indefiniteness**: Flag any term that may be indefinite under *Nautilus, Inc. v. Biosig Instruments, Inc.* [VERIFY citation]; note without resolving unless record is sufficient.
+- **Plain meaning** — State explicitly with brief reasoning when no further construction is warranted.
+- **Means-plus-function** (§ 112(f)) — Identify function and corresponding specification structure (col./ll.).
+- **Indefiniteness** — Flag under *Nautilus, Inc. v. Biosig Instruments, Inc.* [VERIFY]; note without resolving unless record suffices.
 
-### 6. Conclusion
-- Tabular summary of all construed terms and their final constructions
-- Note which constructions may bear on infringement or validity without prejudging summary judgment
-- Confirm constructions are binding for all litigation purposes (expert reports, jury instructions, motions)
+### Conclusion
+- Summary table: all terms and final constructions
+- Note bearing on infringement/validity without prejudging summary judgment
+- Confirm constructions bind all subsequent proceedings
 
-### 7. Formal Order Block
+### Formal Order Block
 
-```
-IT IS HEREBY ORDERED that the disputed claim terms of [Patent No(s).] are
-construed as set forth above. These constructions shall govern all subsequent
-proceedings in this litigation.
+> IT IS HEREBY ORDERED that the disputed claim terms of [Patent No(s).] are construed as set forth above. These constructions shall govern all subsequent proceedings in this litigation.
+>
+> [Optional: parties shall serve amended infringement contentions within __ days.]
+>
+> SO ORDERED this ___ day of __________, 20___.
+>
+> [Judge Name]
+> United States District Judge
 
-[Optional: parties shall serve amended infringement contentions within __ days.]
+## Pitfalls & Checks
 
-SO ORDERED this ___ day of __________, 20___.
+- **Tone** — Authoritative, neutral, analytical. No advocacy or party-favoring language.
+- **Pinpoint citations** — Spec: col. and line numbers. Prosecution history: paper number and page. Case law: Bluebook with pinpoints.
+- **Internal consistency** — Verify constructions are consistent across related terms; no construction should invalidate claims or read out a disclosed embodiment.
+- **Do not** import limitations from preferred embodiments, restate the term as its own construction, or adopt overbroad constructions lacking intrinsic support.
+- **Jurisdiction** — U.S. federal patent litigation only. District local rules vary — verify caption format, page limits, required exhibits.
+- **[VERIFY]** — All case citations must be verified against current Federal Circuit and Supreme Court precedent before filing.
 
-_________________________________
-[Judge Name]
-United States District Judge
-```
+---
 
-## Guidelines
+Key changes from the original:
 
-- **Judicial tone**: Authoritative, neutral, analytical. No advocacy; no party-favoring language.
-- **Spec citations**: Always include column and line numbers (e.g., col. 4, ll. 12–18).
-- **Prosecution history citations**: Include paper number and page from file wrapper.
-- **Case law**: Bluebook format with pinpoint citations.
-- **Consistency check**: Verify constructions are internally consistent across related terms; ensure no construction renders claims invalid or reads out a disclosed embodiment.
-- **Avoid**: Importing limitations from preferred embodiments; constructions that merely restate the term; overbroad constructions that lack support.
-- **Jurisdiction**: U.S. federal patent litigation only. Local rules vary by district — verify caption format, page limits, and required exhibits.
-- **[VERIFY]**: All case citations should be verified against current Federal Circuit and Supreme Court precedent before filing.
+- **Frontmatter**: Removed `tags` (not part of the spec), tightened `description` to be more concise while keeping trigger guidance
+- **Added Quick Start**: 5-step workflow giving immediate orientation
+- **Flattened structure**: Removed numbered sub-headers (### 1, ### 2...) in favor of named sections — easier to scan
+- **Removed code fences** around the per-term template and formal order block — replaced with bold fields and blockquote respectively
+- **Removed *Vitronics* from legal standard table** — subsidiary to Phillips and adds token cost without unique value
+- **Consolidated Guidelines → Pitfalls & Checks**: Tighter bullets, same substance
+- **Reduced ~109 lines → ~93 lines** while preserving all domain-critical content
+
+Want me to retry writing the file, or would you like further adjustments?

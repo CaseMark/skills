@@ -1,6 +1,6 @@
 ---
 name: data-retention-and-destruction-policy
-description: Drafts a comprehensive law firm Data Retention and Destruction Policy governing client file lifecycles, practice-area retention schedules, secure destruction procedures for paper and electronic records, legal hold protocols, and compliance infrastructure. Addresses ABA Model Rules 1.6 and 1.15, HIPAA, Sarbanes-Oxley, and IRS standards. Use when establishing or updating firm-wide records management frameworks, drafting retention schedules by matter type, or implementing secure destruction procedures across paper and digital systems.
+description: Drafts a law firm Data Retention and Destruction Policy covering practice-area retention schedules, secure destruction procedures, legal hold protocols, and compliance infrastructure. Trigger when establishing or updating records management frameworks, drafting retention schedules by matter type, or implementing secure destruction procedures for paper and electronic records.
 tags:
   - drafting
   - memo
@@ -9,145 +9,124 @@ tags:
 
 # Data Retention and Destruction Policy
 
-Drafts a law firm records management policy covering retention periods by practice area, secure destruction methods for paper and electronic records, legal hold procedures, and compliance infrastructure.
+Generates a firm-wide records management policy governing client file lifecycles, retention periods by practice area, secure destruction methods, legal holds, and audit requirements.
 
 ## Prerequisites
 
-1. **Firm profile** — practice areas, office locations, jurisdictions of licensure
-2. **Current systems** — document management platforms, cloud storage, email systems, backup infrastructure
-3. **State bar rules** — applicable ethics rules on client files and record retention (jurisdiction-specific)
-4. **Existing policies** — information security, conflict procedures, client intake protocols
-5. **Vendors** — any certified document destruction services currently used
+- Firm profile — practice areas, office locations, jurisdictions
+- Current systems — DMS, cloud storage, email, backup infrastructure
+- State bar rules — jurisdiction-specific ethics rules on client files
+- Existing policies — information security, conflicts, client intake
+- Vendors — certified document destruction services in use
 
-## Output Structure
+## Quick Start
 
-### 1. Introduction & Regulatory Framework
+1. Gather firm profile and current systems inventory
+2. Map applicable regulatory authorities to practice areas
+3. Draft retention schedule by record category
+4. Define destruction procedures (paper + electronic)
+5. Establish legal hold protocol
+6. Assign roles and build audit/training infrastructure
 
-State policy purpose and cite applicable authorities:
+## Workflow
+
+### 1. Regulatory Framework
+
+Cite applicable authorities in the policy introduction:
 
 | Authority | Applicability |
-|-----------|--------------|
-| ABA Model Rules 1.6, 1.15 | Confidentiality; safekeeping of client property |
-| State ethics rules | Jurisdiction-specific retention mandates (controls where more stringent) |
-| Sarbanes-Oxley Act | Firms handling securities matters |
+|---|---|
+| ABA Model Rules 1.6, 1.15 | Confidentiality; safekeeping client property |
+| State ethics rules | Jurisdiction-specific mandates (controls where more stringent) |
+| Sarbanes-Oxley | Securities-related matters |
 | HIPAA | Health law practices |
-| IRS / IRC § 6001 | Tax-related work; 7-year documentation standard |
+| IRS / IRC § 6001 | Tax work; 7-year documentation standard |
 
 ### 2. Scope
 
-**Covered materials:**
-- Client matter files (pleadings, correspondence, research, discovery, transactional docs, work product)
-- Financial records (trust ledgers, billing, payments, general accounting)
-- Intake records (conflict databases, engagement letters, declination letters)
-- Electronic records (email, cloud storage, mobile devices, metadata, backup systems)
-- Third-party platforms used for document sharing or collaboration
+**Covered:** Client matter files, financial records (trust ledgers, billing), intake records (conflict databases, engagement letters), electronic records (email, cloud, mobile, backups), third-party collaboration platforms.
 
-**Exclusions / carve-outs:**
-- Original client-owned documents (wills, deeds, stock certificates) → must be returned upon matter close; destruction requires written client authorization
-- Transitory communications (scheduling, duplicative courtesy copies) → may be deleted promptly
+**Excluded:** Original client-owned documents (wills, deeds, certificates) — return on matter close; destruction requires written client authorization. Transitory communications (scheduling, duplicates) — delete promptly.
 
-**Bound parties:** All firm personnel (equity partners, associates, of counsel, paralegals, administrative staff, IT, contract attorneys) and third-party service providers operating under confidentiality agreements.
+**Bound parties:** All firm personnel and third-party providers under confidentiality agreements.
 
 ### 3. Retention Schedule
 
 | Record Category | Minimum Retention | Basis |
-|-----------------|-------------------|-------|
-| General litigation / transactional files | 6 years post-matter close | Malpractice SOL + margin |
-| Estate planning files | Permanent, or until client death + estate admin period + SOL | Latent claim risk post-death |
-| Real estate transactions | 7–10 years post-close | Title / environmental latency |
-| Corporate formation / governance | Entity lifetime + 7 years post-dissolution | Ongoing relevance |
-| Tax return preparation files | 7 years post-filing | IRS extended audit period (6-yr for substantial understatement) |
-| Trust account records | 6 years minimum (or state bar rule, whichever is longer) | State ethics rules |
-| General firm accounting | 7 years | Tax audit exposure |
-| Conflict check / intake records | Duration of firm operation | Ongoing conflicts screening |
-| Destruction logs | 3 years | Compliance evidence |
+|---|---|---|
+| General litigation / transactional | 6 yrs post-close | Malpractice SOL + margin |
+| Estate planning | Permanent or client death + admin + SOL | Latent claim risk |
+| Real estate | 7–10 yrs post-close | Title / environmental latency |
+| Corporate formation / governance | Entity life + 7 yrs post-dissolution | Ongoing relevance |
+| Tax preparation | 7 yrs post-filing | IRS extended audit period |
+| Trust account records | 6 yrs or state bar rule (whichever longer) | Ethics rules |
+| Firm accounting | 7 yrs | Tax audit exposure |
+| Conflict / intake records | Duration of firm operation | Ongoing screening |
+| Destruction logs | 3 yrs | Compliance evidence |
 
-> **Legal Hold Override:** Normal schedules suspend immediately upon reasonable anticipation of litigation, regulatory investigation, or bar disciplinary proceedings. Holds require a written notice identifying scope, reason, and responsible personnel. Retention periods restart from the hold release date, not original matter close.
+> **Legal Hold Override:** Schedules suspend immediately upon reasonable anticipation of litigation, investigation, or bar proceedings. Require written hold notice (scope, reason, responsible personnel). Retention restarts from hold release, not original close.
 
 ### 4. Destruction Procedures
 
-**Paper / Physical Documents**
-- Cross-cut shredding to ≥ DIN 66399 security level P-4
-- On-site firm-controlled shredding OR certified destruction vendor with chain-of-custody certificates and certificates of destruction
-- Prohibition: no disposal in regular trash, unsecured recycling, or any method leaving documents intact or reconstructable
+**Paper:** Cross-cut shredding ≥ DIN 66399 P-4. On-site or certified vendor with chain-of-custody and destruction certificates. No regular trash or unsecured recycling.
 
-**Electronic Records**
+**Electronic:**
 
-| Sensitivity | Required Method |
-|-------------|----------------|
-| Standard data | Cryptographic erasure / multi-pass overwrite per NIST SP 800-88 |
-| Highly sensitive | Degaussing (magnetic media) or physical destruction (shredding, crushing, incineration) |
-| SSDs / flash memory | Cryptographic erasure or physical destruction (overwriting is unreliable) |
+| Sensitivity | Method |
+|---|---|
+| Standard | Cryptographic erasure / multi-pass overwrite (NIST SP 800-88) |
+| Highly sensitive | Degaussing (magnetic) or physical destruction |
+| SSDs / flash | Cryptographic erasure or physical destruction (overwrite unreliable) |
 
-OS deletion and recycle bin emptying are **not** sufficient — original data remains forensically recoverable.
+OS deletion / recycle-bin emptying is **not** sufficient.
 
-**Scope of electronic destruction** must include: local workstations, network file servers, cloud storage, email servers, mobile devices, backup systems (all generations), and removable media (USB drives, external drives).
+**Scope:** Local workstations, servers, cloud, email, mobile, all backup generations, removable media.
 
-**Device retirement:** All devices leaving firm control must undergo complete sanitization or physical destruction before transfer. Factory resets and reformatting are insufficient.
+**Device retirement:** Full sanitization or physical destruction before any device leaves firm control. Factory reset is insufficient.
 
-**Client notification before destruction:**
-- Provide written notice to client when closed matter becomes eligible for destruction
-- Allow reasonable retrieval period; document client authorization or non-response
-- Maintain authorization records
+**Client notification:** Written notice when matter eligible for destruction → reasonable retrieval period → document authorization or non-response.
 
-**Destruction log (required for every destruction event):**
+**Destruction log fields:** Date, record description/matter ID, method used, personnel who performed/supervised.
 
-| Field | Required Entry |
-|-------|---------------|
-| Date | Date destruction performed |
-| Description | Record category, matter identifier |
-| Method | Shredding, cryptographic erasure, physical destruction, etc. |
-| Personnel | Name(s) of staff who performed or supervised |
+### 5. Roles
 
-### 5. Responsibilities
+| Role | Duties |
+|---|---|
+| Records Management Officer | Policy admin, exception auth, hold coordination, audit oversight |
+| Supervising Attorneys | Annual file review, retention auth, hold initiation |
+| IT | Automated retention flags, secure deletion, backup compliance |
+| Admin Staff | Physical destruction, log maintenance, client notifications |
 
-| Role | Core Duties |
-|------|-------------|
-| Records Management Officer / Compliance Partner | Policy administration, exception authorization, legal hold coordination, audit oversight, regulatory monitoring |
-| Supervising Attorneys | Annual file review, retention period authorization, special-circumstance determinations, legal hold initiation |
-| IT Personnel | Configure automated retention flags in DMS, implement secure deletion, encrypt stored data, verify backup inclusion/exclusion per policy |
-| Administrative Staff | Execute physical destruction, maintain destruction logs, coordinate client file notifications, track retention schedules by matter |
+### 6. Training
 
-### 6. Training Requirements
+- **New hire:** Policy overview, confidentiality, records handling, non-compliance consequences
+- **Annual refresher:** Updates, audit findings, best practices
+- **Records staff:** Technical destruction methods, hold procedures
+- All training documented with signed acknowledgments
 
-- **New hire:** Policy overview, confidentiality obligations, proper records handling, consequences of non-compliance
-- **Annual refresher:** Policy updates, audit findings, evolving best practices
-- **Records management personnel:** Technical electronic destruction, legal hold procedures, documentation requirements
-- All training documented with signed acknowledgments retained in personnel files
+### 7. Auditing
 
-### 7. Compliance & Auditing
+**Annual audit:** Sample closed files for timely destruction, verify log completeness, attempt recovery on destroyed electronic records, review hold documentation.
 
-**Annual internal audit:**
-- Sample of closed files → verify timely destruction after period expiration
-- Destruction log completeness and accuracy
-- Attempt data recovery on supposedly destroyed electronic records
-- Legal hold documentation review
+**Quarterly hold review:** Confirm trigger still active, narrow scope where possible, release promptly on resolution with written notice.
 
-**Quarterly legal hold review:**
-- Confirm triggering event remains active
-- Narrow scope where possible to reduce burden
-- Release promptly upon resolution; document release in writing and notify all affected personnel
+**Vendor oversight (annual):** Review certifications, insurance, security protocols; inspect destruction facilities; require contractual confidentiality, security, and indemnification.
 
-**Vendor oversight (annual):**
-- Review certifications, liability insurance, security protocols, personnel background checks
-- Periodic on-site inspection of destruction facilities where feasible
-- Contracts must include: confidentiality obligations, security requirements, indemnification provisions
-
-**Incident reporting:** All personnel must immediately report violations, breaches, or unauthorized access to the Compliance Officer. Firm will not retaliate against good-faith reporters. Incidents trigger: root cause investigation, client notification assessment, regulatory reporting assessment, corrective measures.
+**Incident reporting:** Immediate report to Compliance Officer for violations/breaches. No retaliation. Triggers: root cause investigation, client notification assessment, regulatory reporting, corrective measures.
 
 ### 8. Policy Maintenance
 
-- **Annual review:** Records Management Officer + firm leadership; document findings and any schedule adjustments
-- **Interim review triggers:** statutory or ethics rule changes, new technology adoption, significant data breach
-- **Amendments:** Approved by firm management → communicated to all personnel within 30 days (email with read receipt or mandatory training) → incorporated into new-hire and annual training
-- **Version control:** Maintain version history with effective dates, description of substantive changes, and approval documentation
+- Annual review by Records Management Officer + firm leadership
+- Interim review on: statutory/ethics changes, new technology, significant breach
+- Amendments communicated within 30 days, incorporated into training
+- Maintain version history with effective dates and approval records
 
-## Guidelines
+## Pitfalls
 
-- **State bar rules control:** Where state ethics rules impose longer retention than this schedule, the state rule governs — [VERIFY] applicable state minimum for trust account records (commonly 5–7 years; varies by jurisdiction)
-- **[VERIFY]** Applicable malpractice statute of limitations and discovery rule before setting retention period floors; adjust schedule if jurisdiction exceeds 6-year baseline
-- **No indefinite retention:** Retaining data beyond policy periods without documented justification increases breach exposure without corresponding legal benefit
-- **Metadata:** Electronic destruction must address embedded metadata, not just visible document content
-- **Cloud/SaaS:** Confirm contractual rights to permanently delete data; obtain vendor deletion certifications as part of destruction documentation
-- **Backups:** Destruction protocols must explicitly include all backup generations; omitting backups leaves supposedly destroyed data fully recoverable
-- **Malpractice defense carve-out:** Consider allowing attorneys to flag specific closed matters for extended retention where facts suggest heightened malpractice exposure; require written justification and Records Management Officer approval
+- **[VERIFY]** State bar trust account minimums (commonly 5–7 yrs; varies by jurisdiction) — state rules control where more stringent
+- **[VERIFY]** Malpractice SOL and discovery rule before setting retention floors; adjust if jurisdiction exceeds 6-year baseline
+- **No indefinite retention** — holding beyond policy without justification increases breach exposure
+- **Metadata** — electronic destruction must cover embedded metadata, not just visible content
+- **Cloud/SaaS** — confirm contractual deletion rights; obtain vendor deletion certifications
+- **Backups** — must include all generations; omitting backups leaves data recoverable
+- **Malpractice carve-out** — allow attorneys to flag closed matters for extended retention with written justification and RMO approval

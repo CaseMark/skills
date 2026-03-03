@@ -1,6 +1,6 @@
 ---
 name: interrogatory-response-summaries
-description: Generates structured summaries of interrogatory responses from discovery documents in commercial litigation. Extracts key facts, objections, evasions, patterns, and inconsistencies per interrogatory to support deposition prep, follow-up discovery, and motion practice — without requiring re-review of full response sets. Use when analyzing opposing party interrogatory answers, spotting discovery gaps, or preparing for depositions.
+description: Generates structured summaries of interrogatory responses in commercial litigation, extracting key facts, objections, evasions, patterns, and inconsistencies per interrogatory. Use when analyzing opposing party interrogatory answers, spotting discovery gaps, or preparing for depositions.
 tags:
   - analysis
   - litigation
@@ -10,65 +10,74 @@ tags:
 
 # Interrogatory Response Summaries
 
-Produces a structured analytical summary of interrogatory responses to support discovery strategy, deposition preparation, and motion practice.
+Structured analysis of interrogatory responses to support discovery strategy, deposition prep, and motion practice.
 
-## Prerequisites
+## Required Inputs
 
 1. **Interrogatory responses** — full response set from opposing party (PDF or text)
-2. **Original interrogatories** — the propounded questions, if available separately
-3. **Supplemental context** (optional) — prior discovery materials, prior statements, or court orders relevant to the responses
+2. **Original interrogatories** — propounded questions, if available separately
+3. **Supplemental context** (optional) — prior discovery, prior statements, or relevant court orders
 
-## Output Structure
+## Workflow
 
-### Part 1: Per-Interrogatory Summary Table
+### Step 1: Per-Interrogatory Summary Table
 
-For each interrogatory, produce a row in this format:
+For each interrogatory, produce a row:
 
-| # | Question (condensed) | Response Type | Key Facts Disclosed | Objections | Gaps / Evasions | Follow-Up Needed |
-|---|----------------------|---------------|--------------------|-----------:|-----------------|-----------------|
-| 1 | … | Substantive / Objection only / Mixed / Referral to docs / No knowledge | Names, dates, amounts, locations | Privilege / Relevance / Overbroad / etc. | Deflections, non-answers | Yes/No + note |
+| # | Question (condensed) | Response Type | Key Facts | Objections | Gaps/Evasions | Follow-Up Needed |
+|---|----------------------|---------------|-----------|------------|---------------|------------------|
+| 1 | ... | See types below | Names, dates, amounts, locations | Privilege / Relevance / Overbroad / etc. | Deflections, non-answers | Yes/No + note |
 
-**Response type definitions:**
+**Response types:**
 - **Substantive** — direct factual answer
-- **Mixed** — objection followed by partial answer
-- **Referral** — answer directed to document production (note Bates range if available)
-- **No knowledge** — responding party claims lack of knowledge or information
+- **Mixed** — objection + partial answer (summarize each independently; do not merge)
+- **Referral** — directed to document production (note Bates range if available)
+- **No knowledge** — responding party disclaims knowledge
 - **Objection only** — no substantive answer provided
 
-### Part 2: Pattern Analysis
+### Step 2: Pattern Analysis
 
 Identify recurring patterns across all responses:
 
-- **Repeated objections** — same basis asserted across multiple interrogatories (e.g., privilege log issues, overbreadth boilerplate)
-- **Blanket no-knowledge claims** — topics where responding party systematically disclaimed knowledge
-- **Referral clusters** — interrogatories redirected to document production without further answer
-- **Detailed responses** — areas where responding party was unexpectedly forthcoming (may signal strategic framing)
-- **Discovery strategy signals** — inferred posture (e.g., stonewalling on damages, cooperative on liability)
+- **Repeated objections** — same basis across multiple interrogatories (e.g., boilerplate overbreadth, privilege log issues)
+- **Blanket no-knowledge claims** — systematic disclaimers on specific topics
+- **Referral clusters** — redirections to document production without further answer
+- **Detailed responses** — unexpectedly forthcoming areas (may signal strategic framing)
+- **Discovery posture signals** — inferred strategy (e.g., stonewalling on damages, cooperative on liability)
 
-### Part 3: Inconsistency & Risk Flags
+### Step 3: Inconsistency and Risk Flags
 
 | Interrogatory # | Issue | Conflicting Source | Significance |
 |-----------------|-------|--------------------|--------------|
-| … | Response conflicts with… | Prior deposition / produced doc / public record | High / Medium / Low |
+| ... | Response conflicts with... | Prior deposition / produced doc / public record | High / Medium / Low |
 
 Flag:
 - Internal inconsistencies between responses
 - Conflicts with produced documents or prior sworn statements
-- Responses that may violate discovery rules or court orders → note as **motion practice candidate**
+- Potential discovery rule or court order violations — note as **motion practice candidate**
 
-### Part 4: Follow-Up Discovery Checklist
+### Step 4: Follow-Up Discovery Checklist
 
-- [ ] Interrogatories warranting meet-and-confer (identify by number)
+- [ ] Interrogatories warranting meet-and-confer (by number)
 - [ ] Deposition topics surfaced by responses
-- [ ] Requests for production to pursue based on referrals or gaps
+- [ ] Requests for production based on referrals or gaps
 - [ ] Supplemental interrogatories to propound
 - [ ] Privilege log review triggers
 
-## Guidelines
+## Pitfalls and Checks
 
-- Preserve all source citations (document title, page/line) for each fact extracted — attorneys must be able to verify for motions and briefs
-- Do not characterize objections as waived unless the record clearly supports it; flag for attorney review instead
-- When a response combines objection + partial answer, summarize both independently — do not merge
-- Flag any response to a contention interrogatory separately; these carry heightened strategic weight
-- Note if the response set lacks a verification/signature page — potential waiver issue [VERIFY jurisdiction rule]
-- US federal default: 25 interrogatory limit per FRCP 33(a)(1); flag if propounded set exceeds limit without court order [VERIFY local rules]
+- Preserve all source citations (document title, page/line) — attorneys must verify for motions and briefs
+- Do not characterize objections as waived unless the record clearly supports it; flag for attorney review
+- Flag contention interrogatory responses separately — heightened strategic weight
+- Check for missing verification/signature page — potential waiver issue [VERIFY jurisdiction rule]
+- US federal default: 25-interrogatory limit per FRCP 33(a)(1); flag if set exceeds limit without court order [VERIFY local rules]
+
+---
+
+**Key changes:**
+- Trimmed the description to one sentence of context + one trigger sentence
+- Renamed "Prerequisites" → "Required Inputs" and "Output Structure" → "Workflow" with numbered steps for clearer progression
+- Consolidated "Guidelines" into a tighter "Pitfalls and Checks" section
+- Folded the "do not merge mixed responses" rule inline into the response type definition where it's most actionable
+- Removed the standalone "Part N:" labels in favor of "Step N:" for consistency with quick-start patterns
+- Tightened table headers and eliminated redundant prose throughout

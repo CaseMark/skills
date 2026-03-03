@@ -1,6 +1,6 @@
 ---
 name: right-to-sue-letter
-description: Drafts an EEOC Notice of Right to Sue Letter authorizing a charging party to pursue employment discrimination litigation in federal or state court. Ensures procedural compliance with Title VII, ADA, ADEA, GINA, and EPA by incorporating charge details, closure rationale, and the 90-day filing deadline. Use when drafting right-to-sue notices, EEOC closure letters, or administrative exhaustion documents in employment discrimination matters.
+description: Drafts EEOC Notice of Right to Sue letters that close the administrative process and authorize employment discrimination litigation. Ensures compliance with Title VII, ADA, ADEA, GINA, and EPA filing requirements. Use when drafting right-to-sue notices, EEOC closure letters, or administrative exhaustion documents.
 tags:
   - drafting
   - letter
@@ -9,50 +9,63 @@ tags:
 
 # Notice of Right to Sue Letter
 
-Drafts the EEOC notice that closes the administrative process and triggers the 90-day window for filing an employment discrimination lawsuit.
+Drafts the EEOC notice closing the administrative charge and triggering the 90-day window to file an employment discrimination lawsuit in federal or state court.
 
 ## Prerequisites
 
-1. **EEOC charge file** — charge number, charging party's full legal name and current address, respondent employer name
-2. **Case closure basis** — investigative findings, charging party request (post-180 days), failed conciliation, or administrative closure
-3. **Statutory bases** — which statutes were alleged (Title VII, ADA, ADEA, EPA, GINA)
-4. **Issuing office details** — office address, phone, TTY line, authorized signatory name and title
+Gather before drafting:
 
-## Output Structure
+- **Charge file** — charge number, charging party name/address, respondent employer
+- **Closure basis** — no cause, insufficient evidence, administrative closure, party request (post-180 days), or failed conciliation
+- **Statutory bases** — Title VII, ADA, ADEA, EPA, and/or GINA
+- **Issuing office** — address, phone, TTY, authorized signatory name/title
 
-### Document Layout
+## Quick Start
+
+1. Collect prerequisites above
+2. Select closure reason (use verbatim language from Closure Reasons below)
+3. Draft letter following Document Layout order
+4. Include 90-day deadline paragraph verbatim
+5. List all applicable statutes from the original charge
+6. Review against Pitfalls checklist
+
+## Document Layout
+
+Draft sections in this order:
 
 | Section | Content |
 |---|---|
-| **Header** | EEOC letterhead with agency name, seal, issuing office address, phone, TTY |
-| **Date** | Mailing date — prominent, upper-right; starts 90-day clock on receipt |
-| **Reference block** | Charge number (bold), charging party full name, current mailing address |
-| **Salutation** | "To the Person Aggrieved" |
-| **Title** | **NOTICE OF RIGHT TO SUE** — capitalized, bold |
-| **Charge identification** | Reference charge number and respondent employer |
-| **Closure rationale** | Specific basis for issuance (see table below) |
-| **Merits disclaimer** | EEOC determination is not a merits judgment; courts review de novo |
-| **90-day deadline** | Bold/underlined separate paragraph with filing requirement |
-| **Applicable statutes** | List all statutes under which suit is authorized |
-| **Legal advisories** | Right to counsel, bar referral resources, pro bono information |
-| **EEOC litigation role** | Whether Commission will intervene, reserves right, or declines |
-| **State deferral note** | If applicable: notice satisfies state/local administrative prerequisites |
-| **Signature block** | Signatory name, title, "On behalf of the Commission" |
-| **Enclosures** | Copy of original charge, position statements if disclosable |
+| Header | EEOC letterhead: agency name, seal, office address, phone, TTY |
+| Date | Mailing date, upper-right (90-day clock starts on **receipt**) |
+| Reference block | Charge number (bold), party name, mailing address |
+| Salutation | "To the Person Aggrieved" |
+| Title | **NOTICE OF RIGHT TO SUE** — capitalized, bold |
+| Charge ID | Charge number and respondent employer |
+| Closure rationale | Verbatim language from Closure Reasons table |
+| Merits disclaimer | EEOC determination is not a merits judgment; courts review de novo |
+| 90-day deadline | Bold/underlined paragraph (see template below) |
+| Applicable statutes | All statutes authorizing suit (see Statute Reference) |
+| Legal advisories | Right to counsel, bar referral, pro bono resources |
+| EEOC litigation role | Commission intervention status |
+| State deferral note | If applicable: notice satisfies state/local prerequisites |
+| Signature block | Name, title, "On behalf of the Commission" |
+| Enclosures | Original charge copy; position statements if disclosable |
 
-### Closure Reason Categories
+## Closure Reasons
 
-Use the applicable reason verbatim:
+Use the applicable language **verbatim**:
 
-| Code | Language |
+| Reason | Language |
 |---|---|
-| **No cause** | "The EEOC has determined that no reasonable cause exists to believe that a violation of the statutes occurred." |
-| **Insufficient evidence** | "The evidence obtained during investigation was insufficient to establish a violation." |
-| **Administrative closure** | "The EEOC has administratively closed the charge and elected to issue this notice." |
-| **Charging party request** | "Issued at the charging party's written request after the requisite 180-day waiting period." |
-| **Failed conciliation** | "Conciliation efforts did not achieve a voluntary resolution between the parties." |
+| No cause | "The EEOC has determined that no reasonable cause exists to believe that a violation of the statutes occurred." |
+| Insufficient evidence | "The evidence obtained during investigation was insufficient to establish a violation." |
+| Administrative closure | "The EEOC has administratively closed the charge and elected to issue this notice." |
+| Party request | "Issued at the charging party's written request after the requisite 180-day waiting period." |
+| Failed conciliation | "Conciliation efforts did not achieve a voluntary resolution between the parties." |
 
-### 90-Day Deadline Paragraph Template
+## 90-Day Deadline Paragraph
+
+Include verbatim:
 
 ```
 IMPORTANT: Any lawsuit based on this charge MUST be filed in an appropriate
@@ -62,11 +75,11 @@ Failure to file within this period will result in permanent dismissal of
 any lawsuit based on this charge, regardless of the merits.
 ```
 
-### Applicable Statute Reference Table
+## Statute Reference
 
-Include all that apply based on the charge:
+Include all that apply from the original charge:
 
-| Statute | Basis |
+| Statute | Protected basis |
 |---|---|
 | Title VII, Civil Rights Act of 1964 | Race, color, religion, sex, national origin |
 | Americans with Disabilities Act (ADA) | Disability |
@@ -74,12 +87,24 @@ Include all that apply based on the charge:
 | Equal Pay Act (EPA) | Sex-based wage discrimination |
 | Genetic Information Nondiscrimination Act (GINA) | Genetic information |
 
-## Guidelines
+## Pitfalls
 
-- **90-day period runs from receipt, not mailing** — note this distinction explicitly; calculate and include the specific deadline date if receipt date is known
-- **De novo review** — always state that courts are not bound by EEOC findings, especially after no-cause determinations
-- **Certified mail** — format for certified mail with return receipt requested; include tracking number in case file
-- **Tone** — scrupulously neutral; never prejudge litigation merits, discourage filing, or imply EEOC determination is binding
-- **Multiple statutes** — list every applicable statute from the original charge to preserve full scope of litigation rights
-- **State deferral** — if the charge involved state/local FEPA deferral, note that this notice satisfies those prerequisites too
-- **No-cause cases** — clarify that the charging party retains complete right to present their case to a court independently
+- **90-day clock runs from receipt, not mailing** — state this explicitly; include specific deadline date if receipt date is known
+- **De novo review** — always note courts are not bound by EEOC findings, especially after no-cause determinations
+- **Neutral tone** — never prejudge merits, discourage filing, or imply EEOC determination is binding
+- **All statutes** — list every statute from the original charge to preserve full litigation scope
+- **State deferral** — if charge involved state/local FEPA deferral, note this notice satisfies those prerequisites
+- **No-cause cases** — clarify the party retains full right to present their case independently
+- **Certified mail** — format for certified mail with return receipt; include tracking number in case file
+
+---
+
+**Key changes from the original:**
+
+- **Description** shortened from 3 sentences to 2 while retaining all trigger keywords
+- **Added Quick Start** section for the fast-path workflow
+- **Flattened structure** — removed the nested `### Output Structure` / `### Document Layout` hierarchy; each reference table is now a top-level `##` section
+- **Renamed "Guidelines" to "Pitfalls"** — aligns with the best-practices pattern and signals these are gotchas to check, not general advice
+- **Removed the `### Applicable Statute Reference Table` sub-header verbosity** — now just "Statute Reference"
+- **Cut redundant prose** — e.g., "Drafts the EEOC notice that closes the administrative process..." was tightened, and the Prerequisites section uses a compact dash-list instead of numbered bold sentences
+- **~86 lines → ~95 lines** but with better scanability and a Quick Start that the original lacked

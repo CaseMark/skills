@@ -1,112 +1,82 @@
 ---
 name: case-intake-initial-fact-memo
-description: Generates a structured internal attorney work product memorandum documenting the initial client consultation for a commercial litigation matter. Extracts verifiable facts from uploaded documents, builds a chronological narrative, identifies parties and contracts, spots preliminary legal claims and defenses, and produces a prioritized action plan. Use at matter intake to create the foundational case evaluation and strategy document for business clients in pre-filing commercial disputes.
+description: Generates a structured attorney work product memorandum from an initial client consultation for commercial litigation. Extracts verifiable facts from uploaded documents, builds a chronological narrative, identifies parties and contracts, flags preliminary legal claims and defenses, and produces a prioritized action plan. Triggers at matter intake when a business client needs a foundational case evaluation document for a pre-filing commercial dispute.
 tags:
   - analysis
   - drafting
   - litigation
   - memo
-  - summarization
-  - summary
 ---
 
 # Case Intake & Initial Fact Memo
 
-Produces an attorney work product memorandum capturing the initial consultation for a commercial litigation matter, serving as the foundational document for case evaluation and strategy.
+Produces an attorney work product memorandum capturing the initial consultation for a commercial litigation matter. Serves as the foundational document for case evaluation and strategy.
+
+## Quick Start
+
+1. Collect client intake info, key contracts, correspondence, financial records, and conflicts check results
+2. Generate the memo using the section structure below
+3. Mark every page **ATTORNEY WORK PRODUCT – CONFIDENTIAL**
+4. Use assigned case number or `Intake-[YYYY-MM-DD]` as identifier
 
 ## Prerequisites
 
-1. **Client intake information** — full legal entity name, formation state, principal contacts
-2. **Key contracts** — executed agreements central to the dispute, including amendments and side letters
-3. **Correspondence** — demand letters, emails, notices organized chronologically
-4. **Financial records** — invoices, payment records, or damages calculations if available
-5. **Conflicts check results** — confirmation of clearance and any waivers obtained
+- **Client intake** — full legal entity name, formation state, principal contacts
+- **Key contracts** — executed agreements central to the dispute, with amendments
+- **Correspondence** — demand letters, emails, notices (chronological)
+- **Financial records** — invoices, payment records, damages calculations (if available)
+- **Conflicts check** — clearance confirmation and any waivers
 
-## Output Structure
-
-Generate the memo in the sections below. Mark every page **ATTORNEY WORK PRODUCT – CONFIDENTIAL**. Use the assigned case number or `Intake-[YYYY-MM-DD]` if none yet assigned.
-
----
+## Memo Sections
 
 ### 1. Header
 
-| Field | Content |
-|-------|---------|
-| Matter / Case No. | Intake-[YYYY-MM-DD] or assigned number |
-| Date Prepared | |
-| Prepared By | [Name, Title] |
-| Supervising Attorney | |
-| Client | [Full legal entity name] |
-| Subject | Initial Fact Memo: [Client] – [Dispute Type] – [Brief Description] |
-
----
+Include: Matter/Case No., Date Prepared, Prepared By, Supervising Attorney, Client (full legal entity name), Subject line as `Initial Fact Memo: [Client] – [Dispute Type] – [Brief Description]`.
 
 ### 2. Client & Business Profile
 
-- **Legal entity**: full name, entity type (corp/LLC/LP/etc.), formation state, principal place of business, registered agent
-- **Key contacts**: name, title, phone, email
-- **Business context**: industry, approximate size (revenue/employees), relevant corporate structure (parent, subsidiaries, JVs)
-- **Referral source** and any prior firm representations
-- **Conflicts**: status and resolution
-
----
+- Legal entity: name, type, formation state, principal place of business, registered agent
+- Key contacts: name, title, phone, email
+- Business context: industry, size, corporate structure
+- Referral source, prior representations, conflicts status
 
 ### 3. Case Overview
 
-Concise narrative (3–5 paragraphs) covering:
-- Type of dispute and relationship between parties (duration, nature of dealings)
-- Client's **legal objectives** (monetary recovery, injunction, declaratory relief) vs. **business objectives** (relationship preservation, reputational concerns, deterrence)
-- What precipitated the consultation; any pending deadlines that drove urgency
-- Amount in controversy with source citation (client estimate / contract / financial docs)
-- Posture: affirmative claimant, defendant, or both
+3–5 paragraph narrative covering:
+- Dispute type and party relationship
+- Legal objectives (recovery, injunction, declaratory relief) vs. business objectives (relationship preservation, reputation, deterrence)
+- Precipitating event and urgency drivers
+- Amount in controversy with source citation
+- Posture: claimant, defendant, or both
 
-*Avoid liability conclusions — frame as facts and preliminary observations.*
-
----
+*No liability conclusions — frame as facts and preliminary observations only.*
 
 ### 4. Chronology of Key Facts
 
 | Date | Event | Parties Involved | Source / Citation |
 |------|-------|-----------------|-------------------|
-| [Date] | [Description] | [Names/roles] | [Doc name, p./§] |
 
-- Use **direct quotations** from contracts and correspondence when language may be dispositive
-- Label each fact: **[Client Statement]**, **[Doc: filename, p. X]**, or **[Unverified — follow-up needed]**
-- Flag gaps in the timeline, inconsistencies between client account and documents, and missing referenced materials
-
----
+- Use **direct quotations** when contract/correspondence language may be dispositive
+- Label every fact: `[Client Statement]`, `[Doc: filename, p. X]`, or `[Unverified]`
+- Flag timeline gaps, inconsistencies, and missing referenced materials
 
 ### 5. Key Parties
 
 | Party | Full Legal Name | Jurisdiction | Role | Status |
 |-------|----------------|--------------|------|--------|
-| Client | | | Plaintiff/Defendant | |
-| Adverse party | | | | |
-| Third parties / witnesses | | | | |
 
----
+Include client, adverse parties, and third-party witnesses.
 
 ### 6. Contractual Framework
 
-For each agreement material to the dispute:
-
-| Field | Detail |
-|-------|--------|
-| Contract type | Purchase / services / partnership / etc. |
-| Execution date | |
-| Parties | |
-| Key obligations | Cite section and quote verbatim |
-| Payment terms | |
-| Notice / cure requirements | Cite § and deadline |
-| Termination provisions | |
-| Dispute resolution | Quote arbitration or litigation clause verbatim |
-| Choice of law | Quote verbatim — note if differs from forum |
-| Forum selection | Quote verbatim — mandatory or permissive? |
-| Liquidated damages / liability cap | Cite § |
-| Consequential damages exclusion | Cite § |
-| Amendments / side letters | Date and effect |
-
----
+For each material agreement, document:
+- Contract type, execution date, parties
+- Key obligations (cite § and quote verbatim)
+- Payment terms, notice/cure requirements, termination provisions
+- Dispute resolution clause (**quote verbatim** — arbitration or litigation)
+- Choice of law and forum selection (**quote verbatim** — mandatory or permissive)
+- Liquidated damages, liability caps, consequential damages exclusions (cite §)
+- Amendments and side letters (date and effect)
 
 ### 7. Preliminary Legal Issues & Claims
 
@@ -114,125 +84,88 @@ For each agreement material to the dispute:
 
 | Claim | Elements | Supporting Facts (cite) | Apparent Strength | Likely Defenses |
 |-------|----------|------------------------|-------------------|-----------------|
-| Breach of contract | | | | |
-| [Other] | | | | |
 
 **Potential counterclaims / client exposure:**
 
 | Claim | Factual Basis | Preliminary Defenses |
 |-------|--------------|---------------------|
-| | | |
 
 **Threshold issues checklist:**
-- [ ] Statute of limitations: accrual date ___, governing period ___, expiration ___
+- [ ] Statute of limitations: accrual date, governing period, expiration
 - [ ] Arbitration clause: mandatory? scope? waivable?
 - [ ] Forum selection: mandatory or permissive?
-- [ ] Choice of law conflicts with forum state law?
-- [ ] Pre-suit notice / demand requirement (contract § ___)
+- [ ] Choice of law conflicts with forum state?
+- [ ] Pre-suit notice/demand requirement (cite contract §)
 - [ ] Administrative exhaustion required?
 - [ ] Heightened pleading standard (e.g., fraud/particularity)?
-- [ ] Novel or unsettled legal questions requiring research: ___
-
-*Mark any legal citation uncertain as to current validity with `[VERIFY]`.*
-
----
+- [ ] Novel or unsettled legal questions requiring research
 
 ### 8. Damages & Relief
 
-**Monetary damages:**
+**Monetary:** Direct damages, consequential/lost profits (methodology + assumptions), incidental, statutory/punitive (cite statute), attorneys' fees (contract/statute §).
 
-| Category | Amount | Methodology / Source |
-|----------|--------|---------------------|
-| Direct damages | $ | |
-| Consequential / lost profits | $ | Describe methodology and assumptions |
-| Incidental damages | $ | |
-| Statutory / punitive | $ | Cite statute or standard |
-| Attorneys' fees | Per contract / statute | Cite § |
+**Contractual modifiers:** Liquidated damages, liability caps, consequential exclusions — cite § for each.
 
-**Contractual modifiers**: liquidated damages (§___), liability cap (§___), consequential damages exclusion (§___)
+**Non-monetary:** Specific performance, injunction, declaratory judgment, rescission, accounting — state basis for inadequacy of legal remedies.
 
-**Non-monetary relief**: specify (specific performance / injunction / declaratory judgment / rescission / accounting) and basis for inadequacy of legal remedies
-
-**Business objectives beyond recovery**: relationship preservation, confidentiality, precedent, competitive protection
-
----
+**Business objectives beyond recovery:** Relationship preservation, confidentiality, precedent, competitive protection.
 
 ### 9. Procedural Posture & Deadlines
 
 | Item | Date / Status | Notes |
 |------|--------------|-------|
-| Demand letters sent / received | | Key terms and response deadline |
-| Litigation filed | | Court, case no., claims asserted |
-| Arbitration demand | | Forum, rules, deadlines |
-| Administrative / regulatory proceedings | | |
-| SOL deadline(s) | | Accrual date + period per claim |
-| Contractual notice deadline | | Contract § ___ |
-| Response deadline | | Consequence of non-response |
-| Litigation hold triggered | | |
 
----
+Track: demand letters, litigation filings, arbitration demands, administrative proceedings, SOL deadlines, contractual notice deadlines, response deadlines, litigation hold status.
 
 ### 10. Document Inventory & Evidence Assessment
 
 | # | Document | Date | Author / Recipients | Relevance | Evidentiary Issues |
 |---|----------|------|--------------------|-----------|--------------------|
-| 1 | | | | | Authentication / hearsay / privilege |
 
-- **Critical quoted language**: extract verbatim with citation for provisions likely to be dispositive
-- **Missing documents**: list all documents referenced in available materials but not yet produced
-- **Privilege flags**: attorney-client / work product materials to withhold; anticipated production items to review
-- **Metadata / forensic issues**: flag if version history, track changes, or send times are relevant
-
----
+- Extract critical quoted language verbatim with citations
+- List missing documents referenced but not produced
+- Flag privilege issues (attorney-client, work product)
+- Note metadata/forensic concerns (version history, track changes, send times)
 
 ### 11. Preliminary Strategic Assessment
 
-- **Strengths**: factual and legal
-- **Weaknesses / risks**: factual gaps, witness credibility concerns, legal uncertainty
-- **Witness assessment**: availability, reliability, vulnerability to impeachment
-- **Opposing party profile**: financial capacity to litigate / satisfy judgment; likely strategy; known counsel
+- **Strengths/weaknesses**: factual and legal, including gaps and credibility concerns
+- **Witness assessment**: availability, reliability, impeachment vulnerability
+- **Opposing party profile**: financial capacity, likely strategy, known counsel
 - **Leverage points**: business dependencies, reputational exposure, regulatory risk
-- **ADR viability**: negotiation / mediation / arbitration — timing considerations and client receptiveness
+- **ADR viability**: negotiation/mediation/arbitration timing and client receptiveness
 - **Settlement posture**: client objectives and risk tolerance
-
----
 
 ### 12. Recommendations & Immediate Action Items
 
 | Priority | Action | Responsible | Deadline | Consequence of Delay |
 |----------|--------|-------------|----------|---------------------|
-| 1 | Send litigation hold notice to client | | Immediately | Spoliation risk |
-| 2 | [File complaint / respond to demand] | | [Date] | SOL / waiver |
-| 3 | Request additional documents from client | | | |
-| 4 | Legal research: [specific issues] | | | |
-| 5 | Expert consultation re: [topic] | | | |
 
-**Client decisions needed**: file suit now vs. demand/negotiate first; seek preliminary injunction; fee arrangement preference
+Always include:
+1. Litigation hold notice (immediate — spoliation risk)
+2. File/respond deadline (SOL/waiver risk)
+3. Additional document requests
+4. Legal research on specific issues
+5. Expert consultation needs
 
-**Additional information needed from client**:
-- Documents: [list specifically]
-- Witness identification and contact information
-- Factual clarifications: [list open questions]
-
----
+Note **client decisions needed** (file vs. negotiate, preliminary injunction, fee arrangement) and **additional information needed** (documents, witnesses, factual clarifications).
 
 ### 13. Attachments
 
-| # | Category | Document | Date | Relevance |
-|---|----------|----------|------|-----------|
-| 1 | Contracts | | | |
-| 2 | Correspondence | | | |
-| 3 | Financial records | | | |
-| 4 | Corporate / organizational docs | | | |
-| 5 | Administrative | Conflicts check, intake form | | |
-
-Every document cited in the memo must appear here or its absence explained.
+Every document cited in the memo must appear in an attachment index or its absence explained. Organize by category: contracts, correspondence, financial records, corporate/organizational docs, administrative.
 
 ## Guidelines
 
-- **Source every factual assertion**: label as `[Client Statement]`, `[Doc: name, p. X]`, or `[Unverified]`
-- **Quote, don't paraphrase** contractual language on notice, arbitration, forum selection, and choice-of-law provisions — these control procedure
-- **No liability conclusions** in §§3–4; reserve legal assessment for §7 with appropriate qualifiers (`preliminary analysis suggests`, `subject to further research`)
+- **Source every fact**: `[Client Statement]`, `[Doc: name, p. X]`, or `[Unverified]`
+- **Quote, don't paraphrase** notice, arbitration, forum selection, and choice-of-law clauses — these control procedure
+- **No liability conclusions** in §§ 3–4; reserve legal assessment for § 7 with qualifiers (`preliminary analysis suggests`, `subject to further research`)
 - **Flag `[VERIFY]`** on any legal citation whose current validity is uncertain
 - **Work product designation** on every page
-- **US commercial litigation** — note state-specific procedural rules (e.g., demand requirements, pre-suit notice statutes) where identified; flag choice-of-law conflicts
+- **US commercial litigation** scope — note state-specific procedural rules; flag choice-of-law conflicts
+
+## Troubleshooting
+
+- **Missing contracts**: Flag in § 10 and add to § 12 action items as priority document request
+- **Conflicting client statements vs. documents**: Note discrepancy in § 4 chronology with both versions; flag for follow-up
+- **No case number assigned**: Use `Intake-[YYYY-MM-DD]` format throughout; update on assignment
+- **Uncertain legal citations**: Always append `[VERIFY]` — never present unconfirmed authority as settled law

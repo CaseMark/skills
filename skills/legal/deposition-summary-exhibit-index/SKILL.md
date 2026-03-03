@@ -1,6 +1,6 @@
 ---
 name: deposition-summary-exhibit-index
-description: Produces a topic-based U.S. deposition summary with precise page/line ranges and a keyed exhibit index linking testimony to documents. Neutral 2-3 sentence summaries per topic, plus exhibit references, authentication notes, and citation-ready transcript anchors. Use when creating a deposition summary, key document index, exhibit-linked transcript digest, or discovery testimony map in commercial litigation.
+description: Produces a topic-based U.S. deposition summary with page/line citations and a keyed exhibit index linking testimony to documents. Use when creating deposition digests, exhibit-linked summaries, key document indexes, or discovery testimony maps in commercial litigation.
 tags:
   - analysis
   - litigation
@@ -10,93 +10,67 @@ tags:
 
 # Deposition Summary with Exhibit Index
 
-Create a concise, topic-based deposition summary with an integrated exhibit index tied to page/line citations.
+Topic-based deposition summary with integrated exhibit index, precise page/line citations, and neutral testimony characterizations.
 
-## Prerequisites
+## Quick Start
 
-1. Full deposition transcript with page/line numbering
-2. Exhibit list with IDs/labels and filenames or Bates ranges
-3. Access paths or links for exhibits (file paths or document IDs)
-4. Any protective order or confidentiality designations
-5. Parties, witness name/role, date, and caption block details
+Gather before starting:
+- Full deposition transcript with page/line numbering
+- Exhibit list with IDs/labels (filenames or Bates ranges)
+- Witness name, role, date, parties, and caption block
+- Any protective order or confidentiality designations
 
-## Output Structure / Process
+## Workflow
 
-Use the following structure and templates.
+### 1. Cover Block
 
-**Cover Block**
+Include: caption (case name, court, case no.), witness name/role, deposition date, counsel for deponent, reporting service, preparer, and preparation date.
 
-- Caption (case name, court, case no.)
-- Deposition witness name and role
-- Date of deposition
-- Deponent represented by
-- Reporting service (if known)
-- Prepared by, date prepared
-
-**Topic Summary Table**
-
-Use a two-column structure with topic headers and page/line ranges.
-
-Table format:
+### 2. Topic Summary Table
 
 | Page/Line Range | Topic Summary |
 |---|---|
-| p. 12:3–18:22 | **Topic: Formation of Master Services Agreement**. 2–3 sentence neutral summary. Include key admissions, denials, or qualifiers. Cite exact page/line for critical statements. Reference exhibits inline using IDs. |
-| p. 19:1–24:6 | **Topic: Scope of Services and Deliverables**. 2–3 sentence neutral summary. Note any uncertainty, lack of knowledge, or evasive answers. Link to exhibits discussed. |
+| p. 12:3–18:22 | **Topic: Formation of Master Services Agreement**. Neutral 2–3 sentence summary with key admissions/denials. Cite critical statements by page/line. Reference exhibits inline: "Ex. 12 (Invoice 1043)". |
+| p. 19:1–24:6 | **Topic: Scope of Services and Deliverables**. Note uncertainty or evasive answers. Link discussed exhibits. |
 
-Rules for topic summaries:
+Rules:
+- 2–3 neutral sentences per topic; no legal conclusions
+- Cite page/line for critical admissions or contradictions
+- Use specific, descriptive topic titles
+- Split rows when testimony shifts subtopic
+- Exhibit format: `Ex. 12 (Invoice 1043)` or `PX-12 (Invoice 1043)`
 
-- 2–3 sentences per topic, neutral tone
-- No legal conclusions or argument
-- Include page/line cites for critical admissions or contradictions
-- Use descriptive, specific topic titles
-- If a topic spans multiple subtopics, split into separate rows
-
-Inline exhibit references (use the exact ID format):
-
-- “Ex. 12 (Invoice 1043)” or “PX-12 (Invoice 1043)”
-- If linking is possible, make the exhibit label the clickable text
-
-**Exhibit Index**
-
-Create a keyed index mapping each exhibit to testimony.
-
-Table format:
+### 3. Exhibit Index
 
 | Exhibit | Description | Testimony Page/Line | Witness Characterization |
 |---|---|---|---|
-| Ex. 12 | Invoice 1043 dated 3/5/2023 | p. 45:2–46:20 | Identified as company invoice; witness states it reflects services rendered |
+| Ex. 12 | Invoice 1043 dated 3/5/2023 | p. 45:2–46:20 | Identified as company invoice; reflects services rendered |
 
-Rules for exhibit index:
+Rules:
+- Include every transcript-mentioned exhibit with all page/line references
+- One-sentence authentication/characterization summary
+- Map informal exhibit references to correct IDs
 
-- Include every exhibit mentioned in the transcript
-- Provide all page/line references where the exhibit is discussed
-- Summarize authentication or characterization in one sentence
-- If an exhibit is referenced informally, map to the correct ID
+### 4. Key Admissions / Contradictions (Optional)
 
-**Key Admissions / Contradictions (Optional Section)**
+Include only if requested. Use exact citations:
+- **Admission**: "No written approval existed for change order." (p. 78:4–10)
+- **Contradiction**: "Claimed no notice of default; later admitted receipt of 6/2/2023 email." (p. 102:11–16; p. 148:3–9)
 
-If requested, provide a short list with exact citations.
+### 5. Output
 
-Format:
+Deliver as DOCX and PDF with hyperlinks to exhibits and transcript anchors. If linking is infeasible, include file paths or document IDs in brackets.
 
-- Admission: “Witness acknowledged no written approval existed for change order.” (p. 78:4–10)
-- Contradiction: “Witness claimed no notice of default, later admitted receipt of 6/2/2023 email.” (p. 102:11–16; p. 148:3–9)
+## Pitfalls and Checks
 
-**Output Deliverables**
+- Never guess page/line ranges—use exact transcript references only
+- Never add exhibits not discussed in the transcript
+- No advocacy or legal conclusions in summaries
+- Flag privilege or confidentiality issues; do not reproduce protected content
+- Note gaps explicitly if transcript is incomplete or exhibits are missing
+- Confirm compliance with any protective order or redaction protocol
+- Mark uncertain citations or exhibit IDs with `[VERIFY]`
 
-- DOCX with hyperlinks to exhibits and transcript anchors
-- PDF with active hyperlinks and searchable text
+---
 
-If hyperlinks are not technically feasible, provide explicit file paths or document IDs in brackets after each reference.
-
-## Guidelines
-
-- Use neutral, fact-only summaries; no advocacy.
-- Preserve exact page/line ranges; do not guess.
-- Keep topics scoped; split when testimony shifts.
-- Include every exhibit discussed; avoid adding unmentioned exhibits.
-- Flag potential privilege or confidentiality issues; do not reproduce protected content.
-- If transcript is incomplete or exhibits are missing, state the gap explicitly.
-- Confirm compliance with any protective order or redaction protocol.
-- Use `[VERIFY]` if any citation or exhibit ID is uncertain.
+It looks like I don't have write permission to the file. Could you allow the write, or would you like me to try again?

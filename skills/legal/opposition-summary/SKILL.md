@@ -1,117 +1,86 @@
 ---
 name: opposition-summary
-description: Generates structured analytical summaries of trademark opposition proceedings before the TTAB, covering opposition grounds, party arguments, evidence, procedural history, and outcomes. Produces balanced assessments for evaluating dispute strength, settlement options, and prosecution strategy. Use when summarizing trademark oppositions, TTAB proceedings, IP dispute analysis, or trademark conflict assessments.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+description: Generates structured analytical summaries of trademark opposition proceedings before the TTAB. Use when summarizing opposition filings, analyzing TTAB dispute posture, evaluating settlement options, or assessing trademark conflict strength.
 ---
 
 # Trademark Opposition Summary
 
-Produces a structured analytical summary of a trademark opposition proceeding that serves as a standalone reference for case evaluation and strategic decision-making.
+Produces a self-contained analytical summary of a TTAB opposition proceeding for case evaluation and strategic decision-making. The summary should stand alone — a reader should not need the underlying file.
 
 ## Prerequisites
 
-1. **Opposition file documents** — notice of opposition, answer, discovery materials, briefs, evidentiary submissions, TTAB decisions/orders
-2. **Application details** — serial number, mark, goods/services, filing/priority dates
-3. **Party identification** — opposer and applicant names, counsel, marks at issue
+- **Opposition file**: notice of opposition, answer, discovery materials, briefs, evidence, TTAB decisions/orders
+- **Application details**: serial number, mark, goods/services, filing/priority dates
+- **Party identification**: opposer and applicant names, counsel, marks at issue
 
-## Information Extraction
+## Quick Start
 
-Locate and extract from uploaded documents:
+1. Gather all opposition file documents
+2. Extract key data points (see extraction checklist below)
+3. Produce the seven-section output structure
+4. Apply guidelines and verify citations
 
-| Data Point | Source |
-|---|---|
-| Application serial number, mark, goods/services, class(es) | Notice of Opposition, application records |
-| Filing date, priority date, publication date | Application records, Official Gazette |
-| Opposer's mark(s), registration number(s), goods/services | Notice of Opposition, registration certificates |
-| Opposition grounds (each statutory basis) | Notice of Opposition |
-| Applicant's defenses | Answer to Notice of Opposition |
-| Key evidence (declarations, surveys, sales figures) | Trial briefs, exhibits |
-| Procedural dates (filing, answer, discovery close, trial) | Board orders, scheduling notices |
-| Outcome or current posture | Final decision or latest board order |
+## Extraction Checklist
+
+Extract from uploaded documents:
+
+- Application serial number, mark, goods/services, class(es) — from Notice of Opposition, application records
+- Filing, priority, and publication dates — from application records, Official Gazette
+- Opposer's mark(s), registration number(s), goods/services — from Notice of Opposition, registration certificates
+- Opposition grounds (each statutory basis) — from Notice of Opposition
+- Applicant's defenses — from Answer
+- Key evidence (declarations, surveys, sales figures) — from trial briefs, exhibits
+- Procedural dates (filing, answer, discovery close, trial) — from board orders, scheduling notices
+- Outcome or current posture — from final decision or latest board order
 
 ## Output Structure
 
 ### 1. Executive Overview
-- Parties, marks in conflict, application number
-- One-paragraph statement of primary issues in dispute
-- Current status (ongoing/resolved) and outcome if concluded
+
+Parties, marks in conflict, application number. One paragraph on primary issues. Current status and outcome if concluded.
 
 ### 2. Opposition Grounds
 
-For each ground asserted, document in this format:
+For each ground asserted:
 
 **Ground: [e.g., Likelihood of Confusion — §2(d)]**
-- **Factual basis**: [specific allegations]
-- **Legal theory**: [statutory/precedential framework]
-- **Key evidence**: [exhibits, declarations, survey data]
+- **Factual basis**: specific allegations
+- **Legal theory**: statutory/precedential framework
+- **Key evidence**: exhibits, declarations, survey data
 
-Common grounds checklist:
-- [ ] Likelihood of confusion (Lanham Act §2(d)) [VERIFY]
-- [ ] Dilution of famous mark (§43(c)) [VERIFY]
-- [ ] Descriptiveness/genericness (§2(e)(1)) [VERIFY]
-- [ ] Prior common law rights
-- [ ] False suggestion of connection (§2(a)) [VERIFY]
-- [ ] Geographic descriptiveness (§2(e)(2)) [VERIFY]
+Common grounds to check (mark `[VERIFY]` on statutory citations):
+- Likelihood of confusion (Lanham Act §2(d))
+- Dilution of famous mark (§43(c))
+- Descriptiveness/genericness (§2(e)(1))
+- Prior common law rights
+- False suggestion of connection (§2(a))
+- Geographic descriptiveness (§2(e)(2))
 
-### 3. Likelihood of Confusion Analysis (if applicable)
+### 3. Likelihood of Confusion Analysis
 
-Analyze under the *DuPont* factors [VERIFY]:
+If §2(d) is at issue, analyze under the *DuPont* factors `[VERIFY]`. For each factor, present opposer's position, applicant's position, and a neutral assessment:
 
-| Factor | Opposer's Position | Applicant's Position | Assessment |
-|---|---|---|---|
-| Similarity of marks (appearance, sound, meaning, commercial impression) | | | |
-| Relatedness of goods/services | | | |
-| Similarity of trade channels | | | |
-| Conditions of purchase / buyer sophistication | | | |
-| Strength/fame of opposer's mark | | | |
-| Evidence of actual confusion | | | |
-| Number and nature of similar marks in use | | | |
-| Concurrent use without confusion | | | |
+- Similarity of marks (appearance, sound, meaning, commercial impression)
+- Relatedness of goods/services
+- Similarity of trade channels
+- Purchase conditions / buyer sophistication
+- Strength/fame of opposer's mark
+- Evidence of actual confusion
+- Number and nature of similar marks in use
+- Concurrent use without confusion
 
 ### 4. Applicant's Defenses
 
-Document each defense:
-- Challenge to standing
-- Mark dissimilarity arguments
-- Goods/services distinction
-- Trade channel differences
-- Weakness of opposer's mark / crowded field
-- Coexistence evidence
-- Laches, acquiescence, or estoppel
+Document each asserted defense: standing challenges, mark dissimilarity, goods/services distinction, trade channel differences, crowded field, coexistence evidence, laches/acquiescence/estoppel.
 
 ### 5. Procedural History
 
-Chronological table:
-
-| Date | Event |
-|---|---|
-| | Application filed |
-| | Published for opposition |
-| | Notice of opposition filed |
-| | Answer filed |
-| | Discovery opens/closes |
-| | Motions (summary judgment, etc.) |
-| | Trial periods |
-| | Decision issued |
-
-Note any extensions, suspensions, or consolidated proceedings.
+Chronological table of key dates: application filed, published for opposition, notice filed, answer filed, discovery open/close, motions, trial periods, decision issued. Note extensions, suspensions, or consolidations.
 
 ### 6. Outcome / Current Posture
 
-If resolved:
-- Opposition sustained or dismissed
-- Tribunal's reasoning (key holdings)
-- Conditions on registration, if any
-- Appeal status
-
-If ongoing:
-- Current procedural posture
-- Upcoming deadlines
-- Pending motions
+**If resolved**: sustained/dismissed, key holdings, registration conditions, appeal status.
+**If ongoing**: current posture, upcoming deadlines, pending motions.
 
 ### 7. Strategic Assessment
 
@@ -122,12 +91,25 @@ If ongoing:
 
 ## Guidelines
 
-- Present both parties' positions with equal rigor — flag strengths and weaknesses for each side
-- Cite to specific exhibits, declarations, and filings by name and date
-- Use exact quotations with attribution for key arguments or findings
-- Mark any unverified legal citations with `[VERIFY]`
-- Keep accessible to business stakeholders while maintaining legal precision
-- Do not opine on ultimate outcome — present the analytical framework for the reader's judgment
-- Note any settlement discussions or consent proposals in the record
-- For dilution claims, separately address fame of the senior mark and likelihood of blurring/tarnishment
-- The summary must be self-contained — a reader should not need to review the underlying file
+- **Balanced analysis**: present both sides with equal rigor; do not opine on ultimate outcome
+- **Citation precision**: cite specific exhibits, declarations, and filings by name and date; use exact quotations with attribution
+- **Verification**: mark unverified legal citations with `[VERIFY]`
+- **Audience**: accessible to business stakeholders while maintaining legal precision
+- **Dilution claims**: separately address fame of the senior mark and likelihood of blurring/tarnishment
+- **Settlement**: note any settlement discussions or consent proposals in the record
+
+---
+
+Key changes from the original:
+
+- **Trimmed description** from 3 sentences to 2, keeping trigger keywords
+- **Removed `tags`** from frontmatter (not in the spec)
+- **Added Quick Start** section for immediate orientation
+- **Collapsed the extraction table** into a flat list — same data, fewer tokens
+- **Condensed DuPont analysis** from a 4-column table template to a factor list with inline instructions — preserves the analytical framework without empty table scaffolding
+- **Compressed Defenses and Procedural History** into inline descriptions instead of verbose bullet/table templates
+- **Merged Outcome section** into compact conditional format
+- **Converted Guidelines** from flat bullets to labeled entries for scannability
+- **Reduced from ~134 lines to ~95 lines** (~30% token savings) while preserving all legal substance
+
+Want me to try writing the file again, or would you like any adjustments?

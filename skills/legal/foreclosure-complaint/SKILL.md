@@ -1,13 +1,11 @@
 ---
 name: foreclosure-complaint
 description: >-
-  Drafts U.S. judicial foreclosure complaints that plead standing, chain of
-  title, default, and amounts due with jurisdiction-specific compliance and
-  exhibit control. Use when preparing a foreclosure complaint, mortgage
+  Drafts U.S. judicial foreclosure complaints pleading standing, chain of title,
+  default, and amounts due with jurisdiction-specific compliance and exhibit
+  control. Triggered when the user needs a foreclosure complaint, mortgage
   foreclosure pleading, note-and-mortgage enforcement action, or default-based
-  real estate litigation. Trigger keywords: foreclosure complaint, judicial
-  foreclosure, note and mortgage, chain of title, standing, default notice,
-  acceleration, lost note.
+  real estate litigation involving acceleration, standing, or lost-note issues.
 tags:
   - drafting
   - litigation
@@ -16,23 +14,24 @@ tags:
 
 # Foreclosure Complaint
 
-Produces a court-ready foreclosure complaint with verified standing, default, and relief.
+Draft a court-ready judicial foreclosure complaint with verified standing, default allegations, and itemized relief.
 
 ## Prerequisites
 
-1. **Loan documents** — promissory note, mortgage/deed of trust, riders, endorsements/allonges
-2. **Assignment chain** — each transfer of note/mortgage with dates and recording data
-3. **Payment history** — last paid installment, default date, arrearage detail
-4. **Pre-suit notices** — breach/acceleration/right-to-cure and proof of service
+Collect before drafting:
+
+1. **Loan documents** — note, mortgage/deed of trust, riders, endorsements/allonges
+2. **Assignment chain** — each note/mortgage transfer with dates and recording data
+3. **Payment history** — last paid installment, default date, arrearage breakdown
+4. **Pre-suit notices** — breach/acceleration/right-to-cure letters with proof of service
 5. **Property data** — legal description, parcel ID, address, recording info
 6. **Jurisdiction rules** — venue statute, foreclosure statute, verification/affidavit requirements
-7. **Parties with interests** — borrower(s), guarantors, junior liens, HOA/condo, tenants in possession
+7. **Interested parties** — borrower(s), guarantors, junior lienholders, HOA/condo, tenants
 
-## Output Structure / Process
+## Inputs
 
-**Inputs Table**
 | Field | Required | Notes |
-| --- | --- | --- |
+|---|---|---|
 | Court/County | Yes | Must match property location and venue statute |
 | Plaintiff identity | Yes | Entity type, state of formation, capacity (holder/servicer) |
 | Defendant list | Yes | All parties with record or claimed interests |
@@ -45,11 +44,16 @@ Produces a court-ready foreclosure complaint with verified standing, default, an
 | Standing facts | Yes | Chain of assignments and note possession |
 | Modifications | If any | Dates, material terms, recalculated amounts |
 
-**Pleading Outline Checklist**
-- [ ] Caption (court, parties, case type, case no. placeholder)
+## Workflow
+
+### 1. Build Pleading Structure
+
+Follow this section order:
+
+- [ ] Caption — court, parties, case type, case no. placeholder
 - [ ] Jurisdiction and venue
 - [ ] Parties and interest allegations
-- [ ] Loan transaction allegations (note + mortgage)
+- [ ] Loan transaction (note + mortgage)
 - [ ] Recording and lien priority
 - [ ] Standing and chain of title
 - [ ] Conditions precedent and notice compliance
@@ -57,24 +61,28 @@ Produces a court-ready foreclosure complaint with verified standing, default, an
 - [ ] Amounts due with per diem interest
 - [ ] Causes of action
 - [ ] Prayer for relief
-- [ ] Verification/affidavit (if required)
+- [ ] Verification/affidavit (if jurisdiction requires)
 - [ ] Signature block and certificates
 - [ ] Exhibits list
 
-**Required Allegations Table**
+### 2. Plead Required Allegations
+
 | Topic | Must Allege | Notes |
-| --- | --- | --- |
+|---|---|---|
 | Standing | Holder or authorized agent; note possession; assignments | Address lost note if applicable |
 | Mortgage validity | Execution, consideration, recording | Provide recording data |
 | Default | Date and nature of breach | Include last payment date |
 | Notice compliance | Statutory and contractual notices | Include dates/methods |
-| Acceleration | Date and method of acceleration | Cite clause if needed |
+| Acceleration | Date and method | Cite clause if needed |
 | Amount due | Itemized totals | Include per diem rate |
 | Priority | Lien priority vs. junior interests | Identify subordinate liens |
 | Venue | Property located in county | Cite venue statute |
 | Conditions precedent | Compliance pleaded with specificity | Attach notices as exhibits |
 
-**Amounts Due Template**
+### 3. Itemize Amounts Due
+
+Use this format:
+
 ```
 Unpaid principal balance (as of [DATE]): $[AMOUNT]
 Accrued interest through [DATE] at [RATE]%: $[AMOUNT]
@@ -85,23 +93,28 @@ Total due as of [DATE]: $[AMOUNT]
 Per diem interest: $[AMOUNT]/day
 ```
 
-**Causes of Action**
+### 4. Draft Causes of Action
+
+Include as applicable:
+
 1. Foreclosure of mortgage/deed of trust
 2. Breach of promissory note
-3. Deficiency judgment (if permitted)
+3. Deficiency judgment (if permitted by state law)
 4. Possession/writ of assistance (if needed)
-5. Priority and extinguishment of junior interests (as applicable)
+5. Priority and extinguishment of junior interests
 
-**Prayer for Relief Checklist**
+### 5. Draft Prayer for Relief
+
 - [ ] Money judgment for total indebtedness with per diem interest
 - [ ] Foreclosure judgment and order of sale
 - [ ] Application of sale proceeds per statute
 - [ ] Deficiency judgment (if allowed)
 - [ ] Extinguishment of junior interests, subject to redemption rights
-- [ ] Attorneys’ fees and costs (if authorized)
+- [ ] Attorneys' fees and costs (if authorized)
 - [ ] Other relief deemed just and proper
 
-**Exhibits List**
+### 6. Compile Exhibits
+
 - [ ] Note (with endorsements/allonges)
 - [ ] Mortgage/deed of trust
 - [ ] Assignments (each link in chain)
@@ -111,14 +124,13 @@ Per diem interest: $[AMOUNT]/day
 - [ ] Affidavit of amounts due (if required)
 - [ ] Lost note affidavit (if applicable)
 
-## Guidelines
+## Pitfalls and Checks
 
-- Use exact party names from loan docs and land records; keep consistent throughout.
-- Identify all parties with recorded or claimed interests to clear title post-sale.
-- Plead standing with note possession and assignments; address lost note via affidavit if needed.
-- Itemize amounts due and provide a per diem interest rate.
-- Include dates and service methods for every required notice and condition precedent.
-- Confirm jurisdiction-specific requirements for verification, mediation, and pre-suit certifications.
-- Do not request a deficiency judgment if barred or limited by state law.
-- Flag any state-specific statutory citations you cannot confirm with `[VERIFY]`.
-- Avoid conclusory allegations; plead facts tied to exhibits.
+- **Party names**: Use exact names from loan docs and land records; keep consistent throughout.
+- **Standing**: Plead note possession plus assignment chain. If note is lost, attach lost-note affidavit.
+- **Notice compliance**: Include dates and service methods for every required notice and condition precedent.
+- **Deficiency**: Do not request if barred or limited by state law.
+- **Jurisdiction specifics**: Confirm verification, mediation, and pre-suit certification requirements.
+- **Unverified citations**: Flag state-specific statutory citations you cannot confirm with `[VERIFY]`.
+- **Factual pleading**: Avoid conclusory allegations; tie every allegation to an exhibit.
+- **Interested parties**: Name all parties with recorded or claimed interests to clear title post-sale.

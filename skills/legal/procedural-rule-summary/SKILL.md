@@ -1,6 +1,6 @@
 ---
 name: procedural-rule-summary
-description: Generates structured summaries of procedural rules from federal, state, local, or administrative sources for quick reference during litigation or hearings. Organizes rules by procedural stage with actions, deadlines, responsibilities, and non-compliance consequences. Use when summarizing court rules, civil procedure rules, criminal procedure rules, local rules, administrative hearing procedures, or building procedural checklists for case preparation and motion practice.
+description: Generates structured, stage-organized summaries of procedural rules from federal, state, local, or administrative sources with deadlines, responsibilities, and non-compliance consequences. Extracts rules from uploaded texts, court orders, and standing orders. Use when summarizing FRCP, FRCrP, state civil/criminal procedure, local rules, administrative hearing procedures, or building procedural compliance checklists for case preparation and motion practice.
 tags:
   - litigation
   - research
@@ -10,79 +10,72 @@ tags:
 
 # Procedural Rule Summary
 
-Generates a concise, structured summary of procedural rules that serves as a quick-reference guide for compliance during litigation, administrative hearings, or regulatory proceedings.
+Produces a structured, stage-organized summary of procedural rules for quick-reference compliance during litigation, administrative hearings, or regulatory proceedings.
 
 ## Prerequisites
 
-1. **Identified rule set** — specific rules to summarize (e.g., FRCP, FRCrP, state rules, local rules, administrative procedure acts)
+1. **Rule set** — specific rules to summarize (e.g., FRCP, FRCrP, state rules, local rules, APA)
 2. **Jurisdiction** — federal, state, or administrative body
 3. **Proceeding type** — civil, criminal, administrative, appellate
-4. **Any uploaded rule texts, court orders, or standing orders** to extract from
+4. **Source documents** — uploaded rule texts, court orders, or standing orders (if any)
+
+If any prerequisite is missing, ask — do not assume jurisdiction or rule version.
 
 ## Process
 
-### Step 1: Identify and Verify Sources
+### 1. Verify Sources
 
-- Determine the exact rule set, jurisdiction, and court
-- Confirm the version is current — note any recent amendments with effective dates
+- Confirm exact rule set, jurisdiction, court, and current version
+- Note recent amendments with effective dates
 - If user provides documents, extract procedural requirements from those first
-- Cross-reference multiple sources when available; flag conflicts
+- Cross-reference multiple sources; flag conflicts
+- Mark unverifiable citations with `[VERIFY]`
 
-### Step 2: Organize by Procedural Stage
+### 2. Organize by Procedural Stage
 
-Structure the summary following case chronology. Use only the stages relevant to the requested rules:
+Use only stages relevant to the requested rules:
 
-| Stage | Typical Coverage |
-|-------|-----------------|
+| Stage | Coverage |
+|-------|----------|
 | **Initiation/Filing** | Complaint requirements, filing fees, service of process |
 | **Responsive Pleadings** | Answer deadlines, motions to dismiss, affirmative defenses |
 | **Discovery** | Scope, initial disclosures, written discovery, depositions, ESI |
 | **Motions Practice** | Filing requirements, briefing schedules, page limits, meet-and-confer |
-| **Pre-Trial** | Conferences, exhibit/witness lists, motions in limine, proposed jury instructions |
-| **Trial** | Jury selection, presentation order, evidentiary objections, directed verdict |
+| **Pre-Trial** | Conferences, exhibit/witness lists, motions in limine |
+| **Trial** | Jury selection, presentation order, evidentiary objections |
 | **Post-Trial** | JMOL, new trial motions, costs/fees |
 | **Appeal** | Notice of appeal, record designation, briefing schedule, standards of review |
 
-### Step 3: For Each Rule, Capture These Elements
+### 3. Capture Per-Rule Elements
 
-Use this template per rule or procedural requirement:
+For each rule or procedural requirement:
 
 ```
 ### [Rule Number] — [Short Title]
 
 **Action required:** [What must be done]
 **Responsible party:** [Who must act]
-**Deadline:** [Specific timeframe + calculation method]
-**Method/Format:** [How — e.g., ECF, personal service, specific form]
+**Deadline:** [Timeframe + calculation method]
+**Method/Format:** [ECF, personal service, specific form, etc.]
 **Mandatory vs. Discretionary:** [Whether court has discretion]
 **Non-compliance consequence:** [Waiver, sanctions, dismissal, default]
-**Extensions:** [Whether/how deadline can be extended + standard applied]
+**Extensions:** [Whether/how extendable + standard applied]
 **Cross-references:** [Related rules, local rules, standing orders]
 ```
 
-### Step 4: Deadline Calculation Details
+### 4. Deadline Calculations
 
 For every timing requirement, specify:
 
 - Calendar days vs. business days vs. court days
 - Trigger event (filing, service, entry of order)
-- Weekend/holiday rules (e.g., FRCP 6(a) — if last day is Saturday/Sunday/holiday, deadline extends to next business day)
-- Service-method additions (e.g., FRCP 6(d) — 3 days added for mail service)
 - Whether "from" date is included or excluded
-
-### Step 5: Common Pitfalls Section
-
-Include a brief section flagging frequent practitioner errors specific to the summarized rules, such as:
-
-- Service vs. filing deadline confusion
-- Meet-and-confer prerequisites before motion filing
-- Local rule formatting requirements (font, margins, page limits)
-- Certificate of service requirements
-- E-filing technical requirements and deadlines (midnight vs. clerk's office hours)
+- Weekend/holiday extension rules (e.g., FRCP 6(a))
+- Service-method additions (e.g., FRCP 6(d) — 3 days for mail)
 
 ## Output Format
 
-```markdown
+```
 # Procedural Rule Summary: [Rule Set Name]
 
 **Jurisdiction:** [Jurisdiction]
@@ -93,16 +86,13 @@ Include a brief section flagging frequent practitioner errors specific to the su
 ## Overview
 [1-2 sentences identifying scope]
 
-## [Stage 1 Heading]
+## [Stage Heading]
 ### [Rule X] — [Title]
-[Structured content per template above]
-
-...
+[Per-rule elements from Step 3]
 
 ## Deadline Quick-Reference Table
 | Action | Rule | Deadline | Calculated From | Days Type |
 |--------|------|----------|-----------------|-----------|
-| ...    | ...  | ...      | ...             | ...       |
 
 ## Common Pitfalls
 - [Pitfall 1]
@@ -112,13 +102,21 @@ Include a brief section flagging frequent practitioner errors specific to the su
 - [Related rule sets, standing orders, local rules]
 ```
 
+## Troubleshooting
+
+**Conflicting deadlines between general and local rules**: Local rules typically modify general rules. Present both layers and flag the conflict explicitly.
+
+**Rule version uncertainty**: If unable to confirm currency, insert `[VERIFY: Confirm current version of [Rule] as of [date]]` and note the version used.
+
+**Multi-layer jurisdictions**: When state and local rules both modify general procedure, address each layer separately and show interplay.
+
 ## Guidelines
 
 - Cite specific rule numbers and subsections — never paraphrase without attribution
-- Mark any rule citation you cannot verify with `[VERIFY]`
-- Note where case law has materially altered rule application (brief parenthetical only — not full case briefs)
-- Flag where practice varies by judge or division within a court
-- Distinguish mandatory requirements from permissive/discretionary provisions
-- When rules interact (e.g., discovery rules + ESI protocols + local rules), show the interplay explicitly
-- Do not editorialize on policy or fairness — summarize what the rules require
-- If the user's jurisdiction has both state and local rules that modify general rules, address both layers
+- Mark unverifiable citations with `[VERIFY]`
+- Note where case law has materially altered rule application (brief parenthetical only)
+- Flag judge-specific or division-specific practice variations
+- Distinguish mandatory requirements from discretionary provisions
+- Show interplay when rules interact (e.g., discovery + ESI protocols + local rules)
+- Do not editorialize on policy — summarize what the rules require
+- Flag common pitfalls: service vs. filing deadline confusion, meet-and-confer prerequisites, local formatting requirements, e-filing cutoff times, certificate of service requirements

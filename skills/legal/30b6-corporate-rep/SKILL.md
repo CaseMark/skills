@@ -1,155 +1,156 @@
 ---
 name: 30b6-corporate-rep
 description: >-
-  Drafts and analyzes U.S. deposition workflows for Rule 30(b)(6) corporate
-  representative testimony, including noticing topics with reasonable
-  particularity, deposing or defending the corporate designee, objection
-  handling, and preservation of binding admissions for later motions, summary
-  judgment, or trial. Use when receiving, drafting, or enforcing 30(b)(6)
-  notice topics; selecting and preparing designees; building topic-by-topic
-  outlines; or triaging “outside my designated topics,” "I don't know"
-  defenses, and privilege/procedural issues. Trigger keywords: 30(b)(6),
-  corporate representative deposition, topic list, designee, notice analysis,
-  deposition objections, corporate admissions.
-tags:
-  - analysis
-  - checklist
-  - drafting
-  - letter
-  - litigation
+  Manages Rule 30(b)(6) corporate representative deposition workflows —
+  drafting notice topics with reasonable particularity, building examination
+  outlines, defending designees, handling objections, and preserving binding
+  admissions for summary judgment or trial. Use when drafting or responding to
+  30(b)(6) notices, selecting and preparing designees, building topic-by-topic
+  outlines, or triaging scope and privilege disputes. Trigger keywords:
+  30(b)(6), corporate representative deposition, topic list, designee, notice
+  analysis, deposition objections, corporate admissions.
+metadata:
+  author: casemark
+  practice_areas:
+    - Litigation
+  document_types:
+    - Deposition
+  skill_modes:
+    - Drafting
+    - Analysis
+    - Checklist
 ---
 
 # Rule 30(b)(6) Corporate Representative Deposition
 
-Drafts and defends corporate representative depositions to create/contain binding corporate testimony with controlled scope, preserved objections, and defensible preparation records.
+Drafts and defends corporate representative depositions to create or contain binding corporate testimony with controlled scope, preserved objections, and defensible preparation records.
 
 ## Prerequisites
 
-1. Confirm governing law: FRCP 30(b)(6) or state analog, plus local rule overlays and any protective orders.
-2. Identify case theory, claims, defenses, and relief sought.
-3. Gather key pleadings, correspondence, claim timelines, and privilege log.
-4. Collect custodial map, org chart, and known repositories of responsive documents.
-5. Confirm deposition logistics: noticing party, noticing timeline, counsel, deposition reporter, interpreter/transcript needs.
-6. Confirm whether witness is witness/examiner-side role (taking or defending).
-7. Flag deadlines for meet-and-confer and extension opportunities.
+1. **Governing law** — FRCP 30(b)(6) or state analog (e.g., Cal. CCP § 2025.230 [VERIFY]), local rules, protective orders
+2. **Case theory** — claims, defenses, relief sought
+3. **Key documents** — pleadings, correspondence, privilege log, claim timeline
+4. **Custodial map** — org chart, document repositories, custodians
+5. **Logistics** — noticing party/timeline, counsel, reporter, interpreter needs
+6. **Role** — taking or defending the deposition
+7. **Deadlines** — meet-and-confer, extension opportunities
 
-## Output Structure / Process
+## Output Structure
 
-### 1) Intake mode selection
+### Step 1: Select Mode
 
-| Mode | Core output | Required inputs |
+| Mode | Outputs | Required inputs |
 |---|---|---|
-| Taking 30(b)(6) deposition | Topic list, examination outline, binding-admission script, objection map | Claims/defenses, document map, desired admissions |
-| Defending 30(b)(6) deposition | Topic response matrix, designee assignment, prep playbook, objection protocol | Notice topics, corporate data sources, witness availability |
-| Post-deposition leverage | Testimony-based summary, contradiction log, potential follow-up actions | Transcript, errata notes, exhibits |
+| Taking | Topic list, exam outline, admission script, objection map | Claims/defenses, document map, desired admissions |
+| Defending | Topic response matrix, designee assignment, prep playbook | Notice topics, corporate data sources, witness availability |
+| Post-deposition | Admission summary, contradiction log, follow-up actions | Transcript, errata, exhibits |
 
-### 2) Topic drafting (for taking a deposition)
+### Step 2: Draft Topics (Taking)
 
-| Goal | Rule/Best practice | Draft action |
-|---|---|---|
-| Sufficient particularity | Topics must be specific enough to permit preparation | Include exact conduct/event, time range, participants, and document classes |
-| Broad but bounded scope | Avoid “all communications” traps | Phrase as subject + date range + decision/events |
-| Claim/defense relevance | Prevent objectionable overbreadth | Tie each topic to a pleaded element or affirmative defense |
-| Defensibility | Reduce objections | Avoid legal conclusions, privilege, and purely conclusory wording |
+Each topic must satisfy reasonable particularity — specific enough to permit meaningful preparation.
 
-```text
-RULE 30(b)(6) TOPICS
-Pursuant to FRCP 30(b)(6), [Corporation] shall designate one or more persons to testify on its behalf regarding:
-
-TOPIC 1: Corporate structure, reporting chain, and authority for [function] from [start date] to [end date].
-TOPIC 2: [Specific policy] as created, implemented, communicated, and enforced during [time period].
-TOPIC 3: Facts and internal decision-making re: [event], including persons involved, communications, records reviewed, and basis for the decision.
-TOPIC 4: Document repositories, custodians, retention/destruction practices, and any known loss of records related to [subject].
-TOPIC 5: [Limit and continue as needed, with definitions for any technical term].
-```
-
-**Topic objection precheck**
-
-| Objection risk | Typical text | Rewrite |
-|---|---|---|
-| Overbroad | “All communications” | Limit to event, function, and date window |
-| Vague | “Relevant policies” | Specify policy name/type and conduct affected |
-| Burdensome | “All records ever” | Restrict custodians/systems/time period |
-| Privileged | “communications with counsel” | Add explicit non-privileged carve-out |
-| Legal conclusion | “Whether defendant breached duty” | Recast as facts supporting/negating breach |
-
-### 3) Examination structure (when taking)
-
-| Step | Commands |
+| Principle | Draft action |
 |---|---|
-| 1. Foundation | Confirm designation, topics, preparation, and who performed review/interviews |
-| 2. Topic-by-topic build | Elicit factual scope, document sources, person-by-person knowledge, corporate decision pathway |
-| 3. Binding-admission capture | Ask for corporation’s position on each key point and any exceptions |
-| 4. Exhaustion | Ask for missing documents/persons/events and ownership of unknowns |
-| 5. Problem handling | On “I don’t know,” force explanation of prep steps; preserve failure-to-prepare record |
+| Particularity | Include specific conduct/event, time range, participants, document classes |
+| Bounded scope | Subject + date range + decision/events; avoid "all communications" |
+| Relevance | Tie each topic to a pleaded element or affirmative defense |
+| Defensibility | No legal conclusions, privilege calls, or conclusory wording |
 
-### 4) Taking-side topic-by-topic question skeleton
+**Template:**
 
-| Topic stage | Example command pattern |
-|---|---|
-| Prepare/qualify | “You were designated on behalf of [Corporation] for Topic __, correct?” |
-| Corporate knowledge | “What did [Corporation] know, when did it know, and from what source?” |
-| Facts over conclusions | “What documents reflect [fact]?” / “Who communicated [decision] to whom?” |
-| Position evidence | “What is [Corporation]’s position regarding [sub-issue]?” |
-| Coverage probe | “Is there any additional document/person/fact not yet identified?” |
+> Pursuant to FRCP 30(b)(6), [Corporation] shall designate one or more persons to testify regarding:
+>
+> TOPIC 1: Corporate structure and authority for [function] from [start date] to [end date].
+> TOPIC 2: [Policy name] as created, implemented, and enforced during [period].
+> TOPIC 3: Facts and decision-making re [event], including persons involved, communications, and basis for decision.
+> TOPIC 4: Document repositories, custodians, retention/destruction practices related to [subject].
 
-### 5) Topic analysis (when defending)
+**Objection precheck** — revise before serving:
 
-| Factor | Question | Action |
+| Risk | Typical problem | Fix |
 |---|---|---|
-| Clarity | Is the topic specific and bounded? | Accept / request clarification |
-| Relevance | Does it map to pleaded claims/defenses? | Narrow or Object |
-| Burden | Can it be prepared on available timelines? | Phased preparation or scope limitation |
-| Privilege | Does it seek protected legal advice/work product? | Object/privilege log and preserve answer-by-topic |
-| Form | Does it seek legal conclusion/speculation? | Reframe objection with reasoned response |
+| Overbroad | "All communications" | Limit to event, function, date window |
+| Vague | "Relevant policies" | Name specific policy and conduct |
+| Burdensome | "All records ever" | Restrict custodians/systems/period |
+| Privileged | "Communications with counsel" | Add non-privileged carve-out |
+| Legal conclusion | "Whether defendant breached duty" | Recast as facts supporting/negating breach |
 
-**Response legend:** Accept, Accept-with-clarification, Narrow, Object-and-Prepare, Object-and-Refuse (rare).
+### Step 3: Examine (Taking)
 
-### 6) Designee selection matrix
+| Phase | Action |
+|---|---|
+| Foundation | Confirm designation, topics assigned, preparation steps, documents reviewed |
+| Topic-by-topic | Elicit factual scope, document sources, person-by-person knowledge, decision pathway |
+| Binding admissions | "What is [Corporation]'s position on [point]?" — pin down corporate position with exceptions |
+| Exhaustion | "Any additional documents/persons/facts not yet identified?" |
+| Failure to prepare | On "I don't know" — elicit what prep steps were taken; preserve inadequate-preparation record |
 
-| Topic | Primary designee | Backup | Knowledge level | Prep depth | Gaps |
+**Question patterns:**
+
+| Stage | Pattern |
+|---|---|
+| Qualify | "You were designated on behalf of [Corporation] for Topic __, correct?" |
+| Knowledge | "What did [Corporation] know, when, and from what source?" |
+| Facts | "What documents reflect [fact]?" / "Who communicated [decision] to whom?" |
+| Position | "What is [Corporation]'s position regarding [sub-issue]?" |
+| Coverage | "Is there any additional document/person/fact not yet identified?" |
+
+### Step 4: Analyze Topics (Defending)
+
+| Factor | Question | Response |
+|---|---|---|
+| Clarity | Specific and bounded? | Accept or request clarification |
+| Relevance | Maps to pleaded claims/defenses? | Narrow or object |
+| Burden | Preparable on available timeline? | Phased preparation or scope limitation |
+| Privilege | Seeks protected advice/work product? | Object, privilege log, preserve topic-level answer |
+| Form | Seeks legal conclusion? | Reframe objection |
+
+**Response scale:** Accept → Accept-with-clarification → Narrow → Object-and-Prepare → Object-and-Refuse (rare).
+
+### Step 5: Select Designees (Defending)
+
+| Topic | Primary | Backup | Knowledge | Prep hours | Gaps |
 |---|---|---|---|---|---|
 | [Topic 1] | [Name/Title] | [Name] | High/Med/Low | [hours] | [gaps] |
-| [Topic 2] | [Name/Title] | [Name] | High/Med/Low | [hours] | [gaps] |
 
-Choose single designee only if breadth manageable; choose multiple where specialization outruns coordination risk.
+Single designee if breadth manageable; multiple where specialization outweighs coordination risk.
 
-### 7) Topic-specific preparation checklist
+### Step 6: Prepare Designees (Defending)
 
-| Topic | Actions |
+Per topic:
+
+- [ ] Custodian list, repositories, privilege flags, lost-data log
+- [ ] Internal witness interviews; prior-employee interviews if available
+- [ ] Corporate position synthesized; conflicts reconciled; uncertain areas marked
+- [ ] "Does not know" only after documented diligence
+- [ ] Personal-knowledge vs. corporate-knowledge distinction noted
+
+### Step 7: Defend at Deposition
+
+| Objection | Use |
 |---|---|
-| Topic text | [Insert text] |
-| Documents | [ ] Custodian list  [ ] Repositories  [ ] Privilege flags  [ ] Missing/lost-data log |
-| Interviews | [ ] Internal witnesses [ ] Prior employees if available [ ] Notes logged |
-| Synthesis | [ ] Corporate position  [ ] Conflicts reconciled  [ ] Uncertain areas marked |
-| Deposition responses | [ ] “Does not know” only after documented diligence  [ ] Non-speculative answers  [ ] Personal knowledge distinction noted |
+| Form | Compound/ambiguous phrasing — request to narrow |
+| Scope | Beyond noticed topics — allow personal-capacity answering if appropriate |
+| Privilege | Counsel consult for A-C and work product |
+| Speculation | Clarify knowledge limits and basis |
 
-### 8) During deposition (defending)
+Do not coach on substantive answers during breaks. Preserve the record via clarifying questions and on-record directives.
 
-| Objection handling | Rule of use |
-|---|---|
-| Form | Compound/ambiguous/unclear phrasing objection with request to narrow |
-| Scope | Beyond noticed topics objection, while allowing potential personal-capacity answering |
-| Privilege | Counsel consult for attorney-client and, as applicable, work-product |
-| Calls for speculation | Clarify knowledge limits and basis |
+### Step 8: Post-Deposition Leverage
 
-Do not coach witness on substantive answers during breaks; preserve record instead via clarifying questions and on-record process directives.
-
-### 9) After deposition leverage
-
-1. Extract clean admissions and inconsistencies by topic.
-2. Build contradiction matrix against prior corporate documents and witness statements.
-3. Identify meet-and-confer items (new topics, incompletely prepared topics, sanction exposure).
-4. Evaluate whether supplemental deposition is required versus Rule 37 motion posture.
+1. Extract clean admissions and inconsistencies by topic
+2. Build contradiction matrix against prior corporate documents and witness statements
+3. Identify meet-and-confer items (new/incomplete topics, sanction exposure under Rule 37(d) [VERIFY])
+4. Evaluate supplemental deposition vs. Rule 37 motion posture
 
 ## Guidelines
 
-- Keep every 30(b)(6) topic tied to a litigation objective and time-bounded.
-- In taking mode, treat witness answers as potential party admissions; pin down “corporation’s position” precisely.
-- In defending mode, prepare as if every topic may be used at summary judgment and at trial.
-- Avoid coaching during deposition; objections should preserve rights without obstructing proper questioning.
-- Mark jurisdictional limits explicitly for state court analogs and local rules, including any timing or notice differences [VERIFY].
-- Use [VERIFY] for all non-confirmed external citations before finalizing formal filings.
+- Tie every topic to a litigation objective and time-bound it
+- **Taking**: treat answers as party admissions; pin down "corporation's position" precisely
+- **Defending**: prepare as if every topic will be used at summary judgment and trial
+- Objections preserve rights — do not obstruct proper questioning
+- Mark jurisdictional limits for state analogs and local rules [VERIFY]
+- Use `[VERIFY]` for all unconfirmed citations before finalizing filings
 
 ## Cross-references
 
@@ -161,9 +162,9 @@ Do not coach witness on substantive answers during breaks; preserve record inste
 
 ## References
 
-- Federal Rule of Civil Procedure 30(b)(6) [VERIFY]
-- Federal Rule of Civil Procedure 37(d) [VERIFY]
-- *Brazos River Authority v. GE Ionics, Inc.*, 469 F.3d 416 (5th Cir. 2006) [VERIFY]
-- *QBE Insurance Corp. v. Jorda Enterprises, Inc.*, 277 F.R.D. 676 (S.D. Fla. 2012) [VERIFY]
+- FRCP 30(b)(6) [VERIFY]
+- FRCP 37(d) [VERIFY]
+- *Brazos River Auth. v. GE Ionics, Inc.*, 469 F.3d 416 (5th Cir. 2006) [VERIFY]
+- *QBE Ins. Corp. v. Jorda Enters., Inc.*, 277 F.R.D. 676 (S.D. Fla. 2012) [VERIFY]
 - *Calzaturficio v. Fabiano Shoe Co.*, 201 F.R.D. 33 (D. Mass. 2001) [VERIFY]
-- California Code of Civil Procedure § 2025.230 (state corporate representative framework analog considerations) [VERIFY]
+- Cal. CCP § 2025.230 [VERIFY]

@@ -1,94 +1,85 @@
 ---
 name: insurance-policy-summary
 description: >-
-  Produces structured summaries of U.S. insurance policies, endorsements,
-  claims files, and coverage correspondence, highlighting key terms, limits,
-  exclusions, conditions, timelines, and dispute points for coverage analysis
-  and insurance litigation. Use when summarizing policies, endorsements,
-  declarations, claims files, reservation of rights letters, denial letters,
-  or coverage disputes; trigger keywords: policy summary, coverage analysis,
-  claims file, reservation of rights, denial letter, insurance litigation,
-  coverage dispute.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+  Produces structured, citation-backed summaries of U.S. insurance policies,
+  endorsements, claims files, and coverage correspondence for coverage analysis
+  and insurance litigation. Use when summarizing policies, declarations, claims
+  files, reservation-of-rights letters, denial letters, or coverage disputes.
 ---
 
 # Insurance Policy Summary
 
-Deliver a litigation-grade, source-cited summary of policy terms and claim handling that supports coverage strategy.
+Deliver a litigation-grade, source-cited summary of policy terms and claim handling that supports coverage strategy. Stay neutral unless instructed otherwise.
 
 ## Prerequisites
 
-1. All policies, endorsements, declarations pages, and schedules
-2. Claims file materials and correspondence (notice, ROR, denial, coverage positions)
-3. Loss facts and timeline (date of loss, claimant, damages)
-4. Jurisdiction and choice-of-law indicators (policy clause, venue)
+- All policies, endorsements, declarations pages, and schedules
+- Claims file materials and correspondence (notice, ROR, denial)
+- Loss facts and timeline (date of loss, claimant, damages)
+- Jurisdiction and choice-of-law indicators (policy clause, venue)
 
-## Output Structure / Process
+## Output Structure
 
-Executive Summary (2-3 short paragraphs)
-- Policies at issue and coverage posture
-- Triggering event/loss and claim status
-- Primary disputes or ambiguities
+### 1. Executive Summary
 
-Policy Inventory (table)
+2-3 paragraphs covering: policies at issue and coverage posture, triggering event/loss and claim status, primary disputes or ambiguities.
+
+### 2. Policy Inventory
+
 | Insurer | Policy No. | Period | Named Insured | Coverage Types | Limits | Deductible/SIR | Key Endorsements | Source |
-|---|---|---|---|---|---|---|---|---|
 
-Endorsements and Modifiers (table)
+### 3. Endorsements and Modifiers
+
 | Endorsement | Effect on Coverage | Date/Version | Source |
-|---|---|---|---|
 
-Coverage Analysis (checklist)
+### 4. Coverage Analysis
+
 - Insuring agreement(s) relevant to the claim
-- Definitions that control scope of coverage
+- Definitions controlling scope of coverage
 - Exclusions potentially invoked
 - Conditions precedent and compliance issues
-- Other insurance / priority, primary vs. excess
-- Allocation issues across policy periods
+- Other insurance / priority (primary vs. excess)
+- Allocation across policy periods
 - Quote critical policy language verbatim with pinpoint cite
 
-Claims History (chronology table)
+### 5. Claims Chronology
+
 | Date | Event | Actor | Amount | Coverage Position | Source |
-|---|---|---|---|---|---|
 
-Parties and Roles (table)
+### 6. Parties and Roles
+
 | Party | Role | Relationship | Source |
-|---|---|---|---|
 
-Financials (table)
+### 7. Financials
+
 | Type | Amount | Date | Notes | Source |
-|---|---|---|---|---|
-Types: Reserves, Payments, Demand, Estimate, Exposure
 
-Coverage Positions (table)
+Types: Reserves, Payments, Demand, Estimate, Exposure.
+
+### 8. Coverage Positions
+
 | Position | Basis | Policy Provision | Communicated By | Date | Source |
-|---|---|---|---|---|---|
 
-Legal Issues and Dispute Drivers (checklist)
+### 9. Legal Issues and Dispute Drivers
+
 - Ambiguity points and competing interpretations
 - Notice, cooperation, and prejudice issues
 - Bad faith / extra-contractual exposure indicators
 - Choice-of-law implications for interpretation
 - Subrogation, contribution, or allocation disputes
 
-Gaps and Missing Information (checklist)
-- Missing endorsements or schedules referenced
-- Unclear or absent policy periods
-- Incomplete claims file segments
-- Unverified loss facts or damages
+### 10. Gaps and Missing Information
 
-Source Map
-- Document name + page/paragraph for each quoted or key fact
+Flag: missing endorsements/schedules, unclear policy periods, incomplete claims file segments, unverified loss facts.
 
-## Guidelines
+### 11. Source Map
 
-- Stay neutral; do not advocate a coverage position unless instructed.
+Document name + page/paragraph for each quoted or key fact.
+
+## Checks
+
 - Pinpoint cite every key term, exclusion, condition, and coverage position.
 - Flag privilege or work-product materials without summarizing content.
-- Distinguish primary vs. excess and identify overlap or gaps.
-- Use jurisdiction-specific interpretation only when identified in the documents.
-- Mark any uncertain authority as `[VERIFY]`.
+- Distinguish primary vs. excess; identify overlap or gaps.
+- Apply jurisdiction-specific interpretation only when identified in the documents.
+- Mark uncertain authority as `[VERIFY]`.

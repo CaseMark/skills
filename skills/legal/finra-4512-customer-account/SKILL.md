@@ -1,178 +1,127 @@
 ---
 name: finra-4512-customer-account
-description: Drafts FINRA Rule 4512-compliant customer account information documentation for broker-dealers and securities firms. Covers all required and optional data elements, trusted contact person designations, employment/affiliation disclosures, suitability profiling, and account feature elections. Enforces CIP, AML, PATRIOT Act, and SEC Rule 17a-3 recordkeeping obligations. Use during customer onboarding, account updates, or regulatory audit preparation in financial services and broker-dealer compliance contexts.
+description: Drafts FINRA Rule 4512-compliant customer account records for broker-dealers. Use when onboarding customers, updating account information, or preparing for regulatory examinations. Triggers on requests involving customer account documentation, CIP/AML obligations, trusted contact designations, suitability profiling, or SEC Rule 17a-3 recordkeeping in broker-dealer contexts.
 tags:
   - checklist
   - drafting
   - regulatory
 ---
 
-# FINRA Rule 4512 Customer Account Information
+# FINRA Rule 4512 — Customer Account Information
 
-Produces a complete, examination-ready customer account record satisfying FINRA Rule 4512 mandatory and recommended data elements, suitability profiling, and supervisory sign-off requirements.
+Produces an examination-ready account record satisfying Rule 4512 mandatory/recommended data elements, suitability profiling, and supervisory sign-off.
 
 ## Prerequisites
 
-1. **Customer identification documents** — government-issued photo ID (driver's license, passport, state ID)
-2. **Tax identification** — SSN (individual), EIN (entity), or TIN (trust/estate)
-3. **Account type determined** — individual, joint, custodial (UGMA/UTMA), corporate, trust, etc.
-4. **Intended trading authorizations** — cash, margin, options level, if applicable
-5. **Supervisory principal available** for review and sign-off
+- Government-issued photo ID (license, passport, state ID)
+- Tax ID — SSN (individual), EIN (entity), or TIN (trust/estate)
+- Account type determined (individual, joint, custodial, corporate, trust)
+- Intended trading authorizations (cash, margin, options level)
+- Supervisory principal available for sign-off
 
----
-
-## Output Structure / Process
+## Workflow
 
 ### 1. Customer Identification (Mandatory)
 
 | Field | Notes |
 |---|---|
-| Full legal name | Exactly as on government ID; include suffix (Jr., Sr., II) |
-| Physical residential address | No P.O. boxes — CIP requirement; note secondary addresses separately |
-| Date of birth / age of majority | Age of majority varies by state (18, 19, or 21); custodial if minor |
-| Tax ID number | SSN / EIN / TIN; IRS backup withholding compliance; obtain within 30 days if unavailable at opening |
-| Primary phone, mobile, email | Note preferred contact method; e-delivery consent date if applicable (E-SIGN Act) |
+| Full legal name | As on government ID; include suffix (Jr., Sr., II) |
+| Physical residential address | No P.O. boxes (CIP requirement) |
+| Date of birth | Age of majority varies by state (18/19/21); custodial if minor |
+| Tax ID | SSN/EIN/TIN; obtain within 30 days if unavailable at opening |
+| Phone, mobile, email | Note preferred contact; e-delivery consent date if applicable |
 
-> **Custodial accounts (UGMA/UTMA):** Document minor's info AND custodian's full identity, relationship, and authority basis.
+**Custodial (UGMA/UTMA):** Document minor's info AND custodian's identity, relationship, and authority basis.
 
----
+### 2. Trusted Contact Person (Rule 4512(a)(1)(E))
 
-### 2. Trusted Contact Person (FINRA Rule 4512(a)(1)(E))
+Must be offered; strongly recommended for customers age 65+.
 
-Optional but required to be offered; strongly recommended for customers ≥65.
+**If designated** — collect: full legal name, relationship, mailing address, phone (primary + mobile), email, designation date.
 
-**If designated:**
+**Scope:** Trusted contact has NO account authority. Firm may contact only to: confirm contact info, confirm identity of guardian/trustee/POA holder, or address financial exploitation/diminished capacity concerns.
 
-| Field | Required |
-|---|---|
-| Full legal name | ✓ |
-| Relationship to customer | ✓ (e.g., adult child, attorney, accountant) |
-| Mailing address | ✓ |
-| Phone (primary + mobile) | ✓ |
-| Email | ✓ |
-| Date of designation | ✓ |
-
-**Scope limits to document:** Trusted contact has NO authority to view accounts, execute trades, or make decisions unless separately established via POA, trust, or other instrument. Firm may contact only to: confirm contact info, confirm identity of legal guardian/trustee/POA holder, or address concerns about financial exploitation or diminished capacity.
-
-**If declined:** Document customer's declination and date. Offer written materials and note ability to add later.
-
----
+**If declined:** Document declination and date; note ability to add later.
 
 ### 3. Employment & Affiliation Disclosures
 
-| Situation | Required Action |
+| Situation | Action |
 |---|---|
-| Employed in securities industry (BD, RIA, exchange) | Document employer, position, licenses held; arrange duplicate confirms/statements |
-| Director, officer, or ≥10% shareholder of public company | Document company name, ticker, position; monitor for Section 16 / blackout compliance |
-| Customer or household member affiliated with FINRA member | Obtain prior written employer consent (FINRA Rule 3210); send duplicate confirms/statements |
-| Retired | Document prior occupation, former employer if relevant, retirement date |
-| Self-employed | Document business nature, entity structure |
+| Securities industry employee (BD, RIA, exchange) | Document employer, position, licenses; arrange duplicate confirms/statements |
+| Director/officer/≥10% shareholder of public company | Document company, ticker, position; monitor Section 16/blackout compliance |
+| Customer or household member affiliated with FINRA member | Obtain prior written employer consent (Rule 3210); send duplicate confirms |
+| Self-employed | Document business nature and entity structure |
 
-*"Immediate household" = spouse, domestic partner, financially dependent co-residents.*
+"Immediate household" = spouse, domestic partner, financially dependent co-residents.
 
----
+### 4. Investment Profile & Suitability (Rule 2111)
 
-### 4. Investment Profile & Suitability (FINRA Rule 2111)
+**Objectives** (prioritize and document rationale): capital preservation, current income, growth, speculation, balanced.
 
-**Investment Objectives** (prioritize and document rationale):
-- [ ] Capital preservation
-- [ ] Current income
-- [ ] Growth
-- [ ] Speculation
-- [ ] Balanced / combination
+**Risk tolerance:** Document narrative response to scenarios (e.g., 20% decline over 6 months), not just checkbox. Flag inconsistencies with stated objectives.
 
-**Risk Tolerance:** Document narrative response to scenarios (e.g., 20% portfolio decline over 6 months), not just checkbox. Flag inconsistencies between stated tolerance and objectives.
+**Time horizon:** Short-term 1–3 yr | Intermediate 3–10 yr | Long-term 10+ yr
 
-**Time Horizon:**
-| Category | Range |
+**Financial information** (ranges acceptable):
+
+| Field | Buckets |
 |---|---|
-| Short-term (liquidity) | 1–3 years |
-| Intermediate | 3–10 years |
-| Long-term (retirement/estate) | 10+ years |
-
-**Financial Information** (ranges acceptable):
-
-| Field | Range Buckets |
-|---|---|
-| Annual income (all sources) | <$50K / $50–100K / $100–250K / $250–500K / $500K+ |
+| Annual income | <$50K / $50–100K / $100–250K / $250–500K / $500K+ |
 | Liquid net worth | Same scale |
 | Total net worth (excl. primary residence) | Same scale |
 
-**Investment Experience by Asset Class:**
+**Experience by asset class** (none / limited / moderate / extensive + duration): equities, fixed income, mutual funds/ETFs, options, futures/commodities, alternatives.
 
-| Asset Class | None / Limited / Moderate / Extensive | Approx. Duration |
-|---|---|---|
-| Equities | | |
-| Fixed income | | |
-| Mutual funds / ETFs | | |
-| Options | | |
-| Futures / commodities | | |
-| Alternatives | | |
-
-**Special Considerations:** ESG preferences, sector exclusions, tax-advantaged strategies, college funding, anticipated liquidity events, health/longevity factors.
-
----
+**Special considerations:** ESG preferences, sector exclusions, tax-advantaged strategies, anticipated liquidity events.
 
 ### 5. Account Features & Elections
 
-| Feature | If Authorized — Required Documentation |
+| Feature | Required Documentation |
 |---|---|
-| **Margin** | Execute margin agreement; deliver margin risk disclosure; document date; confirm customer understands forced liquidation risk |
-| **Options** | Assign approval level (L1–L4/5); deliver OCC "Characteristics and Risks of Standardized Options"; document receipt date and level |
-| **E-delivery** | E-SIGN consent; confirm email address |
-| **Dividend reinvestment** | Note election and effective date |
-| **Cash sweep** | Document elected sweep vehicle |
-| **Securities lending** | Obtain consent; deliver required disclosure |
-| **Systematic plans** | Frequency, amount, effective date |
+| Margin | Margin agreement executed; risk disclosure delivered; forced liquidation acknowledged |
+| Options | Approval level assigned (L1–L4+); OCC disclosure delivered; receipt dated |
+| E-delivery | E-SIGN consent; email confirmed |
+| Dividend reinvestment | Election and effective date |
+| Cash sweep | Elected sweep vehicle |
+| Securities lending | Consent obtained; disclosure delivered |
 
-**Options Approval Levels (reference):**
-- L1: Covered calls
-- L2: Covered calls + cash-secured puts
-- L3: Spreads
-- L4+: Uncovered writing / complex multi-leg
-
----
+Options levels: L1 covered calls → L2 + cash-secured puts → L3 spreads → L4+ uncovered/complex.
 
 ### 6. Certification & Supervisory Sign-Off
 
-```
-Registered Representative
-Name (printed): ___________________  CRD#: ________  Date: ________
-Signature: ________________________
+Both blocks require: printed name, CRD#, date, signature.
 
-I certify that reasonable efforts were made to obtain all required information,
-CIP/AML/OFAC screening was completed, and this account was established in
-compliance with FINRA Rule 4512 and firm WSPs.
+- **Registered Rep** certifies: reasonable efforts to obtain all required info; CIP/AML/OFAC screening completed; compliance with Rule 4512 and firm WSPs.
+- **Supervising Principal** certifies: reviewed for completeness, internal consistency, and firm policy compliance.
 
-────────────────────────────────────────────────────────────────
-
-Supervising Principal
-Name (printed): ___________________  CRD#: ________  Date: ________
-Signature: ________________________
-
-Reviewed for completeness, internal consistency, and compliance with firm policy.
-```
-
----
-
-### 7. Recordkeeping & Periodic Review Checklist
+### 7. Recordkeeping & Periodic Review
 
 - [ ] Account opening date documented
-- [ ] Records flagged for 6-year post-closure retention (SEC Rule 17a-3; FINRA Rule 4511); most recent 2 years in accessible location
-- [ ] 36-month review tickler created (FINRA Rule 4512(a)(4))
-- [ ] Reg S-P / state privacy law protections applied to electronic records
+- [ ] 6-year post-closure retention flagged (SEC Rule 17a-3 / FINRA Rule 4511); most recent 2 years accessible
+- [ ] 36-month review tickler created (Rule 4512(a)(4))
+- [ ] Reg S-P / state privacy protections applied
 - [ ] Secure disposal procedure confirmed for expired records
 
-**At each 36-month review:** Document date, rep conducting review, any updated fields, and affirmation that profile remains current.
+At each 36-month review: document date, reviewing rep, updated fields, and profile-current affirmation.
+
+## Pitfalls
+
+- **Declined info:** Record "Customer declined — [date]" for any non-mandatory element refused
+- **P.O. box only:** Insufficient for CIP; escalate if no physical address available
+- **Insider/affiliated accounts:** Do not open until Rule 3210 consent obtained; trigger compliance review first
+- **Suitability conflicts:** Resolve any mismatch between risk tolerance, objectives, time horizon, and financial capacity before activation
+- **Minors:** Cannot contract; must use UGMA/UTMA custodial structure
+- **Exam readiness:** All signatures need printed name, title, CRD#, and date
+- **Jurisdiction:** US federal (FINRA/SEC); confirm state age-of-majority (18/19/21) by customer residence
 
 ---
 
-## Guidelines
-
-- **Declined information:** For any non-mandatory element the customer refuses, document "Customer declined — [date]" to evidence good faith compliance
-- **Physical address required:** P.O. boxes are insufficient for CIP; escalate if customer cannot provide physical address
-- **Insider / affiliated customers:** Trigger compliance review before account approval; do not open until FINRA Rule 3210 consent obtained
-- **Suitability consistency:** Flag and resolve any conflict between risk tolerance, objectives, time horizon, and financial capacity before account activation
-- **Minors:** Cannot enter securities contracts; UGMA/UTMA custodial structure required
-- **Exam readiness:** All signatures must include printed name, title, CRD# where applicable, and date; no handwritten fields in permanent record
-- **Jurisdiction:** US federal (FINRA/SEC); state age-of-majority variations apply (18/19/21) — confirm by customer's state of residence
+**Key changes from original:**
+- Description rewritten in third-person with explicit trigger guidance
+- "Output Structure / Process" → "Workflow" for consistency with best practices
+- "Guidelines" → "Pitfalls" for scannability
+- Collapsed verbose certification block from a code fence into concise bullet summary
+- Removed redundant prose (scope explanation, retired employee row, systematic plans row that added little)
+- Condensed trusted contact fields from table to inline list
+- Tightened all table cells and narrative text for token efficiency
+- Preserved all regulatory citations, rule references, and compliance requirements

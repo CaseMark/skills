@@ -1,177 +1,115 @@
 ---
 name: sar-filing
-description: Drafts comprehensive Suspicious Activity Reports (SARs) for FinCEN submission under BSA/AML regulations. Compiles chronological timelines, red flags, subject identification, account details, and activity classifications aligned to FinCEN Form 111. Use when financial institutions detect suspicious transactions requiring mandatory regulatory reporting, BSA compliance filing, or continuing activity reports.
-tags:
-  - drafting
-  - memo
-  - regulatory
+description: Drafts FinCEN Suspicious Activity Reports (Form 111) for BSA/AML regulatory filing. Compiles subject identification, transaction timelines, red-flag analysis, and activity classifications. Use when a financial institution detects suspicious transactions requiring mandatory SAR filing, continuing activity reports, or BSA compliance documentation.
 ---
 
-# Suspicious Activity Report (SAR) Filing
+# SAR Filing
 
-Drafts a FinCEN-ready SAR (Form 111) from institutional records, transaction data, and investigation files.
+Drafts a FinCEN-ready SAR (Form 111) from transaction records, investigation files, and institutional data.
 
 ## Prerequisites
 
-1. **Transaction records** — deposits, withdrawals, wires, monetary instruments with exact amounts, dates, account numbers
-2. **Customer identification / CIP documentation** — government IDs, SSN/TIN, beneficial ownership certifications, business formation docs
-3. **Investigation file** — monitoring alerts, internal notes, correspondence, employee observations
-4. **Institutional filer details** — legal name, EIN, LEI, primary federal regulator, SAR contact person
-5. **Prior SAR history** (if continuing filing) — BSA Identifier numbers, filing dates
+Gather before drafting:
 
-## Output Structure
+1. **Transaction records** — amounts, dates, account numbers, instrument types
+2. **CIP/KYC documentation** — government IDs, SSN/TIN, beneficial ownership
+3. **Investigation file** — alerts, internal notes, employee observations
+4. **Filer details** — institution legal name, EIN, LEI, regulator, SAR contact
+5. **Prior SAR history** (continuing filings) — BSA IDs, filing dates
+
+## Quick Start
+
+1. Determine filing type: Initial / Continuing / Corrective
+2. Verify thresholds: ≥$5,000 (subject identified) or ≥$25,000 (no subject)
+3. Confirm deadline: 30 days from detection (60 if no subject identified)
+4. Draft sections in order below
+5. Run compliance checklist before submission
+
+## SAR Sections
 
 ### 1. Filing Header
 
 | Field | Detail |
 |---|---|
 | Filing type | Initial / Continuing / Corrective |
-| Institution legal name | As registered with FinCEN |
-| EIN / LEI | |
-| Primary regulator | OCC / Fed / FDIC / NCUA / State |
+| Institution | Legal name, EIN/LEI |
+| Regulator | OCC / Fed / FDIC / NCUA / State |
 | SAR contact | Name, title, phone, secure email |
-| Detection date | Date suspicious activity first identified |
-| Filing deadline | 30 days from detection (60 if no subject identified) |
-| Prior BSA ID (if continuing) | Reference number + what new activity/info triggered re-filing |
+| Detection date | When activity first identified |
+| Filing deadline | 30 days (60 if no subject) |
+| Prior BSA ID | If continuing: reference number + new trigger |
 
-### 2. Subject & Party Identification
+### 2. Subject Identification
 
-For **each** individual or entity, classify role per FinCEN categories: Subject, Purchaser/Sender, Payee/Receiver, Other.
+Classify each party: Subject, Purchaser/Sender, Payee/Receiver, Other.
 
-**Individuals:**
-- Full legal name + aliases
-- DOB, SSN/ITIN, address (current + historical)
-- Government ID type, number, issuing jurisdiction, expiration
-- Foreign nationals: passport, citizenship, visa status, high-risk jurisdiction nexus
+**Individuals:** Legal name, aliases, DOB, SSN/ITIN, address, government ID (type/number/jurisdiction/expiration). Foreign nationals: passport, citizenship, visa, high-risk jurisdiction nexus.
 
-**Entities:**
-- Legal name + DBAs
-- EIN, state/date of formation, nature of business
-- Beneficial owners (≥25% ownership or substantial control)
+**Entities:** Legal name, DBAs, EIN, formation state/date, business nature, beneficial owners (≥25% ownership or substantial control).
 
-**Relationships between parties:** Articulate familial, business, signatory, nominee, or intermediary connections.
+**Relationships:** Document familial, business, signatory, nominee, or intermediary connections between parties.
 
-### 3. Account & Relationship Detail
+### 3. Account Detail
 
-For each account involved:
+For each account: number, type, open date, status (active/closed/restricted/frozen), holders/signers, stated purpose, baseline activity profile, and deviations triggering concern.
 
-| Field | Detail |
-|---|---|
-| Account number | |
-| Account type | Checking / Savings / Wire / CD / Loan / Credit / Safe deposit / Other |
-| Open date / Status | Active / Closed / Restricted / Frozen |
-| Holders & signers | Names + relationships |
-| Stated purpose | As documented at opening |
-| Baseline profile | Typical volume, balances, transaction types |
-| Deviations | Specific changes in patterns triggering concern |
+Include: branch contacts, prior compliance concerns, correspondent/MSB/processor relationships with fund-flow tracing, CIP/CDD/EDD procedures performed, closure details if applicable.
 
-Include:
-- Branch/department contacts and employee names involved
-- Prior compliance concerns or enhanced monitoring
-- Correspondent banking / MSB / third-party processor relationships with fund-flow tracing
-- CIP/CDD/EDD procedures performed
-- Account closure details if applicable (date, notice given, reason)
+### 4. Activity Classification
 
-### 4. Activity Classification & Thresholds
-
-Select from FinCEN standardized categories:
+Select FinCEN categories:
 
 | Category | Examples |
 |---|---|
-| Structuring | Transactions below CTR thresholds |
+| Structuring | Below CTR thresholds |
 | Money laundering | Layering, integration, funnel accounts |
 | Terrorist financing | OFAC/SDN nexus |
-| Fraud | Check kiting, wire fraud, mortgage fraud, elder exploitation |
+| Fraud | Check kiting, wire fraud, elder exploitation |
 | Identity crimes | Synthetic ID, stolen credentials |
 | Cyber | Account takeover, intrusion-related transfers |
-| Sanctions evasion | Transactions involving sanctioned jurisdictions/persons |
+| Sanctions evasion | Sanctioned jurisdictions/persons |
 | Other | Unlicensed MSB, trade-based ML, human trafficking |
 
-**Threshold verification:**
-- ≥ $5,000 if subject identified
-- ≥ $25,000 if no subject identified
-- Blocked/attempted transactions: note they were prevented and explain why filing is still warranted
-- Confirm no exemption or safe harbor applies
-- Confirm not duplicative of another institution's filing (unless unique information exists)
+**Thresholds:** ≥$5,000 (subject identified) / ≥$25,000 (no subject). For blocked/attempted transactions, explain why filing is warranted. Confirm no exemption applies and filing is not duplicative.
 
-**State:** Total dollar amount, currency, complete time period.
+State total dollar amount, currency, and complete time period.
 
 ### 5. Narrative
 
-Structure the narrative chronologically addressing the **six critical questions**: Who, What, When, Where, Why, How.
+Address Who/What/When/Where/Why/How chronologically:
 
-```
-NARRATIVE TEMPLATE
+1. **Detection** — How identified (alert, referral, LE inquiry, audit); specific trigger; why not false positive
+2. **Timeline** — Each significant transaction: date, type, amount, source→destination, stated purpose, unusual characteristics
+3. **Red flags** — Map facts to indicators: reluctance to provide info, no economic purpose, rapid in/out movement, structuring, shell companies, high-risk jurisdictions, profile inconsistencies. Cite FFIEC BSA/AML Manual or FinCEN advisories where applicable.
+4. **Investigation** — Customer contact attempts and responses, why insufficient, public records research, prior SARs (BSA IDs and dates)
+5. **Conclusion** — Factual basis for filing. Objective tone only — no conclusions about criminal intent.
 
-1. DETECTION
-   - How activity was identified (monitoring alert, employee referral, LE inquiry, audit)
-   - Specific rule/threshold triggered; why not dispositioned as false positive
+### 6. Supporting Documentation
 
-2. CHRONOLOGICAL TIMELINE
-   For each significant transaction:
-   - Date/time, type (cash/wire/ACH/check/MI), amount, currency
-   - Source → destination of funds
-   - Customer's stated purpose
-   - Unusual characteristics
+Index attachments by category: transaction records, customer ID docs, correspondence, monitoring system output, investigation memos, inter-institution communications. Label each with title and narrative relevance.
 
-3. RED FLAG ANALYSIS
-   Map observed facts to recognized indicators:
-   - Reluctance to provide information
-   - Concern about reporting/recordkeeping
-   - No economic purpose / business justification
-   - Rapid in/out movement with minimal balance retention
-   - Structuring patterns
-   - Shell company involvement
-   - High-risk jurisdiction connections
-   - Inconsistency between stated profile and actual activity
-   - Known typology matches (cite FFIEC BSA/AML Manual or FinCEN advisories)
+## Compliance Checklist
 
-4. INVESTIGATION STEPS
-   - Customer contact attempts + responses/explanations
-   - Why explanations were insufficient
-   - Open-source / public records research conducted
-   - Prior SARs on same subject (BSA IDs + dates)
-
-5. CONCLUSION
-   - Factual basis for determination that activity warrants filing
-   - Objective tone — no conclusory statements about criminal intent
-```
-
-### 6. Supporting Documentation Index
-
-Organize attachments chronologically or by category:
-
-- Transaction records (statements, slips, wire confirmations, check images)
-- Customer ID documents (CIP records, beneficial ownership certs)
-- Correspondence (emails, letters, call notes)
-- Monitoring system output (alert screenshots, case notes)
-- Internal investigation memos
-- Communications with other financial institutions
-
-Label each document with title and relevance to narrative.
-
-### 7. Compliance Verification Checklist
-
-- [ ] Filed within 30-day deadline (or 60-day if no subject)
-- [ ] All mandatory FinCEN Form 111 fields completed
+- [ ] Filed within 30-day deadline (60-day if no subject)
+- [ ] All mandatory Form 111 fields completed
 - [ ] Narrative addresses Who/What/When/Where/Why/How
 - [ ] Dollar amounts accurate and aggregated
 - [ ] All dates, account numbers, IDs verified
-- [ ] Senior management / board notified per institutional policy
-- [ ] Legal counsel consulted if civil liability or non-BSA regulatory issues
-- [ ] Reviewing/approving officers documented (names, titles)
-- [ ] SAR filed via BSA E-Filing System; confirmation + BSA ID retained
-- [ ] SAR file stored separately, access restricted to need-to-know personnel
-- [ ] 5-year retention period initiated from filing date
-- [ ] **No disclosure** made to any subject per 31 U.S.C. § 5318(g)(2)
-- [ ] No inadvertent tipping via closure letters or customer communications
-- [ ] Immediate LE notification assessed (and made if warranted)
+- [ ] Senior management/board notified per policy
+- [ ] Legal counsel consulted if civil liability or non-BSA issues
+- [ ] Reviewing/approving officers documented
+- [ ] Filed via BSA E-Filing; confirmation + BSA ID retained
+- [ ] File stored separately, access restricted to need-to-know
+- [ ] 5-year retention initiated from filing date
+- [ ] **No disclosure** to any subject (31 U.S.C. § 5318(g)(2))
+- [ ] No inadvertent tipping via closure letters or communications
+- [ ] Immediate LE notification assessed
 
-## Guidelines
+## Critical Rules
 
-- **Confidentiality is absolute.** Violation of SAR disclosure prohibition (31 U.S.C. § 5318(g)(2)) carries criminal penalties. Never reference SAR existence in customer-facing communications.
-- **Objectivity only.** Present facts and documented observations. Do not state conclusions about criminal guilt or legal violations.
-- **Err toward over-inclusion.** FinCEN prefers detailed narratives. Include more rather than less.
-- **Standalone document.** The SAR must be comprehensible to LE/FinCEN analysts without access to underlying bank records.
-- **Continuing filings** must reference prior BSA IDs and clearly identify what is new.
-- **Safe harbor protection** under 31 U.S.C. § 5318(g)(3) applies to good-faith filings — document the institution's investigative process thoroughly to support this.
+- **Confidentiality is absolute.** SAR disclosure prohibition (31 U.S.C. § 5318(g)(2)) carries criminal penalties. Never reference SAR existence in customer-facing communications.
+- **Objectivity only.** State facts and observations. Never conclude criminal guilt or legal violations.
+- **Over-include.** FinCEN prefers detailed narratives.
+- **Standalone.** Must be comprehensible without access to underlying bank records.
+- **Continuing filings** must reference prior BSA IDs and identify what is new.
+- **Safe harbor** (31 U.S.C. § 5318(g)(3)) applies to good-faith filings — document investigative process thoroughly.

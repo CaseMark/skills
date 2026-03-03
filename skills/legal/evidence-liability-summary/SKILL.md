@@ -1,6 +1,6 @@
 ---
 name: evidence-liability-summary
-description: Generates a structured internal evidence and liability summary for personal injury negligence claims, analyzing duty, breach, causation, and damages with evidence cataloging and gap identification. Use when preparing liability analysis, evidence summaries, negligence element breakdowns, discovery assessment, or pre-trial case evaluation for plaintiff-side personal injury matters.
+description: Generates a structured evidence and liability summary for plaintiff-side personal injury negligence claims. Triggers when the user needs liability analysis, negligence element breakdowns, evidence cataloging with gap identification, discovery assessment, or pre-trial case evaluation.
 tags:
   - analysis
   - litigation
@@ -10,32 +10,36 @@ tags:
 
 # Evidence & Liability Summary
 
-Synthesizes collected evidence into a structured negligence liability analysis for plaintiff-side personal injury litigation.
+Synthesizes collected evidence into a structured negligence liability analysis (duty, breach, causation, damages) for plaintiff-side personal injury litigation.
 
 ## Prerequisites
 
-1. **Incident facts** — date, time, location, parties involved, basic chronology
-2. **Evidence collection** — documents, witness statements, photos/video, medical records, digital evidence gathered to date
-3. **Medical records** — treatment history, bills, prognosis, expert reports if available
-4. **Applicable jurisdiction** — state/federal law governing the claim
-5. **Defendant information** — identity, relationship to plaintiff, applicable standards of care
+Gather before starting:
 
-## Output Structure
+- **Incident facts** — date, time, location, parties, basic chronology
+- **Evidence collected** — documents, witness statements, photos/video, medical records, digital evidence
+- **Medical records** — treatment history, bills, prognosis, expert reports if available
+- **Jurisdiction** — governing state/federal law
+- **Defendant info** — identity, relationship to plaintiff, applicable standard of care
 
-### 1. Case Overview
+## Workflow
+
+Mark the output **PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT**.
+
+### Step 1 — Case Overview
 
 | Element | Content |
 |---|---|
-| Parties | Identify all parties by legal designation (plaintiff, defendant, third parties) |
-| Incident | Date, time, location, circumstances with specificity |
-| Chronology | Timeline from pre-incident through aftermath |
-| Gaps | Flag timeline gaps or inconsistencies requiring investigation |
+| Parties | All parties by legal designation (plaintiff, defendant, third parties) |
+| Incident | Date, time, location, circumstances |
+| Chronology | Pre-incident through aftermath timeline |
+| Gaps | Timeline gaps or inconsistencies needing investigation |
 
-Maintain neutral, factual tone. Sufficient for a lawyer unfamiliar with the matter to understand the core dispute.
+Write for a lawyer unfamiliar with the matter.
 
-### 2. Evidence Catalog
+### Step 2 — Evidence Catalog
 
-Organize by category with this structure for each item:
+For each item, record:
 
 | Field | Description |
 |---|---|
@@ -44,32 +48,24 @@ Organize by category with this structure for each item:
 | Date | Creation or collection date |
 | Source | Custodian or origin |
 | Description | Brief content summary |
-| Relevance | Probative value assessment (High / Medium / Low) |
+| Relevance | High / Medium / Low probative value |
 | Issues | Privilege, hearsay, authentication, admissibility concerns |
 
-**Categories to cover:**
-- **Documentary** — contracts, correspondence, records, reports
-- **Testimonial** — witness statements, depositions, expert declarations
-- **Physical** — photographs, video, damaged property, medical records
-- **Digital** — emails, texts, surveillance footage, metadata
+Flag chain-of-custody gaps, authentication needs, compelling evidence, and discovery gaps.
 
-Flag: chain of custody gaps, authentication requirements, compelling evidence, and evidentiary gaps needing further discovery.
-
-### 3. Negligence Element Analysis
+### Step 3 — Negligence Element Analysis
 
 #### A. Duty of Care
 
-| Component | Analysis |
-|---|---|
-| Duty source | Statute, regulation, professional standard, common law, special relationship |
-| Standard of care | Reasonable person, industry standard, professional code — cite specific authority |
-| Defendant's arguments | Anticipated denial of duty and counter-analysis |
+- **Source**: statute, regulation, professional standard, common law, special relationship
+- **Standard**: reasonable person, industry standard, professional code — cite authority
+- **Defense anticipation**: expected denial of duty with counter-analysis
 
 #### B. Breach of Duty
 
-- Identify specific acts or omissions constituting breach
-- Map each act/omission to supporting evidence (by exhibit #)
-- Compare defendant's conduct against applicable standard
+- Identify specific acts/omissions constituting breach
+- Map each to supporting evidence by exhibit #
+- Compare conduct against applicable standard
 - Reference expert testimony where technical knowledge required
 - Address anticipated defenses (industry compliance, regulatory adherence)
 
@@ -77,63 +73,53 @@ Flag: chain of custody gaps, authentication requirements, compelling evidence, a
 
 | Type | Test | Analysis |
 |---|---|---|
-| Actual (cause-in-fact) | "But for" defendant's breach, injury would not have occurred | Address alternative causes; show defendant was substantial factor |
-| Proximate (legal cause) | Harm was foreseeable consequence of breach | Address superseding/intervening causes |
-| Multiple parties | Comparative fault / joint and several liability under governing law | Apportion if applicable |
+| Actual (cause-in-fact) | "But for" test | Address alternative causes; show substantial factor |
+| Proximate (legal cause) | Foreseeability | Address superseding/intervening causes |
+| Multiple parties | Comparative fault / joint & several | Apportion under governing law if applicable |
 
 #### D. Damages
 
-| Category | Items | Amount |
-|---|---|---|
-| **Economic** | Medical expenses (past) | $ |
-| | Medical expenses (future) | $ |
-| | Lost wages (past) | $ |
-| | Lost earning capacity (future) | $ |
-| | Property damage | $ |
-| **Non-economic** | Pain and suffering | $ range |
-| | Emotional distress | $ range |
-| | Loss of enjoyment of life | $ range |
-| | Loss of consortium | $ range |
-| **Total range** | | $ low – $ high |
+| Category | Items |
+|---|---|
+| **Economic** | Past/future medical expenses, lost wages, lost earning capacity, property damage |
+| **Non-economic** | Pain and suffering, emotional distress, loss of enjoyment of life, loss of consortium |
+| **Total** | Low–high range |
 
-- Support amounts with medical bills, employment records, repair estimates, expert economic testimony
-- Future damages: include present value calculations
-- Address mitigation of damages and pre-existing conditions
+- Support amounts with bills, employment records, estimates, expert testimony
+- Include present-value calculations for future damages
+- Address mitigation and pre-existing conditions
 
-### 4. Conclusions & Recommendations
+### Step 4 — Conclusions & Recommendations
 
-**Element strength assessment:**
+Rate each element:
 
-| Element | Strength (Strong/Moderate/Weak) | Key Risk |
+| Element | Strength (Strong / Moderate / Weak) | Key Risk |
 |---|---|---|
 | Duty | | |
 | Breach | | |
 | Causation | | |
 | Damages | | |
 
-**Include:**
-- Preliminary case valuation range with comparable verdict/settlement basis
+Then provide:
+
+- Case valuation range with comparable verdict/settlement basis
 - Discovery gaps and recommended next steps
 - Expert witnesses to retain
-- Settlement strategy and target range
+- Settlement target range and strategy
 - Motion practice opportunities
 - Statute of limitations status and procedural deadlines
-- Candid risk assessment — recommend proceed / settle / ADR
+- Risk assessment — recommend proceed / settle / ADR
 
-### 5. References
+### Step 5 — References
 
-- Legal authorities in Bluebook format (case law, statutes, regulations)
+- Legal authorities in Bluebook format
 - Evidence cross-reference table (exhibit #, description, file location)
 - Expert reports (name, credentials, date, key opinions)
-- Industry standards or technical literature consulted
 
-## Guidelines
+## Pitfalls & Checks
 
-- Mark document as **PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT** prepared in anticipation of litigation
-- Maintain objectivity — acknowledge weaknesses candidly alongside strengths
-- Every factual assertion must trace to a specific exhibit or evidence item
-- Do not overstate evidence strength or make unsupported conclusory statements
+- Every factual assertion must trace to a specific exhibit — no unsupported conclusions
 - Use `[VERIFY]` for any citation not confirmed against primary sources
-- Address jurisdiction-specific variations in negligence standards (e.g., comparative vs. contributory negligence states)
+- Address jurisdiction-specific negligence standards (comparative vs. contributory)
+- Acknowledge weaknesses candidly — plaintiff-side framing must still be honest about defense arguments
 - Consider ethical obligations regarding candor in merit evaluation
-- Plaintiff-side framing, but analysis must be honest about defense arguments

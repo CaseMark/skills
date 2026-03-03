@@ -1,6 +1,6 @@
 ---
 name: summarize-files
-description: Generates structured summaries of legal documents including contracts, pleadings, agreements, and correspondence. Distills key facts, parties, dates, amounts, claims, defenses, and issues into clear standalone references tailored by document type. Use when summarizing case files, contracts, pleadings, transactional documents, or any legal materials for quick review, onboarding, or status reporting.
+description: Generates structured summaries of legal documents (contracts, pleadings, correspondence, transactional materials). Triggers when the user asks to summarize case files, agreements, pleadings, or any legal materials for review, onboarding, or status reporting.
 tags:
   - agreement
   - litigation
@@ -10,66 +10,69 @@ tags:
   - transactional
 ---
 
-# Document Summary
+# Summarize Legal Documents
 
-Produces thorough, professional summaries of one or more legal documents that serve as standalone references for legal professionals.
+Produce standalone, structured summaries of one or more legal documents for professional reference.
 
-## Prerequisites
+## Quick Start
 
-1. **Source documents** — one or more uploaded legal files (contracts, pleadings, correspondence, transactional materials)
-2. **Complete file review** — process all uploaded content exhaustively; do not sample or skip sections
+1. Receive one or more legal files (contracts, pleadings, correspondence, transactional docs).
+2. Read all uploaded content exhaustively — never sample or skip sections.
+3. Classify each document, extract key data, and output the summary using the template below.
 
-## Process
+## Workflow
 
-1. **Identify document type(s)** and select the matching analysis focus:
+### 1. Classify Document Type
 
-| Document Type | Primary Focus |
+| Type | Analysis Focus |
 |---|---|
-| Contract / Agreement | Parties, obligations, terms, conditions, defined terms, reps & warranties, conditions precedent, dispute provisions |
-| Pleading | Causes of action, factual allegations, requested relief, procedural posture, legal authority cited |
-| Correspondence | Negotiation positions, admissions, strategic signals, timeline of communications |
+| Contract / Agreement | Parties, obligations, terms, defined terms, reps & warranties, conditions precedent, dispute provisions |
+| Pleading | Causes of action, factual allegations, relief requested, procedural posture, legal authority |
+| Correspondence | Negotiation positions, admissions, strategic signals, communication timeline |
 | Transactional | Deal structure, consideration, reps & warranties, closing conditions, indemnification |
 
-2. **Extract and organize** the following from every document:
-   - [ ] Parties (full legal names, roles)
-   - [ ] Key dates and deadlines
-   - [ ] Monetary amounts and consideration
-   - [ ] Claims, defenses, or obligations
-   - [ ] Legal authority cited
-   - [ ] Exhibits, attachments, and referenced materials
-   - [ ] Defined terms (use consistently throughout summary)
-   - [ ] Ambiguities or internal conflicts
+### 2. Extract Key Data
 
-3. **Structure the summary:**
+From every document, capture:
+- Parties (full legal names, roles)
+- Key dates and deadlines
+- Monetary amounts and consideration
+- Claims, defenses, or obligations
+- Legal authority cited
+- Exhibits, attachments, referenced materials
+- Defined terms (use consistently throughout)
+- Ambiguities or internal conflicts
+
+### 3. Output Summary
 
 ```
 # Summary: [Document Title / Subject Matter]
 Date of Summary: [date]
 
 ## Overview
-[Document type, parties, fundamental purpose — 2-3 sentences]
+[Type, parties, fundamental purpose — 2-3 sentences]
 
 ## Key Parties
-[Table or list with name, role, and relationship]
+[Table or list: name, role, relationship]
 
 ## Substantive Summary
-[Organized by logical sections matching the source material's structure]
+[Organized by logical sections mirroring the source structure]
 
 ## Key Terms and Conditions
-[Dates, deadlines, amounts, obligations — use tables for multiple items]
+[Dates, deadlines, amounts, obligations — use tables where appropriate]
 
 ## Notable Issues
-[Ambiguities, conflicts, missing information, areas of concern]
+[Ambiguities, conflicts, missing information, concerns]
 
 ## Source Attribution
-[When summarizing multiple files, note which document each key fact derives from]
+[For multi-file summaries: which document each key fact derives from]
 ```
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Completeness over brevity** — do not omit material information even if unfavorable to a party; flag conflicting information rather than resolving by assumption
-- **Source attribution** — indicate which document each significant fact comes from, especially with multiple files
-- **Preserve precision** — retain qualifications, limitations, and conditions that affect meaning; use defined terms as defined
-- **Proportional length** — reduce source content by 70-90% while retaining all material information; a single contract may yield ~2 pages, a complex litigation file 10+
-- **No legal conclusions** — summarize positions and arguments as presented; do not evaluate merits or predict outcomes
-- **Format for readability** — bold party names and key terms; use tables for lists of claims, obligations, or chronological events; maintain narrative flow
+- **Completeness over brevity** — never omit material information; flag conflicts rather than resolving by assumption.
+- **Source attribution** — cite which document each significant fact comes from, especially across multiple files.
+- **Preserve precision** — retain qualifications, limitations, and conditions; use defined terms as defined in the source.
+- **Proportional length** — target 70-90% reduction while retaining all material information.
+- **No legal conclusions** — summarize positions as presented; do not evaluate merits or predict outcomes.
+- **Readability** — bold party names and key terms; use tables for claims, obligations, or chronological events.

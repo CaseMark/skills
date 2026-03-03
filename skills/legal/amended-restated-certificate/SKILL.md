@@ -1,68 +1,70 @@
 ---
 name: amended-restated-certificate
-description: Drafts a Delaware Amended and Restated Certificate of Incorporation (A&R charter) for corporate/venture financings, implementing term sheet economics and governance into DGCL-compliant capital structure, preferred stock rights, conversion, anti-dilution, liquidation, and protective provisions. Use for Delaware amended/restated certificate, charter, preferred stock financing, Series Seed/Series A/B, blank check preferred authority, or VC term sheet implementation.
-tags:
-  - agreement
-  - corporate
-  - drafting
+description: Drafts a Delaware Amended and Restated Certificate of Incorporation implementing VC term sheet economics and governance into DGCL-compliant charter provisions. Use when drafting or revising a Delaware A&R certificate, preferred stock charter terms, Series Seed/A/B financing charter, blank check preferred authority, or implementing cap structure from a term sheet or SPA.
 ---
 
 # Amended and Restated Certificate of Incorporation (DE)
 
-Filing-ready Delaware A&R charter that accurately implements VC financing economics and governance.
+Filing-ready Delaware A&R charter implementing VC financing economics and governance. Produces Articles I–VI with preferred stock rights, conversion, anti-dilution, liquidation preferences, and protective provisions.
 
 ## Prerequisites
 
-1. Executed term sheet or SPA exhibits with final economics and governance.
-2. Current cap table with all outstanding, reserved, and convertible securities.
-3. Existing certificate of incorporation and amendments.
-4. Board and stockholder approval mechanics and required thresholds.
-5. Registered agent name and Delaware registered office address.
-6. Series terms and designations for each preferred class.
-7. Any side agreements that affect charter terms.
+Before drafting, collect:
+- Executed term sheet or SPA exhibits (final economics and governance)
+- Current cap table (outstanding, reserved, convertible securities)
+- Existing certificate of incorporation and all amendments
+- Board/stockholder approval mechanics and thresholds
+- Registered agent name and Delaware registered office address
+- Series terms and designations for each preferred class
+- Side agreements affecting charter terms
 
-## Output Structure / Process
+## Quick Start
 
-1. Build an intake table and verify all math.
-2. Draft Articles I–VI with consistent defined terms.
-3. Insert preferred stock terms in a structured Article V.
-4. Add optional governance provisions only if negotiated.
-5. Run verification checklist against source documents.
+1. Build intake table — gather all fields below, verify math
+2. Draft Articles I–VI with consistent defined terms
+3. Insert preferred stock terms in Article V
+4. Add optional governance provisions only if negotiated
+5. Run verification checklist against source documents
 
-**Intake Table**
-| Field | Source | Required | Notes |
-|---|---|---|---|
-| Legal name | Existing charter, DE records | Yes | Must match exactly |
-| Registered agent + address | Agent confirmation | Yes | DE county required |
-| DGCL adoption path | Board/stockholder actions | Yes | 242/245 [VERIFY] |
-| Authorized Common | Cap table | Yes | Include reserves |
-| Authorized Preferred | Term sheet | Yes | By series |
-| Par value | Existing charter | Yes | Common + Preferred |
-| Series designation(s) | Term sheet | Yes | e.g., Series A |
-| OIP per share | Term sheet | Yes | For conversion/dividends |
-| Liquidation preference | Term sheet | Yes | Multiple + priority |
-| Dividends | Term sheet | Yes | Cum/non-cum |
-| Anti-dilution | Term sheet | Yes | Broad-based WA typical |
-| Protective provisions | Term sheet | Yes | Thresholds |
-| Board composition | Voting agreement or charter | If in charter | Seat allocation |
+## Intake Table
 
-**Capitalization Math Checklist**
-- Total authorized Common ≥ outstanding Common + option pool + reserve for conversion of all Preferred + outstanding warrants/options + cushion.
-- Total authorized Preferred ≥ issued + reserved + anti-dilution cushion + any blank-check allocation.
-- Series totals sum exactly to Preferred authorization.
-- All price/share figures reconcile to valuation and investment amount.
+| Field | Source | Notes |
+|---|---|---|
+| Legal name | Existing charter, DE records | Must match exactly |
+| Registered agent + address | Agent confirmation | DE county required |
+| DGCL adoption path | Board/stockholder actions | 242/245 [VERIFY] |
+| Authorized Common | Cap table | Include reserves |
+| Authorized Preferred | Term sheet | By series |
+| Par value | Existing charter | Common + Preferred |
+| Series designation(s) | Term sheet | e.g., Series A |
+| OIP per share | Term sheet | For conversion/dividends |
+| Liquidation preference | Term sheet | Multiple + priority |
+| Dividends | Term sheet | Cum/non-cum |
+| Anti-dilution | Term sheet | Broad-based WA typical |
+| Protective provisions | Term sheet | Thresholds |
+| Board composition | Voting agreement or charter | If in charter only |
 
-**Article Outline**
+## Capitalization Math
+
+Verify before drafting:
+- Authorized Common >= outstanding + option pool + conversion reserve + warrants/options + cushion
+- Authorized Preferred >= issued + reserved + anti-dilution cushion + blank-check allocation
+- Series totals sum exactly to Preferred authorization
+- All price/share figures reconcile to valuation and investment amount
+
+## Article Structure
+
 | Article | Content |
 |---|---|
 | I | Corporate name (DGCL 102(a)(1) [VERIFY]) |
 | II | Registered office, county, registered agent |
 | III | Broad corporate purpose clause |
 | IV | Authorized capital, classes, par value, series designations |
-| V | Preferred Stock rights and preferences |
+| V | Preferred Stock rights and preferences (see below) |
 | VI | Director liability limitation (DGCL 102(b)(7) [VERIFY]) |
 
-**Article V Required Sections**
+## Article V Sections
+
 | Section | Minimum Terms |
 |---|---|
 | Definitions | Original Issue Price, Conversion Price, Liquidation Event |
@@ -74,30 +76,31 @@ Filing-ready Delaware A&R charter that accurately implements VC financing econom
 | Protective Provisions | Enumerated actions + approval threshold |
 | Optional | Board designation rights (if in charter) |
 
-**Anti-Dilution Formula (Broad-Based Weighted Average)**
-```text
+### Anti-Dilution Formula (Broad-Based Weighted Average)
+
 CP' = CP * (A + B) / (A + C)
 
-CP = Conversion Price before issuance
-A = Common outstanding on a fully diluted, as-converted basis
-B = Consideration received / CP
-C = Shares issued in the dilutive issuance
-```
+CP  = Conversion Price before issuance
+A   = Common outstanding (fully diluted, as-converted)
+B   = Consideration received / CP
+C   = Shares issued in the dilutive issuance
 
-**Protective Provisions Checklist**
-- Amend charter/bylaws adverse to Preferred.
-- Create/authorize senior or pari passu classes.
-- Increase/decrease authorized Common or Preferred.
-- Declare dividends or distributions (exceptions allowed).
-- Redeem or repurchase stock (exceptions allowed).
-- Liquidation, dissolution, or winding up.
-- Merge, recapitalize, or sell all/substantially all assets.
-- Change board size or composition.
-- Incur debt beyond approved thresholds.
-- Exclusive license or disposition of material IP.
+### Protective Provisions Checklist
 
-**Execution Block Template**
-```text
+Include approval requirements for:
+- Amend charter/bylaws adverse to Preferred
+- Create/authorize senior or pari passu classes
+- Increase/decrease authorized Common or Preferred
+- Declare dividends or distributions
+- Redeem or repurchase stock
+- Liquidation, dissolution, or winding up
+- Merge, recapitalize, or sell all/substantially all assets
+- Change board size or composition
+- Incur debt beyond approved thresholds
+- Exclusive license or disposition of material IP
+
+## Execution Block
+
 IN WITNESS WHEREOF, the Corporation has caused this Amended and Restated
 Certificate of Incorporation to be executed by a duly authorized officer
 on this ___ day of __________, 20__.
@@ -105,16 +108,15 @@ on this ___ day of __________, 20__.
 _________________________________
 Name:
 Title:
-```
 
-## Guidelines
+## Pitfalls and Checks
 
-- Use DGCL filing statements for amendment/restatement authority and adoption path (242/245 [VERIFY]).
-- Keep definitions single-sourced and consistent; avoid duplicate definitions across sections.
-- Match all economic terms to the term sheet and SPA exhibits; do not improvise.
-- Use precise share counts; reconcile to the cap table and option pool.
+- Use DGCL filing statements for amendment/restatement authority (242/245 [VERIFY]).
+- Single-source all definitions — no duplicates across sections.
+- Match every economic term to the term sheet and SPA exhibits. Never improvise.
+- Use precise share counts reconciled to cap table and option pool.
 - Include blank-check preferred only if consistent with protective provisions.
-- If a term is ambiguous or conflicting, stop and request clarification before drafting.
-- Optional governance provisions (indemnification, forum selection, written consent, special meetings) only if negotiated and consistent with bylaws and other agreements.
-- Director exculpation must track DGCL 102(b)(7) and DGCL 174 carve-outs [VERIFY].
-- Delaware-specific; do not apply to other jurisdictions without redlining for local law.
+- If a term is ambiguous or conflicting, stop and request clarification.
+- Optional governance provisions (indemnification, forum selection, written consent, special meetings) only if negotiated and consistent with bylaws.
+- Director exculpation must track DGCL 102(b)(7) and 174 carve-outs [VERIFY].
+- Delaware-specific — do not apply to other jurisdictions without redlining for local law.

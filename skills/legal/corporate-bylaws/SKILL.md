@@ -1,6 +1,6 @@
 ---
 name: corporate-bylaws
-description: Drafts comprehensive U.S. corporate bylaws as the foundational governance document for a corporation. Conducts intake from Articles of Incorporation, researches applicable state corporate statute (Delaware GCL, MBCA, or state-specific), and produces a complete, internally consistent bylaws tailored to the corporation's ownership structure, governance philosophy, and stage of development. Use for new corporation formations, governance overhauls, or updating existing bylaws for closely-held or emerging-growth corporations.
+description: Drafts complete U.S. corporate bylaws harmonized with Articles of Incorporation and tailored to state statute (Delaware GCL, MBCA, or state-specific). Use for new corporation formations, governance overhauls, or updating existing bylaws for closely-held or emerging-growth corporations.
 tags:
   - agreement
   - corporate
@@ -10,211 +10,123 @@ tags:
 
 # Corporate Bylaws
 
-Drafts a complete, state-compliant set of corporate bylaws harmonized with the Articles of Incorporation and tailored to the corporation's governance structure and operational needs.
+Produces a complete, internally consistent set of bylaws matched to the corporation's Articles, jurisdiction, ownership structure, and governance philosophy.
 
 ## Prerequisites
 
-1. **Articles of Incorporation** — filed/certified copy; extract: exact legal name, state of incorporation, authorized share classes and counts, par value, any director liability/indemnification provisions, bylaw amendment restrictions
-2. **State corporate statute** — identify jurisdiction (Delaware GCL, MBCA, or state-specific); research mandatory vs. default provisions, notice periods, quorum floors, virtual meeting authorization, indemnification scope, and recent amendments
-3. **Client governance intake** — ownership structure (closely-held vs. dispersed), anticipated public offering, desired board size/structure (unitary vs. classified), voting standard preference, cumulative voting stance, written consent policy, and officer positions needed
+1. **Articles of Incorporation** — filed copy; extract: legal name, state, authorized share classes/counts, par value, liability/indemnification provisions, bylaw amendment restrictions
+2. **State statute** — identify jurisdiction; research mandatory vs. default provisions, notice periods, quorum floors, virtual meeting rules, indemnification scope
+3. **Governance intake** — ownership structure (closely-held vs. dispersed), IPO plans, board size/structure, voting standard preference, cumulative voting stance, written consent policy, officer positions
 
-## Output Structure
+## Quick Start
 
-Draft bylaws with the following article structure. Tailor each provision to the intake facts; flag choices made with `[CLIENT CHOICE]` and unresolved statutory questions with `[VERIFY: jurisdiction]`.
+Draft bylaws using Articles I–IX below. Flag unresolved choices with `[CLIENT CHOICE]` and statutory questions with `[VERIFY: jurisdiction]`.
 
----
+## Article Structure
 
-### Article I — Corporate Identity
+### I — Corporate Identity
 
-| Provision | Drafting Rule |
-|---|---|
-| Name | Exact match to filed Articles, including corporate designator |
-| Purpose | General business clause unless professional corp, benefit corp, or regulated industry requires specificity |
-| Principal Office | Full address; grant board authority to relocate without bylaw amendment |
-| Registered Office | Distinguish from principal office; reference statutory agent if applicable |
+- **Name**: exact match to filed Articles including designator
+- **Purpose**: general business clause unless professional/benefit corp requires specificity
+- **Principal office**: full address; board may relocate without amendment
+- **Registered office**: distinguish from principal; reference statutory agent
 
----
-
-### Article II — Shareholders
-
-**Annual Meeting**
-- Timing: Board-determinable date within 13 months of prior meeting and within a specified month/range
-- Format: In-person, virtual, or hybrid — confirm state authorization for virtual meetings `[VERIFY: jurisdiction]`
-
-**Special Meetings**
-- Calling authority: Board, Chair, CEO, and shareholders holding `___`% of voting shares
-- Threshold guidance: 10% for closely-held; 25%+ for dispersed ownership
-
-**Notice Requirements**
-
-| Element | Standard Range |
-|---|---|
-| Minimum notice | 10 days (verify state floor) |
-| Maximum notice | 60 days |
-| Required content | Date/time/place; special meeting must describe purpose with specificity |
-| Delivery methods | First-class mail, personal delivery, courier, electronic (if consented) |
-| Deemed given | Specify per method (mailing date vs. delivery date vs. transmission date) |
-
-**Quorum**
-- Default: Majority of outstanding voting shares
-- May reduce to 1/3 in most jurisdictions — lower threshold for closely-held corps with expected high participation
-
-**Voting**
-- Per share, one vote per share of common (verify against Articles for multi-class structures)
-- Routine matters: majority of shares present at quorum meeting
-- Fundamental transactions: majority or supermajority of all outstanding shares `[CLIENT CHOICE]`
-- Cumulative voting: include mechanics if permitted/required, or expressly disclaim `[CLIENT CHOICE]`
-
-**Proxies**
-- Form: written or electronic
-- Duration: 11 months unless specified (state law default)
-- Revocability: revocable unless coupled with interest (e.g., pledged shares)
-
-**Written Consent**
-- Permitted/prohibited: `[CLIENT CHOICE]` — consider prohibiting if public offering anticipated
-- If permitted: specify required percentage, notice to non-consenting shareholders
-
----
-
-### Article III — Board of Directors
-
-**Composition**
-- Fixed number OR range (min/max) with board authority to set exact number within range `[CLIENT CHOICE]`
-- Qualifications: limit to permissible requirements (modest share ownership, age); avoid residency requirements unless operationally required
-
-**Elections and Terms**
-
-| Structure | Use Case |
-|---|---|
-| Unitary (all elected annually) | Maximum shareholder accountability; preferred for closely-held |
-| Classified/staggered (2–3 year terms) | Continuity; takeover defense; requires class allocation on formation |
-
-**Voting Standard**
-- Plurality: candidates with most votes elected; seats always filled
-- Majority: affirmative majority required; include resignation policy or holdover provision for failed-majority directors `[CLIENT CHOICE]`
-
-**Removal**
-- With or without cause (state law default) unless cause required `[CLIENT CHOICE]`
-- Vote: majority of outstanding shares; supermajority if heightened protection desired
+### II — Shareholders
 
 **Meetings**
+- Annual: board-determinable date within 13 months of prior; in-person/virtual/hybrid `[VERIFY: jurisdiction]`
+- Special: called by board, Chair, CEO, or shareholders holding `___`% (10% closely-held; 25%+ dispersed)
 
-| Item | Standard |
+**Notice**: 10–60 days (verify state floor); state date/time/place; special meetings must describe purpose; specify deemed-given rules per delivery method
+
+**Quorum & Voting**
+- Quorum: majority of outstanding voting shares (may reduce to 1/3 in most states)
+- Routine matters: majority of shares present at quorum
+- Fundamental transactions: majority or supermajority of all outstanding `[CLIENT CHOICE]`
+- Cumulative voting: include mechanics or expressly disclaim `[CLIENT CHOICE]`
+
+**Proxies**: written or electronic; 11-month default duration; revocable unless coupled with interest
+
+**Written Consent**: permitted or prohibited `[CLIENT CHOICE]` — prohibit if IPO anticipated; if permitted, specify threshold and notice to non-consenting shareholders
+
+### III — Board of Directors
+
+**Composition**: fixed number or range with board discretion `[CLIENT CHOICE]`
+
+**Structure**
+
+| Type | Use Case |
 |---|---|
-| Regular meetings | Minimum frequency (e.g., quarterly); no notice required if schedule set in advance |
-| Special meetings | Called by: Chair, CEO, or any 2 directors; reasonable prior notice of time/place/purpose |
-| Quorum | Majority of directors then in office |
-| Action vote | Majority of directors present at quorum meeting |
-| Remote participation | Telephone/video conference permitted if all directors can hear each other |
-| Written consent | Unanimous written consent in lieu of meeting |
+| Unitary (annual) | Shareholder accountability; preferred for closely-held |
+| Classified (2–3 yr terms) | Continuity; takeover defense |
 
-**Conflicts of Interest**
-- Mandatory disclosure of material financial interest
-- Interested director abstains from vote
-- Safe harbor: approval by majority of disinterested directors or shareholders after disclosure `[VERIFY: jurisdiction statute]`
+**Voting standard**: plurality (seats always filled) or majority with resignation/holdover policy `[CLIENT CHOICE]`
 
----
+**Removal**: with or without cause `[CLIENT CHOICE]`; majority or supermajority of outstanding shares
 
-### Article IV — Officers
+**Meetings**: quarterly minimum for regular (no notice if pre-scheduled); special called by Chair, CEO, or 2 directors; quorum = majority of directors in office; action = majority present; remote permitted; unanimous written consent in lieu
 
-**Required Positions** (verify state minimums): President/CEO, Secretary, Treasurer/CFO
+**Conflicts**: mandatory disclosure; interested director abstains; safe harbor = disinterested director/shareholder approval `[VERIFY: jurisdiction]`
 
-**Permitted Additional Positions**: COO, General Counsel, CTO, Vice Presidents — board may create by resolution
+### IV — Officers
 
-**Principal Officer Authorities**
+**Required** (verify state minimums): President/CEO, Secretary, Treasurer/CFO
+
+**Authorities**
 
 | Officer | Core Authority |
 |---|---|
-| CEO/President | General supervision of business; execute contracts within board-approved thresholds; hire/terminate employees; establish operational policies |
-| Secretary | Maintain minutes, resolutions, written consents, and stock ledger; provide all required notices; authenticate records; custody of corporate seal |
-| CFO/Treasurer | Custody of funds and securities; maintain financial records; manage banking relationships; sign checks/EFTs up to board-approved limits |
+| CEO/President | General supervision; execute contracts within board thresholds; hire/terminate |
+| Secretary | Minutes, stock ledger, notices, record authentication, seal custody |
+| CFO/Treasurer | Funds custody, financial records, banking, checks/EFTs within board limits |
 
-**Removal**: Board may remove any officer with or without cause at any time; does not affect separate employment contract rights
+Board may create additional positions by resolution. Board may remove any officer with or without cause (does not affect employment contract rights).
 
----
+### V — Committees
 
-### Article V — Committees
+Formed by board resolution. **Non-delegable functions** (statutory): amend Articles/bylaws, approve mergers/asset sales, declare dividends, authorize shares beyond limits, fill board vacancies (check state law).
 
-**Formation**: By board resolution specifying name, purpose, authority, composition, and duration
+**Standing committees to consider**: Audit (financial integrity, auditor oversight), Compensation (executive pay, equity plans), Nominating/Governance (candidates, evaluations) — all composed of independent directors.
 
-**Non-Delegable Functions** (statutory — cannot be assigned to committees):
-- Amend Articles or bylaws
-- Approve mergers or asset sales
-- Declare dividends
-- Authorize share issuances beyond approved limits
-- Fill board vacancies (check state law)
+### VI — Capital Stock
 
-**Standing Committees to Consider**
+- **Form**: certificated or uncertificated book-entry `[CLIENT CHOICE]`
+- **Issuance**: per board resolution within Articles limits
+- **Transfers**: record in stock ledger; require proper endorsement; may refuse non-compliant transfers
+- **Lost certificates**: affidavit + indemnity bond (`___`× value) + replacement fee
 
-| Committee | Composition | Core Mandate |
+### VII — Indemnification
+
+- **Mandatory**: directors/officers wholly successful on merits — indemnify all expenses
+- **Permissive**: directors, officers, may extend to employees/agents — requires good faith standard (civil: best interests; criminal: no reasonable cause to believe unlawful)
+- **Prohibited**: liability to corporation in derivative action; improper personal benefit
+- **Expense advancement**: mandatory or permissive `[CLIENT CHOICE]`; require repayment undertaking (need not be secured)
+- **D&O insurance**: explicitly authorize, including unindemnifiable liabilities
+- **Savings clause**: rights non-exclusive; maximum protection permitted by law
+
+### VIII — Financial and Administrative
+
+- **Fiscal year**: calendar or `___`; board may change by resolution
+- **Books/records**: maintain at principal office; identify shareholder inspection rights per statute
+- **Contract execution**: tiered approval thresholds (officer / CEO / board) by dollar amount
+- **Checks/EFTs**: designated officers; co-signature above `$___`
+- **Seal**: optional; authorize use and custody
+
+### IX — Amendments
+
+| By | Vote | Scope |
 |---|---|---|
-| Audit | Independent directors with financial literacy | Financial statement integrity, auditor oversight, internal controls, compliance |
-| Compensation | Independent directors | Executive pay, equity plan administration |
-| Nominating/Governance | Independent directors | Director candidates, board evaluations, governance policy |
+| Board | Majority at quorum | All unless Articles reserve to shareholders |
+| Shareholders | Majority of outstanding (supermajority for protected provisions) | All |
 
----
+Supermajority protection (2/3 or 3/4) for: indemnification, quorum floors, fundamental transaction thresholds, amendment provision itself `[CLIENT CHOICE]`. Verify Articles for restrictions on board amendment authority.
 
-### Article VI — Capital Stock
+## Checks
 
-- **Certificates**: Physical certificates OR uncertificated book-entry form (most modern statutes permit)
-- **Issuance**: Per board resolution within authorized share limits in Articles
-- **Transfers**: Must be recorded in stock ledger; require proper endorsement/stock power; corporation may refuse non-compliant transfers (securities law, noted restrictions)
-- **Lost/Destroyed Certificates**: Require affidavit of loss + indemnity bond (specify amount: `___`× current value or fixed amount) + replacement fee
-
----
-
-### Article VII — Indemnification
-
-**Mandatory Indemnification**: Directors and officers who are wholly successful on the merits — indemnify for all expenses
-
-**Permissive Indemnification**: Directors, officers, and may extend to employees/agents — requires good faith standard:
-- Civil: acted in good faith, reasonably believed conduct in best interests of corporation
-- Criminal: no reasonable cause to believe conduct was unlawful
-
-**Prohibited**: Indemnification of persons found liable to corporation in derivative action or found to have received improper personal benefit
-
-**Expense Advancement**
-- Mandatory or permissive `[CLIENT CHOICE]`
-- Require written undertaking to repay if ultimately not entitled
-- Undertaking need not be secured; ability to repay need not be assessed
-
-**D&O Insurance**: Corporation may purchase and maintain regardless of whether indemnification would be permitted — explicitly authorize coverage for unindemnifiable liabilities
-
-**Savings Clause**: Rights are not exclusive of other rights; intent to provide maximum protection permitted by state law
-
----
-
-### Article VIII — Financial and Administrative Provisions
-
-| Item | Provision |
-|---|---|
-| Fiscal Year | Calendar year (Dec 31) OR `___` — board may change by resolution |
-| Books and Records | Maintain at principal office or board-designated location; identify records available for shareholder inspection per statute |
-| Contract Execution | Designate officers with execution authority; tiered approval thresholds (officer / CEO / board) based on dollar amount and subject matter |
-| Checks/EFTs | Designated officers; co-signature required above `$___` threshold |
-| Seal | Optional; authorize use and custody |
-
----
-
-### Article IX — Amendments
-
-| Amendment By | Vote Required | Scope |
-|---|---|---|
-| Board of Directors | Majority of directors at quorum meeting | All provisions unless Articles reserve to shareholders |
-| Shareholders | Majority of outstanding shares (or supermajority for protected provisions) | All provisions |
-
-**Supermajority Protection** (consider 2/3 or 3/4 threshold for): Indemnification rights, quorum floors, voting thresholds for fundamental transactions, the amendment provision itself `[CLIENT CHOICE]`
-
-**Constraints**: Verify Articles for restrictions on board amendment authority; Articles control in any conflict
-
----
-
-## Guidelines
-
-- **Harmonization**: Cross-check every provision against the Articles of Incorporation before finalizing — Articles prevail in any conflict; any contradiction in bylaws is invalid
-- **Mandatory vs. default**: Identify which state statutory provisions cannot be modified; only opt out of default rules where the corporation has a specific governance reason
-- **Closely-held vs. dispersed**: Simplify formalities (lower quorums, broader written consent) for closely-held; tighten procedural requirements and shareholder protections for dispersed ownership
-- **Public offering readiness**: If IPO is anticipated, draft governance compatible with NYSE/Nasdaq listing standards; consider prohibiting written consent, adopting majority voting, and expanding independent director requirements
-- **Internal consistency**: Verify all cross-references (article/section numbers), defined terms, quorum thresholds, notice periods, and voting standards are consistent throughout
-- **Citation verification**: Mark any statutory citations or case law references with `[VERIFY]` — do not assert specific statutory section numbers without confirming current codification
-- **Jurisdiction caveat**: Delaware GCL provisions (e.g., DGCL §141, §109) differ materially from MBCA defaults — confirm applicable statute before drafting notice periods, quorum floors, and indemnification scope
+- **Articles supremacy**: cross-check every provision — Articles prevail in any conflict
+- **Mandatory vs. default**: only opt out of defaults with specific governance reason
+- **Closely-held vs. dispersed**: simplify formalities for closely-held (lower quorums, broader consent); tighten for dispersed
+- **IPO readiness**: if anticipated, align with NYSE/Nasdaq standards — prohibit written consent, adopt majority voting, expand independent director requirements
+- **Internal consistency**: verify all cross-references, defined terms, quorum thresholds, notice periods, and voting standards
+- **Citations**: mark all statutory references with `[VERIFY]` — do not assert section numbers without confirming current codification
+- **Jurisdiction**: Delaware GCL differs materially from MBCA defaults — confirm applicable statute before drafting
