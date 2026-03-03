@@ -78,9 +78,21 @@ On behalf of [Organization], I confirm I am authorized to approve participation.
 Counsel may make non-substantive edits (formatting, citations, typos) before filing.
 ```
 
-**FRAP 29(a)(4)(E) disclosure** — State whether a party's counsel authored the brief in whole or in part, and whether any party, party's counsel, or other person contributed money to fund preparation or submission.
+**Disclosure text (verbatim required)**
 
-**Supreme Court Rule 37.6 disclosure** — State whether counsel for a party authored the brief in whole or in part, and whether any person or entity other than amici or their counsel made a monetary contribution to preparation or submission.
+- **FRAP 29(a)(4)(E)**: Do not paraphrase. Copy the current rule language verbatim from the controlling source, then insert only confirmed case facts.
+
+```text
+[PASTE CURRENT FRAP 29(a)(4)(E) LANGUAGE VERBATIM]
+[INSERT ONLY CONFIRMED AUTHORSHIP AND FUNDING FACTS FOR THIS BRIEF]
+```
+
+- **Supreme Court Rule 37.6**: Do not paraphrase. Copy the current rule language verbatim from the controlling source, then insert only confirmed case facts.
+
+```text
+[PASTE CURRENT SUPREME COURT RULE 37.6 LANGUAGE VERBATIM]
+[INSERT ONLY CONFIRMED AUTHORSHIP AND FUNDING FACTS FOR THIS BRIEF]
+```
 
 **Corporate disclosure (FRAP 26.1 `[VERIFY]`)** — Parent corporations and publicly held corporations owning 10%+ of stock, or "None."
 

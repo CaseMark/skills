@@ -88,6 +88,30 @@ Structure:
 
 Use bracketed placeholders (`[VERIFY]`, `[X words]`, `[date]`) for any unconfirmed detail.
 
+### Disclosure and Certificates (Verbatim Required)
+
+- **Disclosure statement** (FRAP 29(a)(4)(E), Supreme Court Rule 37.6, or forum equivalent): copy current rule language verbatim after verification; do not paraphrase required rule text.
+- **Certificate of Compliance**: include rule citation, exact word count, statement of typeface/style compliance if required, signer name, date, and signature line. Use verbatim rule language where mandated.
+- **Certificate of Service**: include rule citation, service method(s), service date, recipient list (or filing-system service statement if permitted), declarant name, date, and signature line. Use verbatim rule language where mandated.
+
+```text
+Certificate of Compliance
+Rule: [FRAP 32(g)(1) / controlling forum rule]
+Word count: [X words]
+Required rule text: [PASTE VERBATIM TEXT REQUIRED BY CONTROLLING RULE]
+Date: [YYYY-MM-DD]
+Signature: [Name /s/]
+
+Certificate of Service
+Rule: [FRAP 25(d) / FRAP 25(c) / controlling forum rule]
+Service method: [ECF / email / mail / personal service]
+Service date: [YYYY-MM-DD]
+Served on: [Names or category of recipients as required]
+Required rule text: [PASTE VERBATIM TEXT REQUIRED BY CONTROLLING RULE]
+Date: [YYYY-MM-DD]
+Signature: [Name /s/]
+```
+
 ## Step 4: Deliverables
 
 Prefix every output with:
