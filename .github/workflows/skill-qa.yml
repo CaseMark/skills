@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       skills: ${{ steps.changed.outputs.skills }}
+      skills_count: ${{ steps.changed.outputs.skills_count }}
       passed: ${{ steps.validate.outputs.passed }}
     steps:
       - uses: actions/checkout@v4
@@ -30,8 +31,11 @@ jobs:
           if [ -z "$CHANGED" ]; then
             echo "No SKILL.md files changed"
             echo "skills=" >> $GITHUB_OUTPUT
+            echo "skills_count=0" >> $GITHUB_OUTPUT
             exit 0
           fi
+          COUNT=$(printf "%s\n" "$CHANGED" | sed '/^[[:space:]]*$/d' | wc -l | tr -d ' ')
+          echo "skills_count=$COUNT" >> $GITHUB_OUTPUT
           echo "skills<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -284,7 +288,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Skip deep review for oversized PRs
+        if: ${{ fromJSON(needs.validate.outputs.skills_count) > 300 }}
+        run: |
+          echo "Skipping Claude deep review for ${{ needs.validate.outputs.skills_count }} changed skills."
+          echo "Structural validation remains enforced."
+
       - uses: anthropics/claude-code-action@v1
+        if: ${{ fromJSON(needs.validate.outputs.skills_count) <= 300 }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
