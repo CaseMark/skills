@@ -2,12 +2,10 @@
 name: ediscovery-review-summary
 description: >-
   Produces an internal U.S. litigation e-discovery status summary covering ESI
-  collection, processing, search term hits, review throughput,
-  relevance/privilege rates, and completion forecasts. Use during discovery to
-  brief counsel, case managers, or clients on progress, risks, and resource
-  needs; trigger keywords: e-discovery, ESI, collection log, processing
-  report, data load summary, review statistics, coding report, search term
-  results, privilege review, status report.
+  collection, processing, search-term hits, review throughput, relevance and
+  privilege rates, and completion forecasts. Triggers when the user requests an
+  e-discovery status report, collection log summary, processing report, review
+  statistics, coding report, search-term results, or privilege review summary.
 tags:
   - litigation
   - summarization
@@ -16,117 +14,92 @@ tags:
 
 # E-Discovery Collection & Review Summary
 
-Internal status report that tracks ESI from collection through attorney review and projects completion.
+Internal status report tracking ESI from collection through attorney review, with completion projections.
 
 ## Prerequisites
 
-1. Custodian list with identifiers and collection scope (systems, date ranges, locations)
-2. Collection logs and processing reports from vendor
-3. Review platform exports for coding, reviewer activity, and search term results
-4. Search term list or Boolean queries used in the matter
-5. Review protocol (relevance, privilege, issue tags) and QC standards
-6. Milestones or deadlines that the review must meet
-7. Protective order or confidentiality requirements for reporting
+- Custodian list with collection scope (systems, date ranges, locations)
+- Collection logs and processing reports from vendor
+- Review platform exports (coding, reviewer activity, search-term results)
+- Search-term list or Boolean queries
+- Review protocol (relevance, privilege, issue tags) and QC standards
+- Key deadlines the review must meet
+- Protective order or confidentiality requirements for reporting
 
-## Output Structure / Process
+## Quick Start
 
-**1) Source Inventory**
+1. Gather source data (collection logs, processing reports, review exports, search-term results, privilege summaries).
+2. Normalize custodian names into a master mapping table.
+3. Run integrity checks — pipeline totals must satisfy: Collected ≥ Processed ≥ Loaded ≥ Reviewed.
+4. Compute core metrics tables (see below).
+5. Draft executive summary with risks and recommendations.
+6. Apply work-product legend.
 
-| Source | Expected Format | Required Fields | Status | Notes |
-|---|---|---|---|---|
-| Collection log | CSV/JSON | custodian, source, volume, item count, dates | | |
-| Processing report | CSV/PDF | processed count, errors, deNIST, dedupe | | |
-| Load summary | CSV | loaded count, load failures | | |
-| Search term results | CSV | term, hit count, corpus size | | |
-| Review stats | CSV | reviewer, docs reviewed, hours | | |
-| Coding export | CSV | relevance, privilege, issue tags, date | | |
-| Privilege log or summary | CSV/PDF | privilege type, counts | | |
+## Core Metrics
 
-**2) Normalization & Integrity Checks**
+### A. Collection & Processing by Custodian
 
-| Check | Method | Pass/Fail | Notes |
-|---|---|---|---|
-| Custodian name alignment | Create master mapping table | | |
-| Pipeline totals | Collected ≥ Processed ≥ Loaded ≥ Reviewed | | |
-| Missing search terms | Term list vs results export | | |
-| Coding completeness | reviewer, date, relevance, privilege present | | |
-| Error reconciliation | Processing errors vs re-runs | | |
+Per custodian: Collected GB, Item Count, Processed %, Load Failures, File-Type Mix, Exceptions.
 
-**Custodian Mapping Table**
+### B. Search-Term Effectiveness
 
-| Canonical Custodian | Variant Names/IDs | Source Systems | Notes |
-|---|---|---|---|
+Per term/query: Hits, Hit Rate %, Sample Precision %, Overlap %, Recommended Action.
 
-**3) Core Metrics Tables**
+### C. Review Status (Matter-Level)
 
-**A. Collection & Processing by Custodian**
+Total Reviewable, Reviewed Count, % Reviewed, Relevant %, Privileged %, Non-Responsive %, Est. Completion Date.
 
-| Custodian | Collected GB | Items | Processed % | Load Failures | File Type Mix | Exceptions |
-|---|---|---:|---:|---:|---|---|
+### D. Reviewer Productivity
 
-**B. Search Term Effectiveness**
+Per reviewer/team: Docs Reviewed, Hours, Docs/Hour, Relevant %, Privileged %, QC Rate %.
 
-| Term/Query | Hits | Hit Rate % | Sample Precision % | Overlap % | Action |
-|---|---:|---:|---:|---:|---|
+### E. Privilege Patterns
 
-**C. Review Status (Matter-Level)**
+Per custodian: Privileged %, Dominant Doc Types, Red Flags.
 
-| Total Reviewable | Reviewed | % Reviewed | Relevant % | Privileged % | Non-Responsive % | Est. Completion Date |
-|---:|---:|---:|---:|---:|---:|---|
-
-**D. Reviewer Productivity**
-
-| Reviewer/Team | Docs Reviewed | Hours | Docs/Hour | Relevant % | Privileged % | QC Rate % | Notes |
-|---|---:|---:|---:|---:|---:|---:|---|
-
-**E. Privilege Patterns**
-
-| Custodian | Privileged % | Dominant Doc Types | Notes/Red Flags |
-|---|---:|---|---|
-
-**4) Definitions & Calculations**
+## Key Formulas
 
 | Metric | Formula |
 |---|---|
-| Hit Rate % | hits / total reviewable corpus |
-| Precision % | relevant hits / sampled hits |
-| Review Velocity | docs reviewed / time period |
-| Completion ETA | remaining docs / current velocity |
-| Privilege Rate % | privileged / reviewed |
+| Hit Rate % | hits ÷ total reviewable corpus |
+| Precision % | relevant hits ÷ sampled hits |
+| Review Velocity | docs reviewed ÷ time period |
+| Completion ETA | remaining docs ÷ current velocity |
+| Privilege Rate % | privileged ÷ reviewed |
 
-**5) Executive Summary Template**
+## Executive Summary Template
 
-```text
-Executive Summary
-- Collection completeness: [status + anomalies]
-- Processing health: [success % + key errors]
-- Search term performance: [top/weak terms + overlap]
-- Review progress: [reviewed %, relevance %, privilege %]
-- Forecast: [ETA + assumptions]
-- Risks & actions: [top 3]
-```
+- **Collection completeness** — status and anomalies
+- **Processing health** — success rate and key errors
+- **Search-term performance** — top/weak terms and overlap
+- **Review progress** — reviewed %, relevance %, privilege %
+- **Forecast** — ETA with assumptions
+- **Risks & actions** — top three items
 
-**6) Findings, Risks, and Recommendations**
+## Integrity Checks
+
+- Custodian names align across all sources (master mapping table).
+- Pipeline totals are monotonically decreasing through each stage.
+- Every search term in the term list appears in the results export.
+- Coding records contain reviewer, date, relevance, and privilege fields.
+- Processing errors are reconciled against re-runs.
+
+## Findings & Recommendations
 
 - List missing sources and resulting limitations.
 - Flag custodians with outlier volumes or error rates.
 - Identify low-precision or high-overlap search terms.
-- Note reviewer inconsistencies and QC actions.
-- Recommend resource changes or search term refinement.
+- Note reviewer inconsistencies and QC actions taken.
+- Recommend resource changes or search-term refinement.
+- Document assumptions and gaps with impact and mitigation.
 
-**7) Assumptions & Gaps**
+## Pitfalls
 
-| Assumption or Gap | Impact | Mitigation |
-|---|---|---|
-
-**8) Work Product Legend**
-
-Include the legend: “Attorney Work Product / Privileged & Confidential. Internal use only.”
-
-## Guidelines
-
-- Report only aggregate metrics; do not disclose privileged content.
+- Report only aggregate metrics — never disclose privileged content.
 - If counts conflict, surface the discrepancy and state the suspected cause.
-- Use U.S. discovery terminology and confirm local rules if distributing externally.
-- Mark any uncertain legal citations with `[VERIFY]`.
+- Use U.S. discovery terminology; confirm local rules before external distribution.
+- Mark uncertain legal citations with `[VERIFY]`.
 - Keep narrative neutral and data-driven; avoid strategy conclusions.
+- Always include: "Attorney Work Product / Privileged & Confidential. Internal use only."
+
+---

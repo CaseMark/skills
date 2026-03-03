@@ -1,6 +1,6 @@
 ---
 name: sublease-agreement
-description: Drafts comprehensive commercial sublease agreements subordinate to master leases, incorporating key master lease terms, landlord consent provisions, and tripartite protections. Reviews master lease for consent requirements, use restrictions, and subletting conditions before generating the document. Use when drafting sublease agreements, commercial subleases, subletting contracts, or subtenancy agreements for commercial leasing transactions.
+description: Drafts commercial sublease agreements subordinate to a master lease, with tripartite protections for sublessor, sublessee, and landlord. Reviews master lease for consent requirements, use restrictions, and subletting conditions before generating. Use when drafting sublease agreements, commercial subleases, subletting contracts, or subtenancy agreements.
 tags:
   - agreement
   - drafting
@@ -9,36 +9,38 @@ tags:
 
 # Commercial Sublease Agreement
 
-Drafts an execution-ready sublease agreement that subordinates the subtenancy to the master lease while protecting sublessor, sublessee, and landlord interests.
+Drafts an execution-ready sublease subordinating the subtenancy to the master lease while protecting all three parties (sublessor, sublessee, landlord).
 
-## Prerequisites
+## Quick Start
 
-1. **Master lease** — full executed copy with all amendments; extract: term, rent, consent requirements, subletting provisions, use restrictions, maintenance obligations, anti-subletting clauses, conditions precedent
-2. **Party information** — legal names, addresses, entity status for sublessor and sublessee
-3. **Premises details** — full address, unit/suite, square footage, exclusive vs. shared areas, any retained portions
-4. **Deal terms** — sublease term (start/end), monthly rent, security deposit, utility allocation
-5. **Landlord consent status** — obtained, pending, or waived by master lease terms
+Collect before drafting:
 
-## Master Lease Review Checklist
+1. **Master lease** — executed copy with amendments; extract term, rent, consent requirements, subletting provisions, use restrictions, maintenance obligations
+2. **Parties** — legal names, addresses, entity status for sublessor and sublessee
+3. **Premises** — address, unit/suite, square footage, exclusive vs. shared areas
+4. **Deal terms** — sublease term, monthly rent, security deposit, utility allocation
+5. **Landlord consent status** — obtained, pending, or waived by master lease
 
-Before drafting, extract and flag these from the master lease:
+## Core Workflow
+
+### Step 1: Review Master Lease
+
+Extract and flag before drafting:
 
 | Item | Look For |
 |------|----------|
 | Subletting clause | Consent required? Conditions? Profit-sharing? |
-| Notice provisions | Required notice method/timing for subletting |
-| Use restrictions | Permitted use language, prohibited activities |
-| Assignment/transfer | Restrictions that flow to subtenants |
-| Insurance requirements | Minimum coverage, additional insured requirements |
+| Notice provisions | Required method/timing for subletting notice |
+| Use restrictions | Permitted use, prohibited activities |
+| Assignment/transfer | Restrictions flowing to subtenants |
+| Insurance | Minimum coverage, additional insured requirements |
 | Default provisions | Whether subtenant breach triggers master default |
-| Term remaining | Ensure sublease cannot exceed master lease term |
-| Rent restrictions | Any caps on sublease rent markup |
+| Term remaining | Sublease must not exceed master lease term |
+| Rent restrictions | Caps on sublease rent markup |
 
-Flag any gaps or conflicts for user resolution before drafting.
+Flag gaps or conflicts for user resolution before proceeding.
 
-## Output Structure
-
-### Document Organization
+### Step 2: Draft Document
 
 ```
 SUBLEASE AGREEMENT
@@ -66,106 +68,42 @@ Exhibit C — Personal Property Inventory (if applicable)
 Exhibit D — Move-In Condition Report
 ```
 
-### Section Requirements
+### Step 3: Apply Section Requirements
 
-**Preamble & Recitals**
-- Identify all three parties (landlord, sublessor, sublessee)
-- Reference master lease by date, parties, and property
-- State sublessor's current good standing under master lease
-- State landlord consent status
+**Preamble** — Identify all three parties; reference master lease by date/parties/property; state landlord consent status and sublessor's good standing.
 
-**Premises**
-- Full address, unit, square footage
-- For partial subleases: delineate exclusive areas, shared areas, and retained areas with specificity sufficient to prevent boundary disputes
-- Itemize included personal property/fixtures
+**Premises** — Full address, unit, square footage. Partial subleases: delineate exclusive, shared, and retained areas precisely. Itemize included fixtures/personal property.
 
-**Term**
-- Exact commencement and termination dates
-- Must terminate before master lease expiration (build in reasonable buffer)
-- Auto-termination upon master lease termination for any reason
-- Holdover consequences (month-to-month or immediate breach)
-- Early termination rights: conditions, notice period (30–90 days), fees, restoration obligations
+**Term** — Exact start/end dates; must terminate before master lease expiration with buffer. Include auto-termination on master lease termination, holdover consequences, and early termination rights (conditions, 30–90 day notice, fees, restoration).
 
-**Rent & Financial Terms**
-- Amount (numerical and written), due date, payment method, payee address/account
-- Relationship to master lease rent; address rent escalation pass-through
-- Late fee: grace period (3–5 days), fee amount (comply with statutory maximums)
-- NSF/returned payment fees and certified funds requirement
+**Rent & Financial Terms** — Amount (numerical + written), due date, payment method. Address rent escalation pass-through from master lease. Late fee with 3–5 day grace period (comply with statutory maximums). NSF fees and certified funds requirement.
 
-**Security Deposit**
-- Amount (comply with statutory maximums for jurisdiction)
-- Holding requirements (separate account, interest-bearing if required by law)
-- Permitted deductions: unpaid rent, damages beyond ordinary wear and tear, cleaning, unreturned keys
-- Return timeline: per jurisdiction (typically 14–30 days) with itemized accounting
+**Security Deposit** — Comply with jurisdictional caps. Separate account (interest-bearing if required). Permitted deductions: unpaid rent, damages beyond ordinary wear, cleaning. Return per jurisdiction (typically 14–30 days) with itemized accounting.
 
-**Utilities & Maintenance**
+**Utilities & Maintenance** — For each utility: included in rent, sublessee pays direct, or reimbursed. Specify shared utility allocation method. Minor maintenance (sublessee): cleaning, filters, sublessee-caused damage. Major maintenance (sublessor): structural, HVAC, plumbing, electrical. Sublessee must promptly report defects.
 
-| Category | Options to Specify |
-|----------|--------------------|
-| Each utility (electric, gas, water, sewer, trash, internet, etc.) | Included in rent / sublessee pays direct / reimbursed to sublessor |
-| Shared utility allocation | Calculation methodology, billing frequency |
-| Minor maintenance | Sublessee responsible (cleaning, filters, light bulbs, sublessee-caused damage) |
-| Major maintenance | Sublessor responsible (structural, HVAC, plumbing, electrical systems) |
-| Reporting obligation | Sublessee must promptly report defects to sublessor |
+**Master Lease Incorporation** — All master lease terms bind sublessee as if original tenant. Sublessee rights cannot exceed sublessor's rights. Master lease violation = material sublease breach. Attach master lease as Exhibit A; include sublessee acknowledgment of receipt/review.
 
-**Master Lease Incorporation**
-- All master lease terms bind sublessee as if original tenant
-- Sublessee's rights cannot exceed sublessor's rights under master lease
-- Master lease violation by sublessee = material breach of sublease
-- Attach complete master lease as Exhibit A
-- Include sublessee acknowledgment of receipt and review
+**Use Restrictions** — Permitted use matching or narrowing master lease. No alterations without written consent; restoration obligations. No further subletting/assignment without sublessor and landlord consent. Occupancy limits per code.
 
-**Use Restrictions**
-- Permitted use (match or narrow master lease permitted use)
-- Pet policy (prohibited, conditional with deposit, per master lease)
-- Alterations: prohibited without prior written consent; restoration obligations
-- No further subletting/assignment without sublessor and landlord consent
-- Occupancy limits per applicable codes; guest duration limits
+**Insurance & Indemnification** — Sublessee liability insurance: $100K–$300K minimum. Sublessor as additional interested party; proof before possession. Mutual indemnification with attorney's fees. Force majeure (rent continues unless premises uninhabitable).
 
-**Insurance & Indemnification**
-- Sublessee renter's/liability insurance: minimum $100K–$300K liability coverage
-- Sublessor named as additional interested party; proof before possession; continuous coverage
-- Sublessee assumes liability for injuries/damage from sublessee's negligence
-- Sublessor disclaims liability for sublessee's personal property loss
-- Mutual indemnification including reasonable attorney's fees
-- Force majeure clause (rent continues unless premises uninhabitable)
+**Default & Remedies** — Monetary default: 3–5 day cure after written notice. Non-monetary curable: 10–15 day cure. Incurable (illegal activity, material misrepresentation): no cure. Remedies: termination, eviction, deposit retention, damages, attorney's fees. Surrender: clean condition, property removed, keys returned within 24–48 hours.
 
-**Default & Remedies**
-- Monetary default: 3–5 day cure period after written notice
-- Non-monetary curable default: 10–15 day cure period
-- Incurable default (illegal activity, material misrepresentation): no cure period
-- Sublessor remedies: termination, eviction/unlawful detainer, security deposit retention, damages, attorney's fees
-- Surrender obligations: clean condition, personal property removed, keys/access returned, forwarding address provided; 24–48 hour completion window
+**Notices** — Written required via personal delivery, certified mail, overnight courier, or email with confirmation. Effective: immediately (personal), 3 business days (mail), 1 day (courier), upon confirmation (email). Designated addresses; change-of-address procedure.
 
-**Notices**
-- Written notice required; methods: personal delivery, certified mail, overnight courier, email with confirmation
-- Effective: immediately (personal), 3 business days (certified mail), 1 business day (courier), upon confirmed receipt (email)
-- Designated addresses for each party; change-of-address procedure
+**Dispute Resolution** — Governing law: state of property. Venue: county of property. Mandatory mediation before litigation (costs split). Optional binding arbitration (e.g., AAA). Prevailing party attorney's fees.
 
-**Dispute Resolution**
-- Governing law: state where property is located
-- Venue: courts in county where property is located
-- Mandatory mediation before litigation (costs split equally)
-- Optional: binding arbitration clause (specify rules, e.g., AAA)
-- Prevailing party attorney's fees provision
+**General Provisions** — Severability, entire agreement, written amendments only, non-waiver, assignment by sublessor with landlord consent.
 
-**General Provisions**
-- Severability, entire agreement, written amendments only, no oral modifications
-- Non-waiver clause, assignment by sublessor permitted with landlord consent
+**Execution** — Signature blocks for both parties (printed name, signature, date). Entity signatories: name/title, authority representation. Sublessee acknowledgment of master lease receipt and subordination. Landlord consent block if required (signature, scope, whether direct obligations created). Notary blocks if jurisdictionally required.
 
-**Execution**
-- Signature blocks: printed name, signature, date, address for both parties
-- Entity signatories: entity name, signatory name/title, authority representation
-- Sublessee acknowledgment block: confirms receipt/review of master lease, understands subordination
-- Landlord consent block (if required): landlord signature, scope of consent, whether direct landlord-sublessee obligations are created
-- Notary blocks if required by jurisdiction
+## Pitfalls
 
-## Guidelines
-
-- Sublease term must never extend beyond master lease expiration; include a buffer period for sublessor's restoration obligations
-- Check jurisdiction-specific requirements: security deposit caps, required disclosures, rent control/markup restrictions, habitability standards
-- If landlord consent is a condition precedent, make sublease effectiveness contingent on obtaining it
-- All statutory citations should be verified for the specific jurisdiction — mark uncertain references with [VERIFY]
-- Use plain English; avoid archaic legalese while maintaining enforceability
-- Flag any master lease provisions that conflict with proposed sublease terms for user resolution
-- Do not draft if master lease absolutely prohibits subletting without evidence of landlord consent or waiver
+- **Term overflow** — sublease must never extend beyond master lease expiration; include buffer for sublessor restoration obligations
+- **Absolute prohibition** — do not draft if master lease prohibits subletting without evidence of landlord consent or waiver
+- **Conditional consent** — if landlord consent is a condition precedent, make sublease effectiveness contingent on obtaining it
+- **Jurisdiction-specific rules** — verify security deposit caps, required disclosures, rent control/markup restrictions, habitability standards
+- **Statutory citations** — mark uncertain references with [VERIFY] for the specific jurisdiction
+- **Master lease conflicts** — flag any provisions conflicting with proposed sublease terms for user resolution
+- **Plain language** — avoid archaic legalese while maintaining enforceability

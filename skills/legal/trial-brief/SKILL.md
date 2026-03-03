@@ -1,6 +1,6 @@
 ---
 name: trial-brief
-description: Drafts persuasive trial briefs for commercial litigation filed before trial to educate the judge on the theory of the case, secure favorable pre-trial rulings, and establish the evidentiary framework. Covers factual narrative, legal analysis, evidentiary issues, and motions in limine strategy. Use in the pre-trial phase.
+description: Drafts persuasive trial briefs for commercial litigation. Triggers when the user needs a pre-trial brief to frame the case theory, secure favorable rulings, or establish evidentiary groundwork. Use during the pre-trial phase after dispositive motions are resolved.
 tags:
   - brief
   - drafting
@@ -9,102 +9,101 @@ tags:
 
 # Trial Brief
 
-Drafts a comprehensive trial brief — the cornerstone of pre-trial advocacy. This is often the judge's first substantive engagement with the case and may be the only opportunity to present a cohesive narrative before trial fragmentation begins.
+Produces the pre-trial brief — often the judge's first substantive engagement with the case and the primary vehicle for presenting a cohesive narrative before trial.
 
-## Prerequisites
+## Quick Start
 
-Review before drafting:
+Gather before drafting:
 
 1. **Pleadings** — complaint, answer, counterclaims, amendments
-2. **Discovery record** — deposition transcripts, interrogatory responses, document productions, expert reports
+2. **Discovery record** — deposition transcripts, interrogatories, document productions, expert reports
 3. **Prior rulings** — summary judgment orders, evidentiary rulings, case management orders
-4. **Key exhibits** — documents, photographs, communications supporting the theory
-5. **Local rules** — formatting, length limits, citation style, filing deadlines, judge preferences
-6. **Remaining issues** — what survived dispositive motions, what's left for trial
+4. **Key exhibits** — documents, communications, photographs supporting the theory
+5. **Local rules** — formatting, length limits, citation style, deadlines, judge preferences
+6. **Remaining issues** — what survived dispositive motions and is left for trial
 
-## Output Structure
+## Document Structure
 
-### Caption and Preliminary Sections
+### 1. Caption and Preliminaries
 
 - Full caption matching court records (division, case number, judge)
 - Table of Contents with argumentative headings (advocacy tool, not neutral labels)
 - Table of Authorities (constitutional provisions → statutes → regulations → cases)
-- Procedural history tracing case from filing through current posture
+- Procedural history from filing to current posture
 
-### Introduction and Theme
+### 2. Introduction and Theme
 
-Establish in the first paragraph:
-- What this case is fundamentally about (not just legal labels)
-- The relationship between parties, what went wrong, the harm or defense
-- **Central theme** — a narrative framework beyond legal conclusions
-  - ✓ "The defendant's calculated abandonment of obligations after securing the benefits of the bargain"
-  - ✗ "Breach of contract"
-- Roadmap of the brief's organization
+Open with:
+- What this case is fundamentally about — not just legal labels
+- Party relationship, what went wrong, the harm or defense
+- **Central theme** as narrative framework:
+  - Good: "Defendant's calculated abandonment of obligations after securing the bargain's benefits"
+  - Bad: "Breach of contract"
+- Roadmap of brief organization
 
-### Statement of Facts
+### 3. Statement of Facts
 
-- Coherent narrative (chronological, thematic, or hybrid)
-- Every assertion with specific record citation (deposition page:line, exhibit number, Bates stamp)
-- Direct quotations from favorable testimony and contemporaneous documents
-- Strategic emphasis on favorable evidence
-- **Address unfavorable facts directly** — frame in context, don't hide them
-- Subheadings for digestibility
+- Chronological, thematic, or hybrid narrative
+- Every assertion cited to record (deposition page:line, exhibit number, Bates stamp)
+- Quote favorable testimony and contemporaneous documents
+- **Address unfavorable facts directly** — frame in context, never hide
+- Use subheadings for digestibility
 
-### Issues Presented
+### 4. Issues Presented
 
-- Frame as precise questions suggesting answers favorable to client
-  - ✓ "Whether defendant's failure to deliver conforming goods within the contractual timeframe, despite repeated demands and opportunities to cure, constitutes a material breach"
-  - ✗ "Whether defendant is liable for breach of contract"
-- Logical sequence: threshold issues → merits issues
-- Each issue maps to a major Argument heading
+- Frame as precise questions suggesting favorable answers:
+  - Good: "Whether defendant's failure to deliver conforming goods within the contractual timeframe, despite repeated demands and cure opportunities, constitutes material breach"
+  - Bad: "Whether defendant is liable for breach of contract"
+- Sequence: threshold issues → merits issues
+- Each issue maps to an Argument heading
 
-### Legal Argument
+### 5. Legal Argument
 
-For each issue, use clear headings stating conclusions:
+Per issue, use headings stating conclusions:
 
-1. **Governing standard** — controlling authority with proper citation
-2. **Elements/factors** — with parenthetical explanations showing relevance
-3. **Application** — connect evidence to legal requirements with record citations
-4. **Analogical reasoning** — compare to favorable precedents
-5. **Distinguished authority** — address unfavorable cases
-6. **Preemptive rebuttal** — "Opposing counsel may argue... However..."
-7. **Policy considerations** — where they supplement doctrinal analysis
+1. **Governing standard** — controlling authority with citation
+2. **Elements/factors** — parentheticals showing relevance
+3. **Application** — connect evidence to legal requirements with record cites
+4. **Analogical reasoning** — compare to favorable precedent
+5. **Distinguish adverse authority** — address unfavorable cases directly
+6. **Preemptive rebuttal** — "Opposing counsel may argue… However…"
+7. **Policy** — only where it supplements doctrinal analysis
 
-Prioritize: binding authority from this jurisdiction → same court/district → persuasive authority.
+Authority priority: binding jurisdiction → same court/district → persuasive.
 
-### Evidentiary Issues / Motions in Limine
+### 6. Evidentiary Issues / Motions in Limine
 
-For evidence to **admit**:
+**To admit:**
 - Authentication foundation
 - Hearsay exception identification
-- Expert admissibility (Daubert/Frye standard, qualifications, methodology, relevance)
+- Expert admissibility (Daubert/Frye, qualifications, methodology, relevance)
 
-For evidence to **exclude**:
+**To exclude:**
 - Relevance deficiency (FRE 401/402)
 - Hearsay without exception
-- Prejudice substantially outweighing probative value (FRE 403)
-- Character evidence limitations (FRE 404)
+- Prejudice outweighing probative value (FRE 403)
+- Character evidence limits (FRE 404)
 - Expert methodology challenges
 - Privilege assertions
 
-### Relief Requested
+### 7. Relief Requested
 
-- Specific relief sought (judgment, damages amount, injunctive terms)
+- Specific relief (judgment, damages amount, injunctive terms)
 - Pre-trial rulings requested (motions in limine, scope limitations)
 - Attorney's fees/costs with statutory or contractual basis
-- Every item supported by arguments in the brief
+- Every item linked to arguments in the brief
 
-### Signature and Certificates
+### 8. Signature and Certificates
 
 - Attorney signature with bar number
 - Word count certification if required
 - Certificate of service
 
-## Guidelines
+## Pitfalls and Checks
 
-- Write for the judge — firm, professional, confident without arrogance
-- Let legal analysis and factual support carry persuasive weight, not rhetoric
-- Maintain internal consistency between facts, issues, and arguments
-- Verify every citation for accuracy and current validity
-- Comply with all local formatting requirements (margins, font, spacing, page limits)
-- Use IRAC structure for complex multi-step analyses
+- **Tone**: Write for the judge — firm and professional, not rhetorical or arrogant
+- **Consistency**: Facts, issues, and arguments must align throughout
+- **Citations**: Verify every citation for accuracy and current validity
+- **Local compliance**: Margins, font, spacing, page/word limits per local rules
+- **IRAC**: Use for complex multi-step analyses
+- **Theme coherence**: The central narrative must thread through every section

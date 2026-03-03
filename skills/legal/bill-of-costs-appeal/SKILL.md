@@ -1,6 +1,6 @@
 ---
 name: bill-of-costs-appeal
-description: Drafts a Bill of Costs on Appeal for the prevailing party to recover allowable appellate expenses under FRAP 39 or equivalent state rules. Produces an itemized filing covering record preparation, brief reproduction, filing fees, and bond premiums with verification under penalty of perjury. Use when drafting appellate cost bills, post-judgment cost recovery filings, or prevailing party cost submissions.
+description: Drafts an itemized Bill of Costs on Appeal under FRAP 39 or state equivalent for the prevailing party to recover allowable appellate expenses. Triggers on appellate cost bill drafting, post-judgment cost recovery filings, or prevailing party cost submissions.
 tags:
   - drafting
   - litigation
@@ -9,32 +9,33 @@ tags:
 
 # Bill of Costs on Appeal
 
-Drafts an itemized Bill of Costs for the prevailing party to recover allowable expenses after entry of appellate judgment.
+Itemized cost recovery filing for the prevailing party after entry of appellate judgment, covering record preparation, brief reproduction, filing fees, and bond premiums.
 
-## Prerequisites
+## Quick Start
 
-1. **Appellate judgment** — entry date confirmed; filing deadline is typically 14 days (FRAP 39(d))
-2. **Cost documentation** — receipts, invoices, and proof of payment for all claimed items
-3. **Applicable rules** — identify whether FRAP 39 or state equivalent governs; check local appellate rules for formatting and additional requirements
-4. **Bond records** — supersedeas or cost bond documentation if applicable
+Gather before drafting:
+1. **Appellate judgment** — entry date confirmed; deadline is typically 14 days (FRAP 39(d))
+2. **Cost documentation** — receipts, invoices, proof of payment for every claimed item
+3. **Applicable rules** — FRAP 39 or state equivalent; check local appellate rules for format requirements
+4. **Bond records** — supersedeas or cost bond docs if applicable
 
-## Output Structure
+## Document Structure
 
-### Caption Block
+### 1. Caption Block
 
-Standard appellate caption: court name, case number, case name, document title ("Bill of Costs").
+Standard appellate caption: court name, case number, case name, title "Bill of Costs."
 
-### Prevailing Party Statement
+### 2. Prevailing Party Statement
 
-One paragraph identifying:
-- Party seeking costs and their appellate role
+Single paragraph identifying:
+- Party seeking costs and appellate role
 - Date of judgment entry
-- Rule authorizing cost recovery (FRAP 39(a) or state equivalent)
+- Authorizing rule (FRAP 39(a) or state equivalent)
 - Outcome entitling party to costs
 
-### Itemized Cost Table
+### 3. Itemized Cost Table
 
-| Category | Description | Date Incurred | Pages/Units | Rate | Amount |
+| Category | Description | Date | Pages/Units | Rate | Amount |
 |---|---|---|---|---|---|
 | Reporter's transcript | Trial/hearing transcript for record | | | $/page | |
 | Clerk's record | Preparation and certification | | | $/page | |
@@ -45,45 +46,26 @@ One paragraph identifying:
 | Service costs | Service of briefs/motions | | | flat | |
 | **TOTAL** | | | | | **$** |
 
-Rules for itemization:
-- Separate line for each distinct expense
-- Multiple copies itemized individually
-- Only claim copies required by rule (verify local rule on extra copies)
-- Attach or reference receipt/invoice number for each line
+Itemization rules:
+- One line per distinct expense; multiple copies listed individually
+- Only claim copies required by rule — verify local rule on extras
+- Reference receipt/invoice number for each line
+- Provide category subtotals before grand total
 
-### Category Subtotals
+### 4. Verification
 
-Provide subtotal for each category before the grand total.
+Declaration under penalty of perjury that each cost was necessarily incurred, amounts are correct, and each is authorized under the applicable rule. Include declarant name, title/bar number, execution date and location.
 
-### Verification
+### 5. Certificate of Service
 
-```
-VERIFICATION
+Standard certificate confirming service on all parties with date and method.
 
-I, [Name], [counsel for / party], declare under penalty of perjury that:
+## Pitfalls and Checks
 
-1. I have reviewed each item of cost claimed herein;
-2. Each cost was necessarily incurred in this appeal;
-3. The amounts stated are correct and accurate;
-4. Each cost is authorized under [FRAP 39 / applicable state rule].
-
-Executed on [date] at [city, state].
-
-_________________________
-[Name]
-[Title/Bar Number]
-```
-
-### Certificate of Service
-
-Standard certificate confirming service on all parties, with date and method.
-
-## Guidelines
-
-- **Deadline**: File within 14 days of judgment entry (FRAP 39(d)); state deadlines vary — confirm and calendar immediately
-- **Recoverable costs are strictly limited** — do not claim attorney's fees, travel, Westlaw charges, or overhead unless specifically authorized by statute or rule
-- **FRAP 39(a) default allocation**: costs to appellee if appeal dismissed; costs to appellant if judgment reversed; split if affirmed in part — verify which subsection applies
-- **Opposing party may object** — typically within 14 days of service; ensure all amounts are defensible with documentation
-- **Local rules**: Always check circuit-specific or state-specific local rules for additional requirements (e.g., 5th Cir. requires Form for Bill of Costs; [VERIFY] specific form requirements vary by circuit)
-- **Do not include** costs for items not in the record or expenses incurred at the trial level
-- **Retain all supporting documentation** even if not filed initially — courts may require production upon objection
+- **Deadline** — 14 days from judgment entry (FRAP 39(d)); state deadlines vary — calendar immediately
+- **Strictly limited costs** — never claim attorney's fees, travel, research databases, or overhead unless specifically authorized by statute
+- **FRAP 39(a) allocation** — costs to appellee if dismissed; to appellant if reversed; split if affirmed in part — verify applicable subsection
+- **Objection window** — opposing party typically has 14 days; ensure every amount is defensible with documentation
+- **Local rules** — check circuit- or state-specific requirements (e.g., some circuits require a specific Bill of Costs form; [VERIFY] form requirements by circuit)
+- **Exclude** trial-level expenses and costs for items not in the appellate record
+- **Retain all receipts** even if not filed initially — courts may require production upon objection

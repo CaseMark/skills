@@ -1,152 +1,136 @@
 ---
 name: bankruptcy-interest-calculation
-description: Reference guide for calculating pre-petition interest on bankruptcy claims. Covers simple interest formulas, daily accrual method, day-count conventions, interest rate source hierarchy (contract → judgment → state statutory → federal), post-petition interest rules under 11 U.S.C. § 506(b), and late fee/attorney fee inclusion standards. Generates a completed interest calculation worksheet suitable for attachment to a proof of claim. Use when preparing the interest component of a proof of claim, calculating creditor claim amounts, or verifying interest calculations.
-tags:
-  - analysis
-  - checklist
-  - litigation
+description: Calculates pre-petition interest for bankruptcy proofs of claim and produces a filing-ready worksheet. Covers rate source hierarchy, day-count conventions, simple interest formulas, post-petition rules under 11 U.S.C. § 506(b), and fee inclusion standards. Use when preparing interest components of a proof of claim, calculating creditor claim amounts, or verifying interest calculations.
 ---
 
 # Bankruptcy Claim Interest Calculation
 
-Calculates pre-petition interest for bankruptcy proofs of claim and produces a defensible worksheet for filing.
+Calculates pre-petition interest and generates a defensible worksheet for attachment to a proof of claim.
 
 ## Prerequisites
 
 1. Principal balance as of last payment or accrual date
 2. Annual interest rate and governing source (contract, judgment, or statute)
-3. Last payment date and petition date (to determine accrual period)
-4. Underlying agreement (to verify day-count convention and fee authorization)
+3. Last payment date and petition date
+4. Underlying agreement (for day-count convention and fee authorization)
 
-## Output Structure / Process
+## Quick Start
+
+```
+Per Diem = (Principal × Annual Rate) ÷ 365
+Pre-Petition Interest = Per Diem × Days (Last Payment → Petition Date)
+```
+
+Example: $50,000 at 8.5% for 138 days = $11.64/day × 138 = $1,606.32
+
+## Core Workflow
 
 ### 1. Determine Interest Rate
 
 | Priority | Source | Notes |
 |----------|--------|-------|
-| 1 | Contract rate | Express provision in loan agreement or promissory note |
-| 2 | Judgment rate | Rate specified in pre-petition judgment |
-| 3 | State statutory | Applicable state's prejudgment interest rate |
+| 1 | Contract rate | Express provision in loan agreement or note |
+| 2 | Judgment rate | Rate from pre-petition judgment |
+| 3 | State statutory | Applicable state prejudgment rate |
 | 4 | Federal rate | 28 U.S.C. § 1961 (Treasury bill rate) |
 
-Always cite the source in the proof of claim and attach supporting documentation.
+Cite the source in the proof of claim with section number or statutory citation.
 
 ### 2. Select Day-Count Convention
 
-| Convention | Formula | Common Usage |
-|------------|---------|--------------|
-| Actual/365 | Actual days ÷ 365 | Consumer loans, mortgages (default if unspecified) |
-| Actual/360 | Actual days ÷ 360 | Commercial loans, some credit facilities |
-| 30/360 | Assumes 30-day months | Bonds, some commercial paper |
+| Convention | Divisor | Typical Use |
+|------------|---------|-------------|
+| Actual/365 | 365 | Consumer loans, mortgages (default if unspecified) |
+| Actual/360 | 360 | Commercial loans, credit facilities |
+| 30/360 | 360 (30-day months) | Bonds, commercial paper |
+
+Follow the contract. Default to Actual/365 only when unspecified.
 
 ### 3. Calculate Interest
 
-**Simple interest (most common):**
-```
-Per Diem = (Principal × Annual Rate) ÷ 365
-Pre-Petition Interest = Per Diem × Days from Last Payment to Petition Date
-```
+Simple interest (most common for bankruptcy claims):
 
-**Example:**
 ```
-Principal:   $50,000.00  |  Rate: 8.5%  |  Days: 138
-Per Diem  = ($50,000 × 0.085) ÷ 365 = $11.64
-Interest  = $11.64 × 138           = $1,606.32
-Total Claim = $50,000.00 + $1,606.32 = $51,606.32
+Per Diem = (Principal × Annual Rate) ÷ Day-Count Divisor
+Interest = Per Diem × Actual Days in Accrual Period
+Total Claim = Principal + Interest + Authorized Charges
 ```
 
-### 4. Post-Petition Interest Rules
+### 4. Apply Post-Petition Rules
 
-| Claim Type | Post-Petition Interest |
-|------------|----------------------|
-| Unsecured | ❌ Not allowed (stop at petition date); exception: solvent-debtor cases |
-| Secured (oversecured) | ✅ Allowed under 11 U.S.C. § 506(b) — only to extent of equity cushion |
-| Secured (undersecured) | ❌ Not allowed |
-| Priority | ❌ Generally not allowed |
+| Claim Type | Post-Petition Interest? |
+|------------|------------------------|
+| Unsecured | No — stop at petition date (exception: solvent-debtor cases) |
+| Secured (oversecured) | Yes — under § 506(b), to extent of equity cushion |
+| Secured (undersecured) | No |
+| Priority | No |
 
-### 5. Additional Charges Checklist
+### 5. Verify Additional Charges
 
-**Late fees** — include only if:
-- [ ] Contract expressly authorizes the fee (cite section)
-- [ ] Fee was assessed pre-petition
-- [ ] Fee is not punitive or unconscionable
+**Late fees** — include only if all apply:
+- [ ] Contract expressly authorizes (cite section)
+- [ ] Assessed pre-petition
+- [ ] Not punitive or unconscionable
 
 **Attorney fees** — include only if:
-- [ ] Contract contains fee-shifting provision, OR statute authorizes recovery
-- [ ] Attach itemized statement: dates, hours, rates, work descriptions
-- [ ] Only pre-petition fees; post-petition collection fees excluded
+- [ ] Contract fee-shifting provision or statutory authorization
+- [ ] Itemized statement attached (dates, hours, rates, descriptions)
+- [ ] Pre-petition only; post-petition collection fees excluded
 
-### 6. Calculation Worksheet
+### 6. Complete Worksheet
 
 ```
-═══════════════════════════════════════════════════════════
-              INTEREST CALCULATION WORKSHEET
+═══════════════════════════════════════════════════════
+            INTEREST CALCULATION WORKSHEET
 Case: [Debtor Name], Case No. [XX-XXXXX]
 Creditor: [Creditor Name]   Account No.: [Number]
-═══════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════
 
 PRINCIPAL
-─────────────────────────────────────────────────────────
-Original Debt Amount:                        $____________
-Less: Payments Received:                    ($____________)
-Principal Balance as of [Last Payment Date]: $____________
+  Original Debt Amount:                      $__________
+  Less: Payments Received:                  ($__________)
+  Principal Balance as of [Last Pmt Date]:   $__________
 
 INTEREST
-─────────────────────────────────────────────────────────
-Principal Balance:                           $____________
-Annual Interest Rate:                        ____________%
-Rate Source: [ ] Contract §___  [ ] Judgment  [ ] Statutory  [ ] Federal
-
-Accrual Period:
-  From: [Last Payment Date]                  ____________
-  To:   [Petition Date]                      ____________
-  Days:                                       ____________
-Day-Count: [ ] Actual/365  [ ] Actual/360  [ ] 30/360
-
-Per Diem = ($_______ × ____%) ÷ _____ =     $____________
-Interest = $_______ × _____ days =          $____________
-
-PRE-PETITION INTEREST TOTAL:                 $____________
+  Principal Balance:                         $__________
+  Annual Interest Rate:                      __________%
+  Rate Source: [ ] Contract §__ [ ] Judgment [ ] Statutory [ ] Federal
+  Accrual: [Last Pmt Date] → [Petition Date] = ____ days
+  Day-Count: [ ] Actual/365  [ ] Actual/360  [ ] 30/360
+  Per Diem = ($______ × ____%) ÷ _____ =    $__________
+  Interest = $______ × ____ days =           $__________
 
 OTHER CHARGES
-─────────────────────────────────────────────────────────
-Late Fees (Contract §___):                   $____________
-NSF/Returned Check Fees:                     $____________
-Attorney Fees (see itemization):             $____________
-Other: _________________________:            $____________
-OTHER CHARGES TOTAL:                         $____________
+  Late Fees (Contract §__):                  $__________
+  NSF/Returned Check Fees:                   $__________
+  Attorney Fees (see itemization):           $__________
+  Other: ______________________:             $__________
 
 CLAIM SUMMARY
-─────────────────────────────────────────────────────────
-Principal:                                   $____________
-Pre-Petition Interest:                       $____________
-Other Charges:                               $____________
-─────────────────────────────────────────────────────────
-TOTAL CLAIM AS OF PETITION DATE:             $____________
-═══════════════════════════════════════════════════════════
-Prepared by: ____________________  Date: _______________
+  Principal:                                 $__________
+  Pre-Petition Interest:                     $__________
+  Other Charges:                             $__________
+───────────────────────────────────────────────────────
+  TOTAL CLAIM AS OF PETITION DATE:           $__________
+═══════════════════════════════════════════════════════
+Prepared by: __________________  Date: _______________
 ```
 
-## Guidelines
+## Common Pitfalls
 
-- **Stop interest at petition date** for unsecured and priority claims — including post-petition interest is a common and objection-triggering error
-- **Match contract methodology exactly** — do not compound if contract specifies simple interest; do not use 360-day year if contract specifies 365
-- **Verify day count** using an actual calendar or date calculator; do not estimate
-- **Use balance after last credited payment** as principal — not original loan amount
-- **Always cite rate source** with contract section number or statutory citation; unsupported rates invite objection
-- **Attach documentation**: rate source excerpt, payment history, fee authorization clause
+| Mistake | Fix |
+|---------|-----|
+| Post-petition interest on unsecured claim | Stop accrual at petition date |
+| Wrong day-count divisor | Follow contract; default Actual/365 |
+| Compounding on simple-interest contract | Match contract methodology exactly |
+| Unauthorized late/attorney fees | Only include contractually or statutorily permitted charges |
+| Using original loan amount as principal | Use balance after last credited payment |
+| Missing rate citation | Always cite contract section or statute — unsupported rates invite objection |
 
-### Common Errors
+Attach supporting documentation: rate source excerpt, payment history, fee authorization clause.
 
-| Error | Correct Approach |
-|-------|-----------------|
-| Post-petition interest on unsecured claim | Stop at petition date |
-| Wrong day-count denominator | Follow contract; default to Actual/365 |
-| Compounding on simple-interest contract | Match contract methodology |
-| Unauthorized fees | Only include contractually/statutorily permitted charges |
-| Wrong principal starting point | Balance after last payment, not original amount |
+## Key Authorities
 
-### Key Authorities
-- 11 U.S.C. § 502(b) — Allowance of claims; interest limitations
-- 11 U.S.C. § 506(b) — Post-petition interest for oversecured creditors
-- 28 U.S.C. § 1961 — Federal post-judgment interest rate
+- **11 U.S.C. § 502(b)** — Allowance of claims; interest limitations
+- **11 U.S.C. § 506(b)** — Post-petition interest for oversecured creditors
+- **28 U.S.C. § 1961** — Federal post-judgment interest rate

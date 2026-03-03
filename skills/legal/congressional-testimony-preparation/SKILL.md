@@ -1,6 +1,6 @@
 ---
 name: congressional-testimony-preparation
-description: Produces comprehensive strategic preparation guides for witnesses facing U.S. congressional hearings. Researches committee dynamics, profiles key members' questioning styles and political motivations, generates predicted questions by risk level, and runs mock five-minute Q&A rounds. Covers oath and perjury obligations, documentary evidence handling, constitutional privilege invocation, coordinated questioning strategies, and social media/reputational exposure. Use when corporate executives, officers, or organizational representatives face testimony in regulatory scrutiny, oversight hearings, or public controversy proceedings.
+description: Prepares witnesses for U.S. congressional hearings with committee member profiling, predicted question matrices, mock Q&A rounds, and procedural guidance. Use when executives or organizational representatives face House or Senate testimony in oversight, regulatory, or public controversy proceedings.
 tags:
   - analysis
   - corporate
@@ -12,94 +12,108 @@ tags:
 
 # Congressional Testimony Preparation
 
-Produces a strategic preparation guide for U.S. congressional witnesses, balancing absolute truthfulness obligations against political, legal, and reputational risk management.
+Produces a strategic preparation guide for U.S. congressional witnesses, balancing truthfulness obligations against political, legal, and reputational risk.
 
 ## Prerequisites
 
-1. **Witness identity** — name, title, and organizational affiliation of the testifying witness
-2. **Hearing context** — specific committee, hearing date, stated subject matter, voluntary appearance vs. subpoena
-3. **Priority committee members** — chair, ranking member, and known aggressive or subject-matter-expert questioners
-4. **Internal documents** — prior testimony transcripts, regulatory filings, internal communications, investigative materials (upload to vault if available)
-5. **Prior committee interactions** — any previous appearances before this committee or these members; outstanding commitments or follow-up submissions for the record
+Gather before starting:
+
+- **Witness identity** — name, title, organizational affiliation
+- **Hearing context** — committee, date, subject matter, voluntary vs. subpoena
+- **Priority members** — chair, ranking member, known aggressive questioners
+- **Internal documents** — prior transcripts, regulatory filings, internal communications (upload to vault if available)
+- **Prior committee interactions** — previous appearances, outstanding commitments, follow-up submissions
+
+## Quick Start
+
+1. Collect prerequisites above
+2. Research committee composition and current media narrative
+3. Build member profiles with questioning-style analysis
+4. Generate predicted questions by risk tier
+5. Draft recommended responses with strategic annotations
+6. Run mock five-minute Q&A rounds
+7. Audit for perjury exposure against documentary record
 
 ## Output Structure
 
 ### 1. Situation Assessment
-- Summary of pending investigations, public controversies, regulatory issues, and current media narrative
-- Legal posture: oath scope, privilege landscape, subpoena vs. voluntary appearance implications
+
+- Pending investigations, public controversies, regulatory issues, media narrative
+- Legal posture: oath scope, privilege landscape, subpoena vs. voluntary implications
 
 ### 2. Committee Member Profiles
 
-For each priority member (chair, ranking member, key questioners):
+For each priority member:
 
 | Field | Content |
 |---|---|
 | Political background | Party, seniority, committee role |
-| Constituency drivers | District/state issues shaping their agenda |
-| Relevant donor/lobbying ties | Industry connections to subject matter |
-| Recent public statements | On-record positions on the hearing topic |
-| Questioning style | Rapid-fire, open-ended, document-based, or grandstanding |
-| Objective in this hearing | Defend witness / extract admissions / media moment / policy inquiry |
-| Prior interactions | Previous testimony involving this witness, company, or industry |
+| Constituency drivers | District/state issues shaping agenda |
+| Donor/lobbying ties | Industry connections to subject matter |
+| Recent public statements | On-record positions on hearing topic |
+| Questioning style | Rapid-fire / open-ended / document-based / grandstanding |
+| Hearing objective | Defend witness / extract admissions / media moment / policy inquiry |
+| Prior interactions | Previous testimony involving this witness or industry |
 
 ### 3. Predicted Questions Matrix
 
-| Type | Description |
+| Tier | Description |
 |---|---|
-| Softball | Invitations to present favorable narrative; allow controlled messaging |
-| Moderately challenging | Probe specific facts, commitments, or internal decisions |
+| Softball | Invitations to present favorable narrative |
+| Moderately challenging | Probes on specific facts, commitments, internal decisions |
 | Gotcha / perjury trap | False premises, compound questions, prior-statement contradictions |
-| Documentary ambush | Questions introduced alongside exhibits, often incomplete or out of context |
+| Documentary ambush | Questions paired with exhibits, often incomplete or out of context |
 
-For each predicted question provide:
+For each predicted question include:
 - Recommended truthful response
-- Strategic reasoning and key messages to emphasize
+- Strategic reasoning and key messages
 - Bridging techniques toward favorable topics
-- Language to avoid; factual pitfalls to flag
-- Likely follow-up questions the response may trigger
+- Language to avoid and factual pitfalls
+- Likely follow-up questions triggered by the response
 
-### 4. Procedural & Format Guidance
+### 4. Procedural Guidance
 
 **Five-minute round dynamics:**
-- Questioners are incentivized toward rapid-fire sequences; witnesses should not rush to fill silence
-- Members may yield time to colleagues to enable extended questioning on sensitive topics
-- Expect coordinated minority/majority questioning designed to build a narrative across multiple rounds
+- Questioners favor rapid-fire sequences — witness should not rush to fill silence
+- Members may yield time to colleagues for extended questioning
+- Expect coordinated minority/majority questioning building narrative across rounds
 
 **Response discipline:**
-- Answer the question asked; do not volunteer information that opens new attack vectors
-- Use qualifying language where accurate: *"to the best of my recollection," "based on information available to me"*
-- Request clarification on compound, ambiguous, or unanswerable-as-framed questions — do so by name and on the record
-- Correct false premises respectfully and specifically without appearing defensive
+- Answer the question asked; do not volunteer information opening new attack vectors
+- Use qualifying language where accurate: "to the best of my recollection," "based on information available to me"
+- Request clarification on compound or ambiguous questions — on the record, by name
+- Correct false premises respectfully and specifically
 
-**Documentary evidence:**
-- Always request time to review any document before commenting on it
+**Documentary evidence handling:**
+- Always request time to review any document before commenting
 - Identify altered, incomplete, or out-of-context materials on the record immediately
-- Correct mischaracterizations with specificity; vague corrections invite follow-up
+- Correct mischaracterizations with specificity — vague corrections invite follow-up
 
-**Constitutional privileges:**
-- Advise on proper invocation procedure and the political/reputational cost of assertion
-- Privilege invocation creates its own media narrative — prepare witness for that consequence
+**Privilege invocation:**
+- Advise on proper procedure and political/reputational cost of assertion
+- Privilege creates its own media narrative — prepare witness for that consequence
 - All privilege decisions must be pre-cleared with legal counsel before the hearing
 
-### 5. Multimedia & Reputational Exposure
-- Any response may be clipped for social media or political advertising — every answer is a potential exhibit
-- Maintain consistent messaging across all responses regardless of questioner tone
-- Avoid emotional reactions, extended pauses, or expressions that create unflattering visuals
-- Silence will be filled by the questioner with additional accusations; prepare practiced closings for interrupted answers
+### 5. Reputational Exposure
+
+- Every answer is a potential social media clip or political ad exhibit
+- Maintain consistent messaging regardless of questioner tone
+- Avoid emotional reactions, extended pauses, or unflattering visual expressions
+- Prepare practiced closings for interrupted answers — silence gets filled with accusations
 
 ### 6. Mock Q&A Session
 
-Simulate a minimum of three sequential five-minute rounds from different committee members, structured to reflect coordinated narrative development. For each round:
-- Realistic questions in sequence reflecting that member's style and objectives
+Simulate at minimum three sequential five-minute rounds from different members reflecting coordinated narrative development. Per round:
+- Realistic questions matching that member's style and objectives
 - Recommended responses with strategic annotations
-- Alternative formulations for witnesses with different communication styles
-- Escalation layer: show how follow-up questions exploit weaknesses in prior answers
+- Alternative formulations for different communication styles
+- Escalation layer showing how follow-ups exploit weaknesses in prior answers
 
-## Guidelines
+## Guardrails
 
-- **Truthfulness is absolute** — all preparation must reinforce accurate testimony; no guidance may counsel omission or evasion of material facts under oath
-- **Perjury exposure audit** — identify any area where witness recollection may conflict with the documentary record; resolve discrepancies with counsel before the hearing
-- **Privilege requires counsel sign-off** — Fifth Amendment, attorney-client, and executive privilege invocations must be pre-cleared with legal team
-- **US federal proceedings only** — applies to House and Senate committee hearings; state legislative or administrative proceedings require separate analysis
-- **Pre-hearing media cycle** — preparation should account for pre-hearing leaks, hearing-room press pool, and post-testimony coverage windows
-- **No coaching of false testimony** — any request to prepare misleading or materially false responses must be declined
+- **Truthfulness is absolute** — no guidance may counsel omission or evasion of material facts under oath
+- **No coaching of false testimony** — decline any request to prepare misleading or materially false responses
+- **Perjury exposure audit** — identify all areas where witness recollection may conflict with documentary record; resolve with counsel before hearing
+- **Privilege requires counsel sign-off** — Fifth Amendment, attorney-client, and executive privilege invocations must be pre-cleared
+- **U.S. federal proceedings only** — House and Senate committees; state legislative or administrative proceedings require separate analysis
+- **Media cycle awareness** — account for pre-hearing leaks, hearing-room press pool, and post-testimony coverage windows

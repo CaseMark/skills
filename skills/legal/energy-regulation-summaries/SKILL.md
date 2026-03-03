@@ -1,22 +1,19 @@
 ---
 name: energy-regulation-summaries
-description: Generates structured summaries of significant U.S. energy sector regulations and landmark cases, covering utility regulation, renewable energy incentives, environmental impact requirements, and federal/state framework interactions. Synthesizes regulatory frameworks and judicial decisions into accessible reference documents with practical compliance guidance. Use when summarizing FERC orders, state PUC decisions, renewable energy policy developments, NEPA compliance issues, or energy case law for legal professionals, policymakers, or industry stakeholders.
-tags:
-  - analysis
-  - regulatory
-  - summarization
-  - summary
+description: Generates structured summaries of U.S. energy sector regulations and landmark cases with compliance-focused analysis. Use when summarizing FERC orders, state PUC decisions, renewable energy incentives, NEPA compliance, environmental review requirements, or energy case law for legal professionals, policymakers, or industry stakeholders.
 ---
 
 # Energy Regulation Summary
 
-Produces a structured regulatory intelligence document covering significant U.S. energy sector regulations and case law with compliance-focused analysis.
+Produces structured regulatory intelligence covering U.S. energy regulations and case law, organized by utility regulation, renewable incentives, environmental compliance, and federal/state interactions.
 
-## Prerequisites
+## Quick Start
 
-1. **Scope definition** — time period, jurisdiction(s), and topic focus (utility regulation, renewables, environmental, or all)
-2. **Source materials** — regulations, orders, or case citations to summarize (if specific); otherwise generate from general knowledge with `[VERIFY]` flags
-3. **Audience level** — legal/technical specialist or non-specialist stakeholder
+Gather before drafting:
+
+1. **Scope** — time period, jurisdiction(s), topic focus (utility, renewables, environmental, or all)
+2. **Sources** — specific regulations, orders, or case citations; if none provided, generate from general knowledge with `[VERIFY]` flags
+3. **Audience** — legal/technical specialist or non-specialist stakeholder
 
 ## Output Structure
 
@@ -25,67 +22,64 @@ Produces a structured regulatory intelligence document covering significant U.S.
 - Key regulatory trends and directional signals
 
 ### 2. Utility Regulation
-| Item | Details |
-|------|---------|
-| Authority | Issuing agency (FERC, state PUC, etc.) |
-| Effective Date | |
-| Core Requirements | Rate-making, service obligations, grid modernization |
-| Affected Parties | |
-| Compliance Deadlines | |
-| Pending Challenges | |
 
-Topics: rate-making procedures, service territory obligations, grid modernization mandates, regulatory commission decisions, consumer protection standards.
+For each regulation, capture:
+
+| Field | Content |
+|-------|---------|
+| Authority | Issuing agency (FERC, state PUC, etc.) |
+| Effective Date | Precise date |
+| Core Requirements | Rate-making, service obligations, grid modernization |
+| Affected Parties | Regulated entities |
+| Compliance Deadlines | Specific dates — never use "soon" |
+| Pending Challenges | Litigation or rehearing status |
+
+Topics: rate-making, service territory obligations, grid modernization, commission decisions, consumer protection.
 
 ### 3. Renewable Energy Incentives
+
 | Mechanism | Status | Key Terms |
 |-----------|--------|-----------|
 | Federal tax credits (ITC/PTC) | | |
 | Renewable Portfolio Standards | | |
-| Feed-in tariffs | | |
-| Net metering policies | | |
+| Feed-in tariffs / net metering | | |
 | State incentive programs | | |
 
 ### 4. Environmental Compliance
-- **NEPA**: Applicable thresholds, EA vs. EIS triggers, recent agency guidance
-- **State environmental review**: Analogous state processes, coordination requirements
-- **GHG regulations**: Emission caps, reporting obligations, intersection with energy siting
-- **Permitting conflicts**: Areas where environmental mandates constrain energy infrastructure development
+- **NEPA** — EA vs. EIS triggers, applicable thresholds, recent guidance
+- **State review** — analogous processes, coordination requirements
+- **GHG regulations** — emission caps, reporting, intersection with siting
+- **Permitting conflicts** — where environmental mandates constrain energy infrastructure
 
 ### 5. Significant Cases
 
-For each case:
+Per case:
 ```
-Court:
-Parties:
-Citation: [VERIFY if uncertain]
-Key Facts:
-Legal Issues:
-Holding:
-Reasoning:
-Industry Implications:
+Court / Parties / Citation [VERIFY if uncertain]
+Key Facts / Legal Issues / Holding / Reasoning
+Industry Implications
 ```
 
 ### 6. Federal/State Interaction
 - Preemption issues and jurisdictional conflicts
-- Areas of regulatory gap or inconsistency
+- Regulatory gaps or inconsistencies
 - Cooperative federalism mechanisms
 
 ### 7. Compliance Action Items
-- Required regulatory actions by affected entity type
+- Required actions by entity type
 - Documentation and reporting obligations
 - Enforcement mechanisms and penalty exposure
 
 ### 8. Forward Look
 - Pending rulemakings and proposed legislation
 - Cases under appeal
-- Emerging technology regulatory gaps (distributed generation, storage, hydrogen)
+- Emerging technology gaps (distributed generation, storage, hydrogen)
 
-## Guidelines
+## Pitfalls and Checks
 
-- Cite regulations with CFR/USC references and cases with reporter citations; flag uncertain citations with `[VERIFY]`
-- Flag federal/state conflicts explicitly rather than glossing over them
+- Cite with CFR/USC references and reporter citations; flag uncertain citations with `[VERIFY]`
 - Distinguish final rules from proposed rules and interim guidance
-- Note compliance deadlines precisely — "soon" is not sufficient
-- For non-specialist audiences, add brief definitional notes on technical terms (e.g., RPS, PURPA, FERC jurisdiction)
-- Do not express policy preferences; maintain neutral analytical framing
-- Jurisdiction: U.S. federal and state; note when analysis is limited to specific states
+- Flag federal/state conflicts explicitly — do not gloss over them
+- For non-specialist audiences, define technical terms (RPS, PURPA, FERC jurisdiction)
+- Maintain neutral analytical framing — no policy preferences
+- Scope is U.S. federal and state; note when analysis is limited to specific states

@@ -1,6 +1,6 @@
 ---
 name: adr-outcomes-summary
-description: Generates structured summaries of Alternative Dispute Resolution proceedings — mediation sessions and arbitration hearings — extracting key outcomes, settlement terms, monetary amounts, performance obligations, releases, confidentiality provisions, and enforcement next steps. Produces client-ready and internal-record-quality documents from ADR transcripts, settlement agreements, mediator reports, arbitration awards, and correspondence. Use when documenting mediation settlements, arbitration awards, or partial resolutions to avoid full litigation review.
+description: Generates structured summaries of mediation and arbitration proceedings, extracting outcomes, settlement terms, monetary amounts, obligations, releases, and enforcement steps. Trigger when the user needs to document mediation settlements, arbitration awards, or partial ADR resolutions from transcripts, agreements, mediator reports, or awards.
 tags:
   - analysis
   - litigation
@@ -10,67 +10,69 @@ tags:
 
 # ADR Outcomes Summary
 
-Produces a structured, standalone summary of mediation or arbitration proceedings suitable for client communication, internal records, and enforcement reference.
+Produces a structured summary of mediation or arbitration proceedings for client communication, internal records, and enforcement reference.
 
-## Prerequisites
+## Quick Start
 
-1. At least one of: session transcript, settlement agreement, memorandum of understanding, mediator's report, or arbitration award
-2. Party names and representative information
-3. Nature of the underlying dispute and procedural history (if available)
+Collect before drafting:
+1. Source document — transcript, settlement agreement, MOU, mediator report, or arbitration award
+2. Party names and representatives
+3. Underlying dispute and procedural history
 4. Any confidentiality agreements governing the ADR process
 
-## Output Structure
+## Workflow
 
-### 1. Executive Overview (2–3 sentences)
-State immediately: settled or awarded, primary terms, binding status.
+### Step 1 — Executive Overview
 
-### 2. Background
+2–3 sentences stating: settled or awarded, primary terms, binding status.
+
+### Step 2 — Background Table
+
 | Field | Details |
 |---|---|
-| Parties | Names and roles (plaintiff / defendant / claimant / respondent) |
+| Parties | Names and roles (claimant / respondent) |
 | Representatives | Counsel and party contacts |
-| Neutral | Mediator or arbitrator name and credentials |
-| Session Date(s) | Date(s) and location |
-| Dispute | Brief description of underlying claims |
-| ADR Trigger | Why ADR was pursued (agreement clause, court order, stipulation) |
+| Neutral | Mediator or arbitrator, credentials |
+| Session Date(s) | Dates and location |
+| Dispute | Brief claim description |
+| ADR Trigger | Clause, court order, or stipulation |
 
-### 3. Substantive Outcomes
+### Step 3 — Substantive Outcomes
 
-**For Mediation Settlements:**
-- Payment amounts and schedules (exact figures, due dates, payment method)
-- Performance obligations with specific deadlines
+**Mediation settlements** — extract each:
+- Payment amounts and schedules (exact figures, due dates, method)
+- Performance obligations with deadlines
 - Release scope (claims released, parties covered, carve-outs)
 - Confidentiality provisions (scope, duration, exceptions)
 - Non-disparagement, non-admission, or reservation-of-rights clauses
-- Ongoing relationship terms or future dealings
+- Ongoing relationship or future-dealings terms
 
-**For Arbitration Awards:**
+**Arbitration awards** — extract each:
 - Claims and counterclaims addressed
 - Findings of fact and legal standards applied
-- Relief granted or denied on each issue
-- Damages awarded (compensatory, punitive, fees, interest, costs)
+- Relief granted or denied per issue
+- Damages (compensatory, punitive, fees, interest, costs)
 - Appeal or modification rights and deadlines
-- Enforcement mechanism (FAA confirmation, state equivalent) [VERIFY applicable statute]
+- Enforcement mechanism (FAA confirmation, state equivalent) — VERIFY applicable statute
 
-**Unresolved Issues:**
-List any claims explicitly reserved, deferred, or left open.
+**Unresolved issues** — list claims explicitly reserved, deferred, or left open.
 
-### 4. Next Steps & Implementation
+### Step 4 — Next Steps Table
 
 | Action | Responsible Party | Deadline |
 |---|---|---|
 | Execute formal settlement documents | [Party] | [Date] |
 | Payment / performance | [Party] | [Date] |
 | Court filing / dismissal / judgment entry | [Counsel] | [Date] |
-| Compliance monitoring mechanism | [Party/Neutral] | [Ongoing] |
+| Compliance monitoring | [Party/Neutral] | [Ongoing] |
 
-Note whether court approval is required before the agreement is effective.
+Flag whether court approval is required before the agreement takes effect.
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Binding vs. non-binding**: Clearly distinguish arbitration awards (enforceable under FAA or state equivalent) from mediation MOUs that require full execution to be enforceable
-- **Confidentiality**: Flag the scope and duration of any ADR confidentiality provisions prominently; do not include protected mediation communications beyond what the intended audience is authorized to receive
-- **Precision**: Use exact dollar amounts, dates, and party names — no vague references
-- **Objectivity**: Present compromises neutrally; do not editorialize about outcome quality
-- **Partial resolutions**: If only some claims settled, clearly delineate resolved vs. unresolved issues to avoid overstating the scope of resolution
-- **Jurisdiction**: US-focused; note if state-specific arbitration statutes (vs. FAA) govern enforcement
+- **Binding vs. non-binding** — distinguish enforceable arbitration awards (FAA or state statute) from mediation MOUs requiring full execution
+- **Confidentiality** — flag ADR confidentiality scope prominently; omit protected mediation communications beyond the audience's authorization
+- **Precision** — use exact dollar amounts, dates, and party names; no vague references
+- **Objectivity** — present compromises neutrally; do not editorialize on outcome quality
+- **Partial resolutions** — clearly delineate resolved vs. unresolved issues to avoid overstating scope
+- **Jurisdiction** — US-focused; note when state-specific arbitration statutes (vs. FAA) govern enforcement

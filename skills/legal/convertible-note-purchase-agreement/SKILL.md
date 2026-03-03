@@ -1,134 +1,100 @@
 ---
 name: convertible-note-purchase-agreement
-description: Drafts a Convertible Note Purchase Agreement (CNPA) for U.S. early-stage venture capital and angel financings involving convertible debt securities. Structures the preamble, purchase and sale terms, company and purchaser representations and warranties, closing conditions, post-closing covenants, note economic terms (interest rate, maturity, conversion triggers, valuation cap, discount rate, anti-dilution), events of default, indemnification, and miscellaneous provisions. Use when drafting a convertible note purchase agreement, bridge note, convertible debt financing, or SAFE alternative for a startup or early-stage company on the issuer/company side.
-tags:
-  - agreement
-  - corporate
-  - drafting
-  - transactional
+description: Drafts a company-side Convertible Note Purchase Agreement for U.S. early-stage convertible debt financings. Structures note economics, conversion mechanics, reps and warranties, closing conditions, covenants, default provisions, and miscellaneous terms. Use when drafting a convertible note purchase agreement, bridge note, convertible debt financing, or SAFE alternative for a startup or early-stage company.
 ---
 
 # Convertible Note Purchase Agreement
 
-Drafts a company-side Convertible Note Purchase Agreement for U.S. early-stage convertible debt financings.
+Drafts a company-side CNPA for U.S. early-stage convertible debt financings. Covers the full agreement from preamble through miscellaneous provisions.
 
 ## Prerequisites
 
-1. **Party details** — full legal names, jurisdiction of incorporation, and authorized signatories for issuer and each purchaser
-2. **Economic terms** — aggregate principal amount, purchase price, interest rate (simple/compound), maturity date, valuation cap, discount rate
-3. **Conversion mechanics** — qualified financing threshold, optional conversion triggers, conversion price formula
-4. **Capitalization table** — all current equity and debt outstanding (for reps & warranties accuracy)
-5. **Term sheet or board resolution** — confirms deal economics and corporate authorization
-6. **Use of proceeds** — stated business purpose for the financing
+Gather before drafting:
 
-## Output Structure
+1. **Parties** — legal names, jurisdictions, authorized signatories (issuer + each purchaser)
+2. **Economics** — aggregate principal, purchase price, interest rate (simple/compound), maturity date, valuation cap, discount rate
+3. **Conversion mechanics** — qualified financing threshold, optional conversion triggers, conversion price formula
+4. **Cap table** — all outstanding equity and debt (for rep accuracy)
+5. **Authorization** — term sheet or board resolution confirming deal economics
+6. **Use of proceeds** — stated business purpose
+
+## Drafting Workflow
 
 ### 1. Preamble
-- Agreement date, full legal names of Company and each Purchaser
-- Recitals stating the purpose of the financing and authority for the issuance
+
+Date, full legal names, recitals stating financing purpose and issuance authority.
 
 ### 2. Purchase and Sale of Notes
 
-| Element | Detail to Include |
-|---|---|
-| Note description | Aggregate principal, per-note denomination, series designation |
-| Purchase price | Equal to face value or specify OID if issued at discount |
-| Closing | Date, location, wire instructions, deliverable mechanics |
-| Deliverables | Executed notes → Purchasers; purchase funds → Company |
+- Note description: aggregate principal, per-note denomination, series designation
+- Purchase price: face value or specify OID if issued at discount
+- Closing mechanics: date, wire instructions, deliverables (executed notes to Purchasers; funds to Company)
 
-### 3. Representations and Warranties — Company
+### 3. Company Representations and Warranties
 
-| Rep | Key Elements |
-|---|---|
-| Organization & Standing | Legal existence; good standing in state of incorporation and all states of operation |
-| Corporate Authority | Board authorization; no conflicts with charter, bylaws, or existing material agreements |
-| Capitalization | Fully-diluted cap table; all outstanding equity, options, warrants, convertible instruments |
-| No Material Litigation | No pending or threatened actions affecting the transaction or business |
-| Compliance with Law | No material violations; no required government consents not yet obtained |
-| Financial Statements | Accuracy of financials if provided; no undisclosed material liabilities |
-| No Default | Not in breach or default under any material agreement |
-| Use of Proceeds | Proceeds used solely for stated business purpose |
+Include reps for: organization and good standing, corporate authority (board authorization, no charter/bylaw conflicts), capitalization (fully-diluted cap table with all convertible instruments), no material litigation, compliance with law, financial statement accuracy, no default under material agreements, and use of proceeds.
 
-### 4. Representations and Warranties — Purchaser
+### 4. Purchaser Representations and Warranties
 
-| Rep | Key Elements |
-|---|---|
-| Accredited Investor | Qualifies under Securities Act Rule 501 [VERIFY] |
-| Investment Intent | Acquiring for own account; not for resale or distribution |
-| Restricted Securities | Understands notes and conversion shares are restricted; no registration pending |
-| Sophistication | Capable of evaluating merits and risks; able to bear full economic loss |
-| Independent Investigation | Has conducted own due diligence; not relying solely on Company representations |
+Include reps for: accredited investor status under Rule 501 [VERIFY], investment intent (own account, not for distribution), restricted securities acknowledgment, sophistication and ability to bear loss, and independent investigation.
 
 ### 5. Conditions to Closing
 
-- [ ] Representations and warranties true and correct as of closing date
-- [ ] Company has performed all pre-closing covenants
-- [ ] No material adverse change to business, operations, or financial condition
-- [ ] Legal opinion from Company counsel (if required by deal)
-- [ ] Execution of all ancillary documents (e.g., side letters, ROFR waivers)
-- [ ] Required board or stockholder approvals obtained and certified
-- [ ] No injunction or legal prohibition on the closing
+- Reps and warranties true as of closing
+- All pre-closing covenants performed
+- No material adverse change
+- Legal opinion from Company counsel (if required)
+- All ancillary documents executed (side letters, ROFR waivers)
+- Board/stockholder approvals obtained
+- No injunction or legal prohibition
 
-### 6. Company Covenants (Post-Closing)
+### 6. Post-Closing Covenants
 
-| Covenant | Scope |
-|---|---|
-| Use of Proceeds | Restricted to stated purpose; prohibit unauthorized distributions |
-| Financial Reporting | Frequency and format of financials delivered to Noteholders |
-| Additional Indebtedness | Parity or subordination rules for future debt incurrence |
-| Corporate Existence | Maintain existence; no dissolution without majority Noteholder consent |
-| Notice of Default | Prompt written notice to Noteholders upon occurrence of any Event of Default |
-| Inspection Rights | Noteholder access to books and records (if negotiated) |
+- Use of proceeds restricted to stated purpose
+- Financial reporting to Noteholders (specify frequency/format)
+- Additional indebtedness: parity or subordination rules
+- Maintain corporate existence; no dissolution without majority Noteholder consent
+- Prompt default notice to Noteholders
+- Inspection rights (if negotiated)
 
 ### 7. Note Terms
 
 | Term | Detail |
 |---|---|
-| Principal | Aggregate amount; per-note denomination |
-| Interest Rate | Annual rate (e.g., 6%); simple vs. compound; accrual start date |
-| Maturity Date | Date principal + accrued interest becomes due and payable |
-| **Conversion — Automatic** | Triggers on Qualified Financing exceeding defined threshold (e.g., $1M+ in equity) |
-| **Conversion — Optional** | Noteholder election at/after maturity or upon Change of Control |
-| **Conversion Price** | Lesser of: (i) Cap Price = Valuation Cap ÷ Fully-Diluted Shares; or (ii) Discount Price = Next Round Price × (1 − Discount Rate) |
-| Valuation Cap | Dollar cap on pre-money valuation for conversion price calculation |
-| Discount Rate | Percentage discount to next qualifying round price (e.g., 20%) |
-| Anti-Dilution | Broad-based weighted-average preferred; specify excluded share carve-outs |
-| Change of Control | Cash repayment at stated premium, or Noteholder election to convert |
-| Most Favored Nation | If applicable, any superior economic terms offered to later note purchasers |
+| Interest | Annual rate; simple vs. compound; accrual start date |
+| Maturity | Date principal + accrued interest due |
+| Automatic conversion | Triggers on Qualified Financing exceeding threshold (e.g., $1M+ equity) |
+| Optional conversion | Noteholder election at/after maturity or upon Change of Control |
+| Conversion price | Lesser of: (i) Valuation Cap / Fully-Diluted Shares; (ii) Next Round Price x (1 - Discount Rate) |
+| Anti-dilution | Broad-based weighted-average; specify excluded share carve-outs |
+| Change of Control | Cash repayment at premium, or Noteholder election to convert |
+| MFN | If applicable, match superior terms offered to later note purchasers |
 
-### 8. Events of Default & Remedies
+### 8. Events of Default and Remedies
 
-| Event of Default | Remedy |
+| Default | Remedy |
 |---|---|
-| Failure to pay principal or interest at maturity | Acceleration; default interest rate kicks in |
-| Breach of representation or warranty | Acceleration after notice + cure period (specify days) |
-| Breach of covenant | Acceleration after written notice + cure period |
-| Insolvency / voluntary or involuntary bankruptcy | Automatic acceleration; no notice required |
-| Change of Control without Noteholder consent | Optional conversion at cap price or cash repayment at premium |
+| Failure to pay at maturity | Acceleration; default interest rate |
+| Breach of rep/warranty | Acceleration after notice + cure period |
+| Breach of covenant | Acceleration after notice + cure period |
+| Insolvency/bankruptcy | Automatic acceleration; no notice required |
+| Unapproved Change of Control | Convert at cap price or cash repayment at premium |
 
 ### 9. Indemnification
 
-- Company indemnifies Purchasers against losses arising from breach of Company reps, warranties, or covenants
-- Specify: (i) claim notice procedure and timeframe; (ii) survival period for representations post-closing; (iii) indemnification cap (if negotiated); (iv) basket or deductible (if any)
+Company indemnifies Purchasers for breach of Company reps, warranties, or covenants. Specify: claim notice procedure, rep survival period, indemnification cap (if any), and basket/deductible (if any).
 
 ### 10. Miscellaneous
 
-- Governing law and jurisdiction (typically Delaware or state of incorporation)
-- Dispute resolution — litigation or arbitration; specify venue
-- Notice provisions — addresses, permitted email delivery, deemed-receipt timing
-- Amendment — written consent of Company + majority-in-interest of Noteholders by principal amount
-- Entire agreement / integration clause superseding prior negotiations
-- Severability of invalid provisions
-- Counterpart execution; electronic signatures expressly authorized
-- Waiver of jury trial (confirm enforceability under governing law)
+Governing law (typically Delaware), dispute resolution and venue, notice provisions, amendment (Company + majority-in-interest by principal), entire agreement/integration, severability, counterpart execution with electronic signatures, and jury trial waiver (confirm enforceability).
 
-## Guidelines
+## Critical Checks
 
-- **Securities exemption**: Notes must be issued under a valid federal exemption — typically Reg D Rule 506(b) or 506(c) [VERIFY]; confirm all Purchasers are accredited investors before closing; file Form D within 15 days of first sale [VERIFY]
-- **State blue sky**: Confirm applicable state notice or exemption filings for each Purchaser's state of residence
-- **Authorized shares**: Verify Company has sufficient authorized but unissued shares to cover full conversion at the cap price; flag if stockholder approval to increase authorized shares is needed prior to or concurrent with a Qualified Financing
-- **Cap vs. discount**: Both apply simultaneously at conversion — use whichever yields a lower per-share price (more favorable to Noteholder) unless the parties negotiate otherwise
-- **OID / tax**: If notes are issued below face value, flag for tax counsel review of original issue discount rules
-- **Subordination**: Confirm whether notes are senior, pari passu, or subordinated to existing and future indebtedness; obtain any required lender consent
-- **SAFEs outstanding**: If Company has issued SAFEs, address priority, interaction at conversion, and whether SAFE holders have MFN or pro-rata rights that could affect this issuance
-- **Jurisdiction**: Targets U.S. transactions only; any non-U.S. purchaser or issuer elements require local counsel review
+- **Securities exemption**: Issue under Reg D 506(b) or 506(c) [VERIFY]; confirm all Purchasers are accredited; file Form D within 15 days of first sale [VERIFY]
+- **State blue sky**: Confirm notice/exemption filings for each Purchaser's state
+- **Authorized shares**: Verify sufficient authorized but unissued shares for full conversion at cap price; flag if stockholder approval needed to increase
+- **Cap vs. discount**: Both apply simultaneously — use whichever yields lower per-share price (more favorable to Noteholder) unless negotiated otherwise
+- **OID/tax**: If issued below face value, flag for tax counsel review of original issue discount rules
+- **Subordination**: Confirm senior, pari passu, or subordinated status; obtain required lender consents
+- **Outstanding SAFEs**: Address priority and interaction at conversion; check for MFN or pro-rata rights affecting this issuance
+- **Jurisdiction**: U.S. transactions only; non-U.S. elements require local counsel

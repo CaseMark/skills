@@ -1,79 +1,53 @@
 ---
 name: director-indemnification-agreement
 description: >-
-  Drafts U.S. director indemnification agreements that maximize protection
-  within the corporation's state corporate law, including advancement of
-  expenses and indemnification determination procedures. Use when drafting a
-  director indemnification agreement, onboarding directors, updating
-  governance protections beyond bylaws, or aligning with D&O coverage. Trigger
-  keywords: indemnification agreement, director, advancement, corporate
-  governance, D&O, DGCL 145.
-tags:
-  - agreement
-  - corporate
-  - drafting
-  - transactional
+  Drafts U.S. director indemnification agreements maximizing protection under
+  state corporate law, with advancement of expenses and determination
+  procedures. Use when drafting or updating a director indemnification
+  agreement, onboarding directors, strengthening governance beyond bylaws, or
+  coordinating with D&O coverage. Triggers: indemnification agreement,
+  director advancement, corporate governance, D&O, DGCL 145.
 ---
 
 # Director Indemnification Agreement
 
-Draft a director indemnification agreement that is enforceable under the state of incorporation and provides clear advancement and indemnification procedures.
+Drafts an enforceable director indemnification agreement under the state of incorporation with clear advancement and determination procedures.
 
-## Prerequisites
+## Quick Start
 
-1. State of incorporation and applicable corporate statute.
-2. Certificate of incorporation and bylaws (indemnification and advancement provisions).
-3. Board authorization status and any resolutions to attach or reference.
-4. Director name, titles, service start date, and covered capacities (subsidiaries, affiliates, benefit plans).
-5. Effective date and term expectations (including post-service survival period).
-6. D&O insurance policies and desired coordination terms.
-7. Notice addresses and preferred notice methods.
-8. Any prior indemnification agreements or house style template.
+Gather before drafting:
 
-## Output Structure / Process
+1. State of incorporation and governing statute
+2. Charter and bylaws (indemnification/advancement provisions)
+3. Board authorization status or resolutions
+4. Director name, titles, start date, covered capacities (subsidiaries, affiliates, benefit plans)
+5. D&O insurance policies and coordination preferences
+6. Prior indemnification agreements or house style template
 
-### Intake Checklist
+## Intake Checklist
 
-- [ ] Confirm governing law is the state of incorporation.
-- [ ] Identify whether coverage is for director only or also officer or employee roles.
-- [ ] Confirm whether coverage is retroactive to prior service.
-- [ ] Decide advancement timing (e.g., 30 days from request).
-- [ ] Decide indemnification determination method order and timelines.
-- [ ] Decide if a presumption in favor of indemnification applies.
-- [ ] Decide whether fee shifting applies to enforcement actions.
-- [ ] Decide whether insurance is primary or excess to company obligation.
-- [ ] Decide term and survival period.
+- [ ] Governing law matches state of incorporation
+- [ ] Coverage scope: director only, or also officer/employee roles
+- [ ] Retroactive to prior service or prospective only
+- [ ] Advancement timing (default: 30 days from request)
+- [ ] Determination method order and deadlines
+- [ ] Presumption in favor of indemnification: yes/no
+- [ ] Fee shifting on enforcement actions: yes/no
+- [ ] Insurance priority: company primary (default) or insurance primary
+- [ ] Term and post-service survival period
 
-### Required Definitions
+## Required Definitions
 
-| Term | Drafting Notes |
-| --- | --- |
-| Agreement | This agreement, including exhibits. |
-| Company | Full legal name and jurisdiction. |
-| Director | Named individual and any covered capacities. |
-| Proceeding | Any threatened, pending, or completed civil, criminal, administrative, investigative, arbitration, or alternative dispute matter. |
-| Expenses | All fees, costs, charges, and disbursements, including attorneys, experts, witnesses, travel, transcripts, and settlements where permitted. |
-| Indemnifiable Event | Being made a party or participant by reason of service to the Company or at the Company's request. |
-| Independent Counsel | Disinterested counsel meeting independence criteria. |
+| Term | Notes |
+|---|---|
+| Proceeding | Threatened, pending, or completed civil, criminal, administrative, investigative, arbitration, or ADR matter |
+| Expenses | All fees, costs, disbursements: attorneys, experts, witnesses, travel, transcripts, settlements where permitted |
+| Indemnifiable Event | Made party or participant by reason of service to Company or at Company's request |
+| Independent Counsel | Disinterested counsel meeting independence criteria |
 
-### Core Sections and Minimum Clauses
+## Agreement Structure
 
-| Section | Required Clauses |
-| --- | --- |
-| Recitals | Corporate authority to indemnify to the fullest extent permitted; director reliance to serve or continue serving. |
-| Indemnification Grant | Maximum extent permitted by law; statutory standard of conduct; derivative action limitations on settlement amounts if required by statute. |
-| Advancement of Expenses | Prompt advancement on written request; fixed payment deadline; undertaking to repay after final, non-appealable denial; advancement not conditioned on initial conduct determination. |
-| Indemnification Determination | Ordered decision makers; Company pays independent counsel; deadline for decision; presumption in favor of indemnification unless prohibited; deemed approval if no timely determination. |
-| Enforcement | Judicial determination right; fee shifting for successful enforcement; Company bears burden by clear and convincing evidence when contesting entitlement. |
-| Notice and Defense | Prompt written notice; no forfeiture absent material prejudice; Company right to assume defense with director consent to counsel; separate counsel at Company expense for conflicts; settlement consent with carveout for unconditional release without admissions. |
-| Non-Exclusivity and Survival | Rights in addition to charter, bylaws, and other agreements; survival for heirs and estates; no retroactive impairment of accrued rights. |
-| Insurance | Company obligations primary and not conditioned on insurance; equal coverage with other directors if D&O maintained; notice of material policy changes if requested. |
-| Contribution and Partial Indemnity | Equitable contribution if indemnity unavailable; prioritize payment of Expenses before judgments or settlements where permitted. |
-| General Provisions | Governing law of state of incorporation; forum in that state; term and survival period; successors assume obligations; severability and reformation; amendment only in writing; counterparts and electronic signatures; notice mechanics and addresses. |
-
-### Clause Skeleton
-
-```text
+```
 1. Definitions
 2. Indemnification
 3. Advancement of Expenses
@@ -90,21 +64,36 @@ Draft a director indemnification agreement that is enforceable under the state o
 14. Severability; Amendment; Notices; Counterparts
 ```
 
-### Decision Matrix
+## Core Clauses
 
-| Issue | Default | Alternatives |
-| --- | --- | --- |
-| Advancement deadline | 30 days | 15 to 45 days |
-| Determination deadline | 60 days | 30 to 90 days |
+| Section | Required Content |
+|---|---|
+| Recitals | Authority to indemnify to fullest extent permitted; director reliance to serve |
+| Indemnification Grant | Maximum extent permitted by law; statutory conduct standard; derivative action settlement limits if required |
+| Advancement | Prompt advancement on written request; fixed payment deadline; undertaking to repay after final non-appealable denial; not conditioned on initial conduct determination |
+| Determination | Ordered decision makers; Company pays independent counsel; deadline for decision; presumption favoring indemnification; deemed approval if no timely determination |
+| Enforcement | Judicial determination right; fee shifting on successful enforcement; Company bears clear-and-convincing burden when contesting |
+| Notice and Defense | Prompt written notice; no forfeiture absent material prejudice; Company may assume defense with director consent to counsel; separate counsel at Company expense for conflicts; settlement consent with unconditional-release carveout |
+| Non-Exclusivity/Survival | Additive to charter, bylaws, other agreements; survives for heirs/estates; no retroactive impairment |
+| Insurance | Company obligation primary, not conditioned on insurance; equal coverage with other directors; notice of material policy changes |
+| Contribution | Equitable contribution if indemnity unavailable; prioritize Expenses over judgments/settlements |
+| General | Governing law of incorporation state; forum selection; successors assume obligations; severability; written amendment only; counterparts and e-signatures |
+
+## Decision Defaults
+
+| Issue | Default | Range |
+|---|---|---|
+| Advancement deadline | 30 days | 15-45 days |
+| Determination deadline | 60 days | 30-90 days |
 | Presumption | Director favored | No presumption (higher risk) |
 | Insurance priority | Company primary | Insurance primary (rare) |
 
-## Guidelines
+## Pitfalls
 
-- Verify state statute and use its terminology for standards of conduct and limits; flag citations with [VERIFY] if unsure (e.g., DGCL 145 [VERIFY]).
-- Do not promise indemnification for acts prohibited by law, bad faith, or improper personal benefit.
-- Align with charter and bylaws; do not conflict with exculpation or indemnification limitations.
-- Keep advancement independent from ultimate entitlement.
-- Include a clear retroactivity rule if covering past service.
-- If the Company is public or regulated, add any required board or committee approvals and securities law constraints.
-- Avoid cooperation clauses that undermine defense strategy or waive privilege.
+- Verify state statute terminology for conduct standards and limits; flag uncertain citations with `[VERIFY]` (e.g., DGCL 145 `[VERIFY]`)
+- Never promise indemnification for acts prohibited by law, bad faith, or improper personal benefit
+- Align with charter/bylaws — do not conflict with exculpation or indemnification limitations
+- Keep advancement independent from ultimate entitlement determination
+- Include explicit retroactivity rule if covering past service
+- For public or regulated companies, add required board/committee approvals and securities law constraints
+- Avoid cooperation clauses that undermine defense strategy or waive privilege

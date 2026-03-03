@@ -1,96 +1,55 @@
 ---
 name: code-of-conduct
-description: Drafts a comprehensive Code of Business Conduct and Ethics for corporations, covering SEC regulations, Sarbanes-Oxley Section 406, and stock exchange listing standards. Incorporates company-specific context, values, and regulatory requirements into an enforceable ethical framework. Use when drafting corporate governance documents, ethics codes, compliance policies, codes of conduct, or business ethics frameworks for public companies or regulated industries.
-tags:
-  - corporate
-  - drafting
-  - memo
-  - research
+description: Drafts a Code of Business Conduct and Ethics satisfying SEC, SOX §406, and exchange listing requirements. Incorporates company-specific values and regulatory context into an enforceable ethical framework. Use when drafting corporate governance documents, ethics codes, compliance policies, or business ethics frameworks for public companies or regulated industries.
 ---
 
 # Code of Business Conduct and Ethics
 
-Drafts a governance-grade Code of Business Conduct and Ethics that satisfies regulatory requirements while providing actionable ethical guidance across the organization.
+Drafts a governance-grade Code of Business Conduct and Ethics that satisfies SEC, SOX §406, NYSE §303A.10, and NASDAQ Rule 5610 requirements while providing actionable ethical guidance organization-wide.
 
 ## Prerequisites
 
-1. **Company identification** — legal name, jurisdiction of incorporation, public/private status, exchange listing (NYSE/NASDAQ)
-2. **Existing governance documents** — current codes, ethics policies, board resolutions, mission/values statements
-3. **Operational scope** — geographic footprint, industry sectors, subsidiaries, international operations, regulated activities
-4. **Regulatory profile** — applicable industry-specific requirements (healthcare, financial services, government contracting, defense)
+1. **Company identification** — legal name, jurisdiction, public/private status, exchange listing
+2. **Existing governance documents** — current codes, ethics policies, board resolutions, mission/values
+3. **Operational scope** — geographic footprint, industry sectors, subsidiaries, regulated activities
+4. **Regulatory profile** — industry-specific requirements (healthcare, financial services, government contracting, defense)
 
-## Information Gathering
+## Quick Start
 
-Search uploaded documents for:
-- Existing codes of conduct, ethics policies, compliance materials
-- Mission statements, values statements, board resolutions
-- Regulatory filings and existing compliance commitments
-- Organizational structure (subsidiaries, JVs, international ops)
+1. Gather company identification, existing governance documents, and regulatory profile
+2. Search uploaded documents for existing codes, mission statements, compliance commitments, and org structure
+3. Draft the Code following the required sections below, tailoring to the company's industry and listing requirements
+4. Validate against the SOX §406 and exchange listing checklists
+5. Include reporting channels, acknowledgment form, and waiver procedures
 
-## Output Structure
+## Required Sections
 
-### Document Sections
-
-| # | Section | Required Content |
-|---|---------|-----------------|
-| 1 | Leadership Statement | CEO/Board Chair message connecting ethics to mission; shared responsibility; tone from the top |
-| 2 | Scope & Applicability | Covered persons (employees, officers, directors, contractors); enhanced provisions for senior financial officers per SOX §406 |
-| 3 | Relationship to Other Policies | Hierarchy with other company policies; conflict resolution (apply most stringent standard) |
-| 4 | Legal Compliance | Baseline obligation; multi-jurisdiction compliance; most-stringent-standard principle for conflicts of law |
+| # | Section | Key Content |
+|---|---------|-------------|
+| 1 | Leadership Statement | CEO/Board Chair message; tone from the top; shared responsibility |
+| 2 | Scope & Applicability | Covered persons (employees, officers, directors, contractors); enhanced SOX §406 provisions for senior financial officers |
+| 3 | Relationship to Other Policies | Policy hierarchy; most-stringent-standard conflict resolution |
+| 4 | Legal Compliance | Baseline obligation; multi-jurisdiction compliance; conflicts of law |
 | 5 | Conflicts of Interest | Definition, examples, disclosure obligations, approval process; actual AND apparent conflicts |
-| 6 | Corporate Opportunities | Definition per Delaware law framework; prohibition on personal exploitation without board approval |
-| 7 | Confidentiality | Scope of protected information; third-party obligations; post-employment survival; carve-outs for whistleblowing and legally protected disclosures |
-| 8 | Protection of Company Assets | Physical, intellectual, informational, financial assets; personal use policy; reporting obligations |
-| 9 | Fair Dealing | No unfair advantage via manipulation, concealment, or misrepresentation; industry-specific fair dealing concerns |
-| 10 | Reporting Procedures | Multiple channels: supervisor, HR, Legal, Compliance Officer, Ethics Hotline (anonymous if applicable), Audit Committee for accounting matters |
-| 11 | Non-Retaliation | Broad definition of retaliation; good-faith standard; consequences for retaliators |
-| 12 | Enforcement & Discipline | Authority structure; proportionate sanctions (counseling → termination → criminal referral); secondary liability for failure to report or directing violations |
-| 13 | Waivers | Extraordinary circumstances only; Board/committee approval for officers and directors; public disclosure requirements per SEC/exchange rules |
-| 14 | Acknowledgment | Receipt, review, understanding, compliance commitment; annual re-certification option |
+| 6 | Corporate Opportunities | Delaware law framework; no personal exploitation without board approval |
+| 7 | Confidentiality | Protected information scope; third-party obligations; post-employment survival; whistleblower carve-outs |
+| 8 | Protection of Company Assets | Physical, IP, informational, financial assets; personal use policy |
+| 9 | Fair Dealing | No unfair advantage via manipulation, concealment, or misrepresentation |
+| 10 | Reporting Procedures | Multiple channels: supervisor, HR, Legal, Compliance Officer, Ethics Hotline (anonymous if applicable), Audit Committee |
+| 11 | Non-Retaliation | Broad retaliation definition; good-faith standard; consequences for retaliators |
+| 12 | Enforcement & Discipline | Proportionate sanctions (counseling → termination → criminal referral); secondary liability for failure to report |
+| 13 | Waivers | Extraordinary circumstances only; Board/committee approval for officers and directors; SEC/exchange public disclosure |
+| 14 | Acknowledgment | Receipt, understanding, compliance commitment; annual re-certification option |
 
-### Reporting Channels Template
-
-```
-Reporting Options:
-  - Direct supervisor
-  - Human Resources Department
-  - Legal Department / General Counsel
-  - Chief Compliance Officer
-  - Confidential Ethics Hotline: [NUMBER/URL]
-    Anonymous reporting: [YES/NO per jurisdiction]
-  - Audit Committee (accounting/auditing matters):
-    [CONTACT METHOD]
-```
-
-### Acknowledgment Template
-
-```
-ACKNOWLEDGMENT AND CERTIFICATION
-
-I, _________________________, certify that I have:
-  [ ] Received and read the Code of Business Conduct and Ethics
-  [ ] Understood its contents and my obligations
-  [ ] Agreed to comply with its terms
-  [ ] Disclosed any known or potential conflicts of interest
-
-I understand that violations may result in disciplinary action
-up to and including termination and potential legal liability.
-
-Signature: _____________  Date: ___________
-Title: _________________
-```
-
-## Regulatory Compliance Checklist
-
-### SOX §406 (Public Companies — Senior Financial Officers)
+## SOX §406 Checklist (Public Companies — Senior Financial Officers)
 
 - [ ] Honest and ethical conduct, including handling actual/apparent conflicts
-- [ ] Full, fair, accurate, timely, and understandable disclosure in SEC filings
+- [ ] Full, fair, accurate, timely, understandable disclosure in SEC filings
 - [ ] Compliance with applicable governmental laws, rules, and regulations
 - [ ] Prompt internal reporting of Code violations
 - [ ] Accountability for adherence
 
-### Exchange Listing Requirements
+## Exchange Listing Requirements
 
 | Requirement | NYSE §303A.10 | NASDAQ Rule 5610 |
 |-------------|---------------|-------------------|
@@ -105,23 +64,42 @@ Title: _________________
 | Waiver disclosure | Required (Form 8-K or website) | Required (Form 8-K or website) |
 | Public availability | Website posting required | Website posting required |
 
-### Industry-Specific Additions
+## Industry-Specific Additions
 
 | Industry | Additional Provisions |
 |----------|----------------------|
-| Healthcare | Anti-Kickback Statute; Stark Law; HIPAA privacy; research integrity |
+| Healthcare | Anti-Kickback Statute; Stark Law; HIPAA; research integrity |
 | Financial Services | Insider trading; fiduciary duties; customer privacy; BSA/AML |
 | Government Contracting | Procurement integrity; cost accounting standards; security clearances |
 | Defense | ITAR/EAR export controls; classified information; DFARS compliance |
 | Technology | Data ethics; AI governance; open source compliance |
 
-## Guidelines
+## Common Pitfalls
 
-- **Tone**: Professional but accessible; aspirational yet practical; avoid unnecessary legal jargon while maintaining precision
-- **Audience**: Must be comprehensible from entry-level employees to board members
-- **Examples**: Include concrete scenarios illustrating application to real business situations
-- **International operations**: Address cross-border conflicts; note where translations and local works council consultation may be required
-- **Employment disclaimers**: Include jurisdiction-appropriate language that the Code does not create an employment contract
-- **ESG/emerging issues**: Consider provisions on AI ethics, data governance, social media, and sustainability if relevant to the company
-- **Version control**: Include effective date, version number, and review/update cadence (typically annual)
-- **Board oversight**: Establish reporting expectations to Audit Committee or Ethics & Compliance Committee on compliance, investigations, waivers, and effectiveness
+- **Missing SOX §406 enhanced provisions** — public company codes must include specific provisions for senior financial officers; omitting these creates a disclosure gap
+- **Single reporting channel** — regulators expect multiple independent channels including anonymous options; provide at minimum supervisor, Legal, Compliance Officer, and Ethics Hotline
+- **No waiver disclosure process** — SEC and exchange rules require public disclosure of officer/director waivers via Form 8-K or website posting
+- **Overly legalistic tone** — the Code must be comprehensible from entry-level employees to board members; avoid unnecessary jargon while maintaining precision
+- **Ignoring cross-border issues** — for international operations, address conflicts of law, translation requirements, and local works council consultation
+- **Missing employment disclaimer** — include jurisdiction-appropriate language that the Code does not create an employment contract
+- **No version control** — include effective date, version number, and annual review cadence
+
+## Drafting Guidelines
+
+- Professional but accessible tone; aspirational yet practical
+- Include concrete scenarios illustrating real business application
+- Address ESG/emerging issues (AI ethics, data governance, sustainability) where relevant
+- Establish Board reporting expectations to Audit Committee or Ethics & Compliance Committee
+
+---
+
+Key changes from the original:
+
+- **Removed `tags`** from frontmatter (not part of the Agent Skills spec)
+- **Tightened description** — shorter, still includes trigger guidance
+- **Added Quick Start** section for the most common workflow
+- **Removed verbose templates** (Reporting Channels template, Acknowledgment template) — these are boilerplate an LLM can generate on demand and don't justify their token cost
+- **Renamed "Guidelines" to "Drafting Guidelines"** and condensed to essentials
+- **Added "Common Pitfalls"** section consolidating actionable warnings (previously buried in guidelines or implicit)
+- **Restructured "Information Gathering"** into the Quick Start flow instead of a standalone section
+- **Reduced from 128 lines to ~95 lines** while preserving all regulatory detail (SOX, NYSE, NASDAQ, industry tables)
