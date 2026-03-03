@@ -1,6 +1,6 @@
 ---
 name: motion-to-dismiss-indictment
-description: Drafts motions to dismiss criminal indictments in federal and state courts. Covers defective indictments, statute of limitations, speedy trial violations, double jeopardy, prosecutorial misconduct, and jurisdictional defects. Use when challenging the legal sufficiency of criminal charges.
+description: Drafts motions to dismiss criminal indictments in federal and state courts. Covers defective indictments, statute of limitations, speedy trial, double jeopardy, prosecutorial misconduct, and jurisdictional defects. Use when the agent needs to challenge the legal sufficiency of criminal charges or draft a pre-trial dismissal motion.
 tags:
   - drafting
   - litigation
@@ -9,109 +9,87 @@ tags:
 
 # Motion to Dismiss Indictment
 
-Drafts a defense motion to dismiss a criminal indictment on legal grounds, challenging the prosecution's ability to proceed.
+Draft a defense motion to dismiss a criminal indictment on legal grounds, challenging the prosecution's ability to proceed.
 
-## Prerequisites
+## Required Inputs
 
-1. **Indictment/information** — the charging document to be challenged
-2. **Applicable statutes** — criminal statutes charged, elements of each offense
-3. **Procedural history** — arrest date, indictment date, arraignment, continuances
-4. **Grand jury materials** — transcripts, if available (varies by jurisdiction)
-5. **Legal basis** — specific grounds for dismissal
-6. **Case law** — controlling authority in the jurisdiction
+- **Charging document** — indictment or information to challenge
+- **Statutes charged** — elements of each offense
+- **Procedural timeline** — arrest, indictment, arraignment, continuances
+- **Grand jury materials** — transcripts if available (jurisdiction-dependent)
+- **Dismissal grounds** — specific legal basis (see below)
+- **Controlling authority** — key case law in the jurisdiction
+
+## Quick Start
+
+1. Identify the strongest ground(s) for dismissal from the charging document and procedural record.
+2. Classify each ground as facial (indictment alone) or factual (requires evidentiary hearing).
+3. Draft using the output structure below.
+4. If factual disputes exist, include an evidentiary hearing request.
+5. Verify all citations or mark `[VERIFY]`.
 
 ## Grounds for Dismissal
 
 ### Defective Indictment (FRCP 7/12(b) or state equivalent)
 
-- Fails to state an offense — missing essential element
-- Unconstitutionally vague — doesn't give adequate notice of the charge
-- Multiplicitous — charges same offense in multiple counts
-- Duplicitous — charges multiple offenses in single count
-- Constructive amendment — government's proof at trial would differ materially from indictment
+- Fails to state an offense (missing essential element)
+- Unconstitutionally vague (inadequate notice)
+- Multiplicitous (same offense in multiple counts)
+- Duplicitous (multiple offenses in single count)
+- Constructive amendment (proof would differ materially from indictment)
 
 ### Statute of Limitations
 
-- Date of offense, applicable limitations period, date of indictment
-- Tolling arguments — absence from jurisdiction, concealment, continuing offense
-- Identify the specific statute setting the limitations period
+- Compare offense date, limitations period, and indictment date
+- Address tolling: absence from jurisdiction, concealment, continuing offense
+- Cite the specific limitations statute
 
-### Speedy Trial Violation
+### Speedy Trial
 
-**Sixth Amendment**:
-- *Barker v. Wingo* factors: length of delay, reason for delay, defendant's assertion of the right, prejudice
-- Pre-indictment delay (due process analysis)
+**Sixth Amendment** — apply *Barker v. Wingo* factors: length of delay, reason, defendant's assertion, prejudice. For pre-indictment delay, use due process analysis.
 
-**Speedy Trial Act (18 U.S.C. §§ 3161-3174)** (federal):
-- 30 days from arrest to indictment
-- 70 days from indictment/arraignment to trial
-- Excludable time calculations
+**Speedy Trial Act (18 U.S.C. §§ 3161–3174)** (federal only):
+- 30 days arrest → indictment; 70 days indictment/arraignment → trial
+- Calculate excludable vs. non-excludable time
 - Remedy: dismissal with or without prejudice
 
 ### Double Jeopardy (Fifth Amendment)
 
-- Prior prosecution for same offense
-- *Blockburger* test — same elements analysis
+- Prior prosecution for same offense; apply *Blockburger* same-elements test
 - Collateral estoppel
-- Dual sovereignty exception (state and federal)
+- Note dual sovereignty exception (state/federal)
 
 ### Prosecutorial Misconduct
 
-- Grand jury abuse — misleading instructions, withholding exculpatory evidence
-- Vindictive prosecution — charging in retaliation for exercise of legal rights
-- Selective prosecution — discriminatory enforcement (equal protection)
-- Outrageous government conduct — entrapment-related
+- Grand jury abuse (misleading instructions, withholding exculpatory evidence)
+- Vindictive prosecution (retaliation for exercising legal rights)
+- Selective prosecution (discriminatory enforcement — equal protection)
+- Outrageous government conduct (entrapment-related)
 
 ### Jurisdictional Defects
 
-- Lack of federal jurisdiction (for federal charges)
-- Interstate commerce nexus insufficient
-- Venue improper — offense not committed in the district
+- Lack of federal jurisdiction; insufficient interstate commerce nexus
+- Improper venue (offense not committed in the district)
 
 ## Output Structure
 
-### Caption and Title
+1. **Caption** — criminal case caption; title: "Defendant's Motion to Dismiss Indictment"
+2. **Introduction** — charges at issue, ground(s) for dismissal, relief requested
+3. **Factual Background** — procedural and factual history from the record (not disputed facts requiring a hearing)
+4. **Legal Argument** — for each ground: (a) legal standard with authority, (b) application to facts, (c) prejudice to defendant, (d) remedy requested
+5. **Evidentiary Hearing Request** (if factual disputes exist) — identify issues, witnesses, and exhibits
+6. **Conclusion** — request dismissal with prejudice (preferred) or without; for speedy trial, argue factors favoring with-prejudice dismissal
 
-- Criminal case caption
-- "Defendant's Motion to Dismiss Indictment"
+## Pitfalls and Checks
 
-### Introduction
+- **File early** — some grounds are waived if not raised pre-trial
+- **Facial vs. factual** — facial challenges rely on the indictment alone; factual challenges require a hearing
+- **Speedy trial timeline** — build a detailed period-by-period excludable/non-excludable chart
+- **Grand jury challenges are narrow** — courts rarely look behind the indictment
+- **Selective/vindictive prosecution** — extremely high bar; assess viability candidly
+- **Strategic fit** — consider whether a motion to suppress or going to trial is a stronger path
+- **Citation hygiene** — verify every case cite or flag `[VERIFY]`
 
-- Charges at issue
-- Ground(s) for dismissal
-- Relief requested
+---
 
-### Factual Background
-
-- Relevant procedural and factual history
-- Facts supporting the motion (from the record, not disputed facts requiring a hearing)
-
-### Legal Argument
-
-For each ground:
-1. Legal standard with controlling authority
-2. Application to the facts
-3. Prejudice to defendant
-4. Remedy requested
-
-### Evidentiary Hearing Request
-
-If factual disputes exist:
-- Request for hearing under applicable rule
-- Identify factual issues requiring testimony
-- Identify witnesses and exhibits
-
-### Conclusion
-
-- Specific relief: dismiss with prejudice (preferred) or without prejudice
-- For speedy trial: factors favoring dismissal with prejudice
-
-## Guidelines
-
-- File early — some grounds are waived if not raised pre-trial
-- Distinguish facial challenges (based on indictment alone) from factual challenges (requiring a hearing)
-- For speedy trial motions, create a detailed timeline showing each period and its excludable/non-excludable status
-- Grand jury challenges are narrow — courts are reluctant to look behind the indictment
-- Selective/vindictive prosecution claims face a very high bar — be realistic about chances
-- Consider whether a motion to dismiss is better strategy than a motion to suppress or trial
-- Verify all citations or mark `[VERIFY]`
+It looks like I don't have write permission to the file. Could you grant write access so I can save this, or would you like to copy the content above directly?

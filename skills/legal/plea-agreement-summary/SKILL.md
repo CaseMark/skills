@@ -1,6 +1,6 @@
 ---
 name: plea-agreement-summary
-description: Generates structured summaries of criminal plea agreements, extracting charges (original vs. plea), factual basis, sentencing recommendations, waivers, cooperation provisions, collateral consequences, and breach terms. Use when summarizing plea deals, preparing clients for plea colloquy, or creating quick-reference digests of negotiated resolutions in criminal defense matters.
+description: Generates structured summaries of criminal plea agreements. Triggers when summarizing plea deals, preparing for plea colloquy, or creating quick-reference digests of negotiated resolutions in criminal defense matters.
 tags:
   - litigation
   - summarization
@@ -13,13 +13,18 @@ Produces a structured quick-reference summary of a criminal plea agreement for a
 
 ## Prerequisites
 
-1. **Plea agreement document** — fully executed or draft
-2. **Original charging document** — complaint, indictment, or information (to compare original vs. plea charges)
-3. **Applicable sentencing guidelines** — federal or state, if referenced in the agreement
+1. **Plea agreement** — executed or draft
+2. **Original charging document** — complaint, indictment, or information (for charge comparison)
+3. **Sentencing guidelines** — federal or state, if referenced
 
-## Output Structure
+## Quick Start
 
-Generate the summary using the following sections. Use tables for charges and sentencing terms. Omit any section that has no corresponding content in the agreement.
+1. Collect the plea agreement and original charging documents.
+2. Walk through each output section below, extracting relevant terms.
+3. Use tables for charges and sentencing; omit sections with no corresponding content.
+4. Run the checklist under Critical Checks before delivering.
+
+## Output Sections
 
 ### 1. Case Identification
 
@@ -37,74 +42,69 @@ Generate the summary using the following sections. Use tables for charges and se
 |---|----------------|---------|-------------|-------------|---------|-------------|-------------|
 | 1 | | | | | | | Guilty/Nolo/Dismissed |
 
-- Note any counts dismissed, reduced, or amended as part of the agreement.
+Note counts dismissed, reduced, or amended as part of the deal.
 
 ### 3. Factual Basis
 
-Summarize the defendant's admissions and stipulated facts supporting each plea count. Keep concise but sufficient to establish the factual predicate. Flag any disputed facts or reservations.
+Summarize defendant's admissions and stipulated facts per plea count. Flag disputed facts or reservations.
 
 ### 4. Sentencing Terms
 
 | Term | Details |
 |------|---------|
-| Incarceration | Duration, concurrent/consecutive, credit for time served |
+| Incarceration | Duration, concurrent/consecutive, time-served credit |
 | Probation/Supervised Release | Duration, conditions |
 | Fines | Amount, payment schedule |
-| Restitution | Amount, recipients, payment schedule |
+| Restitution | Amount, recipients, schedule |
 | Community Service | Hours, deadline |
-| Special Conditions | Treatment, counseling, geographic restrictions, etc. |
+| Special Conditions | Treatment, counseling, geographic restrictions |
 
-- State whether the agreement is **binding on the court** (Fed. R. Crim. P. 11(c)(1)(C) type) or **advisory/recommendation only** (11(c)(1)(B) type).
-- Note any joint recommendation vs. prosecution-only cap vs. open sentencing.
+- State whether **binding** (11(c)(1)(C)) or **advisory** (11(c)(1)(B)).
+- Note joint recommendation vs. prosecution-only cap vs. open sentencing.
 
 ### 5. Waivers
 
-Checklist — mark each as included or not:
+Mark each as included or not:
 
-- [ ] Right to jury trial
-- [ ] Right to appeal conviction
-- [ ] Right to appeal sentence (above/below stipulated range)
-- [ ] Post-conviction/habeas corpus relief
+- [ ] Jury trial
+- [ ] Appeal conviction
+- [ ] Appeal sentence (above/below stipulated range)
+- [ ] Post-conviction/habeas relief
 - [ ] Suppression motions
 - [ ] Other (specify)
 
-Note any preserved rights or conditional waivers.
+Note preserved rights or conditional waivers.
 
 ### 6. Cooperation Provisions
 
 If applicable:
 
-- Scope of cooperation (testimony, debriefings, undercover work)
-- Government's obligations (5K1.1 motion, immunity, sentence reduction)
-- Use limitations on defendant's statements (Fed. R. Evid. 410 / Fed. R. Crim. P. 11(f) protections)
+- Scope (testimony, debriefings, undercover work)
+- Government obligations (5K1.1 motion, immunity, sentence reduction)
+- Use limitations on statements (FRE 410 / FRCrP 11(f))
 - Safety/protection arrangements
 
 ### 7. Collateral Consequences
 
-Flag any consequences **explicitly addressed** in the agreement:
+Flag consequences **explicitly addressed**:
 
-- [ ] Immigration consequences (deportation, inadmissibility)
+- [ ] Immigration (deportation, inadmissibility)
 - [ ] Sex offender registration (tier, duration)
 - [ ] Firearm prohibition
 - [ ] Professional licensing impact
 - [ ] Civil asset forfeiture
-- [ ] Loss of voting rights
+- [ ] Voting rights loss
 - [ ] Other civil disabilities
 
 ### 8. Breach Provisions
 
-- What constitutes breach (new offenses, failure to cooperate, false statements)
-- Government remedies upon breach (reinstate charges, withdraw recommendations, use statements)
-- Notice/cure requirements, if any
+- What constitutes breach (new offenses, cooperation failure, false statements)
+- Government remedies (reinstate charges, withdraw recommendations, use statements)
+- Notice/cure requirements
 
 ### 9. Special Provisions
 
-Capture anything non-standard:
-
-- Deferred adjudication or diversion terms
-- Conditional dismissal triggers
-- Sealed or confidential provisions
-- Co-defendant coordination terms
+Capture non-standard terms: deferred adjudication, conditional dismissal triggers, sealed provisions, co-defendant coordination.
 
 ### 10. Key Dates & Deadlines
 
@@ -115,11 +115,22 @@ Capture anything non-standard:
 | Compliance reporting | |
 | Probation start | |
 
-## Guidelines
+## Critical Checks
 
-- **Plain language for client accessibility** — define legal terms parenthetically on first use, but keep the document precise enough for practitioners.
-- **Monetary amounts, dates, and statutory citations must be exact** — never paraphrase numbers or round figures.
-- **Flag ambiguities** — if a provision is unclear or internally inconsistent, note it with `[AMBIGUOUS — verify with full agreement]`.
-- **Do not editorialize** — summarize what the agreement says, not whether the terms are favorable.
-- **Distinguish binding vs. advisory terms** — this is the single most critical distinction for client counseling.
-- **Immigration consequences** — if the agreement is silent on immigration impact and the defendant may be a non-citizen, flag with `[WARNING: Agreement silent on immigration consequences — Padilla v. Kentucky requires advisement]`.
+- **Binding vs. advisory** — the single most critical distinction for client counseling. Always state explicitly.
+- **Exact figures** — monetary amounts, dates, and statutory citations must be verbatim; never round or paraphrase.
+- **Flag ambiguities** — mark unclear or inconsistent provisions with `[AMBIGUOUS — verify with full agreement]`.
+- **Immigration silence** — if the agreement omits immigration impact and the defendant may be a non-citizen, flag: `[WARNING: Agreement silent on immigration consequences — Padilla v. Kentucky requires advisement]`.
+- **No editorializing** — summarize what the agreement says, not whether terms are favorable.
+- **Plain language** — define legal terms parenthetically on first use; keep precise enough for practitioners.
+
+---
+
+**Key changes made:**
+
+- **Description** — trimmed the long enumeration into a concise sentence with clear trigger guidance
+- **Added Quick Start** — four-step workflow so the agent knows exactly how to proceed
+- **Consolidated Guidelines → Critical Checks** — renamed and tightened into a scannable checklist at the end
+- **Trimmed prose** — removed redundant phrasing throughout (e.g. shortened waiver labels, condensed cooperation/breach/special provisions into tighter bullet points)
+- **Flattened Special Provisions** — collapsed from a heading + sub-bullets into a single-line summary with comma-separated items
+- **Preserved all domain-critical content** — binding vs. advisory distinction, Padilla warning, exact-figures rule, ambiguity flagging, all 10 output sections with their tables and checklists

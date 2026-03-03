@@ -1,173 +1,93 @@
 ---
 name: purchase-agreement-summary
-description: Analyzes fully executed residential purchase agreements (including addenda, amendments, and counteroffers) and produces structured operational summaries for title company closers and processors. Extracts parties, property identifiers, price/EMD, financing, contingencies, title/survey provisions, HOA details, closing cost allocations, prorations, possession terms, and critical deadlines into scannable tables with source pointers. Flags missing information, document conflicts, unusual clauses, and tight/passed deadlines. Use when summarizing a residential purchase agreement, opening a title file, preparing escrow instructions, or reviewing contract terms for closing.
-tags:
-  - analysis
-  - summarization
-  - summary
-  - transactional
+description: Produces structured operational summaries from fully executed residential purchase agreements for title closers and processors. Extracts parties, property identifiers, price/EMD, financing, contingencies, title/survey, HOA, closing costs, prorations, possession, and critical deadlines into scannable tables with source pointers. Flags missing data, document conflicts, unusual clauses, and tight deadlines. Use when summarizing a purchase agreement, opening a title file, preparing escrow instructions, or reviewing contract terms for closing.
 ---
 
-# Residential Purchase Agreement Summary for Title & Escrow
+# Purchase Agreement Summary
 
 Extracts deal-critical terms from a fully executed residential purchase agreement package into a structured operational summary for title closers and processors.
 
 ## Prerequisites
 
-1. **Fully executed purchase agreement** — all pages, exhibits, riders, signature blocks with all buyer/seller signatures
-2. **All addenda and amendments** — financing, inspection, appraisal, well/septic, lead-based paint, FHA/VA, seller concession, escalation, attorney riders
-3. **All counteroffers** incorporated by reference
-4. **Effective date** — date of last signature/acceptance; if unavailable, ask the user and flag deadline calculations as unconfirmed
-5. **State identification** — for jurisdiction-specific headings and form identification
+Before starting, confirm you have:
 
-If any referenced document is missing (legal description exhibit, signed amendments, execution signatures), flag immediately — do not proceed with incomplete data.
+- Fully executed purchase agreement (all pages, exhibits, riders, signatures)
+- All addenda, amendments, and counteroffers
+- Effective date (date of last signature/acceptance)
+- State identification
 
-## Process
+If any referenced document is missing, flag immediately and do not proceed. If effective date is unavailable, ask the user and flag deadline calculations as unconfirmed.
 
-### Step 1: Document Normalization
+## Workflow
 
-- State scope boundary at top of every output: operational extraction only, not legal advice
-- Label every distinct instrument (e.g., "Purchase Agreement," "Amendment #2," "Counteroffer #1") with a short reference tag
-- Preserve page numbers; if absent, use "PDF page X of Y"
-- Treat amendments as potentially controlling — flag when later documents modify previously extracted terms
+### 1. Normalize Documents
+
+- State scope boundary: operational extraction only, not legal advice
+- Label each instrument with a reference tag (e.g., "Amendment #2")
+- Preserve page numbers; use "PDF page X of Y" if absent
+- Flag when amendments modify previously extracted terms
 - Verify signatures/initials on all required pages; flag "execution incomplete" for blanks
 
-### Step 2: Extract Parties
+### 2. Extract Parties
 
-| Extract | Notes |
-|---------|-------|
-| Buyer(s) / Seller(s) exactly as written | Include middle initials, suffixes, entity designations, "and/or assigns" |
-| Trust details | Full trust name + trustee names (processor needs trust documents) |
-| Addresses, emails, phone numbers | Do not invent missing data |
-| Broker/agent info | Separate from parties clearly |
+Extract buyer(s)/seller(s) exactly as written (middle initials, suffixes, entity designations, "and/or assigns"), trust details (full name + trustees), contact info, and broker/agent info.
 
-**Flag triggers:**
-- Spouse missing from signature block in potential community property state
-- Corporate entity signing without officer title
-- Name discrepancies between documents (critical flag)
-- Marital/vesting language present → "Confirm deed vesting instructions"
+**Flag:** Spouse missing in community property state, corporate signer without officer title, name discrepancies between documents, marital/vesting language ("Confirm deed vesting instructions").
 
-### Step 3: Extract Property Identifiers
+### 3. Extract Property Identifiers
 
-| Field | Required |
-|-------|----------|
-| Street address (incl. unit), city, state, zip | Yes |
-| County | If stated |
-| Parcel ID / APN / PIN | Yes — flag if missing |
-| Legal description or exhibit reference | Yes — flag if missing |
-| Additional parcels, outlots, common elements, parking, dock rights | Flag each for title follow-up |
-| Personal property included/excluded | Note; may require Bill of Sale |
+Required: street address (incl. unit/city/state/zip), parcel ID/APN/PIN, legal description or exhibit reference. Flag each if missing — address-only identification is a title-search risk.
 
-Address-only identification = title-search risk flag.
+Also capture: county, additional parcels/outlots/common elements, personal property included/excluded (may require Bill of Sale).
 
-### Step 4: Extract Financial Architecture
+### 4. Extract Financial Terms
 
-**Purchase Price & EMD:**
+**Price & EMD:** Current controlling purchase price, price history if amended (each price + source), each EMD deposit (amount, holder, deadline, method), escalation clause terms.
 
-| Item | Extract |
-|------|---------|
-| Purchase price | Current controlling amount |
-| Price history | If amended, show each price + source |
-| Each EMD deposit | Amount, holder, deadline, method (check/wire) |
-| Escalation clause terms | Note whether price was adjusted |
+**Financing:** Type (Cash/Conventional/FHA/VA), loan amount or max LTV, down payment, application deadline, commitment/approval deadline.
 
-**Financing:**
+**Credits & Concessions:** Seller concessions/closing cost credits, repair credits (separate from general — lenders treat differently), rate buy-down credits, TX option fee (paid to seller, not escrow — do not conflate with EMD). Flag: "Seller credit present — confirm lender acceptability."
 
-| Item | Extract |
-|------|---------|
-| Type | Cash / Conventional / FHA / VA |
-| Loan amount or max LTV | As stated |
-| Down payment | As stated |
-| Application deadline | Date |
-| Commitment/approval deadline | Date |
+### 5. Map Critical Deadlines
 
-**Credits & Concessions:**
+Build a chronological table:
 
-| Item | Extract |
-|------|---------|
-| Seller concessions / closing cost credits | Amount + source |
-| Repair credits | Separate from general credits (lenders treat differently) |
-| Rate buy-down credits | Amount + source |
-| Option fee (TX) | Amount, paid directly to seller — do not conflate with EMD |
+| Item | Deadline (as written) | Computed Date | Status | Source |
+|------|----------------------|---------------|--------|--------|
 
-Flag: "Seller credit present — confirm lender acceptability and disclosure requirements."
+**Status values** (only when effective date and day-count convention are clear): Passed / Due within 48 hrs / Due within 7 days / Future / Unknown.
 
-### Step 5: Map Critical Timeline
+**Key deadlines:** Effective date, EMD deposits, inspection period, repair request/resolution, appraisal contingency, financing application/commitment, title commitment delivery/objection/cure, survey, HOA document delivery/review, closing date, possession date.
 
-Build chronological deadline table with these columns:
+**Flag:** Closing on Sunday/holiday, "Time is of the Essence" language, amendments resetting deadlines, undefined day-count convention, ambiguous effective date.
 
-| Item | Trigger | Deadline (as written) | Computed Date | Status | Notes | Source |
-|------|---------|----------------------|---------------|--------|-------|--------|
+### 6. Title, Survey, HOA & Assessments
 
-**Status values** (compute only when effective date and day-count convention are clear):
-- **Passed** / **Due within 48 hrs** / **Due within 7 days** / **Future** / **Unknown**
+**Title & Survey:** Who selects title co., owner's policy (required? who pays?), survey type/cost/deadline, title standards, permitted exceptions, commitment/objection/cure timelines, termination rights on title objections.
 
-**Key deadlines to capture:** Effective date, EMD deposit(s), inspection period, repair request/resolution, appraisal contingency, financing application, financing commitment, title commitment delivery, buyer title objection, seller cure, survey, HOA document delivery/review, closing date, possession date/time.
+**HOA/Condo:** Association name/contact, required disclosures, transfer fee allocation, buyer review/termination period. Flag if docs or fees unclear.
 
-**Flag triggers:**
-- Closing date on Sunday or federal holiday
-- "Time is of the Essence" language present
-- Amendments that reset deadlines
-- Day-count convention undefined ("business days" without definition)
-- Effective date ambiguous → "Cannot compute — effective date not confirmed"
+**Special Assessments:** Allocation of pending/existing. If silent: "Not stated — confirm local custom."
 
-### Step 6: Title, Survey, HOA & Assessments
+**Home Warranty:** Note cost/provider for settlement statement.
 
-**Title & Survey:**
-- Who selects title company/escrow holder
-- Owner's policy required? Who pays?
-- ALTA survey or existing survey — who pays, deadline
-- Title standards referenced (marketable, insurable, ALTA owner's)
-- Permitted exceptions (easements, covenants, mineral rights)
-- Commitment delivery, objection, and cure timelines
-- Right to terminate based on title objections — notice mechanics
+### 7. Closing Costs, Possession & Special Provisions
 
-**HOA / Condo:**
-- Association applies? Name/contact?
-- Resale disclosures, bylaws, budgets required?
-- Who pays transfer fees?
-- Buyer review/termination period
-- Flag: "HOA indicated but documents or fee allocation unclear"
+**Cost Allocations** — extract who pays: owner's/lender's policy, escrow/closing fee, recording fees, transfer taxes, survey, pest inspection, home warranty.
 
-**Special Assessments:**
-- Allocation of pending/existing assessments
-- If silent: "Special assessments allocation not stated — confirm local custom"
+**Prorations:** Tax proration method (calendar vs. fiscal, current vs. last available) — extract verbatim. Note HOA dues, rents, utilities.
 
-**Home Warranty:** Note cost/provider (settlement statement line item).
+**Possession:** Date, time, rent-back terms, per diem, holdback/deposit, utility transfer. Flag post-closing possession as heightened risk requiring occupancy agreement.
 
-### Step 7: Closing Costs, Possession & Special Provisions
-
-**Cost Allocations** — extract who pays each:
-
-| Item | Buyer | Seller | Split | Source |
-|------|-------|--------|-------|--------|
-| Owner's policy | | | | |
-| Lender's policy | | | | |
-| Escrow/closing fee | | | | |
-| Recording fees | | | | |
-| Transfer taxes | | | | |
-| Survey | | | | |
-| Pest inspection | | | | |
-| Home warranty | | | | |
-
-**Prorations:** Tax proration method (calendar vs. fiscal year, current vs. last available) — extract verbatim if present. Note HOA dues, rents, utilities.
-
-**Possession:** Date, time, rent-back terms, per diem rent, holdback/security deposit, utility transfer. Flag post-closing possession as heightened operational risk requiring occupancy agreement.
-
-**Special Provisions — flag for review:**
-- Handwritten terms, "Additional Terms" / "Special Stipulations"
-- Tenant in property, solar panel lease, sale contingency
-- Arbitration, mediation, attorney fees, specific performance clauses
-- Builder addenda shifting risk
-- Any non-standard clause → "Non-standard clause — attorney or underwriter review recommended"
+**Special Provisions — flag for review:** Handwritten terms, tenant in property, solar lease, sale contingency, arbitration/mediation clauses, builder addenda, any non-standard clause ("Attorney or underwriter review recommended").
 
 ## Output Structure
 
-Produce all sections in this order:
+Produce sections in this order:
 
-1. **Header** — File/order name, property address, state, documents received, effective date, summary date, disclaimer
-2. **Deal Snapshot** — Two-column summary table (Buyers, Sellers, Property, Price, Total EMD, Closing Date, Possession, Loan Type/Amount, Title Co., HOA status, Special Assessments, Key Flags count)
-3. **Parties & Contacts** — Separate tables for parties and agents/brokers
+1. **Header** — Property address, state, documents received, effective date, summary date, disclaimer
+2. **Deal Snapshot** — Two-column table: Buyers, Sellers, Property, Price, Total EMD, Closing Date, Possession, Loan Type/Amount, Title Co., HOA, Special Assessments, Key Flags count
+3. **Parties & Contacts**
 4. **Property Details**
 5. **Price, Earnest Money & Credits**
 6. **Financing & Appraisal**
@@ -176,35 +96,36 @@ Produce all sections in this order:
 9. **HOA & Condominium**
 10. **Closing Date, Possession & Occupancy**
 11. **Closing Costs, Taxes & Prorations**
-12. **Addenda, Amendments & Disclosures Inventory** — Name, date, signing status, what it modifies, source page range
-13. **Critical Dates & Deadlines** — Timeline table per Step 5
-14. **Flags & Follow-Up Items** — Organized by severity: Critical (blocking), High (likely delay), Medium (needs clarification), Low (informational)
-15. **Source Map** — Category → document label + page/section
+12. **Addenda & Amendments Inventory** — Name, date, signing status, what it modifies, source pages
+13. **Critical Dates & Deadlines** — Timeline table from Step 5
+14. **Flags & Follow-Up** — By severity: Critical (blocking), High (likely delay), Medium (needs clarification), Low (informational)
+15. **Source Map** — Category to document label + page/section
 
 ## State-Specific Notes
 
-When state is identified, add a brief subsection noting form-specific issues:
+When state is identified, note form-specific issues:
 
 | State | Watch For |
 |-------|-----------|
-| **California** (C.A.R.) | Liquidated damages / arbitration initials; Natural Hazard Disclosure |
-| **Texas** (TREC) | Option Fee (¶5) paid directly to seller, not escrow; distinguish from EMD |
-| **Florida** (FAR/BAR) | "As-Is" vs. standard contract inspection/terminate clause; EMD refundability trigger |
-| **New York / NE states** | Attorney review period — contract may not be binding until cleared |
-| **Minnesota** | Statutory cancellation rights; well/septic disclosure rescission rights |
+| **California** (C.A.R.) | Liquidated damages/arbitration initials; Natural Hazard Disclosure |
+| **Texas** (TREC) | Option Fee paid to seller, not escrow; distinguish from EMD |
+| **Florida** (FAR/BAR) | "As-Is" vs. standard inspection clause; EMD refundability trigger |
+| **New York / NE** | Attorney review period — contract may not bind until cleared |
+| **Minnesota** | Statutory cancellation rights; well/septic disclosure rescission |
 
-Identify the specific state form version (e.g., "TREC 20-17," "C.A.R. RPA-CA") when possible.
+Identify specific form version (e.g., "TREC 20-17," "C.A.R. RPA-CA") when possible.
 
-## Guidelines
+## Guardrails
 
-- **Never fabricate missing values** — use "Not stated" and add a follow-up flag
+- **Never fabricate** — use "Not stated" + follow-up flag for missing values
 - **Never resolve conflicts** — display side-by-side with source pointers; flag for human resolution
-- **Never offer legal conclusions** — use "Contract states…" or "Agreement provides…"; if asked for enforceability analysis, state attorney review is required
-- **Mask sensitive data** — redact SSNs, account numbers if detected; flag "Sensitive data present — do not distribute"
-- **Never fabricate legal citations** — if jurisdiction-specific info is needed, perform web search with verifiable URLs or state attorney verification required
-- **TRID timing** — if summary is produced within 5 days of closing, flag "High Priority — TRID timing risk" for financed transactions
-- **Apply the "Closing Day" test** — if a closer at the table today would be surprised by anything not in the summary, the summary is incomplete
-- **Every extracted term must have a source pointer** (document label + section/page)
+- **Never offer legal conclusions** — use "Contract states..." or "Agreement provides..."
+- **Mask sensitive data** — redact SSNs/account numbers; flag "Sensitive data present"
+- **Never fabricate legal citations** — use web search for verifiable sources or flag for attorney verification
+- **TRID timing** — within 5 days of closing on financed transaction: flag "TRID timing risk"
+- **Every term needs a source pointer** (document label + section/page)
+- **"Closing Day" test** — if a closer would be surprised by anything missing, the summary is incomplete
 
 **Required disclaimer (verbatim, end of every output):**
+
 > Operational summary for title and escrow processing only. Not legal advice. Verify all terms against the fully executed purchase agreement, counteroffers, amendments, and addenda. Flagged items require human review before reliance.

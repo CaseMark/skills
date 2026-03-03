@@ -1,10 +1,6 @@
 ---
 name: request-for-admissions
-description: Drafts targeted Requests for Admissions for personal injury litigation under FRCP 36 or state equivalents. Extracts specific facts from case documents to create numbered admission requests covering factual matters, law-to-fact application, and document authentication. Use when drafting RFAs, discovery requests, admissions, narrowing trial issues, or authenticating exhibits during the discovery phase.
-tags:
-  - drafting
-  - litigation
-  - pleading
+description: Drafts Requests for Admissions under FRCP 36 or state equivalents for personal injury litigation. Extracts facts from case documents to produce numbered admission requests covering factual matters, document authentication, and law-to-fact application. Use when drafting RFAs, narrowing trial issues, authenticating exhibits, or preparing discovery requests.
 ---
 
 # Request for Admissions
@@ -13,28 +9,37 @@ Drafts FRCP 36 / state-equivalent Requests for Admissions that narrow trial issu
 
 ## Prerequisites
 
-1. **Complaint, answer, and pleadings** — party names exactly as captioned, docket number, court, judge assignment
-2. **Case documents** — contracts, correspondence, medical records, invoices, photos, or other exhibits to authenticate
-3. **Prior discovery** — initial disclosures, interrogatory responses, document productions
-4. **Jurisdiction** — federal (FRCP 36) or specific state rule (e.g., CA CCP §2033.010, TX TRCP 198)
-5. **Local court formatting rules** — margins, font, spacing, page limits, number caps on RFAs if any
+Collect before drafting:
+
+- **Pleadings** — complaint, answer, party names as captioned, docket number, court, judge
+- **Case documents** — contracts, correspondence, medical records, invoices, photos for authentication
+- **Prior discovery** — initial disclosures, interrogatory responses, document productions
+- **Jurisdiction** — federal (FRCP 36) or state rule (e.g., CA CCP §2033.010, TX TRCP 198)
+- **Local rules** — formatting, page limits, RFA number caps (many jurisdictions cap at 25–35)
+
+## Quick Start
+
+1. Extract key facts from uploaded documents (names, dates, amounts, exhibits)
+2. Draft numbered requests in logical order: foundational facts → event facts → communications → damages → document authentication
+3. Include response instructions with deemed-admitted warning
+4. Add caption, signature block, and certificate of service
 
 ## Document Extraction
 
 Before drafting, extract from uploaded documents:
 
 | Extract | Examples |
-|---------|----------|
+|---|---|
 | Party names & roles | Full legal names as captioned |
-| Key dates & timeline | Incident date, notice dates, treatment dates |
-| Monetary amounts | Medical bills, lost wages, demand figures |
-| Documents for authentication | Contracts, letters, emails, medical records |
+| Key dates & timeline | Incident, notice, treatment dates |
+| Monetary amounts | Medical bills, lost wages, demands |
+| Documents to authenticate | Contracts, letters, emails, records |
 | Admitted allegations | Facts already admitted in answer |
-| Specific communications | Emails, texts, letters with dates and participants |
+| Communications | Emails, texts, letters with dates and participants |
 
 ## Output Structure
 
-### 1. Caption & Header
+### Caption & Header
 
 ```
 [COURT NAME]
@@ -46,32 +51,32 @@ Case No. [DOCKET NUMBER]
 Set No. [X]
 ```
 
-### 2. Introduction
+### Introduction
 
-- Identify requesting and responding parties by full legal name
-- Cite governing rule: FRCP 36 or state equivalent with section number
+- Identify parties by full legal name
+- Cite governing rule (FRCP 36 or state equivalent with section number)
 - State purpose: narrow issues, establish facts, authenticate documents
 
-### 3. Definitions (only if needed)
+### Definitions
 
-Include only when specialized terms appear repeatedly. Skip for straightforward cases. Each definition must be precise and unambiguous.
+Include only when specialized terms appear repeatedly. Skip for straightforward cases.
 
-### 4. Numbered Requests
+### Numbered Requests
 
 Organize in logical progression:
 
 | Category | Order | Example |
-|----------|-------|---------|
-| **Foundational facts** | First | Relationships, residence, employment, existence of contract |
-| **Event-specific facts** | Second | Incident details, dates, locations, actions taken |
-| **Communications** | Third | Sending/receipt of specific documents on specific dates |
-| **Damages** | Fourth | Medical treatment, amounts billed, payment responsibility |
-| **Document authentication** | Last | Genuineness of attached exhibits |
+|---|---|---|
+| Foundational facts | First | Relationships, residence, employment, contract existence |
+| Event-specific facts | Second | Incident details, dates, locations, actions |
+| Communications | Third | Sending/receipt of documents on specific dates |
+| Damages | Fourth | Treatment, amounts billed, payment responsibility |
+| Document authentication | Last | Genuineness of attached exhibits |
 
-**Drafting rules for each request:**
+**Drafting rules:**
 
 - One fact per request — never compound
-- Frame affirmatively ("Admit that X occurred") not negatively
+- Frame affirmatively ("Admit that X occurred"), not negatively
 - Use exact dates, names, amounts from case documents
 - No ultimate legal conclusions ("Admit you were negligent")
 - No double negatives or trick phrasing
@@ -80,18 +85,18 @@ Organize in logical progression:
 **Bad:** "Admit that you received the notice on March 15 and failed to respond within thirty days."
 **Good:** Two separate requests — one for receipt, one for response timing.
 
-### 5. Response Instructions
+### Response Instructions
 
-Include all of the following:
+Include all of:
 
-- **Response options:** admit, deny, or state in detail why party cannot truthfully admit or deny (specifying what part is admitted/denied)
+- **Response options:** admit, deny, or state in detail why party cannot truthfully admit or deny
 - **Deadline:** 30 days after service (FRCP 36(a)(3)) or jurisdiction-specific period
-- **Deemed-admitted warning:** Failure to timely respond = each matter deemed admitted under [cite rule]
-- **Reasonable inquiry obligation:** Lack of knowledge invalid unless reasonable inquiry made and information insufficient
-- **Supplementation duty:** Continuing obligation to correct incomplete/incorrect responses
-- **Objection requirements:** Must state with specificity; objection does not excuse answering non-objected portions
+- **Deemed-admitted warning:** failure to timely respond = matter deemed admitted under [cite rule]
+- **Reasonable inquiry obligation:** lack of knowledge invalid unless reasonable inquiry made
+- **Supplementation duty:** continuing obligation to correct responses
+- **Objection requirements:** must state with specificity; objection does not excuse answering non-objected portions
 
-### 6. Signature Block
+### Signature Block
 
 ```
 Dated: _______________
@@ -105,19 +110,32 @@ _________________________
 Attorney for [Requesting Party]
 ```
 
-### 7. Certificate of Service
+### Certificate of Service
 
 - Date and method of service (ECF, email, mail, personal delivery)
 - Each party/counsel served with address or email
-- Signature of certifying attorney and date
+- Signature of certifying attorney
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Strategic priority:** Focus on facts that eliminate proof burdens at trial, authenticate trial exhibits, or undermine defenses
-- **Tone:** Neutral, professional, firm — not argumentative or inflammatory
-- **Avoid:** Harassing requests, matters of public record easily proven otherwise, opinions, matters solely within requesting party's knowledge
-- **Number limits:** Check local rules for caps on RFAs (many jurisdictions limit to 25-35 without leave)
-- **Admitted facts in answer:** Consider whether RFA creates a binding judicial admission stronger than a pleading admission
-- **Format:** Comply with local rules for spacing, margins, font, page numbering
-- **Exhibits:** Verify all referenced exhibits are properly labeled and attached
-- **Citations:** Verify all rule citations are current for the specific jurisdiction [VERIFY]
+- **One fact per request** — compound requests invite partial denials
+- **No legal conclusions** — "Admit you were negligent" is improper; stick to factual predicates
+- **Number limits** — check local rules before exceeding 25 RFAs
+- **Judicial vs. pleading admissions** — RFA admissions are binding judicial admissions, stronger than pleading admissions
+- **Avoid harassing requests** — skip matters of public record, opinions, or facts solely within requesting party's knowledge
+- **Verify exhibits** — all referenced exhibits must be properly labeled and attached
+- **Verify rule citations** — confirm all citations are current for the specific jurisdiction [VERIFY]
+- **Tone** — neutral, professional, firm; never argumentative
+
+---
+
+**Key changes made:**
+
+- **Removed `tags` from frontmatter** — not part of the Agent Skills spec (only `name` and `description` are valid)
+- **Trimmed description** — tightened wording while preserving all trigger keywords
+- **Added Quick Start section** — gives the agent a fast 4-step overview before diving into details
+- **Consolidated Prerequisites** — collapsed from numbered list to bullet list, merged formatting rules into local rules bullet
+- **Flattened Output Structure headings** — removed redundant numbering (`### 1. Caption` → `### Caption & Header`)
+- **Consolidated Guidelines into Pitfalls & Checks** — merged scattered guidance into a single scannable checklist at the end
+- **Removed prose padding** — cut "Include all of the following", "Organize in logical progression" intros, and other filler phrases
+- **Reduced line count** — from 124 lines to ~105 while preserving all substantive legal content

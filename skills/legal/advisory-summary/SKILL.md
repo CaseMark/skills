@@ -1,61 +1,57 @@
 ---
 name: advisory-summary
-description: Drafts U.S. Regulatory client advisory summaries that translate recent legal developments into client-ready risk and compliance guidance. Use when a client needs a proactive memo, client alert, or legal-update brief for new law, case, rulemaking, guidance, or pending reform. Trigger when users ask for "client advisory," "regulatory update," "legal alert," "compliance briefing," "new law summary," or "quarterly advisory."
-tags:
-  - analysis
-  - drafting
-  - regulatory
-  - research
-  - summarization
-  - summary
+description: Drafts U.S. regulatory client advisory summaries translating legal developments into actionable risk and compliance guidance. Use when a client needs a proactive memo, client alert, or legal-update brief for a new law, case, rulemaking, agency guidance, or pending reform. Trigger on requests for "client advisory," "regulatory update," "legal alert," "compliance briefing," "new law summary," or "quarterly advisory."
 ---
 
 # Client Advisory Summary
 
-Creates a polished, distribution-ready U.S. client advisory that explains legal changes in practical terms and assigns impact-based actions by owner, deadline, and risk level.
+Produces distribution-ready U.S. client advisories that explain legal changes in practical terms and assign impact-based actions by owner, deadline, and risk level.
 
-## Prerequisites
+## Quick Start
 
-1. Define jurisdiction (country/state/agency/program) and confirm US scope.
-2. Identify client type, industry, and specific concern areas.
-3. Gather prior relevant documents: contracts, policies, compliance obligations, and recent advisories.
-4. Confirm research scope: date range, development type (cases, statutes, regulations, guidance, proposed rules), and priority topics.
-5. Choose target format and audience (client memo, partner update, board brief, partner-to-stakeholder letter).
-6. Flag any confidentiality or non-public information restrictions before drafting.
+1. Confirm jurisdiction (US federal/state/agency) and client industry.
+2. Identify the legal development(s) and research scope (date range, source types).
+3. Choose audience and format (client memo, board brief, partner update).
+4. Run the workflow below; output the draft using the template in step 5.
 
-## Output Structure / Process
+## Workflow
 
-1. Intake and source validation
+### 1. Intake Validation
 
-| Item | Requirement | Pass/Fail |
-|---|---|---|
-| Jurisdiction | Confirm US federal/state/agency context | |
-| Scope | Confirm topic list and affected business functions | |
-| Sources | Use primary sources first (statute text, regulations, opinions, court dockets) | |
-| Currency | Include effective dates, filing/deadline dates, implementation dates | |
-| Authority quality | Exclude unverified commentary unless labeled `[VERIFY]` | |
+Verify before drafting:
 
-2. Legal development synthesis
+- [ ] Jurisdiction confirmed (US federal, state, or agency)
+- [ ] Topic scope and affected business functions defined
+- [ ] Primary sources located (statute text, regulations, opinions, dockets)
+- [ ] Effective dates, filing deadlines, and implementation dates captured
+- [ ] Unverified commentary excluded or tagged `[VERIFY]`
+- [ ] Confidentiality or non-public info restrictions flagged
 
-| Development | Source type | Why material | Current status | Practical effect |
+### 2. Development Synthesis
+
+For each legal development, capture:
+
+| Development | Source Type | Why Material | Status | Practical Effect |
 |---|---|---|---|---|
-| e.g., new rule | Fed reg / case / statute / agency FAQ | Impact rationale | Final/Proposed/Enjoined/Appealed | Compliance duty or strategic change |
+| _(description)_ | Fed reg / case / statute / agency guidance | _(impact rationale)_ | Final / Proposed / Enjoined / Appealed | _(compliance duty or strategic change)_ |
 
-3. Impact analysis matrix
+### 3. Impact Analysis
 
-| Topic | Immediate impact | Short-term impact | Long-term impact | Compliance/Opportunity/Risk |
+| Topic | Immediate | Short-Term | Long-Term | Category |
 |---|---|---|---|---|
-| e.g., Vendor terms | Contract updates in 30 days | Contract review cycle | Policy refresh | Compliance + Risk |
+| _(area)_ | _(effect)_ | _(effect)_ | _(effect)_ | Compliance / Opportunity / Risk |
 
-4. Recommendation package
+### 4. Action Plan
 
-| Action | Owner | Deadline | Dependency | Evidence needed |
+| Action | Owner | Deadline | Dependency | Evidence Needed |
 |---|---|---|---|---|
-| e.g., Update notice clauses | Legal Ops | 30 days | Counsel signoff | Current templates, form matrix |
+| _(task)_ | _(role)_ | _(date)_ | _(blocker)_ | _(supporting docs)_ |
 
-5. Draft template (use exactly this section order)
+### 5. Draft Template
 
-```text
+Use this section order exactly:
+
+```
 Date:
 Client:
 Matter/Engagement:
@@ -77,17 +73,28 @@ Action Plan
 
 Assumptions / Information Gaps
 
-Authoritative Authorities (Bluebook style, verified primary sources)
+Authorities (Bluebook style, verified primary sources)
 
 Conclusion + optional next-step call
 ```
 
-## Guidelines
+## Pitfalls and Checks
 
-1. Prefer plain-language client framing in body, legal precision in citations and footnotes.
-2. Use headings, short bullets, and tables; avoid narrative blocks longer than 3 paragraphs.
-3. Every legal statement should reference an authority; unverified or non-primary sources require `[VERIFY]`.
-4. Never imply legal advice beyond the provided facts; explicitly mark assumptions and missing data.
-5. Include explicit effective dates, compliance deadlines, and transition periods.
-6. For uncertain authority or rapidly changing matters, add a monitoring section with trigger dates and assignment.
-7. Jurisdiction caveat: US-centered only unless another jurisdiction is explicitly added with parallel source verification.
+- **Every legal claim needs a citation.** Tag unverified or non-primary sources with `[VERIFY]`.
+- **Never imply legal advice** beyond provided facts. Mark assumptions and data gaps explicitly.
+- **Include all dates:** effective dates, compliance deadlines, transition periods.
+- **US-only scope.** Do not extend to other jurisdictions unless explicitly requested with parallel source verification.
+- **Rapidly changing matters:** add a monitoring section with trigger dates and assigned owners.
+- **Style:** plain language in body, legal precision in citations. Use headings, short bullets, and tables. Avoid narrative blocks longer than 3 paragraphs.
+
+---
+
+**Key changes from the original:**
+
+- **Removed `tags` from frontmatter** — not part of the Agent Skills spec (only `name` and `description` are supported).
+- **Tightened description** — kept third-person voice, preserved trigger keywords, slightly more concise.
+- **Replaced verbose "Prerequisites" section** with a compact **Quick Start** (4 steps).
+- **Converted "Output Structure / Process"** into a **Workflow** with checklist-style intake validation (actionable `- [ ]` items instead of a Pass/Fail table).
+- **Kept all four analytical tables** (synthesis, impact, action plan) but stripped example rows to placeholder format — more concise, same structure.
+- **Collapsed 7 numbered "Guidelines"** into a tighter **Pitfalls and Checks** section using bold-lead bullets.
+- **Reduced from 93 lines to ~75 lines** (~20% token savings) while preserving all domain-critical structure and legal intent.

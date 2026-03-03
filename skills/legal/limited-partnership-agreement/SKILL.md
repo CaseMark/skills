@@ -1,14 +1,12 @@
 ---
 name: limited-partnership-agreement
 description: >-
-  Drafts U.S. private equity and venture capital Limited Partnership
-  Agreements (LPAs) for fund formation, capturing GP/LP governance, capital
-  commitments, allocations, distribution waterfalls, fees, key person, LPAC,
-  transfer restrictions, tax provisions, and dissolution mechanics. Use when
-  drafting or revising a fund LPA, partnership agreement, or term-sheet-to-LPA
-  conversion. Trigger keywords: limited partnership agreement, LPA, private
-  equity fund, venture capital fund, fund formation, capital calls, carried
-  interest, waterfall, GP, LP.
+  Drafts U.S. private equity and venture capital Limited Partnership Agreements
+  (LPAs) covering GP/LP governance, capital commitments, distribution waterfalls,
+  fees, carry, key person provisions, LPAC, transfers, tax, and dissolution. Use
+  when drafting or revising a fund LPA, converting a term sheet to an LPA, or
+  structuring fund formation documents. Trigger: limited partnership agreement,
+  LPA, fund formation, capital calls, carried interest, waterfall, GP/LP.
 tags:
   - agreement
   - corporate
@@ -21,114 +19,123 @@ Drafts an institutional-quality LPA governing GP/LP economics, governance, and l
 
 ## Prerequisites
 
-1. Fund name, jurisdiction, and entity structure (LP, GP, manager/adviser entities).
+1. Fund name, jurisdiction, entity structure (LP, GP, manager/adviser).
 2. Term sheet or economics summary (commitments, fees, carry, pref return, waterfall type).
 3. Strategy parameters (sector, geography, stage, concentration limits).
 4. Investor eligibility and regulatory profile (Reg D, qualified purchaser, ERISA).
 5. Key person list, investment period, and term/extension mechanics.
 
-## Output Structure / Process
+## Quick Start
 
-1. **Input Capture Table**  
-| Field | Required | Notes |
-| --- | --- | --- |
-| Fund legal name | Yes | Include “L.P.” |
-| Jurisdiction | Yes | State LP statute; cite in formation article |
-| Term and extensions | Yes | Initial term + extension mechanics |
-| Investment period | Yes | Duration + early termination triggers |
-| Capital commitments | Yes | By LP; via Subscription Agreements |
-| Management fee | Yes | Rate, base, step-down, timing |
-| Preferred return | Yes | Rate, compounding, calculation |
-| Carry and catch-up | Yes | % split, catch-up mechanics |
-| Waterfall basis | Yes | Whole-fund vs deal-by-deal |
-| Key person | Yes | Event definition + suspension |
-| LPAC | If used | Composition + consent matters |
-| Transfer restrictions | Yes | Consent + permitted transfers |
-| Tax elections | Yes | Section 754 election, audit regime |
-| Clawback | Yes | After-tax basis + escrow/guaranty |
-| Dissolution triggers | Yes | Term, GP removal, judicial decree |
+Collect inputs below, then draft articles in document skeleton order.
 
-2. **Document Skeleton**  
-| Article | Include | Notes |
-| --- | --- | --- |
-| Definitions | Defined terms list | Consistent capitalization |
-| Formation & Purpose | Statute citation, purpose, term | State LP act |
-| Capital Commitments | Subscription Agreements | Binding commitments |
-| Capital Calls | Notice, timing, default | Remedies + cure |
-| Allocations | 704(b) capital accounts | Tax compliance |
-| Distributions | Waterfall tiers | Whole-fund vs deal-by-deal |
-| Management | GP authority | Fiduciary standard if applicable |
-| Fees & Expenses | Management fee + offsets | Transaction/monitoring offsets |
-| Key Person | Event + consequences | Suspension/LP remedies |
-| LPAC | Advisory role + consents | Non-binding except specified |
-| Transfers | Consent + conditions | No tax termination |
-| Exculpation/Indemnity | GP/affiliate | Standard of conduct |
-| Tax Matters | Elections, audit | BBA regime |
-| Reports/Records | K-1 timing | Annual audit |
-| Dissolution | Triggers + wind-up | Final accounting |
-| Miscellaneous | Amendments, notices | Governing law |
+### Required Inputs
 
-3. **Capital Call & Default Checklist**  
-- Notice period (10–30 days).  
-- Pro rata draw by unfunded commitment.  
-- Accepted payment methods and wiring details.  
-- Cure period and default declaration procedure.  
-- Default remedies:  
-  - Default interest rate.  
-  - Loss/reduction of capital account.  
-  - Forced sale at discount.  
-  - Forfeiture of distributions or voting rights.
+| Field | Notes |
+|---|---|
+| Fund legal name | Include "L.P." suffix |
+| Jurisdiction | State LP statute; cite in formation article |
+| Term and extensions | Initial term + extension mechanics |
+| Investment period | Duration + early termination triggers |
+| Capital commitments | By LP; via Subscription Agreements |
+| Management fee | Rate, base, step-down, timing |
+| Preferred return | Rate, compounding, calculation |
+| Carry and catch-up | % split, catch-up mechanics |
+| Waterfall basis | Whole-fund vs deal-by-deal |
+| Key person | Event definition + suspension |
+| LPAC (if used) | Composition + consent matters |
+| Transfer restrictions | Consent + permitted transfers |
+| Tax elections | Section 754, audit regime |
+| Clawback | After-tax basis + escrow/guaranty |
+| Dissolution triggers | Term, GP removal, judicial decree |
 
-4. **Waterfall Table**  
+## Document Skeleton
+
+Draft articles in this order:
+
+1. **Definitions** — Consistent capitalization across all defined terms.
+2. **Formation & Purpose** — State LP act citation, purpose, term.
+3. **Capital Commitments** — Binding commitments via Subscription Agreements.
+4. **Capital Calls** — Notice, timing, default remedies, cure period.
+5. **Allocations** — 704(b) capital accounts, tax compliance.
+6. **Distributions** — Waterfall tiers (whole-fund or deal-by-deal).
+7. **Management** — GP authority, fiduciary standard if applicable.
+8. **Fees & Expenses** — Management fee, offsets for transaction/monitoring/director fees.
+9. **Key Person** — Event definition, suspension, LP remedies.
+10. **LPAC** — Advisory role, consent matters (non-binding except as specified).
+11. **Transfers** — Consent conditions, no tax termination trigger.
+12. **Exculpation/Indemnity** — GP/affiliate, standard of conduct.
+13. **Tax Matters** — Elections, BBA audit regime.
+14. **Reports/Records** — K-1 delivery timeline, annual audit.
+15. **Dissolution** — Triggers, wind-up authority, final accounting.
+16. **Miscellaneous** — Amendments, notices, governing law.
+
+## Core Provisions
+
+### Distribution Waterfall
+
+Standard four-tier European (whole-fund) waterfall:
+
 | Tier | Recipient | Amount |
-| --- | --- | --- |
+|---|---|---|
 | 1 | LPs | 100% until return of contributed capital |
 | 2 | LPs | 100% until preferred return satisfied |
 | 3 | GP | Catch-up to achieve carry % on tiers 2–3 |
 | 4 | LPs/GP | Split per carry (e.g., 80/20) |
 
-5. **Whole-Fund vs Deal-by-Deal**  
-- Whole-fund: carry only after aggregate return of capital and preferred return.  
-- Deal-by-deal: interim carry permitted; add clawback + escrow.
+- **Whole-fund**: carry only after aggregate return of capital + preferred return.
+- **Deal-by-deal**: interim carry permitted; must add clawback + escrow.
 
-6. **Fee Mechanics Template**  
-- During investment period: `% of commitments`.  
-- Post-investment period: `% of cost basis or FMV`.  
-- Paid quarterly in advance.  
-- Fee offsets for transaction/monitoring/director fees.
+### Fee Mechanics
 
-7. **LPAC Consent Matters Checklist**  
-- Related-party or affiliate transactions.  
-- Conflicts and co-investments.  
-- Valuation policy changes.  
-- Auditor removal or replacement.  
-- Term extensions beyond initial period.  
-- Material amendments where LP consent required.
+- Investment period: % of commitments.
+- Post-investment period: % of cost basis or FMV.
+- Paid quarterly in advance.
+- Offset transaction, monitoring, and director fees received by GP/affiliates.
 
-8. **Clawback Mechanics**  
-- After-tax clawback calculation.  
-- Escrow reserve or GP guaranty.  
-- Timing for final true-up at liquidation.
+### Capital Call & Default
 
-9. **Tax & Regulatory Provisions**  
-- Pass-through allocations; Schedule K-1 delivery deadline.  
-- Section 754 election authority.  
-- Centralized partnership audit regime (BBA 2015).  
-- Withholding authority (U.S. and non-U.S. partners).  
-- Investor representations: accredited investor, qualified purchaser.  
-- AML/KYC information and certifications.
+- Notice period: 10–30 days; pro rata draw by unfunded commitment.
+- Specify payment methods and wiring instructions.
+- Cure period before default declaration.
+- Default remedies: default interest, capital account reduction, forced sale at discount, forfeiture of distributions or voting rights.
 
-10. **Dissolution & Final Accounting**  
-- Triggers: term expiry, GP withdrawal/removal, judicial decree.  
-- Wind-up authority and liquidation process.  
-- Final accounting and objection window.
+### Clawback
 
-## Guidelines
+- Calculate on after-tax basis.
+- Escrow reserve or GP guaranty required.
+- Final true-up at liquidation.
 
-- Use the governing state LP statute and confirm exact citation.  
-- Align defined terms, cross-references, and exhibit references.  
-- Ensure allocation and distribution provisions are consistent with tax capital accounts and the waterfall.  
-- If deal-by-deal carry is used, include escrow and clawback protections.  
-- Include transfer restrictions that avoid tax termination and securities registration issues.  
-- Confirm regulatory representations match fund strategy and investor base.  
-- Flag any nonstandard provisions or investor-specific side-letter carve-outs.
+### LPAC Consent Matters
+
+- Related-party/affiliate transactions.
+- Conflicts and co-investments.
+- Valuation policy changes.
+- Auditor removal or replacement.
+- Term extensions beyond initial period.
+- Material amendments requiring LP consent.
+
+### Tax & Regulatory
+
+- Pass-through allocations; K-1 delivery deadline.
+- Section 754 election authority.
+- Centralized partnership audit regime (BBA 2015).
+- Withholding authority for U.S. and non-U.S. partners.
+- Investor representations: accredited investor, qualified purchaser.
+- AML/KYC certifications.
+
+### Dissolution
+
+- Triggers: term expiry, GP withdrawal/removal, judicial decree.
+- Wind-up authority and liquidation process.
+- Final accounting with objection window.
+
+## Pitfalls & Checks
+
+- Cite the exact governing state LP statute in the formation article.
+- Align defined terms, cross-references, and exhibit references throughout.
+- Ensure allocation and distribution provisions are consistent with tax capital accounts and the waterfall.
+- If deal-by-deal carry, escrow and clawback protections are mandatory.
+- Transfer restrictions must avoid triggering tax termination or securities registration.
+- Confirm regulatory representations match fund strategy and investor base.
+- Flag nonstandard provisions or investor-specific side-letter carve-outs.

@@ -1,6 +1,6 @@
 ---
 name: trademark-coexistence
-description: Drafts U.S. trademark coexistence agreements between parties with similar marks, defining permitted use boundaries, differentiation requirements, non-challenge covenants, and confusion-prevention protocols. Covers registration rights, quality control, breach/cure, and post-termination obligations. Use when drafting coexistence agreements, trademark consent agreements, concurrent use arrangements, or resolving likelihood-of-confusion disputes without litigation.
+description: Drafts U.S. trademark coexistence agreements defining permitted use boundaries, differentiation requirements, and confusion-prevention protocols for parties with similar marks. Use when drafting coexistence or consent agreements, concurrent use arrangements, or resolving likelihood-of-confusion disputes without litigation.
 tags:
   - agreement
   - drafting
@@ -9,151 +9,130 @@ tags:
 
 # Trademark Coexistence Agreement
 
-Drafts a binding coexistence agreement that defines permitted use boundaries for parties with similar marks, preventing consumer confusion while preserving both parties' trademark rights.
+Drafts a binding agreement defining permitted use boundaries for parties with similar marks, preventing consumer confusion while preserving both parties' trademark rights.
 
 ## Prerequisites
 
-1. **Mark details for each party** — exact marks (word/design/composite), registration numbers, filing dates, dates of first use in commerce
-2. **Goods/services descriptions** — Nice Classification or detailed descriptions for each party's covered goods/services
-3. **Geographic scope** — current territories of use and planned expansion for each party
-4. **Priority determination** — which party holds senior rights and basis (first use, first registration, or concurrent)
-5. **Trade channel information** — distribution methods, customer segments, marketing channels for each party
-6. **Prior correspondence or disputes** — any cease-and-desist letters, opposition proceedings, or negotiations
+Collect before drafting:
 
-## Output Structure
+1. **Mark details per party** — exact marks (word/design/composite), registration numbers, filing dates, first-use dates
+2. **Goods/services** — Nice Classification or detailed descriptions per party
+3. **Geographic scope** — current territories and planned expansion per party
+4. **Priority** — which party holds senior rights (first use, first registration, or concurrent)
+5. **Trade channels** — distribution methods, customer segments, marketing channels per party
+6. **Prior disputes** — cease-and-desist letters, opposition proceedings, negotiations
 
-### Section 1: Header & Parties
+## Quick Start
 
-| Element | Requirements |
-|---------|-------------|
-| Title | "Trademark Coexistence Agreement" |
-| Effective date | Specific date |
-| Party identification | Full legal names, entity type, jurisdiction of organization, principal place of business |
-| Party designations | "Senior User" / "Junior User" or "Party A" / "Party B" — use consistently throughout |
+1. Gather prerequisites and confirm priority determination
+2. Draft agreement following the section order below
+3. Verify all `[VERIFY]` flags against current law
+4. Attach exhibits (mark specimens, goods/services lists, territory maps, disclaimer language)
 
-### Section 2: Recitals
+## Agreement Sections
 
-Draft recitals covering — in this order:
+### 1. Header & Parties
 
-1. **Party A's mark** — exact mark, registration status (numbers, jurisdictions), first-use date, goods/services, geographic scope, goodwill
-2. **Party B's mark** — same detail; business rationale for adoption; how use differs from Party A
-3. **Conflict assessment** — candid analysis of visual, phonetic, and conceptual similarity; relatedness of goods/services; overlap in trade channels; likelihood-of-confusion factors under *Polaroid* / *Sleekcraft* [VERIFY]
-4. **Mutual intent** — avoid confusion, prevent litigation, establish coexistence framework in good faith
+- Title: "Trademark Coexistence Agreement"
+- Effective date, full legal names, entity type, jurisdiction, principal place of business
+- Consistent designations throughout: "Senior User"/"Junior User" or "Party A"/"Party B"
 
-### Section 3: Core Coexistence Terms
+### 2. Recitals
 
-For **each party**, define:
+Draft in this order:
 
-- [ ] Permitted goods/services (enumerate specifically)
-- [ ] Geographic territories
-- [ ] Trade channels (online, wholesale, retail categories)
-- [ ] Non-challenge covenant (no opposition, cancellation, or infringement claims within permitted scope)
-- [ ] Expansion rights — conditions and notice requirements for new goods/services/territories
+1. **Party A's mark** — mark, registration status, first-use date, goods/services, geographic scope, goodwill
+2. **Party B's mark** — same detail; business rationale for adoption; how use differs
+3. **Conflict assessment** — visual/phonetic/conceptual similarity; goods/services relatedness; trade channel overlap; likelihood-of-confusion factors under *Polaroid*/*Sleekcraft* `[VERIFY]`
+4. **Mutual intent** — avoid confusion, prevent litigation, establish coexistence in good faith
 
-**Differentiation requirements** (typically imposed on junior user):
+### 3. Core Coexistence Terms
 
-- [ ] Required house mark, logo, or distinctive co-branding element
-- [ ] Prohibited design elements, color schemes, or stylistic presentations
-- [ ] Mandatory disclaimers or clarifying statements
-- [ ] Packaging/labeling distinctions
+**Per-party permitted use:**
+- Permitted goods/services (enumerate specifically)
+- Geographic territories
+- Trade channels (online, wholesale, retail categories)
+- Non-challenge covenant (no opposition/cancellation/infringement claims within permitted scope)
+- Expansion rights with conditions and notice requirements
 
-### Section 4: Ongoing Obligations
+**Differentiation requirements** (typically on junior user):
+- Required house mark, logo, or co-branding element
+- Prohibited design elements, color schemes, stylistic presentations
+- Mandatory disclaimers or clarifying statements
+- Packaging/labeling distinctions
+
+### 4. Ongoing Obligations
 
 **Quality control:**
 - Each party maintains quality standards for marked goods/services
-- No disparagement, dilution, or tarnishment of the other's mark
-- Self-monitoring with corrective action for deviations
+- No disparagement, dilution, or tarnishment
+- Self-monitoring with corrective action
 
 **Confusion prevention protocol:**
 
 | Step | Action | Timeline |
 |------|--------|----------|
-| 1 | Notify other party of any confusion incident | Prompt written notice |
-| 2 | Good-faith consultation on remedial measures | Within 15 business days |
-| 3 | Implement agreed remedies (enhanced disclaimers, modified packaging, etc.) | Within 30 days of agreement |
+| 1 | Notify other party of confusion incident | Prompt written notice |
+| 2 | Good-faith consultation on remedies | 15 business days |
+| 3 | Implement agreed remedies | 30 days |
 | 4 | Verify compliance | Ongoing |
 
-**Third-party enforcement:**
-- Information sharing on potential infringers
-- Coordinated enforcement where appropriate
-- Neither party's enforcement undermines the other's rights
+**Third-party enforcement:** Information sharing, coordinated enforcement where appropriate, neither party's enforcement undermines the other's rights.
 
-### Section 5: Registration Rights
+### 5. Registration Rights
 
-- [ ] Permitted jurisdictions and classes for future applications
-- [ ] Mutual non-opposition covenant for compliant applications
-- [ ] Consent letter procedures for overcoming PTO likelihood-of-confusion refusals
-- [ ] Maintenance/renewal obligations — timely filings, declarations of use
-- [ ] Abandonment notice — written notice if either party discontinues use or abandons registration
+- Permitted jurisdictions and classes for future applications
+- Mutual non-opposition covenant for compliant applications
+- Consent letter procedures for overcoming PTO likelihood-of-confusion refusals
+- Maintenance/renewal obligations (timely filings, declarations of use)
+- Abandonment notice if either party discontinues use or abandons registration
 
-### Section 6: Term & Termination
+### 6. Term & Termination
 
-**Duration options:** Perpetual or fixed term with renewal provisions.
+**Duration:** Perpetual or fixed term with renewal.
 
-**Material breach triggers:**
-- Unauthorized expansion beyond permitted parameters
-- Failure to implement required differentiation
-- Use creating actual marketplace confusion
-- Quality standard violations
+**Material breach triggers:** unauthorized expansion, failure to differentiate, actual marketplace confusion, quality violations.
 
 **Cure framework:**
 
 | Phase | Detail |
 |-------|--------|
-| Notice | Written notice specifying breach with particularity |
+| Notice | Written, specifying breach with particularity |
 | Cure period | 30–60 days (specify) |
-| Uncured breach | Non-breaching party may terminate and pursue all remedies |
+| Uncured | Non-breaching party may terminate and pursue all remedies |
 
-**Post-termination:**
-- Termination does not invalidate underlying trademark rights
-- Wind-down period for breaching party to cease or modify use
-- Handling of existing inventory and marketing materials
+**Post-termination:** Termination does not invalidate underlying rights. Include wind-down period and handling of existing inventory/materials.
 
-### Section 7: Reps, Warranties & Indemnification
+### 7. Reps, Warranties & Indemnification
 
-**Mutual representations:**
-- Authority to bind entity
-- Accuracy of trademark ownership/usage information
-- No pending litigation affecting performance
-- No third-party infringement (beyond the conflict addressed herein)
+**Mutual representations:** authority to bind, accuracy of ownership/usage info, no pending litigation affecting performance, no third-party infringement beyond the addressed conflict.
 
-**Mutual indemnification** for:
-- Breach of agreement
-- Third-party IP infringement claims arising from indemnifying party's mark use
-- Violations of applicable law
+**Mutual indemnification for:** breach, third-party IP claims from indemnifying party's mark use, law violations. Include notice-of-claims, tender-of-defense, and defense/settlement control procedures.
 
-Include: notice of claims, tender of defense, control of defense/settlement procedures.
-
-### Section 8: General Provisions
+### 8. General Provisions
 
 | Provision | Notes |
 |-----------|-------|
-| Assignment | Requires prior written consent; address change-of-control (merger/acquisition) |
-| Amendment | Written, signed by authorized representatives only |
-| Governing law | Jurisdiction with developed trademark law and nexus to parties |
-| Dispute resolution | Mandatory mediation → arbitration or litigation; preserve right to seek injunctive relief |
-| Notices | Certified mail / overnight courier / email with confirmation; address change obligations |
-| Entire agreement | Supersedes prior negotiations; severability clause |
+| Assignment | Prior written consent; address change-of-control |
+| Amendment | Written, signed by authorized representatives |
+| Governing law | Jurisdiction with developed TM law and party nexus |
+| Dispute resolution | Mediation → arbitration/litigation; preserve injunctive relief |
+| Notices | Certified mail / courier / email with confirmation |
+| Entire agreement | Supersedes prior negotiations; severability |
 
-### Section 9: Execution
+### 9. Execution
 
-- Signature blocks: name, title, date for authorized representatives of both parties
+- Signature blocks with name, title, date for both parties
 - Counterpart execution permitted
-- Electronic signatures accepted per E-SIGN Act / UETA [VERIFY]
+- Electronic signatures per E-SIGN Act / UETA `[VERIFY]`
 
-**Exhibits to attach:**
-- [ ] Specimens of each party's mark
-- [ ] Goods/services descriptions
-- [ ] Geographic territory maps or descriptions
-- [ ] Required disclaimer language
+## Pitfalls & Checks
 
-## Guidelines
-
-- Frame differentiation requirements as specific, measurable, enforceable obligations — not aspirational language
-- Ensure non-challenge covenants are expressly limited to use within agreed parameters; preserve challenge rights for out-of-scope use
-- Address both current use and future expansion — ambiguity on expansion is the most common source of coexistence disputes
-- Consent letter provisions are critical for PTO prosecution; draft these to satisfy TMEP §1207.01(d)(viii) requirements [VERIFY]
-- If one party has clearly senior rights, the agreement structure should reflect that asymmetry in the restriction burden
-- Do not draft the agreement to function as a naked license — include quality control provisions sufficient to avoid abandonment arguments
-- Flag any goods/services overlap where confusion risk remains high despite differentiation measures
-- Include jurisdiction-specific considerations if marks are registered internationally (Madrid Protocol, EU trademark system)
+- Differentiation requirements must be specific, measurable, and enforceable — not aspirational
+- Non-challenge covenants must be expressly limited to agreed parameters; preserve challenge rights for out-of-scope use
+- Address both current use and future expansion — expansion ambiguity is the top coexistence dispute source
+- Consent letter provisions must satisfy TMEP §1207.01(d)(viii) `[VERIFY]`
+- If one party has clearly senior rights, reflect that asymmetry in restriction burden
+- Include quality control sufficient to avoid naked-license / abandonment arguments
+- Flag goods/services overlap where confusion risk remains high despite differentiation
+- For international registrations, address Madrid Protocol and EU trademark system considerations

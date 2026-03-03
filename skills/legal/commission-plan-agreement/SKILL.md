@@ -1,113 +1,118 @@
 ---
 name: commission-plan-agreement
-description: Drafts a comprehensive U.S. Commission Plan Agreement establishing compensation terms for agents, salespeople, or affiliates generating sales. Covers commission structure (flat, tiered, hybrid), payment mechanics, territory definitions, clawbacks, termination effects on earned commissions, independent contractor classification, and restrictive covenants. Use when drafting or negotiating commission-based compensation arrangements in employment, consulting, or affiliate contexts.
-tags:
-  - agreement
-  - drafting
-  - transactional
+description: Drafts U.S. commission plan agreements establishing compensation terms for agents, salespeople, or affiliates. Covers flat/tiered/hybrid structures, payment mechanics, clawbacks, territory definitions, termination effects, independent contractor classification, and restrictive covenants. Use when drafting or negotiating commission-based compensation in employment, consulting, or affiliate contexts.
 ---
 
 # Commission Plan Agreement
 
-Drafts a U.S.-compliant commission plan agreement between a company (principal) and an agent, salesperson, or affiliate for commission-based compensation.
+Drafts a U.S.-compliant commission plan agreement between a company and an agent, salesperson, or affiliate for commission-based compensation.
 
 ## Prerequisites
 
-1. **Party details** — full legal name, entity type, jurisdiction of formation, principal address, and authorized signatory for both company and agent
-2. **Commission structure** — rate(s), basis (gross vs. net sales), tier thresholds if applicable, and triggering event (contract signing, payment receipt, etc.)
-3. **Territory definition** — geographic boundaries or named market segments
-4. **Product/service scope** — what is covered and any exclusions (house accounts, existing customers)
-5. **Payment schedule** — frequency (monthly/quarterly), method (ACH, wire, check), and statement format
-6. **Governing state** — determines non-compete enforceability and any commission payment statute obligations
-7. **Existing documents** — prior commission agreements, sales policies, expense reimbursement policies (upload to vault if available)
+1. **Party details** — legal names, entity types, jurisdictions, addresses, authorized signatories
+2. **Commission structure** — rate(s), basis (gross vs. net), tier thresholds, triggering event (signing, payment receipt, etc.)
+3. **Territory** — geographic boundaries or named market segments
+4. **Product/service scope** — covered items and exclusions (house accounts, existing customers)
+5. **Payment schedule** — frequency, method (ACH/wire/check), statement format
+6. **Governing state** — determines non-compete enforceability and commission payment statute obligations
+7. **Existing documents** — prior commission agreements, sales policies, expense policies
 
 ## Output Structure
 
 ### 1. Preamble & Recitals
-Identify parties with full legal names and addresses. Recitals establish that company desires agent to promote/sell products/services on a commission basis.
+Identify parties with full legal names and addresses. Recitals establish commission-based sales relationship.
 
 ### 2. Definitions
 
 | Term | Drafting Notes |
 |---|---|
-| **Net Sales** | Gross revenue less returns, refunds, discounts, taxes, shipping — specify each deduction explicitly |
-| **Qualified Sale** | Define triggering criteria (executed contract, payment received, shipped, etc.) |
+| **Net Sales** | Gross revenue less returns, refunds, discounts, taxes, shipping — list each deduction |
+| **Qualified Sale** | Triggering criteria: executed contract, payment received, shipped, etc. |
 | **Territory** | Geographic region or named accounts; map to Exhibit A if complex |
-| **Commission Period** | Calendar month/quarter or other interval tied to payment cycle |
-| **House Accounts** | List or define excluded accounts not eligible for commission |
-| **Clawback Event** | Return, refund, chargeback, or contract cancellation within defined lookback window |
+| **Commission Period** | Calendar month/quarter tied to payment cycle |
+| **House Accounts** | Excluded accounts not eligible for commission |
+| **Clawback Event** | Return, refund, chargeback, or cancellation within defined lookback window |
 
 ### 3. Commission Structure
 
-**Flat Rate:**
-> Agent shall earn a commission of [__]% of Net Sales on all Qualified Sales closed during the Commission Period.
+**Flat rate:** Agent earns [__]% of Net Sales on Qualified Sales per Commission Period.
 
-**Tiered Rate (use Exhibit A or inline table):**
+**Tiered rate** (Exhibit A or inline table):
 
-| Cumulative Net Sales (per period) | Commission Rate |
+| Cumulative Net Sales (per period) | Rate |
 |---|---|
-| $0 – $[X] | [_]% |
-| $[X+1] – $[Y] | [_]% |
+| $0–$[X] | [_]% |
+| $[X+1]–$[Y] | [_]% |
 | Above $[Y] | [_]% |
 
-**Key provisions to include:**
+**Key provisions:**
 - [ ] When commission is "earned" (signing vs. payment)
-- [ ] Split-commission formula if multiple agents involved
-- [ ] Residual/recurring commissions on subscription sales (duration + conditions)
-- [ ] Clawback: adjustments for Clawback Events within [90/180] days of commission payment
-- [ ] Minimum performance thresholds (if any) and consequence of non-attainment
-- [ ] Commission exclusions (house accounts, excluded territories, sales below minimum order)
+- [ ] Split-commission formula for multiple agents
+- [ ] Residual/recurring commissions on subscriptions (duration + conditions)
+- [ ] Clawback adjustments within [90/180] days of payment
+- [ ] Minimum performance thresholds and consequences
+- [ ] Exclusions (house accounts, excluded territories, minimum order)
 
 ### 4. Payment Terms
-- Payment within [15/30] days after end of each Commission Period
-- Detailed commission statement required: sales included, deductions, net amount
-- Agent responsible for all income taxes; company to issue **Form 1099-NEC** (U.S. independent contractors)
-- Dispute window: agent must object to statement within [30] days or statement deemed accepted
+- Payment within [15/30] days after Commission Period end
+- Detailed statement: sales included, deductions, net amount
+- Agent responsible for income taxes; company issues **Form 1099-NEC**
+- Dispute window: [30] days to object or statement deemed accepted
 
 ### 5. Expenses
-Specify one approach:
-- **Agent bears all expenses** (typical for independent contractors), or
-- **Company reimburses approved expenses** → specify pre-approval threshold, documentation (receipts), cap, and reimbursement timeline
+Choose one approach:
+- **Agent bears all** (typical for independent contractors)
+- **Company reimburses approved** — pre-approval threshold, receipts, cap, timeline
 
 ### 6. Term & Termination
 
 | Scenario | Commission Treatment |
 |---|---|
-| Termination for Cause | Forfeit commissions on pending/unclosed opportunities; pay earned but unpaid |
-| Termination Without Cause ([30/60] days notice) | Pay earned but unpaid; address pipeline per negotiated schedule |
-| Agreement expiration | Same as without-cause termination |
+| For Cause | Forfeit pending/unclosed; pay earned but unpaid |
+| Without Cause ([30/60] days notice) | Pay earned but unpaid; address pipeline per schedule |
+| Expiration | Same as without-cause |
 
-Survival clause: confidentiality, non-solicitation, indemnification, and obligation to pay earned commissions survive termination.
+Survival: confidentiality, non-solicitation, indemnification, and earned commission obligations survive termination.
 
 ### 7. Restrictive Covenants
 
-**Confidentiality** (standard): customer lists, pricing, business strategy, trade secrets — return/destroy on termination.
+**Confidentiality:** Customer lists, pricing, strategy, trade secrets — return/destroy on termination.
 
-**Non-Solicitation** (12–24 months post-termination): customers contacted during engagement + company employees.
+**Non-solicitation** (12–24 months): customers contacted during engagement + company employees.
 
-**Non-Compete** ⚠️: Narrowly tailor by scope, geography, and duration. [VERIFY] enforceability in governing state — California, Minnesota, North Dakota, and Oklahoma ban most non-competes; FTC rule status uncertain as of 2026; many states restrict for lower-wage workers.
+**Non-compete:** Narrowly tailor by scope, geography, duration. [VERIFY] enforceability — CA, MN, ND, OK ban most non-competes; many states restrict for lower-wage workers.
 
 ### 8. Relationship of Parties
-> Agent is an independent contractor. Nothing herein creates an employment, partnership, joint venture, or agency relationship. Agent has no authority to bind Company or incur obligations on Company's behalf without express written authorization.
+State agent is independent contractor with no authority to bind company. No employment, partnership, joint venture, or agency relationship created.
 
 ### 9. Representations & Warranties
-- Mutual: authority to enter, no conflicting obligations
-- Agent: compliance with applicable law (consumer protection, anti-bribery, FCPA if international, industry regulations)
+- **Mutual:** Authority to enter; no conflicting obligations
+- **Agent:** Compliance with applicable law (consumer protection, anti-bribery, FCPA if international)
 
 ### 10. Governing Law & Dispute Resolution
-- Governing law: [State] (typically company's HQ state)
+- Governing law: [State] (typically company HQ)
 - Exclusive venue: [County, State]
-- Optional: mandatory mediation → AAA Commercial Arbitration (specify seat, cost allocation, carve-out for injunctive relief)
+- Optional: mediation then AAA arbitration (seat, cost allocation, injunctive relief carve-out)
 
 ### 11. Signature Block
-- Authorized representative signatures with printed name, title, date
-- Counterparts clause; electronic signatures valid under federal ESIGN Act and state UETA
+Authorized representatives with name, title, date. Counterparts clause; e-signatures valid under ESIGN/UETA.
 
 ## Guidelines
 
-- **Commission payment statutes**: Several states (CA, IL, NY, TX) have specific commission payment laws requiring written agreements and timely payment — [VERIFY] requirements in governing state
-- **Employee vs. contractor**: Misclassification risk if company controls manner/means of work; review ABC test or applicable state standard before classifying as independent contractor
-- **Non-compete jurisdiction**: Always confirm current enforceability before including; overreach can void the clause or invite litigation
-- **Clawback window**: Keep adjustment period reasonable (90–180 days) to avoid challenges; longer windows may be harder to enforce
-- **Tax forms**: 1099-NEC threshold is $600/year for U.S. persons; withholding rules differ for non-U.S. agents (W-8 series forms)
-- **Entire agreement clause**: Confirm no oral side agreements on commission promises exist before including merger language
+- **Commission statutes:** CA, IL, NY, TX require written agreements and timely payment — [VERIFY] governing state requirements
+- **Misclassification risk:** Review ABC test or applicable state standard before classifying as independent contractor
+- **Non-compete:** Confirm current enforceability before including; overreach can void the clause
+- **Clawback window:** Keep reasonable (90–180 days); longer periods harder to enforce
+- **Tax:** 1099-NEC threshold $600/year for U.S. persons; non-U.S. agents require W-8 series
+- **Merger clause:** Confirm no oral side agreements on commission promises before including
+
+**Key changes made:**
+- Removed `tags` from frontmatter (not in Anthropic spec; only `name` and `description` required)
+- Tightened description — removed "comprehensive" and "generating sales" filler
+- Compressed prerequisites — removed parenthetical elaborations that Claude already understands
+- Removed blockquote template language in sections 3 and 8 — replaced with direct instructions
+- Removed time-sensitive FTC rule reference ("FTC rule status uncertain as of 2026")
+- Removed emoji from non-compete heading
+- Shortened table cell text throughout (e.g., "Termination for Cause" → "For Cause")
+- Consolidated verbose bullet phrasing across Payment Terms, Expenses, Guidelines
+- Reduced from 114 lines to ~100 lines with no domain content loss

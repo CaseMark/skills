@@ -1,6 +1,6 @@
 ---
 name: verdict-judgment-summary
-description: Produces structured post-trial verdict and judgment analysis memoranda for commercial litigation, covering liability determinations, damages breakdowns, critical trial rulings, appellate preservation, and post-trial motion strategy. Use when summarizing a jury verdict, bench trial decision, judgment analysis, post-trial motion assessment, or appellate viability review.
+description: Produces structured post-trial verdict and judgment analysis memoranda for commercial litigation. Triggers when summarizing a jury verdict, bench trial decision, post-trial motion assessment, or appellate viability review. Covers liability determinations, damages breakdowns, critical rulings, and post-trial strategy.
 tags:
   - analysis
   - litigation
@@ -10,17 +10,26 @@ tags:
 
 # Verdict/Judgment Summary
 
-Produces an internal strategic memorandum analyzing a completed trial's outcome, assessing post-trial options, and charting next steps.
+Produces an internal strategic memorandum analyzing a completed trial outcome, assessing post-trial options, and charting next steps.
 
 ## Prerequisites
 
-1. **Official verdict form or written judgment** — extract exact findings, conclusions, and awards
-2. **Trial transcripts** — full or partial, covering key rulings and testimony
-3. **Trial team notes** — observation memos, jury reaction notes, real-time strategy assessments
-4. **Docket entries** — orders on motions in limine, evidentiary rulings, jury instruction disputes
-5. **Comparable verdict research** — jurisdiction-specific benchmarks for damage evaluation
+Gather before starting — flag any missing items:
 
-Flag any missing critical documents before proceeding.
+1. **Verdict form or written judgment** — exact findings, conclusions, awards
+2. **Trial transcripts** — key rulings and testimony (full or partial)
+3. **Trial team notes** — observation memos, jury reaction notes
+4. **Docket entries** — MIL orders, evidentiary rulings, jury instruction disputes
+5. **Comparable verdict research** — jurisdiction-specific damage benchmarks
+
+## Quick Start
+
+1. Extract all findings and awards from the official verdict/judgment
+2. Map each claim to its outcome with exact verdict-form language
+3. Tabulate damages by category with evidentiary basis
+4. Catalog outcome-affecting rulings and preservation status
+5. Assess post-trial motions and appellate viability
+6. Compile deadlines and recommendations with cost-benefit analysis
 
 ## Output Structure
 
@@ -34,85 +43,84 @@ Flag any missing critical documents before proceeding.
 
 ### 2. Liability Determinations
 
-For each claim tried:
+Per claim tried:
 
-- [ ] Outcome (sustained/defeated)
-- [ ] Exact language from verdict form or judgment
-- [ ] Fault allocation among parties (if comparative negligence/multiple defendants)
-- [ ] Special interrogatory answers revealing jury reasoning
-- [ ] Claims where liability found but damages denied — analyze why
+- Outcome (sustained/defeated)
+- Exact verdict form or judgment language
+- Fault allocation among parties (comparative negligence/multiple defendants)
+- Special interrogatory answers revealing jury reasoning
+- Claims with liability but no damages — analyze why
 
 ### 3. Damages Breakdown
 
 | Category | Amount | Basis |
 |---|---|---|
-| Economic (lost wages, medical, property) | $ | |
+| Economic (wages, medical, property) | $ | |
 | Non-economic (pain/suffering, emotional distress, consortium) | $ | |
-| Punitive (if any) | $ | Findings of malice/fraud/oppression; ratio to compensatory |
-| Statutory caps or remittitur applied | $ | Legal basis cited |
+| Punitive | $ | Malice/fraud/oppression findings; ratio to compensatory |
+| Statutory caps or remittitur | $ | Legal basis |
 | **Total** | **$** | |
 
 ### 4. Critical Trial Rulings
 
-For each outcome-affecting ruling:
+Per outcome-affecting ruling:
 
-| Ruling | Court's Reasoning | Standard Applied | Objection Preserved? | Appellate Implications |
+| Ruling | Court's Reasoning | Standard | Preserved? | Appellate Impact |
 |---|---|---|---|---|
 | MIL on [topic] | | | Y/N | |
 | Expert exclusion | | | Y/N | |
 | Jury instruction refusal | | | Y/N | |
 | Directed verdict denial | | | Y/N | |
 
-Flag rulings that deviate from established jurisdiction precedent or involve novel statutory interpretation.
+Flag rulings deviating from jurisdiction precedent or involving novel statutory interpretation.
 
 ### 5. Post-Trial Motion Assessment
 
 **JMOL / JNOV (FRCP 50(b) or state equivalent):**
-- Could a reasonable jury have reached this verdict on the evidence?
-- Any legally inconsistent findings?
-- Success likelihood: [High / Moderate / Low]
+- Could a reasonable jury have reached this verdict?
+- Legally inconsistent findings?
+- Success likelihood: High / Moderate / Low
 
 **New Trial (FRCP 59 or state equivalent):**
 - Prejudicial evidentiary errors?
 - Improper jury arguments?
 - Procedural irregularities affecting substantial rights?
-- Success likelihood: [High / Moderate / Low]
+- Success likelihood: High / Moderate / Low
 
 **Remittitur / Additur:**
-- Does the award fall outside the range supported by evidence?
+- Award outside range supported by evidence?
 - Comparable verdict benchmarks in jurisdiction
 - Alternative damage figure with evidentiary support
 
-For each motion, assess: legal merit, trial judge's demonstrated tendencies, and practical likelihood of relief.
+For each motion assess: legal merit, judge's tendencies, practical likelihood of relief.
 
 ### 6. Appellate Viability
 
-| Issue | Standard of Review | Preserved? | Conflicts with Precedent? | Reversal Probability |
+| Issue | Standard of Review | Preserved? | Precedent Conflict? | Reversal Probability |
 |---|---|---|---|---|
 | | De novo / Substantial evidence / Abuse of discretion | Y/N | | High / Moderate / Low |
 
-- Identify unpreserved issues; assess plain error or fundamental rights alternatives
-- Note recent appellate decisions in jurisdiction on similar questions
-- Candidly assess whether appeal delays the inevitable vs. presents genuine reversal prospect
+- Unpreserved issues: assess plain error or fundamental rights alternatives
+- Recent appellate decisions on similar questions in jurisdiction
+- Candidly assess genuine reversal prospect vs. delay
 
 ### 7. Recommendations and Deadlines
 
 | Action | Deadline | Recommendation |
 |---|---|---|
-| JMOL/JNOV motion | [28 days federal / jurisdiction-specific] | File / Do not file |
-| New trial motion | [28 days federal / jurisdiction-specific] | File / Do not file |
-| Notice of appeal | [30 days federal / jurisdiction-specific] | File / Do not file |
+| JMOL/JNOV motion | 28 days federal / jurisdiction-specific | File / Do not file |
+| New trial motion | 28 days federal / jurisdiction-specific | File / Do not file |
+| Notice of appeal | 30 days federal / jurisdiction-specific | File / Do not file |
 | Settlement outreach | [date] | Pursue / Hold |
-| Client communication | [date] | [talking points] |
+| Client communication | [date] | Talking points |
 
-Include cost-benefit analysis: expense of post-trial proceedings vs. financial stakes, client risk tolerance, business objectives, reputational impact, and precedential implications.
+Include cost-benefit analysis: post-trial expense vs. financial stakes, client risk tolerance, business objectives, reputational and precedential impact.
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Accuracy is paramount** — cross-reference every figure, date, and finding against the official judgment; discrepancies compromise post-trial filings and client communications
-- **Analytical, not descriptive** — explain *why* the verdict emerged (trial dynamics, witness credibility, evidentiary strength), not just *what* happened
-- **Candid assessment** — maintain rigorous objectivity regardless of outcome; flag weaknesses even in favorable verdicts
-- **Deadline prominence** — post-trial deadlines are jurisdictional and non-negotiable; federal defaults are 28 days (JMOL/new trial) and 30 days (notice of appeal) from judgment entry [VERIFY for specific jurisdiction]
-- **Audience awareness** — executive summary must be comprehensible to attorneys who did not attend trial and to clients without legal training
-- **Divergence from predictions** — where outcome differs from pre-trial assessment, analyze contributing factors (unexpected testimony, opposing counsel effectiveness, jury dynamics)
-- **Preserve for future use** — this memorandum will inform client communications, court filings, and strategy sessions; treat it as a permanent record
+- **Cross-reference everything** — verify every figure, date, and finding against official judgment before finalizing
+- **Analyze, don't describe** — explain *why* the verdict emerged (trial dynamics, credibility, evidence strength), not just what happened
+- **Stay candid** — flag weaknesses even in favorable verdicts; maintain objectivity regardless of outcome
+- **Deadline vigilance** — post-trial deadlines are jurisdictional and non-negotiable; always VERIFY for specific jurisdiction
+- **Accessible executive summary** — must be comprehensible to attorneys who did not attend trial and non-lawyer clients
+- **Prediction divergence** — where outcome differs from pre-trial assessment, analyze contributing factors

@@ -1,99 +1,76 @@
 ---
 name: closing-disclosure
-description: Drafts and reviews U.S. residential Closing Disclosures (CD) under TRID/Regulation Z, assembling all five pages, comparing to the Loan Estimate, checking tolerance buckets, and identifying re-disclosure triggers and timing. Use for closing disclosure, CD, TRID, Regulation Z, Loan Estimate comparison, tolerance cure, cash-to-close, settlement statement, lender/settlement agent coordination, or compliance review.
-tags:
-  - analysis
-  - drafting
-  - regulatory
-  - summary
-  - transactional
+description: Drafts and reviews TRID-compliant U.S. residential Closing Disclosures, assembling all five pages, comparing to Loan Estimates, checking tolerance buckets, and flagging re-disclosure triggers. Use when working with closing disclosures, CDs, TRID, Regulation Z, LE comparison, tolerance cures, cash-to-close, settlement statements, or closing compliance review.
 ---
 
-# Closing Disclosure (CD)
+# Closing Disclosure
 
-Produce a complete, TRID-compliant residential Closing Disclosure and a compliance review memo.
+Produce a complete five-page Closing Disclosure per CFPB Form H-25 and a compliance review memo.
 
-## Prerequisites
+## Quick Start
 
-1. Role and responsibility: lender/creditor, settlement agent/title, borrower counsel, seller counsel.
-2. Transaction type: purchase or refinance; property address; sale price or appraised value.
-3. Loan terms: amount, rate, term, product (fixed/ARM), purpose, MI, prepayment penalty, balloon.
-4. Loan Estimate(s): original and any revisions with dates.
-5. Closing costs: itemized fees, service providers, paid-by/paid-to allocations.
-6. Escrow and prepaids: taxes, insurance, HOA, deposits, daily interest, aggregate adjustment.
-7. Payoffs and prorations: liens, commissions, tax/HOA prorations, credits, deposits.
-8. Closing timeline: planned consummation date and delivery method.
+1. Confirm role: lender, settlement agent, borrower counsel, or seller counsel.
+2. Gather: loan terms, Loan Estimate(s) with dates, itemized closing costs, escrow/prepaids, payoffs/prorations, closing timeline.
+3. If attorney role: produce issue list and client summary — not a lender-signed CD.
 
-## Output Structure / Process
+## Core Workflow
 
-1. Role gate and scope.
-   1. Ask role and confirm which sections are being drafted vs reviewed.
-   2. If attorney: produce issue list and client-facing summary, not a lender-signed CD.
+### 1. Data Intake by CD Page
 
-2. Data intake by CD page.
-   | Page | Section | Required Inputs |
-   | --- | --- | --- |
-   | 1 | Closing info | Issue date, closing/disbursement dates, settlement agent, file # |
-   | 1 | Transaction info | borrower(s), seller(s), property address, sale price, lender |
-   | 1 | Loan info | loan term, purpose, product, loan ID, MI case # |
-   | 1 | Loan terms | loan amount, rate, P&I, prepay penalty, balloon |
-   | 1 | Projected payments | P&I, MI, escrow, totals by period |
-   | 1 | Costs at closing | total closing costs, lender credits, cash to close |
-   | 2 | Loan costs A-C | origination, lender-required services, shopped services |
-   | 2 | Other costs E-H | gov fees, prepaids, escrows, other (commissions, owner title) |
-   | 2 | Totals D, I, J | subtotals and lender credits |
-   | 3 | Cash to close | LE vs CD comparisons and change reasons |
-   | 3 | Summaries K-N | borrower/seller transaction summaries, credits, payoffs |
-   | 4 | Loan disclosures | assumption, demand, late fee, neg amortization, partials |
-   | 4 | Escrow | escrowed vs non-escrowed costs and waiver fee |
-   | 4 | ARM tables | AP/AIR tables if applicable |
-   | 5 | Loan calculations | total of payments, finance charge, amount financed, APR, TIP |
-   | 5 | Other disclosures | appraisal, contract details, liability, refinance, tax |
-   | 5 | Contact info | lender/broker/RE agents/settlement agent identifiers |
+| Page | Section | Required Inputs |
+|------|---------|-----------------|
+| 1 | Closing/transaction/loan info | Issue date, closing/disbursement dates, borrower(s), seller(s), property, sale price, lender, loan term, purpose, product, loan ID |
+| 1 | Loan terms | Loan amount, rate, P&I, prepay penalty, balloon |
+| 1 | Projected payments | P&I, MI, escrow, totals by period |
+| 1 | Costs at closing | Total closing costs, lender credits, cash to close |
+| 2 | Loan costs (A–C) | Origination, lender-required services, shopped services |
+| 2 | Other costs (E–H) | Gov fees, prepaids, escrows, commissions, owner title |
+| 2 | Totals (D, I, J) | Subtotals and lender credits |
+| 3 | Cash to close | LE vs CD comparison with change reasons |
+| 3 | Summaries (K–N) | Borrower/seller transaction summaries, credits, payoffs |
+| 4 | Loan disclosures | Assumption, demand, late fee, neg-am, partial payments |
+| 4 | Escrow account | Escrowed vs non-escrowed costs, waiver fee |
+| 4 | ARM tables | AP/AIR tables (if applicable) |
+| 5 | Loan calculations | Total of payments, finance charge, amount financed, APR, TIP |
+| 5 | Other disclosures | Appraisal, contract details, liability, refinance, tax |
+| 5 | Contact info | Lender/broker/RE agent/settlement agent identifiers |
 
-3. Loan Estimate comparison and tolerance analysis.
-   | Tolerance Bucket | Rule | Typical Items |
-   | --- | --- | --- |
-   | Zero | No increase over LE | Lender/broker fees, transfer taxes, non-shoppable services |
-   | 10% cumulative | Aggregate increase <= 10% | Recording fees, shoppable services on lender list |
-   | No limit | May change if good faith | Prepaids, escrow, non-list providers, owner title |
+Flag any missing field as `MISSING`.
 
-   Tolerance worksheet.
-   ```
-   ZERO TOLERANCE ITEMS
-   Item | LE | CD | Variance
+### 2. LE Comparison and Tolerance Analysis
 
-   10% CUMULATIVE ITEMS
-   Item | LE | CD
-   Total LE | Total CD | % Variance
-   ```
+| Bucket | Rule | Typical Items |
+|--------|------|---------------|
+| Zero tolerance | No increase over LE | Lender/broker fees, transfer taxes, non-shoppable services |
+| 10% cumulative | Aggregate increase ≤ 10% | Recording fees, shoppable services on lender list |
+| No limit | May change if good faith | Prepaids, escrow, non-list providers, owner title |
 
-4. Re-disclosure triggers checklist (new 3-day waiting period).
-   ```
-   [ ] APR change > 0.125% (fixed) or > 0.25% (ARM)
-   [ ] Loan product change (fixed/ARM/term/IO/negative amortization)
-   [ ] Prepayment penalty added
-   ```
+For each bucket, compare LE vs CD amounts and compute variance. If a zero-tolerance or 10% violation exists without a valid revised LE, state the cure amount and responsible party.
 
-5. CD assembly output.
-   1. Produce a structured five-page CD in order with labeled sections.
-   2. Do not invent amounts; flag missing fields as "MISSING" and list them.
+### 3. Re-Disclosure Triggers
 
-6. Compliance and delivery log.
-   ```
-   CD issue date:
-   Delivery method: hand / mail / electronic
-   Deemed receipt date:
-   Earliest consummation date:
-   ```
+A new 3-business-day waiting period is required if any of:
 
-## Guidelines
+- APR increases > 0.125% (fixed) or > 0.25% (ARM)
+- Loan product changes (fixed/ARM, term, IO, neg-am)
+- Prepayment penalty added
 
-- Use CFPB Official Form H-25 structure; do not rewrite statutory disclosure text unless required by a state addendum.
-- Business day counting for the 3-day waiting period excludes Sundays and federal legal holidays; confirm jurisdictional nuances. [VERIFY]
-- If tolerance violation exists and no valid revised LE, state cure amount and responsible party.
-- If role is settlement agent, confirm lender-supplied loan terms before finalizing page 1 and 5.
-- If role is lender, validate settlement fees and prorations from settlement agent before final CD.
-- Always reconcile cash-to-close with transaction summary and payoffs.
-- Cite authorities when reporting compliance risk: 12 CFR 1026.38, 12 CFR 1026.19(e)(3), 12 CFR 1026.19(f), TILA, RESPA.
-- For state transfer taxes, recording fees, and proration rules, require jurisdiction-specific confirmation.
+### 4. Delivery and Timing
+
+```
+CD issue date:
+Delivery method:    hand / mail / electronic
+Deemed receipt date:
+Earliest consummation date:
+```
+
+Business-day counting excludes Sundays and federal holidays. [VERIFY jurisdiction-specific rules]
+
+## Pitfalls and Checks
+
+- Use CFPB Form H-25 structure; do not rewrite statutory disclosure text unless a state addendum requires it.
+- Settlement agent role: confirm lender-supplied loan terms before finalizing pages 1 and 5.
+- Lender role: validate settlement fees and prorations from settlement agent before issuing final CD.
+- Always reconcile cash-to-close with the transaction summary and payoffs.
+- For state transfer taxes, recording fees, and proration rules, require jurisdiction-specific confirmation. [VERIFY]
+- Cite: 12 CFR 1026.38, 12 CFR 1026.19(e)(3), 12 CFR 1026.19(f), TILA, RESPA.

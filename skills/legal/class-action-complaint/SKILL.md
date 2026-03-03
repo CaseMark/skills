@@ -1,6 +1,6 @@
 ---
 name: class-action-complaint
-description: Drafts federal or state class action complaints satisfying FRCP and Rule 23 class certification prerequisites. Builds precise class definitions with numerosity, commonality, typicality, adequacy, predominance, and superiority allegations. Use when filing class action lawsuits, representative plaintiff complaints, Rule 23 certification pleadings, or multi-party consumer/securities/antitrust actions.
+description: Drafts federal or state class action complaints satisfying FRCP Rule 23 certification prerequisites. Use when filing class actions, representative plaintiff complaints, Rule 23 certification pleadings, or multi-party consumer/securities/antitrust actions.
 tags:
   - drafting
   - litigation
@@ -9,114 +9,81 @@ tags:
 
 # Class Action Complaint
 
-Drafts a court-ready class action complaint that survives a 12(b)(6) motion and lays the foundation for Rule 23 certification.
+Drafts a court-ready class action complaint that survives a 12(b)(6) motion and lays the groundwork for Rule 23 certification.
 
 ## Prerequisites
 
-1. **Named plaintiff facts** — individual harm, standing, timeline, absence of conflicts with putative class
-2. **Defendant identification** — corporate structure, registered agents, principal place of business (for diversity jurisdiction)
-3. **Class-wide conduct** — documents, policies, communications, or data showing systematic/uniform wrongdoing
-4. **Proposed class definition** — draft objective criteria for inclusion/exclusion
-5. **Jurisdictional basis** — federal question (28 U.S.C. § 1331), CAFA (28 U.S.C. § 1332(d)), or state court basis
-6. **Uploaded case files** — contracts, correspondence, internal documents, expert reports, damages data
+Collect before drafting:
 
-## Output Structure
+1. **Named plaintiff facts** — individual harm, standing, timeline, no conflicts with putative class
+2. **Defendant identification** — corporate structure, registered agents, principal place of business
+3. **Class-wide conduct** — documents/policies/data showing systematic wrongdoing
+4. **Proposed class definition** — objective inclusion/exclusion criteria
+5. **Jurisdictional basis** — federal question (§ 1331), CAFA (§ 1332(d)), or state court
+6. **Case files** — contracts, correspondence, expert reports, damages data
 
-### Caption
+## Complaint Structure
 
-- Court name, division
-- "[Named Plaintiff], on behalf of [himself/herself/themselves] and all others similarly situated, Plaintiff(s)"
-- Defendant(s)
-- "CLASS ACTION COMPLAINT"
-- Jury demand if applicable
+**Caption**: Court name/division; "[Named Plaintiff], on behalf of [himself/herself/themselves] and all others similarly situated"; defendant(s); "CLASS ACTION COMPLAINT"; jury demand if applicable.
 
-### Section Order
-
-| # | Section | Key Content |
-|---|---------|-------------|
-| I | Introduction | 2-3 paragraphs: parties, nature of action, wrongdoing summary, class-wide harm |
-| II | Parties | Named plaintiff(s) standing + defendant(s) corporate details |
-| III | Jurisdiction & Venue | Statutory basis, amount in controversy, CAFA threshold ($5M+, 100+ members, minimal diversity) if applicable |
-| IV | Factual Allegations | Chronological narrative with specific dates, amounts, quotes from documents |
-| V | Class Allegations | Rule 23(a) + 23(b) elements (see checklist below) |
+| # | Section | Content |
+|---|---------|---------|
+| I | Introduction | 2–3 ¶¶: parties, wrongdoing summary, class-wide harm |
+| II | Parties | Named plaintiff standing + defendant corporate details |
+| III | Jurisdiction & Venue | Statutory basis, amount in controversy, CAFA threshold ($5M+, 100+ members, minimal diversity) |
+| IV | Factual Allegations | Chronological narrative with dates, amounts, document quotes |
+| V | Class Allegations | Rule 23(a) + 23(b) elements per checklist below |
 | VI | Causes of Action | Each count as separate section |
 | VII | Prayer for Relief | Itemized demands |
 
-### Rule 23 Certification Checklist
+## Rule 23 Checklist
 
-Draft each element as a subsection with factual support:
+Draft each element as a subsection with factual support.
 
-**Rule 23(a) — All four required:**
+### 23(a) — All four required
 
-- [ ] **Numerosity** — Class so numerous joinder is impracticable. Allege estimated size with basis (defendant's records, market data, regulatory filings). Generally 40+ members suffices.
-- [ ] **Commonality** — Common questions of law or fact. Focus on defendant's uniform conduct, not individual damages. Post-*Wal-Mart v. Dukes*, 564 U.S. 338 (2011): must show common contention whose resolution drives resolution of each class member's claim.
-- [ ] **Typicality** — Named plaintiff's claims arise from same conduct/legal theories as class. Flag and address any unique defenses.
-- [ ] **Adequacy** — No conflicts with class; retained qualified class counsel. Reference counsel's class action experience.
+- **Numerosity** — Joinder impracticable. Allege estimated size with evidentiary basis. Generally 40+ suffices.
+- **Commonality** — Common questions of law/fact driven by defendant's uniform conduct. Per *Wal-Mart v. Dukes*, 564 U.S. 338 (2011): common contention whose resolution drives each member's claim.
+- **Typicality** — Named plaintiff's claims arise from same conduct/theories as class. Flag unique defenses.
+- **Adequacy** — No conflicts with class; qualified class counsel with relevant experience.
 
-**Rule 23(b) — At least one required (most common is (b)(3)):**
+### 23(b) — At least one required
 
-- [ ] **(b)(1)** — Separate actions would create incompatible standards or impair other members' interests
-- [ ] **(b)(2)** — Defendant acted on grounds generally applicable to class; injunctive/declaratory relief appropriate (e.g., civil rights, employment discrimination)
-- [ ] **(b)(3) Predominance** — Common questions predominate over individual ones. Address potential individual issues (reliance, damages variation) and explain why they don't defeat predominance.
-- [ ] **(b)(3) Superiority** — Class action superior to other methods. Address: (a) individual member interest in controlling own actions, (b) existing related litigation, (c) forum desirability, (d) manageability
+- **(b)(1)** — Separate actions risk incompatible standards or impair other members' interests.
+- **(b)(2)** — Defendant acted on grounds generally applicable to class; injunctive/declaratory relief appropriate.
+- **(b)(3) Predominance** — Common questions predominate. Address individual issues (reliance, damages variation) and explain why they don't defeat predominance.
+- **(b)(3) Superiority** — Class action superior to alternatives. Address: member control interest, existing litigation, forum desirability, manageability.
 
-### Class Definition Template
+## Class Definition Template
 
-> All [persons/entities] in the United States [or geographic scope] who [purchased/used/were subjected to] [product/service/practice] [from/by] [Defendant] during the period from [start date] through [end date/present] [excluding Defendant's officers, directors, employees, and their immediate families; the judicial officers assigned to this case; and any persons who timely opt out].
+> All [persons/entities] in [geographic scope] who [purchased/used/were subjected to] [product/service/practice] [from/by] [Defendant] during the period [start date] through [end date/present] [excluding Defendant's officers, directors, employees, and their immediate families; judicial officers assigned to this case; and persons who timely opt out].
 
-Requirements for the definition:
-- Objective, administratively feasible criteria
-- Neither overbroad nor unduly restrictive
-- Identifiable from defendant's records or objective evidence
+Definition must use objective, administratively feasible criteria — neither overbroad nor unduly restrictive — identifiable from defendant's records or objective evidence.
 
-### Causes of Action Format
+## Causes of Action
 
-For each count:
+Per count: (1) incorporate prior ¶¶ by reference, (2) statutory/common law basis with citation, (3) defendant's violating conduct, (4) element-by-element allegations, (5) class-wide harm and causation, (6) damages type (actual, statutory, treble, punitive).
 
-```
-COUNT [#] — [LEGAL THEORY]
-(On Behalf of Plaintiff and the [Class/Subclass])
-
-1. Incorporate prior paragraphs by reference.
-2. [Statutory/common law basis with citation]
-3. [Defendant's specific violating conduct]
-4. [Element-by-element allegations]
-5. [Class-wide harm and causal connection]
-6. [Damages type: actual, statutory, treble, punitive]
-```
-
-Common class action claim categories:
-
-| Category | Typical Statutes/Theories |
-|----------|--------------------------|
-| Consumer protection | State UDAP statutes, FTC Act § 5, TILA, FCRA, TCPA |
-| Securities | Securities Act §§ 11, 12; Exchange Act § 10(b)/Rule 10b-5; PSLRA requirements |
-| Antitrust | Sherman Act §§ 1-2; Clayton Act § 4 (treble damages) |
-| Employment | FLSA collective action (§ 216(b)), Title VII, state wage/hour |
+| Category | Typical Theories |
+|----------|-----------------|
+| Consumer | State UDAP, TILA, FCRA, TCPA |
+| Securities | Securities Act §§ 11, 12; Exchange Act § 10(b)/Rule 10b-5; PSLRA |
+| Antitrust | Sherman Act §§ 1–2; Clayton Act § 4 |
+| Employment | FLSA § 216(b), Title VII, state wage/hour |
 | Common law | Breach of contract, fraud, negligence, unjust enrichment |
 
-### Prayer for Relief
+## Prayer for Relief
 
-Itemize:
-1. Class certification under Rule 23 and appointment of named plaintiff as class representative
-2. Appointment of plaintiff's counsel as class counsel
-3. Declaratory relief (specify)
-4. Injunctive relief (specify)
-5. Compensatory damages
-6. Statutory/treble/punitive damages (if applicable, cite statutory basis)
-7. Restitution/disgorgement
-8. Pre- and post-judgment interest
-9. Attorneys' fees and costs (cite fee-shifting statute if applicable)
-10. Such other relief as the Court deems just and proper
+Include: (1) class certification + named plaintiff as representative, (2) appointment of class counsel, (3) declaratory relief, (4) injunctive relief, (5) compensatory damages, (6) statutory/treble/punitive damages with statutory basis, (7) restitution/disgorgement, (8) pre- and post-judgment interest, (9) attorneys' fees and costs with fee-shifting cite, (10) catch-all "such other relief as the Court deems just."
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Numbered paragraphs** throughout the complaint body
-- **Information and belief**: Use "upon information and belief" for allegations outside plaintiff's personal knowledge; state the factual basis
-- **Specificity over conclusory language**: Cite documents, dates, dollar amounts, quotes from uploaded files — not bare legal conclusions
-- **PSLRA heightened pleading**: If securities fraud, allege each misleading statement with particularity and strong inference of scienter
-- **Fraud claims**: Meet Rule 9(b) — who, what, when, where, how
-- **Local rules**: Conform to filing court's formatting rules (margins, font, spacing, page limits, ECF requirements)
-- **Ascertainability**: In Third Circuit and courts requiring it, allege that class members are identifiable through objective criteria and a reliable/administratively feasible mechanism
-- **Standing**: Ensure named plaintiff has Article III standing for each claim and each form of relief sought
-- **Do not** allege class certification is "certain" — allege facts supporting certification and request it in the prayer
+- Use **numbered paragraphs** throughout the complaint body.
+- Use "upon information and belief" only with stated factual basis for allegations outside plaintiff's personal knowledge.
+- Cite documents, dates, dollar amounts — never bare legal conclusions.
+- **Securities fraud**: Meet PSLRA heightened pleading — allege each misleading statement with particularity and strong inference of scienter.
+- **Fraud claims**: Meet Rule 9(b) — who, what, when, where, how.
+- **Ascertainability**: In Third Circuit and similar courts, allege class members identifiable through objective criteria and feasible mechanism.
+- **Standing**: Named plaintiff must have Article III standing for each claim and each form of relief.
+- Conform to filing court's local rules (margins, font, spacing, page limits, ECF).
+- Never allege certification is "certain" — allege supporting facts and request certification in the prayer.

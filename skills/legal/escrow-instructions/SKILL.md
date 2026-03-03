@@ -1,187 +1,114 @@
 ---
 name: escrow-instructions
-description: Drafts comprehensive, legally enforceable escrow instructions for residential real estate transactions. Reviews purchase agreements to extract key details, identifies gaps or conflicts, and incorporates jurisdiction-specific requirements. Use when preparing binding directives for escrow agents, closing instructions, escrow arrangements, residential purchase escrow, or transaction closing documents.
-tags:
-  - agreement
-  - drafting
-  - transactional
+description: Drafts binding escrow instructions for residential real estate closings. Extracts key terms from purchase agreements, identifies gaps or conflicts, and incorporates jurisdiction-specific requirements. Use when preparing escrow agent directives, closing instructions, escrow arrangements, or residential transaction closing documents.
 ---
 
 # Residential Real Estate Escrow Instructions
 
-Drafts binding escrow instructions that govern an escrow agent's receipt, holding, and disbursement of funds and documents for a residential real estate closing.
+Drafts escrow instructions governing an escrow agent's receipt, holding, and disbursement of funds and documents for a residential real estate closing.
 
-## Prerequisites
+## Quick Start
 
-1. **Executed purchase agreement** — including price, deposit amounts, contingency periods, closing timeline, fee allocations, dispute resolution provisions
-2. **Party identification** — full legal names, entity types, authorized signatories with titles, addresses for notice
-3. **Property information** — legal description, APN, street address (from title report or preliminary title commitment)
-4. **Financing details** — loan amounts, lender identity, commitment letter status (if applicable)
-5. **Title report or preliminary commitment** — showing exceptions, existing liens, payoff requirements
+Gather before drafting:
 
-## Output Structure
+1. **Executed purchase agreement** — price, deposits, contingencies, closing timeline, fee allocations, dispute resolution
+2. **Party identification** — full legal names, entity types, authorized signatories, notice addresses
+3. **Property information** — legal description, APN, street address (from title report)
+4. **Financing details** — loan amounts, lender identity, commitment letter status
+5. **Title report** — exceptions, existing liens, payoff requirements
+
+## Core Workflow
+
+Draft the following sections in order.
 
 ### 1. Recitals & Party Identification
 
-| Element | Requirements |
-|---|---|
-| Parties | Full legal name, entity type + jurisdiction (e.g., "a California limited liability company"), address for notice |
-| Authorized representatives | Name, title, authority basis for each entity party |
-| Property | Complete legal description, APN, street address |
-| Transaction summary | Purchase price breakdown: earnest money, additional deposits, loan proceeds, cash at closing |
-| Incorporated documents | Title, date, and parties for each; attach as exhibits |
-| Conflict priority | Escrow instructions control escrow agent duties; purchase agreement controls substantive rights between buyer/seller |
+- Parties: full legal name, entity type + jurisdiction, notice address
+- Authorized representatives: name, title, authority basis
+- Property: complete legal description, APN, street address
+- Transaction summary: purchase price breakdown (earnest money, additional deposits, loan proceeds, cash at closing)
+- Incorporated documents: title, date, parties for each; attach as exhibits
+- Conflict priority: escrow instructions control agent duties; purchase agreement controls substantive buyer/seller rights
 
 ### 2. Escrow Agent Authority
 
-Draft provisions establishing:
-
-- [ ] Agent acts as neutral stakeholder with purely ministerial duties
-- [ ] No duty to inquire into transaction validity, signatory authority, or party representations
-- [ ] Authority derives solely from written instructions; no oral modifications
-- [ ] Confidentiality obligation except as required to perform duties or by law
-- [ ] Designated contact persons, authorized instruction-givers, and acceptable communication methods for each party
-- [ ] Whether instructions must be joint or may be unilateral (specify which actions)
+- [ ] Agent as neutral stakeholder with purely ministerial duties
+- [ ] No duty to inquire into transaction validity or signatory authority
+- [ ] Authority from written instructions only; no oral modifications
+- [ ] Confidentiality obligation except as required by duties or law
+- [ ] Designated contacts, authorized instruction-givers, acceptable communication methods
+- [ ] Joint vs. unilateral instruction requirements (specify which actions)
 
 ### 3. Deposit Mechanics & Fund Safeguarding
 
-For **each deposit** (initial earnest money + any subsequent installments), specify:
+For each deposit specify: exact amount, form (wire/cashier's check with details), deadline from triggering event, triggering condition for subsequent deposits, non-payment consequence (cure period, termination rights).
 
-| Element | Detail |
-|---|---|
-| Amount | Exact dollar amount or percentage |
-| Form | Wire transfer (include bank name, ABA, account number, account name, reference) or cashier's check |
-| Deadline | Measured from defined triggering event (e.g., "3 business days after full execution") |
-| Triggering condition | What event triggers obligation for subsequent deposits |
-| Non-payment consequence | Cure period, substitute funds procedure, termination rights |
-
-Fund safeguarding requirements:
-- Segregated escrow account, never commingled
-- Interest-bearing status and interest allocation per applicable state law
-- Written confirmation to all parties within 1 business day of receipt
-- Detailed ledger of receipts/disbursements; parties may request accounting at reasonable intervals
-- Dishonored payment: immediate notice to all parties, cure period if applicable
+Fund safeguarding:
+- Segregated account, never commingled
+- Interest-bearing status and allocation per state law
+- Written confirmation within 1 business day of receipt
+- Ledger of receipts/disbursements; accounting available on request
+- Dishonored payment: immediate notice, cure period if applicable
 
 ### 4. Conditions Precedent
 
-For **each condition**, use this structure:
+For each condition specify: responsible party, deadline, evidence of satisfaction, failure consequence.
 
-| Condition | Responsible Party | Deadline | Evidence of Satisfaction | Failure Consequence |
-|---|---|---|---|---|
-| Marketable title | Seller | [date/period] | Title company commitment to insure | Buyer may terminate; deposits returned |
-| Physical inspection | Buyer | [date/period] | Written approval or deemed waiver if no objection by deadline | Buyer may terminate; deposits returned |
-| Financing | Buyer | [date/period] | Loan commitment letter meeting specified criteria | Buyer may terminate; deposits returned |
-| Appraisal | Buyer/Lender | [date/period] | Appraisal at or above purchase price | Per purchase agreement |
-| HOA/estoppel docs | Seller | [date/period] | Delivery of current estoppel/HOA certificate | Buyer may terminate |
+Typical conditions: marketable title, physical inspection, financing, appraisal, HOA/estoppel documents.
 
-Include provisions for:
-- **Waiver procedure** — written notice to escrow agent and all parties; partial vs. complete waiver
-- **Deemed waiver** — failure to deliver written disapproval by deadline = waiver
-- **Status tracking** — escrow agent maintains condition checklist, provides updates on request
-- **Default on condition failure** — deposit allocation rules: buyer-caused failure → seller; seller-caused failure → buyer; mutual/no-fault → return to depositor
+Include:
+- **Waiver** — written notice to agent and all parties; partial vs. complete
+- **Deemed waiver** — no written disapproval by deadline = waiver
+- **Failure allocation** — buyer-caused → seller gets deposits; seller-caused → buyer gets deposits; no-fault → return to depositor
 
 ### 5. Closing Sequence & Document Exchange
 
-**Closing date**: Specify date or mechanism (e.g., "5 business days after satisfaction/waiver of all conditions, or as jointly designated in writing").
+**Closing date**: specific date or mechanism (e.g., "5 business days after satisfaction/waiver of all conditions").
 
-**Seller must deposit into escrow:**
-- [ ] Executed and acknowledged grant deed in recordable form
-- [ ] Bill of sale (personal property, if any)
-- [ ] Assignment/assumption of contracts (if applicable)
-- [ ] Seller's affidavit of title (liens, encumbrances)
-- [ ] FIRPTA affidavit or state tax withholding certificate
-- [ ] Transaction-specific documents (per purchase agreement)
+**Seller deposits**: grant deed (recordable form), bill of sale, assignment of contracts, title affidavit, FIRPTA affidavit or state withholding certificate, transaction-specific documents.
 
-**Buyer must deposit into escrow:**
-- [ ] Closing funds (balance of purchase price less deposits plus buyer's share of costs)
-- [ ] Executed deed of trust/mortgage (if financed)
-- [ ] Assumption agreements (if applicable)
-- [ ] Buyer-side closing affidavits
+**Buyer deposits**: closing funds (balance of price less deposits plus buyer's costs), deed of trust/mortgage, assumption agreements, closing affidavits.
 
-**Define "closing"**: Specify whether closing occurs upon (a) recordation of deed, (b) disbursement of funds, or (c) release of all documents. For recorded transactions, specify recording order, responsible party, and confirmation procedure.
+**Define "closing"**: recordation of deed, disbursement of funds, or release of documents. Specify recording order and confirmation procedure.
 
-**Settlement statement**: Draft provided to parties for review/approval at least [X] business days before closing; itemize all receipts, disbursements, prorations, and adjustments.
+**Settlement statement**: draft to parties at least [X] business days before closing; itemize all receipts, disbursements, prorations, adjustments.
 
 ### 6. Prorations, Adjustments & Fee Allocation
 
-**Proration date**: Closing date. Calculation method: [360-day year / actual days].
+**Proration date**: closing date. Method: 360-day year or actual days.
 
-| Item | Proration Basis | Special Rules |
-|---|---|---|
-| Real property taxes | Current bill or estimated annual; fiscal vs. calendar year per jurisdiction | Address supplemental tax bills — allocate by assessment period |
-| Special assessments | Current installment | Distinguish between confirmed and pending |
-| HOA dues | Monthly proration | Include any pending special assessments |
-| Rents/security deposits | If applicable; assign deposits to buyer | |
-| Utilities | Final readings at closing | |
+Prorate: real property taxes (address supplemental bills), special assessments (confirmed vs. pending), HOA dues, rents/security deposits, utilities.
 
-**Fee allocation** (reference purchase agreement; local custom governs unaddressed items):
-
-| Fee | Buyer | Seller | Split |
-|---|---|---|---|
-| Escrow fee | | | Per agreement |
-| Owner's title policy | | | Per local custom |
-| Lender's title policy | ✓ | | |
-| Recording — deed | | ✓ | |
-| Recording — deed of trust | ✓ | | |
-| Transfer tax / documentary stamps | | | Per jurisdiction |
-| Survey | ✓ | | |
-| Home warranty | | | Per agreement |
-| HOA transfer fee | | | Per agreement |
-| NHD report | | ✓ | |
-
-Escrow agent may disburse third-party costs (recording fees, courier, wire fees) directly from escrow with full accounting.
+Fee allocation per purchase agreement; local custom governs unaddressed items. Common items: escrow fee, owner's/lender's title policies, recording fees (deed = seller; deed of trust = buyer), transfer tax, survey, home warranty, HOA transfer fee, NHD report.
 
 ### 7. Termination & Dispute Resolution
 
-**Termination triggers:**
-- Mutual written agreement
-- Condition precedent failure (not waived by deadline)
-- Material breach of purchase agreement
-- Operation of law (illegality, impossibility)
+**Triggers**: mutual agreement, condition failure not waived, material breach, operation of law.
 
-**Termination procedure**: Written notice to escrow agent + all parties citing specific provision.
+**Procedure**: written notice to agent + all parties citing specific provision. Funds follow condition-failure allocation. Documents returned to depositor. Cancellation fees per agreement.
 
-**Fund disposition on termination**: Follow condition-failure allocation rules above. Original documents returned to depositing party. Cancellation fees: each party bears own costs (or breaching party pays all — per agreement).
+**Conflicting claims**: agent holds funds → 30-day negotiation → interpleader if unresolved (no further notice required).
 
-**Conflicting claims procedure:**
-1. Escrow agent may hold funds pending resolution
-2. 30-day negotiation period
-3. If unresolved: escrow agent authorized to file interpleader, deposit funds with court
-4. No further notice required before interpleader after 30-day period expires
-
-**Escrow agent protections:**
-- No liability for good-faith reliance on written instructions
-- No liability for refusing to act without joint instructions when dispute exists
-- Not responsible for verifying party information, signatory authority, or instruction accuracy
-- Joint and several indemnification by parties for agent's legal fees/costs arising from party disputes (including interpleader)
-- Right to deduct indemnification amounts from escrowed funds
-- Resignation on [10] business days' written notice; successor appointed by mutual written agreement; if no successor, agent holds pending joint instructions or court order
+**Agent protections**: no liability for good-faith reliance on written instructions; no duty to act without joint instructions during disputes; joint/several indemnification by parties for agent's costs; right to deduct from escrowed funds; resignation on 10 business days' notice with successor by mutual agreement.
 
 ### 8. General Provisions
 
-- **Governing law**: State where property is located
-- **Venue**: County where property is located
-- **Amendments**: Written instrument executed by buyer, seller, and escrow agent only; no oral modifications
-- **Severability**: Invalid provision does not affect remainder
-- **Counterparts**: Separate signature pages constitute single instrument
-- **Construction**: No presumption against drafter; headings for convenience; singular includes plural
-- **Entire agreement**: Supersedes all prior escrow-related understandings
-- **Notices**: Written, to designated addresses, via specified methods
+Governing law: property state. Venue: property county. Amendments: written, by all three parties, no oral modifications. Severability. Counterparts. No presumption against drafter. Entire agreement supersedes prior escrow understandings. Notices: written, to designated addresses, via specified methods.
 
 ### 9. Signature Blocks
 
-**Individuals**: Signature, printed name, date.
-**Entities**: Signature, printed name, title, date, entity acknowledgment.
-**Escrow agent acceptance**: Separate section acknowledging receipt and agreement to act per instructions.
-**Notarization**: Include if required by applicable state law.
+- **Individuals**: signature, printed name, date
+- **Entities**: signature, printed name, title, date, entity acknowledgment
+- **Escrow agent**: separate acceptance section
+- **Notarization**: include if required by state law
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Jurisdiction check**: Verify state-specific requirements for escrow accounts (e.g., California Financial Code §17000 et seq. [VERIFY]; interest allocation rules vary by state)
-- **FIRPTA**: Include withholding certificate or affidavit for all transactions; failure creates buyer liability (IRC §1445)
-- **Transfer tax**: Rates and payor customs vary significantly by state and county — confirm local practice
-- **Supplemental taxes**: California and some other states issue supplemental tax bills on reassessment — allocate explicitly
-- **Recording order matters**: Deed before deed of trust; any subordination agreements in correct sequence
-- **Never proceed with placeholders**: Flag missing information as targeted questions to the client rather than inserting bracket text
-- **Cross-reference check**: Verify all amounts, dates, party names, and defined terms are internally consistent and match the purchase agreement
-- **Table of contents**: Include if instructions exceed 10 pages
+- **Jurisdiction**: verify state escrow account requirements (e.g., California Financial Code §17000 et seq.) and interest allocation rules
+- **FIRPTA**: always include withholding certificate or affidavit; omission creates buyer liability (IRC §1445)
+- **Transfer tax**: rates and payor customs vary by state and county — confirm local practice
+- **Supplemental taxes**: some states (e.g., California) issue supplemental bills on reassessment — allocate explicitly
+- **Recording order**: deed before deed of trust; subordination agreements in correct sequence
+- **No placeholders**: flag missing information as targeted client questions rather than inserting brackets
+- **Cross-reference**: verify all amounts, dates, names, and defined terms match the purchase agreement
+- **Table of contents**: include if instructions exceed 10 pages

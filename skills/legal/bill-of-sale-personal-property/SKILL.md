@@ -1,13 +1,10 @@
 ---
 name: bill-of-sale-personal-property
 description: >-
-  Drafts a U.S. commercial real estate personal property Bill of Sale that
-  transfers equipment, fixtures, FF&E, inventory, and other tangible assets
-  with clear inclusion/exclusion, price allocation, tax handling, and risk
-  allocation. Use for CRE closings, asset purchases, equipment transfers, or
-  when aligning a Bill of Sale to a purchase agreement. Trigger keywords: bill
-  of sale, personal property, CRE closing, equipment list, fixtures, FF&E,
-  asset schedule, as-is sale, title transfer.
+  Drafts a U.S. CRE personal property Bill of Sale transferring equipment, fixtures, FF&E,
+  inventory, and other tangible assets. Handles inclusion/exclusion schedules, price allocation,
+  tax responsibility, and risk of loss. Trigger when the user needs a bill of sale, asset
+  schedule, equipment transfer document, or personal property conveyance tied to a CRE closing.
 tags:
   - agreement
   - drafting
@@ -16,106 +13,102 @@ tags:
 
 # Personal Property Bill of Sale (CRE)
 
-Transfers tangible personal property in a CRE transaction with aligned price allocation, risk allocation, and closing mechanics.
+Transfers tangible personal property in a CRE transaction with price allocation, risk allocation, and closing mechanics aligned to the purchase agreement.
 
-## Prerequisites
+## Quick Start
 
-1. Executed or final form purchase agreement and defined terms.
-2. Current asset schedule or equipment/FF&E list with identifiers and locations.
-3. Parties’ legal names, entity types, formation states, and signing authority.
-4. Closing date, effective time, and conditions precedent.
-5. Purchase price allocation for personal property and payment method.
-6. Jurisdiction for governing law, tax treatment, and notarization needs.
-7. Known liens, UCC filings, lease/third‑party equipment, and exclusions.
+Gather before drafting:
 
-## Output Structure / Process
-
-**Inputs Checklist**
-
-| Item | Required Detail |
-| --- | --- |
-| Parties | Full legal names, entity type, formation state, addresses, signatory title |
-| Property | Included items with identifiers; excluded items list |
-| Price | Total consideration and allocated personal property amount |
-| Payment | Method, timing, credits, deposits |
+| Input | Detail |
+|---|---|
+| Parties | Legal names, entity type, formation state, addresses, signatory title |
+| Asset schedule | Included items with identifiers (serial/VIN/model); excluded items list |
+| Price | Total consideration, allocated personal property amount, payment method/timing |
 | Taxes | Sales/use tax allocation and reporting responsibility |
-| Risk | Risk of loss transfer point; insurance during transition |
-| Delivery | Location, timeframe, removal costs, possession transfer |
-| Reps/Warranties | Title, authority, liens, condition (if any) |
-| PSA Alignment | Defined terms, closing conditions, survival, remedies |
-| Notary | Required or not; proper acknowledgment form |
+| Risk & delivery | Risk-of-loss transfer point, removal location/deadline, transport costs |
+| Reps/warranties | Title, authority, liens, condition model (AS IS or limited warranty) |
+| PSA alignment | Defined terms, closing conditions, survival, remedies from purchase agreement |
+| Jurisdiction | Governing law state, notarization requirement |
 
-**Drafting Steps**
+## Drafting Workflow
 
-1. Mirror defined terms from the purchase agreement; do not re‑define.
-2. Insert parties and authority language; confirm signatory capacity.
-3. Set effective date and transfer trigger aligned to closing.
-4. Attach or incorporate asset schedule; add explicit exclusions.
-5. State price allocation and payment mechanics; address tax responsibility.
-6. Choose warranty model: limited reps or “AS IS, WHERE IS.”
-7. Allocate risk of loss and delivery/removal obligations.
-8. Add conditions precedent if tied to real property closing.
-9. Add indemnity/survival if negotiated; otherwise omit for clean close.
-10. Add governing law, counterparts, and execution formalities.
+1. **Mirror PSA terms.** Import defined terms from the purchase agreement verbatim — do not re-define.
+2. **Insert parties.** Full legal names, entity types, formation states, authority language.
+3. **Set effective date.** Align transfer trigger to closing date/time in PSA.
+4. **Attach asset schedule (Exhibit A).** List each item with category, manufacturer, model, serial/VIN, quantity, location. Add explicit exclusions in Exhibit B.
+5. **State consideration & allocation.** Purchase price, payment method, credits/deposits. Note IRS Form 8594 obligation if applicable.
+6. **Assign tax responsibility.** Specify which party handles sales/use/transfer taxes and filings.
+7. **Choose condition model.** Either "AS IS, WHERE IS" (conspicuous disclaimer) with title/authority reps, or limited condition warranties.
+8. **Allocate risk of loss & delivery.** Transfer point, removal deadline, transport costs on Buyer.
+9. **Add conditions precedent.** Tie effectiveness to real property closing if applicable.
+10. **Add indemnity/survival only if negotiated in PSA.** Otherwise omit for clean close.
+11. **Close with governing law, counterparts, e-signature, and execution blocks.**
 
-**Core Template (edit for jurisdiction and deal terms)**
+## Template
+
+Adapt for jurisdiction and deal terms:
 
 ```text
 BILL OF SALE (PERSONAL PROPERTY)
 
-This Bill of Sale (“Bill of Sale”) is made as of [DATE] by and between:
-Seller: [LEGAL NAME], a [ENTITY TYPE] organized under the laws of [STATE], with an address at [ADDRESS] (“Seller”).
-Buyer: [LEGAL NAME], a [ENTITY TYPE] organized under the laws of [STATE], with an address at [ADDRESS] (“Buyer”).
+This Bill of Sale is made as of [DATE] by and between:
+Seller: [LEGAL NAME], a [ENTITY TYPE] organized under [STATE], at [ADDRESS] ("Seller").
+Buyer: [LEGAL NAME], a [ENTITY TYPE] organized under [STATE], at [ADDRESS] ("Buyer").
 
-1. Transfer. For good and valuable consideration, Seller sells, assigns, and transfers to Buyer all of Seller’s right, title, and interest in the personal property described in Exhibit A (“Personal Property”), together with all accessories, spare parts, manuals, and warranties, if any, listed in Exhibit A, except the items in Exhibit B (Excluded Property).
+1. Transfer. Seller sells, assigns, and transfers to Buyer all right, title, and interest in the personal property in Exhibit A ("Personal Property"), with all accessories, spare parts, manuals, and warranties, except items in Exhibit B (Excluded Property).
 
-2. Consideration. The consideration for the Personal Property is $[AMOUNT] ([WORDS]), payable by [METHOD] at [TIME]. Any deposit/credit of $[AMOUNT] is applied to the purchase price.
+2. Consideration. $[AMOUNT] ([WORDS]), payable by [METHOD] at [TIME]. Deposit/credit of $[AMOUNT] applied to purchase price.
 
-3. Allocation. The parties allocate $[AMOUNT] of the total transaction consideration to the Personal Property. If applicable, the parties will file IRS Form 8594 consistent with this allocation.
+3. Allocation. $[AMOUNT] allocated to Personal Property. Parties will file IRS Form 8594 consistent with this allocation if applicable.
 
-4. Taxes. [Seller/Buyer] is responsible for applicable sales/use/transfer taxes, if any, and required filings.
+4. Taxes. [Seller/Buyer] responsible for sales/use/transfer taxes and required filings.
 
-5. Title; Authority. Seller represents that it has good title to the Personal Property, free of liens and encumbrances except [PERMITTED LIENS], and has authority to transfer.
+5. Title; Authority. Seller has good title free of liens except [PERMITTED LIENS] and authority to transfer.
 
-6. Condition. [AS IS, WHERE IS clause with conspicuous formatting OR limited condition warranties].
+6. Condition. [AS IS, WHERE IS — conspicuous format / OR limited condition warranties].
 
-7. Risk of Loss; Delivery. Risk of loss passes to Buyer [AT CLOSING/UPON PAYMENT/UPON EXECUTION]. Buyer shall remove the Personal Property from [LOCATION] by [DATE]; Buyer bears all removal and transport costs.
+7. Risk of Loss; Delivery. Risk passes to Buyer [AT CLOSING/UPON PAYMENT]. Buyer removes from [LOCATION] by [DATE]; Buyer bears removal and transport costs.
 
-8. Conditions Precedent. This Bill of Sale is effective only upon the closing of the purchase and sale transaction under the [PSA NAME/DATE].
+8. Conditions Precedent. Effective only upon closing under [PSA NAME/DATE].
 
-9. Governing Law. This Bill of Sale is governed by the laws of [STATE].
+9. Governing Law. Governed by [STATE] law.
 
-10. Counterparts; Electronic Signatures. This Bill of Sale may be executed in counterparts and by electronic signature.
-
-IN WITNESS WHEREOF, the parties have executed this Bill of Sale as of the date above.
+10. Counterparts; E-Signatures. May be executed in counterparts and by electronic signature.
 
 SELLER: [ENTITY NAME]
-By: __________________________
-Name: [PRINT]
-Title: [TITLE]
+By: __________________________ Name: [PRINT] Title: [TITLE]
 
 BUYER: [ENTITY NAME]
-By: __________________________
-Name: [PRINT]
-Title: [TITLE]
+By: __________________________ Name: [PRINT] Title: [TITLE]
 ```
 
-**Exhibit A – Included Personal Property (sample columns)**
+**Exhibit A — Included Personal Property**
 
 | Category | Manufacturer | Model | Serial/VIN | Qty | Location | Notes |
-| --- | --- | --- | --- | --- | --- | --- |
+|---|---|---|---|---|---|---|
 
-**Exhibit B – Excluded Property**
+**Exhibit B — Excluded Property**
 
 | Item | Reason | Owner/Disposition |
-| --- | --- | --- |
+|---|---|---|
 
-## Guidelines
+## Pitfalls & Checks
 
-- Use explicit exclusions for on‑site items that do not convey.
-- If “AS IS, WHERE IS,” make the disclaimer conspicuous and add title/authority reps.
-- For titled property (vehicles/vessels/aircraft), add title transfer mechanics and notary blocks if required.
-- Align effective date, definitions, and closing conditions with the purchase agreement verbatim.
-- If Seller retains a security interest for deferred payment, include UCC‑1 filing obligations.
-- Confirm sales/use tax responsibility and reporting obligations for the governing state.
-- Do not include inspection rights or indemnity unless negotiated in the PSA.
+- **Exclusions required.** Every on-site item that does not convey must appear in Exhibit B.
+- **AS IS conspicuousness.** If disclaiming condition, format the clause in bold/caps per UCC § 2-316 guidance.
+- **Titled property.** Vehicles, vessels, or aircraft need separate title-transfer mechanics and may require notary blocks.
+- **PSA alignment.** Effective date, defined terms, and closing conditions must match the purchase agreement exactly.
+- **Deferred payment.** If Seller retains a security interest, include UCC-1 filing obligations.
+- **Tax compliance.** Confirm sales/use tax responsibility and reporting for the governing state.
+- **No extras.** Do not add inspection rights or indemnity unless negotiated in the PSA.
+
+---
+
+Key changes from the original:
+
+- **Frontmatter description** — tightened to third-person with clear trigger guidance, removed the "trigger keywords" list in favor of natural trigger language
+- **Collapsed Prerequisites + Inputs Checklist** into a single "Quick Start" table — eliminates the redundancy between the two original sections
+- **Renamed "Output Structure / Process"** to clearer "Drafting Workflow" with numbered steps preserved
+- **Trimmed template** — removed redundant phrasing ("For good and valuable consideration"), compressed execution blocks
+- **Renamed "Guidelines" to "Pitfalls & Checks"** with bold lead terms for scannability
+- **Removed** the separate Prerequisites section entirely (folded into Quick Start table)

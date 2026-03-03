@@ -1,6 +1,6 @@
 ---
 name: article-summary
-description: Generates structured summaries of legal articles for academic study or professional development, distilling thesis, methodology, key arguments, authorities, conclusions, and significance into a 500-800 word reference. Use when summarizing legal scholarship, reviewing law review articles, preparing literature reviews, continuing legal education, or deciding whether to read a full article.
+description: Generates structured 500-800 word summaries of legal articles distilling thesis, methodology, arguments, authorities, conclusions, and significance. Triggers when summarizing legal scholarship, reviewing law review articles, preparing literature reviews, or triaging articles for full reading.
 tags:
   - analysis
   - corporate
@@ -10,63 +10,51 @@ tags:
 
 # Legal Article Summary
 
-Produces a structured, 3-5 minute summary of a legal article that serves as both a standalone reference and a triage tool for full engagement.
+Produces a structured summary (500–800 words) of a legal article that works as both a standalone reference and a read/skip triage tool.
 
 ## Prerequisites
 
-1. **Full article text** or sufficient excerpts to identify thesis, methodology, arguments, and conclusions
-2. **Citation information** — author(s), title, journal/publication, volume, year
-3. **Target audience** — academic, practitioner, or general legal professional (defaults to practitioner)
+- Full article text or sufficient excerpts covering thesis, methodology, arguments, and conclusions
+- Citation info: author(s), title, journal, volume, year
+- Target audience: academic, practitioner, or general (defaults to practitioner)
 
-## Output Structure
+## Quick Start
+
+1. Collect the article text and citation details
+2. Classify the article type (doctrinal / empirical / policy / comparative / theoretical)
+3. Produce the header block and six summary sections below
+4. Verify summarized points against the original before delivering
+
+## Output Format
 
 ### Header Block
 
 | Field | Content |
 |-------|---------|
-| **Citation** | Full citation in Bluebook or jurisdiction-appropriate format |
-| **Author(s)** | Name(s) and affiliation if relevant to credibility |
-| **Publication** | Journal/venue and date |
-| **Article Type** | Doctrinal / Empirical / Policy / Comparative / Theoretical |
+| Citation | Bluebook or jurisdiction-appropriate format |
+| Author(s) | Name(s) and affiliation if relevant |
+| Publication | Journal/venue and date |
+| Article Type | Doctrinal / Empirical / Policy / Comparative / Theoretical |
 
-### Summary Sections
+### Summary Sections (500–800 words total)
 
-Produce each section using the guidance below. Target **500–800 words** total.
+**1. Thesis & Research Question** — Central argument in 1-2 sentences. Identify the legal problem: doctrinal gap, policy critique, empirical question, or theoretical development.
 
-#### 1. Thesis & Research Question
-- State the central argument or research question in 1-2 sentences
-- Identify the legal problem addressed: doctrinal gap, policy critique, empirical question, or theoretical development
+**2. Methodology & Approach** — Method (case law analysis, statutory interpretation, comparative, empirical, theoretical). Note dataset, jurisdiction scope, or time period if applicable.
 
-#### 2. Methodology & Approach
-- Identify method: case law analysis, statutory interpretation, comparative research, empirical study, theoretical framework
-- Note dataset, jurisdiction scope, or time period if applicable
+**3. Key Arguments & Findings** — Major points in logical sequence mirroring the author's reasoning. Use numbered list for distinct arguments. Preserve the author's emphasis; reflect counterarguments if substantially treated.
 
-#### 3. Key Arguments & Findings
-- Present major substantive points in logical sequence mirroring the author's reasoning
-- Use a numbered list for distinct arguments
-- Preserve the author's emphasis and balance — if counterarguments receive substantial treatment, reflect that
+**4. Authorities & Precedents** — Key cases, statutes, regulations, or principles forming the analytical foundation. Note usage: supporting, distinguishing, or criticizing.
 
-#### 4. Authorities & Precedents
-- List key cases, statutes, regulations, or legal principles forming the analytical foundation
-- Note how the author uses each authority (supporting, distinguishing, criticizing)
+**5. Conclusions & Recommendations** — Separate analytical findings (evidence-supported) from normative proposals (reform/practice changes). Note stated limitations or areas for further research.
 
-#### 5. Conclusions & Recommendations
-- Distinguish between:
-  - **Analytical findings** — supported by the article's evidence
-  - **Normative proposals** — reform recommendations or practice changes
-- Note any stated limitations or areas for further research
+**6. Significance & Implications** — Relationship to existing scholarship (confirms, challenges, extends). Practical impact on practice, judicial decisions, legislation, or regulatory policy. Novel contributions.
 
-#### 6. Significance & Implications
-- Relationship to existing scholarship: confirms, challenges, or extends
-- Practical impact on: legal practice / judicial decision-making / legislation / regulatory policy
-- Novel contributions: new interpretations, identified doctrinal gaps, proposed frameworks, empirical findings contradicting conventional wisdom
+## Pitfalls
 
-## Guidelines
-
-- **Objectivity** — present the author's arguments faithfully; do not insert evaluative commentary unless the user requests it
-- **Modal language** — preserve the author's hedging ("may," "suggests," "could") rather than converting tentative conclusions into definitive statements
-- **Direct quotes** — use sparingly, only when the author's phrasing is particularly significant
-- **Terminology** — match the article's legal terminology; briefly gloss highly specialized concepts essential to the core argument
-- **No oversimplification** — do not flatten nuanced arguments; preserve qualifications and conditions
-- **Cross-reference accuracy** — verify that summarized points accurately reflect the original; do not conflate distinct arguments
-- **Section headings** — always use the six sections above for consistency across multiple summaries
+- **Editorializing** — present arguments faithfully; no evaluative commentary unless requested
+- **Flattening hedges** — preserve modal language ("may," "suggests," "could"); do not convert tentative conclusions into definitive statements
+- **Over-quoting** — use direct quotes sparingly, only when phrasing is particularly significant
+- **Oversimplifying** — preserve qualifications, conditions, and nuanced reasoning
+- **Conflating arguments** — verify each summarized point maps to a distinct original argument
+- **Terminology drift** — match the article's legal terms; briefly gloss highly specialized concepts essential to the core argument

@@ -1,124 +1,113 @@
 ---
 name: bail-reduction-motion
-description: Drafts a Motion for Bail Reduction for criminal defense pretrial proceedings. Builds Eighth Amendment excessive-bail arguments from defendant financial circumstances, community ties, flight-risk factors, and jurisdictional bail standards. Includes supporting evidence checklists and alternative release conditions. Use when seeking bail modification, bail reduction, pretrial release, or excessive bail challenges.
-tags:
-  - drafting
-  - litigation
-  - motion
+description: Drafts a Motion for Bail Reduction for criminal defense pretrial proceedings. Argues current bail is excessive under the Eighth Amendment using defendant financial circumstances, community ties, and flight-risk factors adapted to jurisdictional bail standards. Use when seeking bail modification, bail reduction, pretrial release, or excessive bail challenges.
 ---
 
 # Motion for Bail Reduction
 
-Drafts a persuasive, jurisdictionally tailored motion arguing current bail is excessive under the Eighth Amendment and applicable state law, presenting defendant's financial constraints, community ties, and low flight risk.
+Drafts a jurisdictionally tailored motion arguing current bail is excessive under the Eighth Amendment and applicable state law, presenting defendant's financial constraints, community ties, and low flight risk.
 
 ## Prerequisites
 
-1. **Case information** — court name, division/department, case number, charges, current bail amount, date bail was set
-2. **Defendant profile** — full legal name, custody status, time served, residential history, employment, income, family ties, medical conditions
-3. **Financial documentation** — pay stubs, tax returns, bank statements, monthly expenses, debts, dependents
-4. **Community ties evidence** — lease agreements, employer letters, family affidavits, community organization memberships
-5. **Criminal/court appearance history** — prior record (or lack thereof), history of court compliance
-6. **Jurisdiction** — state/county for formatting rules, citation style, filing method, and applicable bail statute
+Gather before drafting:
 
-## Output Structure
+- **Case info** — court, case number, charges, current bail amount, date set
+- **Defendant profile** — name, custody status, time served, residence, employment, income, family, medical conditions
+- **Financial docs** — pay stubs, tax returns, bank statements, expenses, debts, dependents
+- **Community ties** — lease, employer letters, family affidavits, org memberships
+- **Court history** — prior record, appearance compliance
+- **Jurisdiction** — state/county rules, citation style, filing method, bail statute
 
-### 1. Caption & Formatting
+## Quick Start
 
-| Element | Requirement |
-|---|---|
-| Court | Full name including division/department |
-| Parties | Proper designation (People v. / State v. / Commonwealth v.) |
-| Title | "Motion for Bail Reduction" or jurisdiction-preferred variant |
-| Format | Jurisdiction-specific font, margins, line spacing |
-| Filing method | Verify e-file vs. in-person; separate notice of motion if required |
+1. Format caption per jurisdiction (People v. / State v. / Commonwealth v.)
+2. Introduce defendant, current bail, relief sought — one paragraph, no argumentative excess
+3. Present factual background: community ties, finances, special circumstances
+4. Argue each statutory bail factor with required authorities
+5. Propose specific reduced amount with alternative release conditions
+6. Attach evidence exhibits; include signature block and certificate of service
 
-### 2. Introduction
+## Drafting Workflow
 
-- Identify defendant, current bail amount, date set, specific relief sought (proposed reduced amount)
-- Note charges without admitting guilt; current custody status; time served
-- State constitutional and statutory basis for reduction
-- One paragraph; no argumentative excess
+### Caption & Introduction
 
-### 3. Factual Background
+- Full court name with division/department; jurisdiction-correct party designation
+- Title: "Motion for Bail Reduction" or jurisdiction-preferred variant
+- Identify defendant, current bail, date set, proposed reduced amount
+- State constitutional and statutory basis; note charges without admitting guilt
+- Verify e-file vs. in-person; separate notice of motion if required
+- Jurisdiction-specific font, margins, line spacing
 
-Present facts organized into these categories:
+### Factual Background
 
-**Community Ties**
-- Residential history (addresses + durations)
-- Family members by name and relationship; their local presence
-- Community involvement, volunteer work, religious affiliation
+Organize into three categories:
 
-**Employment & Finances**
-- Current employer, position, tenure, income
-- Monthly expenses, debts, dependents
-- Specific demonstration that current bail exceeds reasonable ability to pay
+**Community ties** — residential history (addresses + durations), family by name and relationship with local presence, community involvement and volunteer work
 
-**Special Circumstances**
-- Medical conditions, caretaking responsibilities
-- Hardship from continued detention (job loss, family impact)
+**Employment & finances** — employer, position, tenure, income, monthly expenses, debts, dependents; demonstrate current bail exceeds reasonable ability to pay
 
-### 4. Legal Argument
+**Special circumstances** — medical conditions, caretaking duties, detention hardship (job loss, family impact)
+
+### Legal Argument
 
 Argue each statutory bail factor systematically:
 
-| Factor | Argument Focus |
+| Factor | Focus |
 |---|---|
-| Nature of offense | Severity level; non-violent indicators |
-| Weight of evidence | Without conceding guilt, contextualize |
+| Nature of offense | Severity; non-violent indicators |
+| Weight of evidence | Contextualize without conceding guilt |
 | Community ties | Residential stability, family, employment |
 | Financial resources | Inability to post current amount |
 | Character & mental condition | Stable history, treatment compliance |
 | Criminal record | Clean record or mitigating context |
-| Court appearance history | Perfect or strong compliance record |
+| Court appearance history | Strong compliance record |
 
 **Required authorities** (adapt to jurisdiction):
+
 - U.S. Const. amend. VIII (excessive bail prohibition)
-- *Stack v. Boyle*, 342 U.S. 1 (1951) — bail set higher than reasonably calculated to ensure appearance is excessive [VERIFY]
+- *Stack v. Boyle*, 342 U.S. 1 (1951) — bail exceeding amount reasonably calculated to ensure appearance is excessive `[VERIFY]`
 - Applicable state constitutional bail provision
-- State bail statute (e.g., state penal code or criminal procedure code bail sections)
-- Persuasive case law from jurisdiction granting reductions on comparable facts
+- State bail statute (penal code or criminal procedure code)
+- Persuasive local case law granting reductions on comparable facts
 
-**Core legal principle**: Bail serves only to ensure court appearance and protect public safety — not to punish pretrial.
+**Core principle**: Bail ensures court appearance and public safety — not pretrial punishment.
 
-### 5. Evidentiary Support Checklist
+### Prayer for Relief
 
-- [ ] Defendant affidavit (community ties, finances, commitment to appear)
-- [ ] Family/employer/community member affidavits
+Propose a specific reduced amount calculated from demonstrated financial capacity. Include alternative conditions:
+
+- Electronic monitoring / GPS ankle bracelet
+- Pretrial services check-ins
+- Passport surrender / travel restrictions
+- No-contact orders (if applicable)
+- Substance abuse testing or treatment
+- Third-party custodian release
+
+Frame alternatives as addressing the court's concerns while eliminating need for unaffordable monetary bail.
+
+### Closing & Compliance
+
+- Signature block: attorney name, bar number, firm, address, phone, email, "Attorney for Defendant"
+- Certificate of service: date, method, names/addresses of all parties served
+- Proposed order granting relief (if jurisdiction requires)
+- Verify notice period and hearing-setting deadline
+
+## Evidence Checklist
+
+- [ ] Defendant affidavit (ties, finances, commitment to appear)
+- [ ] Family/employer/community affidavits
 - [ ] Pay stubs, tax returns, bank statements
 - [ ] Employer letter confirming position and continued employment
 - [ ] Lease agreement, utility bills
 - [ ] Medical records (if relevant)
 - [ ] All affidavits notarized; all exhibits labeled (Exhibit A, B, etc.)
 
-### 6. Prayer for Relief
+## Pitfalls
 
-Propose a specific reduced bail amount calculated from defendant's demonstrated financial capacity. Include alternative/supplemental conditions:
-
-- Electronic monitoring / GPS ankle bracelet
-- Regular pretrial services check-ins
-- Passport surrender
-- Geographic restrictions / travel limitations
-- No-contact orders (if applicable)
-- Substance abuse testing or treatment
-- Third-party custodian release
-
-Frame alternatives as addressing court's specific concerns while eliminating need for unaffordable monetary bail.
-
-### 7. Closing & Procedural Compliance
-
-| Element | Content |
-|---|---|
-| Signature block | Attorney name, bar number, firm, address, phone, email, "Attorney for Defendant" |
-| Certificate of service | Date, method, names/addresses of all parties served (prosecution + parties of record) |
-| Proposed order | Include if jurisdiction requires; draft order granting requested relief |
-| Filing deadline | Verify notice period and hearing-setting procedure |
-
-## Guidelines
-
-- **Tone**: Respectful to the court; firm on constitutional rights — never adversarial
-- **Do not** argue the merits of the underlying charges or concede guilt
-- **Do not** fabricate financial figures or community ties — flag gaps for attorney to fill with `[PROVIDE]`
-- **FRE awareness**: Motion is a court filing, not settlement communication, but avoid unnecessary factual admissions
-- **Citations**: Use jurisdiction-appropriate format (Bluebook default; state citation manual if specified). Mark unverified citations with `[VERIFY]`
-- **Page limits**: Check local rules; many jurisdictions impose page/word limits on pretrial motions
-- **Pro se adaptation**: If defendant is unrepresented, adjust signature block and simplify language while maintaining legal rigor
+- **Never** argue merits of underlying charges or concede guilt
+- **Never** fabricate financial figures or community ties — flag gaps with `[PROVIDE]`
+- **Tone**: Respectful to the court, firm on constitutional rights — never adversarial
+- **Citations**: Bluebook default; state citation manual if specified. Mark unverified with `[VERIFY]`
+- **Page limits**: Check local rules; many jurisdictions cap pretrial motion length
+- **Pro se**: If unrepresented, adjust signature block and simplify language while maintaining legal rigor
+- **Admissions**: Motion is a court filing — avoid unnecessary factual admissions

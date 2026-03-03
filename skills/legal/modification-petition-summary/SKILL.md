@@ -1,37 +1,32 @@
 ---
 name: modification-petition-summary
 description: >-
-  Produces structured summaries of U.S. family law modification petitions,
-  capturing the existing order, requested changes, alleged material change in
-  circumstances, supporting facts, evidence, and procedural posture. Use when
-  summarizing petitions to modify custody, visitation, child support, spousal
-  support, or other post-judgment orders for quick attorney review. Trigger
-  keywords: "modification petition", "change in circumstances", "custody
-  modification", "support modification", "visitation modification",
-  "post-judgment motion".
-tags:
-  - litigation
-  - summarization
-  - summary
+  Produces structured summaries of U.S. family law modification petitions for
+  attorney review. Captures existing order terms, requested changes, alleged
+  material change in circumstances, supporting facts, evidence inventory, and
+  procedural posture. Use when summarizing petitions to modify custody,
+  visitation, child support, spousal support, or other post-judgment orders.
 ---
 
 # Modification Petition Summary
 
-Condense a family law modification petition into a decision-ready, neutral summary.
+Condense a family law modification petition into a decision-ready, neutral summary using the template below.
 
-## Prerequisites
+## Quick Start
 
-1. The modification petition and all referenced exhibits/attachments
-2. The current order/judgment being modified (or its date and terms)
-3. Docket metadata (court, case number, filing date)
-4. Jurisdiction/state and party roles (petitioner/respondent)
-5. Any cited statutes/case law included in the petition
+Gather before summarizing:
 
-## Output Structure / Process
+- [ ] Modification petition and referenced exhibits
+- [ ] Current order/judgment (or its date and terms)
+- [ ] Docket metadata (court, case number, filing date)
+- [ ] Jurisdiction/state and party roles
+- [ ] Cited statutes/case law from the petition
 
-Use the following structure and fill all fields that are present in the petition. Note missing items explicitly.
+## Output Template
 
-**Case Snapshot (table)**
+Fill all fields present in the petition. Mark missing items "Not provided".
+
+### Case Snapshot
 
 | Field | Details |
 | --- | --- |
@@ -44,7 +39,7 @@ Use the following structure and fill all fields that are present in the petition
 | Requested Hearing Date | |
 | Emergency/Temporary Relief Sought | Yes/No; details |
 
-**Order Comparison (table)**
+### Order Comparison
 
 | Topic | Current Order | Requested Modification |
 | --- | --- | --- |
@@ -54,7 +49,7 @@ Use the following structure and fill all fields that are present in the petition
 | Spousal support | | |
 | Other provisions | | |
 
-**Grounds for Modification (checklist)**
+### Grounds for Modification
 
 - Material change in circumstances alleged: Yes/No
 - Nature of change: relocation, income change, child needs, health, safety, cohabitation/remarriage, school issues, other
@@ -62,13 +57,15 @@ Use the following structure and fill all fields that are present in the petition
 - Statutory standard cited: Yes/No; cite if provided
 - Retroactive modification requested: Yes/No; scope
 
-**Factual Allegations (bulleted chronology)**
+### Factual Allegations
+
+Bulleted chronology:
 
 - Date/period: event/fact alleged
 - Link to requested change: how petitioner connects fact to relief
-- Any allegations of noncompliance with prior order
+- Allegations of noncompliance with prior order
 
-**Evidence Inventory (table)**
+### Evidence Inventory
 
 | Evidence Type | Attached? | Description / Purpose |
 | --- | --- | --- |
@@ -80,39 +77,38 @@ Use the following structure and fill all fields that are present in the petition
 | Medical records | | |
 | Other exhibits | | |
 
-**Legal Framework (short list)**
+### Legal Framework
 
 - Statutes cited
 - Case law cited
 - Local rules/procedural standards cited
 
-**Procedural Posture (table)**
+### Procedural Posture
 
 | Item | Details |
 | --- | --- |
 | Service/Notice described | |
-| Prior modification history mentioned | |
+| Prior modification history | |
 | Related proceedings (contempt, enforcement, DV) | |
 | Requested fees/costs | |
 | Mediation/ADR requested or required | |
 
-**Relief Requested (list)**
+### Relief Requested
 
 - Primary modification(s)
 - Temporary/emergency orders
 - Ancillary relief (fees, costs, transportation, exchanges, supervised visits, etc.)
 
-**Gaps / Flags (list)**
+### Gaps / Flags
 
 - Missing: current order text/date, financial data, parenting plan, jurisdiction facts, service info
-- Potential jurisdiction/venue issue: flag if facts suggest multi-state custody or relocation
-- Procedural defect: missing verification, missing required forms, untimely filing, lack of notice (if apparent)
+- Jurisdiction/venue issue: flag if facts suggest multi-state custody or relocation
+- Procedural defect: missing verification, required forms, untimely filing, lack of notice
 
-## Guidelines
+## Pitfalls
 
-- Keep tone neutral and factual; do not argue merits.
-- Mirror petition terminology for accuracy; avoid recharacterizing allegations.
-- Distinguish between attached evidence and referenced-but-missing documents.
-- Flag any uncertainty or absent data explicitly as “Not provided”.
-- Jurisdiction-specific standards vary by state; do not infer standards not stated.
-- Use `[VERIFY]` for any legal citation you cannot confirm.
+- **Neutral tone only** — do not argue merits or recharacterize allegations.
+- **Mirror petition terminology** — preserve the petitioner's language for accuracy.
+- **Attached vs. referenced** — distinguish evidence actually attached from documents merely cited.
+- **No inferred standards** — jurisdiction-specific rules vary by state; only state what the petition states.
+- **Unverifiable citations** — tag with `[VERIFY]` if you cannot confirm a legal citation.

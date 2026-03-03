@@ -1,6 +1,6 @@
 ---
 name: inverse-condemnation-complaint
-description: Drafts court-ready inverse condemnation complaints seeking just compensation for government takings or property damage without formal eminent domain proceedings. Covers physical takings, regulatory takings, and temporary takings under the Fifth and Fourteenth Amendments. Establishes jurisdiction, ripeness under Williamson County, factual narrative of constitutional violations, damages framework, and prayer for relief. Use when drafting takings clause complaints, inverse condemnation pleadings, eminent domain complaints, or property rights constitutional claims.
+description: Drafts inverse condemnation complaints seeking just compensation for government takings without formal eminent domain. Use when a user needs a takings clause complaint, inverse condemnation pleading, or property rights constitutional claim involving physical, regulatory, or temporary takings.
 tags:
   - drafting
   - litigation
@@ -9,107 +9,111 @@ tags:
 
 # Inverse Condemnation Complaint
 
-Drafts a court-ready complaint seeking just compensation for property taken or damaged by government action without formal condemnation proceedings.
+Draft a complaint seeking just compensation for property taken or damaged by government action without formal condemnation proceedings, under the Fifth and Fourteenth Amendments.
 
 ## Prerequisites
 
-1. **Property documentation** — deed, legal description, APN, title report, acquisition date and price
-2. **Government action records** — notices, permits (denied/revoked), regulatory decisions, correspondence with government entities
-3. **Valuation evidence** — appraisals (before/after), comparable sales, income loss documentation
-4. **Administrative exhaustion records** — claims filed, hearings attended, variances sought, negotiation history
-5. **Physical evidence** — photographs, surveys, engineering reports documenting damage or occupation
-6. **Party identification** — full legal names of all plaintiff owners and defendant government entities with official designations
+Collect before drafting:
 
-## Output Structure
+1. **Property docs** — deed, legal description, APN, title report, acquisition date/price
+2. **Government action records** — notices, permits denied/revoked, regulatory decisions, correspondence
+3. **Valuation evidence** — before/after appraisals, comparable sales, income loss documentation
+4. **Administrative exhaustion** — claims filed, hearings, variances sought, negotiation history
+5. **Physical evidence** — photos, surveys, engineering reports of damage or occupation
+6. **Party identification** — full legal names of all plaintiff owners and defendant government entities
 
-### Caption & Introduction
+## Quick Start
 
-- Format caption per local court rules; title as "Complaint for Inverse Condemnation and Just Compensation"
-- Introduction: identify the constitutional basis (Fifth Amendment via Fourteenth Amendment, state constitutional provision, 42 U.S.C. § 1983), type of taking, and timeframe
+1. Identify taking type (physical, regulatory, total regulatory, temporary)
+2. Confirm ripeness — final government decision obtained and state compensation procedures pursued
+3. Choose forum (federal vs. state) and verify jurisdiction
+4. Draft complaint sections in order below
+5. Validate against pitfalls checklist
 
-### Jurisdictional Analysis
+## Complaint Structure
 
-| Forum | Basis | Key Requirements |
-|-------|-------|-----------------|
-| **Federal** | 28 U.S.C. § 1331 (federal question) or § 1343 (§ 1983) | Ripeness: final decision from government entity per *Williamson County v. Hamilton Bank* [VERIFY]; address why Tucker Act/Court of Federal Claims is inapplicable for state/local defendants |
-| **State** | State constitutional takings provision + inverse condemnation statute or common law doctrine | Verify state-specific statute of limitations (varies by taking type); venue where property is located |
+### 1. Caption & Introduction
 
-Allege ripeness by showing:
-- Final decision obtained from government entity on regulation/permit
-- State compensation procedures pursued (or explain why inadequate/unavailable)
+- Title: "Complaint for Inverse Condemnation and Just Compensation"
+- State constitutional basis (Fifth via Fourteenth Amendment, state provision, 42 U.S.C. § 1983), taking type, and timeframe
 
-### Party Allegations
+### 2. Jurisdiction
 
-**Plaintiff:** Full legal name (as on deed), address, ownership interest (fee simple/trust/LLC/etc.), date of acquisition, proportionate interest if multiple owners.
+| Forum | Basis | Requirements |
+|-------|-------|-------------|
+| **Federal** | 28 U.S.C. § 1331 or § 1343 (§ 1983) | Final decision per *Williamson County v. Hamilton Bank* [VERIFY]; address Tucker Act inapplicability for state/local defendants |
+| **State** | State takings provision + inverse condemnation statute/common law | State-specific limitations period; venue where property is located |
 
-**Defendant(s):** Official entity name, principal address, registered agent, specific agency/department responsible. Name entity in corporate capacity and/or officials in official capacity as appropriate.
+Allege ripeness: (1) final government decision on regulation/permit; (2) state compensation procedures pursued or shown inadequate/unavailable.
 
-### Factual Narrative (Chronological)
+### 3. Parties
 
-Structure in numbered paragraphs covering:
+- **Plaintiff:** Name (as on deed), address, ownership interest type, acquisition date, proportionate interest if multiple owners
+- **Defendant(s):** Official entity name, address, registered agent, responsible agency/department; entity in corporate capacity and/or officials in official capacity
 
-1. **Property description** — address, legal description, APN, acreage/sq ft, zoning, permitted uses
-2. **Pre-taking condition** — structures, improvements, actual use, development plans/permits
-3. **Investment-backed expectations** — purchase price, improvements made, reasonable use expectations
-4. **Government action** — specific dates, officials/agencies involved, stated justification, legal authority cited
-5. **Physical impact** — percentage/acreage affected, nature of interference (flooding, occupation, encroachment, permit denial, regulatory restriction)
+### 4. Factual Narrative (Chronological, Numbered Paragraphs)
+
+1. **Property** — address, legal description, APN, acreage, zoning, permitted uses
+2. **Pre-taking condition** — structures, improvements, actual use, development plans
+3. **Investment-backed expectations** — purchase price, improvements, reasonable use expectations
+4. **Government action** — dates, officials/agencies, stated justification, legal authority cited
+5. **Physical impact** — area affected, nature of interference (flooding, occupation, encroachment, permit denial, regulatory restriction)
 6. **Economic impact** — FMV diminution with figures, income loss, duration, permanence
-7. **Administrative exhaustion** — claims submitted, hearings, variance requests, negotiation attempts, government's refusal to compensate
+7. **Exhaustion** — claims submitted, hearings, variance requests, government refusal to compensate
 
-### Causes of Action
+### 5. Causes of Action
 
-Select and plead applicable theory(ies):
+Select applicable theory(ies):
 
-| Taking Type | Key Elements | Controlling Authority |
-|-------------|-------------|----------------------|
-| **Physical (per se)** | Permanent physical occupation/appropriation; compensation required regardless of public interest or economic impact | *Loretto v. Teleprompter Manhattan CATV Corp.*, 458 U.S. 419 (1982) |
-| **Regulatory (Penn Central)** | (1) Economic impact on owner; (2) Interference with investment-backed expectations; (3) Character of government action | *Penn Central Transp. Co. v. New York City*, 438 U.S. 104 (1978) |
-| **Total regulatory (Lucas)** | Regulation denies ALL economically beneficial use; prohibited use not already restricted by background nuisance/property law | *Lucas v. S.C. Coastal Council*, 505 U.S. 1003 (1992) |
-| **Temporary** | Government action deprived owner of all use/value for specific period; compensation required for interim even if regulation later withdrawn | *First English Evangelical Lutheran Church v. County of Los Angeles*, 482 U.S. 304 (1987) |
+| Type | Elements | Authority |
+|------|----------|-----------|
+| **Physical (per se)** | Permanent physical occupation; compensation required regardless of public interest/economic impact | *Loretto v. Teleprompter Manhattan CATV Corp.*, 458 U.S. 419 (1982) |
+| **Regulatory (Penn Central)** | (1) Economic impact; (2) interference with investment-backed expectations; (3) character of government action | *Penn Central Transp. Co. v. New York City*, 438 U.S. 104 (1978) |
+| **Total regulatory (Lucas)** | Denies ALL economically beneficial use; not restricted by background nuisance/property law | *Lucas v. S.C. Coastal Council*, 505 U.S. 1003 (1992) |
+| **Temporary** | Deprived all use/value for specific period; compensation required even if regulation later withdrawn | *First English Evangelical Lutheran Church v. County of Los Angeles*, 482 U.S. 304 (1987) |
 
-For each cause of action:
-- Allege constitutional provision violated (Fifth/Fourteenth Amendment and/or state provision)
-- Identify government purpose/public use
-- Emphasize compensation obligation arises from fact of taking, not government's characterization
+For each: allege constitutional provision violated, identify government purpose/public use, emphasize compensation arises from fact of taking.
 
-### Damages
+### 6. Damages
 
 | Component | Measure |
 |-----------|---------|
-| **Total taking** | FMV of property as of date of taking |
+| **Total taking** | FMV as of date of taking |
 | **Partial taking** | FMV before minus FMV after, plus severance damages |
 | **Temporary taking** | Rental/use value for deprivation period |
-| **Consequential** (if jurisdiction allows) | Business goodwill/profits, relocation costs, loss of access/view, damage to remainder |
+| **Consequential** (if allowed) | Goodwill, relocation, loss of access, damage to remainder |
 | **Pre-judgment interest** | From date of taking through judgment |
-| **Attorney fees** | Under 42 U.S.C. § 1988 (§ 1983 claims) or state fee-shifting statutes |
+| **Attorney fees** | § 1988 (§ 1983 claims) or state fee-shifting statutes |
 
-Include preliminary damage estimate from available valuation evidence; preserve right to prove exact amount at trial.
+Include preliminary damage estimate; preserve right to prove exact amount at trial.
 
-### Prayer for Relief
+### 7. Prayer for Relief
 
-Request:
-1. Just compensation in amount to be proven (not less than $[amount])
-2. Pre-judgment interest at statutory rate from date of taking
-3. Post-judgment interest per applicable law
+1. Just compensation (not less than $[amount])
+2. Pre-judgment interest from date of taking
+3. Post-judgment interest
 4. Attorney fees and costs (cite § 1988 or state authority)
-5. Declaratory relief (that a taking occurred)
-6. Injunctive relief (cease interference or restore property), if applicable
-7. Jury trial demand on all triable issues
+5. Declaratory relief that a taking occurred
+6. Injunctive relief if applicable
+7. Jury trial demand
 8. Such other relief as the court deems just
 
-### Verification & Signature
+### 8. Verification & Signature
 
-- Include verification under oath if required by jurisdiction (under penalty of perjury; notarized or 28 U.S.C. § 1746 for federal)
-- Attorney signature block: name, bar number, firm, address, phone, email
-- Rule 11 / state equivalent certification
-- Attach civil cover sheet (federal) or case information statement (state) per local rules
+- Verification under oath if required (28 U.S.C. § 1746 for federal)
+- Attorney signature block with bar number, firm, contact info
+- Rule 11 certification
+- Civil cover sheet (federal) or case information statement (state)
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Paragraph numbering**: Number all paragraphs consecutively throughout
-- **Specificity**: Every factual allegation must tie to documentary evidence; avoid conclusory statements
-- **Ripeness is jurisdictional**: If exhaustion is deficient, the complaint will be dismissed — verify thoroughly
-- **State variations**: Inverse condemnation standards vary significantly by state; research state-specific elements, statutes of limitations, and fee-shifting rules
-- **Tone**: Professional, factual, persuasive — no advocacy excess
-- **Format**: Comply with local rules for margins, spacing, font, page numbering
-- **Ethics**: Rule 11 compliance — all claims well-grounded in fact and law
+- **Ripeness is jurisdictional** — deficient exhaustion means dismissal; verify final decision and compensation procedure pursuit thoroughly
+- **State variations** — standards, limitations periods, and fee-shifting rules vary significantly by state; research jurisdiction-specific elements
+- **Specificity** — every factual allegation must tie to documentary evidence; avoid conclusory statements
+- **Paragraph numbering** — consecutive throughout entire complaint
+- **Format** — comply with local rules (margins, spacing, font, page numbering)
+- **Rule 11** — all claims must be well-grounded in fact and law
+
+---
+
+It looks like I don't have write permission to the file yet. Could you grant write access so I can save it, or would you like to copy the output above directly?

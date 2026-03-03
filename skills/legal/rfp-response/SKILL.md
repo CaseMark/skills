@@ -1,184 +1,133 @@
 ---
 name: rfp-response
-description: Drafts a complete U.S. federal government contract proposal in response to a Request for Proposal (RFP), including cover letter, technical volume (executive summary, technical approach, management plan, past performance), cost/price volume (detailed cost breakdown, supporting documentation), and representations and certifications. Enforces FAR compliance, CPARS references, SAM.gov registration, and evaluation-optimized structure. Use when preparing submissions to federal solicitations, responding to government RFPs, or drafting federal procurement bids.
+description: Drafts evaluation-ready U.S. federal RFP responses across all standard proposal volumes (cover letter, technical, cost/price, reps and certs). Enforces FAR compliance, CPARS references, and Section L/M alignment. Use when preparing federal solicitation submissions, responding to government RFPs, or drafting procurement bids.
 tags:
   - drafting
   - letter
   - regulatory
 ---
 
-# Government Contract Proposal (RFP Response)
+# RFP Response
 
-Produces a complete, evaluation-ready federal RFP response across all standard proposal volumes, structured to FAR requirements and scored against typical source selection criteria.
+Produces a complete federal proposal structured to FAR requirements and scored against typical source selection criteria.
 
 ## Prerequisites
 
-1. **RFP/Solicitation package** — full solicitation number, title, issuance date, Statement of Work (SOW), and Section L/M instructions
-2. **Contracting Officer details** — name, title, agency, address
-3. **Offeror profile** — legal business name, UEI/CAGE code, NAICS code, small business status/certifications, SAM.gov registration status
-4. **Past performance references** — 3–5 relevant contracts with CO/PM contact info, contract numbers, values, and CPARS ratings
-5. **Proposed personnel** — resumes for key personnel, clearance levels if required
-6. **Cost/rate data** — approved or proposed indirect rates, fringe rates, labor categories and rates, subcontractor quotes
+Collect before drafting:
 
----
+1. **RFP package** — solicitation number, title, SOW, Section L/M instructions
+2. **Contracting Officer** — name, title, agency, address
+3. **Offeror profile** — legal name, UEI/CAGE, NAICS, small business certifications, SAM.gov status
+4. **Past performance** — 3–5 relevant contracts with CO/PM contacts, values, CPARS ratings
+5. **Key personnel** — resumes, clearance levels
+6. **Cost data** — indirect/fringe rates, labor categories and rates, subcontractor quotes
 
-## Output Structure
+## Quick Start
+
+1. Parse Section L (formatting) and Section M (evaluation factors) — these control everything
+2. Build a compliance matrix mapping every SOW/Section L requirement to a proposal section
+3. Draft volumes in order: cover letter → technical → cost/price → reps and certs
+4. Verify every capability claim cites past performance, test results, or published research
+5. Confirm all FAR/CAS citations against current regulations before submission
+
+## Proposal Volumes
 
 ### 1. Cover Letter (≤2 pages)
 
-| Element | Requirement |
+Include: addressee (named CO), solicitation reference, agency-specific mission knowledge, qualifications with CPARS ratings, compliance affirmation for all mandatory requirements, validity period (per solicitation, typically 60–120 days), authorized signatory with binding authority.
+
+### 2. Executive Summary (≤3 pages)
+
+- Restate requirements interpretively — connect SOW to agency mission (do not paraphrase)
+- Differentiated solution with named methods, partnerships, or innovations
+- Quantified value proposition tied to documented past performance
+- Key personnel highlights and organizational depth
+
+### 3. Technical Approach
+
+Mirror SOW structure — one response per major task. For each task address:
+
+- Methods, tools, technologies, and rationale for selection
+- Resource requirements, dependencies, GFE/GFI needs
+- Integration points with agency systems or other contractors
+- Applicable standards (cite by name and number)
+- QA/QC protocols, acceptance criteria, corrective action process
+- Risk identification with specific mitigation plans
+- Technical diagrams (professional quality, labeled, referenced in text)
+
+### 4. Management Plan
+
+**Org structure:** management philosophy, org chart with key personnel (% time, reporting lines, sub interfaces), PM authority and span of control.
+
+**Resumes (consistent format):** education, certifications, clearances, government contract experience, measurable accomplishments.
+
+**Schedule:** milestones, deliverables, dependencies, critical path. Gantt or PERT format with historical duration estimates.
+
+**Administration:** invoicing method/frequency, progress reporting cadence (CDRL-compliant), change control process, COR/COTR communication protocols, FAR clause procedural responses.
+
+**Staffing:** recruitment plan, retention approach, succession plan, subcontractor oversight.
+
+### 5. Past Performance
+
+Per reference (3–5 projects):
+
+| Field | Content |
 |---|---|
-| Addressee | Specific CO named in RFP |
-| Solicitation reference | Full number, title, issuance date |
-| Agency knowledge | Cite mission, strategic plan, or recent initiative specific to this procurement |
-| Qualifications hook | Relevant past contracts, especially with issuing agency; specific CPARS ratings |
-| Compliance affirmation | Unequivocal confirmation of all mandatory requirements, security clearances, delivery schedules |
-| Proposal validity | State validity period (typically 60–120 days per solicitation) |
-| Authorized signatory | Name, title, phone, email, business address of individual with binding authority |
-
----
-
-### 2. Technical Volume A — Executive Summary (≤3 pages)
-
-- **Restate requirements** interpretively — connect SOW to agency mission and operational challenges (not paraphrase)
-- **Proposed solution** — differentiated approach; name proprietary methods, partnerships, or innovations
-- **Value proposition** — quantified benefits (cost savings, performance improvements, risk reduction) tied to documented past performance
-- **Team highlights** — key personnel depth, relevant experience, organizational infrastructure
-
----
-
-### 3. Technical Volume B — Technical Approach
-
-**Structure mirrors SOW** — one response per major task/deliverable to facilitate cross-referencing.
-
-For each SOW task, address:
-- [ ] Specific methods, processes, tools, and technologies proposed
-- [ ] Rationale for methodology selection vs. alternatives
-- [ ] Resource requirements, technical dependencies, government-furnished equipment/information
-- [ ] Integration points with agency systems or other contractors
-- [ ] Applicable industry standards (cite by name and number)
-- [ ] QA/QC inspection points, testing protocols, acceptance criteria, corrective action process
-- [ ] Risk identification and specific mitigation/contingency plans
-- [ ] Technical diagrams, process maps, system architecture (professional quality, labeled, referenced in text)
-- [ ] Innovations beyond baseline — justify with prior implementation evidence
-
----
-
-### 4. Technical Volume C — Management Plan
-
-**Organizational structure:**
-- Management philosophy statement
-- Org chart: all key personnel, reporting relationships, % time on contract, subcontractor interfaces
-- Clear project manager authority and span of control
-
-**Key personnel resumes** (consistent format):
-- Education, certifications, clearances
-- Years of experience, prior government contracts
-- Specific accomplishments with measurable outcomes
-
-**Project schedule:**
-- All milestones, deliverables, decision points, dependencies
-- Critical path identified
-- Gantt or PERT format; duration estimates from historical data
-
-**Contract administration:**
-| Process | Details Required |
-|---|---|
-| Invoicing | Method, frequency, billing system |
-| Progress reporting | Format, cadence, CDRL compliance |
-| Change control | Configuration management process |
-| COR/COTR interface | Communication protocols, meeting cadence |
-| FAR compliance | Specific FAR clauses requiring procedural responses |
-
-**Staffing:**
-- Recruitment plan for unfilled positions
-- Retention approach for key personnel
-- Succession plan
-- Subcontractor oversight, reporting requirements, and risk management
-
----
-
-### 5. Technical Volume D — Past Performance
-
-**Per reference project:**
-
-| Field | Required Content |
-|---|---|
-| Client | Name, agency type, federal/state/local |
+| Client / agency | Name, federal/state/local |
 | Contract number | Including vehicle (GWAC, IDIQ, etc.) |
-| Contract type | FFP, CPFF, T&M, etc. |
-| Value | Total contract value |
-| Period | Start–end dates |
-| Scope | Elements paralleling current SOW |
-| CPARS ratings | By evaluation factor (if federal); note "Satisfactory" or above |
-| Quantified outcomes | Dollar savings, defect rates, on-time delivery %, awards received |
-| Challenges and resolution | Specific obstacles and corrective actions taken |
-| Reference contact | Name, title, phone, email (recently verified, willing to respond positively) |
+| Type and value | FFP/CPFF/T&M; total value |
+| Period and scope | Dates; elements paralleling current SOW |
+| CPARS ratings | By evaluation factor; "Satisfactory" or above |
+| Outcomes | Quantified savings, defect rates, on-time %, awards |
+| Challenges | Obstacles encountered and corrective actions |
+| Reference contact | Name, title, phone, email (verified, willing) |
 
-**If limited prime past performance:**
-- Include key personnel individual track records
-- Include teaming partner/subcontractor experience with clear role delineation
-- Address any cure notices or negative performance honestly with corrective action narrative
+If limited prime experience: include key personnel track records and teaming partner experience with clear role delineation. Address any negative performance with corrective action narrative.
 
----
+### 6. Cost/Price Breakdown
 
-### 6. Cost/Price Volume A — Detailed Cost Breakdown
+Structure by government cost element:
 
-Structure by standard government cost element categories:
-
-| Cost Element | Required Detail |
+| Element | Detail |
 |---|---|
-| Direct Labor | Labor category, LCAT description, hours by year/task, loaded or unloaded rate |
-| Fringe Benefits | Rate %, benefits included, basis (approved/proposed) |
-| Overhead | Rate %, allocation base, cost pool composition |
-| G&A | Rate %, allocation base |
-| Materials/Supplies | Itemized; vendor quotes for significant purchases |
-| Subcontracts | By subcontractor; same element breakdown as prime |
-| Travel | Trips, destinations, duration, travelers, FTR per diem rates |
-| Other Direct Costs | Communications, software licenses, printing, shipping |
-| Fee/Profit | Amount or %; justified by risk, complexity, capital investment |
+| Direct Labor | LCAT, hours by year/task, rate (loaded/unloaded) |
+| Fringe / Overhead / G&A | Rate %, allocation base, pool composition |
+| Materials | Itemized with vendor quotes for major purchases |
+| Subcontracts | Same breakdown as prime, per subcontractor |
+| Travel | Trips, destinations, duration, FTR per diem |
+| ODCs | Software, communications, printing, shipping |
+| Fee/Profit | Justified by risk, complexity, capital investment |
 
-**Labor hour estimate basis:** derive from historical actuals on similar contracts, industry standards, or documented bottom-up task analysis. Avoid unsupported round numbers.
+- Derive labor hours from historical actuals, industry standards, or bottom-up analysis — no unsupported round numbers
+- Apply index-based escalation (ECI, CPI) with cited sources for multi-year contracts
+- All costs must be allocable, allowable, and reasonable per FAR Part 31
 
-**Multi-year escalation:** apply index-based escalation (ECI, CPI, or industry-specific); cite source.
+### 7. Cost Supporting Documentation
 
-**FAR Part 31 compliance:** all costs must be allocable, allowable, and reasonable.
-
----
-
-### 7. Cost/Price Volume B — Supporting Documentation
-
-- [ ] Basis of Estimate (BOE) narrative per major cost element
-- [ ] Labor rate documentation (payroll records, salary surveys, market data for unfilled positions)
-- [ ] Vendor quotes (current, ≤6 months old; multiple quotes or market research for major items)
-- [ ] Indirect rate documentation: FPRA/PREA/final rate agreements OR detailed rate build-up with CAS compliance disclosure
-- [ ] Escalation factor support (index citations, historical rate data)
-- [ ] Subcontractor cost proposals (full detail) + competitive selection documentation
+- [ ] Basis of Estimate narrative per major cost element
+- [ ] Labor rate documentation (payroll, salary surveys, market data)
+- [ ] Vendor quotes (current, ≤6 months; multiple for major items)
+- [ ] Indirect rate documentation: FPRA/PREA or rate build-up with CAS disclosure
+- [ ] Escalation factor support with index citations
+- [ ] Subcontractor proposals with competitive selection documentation
 - [ ] Accounting system description; CAS Disclosure Statements if applicable
-- [ ] Table of contents cross-referencing each document to cost proposal line items
-
----
 
 ### 8. Representations and Certifications
 
-- **SAM.gov:** confirm UEI, CAGE, NAICS, size standards, and socioeconomic certifications are current and accurate as of proposal submission date
-- **Small business status:** verify against NAICS size standard for this solicitation; SBA certification current if WOSB, SDVOSB, or HUBZone
-- **Tax compliance:** confirm no delinquent federal tax liabilities (coordinate with finance)
-- **Executive compensation disclosure:** if ≥80% federal revenue and >$25M — five most-compensated executives
-- **Procurement-specific certs:** OCI disclosures, conflict of interest, applicable statutes/executive orders
-- **Signatory authority:** officer with actual binding authority; verify accuracy before execution
+- **SAM.gov** — confirm UEI, CAGE, NAICS, size standards current as of submission
+- **Small business** — verify against NAICS size standard; SBA cert current if WOSB/SDVOSB/HUBZone
+- **Tax compliance** — no delinquent federal tax liabilities (coordinate with finance)
+- **Executive compensation** — disclose if ≥80% federal revenue and >$25M
+- **Procurement certs** — OCI disclosures, conflict of interest, applicable statutes/EOs
+- **Signatory** — officer with actual binding authority; verify before execution
 
-> **⚠️ Legal risk:** False certifications expose offeror to contract termination, suspension/debarment, civil penalties, and criminal prosecution. Escalate any compliance uncertainty to legal counsel before submission.
+> **Legal risk:** False certifications trigger termination, suspension/debarment, civil penalties, and criminal prosecution. Escalate any compliance uncertainty to legal counsel.
 
----
+## Pitfalls
 
-## Guidelines
-
-- **Section L/M control:** every formatting requirement in Section L is mandatory; every evaluation factor in Section M dictates emphasis
-- **Compliance matrix:** consider including a compliance matrix cross-referencing each SOW/Section L requirement to proposal page — evaluators and reviewers will find it useful
-- **No marketing language:** every capability claim must cite past performance, test results, certifications, or published research
-- **Technical jargon balance:** use precise terminology but ensure accessibility for non-specialist evaluators
-- **Graphics:** all diagrams must be professional quality, labeled, captioned, and cited in narrative text
-- **Page limits:** strictly observe any RFP-imposed page limits per volume; violations can disqualify proposals
-- **Verify citations:** confirm all FAR, CAS, and statutory citations against current FAR/DFARS before submission [VERIFY any citations provided in the generated document]
-- **Jurisdiction:** U.S. federal procurement only; DFARS supplements apply for DoD solicitations
+- **Section L violations disqualify** — every formatting requirement is mandatory; page limits are strict
+- **No marketing language** — every claim must cite evidence (past performance, certifications, test results)
+- **Jargon balance** — precise terminology but accessible to non-specialist evaluators
+- **Graphics standards** — all diagrams must be professional, labeled, captioned, and cited in text
+- **Citation verification** — confirm all FAR, CAS, and statutory references against current FAR/DFARS before submission
+- **Jurisdiction** — U.S. federal procurement only; apply DFARS supplements for DoD solicitations

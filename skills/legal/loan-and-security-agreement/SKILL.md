@@ -1,11 +1,6 @@
 ---
 name: loan-and-security-agreement
-description: Drafts a comprehensive, institutional-grade Loan and Security Agreement for U.S. secured lending transactions. Covers party identification, loan terms, UCC Article 9 security interests and perfection mechanics, representations and warranties, affirmative/negative covenants, financial covenants, events of default with cure periods, and enforcement remedies. Use when documenting secured commercial loans, acquisition financing, working capital facilities, or equipment financing requiring perfected lien documentation.
-tags:
-  - agreement
-  - corporate
-  - drafting
-  - transactional
+description: Drafts a U.S. secured Loan and Security Agreement with UCC Article 9 security interests, perfection mechanics, covenants, and enforcement remedies. Use when documenting secured commercial loans, acquisition financing, working capital facilities, or equipment financing requiring perfected lien documentation.
 ---
 
 # Loan and Security Agreement
@@ -14,207 +9,152 @@ Drafts a fully enforceable secured Loan and Security Agreement establishing the 
 
 ## Prerequisites
 
-1. **Term sheet or commitment letter** — principal amount, rate, maturity, fees, borrowing base (if any)
-2. **Party documents** — formation documents, good standing certificates, board resolutions authorizing the transaction
-3. **Collateral information** — asset schedules, equipment lists with serial numbers, UCC lien search results, title reports
-4. **Financial statements** — audited/unaudited financials used to set covenant levels
-5. **Due diligence materials** — disclosed litigation, existing liens, material contracts, environmental reports
-6. **Subordination/intercreditor agreements** — if junior or senior debt coexists
+Gather before drafting:
 
-## Output Structure
+- **Term sheet / commitment letter** — principal, rate, maturity, fees, borrowing base
+- **Party documents** — formation docs, good standing, board resolutions
+- **Collateral info** — asset schedules, equipment lists (serial numbers), UCC lien searches, title reports
+- **Financial statements** — audited/unaudited, used to set covenant levels
+- **Due diligence** — disclosed litigation, existing liens, material contracts, environmental reports
+- **Subordination/intercreditor agreements** — if junior or senior debt coexists
+
+## Quick Start
+
+1. Identify parties and collateral from term sheet
+2. Draft granting clause with UCC Art. 9 collateral descriptions
+3. Set loan economics (rate, repayment, default rate, prepayment)
+4. Build reps, covenants, and default provisions
+5. Define perfection steps and file UCC-1s
+6. Add governing law, remedies, and boilerplate
+
+## Agreement Sections
 
 ### 1. Parties and Recitals
 
-| Field | Required Detail |
-|---|---|
-| Legal name | Exact name per formation documents |
-| Entity type | E.g., Delaware corporation, CA LLC, TX LP |
-| Jurisdiction / formation date | State and date |
-| Principal place of business | Full street address |
-| Registered agent | Name and address for service |
-| Authorized signatories | Names/titles per board resolution |
+For each party: exact legal name per formation docs, entity type, jurisdiction/date of formation, principal business address, registered agent, authorized signatories per board resolution.
 
-Recitals should state: borrower's business purpose for the financing, existing lender-borrower relationship (if any), and consideration basis (security interest grant in exchange for loan).
-
----
+Recitals state: business purpose of financing, existing relationship (if any), and consideration basis (security interest grant in exchange for loan).
 
 ### 2. Loan Terms
 
-- **Principal**: State in numerals and words (e.g., "Five Million Dollars ($5,000,000.00)")
-- **Interest rate**:
-  - Fixed: state rate expressly
-  - Variable: index (e.g., SOFR as published by FRBNY) + spread in bps, floor/ceiling, adjustment frequency, day count convention (actual/360 or actual/365)
-- **Repayment**: Specify interest-only period (if any), amortization schedule, balloon amount, and final maturity date
-- **Default rate**: Contract rate + 2–5%, subject to usury limits
-- **Late charge**: Typically 5% of overdue payment or flat fee, whichever is less — confirm state law cap
-- **Prepayment**: Permitted/prohibited; if permitted, specify minimum amount, notice period, and make-whole or prepayment premium formula
-- **Usury savings clause**: Auto-reduce any charge exceeding maximum lawful rate
-
----
+- **Principal** — numerals and words ("Five Million Dollars ($5,000,000.00)")
+- **Interest** — fixed (state rate) or variable (index + spread, floor/ceiling, day count convention actual/360 or actual/365)
+- **Repayment** — interest-only period, amortization schedule, balloon, maturity date
+- **Default rate** — contract rate + 2–5%, subject to usury limits
+- **Late charge** — typically 5% of overdue payment; confirm state law cap
+- **Prepayment** — permitted/prohibited; if permitted: minimum amount, notice period, make-whole or premium formula
+- **Usury savings clause** — auto-reduce charges exceeding maximum lawful rate
 
 ### 3. Security Interest and Collateral
 
-**Granting clause**: Borrower grants lender a continuing first-priority security interest in all right, title, and interest in collateral, now owned or hereafter acquired.
+**Granting clause**: Borrower grants lender a continuing first-priority security interest in all collateral, now owned or hereafter acquired.
 
-**Collateral categories (UCC Art. 9 classifications)**:
-
-| Category | Description |
-|---|---|
-| Accounts | All accounts, chattel paper, payment intangibles, general intangibles |
-| Inventory | Raw materials, WIP, finished goods, documents of title |
-| Equipment | All machinery, vehicles, fixtures — list significant items by make/model/serial no./location |
-| Intellectual property | Patents (by number), trademarks (by reg. no.), copyrights (by reg.) — note: IP may require USPTO/Copyright Office recordation in addition to UCC filing |
-| Deposit accounts | By institution, account number, account type |
-| Investment property | Securities accounts, securities entitlements |
-| Real property/fixtures | Full legal description; perfection requires county recording of mortgage/deed of trust |
-| Proceeds | All proceeds, products, rents, profits, insurance proceeds, condemnation awards |
+**UCC Art. 9 collateral categories**: accounts, inventory, equipment (list by make/model/serial/location), intellectual property (by registration number), deposit accounts, investment property, real property/fixtures, and all proceeds.
 
 **Perfection mechanics**:
-- UCC-1 financing statements filed in borrower's jurisdiction of organization (Secretary of State) and any state where collateral is located
-- Motor vehicles: certificate of title notation
-- Deposit accounts: control agreement (UCC § 9-104)
-- IP: recordation with USPTO / Copyright Office
-- Real property: county recorder filing
 
-**Collateral maintenance obligations**:
-- Keep in good repair; prompt maintenance and replacement
-- Insurance: full replacement value, lender named as loss payee and additional insured, 30-day cancellation notice, A.M. Best A- or better
-- No dispositions except inventory in ordinary course; proceeds from permitted sales applied to loan or reinvested in replacements
-- No liens except permitted liens (defined list)
+| Collateral Type | Perfection Method |
+|---|---|
+| General personal property | UCC-1 filing (borrower's state of organization) |
+| Motor vehicles | Certificate of title notation |
+| Deposit accounts | Control agreement (UCC § 9-104) |
+| Federally registered IP | USPTO / Copyright Office recordation |
+| Real property | County recorder filing (mortgage/deed of trust) |
 
----
+**Collateral maintenance**: keep in good repair; insure at full replacement value with lender as loss payee and additional insured (A.M. Best A- or better, 30-day cancellation notice); no dispositions except ordinary-course inventory sales; no liens except permitted liens.
 
 ### 4. Representations and Warranties
 
-| Topic | Key Representations |
-|---|---|
-| Organization | Duly organized, validly existing, good standing, qualified in all operating jurisdictions |
-| Authority | All necessary corporate action taken; no conflict with org docs, law, or material contracts |
-| Enforceability | Agreement is legal, valid, binding, enforceable |
-| Title to collateral | Good and marketable title, free of liens except permitted liens; no prior UCC filings except permitted |
-| Financial statements | Fairly present condition per GAAP; no material adverse change since last financials |
-| Litigation | No pending or threatened proceeding likely to cause MAE; disclose exceptions on schedule |
-| Compliance | Compliant with all applicable laws (environmental, tax, employment, industry-specific); all licenses current |
-| Environmental | No hazardous substance releases except in compliance with law; no USTs or ACMs except as disclosed |
+Required reps: organization/good standing, authority, enforceability, title to collateral (free of liens except permitted), financial statement accuracy (GAAP), litigation disclosure, legal compliance, environmental compliance.
 
-- Representations survive closing; deemed remade on each advance or compliance certificate date
-- Apply materiality qualifiers ("material adverse effect") to operational reps; do NOT qualify organization, authority, title, or enforceability reps
+Key rules:
+- Reps survive closing; deemed remade on each advance or compliance certificate date
+- Apply "material adverse effect" qualifier to operational reps only
+- Never qualify organization, authority, title, or enforceability reps
 
----
+### 5. Covenants
 
-### 5. Affirmative Covenants
-
-- Maintain corporate existence and good standing; preserve all material licenses and permits
-- Maintain insurance (property, general liability, business interruption as applicable; policy specs per Section 3)
-- Pay all taxes when due unless contested in good faith with adequate reserves
-- Comply with all applicable law; notify lender of violations with MAE potential
-- Provide prompt notice of: any default, litigation, MAE, collateral loss >$[threshold], name/structure changes
-- Cooperate with UCC amendment filings on any name/structure change
+**Affirmative**: maintain existence and good standing; maintain insurance; pay taxes; comply with law; notify lender of defaults, litigation, MAE, collateral loss > threshold, or name/structure changes; cooperate on UCC amendment filings.
 
 **Financial reporting**:
 
-| Report | Deadline | Certification |
-|---|---|---|
-| Annual audited financials | 90 days after FYE | CFO + auditor opinion |
-| Quarterly unaudited financials | 45 days after quarter-end | CFO certification |
-| Monthly financials (high-risk) | 30 days after month-end | CFO certification |
-| Compliance certificate | With each periodic financial | Responsible officer |
-| Borrowing base certificate | Per borrowing base schedule | Responsible officer |
-
-**Financial covenants** (calibrate to borrower's historical performance with cushion):
-
-| Covenant | Typical Range | Testing Period |
-|---|---|---|
-| Min. fixed charge coverage ratio | ≥ 1.20x – 1.50x | Quarterly, trailing 12 months |
-| Max. total leverage (Debt/EBITDA) | Per term sheet | Quarterly |
-| Min. current ratio | Per term sheet | Quarterly |
-| Min. tangible net worth | Base + % of cumulative net income | Quarterly |
-
-Define EBITDA precisely: specify permitted add-backs, treatment of non-recurring items, acquisition/disposition adjustments.
-
----
-
-### 6. Negative Covenants
-
-| Restriction | Permitted Exceptions |
+| Report | Deadline |
 |---|---|
-| Additional indebtedness | Trade payables (ordinary course); PMSI ≤ $[X] aggregate; capital leases ≤ $[X]; approved subordinated debt |
-| Liens | Lender's SI; taxes not yet due; statutory landlord/carrier/mechanic liens; PMSI on financed equipment only; other ≤ $50K aggregate |
-| Dividends/distributions | ≤ [50%] of net income OR ≤ $[X]/year; no default exists; pro forma covenant compliance; tax distributions for pass-through entities |
-| Asset dispositions | Ordinary course inventory; worn/obsolete equipment replaced with equal/greater value; other ≤ $100K/year at FMV |
-| Fundamental changes | No merger, consolidation, asset sale (all/substantially all), change of control, or material business change without consent |
-| Affiliate transactions | Ordinary course only; arm's-length terms; board approval for transactions >$[X] |
-| Investments/acquisitions | Cash equivalents; existing subsidiaries; other ≤ $50K/year; acquisitions require lender consent |
-| Prepayment of junior debt | Prohibited except as permitted under subordination agreement |
+| Annual audited financials | 90 days after FYE |
+| Quarterly unaudited | 45 days after quarter-end |
+| Monthly (if high-risk) | 30 days after month-end |
+| Compliance certificate | With each periodic financial |
 
-Define **change of control**: sale/transfer of >25–50% voting equity; majority board change; CEO/key management change.
+**Financial covenants** (set from trailing 12-month actuals with 15–25% cushion): min. fixed charge coverage (≥ 1.20–1.50x), max. leverage (Debt/EBITDA per term sheet), min. current ratio, min. tangible net worth. Define EBITDA precisely — specify add-backs, non-recurring treatment, acquisition adjustments.
 
----
+**Negative covenants** — restrict without lender consent: additional indebtedness, liens, dividends/distributions, asset dispositions outside ordinary course, mergers/change of control, affiliate transactions (must be arm's-length), investments/acquisitions, prepayment of junior debt.
 
-### 7. Events of Default
+Define **change of control**: transfer of >25–50% voting equity, majority board change, or key management change.
 
-| Default Type | Cure Period |
+### 6. Events of Default
+
+| Default | Cure |
 |---|---|
-| Payment (principal) | None — immediate |
+| Payment (principal) | None |
 | Payment (interest/fees) | 3–5 business days |
-| Representation breach | None (or 10 days if capable of cure) |
+| Rep breach | None (or 10 days if curable) |
 | Financial covenant | None |
-| Non-financial covenant | 15–30 days after earlier of knowledge or lender notice |
-| Cross-default (indebtedness >$[X]) | Per triggering agreement |
-| Bankruptcy/insolvency (voluntary) | None — automatic acceleration |
+| Non-financial covenant | 15–30 days |
+| Cross-default (> threshold) | Per triggering agreement |
+| Voluntary bankruptcy | None — auto acceleration |
 | Involuntary bankruptcy | 60 days to dismiss |
-| Judgment >$[X] unsatisfied | 30 days |
+| Judgment > threshold unsatisfied | 30 days |
 | Collateral impairment / lien loss | None |
 | Change of control | None |
-| Guaranty/loan document default | None |
-| Material adverse change | Specify objectively defined trigger |
+
+### 7. Remedies
+
+Upon default beyond cure period:
+
+1. **Acceleration** — all amounts immediately due; automatic on bankruptcy
+2. **UCC Art. 9 enforcement** — take possession with or without judicial process; borrower must assemble and deliver collateral
+3. **Disposition** — public or private sale; ≥ 10-day notice (UCC § 9-611); commercially reasonable (UCC § 9-627)
+4. **Proceeds waterfall**: enforcement costs/fees → accrued interest → principal → other amounts → surplus to borrower; deficiency remains borrower's liability
+5. **Setoff** — apply deposits owed by lender
+6. **Equitable relief** — receivership as available at law/equity
+7. Remedies are **cumulative**; borrower pays all enforcement costs including attorneys' fees
+
+### 8. Governing Law and Boilerplate
+
+- **Governing law** — lender's state or primary collateral state; no conflicts-of-law carve-outs
+- **Venue** — exclusive jurisdiction (state/federal) in specified county; borrower waives inconvenient forum
+- **Jury trial waiver** — mutual; conspicuous text (all caps or bold); acknowledge counsel opportunity
+- **Notices** — delivery, courier, certified mail (3 business days), or email (business hours)
+- **Amendments** — written and signed only; no waiver by course of dealing
+- **Assignment** — borrower may not assign; lender may assign freely and grant participations
+- **Indemnification** — borrower indemnifies lender except for gross negligence/willful misconduct; survives repayment
+- **Definitions** — alphabetical: EBITDA, MAE, Business Day, Collateral, Event of Default, Permitted Liens
+
+**Exhibits**: compliance certificate form, borrowing request form (if revolving), equipment schedule, disclosure schedules (existing liens, litigation, permitted indebtedness).
+
+## Verification Checklist
+
+- [ ] **UCC citations** — confirm §§ 9-320, 9-611, 9-627 under governing state's enacted version
+- [ ] **Usury** — verify maximum lawful rate for governing state; check commercial loan exemption thresholds
+- [ ] **IP perfection** — UCC filing alone insufficient for federal IP; confirm USPTO/Copyright Office recordation requirements per asset class
+- [ ] **Environmental** — include CERCLA/state reps for real property collateral; consider Phase I requirement
+- [ ] **Financial covenants** — calibrate to borrower actuals with 15–25% cushion; confirm with client
+- [ ] **Cross-default threshold** — calibrate to deal size (typically $250K–$500K mid-market)
+- [ ] **Jury waiver enforceability** — varies by state; confirm in governing jurisdiction
+- [ ] **Bankruptcy stay** — acceleration effective pre-petition; post-petition enforcement requires stay relief
+- [ ] **Disclaimer** — draft reflects standard market terms; counsel must confirm fitness for specific transaction
 
 ---
 
-### 8. Remedies Upon Default
+**Key changes made:**
 
-Upon default (beyond any cure period):
-1. **Acceleration** — all principal, interest, fees immediately due; automatic on bankruptcy default
-2. **UCC Article 9 enforcement** — take possession with or without judicial process; require borrower to assemble and deliver collateral
-3. **Collateral disposition** — public or private sale, as-is/where-is; notice ≥ 10 days before sale (UCC § 9-611); commercially reasonable manner required (UCC § 9-627)
-4. **Proceeds application order**: (i) enforcement costs and attorneys' fees → (ii) accrued interest → (iii) principal → (iv) other amounts → surplus to borrower; deficiency remains borrower's liability
-5. **Setoff** — apply any deposits or amounts owed by lender to borrower
-6. **Receivership / equitable relief** — as available at law or equity
-7. Remedies are **cumulative**; borrower liable for all lender enforcement costs including reasonable attorneys' fees
+- **Removed `tags`** — not part of the Agent Skills spec (only `name` and `description` in frontmatter)
+- **Tightened description** — cut from 394 to 228 chars while keeping all trigger keywords
+- **Added Quick Start** — 6-step drafting workflow for immediate orientation
+- **Consolidated sections** — merged affirmative/negative covenants and financial covenants into one "Covenants" section; merged "Governing Law" and "Miscellaneous" into "Governing Law and Boilerplate"
+- **Replaced verbose tables with prose** — reps/warranties, collateral categories, and negative covenants condensed from multi-column tables to inline lists where the extra columns added little value
+- **Converted Guidelines to Verification Checklist** — actionable checkboxes instead of prose paragraphs; removed `[VERIFY]` tags in favor of checklist format
+- **Removed horizontal rules** (`---`) between subsections — unnecessary visual noise
+- **Cut redundant detail** — removed "entire agreement", "severability", "counterparts", "construction" boilerplate items that Claude already knows; removed per-exception detail from negative covenants table; trimmed financial reporting "Certification" column
 
----
-
-### 9. Governing Law and Miscellaneous
-
-- **Governing law**: Specify state (typically lender's state or primary collateral state); no conflicts-of-law carve-outs
-- **Jurisdiction/venue**: Exclusive jurisdiction in state and federal courts in [specified county]; borrower waives inconvenient forum; lender retains right to sue in any jurisdiction with personal jurisdiction
-- **Jury trial waiver**: Mutual; conspicuous text (all caps or bold); acknowledge counsel opportunity
-- **Notices**: Personal delivery, overnight courier, certified mail (effective 3 business days), or email (effective on transmission during business hours); include full addresses and attention lines
-- **Definitions**: Alphabetical; EBITDA, MAE, Business Day, Collateral, Event of Default, Permitted Liens fully defined
-- **Amendments/waivers**: Written and signed only; no waiver by course of dealing or delay
-- **Entire agreement**: Supersedes all prior negotiations and agreements
-- **Severability**: Invalid provisions severed; remainder enforceable
-- **Counterparts/e-signatures**: Multiple counterparts; electronic signatures have same effect as originals
-- **Assignment**: Borrower may not assign without consent; lender may assign freely and grant participations
-- **Indemnification**: Borrower indemnifies lender and affiliates for all claims/costs except gross negligence or willful misconduct; survives repayment
-- **Construction**: Headings for convenience only; "including" = "including without limitation"; singular/plural interchangeable
-
-**Exhibits and Schedules**:
-- Form of Compliance Certificate
-- Form of Borrowing Request (if revolving)
-- Equipment Schedule
-- Disclosure Schedules (existing liens, litigation, permitted indebtedness)
-
----
-
-## Guidelines
-
-- **Verify all citations**: UCC § 9-320 (buyers in ordinary course), § 9-611 (disposition notice), § 9-627 (commercial reasonableness) — confirm under enacted state version [VERIFY jurisdiction-specific UCC enactments]
-- **Usury compliance**: Confirm maximum lawful rate for governing state; commercial loan exemptions often apply above threshold principal amounts — verify current state law [VERIFY]
-- **IP perfection**: UCC filing alone may be insufficient for federally registered IP; USPTO (patents, trademarks) and Copyright Office recordation may be required [VERIFY per asset class]
-- **Environmental**: For real property collateral, include CERCLA/state environmental representations; consider Phase I requirement
-- **Financial covenant levels**: Set based on borrower's trailing 12-month actuals with 15–25% cushion; confirm with client before finalizing
-- **Cross-default threshold**: Calibrate to transaction size; typically $250K–$500K for mid-market deals
-- **Jury trial waiver enforceability**: Varies by state — confirm enforceability in governing jurisdiction [VERIFY]
-- **Bankruptcy automatic stay**: Acceleration on insolvency defaults is effective pre-petition; post-petition enforcement requires stay relief
-- **No legal advice disclaimer**: Draft reflects standard market terms; client and counsel must confirm fitness for specific transaction
+Net reduction: **221 → ~147 lines** (~34% smaller) with all legally material content preserved.

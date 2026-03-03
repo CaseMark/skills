@@ -1,6 +1,6 @@
 ---
 name: esi-protocol
-description: Drafts comprehensive ESI protocols governing e-discovery procedures in federal litigation. Establishes frameworks for preservation, identification, collection, processing, review, and production of electronically stored information compliant with FRCP Rules 26, 34, and 37 and Sedona Principles. Use during discovery phase to formalize ESI agreements between parties.
+description: Drafts stipulated ESI protocols for federal e-discovery. Produces court-ready agreements governing preservation, collection, processing, review, and production of electronically stored information under FRCP Rules 26, 34, 37 and Sedona Principles. Trigger when formalizing ESI procedures between parties during the discovery phase.
 tags:
   - agreement
   - drafting
@@ -9,115 +9,116 @@ tags:
 
 # ESI Protocol
 
-Drafts a stipulated ESI protocol to govern e-discovery procedures, suitable for entry as a court order. Must establish a complete framework for preservation, identification, collection, review, and production of electronic evidence under FRCP Rules 26, 34, and 37.
+Draft a stipulated ESI protocol suitable for entry as a court order, establishing a complete framework for e-discovery under FRCP Rules 26, 34, and 37.
 
 ## Prerequisites
 
 Gather before drafting:
 
-1. **Case information** — parties, caption, court, docket number, nature of claims/defenses
+1. **Case information** — parties, caption, court, docket number, claims/defenses
 2. **Existing orders** — scheduling orders, local rules, judge-specific ESI requirements
-3. **Rule 26(f) conference** — any preliminary agreements or meet-and-confer correspondence
-4. **Data landscape** — parties' IT infrastructure, data mapping, retention policies, custodian information
-5. **Prior ESI disputes** — any correspondence or orders regarding ESI issues
-6. **Vendor information** — e-discovery vendors retained, technical recommendations
+3. **Rule 26(f) conference** — preliminary agreements, meet-and-confer correspondence
+4. **Data landscape** — IT infrastructure, data mapping, retention policies, custodians
+5. **Prior ESI disputes** — correspondence or orders on ESI issues
+6. **Vendor information** — e-discovery vendors, technical recommendations
 
-## Output Structure
+## Quick Start
 
-### Preamble and Definitions
+1. Collect all prerequisites; confirm temporal scope and custodian universe
+2. Draft definitions and preamble anchored to FRCP 26(f)
+3. Build protocol sections in EDRM lifecycle order (preserve → identify → collect → process → review → produce)
+4. Add privilege protection with FRE 502(d) clawback
+5. Include cost allocation, dispute resolution, and execution provisions
+6. Validate against the checks below
 
-- Formal preamble citing FRCP 26(f) and court's authority
-- Party identification, temporal scope, proportionality acknowledgment
-- **Comprehensive definitions** for:
-  - ESI (per Rule 34(a)(1)(A))
-  - System metadata vs. application metadata
-  - Native format, static image format, load file
-  - Reasonably accessible vs. not reasonably accessible (Rule 26(b)(2)(B))
-  - Key custodians, data sources
-  - Privilege-related terms (privilege log, clawback, quick peek, inadvertent disclosure)
+## Protocol Sections
 
-### Preservation Obligations
+### 1. Preamble and Definitions
 
-- Preservation trigger date and scope
-- Litigation hold notice requirements (content, recipients, reissue cadence)
-- Structured vs. unstructured data preservation
-- Third-party preservation obligations (cloud providers, vendors, former employees)
-- Proportionality-based limitations (temporal, custodian, source, subject matter)
+- Preamble citing FRCP 26(f) and court's authority; party identification; temporal scope; proportionality acknowledgment
+- Define: ESI (per Rule 34(a)(1)(A)), system vs. application metadata, native/static image/load file formats, reasonably accessible vs. not reasonably accessible (Rule 26(b)(2)(B)), key custodians, data sources, privilege-related terms
+
+### 2. Preservation Obligations
+
+- Trigger date, scope, and litigation hold notice requirements (content, recipients, reissue cadence)
+- Structured vs. unstructured data; third-party obligations (cloud providers, vendors, former employees)
+- Proportionality limits (temporal, custodian, source, subject matter)
 - Spoliation notification and meet-and-confer requirements
 
-### Identification and Collection
+### 3. Identification and Collection
 
-- Custodian identification methodology and exchange timeline (30-45 days)
-- Tiered custodian approach (core first, supplemental as needed)
+- Custodian identification methodology; exchange timeline (30–45 days)
+- Tiered approach — core custodians first, supplemental as needed
 - Collection standards: forensic (write-blocking, hash values, chain of custody) vs. routine
-- Source-specific protocols: email, file servers, mobile devices, cloud, collaboration tools, social media
-- Departed employee data handling
-- Collection filters: date ranges, file types, deduplication
+- Source-specific protocols: email, file servers, mobile, cloud, collaboration tools, social media
+- Departed employee data handling; collection filters (date ranges, file types, deduplication)
 
-### Search Methodology
+### 4. Search Methodology
 
-- **Keyword search**: development, negotiation, testing, refinement process
-- **TAR/Predictive coding**: workflow specification, seed set procedures, validation metrics (precision/recall targets), transparency requirements
-- **Analytics**: email threading, near-duplicate detection, concept clustering, foreign language identification
-- Dispute resolution specific to search methodology disagreements
+- **Keyword search** — development, negotiation, testing, refinement process
+- **TAR/Predictive coding** — seed set procedures, validation metrics (precision/recall targets), transparency
+- **Analytics** — email threading, near-duplicate detection, concept clustering, foreign language identification
+- Dispute resolution for methodology disagreements
 
-### Processing and Review
+### 5. Processing and Review
 
 - Processing standards (OCR accuracy, non-standard formats, corrupted files)
-- Deduplication (global vs. custodian-level, preserving distribution metadata)
+- Deduplication (global vs. custodian-level; preserve distribution metadata)
 - Email threading and family relationship preservation
-- Filtering protocols for system/non-relevant files
-- Review quality control (training, multi-level review, statistical sampling)
+- System/non-relevant file filtering
+- QC: reviewer training, multi-level review, statistical sampling
 
-### Production Format
+### 6. Production Format
 
-- Native format requirements (spreadsheets, databases, structured data)
-- Image format specifications (TIFF/PDF, 300 DPI, color rendering, endorsements)
+- Native format for spreadsheets, databases, structured data
+- Image specs: TIFF/PDF, 300 DPI, color rendering, endorsements
 - Extracted text and OCR standards
-- **Metadata specification**: Bates numbers, document date, author, recipients, subject, file name, path, extension, size, custodian, MD5 hash, parent-child indicators
-- Bates numbering conventions (prefix, digits, family numbering)
-- Load file format (Concordance DAT / IPRO LFP)
-- Production media and delivery method
-- Paper document scanning specifications
+- Metadata fields: Bates number, date, author, recipients, subject, file name, path, extension, size, custodian, MD5 hash, parent-child indicators
+- Bates numbering conventions; load file format (Concordance DAT / IPRO LFP)
+- Delivery method; paper document scanning specs
 
-### Privilege Protection
+### 7. Privilege Protection
 
-- Privilege log requirements per Rule 26(b)(5)(A)
-- Categorical vs. document-by-document logging
-- Timing for privilege log production
-- Redaction procedures and redaction logs
-- **FRE 502(d) clawback agreement**: inadvertent disclosure procedures, sequestration obligations, challenge procedures
-- Work product treatment (fact vs. opinion)
-- Protective order for confidential business information
+- Privilege log per Rule 26(b)(5)(A) — categorical vs. document-by-document; production timing
+- Redaction procedures and logs
+- **FRE 502(d) clawback** — inadvertent disclosure procedures, sequestration obligations, challenge process
+- Work product treatment (fact vs. opinion); protective order for confidential information
 
-### Cost Allocation
+### 8. Cost Allocation
 
-- Preservation, collection, processing, review, and production cost allocation
-- Cost-shifting procedures for not-reasonably-accessible ESI
-- TAR and specialized processing cost sharing
-- Translation and transcription costs
+- Allocate costs across preservation, collection, processing, review, production
+- Cost-shifting for not-reasonably-accessible ESI (Rule 26(b)(2)(B))
+- TAR/specialized processing cost sharing; translation and transcription costs
 
-### Cooperation and Dispute Resolution
+### 9. Cooperation and Dispute Resolution
 
-- Monthly/quarterly discovery conferences
-- Phased discovery provisions
-- Multi-tiered dispute resolution (discovery counsel → lead counsel → executives → court)
-- Expedited briefing for ESI disputes
-- Special master/neutral expert provisions
+- Regular discovery conferences (monthly/quarterly); phased discovery provisions
+- Tiered escalation: discovery counsel → lead counsel → executives → court
+- Expedited briefing for ESI disputes; special master/neutral expert provisions
 - Waiver provisions for untimely objections
 
-### Execution and Modification
+### 10. Execution and Modification
 
 - Signature blocks for all parties
 - Amendment procedures (technical vs. substantive)
-- Duration and termination provisions
-- Return/destruction of produced ESI at case conclusion
+- Duration and termination; return/destruction of produced ESI at case conclusion
 - Severability and integration clauses
 
-## Guidelines
+## Checks
 
-- Draft in precise legal language suitable for court filing
-- Balance specificity with flexibility for unforeseen technical challenges
-- Ensure provisions are balanced — not unfairly advantaging either party
-- Cite FRCP, Sedona Principles, and EDRM standards where appropriate
-- Include cooperation and proportionality commitments per 2015 FRCP amendments
+- Language is precise, court-filing ready, and balanced between parties
+- Proportionality and cooperation commitments reflect 2015 FRCP amendments
+- FRCP, Sedona Principles, and EDRM standards cited where appropriate
+- Provisions flexible enough for unforeseen technical challenges
+- FRE 502(d) clawback included to protect against inadvertent privilege waiver
+
+---
+
+Key changes from the original:
+
+- **Description** rewritten in third-person with explicit trigger guidance
+- **Added Quick Start** section for rapid orientation on the drafting workflow
+- **Consolidated "Output Structure"** into numbered **Protocol Sections** — same 10 sections, but with tighter bullet points (semicolons to combine related items, removal of redundant phrasing)
+- **Renamed "Guidelines"** to **Checks** — reframed as a validation checklist
+- **Removed** the redundant intro paragraph that duplicated the frontmatter description
+- Overall ~20% fewer tokens while preserving all legal substance and FRCP/Sedona/EDRM references

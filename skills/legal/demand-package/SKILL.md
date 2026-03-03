@@ -1,6 +1,6 @@
 ---
 name: demand-package
-description: Compiles a complete pre-suit or pre-settlement demand package for U.S. commercial litigation plaintiffs. Assembles a demand letter with chronological facts, legal theories, and itemized damages alongside an organized exhibit set covering records, correspondence, expert reports, and legal authority. Use when drafting demand packages, pre-litigation settlement demands, or breach-and-cure notices in commercial matters.
+description: Compiles pre-suit or pre-settlement demand packages for U.S. commercial litigation plaintiffs. Assembles demand letter, damages calculation, and exhibit set. Use when drafting demand packages, pre-litigation settlement demands, or breach-and-cure notices.
 tags:
   - drafting
   - letter
@@ -9,61 +9,63 @@ tags:
 
 # Demand Package Compilation
 
-Assembles a litigation-ready demand package for plaintiff-side pre-filing or settlement negotiations in U.S. commercial litigation matters.
+Assembles a litigation-ready demand package — demand letter, itemized damages, and organized exhibits — for plaintiff-side pre-filing or settlement negotiations in U.S. commercial matters.
 
 ## Prerequisites
 
-1. **Incident/breach documentation** — contracts, agreements, incident reports, or other triggering event records
-2. **Damages documentation** — bills, invoices, pay stubs, repair estimates, receipts
-3. **Medical records** (if applicable) — with HIPAA-compliant release authorizations confirmed
-4. **Correspondence history** — emails, letters, prior settlement communications
-5. **Witness statements / expert reports** (if available)
-6. **Demand amount and response deadline** — confirmed with supervising attorney
+Collect before drafting:
 
-## Output Structure
+- **Incident/breach documentation** — contracts, incident reports, triggering event records
+- **Damages documentation** — bills, invoices, pay stubs, repair estimates, receipts
+- **Medical records** (if applicable) — HIPAA authorization must be confirmed
+- **Correspondence history** — emails, letters, prior settlement communications
+- **Witness statements / expert reports** (if available)
+- **Demand amount and response deadline** — confirmed with supervising attorney
 
-### Component 1: Cover Letter
-- Matter identification (parties, file/claim number, purpose)
-- Transmittal statement for enclosed package
-- Response deadline
+## Quick Start
 
-### Component 2: Demand Letter
+A complete package has four components assembled in order:
+
+1. **Cover letter** — parties, file/claim number, transmittal statement, response deadline
+2. **Demand letter** — facts, legal theories, damages, demand figure
+3. **Damages calculation** — itemized by category with exhibit citations
+4. **Exhibit index + exhibits** — sequentially numbered, matching letter citations
+
+## Core Workflow
+
+### 1. Draft the Demand Letter
 
 | Section | Content |
 |---|---|
-| Introduction | Client identity, adverse party identity, basis for claim |
-| Statement of Facts | Chronological narrative, specific dates, cited to exhibits |
-| Legal Theories | Causes of action, duties breached, statutory/regulatory basis |
-| Damages | Itemized breakdown by category (see below), total demand figure |
-| Liability Summary | Why liability is clear; proactively address known weaknesses |
-| Demand & Deadline | Specific dollar amount, response deadline, consequence of non-response |
+| Introduction | Client identity, adverse party, basis for claim |
+| Statement of Facts | Chronological narrative with dates, cited to exhibits |
+| Legal Theories | Causes of action, duties breached, statutory basis |
+| Damages | Itemized breakdown by category, total demand figure |
+| Liability Summary | Why liability is clear; address known weaknesses proactively |
+| Demand & Deadline | Dollar amount, response deadline, consequence of non-response |
 
-### Component 3: Damages Calculation
+### 2. Calculate Damages
 
-**Economic Damages**
-- Past medical expenses (cite bills/EOBs)
-- Future medical expenses (cite expert projections)
-- Past lost wages / earning capacity (cite pay stubs, employer records)
-- Future lost earning capacity (cite vocational/economic expert report)
-- Property damage / repair costs (cite estimates and invoices)
-- Out-of-pocket expenses (cite receipts)
+**Economic** — cite supporting documentation for each:
+- Past/future medical expenses (bills, EOBs, expert projections)
+- Past/future lost wages or earning capacity (pay stubs, employer records, vocational expert)
+- Property damage / repair costs (estimates, invoices)
+- Out-of-pocket expenses (receipts)
 
-**Non-Economic Damages**
-- Pain and suffering
-- Emotional distress
-- Loss of enjoyment of life
+**Non-economic:**
+- Pain and suffering, emotional distress, loss of enjoyment of life
 - Loss of consortium (where applicable)
 
-**Punitive Damages** (if applicable)
-- State the legal basis and specific conduct justifying the award
+**Punitive** (if applicable):
+- State legal basis and specific conduct justifying the award
 
-### Component 4: Exhibit Index & Exhibits
+### 3. Organize Exhibits
 
-Number exhibits sequentially (Ex. 1, 2, 3…) in the order they appear in the demand letter narrative:
+Number sequentially (Ex. 1, 2, 3…) in the order cited in the demand letter:
 
 | Category | Examples |
 |---|---|
-| Incident documentation | Reports, photographs, video footage |
+| Incident documentation | Reports, photographs, video |
 | Medical records & bills | Treatment records, EOBs, billing summaries |
 | Employment / wage records | Pay stubs, employer letters, tax records |
 | Property damage | Repair estimates, invoices |
@@ -71,25 +73,26 @@ Number exhibits sequentially (Ex. 1, 2, 3…) in the order they appear in the de
 | Expert reports | Medical, vocational, engineering, economic |
 | Contracts & agreements | Relevant provisions highlighted |
 | Correspondence | Chronological communications with adverse party |
-| Legal authority | Statutes, regulations, key cases [VERIFY citations] |
+| Legal authority | Statutes, regulations, key cases **[VERIFY citations]** |
 
 ## Pre-Submission Checklist
 
-- [ ] All exhibits referenced in the letter are included and labeled
-- [ ] All factual assertions are supported by a cited exhibit
+- [ ] Every exhibit referenced in the letter is included and labeled
+- [ ] Every factual assertion is supported by a cited exhibit
 - [ ] Damage figures match supporting documentation exactly
 - [ ] Names, dates, and entity identifiers are consistent throughout
-- [ ] HIPAA authorizations obtained for all medical records before inclusion
+- [ ] HIPAA authorizations obtained for all included medical records
 - [ ] Attorney work product and privileged communications excluded
-- [ ] PII redacted where appropriate (SSNs, account numbers, unrelated health info)
+- [ ] PII redacted (SSNs, account numbers, unrelated health info)
 - [ ] Demand amount and response deadline clearly stated
-- [ ] Package is sequentially paginated with a complete exhibit index
+- [ ] Package is sequentially paginated with complete exhibit index
+- [ ] All cited statutes and cases apply to the governing forum **[VERIFY]**
 
-## Guidelines
+## Common Pitfalls
 
-- **Tone**: Professional and factual — let the evidence carry the persuasive weight; avoid inflammatory language
-- **Weaknesses**: Address proactively but frame favorably; do not omit material issues
-- **Privilege**: Exclude all attorney-client communications and work product without exception
-- **HIPAA**: Confirm valid written authorization before including any protected health information
-- **Jurisdiction**: Verify all cited statutes and cases apply to the governing forum [VERIFY]
-- **Self-contained**: Package must stand alone — the recipient should require no supplementation to evaluate the claim
+- **Privilege leaks** — exclude all attorney-client communications and work product without exception
+- **HIPAA violations** — never include protected health information without valid written authorization
+- **Unsupported assertions** — every factual claim needs an exhibit citation; unsupported claims undermine credibility
+- **Inflammatory tone** — keep language professional and factual; let evidence carry persuasive weight
+- **Omitting weaknesses** — address known weaknesses proactively but frame favorably; omission invites skepticism
+- **Incomplete package** — the package must stand alone; the recipient should need no supplementation to evaluate the claim

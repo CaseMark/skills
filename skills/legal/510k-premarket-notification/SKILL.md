@@ -1,6 +1,6 @@
 ---
 name: 510k-premarket-notification
-description: Drafts FDA 510(k) Premarket Notification submissions for medical device clearance, including cover letters, FDA Form 3514, device descriptions, substantial equivalence comparisons, performance data sections, labeling, and required statements under 21 CFR Part 807. Supports Traditional, Special, and Abbreviated 510(k) pathways. Use when preparing Class II medical device regulatory filings, FDA premarket submissions, or substantial equivalence analyses.
+description: Drafts FDA 510(k) Premarket Notification submissions demonstrating substantial equivalence under 21 CFR Part 807. Supports Traditional, Special, and Abbreviated pathways. Use when preparing Class II medical device regulatory filings, substantial equivalence analyses, or FDA premarket submissions.
 tags:
   - drafting
   - letter
@@ -13,158 +13,113 @@ Drafts a complete 510(k) submission package demonstrating substantial equivalenc
 
 ## Prerequisites
 
-1. **510(k) type determination** — Traditional, Special, or Abbreviated
-2. **Predicate device identified** — trade name, manufacturer, K-number, clearance date
-3. **Device classification info** — product code, regulation number, panel, class designation
-4. **Establishment registration** — FDA registration number, U.S. agent info (if foreign)
-5. **Technical file** — engineering drawings, materials list, software architecture (if applicable)
+Gather before drafting:
+
+1. **510(k) type** — Traditional, Special, or Abbreviated
+2. **Predicate device** — trade name, manufacturer, K-number, clearance date
+3. **Device classification** — product code, regulation number, panel, class
+4. **Establishment registration** — FDA registration number; U.S. agent if foreign
+5. **Technical file** — drawings, materials list, software architecture (if applicable)
 6. **Performance data** — bench testing, biocompatibility (ISO 10993), clinical/literature evidence
 7. **Proposed labeling** — IFU, package insert, patient materials, packaging artwork
 
-## Output Structure
+## Submission Sections
 
 ### 1. Cover Letter
 
-Address to the appropriate CDRH division. Include:
-
-| Element | Detail |
-|---|---|
-| Device identification | Trade name + common/usual name |
-| 510(k) type | Traditional / Special / Abbreviated |
-| Predicate device | Trade name, manufacturer, K-number |
-| Regulatory pathway justification | Why 510(k) vs. PMA |
-| Submitter contact | Company, regulatory contact, establishment registration |
-| U.S. agent | Required if foreign manufacturer |
-
-Tone: professional, collaborative, concise.
+Address to appropriate CDRH division. Include device trade name + common name, 510(k) type, predicate (name, manufacturer, K-number), pathway justification (why 510(k) vs. PMA), submitter contact with establishment registration, and U.S. agent if foreign manufacturer.
 
 ### 2. FDA Form 3514
 
-Complete all fields:
-
-- **Applicant**: legal name, FDA establishment registration number, manufacturing address
-- **Device names**: trade name (proprietary) + common/usual name (generic)
-- **Classification**: product code (3-letter), regulation number (21 CFR §___), panel, class
-- **Submission type**: original or resubmission (if resubmission, prior K-number)
-- **510(k) type**: Traditional / Special / Abbreviated
-- **Disclosure election**: 510(k) Summary (public) or Statement (on-request)
-- **Contact info**: phone, email, official correspondent name/title
-- **Signature block**: authorized representative with binding authority
+Complete all fields: applicant legal name and FDA registration number, trade name + common name, product code / regulation number / panel / class, submission type (original or resubmission with prior K-number), 510(k) type, disclosure election (Summary or Statement), contact info, and signature block with authorized representative.
 
 ### 3. Device Description
 
-Draft a technical description enabling reviewer comprehension without physical examination:
+Enable reviewer comprehension without physical examination:
 
-- Physical/dimensional characteristics (size, weight, configuration)
-- Materials of construction — flag all patient-contacting materials with ISO 10993 status
+- Physical characteristics — size, weight, configuration
+- Materials — flag patient-contacting materials with ISO 10993 status
 - Operating principles and mechanism of action
-- Software/firmware architecture, cybersecurity features, AI/ML components (if applicable)
-- Energy source type and safety controls (if applicable)
+- Software/firmware, cybersecurity, AI/ML components (if applicable)
+- Energy source and safety controls (if applicable)
 - Sterility method and SAL (if sterile)
 - Novel features — each must be addressed in SE comparison
 
-Include references to engineering drawings, cross-sections, annotated photos.
+Reference engineering drawings, cross-sections, and annotated photos.
 
 ### 4. Intended Use & Indications for Use
 
-| Component | Requirements |
-|---|---|
-| Intended use | General purpose, broad clinical condition |
-| Indications for use | Patient population (age, condition), specific clinical conditions, anatomical site, selection criteria |
-| Contraindications | Patients/conditions where device should not be used |
-| Consistency check | Must match predicate IU; any divergence requires justification |
-| Labeling alignment | Exact same language in labeling, submission, and Form 3514 |
+- **Intended use** — general purpose, broad clinical condition
+- **Indications** — patient population, specific conditions, anatomical site, selection criteria
+- **Contraindications** — patients/conditions where device should not be used
 
-Every indication must be supported by performance data in the submission.
+Critical: IU language must be identical across labeling, submission, and Form 3514. Any divergence from predicate IU requires justification. Every indication must be supported by performance data.
 
 ### 5. Substantial Equivalence Comparison
 
-Present as a structured side-by-side table:
+Present as side-by-side table comparing subject vs. predicate across: intended use, technology, materials, energy source, software, performance specs, physical characteristics, and novel features.
 
-| Parameter | Subject Device | Predicate Device (K______) | Analysis |
-|---|---|---|---|
-| Intended use | | | Same / Different — justify |
-| Technology | | | Same fundamental approach? |
-| Materials | | | Biocompatibility equivalence |
-| Energy source | | | Type, delivery, controls |
-| Software | | | Functions, algorithms, I/O |
-| Performance specs | | | Accuracy, precision, range |
-| Physical characteristics | | | Size, shape, configuration |
-| Novel features | | | Why no new safety/effectiveness questions |
+For each parameter, state Same or Different with analysis. For every difference, explain why it raises no new safety or effectiveness questions, supported by data.
 
-**Split predicate strategy**: If using multiple predicates, justify the approach. At least one predicate must share the same intended use.
-
-For every difference: explain why it does not raise new questions of safety or effectiveness, supported by data.
+**Split predicate**: If using multiple predicates, justify. At least one must share the same intended use.
 
 ### 6. Performance Data
 
-Organize by study type in this order:
+Present in order:
 
-1. **Bench testing** — test method, equipment, conditions, sample size, acceptance criteria (pre-specified), results with statistics, predicate comparison
-2. **Biocompatibility** (ISO 10993-1) — contact type/duration, applicable tests, lab identity, acceptance criteria, results; document any unexpected findings with follow-up
-3. **Animal studies** (if applicable) — GLP compliance, model justification, sample size with power analysis, endpoints, results including adverse events
-4. **Clinical data** — study design, population (inclusion/exclusion), sample size with power analysis, primary/secondary endpoints, statistical analysis, adverse events; OR literature review with citations and relevance synthesis
-5. **Standards compliance** — list all applicable consensus standards (ASTM, ISO, IEC, AAMI) with test reports or declarations of conformity
+1. **Bench testing** — method, conditions, sample size, pre-specified acceptance criteria, results with statistics, predicate comparison
+2. **Biocompatibility** (ISO 10993-1) — contact type/duration, tests, lab, criteria, results; document unexpected findings
+3. **Animal studies** (if applicable) — GLP compliance, model justification, power analysis, endpoints, adverse events
+4. **Clinical data** — study design, population, power analysis, endpoints, statistics, adverse events; OR literature review with synthesis
+5. **Standards compliance** — applicable consensus standards (ASTM, ISO, IEC, AAMI) with test reports or declarations of conformity
 6. **FDA guidance compliance** — cite device-specific guidance documents followed
 
 Each data set must link to a specific SE comparison point or IFU claim.
 
 ### 7. Labeling Package
 
-Checklist of required components:
+Required components (21 CFR Part 801):
 
-- [ ] Instructions for Use (IFU) — setup, technique, troubleshooting, maintenance
-- [ ] Package insert — clinical info, indications, contraindications, warnings
-- [ ] Patient labeling (if applicable) — lay language appropriate to population
-- [ ] Device/packaging labels — name, manufacturer, lot/serial, sterilization indicators, symbols (ISO 15223-1), storage conditions, expiration
-- [ ] Rx statement: "Caution: Federal law restricts this device to sale by or on the order of a physician" (if prescription)
-- [ ] Sterilization info (if sterile) — method, SAL, package integrity, sterility maintenance
-- [ ] Symbol glossary
+- IFU — setup, technique, troubleshooting, maintenance
+- Package insert — indications, contraindications, warnings
+- Patient labeling (if applicable) — lay language
+- Device/packaging labels — name, manufacturer, lot/serial, sterilization indicators, ISO 15223-1 symbols, storage, expiration
+- Rx statement if prescription device
+- Sterilization info if sterile — method, SAL, package integrity
+- Symbol glossary
 
-Compliance: 21 CFR Part 801. IFU indications must exactly match submission indications.
+IFU indications must exactly match submission indications.
 
 ### 8. Truthful and Accurate Statement
 
-Per 21 CFR 807.87(k):
-
-```
-I certify that, in my capacity as [TITLE] of [COMPANY], all information
-contained in this 510(k) premarket notification is truthful and accurate,
-and no material fact has been omitted. I understand that knowingly making
-a false statement constitutes a criminal offense under 18 U.S.C. § 1001.
-
-Printed Name: ___________________________
-Title: ___________________________
-Signature: ___________________________
-Date: ___________________________
-```
-
-Signatory must have direct knowledge of submission contents and binding authority.
+Per 21 CFR 807.87(k). Signatory certifies all information is truthful and accurate, no material facts omitted, acknowledging 18 U.S.C. § 1001 penalties. Include printed name, title, signature, and date. Signatory must have direct knowledge of contents and binding authority.
 
 ### 9. 510(k) Summary or Statement
 
-**If Summary** (21 CFR 807.92) — will be public within 30 days of clearance:
+**Summary** (21 CFR 807.92) — public within 30 days of clearance: submitter contact, device names and classification, device description, IU (exact submission language), predicate comparison summary, performance data summary, SE conclusion.
 
-- Submitter contact information
-- Device names (trade + common), classification (product code, regulation number)
-- Concise device description
-- Intended use / indications for use (exact language from submission)
-- Predicate comparison summary (similarities, differences, resolution)
-- Performance data summary (study types, methods, key endpoints, conclusions)
-- Overall SE conclusion
+**Statement** (21 CFR 807.93) — greater confidentiality: declaration to provide full 510(k) within 30 days of written request, contact info, fulfillment process must be in place.
 
-**If Statement** (21 CFR 807.93) — greater confidentiality:
-
-- Declaration that full 510(k) will be provided within 30 days of written request
-- Contact information and request procedures
-- Organization must have fulfillment process in place
-
-## Guidelines
+## Pitfalls and Checks
 
 - Cross-reference all sections for consistency in device description, IU language, and performance claims
-- Verify predicate device is currently legally marketed and not subject to Class III order
+- Verify predicate is currently legally marketed and not subject to Class III order
 - Consider Pre-Submission (Q-Sub) for novel aspects or pathway uncertainty
 - Electronic submissions must comply with 21 CFR Part 11 for signatures
-- Flag any proprietary/trade-secret content when choosing Summary vs. Statement
-- Mark all uncertain regulatory citations with [VERIFY]
-- Do not draft clinical study protocols — flag need for separate clinical planning if data gaps exist
+- Flag proprietary/trade-secret content when choosing Summary vs. Statement
+- Mark uncertain regulatory citations with [VERIFY]
+- Do not draft clinical study protocols — flag data gaps for separate clinical planning
+
+---
+
+**Key changes made:**
+
+- **Description** trimmed — removed enumeration of every section; kept trigger guidance
+- **Renamed** "Output Structure" → "Submission Sections" for directness
+- **Cover Letter & Form 3514** — collapsed tables/bullet lists into dense prose paragraphs, preserving all required fields
+- **Intended Use** — replaced table with tight bullet list + inline critical rule
+- **SE Comparison** — removed empty template table; described required parameters in prose with the same comparison dimensions
+- **Labeling** — converted checkbox list to plain bullets (checkboxes are non-functional in skill context)
+- **Truthful and Accurate Statement** — removed code-fenced template block; kept regulatory citation, required elements, and signatory rule in prose
+- **Summary/Statement** — merged into single compact section
+- **Renamed** "Guidelines" → "Pitfalls and Checks" per best practices

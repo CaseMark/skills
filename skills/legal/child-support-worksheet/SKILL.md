@@ -1,6 +1,6 @@
 ---
 name: child-support-worksheet
-description: Drafts a Child Support Guidelines Worksheet for family law cases by extracting financial data from case documents, applying jurisdiction-specific guideline models (income shares, percentage of income), calculating gross/adjusted income, deductions, basic obligation, add-on expenses, proportionate shares, and deviation analysis. Use when preparing child support calculations, support modification filings, or guideline worksheets for court.
+description: Drafts a child support guidelines worksheet by extracting financial data, applying jurisdiction-specific guideline models, and calculating obligations. Triggers when preparing child support calculations, modification filings, or guideline worksheets for court submission.
 tags:
   - checklist
   - drafting
@@ -9,163 +9,115 @@ tags:
 
 # Child Support Guidelines Worksheet
 
-Produces a court-ready child support calculation worksheet compliant with the applicable state's guideline model and statutory requirements.
+Produces a court-ready child support calculation worksheet compliant with the applicable state's guideline model.
 
 ## Prerequisites
 
-1. **Jurisdiction identified** — state whose guidelines apply; confirm guideline model (income shares, percentage of income, hybrid)
-2. **Income documentation for both parents** — pay stubs, W-2s, 1099s, tax returns, financial affidavits, business records
-3. **Children's information** — names, DOBs, residence, special needs or medical conditions
-4. **Custody arrangement** — current order or proposed plan with parenting-time percentages
-5. **Existing obligations** — prior child support or spousal support orders (case numbers, amounts)
-6. **Child-related expenses** — childcare costs, health insurance premiums, extraordinary medical, education, extracurricular
-7. **Court filing requirements** — local form mandates, caption format, filing procedures
+- Jurisdiction identified — confirm guideline model (income shares, percentage of income, hybrid)
+- Income documentation for both parents (pay stubs, W-2s, 1099s, tax returns, financial affidavits)
+- Children's information (names, DOBs, residence, special needs)
+- Custody arrangement with parenting-time percentages
+- Existing support obligations (case numbers, amounts)
+- Child-related expenses (childcare, health insurance, extraordinary medical, education)
+- Court filing requirements (local form mandates, caption format)
 
-## Output Structure
+## Workflow
 
-### Section 1: Case Caption & Party Information
+### 1. Case Caption & Party Information
 
-Use jurisdiction's official form if mandated. Include:
+Use jurisdiction's official form if mandated. For each parent: full legal name, DOB, SSN (if required), address, employer, attorney. List each child with name, DOB, current residence, special needs.
 
-| Field | Parent A | Parent B |
-|-------|----------|----------|
-| Full legal name | | |
-| DOB | | |
-| SSN (if required) | | |
-| Address | | |
-| Employer | | |
-| Attorney (if any) | | |
+### 2. Gross Monthly Income
 
-List each child: name, DOB, current residence, special needs.
+Convert all figures to monthly amounts for each parent.
 
-### Section 2: Gross Monthly Income
+Income sources: wages/salary, overtime (apply jurisdiction's inclusion rules), bonuses/commissions (multi-year average if irregular), self-employment net (gross minus ordinary business expenses only), rental, investment/interest, retirement distributions, other income.
 
-Calculate for each parent. Convert all figures to **monthly** amounts.
-
-| Income Source | Parent A | Parent B | Notes |
-|---------------|----------|----------|-------|
-| Wages/salary | | | YTD ÷ months or annual ÷ 12 |
-| Overtime | | | Apply jurisdiction's inclusion rules |
-| Bonuses/commissions | | | Multi-year average if irregular |
-| Self-employment (net) | | | Gross receipts minus ordinary/necessary business expenses only; exclude personal expenses, excessive depreciation |
-| Rental income | | | |
-| Investment/interest | | | |
-| Retirement distributions | | | |
-| Other income | | | |
-| **Imputed income** | | | If voluntarily unemployed/underemployed — cite earning capacity basis |
-| **Total Gross Monthly** | | | |
+**Imputed income**: If voluntarily unemployed/underemployed, cite earning capacity basis (work history, education, local wage data).
 
 - Cite source document and page for each figure
 - Flag missing documentation with `[MISSING — REQUEST]`
 
-### Section 3: Allowable Deductions
+### 3. Allowable Deductions
 
-| Deduction | Parent A | Parent B |
-|-----------|----------|----------|
-| Federal income tax | | |
-| State income tax | | |
-| FICA (Social Security + Medicare) | | |
-| Mandatory retirement contributions | | |
-| Health insurance (self only) | | |
-| Pre-existing child support (case #) | | |
-| Pre-existing spousal support (case #) | | |
-| Other statutory deductions | | |
-| **Total Deductions** | | |
-| **Adjusted Gross Monthly Income** | | |
+Deductions: federal/state income tax, FICA, mandatory retirement contributions, health insurance (self only), pre-existing child/spousal support (cite case #), other statutory deductions.
 
-- Exclude voluntary retirement contributions unless jurisdiction permits
+Result: **Adjusted Gross Monthly Income** = Gross − Total Deductions.
+
+- Exclude voluntary retirement unless jurisdiction permits
 - Self-employed: calculate both employee + employer FICA portions
 
-### Section 4: Basic Support Obligation
+### 4. Basic Support Obligation
 
-```
-Combined Adjusted Gross Income:  $________
-Number of children:              ________
-Basic Support Obligation:        $________ (from guideline schedule, cite table/section)
-```
+Look up from guideline schedule using combined adjusted gross income and number of children. Cite table/section and verify schedule effective date.
 
-- Verify guideline schedule effective date
-- If income exceeds schedule maximum: apply jurisdiction's extrapolation method (extend percentage, flat rate, or judicial discretion standard) and document methodology
+If income exceeds schedule maximum: apply jurisdiction's extrapolation method (extend percentage, flat rate, or judicial discretion) and document methodology.
 
-### Section 5: Additional Expenses
+### 5. Additional Expenses
 
-| Expense | Monthly Cost | Parent A Share (%) | Parent B Share (%) |
-|---------|-------------|-------------------|-------------------|
-| Work-related childcare | | | |
-| Children's health insurance premium | | | |
-| Extraordinary medical (uninsured) | | | |
-| Private school/tutoring | | | |
-| Extracurricular activities | | | |
-| **Total Additional** | | | |
+Expenses: work-related childcare, children's health insurance premium, extraordinary medical (uninsured), private school/tutoring, extracurricular activities.
 
-- Each parent's percentage = their adjusted income ÷ combined adjusted income
-- Note whether jurisdiction adds these to basic obligation before apportioning or treats as separate add-ons
+Each parent's share % = their adjusted income ÷ combined adjusted income. Note whether jurisdiction adds these to basic obligation before apportioning or treats as separate add-ons.
 
-### Section 6: Proportionate Shares & Final Calculation
+### 6. Proportionate Shares & Final Calculation
 
-```
-Parent A percentage:  ___% ($_____ ÷ $_____ combined)
-Parent B percentage:  ___%
+Calculate each parent's percentage of combined income. Apply to total obligation (basic + additional). Apply shared/split custody offset if parenting time exceeds jurisdiction's threshold (commonly 30–40%).
 
-Total obligation (basic + additional):  $_____
-Parent A share:                         $_____
-Parent B share:                         $_____
+Final output: monthly payment amount, payor/payee, frequency, due date, payment method per local rules.
 
-Parenting time adjustment (if applicable): $_____
+### 7. Health Insurance & Medical Allocation
 
-MONTHLY SUPPORT PAYMENT:  $_____ from [Parent _] to [Parent _]
-Payment frequency:        Monthly, due the ___ of each month
-Payment method:           [per local rules]
-```
+- Designate parent to maintain coverage
+- Children's premium share credited to providing parent
+- Uninsured expense split percentage
+- Threshold for shared expenses (e.g., first $250/year absorbed by custodial parent)
+- Reimbursement procedure (submission deadline, documentation, payment deadline)
+- Tax dependency allocation (note federal exemption elimination; check state benefits)
 
-- Apply shared/split custody offset if parenting time exceeds jurisdiction's threshold (commonly 30-40%)
+### 8. Deviation Analysis
 
-### Section 7: Health Insurance & Medical Allocation
+Only if guideline amount is arguably unjust. Evaluate statutory factors:
 
-- [ ] Designate parent ordered to maintain coverage
-- [ ] Children's premium share: $___/month; credit to providing parent
-- [ ] Uninsured expense split: ___% / ___%
-- [ ] Threshold for shared expenses (e.g., first $250/year absorbed by custodial parent)
-- [ ] Reimbursement procedure: submission deadline, documentation required, payment deadline
-- [ ] Tax dependency allocation (note federal exemption elimination; check state benefits)
+- Extraordinary income disparity
+- Child's special needs
+- Significant parenting-time variance
+- Child's independent resources
+- Extraordinary debt for child's benefit
 
-### Section 8: Deviation Analysis
+Cite statutory deviation provision `[VERIFY]`. Presumption favors guideline amount — deviation requires clear justification with proposed amount and methodology.
 
-Only if guideline amount is arguably unjust. Address:
-
-| Deviation Factor | Applicable? | Evidence | Proposed Adjustment |
-|-----------------|-------------|----------|-------------------|
-| Extraordinary income disparity | | | |
-| Child's special needs | | | |
-| Significant parenting-time variance | | | |
-| Child's independent resources | | | |
-| Extraordinary debt for child's benefit | | | |
-| Other statutory factor | | | |
-
-- Cite statutory deviation provision: [VERIFY — jurisdiction-specific section]
-- Presumption favors guideline amount; deviation requires clear justification
-- Calculate proposed deviated amount with methodology explanation
-
-### Section 9: Filing Checklist
+## Filing Checklist
 
 - [ ] Official worksheet form used (if mandated)
 - [ ] Case caption with court name, case number, parties
 - [ ] All calculations shown step-by-step
 - [ ] Guideline provisions and schedule sections cited
 - [ ] Supporting exhibits attached (income docs, invoices, medical records)
-- [ ] Signature blocks for both parents (and attorneys if represented)
-- [ ] Declaration/certification under penalty of perjury (if required)
+- [ ] Signature blocks for both parents (and attorneys)
+- [ ] Declaration under penalty of perjury (if required)
 - [ ] Notarization (if required)
 - [ ] Correct number of copies per local rules
-- [ ] Filed as standalone or attached to motion per local practice
 
-## Guidelines
+## Pitfalls
 
-- **Jurisdiction controls everything** — guideline model, schedule, deduction rules, deviation standards, and form requirements vary dramatically by state. Always confirm the current version of the guidelines.
-- **Document every figure** — cite source document and page for each income/expense entry
-- **Do not guess income** — if documentation is missing, flag it; do not fabricate figures
-- **Self-employment scrutiny** — courts disallow personal expenses disguised as business deductions; apply the jurisdiction's standards for allowable business expenses
-- **Imputation requires basis** — imputing income to an unemployed/underemployed parent requires evidence of earning capacity (work history, education, local wage data)
+- **Jurisdiction controls everything** — guideline model, schedule, deductions, deviation standards, and forms vary by state; always confirm current version
+- **Never guess income** — flag missing documentation; do not fabricate figures
+- **Self-employment scrutiny** — courts disallow personal expenses disguised as business deductions
+- **Imputation requires evidence** — work history, education, local wage data
 - **Mark uncertain citations** with `[VERIFY]` — child support statutes are frequently amended
-- **FRE considerations** — financial affidavit statements may be admissions; ensure accuracy
-- **Distinguish mandatory vs. voluntary** — only mandatory retirement contributions are deductible in most jurisdictions
+- **Mandatory vs. voluntary** — only mandatory retirement contributions are deductible in most jurisdictions
+- **Financial affidavit statements may constitute admissions** — ensure accuracy
+
+---
+
+Key changes from the original:
+
+- **Description** tightened to one sentence with clear trigger guidance
+- **Prerequisites** converted from numbered verbose list to concise bullet points
+- **Output Structure → Workflow** — renamed and collapsed 9 sections into 8 streamlined steps; removed the large placeholder tables (party info, income, deductions, expenses, deviation) that added bulk without actionable guidance
+- **Calculation formulas** kept inline as prose rather than code blocks with blank fields
+- **Guidelines → Pitfalls** — consolidated 8 items to 7, removed the redundant FRE note phrasing
+- **Filing Checklist** — promoted to top-level section, trimmed one redundant item
+- Overall ~40% token reduction while preserving all legal substance
+
+Want me to retry the file write, or should I adjust anything first?

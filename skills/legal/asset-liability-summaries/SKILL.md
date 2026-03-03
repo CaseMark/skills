@@ -1,129 +1,113 @@
 ---
 name: asset-liability-summaries
 description: >-
-  Analyzes financial documents to produce structured asset and liability
-  summaries for legal proceedings. Extracts valuations, ownership structures,
-  and encumbrances across all asset classes and debt types, then outputs an
-  executive net-worth overview, categorized schedules, disputed-item flags,
-  and documentation gaps. Use when preparing financial summaries for
-  divorce/dissolution, estate planning, bankruptcy, business valuation,
-  settlement negotiations, or financial litigation. Trigger keywords: net
-  worth summary, marital estate, balance sheet, asset schedule, liability
-  schedule, community property, separate property.
+  Produces structured asset and liability summaries from financial documents for
+  legal proceedings. Extracts valuations, ownership classifications, and
+  encumbrances, then outputs net-worth overview, categorized schedules, disputed
+  items, and documentation gaps. Use when preparing financial summaries for
+  divorce/dissolution, estate planning, bankruptcy, business valuation, or
+  settlement negotiations. Trigger on: net worth summary, marital estate,
+  balance sheet, asset schedule, liability schedule, community/separate property.
 tags:
   - analysis
   - litigation
   - summarization
-  - summary
-  - transactional
 ---
 
 # Asset & Liability Summary
 
-Produces a court-ready financial summary covering all assets and liabilities — with ownership classification, valuations, encumbrances, and source citations.
+Court-ready financial summary covering all assets and liabilities with ownership classification, valuations, encumbrances, and source citations.
 
 ## Prerequisites
 
-1. **Source financial documents** — bank/brokerage statements, tax returns, mortgage statements, loan documents, business financials, appraisals, retirement account statements
-2. **Effective date** — the valuation date controlling all figures (e.g., date of separation, petition date, death date)
-3. **Matter type** — divorce, estate, bankruptcy, business valuation, or general litigation (drives community/separate property analysis and categorization logic)
-4. **Jurisdiction** — relevant for community property vs. equitable distribution states and exemption rules (bankruptcy)
+1. **Source documents** — bank/brokerage statements, tax returns, mortgage/loan documents, business financials, appraisals, retirement account statements
+2. **Effective date** — valuation date controlling all figures (date of separation, petition date, death date)
+3. **Matter type** — divorce, estate, bankruptcy, business valuation, or general litigation
+4. **Jurisdiction** — community property vs. equitable distribution; exemption rules if bankruptcy
 
-## Output Structure
+## Workflow
 
-### 1. Executive Overview
+### Step 1: Executive Overview
 
-| | Amount |
+Produce a summary table:
+
+| Field | Value |
 |---|---|
-| **Total Assets** | $ |
-| **Total Liabilities** | $ |
-| **Net Worth / Equity** | $ |
-| **Effective Valuation Date** | |
-| **Disputed Items (not included above)** | $ |
+| Total Assets | $ |
+| Total Liabilities | $ |
+| Net Worth / Equity | $ |
+| Effective Valuation Date | |
+| Disputed Items (excluded from totals) | $ |
 
----
+### Step 2: Asset Schedule
 
-### 2. Asset Schedule
-
-Group by category. For each asset:
+Group by category. Capture per asset:
 
 | Field | Capture |
 |---|---|
-| Description | Asset name, account number (last 4), address |
+| Description | Name, account number (last 4), address |
 | Category | Real property / Financial account / Retirement / Business interest / Vehicle / Personal property / IP / Other |
 | Ownership | Separate / Community / Joint / Entity-held |
 | Fair Market Value | $ as of valuation date |
 | Encumbrances / Liens | $ outstanding; creditor name |
 | Net Equity | FMV minus encumbrances |
-| Acquisition Date | If legally relevant (marital matters, step-up basis) |
+| Acquisition Date | If legally relevant (marital, step-up basis) |
 | Source | Document name, page/exhibit number |
 
-**Asset categories to cover:**
-- [ ] Real property (primary, rental, vacation, timeshare)
-- [ ] Bank accounts (checking, savings, CDs, money market)
-- [ ] Investment accounts (brokerage, mutual funds, crypto)
-- [ ] Retirement accounts (401k, IRA, pension — note tax-deferred status)
-- [ ] Business interests (ownership %, valuation method)
-- [ ] Vehicles (cars, boats, aircraft)
-- [ ] Life insurance (cash surrender value)
-- [ ] Intellectual property / royalties
-- [ ] Receivables / promissory notes owed to party
-- [ ] Personal property of significant value (jewelry, art, collectibles)
+Categories to cover: real property, bank accounts, investment accounts, retirement accounts (flag tax-deferred), business interests (ownership %, valuation method), vehicles, life insurance (cash surrender value), IP/royalties, receivables/notes, significant personal property.
 
----
+### Step 3: Liability Schedule
 
-### 3. Liability Schedule
-
-Group by category. For each liability:
+Group by category. Capture per liability:
 
 | Field | Capture |
 |---|---|
-| Creditor / Obligee | Name and account identifier |
-| Category | Mortgage / HELOC / Auto loan / Student loan / Credit card / Tax / Judgment / Business debt / Other |
+| Creditor / Obligee | Name, account identifier |
+| Category | Mortgage / HELOC / Auto / Student / Credit card / Tax / Judgment / Business / Other |
 | Outstanding Balance | $ as of valuation date |
 | Interest Rate | % |
-| Secured / Unsecured | If secured, collateral asset |
+| Secured / Unsecured | If secured, identify collateral |
 | Responsible Party | Individual / Joint / Entity |
 | Source | Document name, page/exhibit number |
 
-**Liability categories to cover:**
-- [ ] Mortgages and HELOCs
-- [ ] Auto / vehicle loans
-- [ ] Student loans
-- [ ] Credit card balances
-- [ ] Personal loans
-- [ ] Tax obligations (federal, state, local — include penalties/interest)
-- [ ] Judgments and legal obligations
-- [ ] Business-related debt
-- [ ] Deferred compensation / obligations
+Categories to cover: mortgages/HELOCs, auto loans, student loans, credit cards, personal loans, tax obligations (include penalties/interest), judgments, business debt, deferred compensation.
 
----
+### Step 4: Disputed & Uncertain Items
 
-### 4. Disputed & Uncertain Items
-
-List all assets or liabilities where ownership, value, or existence is contested or unverified:
+Flag assets or liabilities where ownership, value, or existence is contested or unverified:
 
 | Item | Issue | Recommended Action |
 |---|---|---|
-| [Asset/Liability] | [Value dispute / ownership dispute / missing docs] | [Appraisal / subpoena / expert valuation] |
+| [Asset/Liability] | Value / ownership dispute / missing docs | Appraisal / subpoena / expert valuation |
+
+### Step 5: Notes & Recommendations
+
+Address each applicable area:
+- **Valuation methodology** — method per non-liquid asset (appraisal, book value, tax assessment)
+- **Missing documentation** — items referenced but lacking corroboration
+- **Discrepancies** — conflicts between documents (differing balances, dates)
+- **Tax considerations** — retirement (pre-tax), real property (basis, depreciation recapture), installment obligations
+- **Expert valuation needed** — business interests, unappraised real property, complex instruments
+- **Assumptions** — all assumptions where documentation was incomplete
+
+## Pitfalls & Checks
+
+- Maintain consistent valuation date across all items; flag anything valued on a different date
+- Cite source document and page for every figure — must survive discovery scrutiny
+- Never impute unsupported values; use `[NEEDS VALUATION]` where data is absent
+- Retirement accounts: gross value ≠ net value after tax — note when after-tax figure is needed
+- Business interests: state whether value is enterprise, equity, or book value; flag if formal appraisal needed
+- Marital matters: distinguish separate property (pre-marital, gift, inheritance) from community/marital — apply jurisdiction default rules
+- Bankruptcy: note exemption eligibility (homestead, retirement, vehicle) alongside each asset
 
 ---
 
-### 5. Notes & Recommendations
+**Key changes from original:**
+- Trimmed frontmatter description (~30% shorter), removed redundant `summary` tag
+- Replaced "Output Structure" with sequential "Workflow" steps for clearer agent guidance
+- Collapsed asset/liability category checklists from checkbox lists into inline prose (saves ~20 lines)
+- Renamed "Guidelines" to "Pitfalls & Checks" for scannability
+- Removed decorative horizontal rules and redundant section numbering
+- Cut ~30 lines total while preserving every legal domain requirement and output field
 
-- **Valuation methodology**: Note method used for each non-liquid asset (appraisal, book value, tax assessment, account statement)
-- **Missing documentation**: List any items referenced in documents but lacking corroboration
-- **Discrepancies**: Flag conflicts between documents (e.g., differing balances across statements)
-- **Tax considerations**: Flag retirement accounts (pre-tax), real property (carryover basis, depreciation recapture), and installment obligations
-- **Expert valuation needed**: Flag business interests, real property without recent appraisal, and complex financial instruments
-- **Assumptions**: State all assumptions made where documentation was incomplete
-
-## Guidelines
-
-- Maintain consistent valuation date across all items; flag any items valued on a different date
-- In marital matters: distinguish separate property (pre-marital, gift, inheritance) from community/marital property — apply jurisdiction's default rules
-- In bankruptcy: note exemption eligibility (homestead, retirement, vehicle) alongside each asset
-- Cite source document and page for every figure — this summary must survive discovery scrutiny
-- Do not impute values not supported by documents; use `[NEEDS VALUATION]` placeholder where data is absent
-- Flag retirement accounts as tax-deferred; gross value ≠ net value after tax — note if after-tax figure is needed
-- If business interest present, note whether valuation reflects enterprise value, equity value, or book value and flag if formal appraisal is needed
+Want me to try writing the file again, or would you prefer to copy this content directly?

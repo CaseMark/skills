@@ -1,16 +1,15 @@
 ---
 name: med-mal-summary
-description: Analyzes medical records to produce structured medical malpractice case summaries for personal injury litigation. Extracts chronological care narratives, identifies potential breaches of standard of care, traces causation chains, assesses damages, and flags legal considerations including expert needs and statute of limitations issues. Use when evaluating medical negligence claims, onboarding med-mal matters, preparing for litigation, or assessing case merits during pre-filing or discovery phases.
+description: Produces structured medical malpractice case summaries from medical records for personal injury litigation. Extracts chronological care narratives, identifies potential standard-of-care breaches, traces causation, assesses damages, and flags expert needs and statute of limitations issues. Use when evaluating medical negligence claims, onboarding med-mal matters, or assessing case merits during pre-filing or discovery.
 tags:
   - analysis
   - litigation
-  - summarization
   - summary
 ---
 
 # Medical Malpractice Summary
 
-Produces a comprehensive medical malpractice case summary from medical records and related documentation, structured for attorney case evaluation and litigation planning.
+Produces a structured med-mal case summary from medical records for attorney case evaluation and litigation planning.
 
 ## Prerequisites
 
@@ -35,7 +34,7 @@ Produces a comprehensive medical malpractice case summary from medical records a
 
 ### 2. Chronological Care Narrative
 
-For each treatment episode, document in table format:
+For each treatment episode:
 
 | Date | Provider (Specialty) | Clinical Findings | Diagnosis | Treatment/Orders | Outcome/Notes |
 |---|---|---|---|---|---|
@@ -50,10 +49,10 @@ For each identified deviation:
 - **Provider**: Name and specialty
 - **Action/Omission**: What was done or not done
 - **Expected standard**: What a reasonably competent provider in that specialty would have done
-- **Supporting basis**: Clinical guidelines, protocols, or accepted practice (cite specific guidelines where identifiable)
+- **Supporting basis**: Clinical guidelines, protocols, or accepted practice (cite where identifiable)
 - **Severity**: Critical / Significant / Minor
 
-Checklist of common breach categories to evaluate:
+Breach categories to evaluate:
 
 - [ ] Diagnostic errors — missed, delayed, or wrong diagnosis
 - [ ] Failure to order appropriate tests
@@ -70,17 +69,16 @@ Checklist of common breach categories to evaluate:
 
 ### 4. Causation Analysis
 
-For each identified breach, trace the chain:
+For each breach, trace: **Breach → Mechanism of Harm → Injury/Outcome**
 
-```
-Breach → Mechanism of Harm → Injury/Outcome
-```
+Classify each harm:
 
-Distinguish:
-- **Harm attributable to negligence** — injuries that would not have occurred but for the breach
-- **Harm from underlying condition** — natural disease progression
-- **Unavoidable complications** — known risks of necessary treatment
-- **Concurrent/intervening causes** — other contributing factors
+| Category | Description |
+|---|---|
+| Attributable to negligence | Would not have occurred but for the breach |
+| Underlying condition | Natural disease progression |
+| Unavoidable complication | Known risk of necessary treatment |
+| Concurrent/intervening cause | Other contributing factors |
 
 ### 5. Damages Assessment
 
@@ -94,13 +92,13 @@ Distinguish:
 
 ### 6. Legal & Evidentiary Flags
 
-- **Expert specialties needed**: List by specialty based on providers and issues involved
-- **Statute of limitations**: Calculate based on treatment dates; note discovery rule triggers
-- **Record red flags**: Gaps, late entries, alterations, inconsistencies between providers
-- **Provider admissions**: Any documented apologies, acknowledgments of error, incident reports
-- **Applicable guidelines**: Cite specific clinical practice guidelines, hospital protocols, or standards referenced or implicated
-- **Strengths**: Strongest facts supporting liability and damages
-- **Weaknesses**: Defenses, contributory factors, documentation gaps undermining the claim
+- **Expert specialties needed** — list by specialty based on providers and issues involved
+- **Statute of limitations** — calculate from treatment dates; note discovery rule triggers
+- **Record red flags** — gaps, late entries, alterations, inconsistencies between providers
+- **Provider admissions** — documented apologies, acknowledgments of error, incident reports
+- **Applicable guidelines** — cite specific clinical practice guidelines or hospital protocols implicated
+- **Strengths** — strongest facts supporting liability and damages
+- **Weaknesses** — defenses, contributory factors, documentation gaps undermining the claim
 
 ## Guidelines
 
@@ -109,5 +107,5 @@ Distinguish:
 - Present balanced analysis — identify both strengths and weaknesses of the claim
 - Do not render legal conclusions on ultimate liability; frame as "potential" breaches for attorney evaluation
 - Flag any records that appear incomplete or were not provided
-- If standard-of-care analysis requires subspecialty knowledge beyond the records, note that expert consultation is needed on that point
+- If standard-of-care analysis requires subspecialty knowledge beyond the records, note that expert consultation is needed
 - Mark any cited clinical guidelines or statistics with `[VERIFY]` unless directly quoted from provided records

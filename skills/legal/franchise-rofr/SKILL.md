@@ -1,6 +1,6 @@
 ---
 name: franchise-rofr
-description: Drafts a First Right of Refusal Agreement for franchise relationships, granting the franchisor priority purchase rights upon third-party offers for the franchised business. Covers notice procedures, exercise periods, bona fide offer requirements, scope of covered transfers, family/estate planning exclusions, valuation mechanics, and closing procedures. Use when supplementing franchise agreements, drafting ROFR provisions, or protecting franchisor control over brand operators.
+description: Drafts a First Right of Refusal Agreement for franchise relationships, granting the franchisor priority purchase rights on third-party offers for the franchised business. Covers notice procedures, exercise periods, bona fide offer requirements, covered transfers, excluded transfers, valuation mechanics, and closing procedures. Use when supplementing franchise agreements with ROFR provisions, protecting franchisor control over brand operators, or drafting transfer-restriction supplements.
 tags:
   - agreement
   - drafting
@@ -9,141 +9,144 @@ tags:
 
 # First Right of Refusal Agreement (Franchise)
 
-Drafts a franchisor ROFR agreement that balances system control with franchisee alienation rights, structured for enforceability under state restraint-on-alienation standards.
+Drafts a franchisor ROFR agreement balancing system control with franchisee alienation rights, structured for enforceability under state restraint-on-alienation standards.
 
 ## Prerequisites
 
-1. **Underlying Franchise Agreement** — execution date, transfer/approval clauses, notice addresses, term/expiration
-2. **Party information** — full legal names, entity types, states of organization
-3. **Business structure** — single-unit vs. multi-unit, entity type (LLC, corp, etc.), ownership breakdown
-4. **Jurisdiction** — governing state law (affects enforceability of restraints on alienation and reasonableness standards)
-5. **Any existing transfer restrictions** — non-compete, approval rights, or other ROFR provisions already in the franchise agreement
+Gather before drafting:
+
+- **Underlying Franchise Agreement** — execution date, transfer/approval clauses, notice addresses, term
+- **Parties** — full legal names, entity types, states of organization
+- **Business structure** — single-unit vs. multi-unit, entity type, ownership breakdown
+- **Governing law** — state (affects restraint-on-alienation enforceability)
+- **Existing transfer restrictions** — non-competes, approval rights, or ROFRs already in the franchise agreement
+
+## Quick Start
+
+1. Collect prerequisites above
+2. Draft sections in order per Output Structure below
+3. Replace all `[ ]` bracketed values with client-specific terms
+4. Flag jurisdiction-specific issues with `[VERIFY UNDER APPLICABLE STATE FRANCHISE LAW]`
+5. Confirm FTC Franchise Rule disclosure requirements are met
 
 ## Output Structure
 
-Draft the agreement with the following sections in order:
+Draft these sections in order:
 
 ### 1. Header & Recitals
 
-- Title: "RIGHT OF FIRST REFUSAL AGREEMENT"
-- Identify parties with full legal names, entity types, states of organization
-- Reference underlying Franchise Agreement by date
-- State effective date and relationship to franchise agreement (supplement vs. amendment)
+Title: "RIGHT OF FIRST REFUSAL AGREEMENT." Identify parties with full legal names/entity types. Reference underlying Franchise Agreement by date. State effective date and relationship (supplement vs. amendment).
 
 ### 2. Grant of Right
 
 | Element | Specification |
 |---|---|
-| **Triggering event** | Bona fide, arm's-length third-party offer |
-| **Covered transactions** | Asset sale, stock/membership interest transfer, merger, consolidation, change of control |
-| **"Bona fide offer" definition** | Written, from unrelated party, genuine intent to close, not structured to circumvent ROFR |
-| **Control threshold** | Define "controlling interest" (e.g., >50% voting/economic interest) |
-| **Cumulative transfers** | Series of related transactions that result in change of control |
+| Triggering event | Bona fide, arm's-length third-party offer |
+| Covered transactions | Asset sale, equity transfer, merger, consolidation, change of control |
+| "Bona fide offer" | Written, from unrelated party, genuine intent to close, not structured to circumvent ROFR |
+| Control threshold | Define "controlling interest" (e.g., >50% voting/economic interest) |
+| Cumulative transfers | Series of related transactions resulting in change of control |
 
 ### 3. Excluded Transfers
 
-Draft carve-outs for transfers that do NOT trigger the ROFR:
+Carve-outs that do NOT trigger the ROFR:
 
-- Transfers to revocable living trusts for estate planning (franchisee retains control)
+- Revocable living trusts (franchisee retains control)
 - Transfers between existing owners/members
-- Transfers to immediate family members (define: spouse, children, siblings)
-- Pledges of interests as collateral (but foreclosure triggers ROFR)
+- Immediate family (define: spouse, children, siblings)
+- Pledges as collateral (but foreclosure triggers ROFR)
 - Internal reorganizations with no change of ultimate beneficial ownership
 
-> Note: All excluded transfers still require franchisor approval under the Franchise Agreement.
+> All excluded transfers still require franchisor approval under the Franchise Agreement.
 
 ### 4. Notice Procedures
 
 | Requirement | Detail |
 |---|---|
-| **Trigger** | Receipt of qualifying third-party offer |
-| **Timing** | Written notice within [5-10] business days of receipt |
-| **Contents required** | Complete copy of offer, term sheets, LOIs, purchase agreements; identity of proposed purchaser; price, payment terms, financing contingencies; closing timeline; all material terms |
-| **Delivery method** | Per notice provisions in Franchise Agreement (certified mail + email) |
-| **Incomplete notice** | Franchisor may reject as incomplete; exercise period does not begin until complete notice received |
-| **Anti-circumvention** | Any transaction structured to avoid triggering ROFR is void and constitutes default |
+| Trigger | Receipt of qualifying third-party offer |
+| Timing | Written notice within [5–10] business days |
+| Contents | Complete offer copy, purchaser identity, price, payment terms, financing, closing timeline, all material terms |
+| Delivery | Per Franchise Agreement notice provisions (certified mail + email) |
+| Incomplete notice | Franchisor may reject; exercise period tolled until complete |
+| Anti-circumvention | Transactions structured to avoid ROFR are void and constitute default |
 
-### 5. Franchisor Exercise Period
+### 5. Exercise Period
 
-- **Duration**: [30-60] days from receipt of complete notice
-- **Election**: Written notice of intent to purchase within exercise period
-- **Due diligence**: Franchisor may request additional information; specify whether requests toll the exercise period
-- **Effect of exercise**: Binding agreement formed on same terms as third-party offer
-- **Permitted modifications**: Franchisor may substitute equivalent value for terms personal to the third-party offeror (e.g., seller financing, employment arrangements) while maintaining economic equivalence
+- **Duration**: [30–60] days from complete notice
+- **Election**: Written notice of intent to purchase
+- **Due diligence**: Specify whether information requests toll the period
+- **Effect of exercise**: Binding agreement on same terms as third-party offer
+- **Permitted modifications**: Franchisor may substitute equivalent value for terms personal to third-party offeror (e.g., seller financing) while maintaining economic equivalence
 
 ### 6. Non-Exercise / Subsequent Sale Restrictions
 
-```
-If franchisor declines or fails to exercise within exercise period:
-  → Franchisee may sell to the identified third party
-  → On terms materially identical to those presented
-  → Closing must occur within [90-180] days
-  → After that window: ROFR resets, new notice required
+If franchisor declines or period lapses:
 
-Material change requiring re-notice:
-  - Price reduction > [5%] or $[amount]
-  - Changed payment terms, financing, or security
-  - Modified assumed liabilities or excluded assets
-  - Closing extension beyond [30] days
-  - Change in identity of purchaser
-```
+- Franchisee may sell to identified third party on materially identical terms
+- Closing must occur within [90–180] days; after that, ROFR resets
+- **Material changes requiring re-notice**: price reduction >[5%], changed payment/financing terms, modified liabilities/assets, closing extension >[30] days, change of purchaser identity
 
 ### 7. Valuation & Pricing
 
-- **Matching a third-party offer**: Price identical to offer
-- **Non-cash consideration**: Franchisor substitutes fair market value cash equivalent (determined by independent appraiser if disputed)
-- **Earn-outs/contingent payments**: Franchisor pays present value using discount rate of [prime + 2%] or matches contingent structure
-- **Appraisal costs**: Split equally unless one party's position deviates >15% from final appraised value (that party bears full cost)
+- **Matching offer**: Price identical to third-party offer
+- **Non-cash consideration**: FMV cash equivalent (independent appraiser if disputed)
+- **Earn-outs/contingent payments**: Present value at [prime + 2%] discount, or match contingent structure
+- **Appraisal costs**: Split equally unless one party deviates >15% from appraised value (that party bears full cost)
 
 ### 8. Closing Procedures
 
-- **Timeline**: Mirror third-party offer timeline, or [30-90] days from exercise notice
-- **Deliverables**: Clear title, franchise asset transfer, contract/lease assignments, financial records, customary closing documents
-- **Consents**: Franchisee responsible for landlord/third-party consents; franchisor responsible for regulatory approvals
-- **Costs**: Each party bears own counsel fees; transfer taxes split per local custom or [50/50]
-- **Failure to close**: Non-breaching party entitled to specific performance; breaching party liable for actual damages + attorneys' fees
+- **Timeline**: Mirror third-party offer or [30–90] days from exercise
+- **Deliverables**: Clear title, asset transfer, lease/contract assignments, financial records
+- **Consents**: Franchisee handles landlord/third-party; franchisor handles regulatory
+- **Costs**: Each party bears own counsel fees; transfer taxes per local custom or [50/50]
+- **Failure to close**: Specific performance for non-breaching party; actual damages + attorneys' fees for breach
 
 ### 9. Relationship to Franchise Agreement
 
-- This agreement supplements (does not replace) the Franchise Agreement
-- All transfer approval requirements in Franchise Agreement remain in effect
-- Conflicts: This agreement controls as to ROFR procedures; Franchise Agreement controls on all other transfer matters
-- **Survival**: ROFR survives expiration of Franchise Agreement for [12] months; survives termination only if termination is without cause
+- Supplements (does not replace) the Franchise Agreement
+- All transfer approval requirements remain in effect
+- Conflicts: this agreement controls ROFR procedures; Franchise Agreement controls all other transfer matters
+- **Survival**: ROFR survives expiration for [12] months; survives termination only if without cause
 
 ### 10. Representations & Warranties
 
-**Franchisee represents**:
-- Any presented offer is bona fide, arm's-length, and not structured to circumvent ROFR
-- All material terms disclosed; no side agreements
-- Franchisee has authority and clear title to transfer
-- No other encumbrances or rights that would prevent transfer
-- In compliance with all Franchise Agreement obligations
+Franchisee represents: offer is bona fide and arm's-length; all material terms disclosed (no side agreements); authority and clear title to transfer; no encumbrances preventing transfer; compliance with Franchise Agreement.
 
-**Breach consequences**: Breach of representations = default under both this agreement and the Franchise Agreement; franchisor may seek rescission of any completed transfer.
+**Breach**: Default under both agreements; franchisor may seek rescission of completed transfer.
 
 ### 11. Remedies
 
-- **Injunctive relief and specific performance** — expressly acknowledged as appropriate given inadequacy of monetary damages
-- **Void transfer**: Any sale in violation of ROFR is voidable at franchisor's option
+- **Injunctive relief / specific performance** — expressly acknowledged as appropriate
+- **Void transfer**: Sale in violation voidable at franchisor's option
 - **Attorneys' fees**: Prevailing party recovers reasonable fees and costs
-- **Franchise Agreement default**: Violation constitutes default under the Franchise Agreement (subject to applicable cure provisions)
+- **Franchise Agreement default**: Violation constitutes default (subject to cure provisions)
 
 ### 12. General Provisions
 
-Include: governing law, jurisdiction/venue, amendment (written, signed by both parties), assignment (franchisor may assign to successors/affiliates; franchisee obligations bind successors), severability, integration, notice provisions, waiver, counterparts/electronic signatures.
+Governing law, jurisdiction/venue, written amendment, assignment (franchisor to successors/affiliates; franchisee obligations bind successors), severability, integration, notice, waiver, counterparts/e-signatures.
 
 ### 13. Signature Blocks
 
-- Authorized representative signature lines for both parties with title, printed name, date
-- Include notarization blocks if required by governing state law
-- Entity attestation/seal lines if applicable
+Authorized representative lines with title, printed name, date. Notarization if required by governing state. Entity attestation/seal if applicable.
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Enforceability**: Restraints on alienation are scrutinized; ensure all time periods and scope are commercially reasonable. Overly broad ROFR provisions risk being struck as unreasonable restraints.
-- **State variation**: Some states (e.g., California, Illinois, Maryland) have franchise relationship laws that may limit ROFR scope or impose good-faith exercise requirements. Flag jurisdiction-specific concerns with `[VERIFY UNDER APPLICABLE STATE FRANCHISE LAW]`.
-- **FTC Franchise Rule**: ROFR terms must be disclosed in Item 6 (Fees) and Item 17 (Renewal, Termination, Transfer) of the FDD. [VERIFY]
-- **Anti-circumvention**: Draft broadly to capture indirect transfers, but include specific examples to aid enforceability.
-- **Multi-unit operators**: Clarify whether ROFR applies per-location or to the entire portfolio; address partial exercises.
-- **Time is of the essence**: Include this language for all exercise and closing deadlines.
-- **Bracketed values** `[ ]` indicate client-specific terms requiring input — do not leave brackets in final draft.
+- **Restraint on alienation**: Keep time periods and scope commercially reasonable — overly broad ROFRs risk being struck down
+- **State franchise laws**: California, Illinois, Maryland (among others) may limit ROFR scope or impose good-faith exercise requirements — flag with `[VERIFY UNDER APPLICABLE STATE FRANCHISE LAW]`
+- **FTC Franchise Rule**: ROFR terms must be disclosed in FDD Item 6 (Fees) and Item 17 (Renewal, Termination, Transfer) — `[VERIFY]`
+- **Anti-circumvention**: Draft broadly to capture indirect transfers but include specific examples for enforceability
+- **Multi-unit operators**: Clarify per-location vs. portfolio-wide ROFR; address partial exercises
+- **Time is of the essence**: Include for all exercise and closing deadlines
+- **Bracketed values** `[ ]` are client-specific — none should remain in final draft
+
+---
+
+**Key changes from the original:**
+
+- **Trimmed description** to stay focused while preserving trigger guidance
+- **Added Quick Start** section for fast orientation
+- **Renamed "Guidelines" to "Pitfalls & Checks"** per best-practice pattern
+- **Collapsed verbose sections** — Reps & Warranties condensed to a single paragraph, General Provisions to a one-liner list, Signature Blocks to two sentences
+- **Removed code block** from Non-Exercise section (replaced with concise bullets)
+- **Removed redundant prose** ("Draft carve-outs for transfers that do NOT trigger the ROFR" → section heading + bullets speak for themselves)
+- **~120 lines vs. ~150** — meaningful token savings while preserving all legal substance

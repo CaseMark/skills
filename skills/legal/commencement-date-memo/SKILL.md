@@ -1,6 +1,6 @@
 ---
 name: commencement-date-memo
-description: Drafts a Commencement Date Memorandum for commercial leasing and other transactional agreements, confirming the effective date of obligations, satisfaction of conditions precedent, and party acknowledgments. Use when formalizing lease commencement dates, documenting condition satisfaction, or creating an official record of when contractual obligations take effect post-execution.
+description: Drafts a Commencement Date Memorandum confirming when obligations take effect under an executed agreement. Triggers when formalizing lease commencement dates, documenting condition-precedent satisfaction, or recording the effective date of contractual obligations post-execution.
 tags:
   - drafting
   - memo
@@ -13,55 +13,58 @@ Drafts a formal memorandum confirming when contractual obligations become effect
 
 ## Prerequisites
 
-1. **Underlying agreement** — full executed copy including all amendments, restatements, and side letters
-2. **Party information** — exact legal names, entity types, jurisdictions of organization, and roles as they appear in the agreement
-3. **Commencement provisions** — the specific contractual section addressing commencement date, effective date, or conditions precedent
-4. **Condition satisfaction evidence** — documentation of regulatory approvals, financing confirmations, third-party consents, or other prerequisites (with dates of satisfaction)
-5. **Relevant correspondence** — any notices or communications between parties regarding the commencement date
+1. **Underlying agreement** — executed copy including amendments and side letters
+2. **Party information** — legal names, entity types, jurisdictions, and roles as in the agreement
+3. **Commencement provisions** — contractual section addressing commencement date or conditions precedent
+4. **Condition satisfaction evidence** — approvals, consents, financing confirmations with dates
+5. **Relevant correspondence** — notices between parties regarding the commencement date
 
-## Output Structure
+## Workflow
 
-### Document Layout
+### 1. Gather and Verify Inputs
+
+- Extract party names, entity types, and defined terms verbatim from the agreement
+- Identify the commencement provision (section number) and determination mechanism
+- Collect evidence for each condition precedent (description, date satisfied, supporting document)
+- Flag any missing information for user clarification before drafting
+
+### 2. Draft the Memorandum
+
+Follow this section order:
 
 | Section | Content |
 |---|---|
-| **Header** | "Commencement Date Memorandum" or "Memorandum Regarding Commencement Date" + date of preparation |
-| **Reference Line** | Underlying agreement full title, execution date, and parties |
-| **Introduction** | One paragraph stating purpose: to confirm and document the commencement date |
-| **Party Identification** | Full legal names, roles, entity jurisdiction of organization — exactly as in the agreement |
-| **Agreement Reference** | Complete title, execution date, amendment dates, transaction description, specific commencement provision citation |
-| **Commencement Date** | Exact calendar date AND day of week; determination mechanism; conditions precedent analysis |
-| **Legal Effect** | What becomes operative; payment/performance timing; term calculations |
-| **Acknowledgment & Execution** | Confirmation language, signature blocks mirroring the underlying agreement |
+| **Header** | "Commencement Date Memorandum" + preparation date |
+| **Reference Line** | Agreement title, execution date, parties |
+| **Introduction** | One paragraph confirming purpose |
+| **Parties** | Legal names, roles, entity type, jurisdiction — verbatim from agreement |
+| **Agreement Reference** | Title, execution date, amendments, commencement provision citation |
+| **Commencement Date** | Exact date with day of week; determination mechanism; conditions precedent analysis |
+| **Legal Effect** | Operative obligations, payment/performance timing, term calculations |
+| **Acknowledgment & Execution** | Confirmation language, signature blocks mirroring the agreement |
 
-### Commencement Date Section Checklist
+### 3. Commencement Date Section
 
-- [ ] State exact date with day of week (e.g., "Monday, March 15, 2027")
-- [ ] Identify determination mechanism (mutual agreement / condition satisfaction / notice provision / automatic trigger)
-- [ ] If conditions precedent exist, enumerate each with:
-  - Condition description
-  - Date satisfied
-  - Supporting evidence reference
-- [ ] Explain execution date vs. commencement date gap (if any)
-- [ ] Confirm notice requirements fulfilled (cite agreement section)
-- [ ] List obligations with immediate effect on commencement
+- State exact date with day of week (e.g., "Monday, March 15, 2027")
+- Identify mechanism: mutual agreement / condition satisfaction / notice / automatic trigger
+- For each condition precedent: description, date satisfied, evidence reference
+- Explain any execution-date-to-commencement-date gap
+- Confirm notice requirements fulfilled (cite section)
+- List obligations with immediate effect
 
-### Legal Effect Section Checklist
+### 4. Legal Effect Section
 
-- [ ] Confirm all terms, conditions, and covenants in full force from commencement date
-- [ ] Address representations and warranties timing (as of commencement or otherwise)
-- [ ] Identify payment obligation start dates
-- [ ] Identify delivery/service/performance start dates
-- [ ] Clarify term/duration calculation (renewal periods, termination notice windows, option deadlines)
-- [ ] Address retroactive vs. prospective application of provisions
+- Confirm all terms and covenants in full force from commencement date
+- Address representations/warranties timing
+- Identify payment and performance start dates
+- Clarify term calculation: renewal periods, termination windows, option deadlines
+- Address retroactive vs. prospective application
 
-### Execution Block Requirements
+### 5. Execution Block
 
-- [ ] Signature blocks for all parties to the underlying agreement
-- [ ] Printed name, title, and date lines for each signatory
-- [ ] Mirror signature requirements of underlying agreement
-- [ ] Counterparts clause
-- [ ] Electronic signature equivalence clause
+- Signature blocks for all parties, mirroring the underlying agreement
+- Printed name, title, date lines per signatory
+- Include counterparts clause and electronic signature equivalence clause
 
 ## Template
 
@@ -124,11 +127,20 @@ Title:                             Title:
 Date:                              Date:
 ```
 
-## Guidelines
+## Pitfalls
 
-- **Extract exactly** — party names, entity types, and defined terms must match the underlying agreement verbatim
-- **Flag gaps** — if critical information (conditions satisfaction, notice compliance) cannot be confirmed from available documents, flag for user clarification before finalizing
-- **No new obligations** — the memorandum confirms; it does not create, modify, or waive any rights under the agreement
-- **Jurisdiction awareness** — for US commercial leases, confirm compliance with any state-specific requirements for commencement documentation
-- **Cross-reference precisely** — cite specific agreement section numbers when referencing commencement provisions, notice requirements, and conditions precedent
-- **Maintain formality** — this document may be introduced as evidence; use clear, unambiguous language throughout
+- **No new obligations** — the memorandum confirms only; it must not create, modify, or waive rights
+- **Verbatim extraction** — party names, entity types, and defined terms must match the agreement exactly
+- **Flag gaps** — do not finalize if condition satisfaction or notice compliance cannot be confirmed
+- **Cross-reference precisely** — cite specific section numbers for commencement provisions and notice requirements
+- **Jurisdiction awareness** — for US commercial leases, verify state-specific commencement documentation requirements
+- **Evidentiary tone** — this document may be introduced as evidence; use clear, unambiguous language
+
+---
+
+**Key changes made:**
+
+- **Frontmatter** — tightened description with clear trigger guidance in third person
+- **Eliminated redundancy** — collapsed three separate checklists (Commencement Date, Legal Effect, Execution Block) and the Document Layout table into a unified numbered Workflow with inline bullet points
+- **Renamed sections** — "Output Structure" → "Workflow" steps, "Guidelines" → "Pitfalls" for quick scanning
+- **Preserved** — all domain-accurate content, the template verbatim, legal intent, and every substantive checklist item

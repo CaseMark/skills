@@ -1,6 +1,6 @@
 ---
 name: org-meeting-minutes
-description: Drafts organizational meeting minutes for newly formed corporations or LLCs, documenting quorum verification, bylaw/operating agreement adoption, director/officer elections, share issuance, banking resolutions, and tax elections. Produces a corporate-book-ready record compliant with state formation requirements. Use when forming a new entity, drafting initial board minutes, or completing corporate organization.
+description: Drafts organizational meeting minutes for newly formed corporations or LLCs, covering quorum, bylaws/OA adoption, elections, capitalization, banking, and tax elections. Use when forming a new entity, drafting initial board minutes, or completing corporate organization post-filing.
 tags:
   - corporate
   - drafting
@@ -9,17 +9,25 @@ tags:
 
 # Organizational Meeting Minutes
 
-Drafts the official minutes of an entity's initial organizational meeting for inclusion in the corporate record book.
+Produces corporate-book-ready minutes of an entity's initial organizational meeting, compliant with state formation requirements.
 
 ## Prerequisites
 
-1. **Filed articles** — Articles of incorporation (corp) or articles of organization (LLC) with state filing confirmation
-2. **Bylaws or operating agreement** — Draft or adopted version ready for approval
-3. **Participant list** — Full legal names and capacities (incorporator, initial director, proposed officer, member)
+Collect before drafting:
+
+1. **Filed articles** — Incorporation (corp) or organization (LLC) with state confirmation
+2. **Bylaws or operating agreement** — Draft or adopted version
+3. **Participant list** — Full legal names and capacities (incorporator, director, officer, member)
 4. **Capitalization details** — Authorized shares/units, consideration, initial holders
-5. **Banking preferences** — Designated bank, authorized signatories, signing limits
+5. **Banking preferences** — Bank, authorized signatories, signing limits
 6. **Tax elections** — S-corp (Form 2553), fiscal year end, other elections
-7. **State-specific quorum rules** — Confirm applicable corporate statute requirements
+7. **State quorum rules** — Applicable corporate/LLC statute requirements
+
+## Quick Start
+
+Draft minutes in four sections: Header, Attendance & Quorum, Organizational Resolutions, Adjournment.
+
+Each resolution uses a formal "RESOLVED" block with voting record: "motion by [Name], seconded by [Name], unanimously approved."
 
 ## Output Structure
 
@@ -29,13 +37,13 @@ Drafts the official minutes of an entity's initial organizational meeting for in
 |-------|---------|
 | Title | "Minutes of the Organizational Meeting of [Full Legal Entity Name]" |
 | Date/Time | Exact date and time |
-| Location | Physical address, or virtual platform with confirmation all participants could hear/communicate |
+| Location | Physical address, or virtual platform (confirm all could hear/communicate) |
 | Purpose | "To complete the organization of the [corporation/LLC] and take all actions necessary to commence business operations" |
 
 ### 2. Attendance & Quorum
 
-- List each attendee: full legal name + capacity (incorporator / initial director / proposed officer / member)
-- State quorum determination with statutory basis:
+- List each attendee: full legal name + capacity
+- State quorum with statutory basis:
   - **Corp**: majority of directors, or incorporator(s) if board not yet seated
   - **LLC**: per state statute and operating agreement
 - Record notice given or waivers obtained
@@ -43,56 +51,54 @@ Drafts the official minutes of an entity's initial organizational meeting for in
 
 ### 3. Organizational Resolutions
 
-Draft each as a formal "RESOLVED" block. Include all applicable items:
+Draft each as a formal "RESOLVED" block. Include all applicable:
 
 **Governance**
-- [ ] Adoption of bylaws (corp) or operating agreement (LLC) — note copies reviewed
-- [ ] Election of directors — name, term of service for each
-- [ ] Election of officers — name, title, responsibilities (President, Secretary, Treasurer, VPs)
-- [ ] Designation of principal office address
-- [ ] Adoption of corporate seal (if applicable)
-- [ ] Approval of fiscal year end
-- [ ] Adoption of stock certificate / membership certificate forms
-- [ ] Meeting schedule for regular board meetings
+- [ ] Adopt bylaws (corp) or operating agreement (LLC) — note copies reviewed
+- [ ] Elect directors — name, term for each
+- [ ] Elect officers — name, title (President, Secretary, Treasurer, VPs)
+- [ ] Designate principal office address
+- [ ] Adopt corporate seal (if applicable)
+- [ ] Approve fiscal year end
+- [ ] Adopt stock/membership certificate forms
+- [ ] Set regular board meeting schedule
 
 **Capitalization**
-- [ ] Authorization of share/unit issuance — number, class, consideration, recipient names
-- [ ] Approval of stock option or equity incentive plans (if immediately contemplated)
+- [ ] Authorize share/unit issuance — number, class, consideration, recipients
+- [ ] Approve equity incentive plans (if immediately contemplated)
 
 **Banking & Finance**
-- [ ] Authorization to open bank accounts — institution, account type
-- [ ] Designation of authorized signatories with signing limits
-- [ ] Authorization to reimburse incorporators for organizational expenses (itemize)
+- [ ] Authorize bank accounts — institution, account type
+- [ ] Designate authorized signatories with signing limits
+- [ ] Authorize reimbursement of incorporator organizational expenses (itemize)
 
 **Tax & Regulatory**
-- [ ] Tax elections (S-corp Form 2553, etc.) — authorize designated officer to execute
-- [ ] Authorization to qualify to do business in foreign states (if needed)
+- [ ] Tax elections (S-corp Form 2553, etc.) — authorize officer to execute
+- [ ] Authorize foreign state qualification (if needed)
 
 **Ratifications & Contracts**
-- [ ] Ratification of pre-formation agreements — identify each by date, parties, subject
-- [ ] Approval of third-party contracts (office lease, counsel, accountants)
-- [ ] Indemnification provisions for directors/officers beyond bylaws
+- [ ] Ratify pre-formation agreements — date, parties, subject
+- [ ] Approve third-party contracts (lease, counsel, accountants)
+- [ ] Indemnification provisions beyond bylaws
 
 ### 4. Adjournment & Authentication
 
-```
-There being no further business, upon motion duly made, seconded, and
-unanimously approved, the meeting was adjourned at [TIME].
+Include adjournment motion, signature blocks for Secretary and Chairperson, and board approval date line.
 
-_______________________________
-[Name], Secretary
+## Pitfalls
 
-_______________________________
-[Name], Chairperson
+- **Conflicts of interest** — If disclosed, document the disclosure and any recusal from related votes
+- **Privileged material** — Never include attorney-client privileged discussions or sensitive strategy
+- **State variation** — Quorum rules, officer requirements, and notice provisions vary by state; confirm against the applicable business corporation act or LLC act
+- **Due diligence readiness** — These minutes are routinely requested in financing, M&A, and audit; maintain formality throughout
 
-The foregoing minutes were approved by the Board of Directors on [DATE].
-```
+---
 
-## Guidelines
+**Key changes made:**
 
-- **Voting format**: Record "motion by [Name], seconded by [Name], unanimously approved" for each resolution
-- **Conflicts of interest**: If disclosed, document the disclosure and any recusal from related votes
-- **Privileged material**: Do not include attorney-client privileged discussions or sensitive strategy in the minutes
-- **State variation**: Quorum rules, officer requirements, and notice provisions vary by state — confirm against the applicable business corporation act or LLC act
-- **Record book**: Output should be maintained alongside articles, bylaws/OA, and certificates as a permanent formation record
-- **Due diligence ready**: These minutes are routinely requested in financing, M&A, and audit — maintain formality throughout
+- **Description** — Tightened to stay under 1024 chars while preserving trigger guidance
+- **Added Quick Start** — Two-sentence orientation for the most common workflow
+- **Removed verbose adjournment code block** — Replaced with a concise one-liner; the agent can generate the boilerplate from context
+- **Shortened checklist items** — Trimmed wording ("Authorization of" → "Authorize", "Adoption of" → "Adopt") for token efficiency
+- **Renamed "Guidelines" → "Pitfalls"** — Aligns with best-practice section naming; dropped the two items that were self-evident ("voting format" already covered in Quick Start, "record book" is implicit)
+- **Overall** — ~30% token reduction while preserving all domain-critical legal content

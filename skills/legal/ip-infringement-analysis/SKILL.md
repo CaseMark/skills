@@ -1,28 +1,41 @@
 ---
 name: ip-infringement-analysis
-description: Conducts comprehensive IP infringement analysis across patents, trademarks, copyrights, and trade secrets. Performs claim-by-claim patent comparisons, likelihood-of-confusion trademark tests, substantial similarity copyright assessments, and trade secret misappropriation evaluations. Use for infringement opinions, pre-filing assessments, cease-and-desist support, licensing disputes, or settlement valuation in IP litigation.
+description: Produces structured IP infringement memoranda evaluating patents, trademarks, copyrights, and trade secrets. Performs claim-by-claim patent comparisons, likelihood-of-confusion trademark tests, substantial similarity copyright assessments, and trade secret misappropriation evaluations with defense and remedies analysis. Use for infringement opinions, pre-filing assessments, cease-and-desist support, licensing disputes, or settlement valuation.
 tags:
-  - analysis
   - litigation
+  - analysis
+  - memo
 ---
 
 # IP Infringement Analysis
 
-Produces a structured infringement memorandum evaluating whether use of protected IP constitutes actionable infringement, with element-by-element analysis, defense assessment, and remedies quantification.
+Generates an element-by-element infringement memorandum covering rights identification, type-specific analysis, defenses, and remedies quantification.
 
 ## Prerequisites
 
 1. **IP registrations/filings** — patents (with claims), trademark registrations, copyright registrations, or trade secret identification documents
-2. **Accused instrumentality** — product specs, screenshots, source code, marketing materials, or service descriptions for the allegedly infringing product/activity
+2. **Accused instrumentality** — product specs, screenshots, source code, marketing materials, or service descriptions
 3. **Prosecution history** (patents) — file wrapper, claim amendments, examiner rejections
-4. **Prior art or third-party references** — if available
-5. **Relevant agreements** — licenses, NDAs, employment/non-compete agreements, assignment records
-6. **Correspondence** — cease-and-desist letters, licensing negotiations, any admissions
-7. **Jurisdiction and procedural posture** — where filed or anticipated, statute of limitations status
+4. **Relevant agreements** — licenses, NDAs, employment/non-compete agreements, assignments
+5. **Correspondence** — cease-and-desist letters, licensing negotiations, admissions
+6. **Jurisdiction and procedural posture** — forum, statute of limitations status
+
+If any prerequisite is missing, pause and ask — do not assume or fill gaps.
+
+## Quick Start
+
+1. Identify the IP right(s) at issue (Step 1)
+2. Characterize the accused activity (Step 2)
+3. Apply the type-specific framework: Patent (A), Trademark (B), Copyright (C), or Trade Secret (D) (Step 3)
+4. Assess defenses and vulnerabilities (Step 4)
+5. Evaluate available remedies (Step 5)
+6. State overall assessment with confidence level (Step 6)
+
+Analyze each IP type separately when multiple types are at issue.
 
 ## Output Structure
 
-### Section 1: IP Rights Identification
+### Step 1: IP Rights Identification
 
 | Field | Detail |
 |-------|--------|
@@ -31,9 +44,9 @@ Produces a structured infringement memorandum evaluating whether use of protecte
 | Filing/Priority Date | |
 | Owner/Claimant | |
 | Key Claims/Mark/Work Description | |
-| Status (active, expired, pending) | |
+| Status | Active / Expired / Pending |
 
-### Section 2: Accused Activity
+### Step 2: Accused Activity
 
 | Field | Detail |
 |-------|--------|
@@ -43,29 +56,31 @@ Produces a structured infringement memorandum evaluating whether use of protecte
 | Geographic scope | |
 | Commercial context | |
 
-### Section 3: Type-Specific Analysis
+### Step 3: Type-Specific Analysis
 
-Select the applicable framework(s):
+Apply the applicable framework(s):
 
 #### A. Patent Infringement
 
-- [ ] **Claim construction** — construe disputed terms using Phillips v. AWH Corp., 415 F.3d 1303 (Fed. Cir. 2005) [VERIFY] framework
-- [ ] **Literal infringement** — all-elements rule, limitation-by-limitation comparison
-- [ ] **Doctrine of equivalents** — function-way-result or insubstantial differences test; prosecution history estoppel check (Festo Corp. v. Shoketsu Kinzoku Kogyo Kabushiki Co. [VERIFY])
-- [ ] **Means-plus-function** — identify § 112(f) limitations, corresponding structure
-- [ ] **Indirect infringement** — induced (§ 271(b)): knowledge + specific intent; contributory (§ 271(c)): material component with no substantial non-infringing use
-- [ ] **Validity challenges** — anticipation (§ 102), obviousness (§ 103), enablement/written description (§ 112)
+1. **Claim construction** — construe disputed terms under Phillips v. AWH Corp., 415 F.3d 1303 (Fed. Cir. 2005) [VERIFY]
+2. **Literal infringement** — all-elements rule, limitation-by-limitation comparison using claim chart below
+3. **Doctrine of equivalents** — function-way-result or insubstantial differences test; check prosecution history estoppel per Festo [VERIFY]
+4. **Means-plus-function** — identify § 112(f) limitations, map corresponding structure
+5. **Indirect infringement** — induced (§ 271(b)): knowledge + specific intent; contributory (§ 271(c)): material component, no substantial non-infringing use
+6. **Validity challenges** — anticipation (§ 102), obviousness (§ 103), enablement/written description (§ 112)
 
-**Claim Chart Format:**
+**Claim Chart:**
 
 | Claim Element | Accused Feature | Literal? | DOE? | Notes |
 |---------------|----------------|----------|------|-------|
 | [Limitation 1] | | Y/N | Y/N | |
 | [Limitation 2] | | Y/N | Y/N | |
 
+A single missing limitation defeats literal infringement on that claim.
+
 #### B. Trademark Infringement
 
-Apply the circuit-appropriate likelihood-of-confusion factors:
+Identify the correct circuit's likelihood-of-confusion test (Polaroid, Sleekcraft, Lapp, etc.) and apply:
 
 | Factor | Analysis | Weight |
 |--------|----------|--------|
@@ -78,16 +93,15 @@ Apply the circuit-appropriate likelihood-of-confusion factors:
 | Channels of trade / marketing convergence | | |
 | Likelihood of expansion into related markets | | |
 
-- [ ] **Dilution** — if famous mark: blurring (§ 1125(c)) or tarnishment analysis
-- [ ] **Defenses** — descriptive fair use, nominative fair use, First Amendment
+If famous mark: assess dilution by blurring or tarnishment (§ 1125(c)). Evaluate defenses: descriptive fair use, nominative fair use, First Amendment.
 
 #### C. Copyright Infringement
 
-- [ ] **Ownership** — valid registration, chain of title
-- [ ] **Access** — direct or circumstantial evidence of access to the work
-- [ ] **Substantial similarity** — extrinsic test (objective, filterable elements) + intrinsic test (subjective, ordinary observer)
-- [ ] **Idea/expression filtration** — exclude ideas, facts, scènes à faire, merger doctrine elements
-- [ ] **De minimis use** — whether copying falls below actionable threshold
+1. **Ownership** — valid registration, chain of title
+2. **Access** — direct or circumstantial evidence
+3. **Substantial similarity** — extrinsic test (objective, filterable elements) + intrinsic test (subjective, ordinary observer)
+4. **Idea/expression filtration** — exclude ideas, facts, scènes à faire, merger doctrine elements before applying substantial similarity
+5. **De minimis** — whether copying falls below actionable threshold
 
 **Fair Use (17 U.S.C. § 107):**
 
@@ -100,13 +114,13 @@ Apply the circuit-appropriate likelihood-of-confusion factors:
 
 #### D. Trade Secret Misappropriation
 
-- [ ] **Identification** — describe each claimed trade secret with specificity
-- [ ] **Qualification** — independent economic value from secrecy + reasonable secrecy measures
-- [ ] **Misappropriation method** — improper means (theft, breach of duty, espionage) or breach of confidentiality obligation
-- [ ] **Inevitable disclosure** — applicable only in jurisdictions recognizing the doctrine; requires showing high degree of similarity between roles
-- [ ] **Restrictive covenants** — NDA/non-compete scope, enforceability, temporal/geographic limits
+1. **Identification** — describe each claimed trade secret with specificity
+2. **Qualification** — independent economic value from secrecy + reasonable secrecy measures
+3. **Misappropriation method** — improper means (theft, breach of duty, espionage) or breach of confidentiality obligation
+4. **Inevitable disclosure** — applicable only in jurisdictions recognizing the doctrine; requires high similarity between roles
+5. **Restrictive covenants** — NDA/non-compete scope, enforceability, temporal/geographic limits
 
-### Section 4: Defenses & Vulnerabilities
+### Step 4: Defenses & Vulnerabilities
 
 | Defense | Applicability | Risk Level |
 |---------|--------------|------------|
@@ -118,7 +132,7 @@ Apply the circuit-appropriate likelihood-of-confusion factors:
 | Fair use / nominative use | | |
 | Unclean hands | | |
 
-### Section 5: Remedies Assessment
+### Step 5: Remedies Assessment
 
 | Remedy | Availability | Estimated Range |
 |--------|-------------|-----------------|
@@ -131,7 +145,9 @@ Apply the circuit-appropriate likelihood-of-confusion factors:
 | Preliminary injunction (eBay factors) | | |
 | Permanent injunction | | |
 
-### Section 6: Overall Assessment & Recommendation
+All damages estimates are preliminary — validate with economic expert analysis.
+
+### Step 6: Overall Assessment
 
 | Item | Assessment |
 |------|-----------|
@@ -141,15 +157,21 @@ Apply the circuit-appropriate likelihood-of-confusion factors:
 | Recommended course of action | Litigate / Settle / License / Monitor |
 | Settlement valuation range | |
 
+Do not state ultimate legal conclusions without qualifying confidence level.
+
+## Troubleshooting
+
+| Issue | Resolution |
+|-------|-----------|
+| Uncertain claim construction | Flag ambiguous terms explicitly; present competing constructions with likelihood assessment |
+| Circuit split on LOC factors | Identify the controlling circuit; note split and flag if forum selection could change outcome |
+| Mixed literal/DOE results across claims | Analyze each claim independently; a single claim suffices for infringement |
+| Incomplete accused instrumentality info | Note gaps; qualify analysis as preliminary; request missing specs before finalizing |
+| Foreign IP rights implicated | Flag when Paris Convention, Berne Convention, or TRIPS may apply; analyze domestic and foreign rights separately |
+
 ## Guidelines
 
-- Analyze each IP type separately when multiple types are at issue
-- Apply the all-elements rule strictly for patents — a single missing limitation defeats literal infringement on that claim
-- Identify the correct circuit's likelihood-of-confusion factors for trademark (Polaroid, Sleekcraft, Lapp, etc.)
-- For copyright, always filter unprotectable elements before applying substantial similarity
 - Cite controlling authority from the relevant jurisdiction; flag persuasive-only authority from other circuits
 - Use `[VERIFY]` for any citation not confirmed against source documents
-- Do not opine on ultimate legal conclusions without qualifying confidence level
-- Flag any privilege, work-product, or ethical issues (e.g., analyzing a current client's competitor where conflicts may exist)
-- Note when foreign IP rights or international treaties (Paris Convention, Berne Convention, TRIPS) may be implicated
-- All damages estimates are preliminary and should be validated by economic expert analysis
+- Flag privilege, work-product, or ethical issues (e.g., conflict of interest in analyzing a current client's competitor)
+- Output is draft work product — include explicit notation that it does not constitute legal advice

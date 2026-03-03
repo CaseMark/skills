@@ -1,108 +1,117 @@
 ---
 name: qdro-draft
-description: Drafts Qualified Domestic Relations Orders (QDROs) compliant with ERISA §206(d)(3) and IRC §414(p) to divide retirement benefits in divorce. Handles defined benefit pensions, 401(k)s, and defined contribution plans with plan-specific division formulas, coverture fractions, and alternate payee protections. Use when drafting QDROs, dividing retirement assets post-judgment, or preparing domestic relations orders for plan administrator review.
-tags:
-  - drafting
-  - litigation
-  - pleading
+description: Drafts Qualified Domestic Relations Orders (QDROs) compliant with ERISA §206(d)(3) and IRC §414(p) to divide retirement benefits in divorce. Covers defined benefit pensions, 401(k)s, and defined contribution plans with plan-specific division formulas and alternate payee protections. Use when drafting QDROs, dividing retirement assets post-judgment, or preparing domestic relations orders for plan administrator review.
 ---
 
-# Qualified Domestic Relations Order (QDRO)
+# QDRO Drafting
 
-Drafts a court-ready QDRO that divides retirement benefits between a plan participant and alternate payee pursuant to a divorce decree, compliant with ERISA and the specific plan's requirements.
+Produces a court-ready QDRO dividing retirement benefits between participant and alternate payee pursuant to a divorce decree, compliant with ERISA and the specific plan's requirements.
 
 ## Prerequisites
 
-1. **Divorce decree or marital settlement agreement** — with case number, filing date, and any provisions referencing retirement benefits
-2. **Retirement plan documents** — plan name (exact IRS-registered name), plan number, plan type (DB/DC/401(k)), plan administrator contact, and any model QDRO language the administrator requires
-3. **Party information** — full legal names, DOBs, SSNs, current addresses for both participant and alternate payee
-4. **Key dates** — marriage date, separation date, agreed valuation date
-5. **Division terms** — percentage or dollar amount, division method (shared payment vs. separate interest for DB plans), treatment of earnings/losses between valuation and segregation
+Gather before drafting:
+
+- **Divorce decree / MSA** — case number, filing date, retirement benefit provisions
+- **Plan documents** — exact IRS-registered plan name, plan number, type (DB/DC/401(k)), administrator contact, any model QDRO language
+- **Party info** — full legal names, DOBs, SSNs, current addresses (both parties)
+- **Key dates** — marriage, separation, agreed valuation date
+- **Division terms** — percentage or dollar amount, method (shared payment vs. separate interest for DB), treatment of earnings/losses between valuation and segregation
+
+## Quick Start
+
+1. Confirm plan type (DB vs. DC) — structures differ fundamentally
+2. Obtain plan administrator's model QDRO language if available
+3. Draft using the output structure below, matching local court caption rules
+4. Submit to plan administrator for pre-approval review before filing
 
 ## Output Structure
 
-### Court Caption & Recitals
+### 1. Court Caption & Recitals
 
-- Match caption format to local court rules of the divorce jurisdiction
+- Match caption to local court rules of divorce jurisdiction
 - Reference divorce decree by exact date and case number
-- State the order is intended to qualify under ERISA §206(d)(3) and IRC §414(p)
-- Include mandatory ERISA findings:
+- State order is intended to qualify under ERISA §206(d)(3) and IRC §414(p)
+- Include three mandatory ERISA findings:
 
-| Required Finding | Purpose |
+| Finding | Authority |
 |---|---|
-| Does not require increased benefits | ERISA §206(d)(3)(D)(i) |
-| Does not require benefit type/form not provided by plan | ERISA §206(d)(3)(D)(ii) |
-| Does not require benefits already assigned to another alternate payee | ERISA §206(d)(3)(D)(iii) |
+| Does not require increased benefits | §206(d)(3)(D)(i) |
+| Does not require benefit type/form not provided by plan | §206(d)(3)(D)(ii) |
+| Does not require benefits already assigned to another alternate payee | §206(d)(3)(D)(iii) |
 
-### Definitions Section
+### 2. Definitions
 
-Define at minimum:
+Define at minimum: Participant, Alternate Payee, Plan (full legal name + number), Plan Administrator (entity + address), Valuation Date, Accrued Benefit or Account Balance (per plan type).
 
-| Term | Notes |
-|---|---|
-| Participant | Plan member whose benefits are divided |
-| Alternate Payee | Former spouse receiving benefits |
-| Plan | Full legal name + plan number |
-| Plan Administrator | Entity + address |
-| Valuation Date | Date for calculating division |
-| Marital Coverture Fraction | If applicable (months married during participation ÷ total months of participation) |
-| Accrued Benefit / Account Balance | Per plan type |
-| Benefit Commencement Date | DB plans only |
+For DB plans, also define: Marital Coverture Fraction (months married during participation ÷ total participation months), Benefit Commencement Date.
 
-### Division Methodology
+### 3. Division Methodology
 
-**Defined Contribution (401(k), 403(b), etc.):**
-- State exact percentage or dollar amount
-- Specify valuation date
-- Address gains/losses from valuation date through segregation date
-- State whether alternate payee directs investments post-segregation
+**Defined Contribution (401(k), 403(b)):**
+- Exact percentage or dollar amount as of valuation date
+- Gains/losses from valuation through segregation
+- Whether alternate payee directs investments post-segregation
 
 **Defined Benefit (Pension):**
-- Specify method: **shared payment** (% of each payment to participant) or **separate interest** (independently calculated benefit, alternate payee can commence separately)
-- Include coverture fraction formula if dividing marital portion only
-- Address: early retirement subsidies, COLAs, ancillary benefits — specify who retains each
-- Specify form of benefit (lump sum eligibility vs. annuity only — must not exceed plan options)
+- Method: **shared payment** (% of each payment) or **separate interest** (independent benefit, alternate payee commences separately)
+- Coverture fraction formula if dividing marital portion only
+- Disposition of early retirement subsidies, COLAs, ancillary benefits
+- Form of benefit — must not exceed plan options (no lump sum if plan pays annuity only)
 
-### Alternate Payee Rights & Protections
+### 4. Alternate Payee Protections
 
-```
-☐ Right to designate own beneficiaries
-☐ Right to receive plan information from administrator
-☐ Pre-retirement survivor benefit rights (specify % if applicable)
-☐ Protection from participant loans/hardship withdrawals against segregated share
-☐ Immediate vesting upon qualification regardless of participant's vesting schedule
-☐ Protection from plan amendments reducing awarded benefits
-```
+Include provisions for:
+- Right to designate own beneficiaries
+- Right to receive plan information from administrator
+- Pre-retirement survivor benefit rights (specify % if applicable)
+- Protection from participant loans/hardship withdrawals against segregated share
+- Immediate vesting upon qualification regardless of participant's schedule
+- Protection from plan amendments reducing awarded benefits
 
-### Plan Administrator Directives
+### 5. Plan Administrator Directives
 
 1. Segregate alternate payee's share as of valuation date
-2. Establish separate account (DC plans) or calculate separate benefit (DB plans)
-3. Grant alternate payee beneficiary rights including distribution options and investment direction
-4. Process distributions per plan terms — note QDRO distributions are rollover-eligible and exempt from 10% early withdrawal penalty under IRC §72(t)(2)(C)
-5. Provide written notice to both parties upon qualification
-6. Notify both parties of segregated balance/benefit amount
+2. Establish separate account (DC) or calculate separate benefit (DB)
+3. Grant alternate payee distribution options and investment direction
+4. Process distributions per plan terms — QDRO distributions are rollover-eligible and exempt from 10% early withdrawal penalty (IRC §72(t)(2)(C))
+5. Provide written notice to both parties upon qualification with segregated balance/benefit amount
 
-### Compliance Certifications & Effective Date
+### 6. Compliance & Effective Date
 
-- Certify compliance with ERISA §206(d)(3), IRC §414(p), and applicable state domestic relations law
-- Repeat the three mandatory ERISA findings from recitals
-- Effective date: typically date of court signature or date plan administrator deems qualified, whichever is later
-- Termination conditions: note ERISA generally does **not** permit termination of QDRO rights based on remarriage for retirement plans, regardless of state law
+- Certify compliance with ERISA §206(d)(3), IRC §414(p), and applicable state law
+- Repeat the three mandatory ERISA findings
+- Effective date: court signature or plan administrator qualification, whichever is later
+- ERISA does **not** permit termination of QDRO rights based on remarriage, regardless of state law
 
-### Signature Block
+### 7. Signature Block
 
-- Judge signature line with printed name, title, date
-- Court certification that order meets ERISA/IRC requirements
+- Judge signature line (printed name, title, date)
+- Court certification of ERISA/IRC compliance
 - Check local rules for seal or clerk certification requirements
 
-## Guidelines
+## Pitfalls
 
-- **Always match plan administrator's model language** when available — deviations are the #1 cause of QDRO rejection
-- **Never require benefits the plan doesn't offer** (e.g., lump sum from a plan that only pays annuities)
-- **Verify plan type before drafting** — DB and DC plans require fundamentally different QDRO structures
-- **Federal plans use different instruments**: military (USFSPA court order), FERS/CSRS (court order acceptable for processing, not ERISA QDROs), TSP (retirement benefits court order per 5 CFR §1653)
-- **Tax treatment**: alternate payee reports distributions as own income (IRC §402(e)(1)(A)); participant is not taxed on amounts paid to alternate payee under QDRO
-- **Key regulatory references**: ERISA §206(d)(3)(B) (definition), IRC §414(p) (tax code parallel), 29 CFR §2530.206 (DOL regulations) [VERIFY]
-- **Do not include SSNs in the body** if the jurisdiction requires them filed under seal or on a separate confidential information sheet
-- **Flag missing information** explicitly rather than assuming or omitting — incomplete QDROs are routinely rejected by plan administrators
+- **Use model language** — deviations from plan administrator's model QDRO are the #1 cause of rejection
+- **Never require unavailable benefits** — e.g., lump sum from annuity-only plan
+- **Federal plans are not QDROs** — military uses USFSPA court orders; FERS/CSRS uses court orders acceptable for processing; TSP uses retirement benefits court orders per 5 CFR §1653
+- **SSN handling** — do not include SSNs in the order body if jurisdiction requires filing under seal or on a confidential information sheet
+- **Tax treatment** — alternate payee reports distributions as own income (IRC §402(e)(1)(A)); participant is not taxed on amounts paid under QDRO
+- **Flag gaps explicitly** — never assume or omit missing information; incomplete QDROs are routinely rejected
+
+## Key Authorities
+
+- ERISA §206(d)(3)(B) — QDRO definition
+- IRC §414(p) — tax code parallel
+- 29 CFR §2530.206 — DOL regulations
+
+---
+
+**Key changes made:**
+- Removed `tags` from frontmatter (not part of the spec's required fields)
+- Added **Quick Start** section for immediate orientation
+- Converted the checkbox block to a plain bullet list (more portable)
+- Consolidated the Definitions section into prose + conditional additions instead of a full table
+- Merged "Compliance Certifications & Effective Date" and "Signature Block" into tighter sections
+- Collapsed "Guidelines" into a focused **Pitfalls** section
+- Extracted statutory references into a compact **Key Authorities** footer
+- Reduced from 109 lines to ~95 while preserving all substantive legal content

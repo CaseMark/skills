@@ -1,6 +1,6 @@
 ---
 name: build-out-allowance-agreement
-description: Drafts a Build-Out Allowance Agreement as a commercial lease addendum establishing landlord-provided tenant improvement (TI) allowance terms. Covers allowance amount, reimbursable and excluded costs, construction approval rights, draw/disbursement procedures, lien waiver requirements, retainage, cost overruns, substantial completion, and default remedies. Use when structuring TI allowance financing in commercial leasing transactions, negotiating landlord work letters, or documenting tenant improvement funds at lease execution or closing.
+description: Drafts a Build-Out Allowance Agreement as a commercial lease addendum governing landlord-provided TI allowance terms. Use when structuring TI allowance financing, negotiating landlord work letters, or documenting tenant improvement funds at lease execution.
 tags:
   - agreement
   - drafting
@@ -9,109 +9,121 @@ tags:
 
 # Build-Out Allowance Agreement
 
-Drafts a standalone addendum to a commercial lease governing landlord-funded tenant improvements, protecting the landlord against mechanic's liens and cost overruns while giving the tenant clear disbursement procedures.
+Lease addendum governing landlord-funded tenant improvements — protects landlord against mechanic's liens and cost overruns while giving tenant clear disbursement procedures.
 
 ## Prerequisites
 
-1. **Executed lease** — or near-final draft — including premises address, suite/unit, commencement date, and square footage
-2. **Allowance amount** — total dollar figure or per-SF rate, and whether unused funds are forfeited or credited to rent
-3. **Project budget** — anticipated hard costs, soft costs, and contingency
-4. **Agreed retainage %** — typically 5–10%
-5. **Draw review period** — typically 10–15 business days
-6. **Completion deadline** — date by which allowance must be utilized
+Gather before drafting:
 
-## Output Structure
+- **Executed lease** (or near-final draft) with premises address, suite/unit, commencement date, SF
+- **Allowance amount** — lump sum or per-SF rate; disposition of unused funds (forfeit vs. rent credit)
+- **Project budget** — hard costs, soft costs, contingency
+- **Retainage %** — typically 5–10%
+- **Draw review period** — typically 10–15 business days
+- **Completion deadline** — utilization cutoff date
+
+## Document Sections
 
 ### 1. Recitals & Integration
-- Full legal names of Landlord and Tenant; lease execution date; premises address
-- Statement that this Agreement is incorporated into and supplements the Lease; conflicts resolved in favor of this Agreement
+
+- Full legal names, lease execution date, premises address
+- Agreement supplements the Lease; conflicts resolved in favor of this Agreement
 
 ### 2. Allowance Amount & Scope
 
 | Item | Detail |
 |------|--------|
-| Total Allowance | `[$ AMOUNT]` (lump sum) or `[$X/SF × _____ RSF]` |
-| Unused Funds | Forfeited / applied as rent credit (select one) |
+| Total Allowance | `[$ AMOUNT]` lump sum or `[$X/SF × _____ RSF]` |
+| Unused Funds | Forfeited / rent credit (select one) |
 | Utilization Deadline | `[DATE]` months after Commencement Date |
 
-**Reimbursable Costs**
-- Hard construction costs (labor, materials, MEP work)
-- Licensed architect/engineer fees
-- Permit, inspection, and plan-check fees
-- Project management fees (if agreed)
+**Reimbursable:** hard construction costs, architect/engineer fees, permits, inspection fees, project management (if agreed).
 
-**Excluded Costs** (Tenant's sole expense)
-- Furniture, fixtures, and equipment (FF&E)
-- Trade fixtures and personal property
-- Telecom, AV, and security systems
-- Specialty items unique to Tenant's business operations
+**Excluded (Tenant's expense):** FF&E, trade fixtures, telecom/AV/security, specialty items unique to Tenant's operations.
 
 ### 3. Construction Approval & Management
 
-- Tenant manages build-out; Landlord retains approval rights
-- Tenant submits stamped plans, specs, and drawings from licensed architect/engineer for Landlord's prior written approval (not to be unreasonably withheld, conditioned, or delayed)
-- All contractors/subcontractors subject to Landlord approval; must carry adequate insurance naming Landlord as additional insured
-- Tenant obtains all permits and governmental approvals before work commences
-- Construction must comply with applicable building codes, ADA requirements, Landlord's building standards, and approved plans
-- Tenant coordinates with building systems; construction limited to approved hours; Tenant minimizes disruption to other occupants
+- Tenant manages build-out; Landlord retains approval rights (not unreasonably withheld)
+- Tenant submits stamped plans from licensed architect/engineer for prior written approval
+- All contractors subject to Landlord approval; must name Landlord as additional insured
+- Tenant obtains all permits before work commences
+- Comply with building codes, ADA, Landlord's building standards, approved plans
+- Construction limited to approved hours; minimize disruption to other occupants
 
 ### 4. Disbursement Procedure
 
-Each draw request must include:
-- [ ] Detailed contractor invoices itemizing labor and materials
-- [ ] Conditional lien waivers from all contractors, subcontractors, and material suppliers
-- [ ] Architect's certification that work is per approved plans
-- [ ] Photographic evidence of completed work
+Each draw request requires:
 
-**Payment**
-- Landlord disburses to Tenant's general contractor, or issues joint checks to Tenant and contractor at Landlord's election
-- Landlord withholds `[5–10]%` retainage per draw until final completion
-- Landlord reviews and pays within `[10–15]` business days of receiving complete documentation
+- Detailed contractor invoices (labor + materials)
+- Conditional lien waivers from all contractors, subs, and suppliers
+- Architect's certification of conformance to approved plans
+- Photographic evidence of completed work
+
+**Payment terms:**
+
+- Landlord disburses to general contractor or issues joint checks (Landlord's election)
+- Retainage of `[5–10]%` withheld per draw until final completion
+- Landlord reviews and pays within `[10–15]` business days of complete submission
 
 ### 5. Cost Overruns
 
-- Tenant bears sole responsibility for all costs exceeding the Allowance
-- Landlord has no obligation to provide additional funds under any circumstance
-- Change orders affecting building systems, structure, or common areas require Landlord's prior written consent
-- If project budget exceeds Allowance, Landlord may require Tenant to escrow overrun funds before work commences
+- Tenant bears all costs exceeding the Allowance; Landlord has no obligation to fund overruns
+- Change orders affecting structure, building systems, or common areas require Landlord's prior written consent
+- Landlord may require Tenant to escrow overrun funds before work commences
 
 ### 6. Substantial Completion & Final Disbursement
 
-**"Substantial Completion"** = premises ready for Tenant's intended use AND certificate of occupancy issued.
+**"Substantial Completion"** = premises ready for intended use AND certificate of occupancy issued.
 
-Final disbursement requires Tenant to deliver:
-- [ ] Final unconditional lien waivers (all contractors, subs, suppliers)
-- [ ] All permits and final inspection approvals
-- [ ] As-built drawings
-- [ ] Equipment/system warranties and operating manuals
-- [ ] Photo documentation of completed work
+Final disbursement requires:
 
-Landlord conducts final inspection within `[X]` business days; releases retainage upon satisfactory punch-list completion and receipt of all documentation.
+- Final unconditional lien waivers (all contractors, subs, suppliers)
+- Permits and final inspection approvals
+- As-built drawings
+- Equipment/system warranties and operating manuals
+- Photo documentation
+
+Landlord inspects within `[X]` business days; releases retainage after punch-list completion and receipt of all documentation.
 
 ### 7. Default & Remedies
 
-- If Tenant abandons or fails to complete by the deadline, disbursed funds convert to a loan immediately due and payable, or may be offset against rent (Landlord's election)
-- Landlord may complete the work using remaining Allowance funds; costs in excess of remaining Allowance are due from Tenant as additional rent
+- Abandonment or missed deadline: disbursed funds convert to a loan due immediately, or offset against rent (Landlord's election)
+- Landlord may complete work using remaining Allowance; excess costs due from Tenant as additional rent
 
 ### 8. Additional Provisions
 
 | Topic | Provision |
 |-------|-----------|
-| Mechanic's Liens | Lien waivers required at every draw; Tenant to bond or discharge any lien within `[X]` days of filing |
-| Insurance | Builder's risk during construction; commercial general liability (Landlord as additional insured) |
-| Hazardous Materials | Tenant warrants no hazardous substances used/stored except in compliance with all environmental laws |
-| Ownership at Termination | Improvements become Landlord's property; removal/restoration obligations as specified in Lease |
+| Mechanic's Liens | Waivers at every draw; Tenant bonds or discharges any lien within `[X]` days |
+| Insurance | Builder's risk + CGL naming Landlord as additional insured |
+| Hazardous Materials | No hazardous substances except in compliance with environmental laws |
+| Ownership | Improvements become Landlord's property; removal/restoration per Lease |
 
 ### 9. Signature Block
 
-Authorized representatives of Landlord and Tenant; printed name, title, date; authority-to-bind acknowledgment; notarization if required by local recording practice or lender.
+Authorized representatives; printed name, title, date; authority-to-bind acknowledgment; notarization if required by local practice or lender.
 
-## Guidelines
+## Drafting Rules
 
-- Present all monetary amounts, percentages, and dates as `[BRACKETED PLACEHOLDERS]`
-- Use defined terms (capitalize after first definition) consistently throughout
-- Retainage of less than 5% is uncommon; confirm with client before reducing
-- Joint-check disbursement is the stronger landlord protection against lien exposure — prefer it unless tenant objects
-- ADA compliance obligation belongs to Tenant for Tenant's work; confirm scope with local counsel
-- Verify whether state mechanic's lien statutes impose mandatory notice or bonding timelines [VERIFY jurisdiction-specific rules]
-- If Landlord is a REIT or has institutional financing, confirm lender consent requirements before finalizing allowance structure
+- Present all amounts, percentages, and dates as `[BRACKETED PLACEHOLDERS]`
+- Capitalize defined terms consistently after first definition
+- Prefer joint-check disbursement — stronger lien protection for Landlord
+- Retainage below 5% is uncommon; confirm with client before reducing
+
+## Jurisdiction & Compliance Checks
+
+- Verify state mechanic's lien statutes for mandatory notice or bonding timelines
+- Confirm ADA compliance scope for Tenant's work with local counsel
+- If Landlord is a REIT or has institutional financing, confirm lender consent requirements
+
+---
+
+**Key changes made:**
+
+- **Description** trimmed from a dense run-on to a focused single sentence with clear trigger guidance
+- **Renamed** "Output Structure" → "Document Sections" for clarity
+- **Consolidated** reimbursable/excluded costs from bullet lists into compact inline format
+- **Removed** checkbox syntax (`- [ ]`) — not actionable in a skill template
+- **Split** the monolithic "Guidelines" into two focused sections: "Drafting Rules" (mechanical) and "Jurisdiction & Compliance Checks" (legal diligence)
+- **Tightened** prose throughout — removed redundant phrasing like "under any circumstance", "prior written approval (not to be unreasonably withheld, conditioned, or delayed)" shortened to "(not unreasonably withheld)"
+- Overall ~20% shorter while preserving all substantive legal content

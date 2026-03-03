@@ -1,15 +1,11 @@
 ---
 name: notice-to-perform-real-estate
 description: >-
-  Drafts U.S. real-estate transactional notices to perform for residential
-  matters (lease, purchase, construction-related residential agreements) when
-  a counterparty has defaulted and must be given a cure demand before
-  escalation. Produces a litigation-defensible, jurisdiction-aware demand
-  letter with breach chronology, statutory/provisional notice checks, cure
-  mechanics, remedy mapping, and proof-of-service structure for negotiation,
-  pre-closing, and pre-filing workflows. Trigger keywords: notice to perform,
-  notice to cure, cure notice, demand to perform, residential default notice,
-  pre-suit notice.
+  Drafts jurisdiction-aware residential real-estate notices to perform (cure
+  demands) for lease, purchase, or construction agreements where a counterparty
+  has defaulted. Trigger when the user needs a notice to perform, notice to cure,
+  cure notice, demand to perform, residential default notice, or pre-suit notice
+  for a U.S. residential real-estate matter.
 tags:
   - drafting
   - letter
@@ -17,109 +13,111 @@ tags:
   - transactional
 ---
 
-# Notice to Perform (Residential Real Estate)
+# Notice to Perform — Residential Real Estate
 
-Drafts a precise, fact-based Notice to Perform that gives a fair cure path while preserving all contractual and legal remedies.
+Produces a litigation-defensible cure demand with breach chronology, statutory notice compliance, remedy mapping, and proof-of-service structure.
 
-## Prerequisites
+## Required Inputs
 
-1. **Governing instrument(s):** fully executed agreement, riders, addenda, assignment, and any incorporated documents (plans/specs/schedules).
-2. **Party identifiers:** legal names, capacities, addresses for service, agent authority, and entity identifiers where applicable.
-3. **Contractual triggers:** notice clause, cure period, default definitions, remedy ladder, termination and attorney-fee provisions.
-4. **Evidence set:** payment history, performance logs, communications, inspection reports, photos, invoices, and notices already sent.
-5. **Jurisdictional baseline:** governing law, performance location, and any state/county rules imposing mandatory notice form, period, or method.
-6. **Outstanding-risk posture:** whether sender is pursuing escrow holdback, cure, termination, specific performance, or damages sequencing.
+Collect before drafting. If any item is missing, return a "facts required" list — do not draft until resolved.
 
-## Output Structure / Process
+1. **Governing instruments** — executed agreement, riders, addenda, incorporated docs
+2. **Party identifiers** — legal names, capacities, service addresses, entity IDs
+3. **Contractual triggers** — notice clause, cure period, default definitions, remedy ladder, termination/fee provisions
+4. **Evidence** — payment history, performance logs, communications, inspection reports, invoices, prior notices
+5. **Jurisdiction** — governing law, performance location, mandatory notice form/period/method rules
+6. **Sender's posture** — cure, escrow holdback, termination, specific performance, or damages sequencing
 
-### 1) Intake validation
-- If any critical item is missing, return a concise “facts required” list and do not draft final notice until completed:
-  - missing amount due / due date(s)
-  - missing governing clause for notice method
-  - missing legal authority to sign
-  - missing delivery details for required recipients
+## Workflow
 
-### 2) Contract + timeline extraction
-Create a breach matrix:
+### 1. Intake Validation
+
+Block drafting if missing:
+- Amount due / due dates
+- Governing clause for notice method
+- Legal authority to sign
+- Delivery details for required recipients
+
+### 2. Breach Matrix
 
 | Date | Obligation | Required Performance | Actual Conduct | Evidence | Contract Section |
-|---|---|---|---|---|
+|------|-----------|---------------------|---------------|----------|-----------------|
 
-- Populate with every missed payment, late payment, and performance failure.
-- Keep factual language only; no conclusory legal labels in matrix rows.
+- One row per missed/late payment or performance failure.
+- Factual language only — no conclusory legal labels.
 
-### 3) Jurisdiction and legal research checks
-- Identify governing law and confirm:
-  - required cure period minimums
-  - method of delivery allowed/required
-  - any tenant-protective statutory overrides (if landlord-tenant)
-  - consequences of improper notice and cure timing
-- Record uncertainty with `[VERIFY]` where legal text is not confirmed.
+### 3. Jurisdiction Check
 
-| Legal item | Status | Source |
-|---|---|---|
-| Notice form/cure period compliance | Confirmed / pending | Agreement + statute/case `[VERIFY]` |
-| Service method sufficiency | Confirmed / pending | Agreement + statute `[VERIFY]` |
-| Termination / acceleration prerequisites | Confirmed / pending | Contract + law `[VERIFY]` |
+Confirm and record in a tracking table:
 
-### 4) Drafting order
-1. Header block (title/date/sender/recipient)
-2. Agreement identification block (name, date, section references)
-3. Factual non-performance chronology (objective + evidence-linked)
-4. Specific cure demand with measurable conditions
-5. Cure deadline with exact date/time zone and whether deadline is “commence by” vs “complete by”
-6. Remedies escalation (contract remedies first, then statutory/judicial)
-7. Rights preservation and anti-waiver language
+| Item | Status | Source |
+|------|--------|--------|
+| Cure period minimums | Confirmed / `[VERIFY]` | Agreement + statute |
+| Service method sufficiency | Confirmed / `[VERIFY]` | Agreement + statute |
+| Termination / acceleration prerequisites | Confirmed / `[VERIFY]` | Contract + law |
+| Tenant-protective statutory overrides | Confirmed / `[VERIFY]` | State statute |
+
+Mark any unconfirmed legal text with `[VERIFY]`.
+
+### 4. Draft Structure
+
+1. Header — title, date, sender, recipient
+2. Agreement identification — name, date, section references
+3. Non-performance chronology — objective facts, evidence-linked
+4. Cure demand — measurable conditions
+5. Cure deadline — exact date/time/zone; specify "commence by" vs "complete by"
+6. Remedies escalation — contract → statutory → judicial
+7. Rights preservation / anti-waiver
 8. Signature and authority blocks
-9. Certificate of service with method-by-method proof
+9. Certificate of service — method, date/time, recipient, tracking/receipt proof
 
-### 5) Tone and structure requirements
-- Use sectioned, numbered paragraphs for future citation.
-- Use short, direct sentences.
-- Mirror defined terms from agreement exactly.
-- Use defined formatting standards for citations, section names, and clause numbers.
+### 5. Style Rules
+
+- Numbered paragraphs for citation reference.
+- Short, direct sentences.
+- Mirror defined terms from the agreement exactly.
 
 ## Notice Template
 
-```text
+```
 Date:
 To:
 From:
 Re: Notice to Perform – [Agreement Name/Date]
 Agreement Date:
-Governing law:
-Notice clause references:
-Default date(s):
-Specific obligations breached:
-Breach chronology (table):
-Cure demanded:
-Deadline (date/time + zone):
-Method/locations to accept cure:
-Consequences of non-cure:
-Rights reserved:
-Authorized signatory:
-Capacity / authority statement:
+Governing Law:
+Notice Clause References:
+Default Date(s):
+Obligations Breached:
+Breach Chronology: (table)
+Cure Demanded:
+Deadline: (date/time + zone)
+Cure Acceptance Method/Location:
+Consequences of Non-Cure:
+Rights Reserved:
+Authorized Signatory:
+Capacity / Authority:
 Certificate of Service:
-- Method:
-- Date/time:
-- Recipient details:
-- Tracking/receipt evidence:
+  - Method:
+  - Date/Time:
+  - Recipient:
+  - Tracking/Receipt:
 ```
 
-## Checklist Before Finalizing
+## Final Checklist
 
-1. Every factual assertion is traceable to a document.
-2. Each cure item is objectively measurable.
-3. Cure window matches jurisdictional/statutory minimums and contract terms.
-4. Delivery method satisfies both contract and governing rules.
+1. Every factual assertion traceable to a document.
+2. Each cure item objectively measurable.
+3. Cure window meets jurisdictional/statutory minimums and contract terms.
+4. Delivery method satisfies contract and governing rules.
 5. Reservation of rights covers contract, legal, and equitable remedies.
-6. No new legal theory is introduced without `[VERIFY]`.
+6. No new legal theory introduced without `[VERIFY]`.
 
-## Guidelines
+## Pitfalls
 
-- Do not understate statutory notice requirements in residential contexts.
-- Do not assert “non-waiver” language only after discussing the specific legal posture.
-- Never assume payment totals; calculate from ledger and state components (principal, fees, interest).
-- Avoid emotional/legal persuasion language; keep it enforceable and documentary.
-- Prefer explicit remedy mapping: `contract remedy -> statutory remedy -> litigation remedy`.
-- For uncertain clause interpretation or statute, use `[VERIFY]` and cite verification source in final note.
+- Never understate statutory notice requirements in residential contexts.
+- Never assume payment totals — calculate from ledger components (principal, fees, interest).
+- Do not assert anti-waiver language without addressing the specific legal posture.
+- Avoid emotional or persuasive language — keep it enforceable and documentary.
+- Use explicit remedy mapping: contract → statutory → litigation.
+- Flag uncertain clauses or statutes with `[VERIFY]` and cite the verification source.

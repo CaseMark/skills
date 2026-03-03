@@ -1,6 +1,6 @@
 ---
 name: jury-trial-request
-description: Drafts a formal Request for Jury Trial invoking Sixth Amendment (criminal) or Seventh Amendment (civil) rights. Handles federal FRCP Rule 38 and FRCRP Rule 23 requirements, state procedural variations, filing deadlines, jury fee obligations, and waiver avoidance. Use when filing a jury demand, jury trial request, demand for jury trial, or electing jury over bench trial during pleadings or pre-trial phases.
+description: Drafts a formal Request for Jury Trial invoking Sixth Amendment (criminal) or Seventh Amendment (civil) rights. Covers federal FRCP Rule 38, FRCrP Rule 23, state procedural variations, filing deadlines, jury fees, and waiver avoidance. Use when filing a jury demand, requesting jury trial, electing jury over bench trial, or preserving jury rights during pleadings or pre-trial phases.
 tags:
   - drafting
   - litigation
@@ -11,28 +11,26 @@ tags:
 
 Drafts a court-ready jury trial demand that preserves constitutional rights and complies with jurisdictional filing requirements.
 
-## Prerequisites
+## Quick Start
 
-1. **Case file** — court name, full case caption, case number, party designations
-2. **Jurisdiction identification** — federal vs. state, specific court and local rules
-3. **Case type** — criminal or civil (determines constitutional basis)
-4. **Filing deadline** — calculated from applicable rules (see Deadline Reference below)
-5. **Claims inventory** — list of claims/issues to determine scope of jury demand
-6. **Jury fee status** — whether fee is required, amount, and payment timing
+1. Gather: court name, case caption, case number, party designations, jurisdiction, case type (criminal/civil)
+2. Calculate filing deadline from applicable rules
+3. Determine demand scope — general ("all issues so triable") or specific issues
+4. Select constitutional authority (Sixth or Seventh Amendment + state basis)
+5. Draft document using template below
+6. File with jury fee (if required) and certificate of service
 
-## Deadline Reference
+## Filing Deadlines
 
 | Context | Rule | Deadline |
 |---|---|---|
 | Federal civil | FRCP Rule 38(b) | 14 days after service of last pleading directed to jury-triable issue |
 | Federal criminal | FRCrP Rule 23(a) | Before trial unless court sets earlier deadline |
-| State courts | Varies | Check local rules — ranges from initial responsive pleading to 10 days before trial |
+| State courts | Varies | Check local rules — ranges from responsive pleading to 10 days before trial |
 
-**Critical**: Failure to timely file = waiver of jury right. Always confirm deadline against local rules and any case-specific scheduling orders.
+**Failure to timely file = waiver of jury right.** Always confirm against local rules and scheduling orders. When ambiguous, file with the answer or initial responsive pleading.
 
-## Output Structure
-
-### Document Template
+## Document Template
 
 ```
 [COURT FULL FORMAL NAME]
@@ -48,7 +46,7 @@ v.                         )    [DEFENDANT'S/PLAINTIFF'S]
 COMES NOW [Party Name], by and through undersigned counsel, and
 hereby demands trial by jury [on all issues so triable / on the
 following issues: ___] in the above-captioned matter, pursuant to
-[constitutional and procedural authority — see below].
+[constitutional and procedural authority].
 
 [If criminal]:
 This demand is made pursuant to the Sixth Amendment to the United
@@ -77,38 +75,37 @@ parties of record via [ECF/mail/hand delivery]:
 /s/ [Attorney Name]
 ```
 
-### Scope of Demand Checklist
-
-- [ ] **General demand** — "all issues so triable" (default; preferred unless strategic reason to limit)
-- [ ] **Specific issues** — required in some jurisdictions for mixed legal/equitable claims
-- [ ] **Multiple parties** — confirm blanket demand covers cross-claims and third-party claims
-
-### Constitutional Authority Selection
+## Constitutional Authority
 
 | Case Type | Federal Basis | State Basis |
 |---|---|---|
-| Criminal | Sixth Amendment | State constitution art/sec [VERIFY specific state] |
-| Civil — legal claims | Seventh Amendment | State constitution/statute [VERIFY] |
-| Civil — equitable claims | No jury right | Check state rules — some states extend jury right |
+| Criminal | Sixth Amendment | State constitution art/sec — verify |
+| Civil — legal claims | Seventh Amendment | State constitution/statute — verify |
+| Civil — equitable claims | No federal jury right | Some states extend jury right — check rules |
+
+## Demand Scope
+
+- **General demand** — "all issues so triable" (default; preferred unless strategic reason to limit)
+- **Specific issues** — required in some jurisdictions for mixed legal/equitable claims
+- **Multiple parties** — confirm blanket demand covers cross-claims and third-party claims
+
+For cases with both legal and equitable claims, demand jury on all issues — let the court sort triability.
 
 ## Filing Checklist
 
-1. [ ] Confirm filing deadline not passed
-2. [ ] Verify whether standalone document required or may be included in responsive pleading
-3. [ ] Check jury fee requirement and amount
-4. [ ] Confirm service method (ECF mandatory? paper permitted?)
-5. [ ] Apply local formatting rules (font, spacing, margins, page numbering)
-6. [ ] Include certificate of service listing all parties
-7. [ ] Save as PDF with court naming convention if required
-8. [ ] Pay jury fee contemporaneously if required (note: indigent parties may move for waiver)
-9. [ ] Deliver courtesy copy to chambers if required by local rule or standing order
+- [ ] Confirm filing deadline not passed
+- [ ] Verify standalone document vs. inclusion in responsive pleading
+- [ ] Check jury fee requirement, amount, and payment timing (indigent parties may move for waiver)
+- [ ] Confirm service method (ECF mandatory? paper permitted?)
+- [ ] Apply local formatting rules (font, spacing, margins, page numbering)
+- [ ] Include certificate of service listing all parties
+- [ ] Save as PDF per court naming convention if required
+- [ ] Deliver courtesy copy to chambers if required by local rule
 
-## Guidelines
+## Pitfalls
 
-- Use unequivocal language — "hereby demands," never conditional or tentative phrasing
-- Keep the document to 1–2 pages; this is a procedural demand, not a brief
-- Do not include argumentative statements or case merits
-- If deadline is ambiguous, file as early as possible (with the answer or initial responsive pleading)
-- For cases with both legal and equitable claims, demand jury on all issues — let the court sort triability
-- Verify local rules for any required cover sheets, filing category codes, or companion documents
-- Electronic signature format: `/s/ [Name]` per local e-filing rules
+- **Conditional language** — use "hereby demands," never tentative phrasing
+- **Overlong filing** — keep to 1–2 pages; this is a procedural demand, not a brief
+- **Argumentative content** — do not include case merits or legal argument
+- **Missing local requirements** — verify cover sheets, filing category codes, and companion documents
+- **E-signature format** — use `/s/ [Name]` per local e-filing rules

@@ -1,13 +1,9 @@
 ---
 name: breach-of-purchase-agreement-complaint
 description: >-
-  Drafts a U.S. litigation complaint for breach of a purchase agreement and
-  prepares it for filing in pre-filing and pleading workflows. Use when the
-  user requests a complaint, breach-of-contract claim, forum-selection
-  analysis, or remedy package in real-estate/asset purchase disputes. Trigger
-  keywords: complaint drafting, breach of purchase agreement, purchase
-  agreement breach pleading, specific performance, attorney fee clause,
-  damages prayer.
+  Drafts a filing-ready U.S. complaint for breach of a purchase agreement.
+  Trigger when the user requests a breach-of-contract complaint, forum-selection
+  analysis, or remedy package for a real-estate or asset purchase dispute.
 tags:
   - drafting
   - litigation
@@ -16,91 +12,90 @@ tags:
 
 # Complaint for Breach of Purchase Agreement
 
-Produces a filing-ready complaint that secures liability and remedies while preserving evidentiary precision for litigation.
+Produces a court-ready complaint with jurisdiction, liability elements, and damages precision for purchase-agreement disputes.
 
 ## Prerequisites
 
-1. Executed purchase agreement and all related documents (amendments, riders, addenda, notices, cure letters, correspondence, and payment records).
-2. Verified party identity and capacity data, including legal names, entity types and formation states, addresses, and registered agents where applicable.
-3. Transaction timeline and factual support for each element: negotiation, execution, performance milestones, breach event, notice, and mitigation efforts.
-4. Jurisdictional directives: target court/system, forum-selection and choice-of-law terms, arbitration scope, and local filing/declaration requirements.
-5. Damages and remedy inputs: direct damages, consequential damages, incidental costs, interest expectations, and attorney-fee basis.
+Gather before drafting:
 
-## Output Structure / Process
+1. **Executed agreement** — including amendments, riders, addenda, notices, cure letters, and payment records.
+2. **Party data** — legal names, entity types/formation states, addresses, registered agents.
+3. **Transaction timeline** — negotiation, execution, performance milestones, breach event, notice, and mitigation efforts with supporting evidence.
+4. **Jurisdictional directives** — target court, forum-selection and choice-of-law terms, arbitration scope, local filing requirements.
+5. **Damages inputs** — direct, consequential, incidental amounts; interest expectations; attorney-fee basis.
 
-1. Generate filing scaffold with official caption, court heading, case number placeholder, title of action, attorney block, and plaintiff/defendant blocks in court-compliant order.
+## Workflow
 
-2. Add `Jurisdiction and Venue` section with explicit, jurisdiction-anchored grounds.
+### 1. Filing Scaffold
 
-| Item | Required findings | Draft output |
-|---|---|---|
-| Subject-matter jurisdiction | diversity, federal question, or state-law basis | select and plead one primary basis |
-| Personal jurisdiction | defendant presence, contacts, or minimum contacts | include jurisdictional facts |
-| Venue | contract formation, performance, breach location, defendant residence/business location | tie each venue fact to paragraph-supported allegation |
-| Forum-selection and choice of law | exclusive forum, governing law, arbitration requirements | enforceability and applicability analysis |
+Generate caption, court heading, case-number placeholder, title of action, attorney block, and party designation blocks in court-compliant order.
 
-3. Build parties section with structured party records.
+### 2. Jurisdiction and Venue
 
-| Party role | Required fields |
-|---|---|
-| Plaintiff | legal name, status/capacity, role in transaction, full address |
-| Defendant | legal name, aliases, legal structure, address, registered agent |
-| Additional parties | guarantors, assignees, successors if needed |
+Plead each ground with paragraph-supported facts:
 
-4. Build factual chronology section as numbered paragraphs in strict temporal order with exhibit references where possible.
+- **Subject-matter jurisdiction** — diversity, federal question, or state-law basis.
+- **Personal jurisdiction** — defendant presence, contacts, or minimum contacts.
+- **Venue** — contract formation/performance/breach location; defendant residence.
+- **Forum-selection / choice of law** — enforce contractual forum and governing-law clauses; note arbitration scope.
 
-5. Draft breach of contract cause of action using element-to-fact mapping.
+### 3. Parties
 
-| Element | Pleading requirement | Exhibit linkage |
-|---|---|---|
-| Contract formation | valid agreement, parties’ authority, consideration, essential terms | purchase agreement and signatures |
-| Defendant duty | exact breached provision and expected performance | contract sections/clauses |
-| Breach | specific omission/late performance and date | breach notice timeline |
-| Plaintiff performance | performance completed or valid excuse for nonperformance | payment receipts, approvals |
-| Causation and damages | direct causation plus resulting harm | accounting, expense logs, market proof |
+For each party: legal name, capacity/status, role in transaction, full address. Include aliases, registered agent (defendant), and guarantors/assignees/successors as needed.
 
-6. Generate damages section with an itemized ledger.
+### 4. Factual Chronology
 
-| Damage category | Calculation method | Supporting input |
-|---|---|---|
-| Expectancy/direct | contract-differential or replacement-cost method | invoice, payment records, market evidence |
-| Consequential | foreseeable losses tied to breach | loss projections, mitigation records |
-| Incidental | re-listing, storage, administrative follow-up costs | receipts, bills, service logs |
-| Fees/costs | only if contract/statute authorizes | fee clause or statutory basis |
+Numbered paragraphs in strict temporal order. Attach exhibit references to each key event.
 
-7. Draft Prayer for Relief with explicit relief buckets: damages (sum or proof at trial), specific performance where unique subject matter, pre/post-judgment interest, costs, fees if authorized, attorney costs, and injunctive relief if warranted.
+### 5. Breach of Contract Cause of Action
 
-8. Include jury demand, filing status labels, and any anti-damages cap/liquidated-damages interpretation caveats.
+Map each element to specific facts and exhibits:
 
-9. Add verification and signature blocks.
+- **Formation** — valid agreement, authority, consideration, essential terms.
+- **Duty** — exact breached provision and expected performance.
+- **Breach** — specific act/omission, date, breach-notice timeline.
+- **Plaintiff performance** — performance completed or valid excuse.
+- **Causation and damages** — direct link between breach and resulting harm.
 
-```text
-Verification block:
-- use unsworn declaration or notarized statement per jurisdictional requirement
-- include penalty-of-perjury wording if applicable
+### 6. Damages Ledger
 
-Attorney block:
-- name, bar number, firm, address, phone, email, signature/date
-- paralegal/firm representative as required by court rules
-```
+Itemize by category with calculation method and supporting evidence:
 
-10. Return final compliance checklist appended to complaint.
+- **Expectancy/direct** — contract-differential or replacement-cost.
+- **Consequential** — foreseeable losses tied to breach.
+- **Incidental** — re-listing, storage, administrative costs.
+- **Fees/costs** — only if contract or statute authorizes.
 
-| Check | Pass/Flag |
-|---|---|
-| Jurisdiction and venue are sufficient and internally consistent |  |
-| Party descriptors are complete and uniformly styled |  |
-| Each element has paragraph-level fact support |  |
-| Remedy requests match available authority |  |
-| Court formatting and signature standards met |  |
+### 7. Prayer for Relief
 
-11. Insert `[VERIFY]` on any assertion of statute, rule, interest rate, filing prerequisite, or remedy authorization not directly supplied by user materials.
+State each relief bucket explicitly: damages (sum or proof at trial), specific performance (if unique subject matter), pre/post-judgment interest, costs, attorney fees (if authorized), injunctive relief (if warranted).
 
-## Guidelines
+### 8. Closing Blocks
+
+- Jury demand and filing-status labels.
+- Liquidated-damages interpretation or damages-cap caveats.
+- Verification block — unsworn declaration or notarized statement per jurisdiction; penalty-of-perjury wording if required.
+- Attorney signature block — name, bar number, firm, address, phone, email, date.
+
+### 9. Compliance Checklist
+
+Append to the draft:
+
+- [ ] Jurisdiction and venue internally consistent and sufficient
+- [ ] Party descriptors complete and uniformly styled
+- [ ] Each breach element has paragraph-level fact support
+- [ ] Remedy requests match contractual/statutory authority
+- [ ] Court formatting and signature standards met
+
+### 10. Verification Markers
+
+Insert `[VERIFY]` on any assertion of statute, rule, interest rate, filing prerequisite, or remedy authorization not directly supplied by user materials.
+
+## Pitfalls
 
 - Keep factual allegations separate from legal conclusions in each paragraph.
-- Prioritize contract language over paraphrase for breach trigger allegations.
-- Do not invent forum, amount-in-controversy, or statutory authority.
-- Preserve and enforce forum-selection, arbitration, and liquidated-damage clauses.
-- Do not include extra settlement language or demand-letter posture inside the pleadings.
-- Use `[VERIFY]` markers for unknown or disputed law and request user confirmation before final legal assertion.
+- Quote contract language directly for breach-trigger allegations — do not paraphrase.
+- Never invent forum, amount-in-controversy, or statutory authority.
+- Preserve forum-selection, arbitration, and liquidated-damage clauses as written.
+- Do not embed settlement posture or demand-letter language in the pleading.
+- Flag all unverified legal assertions with `[VERIFY]` and confirm with user before finalizing.

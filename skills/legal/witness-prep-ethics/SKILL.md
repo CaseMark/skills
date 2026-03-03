@@ -1,112 +1,94 @@
 ---
 name: witness-prep-ethics
 description: >-
-  Evaluates U.S. litigation witness preparation for ethical compliance under
-  ABA Formal Opinion 508 and Model Rules 3.3, 3.4, and 8.4. Distinguishes
-  permissible preparation (procedure, document review, recollection testing,
-  clear expression, practice questions, demeanor) from prohibited coaching
-  (suggested facts, false testimony, coordination, altering recollection). Use
-  for deposition prep, trial prep, witness coaching, ethics checks, and to
-  assess proposed prep activities. Trigger keywords: witness prep, deposition
-  prep, ethics, coaching, testimony, ABA 508, Model Rules.
-tags:
-  - analysis
-  - checklist
-  - litigation
+  Evaluates witness preparation activities for ethical compliance under ABA
+  Formal Opinion 508 and Model Rules 3.3, 3.4, 8.4. Distinguishes permissible
+  preparation from prohibited coaching. Use when planning deposition or trial
+  prep, reviewing proposed prep activities, or checking witness coaching ethics.
+  Triggers: witness prep, deposition prep, coaching ethics, ABA 508, testimony
+  preparation.
 ---
 
 # Witness Preparation Ethics Boundaries
 
-Defines lawful witness preparation boundaries and a compliance workflow grounded in ABA guidance and Model Rules.
+Defines lawful witness preparation boundaries and compliance workflow under ABA guidance and Model Rules. Core principle: preparation is expected, but truth is the touchstone—genuine recollection must be preserved.
 
 ## Prerequisites
 
-1. Jurisdiction and governing ethics rules (state bar rules, local court orders).
+1. Jurisdiction and governing ethics rules (state bar, local court orders).
 2. Witness type and setting (fact or expert; deposition, hearing, trial).
 3. Core materials: pleadings, key documents, prior statements, discovery responses.
-4. Preparation scope and logistics (topics, length, interpreters, accommodations).
-5. Any in-court or during-testimony communication limits (Geders, Perry).
+4. Any in-court communication limits (Geders, Perry).
 
-## Output Structure / Process
+## Authority Baseline
 
-### Authority Baseline
+| Source | Constraint |
+|---|---|
+| Model Rule 3.3 | No false evidence or testimony (candor to tribunal) |
+| Model Rule 3.4 | No falsifying evidence or counseling false testimony |
+| Model Rule 8.4 | No dishonesty, fraud, deceit, misrepresentation |
+| ABA Formal Op. 508 (2023) | Preparation expected but must preserve genuine recollection |
+| Restatement (Third) Law Governing Lawyers §116 | Preparation allowed; no coaching to fabricate or alter |
+| Local ethics opinions | Follow stricter local rule when applicable |
 
-| Source | Governing point | Practical constraint |
-| --- | --- | --- |
-| ABA Model Rule 3.3 | Candor to tribunal | No false evidence or testimony |
-| ABA Model Rule 3.4 | Fairness to opposing party | No falsifying evidence or counseling false testimony |
-| ABA Model Rule 8.4 | Misconduct | No dishonesty, fraud, deceit, misrepresentation |
-| ABA Formal Opinion 508 (2023) | Truth is the touchstone | Preparation is expected but must preserve genuine recollection |
-| Restatement (Third) of the Law Governing Lawyers 116 [VERIFY] | Witness preparation allowed | No coaching to fabricate or alter testimony |
-| Local ethics opinions | Jurisdiction-specific limits | Follow stricter local rule |
+## Permissible vs. Prohibited
 
-### Permissible vs Prohibited Matrix
+| Area | Permissible | Prohibited |
+|---|---|---|
+| Procedure | Explain mechanics, oath, objections, transcript | — |
+| Documents | Review to refresh recollection | Use documents to override memory |
+| Recollection | Ask what witness remembers; test basis and confidence | Supply facts or fill gaps |
+| Legal relevance | Explain claims and why topics matter | Instruct how to shape testimony |
+| Anticipated topics | Identify likely areas; practice Q&A | Provide preferred answers |
+| Expression | Suggest clearer wording; avoid jargon | Change substance by rephrasing |
+| Demeanor | Advise calm, listen fully, ask for clarification | — |
+| Coordination | Prepare witnesses separately | Align stories across witnesses |
 
-| Area | Permissible | Prohibited | Notes |
-| --- | --- | --- | --- |
-| Procedure | Explain deposition/trial mechanics, oath, objections, transcript | None | Focus on process, not substance |
-| Documents | Review authored/received documents; refresh recollection | Use documents to override memory | Ask whether document refreshes present recollection |
-| Recollection | Ask what the witness remembers; test basis and confidence | Supply facts or fill gaps | The witness owns the testimony |
-| Legal relevance | Explain claims and why topics matter | Tell witness how to shape testimony to win | Explain significance, do not script outcomes |
-| Anticipated topics | Identify likely areas; practice Q and A | Provide preferred answers | Practice to reduce confusion, not to alter facts |
-| Expression | Suggest clearer wording; avoid jargon | Change substance by rephrasing | Clarity allowed, meaning changes are not |
-| Demeanor | Advise calm, listen fully, ask for clarification | None | No effect on substance |
-| Coordination | Prepare witnesses separately | Align stories across witnesses | Do not show another witness's testimony |
+## Session Workflow
 
-### Gray Area Tests
-
-- [ ] After document review, does the witness have a present recollection or only adoption of the document?
-- [ ] Are you clarifying expression without changing the substance?
-- [ ] Are you explaining legal relevance without instructing how to answer?
-- [ ] Would you be comfortable with the prep session transcript reviewed by a disciplinary committee?
-
-### Session Workflow
-
-1. Explain purpose: truthful, complete testimony is required.
+1. State purpose: truthful, complete testimony is required.
 2. Cover procedure and demeanor guidance.
 3. Review documents to refresh memory, then test recollection.
-4. Elicit narrative in the witness's own words.
+4. Elicit narrative in witness's own words.
 5. Practice anticipated topics with neutral prompts.
 6. Correct clarity issues without changing substance.
-7. End with ethics checklist and witness confirmation.
+7. Run ethics checklist; obtain witness confirmation.
 
-### Unfavorable Recollection Protocol
+## Unfavorable Recollection Protocol
 
-Required actions:
-1. Accept the recollection as stated.
-2. Advise truthful testimony consistent with recollection.
-3. Adjust case strategy to the testimony.
+**Required:** Accept recollection as stated. Advise truthful testimony. Adjust case strategy.
 
-Allowed actions:
-- Explore basis for the recollection and confidence level.
-- Check for misunderstanding of questions.
-- Review documents to test memory without pressure.
+**Allowed:** Explore basis and confidence level. Check for question misunderstanding. Review documents to test memory without pressure.
 
-Forbidden actions:
-- Pressure to change a truthful recollection.
-- Suggest the recollection is wrong because it is harmful.
-- Coach to minimize or hide unfavorable facts.
+**Forbidden:** Pressure to change truthful recollection. Suggest recollection is wrong because harmful. Coach to minimize or hide unfavorable facts.
 
-### Ethics Checklist
+## Gray-Area Tests
 
-Permissible activities:
-- [ ] Explain procedure and roles.
-- [ ] Review documents to refresh memory.
-- [ ] Ask the witness to describe recollection.
-- [ ] Explain legal significance of topics.
-- [ ] Identify anticipated topics and practice questions.
-- [ ] Suggest clearer expression of the witness's own recollection.
-- [ ] Advise on demeanor and non-substantive behavior.
+- After document review, does witness have present recollection or only adoption of the document?
+- Are you clarifying expression without changing substance?
+- Are you explaining legal relevance without instructing how to answer?
+- Would you be comfortable with the prep transcript before a disciplinary committee?
 
-Prohibited activities:
-- [ ] Suggest facts the witness does not recall.
-- [ ] Tell the witness what happened.
-- [ ] Coach false or misleading testimony.
-- [ ] Share other witnesses' testimony to align stories.
-- [ ] Pressure the witness to change truthful testimony.
-- [ ] Use documents to override genuine recollection.
+## Ethics Checklist
 
-### Neutral Prompt Templates
+Permissible:
+- [ ] Explain procedure and roles
+- [ ] Review documents to refresh memory
+- [ ] Ask witness to describe recollection
+- [ ] Explain legal significance of topics
+- [ ] Identify anticipated topics and practice questions
+- [ ] Suggest clearer expression of witness's own recollection
+- [ ] Advise on demeanor and non-substantive behavior
+
+Prohibited:
+- [ ] Suggest facts the witness does not recall
+- [ ] Tell the witness what happened
+- [ ] Coach false or misleading testimony
+- [ ] Share other witnesses' testimony to align stories
+- [ ] Pressure witness to change truthful testimony
+- [ ] Use documents to override genuine recollection
+
+## Neutral Prompt Templates
 
 ```text
 "Tell me what you remember about [event]."
@@ -116,16 +98,15 @@ Prohibited activities:
 "If you do not know or do not recall, say so."
 ```
 
-### Cross-References
-
-- @deposition-witness-prep-session
-- @deposition-deponent-coaching
-- @deposition-preparation
-
 ## Guidelines
 
-- Apply the stricter rule if state or local ethics guidance is more restrictive.
-- Do not show or summarize other witnesses' testimony to a witness.
-- Avoid any instruction that alters substance, not just phrasing.
+- Apply the stricter rule when state or local guidance is more restrictive.
+- Never show or summarize other witnesses' testimony to a witness.
 - If you know testimony is false, follow Model Rule 3.3 remediation duties.
 - Document preparation steps to show compliance if challenged.
+
+## Cross-References
+
+- `deposition-witness-prep-session`
+- `deposition-deponent-coaching`
+- `deposition-preparation`

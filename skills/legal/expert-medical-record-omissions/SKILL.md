@@ -1,138 +1,118 @@
 ---
 name: expert-medical-record-omissions
-description: Analyzes U.S. litigation expert witness reports, depositions, and testimony to identify omissions or gaps in medical record review, map conflicts to the full record set, and produce a structured impeachment and admissibility analysis with citations. Use when reviewing expert reports for missing medical records, selective review, inconsistencies, Daubert/Frye challenges, cross-examination prep, motions to exclude or limit, or rebuttal expert focus in personal injury or medical malpractice matters.
-tags:
-  - analysis
-  - litigation
+description: Analyzes expert witness reports, depositions, and testimony to identify gaps in medical record review, map conflicts to the full record set, and produce impeachment and admissibility analysis with pinpoint citations. Use when reviewing expert reports for missing medical records, selective review patterns, Daubert/Frye challenges, cross-examination prep, motions to exclude or limit, or rebuttal expert focus in personal injury or medical malpractice litigation.
 ---
 
-# Expert Medical Record Omissions Analysis
+# Expert Medical Record Omissions
 
-Identify material omissions in expert medical record review and translate them into litigation-ready challenges.
+Identify material omissions in expert medical record review and translate them into litigation-ready challenges with pinpoint citations.
 
 ## Prerequisites
 
-1. Complete medical record set with Bates labels and a basic index.
-2. Expert materials: report(s), disclosure, list of materials reviewed, CV, deposition/testimony transcripts, exhibits.
-3. Case theory summary (claims, defenses, causation or standard-of-care theory).
-4. Medical chronology or timeline (if available).
-5. Jurisdiction admissibility standard (Daubert, Frye, or hybrid).
+1. Complete medical record set with Bates labels and index
+2. Expert materials: report(s), disclosure, materials-reviewed list, CV, deposition/testimony transcripts, exhibits
+3. Case theory summary (claims, defenses, causation or standard-of-care theory)
+4. Jurisdiction admissibility standard (Daubert, Frye, or hybrid)
+5. Medical chronology or timeline (if available)
 
-## Output Structure / Process
+## Workflow
 
-1. Build the record inventory and expert review map.
-2. Detect omissions and contradictions.
-3. Rate materiality and litigation impact.
-4. Flag patterns suggesting selective review or bias.
-5. Deliver a structured report with pinpoint citations.
+1. Build record inventory and expert review map
+2. Detect omissions and contradictions
+3. Rate materiality and litigation impact
+4. Flag patterns suggesting selective review or bias
+5. Deliver structured report with pinpoint citations
 
-**Record Inventory Template**
+## Record Inventory
 
-| Field | Required entries |
+For each medical record, capture:
+
+| Field | Entry |
 |---|---|
-| Record date | Encounter date or service date |
+| Record date | Encounter or service date |
 | Provider/facility | Name and specialty |
 | Record type | Note, imaging, lab, operative, billing, etc. |
-| Bates range | Start-end |
+| Bates range | Start–end |
 | Key facts | Diagnosis, findings, causation cues |
-| Causation relevance | Supports, contradicts, alternative, neutral |
+| Causation relevance | Supports / Contradicts / Alternative / Neutral |
 
-**Expert Review Map**
+## Expert Review Map
+
+Extract from the expert's own materials:
 
 | Item | Source | Citation |
 |---|---|---|
-| "Materials reviewed" list | Expert report or disclosure | Page/paragraph |
+| Materials-reviewed list | Report or disclosure | Page/paragraph |
 | Records cited in opinions | Report | Page/paragraph |
 | Deposition admissions about records | Transcript | Page/line |
-| Any limitations or exclusions stated | Report/depo | Page/line |
+| Stated limitations or exclusions | Report or deposition | Page/line |
 
-**Omission Matrix**
+## Omission Matrix
+
+One row per omitted record:
 
 | Omitted record | Date | Provider | Bates | Expert statement that should have addressed it | Conflict or gap | Significance |
 |---|---|---|---|---|---|---|
-| [Record name] | [ ] | [ ] | [ ] | [Report/Depo cite] | [Contradiction/Alternative/Context] | High/Med/Low |
+| _Record name_ | _Date_ | _Provider_ | _Bates_ | _Report/Depo cite_ | Contradiction / Alternative / Context | High / Med / Low |
 
-**Inconsistency Log**
+**Significance scale:**
+- **High** — Directly undermines key opinion or reliability. Use for admissibility challenges, motion practice.
+- **Medium** — Alters weight but not core opinion. Use for cross-examination, rebuttal focus.
+- **Low** — Peripheral or cumulative. Use for background impeachment.
 
-| Expert assertion | Claimed source | Contradicting record | Citation | Impact |
+## Inconsistency Log
+
+| Expert assertion | Claimed source | Contradicting record | Citation (Bates + page/line) | Impact |
 |---|---|---|---|---|
-| [Assertion] | [Cite] | [Record] | [Bates + page/line] | [Material/Moderate/Minor] |
+| _Assertion_ | _Cite_ | _Record_ | _Bates + page/line_ | Material / Moderate / Minor |
 
-**Significance Scale**
+## Pattern Flags
 
-| Level | Definition | Typical use |
-|---|---|---|
-| High | Directly undermines key opinion or reliability | Admissibility, motion practice |
-| Medium | Alters weight but not core opinion | Cross-exam, rebuttal focus |
-| Low | Peripheral or cumulative | Background, limited impeachment |
-
-**Pattern Flags Checklist**
+Check for these indicators of selective review or bias:
 
 - [ ] Repeated omission of pre-existing conditions
 - [ ] Omission of alternative causation records
-- [ ] Omission of treating provider notes that conflict with opinion
+- [ ] Omission of treating provider notes conflicting with opinion
 - [ ] Omission of diagnostic imaging or labs central to timeline
 - [ ] Chronology inconsistencies versus record dates
 - [ ] Mischaracterization of records listed as reviewed
 - [ ] Selective inclusion of favorable records only
 
-**Cross-Examination Seeds**
+## Strategic Outputs
+
+### Cross-Examination Seeds
 
 | Theme | Anchor omission | Objective |
 |---|---|---|
-| Record completeness | [Record] | Establish incomplete review |
-| Methodology | [Omitted category] | Show unreliable process |
-| Alternative causation | [Record] | Expose unaddressed cause |
-| Timeline accuracy | [Record] | Undermine chronology |
+| Record completeness | _Record_ | Establish incomplete review |
+| Methodology | _Omitted category_ | Show unreliable process |
+| Alternative causation | _Record_ | Expose unaddressed cause |
+| Timeline accuracy | _Record_ | Undermine chronology |
 
-**Motions / Strategy Triggers**
+### Motion Triggers
 
-- Incomplete data set or failure to consider key facts relevant to causation or standard of care.
-- Methodology not reliably applied to the full record set.
-- Opinions based on inaccurate timeline or mischaracterized records.
-- Expert failed to review materials they claim to have reviewed.
+Flag for Daubert/Frye challenge or motion to exclude when:
+- Expert failed to consider key facts relevant to causation or standard of care
+- Methodology not reliably applied to the full record set
+- Opinions based on inaccurate timeline or mischaracterized records
+- Expert did not review materials they claim to have reviewed
 
-**Report Template**
+## Report Structure
 
-```markdown
-# Expert Medical Record Omissions Analysis
-Matter:
-Expert:
-Prepared for:
-Date:
+Organize final output as:
 
-## 1. Scope and Materials
-- Record set scope:
-- Expert materials reviewed:
-- Admissibility standard:
+1. **Scope and Materials** — Record set scope, expert materials reviewed, admissibility standard
+2. **Omission Summary** — Count and list by significance (High / Medium / Low)
+3. **Omission Matrix** — Full table
+4. **Inconsistency Log** — Full table
+5. **Pattern Analysis** — Indicators observed, alternative explanations for omissions
+6. **Strategic Recommendations** — Cross-examination themes, motion practice targets, rebuttal expert focus areas
 
-## 2. Omission Summary
-- High-significance omissions:
-- Medium-significance omissions:
-- Low-significance omissions:
+## Pitfalls
 
-## 3. Omission Matrix
-[Insert table]
-
-## 4. Inconsistency Log
-[Insert table]
-
-## 5. Pattern Analysis
-- Indicators observed:
-- Alternative explanations for omissions:
-
-## 6. Strategic Recommendations
-- Cross-examination themes:
-- Motion practice targets:
-- Rebuttal expert focus areas:
-```
-
-## Guidelines
-
-- Distinguish omission from mere disagreement; only label omissions where the record exists and was not addressed.
-- Confirm record completeness before concluding a gap is material.
-- Use pinpoint citations for every omission and contradiction (Bates plus page/line).
-- Separate weight attacks from admissibility challenges; note which standard applies in the jurisdiction.
-- Maintain neutrality; avoid advocacy language in the analysis itself.
-- Protect PHI and comply with applicable confidentiality rules.
-- Flag any missing record categories that could change the analysis.
+- **Omission vs. disagreement**: Only flag omissions where the record exists and was not addressed. Disagreement with a reviewed record is not an omission.
+- **Record completeness**: Confirm the record set is complete before concluding a gap is material. Flag missing record categories that could change the analysis.
+- **Citation rigor**: Every omission and contradiction requires a pinpoint citation (Bates + page/line).
+- **Weight vs. admissibility**: Separate weight attacks from admissibility challenges. Note the jurisdiction's standard.
+- **Neutrality**: Avoid advocacy language in the analysis itself.
+- **PHI**: Protect PHI and comply with applicable confidentiality rules.

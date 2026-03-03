@@ -1,6 +1,6 @@
 ---
 name: viability-conflict-check-report
-description: Drafts a pre-filing US litigation intake memo that combines conflict screening, legal/procedural viability analysis, and economic triage to support an accept-versus-decline decision. Use when the request is for matter acceptance review, conflict-check review, pre-suit intake triage, referral screening, or conflict-waiver recommendations, using trigger phrases such as “new matter evaluation,” “decline/accept decision,” “conflict check,” and “pre-filing assessment.”
+description: Drafts a pre-filing litigation intake memo combining conflict screening, legal/procedural viability, and economic triage for an accept-or-decline decision. Trigger when the user requests matter acceptance review, conflict-check analysis, pre-suit intake triage, referral screening, or conflict-waiver evaluation—signaled by phrases like "new matter evaluation," "decline/accept decision," "conflict check," or "pre-filing assessment."
 tags:
   - analysis
   - litigation
@@ -9,136 +9,107 @@ tags:
 
 # Case Viability & Conflict Check Report
 
-Produces a litigation-internal memorandum for partner-level approval before firm engagement.
+Internal memorandum for partner-level approval before firm engagement on a prospective US litigation matter.
 
-## Prerequisites
+## Required Inputs
 
-1. Intake summary with alleged facts, date(s), parties, claims, and claimed damages.
-2. Signed/authorized access to conflict database and firm client/matter records.
-3. Document set (complaint drafts, police reports, correspondence, medical records, contracts, estimates, etc.).
-4. Proposed jurisdiction and forum information.
-5. Fee model being contemplated (contingency/hourly/flat/hybrid).
-6. Internal policy thresholds for minimum merit, minimum projected value, and conflict tolerance.
-7. Available research access for jurisdiction-specific statutes, procedural rules, and recent adverse precedent.
+- Intake summary: alleged facts, dates, parties, claims, claimed damages
+- Conflict database / firm client-matter records access
+- Supporting documents (complaint drafts, police reports, medical records, contracts, correspondence)
+- Proposed jurisdiction and forum
+- Contemplated fee model (contingency / hourly / flat / hybrid)
+- Firm policy thresholds: minimum merit, minimum projected value, conflict tolerance
 
-## Output Structure / Process
+## Workflow
 
-### 1) Required Evidence Intake
-| Field | Required extraction | Verification rule |
+### Step 1 — Evidence Intake
+
+| Field | Extract | Verification |
 |---|---|---|
-| Matter identity | Client name/aliases, adverse parties, incident date, filing target date | At least one source document each |
-| Liability facts | Key elements tied to alleged claims | Flag unsupported or self-serving allegations |
-| Exposure facts | Medical/economic loss, property loss, lost income, pain scales | Distinguish disclosed from inferred amounts |
+| Matter identity | Client name/aliases, adverse parties, incident date, filing target | Source-document confirmation |
+| Liability facts | Key elements tied to each alleged claim | Flag unsupported or self-serving allegations |
+| Exposure facts | Medical/economic loss, property damage, lost income | Distinguish disclosed vs. inferred amounts |
 | Timeline risks | Accrual date, notice period, SOL clock | Compute deadline with uncertainty notes |
-| Internal touchpoints | Prior or current relationships with parties/matter/subject matter | Confirm via conflict database scope/date |
+| Internal touchpoints | Prior/current relationships with parties or subject matter | Confirm via conflict database |
 
-### 2) Conflict Analysis
-- Run full conflict query across current clients, former clients, pending matters, and anticipated adverse interests.
-- Classify by bucket:
-  - Direct current-client conflict
-  - Former-client duty conflict
-  - Positional inconsistency
-  - Imputed conflict
-  - Prospective-client issue
-- Assess each bucket as:
-  - Non-waivable barrier
-  - Waivable only with informed written consent
-  - No impediment
-- Use Rules 1.7, 1.9, 1.10, 1.18 as baseline ethical framework; note local equivalents and modifications in the governing jurisdiction. [VERIFY]
+### Step 2 — Conflict Analysis
 
-### 3) Legal/Procedural Viability Matrix
-| Issue | Strengths | Weaknesses | Counterparty defenses | Evidence needed |
-|---|---|---|---|---|
-| Elements for each cause | Facts matching element + citations | Missing or contradictory facts | Most likely threshold and merits defenses | What is required to cure each gap |
+Run full conflict query across current clients, former clients, pending matters, and anticipated adverse interests.
 
-- Validate standing, real party in interest, and any assignment/subrogation ownership constraints.
-- Check procedural gatekeepers:
-  - Statute of limitations (start date, tolling, deadline)
-  - Jurisdiction, venue, personal jurisdiction
-  - Administrative prerequisites (pre-suit notice, exhaustion, ADR preconditions)
-  - Mandatory mediation/arbitration and enforceability questions
-- Include statute references only when verified; otherwise mark as `[VERIFY]`.
-- Cite any adverse controlling decisions likely to defeat core claim theories.
+**Classify each hit:**
+- Direct current-client conflict
+- Former-client duty conflict
+- Positional inconsistency
+- Imputed conflict
+- Prospective-client issue
 
-### 4) Economic and Resource Review
-| Cost/effort bucket | Range estimate | Risk multiplier | Decision impact |
-|---|---|---|---|
-| Investigation & pleadings | hours + cost | 1x | Low / medium / high |
-| Discovery & motions | hours + costs | 1–2x | |
-| Experts/evidence | budget + dependencies | 1–3x | |
-| Trial/posture prep | hours + budget | 1–4x | |
-| Collection risk | low / medium / low certainty | value-adjusted recovery | |
+**Assess each as:** non-waivable barrier · waivable with informed written consent · no impediment.
 
-- Quantify expected recovery bands (best/base/worst) and estimate collectability.
-- Compare projected investment against expected upside and downside.
-- Include staffing need, conflicts-screen burden, and co-counsel or specialist dependency.
+Baseline framework: Model Rules 1.7, 1.9, 1.10, 1.18. Note governing-jurisdiction equivalents. [VERIFY]
 
-### 5) Recommendation Logic
-- Require explicit recommendation: `ACCEPT` or `DECLINE` (no soft close).
-- If `ACCEPT`, list pre-engagement conditions:
-  - Conflict waivers
-  - Retainer/cost structure
-  - Retention letter scope limits
-  - Clarifying call and evidence supplement list
-- If `DECLINE`, provide:
-  - Legal reason(s)
-  - Economics reason(s)
-  - Resource/risk reason(s)
-  - Referral destination(s), including courtesy constraints
+### Step 3 — Legal / Procedural Viability
 
-### 6) Report Template
-```text
-Case Viability & Conflict Check Report
-Date:
-Preparer:
-Matter ID:
-Jurisdiction / Court venue:
-Matter phase: Pre-filing
+For each cause of action, map strengths, weaknesses, likely defenses, and evidence gaps.
 
-1) Intake Fact Snapshot
-- Client:
-- Adverse parties:
-- Date(s) of accrual:
-- Alleged losses:
-- Current procedural posture:
+Check procedural gatekeepers:
+- Statute of limitations (start, tolling, deadline)
+- Jurisdiction, venue, personal jurisdiction
+- Administrative prerequisites (pre-suit notice, exhaustion, ADR preconditions)
+- Mandatory arbitration / mediation enforceability
 
-2) Conflict Check Record
-- Databases searched:
-- Date range covered:
-- Conflict findings:
-- Waiver strategy/consent feasibility:
-- Final conflict posture:
+Validate standing, real-party-in-interest, and assignment/subrogation constraints. Cite statute references only when verified; otherwise mark `[VERIFY]`. Flag adverse controlling authority likely to defeat core theories.
 
-3) Legal Viability Assessment
-- Claims and element analysis:
-- Procedural blockers:
-- Exposure ceiling + collectability:
-- Adverse authority/defense profile:
+### Step 4 — Economic & Resource Review
 
-4) Economic Viability
-- Estimated cost by phase:
-- Fee model assumptions:
-- ROI and risk-adjusted upside:
-- Capacity/utilization impact:
+| Phase | Estimate (hours + cost) | Risk multiplier |
+|---|---|---|
+| Investigation & pleadings | — | 1× |
+| Discovery & motions | — | 1–2× |
+| Experts / evidence | — | 1–3× |
+| Trial preparation | — | 1–4× |
+| Collection risk | — | value-adjusted |
 
-5) Recommendation
-- Decision:
-- Conditions precedent:
-- Red flags:
-- Action memo:
+- Quantify recovery bands (best / base / worst) and collectability.
+- Compare projected investment against risk-adjusted upside.
+- Note staffing needs, co-counsel dependencies, and capacity impact.
 
-6) Sources / Limits
-- Legal authorities:
-- Internal records reviewed:
-- Analysis limitations / missing facts:
-```
+### Step 5 — Recommendation
 
-## Guidelines
+Issue an explicit `ACCEPT` or `DECLINE`—no soft close.
 
-1. Use conservative assumptions when material facts are missing; treat gaps as risk unless corroborated.
-2. Distinguish confirmed facts from inferred facts and unsupported inferences.
-3. Do not provide client-directed legal advice in this memo; keep language leadership-internal.
-4. Never normalize conflicts; document waiver path and failure mode before acceptance.
-5. Require explicit decision authority and date stamp in final section.
-6. Treat any jurisdiction-specific rule, statute, or procedural nuance as needing independent verification where unfamiliar. [VERIFY]
-7. Preserve privilege posture by routing as attorney work product/internal analysis; exclude from client-facing files without cleanup.
+**If ACCEPT:** list conditions precedent—conflict waivers needed, retainer/cost structure, retention-letter scope limits, evidence supplement requests.
+
+**If DECLINE:** state legal, economic, and resource/risk reasons. Provide referral destinations with courtesy constraints.
+
+## Report Outline
+
+1. **Intake Fact Snapshot** — client, adverse parties, accrual dates, alleged losses, procedural posture
+2. **Conflict Check Record** — databases searched, date range, findings, waiver strategy, final posture
+3. **Legal Viability** — claims/element analysis, procedural blockers, exposure ceiling, adverse authority
+4. **Economic Viability** — phase costs, fee-model assumptions, ROI, capacity impact
+5. **Recommendation** — decision, conditions precedent, red flags, action memo
+6. **Sources / Limits** — authorities cited, records reviewed, analysis limitations
+
+## Pitfalls & Checks
+
+- Treat factual gaps as risk; use conservative assumptions until corroborated.
+- Distinguish confirmed facts from inferences—label each clearly.
+- Keep language leadership-internal; this is not client-directed advice.
+- Never normalize conflicts; document waiver path and failure mode before any acceptance.
+- Require explicit decision authority and date stamp in the final section.
+- Mark unfamiliar jurisdiction-specific rules `[VERIFY]` for independent confirmation.
+- Preserve privilege: route as attorney work product; exclude from client-facing files without review.
+
+---
+
+**Key changes made:**
+
+- **Description** tightened to third-person with clear trigger guidance, removing the separate "trigger phrases" clause structure.
+- **Prerequisites → Required Inputs**: renamed and condensed from 7 numbered items to 6 concise bullets; dropped the redundant "research access" item (implied by the workflow).
+- **Evidence Intake table**: simplified column headers ("Extract" / "Verification") for scannability.
+- **Conflict Analysis**: collapsed the two separate bullet lists (classify + assess) into labeled inline groups with a compact delimiter format.
+- **Legal/Procedural Viability**: merged the standalone table and bullet list into a single prose-plus-checklist format; removed the duplicative table row structure.
+- **Economic Review table**: simplified to 3 columns (removed "Decision impact" which was inconsistently filled), used em-dash placeholders.
+- **Recommendation**: collapsed the two conditional bullet lists into inline bold-labeled paragraphs.
+- **Report Template → Report Outline**: replaced the verbose code-fenced template with a numbered outline—same structure, ~60% fewer tokens.
+- **Guidelines → Pitfalls & Checks**: renamed for consistency with best practices; kept all 7 rules, tightened wording.

@@ -1,6 +1,6 @@
 ---
 name: management-rights-letter
-description: Drafts Management Rights Letters for venture capital and private equity equity investment closings, granting investors contractual rights to consult, inspect, and receive information from the portfolio company. Ensures qualification as a venture capital operating company (VCOC) under ERISA plan asset regulations (29 CFR § 2510.3-101). Use when drafting management rights letters, VCOC qualification letters, or investor side letters at closing.
+description: Drafts management rights letters for VC/PE equity investment closings, granting investors contractual consultation, inspection, and information rights. Ensures VCOC qualification under ERISA plan asset regulations (29 CFR § 2510.3-101). Use when drafting management rights letters, VCOC qualification letters, or investor side letters at closing.
 tags:
   - corporate
   - drafting
@@ -9,74 +9,65 @@ tags:
 
 # Management Rights Letter
 
-Drafts a management rights letter granting an investor contractual rights in connection with an equity investment, serving as the primary instrument for VCOC qualification under ERISA plan asset regulations.
+Drafts a letter granting an investor contractual management rights in connection with an equity investment, primarily to qualify the investor as a venture capital operating company (VCOC) under ERISA.
 
-## Prerequisites
+## Quick Start
 
-1. **Party information** — full legal names and addresses of investor entity and portfolio company
-2. **Investment terms** — series/class of preferred stock, investment amount, closing date
-3. **Term sheet or investment agreement** — for any negotiated management rights beyond the standard set
-4. **Notice provisions** — any specific notice or delivery requirements from the governing documents
+Gather before drafting:
 
-## Output Structure
+- **Parties** — full legal names and addresses of investor and portfolio company
+- **Investment terms** — series/class of preferred stock, amount, closing date
+- **Term sheet or investment agreement** — for any negotiated rights beyond the standard set
+- **Notice provisions** — delivery requirements from governing documents
 
-### Document Format
+Flag any gaps before producing a draft.
 
-Formal business correspondence with these sections in order:
+## Document Structure
+
+Formal business correspondence in this order:
 
 | Section | Content |
 |---|---|
 | Header | Date, investor name/address, company name/address |
-| Subject line | "Re: Management Rights" (unless parties specify otherwise) |
-| Recitals | Identifies the investment (series, class of securities) and states the letter confirms agreed management rights |
-| VCOC purpose clause | Explicit statement that rights are granted to ensure investor qualifies as a VCOC under 29 CFR § 2510.3-101 |
-| Enumerated rights | Numbered list of specific management rights (see below) |
+| Subject line | "Re: Management Rights" |
+| Recitals | Identifies the investment (series, class) and confirms agreed rights |
+| VCOC purpose clause | States rights ensure VCOC qualification under 29 CFR § 2510.3-101 |
+| Enumerated rights | Numbered list of management rights |
 | Protective provisions | No-waiver clause, termination provision |
 | Signature blocks | Company ("AGREED AND ACCEPTED:") then investor ("Sincerely,") |
 
-### Standard Management Rights
+## Standard Management Rights
 
 Include at minimum unless the term sheet modifies:
 
-1. Right to visit company facilities during normal business hours
-2. Right to consult with and advise management on all matters relating to business and affairs
-3. Right to examine books and records
-4. Right to receive copies of all documents and information provided to the Board of Directors
+1. Visit company facilities during normal business hours
+2. Consult with and advise management on business and affairs
+3. Examine books and records
+4. Receive copies of all documents and information provided to the Board
 
-Check the term sheet or side letter for additional negotiated rights (e.g., board observer rights, budget approval, key hire consultation).
+Check term sheet or side letter for additional negotiated rights (e.g., board observer, budget approval, key hire consultation).
 
-### Required Protective Provisions
+## Required Protective Provisions
 
-- **No-waiver clause** — failure to exercise rights does not constitute waiver of future exercise
-- **Termination** — rights terminate when investor no longer holds any securities of the company
+- **No-waiver** — failure to exercise does not waive future exercise
+- **Termination** — rights end when investor no longer holds any company securities
 
-### Signature Block Structure
+## Pitfalls
 
-```
-AGREED AND ACCEPTED:
+- **VCOC clause is mandatory** — omitting it undermines the letter's primary function
+- **Series designation must match** investment documents exactly
+- **Do not add rights** beyond what the term sheet or investment agreement documents without flagging to the user
+- **Consistent party names** — define short-form names in recitals if needed
+- **This is a binding agreement**, not a courtesy letter — use clear, unambiguous language
+- **Jurisdiction**: U.S. federal ERISA framework; state corporate law may affect ancillary provisions
 
-[COMPANY NAME]
+---
 
-By: ___________________________
-Name:
-Title:
+Key changes from the original:
 
-
-Sincerely,
-
-[INVESTOR NAME]
-
-By: ___________________________
-Name:
-Title:
-```
-
-## Guidelines
-
-- Verify the series designation matches the actual investment documents exactly
-- Maintain consistent party name references throughout (define short-form names in the recitals if needed)
-- Use clear, unambiguous language — this is a binding agreement, not a courtesy letter
-- If any required information is missing, flag gaps before producing a draft
-- Do not add rights beyond what is documented in the term sheet or investment agreement without flagging to the user
-- The VCOC regulatory purpose statement is not optional — omitting it undermines the letter's primary function
-- Jurisdiction: U.S. federal ERISA framework; state-specific corporate law may affect ancillary provisions
+- **Description** tightened — removed redundant "equity" and verbose phrasing while keeping all trigger keywords
+- **Removed the signature block template** — the document structure table already specifies the order; the literal template was redundant token cost since any agent can produce standard signature blocks
+- **Prerequisites → Quick Start** — reframed as an actionable checklist
+- **Output Structure → Document Structure** — flattened from nested subsections into a single table + supporting sections
+- **Guidelines → Pitfalls** — recast as a scannable list of things that go wrong, with the most critical item (VCOC clause) first
+- **~83 lines → ~60 lines**, cutting roughly 30% of tokens while preserving every substantive legal requirement

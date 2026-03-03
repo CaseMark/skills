@@ -1,40 +1,34 @@
 ---
 name: strategy-summary
 description: >-
-  Produces a litigation legal strategy summary that aligns facts, legal
-  theory, procedural tactics, discovery plan, and settlement posture into a
-  single roadmap. Use when asked for a case strategy summary, litigation
-  roadmap, risk assessment, motions plan, or stakeholder alignment memo.
-  Trigger keywords: “strategy summary”, “case strategy”, “litigation roadmap”,
-  “motions plan”, “risk assessment”, “settlement posture”.
-tags:
-  - analysis
-  - litigation
-  - research
-  - summarization
-  - summary
+  Produces a litigation strategy summary aligning facts, legal theory,
+  procedural tactics, discovery, and settlement posture into a single
+  actionable roadmap. Use when asked for a case strategy summary, litigation
+  roadmap, motions plan, risk assessment, or stakeholder alignment memo.
 ---
 
 # Legal Strategy Summary
 
-Strategic roadmap that links facts, law, procedure, and risk into an actionable litigation plan.
+Synthesizes facts, law, procedure, and risk into one litigation roadmap.
 
 ## Prerequisites
 
-1. **Core record** — pleadings or draft claims/defenses, key exhibits, correspondence, and event timeline
-2. **Objectives** — client goals, acceptable outcomes, constraints, and settlement posture
-3. **Forum** — jurisdiction, court system, governing law, and procedural posture
-4. **Deadlines** — filed or upcoming dates, statutes of limitation, and scheduling order items
-5. **Known gaps** — missing documents, witnesses, or unresolved factual disputes
+Gather before drafting:
 
-## Output Structure / Process
+1. **Core record** — pleadings/draft claims, key exhibits, correspondence, timeline
+2. **Objectives** — client goals, acceptable outcomes, constraints, settlement posture
+3. **Forum** — jurisdiction, governing law, procedural posture
+4. **Deadlines** — filed/upcoming dates, limitations periods, scheduling order
+5. **Known gaps** — missing documents, witnesses, unresolved disputes
 
-Use the structure below and keep each section concise and evidence-linked.
+## Output Sections
+
+Keep each section concise and evidence-linked.
 
 ### 1) Executive Overview
 
 | Field | Content |
-| --- | --- |
+|---|---|
 | Matter | Short case descriptor |
 | Posture | Stage and next critical event |
 | Client objective | Primary objective and fallback |
@@ -42,84 +36,84 @@ Use the structure below and keep each section concise and evidence-linked.
 | Top risks | 3–5 highest-impact risks |
 | Immediate decisions | 3–5 decisions needed now |
 
-### 2) Key Facts (Chronology or Thematic)
+### 2) Key Facts
 
-| Date/Period | Fact | Source | Dispute? |
-| --- | --- | --- | --- |
-|  |  |  | Yes/No |
+| Date/Period | Fact | Source | Disputed? |
+|---|---|---|---|
+| | | | Yes/No |
 
 ### 3) Issues, Claims, Defenses
 
 | Issue | Claim/Defense | Element | Supporting Facts | Gaps |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+|---|---|---|---|---|
+| | | | | |
 
 ### 4) Legal Authority Snapshot
 
-| Issue | Governing Standard | Authority | Notes |
-| --- | --- | --- | --- |
-|  |  |  |  |
+| Issue | Standard | Authority | Notes |
+|---|---|---|---|
+| | | | |
 
 ### 5) Argument Map
 
-| Argument | Best Fact Support | Likely Counterargument | Rebuttal Strategy |
-| --- | --- | --- | --- |
-|  |  |  |  |
+| Argument | Best Fact Support | Likely Counter | Rebuttal |
+|---|---|---|---|
+| | | | |
 
 ### 6) Procedural Strategy
 
-| Motion/Step | Timing | Legal Basis | Strategic Purpose | Success Likelihood |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| Motion/Step | Timing | Legal Basis | Purpose | Success Likelihood |
+|---|---|---|---|---|
+| | | | | |
 
 ### 7) Discovery Strategy
 
 | Target | Method | Purpose | Risk/Objection | Priority |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+|---|---|---|---|---|
+| | | | | |
 
-Checklist:
-- Preserve evidence and issue/confirm litigation hold.
-- Identify custodians, repositories, and privilege boundaries.
-- Plan deposition order and key admissions sought.
-- Define expert needs, retention timing, and scope.
+Discovery checklist:
+- Confirm litigation hold and custodian identification
+- Map repositories and privilege boundaries
+- Plan deposition order and key admissions
+- Define expert needs and retention timing
 
 ### 8) Settlement / ADR Posture
 
 | Option | Timing | Leverage | Risks | Recommendation |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+|---|---|---|---|---|
+| | | | | |
 
-### 9) Risk, Cost, and Outcome Assessment
+### 9) Risk and Outcome Assessment
 
 | Scenario | Probability | Exposure/Recovery | Key Drivers |
-| --- | --- | --- | --- |
-|  |  |  |  |
+|---|---|---|---|
+| | | | |
 
 ### 10) Deadlines and Triggers
 
 | Deadline/Trigger | Date | Source | Action |
-| --- | --- | --- | --- |
-|  |  |  |  |
+|---|---|---|---|
+| | | | |
 
-### 11) Open Questions and Needed Evidence
+### 11) Open Questions
 
 | Question | Why It Matters | Owner | Target Date |
-| --- | --- | --- | --- |
-|  |  |  |  |
+|---|---|---|---|
+| | | | |
 
-### 12) Next Steps (Action Plan)
+### 12) Next Steps
 
 | Task | Owner | Due Date |
-| --- | --- | --- |
-|  |  |  |
+|---|---|---|
+| | | |
 
-## Guidelines
+## Checks
 
-- Cite specific record sources for every material fact or inference.
-- If authority is uncertain, mark with `[VERIFY]`.
-- Keep the strategy thesis consistent across motions, discovery, and settlement posture.
+- Cite record sources for every material fact or inference.
+- Mark uncertain authority with `[VERIFY]`.
+- Keep the strategic thesis consistent across motions, discovery, and settlement sections.
 - Separate known facts from allegations and disputed issues.
-- Flag jurisdiction-specific rules, procedural traps, or local practice constraints.
-- Do not overstate success likelihood; provide candid strengths and weaknesses.
-- Maintain confidentiality; avoid including privileged content beyond what is necessary for strategy.
+- Flag jurisdiction-specific rules and procedural traps.
+- Provide candid strengths and weaknesses — do not overstate success likelihood.
+- Exclude privileged content beyond what strategy requires.

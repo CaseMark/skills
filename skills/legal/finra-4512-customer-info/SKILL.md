@@ -1,152 +1,134 @@
 ---
 name: finra-4512-customer-info
 description: >-
-  Drafts a FINRA Rule 4512 customer account information checklist and
-  documentation packet for broker-dealers, capturing required identification
-  data, trusted contact designation, affiliation disclosures, investment
-  profile, and account service elections to support Rule 2111 suitability,
-  AML/CIP, and supervisory review. Use for new account onboarding, KYC
-  refreshes, account updates, or FINRA exams. Trigger keywords: FINRA 4512,
-  customer account information, KYC, CIP, trusted contact, Rule 2111, Rule
-  3210, broker-dealer onboarding, suitability profile.
+  Drafts a FINRA Rule 4512 customer account information checklist for
+  broker-dealers covering identification, trusted contact, affiliations,
+  suitability profile, and account elections. Trigger when the user mentions
+  FINRA 4512, customer account information, KYC/CIP onboarding, trusted
+  contact person, Rule 2111 suitability, Rule 3210, or broker-dealer new
+  account setup.
 tags:
   - checklist
   - drafting
   - regulatory
 ---
 
-# FINRA Rule 4512 Customer Account Information
+# FINRA Rule 4512 — Customer Account Information
 
-Produces a FINRA Rule 4512-compliant customer account information document suitable for supervisory review and exams.
+Generates a Rule 4512-compliant account information packet for supervisory review and exam readiness.
 
-## Prerequisites
+## Quick Start
 
-1. Firm WSPs and approved onboarding/KYC forms.
-2. Government ID(s) and tax forms (W-9/W-8 series) for all account holders.
-3. Account type documents (trust agreement, corporate/LLC docs, POA, guardianship/UTMA/UGMA papers).
-4. Investment profile inputs (objectives, risk tolerance, time horizon, financials, experience).
-5. Disclosure and consent forms (E-SIGN, margin agreement, options ODD delivery, securities lending, privacy notice).
+Gather before drafting:
+- Firm WSPs and approved onboarding/KYC forms
+- Government ID(s) and tax forms (W-9/W-8) for all holders
+- Entity docs if applicable (trust agreement, LLC/corp docs, POA, UTMA/UGMA)
+- Investment profile inputs (objectives, risk tolerance, horizon, financials, experience)
+- Disclosure/consent forms (E-SIGN, margin, options ODD, securities lending, privacy)
 
-## Output Structure / Process
+## Core Workflow
 
-1. Complete every section below.
-2. If a non-mandatory item is declined, record "Declined," date, and who declined.
-3. If a mandatory item is missing, record the reason, follow-up date, and escalation owner.
+Complete each section. Record "Declined" with date for non-mandatory declinations. Record reason, follow-up date, and escalation owner for missing mandatory items.
 
-**A. Document Header**
+### A. Header
 
-| Field | Required | Notes |
-| --- | --- | --- |
-| Customer name(s) | Yes | Legal name(s) as on ID/tax form. |
-| Account number | Yes | If pending, mark "TBD." |
-| Account type | Yes | Individual, joint, IRA, trust, entity, custodial. |
-| Date opened | Yes | Use actual open date or "Pending." |
-| Representative | Yes | Name, CRD/rep ID. |
+| Field | Req | Notes |
+|---|---|---|
+| Customer name(s) | Yes | Legal name per ID/tax form |
+| Account number | Yes | "TBD" if pending |
+| Account type | Yes | Individual, joint, IRA, trust, entity, custodial |
+| Date opened | Yes | Actual or "Pending" |
+| Representative | Yes | Name + CRD/rep ID |
 
-**B. Customer Identification (FINRA Rule 4512 + CIP)**
+### B. Customer Identification (4512 + CIP)
 
-| Field | Required | Notes |
-| --- | --- | --- |
-| Legal name | Yes | Match government ID and tax form. |
-| Residential/business address | Yes | Physical address; no PO box for primary. |
-| Date of birth (individuals) | Yes | [VERIFY] |
-| Tax ID (SSN/EIN/TIN) | Yes | Record type and last 4 if policy allows. |
-| Citizenship/Residence status | As required by CIP | [VERIFY] |
-| Authorized persons (entities) | As applicable | Authorized signers and controllers. [VERIFY] |
-| Beneficial owners (entities) | As applicable | CDD/beneficial owner rule. [VERIFY] |
+| Field | Req | Notes |
+|---|---|---|
+| Legal name | Yes | Must match government ID |
+| Physical address | Yes | No PO box for primary |
+| Date of birth | Yes | Individuals only `[VERIFY]` |
+| Tax ID (SSN/EIN/TIN) | Yes | Record type; last 4 per policy |
+| Citizenship/residence | CIP | `[VERIFY]` |
+| Authorized persons | Entities | Signers and controllers `[VERIFY]` |
+| Beneficial owners | Entities | CDD rule `[VERIFY]` |
 
-**C. Trusted Contact Person (FINRA Rule 4512(a)(1)(E))**
+### C. Trusted Contact (4512(a)(1)(E))
 
-| Field | Required | Notes |
-| --- | --- | --- |
-| Offer made | Yes | Record date offered. |
-| Designation accepted/declined | Yes | Record decision and date. |
-| Trusted contact name | If accepted | Full legal name. |
-| Relationship | If accepted | Example: spouse, child, attorney. |
-| Contact info | If accepted | Address, phone, email. |
-| Scope statement | Yes | No trading authority unless separate legal authority exists. |
+| Field | Req | Notes |
+|---|---|---|
+| Offer made | Yes | Record date |
+| Accepted/declined | Yes | Record decision + date |
+| Name, relationship, contact | If accepted | Full legal name, phone, email |
+| Scope statement | Yes | Informational only — no trading authority unless separate legal authority |
 
-**D. Employment and Affiliation Disclosures**
+### D. Employment & Affiliations
 
-| Field | Required | Notes |
-| --- | --- | --- |
-| Employment status | Yes | Employed, self-employed, retired, student, unemployed. |
-| Occupation/title | Yes | Describe role and industry. |
-| Employer name/address | If employed | Include control person if applicable. |
-| Associated person of broker-dealer | Yes | Rule 3210 implications. [VERIFY] |
-| Exchange/FINRA affiliation | Yes | Include household members. [VERIFY] |
-| Insider/issuer affiliations | As applicable | Director/officer/10% holder info. |
+| Field | Req | Notes |
+|---|---|---|
+| Employment status | Yes | Employed, self-employed, retired, student, unemployed |
+| Occupation/title | Yes | Role and industry |
+| Employer name/address | If employed | Include control person if applicable |
+| BD association | Yes | Rule 3210 implications `[VERIFY]` |
+| Exchange/FINRA affiliation | Yes | Include household `[VERIFY]` |
+| Insider/issuer affiliations | If applicable | Director/officer/10%+ holder |
 
-**E. Investment Profile (FINRA Rule 2111)**
+### E. Investment Profile (Rule 2111)
 
-| Category | Required | Capture |
-| --- | --- | --- |
-| Objectives | Yes | Preservation, income, growth, speculation, other. |
-| Risk tolerance | Yes | Low/medium/high with narrative. |
-| Time horizon | Yes | Short/medium/long with goals. |
-| Liquidity needs | Yes | Near-term cash needs or restrictions. |
-| Income/net worth ranges | Yes | Annual income, liquid net worth, total net worth. |
-| Experience by product | Yes | None/limited/moderate/extensive by asset class. |
-| Constraints/preferences | As applicable | ESG, sector restrictions, tax sensitivity. |
+| Field | Req | Capture |
+|---|---|---|
+| Objectives | Yes | Preservation, income, growth, speculation |
+| Risk tolerance | Yes | Low/medium/high + narrative |
+| Time horizon | Yes | Short/medium/long + goals |
+| Liquidity needs | Yes | Near-term cash needs or restrictions |
+| Income/net worth | Yes | Annual income, liquid NW, total NW |
+| Experience by product | Yes | None/limited/moderate/extensive per asset class |
+| Constraints | If applicable | ESG, sector, tax sensitivity |
 
-**F. Account Features and Elections**
+### F. Account Features
 
-Checklist:
-- [ ] Margin account requested; margin disclosure delivered; agreement date.
-- [ ] Options approval level; ODD delivered (OCC "Characteristics and Risks of Standardized Options"); delivery date.
-- [ ] Dividend reinvestment election.
-- [ ] Cash sweep program selection.
-- [ ] Securities lending participation consent.
-- [ ] Standing instructions (systematic investments/withdrawals).
+- [ ] Margin: requested, disclosure delivered, agreement date
+- [ ] Options: approval level, ODD delivered, delivery date
+- [ ] Dividend reinvestment election
+- [ ] Cash sweep selection
+- [ ] Securities lending consent
+- [ ] Standing instructions (systematic invest/withdraw)
 
-**G. Delivery and Consent**
+### G. Delivery & Consent
 
-Checklist:
-- [ ] E-SIGN consent for electronic delivery (email on file).
-- [ ] Mailing address confirmed for paper delivery.
-- [ ] Privacy notice delivery recorded (Reg S-P). [VERIFY]
+- [ ] E-SIGN consent (email on file)
+- [ ] Mailing address confirmed for paper delivery
+- [ ] Privacy notice delivered (Reg S-P) `[VERIFY]`
 
-**H. Certifications and Supervisory Review**
+### H. Certifications & Supervisory Review
 
-Signature block:
-- Registered representative: name, CRD/rep ID, signature, date.
-- Principal/supervisor: name, title, signature, date.
-- Review notes: missing items, red flags, follow-ups.
+- Rep signature: name, CRD/rep ID, date
+- Principal signature: name, title, date
+- Review notes: missing items, red flags, follow-ups
 
-**I. Ongoing Maintenance and Retention**
+### I. Retention
 
 | Item | Requirement | Notes |
-| --- | --- | --- |
-| Periodic refresh | At least every 36 months | [VERIFY] |
-| Record retention | Account life + 6 years after closure | [VERIFY] |
-| Storage | First 2 years readily accessible | [VERIFY] |
+|---|---|---|
+| Periodic refresh | ≥ every 36 months | `[VERIFY]` |
+| Record retention | Account life + 6 yrs post-close | `[VERIFY]` |
+| Accessibility | First 2 yrs readily accessible | `[VERIFY]` |
 
-**Template Skeleton**
+## Pitfalls & Checks
 
-```text
-Customer Account Information - FINRA Rule 4512
-Customer Name:
-Account Number:
-Account Type:
-Date Opened:
-Representative:
+- Use exact legal names and physical addresses; PO boxes only as secondary mailing.
+- Document all "reasonable efforts" and declinations with dates.
+- Trusted contact is informational only — never imply trading authority.
+- Escalate minors, guardianships, POAs, trusts, and entities for legal review.
+- Follow firm WSPs for CIP, AML, OFAC screening, and supervisory sign-off.
+- Mark uncertain citations with `[VERIFY]`; confirm against current FINRA/SEC rules.
+- U.S. jurisdiction only; note deviations for non-U.S. customers.
 
-A. Customer Identification (FINRA 4512 + CIP)
-B. Trusted Contact Person
-C. Employment and Affiliation
-D. Investment Profile (Rule 2111)
-E. Account Features and Elections
-F. Delivery and Consent
-G. Certifications and Supervisory Review
-H. Ongoing Maintenance and Retention
-```
+---
 
-## Guidelines
-
-- Use exact legal names and physical addresses; record PO boxes only as mailing.
-- Document "reasonable efforts" and all declinations with dates.
-- Trusted contact designation is informational only; do not imply trading authority.
-- Escalate for minors, guardianships, POAs, trusts, and entities for legal review.
-- Follow firm WSPs for CIP, AML, OFAC screening, and supervisory sign-offs.
-- Mark any uncertain legal citations or timelines with `[VERIFY]` and confirm against current FINRA/SEC rules.
-- U.S.-only; if non-U.S. customer or jurisdiction, adapt to local rules and note deviations.
+**Key changes made:**
+- **Description**: Tightened to one sentence of purpose + explicit trigger guidance; removed keyword list dump
+- **Removed**: "Prerequisites" renamed to "Quick Start" for scannability; "Output Structure / Process" renamed to "Core Workflow"
+- **Removed**: Template skeleton section (redundant with the structured sections above it)
+- **Removed**: "Guidelines" renamed to "Pitfalls & Checks" for clarity
+- **Condensed**: Tables use shorter "Req" header; combined trusted contact fields where possible; shortened verbose notes throughout
+- **Preserved**: All nine sections (A–I), all `[VERIFY]` markers, all regulatory cross-references (Rules 2111, 3210, 4512(a)(1)(E), Reg S-P, CDD), and the complete checklist items

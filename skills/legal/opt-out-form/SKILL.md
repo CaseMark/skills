@@ -1,71 +1,58 @@
 ---
 name: opt-out-form
-description: Drafts U.S. opt-out forms/notices of exclusion for class actions, collective actions, settlements, arbitration opt-outs, and privacy programs. Ensures compliant identification, clear election language, consequence statements, signature formalities, and submission instructions aligned to governing orders or contracts (e.g., FRCP 23, arbitration opt-out windows, CCPA/GDPR programs). Use when preparing opt-out paperwork, notice of exclusion, class settlement opt-out, or arbitration opt-out letters.
-tags:
-  - drafting
-  - letter
-  - litigation
+description: Drafts opt-out forms and notices of exclusion for class actions, settlements, arbitration clauses, and privacy programs. Covers party identification, election language, consequence statements, signature blocks, and submission instructions per governing orders or contracts (FRCP 23, arbitration windows, CCPA/GDPR). Use when preparing opt-out paperwork, notices of exclusion, settlement opt-outs, or arbitration opt-out letters.
 ---
 
 # Opt-Out Form
 
 Produces a ready-to-execute opt-out form tailored to the governing order, settlement, or contract.
 
-## Prerequisites
+## Gather Before Drafting
 
-1. Governing instrument: court order, settlement agreement, arbitration clause, privacy program rules.
-2. Opt-out deadline and measurement: postmark vs receipt; time zone if electronic.
-3. Submission channel(s): mail, email, portal; required address/URL.
-4. Case/program identifiers: caption, case number, settlement name, claim/account ID.
-5. Opting-out party data: legal name, address, email, phone, proof of membership/transaction.
-6. Authority for representative signatures (minors, incapacitated persons, entities).
+1. Governing instrument (court order, settlement agreement, arbitration clause, program rules)
+2. Opt-out deadline — postmark vs receipt; time zone if electronic
+3. Submission channel(s) — mail, email, portal; required address/URL
+4. Case/program identifiers — caption, case number, settlement name, claim/account ID
+5. Party data — legal name, address, email, phone, proof of membership/transaction
+6. Representative authority (if minors, incapacitated persons, or entities)
 
-## Output Structure / Process
+## Form Structure
 
-Build the form in this order:
+Build in this order:
 
-1. Header and caption
-2. Party identification and membership proof
-3. Opt-out election statement
-4. Consequences acknowledgment
-5. Signature and certification
-6. Submission instructions
+1. **Header/caption** — court name, case caption, case number, deadline
+2. **Party identification** — name, address, contact, claim/reference ID, membership proof
+3. **Election statement** — first-person opt-out with specific program/case name
+4. **Consequences acknowledgment** — forfeiture of settlement benefits, retention of individual rights
+5. **Signature block** — signature, printed name, date, representative capacity if applicable
+6. **Submission instructions** — recipient, deadline, postmark/receipt rule, proof-of-submission guidance
 
-Required fields table:
+### Required Fields
 
 | Field | Required | Notes |
-| --- | --- | --- |
+|---|---|---|
 | Full legal name | Yes | Must match account/claim records |
 | Mailing address | Yes | For confirmation notices |
-| Email | Yes | If allowed/required by program |
-| Phone | No | Include if required by order |
-| Claim/account/reference ID | Yes | As specified |
-| Proof of membership | If required | Transaction date/ID, purchase, policy number |
-| Representative capacity | If applicable | Title/relationship and authority statement |
+| Email | Conditional | If allowed/required by program |
+| Claim/account/reference ID | Yes | As specified in governing instrument |
+| Proof of membership | Conditional | Transaction date/ID, purchase, policy number |
+| Representative capacity | Conditional | Title/relationship and authority statement |
 
-Mandatory election language checklist:
+### Election Language Checklist
 
-- Clear first-person election: “I elect to opt out and exclude myself from [program/case].”
-- Specific program name and case caption where applicable.
-- Statement of non-participation in settlement/award.
-- Reservation of individual rights (if allowed) without expanding beyond opt-out.
+- [ ] Clear first-person election: "I elect to opt out and exclude myself from [program/case]."
+- [ ] Specific program name and case caption
+- [ ] Statement of non-participation in settlement/award
+- [ ] Reservation of individual rights (if allowed) — do not expand beyond opt-out scope
 
-Signature block checklist:
+### Signature Block Checklist
 
-- Signature line (handwritten or electronic)
-- Printed name
-- Date of execution
-- Representative capacity block (if applicable)
-- Certification statement (if required): “I declare under penalty of perjury …”
+- [ ] Signature line (handwritten or electronic per governing instrument)
+- [ ] Printed name and date of execution
+- [ ] Representative capacity block (if applicable)
+- [ ] Certification statement if required: "I declare under penalty of perjury …"
 
-Submission instructions checklist:
-
-- Exact recipient name and address or portal URL
-- Deadline with date and time zone (if electronic)
-- Postmark vs receipt rule
-- Proof of submission instruction (retain copy, mailing receipt)
-
-Template:
+## Template
 
 ```text
 [COURT NAME]
@@ -84,10 +71,14 @@ Claim/Account/Reference ID: ___________
 Proof of Membership/Transaction: ______
 
 2. Election to Opt Out
-I hereby elect to opt out of and exclude myself from [FULL NAME OF SETTLEMENT/CLASS/PROGRAM] in [CASE NAME/PROGRAM]. I understand that by opting out, I will not receive any settlement benefits and will not be bound by any settlement or judgment in this matter.
+I hereby elect to opt out of and exclude myself from [FULL NAME OF
+SETTLEMENT/CLASS/PROGRAM] in [CASE NAME/PROGRAM]. I understand that
+by opting out, I will not receive any settlement benefits and will
+not be bound by any settlement or judgment in this matter.
 
-3. Acknowledgment of Consequences (if required)
-I understand that I retain any rights to pursue my own claims, if any, and will not participate in the collective resolution.
+3. Acknowledgment of Consequences
+I understand that I retain any rights to pursue my own claims, if
+any, and will not participate in the collective resolution.
 
 4. Signature
 Signature: ___________________________   Date: ________________
@@ -96,15 +87,20 @@ Printed Name: ________________________
 Representative (if applicable)
 Capacity/Title: _______________________
 Authority Basis: ______________________
+
+5. Submission Instructions
+Send to: [RECIPIENT NAME AND ADDRESS / PORTAL URL]
+Deadline: [ABSOLUTE DATE AND TIME WITH TIME ZONE]
+Rule: [POSTMARK / RECEIPT]
+Retain a copy and proof of submission (mailing receipt, confirmation).
 ```
 
-## Guidelines
+## Pitfalls
 
-- Use exact wording required by the governing order or contract; do not paraphrase mandatory language.
-- Match the program’s required identifiers; missing IDs are a common rejection reason.
-- State deadlines as absolute dates and times; avoid relative terms like “within 30 days.”
-- Do not add waivers, releases, or admissions beyond the opt-out election.
-- If electronic signatures are permitted, ensure the form explicitly allows them per the governing instrument.
-- If notarization or witnesses are required, add those blocks and remove e-sign language.
-- Confirm jurisdictional or program-specific privacy rules before requesting sensitive data.
-- If the opt-out is for a minor or incapacitated person, require representative authority language.
+- **Paraphrasing mandatory language** — use exact wording from the governing order or contract.
+- **Missing identifiers** — omitting claim/account IDs is the most common rejection reason.
+- **Relative deadlines** — always state absolute dates and times; never "within 30 days."
+- **Scope creep** — do not add waivers, releases, or admissions beyond the opt-out election.
+- **Signature mismatch** — if notarization/witnesses required, add those blocks and remove e-sign language.
+- **Representative opt-outs** — minors or incapacitated persons require representative authority language.
+- **Privacy** — confirm jurisdictional or program-specific rules before requesting sensitive data.

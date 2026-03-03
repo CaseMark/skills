@@ -1,115 +1,124 @@
 ---
 name: final-report-of-dissolution
 description: >-
-  Drafts a U.S. final report of dissolution for corporate/LLC closings,
-  turning collected dissolution records into a filing-grade memorandum of
-  winding-up actions, creditor handling, distributions, and tax/regulatory
-  closure. Use after an authorized dissolution when counsel needs a defensible
-  final compliance record for state filing, internal review, or litigation
-  readiness. Trigger keywords: final report of dissolution, winding up,
-  articles/certificate of dissolution, creditor notice, claims resolution,
-  distribution schedule, tax clearance, director/officer certification.
-tags:
-  - analysis
-  - corporate
-  - drafting
-  - memo
-  - research
+  Drafts a filing-grade final report of dissolution for U.S. corporate or LLC
+  closings, documenting winding-up actions, creditor handling, asset
+  disposition, distributions, and tax/regulatory closure. Use when counsel
+  needs a defensible compliance record after authorized dissolution for state
+  filing, internal review, or litigation readiness. Trigger on: final report
+  of dissolution, winding up, certificate of dissolution, creditor notice,
+  claims resolution, distribution schedule, tax clearance, officer
+  certification.
 ---
 
 # Final Report of Dissolution
 
-Produces a structured, evidence-backed final report that proves compliant dissolution and protects owners and managers by documenting all required steps and supporting records.
+Produces a structured, evidence-backed final report proving compliant dissolution and protecting owners/managers by documenting all required steps with supporting exhibits.
+
+## Quick Start
+
+1. Confirm dissolution method (voluntary/administrative/judicial) and target jurisdiction.
+2. Gather the input package (see Prerequisites below).
+3. Draft report following the section order and section schema.
+4. Run the quality checklist — do not finalize until every row passes.
+5. Emit deliverables: full draft, exhibit index, and open-issues list.
 
 ## Prerequisites
 
-1. Entity identity package: legal name (exact), entity type, formation docs, entity number, jurisdiction, current and historical addresses.
-2. Governing documents: operating agreement/articles/bylaws, amendments, member/board governance rules, dissolution and distribution provisions.
-3. Dissolution authorization evidence: meeting minutes/consent records, vote counts, thresholds met, resolution text, triggering event if any.
-4. Core financial dataset: opening books, schedules of assets/liabilities, collections, liquidations, distributions, tax balances, and related ledgers.
-5. Evidence of all creditor interaction: notices, publication proofs, claims logs, payment/reserve decisions, litigation status.
-6. Tax and regulator package: final federal/state/local filings, liabilities paid/credits, clearance confirmations, license/permit closures, foreign qualification withdrawals.
-7. Filing requirements: target jurisdiction filing instructions, required language, exhibit labels, signature/notarization rules.
-8. Draft quality gates: reconciliation model for totals and a cross-reference plan to exhibits.
+Collect before drafting:
 
-## Output Structure / Process
+- **Entity identity**: legal name (exact spelling from filings), entity type, formation docs, entity number, jurisdiction, addresses.
+- **Governing documents**: operating agreement/articles/bylaws, amendments, dissolution and distribution provisions.
+- **Dissolution authorization**: minutes/consents, vote counts vs. thresholds, resolution text, triggering event.
+- **Financial records**: opening books, asset/liability schedules, collections, liquidations, distributions, tax balances, ledgers.
+- **Creditor interaction**: notices, publication proofs, claims logs, payment/reserve decisions, litigation status.
+- **Tax/regulatory**: final federal/state/local filings, liabilities paid, clearance confirmations, license/permit closures, foreign qualification withdrawals.
+- **Filing requirements**: jurisdiction instructions, required language, exhibit labels, signature/notarization rules.
 
-1. Define scope and jurisdictional statute map.
-   - Confirm dissolution method: voluntary/administrative/judicial.
-   - Pull current state business entity and tax authority instructions before drafting.
-   - Record any entity-specific statutory obligations and filing sequence.
+## Core Workflow
 
-2. Build source inventory and evidence map.
+### 1. Scope and Statute Map
 
-| Section | Inputs | Required exhibit evidence | [VERIFY] |
+- Pull current state business-entity and tax-authority instructions before drafting.
+- Record entity-specific statutory obligations and filing sequence.
+- Flag jurisdiction-variable requirements with: `[VERIFY — State authority requirement: cite exact statute/subsection]`
+
+### 2. Evidence Map
+
+For each report section, confirm inputs, required exhibits, and statutory verification:
+
+| Section | Key Inputs | Required Exhibits | Verify |
 |---|---|---|---|
-| Identity & background | formation papers, amendments, office history | certified formation docs, historical records | jurisdiction statute links |
-| Authorization | board/member actions, notices, vote evidence | minutes/consents, attendance, proxies | entity statute vote thresholds |
-| Winding up process | notices, claim logs, operations closure records | notice proofs, publication proofs, settlement docs | publication timing and content rules |
-| Assets/liabilities | accounting records, valuations, payroll | schedules, invoices, payment proofs | state asset distribution rules |
-| Tax/regulatory closure | final returns, account closure docs | tax confirmations, clearance certificates | final filing and clearance requirements |
-| Certifications | officer statements, signatures | officer IDs, powers, signatory authority | notary/affirmation rules |
+| Identity & background | formation papers, amendments | certified formation docs | jurisdiction statute links |
+| Authorization | board/member actions, vote evidence | minutes/consents, proxies | vote threshold statutes |
+| Winding up | notices, claim logs | notice/publication proofs, settlements | publication timing rules |
+| Assets/liabilities | accounting records, valuations | schedules, payment proofs | asset distribution rules |
+| Tax/regulatory closure | final returns, closures | clearance certificates | filing/clearance requirements |
+| Certifications | officer statements | signatory authority docs | notary/affirmation rules |
 
-3. Draft the report in this section order:
+### 3. Report Section Order
 
-```text
-FINAL REPORT OF DISSOLUTION
-1. Cover and Jurisdictional Basis
-2. Entity History and Structure
-3. Authorization of Dissolution
-4. Winding-Up Narrative
-5. Asset Inventory and Disposition
-6. Liability and Claim Resolution
-7. Distribution to Equity Holders
-8. Tax and Regulatory Compliance
-9. Foreign Qualification & Permit Closures
+```
+1.  Cover and Jurisdictional Basis
+2.  Entity History and Structure
+3.  Authorization of Dissolution
+4.  Winding-Up Narrative
+5.  Asset Inventory and Disposition
+6.  Liability and Claim Resolution
+7.  Distribution to Equity Holders
+8.  Tax and Regulatory Compliance
+9.  Foreign Qualification & Permit Closures
 10. Supporting Exhibits and Index
 11. Certifications and Signatures
 12. Final Compliance Checklist
 ```
 
-4. Insert mandatory factual blocks in each section using this schema.
+### 4. Section Schema
 
-```markdown
+Every section must contain:
+
+```
 Section [#] — [Title]
 Summary:
 Facts:
-Support:
-Cross-reference:
-Risk/Gap:
+Support:        (exhibit citation)
+Cross-reference: (related sections/exhibits)
+Risk/Gap:       ([VERIFY] items or open issues)
 ```
 
-5. Use tables for all numeric schedules and legal-compliance gates.
-   - Asset disposition table: asset class, acquisition basis, valuation basis, method of disposal/distribution, date, proceeds/applicable recipient.
-   - Liability table: creditor, claim type, claimed amount, investigation result, negotiated outcome, payment/reserve date, exhibit.
-   - Distribution table: owner, percentage basis/class rights, amount/value type, payment method, date.
+### 5. Numeric Schedules
 
-6. Add jurisdiction notes explicitly as placeholders where laws vary.
-   - Statement template: `State authority requirement: [insert exact statute/regulation and subsection] [VERIFY].`
-   - Never omit: tax clearance, publication, creditor notice method, filing form variants, and affidavit/notary format.
+Use tables for all financial data:
 
-7. Populate a final quality pass matrix and stop only when all rows are marked complete.
+- **Asset disposition**: asset class, basis, valuation method, disposal method, date, proceeds/recipient.
+- **Liability**: creditor, claim type, claimed amount, outcome, payment/reserve date, exhibit.
+- **Distribution**: owner, percentage/class rights, amount, payment method, date.
 
-| Check | Pass/Fail |
+### 6. Deliverables
+
+- Full draft report.
+- Exhibit index with file map.
+- Open-issues list (if any): state why unresolved, impact, remediation step.
+
+## Quality Checklist
+
+Do not finalize until every row passes:
+
+| Check | Pass? |
 |---|---|
-| Every substantive assertion has exhibit support |  |
-| All totals reconcile across schedules and narrative |  |
-| Statute and rule references are current and jurisdiction-specific |  |
-| Distribution priority confirms creditor satisfaction precedes equity payout |  |
-| Signature block matches state and governance requirements |  |
-| Exhibit index is complete and file names/letters are valid |  |
+| Every substantive assertion has exhibit support | |
+| All totals reconcile across schedules and narrative | |
+| Statute/rule references are current and jurisdiction-specific | |
+| Creditor satisfaction confirmed before equity distribution | |
+| Signature block matches state and governance requirements | |
+| Exhibit index is complete with valid labels | |
+| All `[VERIFY]` items resolved or surfaced as open issues | |
 
-8. Emit final deliverable package:
-- Draft report in full.
-- Exhibit index + exhibit file map.
-- Open issues list (if any unresolved item remains: why unresolved + impact + remediation step).
+## Pitfalls
 
-## Guidelines
-
-1. Treat statutes as jurisdiction-specific. Do not carry over another state’s language without verifying current authority.
-2. Use consistent names and dates; preserve the exact entity name spelling from filings.
-3. Do not leave unsupported assertions; every paragraph in authorization, notice, taxes, and distribution must have an exhibit citation.
-4. Prioritize creditor protection and liability clarity over narrative style.
-5. Keep money figures and dates in one format for the entire report.
-6. Document contingent liabilities and disputed claims with explicit reserve/provision mechanics, not soft language.
-7. Record any legal uncertainty with `[VERIFY]` and prevent finalization until cleared or explicitly surfaced as open issue.
+- **Jurisdiction bleed**: never carry another state's language without verifying current authority.
+- **Name mismatches**: preserve exact entity name spelling from filings throughout.
+- **Unsupported assertions**: every paragraph on authorization, notice, taxes, and distribution must cite an exhibit.
+- **Soft language on contingencies**: document contingent liabilities and disputed claims with explicit reserve/provision mechanics.
+- **Inconsistent formatting**: use one format for all money figures and dates across the entire report.
+- **Premature finalization**: any `[VERIFY]` tag blocks finalization until cleared or explicitly listed as an open issue.

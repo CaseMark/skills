@@ -1,6 +1,6 @@
 ---
 name: complaint-for-trespass-and-nuisance
-description: Drafts a U.S. civil complaint asserting trespass and private nuisance causes of action in real estate disputes. Structures jurisdictional allegations, element-driven counts, and a comprehensive prayer for relief including injunctive remedies. Use when initiating litigation for unauthorized property entry, encroachment, excessive noise, odors, pollution, vibration, or other conduct that substantially interferes with use and enjoyment of real property.
+description: Drafts a U.S. civil complaint asserting trespass and private nuisance causes of action in real property disputes. Use when initiating litigation for unauthorized property entry, encroachment, excessive noise, odors, pollution, vibration, or other conduct substantially interfering with use and enjoyment of real property.
 tags:
   - drafting
   - litigation
@@ -9,92 +9,101 @@ tags:
 
 # Complaint for Trespass and Nuisance
 
-Drafts a litigation-ready civil complaint asserting trespass and private nuisance claims arising from real property disputes.
+Draft a civil complaint with trespass and private nuisance counts for real property disputes.
 
-## Prerequisites
+## Required Inputs
 
-1. **Property description** — street address, legal description, parcel number, relevant physical characteristics
-2. **Plaintiff's interest** — deed, lease, easement, or other possessory basis; if non-title holder, basis for standing
-3. **Incident chronology** — dates, times, manner of each trespass entry or nuisance event; areas of property affected
-4. **Notice/demand history** — cease-and-desist letters, verbal demands, defendant's responses or non-responses
-5. **Damages** — property damage, repair costs, diminution in value, loss of use, health impacts, medical expenses
-6. **Court/jurisdiction** — target court, basis for SMJ and PJ, statutory venue basis
-7. **Party information** — full legal names, legal status (individual, LLC, corp), addresses of all parties
+1. **Property** — address, legal description, parcel number, physical characteristics
+2. **Plaintiff's interest** — deed, lease, easement, or other possessory basis; standing basis if non-title holder
+3. **Incident chronology** — dates, times, manner, and affected areas for each trespass or nuisance event
+4. **Notice history** — cease-and-desist letters, verbal demands, defendant responses
+5. **Damages** — property damage, repair costs, diminution in value, loss of use, health/medical costs
+6. **Court/jurisdiction** — target court, SMJ and PJ basis, venue statute
+7. **Parties** — full legal names, entity type (individual/LLC/corp), addresses
 
-## Output Structure
+## Quick Start
+
+1. Gather all required inputs above.
+2. Draft caption per local court rules.
+3. Build Parties & Jurisdiction section, then Factual Background.
+4. Draft Count I (Trespass) and Count II (Private Nuisance) using the element tables below.
+5. Assemble Prayer for Relief — select applicable remedies.
+6. Run the checks in Pitfalls before finalizing.
+
+## Complaint Structure
 
 ### Caption
-Conform to local court rules: court name, full party names, case number (if assigned), document title.
 
-### Section 1 — Parties & Jurisdiction
+Court name, full party names, case number (if assigned), document title — conform to local rules.
+
+### Parties & Jurisdiction
 
 | Allegation | Content |
 |---|---|
-| Plaintiff identity | Name, legal status, address, basis for standing |
-| Defendant identity | Name, legal status, address |
-| Subject matter jurisdiction | Federal or state statutory basis |
-| Personal jurisdiction | Defendant's contacts with forum |
-| Venue | Statutory basis; situs of property |
+| Plaintiff | Name, legal status, address, standing basis |
+| Defendant | Name, legal status, address |
+| SMJ | Federal or state statutory basis |
+| Personal jurisdiction | Defendant's forum contacts |
+| Venue | Statutory basis; property situs |
 
-### Section 2 — Factual Background
+### Factual Background
 
 Numbered paragraphs covering:
-- Property description (address, legal description, parcel ID, physical characteristics)
-- How and when plaintiff acquired interest; lawful possession prior to interference
-- Defendant's relationship to the property, if any
-- Chronological account of defendant's conduct (specific dates, times, areas accessed, duration)
-- Prior warnings, demands, and defendant's response or failure to respond
+- Property description (address, legal description, parcel ID, characteristics)
+- Plaintiff's acquisition of interest; lawful possession before interference
+- Defendant's relationship to property, if any
+- Chronological account of defendant's conduct (dates, times, areas, duration)
+- Prior warnings/demands and defendant's response or non-response
 
 ### Count I — Trespass
 
-Reallege all prior paragraphs. Plead each element:
+Reallege prior paragraphs. Plead each element:
 
 | Element | Allegation |
 |---|---|
-| Ownership/possession | Plaintiff owns or has lawful right to possess the property |
-| Intentional entry | Defendant intentionally entered (or caused entry of agents, employees, objects, or substances) |
-| Lack of authorization | No consent given; or consent previously granted was revoked with continued presence thereafter |
-| Damages | Physical damage to land/structures/vegetation/fixtures; loss of exclusive possession; repair/restoration costs; diminution in value |
-| Punitive basis (if applicable) | Willful, wanton, or reckless disregard of plaintiff's property rights |
+| Ownership/possession | Plaintiff owns or has lawful right to possess |
+| Intentional entry | Defendant entered or caused entry of agents, objects, or substances |
+| No authorization | No consent, or revoked consent with continued presence |
+| Damages | Physical damage to land/structures/fixtures; loss of possession; repair costs; diminution in value |
+| Punitive basis (if applicable) | Willful, wanton, or reckless disregard of property rights |
 
 ### Count II — Private Nuisance
 
-Reallege all prior paragraphs. Plead each element:
+Reallege prior paragraphs. Plead each element:
 
 | Element | Allegation |
 |---|---|
-| Plaintiff's property interest | Ownership or lawful occupancy of real property |
-| Interference | Defendant's conduct substantially and unreasonably interferes with plaintiff's use and enjoyment |
-| Substantiality | Interference is offensive, inconvenient, or annoying to a reasonable person in the community |
-| Unreasonableness | Weigh: neighborhood character, gravity of harm, social utility of defendant's conduct, feasibility of abatement |
-| Nuisance type | Specify: excessive noise (times/frequency/decibel levels), odors (source/character), vibrations, pollutants or contaminants (identify substances), encroaching vegetation or structures, vermin attraction |
-| Continuing nature | Ongoing or recurring conduct; failure to abate after notice |
-| Damages | Loss of use and enjoyment, diminution in value, physical discomfort, health effects, medical expenses |
-| Punitive basis (if applicable) | Intentional, willful, or conscious disregard of plaintiff's rights |
+| Property interest | Ownership or lawful occupancy |
+| Substantial interference | Defendant's conduct substantially and unreasonably interferes with use and enjoyment |
+| Reasonableness balancing | Neighborhood character, gravity of harm, social utility, feasibility of abatement |
+| Nuisance type | Specify: noise (times/frequency/dB), odors, vibrations, pollutants, encroaching structures/vegetation, vermin |
+| Continuing nature | Ongoing or recurring; failure to abate after notice |
+| Damages | Loss of use/enjoyment, diminution in value, discomfort, health effects, medical costs |
+| Punitive basis (if applicable) | Intentional or conscious disregard of plaintiff's rights |
 
 ### Prayer for Relief
 
-- [ ] Compensatory damages in an amount proven at trial (property damage, diminution in value, loss of use, consequential damages)
-- [ ] Punitive/exemplary damages where conduct is willful or malicious
-- [ ] Temporary restraining order
-- [ ] Preliminary injunction
-- [ ] Permanent injunction ordering defendant to cease all trespass and abate nuisance
-- [ ] Mandatory injunction to remove encroaching structures, objects, or materials and restore property to pre-trespass condition
-- [ ] Attorney's fees and costs (if recoverable by statute, contract, or equity)
-- [ ] Pre-judgment and post-judgment interest as allowed by law
-- [ ] Such other and further relief as the court deems just and proper
+Select applicable remedies:
+- Compensatory damages (property damage, diminution, loss of use, consequentials)
+- Punitive/exemplary damages (if willful or malicious conduct)
+- TRO and/or preliminary injunction
+- Permanent injunction to cease trespass and abate nuisance
+- Mandatory injunction to remove encroachments and restore property
+- Attorney's fees and costs (if statutory, contractual, or equitable basis exists)
+- Pre- and post-judgment interest
+- General catch-all relief clause
 
 ### Signature Block
 
-Attorney name, bar number, firm name, address, telephone, email, date. Include verification or affidavit if required by local rules.
+Attorney name, bar number, firm, address, phone, email, date. Add verification/affidavit if local rules require.
 
-## Guidelines
+## Pitfalls & Checks
 
-- **One allegation per paragraph** — enables clean line-by-line admission/denial in responsive pleadings
-- **Standing** — if plaintiff lacks title, affirmatively plead possessory basis (lease, easement, license, adverse possession, etc.)
-- **Trespass vs. nuisance distinction** — trespass requires a physical invasion of the property itself; nuisance requires substantial and unreasonable interference with use and enjoyment — keep factual allegations cleanly separated between counts
-- **Injunctive relief** — allege irreparable harm and inadequacy of damages at law to support any TRO or preliminary injunction motion
-- **Punitive damages** — only plead if facts support willful/wanton conduct; some jurisdictions require separate pleading or a motion to add [VERIFY per state]
-- **Attorney's fees** — generally not recoverable absent statutory authority or contractual basis; confirm before including
-- **Nuisance "unreasonableness" standard** — varies by state; some apply Restatement (Second) of Torts §§ 822–831 balancing test [VERIFY]
-- **Heightened pleading** — check local rules; some courts require greater specificity than notice pleading for property claims
+- **One allegation per paragraph** — enables clean admission/denial in responsive pleadings.
+- **Standing** — if no title, affirmatively plead possessory basis (lease, easement, license, adverse possession).
+- **Keep counts distinct** — trespass = physical invasion; nuisance = substantial/unreasonable interference with use and enjoyment. Separate factual allegations cleanly.
+- **Injunctive relief** — allege irreparable harm and inadequacy of money damages to support TRO/preliminary injunction.
+- **Punitive damages** — plead only if facts support willful/wanton conduct. [VERIFY: some states require leave of court or separate motion.]
+- **Attorney's fees** — not recoverable absent statute or contract. Confirm basis before including.
+- **Unreasonableness standard** — varies by state; some apply Restatement (Second) of Torts §§ 822–831 balancing. [VERIFY per jurisdiction.]
+- **Heightened pleading** — check local rules for specificity requirements beyond notice pleading.

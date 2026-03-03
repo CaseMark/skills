@@ -1,6 +1,6 @@
 ---
 name: copyright-license-agreement
-description: Drafts a comprehensive U.S. Copyright License Agreement for media content (film, music, photography, video, written works, software, artwork). Structures grants of reproduction, distribution, display, performance, and derivative works rights with tailored scope, territory, term, and compensation. Enforces licensor ownership warranties, quality controls, audit rights, and termination mechanics. Use when drafting IP licensing agreements, media content licenses, synchronization licenses, editorial or commercial use agreements, or royalty-bearing copyright deals.
+description: Drafts a U.S. Copyright License Agreement for media content (film, music, photography, video, software, artwork). Structures reproduction, distribution, display, performance, and derivative works grants with scope, territory, term, and compensation. Use when drafting IP licensing agreements, media content licenses, sync licenses, editorial or commercial use agreements, or royalty-bearing copyright deals.
 tags:
   - agreement
   - drafting
@@ -9,200 +9,140 @@ tags:
 
 # Copyright License Agreement (Media)
 
-Drafts a litigation-ready copyright license for media assets, covering grant scope, compensation, representations, and termination.
+Drafts a litigation-ready copyright license for media assets covering grant scope, compensation, representations, and termination under U.S. copyright law.
 
-## Prerequisites
+## Quick Start
 
-1. **Media description** — title, format, copyright registration number (if any), and brief description of the work
-2. **Party details** — full legal names, entity type/state of formation, principal addresses
-3. **License scope decisions** — exclusive or non-exclusive; which rights granted; territory; term
-4. **Compensation structure** — flat fee, royalties, advance + royalty, or combination
-5. **Field-of-use restrictions** — commercial, editorial, educational, broadcast, digital, etc.
+Gather before drafting:
 
----
+1. **Media description** — title, format, copyright registration number (if any)
+2. **Party details** — full legal names, entity type, formation state, addresses
+3. **License scope** — exclusive or non-exclusive; rights granted; territory; term
+4. **Compensation** — flat fee, royalties, advance + royalty, or combination
+5. **Field-of-use restrictions** — commercial, editorial, educational, broadcast, digital
 
-## Output Structure
+## Core Workflow
 
 ### 1. Recitals & Definitions
 
-| Term | Define as |
-|---|---|
-| **Media** | Title, format, registration no., brief description |
-| **Licensed Rights** | Specific subset of rights granted (see §2) |
-| **Territory** | Worldwide / [specific countries or regions] |
-| **Term** | Start date → expiration date; renewal mechanics |
-| **Authorized Uses** | Enumerated permitted channels and formats |
-| **Derivative Works** | If permitted, scope and approval process |
-| **Gross/Net Revenue** | Royalty base definition |
+Define these terms:
 
----
+| Term | Content |
+|---|---|
+| Media | Title, format, registration no., description |
+| Licensed Rights | Specific rights granted (see §2) |
+| Territory | Worldwide or enumerated regions |
+| Term | Start date, expiration, renewal mechanics |
+| Authorized Uses | Permitted channels and formats |
+| Derivative Works | Scope and approval process if permitted |
+| Gross/Net Revenue | Royalty base definition if applicable |
 
 ### 2. Grant of License
 
-**Core grant clause must specify:**
+Specify in the core grant clause:
+- Exclusive or non-exclusive
+- Sublicensing (default: no, requires written consent)
+- Assignment (default: no without consent; Licensor may assign to successors)
 
-- [ ] Exclusive or non-exclusive
-- [ ] Sublicensing permitted? (default: no, requires written consent)
-- [ ] Assignment permitted? (default: no without consent; Licensor may assign to successors)
-
-**Rights matrix — address each separately:**
+Address each right separately:
 
 | Right | Granted? | Formats/Channels | Territory |
 |---|---|---|---|
-| Reproduction | Y / N | print, digital, broadcast | [Territory] |
-| Distribution | Y / N | retail, streaming, download | [Territory] |
-| Public Display | Y / N | OOH, online, in-venue | [Territory] |
-| Public Performance | Y / N | broadcast, live, streaming | [Territory] |
-| Derivative Works | Y / N | [specify type + approval req'd] | [Territory] |
+| Reproduction | Y/N | print, digital, broadcast | [Territory] |
+| Distribution | Y/N | retail, streaming, download | [Territory] |
+| Public Display | Y/N | OOH, online, in-venue | [Territory] |
+| Public Performance | Y/N | broadcast, live, streaming | [Territory] |
+| Derivative Works | Y/N | type + approval required | [Territory] |
 
-Include: carve-out confirming Licensor retains all rights not expressly granted; disclosure of any existing third-party encumbrances.
-
----
+Include a reservation-of-rights carve-out and disclose any third-party encumbrances.
 
 ### 3. Financial Terms
 
-**Choose structure and complete applicable provisions:**
+**Option A — Flat Fee:** Amount, due date.
 
-#### Option A — Flat License Fee
-```
-License Fee: $[___], due [on execution / within ___ days of execution]
-```
+**Option B — Royalty:** Rate (% of Net/Gross Revenue), accounting period, payment deadline, minimum guarantee, recoupable advance.
 
-#### Option B — Royalty
-```
-Royalty Rate:      ___% of [Net/Gross Revenue]
-Accounting Period: [quarterly / semi-annual]
-Payment Deadline:  ___ days after period close
-Minimum Guarantee: $[___] per period (if any)
-Advance:           $[___], recoupable against royalties
-```
-
-**Both structures require:**
-- [ ] Payment currency and method
-- [ ] Late payment interest rate (e.g., 1.5%/month or max legal rate)
-- [ ] Withholding tax allocation
-- [ ] Licensee recordkeeping obligation (minimum [3] years)
-- [ ] Licensor audit right: [___ days] notice, [annual] frequency, Licensee pays if underpayment > [5%]
-- [ ] Accounting statement format and frequency
-
----
+Both structures require:
+- Payment currency and method
+- Late payment interest (e.g., 1.5%/month or max legal rate)
+- Withholding tax allocation
+- Licensee recordkeeping (minimum 3 years)
+- Licensor audit right with notice period, frequency cap, and underpayment threshold (e.g., Licensee pays audit costs if underpayment > 5%)
+- Accounting statement format and frequency
 
 ### 4. Representations & Warranties
 
-**Licensor warrants:**
-- [ ] Sole copyright owner or has full authority to grant license
-- [ ] Media does not infringe third-party IP, privacy, or publicity rights
-- [ ] No liens, encumbrances, or conflicting licenses impairing the grant
-- [ ] Full corporate authority to execute
+**Licensor warrants:** sole copyright ownership or full authority to grant; no infringement of third-party IP, privacy, or publicity rights; no conflicting liens or licenses; corporate authority to execute.
 
-**Licensee warrants:**
-- [ ] Full authority to execute and perform
-- [ ] Will use Media only as authorized
-- [ ] Will not challenge Licensor's ownership
-
----
+**Licensee warrants:** authority to execute and perform; use only as authorized; no ownership challenges.
 
 ### 5. Usage Restrictions & Quality Control
 
-- **Attribution:** Licensee must display credit in form: `© [Year] [Licensor Name]. All rights reserved.`
-- **Modifications:** [Prohibited / Permitted only with prior written approval]
-- **Moral rights:** Licensee waives assertion of moral rights to extent permitted by applicable law [VERIFY jurisdiction-specific scope]
-- **Prohibited uses:** association with illegal, defamatory, or objectionable content; competing products [if exclusive]; political advertising [optional]
-- **Quality approval:** Licensor has right to review and approve materials incorporating Media, with [___ business day] turnaround (deemed approved if no response)
-- **Technical standards:** reproductions must meet [resolution/format specs]
-
----
+- **Attribution:** `© [Year] [Licensor Name]. All rights reserved.`
+- **Modifications:** prohibited or permitted only with prior written approval
+- **Moral rights:** waiver to extent permitted by applicable law (verify jurisdiction scope)
+- **Prohibited uses:** illegal, defamatory, or objectionable content; competing products if exclusive; political advertising (optional)
+- **Quality approval:** Licensor review right with business-day turnaround (deemed approved if no response)
+- **Technical standards:** resolution/format specs for reproductions
 
 ### 6. Term & Termination
 
-**Term:** Commences [Effective Date]; expires [date / upon event].
-Renewal: [auto-renews for [___]-year terms unless [___] days' notice / requires affirmative written extension]
+State commencement date, expiration, and renewal mechanics (auto-renew or affirmative extension).
 
-**Termination triggers:**
+Termination triggers:
 
-| Trigger | Notice Required | Cure Period |
+| Trigger | Notice | Cure Period |
 |---|---|---|
-| Material breach | Written | [30] days |
-| Insolvency/bankruptcy | None (automatic) | N/A |
-| Convenience (Licensee) | [60] days written | N/A |
-| Convenience (Licensor) | [90] days written | N/A |
+| Material breach | Written | 30 days |
+| Insolvency/bankruptcy | Automatic | N/A |
+| Convenience (Licensee) | 60 days written | N/A |
+| Convenience (Licensor) | 90 days written | N/A |
 
-**Post-termination obligations:**
-- [ ] Immediate cessation of all new use
-- [ ] Destroy or return all copies; provide written certification within [30] days
-- [ ] Sell-off period for existing inventory: [90] days [or none]
-- [ ] Royalties for pre-termination use remain payable
-- [ ] Prepaid fees: [non-refundable / pro-rated refund]
+Post-termination: cease all new use; destroy/return copies with written certification (30 days); sell-off period for inventory (90 days or none); pre-termination royalties remain payable; prepaid fees non-refundable or pro-rated.
 
-**Survival:** Sections on indemnification, payment, confidentiality, dispute resolution, representations survive termination.
-
----
+Survival: indemnification, payment, confidentiality, dispute resolution, and representations survive.
 
 ### 7. Indemnification
 
-**Mutual indemnification:**
-- Each party indemnifies the other for breaches of their respective reps/warranties
-- Licensor additionally indemnifies for third-party IP infringement claims arising from the Media itself
-- Licensee additionally indemnifies for unauthorized use
+Mutual indemnification for rep/warranty breaches. Licensor additionally indemnifies for third-party IP infringement from the Media. Licensee additionally indemnifies for unauthorized use.
 
-**Procedure:** Prompt written notice → indemnifying party controls defense (with indemnified party's cooperation) → no settlement without consent (not unreasonably withheld)
+Procedure: prompt written notice, indemnifying party controls defense with cooperation, no settlement without consent (not unreasonably withheld).
 
-**Cap:** [Aggregate liability capped at fees paid in prior [12] months / uncapped for IP indemnity]
-
----
+Liability cap: aggregate fees paid in prior 12 months; consider carving out IP indemnity from cap.
 
 ### 8. Governing Law & Disputes
 
-```
-Governing Law:  [State], USA
-Venue:          [County, State] [state/federal courts]
-```
+Specify governing state law, venue (county/state, state or federal courts).
 
-**Dispute ladder (optional):**
-1. Senior executive negotiation — [30] days
-2. Mediation (JAMS/AAA) — [30] days
-3. Binding arbitration (AAA Commercial Rules) / litigation
-
-Prevailing party attorneys' fees: [yes / no]
-
----
+Optional dispute ladder: senior executive negotiation (30 days) → mediation via JAMS/AAA (30 days) → binding arbitration or litigation. Address prevailing party attorneys' fees.
 
 ### 9. General Provisions
 
-- **Entire Agreement / Integration:** Supersedes all prior negotiations
-- **Amendments:** Writing, signed by both parties
-- **Severability:** Invalid provisions severed; remainder enforceable
-- **Waiver:** Non-enforcement not a waiver of future rights
-- **Notices:** Certified mail, overnight courier, or email (with read receipt) to addresses in signature block
-- **Force Majeure:** [Include / exclude] for delays in performance
-- **Electronic Signatures:** Valid under ESIGN Act and UETA
-
----
+Entire agreement/integration, written amendments signed by both parties, severability, non-waiver, notice mechanics (certified mail, overnight courier, or email with read receipt), force majeure (include or exclude), electronic signature validity under ESIGN Act and UETA.
 
 ### 10. Signature Blocks & Exhibits
 
-```
-LICENSOR                          LICENSEE
-By: ___________________           By: ___________________
-Name: _________________           Name: _________________
-Title: ________________           Title: ________________
-Date: _________________           Date: _________________
-```
+Include signature blocks for both parties (name, title, date).
 
-**Attach as needed:**
-- **Exhibit A** — Detailed Media description (title, format, reg. no., sample/thumbnail)
+Attach as needed:
+- **Exhibit A** — Media description (title, format, registration no., sample)
 - **Exhibit B** — Approved uses / usage examples
 - **Exhibit C** — Payment schedule or royalty formula
 - **Exhibit D** — Territory definitions
 
----
+## Pitfalls & Checks
 
-## Guidelines
+- **Registration matters:** Include Copyright Office registration number if available; unregistered works limit statutory damages and fee recovery under 17 U.S.C. § 412
+- **Work-for-hire trap:** Confirm Media is not a work-for-hire owned by a third-party employer
+- **Exclusivity recording:** Exclusive licenses should be in writing and may require recordation with Copyright Office for priority protection under 17 U.S.C. § 205
+- **VARA rights:** Visual artists may have inalienable moral rights under 17 U.S.C. § 106A; address waiver expressly
+- **Music licensing:** Sync and master licenses are separate rights; confirm which are needed for audiovisual use
+- **AI-generated media:** Copyright ownership of AI-generated works remains legally unsettled; flag if applicable
+- **International scope:** Non-U.S. territories may require separate licenses or local law compliance (e.g., EU Database Directive, moral rights regimes in France/Germany)
 
-- **Copyright formalities:** If Media is registered with the U.S. Copyright Office, include registration number; unregistered works limit statutory damages and fee recovery [17 U.S.C. § 412]
-- **Work-for-hire trap:** Confirm licensed Media is not a work-for-hire owned by a third party employer
-- **Exclusivity risk:** Exclusive licenses should be in writing and may require recordation with Copyright Office [17 U.S.C. § 205] for priority protection [VERIFY]
-- **Moral rights:** Visual artists may have inalienable VARA rights [17 U.S.C. § 106A]; address waiver expressly
-- **Music:** Sync and master licenses are separate; confirm which rights are needed for audiovisual use
-- **AI-generated media:** Copyright ownership of AI-generated works remains legally unsettled as of 2026; flag if applicable
-- **Jurisdiction caveat:** Non-U.S. territories may require separate licenses or local law compliance (e.g., EU Database Directive, moral rights in France/Germany)
+## Troubleshooting
+
+- **Unclear rights scope:** If the client cannot articulate which rights are needed, walk through the rights matrix row by row against their intended use cases
+- **Missing registration:** Advise client to register before licensing if statutory damages and fee-shifting are important enforcement tools
+- **Royalty vs. flat fee ambiguity:** Default to flat fee for one-time uses; royalty for ongoing exploitation with revenue streams
+- **Conflicting licenses:** Request Licensor's disclosure of all existing license grants to confirm no overlap with the proposed grant

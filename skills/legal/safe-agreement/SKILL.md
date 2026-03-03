@@ -1,6 +1,6 @@
 ---
 name: safe-agreement
-description: Drafts Simple Agreements for Future Equity (SAFE) for early-stage venture capital financing. Generates conversion-ready instruments with valuation cap and discount mechanics, investor qualification provisions, and securities law compliance language. Use when drafting SAFEs, pre-seed investment documents, convertible equity instruments, or YC-style SAFE notes.
+description: Drafts Simple Agreements for Future Equity (SAFE) for early-stage venture capital financing with valuation cap/discount mechanics, investor qualifications, and securities compliance. Use when drafting SAFEs, pre-seed investment documents, convertible equity instruments, or YC-style SAFE notes.
 tags:
   - agreement
   - corporate
@@ -9,15 +9,17 @@ tags:
 
 # Simple Agreement for Future Equity (SAFE)
 
-Drafts a SAFE instrument granting investors future equity rights upon triggering events without immediate ownership or debt obligations.
+Drafts a SAFE granting investors future equity rights upon triggering events — no immediate ownership, no debt.
 
-## Prerequisites
+## Quick Start
 
-1. **Company information** — exact legal name per certificate of incorporation, jurisdiction, state of formation
-2. **Investor information** — full legal name, entity type, accredited investor basis
-3. **Economic terms** — purchase amount, valuation cap, discount rate (if any)
+Gather before drafting:
+
+1. **Company** — legal name per certificate of incorporation, jurisdiction, state of formation
+2. **Investor** — legal name, entity type, accredited investor basis
+3. **Economics** — purchase amount, valuation cap, discount rate (if any)
 4. **Cap table** — existing SAFEs, convertible notes, fully-diluted share count
-5. **Special provisions** — MFN clause, pro rata rights, side letters, or modifications
+5. **Special terms** — MFN clause, pro rata rights, side letters
 
 ## Document Structure
 
@@ -28,100 +30,87 @@ Drafts a SAFE instrument granting investors future equity rights upon triggering
 | Company ID | Full legal name matching certificate of incorporation, entity type, jurisdiction |
 | Investor ID | Legal name, entity type, capacity to contract |
 | Purchase amount | Exact dollar figure |
-| Core exchange | Capital now → contractual right to future equity; explicitly state: no debt, no interest accrual, no current stockholder status |
+| Core exchange | Capital → contractual right to future equity; state explicitly: no debt, no interest, no current stockholder status |
 
 ### Conversion Mechanics
 
-Draft three triggering events with the following mechanics:
+Three triggering events:
 
-**1. Equity Financing (automatic conversion)**
+**1. Equity Financing (automatic)**
 
-- Converts into same series of preferred stock issued to new investors
+- Converts into preferred stock of same series issued to new investors
 - Conversion price = lesser of:
   - **Cap price**: Valuation Cap ÷ Pre-money fully-diluted capitalization
-  - **Discount price**: New investor price per share × (1 − Discount Rate)
-- Shares issued = Purchase Amount ÷ Conversion Price (using lower price)
-- Include a worked numerical example demonstrating both calculations
+  - **Discount price**: Price per share × (1 − Discount Rate)
+- Shares = Purchase Amount ÷ Conversion Price
+- Include worked numerical example
 
-**2. Liquidity Event (acquisition, merger, IPO)**
+**2. Liquidity Event (acquisition/merger/IPO)**
 
-- Investor elects one of:
-  - Cash payment = Purchase Amount, OR
-  - Common stock shares = Purchase Amount ÷ Liquidity Price (derived from valuation cap)
-- Specify election timeline and default if no election made
+- Investor elects: cash = Purchase Amount OR common stock = Purchase Amount ÷ Liquidity Price
+- Specify election timeline and default
 
-**3. Dissolution Event**
+**3. Dissolution**
 
-- Cash payment = Purchase Amount, paid pre-dissolution
-- Priority waterfall: senior to common stockholders, subordinate to creditors and debt holders
+- Cash = Purchase Amount, pre-dissolution
+- Priority: senior to common, subordinate to creditors/debt
 
-### Valuation Terms Table
+### Valuation Terms
 
 | Term | Function |
 |---|---|
-| Valuation Cap | Ceiling on effective conversion valuation; investor gets larger stake if company valuation exceeds cap |
-| Discount Rate | Percentage reduction from new investor price; rewards early-stage risk |
-| Interaction rule | Cap and discount are **alternative** (not additive); investor gets the more favorable result |
+| Valuation Cap | Ceiling on conversion valuation; larger stake if valuation exceeds cap |
+| Discount Rate | Reduction from new investor price; rewards early risk |
+| Interaction | Cap and discount are **alternative** (not additive); investor gets better result |
 
-### Investor Representations
+### Representations
 
-Include all of the following:
+**Investor:**
 
-- [ ] Investment purpose (not for resale/distribution — supports private placement exemption)
-- [ ] Accredited investor status — provide pathways for:
-  - Individual: income test OR net worth test (exclude primary residence)
-  - Entity: total assets, equity owner accreditation, or institutional qualification
-- [ ] Risk acknowledgments: speculative nature, total loss risk, no liquid market, indefinite hold period
-- [ ] Sophistication: sufficient knowledge/experience or engagement of qualified advisors
+- [ ] Investment purpose (not for resale — supports private placement exemption)
+- [ ] Accredited status — individual (income/net worth) or entity (assets/equity owner/institutional)
+- [ ] Risk acknowledgments: speculative, total loss, illiquid, indefinite hold
+- [ ] Sophistication or qualified advisors
 
-### Company Representations
+**Company:**
 
 - [ ] Valid incorporation and good standing
-- [ ] Corporate power and authority to execute
+- [ ] Corporate power and authority
 - [ ] Board/stockholder approvals obtained
-- [ ] Binding obligation (subject to standard bankruptcy/equitable exceptions)
-- [ ] No conflict with charter documents, material contracts, or applicable law
+- [ ] Binding obligation (standard bankruptcy/equitable exceptions)
+- [ ] No conflict with charter, material contracts, or law
 
 ### Rights & Restrictions
 
-**Pre-conversion — no stockholder rights:**
-- No voting, dividends, distributions, information rights, preemptive rights, or meeting participation
-- Rights are purely contractual per SAFE terms only
+**Pre-conversion** — no stockholder rights (no voting, dividends, distributions, preemptive rights).
 
-**Transfer restrictions:**
-- No transfer without company's prior written consent
-- Unauthorized transfers are void
-- Optional exceptions: affiliates, family/estate planning, retirement accounts (specify conditions and notice requirements)
+**Transfer** — no transfer without written consent; unauthorized = void. Optional exceptions for affiliates, estate planning, retirement accounts.
 
-**Securities compliance:**
-- SAFE and conversion shares are unregistered
-- Restrictive legends required on all certificates/book entries
-- Investor acknowledges inability to liquidate
+**Securities** — unregistered; restrictive legends required; investor acknowledges illiquidity.
 
 ### Administrative Provisions
 
 | Provision | Standard |
 |---|---|
 | Governing law | State of incorporation or principal place of business |
-| Dispute resolution | Specify litigation venue OR arbitration (rules, arbitrator count, seat, cost allocation) |
-| Amendments | Written instrument signed by both parties only |
-| Waivers | Explicit, in writing; no implied waiver of subsequent breaches |
-| Integration | Entire agreement; supersedes all prior negotiations |
-| Notices | Email, certified mail, or national courier; specify addresses; state when deemed received per method |
-| Severability | Invalid provisions reformed to minimum extent; remainder survives |
+| Disputes | Litigation venue OR arbitration (rules, count, seat, costs) |
+| Amendments | Written, signed by both parties |
+| Waivers | Explicit, written; no implied waiver |
+| Integration | Entire agreement; supersedes prior negotiations |
+| Notices | Email, certified mail, or courier; specify addresses; deemed-received rules |
+| Severability | Reform invalid provisions; remainder survives |
 
 ### Signature Blocks
 
-- Space for manual/electronic signature, printed name, title (for entities), date
-- Both Company and Investor blocks
+Both Company and Investor: signature, printed name, title (entities), date.
 
-## Guidelines
+## Checks
 
-1. **Defined terms** — capitalize consistently; define before first use or in a definitions section
-2. **Mathematical precision** — conversion formulas must be unambiguous to any competent financial professional
-3. **Cross-references** — verify all internal section references are accurate
-4. **No bracketed placeholders** — replace all `[brackets]` with actual terms before finalizing
-5. **YC SAFE compatibility** — if the company references YC standard SAFEs, align with the applicable YC template version (post-money vs. pre-money) and flag any deviations
-6. **State-specific securities exemptions** — confirm the applicable federal exemption (typically Reg D, Rule 506(b) or 506(c)) and any state blue sky requirements
-7. **Existing instrument conflicts** — check for MFN clauses in prior SAFEs that could be triggered
-8. **Missing information** — if critical terms are unavailable, identify gaps explicitly and request from user before finalizing
+1. **Defined terms** — capitalize consistently; define before first use
+2. **Math precision** — conversion formulas unambiguous to any financial professional
+3. **Cross-references** — verify all internal section references
+4. **No placeholders** — replace all `[brackets]` before finalizing
+5. **YC compatibility** — if referencing YC SAFEs, align with applicable template version (post-money vs. pre-money) and flag deviations
+6. **Securities exemptions** — confirm federal exemption (Reg D 506(b)/506(c)) and state blue sky requirements
+7. **MFN conflicts** — check prior SAFEs for MFN clauses that could trigger
+8. **Missing info** — identify gaps and request from user before finalizing

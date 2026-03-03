@@ -1,13 +1,11 @@
 ---
 name: billing-summary
 description: >-
-  Produces U.S. corporate governance legal billing summaries from time and
-  expense data, converting entries into client‑friendly narratives with
-  categorized hours, rates, expenses, and milestones. Enforces
-  engagement‑letter billing rules, privilege‑safe descriptions, and ethical
-  billing safeguards. Trigger keywords: billing summary, invoice narrative,
-  timekeeper breakdown, expense summary, client billing report, legal spend,
-  fee narrative.
+  Produces privilege-safe U.S. corporate legal billing summaries from time and
+  expense data. Converts entries into client-friendly narratives with categorized
+  hours, rates, expenses, and milestones while enforcing engagement-letter rules
+  and ethical billing safeguards. Use when asked to create a billing summary,
+  invoice narrative, timekeeper breakdown, expense summary, or fee narrative.
 tags:
   - corporate
   - summarization
@@ -16,56 +14,47 @@ tags:
 
 # Legal Billing Summary
 
-Deliver a client‑ready billing narrative that explains fees and expenses clearly while preserving privilege.
+Generate a client-ready billing narrative that explains fees and expenses clearly while preserving privilege.
 
-## Prerequisites
+## Required Inputs
 
-1. Billing period start and end dates
-2. Matter name and client name
-3. Time entries with timekeeper, rate, hours, description, date
-4. Expense entries with date, vendor, description, amount
-5. Engagement letter or client billing guidelines (rates, caps, task codes, prohibited expenses)
-6. Known milestones or phase labels for the period (if any)
-7. Any write‑downs, discounts, or adjustments applied
+1. Billing period (start/end dates), matter name, client name
+2. Time entries: timekeeper, rate, hours, description, date
+3. Expense entries: date, vendor, description, amount
+4. Engagement letter or billing guidelines (rates, caps, task codes, prohibited expenses)
+5. Milestones or phase labels (if any)
+6. Write-downs, discounts, or adjustments (if any)
 
-## Output Structure / Process
+## Output Structure
 
-Use the following structure and fill all sections.
+Populate every section below.
 
-**Header Block**
+### 1. Header
 
-Matter:  
-Client:  
-Billing Period:  
-Responsible Attorneys:  
-Billing Guidelines Reference:  
+Matter | Client | Billing Period | Responsible Attorneys | Billing Guidelines Reference
 
-**Executive Overview**
+### 2. Executive Overview
 
-Provide 3–6 sentences summarizing the period’s major workstreams and outcomes.
-
-Totals table:
+3-6 sentences on the period's major workstreams and outcomes, plus a totals table:
 
 | Metric | Amount |
 | --- | --- |
 | Fees | $ |
 | Expenses | $ |
 | Total | $ |
-| Discount/Write‑down (if any) | $ |
+| Discount/Write-down | $ |
 | Net Total | $ |
 
-**Timekeeper Summary**
-
-Timekeeper table:
+### 3. Timekeeper Summary
 
 | Timekeeper | Role | Rate | Hours | Fees | Notes |
 | --- | --- | --- | --- | --- | --- |
 
-Notes should explain scope (e.g., “board governance research,” “drafted consent resolutions”).
+Notes column: explain scope (e.g., "board governance research," "drafted consent resolutions").
 
-**Task Category Breakdown**
+### 4. Task Category Breakdown
 
-Required categories (use these labels unless client task codes dictate otherwise):
+Default categories (override with client task codes if provided):
 
 - Research and Analysis
 - Drafting and Document Production
@@ -74,48 +63,42 @@ Required categories (use these labels unless client task codes dictate otherwise
 - Negotiation and Counterparty Communications
 - Regulatory/Compliance Work
 - Filings and Formalities
-- Other (only if necessary; define clearly)
-
-Category table:
+- Other (define clearly)
 
 | Category | Hours | Fees | Narrative |
 | --- | --- | --- | --- |
 
-Narrative rule: explain purpose and outcome in plain English without revealing legal advice or strategy.
+Narrative: explain purpose and outcome in plain English; never reveal legal advice or strategy.
 
-**Chronology or Phase View (optional but recommended for long periods)**
-
-If multi‑phase, provide a phase table:
+### 5. Phase View (optional, recommended for long periods)
 
 | Phase / Milestone | Dates | Key Work Performed | Fees |
 | --- | --- | --- | --- |
 
-**Expenses**
-
-Expenses table:
+### 6. Expenses
 
 | Date | Category | Vendor | Description | Amount | Justification |
 | --- | --- | --- | --- | --- | --- |
 
-Provide subtotals for material categories (e.g., filing fees, expert/consultant, travel).
+Include subtotals for material categories (filing fees, expert/consultant, travel).
 
-**Adjustments and Compliance Notes**
+### 7. Adjustments and Compliance
 
-- List any write‑downs, caps applied, or policy‑driven exclusions.
-- Note any block‑billed entries and how they were separated or explained.
+- List write-downs, caps applied, or policy-driven exclusions.
+- Note block-billed entries and how they were separated.
 - Confirm compliance with client billing guidelines.
 
-**Forward Look (optional)**
+### 8. Forward Look (optional)
 
-Provide 2–4 sentences on expected next‑period activities and anticipated cost drivers.
+2-4 sentences on expected next-period activities and cost drivers.
 
-## Guidelines
+## Privilege and Billing Safeguards
 
-- Protect privilege: avoid legal advice, mental impressions, or litigation strategy.
-- Use plain language; avoid vague phrases like “legal research” without topic.
-- Tie work to matter objectives or compliance requirements.
-- Show policy compliance: rates, caps, task codes, approved expenses.
-- Flag exceptions: unusual expenses, staffing changes, or large time spikes.
-- Do not duplicate time across multiple timekeepers for the same task without explanation.
-- Do not include administrative tasks as billable unless guidelines allow.
-- Keep the narrative consistent with time entry descriptions and invoice totals.
+- **Protect privilege**: never include legal advice, mental impressions, or litigation strategy.
+- **Be specific**: avoid vague phrases like "legal research" — always name the topic.
+- **Tie work to objectives**: connect entries to matter goals or compliance requirements.
+- **Show policy compliance**: rates, caps, task codes, approved expenses.
+- **Flag anomalies**: unusual expenses, staffing changes, large time spikes.
+- **No duplicate billing**: do not overlap timekeeper entries for the same task without explanation.
+- **No administrative padding**: exclude admin tasks unless guidelines permit.
+- **Stay consistent**: narrative must match time entry descriptions and invoice totals.

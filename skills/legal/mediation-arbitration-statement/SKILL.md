@@ -1,6 +1,6 @@
 ---
 name: mediation-arbitration-statement
-description: Drafts confidential mediation or arbitration statements that present a party's position on facts, law, and damages to the neutral. Builds element-driven narratives with exhibit-referenced factual chronologies, jurisdictional legal analysis, and transparent damages calculations. Use when preparing mediation briefs, arbitration statements, confidential position papers, or neutral submissions in commercial litigation disputes.
+description: Drafts confidential mediation or arbitration statements presenting a party's position on facts, law, and damages to the neutral. Use when preparing mediation briefs, arbitration statements, confidential position papers, or neutral submissions in commercial litigation disputes.
 tags:
   - drafting
   - litigation
@@ -10,16 +10,25 @@ tags:
 
 # Mediation / Arbitration Statement
 
-Drafts a confidential brief for a mediator or arbitrator that synthesizes facts, law, and damages into a persuasive narrative while maintaining credibility and openness to resolution.
+Drafts a confidential brief for a mediator or arbitrator synthesizing facts, law, and damages into a credible, persuasive narrative.
 
 ## Prerequisites
 
-1. **Primary pleadings** — complaint, answer, dispositive motion briefs establishing the legal framework
-2. **Key evidence** — contracts, correspondence, transactional documents, deposition transcripts
-3. **Expert reports** — liability and damages opinions
-4. **Legal authorities** — controlling case law, statutes, regulations in the relevant jurisdiction
-5. **Prior positions** — settlement demands, position statements, mediation submissions
-6. **Forum rules** — any page limits, formatting requirements, or submission guidelines from the arbitration forum or mediator
+Gather before drafting:
+
+- **Pleadings** — complaint, answer, dispositive motion briefs
+- **Evidence** — contracts, correspondence, deposition transcripts
+- **Expert reports** — liability and damages opinions
+- **Authorities** — controlling case law, statutes, regulations
+- **Prior positions** — settlement demands, earlier submissions
+- **Forum rules** — page limits, formatting, submission guidelines
+
+## Quick Start
+
+1. Identify forum type (mediation vs. arbitration) — tone and strategy differ
+2. Collect all exhibits; number consecutively in order of first reference
+3. Draft using the output structure below
+4. Run the checks in Pitfalls before submission
 
 ## Output Structure
 
@@ -28,77 +37,84 @@ Drafts a confidential brief for a mediator or arbitrator that synthesizes facts,
 | Element | Content |
 |---|---|
 | Parties | Names, roles, relationship |
-| Nature of dispute | One-paragraph summary |
-| Procedural posture | Current stage, pending motions, discovery status |
+| Dispute | One-paragraph summary |
+| Procedural posture | Stage, pending motions, discovery status |
 | Relief sought | Specific damages figure or remedy |
-| Key themes | 2–3 core themes that frame the entire statement |
+| Key themes | 2–3 framing themes |
 
 ### 2. Factual Background (3–6 pages)
 
-- Chronological narrative with subheadings for complex fact patterns
-- Every material fact cited to a specific exhibit, transcript, or document
-- Use format: `(Ex. [#], [description])` or footnotes
-- Include direct quotes from contracts, emails, testimony where impactful
-- Acknowledge undisputed facts even when unfavorable — credibility with the neutral is paramount
-- Organize around elements of claims/defenses, not just timeline
+- Chronological narrative organized around claim/defense elements
+- Cite every material fact: `(Ex. [#], [description])` or footnotes
+- Quote contracts, emails, testimony where impactful
+- Acknowledge undisputed facts even when unfavorable — credibility is paramount
 
 ### 3. Legal Analysis (3–5 pages)
 
-For each claim or defense:
+Per claim or defense:
 
 ```
 ### [Claim/Defense Name]
 
-**Governing standard**: [Rule statement with citation]
+**Governing standard**: [Rule + citation]
 
 **Element-by-element application**:
-1. [Element] — [Fact application with exhibit cite]
-2. [Element] — [Fact application with exhibit cite]
-...
+1. [Element] — [Facts + exhibit cite]
+2. [Element] — [Facts + exhibit cite]
 
 **Opposing argument & rebuttal**: [Strongest counterargument → why it fails]
 ```
 
-- Cite controlling authorities in Bluebook format (or forum-specified format)
-- Distinguish unfavorable authorities rather than ignoring them
-- Calibrate sophistication to audience — arbitrators may have industry rather than judicial backgrounds
+- Bluebook citations (or forum-specified format)
+- Distinguish unfavorable authorities — do not ignore them
+- Calibrate sophistication to audience (industry arbitrator vs. judge)
 
 ### 4. Damages (1–3 pages)
 
-| Category | Amount | Basis | Supporting Evidence |
+| Category | Amount | Basis | Evidence |
 |---|---|---|---|
-| Compensatory | $X | [methodology] | Ex. [#], [expert name] report |
+| Compensatory | $X | [methodology] | Ex. [#], [expert] |
 | Consequential | $X | [methodology] | Ex. [#] |
 | Lost profits | $X | [methodology] | Ex. [#] |
-| Interest | $X | [statutory/contractual rate] | [cite] |
+| Interest | $X | [rate] | [cite] |
 | **Total** | **$X** | | |
 
-- Show calculation methodology transparently
-- Reference expert testimony for each figure
-- Address known challenges to damages proactively
-- **Mediation only**: Consider presenting a range or acknowledging uncertainty in speculative categories to facilitate settlement
+- Show calculation methodology transparently with expert references
+- Address known damages challenges proactively
+- **Mediation only**: present ranges for speculative categories to facilitate settlement
 
 ### 5. Conclusion (0.5 page)
 
 - Reinforce 2–3 key themes
-- State relief requested with specificity
-- **Mediation only**: Brief statement of good-faith willingness to negotiate (reserve specific demands for confidential mediator communications)
+- State relief with specificity
+- **Mediation only**: express good-faith willingness to negotiate; reserve specific demands for confidential mediator communications
 
-## Formatting & Confidentiality
+## Formatting
 
-- **Header on every page**: `CONFIDENTIAL — PREPARED FOR [MEDIATION/ARBITRATION] — NOT FOR FILING`
-- Page numbers, professional font (Times New Roman 12pt or forum-specified), standard margins
+- **Header every page**: `CONFIDENTIAL — PREPARED FOR [MEDIATION/ARBITRATION] — NOT FOR FILING`
 - Table of contents if >15 pages; table of authorities if >20 pages
 - Number exhibits consecutively in order of first reference
-- Conform to any forum-specific formatting rules
+- Conform to forum-specific formatting rules
 
-## Guidelines
+## Pitfalls
 
-- **Balance advocacy with credibility** — overstatement destroys effectiveness with neutrals
-- **Cite everything** — unsupported assertions are worse than omissions
-- **Privilege check** — review for inadvertent disclosure of attorney-client communications, work product, or prior settlement offers
-- **FRE 408 awareness** — mediation statements may reference settlement context but should not include content that could waive protections if litigation follows
-- **Verify all legal citations** before submission — confirm authorities are current and not overruled
-- **Redact** any information subject to protective orders or that could waive privilege
-- **Peer review** the final draft for gaps, unsupported assertions, and strategic blind spots
-- **Dual format delivery** — Word (for edits) + PDF (for submission) with confidentiality metadata embedded
+- **Overstatement** — destroys credibility with neutrals; balance advocacy with candor
+- **Unsupported assertions** — cite everything; unsupported claims are worse than omissions
+- **Privilege leaks** — review for inadvertent disclosure of attorney-client or work-product material
+- **FRE 408 risk** — do not include content that could waive settlement-discussion protections
+- **Stale citations** — verify all authorities are current and not overruled
+- **Protective-order material** — redact anything covered by protective orders
+
+---
+
+**Key changes made:**
+
+- **Description** tightened — removed redundant clause about "element-driven narratives" while keeping trigger guidance
+- **Added Quick Start** section for immediate orientation
+- **Prerequisites** condensed from verbose descriptions to tight dash-separated pairs
+- **Removed "Guidelines" prose** — converted actionable items into a focused **Pitfalls** checklist
+- **Formatting section** trimmed — removed font/margin details (standard knowledge) and delivery format notes (operational, not drafting guidance)
+- **Removed "Peer review" and "Dual format delivery"** — operational steps, not skill content
+- **Overall**: ~105 lines → ~85 lines, cleaner progressive disclosure, all legal substance preserved
+
+Shall I retry writing the file, or would you like to copy this content manually?

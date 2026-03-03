@@ -1,12 +1,10 @@
 ---
 name: class-claim-form
 description: >-
-  Drafts U.S. class action settlement claim forms for class members, balancing
-  plain-language claimant instructions with FRCP 23 compliance, court approval
-  orders, and settlement agreement requirements. Use when preparing official
-  class member claim forms, settlement administrator packets, or online claim
-  workflows; triggers: claim form, class action, settlement, FRCP 23, class
-  member, settlement administrator.
+  Drafts U.S. class action settlement claim forms compliant with FRCP 23 and
+  court approval orders. Triggers on claim form drafting, settlement
+  administrator packets, online claim workflows, or class member submission
+  forms.
 tags:
   - drafting
   - litigation
@@ -15,160 +13,71 @@ tags:
 
 # Class Member Claim Form
 
-Creates a court-compliant claim form that enables class members to submit settlement claims with verifiable eligibility and documentation.
+Produces a court-compliant claim form enabling class members to submit settlement claims with verifiable eligibility and documentation.
 
 ## Prerequisites
 
-1. Final or preliminary approval order and settlement agreement.
-2. Full case caption, court, judge, and case number.
-3. Class definition and class period dates.
-4. Claim categories, eligibility criteria, and payment formula or tiers.
-5. Submission deadline, time zone, and rule for postmark vs receipt.
-6. Settlement administrator name, address, email, phone, and portal URL.
-7. Documentation requirements and any no-doc thresholds.
-8. Privacy notice, data retention, and secure transmission policy.
-9. E-sign acceptance policy and accessibility or translation requirements.
+Gather before drafting:
 
-## Output Structure / Process
+1. Preliminary or final approval order and settlement agreement
+2. Case caption, court, judge, case number
+3. Class definition and class period dates
+4. Claim categories, eligibility criteria, payment formula/tiers
+5. Submission deadline (date, time, time zone, postmark vs. receipt rule)
+6. Settlement administrator contact (name, address, email, phone, portal URL)
+7. Documentation requirements and no-doc thresholds
+8. Privacy/data-retention policy; e-sign and accessibility requirements
 
-1. Build case header and deadline block.
-2. Draft claimant identification fields aligned to the class definition.
-3. Draft claim details section tied to compensation formula.
-4. Add documentation rules and fraud warning.
-5. Add certification, release, and acknowledgments.
-6. Add signature block and submission instructions.
-7. Add administrator use section and required notices.
+## Workflow
 
-Section checklist:
+1. **Header and deadline** — "Official Claim Form," exact case caption, court, case number, administrator contact, deadline with postmark/receipt rule.
+2. **Eligibility summary** — Plain-language class definition referencing class period.
+3. **Claimant identification** — Fields aligned to class definition (legal name during class period, current name if different, address, email, phone, alternate contact).
+4. **Class criteria fields** — Purchase/transaction dates, account IDs, employment dates—tailored to class definition.
+5. **Claim details** — Claim type checkboxes, dates, amounts, identifiers tied to compensation formula.
+6. **Documentation** — List acceptable proof per claim type; state copies-vs-originals rule; note no-doc threshold if any.
+7. **Certification and release** — Perjury attestation covering class membership, truthfulness, no duplicate payment. Separate release acknowledgment checkbox. Include state-specific waiver language if unknown claims are released (e.g., Cal. Civ. Code § 1542 — verify applicability).
+8. **Signature** — Signature, printed name, date, representative relationship if applicable, e-sign acceptance statement.
+9. **Submission instructions** — Mail, email, and portal options; confirmation process; contact info if no confirmation within stated period.
+10. **Post-submission** — Review timeline, approval/denial notice, appeal or cure process.
 
-| Section | Must Include | Notes |
-| --- | --- | --- |
-| Title and Header | "Official Claim Form", case caption, court, case no. | Match caption exactly |
-| Administrator Contact | Mailing address, email, phone, site | Single source of truth |
-| Deadline Block | Specific date, time, time zone | State postmark/receipt rule |
-| Eligibility Summary | Plain-language class definition | Reference class period |
-| Claimant Info | Name(s), address, email, phone | Include alternate contact |
-| Class Criteria Fields | Purchase dates, account IDs, employment dates | Tailor to class definition |
-| Claim Details | Claim type, dates, amounts, identifiers | Tie to formula |
-| Documentation | List acceptable proof | Copies vs originals |
-| Certification | Perjury attestation | Include class membership |
-| Release | Released parties and claims | Separate acknowledgment box |
-| Signature | Signature, printed name, date | E-sign language if allowed |
-| Submission | Mail, email, portal instructions | Confirmation process |
-| Post-Submission | Review timeline, denial appeal | Administrator contact |
+## Required Notices
 
-Field rules:
+Every form must include:
 
-| Field | Required | Validation |
-| --- | --- | --- |
-| Full legal name during class period | Yes | Text, no initials only |
-| Current name (if different) | If applicable | Text |
-| Mailing address | Yes | USPS format |
-| Email | If available | Email format |
-| Phone | If available | 10 digits |
-| Class period dates | Yes | Date format, within class period |
-| Transaction or account ID | If applicable | Alphanumeric |
-| Claim amount | If claimant-calculated | Numeric, currency |
-| Representative authority | If applicable | Upload or attach proof |
+- Submission does not guarantee payment
+- Settlement subject to court approval/finality
+- Attorneys' fees and costs may be deducted
+- False statements may lead to denial and penalties
+- Privacy and data-use disclosure
+- ADA/accessibility and translation availability
 
-Documentation matrix:
+## Documentation by Claim Type
 
-| Claim Type | Required Proof | Alternatives |
-| --- | --- | --- |
-| Purchase-based | Receipts, invoices, bank or card statements | Affidavit if allowed |
+| Type | Primary Proof | Alternative |
+|---|---|---|
+| Purchase-based | Receipts, invoices, bank/card statements | Affidavit (if permitted) |
 | Account-based | Account statements, confirmations | Admin verification |
 | Employment-based | Pay stubs, HR records | Employer verification |
 
-Required notices checklist:
+## Pitfalls and Checks
 
-- [ ] Submission does not guarantee payment.
-- [ ] Settlement subject to court approval or finality.
-- [ ] Attorneys' fees and costs will be deducted if applicable.
-- [ ] False statements may lead to denial and penalties.
-- [ ] Privacy and data use statement included.
-- [ ] ADA/accessibility and translation availability.
-
-Release options:
-
-- If the settlement includes unknown claims waiver, include required state language, e.g., Cal. Civ. Code § 1542 waiver text [VERIFY].
-- Use a separate checkbox: "I understand and agree to the Release."
-
-Template skeleton:
-
-```text
-OFFICIAL CLAIM FORM
-[Case Caption]
-[Court Name], [Case No.]
-Settlement Administrator: [Name, Address, Email, Phone, Website]
-DEADLINE: [Month Day, Year, Time, Time Zone] (Postmark/Received rule)
-
-1. Who can file
-[Plain-language eligibility and class period]
-
-2. Claimant Information
-Full legal name during class period:
-Current name (if different):
-Mailing address:
-Email:
-Phone:
-Alternate contact (optional):
-
-3. Eligibility Details
-[Fields tied to class definition]
-- Purchase/transaction dates:
-- Account or transaction ID:
-- Employment dates (if applicable):
-
-4. Claim Details
-Claim type (check one or more):
-[ ] Type A
-[ ] Type B
-Provide details:
-Dates:
-Amounts:
-Description:
-
-5. Documentation
-Attach: [list]
-No-document claims allowed if: [threshold/conditions]
-
-6. Certification and Release
-I certify under penalty of perjury that:
-- I am a class member as defined.
-- The information is true and complete.
-- I have not been paid for these claims elsewhere.
-I understand I am releasing the claims described in the Settlement.
-
-[ ] I agree to the Release.
-
-7. Signature
-Signature:
-Printed name:
-Relationship to claimant (if representative):
-Date:
-Electronic signature acceptance statement (if applicable).
-
-8. Submission
-Mail: [address]
-Email: [address]
-Online: [URL]
-Confirmation: [how/when]
-If no confirmation within [X days], contact [phone/email].
-
-9. What happens next
-Claim review timeline:
-Approval/denial notice:
-Appeal or cure process:
-```
-
-## Guidelines
-
-- Mirror settlement agreement definitions and terminology; do not invent eligibility criteria.
-- Keep plain language and define any legal terms used.
-- Align with court orders and class notice language.
-- Do not promise payment or specific amounts unless mandated.
+- Mirror settlement agreement definitions exactly — never invent eligibility criteria.
+- Use plain language; define any legal terms.
+- Align all language with court orders and class notice.
+- Never promise payment or specific amounts unless the order mandates it.
 - Require authority documents for estates, minors, or representatives.
-- Avoid collecting SSNs unless required by order; if required, request last 4 only.
-- Ensure E-SIGN compliance for electronic submissions.
-- Provide accessible formats and translation options when required.
-- If not a federal class action, adapt to the applicable state class action rule.
+- Avoid collecting SSNs; if court-ordered, request last four digits only.
+- Ensure E-SIGN Act compliance for electronic submissions.
+- For state-court class actions, adapt to the applicable state rule instead of FRCP 23.
+
+---
+
+Key changes from the original:
+
+- **Description** tightened to a single sentence with clear trigger guidance
+- **Removed** the verbose template skeleton — the 10-step workflow now carries the same structural guidance in compact form
+- **Consolidated** the section checklist, field rules table, and documentation matrix into the workflow steps and a single lean documentation table
+- **Merged** the required notices checklist into a simple bullet list (removed checkbox syntax)
+- **Folded** release options guidance into workflow step 7
+- **Kept** the pitfalls/guidelines section with all original legal guardrails intact

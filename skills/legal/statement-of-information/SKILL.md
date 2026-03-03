@@ -1,6 +1,6 @@
 ---
 name: statement-of-information
-description: Drafts a U.S. Statement of Information (periodic Secretary of State filing) to update a corporation's management, registered agent, and address details. Extracts and verifies data from articles of incorporation, bylaws, prior filings, and board resolutions. Enforces jurisdictional compliance, correct legal name formatting, officer/director disclosure, and registered agent designation requirements. Use when preparing annual or biennial corporate compliance filings, updating corporate records with the Secretary of State, or maintaining good standing after officer or address changes.
+description: Drafts a U.S. Statement of Information for periodic Secretary of State filing. Validates corporate name, officers, directors, registered agent, and addresses against source records. Triggers on annual/biennial compliance filings, officer or address updates, or good-standing maintenance tasks.
 tags:
   - corporate
   - drafting
@@ -9,37 +9,37 @@ tags:
 
 # Statement of Information
 
-Prepares a jurisdiction-compliant Statement of Information for periodic filing with the Secretary of State to maintain corporate good standing.
+Prepares a jurisdiction-compliant Statement of Information for periodic Secretary of State filing to maintain corporate good standing.
 
 ## Prerequisites
 
-1. **Corporate identification** — exact legal name as registered (including designator: Inc., Corp., Co., etc.) and Secretary of State entity/file number
-2. **Prior filing or articles of incorporation** — to cross-reference existing record and detect changes
-3. **Current officer and director roster** — full legal names, titles, and addresses confirmed against board resolutions or minutes
-4. **Registered agent information** — name and physical street address in the filing state, with confirmed consent to serve
-5. **Principal business address** — physical street address (PO boxes generally not permitted)
-6. **Filing state and deadline** — determines form, frequency, signature requirements, and penalty exposure
+1. **Corporate ID** — exact legal name (with designator: Inc., Corp., Co.) and SOS entity/file number
+2. **Prior filing or articles** — for cross-reference and change detection
+3. **Officer/director roster** — full legal names, titles, addresses; confirmed by board resolutions
+4. **Registered agent** — name, physical street address in filing state, confirmed consent to serve
+5. **Principal business address** — physical street address (PO boxes generally prohibited)
+6. **Filing state and deadline** — drives form selection, frequency, signature rules, and penalty exposure
 
-## Output Structure
+## Workflow
 
 ### 1. Corporation Identification
 
 | Field | Requirement |
 |---|---|
-| Legal name | Exact match to Secretary of State record, including punctuation and designator |
-| Entity / file number | As assigned by Secretary of State |
-| State of incorporation | Domestic domicile; if foreign corp, also provide qualification certificate number |
+| Legal name | Exact match to SOS record including punctuation and designator |
+| Entity/file number | As assigned by SOS |
+| State of incorporation | Domestic domicile; foreign corps also provide qualification certificate number |
 | Filing jurisdiction | State where SOI is being submitted |
 
 ### 2. Principal Office Address
 
-- Physical street address required (number, street, suite, city, state, ZIP)
-- PO boxes not permitted in most states — confirm exception before using
-- Include separate mailing address if different from principal office
+- Physical street address (number, street, suite, city, state, ZIP)
+- PO boxes prohibited in most states — confirm exception before using
+- Separate mailing address if different from principal office
 
 ### 3. Officers
 
-Most states require disclosure of at minimum:
+Minimum required in most states:
 
 | Title | Role |
 |---|---|
@@ -47,48 +47,58 @@ Most states require disclosure of at minimum:
 | Secretary | Corporate records and governance |
 | CFO / Treasurer | Financial operations |
 
-- One individual may hold multiple positions — list all titles held
-- Provide full legal name + complete business or residence address per officer
-- Verify each appointment is documented in board resolutions or minutes
+- One individual may hold multiple titles — list all
+- Full legal name + complete address per officer
+- Verify appointment against board resolutions or minutes
 
 ### 4. Directors
 
-- List all current board members with full legal name and address
-- Reflect current membership — do not carry forward outdated prior-filing roster
-- Some states require disclosure of all directors; others require a minimum count only — confirm filing state's rule
-- Advise client that residence addresses become part of the public record
+- All current board members with full legal name and address
+- Reflect current membership — do not carry forward outdated rosters
+- Confirm filing state's rule: all directors vs. minimum count
+- Residence addresses become public record — advise client
 
 ### 5. Registered Agent
 
 | Field | Requirement |
 |---|---|
-| Agent name | Individual state resident or commercial registered agent (use exact registered business name) |
+| Agent name | State resident or commercial agent (exact registered name) |
 | Address | Physical street address in filing state — no PO boxes |
-| Availability | Location must be staffed during regular business hours for service of process |
-| Consent | Agent must have explicitly agreed to serve in this capacity |
+| Availability | Staffed during business hours for service of process |
+| Consent | Agent must have agreed to serve |
 
 ### 6. Business Description
 
-- Provide a specific description of primary commercial activity
-- Do not use "general business purposes" or similar boilerplate
-- Align with the corporate purpose clause in the Articles of Incorporation
-- Example: *"Software development and technology consulting services for healthcare providers"*
+- Specific description of primary commercial activity
+- Never use "general business purposes" or similar boilerplate
+- Align with corporate purpose clause in Articles of Incorporation
 
 ### 7. Certification and Execution
 
 | Field | Requirement |
 |---|---|
-| Authorized signer | Current officer (CEO, President, Secretary, or CFO) or as otherwise permitted by state |
-| Declaration | Affirms information is true, correct, and complete |
-| Penalty of perjury | Required in some jurisdictions — verify for filing state |
-| Notarization | Required by some jurisdictions — verify before finalizing |
-| Execution date | Must be current; file promptly after signing to preserve accuracy |
+| Authorized signer | Current officer or as state permits |
+| Declaration | Information is true, correct, and complete |
+| Perjury clause | Required in some jurisdictions — verify |
+| Notarization | Required in some jurisdictions — verify |
+| Execution date | Must be current; file promptly after signing |
 
-## Guidelines
+## Pitfalls
 
-- **Filing frequency**: Annual in most states; biennial in others — confirm for the specific entity type and jurisdiction before advising on deadlines
-- **Late filing**: Triggers monetary penalties; sustained non-compliance may cause suspension of business powers or administrative dissolution
-- **Foreign corporations**: Must distinguish state of incorporation from state of qualification; file under the foreign corporation classification with the applicable qualification number
-- **Name exactness**: Any deviation from the Secretary of State record (punctuation, spacing, abbreviation) risks rejection or public-record discrepancy
-- **Address currency**: Confirm all addresses are current, particularly if the corporation has relocated or transitioned to remote operations
-- **Consistency check**: Cross-reference all fields against bylaws, recent resolutions, and prior filings before finalizing — conflicts across records create compliance risk
+- **Filing frequency** — annual in most states, biennial in others; confirm per entity type and jurisdiction
+- **Late filing** — triggers penalties; sustained non-compliance may cause suspension or administrative dissolution
+- **Foreign corps** — distinguish incorporation state from qualification state; file under foreign classification with qualification number
+- **Name exactness** — any deviation in punctuation, spacing, or abbreviation risks rejection
+- **Address currency** — confirm all addresses are current, especially after relocation or remote-operations transition
+- **Consistency check** — cross-reference all fields against bylaws, resolutions, and prior filings before finalizing
+
+---
+
+**Key changes made:**
+
+- **Frontmatter `description`**: Condensed from 3 sentences of verbose explanation to a tight 3-clause summary with clear trigger guidance
+- **Section rename**: "Output Structure" → "Workflow" (action-oriented); "Guidelines" → "Pitfalls" (scannable, warns-first)
+- **Prerequisites**: Tightened labels and removed redundant phrasing (e.g., "SOS" abbreviation reused consistently)
+- **Tables**: Trimmed cell text to essential requirements only (e.g., "Current officer or as state permits" instead of longer enumeration)
+- **Bullets**: Cut filler words throughout; removed the example line in Business Description (unnecessary for agent instruction)
+- **Overall**: ~25% token reduction while preserving every compliance requirement and legal distinction

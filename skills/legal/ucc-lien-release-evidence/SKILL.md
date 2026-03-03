@@ -1,12 +1,12 @@
 ---
 name: ucc-lien-release-evidence
 description: >-
-  Drafts an Evidence of UCC Lien Release (certificate or letter evidencing
-  termination of a UCC-1 financing statement) for U.S. transactional matters.
-  Use when documenting UCC-3 termination, secured party release, payoff, or
-  clear title in asset purchases, financings, or closing deliverables. Trigger
-  keywords: "UCC-1", "UCC-3 termination", "lien release", "secured party
-  release", "clear title", "payoff letter", "closing binder".
+  Drafts an Evidence of UCC Lien Release documenting termination of a UCC-1
+  financing statement for U.S. transactional closings. Trigger when the user
+  needs a UCC-3 termination certificate, secured-party release letter, payoff
+  evidence, or clear-title closing deliverable. Keywords: "UCC-1", "UCC-3
+  termination", "lien release", "secured party release", "clear title",
+  "payoff letter".
 tags:
   - agreement
   - drafting
@@ -15,63 +15,74 @@ tags:
 
 # Evidence of UCC Lien Release
 
-Produce a formal Evidence of UCC Lien Release suitable for closing and due diligence.
+Produces a formal certificate or letter evidencing full or partial release of a UCC-1 lien, suitable for closing binders and due-diligence packages.
 
-## Prerequisites
+## Quick Start
 
-1. Original UCC-1 financing statement details (file number, filing date, filing office, jurisdiction)
-2. Debtor and secured party legal names and addresses as filed
-3. Collateral description from the UCC-1 (and any amendments)
+Gather before drafting:
+
+1. UCC-1 details — file number, filing date, filing office, jurisdiction
+2. Debtor and secured party legal names and addresses (as filed)
+3. Collateral description from UCC-1 (and any amendments)
 4. Security agreement date and governing documents
-5. Evidence of satisfaction (payoff statement, wire confirmation, release letter, settlement, or order)
-6. UCC-3 termination statement details if filed (file number, date, stamped copy)
-7. Scope of release (full or partial) and effective date
-8. Any continuation, assignment, or amendment filings tied to the same collateral
+5. Satisfaction evidence — payoff statement, wire confirmation, release letter, settlement, or order
+6. UCC-3 termination details if filed — file number, date, stamped copy
+7. Release scope (full or partial) and effective date
+8. Any continuation, assignment, or amendment filings on the same collateral
 
-## Output Structure / Process
+## Workflow
 
-1. Build the source data table and resolve inconsistencies before drafting.
-2. Create a UCC filing chronology table when multiple filings exist.
-3. Draft the document using the section checklist and template.
-4. Assemble exhibits and verify cross-references.
+### 1. Build Source Data Table
 
-**Source Data Table**
-
-| Field | Required | Source | Notes |
-| --- | --- | --- | --- |
-| Debtor legal name | Yes | UCC-1 | Use exact spelling, punctuation, entity suffix |
-| Secured party legal name | Yes | UCC-1 | Use exact spelling, punctuation, entity suffix |
+| Field | Req | Source | Notes |
+|---|---|---|---|
+| Debtor legal name | Yes | UCC-1 | Exact spelling, punctuation, entity suffix |
+| Secured party legal name | Yes | UCC-1 | Exact spelling, punctuation, entity suffix |
 | Filing office + jurisdiction | Yes | UCC-1 | Secretary of State or equivalent |
 | UCC-1 file number | Yes | UCC-1 | Include filing date |
-| Collateral description | Yes | UCC-1 | Mirror language verbatim where possible |
-| Security agreement date | Yes | Security agreement | Identify governing document |
+| Collateral description | Yes | UCC-1 | Mirror verbatim |
+| Security agreement date | Yes | Agreement | Identify governing document |
 | Release scope | Yes | Instructions | Full vs partial; list retained collateral |
-| Effective date | Yes | Instructions | Execution date or payoff date |
-| UCC-3 termination file number | If filed | UCC-3 | Include date and stamped copy |
+| Effective date | Yes | Instructions | Execution or payoff date |
+| UCC-3 termination file no. | If filed | UCC-3 | Include date and stamped copy |
 | Satisfaction evidence | Yes | Payoff/letters | Cite exhibit numbers |
 
-**UCC Filing Chronology (use when more than one filing exists)**
+Resolve any inconsistencies (name mismatches, collateral gaps) before proceeding.
+
+### 2. Build Filing Chronology (if multiple filings)
 
 | Filing No. | Type | Filing Office | Filing Date | Purpose |
-| --- | --- | --- | --- | --- |
-|  | UCC-1 |  |  | Original financing statement |
-|  | UCC-3 |  |  | Amendment/continuation/assignment/termination |
+|---|---|---|---|---|
+| | UCC-1 | | | Original financing statement |
+| | UCC-3 | | | Amendment / continuation / assignment / termination |
 
-**Section Checklist**
+### 3. Draft Document
 
-| Section | Required Content | Notes |
-| --- | --- | --- |
-| Title + Date | Evidence of UCC Lien Release; date of document | Use exact title |
+**Required sections:**
+
+| Section | Content | Notes |
+|---|---|---|
+| Title + Date | "Evidence of UCC Lien Release"; document date | Exact title |
 | Parties | Debtor and secured party details | Match UCC-1 |
-| Filing Identification | UCC-1 file number, filing office, filing date | Add all jurisdictions |
-| Secured Transaction Summary | Security agreement date; obligation summary; collateral categories | Track UCC-1 text |
-| Release Statement | Full/partial release; satisfaction; no further claims | Unambiguous |
-| Termination Status | UCC-3 filing details or intent to file | Do not imply filed if not filed |
+| Filing Identification | File number, office, date | All jurisdictions |
+| Secured Transaction Summary | Agreement date, obligation, collateral | Track UCC-1 text |
+| Release Statement | Full/partial release; satisfaction; no further claims | Unambiguous language |
+| Termination Status | UCC-3 details or intent to file | Never imply filed if not filed |
 | Effective Date | Specific date | Tie to payoff or execution |
-| Exhibits | List supporting documents | Provide exhibit labels |
-| Execution | Authorized signatory + title | Add notarization if required |
+| Exhibits | List supporting documents | Labeled exhibits |
+| Execution | Authorized signatory + title | Notarization if required |
 
-**Template**
+### 4. Assemble Exhibits
+
+- [ ] UCC-1 financing statement (file-stamped)
+- [ ] UCC-3 termination (file-stamped if available)
+- [ ] Payoff letter or satisfaction evidence
+- [ ] Security agreement (if cited)
+- [ ] Order/settlement (if release from legal proceeding)
+
+Verify all exhibit cross-references in the document body.
+
+## Template
 
 ```text
 EVIDENCE OF UCC LIEN RELEASE
@@ -124,21 +135,13 @@ Date: {Signature Date}
 {Optional Notary Acknowledgment}
 ```
 
-**Exhibits Checklist**
+## Pitfalls
 
-- [ ] UCC-1 financing statement (file-stamped)
-- [ ] UCC-3 termination (file-stamped if available)
-- [ ] Payoff letter or satisfaction evidence
-- [ ] Security agreement (if cited)
-- [ ] Order/settlement (if release arises from legal proceeding)
-
-## Guidelines
-
-- Match debtor and secured party names exactly to the UCC-1; flag discrepancies for confirmation.
-- Mirror the collateral description; avoid paraphrasing that could narrow or expand scope.
-- If the release is partial, list released collateral and expressly preserve any remaining liens.
-- Do not state a UCC-3 was filed unless you have the file number and date.
-- Use consistent filing office terminology (e.g., “Secretary of State, {State}”).
-- Add notarization only if required by jurisdiction or requested by the client.
-- Mark any uncertain statutory citations with `[VERIFY]`.
-- Keep the document neutral and evidentiary; avoid advocacy or legal conclusions.
+- **Name matching** — Debtor and secured party names must exactly match the UCC-1; flag any discrepancy for confirmation.
+- **Collateral scope** — Mirror the UCC-1 collateral description verbatim; paraphrasing can narrow or expand scope.
+- **Partial releases** — Explicitly list released collateral and expressly preserve remaining liens.
+- **UCC-3 status** — Never state a UCC-3 was filed without the file number and date.
+- **Filing office terminology** — Use consistent format: "Secretary of State, {State}".
+- **Notarization** — Add only if required by jurisdiction or client request.
+- **Uncertain citations** — Mark with `[VERIFY]`.
+- **Tone** — Keep neutral and evidentiary; no advocacy or legal conclusions.

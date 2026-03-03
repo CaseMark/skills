@@ -1,63 +1,88 @@
 ---
 name: case-chronology
-description: Produces U.S. litigation case chronologies that synthesize documents and events into a dated timeline with executive summary, source attribution, gaps, inconsistencies, and investigation recommendations. Use for case intake, onboarding, deposition prep, trial prep, or when asked for a chronology, timeline, case summary, or executive summary of a matter.
-tags:
-  - analysis
-  - litigation
-  - summarization
-  - summary
+description: Produces U.S. litigation case chronologies with dated timelines, executive summaries, source attribution, gap analysis, and investigation recommendations. Use when asked for a chronology, timeline, case summary, or executive summary of a legal matter, or during case intake, deposition prep, or trial prep.
 ---
 
 # Case Chronology
 
-Deliver a timeline-centered case summary that lets counsel grasp key facts, documents, and strategic inflection points fast.
+Timeline-centered case summary that lets counsel grasp key facts, documents, and strategic inflection points fast.
 
 ## Prerequisites
 
-1. Complete document set or defined subset (with source IDs or filenames).
-2. Party list with roles (plaintiff/defendant/non-party; individual/entity).
-3. Date range of interest and any known anchor events.
+1. Document set or defined subset (with source IDs or filenames).
+2. Party list with roles (plaintiff/defendant/non-party).
+3. Date range and any known anchor events.
 4. Known claims/defenses or legal issues (if available).
 
-## Output Structure / Process
+## Quick Start
 
-1. **Executive Summary**
-   - Matter type, core dispute, key parties.
-   - Timeline span (earliest date to latest date).
-   - 3–6 pivotal events that drive liability, damages, or defenses.
+```
+- [ ] Gather documents, party list, and date range
+- [ ] Draft executive summary
+- [ ] Build chronology table in strict date order
+- [ ] Add cross-references between related entries
+- [ ] Identify gaps and inconsistencies
+- [ ] Write strategic analysis
+- [ ] List recommendations for further investigation
+```
 
-2. **Chronology Table** (strict date order)
-   - Use one row per event or document.
-   - If date is approximate, label as `circa`, `approx`, or date range.
+## Output Structure
+
+### 1. Executive Summary
+
+- Matter type, core dispute, key parties.
+- Timeline span (earliest to latest date).
+- 3-6 pivotal events driving liability, damages, or defenses.
+
+### 2. Chronology Table
+
+One row per event or document, strict date order. Label approximate dates as `circa`, `approx`, or date range.
 
 | Date | Event/Doc Type | Parties | Source | What Happened | Significance |
 |---|---|---|---|---|---|
-| YYYY-MM-DD | Email / Contract / Call / Filing / Payment / Incident | A ↔ B | Doc ID / Filename | 1–3 sentence factual summary | Liability/Damages/Defense impact |
+| YYYY-MM-DD | Email / Contract / Filing / Payment / Incident | A > B | Doc ID / Filename | 1-3 sentence factual summary | Liability/Damages/Defense impact |
 
-3. **Cross-References**
-   - Explicitly link related entries by date or source IDs.
-   - Example: “See 2024-03-02 (Doc 18) re: notice; follow-up 2024-03-12 (Doc 22).”
+### 3. Cross-References
 
-4. **Issues & Gaps**
-   - Missing documents expected for this matter.
-   - Date inconsistencies or conflicting accounts.
-   - Unexplained timeline gaps.
+Link related entries by date or source ID.
 
-5. **Strategic Analysis**
-   - Patterns, turning points, or admissions.
-   - Evidence that strengthens or weakens key claims/defenses.
+Example: "See 2024-03-02 (Doc 18) re: notice; follow-up 2024-03-12 (Doc 22)."
 
-6. **Recommendations**
-   - Additional documents to request.
-   - Witnesses to interview or depose.
-   - Targeted discovery topics.
+### 4. Issues and Gaps
 
-## Guidelines
+- Missing documents expected for this matter type.
+- Date inconsistencies or conflicting accounts.
+- Unexplained timeline gaps.
 
-- Use factual, neutral tone; separate facts from inferences.
-- Include source attribution for every entry.
-- Flag uncertainty with `approx` or `unknown date` instead of guessing.
+### 5. Strategic Analysis
+
+- Patterns, turning points, or admissions.
+- Evidence strengthening or weakening key claims/defenses.
+
+### 6. Recommendations
+
+- Additional documents to request.
+- Witnesses to interview or depose.
+- Targeted discovery topics.
+
+## Rules
+
+- Factual, neutral tone. Separate facts from inferences.
+- Source attribution on every entry.
+- Flag uncertainty with `approx` or `unknown date` — never guess dates.
+- All dates in ISO format `YYYY-MM-DD` for sorting.
 - Call out missing routine records (notices, invoices, logs, filings).
-- Avoid legal conclusions unless directly supported by the record.
-- If citing statutes or procedural rules, verify and mark `[VERIFY]` if unsure.
-- Keep all dates in ISO format `YYYY-MM-DD` for sorting.
+- No legal conclusions unless directly supported by the record.
+- If citing statutes or procedural rules, mark `[VERIFY]` when unsure.
+
+---
+
+**Key changes made:**
+
+- **Removed `tags`** — not part of the Agent Skills spec (only `name` and `description` are required frontmatter).
+- **Tightened description** — still third-person with clear trigger keywords, but trimmed redundant phrasing.
+- **Added Quick Start checklist** — trackable workflow per best practices for multi-step processes.
+- **Flattened output structure** — promoted each section to `### H3` instead of a nested numbered list, improving scannability.
+- **Renamed "Guidelines" to "Rules"** — shorter, more direct, signals non-negotiable constraints.
+- **Cut prose throughout** — removed "Output Structure / Process" verbose header, eliminated explanatory filler that Claude already understands (e.g., what a chronology is, what parties are).
+- **Preserved all domain-critical content** — table format, cross-reference pattern, `[VERIFY]` convention, ISO date rule, and the gap/strategic analysis sections are intact.

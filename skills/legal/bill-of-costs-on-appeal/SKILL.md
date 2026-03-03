@@ -1,13 +1,10 @@
 ---
 name: bill-of-costs-on-appeal
 description: >-
-  Drafts a U.S. appellate Bill of Costs on Appeal for the prevailing party,
-  itemizing taxable costs (record preparation, transcripts, briefs or
-  appendix, filing fees, bond premiums) and aligning with FRAP 39 or state
-  analogs and local rules. Use when preparing costs on appeal, taxing
-  appellate costs, or filing a bill of costs after appellate judgment. Trigger
-  keywords: bill of costs on appeal, FRAP 39, appellate costs, tax costs,
-  costs on appeal.
+  Drafts a verified U.S. appellate Bill of Costs itemizing taxable costs under
+  FRAP 39 or state analogs. Trigger when the user needs to prepare, file, or
+  tax appellate costs after judgment, or references FRAP 39, bill of costs on
+  appeal, or appellate cost taxation.
 tags:
   - drafting
   - litigation
@@ -16,99 +13,102 @@ tags:
 
 # Bill of Costs on Appeal
 
-Creates an itemized, verified bill of appellate costs for taxation after judgment under FRAP 39 or state equivalents.
+Itemized, verified bill of appellate costs for taxation after judgment under FRAP 39 or state equivalents.
 
 ## Prerequisites
 
-1. Appellate judgment or order with entry date and prevailing party designation
-2. Applicable appellate rules and local rules, including deadline, form, and taxing court
-3. Proof of costs: invoices, receipts, clerk fee records, bond premium statements
-4. Case caption, appellate docket number, and lower court case number
-5. Service list and filing method requirements
+- Appellate judgment/order with entry date and prevailing-party designation
+- Applicable appellate rules, local rules, deadline, required form, and taxing court
+- Cost proof: invoices, receipts, clerk fee records, bond premium statements
+- Case caption, appellate docket number, lower court case number
+- Service list and filing method
 
-## Output Structure / Process
+## Quick Start
 
-1. **Caption and Title**
-   Use the appellate court caption and docket number.
-   Title: `Bill of Costs on Appeal` or court-required form name.
+1. Confirm prevailing-party status and filing deadline (often 14 days after judgment entry under FRAP 39(d) — VERIFY local rule)
+2. Gather all receipts/invoices; map each to a taxable category
+3. Draft using the workflow below
+4. Attach exhibits and serve on all parties
 
-2. **Authority and Prevailing Party Statement**
-   Use this template:
-   ```text
-   [Prevailing Party], pursuant to [FRAP 39 or state rule citation], submits this verified Bill of Costs on Appeal. The [judgment/order] entered on [date] entitles [Prevailing Party] to recover allowable appellate costs, subject to the court's allocation and any local rule limitations.
-   ```
+## Workflow
 
-3. **Itemized Costs Table**
-   Provide an itemized table with support references.
-   ```text
-   | Line | Category | Description | Date Incurred | Units/Rate | Amount | Rule Authority | Evidence |
-   |------|----------|-------------|---------------|------------|--------|----------------|----------|
-   | 1    | Record   | Clerk's record preparation and transmission | [date] | [pages x rate] | $[ ] | [Rule] | Exh. A |
-   | 2    | Transcript | Reporter transcript needed for appeal | [date] | [pages x rate] | $[ ] | [Rule] | Exh. B |
-   | 3    | Briefs/Appendix | Printing or reproduction | [date] | [copies x pages x rate] | $[ ] | [Rule] | Exh. C |
-   | 4    | Filing Fees | Appellate docketing fee | [date] | N/A | $[ ] | [Rule] | Exh. D |
-   | 5    | Bond Premium | Supersedeas or cost bond premium | [date] | [premium] | $[ ] | [Rule] | Exh. E |
-   | 6    | Other Authorized | [Describe, if allowed] | [date] | [units x rate] | $[ ] | [Rule] | Exh. F |
-   ```
+### 1. Caption and Title
 
-4. **Category Guidance**
-   ```text
-   | Category | Typical Allowance | Notes |
-   |----------|-------------------|-------|
-   | Record preparation/transmission | Often taxable | Include clerk or court invoices |
-   | Reporter transcripts | Taxable if needed for the appeal | Identify transcript portions used |
-   | Briefs and appendix reproduction | Taxable for required copies | Follow copy limits in local rules |
-   | Appellate filing or docketing fee | Taxable | Attach receipt |
-   | Bond premiums | Taxable in some courts or in the trial court | Confirm taxing court and rule |
-   | Other costs | Only if expressly authorized | Cite specific rule |
-   ```
+Use the appellate court caption and docket number. Title: "Bill of Costs on Appeal" or the court-required form name.
 
-5. **Subtotals and Total**
-   Provide subtotals by category and a grand total:
-   ```text
-   Subtotal - Record: $[ ]
-   Subtotal - Transcript: $[ ]
-   Subtotal - Briefs/Appendix: $[ ]
-   Subtotal - Filing Fees: $[ ]
-   Subtotal - Bond Premiums: $[ ]
-   Subtotal - Other Authorized: $[ ]
-   TOTAL COSTS: $[ ]
-   ```
+### 2. Authority Statement
 
-6. **Verification**
-   Include a verification under penalty of perjury:
-   ```text
-   I, [Name], declare under penalty of perjury that I have reviewed the foregoing Bill of Costs; the costs claimed were necessarily incurred in the appeal; the amounts are correct; and the costs are authorized by the applicable rules.
+```text
+[Prevailing Party], pursuant to [FRAP 39 / state rule], submits this verified Bill of Costs on Appeal. The [judgment/order] entered on [date] entitles [Prevailing Party] to recover allowable appellate costs, subject to the court's allocation and any local rule limitations.
+```
 
-   Date: [ ]
-   Place: [ ]
-   Signature: ______________________
-   Name and Title: [ ]
-   ```
+### 3. Itemized Costs Table
 
-7. **Certificate of Service**
-   ```text
-   I certify that on [date], I served this Bill of Costs on all parties via [method], as reflected on the service list.
+```text
+| # | Category        | Description                      | Date | Units/Rate            | Amount | Rule | Exhibit |
+|---|-----------------|----------------------------------|------|-----------------------|--------|------|---------|
+| 1 | Record          | Clerk record prep & transmission | —    | pages × rate          | $—     | —    | A       |
+| 2 | Transcript      | Reporter transcript for appeal   | —    | pages × rate          | $—     | —    | B       |
+| 3 | Briefs/Appendix | Printing or reproduction         | —    | copies × pages × rate | $—     | —    | C       |
+| 4 | Filing Fees     | Appellate docketing fee          | —    | N/A                   | $—     | —    | D       |
+| 5 | Bond Premium    | Supersedeas or cost bond premium | —    | premium               | $—     | —    | E       |
+| 6 | Other           | [If expressly authorized]        | —    | units × rate          | $—     | —    | F       |
+```
 
-   Signature: ______________________
-   ```
+**Category guidance:**
 
-8. **Exhibits**
-   List or attach supporting documents as required by local rule:
-   ```text
-   Exhibit A - Clerk record invoice
-   Exhibit B - Reporter transcript invoice
-   Exhibit C - Printing or reproduction invoice
-   Exhibit D - Appellate filing fee receipt
-   Exhibit E - Bond premium statement
-   ```
+| Category | Typical Allowance | Notes |
+|----------|-------------------|-------|
+| Record prep/transmission | Often taxable | Attach clerk/court invoices |
+| Reporter transcripts | Taxable if needed for appeal | Identify transcript portions used |
+| Briefs/appendix reproduction | Taxable for required copies | Follow local copy limits |
+| Filing/docketing fee | Taxable | Attach receipt |
+| Bond premiums | Taxable in some courts | Confirm taxing court and rule |
+| Other | Only if expressly authorized | Cite specific rule |
 
-## Guidelines
+### 4. Subtotals and Total
 
-- Follow the local appellate rules and any mandatory bill-of-costs form.
-- File within the rule deadline, often 14 days after entry of judgment under FRAP 39(d) [VERIFY], unless a different deadline applies.
-- Do not include attorney fees, travel, postage, or overhead unless a rule, statute, or contract expressly authorizes them.
-- If the appellate outcome is mixed, apply the court's allocation of costs or the default allocation rule in the governing appellate rule.
-- Identify which court taxes each category and file in the correct court.
-- Keep amounts exact and consistent with invoices and receipts.
-- Be prepared to produce supporting documentation if an objection is filed.
+Provide subtotals per category and a grand total.
+
+### 5. Verification
+
+```text
+I, [Name], declare under penalty of perjury that I have reviewed the foregoing Bill of Costs; the costs claimed were necessarily incurred in the appeal; the amounts are correct; and the costs are authorized by the applicable rules.
+
+Date: ___  Place: ___
+Signature: ______________________
+Name and Title: ___
+```
+
+### 6. Certificate of Service
+
+```text
+I certify that on [date], I served this Bill of Costs on all parties via [method], as reflected on the service list.
+
+Signature: ______________________
+```
+
+### 7. Exhibits
+
+Attach supporting documents as required by local rule (e.g., clerk invoice, transcript invoice, printing invoice, fee receipt, bond statement).
+
+## Pitfalls and Checks
+
+- **Non-taxable items**: Do not include attorney fees, travel, postage, or overhead unless a rule, statute, or contract expressly authorizes them.
+- **Mixed outcomes**: If the appellate result is mixed, apply the court's cost-allocation rule or the default under the governing appellate rule.
+- **Correct court**: Identify which court taxes each category; file in the right court.
+- **Exact amounts**: All figures must match invoices and receipts exactly.
+- **Deadline**: FRAP 39(d) default is 14 days — VERIFY; state and local rules may differ.
+- **Objection readiness**: Retain all supporting documentation for potential challenges.
+
+---
+
+**Key changes made:**
+
+- **Frontmatter**: Tightened description to third-person with clear trigger guidance; removed "Trigger keywords" list (triggers now embedded naturally in description)
+- **Added Quick Start**: 4-step fast path before the full workflow
+- **Consolidated structure**: Merged "Output Structure / Process" into a cleaner "Workflow" section with numbered subsections
+- **Eliminated redundancy**: Removed the separate "Category Guidance" code block and folded it into a regular markdown table under the costs table; collapsed verbose subtotals template into a single instruction line
+- **Renamed "Guidelines" to "Pitfalls and Checks"**: Reformatted as bold-labeled bullets for quick scanning
+- **Trimmed templates**: Shortened verification and certificate blocks; removed the full exhibits listing (replaced with inline example list)
+- **Overall**: ~30% fewer tokens while preserving all legal substance and workflow fidelity

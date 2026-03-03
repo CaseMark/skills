@@ -1,6 +1,6 @@
 ---
 name: asbestos-abatement-plan
-description: Drafts a comprehensive Asbestos Abatement Plan compliant with OSHA 29 CFR 1926.1101, EPA NESHAP 40 CFR Part 61 Subpart M, and applicable state regulations. Extracts facility-specific details from uploaded surveys, assessments, and prior abatement documents to produce a regulatory filing and operational guide covering scope, containment, removal methodology, worker protection, air monitoring, waste disposal, and final clearance. Use when preparing pre-abatement regulatory submissions, contractor work plans, or facility owner compliance documentation for asbestos removal projects.
+description: Drafts an asbestos abatement plan compliant with OSHA 29 CFR 1926.1101 and EPA NESHAP 40 CFR 61 Subpart M. Extracts facility details from uploaded surveys and contractor documents to produce a regulatory filing and operational guide. Use when preparing pre-abatement regulatory submissions, contractor work plans, or facility owner compliance documentation for asbestos removal projects.
 tags:
   - checklist
   - drafting
@@ -9,171 +9,112 @@ tags:
 
 # Asbestos Abatement Plan
 
-Drafts a federally compliant asbestos abatement plan that functions as both a regulatory filing and an operational blueprint for safe ACM removal.
+Produces a federally compliant abatement plan serving as both a regulatory filing and operational blueprint for ACM removal. Covers scope, containment, removal methodology, worker protection, air monitoring, waste disposal, and final clearance.
 
 ## Prerequisites
 
-1. **Asbestos survey report** — certified inspector name, accreditation number, survey date, all ACM locations with material type, condition, friability, mineral type (chrysotile/amosite/crocidolite), % content (PLM or TEM), and quantities (SF for surfacing/tiles, LF for pipe/duct, piece count for discrete items)
-2. **Facility identification** — legal entity name, full address, parcel/tax ID, county; owner's legal name, authorized rep, contact info; tenant info if applicable
-3. **Contractor credentials** — business name, state contractor license number + expiration, EPA accreditation number + expiration; competent person name, certification number, training provider
-4. **Project schedule** — proposed start date, phasing (if multi-stage), expected completion date
-5. **Regulatory threshold determination** — total friable ACM quantity to confirm whether project exceeds NESHAP notification thresholds (>260 LF pipe insulation, >160 SF surfacing, or >1 m³ friable ACM)
+Before drafting, collect:
 
-## Output Structure
+1. **Asbestos survey report** — inspector name/accreditation, survey date, all ACM locations with material type, condition, friability, mineral type, % content (PLM/TEM), quantities (SF/LF/piece count)
+2. **Facility ID** — legal entity, address, parcel/tax ID, county, owner/authorized rep, tenant info if applicable
+3. **Contractor credentials** — license number + expiration, EPA accreditation, competent person name/cert number
+4. **Project schedule** — start date, phasing, expected completion
+5. **NESHAP threshold determination** — total friable ACM quantity; thresholds: >260 LF pipe, >160 SF surfacing, or >1 m³ friable ACM
+
+## Quick Start
+
+1. Extract all project specifics from uploaded documents; use `[INSERT ___]` only where data is unavailable
+2. Determine NESHAP notification status — if thresholds met, 10 working days advance notice to EPA regional office + state agency
+3. Classify each ACM scope item (Class I/II/III) — Class I triggers most stringent OSHA requirements
+4. Draft each output section below in order
+5. Flag state-specific requirements that exceed federal minimums
+
+## Output Sections
 
 ### 1. Regulatory Authority & Purpose
-- Governing regulations: OSHA 29 CFR 1926.1101; EPA NESHAP 40 CFR Part 61 Subpart M; applicable state regulations
-- Statement that plan is the controlling document; deviations require written competent-person approval and agency notification where required
-- NESHAP notification applicability determination; if thresholds met: 10 working days advance notice to EPA regional office and state agency
-- Plan availability for OSHA, EPA, state inspectors, and authorized employee representatives
+- Cite governing regulations: OSHA 29 CFR 1926.1101; EPA NESHAP 40 CFR 61 Subpart M; applicable state regs
+- State plan is the controlling document; deviations require written competent-person approval + agency notification
+- NESHAP notification applicability and deadline
+- Plan availability for OSHA/EPA/state inspectors and employee representatives
 
 ### 2. Project Identification
-| Field | Value |
-|---|---|
-| Facility legal name | [FROM DOCUMENTS] |
-| Address / parcel ID | [FROM DOCUMENTS] |
-| Owner / authorized rep | [FROM DOCUMENTS] |
-| Contractor / license # / expiration | [FROM DOCUMENTS] |
-| EPA accreditation # | [FROM DOCUMENTS] |
-| Competent person / cert # | [FROM DOCUMENTS] |
-| Project start / completion dates | [FROM DOCUMENTS or INSERT] |
+
+Table with: facility legal name, address/parcel ID, owner/authorized rep, contractor/license/expiration, EPA accreditation, competent person/cert, project dates. Populate from documents.
 
 ### 3. Scope of Work & ACM Characterization
 
-Reference survey report (title, date, inspector, accreditation). For each ACM location:
-
-| Location | Material Type | Friable? | Condition | Asbestos % / Mineral | Quantity | Class |
-|---|---|---|---|---|---|---|
-| [FROM SURVEY] | | | | | | I / II / III |
-
-State aggregate total quantities and confirm NESHAP threshold status.
+Reference survey report. Table each ACM location with: material type, friability, condition, asbestos %/mineral, quantity, OSHA class. State aggregate totals and confirm NESHAP threshold status.
 
 ### 4. Work Area Preparation & Containment
 
-**Regulated area:**
-- Perimeter marked with warning tape/barriers; OSHA-required signage posted at all approaches:
-  > *DANGER — ASBESTOS — CANCER AND LUNG DISEASE HAZARD — AUTHORIZED PERSONNEL ONLY — RESPIRATORS AND PROTECTIVE CLOTHING ARE REQUIRED IN THIS AREA*
-
-**Critical barriers:**
-- Minimum 6-mil fire-retardant polyethylene, floor-to-ceiling, all seams/joints/penetrations sealed airtight
-- Floor-wall junctions continuously taped/caulked
-- All HVAC vents, electrical penetrations, plumbing sealed
-
-**Negative pressure system:**
-- HEPA-filtered negative air machines: minimum 4 air changes/hour
-- Maintain ≥ −0.02 in. WC differential vs. adjacent areas (verify each shift by smoke tube or differential gauge)
-- Exhaust directed away from building intakes and occupied areas
-- Operate continuously during abatement and ≥24 hrs post-cleaning
-
-**Three-chamber decontamination enclosure** (equipment room → shower room → clean room):
-- Hot/cold running water in shower; overlapping poly curtains between chambers
-- Floors covered with poly sheeting; cleaned regularly
-
-**Pre-abatement preparation:**
-- Remove/cover all movable furniture and equipment with sealed poly
-- Shut down or isolate HVAC in work area (seal all supply/return vents)
-- Seal all electrical outlets, switch plates, and fixtures
+- **Regulated area** — perimeter barriers + OSHA warning signage at all approaches
+- **Critical barriers** — 6-mil fire-retardant poly, floor-to-ceiling, all seams/penetrations sealed airtight; HVAC/electrical/plumbing sealed
+- **Negative pressure** — HEPA-filtered machines, ≥4 air changes/hr, ≥−0.02 in. WC differential (verify each shift), continuous through abatement + ≥24 hrs post-cleaning
+- **Decon enclosure** — three-chamber (equipment → shower → clean room), hot/cold water, overlapping poly curtains
+- **Pre-abatement prep** — remove/cover furniture with sealed poly, isolate HVAC, seal outlets/fixtures
 
 ### 5. Removal Methodology
 
-**Core principle:** Keep all ACM continuously wetted with amended water (surfactant) from removal through containerization.
-
-**Removal sequence:**
-- Work systematically section by section; complete one area before moving to next
-- Use hand tools (scrapers, putty knives) in preference to power tools
-- When cutting/abrading is unavoidable: wet thoroughly, cut slowly, use HEPA-filtered local exhaust vacuum at cut point
-
-**Waste containerization (in-work-area):**
-- Friable ACM → 6-mil poly bags, filled ≤ 2/3 capacity, sealed with duct tape
-- **Double-bag all friable waste:** seal primary bag, wipe clean, place in second sealed bag
-- Non-friable (tiles, transite panels) → wetted, wrapped in poly, sealed with tape
-- Label each container while inside work area:
-  > *DANGER — CONTAINS ASBESTOS FIBERS — AVOID CREATING DUST — CANCER AND LUNG DISEASE HAZARD* + generator name + removal date
-
-**Progressive cleaning:**
-- HEPA vacuum all surfaces at end of each shift
-- Post-removal: HEPA vacuum all surfaces → wet wipe with amended water → visual inspection by competent person → repeat until clean
+- Keep ACM continuously wetted with amended water (surfactant) from removal through containerization
+- Work section by section; prefer hand tools over power tools
+- If cutting unavoidable: wet thoroughly, cut slowly, HEPA local exhaust at cut point
+- **Waste containerization**: friable → double-bagged 6-mil poly (≤2/3 capacity); non-friable → wetted, poly-wrapped; label all containers with OSHA warning + generator name + date
+- **Progressive cleaning**: HEPA vacuum each shift-end; post-removal cycle: HEPA vacuum → wet wipe → visual inspection → repeat until clean
 
 ### 6. Worker Protection
 
-**Class I work PPE (removal of TSI and surfacing materials):**
-- Full-body disposable coveralls with attached hood and foot coverings
-- NIOSH-approved full-face APR with HEPA filters (minimum APF 50); or PAPR with HEPA (APF 1000) for elevated exposures — half-face respirators not permitted for Class I
-- Disposable gloves
-
-**Respiratory protection program requirements:**
-- Medical evaluation (PLHCP) before initial respirator assignment
-- Annual quantitative or qualitative fit testing per make/model/size
-- Workers must be clean-shaven at face seal area
-- Training: inspection, positive/negative seal checks, limitations
-
-**Decontamination (each exit from regulated area):**
-1. Equipment room: HEPA vacuum coveralls (shoulders, arms, legs); remove and bag all disposable PPE — keep respirator on
-2. Shower room: shower with soap/shampoo, all body surfaces and hair, while wearing respirator
-3. Clean room: remove respirator; dry; don clean clothing
-
-**Reusable equipment decontamination before removal from site:** HEPA vacuum → wet wipe → visual inspection; wrap large equipment in poly for transport through decon enclosure
+- **Class I PPE**: full-body disposable coveralls with hood/foot coverings; full-face APR with HEPA (APF 50 min) or PAPR (APF 1000); disposable gloves. Half-face not permitted for Class I
+- **Respiratory program**: PLHCP medical eval, annual fit testing, clean-shaven requirement, seal-check training
+- **Decon sequence**: (1) equipment room — HEPA vacuum PPE, bag disposables, keep respirator on; (2) shower — full body wash with respirator; (3) clean room — remove respirator, don clean clothing
+- **Equipment decon**: HEPA vacuum → wet wipe → visual inspection; wrap in poly for transport
 
 ### 7. Air Monitoring Protocol
 
-| Sample Type | Timing | Location | Method | Action Level |
+| Sample Type | Timing | Locations | Method | Action Level |
 |---|---|---|---|---|
-| Background | Pre-abatement | ≥3 locations outside regulated area | PCM / NIOSH 7400 | Establishes baseline |
-| Personal (breathing zone) | Daily during abatement | Workers on highest-exposure tasks | PCM | PEL: 0.1 f/cc (8-hr TWA); STEL: 1.0 f/cc (30-min) |
-| Area perimeter | Each shift | Immediately outside containment barriers, adjacent occupied spaces | PCM | Above background → stop, investigate, correct |
-| Final clearance | Post-cleaning (after ≥24 hr negative pressure) | ≥5 locations throughout work area, distributed | PCM / NIOSH 7400 | ≤0.01 f/cc (or background if background >0.01) |
+| Background | Pre-abatement | ≥3 outside regulated area | PCM/NIOSH 7400 | Baseline |
+| Personal | Daily during work | Highest-exposure workers | PCM | PEL 0.1 f/cc TWA; STEL 1.0 f/cc |
+| Area perimeter | Each shift | Outside barriers, adjacent spaces | PCM | Above background → stop/investigate |
+| Final clearance | Post-cleaning, ≥24 hr neg. pressure | ≥5 distributed locations | PCM/NIOSH 7400 | ≤0.01 f/cc |
 
-**Aggressive sampling technique for clearance:** leaf blowers/fans directed at surfaces, open/close doors, personnel movement during collection.
-
-**Clearance failure:** re-clean, re-sample; must be conducted by NVLAP-accredited (or equivalent) independent laboratory.
+- Clearance uses aggressive sampling (fans/blowers, door movement, personnel activity)
+- Clearance failure → re-clean, re-sample via NVLAP-accredited independent lab
 
 ### 8. Waste Management & Disposal
 
-- All waste (ACM, disposable PPE, poly sheeting, HEPA filters) = Regulated Asbestos-Containing Waste Material (RACWM)
-- Staging area: secured, marked with asbestos warning signs, protected from weather
-- Transport: licensed waste hauler; enclosed/covered vehicle; waste shipment record accompanies each load
-- Disposal: permitted asbestos landfill/facility
-- Retain signed disposal facility receipt (waste shipment record acknowledgment) as permanent project record
-- Maintain waste tracking log: date, quantity (cubic yards or weight), transporter, destination, shipment record number
+- All waste (ACM, PPE, poly, HEPA filters) = RACWM
+- Secured staging area with warning signs, weather-protected
+- Licensed hauler, enclosed vehicle, waste shipment record per load
+- Permitted asbestos landfill; retain signed disposal receipts as permanent records
+- Maintain tracking log: date, quantity, transporter, destination, shipment record number
 
 ### 9. Emergency Procedures
 
-| Scenario | Immediate Response |
+| Scenario | Response |
 |---|---|
-| Containment breach | Stop removal; activate additional negative air machines; repair breach; collect area samples in adjacent spaces; if fiber release confirmed, evacuate, post warnings, clean and clear before reoccupancy |
-| Worker injury in regulated area | Designated first-aid/CPR personnel respond; provide RPE to emergency responders before entry or move injured worker through decon to clean area |
-| Fire/building evacuation | Exit through decon if time permits; if imminent danger, exit directly; decon and medical eval post-emergency |
-| Unexpected ACM discovered | Stop work in affected area; competent person evaluates; sample if necessary; amend plan; update NESHAP notification if thresholds now exceeded |
+| Containment breach | Stop work → add negative air → repair → sample adjacent areas → evacuate/clean if fibers confirmed |
+| Worker injury | First-aid responds with RPE; move injured through decon or provide RPE to responders |
+| Fire/evacuation | Decon exit if safe; direct exit if imminent danger; decon + medical eval post-event |
+| Unexpected ACM | Stop area work → competent person evaluates → sample → amend plan → update NESHAP if thresholds now exceeded |
 
 ### 10. Final Clearance & Project Closeout
 
-**Clearance sequence:**
-1. Visual inspection (competent person, under adequate lighting including supplemental lighting for corners/crevices) → all ACM removed, no visible dust or debris
-2. ≥24 hrs negative pressure post-cleaning
-3. Aggressive clearance air sampling (≥5 samples)
-4. Laboratory results ≤0.01 f/cc all samples → release for reoccupancy and remove containment
+**Clearance sequence**: visual inspection (competent person, supplemental lighting) → ≥24 hrs negative pressure → aggressive air sampling (≥5 samples) → lab results ≤0.01 f/cc → release for reoccupancy
 
-**Final project report contents:**
-- Executive summary (facility, scope, dates, compliance statement)
-- Chronological narrative of work performed; deviations and unexpected conditions
-- All air monitoring results (background, personal, area, clearance) with full lab reports and chain of custody
-- Photographic documentation (pre/during/post), labeled with date and location
-- Waste tracking log and all waste shipment records/disposal receipts
-- Copies of all licenses, certifications, and accreditations
-- Competent person certification statement
+**Final report must include**: executive summary, work narrative with deviations, all air monitoring results with lab reports/chain of custody, photo documentation (pre/during/post), waste tracking log and shipment records, all licenses/certs, competent person certification statement.
 
-**Signature blocks:** Competent person, contractor authorized representative, facility owner authorized representative (printed name, title, date)
+**Signatures**: competent person, contractor authorized rep, facility owner authorized rep (name, title, date).
 
-**Record retention:** OSHA requires minimum **30 years** from project completion. Facility owner maintains as permanent building records; must be available to future owners, tenants, and contractors. Contractor retains copies; must transfer to successor or facility owner upon business cessation.
+**Record retention**: OSHA requires **30-year minimum**. Facility owner maintains as permanent building records accessible to future owners/tenants/contractors. Contractor retains copies; transfers to successor or owner upon cessation.
 
-**Post-project regulatory filing:** Determine whether state/local agency requires final report submission (commonly within 30 days of completion); identify agency, deadline, and required contents.
+**Post-project filing**: check whether state/local agency requires final report submission (commonly 30 days post-completion).
 
-## Guidelines
+## Pitfalls & Checks
 
-- **Extract project specifics from uploaded documents first**; insert `[INSERT ___]` placeholders only where data is unavailable
-- Confirm NESHAP notification status before drafting — deadline and responsible party must be explicit
-- Class I work (TSI and surfacing material removal) triggers the most stringent OSHA requirements; confirm ACM class for each scope item
-- State regulations may be more stringent than federal minimums — note any state-specific requirements that apply
-- All regulatory citations should be verified against current CFR; mark uncertain or potentially amended citations with `[VERIFY]`
-- Do not recommend specific commercial products; describe performance specifications instead
-- The plan must withstand OSHA and EPA regulatory scrutiny and serve as a defensible 30-year permanent record
+- Extract from documents first — never fabricate project-specific data
+- Confirm NESHAP notification status before drafting; deadline and responsible party must be explicit
+- Verify ACM class for every scope item — Class I triggers strictest OSHA requirements
+- State regs may exceed federal minimums — always flag state-specific requirements
+- Mark uncertain or potentially amended CFR citations with `[VERIFY]`
+- Describe performance specs, not commercial product names
+- Plan must withstand OSHA/EPA scrutiny as a defensible 30-year permanent record

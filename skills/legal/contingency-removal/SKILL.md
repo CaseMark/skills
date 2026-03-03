@@ -1,107 +1,74 @@
 ---
 name: contingency-removal
-description: Drafts residential real estate contingency removal forms that waive buyer contingencies from a purchase agreement to advance toward closing. Handles inspection, financing, appraisal, and HOA contingencies with jurisdiction-specific compliance, proper party/property identification, and earnest money forfeiture acknowledgments. Use when drafting contingency removal notices, waiver of contingencies, or notice of removal of contingencies in residential transactions.
-tags:
-  - agreement
-  - drafting
-  - transactional
+description: Drafts residential real estate contingency removal forms that waive buyer contingencies from a purchase agreement. Handles inspection, financing, appraisal, and HOA contingencies with jurisdiction-specific compliance and earnest money forfeiture acknowledgments. Use when drafting contingency removal notices, waiver of contingencies, or notice of removal of contingencies in residential transactions.
 ---
 
 # Contingency Removal Form
 
-Drafts a binding contingency removal form that waives buyer's cancellation rights under specified purchase agreement contingencies, advancing the transaction toward closing.
+Drafts a binding form waiving buyer's cancellation rights under specified purchase agreement contingencies, advancing the transaction toward closing.
 
-## Prerequisites
+## Required Inputs
 
-1. **Executed purchase agreement** — with all contingency clauses, deadlines, and section references
-2. **Party information** — full legal names of all buyers/sellers exactly as they appear in the purchase agreement
-3. **Property identification** — street address, legal description, APN
-4. **Contingencies to remove** — specific list with reference to purchase agreement sections
-5. **Jurisdiction** — state and county for compliance with local formalities (notarization, witness, timing rules)
-6. **Supporting documents** (if available) — inspection reports, loan approval letters, appraisal results
+1. **Executed purchase agreement** — contingency clauses, deadlines, section references
+2. **Party names** — full legal names of all buyers/sellers exactly as in the purchase agreement
+3. **Property ID** — street address, legal description, APN
+4. **Contingencies to remove** — specific list with purchase agreement section references
+5. **Jurisdiction** — state and county (for notarization, witness, timing rules)
+6. **Supporting docs** (if available) — inspection reports, loan approval, appraisal results
 
-## Output Structure
+## Document Structure
 
-### Document Header
+### Header
 
-| Element | Content |
-|---|---|
-| Title | "Contingency Removal Form" or "Notice of Removal of Contingencies" (use local convention) |
-| Date | Execution date |
-| Jurisdiction | County and state |
-| Reference | Original purchase agreement date, parties, and document/reference number if applicable |
+- Title: "Contingency Removal Form" or "Notice of Removal of Contingencies" (follow local convention)
+- Execution date, county, state
+- Reference to original purchase agreement (date, parties, document number)
 
 ### Party Identification
 
-For each buyer and seller:
-- Full legal name (must match purchase agreement exactly)
-- Role (Buyer/Seller)
-- Contact information
-- Agent/attorney name, firm, license number (if represented)
+For each buyer and seller: full legal name (character-identical to purchase agreement), role, contact info, agent/attorney name and license number if represented.
 
 ### Property Description
 
-All of the following, matching the purchase agreement exactly:
-- Complete street address
-- Legal description (lot, block, subdivision, metes and bounds if applicable)
-- Assessor's Parcel Number (APN)
-- County
+Must match the purchase agreement exactly: street address, legal description, APN, county.
 
 ### Contingency Removal Table
-
-For each contingency being removed:
 
 | # | Contingency Type | Purchase Agreement Section | Status |
 |---|---|---|---|
 | 1 | General home inspection | § ___ | REMOVED |
 | 2 | Financing/loan | § ___ | REMOVED |
 | 3 | Appraisal | § ___ | REMOVED |
-| ... | ... | ... | ... |
 
-Common contingency types:
-- [ ] General home inspection
-- [ ] Pest/termite inspection
-- [ ] Roof inspection
-- [ ] Financing/loan
-- [ ] Appraisal
-- [ ] Sale of buyer's current home
-- [ ] HOA document review
-- [ ] Title review
+Common types: general home inspection, pest/termite, roof, financing/loan, appraisal, sale of buyer's home, HOA document review, title review.
 
-For each removed contingency, include explicit waiver language stating buyer waives the right to cancel based on that contingency. If some contingencies remain active, list them separately with clear "REMAINS IN EFFECT" designation.
+For each removed contingency, include explicit waiver language. If some contingencies remain, list them separately marked "REMAINS IN EFFECT."
 
 ### Effective Date and Timing
 
-- Specify when removal becomes binding: upon execution, upon delivery, or on a stated date
+- State when removal becomes binding (upon execution, delivery, or stated date)
 - Confirm removal falls within purchase agreement deadlines
 - Note any conditions precedent to effectiveness
 
 ### Buyer Acknowledgments
 
-Include acknowledgments that buyer:
-1. Understands the legal effect of removing contingencies
-2. Has had opportunity to complete all desired inspections/investigations
-3. Proceeds voluntarily with full knowledge of property condition
-4. Understands earnest money deposit may be forfeited if buyer fails to close after removal
-5. Has had opportunity to consult legal counsel
+Buyer acknowledges:
+1. Understands legal effect of removing contingencies
+2. Had opportunity to complete inspections/investigations
+3. Proceeds voluntarily with knowledge of property condition
+4. Earnest money deposit may be forfeited if buyer fails to close after removal
+5. Had opportunity to consult legal counsel
 
 ### Signature Block
 
-| Party | Signature | Printed Name | Date |
-|---|---|---|---|
-| Buyer 1 | _____________ | _____________ | _____ |
-| Buyer 2 (if any) | _____________ | _____________ | _____ |
-| Seller 1 (acknowledgment) | _____________ | _____________ | _____ |
-| Seller 2 (if any) | _____________ | _____________ | _____ |
+Signature lines for all buyers, seller acknowledgment lines, printed names, and dates. Include notary block if jurisdiction requires or recommends notarization.
 
-Include notary block if jurisdiction requires or recommends notarization.
+## Checks
 
-## Guidelines
-
-- **Name consistency** — All party names and property descriptions must be character-identical to the purchase agreement
-- **Section references** — Every removed contingency must cite its exact purchase agreement section/paragraph
-- **Deadline compliance** — Verify removal is within contractual timeframes before drafting
-- **Partial removal** — If only some contingencies are removed, explicitly state which remain active
-- **Jurisdiction variability** — Research state-specific requirements for form, timing, notice, notarization, and witness signatures; terminology varies by state (e.g., "removal" vs. "waiver" vs. "release")
-- **No legal advice** — Draft the form but do not advise whether the buyer should remove contingencies
-- **Earnest money** — Always include forfeiture acknowledgment language; this is the primary risk to the buyer
+- **Name/property consistency** — must be character-identical to the purchase agreement
+- **Section references** — every removed contingency must cite its exact purchase agreement section
+- **Deadline compliance** — verify removal is within contractual timeframes before drafting
+- **Partial removal** — if only some contingencies removed, explicitly state which remain active
+- **Jurisdiction variability** — check state-specific form, timing, notice, notarization, and witness requirements; terminology varies ("removal" vs. "waiver" vs. "release")
+- **Earnest money** — always include forfeiture acknowledgment; this is the primary buyer risk
+- **No legal advice** — draft the form but do not advise whether buyer should remove contingencies

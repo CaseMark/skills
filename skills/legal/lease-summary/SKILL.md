@@ -1,6 +1,6 @@
 ---
 name: lease-summary
-description: Summarizes U.S. commercial lease agreements into a transactional lease abstract for diligence, negotiation, and administration. Use for requests such as commercial lease summary, lease abstract, key lease terms, rent schedule review, default/termination analysis, or lease handoff. Captures party allocations, economics, operational restrictions, risk flags, and critical date obligations.
+description: Summarizes U.S. commercial lease agreements into structured transactional abstracts. Use when asked for a commercial lease summary, lease abstract, key lease terms, rent schedule review, default/termination analysis, or lease handoff. Produces party-to-obligation mappings, financial mechanics, risk flags, and critical date calendars.
 tags:
   - summarization
   - summary
@@ -9,80 +9,58 @@ tags:
 
 # Commercial Lease Summary
 
-Produces a concise, party-responsible breakdown of a commercial lease for deal execution and ongoing lease management.
+Produces a structured, party-responsible breakdown of a U.S. commercial lease for deal execution and ongoing administration.
 
 ## Prerequisites
 
-1. Complete lease document including all attachments, exhibits, exhibits by reference, and definition sections.
-2. All amendments, riders, side letters, extensions, renewals, and modification agreements.
-3. Statement of governing law and intended jurisdiction (if not in the lease, infer from internal evidence and mark as inference).
-4. Business context: landlord vs. tenant roles and whether a lender, guarantor, master tenant, or affiliate is materially involved.
-5. Any missing-text assumptions flagged separately for counsel review before final reliance.
+- Complete lease document with all attachments, exhibits, and definitions
+- All amendments, riders, side letters, extensions, and modification agreements
+- Governing law / jurisdiction (infer from internal evidence if absent; mark `ASSUMED: [jurisdiction]`)
+- Business context: landlord vs. tenant roles; note any lender, guarantor, master tenant, or affiliate involvement
+- Flag missing-text assumptions separately for counsel review
 
-## Output Structure / Process
+## Workflow
 
-1. Extract party identity, lease identity, jurisdiction, and governing law.
-2. Capture baseline business terms before moving to risk-heavy clauses.
-3. Normalize definitions relevant to obligations (Premises, CAM, Base Rent, Additional Rent, Term, etc.).
-4. Build financial mechanics in formulaic form (not prose-only).
-5. Map rights/obligations to party and triggering conditions.
-6. Flag ambiguity, missing provisions, and provisions outside typical U.S. commercial leasing patterns.
-7. Compile deadline calendar and actionability checklist.
+1. Extract parties, lease identity, jurisdiction, governing law
+2. Capture baseline business terms before risk-heavy clauses
+3. Normalize key definitions (Premises, CAM, Base Rent, Additional Rent, Term, etc.)
+4. Build financial mechanics as formulas, not prose
+5. Map each right/obligation to party + triggering condition
+6. Flag ambiguity, missing provisions, and atypical clauses
+7. Compile deadline calendar and counsel action items
 
-| Output Block | Required Elements | Mandatory Format |
+## Output Structure
+
+| Section | Key Elements | Format |
 | --- | --- | --- |
-| Deal Snapshot | Parties, premises, lease type, governing law, date, form status | 1-3 lines each |
-| Term & Premises | Commencement, expiration, renewal/extension, holdover, grace periods | `date / term option / condition / election window` |
-| Financial Terms | Base rent, rent start, CAM, taxes, insurance pass-throughs, percentage rent, escalation, deposits | Formula table |
-| Use & Operations | Permitted use, prohibited use, assignment/underwriting, signage, hours, access | Party / condition / remedy |
-| Maintenance & Repairs | Structural, systems, common areas, HVAC, elevators, roof, windows, tenant improvements | Responsibility matrix |
-| Insurance & Liability | Required coverages, limits, additional insureds, waivers, indemnity scope | Policy type / limit / party / trigger |
-| Default, Cure & Remedies | Events of default, cure, notices, self-help limits, damages, remedies | Event / notice requirement / cure window / remedy |
-| Special Provisions | SNDA/attornment, co-tenancy, kick-out, radius/exclusivity, right of first refusal, options | Provision / risk level / practical impact |
-| Missing/Unusual Terms | Missing clauses, drafting conflicts, ambiguity, interpretation risk | `risk / reason / impact / recommended action` |
-| Critical Dates | Rent commencements, notice/deadline windows, option windows, renewals, inspections | `date / action / responsible party / status` |
+| Executive Snapshot | Parties, premises, lease type, governing law, date, risk profile, immediate action items | 1–3 lines each |
+| Term & Premises | Commencement, expiration, renewal, holdover, grace periods | `date / option / condition / election window` |
+| Financial Terms | Base rent, CAM, taxes, insurance pass-throughs, % rent, escalation, deposits | Formula table: `obligation / amount-formula / frequency / due date / escalation / cap-floor / party` |
+| Use & Operations | Permitted/prohibited use, assignment, signage, hours, access | `party / condition / remedy` |
+| Maintenance & Repairs | Structural, systems, common areas, HVAC, roof, TI | Responsibility matrix |
+| Insurance & Liability | Coverages, limits, additional insureds, waivers, indemnity | `policy type / limit / party / trigger` |
+| Default & Remedies | Events of default, cure, notices, self-help, damages | `event / notice / cure window / remedy` |
+| Special Provisions | SNDA, co-tenancy, kick-out, exclusivity, ROFR, options | `provision / risk level / practical impact` |
+| Missing/Unusual Terms | Missing clauses, drafting conflicts, ambiguity | `risk / reason / impact / recommended action` |
+| Critical Dates | Rent commencement, notice deadlines, option windows, renewals | `date / action / responsible party / status` |
+| Obligation Heat Map | High / Moderate / Low risk items | Grouped by severity |
+| Counsel Action Items | Items requiring legal follow-up | Bulleted list |
 
-```text
-Commercial Lease Summary Output Template
+## Completion Checklist
 
-1) Executive Snapshot
-- Deal profile: ...
-- Risk profile: ...
-- Immediate attention items: ...
+- [ ] Every obligation names a responsible party
+- [ ] Every amount includes value or calculation method
+- [ ] Every trigger has a date/time or event condition
+- [ ] Every special clause has practical business consequence noted
+- [ ] Missing data labeled `UNAVAILABLE` (not silently inferred)
 
-2) Terms Matrix
-| Category | Clause | Text anchor | Party burden | Condition | Trigger | Notes |
+## Rules
 
-3) Financial Obligation Matrix
-| Obligation | Base amount / formula | Frequency | Due date rule | Escalation | Cap / floor | Responsible party |
-
-4) Obligation Heat Map
-- High-risk:
-- Moderate-risk:
-- Low-risk:
-
-5) Calendar of Obligations
-- ...
-6) Counsel Action Items
-- ...
-```
-
-Checklist before final output:
-1. Every obligation includes named responsible party.
-2. Every amount has amount or calculation method.
-3. Every trigger has date/time condition or event condition.
-4. Every special clause has practical consequence for business operation.
-5. Missing data explicitly labeled `UNAVAILABLE` instead of inferred, unless clearly stated.
-
-## Guidelines
-
-- Do not summarize in purely narrative form; always return structured output with party-to-obligation mapping.
-- Preserve exact contractual terms for numbers, percentages, percentages-of-sales formulas, and escalation indices.
-- Use neutral language and avoid legal conclusions unless text supports them.
-- If governing law is not explicitly stated, label as `ASSUMED: [jurisdiction from context]` and apply cautious confidence.
-- Prioritize operational impact over interpretive advocacy.
-- Do not treat template language as custom intent; cite whether a clause is boilerplate by context.
-- When clauses are internally conflicting, quote both sections and flag inconsistency as `RECONCILIATION NEEDED`.
-- Distinguish between absolute rights and conditional rights (e.g., termination rights that depend on lender notices or approvals).
-- Missing provisions requiring counsel review: casualty allocation, environmental indemnity carve-outs, non-disturbance and landlord lien treatment, and unconscionability or assignment exceptions.
-- If legal references exist and are uncertain, append `[VERIFY]` to citation or statute references.
+- Always return structured output with party-to-obligation mapping — no narrative-only summaries
+- Preserve exact contractual numbers, percentages, formulas, and escalation indices
+- Use neutral language; avoid legal conclusions unless text directly supports them
+- Distinguish absolute vs. conditional rights (e.g., termination contingent on lender approval)
+- Flag boilerplate vs. custom-negotiated clauses by context
+- Conflicting clauses: quote both sections, flag as `RECONCILIATION NEEDED`
+- Uncertain statutes or citations: append `[VERIFY]`
+- Flag for counsel review if missing: casualty allocation, environmental indemnity carve-outs, non-disturbance, landlord lien treatment, assignment exceptions

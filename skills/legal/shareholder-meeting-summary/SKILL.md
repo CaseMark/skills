@@ -1,6 +1,6 @@
 ---
 name: shareholder-meeting-summary
-description: Generates structured summaries of shareholder meetings from minutes, transcripts, presentations, and related materials. Captures metadata, agenda items, resolutions, voting outcomes, and dissents for official corporate records. Use for minute books, regulatory filings, governance compliance, annual meeting summaries, or special meeting documentation.
+description: Generates structured, record-quality summaries of shareholder meetings from minutes, transcripts, and related materials. Triggers when the user provides shareholder meeting documents and requests a summary, minute-book entry, or governance record covering metadata, resolutions, voting outcomes, and dissents.
 tags:
   - corporate
   - summarization
@@ -9,12 +9,20 @@ tags:
 
 # Shareholder Meeting Summary
 
-Produces a structured, record-quality summary of a shareholder meeting suitable for minute books, SEC filings, and governance compliance.
+Produces a structured summary of a shareholder meeting suitable for minute books, SEC filings, and governance compliance.
 
 ## Prerequisites
 
-1. **Meeting materials** — minutes, transcripts, audio/video recordings, presentation decks, or related correspondence
-2. **Corporate context** — company legal name, jurisdiction of incorporation, relevant bylaw provisions (especially quorum and voting thresholds)
+1. **Meeting materials** — minutes, transcripts, recordings, presentation decks, or correspondence
+2. **Corporate context** — company legal name, jurisdiction, relevant bylaw provisions (quorum and voting thresholds)
+
+## Quick Start
+
+1. Collect all meeting materials and corporate context.
+2. Extract meeting metadata and build the attendance table.
+3. Summarize each agenda item with resolution text and voting results.
+4. Document any dissents, appraisal rights, or procedural irregularities.
+5. Record closing business and adjournment time.
 
 ## Output Structure
 
@@ -24,24 +32,24 @@ Produces a structured, record-quality summary of a shareholder meeting suitable 
 |---|---|
 | Corporation | Full legal name |
 | Meeting type | Annual / Special (state purpose if special) |
-| Date & time | Start time; adjournment time |
+| Date & time | Start and adjournment times |
 | Location | Physical address or virtual platform |
 | Presiding officer | Name and title |
 | Secretary / recorder | Name and title |
-| Quorum | Present shares vs. required threshold; method of determination |
+| Quorum | Present shares vs. required threshold; determination method |
 
-**Attendance table:**
+Attendance table:
 
 | Name | Role | Shares Represented | Present / Proxy |
 |---|---|---|---|
 
 ### 2. Agenda Items
 
-For each agenda item, in sequence:
+For each item, in sequence:
 
 - **Item number and title**
 - **Substance** — what was proposed or presented
-- **Material discussion** — key arguments for/against (factual, not editorialized)
+- **Material discussion** — key arguments for/against (factual only)
 - **Management recommendation** (if shareholder proposal)
 - **Resolution text** — full operative language for adopted resolutions
 - **Voting results:**
@@ -53,12 +61,12 @@ For each agenda item, in sequence:
 
 Capture if present:
 
-- [ ] Dissenting shareholder statements (verbatim or detailed summary)
-- [ ] Exercise of appraisal rights
-- [ ] Demands for record inspection
-- [ ] Fiduciary duty concerns raised
-- [ ] Procedural irregularities or challenges
-- [ ] Contested elections
+- Dissenting shareholder statements (verbatim or detailed summary)
+- Exercise of appraisal rights
+- Demands for record inspection
+- Fiduciary duty concerns raised
+- Procedural irregularities or challenges
+- Contested elections
 
 ### 4. Closing
 
@@ -66,11 +74,11 @@ Capture if present:
 - Announcements (future meetings, corporate actions)
 - Time of adjournment
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Neutral tone** — document what was said and decided; do not characterize discussions as "heated" or "contentious" unless the official minutes use those terms
-- **Precision on votes** — verify all vote counts and percentages; attribute each tally to its specific resolution
-- **Flag gaps** — if materials omit exact vote counts or other details, note the limitation explicitly rather than assuming
-- **High-scrutiny items** — apply extra care to votes on mergers, charter/bylaw amendments, director elections, executive compensation, and related-party transactions
-- **No editorial commentary** — report procedural irregularities and objections objectively
+- **Neutral tone** — document what was said and decided; never editorialize unless the official minutes use specific language
+- **Vote precision** — verify all counts and percentages; attribute each tally to its specific resolution
+- **Flag gaps** — if materials omit vote counts or details, note the limitation explicitly rather than assuming
+- **High-scrutiny items** — apply extra care to mergers, charter/bylaw amendments, director elections, executive compensation, and related-party transactions
+- **No editorial commentary** — report irregularities and objections objectively
 - **Consistent format** — use tabular presentation for all voting results

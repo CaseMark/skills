@@ -1,14 +1,12 @@
 ---
 name: notice-of-entry
 description: >
-  Drafts formal Notice of Property Entry letters that satisfy Access Agreement
-  advance-notice, scope, and delivery requirements while building an evidentiary
-  record. Use this skill when the user mentions notice of entry, property entry
-  notice, right-of-entry notice, access agreement notice, pre-entry
-  correspondence, or property inspection notification. Also trigger when the user
-  asks about complying with access agreement notice clauses, business-day calendar
-  calculations for entry notices, COI delivery before property access, or needs
-  to document scope and personnel for a real property inspection, environmental
+  Drafts contract-compliant Notice of Property Entry letters that satisfy Access
+  Agreement advance-notice, scope, and delivery requirements. Trigger when the
+  user mentions notice of entry, right-of-entry notice, property entry notice,
+  access agreement notice, property inspection notification, business-day
+  calendar calculations for entry, COI delivery before property access, or
+  documenting scope/personnel for a real property inspection, environmental
   assessment, or construction access.
 tags:
   - drafting
@@ -20,97 +18,82 @@ tags:
 
 # Notice of Property Entry
 
-## Why This Skill Exists
+Produces a notice that satisfies contractual advance-notice provisions, defines scope and personnel, confirms insurance compliance, and creates a defensible evidentiary record so the entry cannot be challenged as unauthorized.
 
-Access agreements grant a revocable license to enter property — but that license is conditioned on proper notice. A notice sent Friday afternoon for Monday entry violates a two-business-day requirement. A notice that describes "general inspection" when the agreement requires specific scope descriptions gives the owner grounds to deny entry or claim breach. When the entry involves invasive testing and something goes wrong, the notice is the first document opposing counsel examines to determine whether the entrant had authorization for what actually happened.
+**ATTORNEY REVIEW REQUIRED** — No notice produced by this skill may be sent without attorney review.
 
-This skill produces a contract-compliant notice of entry that satisfies advance-notice provisions, precisely defines scope and personnel, confirms insurance compliance, and creates a defensible evidentiary record — so the entry itself can't be challenged as unauthorized.
+## Quick Start
 
----
+1. Gather Agreement details and entry plan (Checkpoint A)
+2. Parse notice clause into drafting constraints
+3. Verify scope, build entry window, list entrants/equipment, confirm insurance
+4. Assemble notice using template
+5. Adversarial-proof and finalize
+6. Run post-draft alignment (Checkpoint B) and quality audit
 
-## Checkpoint A: Pre-Draft Intake (Mandatory)
+## Checkpoint A: Pre-Draft Intake
 
-Ask every time unless the user says "use defaults" or "just draft." Gather:
+Gather before drafting (apply labeled defaults if user says "use defaults" or "just draft": standard format, 48-hour advance notice, business-day calculation, formal delivery with proof of service):
 
-1. **Access Agreement** — the operative instrument (Access Agreement, Right-of-Entry Agreement, License Agreement, easement, lease addendum, or settlement agreement) with notice clause provisions
-2. **Notice clause details** — lead time, delivery method, deemed-effective timing, required content, permitted hours
-3. **Insurance documentation** — certificates of insurance, endorsements, policy limits matching agreement requirements
-4. **Entry plan** — confirmed dates, personnel, contractors, equipment, and scope of work
-
-**If the user doesn't respond**, apply and clearly label these defaults: standard access agreement notice format; 48-hour advance notice; business-day calculation; formal delivery with proof of service.
-
-### Required Inputs Table
-
-| # | Required Input | Details |
+| # | Input | Details |
 |---|---|---|
-| 1 | **Parties** | Full legal names exactly as in the Agreement; notice recipient(s) and address(es)/emails per notice clause |
-| 2 | **Property ID** | Street address, APN/parcel if in Agreement, site identifiers |
-| 3 | **Entry window** | Date, arrival time, expected duration, alternative dates if permitted; time zone |
-| 4 | **Purpose/scope** | Activities described using the Agreement's own terms |
+| 1 | **Parties** | Legal names as in Agreement; recipient addresses/emails per notice clause |
+| 2 | **Property ID** | Street address, APN/parcel if in Agreement |
+| 3 | **Entry window** | Date, time, duration, alternatives if permitted; time zone |
+| 4 | **Purpose/scope** | Activities using the Agreement's own terms |
 | 5 | **Access areas** | Specific zones tied to exhibits or site plans |
-| 6 | **Entrants** | Names, roles, company affiliations; badge/vehicle info if required |
-| 7 | **Equipment** | All equipment and vehicles; flag disruptive activities |
-| 8 | **Insurance** | Policy types, limits, effective dates, additional insured status, endorsements |
-| 9 | **Safety/supervision** | Escort requirements, PPE, pre-entry meetings, sign-in procedures |
-| 10 | **Delivery method** | How and when notice will be transmitted; proof of service plan |
+| 6 | **Entrants** | Names, roles, affiliations; badge/vehicle info if required |
+| 7 | **Equipment** | All equipment/vehicles; flag disruptive activities |
+| 8 | **Insurance** | Policy types, limits, dates, additional insured, endorsements |
+| 9 | **Safety** | Escort, PPE, pre-entry meetings, sign-in procedures |
+| 10 | **Delivery method** | Transmission method, timing, proof of service plan |
 
-Do NOT guess or invent contractual terms — pause and ask if anything is missing.
+Do NOT guess contractual terms — pause and ask if anything is missing.
 
----
+## Core Workflow
 
-## Step 1: Parse Notice Clause into Drafting Constraints
+### Step 1: Parse Notice Clause
 
-- Extract: minimum lead time, business-day counting rules, permitted hours, content requirements, delivery methods, prerequisites (e.g., COI delivery before entry)
+- Extract minimum lead time, business-day rules, permitted hours, content requirements, delivery methods, prerequisites (e.g., COI before entry)
 - Determine if lead time is hours, business hours, or business days; whether weekends/holidays count
-- Determine if notice is effective on sending or receipt — this controls the last permissible sending time
-- **Calendar trap**: Two business days' notice sent Friday for Monday entry likely violates the agreement
-- Address notice to the exact recipient, address, and email in the Agreement
+- Determine if notice is effective on sending or receipt — controls last permissible sending time
+- **Calendar trap**: Friday notice for Monday entry likely violates a two-business-day requirement
+- Address to exact recipient, address, and email in the Agreement
 
----
+### Step 2: Verify Scope Against Agreement
 
-## Step 2: Verify Scope Against Agreement
-
-- Confirm every proposed activity falls within the Agreement's permitted purposes
-- If any activity is arguably outside scope, **flag for attorney review** before drafting
+- Confirm every activity falls within permitted purposes; **flag for attorney review** if arguably outside scope
 - Use "specific to general" approach:
   - Specific: "drilling of three 2-inch diameter soil borings to a depth of 10 feet"
-  - General catch-all: "and other activities reasonably related to the Phase II ESA as authorized under Section [__]"
-- Use the Agreement's own nouns and verbs; reference exhibits and site plans
-- Do NOT use vague phrases like "general inspection" or "entire property"
-- Name boundaries of what entrant will and will not do
+  - Catch-all: "and other activities reasonably related to the Phase II ESA as authorized under Section [__]"
+- Use the Agreement's own nouns/verbs; reference exhibits and site plans
+- Never use vague phrases like "general inspection" or "entire property"
+- State boundaries of what entrant will and will not do
 
----
+### Step 3: Build Entry Window
 
-## Step 3: Build Entry Window
+- Match Agreement's format (specific time vs. range); always specify time zone
+- Primary + backup window only if Agreement permits
+- Confirm site-specific restrictions (noise ordinances, HOA rules, permit windows)
 
-- Match the Agreement's format requirements (specific time vs. range)
-- Always specify time zone
-- If flexibility needed, draft primary + backup window only if Agreement permits
-- Prompt user to confirm site-specific restrictions (noise ordinances, HOA rules, permit windows)
+### Step 4: Identify Entrants and Equipment
 
----
-
-## Step 4: Identify Entrants and Equipment
-
-- List personnel at the detail level the Agreement requires (named individuals vs. company + supervisor)
-- Do not include unnecessary sensitive personal data unless Agreement specifically requires it
+- Detail level per Agreement (named individuals vs. company + supervisor)
+- Omit unnecessary personal data unless Agreement requires it
 - Equipment descriptions must be honest and complete — under-disclosure appears deceptive
 - Reference restoration/safety provisions for heavy equipment or invasive activities
 
----
+### Step 5: Confirm Insurance
 
-## Step 5: Confirm Insurance Compliance
+- COIs verified and in hand → state compliance and attach
+- COIs pending → state intention and timing; do NOT represent coverage as confirmed
+- Include policy types/limits only if verified from the certificate
+- **Never state "fully insured"** without confirming terms against Agreement requirements
 
-- If COIs are verified and in hand: state compliance and attach
-- If COIs are pending: state intention and timing — do NOT represent coverage as confirmed
-- Include specific policy types and limits only if verified from the certificate
-- **Never state "fully insured"** without confirming specific policy terms against Agreement requirements
+### Step 6: Assemble the Notice
 
----
+Use this structure:
 
-## Step 6: Assemble the Notice
-
-```text
 [Date]
 
 [Recipient Name and Address per Notice Clause]
@@ -158,69 +141,56 @@ Sincerely,
 
 cc: [All parties required by notice clause]
 Enclosures: [COIs; Site Plan if applicable]
-```
 
----
-
-## Step 7: Adversarial-Proof and Finalize
+### Step 7: Adversarial-Proof and Finalize
 
 - [ ] No unnecessary admissions (liability, causation, ownership of conditions)
 - [ ] No promises beyond contractual obligations
-- [ ] No privileged strategy, settlement positions, or unnecessary sensitive information
-- [ ] Language tethered to Access Agreement terms throughout
+- [ ] No privileged strategy, settlement positions, or sensitive information
+- [ ] Language tethered to Agreement terms throughout
 - [ ] Delivery via all methods required by Agreement; recommend redundant delivery for high-stakes entries
 
----
+## Checkpoint B: Post-Draft Alignment
 
-## Checkpoint B: Post-Draft Alignment (Mandatory)
+After delivering the draft, ask:
 
-After delivering the initial draft, ask:
+1. Does the entry window comply with the notice period counting business days?
+2. Are all activities within the Agreement's permitted scope?
+3. Are COIs current and matching Agreement insurance requirements?
+4. Is there a lender, property manager, or tenant who must receive a copy?
 
-1. Does the entry window comply with the Agreement's notice period when counting business days?
-2. Are all proposed activities within the Agreement's permitted scope, or do any need pre-approval?
-3. Are the COIs current and do they match the Agreement's insurance requirements?
-4. Is there a lender, property manager, or tenant who must receive a copy of this notice?
-
-If the user doesn't answer, recommend verifying the calendar calculation (most common failure) and proceed if authorized.
-
----
+If no response, recommend verifying the calendar calculation (most common failure) and proceed if authorized.
 
 ## Quality Audit
 
-Before finalizing, verify:
-
-| Check | Question |
+| Check | Verify |
 |---|---|
-| **Calendar** | Does the interval between expected receipt and entry time meet/exceed the contractual requirement, accounting for business days, weekends, and holidays? |
-| **Scope** | Does every listed activity fall within the Agreement's permitted activities? |
-| **Recipient** | Does the addressee and delivery method match the notice clause exactly? All required cc parties included? |
-| **Insurance** | COI attached? Limits match Agreement? Correct additional insureds? Required endorsements included? |
-| **Contact** | Clear onsite point of contact provided? |
-| **Facts** | Every assertion (date, time, personnel, equipment, insurance) confirmed by user inputs or attached documentation? |
-| **Tone** | Firm notice asserting rights — not a request for permission, not argumentative? |
-| **Format** | Clear subject line, Agreement reference with title and date, consistent defined terms, clean signature block? |
+| **Calendar** | Receipt-to-entry interval meets/exceeds contractual requirement (business days, weekends, holidays) |
+| **Scope** | Every activity within Agreement's permitted activities |
+| **Recipient** | Addressee and delivery method match notice clause; all cc parties included |
+| **Insurance** | COI attached, limits match, correct additional insureds and endorsements |
+| **Contact** | Onsite point of contact provided |
+| **Facts** | Every assertion confirmed by user inputs or documentation |
+| **Tone** | Firm notice asserting rights — not requesting permission, not argumentative |
+| **Format** | Clear subject line, Agreement reference, consistent defined terms, clean signature block |
 
----
+## Pitfalls and Checks
 
-## Guidelines
+**Jurisdiction notes:**
 
-**Jurisdiction Notes:**
-
-| Jurisdiction | Key Consideration |
+| Jurisdiction | Consideration |
 |---|---|
-| **California** | Cal. Civ. Code § 1954 imposes 24-hour statutory notice for landlord entry into residential units. Commercial access governed by contract terms. |
-| **New York** | RPAPL § 881 `[VERIFY]` provides summary proceeding for license to enter adjoining property when neighbor refuses. |
-| **Texas** | Strict property rights; entries risking permanent injury to land should include clear remediation plans. |
-| **Federal environmental** | CERCLA entries (42 U.S.C. § 9604(e)) must cite specific statutory authority or administrative docket number. |
+| California | Cal. Civ. Code § 1954: 24-hour statutory notice for residential landlord entry. Commercial access governed by contract. |
+| New York | RPAPL § 881 `[VERIFY]`: summary proceeding for license to enter adjoining property. |
+| Texas | Strict property rights; entries risking permanent land injury need clear remediation plans. |
+| Federal environmental | CERCLA entries (42 U.S.C. § 9604(e)) must cite statutory authority or docket number. |
 
-**Anti-Hallucination:**
-- Do not fabricate contractual lead times, policy limits, scope permissions, or legal citations
-- For any jurisdiction-specific statute cited in the notice, verify independently or mark `[VERIFY]`
-- Do not invent Agreement terms or section numbers
+**Anti-hallucination rules:**
+- Never fabricate lead times, policy limits, scope permissions, or legal citations
+- Mark unverified statutes with `[VERIFY]`
+- Never invent Agreement terms or section numbers
 
-**Operational:**
-- Flag potential statutory overlays (environmental sampling regs, asbestos/lead paint rules, tenant notice statutes) when scope involves regulated activities
-- If entry plan changes after notice is sent, determine whether Agreement requires revised or supplemental notice
-- Preserve the full record: sent notice, delivery confirmations, attachments, and recipient responses
-
-**ATTORNEY REVIEW REQUIRED** — No notice produced by this skill may be sent without attorney review.
+**Operational rules:**
+- Flag statutory overlays (environmental regs, asbestos/lead paint, tenant notice statutes) for regulated activities
+- If entry plan changes post-notice, determine whether Agreement requires revised/supplemental notice
+- Preserve full record: notice, delivery confirmations, attachments, responses

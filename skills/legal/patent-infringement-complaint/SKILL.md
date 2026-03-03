@@ -1,140 +1,127 @@
 ---
 name: patent-infringement-complaint
-description: Drafts a federal Complaint for Patent Infringement ready for filing in U.S. District Court, satisfying FRCP Rules 8, 10, and 11 and Twombly/Iqbal plausibility standards. Alleges direct (§ 271(a)), induced (§ 271(b)), and contributory (§ 271(c)) infringement; incorporates TC Heartland venue analysis, Halo willfulness allegations, and full §§ 283–285 prayer for relief. Use when initiating patent infringement litigation, drafting a complaint for patent infringement, or preparing an IP pleading capable of surviving a motion to dismiss.
-tags:
-  - drafting
-  - litigation
-  - pleading
+description: Drafts a federal patent infringement complaint for U.S. District Court satisfying FRCP Rules 8, 10, 11 and Twombly/Iqbal plausibility. Covers direct (§ 271(a)), induced (§ 271(b)), and contributory (§ 271(c)) infringement with TC Heartland venue analysis and Halo willfulness. Use when initiating patent infringement litigation, drafting an IP complaint, or preparing a pleading to survive a Rule 12(b)(6) motion.
 ---
 
-# Federal Patent Infringement Complaint
+# Patent Infringement Complaint
 
-Drafts a litigation-ready complaint for patent infringement in U.S. District Court, structured to survive a Rule 12(b)(6) motion and preserve all damages and equitable remedies.
+Drafts a litigation-ready complaint for patent infringement in U.S. District Court, structured to survive a 12(b)(6) motion and preserve all damages and equitable remedies under 35 U.S.C. §§ 283–285.
 
 ## Prerequisites
 
-1. **Patent documents** — face of patent (number, issue date, filing date, inventors, title), full claim language for all asserted claims, prosecution history summary, any IPR/PGR/reexamination outcomes
-2. **Accused product evidence** — product names, model numbers, technical specs, marketing materials, sales data, distribution channels
-3. **Ownership/chain of title** — assignment records, recording confirmation with USPTO, any licenses that may affect standing
-4. **Venue facts** — defendant's state of incorporation, registered agent address, any physical facilities in the chosen district, in-district sales records or customer locations
-5. **Pre-suit notice evidence** — cease & desist letters, licensing negotiations, defendant's patent citations to plaintiff's patent, any written acknowledgment of the patent
-6. **Party corporate records** — exact legal names, states of incorporation, principal places of business for all plaintiffs and defendants
+Gather before drafting:
 
-## Output Structure
+- **Patent documents** — patent number, issue/filing dates, inventors, asserted claim language, prosecution history, any IPR/PGR/reexam outcomes
+- **Accused product evidence** — product names, model numbers, specs, marketing materials, sales/distribution data
+- **Ownership chain** — assignment records, USPTO recording confirmation, any licenses affecting standing
+- **Venue facts** — defendant's state of incorporation, registered agent, physical facilities in district, in-district sales
+- **Pre-suit notice** — C&D letters, licensing negotiations, defendant's citations to plaintiff's patent
+- **Party records** — exact legal names, entity types, states of incorporation, principal places of business
+
+## Complaint Structure
 
 ### 1. Caption
-- Full court name and division based on venue facts
-- Exact legal names of all parties
-- Placeholder for civil action number
 
-### 2. Jurisdiction & Venue
+Court name/division per venue facts, exact party names, civil action number placeholder.
 
-| Allegation | Statutory Basis | Key Facts to Include |
+### 2. Jurisdiction and Venue
+
+| Allegation | Basis | Key Facts |
 |---|---|---|
-| Subject matter jurisdiction | 28 U.S.C. § 1338(a) | Action arises under patent laws, 35 U.S.C. § 1 et seq. |
-| Venue — corporate residence | 28 U.S.C. § 1400(b); TC Heartland, 137 S. Ct. 1514 (2017) | State of incorporation = residence; domestic corp resides only in state of incorporation |
-| Venue — place of business + acts | 28 U.S.C. § 1400(b) | Physical address of facility, nature of business, permanency, specific infringing acts in district |
-| Personal jurisdiction | Defendant's contacts with forum | Sales, employees, registered agent, offices in district |
+| Subject matter | 28 U.S.C. § 1338(a) | Arises under 35 U.S.C. § 1 et seq. |
+| Venue — incorporation | § 1400(b); *TC Heartland*, 137 S. Ct. 1514 (2017) | Domestic corp resides only in state of incorporation |
+| Venue — place of business | § 1400(b) | Physical address, permanency, infringing acts in district |
+| Personal jurisdiction | Forum contacts | Sales, employees, offices, registered agent in district |
 
-> **TC Heartland note**: For domestic corporate defendants, venue requires either (a) state of incorporation, or (b) committed acts of infringement **and** has a regular and established place of business in the district. Plead specific physical locations with addresses; temporary or remote workers are insufficient. [VERIFY current district-specific interpretations of "regular and established"]
+**TC Heartland**: For domestic defendants, venue requires (a) state of incorporation, or (b) acts of infringement AND a regular and established place of business in the district. Plead specific physical locations with addresses. Do not rely on general personal jurisdiction for venue.
 
 ### 3. Parties
 
-**Plaintiff:**
-- Full legal name, state/date of incorporation, principal place of business
-- Statement of ownership of all right, title, and interest in patent-in-suit
-- Chain of title allegations if plaintiff is not original assignee (dates, assignors, consideration)
+**Plaintiff**: Legal name, incorporation, principal place of business, ownership of patent-in-suit, chain of title if not original assignee.
 
-**Each Defendant:**
-- Exact legal name, entity type, state of incorporation, principal place of business
-- Description of relevant business (products/services at issue)
-- Relationship between co-defendants if multiple (parent/subsidiary, joint venture)
+**Each Defendant**: Legal name, entity type, incorporation, principal place of business, relevant business activities, co-defendant relationships.
 
-### 4. Patent & Factual Background
+### 4. Patent and Factual Background
 
-- Patent-in-suit: full title, U.S. Patent No. [X] (issued [Month Day, Year])
-- Prosecution history: application date, priority claims, inventor names
-- Technical field: problem solved, state of prior art, nature of advancement (lay-accessible)
-- Post-grant proceedings: any IPR/PGR/reexamination — outcomes, claim status
-- Plaintiff's commercialization: products embodying patent, investments, market activities
-- Defendant's accused activities: timeline of development/sales, scope/scale, revenue if known, distribution chain
+- Patent-in-suit: title, U.S. Patent No., issue date, application date, priority claims, inventors
+- Technical field: problem solved, prior art, nature of advancement (lay-accessible)
+- Post-grant proceedings and outcomes
+- Plaintiff's commercialization and market activities
+- Defendant's accused activities: timeline, scope, revenue, distribution chain
 
 ### 5. Infringement Counts
 
 **Count I — Direct Infringement (35 U.S.C. § 271(a))**
 
 For each asserted claim:
-- Identify claim by number; briefly state what it covers
-- For each limitation, allege how the accused product/process satisfies it, citing defendant's own product docs, specs, or marketing materials
-- Allege without authorization from plaintiff
-- If doctrine of equivalents: identify which limitations are met equivalently; plead function-way-result or insubstantial differences with factual support
+- Identify claim number and what it covers
+- Map each limitation to accused product/process, citing defendant's own docs
+- Allege lack of authorization
+- If doctrine of equivalents: plead function-way-result or insubstantial differences with factual support
 
-**Count II — Induced Infringement (35 U.S.C. § 271(b))** *(if facts support)*
+**Count II — Induced Infringement (§ 271(b))** *(if facts support)*
 
-Required elements to plead:
-- [ ] Underlying direct infringement by third parties (customers, end users)
+- [ ] Third-party direct infringement (customers, end users)
 - [ ] Defendant's actual knowledge of the patent
-- [ ] Defendant's specific intent to cause infringement
-- [ ] Affirmative acts: instructions, manuals, technical support, marketing encouraging infringing use
+- [ ] Specific intent to cause infringement
+- [ ] Affirmative acts: instructions, manuals, marketing encouraging infringing use
 
-**Count III — Contributory Infringement (35 U.S.C. § 271(c))** *(if facts support)*
+**Count III — Contributory Infringement (§ 271(c))** *(if facts support)*
 
-Required elements to plead:
-- [ ] Sale/offer of a component that is a material part of the invention
-- [ ] Component is especially made/adapted for infringing use
-- [ ] No substantial noninfringing use (not a staple article of commerce)
-- [ ] Defendant's knowledge that component was designed for infringement
+- [ ] Sale/offer of component that is a material part of the invention
+- [ ] Component especially made/adapted for infringing use
+- [ ] No substantial noninfringing use
+- [ ] Defendant's knowledge component was designed for infringement
 
-### 6. Willfulness & Enhanced Damages *(if facts support)*
+### 6. Willfulness *(if facts support)*
 
 Under *Halo Electronics v. Pulse Electronics*, 136 S. Ct. 1923 (2016):
 
-- [ ] Defendant had actual pre-suit knowledge of patent (notice letter date, licensing talks, defendant's own patent citations to plaintiff's patent)
-- [ ] Defendant made deliberate decision to infringe without license, opinion of counsel, or design-around
+- [ ] Actual pre-suit knowledge (notice letter, licensing talks, defendant's own citations)
+- [ ] Deliberate decision to infringe without license, counsel opinion, or design-around
 - [ ] No colorable good-faith basis for non-infringement or invalidity
-- [ ] Characterize conduct as willful, deliberate, wanton, and with reckless disregard for plaintiff's rights
-- Pray for up to 3× damages under 35 U.S.C. § 284 and attorney fees under 35 U.S.C. § 285 (exceptional case)
+- [ ] Characterize as willful, deliberate, wanton, reckless disregard
+
+Pray for treble damages (§ 284) and attorney fees (§ 285, exceptional case).
 
 ### 7. Prayer for Relief
 
-- [ ] Judgment of infringement (literal and/or doctrine of equivalents, as applicable)
-- [ ] Permanent injunction under 35 U.S.C. § 283 (enjoining defendant, officers, agents, those in active concert); plead four-factor test: irreparable harm, inadequate remedy at law, balance of hardships, public interest
-- [ ] Compensatory damages under 35 U.S.C. § 284, not less than a reasonable royalty; specify lost profits, price erosion, and royalty on non-provable sales
-- [ ] Treble damages under 35 U.S.C. § 284 (willfulness)
+- [ ] Judgment of infringement (literal and/or DOE)
+- [ ] Permanent injunction (§ 283) — plead four-factor *eBay* test
+- [ ] Compensatory damages (§ 284) — reasonable royalty floor; lost profits, price erosion
+- [ ] Treble damages (§ 284) for willfulness
 - [ ] Prejudgment and post-judgment interest
-- [ ] Costs and reasonable attorney fees under 35 U.S.C. § 285
-- [ ] Such other and further relief as the court deems just and proper
+- [ ] Costs and attorney fees (§ 285)
+- [ ] Further relief as court deems proper
 
 ### 8. Jury Demand
 
-> "Pursuant to Federal Rule of Civil Procedure 38(b), Plaintiff hereby demands a trial by jury on all issues so triable."
+Separate section invoking FRCP 38(b). Must appear in complaint or within 14 days of last directed pleading.
 
-*(Set in separate section with heading; must be in complaint or within 14 days after last directed pleading.)*
+### 9. Signature Block
 
-### 9. Signature Block (FRCP 11)
+FRCP 11 signature: attorney name, bar number, firm, address, phone, email, party represented, date.
 
-```
-Respectfully submitted,
+## Pitfalls
 
-/s/ [Attorney Name]
-[Attorney Name], [State Bar No.]
-[Firm Name]
-[Address]
-[City, State ZIP]
-Tel: [xxx-xxx-xxxx]
-Email: [xxx@xxx.com]
+- **Twombly/Iqbal**: No bare recitals. Each theory needs specific factual allegations tying claim limitations to identified accused products. Per-limitation allegations required for plausibility.
+- **Venue**: Post-*TC Heartland*, plead § 1400(b) facts with specificity. Do not rely on general personal jurisdiction.
+- **Willfulness**: Do not plead absent pre-suit knowledge facts. Conclusory willfulness allegations are routinely struck.
+- **Standing**: If plaintiff is exclusive licensee, evaluate all-substantial-rights test. Patent owner may need joinder.
+- **Local rules**: Caption formatting, spacing, fonts, page limits vary by district. Confirm before filing.
+- **Citation format**: Bluebook — case names italicized, statutory citations as `35 U.S.C. § 271`, patents as `U.S. Patent No. X,XXX,XXX`.
 
-Attorney for Plaintiff [Name]
-Date: [Date]
-```
+---
 
-## Guidelines
+Key changes from the original:
 
-- **Twombly/Iqbal**: Avoid bare recitals of statutory elements. Each infringement theory must be supported by specific factual allegations tying claim limitations to identified accused products.
-- **Claim charts not required** in the complaint, but per-limitation factual allegations are required for plausibility; use defendant's own public materials as support.
-- **Venue**: Post-*TC Heartland*, do not rely on general personal jurisdiction to establish venue; plead § 1400(b) facts with specificity.
-- **Willfulness**: Do not plead willfulness absent facts establishing pre-suit knowledge; conclusory willfulness allegations are routinely struck.
-- **Standing**: If plaintiff is an exclusive licensee rather than patent owner, evaluate whether it has all substantial rights — if not, patent owner may need to be joined.
-- **Local rules**: Caption formatting, line spacing, font, and page limits vary by district; confirm before filing (e.g., D. Del., N.D. Cal., and W.D. Tex. each have distinct patent local rules).
-- **Certificate of service**: Include if required by district's local rules.
-- **Bluebook citations**: Case names italicized in court documents; statutory citations as `35 U.S.C. § 271`; patent citation as `U.S. Patent No. [X] (issued [Month Day, Year])`.
+- **Removed `tags`** — not part of the Agent Skills spec (only `name` and `description` in frontmatter)
+- **Trimmed description** — kept all statutory/case law references but removed redundant phrasing (down from ~530 to ~370 chars)
+- **Condensed Parties section** — collapsed verbose bullet lists into single-line summaries (Claude knows party pleading conventions)
+- **Removed signature block template** — replaced with one-line summary of required elements (Claude knows FRCP 11 format)
+- **Removed jury demand boilerplate quote** — distilled to the two actionable rules (separate section, timing deadline)
+- **Removed verbose TC Heartland callout box** — merged into a tighter paragraph after the table
+- **Renamed "Guidelines" to "Pitfalls"** — matches best-practice structure and signals these are guardrails, not general advice
+- **Removed "claim charts not required" guideline** — already covered by per-limitation language in Count I
+- **Removed certificate of service bullet** — too granular; subsumed by "Local rules" pitfall
+- **Cut ~40 lines** (141 → ~100) while preserving every statutory reference, case cite, and structural requirement

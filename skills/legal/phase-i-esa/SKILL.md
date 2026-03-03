@@ -1,6 +1,6 @@
 ---
 name: phase-i-esa
-description: Drafts a Phase I Environmental Site Assessment Report compliant with ASTM E1527-21 and 40 CFR Part 312. Identifies RECs, CRECs, and HRECs to establish all appropriate inquiries for CERCLA liability protection. Use for environmental due diligence in real estate transactions, property acquisitions, lending requirements, or regulatory compliance. Triggers on phase I ESA, environmental site assessment, recognized environmental conditions, ASTM E1527, environmental due diligence.
+description: Drafts a Phase I Environmental Site Assessment report per ASTM E1527-21 and 40 CFR Part 312. Classifies RECs, CRECs, and HRECs to establish all appropriate inquiries for CERCLA liability protection. Trigger when the user requests a Phase I ESA, environmental site assessment, recognized environmental conditions analysis, ASTM E1527 compliance, or environmental due diligence for property transactions or lending.
 tags:
   - analysis
   - drafting
@@ -10,46 +10,62 @@ tags:
 
 # Phase I Environmental Site Assessment Report
 
-Drafts a Phase I ESA report establishing "all appropriate inquiries" under ASTM E1527-21 and 40 CFR Part 312 for CERCLA liability protection.
+Drafts a Phase I ESA establishing "all appropriate inquiries" under ASTM E1527-21 and 40 CFR Part 312 for CERCLA liability protection.
 
 ## Prerequisites
 
-1. **Property identification** — legal description, street address, APN, coordinates, zoning
-2. **Client purpose** — acquisition due diligence, lending, corporate compliance, or other
-3. **Site reconnaissance data** — date, observations, photographs, access limitations
+Collect before drafting:
+
+1. **Property identification** — legal description, address, APN, coordinates, zoning
+2. **Client purpose** — acquisition, lending, corporate compliance, or other
+3. **Site reconnaissance data** — date, observations, photos, access limitations
 4. **Historical sources** — aerial photos, fire insurance maps, city directories, topo maps
-5. **Regulatory database search results** — federal, state, tribal, local (with search radii per ASTM)
-6. **User questionnaires** — completed owner/occupant questionnaires per ASTM E1527-21
+5. **Regulatory database results** — federal/state/tribal/local at ASTM search radii
+6. **User questionnaires** — owner/occupant questionnaires per ASTM E1527-21
 7. **Interview notes** — current/past owners, operators, local officials
-8. **Environmental professional qualifications** — credentials per 40 CFR § 312.10
-9. **Prior environmental reports** (if any) — previous Phase I/II ESAs, remediation docs
+8. **EP qualifications** — credentials per 40 CFR § 312.10
+9. **Prior reports** (if any) — previous Phase I/II ESAs, remediation docs
 
-## Output Structure
+## Quick Start
 
-### Report Sections
+1. Confirm property ID, client purpose, and transaction timeline.
+2. Verify all prerequisite data is available; flag missing items as data gaps.
+3. Draft each report section sequentially per the structure below.
+4. Classify every identified condition as REC, CREC, HREC, or de minimis.
+5. State conclusions unambiguously; recommend Phase II if any RECs found.
+
+## Report Sections
 
 | # | Section | Key Requirements |
 |---|---------|-----------------|
-| 1 | **Title Page** | Property legal description, address, APN, coordinates; preparer firm/contact; report date; effective date; client name; project ID; confidentiality notice |
-| 2 | **Table of Contents** | All sections, appendices, figures, tables with page refs |
-| 3 | **Executive Summary** | 2-3 pages max; non-technical audience; state RECs/CRECs/HRECs found or explicitly state none; scope summary; data gaps; recommendations |
-| 4 | **Introduction & Scope** | Client purpose; ASTM E1527-21 conformance statement; inclusions/exclusions; non-scope considerations evaluated; applicable standards list |
-| 5 | **Site Description** | Acreage/SF; structures/improvements; USTs/ASTs; topography; surface water; current operations; surrounding area (1-mile radius); geology/hydrogeology |
-| 6 | **User-Provided Information** | Owner/occupant questionnaire responses; completeness/credibility assessment; data gaps from non-response; cross-referencing with other sources |
-| 7 | **Historical Use Review** | Property timeline from first developed use or 1940 (whichever earlier) to present; aerial photo analysis (5-10 yr intervals); adjoining property history |
-| 8 | **Site Reconnaissance** | Date/duration/weather; interior/exterior observations; floor drains, sumps, staining, drums, tanks, PCB equipment; access limitations |
-| 9 | **Interviews** | Each interviewee: name, title, affiliation, contact, date, method; substantive findings; credibility assessment |
-| 10 | **Regulatory Records** | Database results at required search distances (see table below); orphan site analysis; data gap discussion |
-| 11 | **Findings: RECs, CRECs, HRECs** | Each condition with factual basis, evidence sources, and ASTM-defined classification |
-| 12 | **Conclusions & Recommendations** | Unambiguous REC/CREC/HREC determination; Phase II recommendations if warranted; data gap implications; liability discussion (with counsel referral caveat) |
-| 13 | **De Minimis & Non-Scope** | De minimis conditions (not RECs); non-scope items (ACM, LBP, radon, mold, wetlands); vapor intrusion evaluation |
-| 14 | **References** | All sources by category with full citations enabling independent verification |
-| 15 | **EP Qualifications** | Credentials per 40 CFR § 312.10; education, certifications (PG, PE, CEP), experience summary |
-| 16 | **Appendices** | Site maps, photos, questionnaires, database reports, historical documents, prior reports, EP CV |
+| 1 | Title Page | Property legal description, address, APN, coordinates; preparer info; report/effective dates; client; project ID; confidentiality notice |
+| 2 | Table of Contents | All sections, appendices, figures, tables with page refs |
+| 3 | Executive Summary | 2-3 pages max; non-technical; state RECs/CRECs/HRECs or explicitly none; scope; data gaps; recommendations |
+| 4 | Introduction & Scope | Client purpose; ASTM E1527-21 conformance statement; inclusions/exclusions; non-scope items evaluated |
+| 5 | Site Description | Acreage; structures; USTs/ASTs; topography; surface water; current operations; surrounding area (1-mi radius); geology/hydrogeology |
+| 6 | User-Provided Information | Questionnaire responses; completeness/credibility assessment; data gaps from non-response |
+| 7 | Historical Use Review | Timeline from first developed use or 1940 (whichever earlier); aerial photo analysis (5-10 yr intervals); adjoining property history |
+| 8 | Site Reconnaissance | Date/duration/weather; interior/exterior observations; drains, sumps, staining, drums, tanks, PCB equipment; access limitations |
+| 9 | Interviews | Each interviewee: name, title, affiliation, contact, date, method; substantive findings; credibility assessment |
+| 10 | Regulatory Records | Results at required search distances; orphan site analysis; data gap discussion |
+| 11 | Findings: RECs/CRECs/HRECs | Each condition with factual basis, evidence sources, ASTM classification |
+| 12 | Conclusions & Recommendations | Unambiguous determination; Phase II recs if warranted; data gap implications; counsel referral for liability |
+| 13 | De Minimis & Non-Scope | De minimis conditions; non-scope items (ACM, LBP, radon, mold, wetlands); vapor intrusion evaluation |
+| 14 | References | All sources by category with full citations |
+| 15 | EP Qualifications | Credentials per 40 CFR § 312.10; education, certifications, experience |
+| 16 | Appendices | Site maps, photos, questionnaires, database reports, historical docs, prior reports |
 
-### Regulatory Database Search Distances (ASTM E1527-21)
+## Condition Classifications
 
-| Database | Subject Property | 1/8 mile | 1/4 mile | 1/2 mile | 1 mile |
+| Type | Definition | Must Include |
+|------|-----------|-------------|
+| **REC** | Presence or likely presence of hazardous substances/petroleum due to release, indicative conditions, or material threat of future release | Factual basis; evidence sources; contaminant ID |
+| **CREC** | Past release addressed via risk-based corrective action with residual contamination under institutional/engineering controls | Residual contamination; specific controls; regulatory status; monitoring requirements |
+| **HREC** | Past release remediated to unrestricted use; no residual contamination or controls | Historical condition; remediation performed; regulatory closure docs |
+
+## Regulatory Database Search Distances
+
+| Database | Subject | 1/8 mi | 1/4 mi | 1/2 mi | 1 mi |
 |----------|:---:|:---:|:---:|:---:|:---:|
 | NPL | ✓ | ✓ | ✓ | ✓ | ✓ |
 | CERCLIS/SEMS | ✓ | ✓ | — | ✓ | — |
@@ -57,45 +73,30 @@ Drafts a Phase I ESA report establishing "all appropriate inquiries" under ASTM 
 | RCRA TSD | ✓ | — | — | ✓ | — |
 | RCRA LQG/SQG | ✓ | ✓ | — | — | — |
 | ERNS | ✓ | — | — | — | — |
-| State equiv. databases | ✓ | Per state | Per state | Per state | — |
+| State equivalents | ✓ | Per state | Per state | Per state | — |
 | Landfill/solid waste | ✓ | — | — | ✓ | — |
 
-### Environmental Condition Classifications
+## Historical Use Red Flags
 
-| Type | Definition | Key Elements |
-|------|-----------|-------------|
-| **REC** | Presence or likely presence of hazardous substances/petroleum in, on, or at property due to release, conditions indicative of release, or material threat of future release | Factual basis; evidence sources; contaminant identification |
-| **CREC** | Past release addressed via risk-based corrective action with residual contamination under institutional/engineering controls | Nature of residual contamination; specific controls; regulatory status; monitoring requirements; control adequacy assessment |
-| **HREC** | Past release remediated to unrestricted use standards; no residual contamination or controls | Historical condition description; remediation performed; regulatory closure documentation |
+Flag current or historical presence of: gas stations, automotive repair, dry cleaners, metal plating/finishing, chemical manufacturing/storage, printing/photo processing, fill placement/waste disposal, agricultural operations (pesticides).
 
-### Historical Use Red Flags
+## CERCLA Shelf-Life
 
-Flag any current or historical presence of:
-- Gasoline stations / automotive repair
-- Dry cleaners / laundries
-- Metal plating / finishing / fabrication
-- Chemical manufacturing / storage / distribution
-- Printing / photographic processing
-- Historical fill placement or waste disposal
-- Agricultural operations (pesticides)
+- **Full Phase I**: valid **1 year** from completion to acquisition
+- **Site reconnaissance**: within **180 days** prior to acquisition
+- **Government records review**: update if **180+ days** old at acquisition
 
-### CERCLA Shelf-Life Requirements
+## Pitfalls and Checks
 
-- Full Phase I ESA: valid **1 year** from completion to property acquisition date
-- Site reconnaissance: must be conducted within **180 days** prior to acquisition
-- Government records review: updated if report is **180+ days** old at acquisition
-
-## Guidelines
-
-1. **ASTM E1527-21 conformance** — explicitly state conformance; document all deviations or additions to standard scope
-2. **Distinguish REC types precisely** — use exact ASTM definitions; never conflate RECs, CRECs, and HRECs
-3. **Support every finding** — each REC must cite specific evidence from observations, records, history, or interviews
-4. **Data gaps** — identify all unresolved data gaps; assess significance; recommend resolution steps
-5. **No legal advice** — the ESA is not a legal opinion; direct liability questions to environmental counsel
-6. **Non-invasive scope** — the Phase I is non-invasive; do not imply subsurface sampling was performed
-7. **Snapshot limitation** — acknowledge the assessment reflects conditions at a point in time
-8. **State-specific requirements** — note applicable state environmental assessment guidelines that exceed federal standards
-9. **Vapor intrusion** — evaluate VI potential for any property near known groundwater contamination; assess as potential REC
-10. **Professional judgment** — clearly distinguish documented facts from professional opinions; state basis for opinions
+1. **Conformance statement** — explicitly declare ASTM E1527-21 conformance; document any deviations
+2. **REC classification precision** — use exact ASTM definitions; never conflate REC types
+3. **Evidence-backed findings** — every REC must cite specific observations, records, history, or interviews
+4. **Data gaps** — identify all; assess significance; recommend resolution
+5. **No legal advice** — direct liability questions to environmental counsel
+6. **Non-invasive scope only** — never imply subsurface sampling was performed
+7. **Point-in-time limitation** — acknowledge the assessment reflects conditions as of assessment date
+8. **State-specific requirements** — note state guidelines that exceed federal standards
+9. **Vapor intrusion** — evaluate for any property near known groundwater contamination; assess as potential REC
+10. **Facts vs. opinions** — clearly distinguish; state basis for professional judgment
 11. **De minimis threshold** — conditions below regulatory concern are not RECs; document but classify appropriately
-12. **Non-scope items** (ACM, LBP, radon, mold, wetlands) — evaluate only if client requests; clearly separate from REC analysis
+12. **Non-scope items** (ACM, LBP, radon, mold, wetlands) — only if client requests; separate from REC analysis

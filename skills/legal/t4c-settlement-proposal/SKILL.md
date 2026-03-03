@@ -1,6 +1,6 @@
 ---
 name: t4c-settlement-proposal
-description: Drafts a Termination for Convenience Settlement Proposal under FAR Part 49 for federal government contracts. Analyzes contract documents, termination notices, and financial records to justify incurred costs and propose a compliant settlement amount. Use when a contractor must submit a formal settlement claim after government termination for convenience, FAR 49.602 fixed-price proposals, FAR 49.603 total cost basis proposals, or inventory disposition under terminated contracts.
+description: Drafts a Termination for Convenience Settlement Proposal under FAR Part 49. Trigger when a contractor must submit a formal settlement claim after government T4C, prepare FAR 49.602 fixed-price or FAR 49.603 total-cost-basis proposals, or handle inventory disposition under a terminated contract.
 tags:
   - agreement
   - drafting
@@ -8,21 +8,32 @@ tags:
   - regulatory
 ---
 
-# Termination for Convenience Settlement Proposal
+# T4C Settlement Proposal
 
-Drafts a FAR Part 49-compliant settlement proposal that justifies contractor costs and proposes a fair settlement amount following government termination for convenience.
+Draft a FAR Part 49-compliant settlement proposal justifying contractor costs and proposing a fair settlement amount after government termination for convenience.
 
 ## Prerequisites
 
-1. **Contract documents** — prime contract, all modifications, pricing structure, contract type (FFP, CR, T&M)
-2. **Termination notice** — with effective date, FAR clause cited, and stated reasons
+Collect before drafting:
+
+1. **Contract documents** — prime contract, modifications, pricing, contract type (FFP, CR, T&M)
+2. **Termination notice** — effective date, FAR clause cited, stated reasons
 3. **Financial records** — cost ledgers, timesheets, vendor invoices, approved indirect rates
 4. **Subcontractor data** — sub agreements, sub settlement proposals, payment records
-5. **Inventory records** — materials, WIP, finished components acquired for the contract
+5. **Inventory records** — materials, WIP, finished components acquired for contract performance
 
-## Output Structure
+## Quick Start
 
-### 1. Document Header
+1. Identify contract type → select SF 1435 (inventory basis / fixed-price) or SF 1436 (total cost basis)
+2. Compile cost data organized by CLIN/deliverable
+3. Verify every cost is allowable under FAR Part 31 — exclude FAR 31.205 unallowables
+4. Calculate settlement amount (costs + profit − payments − credits)
+5. Assemble certifications and attachment index
+6. Flag gaps with `[DOCUMENTATION NEEDED]` and uncertain citations with `[VERIFY]`
+
+## Document Structure
+
+### 1. Header
 
 | Field | Content |
 |-------|---------|
@@ -31,54 +42,55 @@ Drafts a FAR Part 49-compliant settlement proposal that justifies contractor cos
 | Parties | Full legal names of contractor and government agency |
 | Contract No. | Include all modification numbers |
 | Termination Ref. | Notice date, issuing authority, FAR clause cited |
-| Basis | SF 1435 (Inventory Basis) or SF 1436 (Total Cost Basis) |
+| Basis | SF 1435 (Inventory) or SF 1436 (Total Cost) |
 
 ### 2. Introduction & Background
 
 - Contract purpose, period of performance, total value, contract type
-- Circumstances of termination — cite specific FAR clause invoked
+- Termination circumstances — cite the specific FAR clause invoked
 - Legal basis: FAR Part 49 entitles contractor to fair compensation for work performed and costs reasonably incurred
 
-### 3. Work Performed & Cost Breakdown
+### 3. Cost Breakdown
 
-Organize by CLIN/deliverable. Present costs in this structure:
+Organize by CLIN/deliverable:
 
-| Cost Category | Amount | Supporting Documentation |
-|---------------|--------|--------------------------|
+| Category | Amount | Documentation |
+|----------|--------|---------------|
 | Direct labor | $ | Timesheets, rate justifications |
 | Direct materials | $ | Invoices, receiving docs |
 | Subcontractor costs | $ | Agreements, payment records |
 | Other direct costs | $ | Travel, equipment, etc. |
-| Indirect costs (overhead) | $ | Approved rates, allocation basis |
+| Indirect / overhead | $ | Approved rates, allocation basis |
 | G&A | $ | Rate and allocation method |
-| **Subtotal costs** | **$** | |
-| Profit/fee (per FAR 49.202) | $ | % applied, completion-based justification |
+| **Subtotal** | **$** | |
+| Profit/fee (FAR 49.202) | $ | % applied, completion-based justification |
 | **Total claimed** | **$** | |
 
+Rules:
 - All costs must be allowable under FAR Part 31
-- Profit percentage must reflect degree of completion and risk assumed
+- Profit must reflect degree of completion and risk assumed
 - Indirect rates must tie to contractor's disclosed accounting system
 
-### 4. Inventory & Property Disposition
+### 4. Inventory Disposition
 
-For each inventory category (raw materials, WIP, finished components):
+Per category (raw materials, WIP, finished components):
 
-| Item Description | Qty | Unit Cost | Total Value | Condition | Proposed Disposition |
-|------------------|-----|-----------|-------------|-----------|---------------------|
-| | | | | | Sale to govt / Return to supplier / Commercial sale / Contractor retention |
+| Item | Qty | Unit Cost | Total | Condition | Disposition |
+|------|-----|-----------|-------|-----------|-------------|
+| | | | | | Govt sale / Return to supplier / Commercial sale / Retain |
 
-- Comply with FAR 49.603 disposition requirements
-- Credit government for any anticipated proceeds from commercial sales
+- Follow FAR 49.603 disposition requirements
+- Credit government for anticipated commercial sale proceeds
 
 ### 5. Subcontractor Settlements
 
-| Subcontractor | Sub No. | Original Value | Work Performed | Amount Claimed | Settlement Status |
-|---------------|---------|----------------|----------------|----------------|-------------------|
+| Subcontractor | Sub No. | Original Value | Work Performed | Claimed | Status |
+|---------------|---------|----------------|----------------|---------|--------|
 | | | | | | Agreed / Proposed |
 
-- Demonstrate compliance with FAR 49.108-4 (prompt, fair settlement obligation)
-- Attach each sub's settlement proposal and supporting cost data
-- Explain how government interests were protected in negotiations
+- Comply with FAR 49.108-4 (prompt, fair settlement obligation)
+- Attach each sub's proposal and cost data
+- Show how government interests were protected in negotiations
 
 ### 6. Settlement Calculation
 
@@ -96,19 +108,19 @@ For each inventory category (raw materials, WIP, finished components):
   NET SETTLEMENT AMOUNT CLAIMED               $________
 ```
 
-- Compare to original contract value and % completion to show reasonableness
-- Cite specific FAR provisions authorizing each cost component
-- Reference relevant ASBCA/CBCA decisions if supporting contested items
+- Compare to contract value and % completion to show reasonableness
+- Cite FAR provisions authorizing each cost component
+- Reference ASBCA/CBCA decisions for contested items
 
 ### 7. Certifications (FAR 49.602-2)
 
-Include and flag for authorized signature:
+Flag each for authorized signature:
 
-- [ ] Certificate of Current Cost or Pricing Data (if applicable per thresholds)
+- [ ] Certificate of Current Cost or Pricing Data (if above threshold)
 - [ ] Certification that all costs are allowable under FAR Part 31
 - [ ] Good faith representation
-- [ ] Any agency-specific supplemental certifications
-- [ ] Signed by representative with appropriate signature authority
+- [ ] Agency-specific supplemental certifications
+- [ ] Signature by representative with appropriate authority
 
 ### 8. Attachment Index
 
@@ -124,13 +136,21 @@ Include and flag for authorized signature:
 | H | Indirect rate documentation / disclosure statement |
 | I | Personnel and organizational data |
 
-## Guidelines
+## Pitfalls
 
-- Use SF 1435 for inventory-basis proposals (fixed-price); SF 1436 for total-cost-basis proposals — download current forms from acquisition.gov
-- Tone must be professional and cooperative — settlement is a negotiation, not litigation
-- Every dollar claimed must trace to supporting documentation
-- Indirect cost allocations must follow the contractor's established and approved accounting system
-- Do not claim unallowable costs under FAR 31.205 (entertainment, interest, fines, etc.)
-- If contract includes agency-specific FAR supplements (DFARS, GSAM, etc.), incorporate additional requirements
-- Flag any cost element lacking full documentation with `[DOCUMENTATION NEEDED]`
-- Mark uncertain regulatory citations with `[VERIFY]`
+- **Unallowable costs** — never claim FAR 31.205 categories (entertainment, interest, fines, etc.)
+- **Missing documentation** — every dollar must trace to support; flag gaps with `[DOCUMENTATION NEEDED]`
+- **Wrong form** — SF 1435 is for fixed-price inventory basis; SF 1436 is for total cost basis
+- **Agency supplements** — incorporate DFARS, GSAM, or other FAR supplement requirements when applicable
+- **Tone** — professional and cooperative; settlement is negotiation, not litigation
+- **Indirect rates** — must follow contractor's established and approved accounting system
+
+---
+
+**Key changes made:**
+- Tightened the `description` in frontmatter — shorter, with clear trigger guidance in third person
+- Added a **Quick Start** section for a scannable 6-step workflow
+- Renamed "Output Structure" → "Document Structure" and "Guidelines" → "Pitfalls" for clearer intent
+- Condensed table headers and column names throughout (e.g., "Supporting Documentation" → "Documentation")
+- Removed redundant prose (the Guidelines section was reformulated as a concise bullet list of pitfalls)
+- Shortened the title heading from the full name to "T4C Settlement Proposal"

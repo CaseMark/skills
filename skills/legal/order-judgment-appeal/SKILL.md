@@ -1,138 +1,104 @@
 ---
 name: order-judgment-appeal
-description: Drafts a U.S. appellate Order and Judgment memorializing the court’s disposition after review of a lower-court ruling, with compliant captioning, jurisdictional recitals, standards of review, issue-by-issue disposition, remand directives, costs, and mandate language. Use when preparing an appellate order, judgment, disposition, affirm/reverse/remand order, or mandate-ready directive.
-tags:
-  - drafting
-  - litigation
-  - pleading
+description: Drafts a U.S. appellate Order and Judgment memorializing disposition after review of a lower-court ruling. Covers captioning, jurisdictional recitals, standards of review, issue-by-issue holdings, remand directives, costs, and mandate language. Use when preparing an appellate order, judgment, disposition, affirm/reverse/remand order, or mandate-ready directive.
 ---
 
 # Order and Judgment on Appeal
 
-Produce a final, enforceable appellate order and judgment that cleanly states jurisdiction, analysis, and disposition.
+Produces a final, enforceable appellate order and judgment stating jurisdiction, analysis, and disposition.
 
 ## Prerequisites
 
-1. Appellate case number and lower-court case number
-2. Party names with correct procedural roles (appellant, appellee, intervenor)
-3. Trial judge name and date of the order/judgment on review
+1. Appellate and lower-court case numbers
+2. Party names with procedural roles (appellant, appellee, intervenor)
+3. Trial judge name and date of order/judgment under review
 4. Notice of appeal filing date and jurisdictional basis
-5. Issues presented on appeal and applicable standards of review
+5. Issues on appeal with applicable standards of review
 6. Record citations for key facts and rulings
 7. Disposition instructions (affirm/reverse/vacate/modify/remand)
-8. Costs/fees authority and outcome
-9. Mandate issuance rule or date (if known)
-10. Signature authority and clerk attestation requirements
+8. Costs/fees authority and mandate issuance rule
 
-## Output Structure / Process
+## Quick Start
 
-### 1) Caption Block
+Draft in sequence: caption → jurisdiction → issues/standards → analysis → disposition → remand (if any) → costs/mandate → authentication.
 
-Use the appellate court’s exact name and division. Include appellate and trial numbers.
+## Output Structure
 
-```
+### 1. Caption Block
+
 [APPELLATE COURT NAME]
 [Division / District]
 
 [Case Caption]
-[Appellate Case No.]
-[Trial Court No.]
-[Trial Judge]
+Appellate Case No. [___]
+Trial Court No. [___]
+Trial Judge: [___]
 
 ORDER AND JUDGMENT
 [Date]
-```
 
-### 2) Jurisdiction and Procedural History
+### 2. Jurisdiction and Procedural History
 
-Provide a concise, chronological summary that establishes jurisdiction and posture.
+Concise chronological summary establishing:
+- Appealed order/judgment and date
+- Timely notice of appeal
+- Issues presented
+- Briefing and oral argument status
+- Standard(s) of review for each issue
 
-Checklist:
-- Identify appealed order/judgment and date
-- Confirm timely notice of appeal
-- Identify issues presented
-- Note briefing dates and oral argument status
-- State standard(s) of review for each issue
-
-### 3) Issues and Standards of Review
-
-Use a table to map issues to review standards.
+### 3. Issues and Standards of Review
 
 | Issue | Standard of Review | Record Reference |
 |---|---|---|
-| [Issue 1] | [De novo / abuse of discretion / clearly erroneous / substantial evidence] | [Cite] |
-| [Issue 2] | [Standard] | [Cite] |
+| [Issue 1] | De novo / abuse of discretion / clearly erroneous / substantial evidence | [Cite] |
 
-### 4) Analysis and Holdings
+### 4. Analysis and Holdings
 
-For each issue, apply the standard to the record and state the holding.
+Per issue:
 
-Template:
-```
-Issue [#]. [Issue statement]
+Issue [#]. [Statement]
 Standard of Review: [standard]
-
 Holding: [affirm/reverse/modify/vacate]
 Reasoning: [1–3 sentences with controlling authority and record cite]
-```
 
-### 5) Disposition
+### 5. Disposition
 
-State the final disposition with issue-by-issue clarity.
-
-Template:
-```
 IT IS ORDERED AND ADJUDGED that:
 1. The [trial court order/judgment] is [affirmed/reversed/vacated/modified] as to [Issue].
 2. The matter is [remanded] for [specific action].
 3. [Costs/fees disposition].
-```
 
-### 6) Remand Instructions (if any)
+### 6. Remand Instructions (if applicable)
 
-Use explicit directives and limits.
-
-Checklist:
-- Scope of remand
-- Required proceedings or findings
+Specify:
+- Scope of remand and required proceedings
 - Limits on trial court discretion
 - Jurisdiction retained or returned
 - Deadline or timeline if imposed
 
-### 7) Costs, Fees, and Mandate
+### 7. Costs, Fees, and Mandate
 
-Specify statutory or rule basis when applicable.
-
-Template:
-```
 Costs on appeal are awarded to [party] pursuant to [authority].
-Attorney’s fees on appeal are [granted/denied] and [remanded for determination / set at $X].
+Attorney's fees on appeal are [granted/denied] and [remanded for determination / set at $X].
 The mandate shall issue [date/under rule].
-```
 
-### 8) Authentication
+### 8. Authentication
 
-Include signature line(s) and clerk attestation per local rule.
-
-Template:
-```
 DATED: [Date]
 
 ________________________________
-[Presiding Judge/Justice]
-[Title]
+[Presiding Judge/Justice], [Title]
 
 ATTEST:
 ________________________________
 Clerk of the Court
-```
 
-## Guidelines
+## Pitfalls
 
-- Keep tone neutral and judicial, not advocacy.
-- State standards of review explicitly for each issue.
-- Avoid ambiguity in the disposition; separate each issue’s outcome.
-- If modifying or remanding, specify exact changes or required actions.
-- Use jurisdiction-specific formatting and citation rules.
-- Include mandate language or issuance timing if required by local rule.
-- If authority is uncertain, mark with `[VERIFY]` before filing.
+- Maintain neutral judicial tone — not advocacy
+- State the standard of review explicitly for every issue
+- Separate each issue's outcome in the disposition — no ambiguity
+- If modifying or remanding, specify exact changes or required actions
+- Use jurisdiction-specific formatting and citation rules
+- Include mandate language if required by local rule
+- Mark uncertain authority with `[VERIFY]`

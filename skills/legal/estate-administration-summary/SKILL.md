@@ -1,6 +1,6 @@
 ---
 name: estate-administration-summary
-description: Generates structured U.S. estate administration/probate summaries that capture decedent and case identifiers, asset inventory and valuations, creditor claims, distributions, tax compliance, disputes, and next steps with source citations. Use for estate administration summary, probate status report, executor update, estate progress report, inventory and appraisal summary, creditor claims status, or distribution schedule summary.
+description: Generates a structured U.S. estate administration/probate status summary covering decedent identifiers, asset inventory, creditor claims, distributions, tax compliance, disputes, and next steps with source citations. Trigger on requests for estate administration summary, probate status report, executor update, estate progress report, inventory and appraisal summary, creditor claims status, or distribution schedule summary.
 tags:
   - summarization
   - summary
@@ -9,39 +9,33 @@ tags:
 
 # Estate Administration Summary
 
-Structured snapshot of probate/estate administration status, actions completed, issues, and remaining work.
+Structured snapshot of probate/estate administration status: actions completed, outstanding issues, and remaining work.
 
-## Prerequisites
+## Quick Start
 
-1. Governing instrument(s): will, codicils, trust, or intestacy determination.
-2. Probate case data: court, case number, petition, letters of appointment, bond.
-3. Asset inventory and appraisals with valuation dates.
-4. Creditor notices, claims register, and payment records.
-5. Beneficiary roster and distribution records (interim/final).
-6. Tax filings and notices: final 1040, fiduciary returns, estate/inheritance tax if applicable.
-7. Orders, objections, correspondence, or litigation filings affecting administration.
+1. Collect governing instruments (will, codicils, trust, intestacy determination), probate case data, asset inventory with appraisals, creditor records, beneficiary roster, tax filings, and any litigation filings.
+2. Walk through each output section in order.
+3. Cite every factual statement (document name + date + page/paragraph). Mark missing or uncertain facts `UNKNOWN` and list them in Open Questions.
 
-## Output Structure / Process
+## Output Sections
 
-Use the sections below in order. Cite sources for all factual statements (document name + date + page/paragraph). If a fact is missing or uncertain, mark `UNKNOWN` and list it in "Open Questions / Missing Docs".
-
-### 1) Matter Header (table)
+### 1) Matter Header
 
 Field | Value | Source
 --- | --- | ---
-Decedent (full name) |  |
-Date of death |  |
-Domicile at death |  |
-Jurisdiction / court |  |
-Case number |  |
-Personal representative / executor |  |
-Relationship to decedent |  |
-Appointment date |  |
+Decedent (full name) | |
+Date of death | |
+Domicile at death | |
+Jurisdiction / court | |
+Case number | |
+Personal representative / executor | |
+Relationship to decedent | |
+Appointment date | |
 Governing instrument | will / trust / intestacy |
-Bond required? | yes/no/unknown |
+Bond required? | yes / no / unknown |
 Status as of | YYYY-MM-DD |
 
-### 2) Estate Snapshot (bullets)
+### 2) Estate Snapshot
 
 - Gross estate value (as of date):
 - Known liabilities (as of date):
@@ -49,90 +43,69 @@ Status as of | YYYY-MM-DD |
 - Distributions to date (total):
 - Anticipated remaining duration:
 
-### 3) Assets & Valuation (table)
+### 3) Assets & Valuation
 
-Asset | Category | Ownership/title | Value (date) | Status (retained/sold) | Beneficiary/plan | Issues | Source
+Asset | Category | Ownership/Title | Value (date) | Status | Beneficiary/Plan | Issues | Source
 --- | --- | --- | --- | --- | --- | --- | ---
- |  |  |  |  |  |  | 
+ | | | | retained/sold | | |
 
-### 4) Creditor Claims (table)
+### 4) Creditor Claims
 
-Claim deadline | Date | Source
---- | --- | ---
-Statutory claims deadline |  | 
+Statutory claims deadline: [date] — Source: [cite]
 
-Creditor | Amount claimed | Priority class | Status (approved/rejected/paid/pending) | Resolution date | Notes | Source
+Creditor | Amount Claimed | Priority Class | Status | Resolution Date | Notes | Source
 --- | --- | --- | --- | --- | --- | ---
- |  |  |  |  |  | 
+ | | | approved/rejected/paid/pending | | |
 
-### 5) Distributions (table)
+### 5) Distributions
 
-Recipient | Relationship | Asset/cash | Value | Date | Authority (order/consent) | Source
+Recipient | Relationship | Asset/Cash | Value | Date | Authority | Source
 --- | --- | --- | --- | --- | --- | ---
- |  |  |  |  |  | 
+ | | | | | order/consent |
 
-### 6) Tax Compliance (checklist)
+### 6) Tax Compliance
 
-- [ ] Final individual income tax return filed (Form 1040) date:
-- [ ] Fiduciary income tax returns filed (Form 1041 or state equivalent) periods:
-- [ ] Estate tax return required? (Form 706 / state) basis:
+- [ ] Final individual return (Form 1040) — date:
+- [ ] Fiduciary returns (Form 1041 / state) — periods:
+- [ ] Estate tax return required? (Form 706 / state) — basis:
 - [ ] Taxes paid / liabilities outstanding:
 - [ ] Audits, notices, or disputes:
 
-### 7) Disputes / Litigation / Challenges (table)
+### 7) Disputes / Litigation
 
-Issue | Parties | Procedural status | Next deadline/event | Impact on administration | Source
+Issue | Parties | Procedural Status | Next Deadline | Impact on Administration | Source
 --- | --- | --- | --- | --- | ---
- |  |  |  |  | 
+ | | | | |
 
-### 8) Administration Timeline (table)
+### 8) Administration Timeline
 
 Date | Event | Source
 --- | --- | ---
- |  | 
+ | |
 
-### 9) Beneficiary Communications & Accountings (bullets)
+### 9) Beneficiary Communications & Accountings
 
 - Beneficiaries notified (date/method):
 - Missing, minor, or incapacitated beneficiaries:
 - Accountings delivered or filed (type/date):
 - Objections or concerns raised:
 
-### 10) Remaining Tasks & Forecast (table)
+### 10) Remaining Tasks & Forecast
 
-Task | Dependency | Target date | Risk/notes | Source
+Task | Dependency | Target Date | Risk/Notes | Source
 --- | --- | --- | --- | ---
- |  |  |  | 
+ | | | |
 
-### 11) Open Questions / Missing Docs (list)
+### 11) Open Questions / Missing Docs
 
-- 
-- 
+- [List each unknown, missing document, or unresolved issue]
 
-### Template (optional formatting)
+## Pitfalls & Checks
 
-```
-Estate Administration Summary (As of YYYY-MM-DD)
-
-1. Matter Header
-2. Estate Snapshot
-3. Assets & Valuation
-4. Creditor Claims
-5. Distributions
-6. Tax Compliance
-7. Disputes / Litigation
-8. Administration Timeline
-9. Beneficiary Communications & Accountings
-10. Remaining Tasks & Forecast
-11. Open Questions / Missing Docs
-```
-
-## Guidelines
-
-- Use neutral, factual language; avoid legal opinions or advice.
-- State all amounts and dates with "as of" qualifiers and cite the source.
-- Do not infer statutory deadlines or priority rules; if not documented, mark `UNKNOWN` and flag as state-specific.
-- Reconcile conflicting data only when a source hierarchy is explicit; otherwise show both and note the conflict.
-- Redact or mask sensitive identifiers (SSN, full account numbers).
-- If a legal citation is required but not verified, tag it `[VERIFY]`.
-- Keep U.S. probate terminology consistent with the governing jurisdiction (court terminology varies by state).
+- **No legal opinions.** Use neutral, factual language throughout.
+- **"As of" qualifiers.** Every amount and date must state its reference date and cite the source.
+- **Do not infer deadlines or priority rules.** If not documented, mark `UNKNOWN` and flag as state-specific.
+- **Conflicting data.** Only reconcile when the source hierarchy is explicit; otherwise present both values and note the conflict.
+- **Redact PII.** Mask SSNs, full account numbers, and other sensitive identifiers.
+- **Unverified citations.** Tag with `[VERIFY]`.
+- **Jurisdiction terminology.** Use probate terms consistent with the governing state's courts.

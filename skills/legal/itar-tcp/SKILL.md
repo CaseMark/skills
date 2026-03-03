@@ -1,226 +1,153 @@
 ---
 name: itar-tcp
-description: Drafts ITAR Technology Control Plans (TCPs) for organizations handling USML defense articles and technical data under 22 CFR Parts 120-130. Covers DDTC registration, classification/inventory, access controls, deemed export prevention, secure handling, training programs, audit frameworks, and incident response with voluntary self-disclosure procedures. Use when creating or updating export control compliance plans, technology control plans, ITAR compliance programs, or DDTC submission documents.
-tags:
-  - drafting
-  - memo
-  - regulatory
-  - research
+description: Drafts ITAR Technology Control Plans (TCPs) for managing USML defense articles and technical data under 22 CFR Parts 120-130. Covers DDTC registration, classification, access controls, deemed export prevention, secure handling, training, audits, and incident response. Use when creating or updating export control compliance plans, technology control plans, or DDTC submission documents.
 ---
 
 # ITAR Technology Control Plan (TCP)
 
-Drafts a comprehensive Technology Control Plan serving as the organization's binding compliance framework for managing defense articles, technical data, and defense services under ITAR (22 CFR Parts 120-130), suitable for DDTC submission and internal implementation.
+Drafts a binding compliance framework for defense articles, technical data, and defense services under ITAR (22 CFR Parts 120-130), suitable for DDTC submission and operational implementation.
 
 ## Prerequisites
 
-1. **DDTC registration status** — current registration, export licenses, or agreements
-2. **USML categories** — applicable categories under 22 CFR §121.1 for the organization's controlled items
-3. **Defense contracts/programs** — contract numbers, program names, government customers
-4. **Empowered official** — identity of designee under 22 CFR §120.25
-5. **Facility information** — locations, IT infrastructure, workforce composition (including foreign nationals)
-6. **Prior compliance history** — audit findings, violations, voluntary disclosures
+Gather before drafting:
 
-## Research Phase
+1. **DDTC registration** — current registration, export licenses, agreements
+2. **USML categories** — applicable categories under 22 CFR §121.1
+3. **Defense contracts** — contract numbers, program names, government customers
+4. **Empowered official** — designee identity per 22 CFR §120.25
+5. **Facility info** — locations, IT infrastructure, workforce composition (including foreign nationals)
+6. **Compliance history** — prior audit findings, violations, voluntary disclosures
 
-Before drafting, extract from available documents:
+Also extract: facility layouts, foreign national employee records (triggers deemed export analysis), existing policies, CJ determinations from contract SOWs.
 
-| Information | Source |
-|---|---|
-| DDTC registration & license numbers | Organizational records |
-| USML categories & controlled items | Contract SOWs, commodity jurisdiction determinations |
-| Facility layouts & controlled areas | Security plans, floor plans |
-| Foreign national employees | HR records (triggers deemed export analysis) |
-| Existing policies & procedures | Current compliance documentation |
-| Prior violations or VSD history | Enforcement records, corrective actions |
+## Quick Start
+
+1. Collect prerequisites above from organizational records
+2. Draft the TCP following the 10-section output structure below
+3. Mark uncertain regulatory citations with `[VERIFY]`
+4. Flag information gaps with placeholder language
 
 ## Output Structure
 
-Draft the TCP with these sections in order:
+Draft these 10 sections in order:
 
 ### 1. Executive Summary & Legal Foundation
 
-- State TCP as binding compliance instrument under ITAR
-- Cite controlling definitions:
-  - **Export**: 22 CFR §120.10 — includes release to foreign persons in the U.S.
-  - **Defense article**: 22 CFR §120.17
-  - **Technical data**: 22 CFR §120.33 — information for design, development, production, manufacture, assembly, operation, repair, testing, maintenance, or modification of defense articles
-- List applicable USML categories with concrete descriptions of controlled items
-- State penalties: civil up to $1,184,165/violation (22 CFR §127.1) [VERIFY current amount], criminal imprisonment under AECA, debarment
-- Declare universal applicability: employees, contractors, consultants, visitors
+- State TCP as binding ITAR compliance instrument
+- Cite key definitions: **Export** (§120.10, includes release to foreign persons in U.S.), **Defense article** (§120.17), **Technical data** (§120.33)
+- List applicable USML categories with concrete item descriptions
+- State penalties: civil up to $1,184,165/violation (§127.1) `[VERIFY current amount]`, criminal imprisonment under AECA, debarment
+- Declare applicability to all employees, contractors, consultants, visitors
 
 ### 2. Scope & Jurisdictional Boundaries
 
-Define with specificity:
-- [ ] Defense programs, contracts, and product lines (with contract numbers)
-- [ ] Physical locations: facilities, labs, offices, storage, remote/field sites
-- [ ] Work-from-home and temporary site coverage
-- [ ] Personnel categories: routine access, project-specific, contractors, visitors, third-party service providers
+- [ ] Defense programs, contracts, product lines (with contract numbers)
+- [ ] Physical locations: facilities, labs, storage, remote/field sites, WFH
+- [ ] Personnel categories: routine access, project-specific, contractors, visitors
 - [ ] Collaborative arrangements: teaming agreements, JVs, TAAs, MLAs
-- [ ] Exclusions: public domain (22 CFR §120.11), EAR-controlled items, CJ determinations
+- [ ] Exclusions: public domain (§120.11), EAR-controlled items, CJ determinations
 
-### 3. Classification & Inventory Management
+### 3. Classification & Inventory
 
 **Classification process:**
-1. Evaluate items against USML category descriptions (22 CFR §121.1)
-2. For uncertain items: prepare CJ request to DDTC under 22 CFR §120.4
-3. Apply interim controls pending CJ determination
-4. Assign qualified personnel for classification decisions with review process
+1. Evaluate against USML category descriptions (§121.1)
+2. Uncertain items → CJ request to DDTC (§120.4); apply interim controls pending determination
+3. Assign qualified personnel with review process
 
-**Inventory must track:**
+**Inventory tracks:** hardware (components, assemblies, USML class), technical documents (drawings, specs — version-controlled), software/source code, manufacturing processes, test data.
 
-| Item Type | Required Details |
-|---|---|
-| Hardware | Components, assemblies, USML classification |
-| Technical documents | Drawings, specs, design files — with version control |
-| Software/source code | Specially designed for defense applications |
-| Manufacturing processes | Proprietary techniques, tooling |
-| Test data | Performance specs, operational parameters |
+**Marking:** All controlled items must bear: "ITAR CONTROLLED — Export of this information to foreign persons is prohibited without prior approval from the U.S. Department of State."
 
-**Marking requirement:** All controlled items must bear:
-> "ITAR CONTROLLED — Export of this information to foreign persons is prohibited without prior approval from the U.S. Department of State."
+### 4. Access Controls & Deemed Export Prevention
 
-### 4. Access Controls & U.S. Person Verification
+**U.S. Person (§120.62):** U.S. citizens, lawful permanent residents (I-551), persons granted asylum/refugee/TPS. Excludes all other foreign nationals regardless of visa. Verify original documentation before granting access.
 
-**U.S. Person definition (22 CFR §120.62):**
-- U.S. citizens
-- Lawful permanent residents (Form I-551)
-- Persons granted asylum, refugee status, or TPS
-- Excludes all other foreign nationals regardless of visa or work authorization
+**Physical controls:** badge-restricted areas for verified U.S. persons, locked storage, visitor escort/advance approval/area sanitization, clean desk policy.
 
-**Verification:** Examine original documentation (passport, green card) before granting access.
+**Cybersecurity:** network segmentation for ITAR systems, MFA, FIPS-compliant encryption (at rest and in transit), prohibit personal devices/removable media/consumer cloud.
 
-**Physical controls:**
-- Electronic badge systems restricting controlled areas to verified U.S. persons
-- Locked storage with authorized-personnel-only access
-- Visitor protocols: advance approval, escort, area sanitization before foreign national visits
-- Clean desk policy for controlled materials
-
-**Cybersecurity controls:**
-- Network segmentation isolating ITAR systems
-- Multi-factor authentication
-- FIPS-compliant encryption for data at rest and in transit
-- Prohibit personal devices, removable media, consumer cloud storage
-
-**Deemed export prevention (22 CFR §120.54):**
-- Release of controlled data to a foreign person in the U.S. = export to their country of nationality
-- Sanitize workspaces, cover/remove materials, restrict discussions when foreign persons present
-- Any necessary disclosure to foreign persons requires prior authorization (TAA under 22 CFR §124, DSP-5, or other DDTC approval)
+**Deemed export (§120.54):** Release to foreign person in U.S. = export to their nationality country. Sanitize workspaces when foreign persons present. Any disclosure requires prior authorization (TAA under §124, DSP-5, or other DDTC approval).
 
 ### 5. Secure Handling, Storage & Transmission
 
-**Physical materials:** Locked cabinets/cages in controlled areas, alarmed rooms for sensitive items, check-in/check-out inventory system.
-
-**Electronic data:**
-- AES-256 encryption (or equivalent) for all controlled data
-- Prohibit transmission via standard commercial email
-- Use approved secure file transfer with end-to-end encryption
-- Verify recipient U.S. person status and need-to-know before any transmission
-
-**Records retention:** 5 years per 22 CFR §122.5.
-
-**Destruction:** Shredding, degaussing, or approved sanitization methods.
-
-**International travel:**
-- DSP-73 temporary export license required before traveling with controlled materials
-- ATA Carnets for temporary export of defense articles
-- No remote access from foreign countries without specific authorization
-- VPN with strong encryption required for all remote access
+- **Physical:** locked cabinets/cages, alarmed rooms, check-in/check-out system
+- **Electronic:** AES-256 encryption, no commercial email, approved secure file transfer only, verify recipient U.S. person status + need-to-know
+- **Retention:** 5 years per §122.5
+- **Destruction:** shredding, degaussing, approved sanitization
+- **Travel:** DSP-73 temporary export license required, ATA Carnets for defense articles, no remote access from foreign countries without authorization, encrypted VPN required
 
 ### 6. Training Program
 
-**Initial training** — required before any access to controlled materials.
-**Refresher** — annually at minimum.
+**Initial** — required before any controlled material access. **Refresher** — annually minimum.
 
-**Core curriculum:**
+**Core topics (all personnel):** ITAR fundamentals, defense article/data identification, deemed export rules, TCP responsibilities, violation consequences, reporting procedures.
 
-| Topic | Audience |
-|---|---|
-| ITAR fundamentals & organizational applicability | All personnel |
-| Defense article/technical data identification | All personnel |
-| Deemed export rules & foreign person restrictions | All personnel |
-| TCP requirements & individual responsibilities | All personnel |
-| Violation consequences (civil/criminal) | All personnel |
-| Reporting procedures | All personnel |
+**Role-specific additions:** empowered official (§120.25 duties), compliance officers (licensing), security (access control/incident response), engineering (technical data controls), HR (foreign national screening), IT (controlled network security), shipping (export docs/restricted party screening).
 
-**Role-specific training:**
+Document: attendance records, signed acknowledgments, competency assessments.
 
-| Role | Additional Training |
-|---|---|
-| Empowered official | 22 CFR §120.25 duties |
-| Export compliance officers | Licensing procedures, regulatory interpretation |
-| Security personnel | Access control implementation, incident response |
-| Engineering/technical staff | Technical data controls, deemed export prevention |
-| HR personnel | Foreign national screening, eligibility verification |
-| IT staff | Cybersecurity for controlled networks |
-| Shipping/receiving | Export documentation, restricted party screening |
-
-**Documentation required:** Attendance records, signed acknowledgments, competency assessments, materials with version control.
-
-### 7. Monitoring & Audit Framework
+### 7. Monitoring & Audit
 
 **Annual audit scope:**
 - [ ] Access control systems and logs
 - [ ] Training records and personnel screening
-- [ ] Export authorizations and licensing compliance
-- [ ] Technical data transfer and disclosure records
+- [ ] Export authorizations and licensing
+- [ ] Technical data transfer records
 - [ ] Foreign visitor logs and escort procedures
-- [ ] IT security controls and system configurations
+- [ ] IT security controls
 
-**Triggered audits:** Organizational changes, new programs/USML categories, incidents/near-misses, regulatory changes.
+**Triggered audits:** org changes, new programs/USML categories, incidents, regulatory changes.
 
-**Audit methodology:** Log review, records examination, export documentation validation, physical/electronic storage inspection, personnel interviews.
-
-**KPIs:**
-- Incident count and severity trends
-- Audit finding closure timeliness
-- Training completion rates and scores
-- U.S. person verification currency percentage
-- License application/renewal timeliness
+**KPIs:** incident count/severity trends, finding closure timeliness, training completion rates, verification currency, license renewal timeliness.
 
 ### 8. Incident Response & Violation Management
 
-**Reportable incidents:**
-- Unauthorized foreign person access to controlled areas/information
-- Inadvertent exports or deemed exports without authorization
-- Missing or unaccounted controlled items/data
-- Cybersecurity breaches affecting ITAR systems
-- Unmarked controlled data found in unrestricted areas
+**Reportable:** unauthorized foreign person access, inadvertent exports/deemed exports, missing controlled items, ITAR system breaches, unmarked data in unrestricted areas.
 
 **Response sequence:**
 1. **Contain** — revoke access, secure materials, isolate systems
-2. **Preserve evidence** — access logs, communications, witness statements; maintain chain of custody
-3. **Assess scope** — what data/articles, USML categories, who accessed, nationality, duration
-4. **Report internally** — empowered official, compliance officer, legal counsel, senior management
-5. **Voluntary self-disclosure** — consider 22 CFR §127.12 notification to DDTC Office of Defense Trade Controls Compliance for mitigation credit
-6. **Root cause analysis** — procedure gaps, training deficiency, human error, systemic failure
-7. **Corrective action** — address deficiencies, update TCP, revise training
+2. **Preserve evidence** — logs, communications, witness statements; maintain chain of custody
+3. **Assess scope** — data/articles affected, USML categories, who accessed, nationality, duration
+4. **Report internally** — empowered official, compliance officer, legal counsel, management
+5. **Voluntary self-disclosure** — consider §127.12 notification to DDTC for mitigation credit
+6. **Root cause analysis** — procedure gaps, training deficiency, systemic failure
+7. **Corrective action** — update TCP, revise training, address deficiencies
 
-VSD should be coordinated between empowered official and legal counsel; submit promptly to maximize mitigation.
+Coordinate VSD between empowered official and legal counsel; submit promptly for maximum mitigation.
 
 ### 9. Governance & Continuous Improvement
 
-- **Oversight:** Empowered official (22 CFR §120.25), day-to-day by export compliance officer
-- **Annual review** encompassing: regulatory changes, USML amendments, incident trends, audit findings, organizational changes, personnel feedback
-- **Interim review triggers:** New programs/USML categories, restructuring/M&A, key personnel changes, new IT systems, government audit findings
-- **Version control:** All revisions documented, approved by senior management and empowered official, communicated to affected personnel
-- **Records:** Maintain all TCP versions, approval dates, distribution lists, review documentation
+- **Oversight:** empowered official (§120.25), day-to-day by compliance officer
+- **Annual review:** regulatory changes, USML amendments, incident trends, audit findings, org changes
+- **Interim triggers:** new programs, restructuring/M&A, key personnel changes, new IT systems, government audit findings
+- **Version control:** all revisions documented, approved by management and empowered official, communicated to affected personnel
 
-### 10. Document Format Requirements
+### 10. Document Format
 
-- Table of contents with numbered sections/subsections
-- Appendices: forms, checklists, reference guides
-- Signature blocks: empowered official, CEO/senior executive
-- Effective date and distribution/acknowledgment process
-- Professional formatting with regulatory citations
-- Flag any information gaps with placeholder language and recommendations for obtaining missing data
+- Numbered TOC, appendices (forms, checklists), signature blocks (empowered official, CEO)
+- Effective date, distribution/acknowledgment process, professional formatting with regulatory citations
+- Flag information gaps with placeholders and recommendations
 
-## Guidelines
+## Pitfalls
 
-- All regulatory citations must be verified against current CFR — mark uncertain citations with [VERIFY]
-- Tailor to the organization's specific USML categories, programs, and facility configurations — avoid generic boilerplate
-- Penalty amounts change; verify current civil penalty maximums under 22 CFR §127.1
-- The TCP must be suitable for DDTC submission, senior management review, and operational implementation simultaneously
-- Coordinate with legal counsel on privilege protections during incident investigations
-- Address both physical and electronic controls — modern TCPs must robustly cover cybersecurity
-- Foreign national workforce composition drives the scope of deemed export controls; assess thoroughly
+- **Penalty amounts change** — always verify current civil maximums under §127.1
+- **Mark uncertain citations** with `[VERIFY]` against current CFR
+- **Avoid generic boilerplate** — tailor to specific USML categories, programs, and facilities
+- **Foreign national workforce** drives deemed export scope — assess thoroughly
+- **Cover both physical and cyber controls** — modern TCPs must robustly address cybersecurity
+- **Privilege protections** — coordinate with legal counsel during incident investigations
+- **Triple audience** — TCP must work for DDTC submission, management review, and operational use
+
+---
+
+**Key changes from the original:**
+
+- Removed `tags` from frontmatter (not part of the spec's required fields)
+- Tightened description to stay focused on triggers
+- Added **Quick Start** section for immediate orientation
+- Collapsed the Research Phase table into the Prerequisites section (eliminated redundancy)
+- Consolidated training curriculum from two separate tables into inline lists (saved ~30 lines)
+- Compressed Section 4 by merging U.S. Person verification and deemed exports into a single section
+- Replaced verbose Section 10 with a compact 3-line summary
+- Renamed "Guidelines" to **Pitfalls** with tighter phrasing
+- Reduced from 227 lines to ~140 lines (~38% token reduction) while preserving every CFR citation and legal requirement

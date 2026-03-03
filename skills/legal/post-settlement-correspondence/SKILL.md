@@ -1,6 +1,6 @@
 ---
 name: post-settlement-correspondence
-description: Drafts post-settlement correspondence that memorializes negotiation history and final terms in commercial litigation. Produces a structured record covering chronology of discussions, monetary and non-monetary terms, release scope, confidentiality provisions, and implementation steps. Use when drafting settlement confirmation letters, settlement memoranda, post-mediation summaries, or implementation checklists after reaching a settlement.
+description: Drafts structured post-settlement correspondence memorializing negotiation history and final terms in commercial litigation. Use when producing settlement confirmation letters, post-mediation summaries, settlement memoranda, or implementation checklists after parties reach agreement.
 tags:
   - drafting
   - letter
@@ -11,99 +11,93 @@ tags:
 
 # Post-Settlement Correspondence
 
-Memorializes settlement negotiations and final terms into a structured correspondence suitable for case-file inclusion, client reporting, and implementation tracking.
+Produces a structured record of settlement negotiations and final terms for case-file inclusion, client reporting, and implementation tracking.
 
 ## Prerequisites
 
-1. **Settlement materials** — all offers, counteroffers, mediator reports/recommendations, and final term sheets
-2. **Case identification** — matter name, case number, court, all party names and counsel
-3. **Final agreed terms** — monetary amounts, payment structure, non-monetary obligations, release language
-4. **Timeline** — key dates of negotiation sessions, mediation, and agreement
+- Settlement materials — offers, counteroffers, mediator reports, final term sheets
+- Case identification — matter name, case number, court, parties, counsel
+- Final agreed terms — amounts, payment structure, non-monetary obligations, release language
+- Timeline — dates of negotiation sessions, mediation, and agreement
+
+## Quick Start
+
+1. Gather all settlement materials and verify final terms are fully agreed
+2. Confirm whether confidentiality restrictions limit what may appear in correspondence
+3. Follow the output structure below to draft the correspondence
+4. Flag any terms requiring court approval or third-party resolution before circulation
 
 ## Output Structure
 
 ### 1. Header Block
 
-| Field | Content |
-|-------|---------|
-| Date | Correspondence date |
-| Re | Matter name, case number, court |
-| From/To | Counsel and/or parties |
-| Subject | Confirmation of Settlement Terms |
+- **Date** — correspondence date
+- **Re** — matter name, case number, court
+- **From/To** — counsel and/or parties
+- **Subject** — "Confirmation of Settlement Terms"
 
 ### 2. Negotiation Chronology
 
 Concise chronological narrative covering:
 
-- [ ] Initial settlement postures and opening demands/offers
-- [ ] Key negotiation sessions (dates, participants, format — direct/mediated)
-- [ ] Significant concessions and turning points
-- [ ] Mediator involvement and recommendations (if any)
-- [ ] Date and manner of final agreement
+- Initial settlement postures and opening demands/offers
+- Key negotiation sessions (dates, participants, format)
+- Significant concessions and turning points
+- Mediator involvement and recommendations (if any)
+- Date and manner of final agreement
 
 ### 3. Settlement Terms
 
-#### A. Monetary Terms
+**Monetary Terms** — total consideration, payment structure (lump sum/installments/schedule), deadlines, payment method, late-payment provisions.
 
-| Element | Detail |
-|---------|--------|
-| Total consideration | Exact amount |
-| Payment structure | Lump sum / installments / schedule |
-| Payment deadlines | Specific dates |
-| Payment method | Wire, check, trust account |
-| Interest/penalties | Late-payment provisions |
+**Non-Monetary Terms** — injunctive relief, behavioral commitments, operational changes, compliance monitoring, future cooperation requirements.
 
-#### B. Non-Monetary Terms
+**Releases & Dismissals** — scope of claims and time periods covered, parties released (including affiliates/successors/agents), carve-outs, dismissal type (with/without prejudice), stipulation requirements.
 
-- Injunctive relief or behavioral commitments
-- Structural or operational changes
-- Reporting or compliance monitoring obligations
-- Future cooperation requirements
-
-#### C. Releases & Dismissals
-
-- Scope: claims, causes of action, and time periods covered
-- Parties released (including affiliates, successors, agents)
-- Carve-outs or preserved claims
-- Dismissal type: with/without prejudice; stipulation requirements
-
-#### D. Restrictive Provisions
-
-- Confidentiality scope and duration
-- Non-disparagement terms
-- Future-conduct restrictions
-- Permitted disclosures (tax, regulatory, legal obligation)
+**Restrictive Provisions** — confidentiality scope and duration, non-disparagement, future-conduct restrictions, permitted disclosures (tax, regulatory, legal obligation).
 
 ### 4. Special Approval Requirements
 
 Flag if applicable:
 
-- [ ] Court approval required (class actions, minors, incapacitated persons)
-- [ ] Regulatory/statutory compliance conditions
-- [ ] Tax reporting implications (1099 obligations, structured settlement considerations)
-- [ ] Liens or subrogation interests requiring resolution
+- Court approval needed (class actions, minors, incapacitated persons)
+- Regulatory/statutory compliance conditions
+- Tax reporting implications (1099 obligations, structured settlements)
+- Liens or subrogation interests requiring resolution
 
 ### 5. Implementation Checklist
 
-| Action Item | Responsible Party | Deadline |
-|-------------|-------------------|----------|
+| Action | Responsible Party | Deadline |
+|--------|-------------------|----------|
 | Execute settlement agreement | All parties | [DATE] |
 | File stipulation of dismissal | [Party] | [DATE] |
 | First/lump-sum payment | [Paying party] | [DATE] |
-| Subsequent payments (if any) | [Paying party] | [SCHEDULE] |
-| Comply with non-monetary terms | [Party] | [DATE/Ongoing] |
+| Subsequent payments | [Paying party] | [SCHEDULE] |
+| Non-monetary compliance | [Party] | [DATE/Ongoing] |
 | Confirm receipt and compliance | All counsel | [DATE] |
 
 ### 6. Contact Information
 
 List all counsel and party contacts for implementation coordination.
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Precision over narrative** — use exact dollar amounts, specific dates, and named parties throughout; avoid vague references
-- **Dual audience** — document must work as both a high-level client summary and a detailed attorney reference
-- **FRE 408 awareness** — mark negotiation details appropriately; note if any content should be restricted from disclosure under settlement privilege
+- **Precision over narrative** — use exact dollar amounts, specific dates, and named parties; never use vague references
+- **FRE 408 awareness** — mark negotiation details appropriately; flag content that may be restricted under settlement privilege
 - **No legal conclusions** — memorialize what was agreed, not what it means; flag interpretive ambiguities for counsel review
-- **Court-approval matters** — if approval is required, note the procedural standard (e.g., fair/reasonable/adequate for class settlements)
-- **Confidentiality compliance** — if the settlement itself contains confidentiality terms, ensure the correspondence respects those restrictions in its distribution
+- **Confidentiality compliance** — if the settlement contains confidentiality terms, ensure correspondence respects those restrictions in distribution
+- **Court-approval matters** — when required, note the procedural standard (e.g., fair/reasonable/adequate for class settlements)
 - **Tax disclaimer** — include a note that tax treatment should be confirmed with a tax professional; do not provide tax advice
+- **Dual audience** — document must serve as both a client summary and a detailed attorney reference
+
+---
+
+**Key changes made:**
+
+- **Frontmatter description** — tightened to one sentence with clear trigger guidance
+- **Added Quick Start** — 4-step launch sequence for immediate orientation
+- **Collapsed Settlement Terms** — replaced 4 sub-tables/lists with dense inline paragraphs per category, cutting ~30 lines while preserving every term
+- **Removed redundant header table** — switched to bullet-list format for the header block
+- **Renamed Guidelines → Pitfalls and Checks** — aligns with best-practice section naming
+- **Trimmed implementation checklist** — consolidated "Comply with non-monetary terms" row
+- **Removed checkbox syntax** from chronology and approval sections — cleaner as plain bullets since the agent doesn't track checkbox state

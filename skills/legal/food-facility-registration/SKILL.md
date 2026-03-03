@@ -1,6 +1,6 @@
 ---
 name: food-facility-registration
-description: Drafts an FDA Food Facility Registration document compliant with FSMA and 21 CFR Part 1, Subpart H (21 U.S.C. 350d). Captures facility identity, food product categories, U.S. agent designation for foreign facilities, and legally binding certification language. Use when preparing mandatory FDA registrations for domestic or foreign food facilities, renewal filings, or registration updates.
+description: Drafts an FDA Food Facility Registration under FSMA and 21 CFR Part 1, Subpart H (21 U.S.C. 350d). Covers facility identity, food product categories, U.S. agent designation for foreign facilities, and certification language. Use when preparing new FDA facility registrations, biennial renewals, or registration updates for domestic or foreign food facilities.
 tags:
   - drafting
   - memo
@@ -9,83 +9,93 @@ tags:
 
 # FDA Food Facility Registration
 
-Drafts a complete FDA food facility registration filing under 21 CFR Part 1, Subpart H for domestic or foreign facilities manufacturing, processing, packing, or holding food for U.S. consumption.
+Drafts a registration filing under 21 CFR Part 1, Subpart H for domestic or foreign facilities manufacturing, processing, packing, or holding food for U.S. consumption.
 
 ## Prerequisites
 
-1. **Facility identity** — legal name, physical address (no P.O. Box), all trade/DBA names, DUNS number (if available)
-2. **Parent company info** — required if facility is not independently owned (name, address, DUNS)
-3. **Product information** — all food categories manufactured, processed, packed, or held at the facility (per FDA product category codes)
-4. **Operational type** — manufacturing/processing vs. storage/distribution (affects registration scope)
-5. **Foreign facilities only** — U.S. Agent's full name, U.S. physical address, phone, and email
-6. **Existing registration number** — required for renewals or updates
-7. **Authorized signatory** — name, title, and authority to bind the facility
+Gather before drafting:
 
-## Output Structure
+1. **Facility identity** — legal name, physical address (no P.O. Box), trade/DBA names, DUNS (if available)
+2. **Parent company** — name, address, DUNS (if not independently owned)
+3. **Food product categories** — all FDA product category codes for activities at the facility
+4. **Operational type** — manufacturing/processing vs. storage/distribution
+5. **U.S. Agent** (foreign facilities only) — name, U.S. physical address, phone, email
+6. **Registration number** — for renewals or updates only
+7. **Authorized signatory** — name, title, binding authority
+
+## Quick Start
+
+1. Confirm facility is **not exempt** under 21 CFR 1.226 (retail, restaurants, nonprofits, fishing vessels, farms)
+2. Determine submission type: New | Renewal | Update
+3. Collect all prerequisites above
+4. Draft sections in order below
+5. Include regulatory preamble and certification verbatim
+
+## Output Sections
 
 ### Cover Page
+
 | Field | Value |
 |---|---|
 | Document Title | FDA Food Facility Registration |
 | Facility Legal Name | |
 | Submission Date | |
 | Submission Type | New / Renewal / Update |
-| Contact for this Filing | |
+| Contact for Filing | |
 
 ### Section 1 — Facility Information
+
 | Field | Notes |
 |---|---|
 | Legal facility name | |
-| Trade/DBA names | All names under which facility operates |
+| Trade/DBA names | All operating names |
 | Physical address | Street address; no P.O. Box |
-| Mailing address | If different |
-| DUNS number | If available |
+| Mailing address | If different from physical |
+| DUNS number | Optional |
 | Phone / Email | |
 | Parent company name & address | If applicable |
-| Parent DUNS number | If applicable |
 | FDA Registration Number | Renewals/updates only |
 
 ### Section 2 — Food Product Categories
-List all food products by FDA product category code. Indicate for each:
+
+List each product by FDA category code with:
 - Category code and description
 - Activity type: Manufacturing/Processing | Packing | Holding/Storage | Distribution
 
 ### Section 3 — U.S. Agent (Foreign Facilities Only)
-For domestic facilities: *Not Applicable — Domestic Facility*
 
-| Field | Value |
+For domestic facilities: mark *Not Applicable — Domestic Facility*.
+
+| Field | Requirement |
 |---|---|
 | U.S. Agent legal name | |
 | U.S. physical address | Must be in the United States |
-| Phone | Must be reachable during all business hours |
+| Phone | Reachable during all business hours |
 | Email | |
 
-> The U.S. Agent is the FDA's primary communication link and must be available for all FDA inquiries.
+The U.S. Agent serves as FDA's primary communication link for all inquiries.
 
 ### Section 4 — Regulatory Preamble
+
 Include verbatim or substantially similar:
 
 > This registration is submitted pursuant to Section 415 of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 350d) and the implementing regulations at 21 CFR Part 1, Subpart H. Registration does not constitute FDA approval of the facility or its products, nor does it exempt the facility from any other applicable FDA requirements.
 
 ### Section 5 — Certification and Attestation
+
 Draft language affirming:
 - Submitter has authority to legally bind the facility
-- All information is true, accurate, and complete to the best of the submitter's knowledge
-- Facility agrees to permit FDA inspection and to make all records required under the FD&C Act available
+- All information is true, accurate, and complete
+- Facility agrees to permit FDA inspection and make FD&C Act records available
 
-```
-Authorized Signatory: ____________________________
-Title: __________________________________________
-Date: __________________________________________
-Signature: ______________________________________
-```
+Include signature block: Authorized Signatory, Title, Date, Signature.
 
-## Guidelines
+## Pitfalls and Checks
 
-- **Exemptions** — Confirm the facility is not exempt under 21 CFR 1.226 (retail food establishments, restaurants, nonprofit food establishments, fishing vessels, farms) before proceeding
-- **Biennial renewal** — Registration must be renewed during October 1 – December 31 of each even-numbered year
-- **Material changes** — Facility must update registration within **60 days** of any material change to submitted information
-- **Enforcement exposure** — Failure to register, false information, or failure to update may result in administrative detention, import refusal, or other enforcement action
-- **Submission channel** — Preferred submission is through the FDA Food Facility Registration Module (FFRM); note paper submission option if applicable
-- **Optional fields** — Clearly label optional vs. required fields in the final document to avoid submission errors
-- **Jurisdiction** — U.S. federal filing; no state-level analog required for this registration specifically
+- **Exemption check** — Always verify 21 CFR 1.226 exemptions before drafting
+- **Biennial renewal window** — October 1 – December 31 of each even-numbered year
+- **Material changes** — Must update registration within **60 days** of any change
+- **Enforcement risk** — Failure to register or update may result in administrative detention or import refusal
+- **Submission channel** — Preferred: FDA Food Facility Registration Module (FFRM); note paper option if applicable
+- **Field labeling** — Mark optional vs. required fields clearly to avoid submission errors
+- **Jurisdiction** — U.S. federal filing only; no state-level analog required

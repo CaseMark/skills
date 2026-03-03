@@ -1,6 +1,6 @@
 ---
 name: marital-settlement-agreement
-description: Drafts comprehensive Marital Settlement Agreements for divorce proceedings covering property division, spousal support, child custody, and general enforceability provisions. Extracts financials, assets, debts, and custody details from case files to produce itemized schedules under applicable state law. Use when drafting MSAs, divorce settlement agreements, property settlement agreements, or marital dissolution contracts.
+description: Drafts Marital Settlement Agreements for divorce proceedings covering property division, spousal support, child custody, and enforceability provisions. Triggers on requests to draft MSAs, divorce settlement agreements, property settlement agreements, or marital dissolution contracts.
 tags:
   - agreement
   - drafting
@@ -13,130 +13,80 @@ Drafts a binding MSA resolving all divorce issues — property, support, custody
 
 ## Prerequisites
 
-1. **Financial disclosures** — both parties' income statements, tax returns, account statements
-2. **Property documentation** — appraisals, deeds, titles, retirement plan statements, business valuations
+Gather before drafting:
+
+1. **Financial disclosures** — income statements, tax returns, account statements for both parties
+2. **Property docs** — appraisals, deeds, titles, retirement statements, business valuations
 3. **Debt records** — creditor statements with account numbers and balances
-4. **Custody materials** — custody evaluations, existing parenting plans, school/medical records for children
-5. **Prior agreements** — prenuptial agreements, temporary orders, mediation outcomes, party correspondence
-6. **Jurisdictional info** — filing state, county, case number, applicable community/equitable property regime
+4. **Custody materials** — evaluations, existing parenting plans, school/medical records
+5. **Prior agreements** — prenuptial agreements, temporary orders, mediation outcomes
+6. **Jurisdictional info** — filing state, county, case number, community vs. equitable property regime
 
-## Output Structure
+## Workflow
 
-### Article I — Property Division
+### Step 1 — Property Division (Article I)
 
-**Community/Marital Property Schedule**
+**Marital Property Schedule** — itemize each asset:
 
-| # | Asset Description | ID (acct/VIN/APN) | FMV / Balance | Awarded To | Notes |
-|---|---|---|---|---|---|
-| 1 | _Real property — [address + legal desc.]_ | APN: _xxx_ | $ | _Party_ | _Encumbrances, buyout terms_ |
-| 2 | _Financial account — [institution]_ | Acct: _xxx_ | $ | _Party_ | _QDRO needed?_ |
-| 3 | _Vehicle — [year/make/model]_ | VIN: _xxx_ | $ | _Party_ | |
-| 4 | _Retirement — [plan name]_ | Plan #: _xxx_ | $ | _Party_ | _Community interest portion_ |
-| 5 | _Business interest — [entity]_ | EIN: _xxx_ | $ (_%_ ownership) | _Party_ | _Valuation method_ |
+| Column | Content |
+|---|---|
+| Asset description | Real property, accounts, vehicles, retirement, business interests |
+| Identifier | APN, account #, VIN, plan #, EIN |
+| FMV / Balance | Dollar value at valuation date |
+| Awarded to | Receiving party |
+| Notes | Encumbrances, buyout terms, QDRO needed, valuation method |
 
-**Community/Marital Debt Schedule**
+**Marital Debt Schedule** — itemize each debt: creditor, account #, balance, responsible party, hold-harmless obligation.
 
-| # | Creditor | Acct # | Balance | Responsible Party | Hold-Harmless |
-|---|---|---|---|---|---|
-| 1 | | | $ | _Party_ | Yes |
+**Separate Property Confirmation** — list each party's separate property (pre-marital, gift, inheritance) with mutual disclaimer of interest.
 
-**Separate Property Confirmation** — List each party's separate property (pre-marital, gift, inheritance) with confirmation that the other party disclaims any interest.
-
-### Article II — Spousal Support
+### Step 2 — Spousal Support (Article II)
 
 Draft one of:
 
-**A. Support Ordered:**
+**A. Support ordered** — specify: monthly amount, due date/method, duration, modifiability, step-down schedule, COLA, termination events (death, remarriage, cohabitation), tax treatment (post-TCJA: non-deductible/non-includable federally).
 
-| Element | Terms |
-|---|---|
-| Monthly amount | $ |
-| Due date / method | _1st of month; direct deposit_ |
-| Duration | _Months/years or triggering event_ |
-| Modifiability | _Modifiable / Non-modifiable_ |
-| Step-down schedule | _If applicable_ |
-| COLA adjustment | _If applicable_ |
-| Termination events | _Death, remarriage, cohabitation_ |
-| Tax treatment | _Per IRC; post-TCJA: non-deductible/non-includable_ |
+**B. Mutual waiver** — explicit knowing waiver of all current and future support rights with acknowledgment of consequences.
 
-**B. Mutual Waiver:** — Explicit, knowing waiver of all current and future spousal support rights with acknowledgment of consequences.
-
-### Article III — Children
+### Step 3 — Children (Article III)
 
 **Custody & Parenting Plan:**
-
-| Element | Terms |
-|---|---|
-| Legal custody | _Joint / Sole — specify decision domains: education, healthcare, religion_ |
-| Physical custody | _Primary with [Party]; specific schedule_ |
-| Regular schedule | _Weekday/weekend rotation_ |
-| Holiday schedule | _Odd/even year alternation — list each holiday_ |
-| Vacation | _Weeks per year; notice requirements_ |
-| Transportation | _Responsibility and exchange location_ |
-| Communication | _Phone/video schedule with non-custodial parent_ |
-| Relocation | _Notice period; mileage threshold; consent/court approval_ |
-
-Attach detailed parenting plan as **Exhibit ___**.
+- Legal custody — joint/sole; decision domains (education, healthcare, religion)
+- Physical custody — primary placement, weekday/weekend rotation
+- Holiday/vacation schedule — odd/even alternation, notice requirements
+- Transportation, communication with non-custodial parent
+- Relocation — notice period, mileage threshold, consent/court approval
+- Attach detailed parenting plan as exhibit
 
 **Child Support:**
+- Monthly amount with guideline calculation per state formula
+- Health insurance responsibility and cost allocation
+- Uninsured medical and childcare cost splits
+- Duration (age of majority / HS graduation per state law)
+- Post-secondary contribution terms if agreed
+- Modification standard (material change in circumstances)
 
-| Element | Terms |
-|---|---|
-| Monthly amount | _$ (show guideline calculation per state formula)_ |
-| Payment schedule | _Date, method_ |
-| Health insurance | _Maintained by [Party]; cost allocation_ |
-| Uninsured medical | _% split (e.g., 50/50 or pro rata by income)_ |
-| Childcare costs | _% split_ |
-| Duration | _Until age of majority / HS graduation per state law_ |
-| Post-secondary | _If agreed: contribution terms, cap, conditions_ |
-| Modification | _Per state guidelines on material change in circumstances_ |
+### Step 4 — General Provisions (Article IV)
 
-### Article IV — General Provisions
+Include all:
+- **Mutual releases** — all claims except those preserved in this agreement
+- **Representations** — full disclosure, opportunity for independent counsel (or knowing waiver), voluntary execution, fairness acknowledgment
+- **Attorney's fees** — each bears own; prevailing party in enforcement recovers fees
+- **Dispute resolution** — mediation before litigation; specify enforcement jurisdiction
+- **Severability**, **governing law**, **integration**, **amendments** (written, signed by both)
 
-Include all of the following:
+### Step 5 — Execution Block
 
-- **Mutual releases** — Each party releases all claims from the marriage except those in this agreement
-- **Representations & warranties:**
-  - Full financial disclosure made
-  - Opportunity to consult independent counsel (or knowing waiver)
-  - Voluntary execution without duress
-  - Agreement believed fair and equitable
-- **Attorney's fees** — Each party bears own costs; prevailing party in enforcement action recovers fees
-- **Dispute resolution** — Mediation required before litigation; specify jurisdiction for enforcement
-- **Severability** — Invalid provisions do not void the remainder
-- **Governing law** — Specify state
-- **Integration** — Supersedes all prior agreements and understandings
-- **Amendments** — Written modification signed by both parties required
+Include signature lines for both parties with dates, approval-as-to-form lines for counsel, and notary acknowledgments if required by local rules.
 
-### Execution Block
+## Pitfalls
 
-```
-ACKNOWLEDGMENT
-
-Each party acknowledges they have read this Agreement in its entirety,
-understand its terms and consequences, and execute it voluntarily.
-
-____________________________    ____________________________
-[Petitioner Name]               [Respondent Name]
-Date: _______________           Date: _______________
-
-Approved as to form:
-
-____________________________    ____________________________
-Attorney for Petitioner         Attorney for Respondent
-
-[NOTARY ACKNOWLEDGMENTS — include if required by local rules]
-```
-
-## Guidelines
-
-- **Jurisdiction compliance** — Verify community property vs. equitable distribution regime; adapt property division framework accordingly
-- **Guideline calculations** — Always show child support math per state formula; courts reject unexplained deviations
-- **QDRO flag** — Note any retirement account division requiring a Qualified Domestic Relations Order
-- **Tax treatment** — Post-TCJA (2019+): alimony is non-deductible/non-includable for federal purposes; check state conformity
-- **Specificity over ambiguity** — Use exact dollar amounts, dates, account numbers, and legal descriptions; vague terms invite post-decree litigation
-- **Public policy** — Child support and custody provisions must serve the child's best interest; courts retain modification jurisdiction regardless of party agreement
-- **Pension/retirement** — Distinguish between community interest portion and separate contributions; use time rule or other applicable tracing method
-- **No waiver of child support by agreement** — Courts will not enforce provisions waiving a child's right to support
-- **Exhibit cross-references** — Verify every exhibit letter/number matches the referenced attachment
-- **Filing readiness** — Format for court submission: caption, case number, proper pagination, TOC for lengthy agreements
+- **Regime mismatch** — confirm community property vs. equitable distribution; adapt division framework
+- **Child support math** — always show state guideline calculation; courts reject unexplained deviations
+- **Child support is non-waivable** — courts will not enforce waiver of a child's right to support
+- **QDRO requirement** — flag every retirement account division needing a Qualified Domestic Relations Order
+- **Tax treatment** — post-TCJA (2019+): alimony non-deductible/non-includable federally; verify state conformity
+- **Pension tracing** — distinguish community interest from separate contributions; use time rule or applicable tracing method
+- **Specificity** — use exact amounts, dates, account numbers, legal descriptions; vague terms invite post-decree litigation
+- **Exhibit cross-references** — verify every exhibit letter/number matches its attachment
+- **Filing readiness** — include caption, case number, proper pagination, TOC for lengthy agreements

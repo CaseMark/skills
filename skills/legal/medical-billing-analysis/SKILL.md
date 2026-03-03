@@ -1,57 +1,50 @@
 ---
 name: medical-billing-analysis
 description: >
-  Analyzes medical records and billing information for personal injury litigation,
-  producing a structured chronological report covering treatment details, costs,
-  causation chains, and red flags. Use this skill when the user mentions medical
-  billing analysis, medical records review, treatment timeline, billing
-  reasonableness review, causation analysis, damages documentation, PI case
-  valuation, discovery medical records, or pre-trial medical summary. Also trigger
-  when the user asks about treatment gaps, duplicate billing, ICD/CPT code review,
-  IME rebuttal preparation, or needs to organize medical evidence for a demand
+  Analyzes medical records and billing data for personal injury litigation,
+  producing a chronological report with treatment details, costs, causation
+  chains, and red flags. Trigger when the user requests medical billing analysis,
+  medical records review, treatment timeline, billing reasonableness review,
+  causation analysis, damages documentation, PI case valuation, ICD/CPT code
+  review, IME rebuttal prep, or needs to organize medical evidence for a demand
   package or mediation statement.
 tags:
   - analysis
   - litigation
 ---
 
-# Medical and Billing Records Analysis
+# Medical Billing Analysis
 
-## Why This Skill Exists
+Produces a litigation-ready analysis of medical records and billing data for personal injury cases. Every finding is cited to a specific document and page. Output supports demand packages, mediation statements, and trial preparation.
 
-Medical records and billing data are the evidentiary backbone of every personal injury case, but they arrive as hundreds of pages of unstructured clinical notes, EOBs, and billing codes. Without systematic analysis, treatment gaps go unnoticed until deposition, duplicate charges inflate specials that get attacked at trial, causation statements are buried in progress notes, and defense IME opinions go unanswered. The difference between a well-organized medical summary and a pile of records often determines whether a case settles at full value or gets discounted.
+## Quick Start
 
-This skill produces a litigation-ready analysis that attorneys can use for demand packages, mediation statements, and trial preparation — every finding cited to a specific document and page.
+1. Gather records and billing from the user (or confirm what's uploaded)
+2. Build document inventory and medical timeline
+3. Analyze billing, check reasonableness, trace causation
+4. Flag red flags, deliver structured report
+5. Align with user on gaps and next steps
 
----
+## Intake (Mandatory)
 
-## Checkpoint A: Pre-Draft Intake (Mandatory)
+Ask every time unless user says "use defaults" or "just draft":
 
-Ask every time unless the user says "use defaults" or "just draft." Gather:
-
-1. **Medical records** — treatment notes, diagnostic reports, surgical records, discharge summaries, pharmacy records
+1. **Medical records** — treatment notes, diagnostics, surgical records, discharge summaries, pharmacy records
 2. **Billing statements** — itemized bills from all providers, EOBs, insurance payment records
-3. **Incident information** — date of incident/onset, mechanism of injury, any pre-existing condition history
+3. **Incident information** — date, mechanism of injury, pre-existing condition history
 4. **IME or peer review reports** (if available)
 
-**If the user doesn't respond**, apply and clearly label these defaults: analyze all provided records chronologically; flag treatment gaps > 30 days; separate billed vs. paid amounts; identify causation statements.
+**Request if missing:** provider itemized bills (not just totals), EOBs, lien statements (Medicare/Medicaid/ERISA/hospital), pre-incident records if pre-existing conditions at issue, life care plan if available.
 
-### Documents to Request
+**Defaults when user doesn't respond:** analyze all provided records chronologically; flag treatment gaps > 30 days; separate billed vs. paid; identify causation statements. Label defaults clearly.
 
-If not yet provided, request:
-- All provider itemized bills (not just totals)
-- EOBs or insurance payment summaries
-- Lien statements (Medicare, Medicaid, ERISA, hospital)
-- Pre-incident medical records if pre-existing conditions are at issue
-- Life care plan or future care recommendations (if available)
+Flag missing materials explicitly and proceed with what's available.
 
-If materials are missing, flag them explicitly and proceed with what's available.
+## Workflow
 
----
+### 1. Document Inventory
 
-## Step 1: Build Document Inventory
-
-Scan all uploaded documents and classify each into:
+Classify each document:
 
 | Category | Examples |
 |---|---|
@@ -64,145 +57,88 @@ Scan all uploaded documents and classify each into:
 | Billing/financial | Itemized bills, EOBs, lien statements |
 | IME/peer review | Defense or insurance medical evaluations |
 
----
+### 2. Medical Timeline
 
-## Step 2: Construct Medical Timeline
+Build chronological table with: Date, Provider/Facility, Visit Type, Diagnoses (ICD), Procedures (CPT), Key Findings, Restrictions/Prognosis.
 
-Build a chronological table:
+Flag: gaps > 30 days, diagnosis changes, new providers/referrals, causation statements by treating physicians, pre-existing condition references, work/activity restrictions.
 
-| Date | Provider/Facility | Visit Type | Diagnoses (ICD) | Procedures (CPT) | Key Findings | Restrictions/Prognosis |
-|---|---|---|---|---|---|---|
+### 3. Billing Analysis
 
-Flag:
-- [ ] Gaps in treatment > 30 days
-- [ ] Changes in diagnosis or treatment plan
-- [ ] New providers or referrals
-- [ ] Causation statements by treating physicians
-- [ ] Pre-existing condition references
-- [ ] Work/activity restrictions and duration
+Catalog charges with: Date, Provider, CPT/Code, Description, Billed, Insurance Paid, Adjustment, Patient Owed.
 
----
+Summarize totals by category: emergency, hospitalization/surgery, imaging, therapy, medications, mental health, ongoing/future care.
 
-## Step 3: Analyze Billing Data
+### 4. Reasonableness Review
 
-Catalog all charges:
+For each major charge category, verify:
+- Charges consistent with geographic/specialty norms
+- No duplicate billing for same service/date
+- All billed services have corresponding documentation
+- Treatment consistent with documented diagnoses
+- No unrelated-condition charges without explanation
 
-| Date | Provider | CPT/Code | Description | Billed | Insurance Paid | Adjustment | Patient Owed |
-|---|---|---|---|---|---|---|---|
+### 5. Causation Analysis
 
-Summarize totals by category:
+1. **Direct causation** — quote treating physicians verbatim with doc/page citations
+2. **Pre-existing conditions** — documented history; aggravation vs. new injury distinguished
+3. **Conflicting opinions** — disagreements between treating, IME, and peer reviewers
+4. **Treatment necessity** — provider statements on reasonable and necessary care
 
-| Category | Total Billed | Total Paid | Outstanding |
-|---|---|---|---|
-| Emergency services | | | |
-| Hospitalization/surgery | | | |
-| Diagnostic imaging | | | |
-| Physical/occupational therapy | | | |
-| Medications | | | |
-| Mental health | | | |
-| Ongoing/future care | | | |
-| **TOTAL** | | | |
+### 6. Red Flags
 
----
+Flag items requiring attorney attention in a table: Issue, Details, Source (doc/page), Suggested Action.
 
-## Step 4: Conduct Reasonableness Review
+Common flags: treatment gaps, billing without documentation, causation disputes, charges above area norms.
 
-For each major charge category, assess:
+### 7. Final Report
 
-- [ ] Charges consistent with geographic area and specialty norms
-- [ ] No duplicate billing for same service/date
-- [ ] All billed services have corresponding medical documentation
-- [ ] Treatment consistent with documented diagnoses and injuries
-- [ ] No charges for unrelated conditions without clear explanation
+Deliver a single report with these sections:
 
----
+**Front matter (required):**
+- Documents reviewed with date ranges
+- Assumptions and limitations
+- Open items (requested but not received)
 
-## Step 5: Perform Causation Analysis
+**Body:**
+1. Document Inventory
+2. Medical Timeline (chronological table)
+3. Treatment Summary (narrative: injuries, treatment course, current status)
+4. Billing Summary (category totals with line-item detail available)
+5. Causation Analysis (supported chain with citations)
+6. Issues and Red Flags (table with recommended actions)
+7. Expert Needs (life care planner, billing expert, medical specialist)
 
-Trace the chain from incident to treatment:
-
-1. **Direct causation statements** — quote treating physicians verbatim with document/page citations
-2. **Pre-existing conditions** — identify documented history and whether providers distinguished aggravation vs. new injury
-3. **Conflicting opinions** — catalog disagreements between treating physicians, IME doctors, or peer reviewers
-4. **Treatment necessity** — note provider statements on whether treatment was reasonable and necessary
-
----
-
-## Step 6: Compile Red Flags and Issues
-
-Flag anything requiring attorney attention:
-
-| Issue | Details | Source (doc/page) | Suggested Action |
-|---|---|---|---|
-| Gap in treatment | e.g., 3-month gap after ER visit | Record X, p. 4 | Obtain explanation from client |
-| Billing without documentation | e.g., PT charges with no notes | Bill Y, line 12 | Request supporting records |
-| Causation dispute | e.g., IME attributes symptoms to prior condition | IME report, p. 7 | Consider rebuttal expert |
-| Excessive charges | e.g., charges above area norms | Bill Z, line 5 | Evaluate with billing expert |
-
----
-
-## Step 7: Produce Final Report
-
-Deliver a single structured report with these sections:
-
-1. **Document Inventory** — what was reviewed
-2. **Medical Timeline** — chronological table
-3. **Treatment Summary** — narrative overview of injuries, treatment course, and current status
-4. **Billing Summary** — totals by category with line-item detail available
-5. **Causation Analysis** — supported chain with citations
-6. **Issues and Red Flags** — table of flagged items with recommended actions
-7. **Expert Needs** — identify where expert testimony may be required (life care planner, billing expert, medical specialist)
-
-### Mandatory Front Matter
-
-At the top of every report:
-
-1. **Documents Reviewed** — complete inventory with date ranges
-2. **Assumptions and Limitations** — missing records, incomplete billing data, unverified pre-existing conditions
-3. **Open Items** — records requested but not received
-
----
-
-## Checkpoint B: Post-Draft Alignment (Mandatory)
+## Post-Draft Alignment (Mandatory)
 
 After delivering the initial analysis, ask:
 
-1. Are there additional providers or records we haven't received yet?
-2. Do the treatment gaps have explanations the client has provided?
-3. Should we prioritize any specific causation disputes for deeper analysis?
-4. Is a future care cost projection needed (requires life care plan or provider recommendations)?
+1. Additional providers or records not yet received?
+2. Client explanations for treatment gaps?
+3. Specific causation disputes to analyze deeper?
+4. Future care cost projection needed?
 
-If the user doesn't answer, recommend obtaining missing provider records (most common gap) and proceed if authorized.
+If no response, recommend obtaining missing provider records and proceed if authorized.
 
----
+## Quality Checklist
 
-## Quality Audit
-
-Before finalizing, verify:
-
-- [ ] Every factual finding cites a specific document and page number
-- [ ] Medical timeline is complete and chronological with no unexplained gaps
-- [ ] Billing totals reconcile (billed = paid + adjustments + patient responsibility)
-- [ ] Causation statements quoted verbatim with source citations
-- [ ] Pre-existing conditions identified and distinguished from incident-related injuries
+- [ ] Every finding cites specific document and page
+- [ ] Timeline complete and chronological, no unexplained gaps
+- [ ] Billing totals reconcile (billed = paid + adjustments + patient owed)
+- [ ] Causation statements quoted verbatim with citations
+- [ ] Pre-existing conditions distinguished from incident-related injuries
 - [ ] Duplicate charges identified and flagged
 - [ ] IME/defense opinions cataloged separately from treating physician findings
-- [ ] Missing records noted rather than assumed
-- [ ] Dollar amounts presented consistently (no mixing rounded and exact figures)
-- [ ] Future care costs extracted and itemized separately if projected by any provider
-- [ ] No opinions on ultimate legal conclusions (liability, damages awards)
+- [ ] Missing records noted, not assumed
+- [ ] Dollar amounts consistent (no mixed rounding)
+- [ ] Future care costs itemized separately if projected
+- [ ] No opinions on ultimate legal conclusions
 
----
+## Rules
 
-## Guidelines
-
-- Cite specific documents and page numbers for every factual finding
-- Never opine on ultimate legal conclusions (liability, damages awards)
-- Distinguish between what treating physicians documented vs. IME/defense opinions
-- Note where records are missing or incomplete rather than assuming
+- Cite document and page for every factual finding
+- Never opine on liability or damages awards
+- Distinguish treating physician documentation from IME/defense opinions
 - Flag but do not resolve billing disputes — identify for attorney review
-- If future care costs are projected by any provider, extract and itemize separately
-- All dollar amounts should be presented consistently
-- Do not invent medical findings, diagnoses, or causation opinions
-- Do not fabricate document citations or page references
-- **Attorney work product** — include scope notice: "Draft analysis requiring attorney review. Figures based on provided documentation and stated assumptions."
+- Do not invent findings, diagnoses, causation opinions, or citations
+- Include scope notice: "Draft analysis requiring attorney review. Figures based on provided documentation and stated assumptions."

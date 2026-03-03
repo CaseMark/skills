@@ -1,14 +1,12 @@
 ---
 name: guardian-nomination-minors
 description: >-
-  Drafts a US guardianship nomination for minor children in
-  transactional/estate planning matters, aligned to state statute formalities
-  and court best-interest standards. Covers primary and alternate guardian
-  designations, death/incapacity triggers, custody-order alignment, guardian
-  authority guidance, and execution requirements. Use when creating a parental
-  appointment/nomination of guardian, standby guardian, or minor guardianship
-  nomination; trigger keywords: guardian nomination, minor children, parental
-  appointment, standby guardian, estate planning.
+  Drafts a US parental guardianship nomination for minor children aligned to
+  state statute formalities and court best-interest standards. Covers primary
+  and alternate guardian designations, death/incapacity triggers, custody-order
+  alignment, scope of authority, financial coordination, and execution
+  requirements. Use when creating a nomination of guardian, standby guardian
+  appointment, or minor guardianship designation in estate planning.
 tags:
   - agreement
   - drafting
@@ -17,65 +15,64 @@ tags:
 
 # Nomination of Guardian for Minor Children
 
-Prepare a jurisdiction-specific nomination that clearly states parental intent and satisfies execution formalities.
+Draft a jurisdiction-specific nomination stating parental intent and satisfying state execution formalities.
 
 ## Prerequisites
 
-1. Governing state and statutory basis for parental nomination of guardian [VERIFY].
-2. Parent(s) legal names, addresses, and legal authority to nominate for each child.
-3. Minor child details: full legal name, DOB, relationship, current residence.
-4. Proposed guardian(s) and alternates: full contact details, relationship, willingness.
-5. Existing custody orders or parental rights constraints.
-6. Existing trusts/UTMA accounts and whether guardian of person and estate are the same.
-7. State execution requirements: witness count/qualifications, notarization, self-proving affidavit availability [VERIFY].
+Gather before drafting:
 
-## Output Structure / Process
+1. Governing state and statutory basis for parental nomination [VERIFY].
+2. Parent(s) legal names, addresses, authority to nominate for each child.
+3. Each minor child: full legal name, DOB, relationship, current residence.
+4. Primary and alternate guardian(s): contact details, relationship, willingness confirmed.
+5. Existing custody orders or parental-rights constraints.
+6. Existing trusts/UTMA accounts; whether guardian of person and estate are the same.
+7. State execution requirements: witness count/qualifications, notarization, self-proving affidavit [VERIFY].
 
-**1) Document Header and Preamble**
-- Title: "Nomination of Guardian for Minor Children"
-- Preamble identifying nominating parent(s), capacity, voluntary intent, and statutory authority.
-- Cite governing statute: "[State] [Code Section] [VERIFY]".
+## Drafting Workflow
 
-**2) Parties and Children**
-Use this table to populate the identification section.
+### 1. Header and Preamble
+
+- Title: "Nomination of Guardian for Minor Children."
+- Identify nominating parent(s), capacity, voluntary intent, statutory authority.
+- Cite governing statute: "[State] [Code Section] [VERIFY]."
+
+### 2. Parties and Children
+
+Populate identification table:
 
 | Role | Full Legal Name | Address | DOB | Relationship/Authority |
-| --- | --- | --- | --- | --- |
+|------|----------------|---------|-----|------------------------|
 | Parent 1 | | | | |
 | Parent 2 (if any) | | | | |
 | Child 1 | | | | |
 | Child 2+ | | | | |
 
-**3) Guardian Nominations**
-Include primary and alternates with full details and order of succession.
+### 3. Guardian Nominations
 
-| Priority | Guardian Name | Address | Phone/Email | DOB | Relationship | Notes on Willingness |
-| --- | --- | --- | --- | --- | --- | --- |
-| Primary | | | | | | |
-| First Alternate | | | | | | |
-| Second Alternate | | | | | | |
+List primary and alternates in order of succession:
 
-**4) Eligibility and Court Preference Statement**
-Include a clause confirming statutory eligibility and request that the court give substantial weight to parental nomination.
+| Priority | Name | Address | Contact | Relationship | Willingness |
+|----------|------|---------|---------|--------------|-------------|
+| Primary | | | | | |
+| First Alternate | | | | | |
+| Second Alternate | | | | | |
 
-```text
-The nominee(s) are adults, legally competent, and not disqualified under [State] law [VERIFY]. I/We request the court give substantial weight to this nomination consistent with the best interests of the child.
-```
+### 4. Eligibility and Court Preference
 
-**5) Effectiveness Triggers**
-Specify activation on death and/or incapacity with state-standard definitions.
+Confirm statutory eligibility and request court give substantial weight to nomination consistent with the child's best interests. Cite state law [VERIFY].
 
-Checklist:
-- [ ] Effective on death of both parents (if joint nomination).
-- [ ] Effective on death of sole nominating parent.
-- [ ] Incapacity standard (state definition or medical certification) [VERIFY].
-- [ ] Temporary vs permanent incapacity clarified.
-- [ ] Acknowledges rights of any other legal parent and existing custody orders.
+### 5. Effectiveness Triggers
 
-**6) Scope of Guardian Authority (Guidance, Not Court Orders)**
-Define parental preferences for guardian of the person.
+- [ ] Death of both parents (joint nomination) or sole nominating parent.
+- [ ] Incapacity standard per state definition or medical certification [VERIFY].
+- [ ] Temporary vs permanent incapacity distinguished.
+- [ ] Rights of any other legal parent and existing custody orders acknowledged.
 
-Checklist:
+### 6. Scope of Guardian Authority
+
+Parental guidance preferences (not court orders):
+
 - [ ] Residence and daily care.
 - [ ] Education and extracurricular decisions.
 - [ ] Medical, dental, mental health decisions.
@@ -83,48 +80,41 @@ Checklist:
 - [ ] Religious upbringing (if applicable).
 - [ ] Maintaining relationships with specified relatives.
 
-**7) Financial Coordination**
-State whether guardian of person is also guardian of estate or whether a trustee/UTMA custodian controls assets.
+### 7. Financial Coordination
 
-Checklist:
+- [ ] State whether guardian of person is also guardian of estate.
 - [ ] Identify trust(s) by name/date if applicable.
-- [ ] State expectation for cooperation with trustee.
-- [ ] Standard of living guidance if desired.
+- [ ] Expectation for cooperation with trustee/UTMA custodian.
+- [ ] Standard-of-living guidance if desired.
 
-**8) Co-Guardian and Succession Rules**
-If co-guardians are named:
-- Decision-making rule (joint, majority, tie-break).
-- What happens on divorce, incapacity, or disagreement.
+### 8. Co-Guardian and Succession
 
-**9) Revocation and Amendment**
-Include clear revocation language and methods.
+If co-guardians named: decision-making rule (joint/majority/tie-break), handling of divorce, incapacity, or disagreement among co-guardians.
 
-```text
-This nomination may be revoked or amended at any time by a signed writing executed with the same formalities as this instrument or by a subsequent nomination that expressly supersedes prior nominations.
-```
+### 9. Revocation and Amendment
 
-Optional automatic revocation on divorce for spouse nominee.
+Include revocation language: nomination may be revoked or amended by signed writing with same formalities or by a subsequent nomination expressly superseding prior ones. Consider automatic revocation on divorce for spouse nominee.
 
-**10) Duration**
-State termination at majority age, emancipation, or court order.
+### 10. Duration
 
-**11) Execution and Attestation**
-Provide signature blocks for each parent, witness attestation, and notary.
+Terminates at majority age, emancipation, or court order.
 
-Checklist:
-- [ ] Signature lines, printed names, dates.
+### 11. Execution and Attestation
+
+- [ ] Signature lines for each parent with printed names and dates.
 - [ ] Witness count and qualifications per statute [VERIFY].
-- [ ] Notarial acknowledgment with state-compliant form [VERIFY].
+- [ ] Notarial acknowledgment in state-compliant form [VERIFY].
 - [ ] Self-proving affidavit if allowed [VERIFY].
 
-**12) Optional Client Transmittal Note**
-Short memo: purpose, non-self-executing nature, storage guidance, notify nominees, update triggers.
+### 12. Client Transmittal Note (Optional)
 
-## Guidelines
+Short memo covering: purpose, non-self-executing nature, storage guidance, nominee notification, update triggers.
 
-- Do not state or imply the court must appoint the nominee; use best-interest language.
-- Verify state-specific requirements for witnesses, notarization, and statutory forms [VERIFY].
-- Do not nominate a guardian for a child if the nominating parent lacks legal authority.
-- Avoid naming a nominee who is disqualified by statute or known protective order issues.
-- Keep terminology consistent: "guardian of the person" vs "guardian of the estate".
-- Use gender-neutral language and exact legal names from IDs/birth certificates.
+## Pitfalls
+
+- **Never imply court must appoint nominee** — use best-interest language only.
+- **Verify execution formalities** — witness count, notarization, statutory forms vary by state [VERIFY].
+- **No nomination without authority** — confirm nominating parent has legal authority over each child.
+- **Disqualified nominees** — check for statutory disqualification or protective-order issues before naming.
+- **Consistent terminology** — distinguish "guardian of the person" from "guardian of the estate" throughout.
+- **Use exact legal names** from IDs/birth certificates; use gender-neutral language.

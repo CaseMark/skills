@@ -1,6 +1,11 @@
 ---
 name: hipaa-release-form
-description: Drafts U.S. HIPAA Release Authorization forms (45 CFR 164.508) for disclosure of protected health information, typically in estate planning or healthcare decision-making packets. Use for HIPAA authorization, medical records release, PHI disclosure consent, healthcare agent access, advance directive bundles, or when a client asks for a HIPAA release form.
+description: >-
+  Drafts HIPAA Release Authorization forms compliant with 45 CFR 164.508 for
+  disclosure of protected health information. Typically used in estate planning
+  or healthcare decision-making packets. Use when a client needs a HIPAA
+  authorization, medical records release, PHI disclosure consent, healthcare
+  agent access form, or advance directive bundle.
 tags:
   - agreement
   - drafting
@@ -10,51 +15,51 @@ tags:
 
 # HIPAA Release Authorization
 
-Create a compliant authorization that allows designated recipients to obtain PHI for healthcare decision-making.
+Drafts a 45 CFR 164.508-compliant authorization allowing designated recipients to obtain PHI for healthcare decision-making.
+
+## Quick Start
+
+1. Gather patient info, recipients, disclosing parties, PHI scope, and purpose.
+2. Draft using the template below, ensuring all eight required elements are present.
+3. Add sensitive-category addenda and state-required execution blocks.
 
 ## Prerequisites
 
-1. Patient legal name, date of birth, and contact details.
-2. Authorized recipient(s) with full names, roles, and contact details.
-3. Disclosing party(ies) to be covered (named provider(s) or broad covered-entity language).
-4. Scope of PHI and date range, including any specially protected categories.
+1. Patient legal name, DOB, and contact details.
+2. Authorized recipient(s) — full names, roles, contact details.
+3. Disclosing party(ies) — named provider(s) or broad covered-entity language.
+4. PHI scope and date range, including any specially protected categories.
 5. Purpose of disclosure aligned with healthcare agent duties.
-6. Expiration date or event and revocation process.
-7. Personal representative authority documentation if patient is not the signer.
+6. Expiration date or event.
+7. Personal representative authority documentation (if patient is not signer).
 8. State-specific execution requirements (witness, notary, special disclosures).
 
-## Output Structure / Process
+## Required Elements (45 CFR 164.508)
 
-1. Populate the input checklist before drafting.
-2. Draft each required section using the template.
-3. Validate that all 45 CFR 164.508 elements and required statements are present.
-4. Add execution blocks and any state-required addenda.
-
-**Required Elements (45 CFR 164.508)**
-
-| Element | Include |
+| Element | Content |
 | --- | --- |
-| Patient identification | Full name and DOB; add contact details if used by providers |
+| Patient identification | Full name, DOB; add contact details if used by providers |
 | Disclosing parties | Specific provider(s) or broad covered-entity class |
 | Recipients | Names and roles of agents/representatives |
-| Description of PHI | Types of records and date range |
+| Description of PHI | Record types and date range |
 | Purpose | Healthcare decision-making and agent duties |
 | Expiration | Date or event (e.g., revocation or death) |
 | Signature | Patient or personal representative with authority |
 | Required statements | Revocation rights; effect of revocation; no-conditioning notice; redisclosure warning; right to a copy |
 
-**Sensitive Information Addenda (include explicit consent if applicable)**
+## Sensitive Information Addenda
 
-| Category | Include? |
+Include explicit consent line for each applicable category:
+
+| Category | Notes |
 | --- | --- |
-| Mental health records | Yes/No |
-| Substance use treatment records (42 CFR Part 2) | Yes/No [VERIFY] |
-| HIV/AIDS testing or treatment | Yes/No |
-| Genetic information | Yes/No |
+| Mental health records | State law may require separate consent |
+| Substance use treatment (42 CFR Part 2) | Separate Part 2-compliant consent likely required [VERIFY] |
+| HIV/AIDS testing or treatment | Many states require specific authorization language |
+| Genetic information | GINA and state restrictions may apply |
 
-**Template**
+## Template
 
-```text
 AUTHORIZATION FOR RELEASE OF PROTECTED HEALTH INFORMATION (HIPAA)
 
 1. Patient Information
@@ -120,15 +125,13 @@ AUTHORIZATION FOR RELEASE OF PROTECTED HEALTH INFORMATION (HIPAA)
 13. Witness/Notary (if required by state law)
     Witness/Notary: ______________________  Date: ______________
 
-Footer: This document should be reviewed by qualified legal counsel before execution.
-```
+This document should be reviewed by qualified legal counsel before execution.
 
 ## Guidelines
 
 - Align recipients and purpose with the healthcare power of attorney or advance directive.
-- Do not use a HIPAA authorization if the signer lacks capacity without valid representative authority.
-- Avoid "to whom it may concern"; name specific recipients whenever possible.
-- Include explicit consent lines for specially protected records when required by state law.
+- Never issue a HIPAA authorization for a signer who lacks capacity unless valid representative authority is documented.
+- Name specific recipients; avoid "to whom it may concern."
 - Use a clear expiration date or event; avoid indefinite language where state law restricts it.
-- If substance use disorder program records are involved, confirm Part 2 consent requirements. [VERIFY]
-- Add witness or notary blocks only if required by jurisdiction or provider policy.
+- If substance use disorder records are involved, confirm Part 2 consent requirements separately. [VERIFY]
+- Add witness or notary blocks only when required by jurisdiction or provider policy.

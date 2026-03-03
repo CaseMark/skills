@@ -1,6 +1,6 @@
 ---
 name: deposition-employment-supplement
-description: Practice-area supplement for employment litigation depositions covering discrimination, harassment, retaliation, wrongful termination, and wage/hour claims. Provides statutory elements, defense frameworks, and structured examination topics for deposing plaintiffs, decision-makers, HR representatives, and comparator witnesses. Includes employment-specific document topics, impeachment checklist, and deposition preparation checklist. Use alongside @deposition-preparation for employment cases under Title VII, ADA, ADEA, FLSA, and state equivalents.
+description: Supplies claim-specific deposition frameworks for employment litigation (discrimination, harassment, retaliation, wrongful termination, wage/hour). Triggers when preparing or conducting depositions in employment cases under Title VII, ADA, ADEA, FLSA, or state equivalents. Use alongside @deposition-preparation.
 tags:
   - analysis
   - checklist
@@ -14,140 +14,117 @@ Claim-specific examination frameworks for employment depositions. Use with @depo
 
 ## Prerequisites
 
-1. Personnel file, performance reviews, and all disciplinary records
+1. Personnel file, performance reviews, disciplinary records
 2. EEOC charge and employer position statement (if applicable)
 3. Applicable workplace policies (harassment, discipline, termination)
 4. Comparator employee information and treatment history
-5. Complaint and investigation files (findings, remedial action taken)
+5. Complaint and investigation files
 
-## Claim Elements & Defense Frameworks
+## Claim Elements & Defenses
 
 | Claim | Elements | Key Defenses |
 |-------|----------|--------------|
-| **Discrimination** (Title VII, ADA, ADEA) | (1) Protected class; (2) Qualified; (3) Adverse employment action; (4) Discriminatory circumstances | McDonnell Douglas burden-shifting; same-actor inference; comparator parity |
-| **Harassment** (Title VII) | (1) Unwelcome conduct; (2) Based on protected characteristic; (3) Severe or pervasive; (4) Employer liability | Faragher-Ellerth affirmative defense; prompt remedial action; welcomed conduct |
-| **Retaliation** | (1) Protected activity; (2) Adverse action; (3) Causal connection | No knowledge of protected activity; independent legitimate reason; temporal gap |
-| **Wrongful Termination** | Varies: implied contract breach; public policy violation; covenant of good faith breach | At-will status; documented performance issues; after-acquired evidence |
-| **Wage & Hour** (FLSA) | (1) Hours worked; (2) Compensation paid; (3) Exempt/non-exempt classification; (4) Employer knowledge | Exempt classification; good faith reliance; de minimis exception |
+| **Discrimination** (Title VII/ADA/ADEA) | Protected class; qualified; adverse action; discriminatory circumstances | McDonnell Douglas burden-shifting; same-actor inference; comparator parity |
+| **Harassment** (Title VII) | Unwelcome conduct; based on protected characteristic; severe or pervasive; employer liability | Faragher-Ellerth defense; prompt remedial action; welcomed conduct |
+| **Retaliation** | Protected activity; adverse action; causal connection | No knowledge of protected activity; independent legitimate reason; temporal gap |
+| **Wrongful Termination** | Implied contract breach; public policy violation; good faith breach (varies) | At-will status; documented performance issues; after-acquired evidence |
+| **Wage & Hour** (FLSA) | Hours worked; compensation paid; exempt/non-exempt classification; employer knowledge | Exempt classification; good faith reliance; de minimis exception |
 
 ## Plaintiff Examination Topics
 
-### All Employment Plaintiffs
+### Universal Topics
 
-- **Employment history**: hire date, positions held, promotions, duties, performance reviews, disciplinary history, reason for separation
-- **The alleged wrongdoing**: each specific act, dates, actors, locations, plaintiff's contemporaneous response
-- **Complaints and reports**: to whom, exact words used, when, response received, whether EEOC/agency charge filed
-- **Prior employment issues**: prior terminations, prior discrimination complaints, prior lawsuits, prior workers' comp or disability claims
+- **Employment history**: hire date, positions, promotions, duties, reviews, discipline, separation
+- **Alleged wrongdoing**: each act, dates, actors, locations, plaintiff's contemporaneous response
+- **Complaints**: to whom, exact words, when, response received, EEOC/agency charge filed
+- **Prior issues**: prior terminations, discrimination complaints, lawsuits, workers' comp/disability claims
 
-### Claim-Specific Topics
+### By Claim Type
 
-**Discrimination**
-- Protected class: how plaintiff identifies; how and when defendant learned of it
-- Qualifications: position requirements; whether plaintiff met them; any documented deficiencies
-- Comparators: who is similarly situated; how treated differently; any distinguishing circumstances
-- Intent: specific discriminatory statements made; by whom; other incidents suggesting bias
+**Discrimination** — Protected class (how/when defendant learned); qualifications and deficiencies; comparators (similarly situated, differential treatment); intent evidence (discriminatory statements, bias incidents)
 
-**Harassment**
-- Each incident separately: description, actors, witnesses, frequency, duration
-- Unwelcomeness: whether plaintiff told harasser to stop; exact words; whether plaintiff participated in or initiated similar conduct
-- Severity/pervasiveness: effect on work performance, attendance, health; whether plaintiff sought treatment
-- Reporting: to whom, when, exact content reported, response received, any follow-up
+**Harassment** — Each incident separately (description, actors, witnesses, frequency); unwelcomeness (told harasser to stop, participated in similar conduct); severity (effect on work, health, treatment sought); reporting chain and response
 
-**Retaliation**
-- Protected activity: what complained about; to whom; when; exact words; written or verbal
-- Adverse action: what occurred; when; who took it; how plaintiff learned
-- Causation: timeline between complaint and action; any statements linking the two; others disciplined comparably
+**Retaliation** — Protected activity (what, to whom, when, exact words); adverse action (what, when, who); causation (timeline, linking statements, comparable discipline)
 
-**Wrongful Termination**
-- Termination: stated reason; who communicated it; when; written or verbal; severance offered
-- Performance: review history; documented issues; any warnings received
-- Pretext: plaintiff's stated belief re: real reason; supporting evidence; any admissions made
+**Wrongful Termination** — Termination details (stated reason, who communicated, severance); performance record (reviews, warnings); pretext (plaintiff's belief, supporting evidence)
 
-**Wage & Hour**
-- Schedule: regular hours; overtime frequency; how hours tracked (timecards, personal records)
-- Compensation: rate/salary structure; what told about overtime eligibility; overtime pay actually received
-- Off-the-clock work: pre/post-shift; meal breaks; remote work; whether supervisor knew; any direction to work off-clock
+**Wage & Hour** — Schedule (regular hours, overtime frequency, tracking method); compensation (rate, overtime eligibility, actual pay); off-the-clock work (pre/post-shift, breaks, remote, supervisor knowledge)
 
 ## Defendant Witness Topics
 
 ### Decision-Maker
 
-| Topic | Key Questions |
-|-------|---------------|
-| The decision | Role in decision; when made; who else involved; factors considered; primary stated reason |
-| Knowledge | What knew of plaintiff's performance, complaints, protected activity; when each piece learned |
-| Process | Governing policies; whether procedures followed; HR or legal consulted; how decision documented |
-| Comparators | How analogous situations handled; who else in similar circumstances; basis for any differential treatment |
+- **The decision**: role, timing, who else involved, factors considered, stated reason
+- **Knowledge**: what knew of plaintiff's performance, complaints, protected activity; when learned
+- **Process**: governing policies, whether followed, HR/legal consulted, documentation
+- **Comparators**: analogous situations, differential treatment basis
 
 ### HR Representative
 
-| Topic | Key Questions |
-|-------|---------------|
-| Policies | What policies governed the relevant conduct; walk through complaint/investigation/discipline procedure |
-| Compliance | Whether procedures followed here; if not, why not; any deviations approved |
-| Complaints | What plaintiff reported; investigation steps taken; witnesses interviewed; findings; remedial action |
-| Personnel file | Documents present; who created each; when created; anything removed or missing |
-| Training | Anti-harassment/discrimination training provided; when; who received it; records available |
+- **Policies**: governing policies, complaint/investigation/discipline procedures
+- **Compliance**: whether procedures followed; deviations and approvals
+- **Complaints**: what reported, investigation steps, witnesses, findings, remedial action
+- **Personnel file**: documents present, creators, timing, anything missing
+- **Training**: anti-harassment/discrimination training records and attendance
 
 ### Other Witnesses
 
-- **Conduct witnesses**: what seen/heard; when and where; others present; whether reported it; whether interviewed during any investigation
-- **Comparator witnesses**: their role and circumstances; how they were treated; similarities to and differences from plaintiff's situation
+- **Conduct witnesses**: what seen/heard, when/where, others present, whether reported
+- **Comparator witnesses**: role, circumstances, treatment, similarities/differences to plaintiff
 
 ## Document Topics
 
 | Document | Cover |
 |----------|-------|
-| Personnel file | Authenticate each document; identify creators and approvers |
-| Performance reviews | Who prepared; what input sources used; who approved; any changes made |
-| Disciplinary notices | Triggering conduct; who decided; process followed; comparator treatment |
-| Complaint records | Date; recipient; content as reported; how documented |
-| Investigation file | Who investigated; steps taken; witnesses interviewed; findings; remedial action taken |
-| Policies | Which applied; whether followed; any exceptions granted |
-| Comparator files | Analogous situations; outcome; basis for any different treatment |
-| Communications | Emails, texts, messages referencing plaintiff or the events at issue |
-| EEOC charge & response | Allegations as stated; company's position statement; any amendments |
+| Personnel file | Authenticate each document; identify creators/approvers |
+| Performance reviews | Who prepared; input sources; approvals; changes |
+| Disciplinary notices | Triggering conduct; decision-maker; process; comparator treatment |
+| Complaint records | Date; recipient; content; documentation method |
+| Investigation file | Investigator; steps; witnesses; findings; remedial action |
+| Policies | Which applied; whether followed; exceptions |
+| Comparator files | Analogous situations; outcome; differential treatment basis |
+| Communications | Emails/texts/messages referencing plaintiff or events |
+| EEOC charge & response | Allegations; position statement; amendments |
 
 ## Impeachment Sources
 
-1. **Performance reviews** — contradict plaintiff's self-assessment ("exceeded expectations" vs. claimed poor treatment of a high performer)
-2. **Prior complaints** — contradict "never complained" testimony with documented reports or emails
-3. **Investigation findings** — establish official conclusion re: alleged conduct; use to challenge plaintiff's characterization
-4. **Comparator treatment** — contradict "singled out" testimony with evidence others received same discipline for same conduct
-5. **Timeline inconsistencies** — EEOC charge dates vs. deposition testimony; complaint date vs. adverse action date
-6. **Application/resume** — undisclosed prior terminations, false credentials, gaps in employment history
+1. **Performance reviews** — contradict plaintiff's self-assessment vs. claimed mistreatment
+2. **Prior complaints** — contradict "never complained" with documented reports
+3. **Investigation findings** — challenge plaintiff's characterization with official conclusions
+4. **Comparator treatment** — counter "singled out" with evidence of equal discipline
+5. **Timeline inconsistencies** — EEOC dates vs. testimony; complaint date vs. adverse action
+6. **Application/resume** — undisclosed terminations, false credentials, employment gaps
 
-## Deposition Checklist
+## Prep Checklist
 
-- [ ] Review personnel file completely before deposition
+- [ ] Review complete personnel file
 - [ ] Review EEOC charge and employer response
-- [ ] Review all applicable policies (in effect at time of events)
-- [ ] Identify comparators and research their treatment
-- [ ] Build chronological timeline of all relevant events
-- [ ] Identify all decision-makers and their respective roles
-- [ ] Establish knowledge chain (who knew what and when)
-- [ ] Document all complaints — formal and informal
-- [ ] Establish whether investigation occurred and its outcome
-- [ ] Cover damages thoroughly (plaintiff depositions)
-- [ ] Cover mitigation efforts and job search (plaintiff depositions)
-- [ ] Address after-acquired evidence issues
-- [ ] Exhaust follow-up on each topic before moving on
+- [ ] Review applicable policies (as of event dates)
+- [ ] Identify comparators and research treatment
+- [ ] Build chronological timeline
+- [ ] Identify decision-makers and roles
+- [ ] Map knowledge chain (who knew what, when)
+- [ ] Document all complaints (formal and informal)
+- [ ] Confirm investigation occurrence and outcome
+- [ ] Cover damages and mitigation (plaintiff depositions)
+- [ ] Address after-acquired evidence
+- [ ] Exhaust follow-up per topic before advancing
 
-## Guidelines
+## Pitfalls
 
-- Lock in comparator "similarly situated" foundation before exploring differences — establish sameness first
-- Depose each harassment incident separately; prevent witness from lumping incidents into a general narrative
-- In retaliation cases, pin down exact timing of decision-maker's knowledge of protected activity relative to the adverse action
-- Wage/hour: obtain specific hour estimates with methodology; cover each off-the-clock category (pre-shift, post-shift, breaks, remote) separately
-- State law equivalents vary significantly; confirm applicable state statute and elements for all claims [VERIFY jurisdiction-specific elements before filing]
+- Lock in comparator "similarly situated" foundation before exploring differences
+- Depose each harassment incident separately — prevent lumping into general narrative
+- In retaliation: pin down exact timing of decision-maker's knowledge relative to adverse action
+- Wage/hour: get specific hour estimates with methodology; cover each off-the-clock category separately
+- State equivalents vary significantly — verify jurisdiction-specific elements before filing
 
 ## References
 
 - Title VII of the Civil Rights Act of 1964
-- Americans with Disabilities Act (ADA), 42 U.S.C. § 12101 et seq.
-- Age Discrimination in Employment Act (ADEA), 29 U.S.C. § 621 et seq.
-- Fair Labor Standards Act (FLSA), 29 U.S.C. § 201 et seq.
-- *McDonnell Douglas Corp. v. Green*, 411 U.S. 792 (1973) — burden-shifting framework for discrimination claims
-- *Faragher v. City of Boca Raton*, 524 U.S. 775 (1998) — employer liability for supervisor harassment
-- *Burlington Indus., Inc. v. Ellerth*, 524 U.S. 742 (1998) — Faragher-Ellerth affirmative defense
-- State employment law equivalents vary by jurisdiction; consult applicable state statute
+- ADA, 42 U.S.C. § 12101 et seq.
+- ADEA, 29 U.S.C. § 621 et seq.
+- FLSA, 29 U.S.C. § 201 et seq.
+- *McDonnell Douglas v. Green*, 411 U.S. 792 (1973)
+- *Faragher v. City of Boca Raton*, 524 U.S. 775 (1998)
+- *Burlington Indus. v. Ellerth*, 524 U.S. 742 (1998)

@@ -1,119 +1,99 @@
 ---
 name: bsa-risk-assessment
-description: Drafts a comprehensive Bank Secrecy Act (BSA) Risk Assessment for U.S. financial institutions covering FinCEN, FFIEC, and OCC compliance requirements. Produces a formal regulatory document suitable for examination presentation, including institution overview, inherent risk identification (customer, product, geographic, transaction, third-party), risk ratings, control evaluation, and remediation recommendations. Use for annual BSA/AML compliance updates, post-acquisition integration, or when significant business changes trigger reassessment obligations under 31 U.S.C. § 5318(h).
-tags:
-  - analysis
-  - drafting
-  - regulatory
+description: Drafts a BSA/AML Risk Assessment for U.S. financial institutions per FinCEN, FFIEC, and OCC standards. Evaluates inherent risks (customer, product, geographic, transaction, third-party), control adequacy, and residual risk. Use when preparing annual BSA compliance assessments, post-acquisition integration reviews, or when business changes trigger reassessment under 31 U.S.C. § 5318(h).
 ---
 
 # BSA/AML Risk Assessment
 
-Drafts a formal BSA Risk Assessment for financial institutions demonstrating compliance with FinCEN, FFIEC, and OCC standards by evaluating inherent AML/CFT risks and the adequacy of mitigating controls.
+Produces examination-ready BSA Risk Assessments evaluating inherent AML/CFT risks against mitigating controls per FFIEC BSA/AML Examination Manual methodology.
 
 ## Prerequisites
 
-1. **Institution profile** — entity type (bank, credit union, MSB), total assets, branch locations, international relationships
-2. **Products and services inventory** — with transaction volumes for high-risk products (wire transfers, monetary instruments, prepaid cards, trade finance)
-3. **Customer base data** — segmented by type; counts of high-risk categories (cash-intensive businesses, PEPs, non-resident aliens, MSBs)
-4. **BSA/AML program documentation** — existing policies, CIP/CDD/EDD procedures, monitoring system specs, training records
-5. **Historical filing data** — annual CTR and SAR counts, broken down by category
-6. **Independent testing results** — most recent scope, findings, and remediation status
-7. **Regulatory history** — any outstanding MRAs, MOUs, or enforcement actions
+Gather before drafting:
 
-## Output Structure
+1. **Institution profile** — entity type, charter/regulator, total assets, branch footprint, international relationships
+2. **Products & services** — inventory with volumes for high-risk products (wires, monetary instruments, prepaid, trade finance, crypto on/off ramps)
+3. **Customer data** — segments with counts of high-risk categories (cash-intensive businesses, PEPs, NRAs, MSBs, foreign correspondents)
+4. **BSA/AML program docs** — policies, CIP/CDD/EDD procedures, monitoring system specs, training records
+5. **Filing history** — annual CTR/SAR counts by category
+6. **Independent testing** — most recent scope, findings, remediation status
+7. **Regulatory history** — outstanding MRAs, MOUs, enforcement actions
+
+## Document Sections
 
 ### 1. Executive Summary
-- Overall BSA/AML risk rating (Low / Moderate / High)
-- Key risk concentrations and control gaps
-- Priority recommendations with ownership and target dates
+
+Overall risk rating (Low/Moderate/High), key concentrations, control gaps, priority recommendations with owners and target dates.
 
 ### 2. Introduction
+
 - Regulatory basis: 31 U.S.C. § 5318(h); 31 C.F.R. § 1020.210
 - Scope: all business lines, products, customers, geographies
 - Assessment period and update frequency (typically annual)
-- Methodology alignment with FFIEC BSA/AML Examination Manual risk-based approach
+- FFIEC risk-based methodology alignment
 
 ### 3. Institution Overview
 
-| Element | Detail |
-|---|---|
-| Entity type | Bank / Credit Union / MSB / Other |
-| Charter / regulator | OCC / FDIC / Federal Reserve / State |
-| Total assets | $ |
-| Branch count / footprint | Domestic + international |
-| High-risk products | Wire transfers, monetary instruments, private banking, correspondent banking, trade finance, remote deposit capture, prepaid |
-| Customer segments | Retail, SMB, commercial, non-profit, PEPs, non-resident aliens |
-| Annual CTR filings | # |
-| Annual SAR filings | # (by category) |
+Table covering: entity type, charter/regulator, total assets, branch count, high-risk products offered, customer segments, annual CTR/SAR filing counts.
 
 ### 4. Inherent Risk Identification
 
-**Customer Risk**
+Five risk dimensions, each rated High/Moderate/Low:
 
-| Risk Category | Examples | Inherent Rating |
-|---|---|---|
-| Cash-intensive businesses | Check cashers, convenience stores, restaurants | High |
-| Money services businesses | Currency exchangers, money transmitters | High |
-| Non-bank financial institutions | Dealers, pawnbrokers | Moderate–High |
-| Politically exposed persons (PEPs) | Foreign officials, family members | High |
-| Non-resident aliens | Accounts with foreign addresses | Moderate–High |
-| Non-profit organizations | Potential CFT exposure | Moderate |
-| Foreign correspondent banks | Nested accounts risk | High |
-| High-risk jurisdiction customers | FATF grey/black list countries | High |
-
-**Product & Service Risk** — Flag products enabling anonymity, rapid fund movement, or cross-border activity: wire transfers, monetary instruments, prepaid cards, digital banking channels, private banking, trade finance, cryptocurrency on/off ramps.
-
-**Geographic Risk** — Identify exposure to: HIDTA/HIFCA areas, FATF-listed jurisdictions, FinCEN Geographic Targeting Order (GTO) zones, OFAC sanctioned countries.
-
-**Transaction Risk** — Document exposure to: high-volume cash transactions, structuring/smurfing patterns, funnel accounts, rapid fund cycling, shell company transactions, trade-based money laundering.
-
-**Third-Party Risk** — Independent agents, outsourced onboarding or transaction processing vendors, fintech partnerships.
+- **Customer** — cash-intensive businesses, MSBs, NBFIs, PEPs, NRAs, nonprofits, foreign correspondents, FATF-listed jurisdiction customers
+- **Product & Service** — flag products enabling anonymity, rapid movement, or cross-border activity (wires, prepaid, private banking, trade finance, digital channels, crypto)
+- **Geographic** — HIDTA/HIFCA areas, FATF grey/black list jurisdictions, FinCEN GTO zones, OFAC sanctioned countries
+- **Transaction** — high-volume cash, structuring patterns, funnel accounts, rapid cycling, shell companies, trade-based ML
+- **Third-Party** — independent agents, outsourced onboarding/processing, fintech partnerships
 
 ### 5. Risk Assessment Matrix
 
-For each risk category, document:
+Per risk category:
 
-| Risk | Inherent Level | Likelihood | Impact | Mitigating Controls | Residual Level |
+| Risk | Inherent | Likelihood | Impact | Mitigating Controls | Residual |
 |---|---|---|---|---|---|
-| [Customer type / product / geography] | H/M/L | H/M/L | H/M/L | [Control description] | H/M/L |
+| [Category] | H/M/L | H/M/L | H/M/L | [Description] | H/M/L |
 
-Reference applicable typologies from FATF typology reports and FinCEN advisories (ransomware, elder financial exploitation, human trafficking, real estate, virtual assets).
+Reference FATF typology reports and FinCEN advisories for current typologies (ransomware, elder exploitation, human trafficking, real estate, virtual assets).
 
 ### 6. Controls & Mitigation
 
-| Program Component | Regulatory Basis | Current Status | Adequacy |
-|---|---|---|---|
-| Customer Identification Program (CIP) | 31 C.F.R. § 1020.220 | | |
-| Customer Due Diligence (CDD) | 31 C.F.R. § 1010.230 | | |
-| Beneficial Ownership | 31 C.F.R. § 1010.230 | | |
-| Enhanced Due Diligence (EDD) | FFIEC Manual | | |
-| Transaction Monitoring | FFIEC Manual | | |
-| OFAC Sanctions Screening | 31 C.F.R. Part 501 | | |
-| CTR Filing | 31 U.S.C. § 5313 | | |
-| SAR Filing | 31 U.S.C. § 5318(g) | | |
-| BSA Officer / Governance | 31 C.F.R. § 1020.210 | | |
-| Training Program | 31 C.F.R. § 1020.210 | | |
-| Independent Testing | 31 C.F.R. § 1020.210 | | |
+Evaluate each BSA program component against its regulatory basis:
+
+| Component | Citation |
+|---|---|
+| CIP | 31 C.F.R. § 1020.220 |
+| CDD / Beneficial Ownership | 31 C.F.R. § 1010.230 |
+| EDD | FFIEC Manual |
+| Transaction Monitoring | FFIEC Manual |
+| OFAC Screening | 31 C.F.R. Part 501 |
+| CTR Filing | 31 U.S.C. § 5313 |
+| SAR Filing | 31 U.S.C. § 5318(g) |
+| BSA Officer / Governance | 31 C.F.R. § 1020.210 |
+| Training | 31 C.F.R. § 1020.210 |
+| Independent Testing | 31 C.F.R. § 1020.210 |
+
+For each: document current status and adequacy rating.
 
 ### 7. Conclusions & Recommendations
 
-- **Overall risk determination**: [Low / Moderate / High] — narrative justification
-- **Control gaps**: List residual risks where controls are insufficient
-- **Recommendations**: Prioritized action items
+- Overall risk determination with narrative justification
+- Residual risks where controls are insufficient
+- Prioritized remediation table (recommendation, priority, owner, target date)
 
-| Recommendation | Priority | Owner | Target Date |
-|---|---|---|---|
-| [Specific remediation] | Critical / High / Medium | | |
+## Verification Requirements
 
-## Guidelines
+These items change over time — confirm before finalizing:
 
-- Use FFIEC BSA/AML Examination Manual section references when evaluating control adequacy
-- Cite specific FinCEN advisories by FIN number and date when describing typologies or emerging risks [VERIFY advisory numbers before citing]
-- FATF grey/black list countries change periodically — verify current lists at fatf-gafi.org before finalizing
-- Risk ratings must be supported by quantitative data (transaction volumes, SAR counts, alert rates) not qualitative assertions alone
-- Beneficial ownership rule applies to legal entity customers with 25%+ ownership threshold; confirm no subsequent FinCEN rulemaking has adjusted this [VERIFY]
-- Geographic Targeting Orders (GTOs) are jurisdiction-specific and time-limited — confirm current active GTOs via FinCEN website
-- Document must be board-approved or presented to board/senior management committee with evidence of review
-- Retain prior assessment versions; regulators may compare year-over-year changes
-- Do not include attorney-client privileged communications or work product within this document if it will be produced to examiners
+- [ ] FATF grey/black list countries — verify at fatf-gafi.org
+- [ ] Active FinCEN GTOs — jurisdiction-specific and time-limited
+- [ ] Beneficial ownership threshold (currently 25%) — check for subsequent FinCEN rulemaking
+- [ ] FinCEN advisory numbers — verify FIN numbers and dates before citing
+
+## Pitfalls
+
+- **Quantitative support required** — risk ratings must cite transaction volumes, SAR counts, or alert rates; qualitative assertions alone are insufficient
+- **Board presentation** — document must be board-approved or presented to senior management with evidence of review
+- **Version retention** — keep prior assessments; regulators compare year-over-year
+- **Privilege risk** — do not include attorney-client privileged material if document will be produced to examiners
+- **FFIEC citations** — reference specific Examination Manual sections when evaluating control adequacy

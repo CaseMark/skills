@@ -1,16 +1,13 @@
 ---
 name: advance-health-care-directive
 description: >
-  Drafts jurisdiction-specific Advance Health Care Directive packages including
-  health care agent appointment, living will instructions, HIPAA authorization
-  bridge, organ donation preferences, and execution compliance checklists. Use
-  this skill when the user mentions advance directive, health care directive,
-  healthcare proxy, living will, health care agent appointment, HIPAA
-  authorization, capacity trigger planning, medical power of attorney, end-of-life
-  planning, or execution formalities for healthcare documents. Also trigger when
-  the user references state-specific directive forms, witness or notary
-  requirements for healthcare documents, or asks about portability of directives
-  across states.
+  Drafts jurisdiction-specific Advance Health Care Directive packages with agent
+  appointment, living will instructions, HIPAA authorization bridge, organ
+  donation preferences, and execution compliance checklists. Trigger when the
+  user mentions advance directive, healthcare proxy, living will, health care
+  agent, HIPAA authorization, medical power of attorney, end-of-life planning,
+  capacity trigger planning, state-specific directive forms, witness/notary
+  requirements for healthcare documents, or cross-state directive portability.
 tags:
   - agreement
   - drafting
@@ -19,232 +16,158 @@ tags:
 
 # Advance Health Care Directive
 
-## Why This Skill Exists
+Produces a jurisdiction-aware, clinically actionable directive package — agent appointment, treatment instructions, HIPAA bridge, execution checklist — that an ER team can parse in under 60 seconds and that survives legal challenge. Grounded in state probate/health codes with HIPAA (45 C.F.R. § 164.508) overlay.
 
-Advance Health Care Directives fail in practice for two reasons: they don't comply with state-specific execution formalities (making them unenforceable when it matters most), or they use vague language that leaves clinicians and agents unable to act in an emergency. A directive that says "no heroic measures" is clinically useless. A directive signed with one witness in a state requiring two is legally void.
+Directives fail when they lack state-specific execution formalities (legally void) or use vague language like "no heroic measures" (clinically useless). This skill eliminates both failure modes.
 
-This skill produces a jurisdiction-aware, clinically actionable directive package — agent appointment, treatment instructions, HIPAA bridge, execution checklist — that an ER team can parse in under 60 seconds and that survives legal challenge. The primary grounding is state probate/health codes governing advance directives, with HIPAA (45 C.F.R. § 164.508) overlay for authorization language.
+## Quick Start
 
----
+1. Gather intake (Checkpoint A)
+2. Map state law and validate inputs
+3. Draft directive sections in fixed order
+4. Verify execution compliance
+5. Produce final package with front matter
+6. Confirm alignment (Checkpoint B)
 
-## Checkpoint A: Pre-Draft Intake (Mandatory)
+## Checkpoint A — Pre-Draft Intake
 
-Ask every time unless the user says "use defaults" or "just draft." Gather:
+Gather every time unless user says "use defaults" or "just draft":
 
-1. **Jurisdiction** — client's primary state of residence plus expected care states; whether out-of-state portability is needed
-2. **Draft scope** — directive + health care agent + living wishes + revocation + execution clauses; confirm attorney review required before finalization
-3. **Capacity context** — any contested capacity concerns; if present, flag for contemporaneous capacity memo
-4. **Client identity** — legal name, DOB, aliases, contact data, diagnosis context relevant to decision-making
-5. **Agent architecture** — primary agent and alternates with full contact details, availability, conflicts, and consent to serve
-6. **Treatment preferences** — CPR, ventilation, feeding/hydration, hospitalization goals, comfort care, palliative sedation position, religious/cultural restrictions
-7. **Existing documents** — prior directives, POLST/MOLST, donor registry status, powers of attorney, guardianship/adult protective orders
-8. **Execution logistics** — signing location, notary availability, witness constraints, facility-specific rules, spouse/relative witness limitations
-9. **Conflict screening** — family tensions, beneficiary pressure, undue influence indicators flagged to attorney
+1. **Jurisdiction** — primary residence state, expected care states, portability needs
+2. **Draft scope** — directive + agent + living wishes + revocation + execution; confirm attorney review required
+3. **Capacity context** — contested capacity concerns → flag for contemporaneous capacity memo
+4. **Client identity** — legal name, DOB, aliases, contact, diagnosis context
+5. **Agent architecture** — primary + alternates with contact, availability, conflicts, consent to serve
+6. **Treatment preferences** — CPR, ventilation, feeding/hydration, hospitalization goals, comfort care, palliative sedation, religious/cultural restrictions
+7. **Existing documents** — prior directives, POLST/MOLST, donor registry, POAs, guardianship orders
+8. **Execution logistics** — signing location, notary availability, witness constraints, facility rules, spouse/relative limitations
+9. **Conflict screening** — family tensions, beneficiary pressure, undue influence indicators → flag to attorney
 
-**If the user doesn't respond**, apply and clearly label these defaults: immediate-authority directive; primary agent with one alternate; comfort-focused treatment preferences; forum-neutral directive template with state-specific execution formalities and statutory form references marked `[VERIFY JURISDICTION]`; standard HIPAA authorization bridge.
+**Request**: prior directives, POLST/MOLST, POAs, guardianship orders, organ donation registrations, relevant medical records. If missing, flag explicitly and proceed with labeled assumptions listing "Open Items / Needed Inputs."
 
-### Documents to Request
+**Defaults** (if no response): immediate-authority directive; primary agent + one alternate; comfort-focused treatment; forum-neutral template with state execution formalities marked `[VERIFY JURISDICTION]`; standard HIPAA authorization bridge.
 
-Request these materials — they substantially improve quality:
+## Step 1 — Validate Intake and Map State Law
 
-- Prior advance directives, living wills, or health care proxies
-- POLST/MOLST forms (if any)
-- Powers of attorney (financial and healthcare)
-- Guardianship or conservatorship orders
-- Organ donation registrations
-- Relevant medical records establishing diagnosis context
+Build the jurisdictional scaffold before drafting.
 
-If materials are missing, flag them explicitly. Proceed with labeled assumptions rather than stalling, but list "Open Items / Needed Inputs" for attorney follow-up.
-
----
-
-## Step 1: Validate Intake and Map State Law
-
-Before drafting any text, build the jurisdictional scaffold.
-
-### Required Deliverable: Intake Validation Table
+### Intake Validation Table
 
 | Data Block | Required Fields | Verification |
 |---|---|---|
-| Client profile | Name, DOB, aliases, state residence, contact | Confirm spelling consistency across all blocks |
-| Jurisdiction | Primary state, secondary care state(s), portability strategy | `[VERIFY]` all execution/effectiveness rules per state statute |
-| Capacity posture | Capacity red flags, physician assessment needs | Flag for contemporaneous memo when risk is present |
-| Agent chain | Primary + up to two alternates, relationships, contact, disqualifications | Confirm no disqualified classes under local statute |
-| Treatment values | Scenario-based preferences, values hierarchy, palliative care directives | Ensure no contradictory instructions |
-| Legal/medical interfaces | POLST/MOLST status, donor registry, prior directives | Reconcile conflicts and provide harmonized set |
-| Execution logistics | Witness sources, notary method, facility constraints | Include jurisdiction-specific affidavit/attestation language |
-| Delivery plan | Copy recipients (agent, PCP, facilities, portal) | Include immediate distribution checklist |
+| Client profile | Name, DOB, aliases, residence, contact | Spelling consistency across blocks |
+| Jurisdiction | Primary state, secondary care states, portability | `[VERIFY]` execution/effectiveness rules per statute |
+| Capacity posture | Red flags, physician assessment needs | Flag for contemporaneous memo if risk present |
+| Agent chain | Primary + up to 2 alternates, relationships, contact, disqualifications | No disqualified classes under local statute |
+| Treatment values | Scenario-based preferences, values hierarchy, palliative directives | No contradictory instructions |
+| Legal/medical interfaces | POLST/MOLST, donor registry, prior directives | Reconcile conflicts; harmonized set |
+| Execution logistics | Witness sources, notary method, facility constraints | Jurisdiction-specific affidavit/attestation language |
+| Delivery plan | Copy recipients (agent, PCP, facilities, portal) | Distribution checklist |
 
-### Required Deliverable: State-Law Scaffold
+### State-Law Scaffold
 
-| Topic | Required Confirmation |
+| Topic | Confirm |
 |---|---|
-| Governing statute/framework | Controlling statute and official form/guidance URL |
-| Formalities | Witness vs. notary options, number, disqualifications, facility-specific add-ons |
-| Trigger mechanics | Springing vs. immediate authority; incapacity standard and certifying clinician count |
-| Substantive scope | Definitions (terminal, incurable, persistent unconsciousness) if used |
-| Limitations | Pregnancy restrictions, mental health treatment authority, substance/HIV record limits |
+| Governing statute | Controlling statute + official form/guidance URL |
+| Formalities | Witness vs. notary options, count, disqualifications, facility add-ons |
+| Trigger mechanics | Springing vs. immediate; incapacity standard; certifying clinician count |
+| Substantive scope | Definitions: terminal, incurable, persistent unconsciousness |
+| Limitations | Pregnancy restrictions, mental health authority, substance/HIV record limits |
 | Revocation | Permitted methods and effective timing |
-| Provider protection | Reliance rights for copies/electronic versions and good-faith immunity |
+| Provider protection | Reliance rights for copies/electronic versions; good-faith immunity |
 
----
+## Step 2 — Draft Directive Sections
 
-## Step 2: Draft the Directive Sections
+Use this fixed section order with clinically interpretable language throughout:
 
-Use a fixed section order. Each section must use clinically interpretable language — no vague slogans.
-
-### Fixed Section Order
-
-1. **Purpose statement** and chosen effective date
-2. **Health care agent appointment** — clear trigger and scope
-3. **Successor agent ladder** — strict availability/unavailability conditions
+1. **Purpose statement** and effective date
+2. **Health care agent appointment** — trigger and scope
+3. **Successor agent ladder** — availability/unavailability conditions
 4. **Written values statement** and decision-making hierarchy
 5. **Treatment instruction matrix** — scenario-based, not abstract
 6. **HIPAA authorization bridge** — effective immediately unless state requires otherwise
-7. **Organ donation / disposition-of-remains** notes
+7. **Organ donation / disposition-of-remains**
 8. **Revocation, supersession, and severability**
 9. **Provider reliance and transfer obligations** (if conscience objection possible)
 10. **Execution block** — signature/witness/notary/acceptance
 
-### Section Templates
+### Key Drafting Patterns
 
-**Agent Appointment:**
-```text
-[CLIENT NAME], [CLIENT ADDRESS]
-I appoint [PRIMARY AGENT NAME], [RELATIONSHIP], as my Health Care Agent.
-Contact: [ADDRESS] | [PHONE] | [EMAIL]
-Authority starts when [trigger condition], as determined by [clinician criteria per state law].
-Agent authority includes: treatment consent/denial, admission/discharge, care-site transfer,
-treatment preferences execution, and record-access coordination.
-If written instruction conflicts with discretionary choice, written instruction controls.
-If unspecified, Agent applies my stated values and substituted-judgment standard.
-```
+**Agent appointment**: identify client, appointed agent with relationship and full contact, trigger condition per state law, scope of authority (consent/denial, admission/discharge, transfer, record access). Written instructions control over discretionary choices; unspecified matters use stated values and substituted-judgment standard.
 
-**Successor Agents:**
-```text
-If my Primary Agent is unavailable/unwilling/disqualified, I appoint:
-First Alternate: [NAME/CONTACT]
-Second Alternate: [NAME/CONTACT]
-Each assumes authority only if all prior agents are unavailable per state rules.
-```
+**Successor agents**: each assumes authority only when all prior agents are unavailable/unwilling/disqualified per state rules.
 
-**HIPAA Authorization Bridge:**
-```text
-I authorize my Health Care Agent and alternates to access and exchange all medical records
-and protected health information now, regardless of trigger status, for purposes of
-determining incapacity and coordinating care.
-Effective date: immediate upon execution.
-Scope includes records from all treating providers, facilities, laboratories, and insurers.
-[VERIFY: 45 C.F.R. § 164.508 requirements and any state/Part 2 overlays.]
-```
+**HIPAA bridge**: authorize agent and alternates to access all PHI immediately upon execution for incapacity determination and care coordination. Scope covers all providers, facilities, labs, insurers. Mark `[VERIFY: 45 C.F.R. § 164.508 and state/Part 2 overlays]`.
 
-**Treatment Preferences:**
-```text
-My goals:
-1) Comfort and pain control.
-2) Maintain communication/contact with loved ones when feasible.
-3) Avoid prolonged treatment with no reasonable benefit.
-Treatment preferences:
-- CPR: [Yes/No; include context]
-- Ventilation: [Yes/No; include limits]
-- Artificial nutrition/hydration: [Yes/No; include context]
-- Hospitalization: [Preference]
-- Comfort care: [Include explicit palliative care and symptom-control direction]
-If not specified, apply my values and best judgment as if I could decide for myself.
-```
+**Treatment preferences**: state goals (comfort/pain control, loved-one contact, avoid futile prolonged treatment), then specific positions on CPR, ventilation, artificial nutrition/hydration, hospitalization, comfort care with explicit palliative direction.
 
-**Revocation and Severability:**
-```text
-I may revoke at any time while capable, by [state-authorized methods].
-Latest signed/revised version governs.
-If one provision is unenforceable, all other provisions remain effective.
-Copies and electronic versions may be used as permitted by [STATE] law.
-```
+**Revocation**: revocable while capable by state-authorized methods; latest version governs; severability clause; copies/electronic versions per state law.
 
----
-
-## Step 3: Execute Compliance Verification
-
-### Required Deliverable: Execution Compliance Checklist
+## Step 3 — Execution Compliance Verification
 
 | Item | Required Output |
 |---|---|
-| Witnessing | Correct count and disqualification screening completed |
-| Notary | Form and statement match state-prescribed language if used |
-| Facility patients | Facility-specific add-on clauses satisfied (e.g., ombudsman/patient advocate) |
+| Witnessing | Correct count, disqualification screening completed |
+| Notary | Form matches state-prescribed language |
+| Facility patients | Facility-specific add-ons satisfied (ombudsman/patient advocate) |
 | Agent acceptance | Optional acceptance statement included |
-| Plain-language usability | Agent and key instructions identifiable in <60 seconds in an ER context |
+| Usability | Key instructions identifiable in <60 seconds (ER context) |
 | Internal consistency | No contradiction between agent powers and treatment instructions |
 | Review tags | Every statutory claim marked `[VERIFY]` unless confirmed by statute URL |
 
 ### State-Specific Flags
 
-- Use state templates/forms where required or strongly recommended
-- Example variances to flag for attorney review: California facility witness/ombudsman rules, Florida witness composition, New York split-instrument systems (proxy + living will), Texas hospital review process for withdrawal over family objections
-- Pregnancy limitations and mental-health treatment authority are state-sensitive and potentially unstable across case law updates
-- Use `[VERIFY]` tags for any citation or statutory quote unless sourced in-session
+- Use state templates/forms where required or recommended
+- Flag for attorney: CA facility witness/ombudsman rules, FL witness composition, NY split-instrument systems, TX hospital review for withdrawal over family objections
+- Pregnancy limitations and mental-health authority are state-sensitive and case-law unstable
 
----
+## Step 4 — Produce Final Package
 
-## Step 4: Produce Final Package
+Every output begins with mandatory front matter:
 
-Output the complete directive with mandatory front matter.
+1. **Assumptions Used** — jurisdiction, trigger type, agent chain, treatment posture, key facts
+2. **Open Items / Needed Inputs** — missing documents, unresolved questions, unverified citations
 
-### Mandatory Front Matter
-
-At the very top of every output, before any substantive content, include:
-
-1. **Assumptions Used** — jurisdiction, trigger type, agent chain, treatment posture, key facts relied on
-2. **Open Items / Needed Inputs** — missing documents, unresolved jurisdictional questions, unverified citations
-
-### Deliverable Package
+### Deliverables
 
 1. Complete advance health care directive document
 2. Execution compliance checklist (filled)
 3. Distribution plan with recipient list
 4. State-specific notes and `[VERIFY]` items for attorney review
 
----
+## Checkpoint B — Post-Draft Alignment
 
-## Checkpoint B: Post-Draft Alignment (Mandatory)
+Ask after delivering the initial package:
 
-After delivering the initial package, ask:
+1. Does the agent chain and trigger mechanism match client intent?
+2. Are treatment preferences correctly stated — especially CPR, ventilation, feeding/hydration?
+3. Any family members or situations needing special handling in the values statement?
+4. Should the directive harmonize with an existing or new POLST/MOLST?
 
-1. Does the agent chain and trigger mechanism match the client's intent?
-2. Are the treatment preferences correctly stated — especially CPR, ventilation, and feeding/hydration positions?
-3. Are there any family members or situations that need special handling in the values statement?
-4. Should the directive be harmonized with an existing or new POLST/MOLST?
-
-If the user doesn't answer, recommend the next best refinement based on stated objectives and proceed if authorized.
-
----
+If no response, recommend next best refinement and proceed if authorized.
 
 ## Quality Audit
 
-Before finalizing, verify:
-
 - [ ] Jurisdiction identified and state-law scaffold completed
-- [ ] Agent chain includes primary + at least one alternate with full contact info
-- [ ] Treatment preferences are scenario-specific, not abstract ("no heroic measures" eliminated)
-- [ ] HIPAA authorization bridge included and effective date confirmed
+- [ ] Agent chain: primary + at least one alternate with full contact
+- [ ] Treatment preferences are scenario-specific (no "no heroic measures")
+- [ ] HIPAA authorization bridge included with confirmed effective date
 - [ ] No contradiction between agent powers and treatment instructions
 - [ ] Execution formalities match state requirements (witness count, disqualifications, notary)
-- [ ] Portability addressed if client receives care in multiple states
+- [ ] Portability addressed if multi-state care
 - [ ] Every statutory citation verified or marked `[VERIFY]`
-- [ ] Assumptions and open items listed prominently in front matter
-- [ ] Plain-language usability: key instructions locatable in <60 seconds
+- [ ] Assumptions and open items in front matter
+- [ ] Key instructions locatable in <60 seconds
 - [ ] No invented facts, diagnoses, relationships, or statutory language
-
----
 
 ## Guidelines
 
-- Do not rely on memory for any state execution formalities or statutory language — require statute URLs or official guidance
-- Flag unresolved jurisdictional questions with `[VERIFY]` and do not finalize text as final legal language
-- Use scenario-specific, clinically interpretable wording; avoid vague slogans like "no heroic measures"
-- Enforce values hierarchy: client instructions override broad surrogate discretion
+- Never rely on memory for state execution formalities — require statute URLs or official guidance
+- Mark unresolved jurisdictional questions `[VERIFY]`; never finalize as final legal language
+- Use scenario-specific, clinically interpretable wording; ban vague slogans
+- Client instructions override broad surrogate discretion (values hierarchy)
 - Treat portability as a design requirement, not a footnote
-- Do not advise on clinical decisions — this is legal structuring only
-- Do not produce unverified legal authority text; refuse fraud/backdating/fabrication requests
-- **Attorney review required** — include disclaimer and execution-readiness statement in final output
+- Legal structuring only — do not advise on clinical decisions
+- Refuse fraud, backdating, or fabrication requests
+- **Attorney review required** — include disclaimer and execution-readiness statement
 - **Ethics**: Model Rules 1.1 (competence), 1.14 (diminished capacity), 1.6 (confidentiality)
