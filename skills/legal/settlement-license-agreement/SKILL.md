@@ -1,15 +1,16 @@
 ---
 name: settlement-license-agreement
-description: Drafts a dual-purpose Settlement and License Agreement that resolves IP litigation while establishing an ongoing licensing framework. Covers mutual releases, covenants not to sue, IP license grants (patents, trademarks, copyrights, trade secrets), royalty structures, confidentiality, indemnification, and post-termination rights. Use when drafting IP settlement agreements, litigation resolution with license-back provisions, or combined release-and-license instruments.
+description: Drafts a dual-purpose Settlement and License Agreement resolving IP litigation while establishing an ongoing licensing framework. Covers mutual releases, covenants not to sue, IP license grants, royalty structures, confidentiality, indemnification, and post-termination rights. Use when drafting IP settlement agreements, litigation resolution with license-back provisions, or combined release-and-license instruments.
 tags:
+  - litigation
+  - transactional
   - agreement
   - drafting
-  - litigation
 ---
 
 # Settlement and License Agreement
 
-Drafts a comprehensive agreement that simultaneously resolves IP litigation and establishes a precise licensing framework between the parties.
+Drafts an agreement that simultaneously resolves IP litigation and establishes a licensing framework between the parties.
 
 ## Prerequisites
 
@@ -25,9 +26,9 @@ Drafts a comprehensive agreement that simultaneously resolves IP litigation and 
 
 | Element | Content |
 |---|---|
-| Parties | Full legal names, entity types, organization jurisdictions, principal business addresses, signing capacity |
+| Parties | Full legal names, entity types, organization jurisdictions, addresses, signing capacity |
 | Dispute history | Case numbers, courts, claims asserted, IP at issue |
-| Recital narrative | Sufficient context for a third party reading years later to understand what was settled and why |
+| Recital narrative | Context sufficient for a third party to understand what was settled and why |
 | Mutual intent | Desire to resolve disputes and establish licensing relationship |
 
 ### 2. Definitions
@@ -42,41 +43,31 @@ Define all key terms on first use. At minimum:
 
 ### 3. Settlement and Release
 
-```
-Structure:
-├── Mutual General Release
-│   ├── Scope: all claims asserted or that could have been asserted
-│   ├── Extension to affiliates, successors, assigns
-│   └── Carve-out: obligations created by this agreement
-├── Covenant Not to Sue
-│   └── Additional layer beyond release
-├── Litigation Dismissal
-│   ├── Form: stipulated dismissal with prejudice
-│   └── Timeline and filing responsibility
-└── Survival: release survives license termination
-```
+| Component | Requirements |
+|---|---|
+| Mutual general release | Scope: all claims asserted or assertable; extend to affiliates, successors, assigns; carve out obligations under this agreement |
+| Covenant not to sue | Additional layer beyond the release |
+| Litigation dismissal | Stipulated dismissal with prejudice; specify timeline and filing responsibility |
+| Survival | Release must survive license termination — draft explicit language |
 
-**Key drafting rules:**
-- Release must be broad enough for finality but specific enough to be enforceable
-- Overly broad releases risk unenforceability; overly narrow releases fail to achieve finality
-- Always specify whether release survives if license is later terminated
-- Include Cal. Civ. Code § 1542 waiver (or equivalent) if California law applies [VERIFY]
+- Balance breadth (finality) against specificity (enforceability)
+- Include Cal. Civ. Code § 1542 waiver or equivalent if California law applies [VERIFY]
 
 ### 4. License Grant
 
-| Parameter | Options to Address |
+| Parameter | Address |
 |---|---|
 | IP type | Patents (by number), trademarks (by reg. no. + common law), copyrights, trade secrets, know-how |
 | Exclusivity | Exclusive, non-exclusive, or sole |
-| Field of use | Specific product categories, industries, applications |
+| Field of use | Product categories, industries, applications |
 | Territory | Geographic scope |
-| Duration | Term of years, perpetual, patent life |
+| Duration | Term of years, perpetual, or patent life |
 | Sublicensing | Permitted? Sublicense survival on termination? |
-| Improvements | Included? Ownership of derivatives? Grant-back provisions? |
+| Improvements | Included? Derivative ownership? Grant-back provisions? |
 
 ### 5. Financial Terms
 
-Distinguish settlement consideration from license royalties (different tax treatment).
+Distinguish settlement consideration from license royalties — different tax treatment.
 
 **Settlement payments:**
 - Lump sum amount and payment schedule
@@ -84,43 +75,31 @@ Distinguish settlement consideration from license royalties (different tax treat
 - Tax treatment allocation
 
 **Ongoing royalties:**
-- [ ] Royalty base defined (net sales, gross revenue, units)
-- [ ] Rate specified (flat, tiered, per-product)
+- [ ] Royalty base (net sales, gross revenue, units)
+- [ ] Rate (flat, tiered, per-product)
 - [ ] Payment frequency (quarterly/annually)
 - [ ] Accounting and reporting obligations with deadlines
-- [ ] Audit rights (frequency, scope, cost allocation, threshold for underpayment penalties)
+- [ ] Audit rights (frequency, scope, cost allocation, underpayment penalty threshold)
 - [ ] Late payment interest rate
 - [ ] Minimum royalty provisions if applicable
 
 ### 6. Confidentiality
 
-- [ ] Define Confidential Information (include agreement terms themselves if required)
+- [ ] Define Confidential Information (include agreement terms if required)
 - [ ] Permitted disclosures: attorneys, accountants, court order, regulatory
-- [ ] Compelled disclosure procedure: prompt notice + cooperation on protective order
-- [ ] Public announcement: mutual approval of any press language
-- [ ] Survival period post-termination (typically 3-5 years; trade secrets indefinite)
+- [ ] Compelled disclosure: prompt notice + cooperation on protective order
+- [ ] Public announcement: mutual approval of press language
+- [ ] Survival post-termination (typically 3–5 years; trade secrets indefinite)
 
 ### 7. Representations, Warranties, and Indemnification
 
-**Mutual representations:**
-- Authority to enter agreement
-- No conflict with existing obligations
+| Party | Representations |
+|---|---|
+| Mutual | Authority to enter agreement; no conflict with existing obligations |
+| Licensor | Ownership of licensed IP; right to grant license; no known third-party infringement (knowledge qualifier) |
+| Licensee | Ability to perform obligations; compliance with applicable laws |
 
-**Licensor-specific:**
-- Ownership of licensed IP
-- Right to grant license
-- No known third-party infringement (knowledge qualifier)
-
-**Licensee-specific:**
-- Ability to perform obligations
-- Compliance with applicable laws in exploitation
-
-**Indemnification framework:**
-- Scope of covered third-party claims
-- Notice requirements and timing
-- Control of defense and right to participate
-- Liability caps and exclusion of consequential damages
-- "As-is" disclaimer for licensed IP where appropriate
+**Indemnification:** scope of covered claims, notice requirements, control of defense, liability caps, consequential damages exclusion, "as-is" disclaimer where appropriate.
 
 ### 8. Term, Termination, and Post-Termination
 
@@ -130,45 +109,38 @@ Distinguish settlement consideration from license royalties (different tax treat
 | Termination triggers | N/A | Material breach, non-payment, bankruptcy |
 | Cure period | N/A | 30 days written notice (standard) |
 | Post-termination | Release survives | Cease use, wind-down period, inventory sell-off |
-| Surviving provisions | Release, confidentiality | Audit rights, accrued payment obligations |
+| Surviving provisions | Release, confidentiality | Audit rights, accrued payments |
 
-**Critical rule:** License termination must NOT revive settled claims. Draft explicit survival language.
+**Critical:** License termination must NOT revive settled claims.
 
 ### 9. Dispute Resolution
 
-```
-Escalation ladder:
-1. Executive negotiation (15-30 days)
-2. Mediation (30-60 days)
-3. Binding arbitration or litigation
+| Step | Timeframe |
+|---|---|
+| Executive negotiation | 15–30 days |
+| Mediation | 30–60 days |
+| Binding arbitration or litigation | Per rules selected |
 
-Specify:
-- Governing law (consider enforceability of choice-of-law)
-- Venue / arbitration seat
-- Arbitration rules (AAA, JAMS, ICC)
-- Prevailing party fee-shifting
-- Jury trial waiver (if litigation path)
-- Whether settlement disputes vs. license disputes have different mechanisms
-```
+Specify: governing law, venue/arbitration seat, arbitration rules (AAA, JAMS, ICC), prevailing party fee-shifting, jury trial waiver (if litigation path), whether settlement vs. license disputes use different mechanisms.
 
-### 10. General Provisions and Execution
+### 10. General Provisions
 
 - [ ] Entire agreement / integration clause
-- [ ] Amendment: written consent of both parties required
-- [ ] Assignment restrictions (critical for IP licenses — consent required, change of control trigger)
+- [ ] Amendment: written consent required
+- [ ] Assignment restrictions (consent required; change-of-control trigger)
 - [ ] Severability
 - [ ] Waiver (no implied waiver from failure to enforce)
-- [ ] Notice provisions with addresses and permitted methods
+- [ ] Notice provisions with addresses and methods
 - [ ] Counterparts and electronic signature authorization
-- [ ] Signature blocks: officer name, title, date, corporate authority confirmation
+- [ ] Signature blocks with officer name, title, date, authority confirmation
 - [ ] Board approval / regulatory filing confirmation if required
 
 ## Guidelines
 
-- **Release–license interaction**: Always address whether the release survives license termination. Failure to do so creates ambiguity about revived claims.
-- **Tax characterization**: Settlement payments and royalties have different tax consequences. Flag for tax counsel review.
-- **Antitrust risk**: License-back provisions and field-of-use restrictions in settlement context may raise antitrust concerns. Flag for review if present.
-- **Bankruptcy**: IP licenses have special treatment under 11 U.S.C. § 365(n) [VERIFY]. Licensee may retain rights if licensor enters bankruptcy. Include protective language.
-- **Recording**: Patent and trademark licenses may need to be recorded with USPTO. Include cooperation obligation.
-- **No legal advice**: Flag all jurisdiction-specific provisions for attorney review. Settlement agreements are high-stakes instruments requiring human oversight.
-- **Internal consistency**: Cross-check all defined terms, section cross-references, and numbering before final output.
+- **Release–license interaction** — Always address whether the release survives license termination. Ambiguity here risks revived claims.
+- **Tax characterization** — Settlement payments and royalties differ in tax treatment. Flag for tax counsel.
+- **Antitrust risk** — License-back provisions and field-of-use restrictions in settlement context may raise antitrust concerns. Flag if present.
+- **Bankruptcy** — IP licenses receive special treatment under 11 U.S.C. § 365(n) [VERIFY]. Include licensee protective language.
+- **Recording** — Patent and trademark licenses may require USPTO recording. Include cooperation obligation.
+- **Internal consistency** — Cross-check defined terms, section cross-references, and numbering before final output.
+- **No legal advice** — Flag all jurisdiction-specific provisions for attorney review. Settlement agreements require human oversight.

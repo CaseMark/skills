@@ -2,13 +2,9 @@
 name: incorporator-written-consent
 description: >-
   Drafts an Action by Written Consent of Incorporator for newly formed U.S.
-  corporations, formalizing initial organizational actions (adopting bylaws,
-  appointing directors) without a formal meeting. Complies with state
-  corporation statutes allowing incorporator action by written consent in lieu
-  of an organizational meeting. Use during corporate formation immediately
-  after Articles of Incorporation are filed. Trigger keywords: incorporator
-  consent, written consent of incorporator, organizational action, initial
-  directors, adopt bylaws, corporate formation.
+  corporations. Trigger when the user needs to formalize post-incorporation
+  organizational actions (adopting bylaws, appointing initial directors) by
+  written consent in lieu of an organizational meeting.
 tags:
   - agreement
   - corporate
@@ -17,65 +13,62 @@ tags:
 
 # Action by Written Consent of Incorporator
 
-Drafts the incorporator's formal written consent to complete initial organizational steps after Articles of Incorporation are filed, transferring authority to the initial board of directors.
+Formalizes the incorporator's organizational actions after Articles of Incorporation are filed, transferring authority to the initial board of directors.
 
-## Prerequisites
+## Required Inputs
 
-1. **Corporation's exact legal name** — must match Articles of Incorporation precisely
-2. **State of incorporation** — determines statutory authority to cite
-3. **Articles of Incorporation filing date** — date filed with Secretary of State
-4. **Incorporator's full legal name(s)** — all incorporators if more than one
-5. **Initial director names** — complete legal names of all persons to be appointed
-6. **Bylaws** — to attach as Exhibit A (or note if being prepared separately)
+1. **Corporation legal name** — must match Articles exactly
+2. **State of incorporation** — determines statutory citation
+3. **Articles filing date** — date filed with Secretary of State
+4. **Incorporator name(s)** — full legal name of each incorporator
+5. **Initial director names** — full legal names of all appointees
+6. **Bylaws** — attach as Exhibit A or note if pending
+
+## Quick Start
+
+1. Collect all required inputs above.
+2. Identify the governing statute for the state (see State Variance below).
+3. Draft per the output structure; include optional resolutions only if client requests.
+4. Attach bylaws as Exhibit A or add placeholder.
+5. Replace all bracketed placeholders before delivery.
 
 ## Output Structure
 
-### Document Header
-```
-ACTION BY WRITTEN CONSENT OF INCORPORATOR
-OF [CORPORATION NAME]
+**Header** — Title with corporation name and effective date.
 
-Effective Date: [DATE]
-```
+**Preamble** — Identifies incorporator, corporation name, state, and Articles filing date.
 
-### Preamble
-Identifies the incorporator by full legal name, references the corporation's legal name and state of incorporation, and cites the exact date Articles of Incorporation were filed with the Secretary of State.
+**Resolutions** (numbered):
 
-### Numbered Resolutions
+| # | Action | Notes |
+|---|--------|-------|
+| 1 | Adopt Bylaws | "RESOLVED, that the Bylaws attached hereto as Exhibit A are hereby adopted…" |
+| 2 | Appoint Initial Directors | List each director by full legal name; serve until successors elected and qualified |
+| 3 | *(Optional)* Set fiscal year | Calendar year or specified end date |
+| 4 | *(Optional)* Authorize bank accounts | Name designated institutions |
+| 5 | *(Optional)* Ratify prior acts | Ratify actions taken before this consent |
 
-| # | Action | Key Language |
-|---|--------|-------------|
-| 1 | **Adopt Bylaws** | "RESOLVED, that the Bylaws attached hereto as Exhibit A are hereby adopted as the Bylaws of the Corporation." |
-| 2 | **Appoint Initial Directors** | "RESOLVED, that the following persons are hereby appointed to serve as directors… until their successors are duly elected and qualified:" [list each director's full legal name] |
-| 3 | *(Optional)* Authorize fiscal year | Adopt calendar year or specified fiscal year end |
-| 4 | *(Optional)* Authorize bank accounts | Authorize officers to open accounts at designated institutions |
-| 5 | *(Optional)* Ratify incorporator acts | Ratify any actions taken by incorporator prior to this consent |
+**Role Conclusion** — Explicit statement that incorporator duties are complete and authority transfers to the board.
 
-### Conclusion of Incorporator's Role
-Include explicit statement that the incorporator has completed all duties as incorporator and that authority is hereby transferred to the board of directors.
+**Execution Block** — Signature line for each incorporator with printed name and title "Incorporator."
 
-### Execution Block
-```
-IN WITNESS WHEREOF, the undersigned, being the incorporator of the
-Corporation, has executed this Action by Written Consent as of the
-date first written above.
+**Exhibit A** — Executed bylaws or placeholder if pending.
 
+## State Variance
 
-_______________________________
-[INCORPORATOR PRINTED NAME]
-Incorporator
-```
+- **Delaware**: DGCL § 108
+- **California**: Corp. Code § 210
+- **MBCA states**: MBCA § 2.05 (most other states)
+- **Default**: When state is unspecified, draft to MBCA standards
+- Always verify the specific statutory citation for the target state
 
-### Exhibit A
-Attach executed Bylaws or include placeholder notation if being finalized separately.
+## Checks
 
-## Guidelines
+- Corporation name, state, and filing date must be consistent throughout and match the filed Articles
+- Director count must comply with minimums/maximums in Articles or state statute
+- Multiple incorporators: all must sign unless statute or Articles permit majority action
+- Notarization is typically not required; flag if state law mandates it
+- Remind client: executed consent goes into corporate minute book with Bylaws and Articles
+- Never deliver with unfilled bracketed placeholders
 
-- **Internal consistency**: Corporation name, state, and filing date must be identical throughout and match the filed Articles of Incorporation
-- **Director count**: Confirm number of appointees complies with any minimum/maximum in Articles of Incorporation or state statute
-- **State variance**: Delaware follows DGCL § 108; California follows Corp. Code § 210; most other states follow MBCA § 2.05 [VERIFY specific citations for target state]
-- **MBCA default**: When state is unspecified, draft to Model Business Corporation Act standards
-- **Notarization**: Typically not required for incorporator consents, but note if state law mandates it
-- **Filing**: Executed consent goes into corporate minute book alongside Bylaws and Articles of Incorporation — remind client
-- **Sole vs. multiple incorporators**: If multiple incorporators, all must sign unless state statute or Articles allow majority action
-- **Bracketed placeholders**: Replace all before delivering — do not present document with unfilled fields
+---

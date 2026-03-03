@@ -1,15 +1,13 @@
 ---
 name: confidentiality-severance-agreement
 description: >-
-  Drafts U.S. employment litigation-ready confidentiality and severance
-  agreements that combine separation compensation, broad claim releases,
-  post-employment restrictions, and enforcement architecture in a single
-  settlement document. Use for severance terminations, termination letters
-  with release packages, and amicable exits requiring claim waivers,
-  confidentiality protection, non-disparagement, non-compete/non-solicit
-  tailoring, OWBPA timing, and DTA-compliant notice logic. Trigger keywords:
-  severance, separation, release, waiver, confidentiality, non-compete,
-  non-solicit, non-disparagement, OWBPA, arbitration, DTA notice.
+  Drafts U.S. employment confidentiality and severance agreements combining
+  separation compensation, broad claim releases, post-employment restrictions,
+  and enforcement architecture. Handles OWBPA timing, DTSA notice, non-compete
+  and non-solicit tailoring, non-disparagement, and unknown-claims waivers.
+  Triggers on severance, separation agreement, release of claims, termination
+  package, confidentiality waiver, non-compete, non-solicit, non-disparagement,
+  OWBPA, arbitration clause, or DTA notice.
 tags:
   - agreement
   - drafting
@@ -18,167 +16,161 @@ tags:
 
 # Confidentiality and Severance Agreement
 
-Drafts a complete termination settlement agreement that secures confidentiality, claim release, and post-employment conduct obligations while maintaining enforceability across U.S. jurisdictions.
+Drafts a complete termination settlement agreement securing confidentiality, claim release, and post-employment conduct obligations with enforceability across U.S. jurisdictions.
 
 ## Prerequisites
 
-1. Confirm employee details: full legal name, position, tenure, age, start and separation dates, work location, and governing domicile/residence.
-2. Gather compensation inputs: salary, bonus formula, PTO/unused leave, equity treatment, benefits continuation, and any prior unpaid compensation disputes.
-3. Collect governing documents: handbook, offer letter, prior non-compete/confidentiality/IP agreements, equity/benefit plans, prior settlement patterns, and company policies for similarly situated terminations.
-4. Identify legal constraints: jurisdiction(s) of employment, state law on non-competes/non-solicitation, wage payment rules, arbitration enforceability, required disclosures, and statutory claims that may not be waived.
-5. Confirm process prerequisites: employer signatory authority, execution method, consideration amount, and post-signature revocation workflow for OWBPA-eligible employees.
+Collect before drafting. If any item is missing, pause and ask — do not assume or fill gaps.
 
-## Output Structure / Process
+1. **Employee details** — full legal name, position, tenure, age, start/separation dates, work location, domicile state
+2. **Compensation inputs** — salary, bonus formula, PTO/leave balance, equity treatment, benefits continuation, prior unpaid compensation disputes
+3. **Governing documents** — handbook, offer letter, prior non-compete/confidentiality/IP agreements, equity/benefit plans, company termination policies
+4. **Legal constraints** — employment jurisdiction(s), state non-compete/non-solicit rules, wage payment statutes, arbitration enforceability, non-waivable statutory claims
+5. **Process details** — signatory authority, execution method, consideration amount, OWBPA revocation workflow (if age 40+)
 
-Use this deterministic build order for consistent output.
+## Quick Start
 
-| Stage | Section | Mandatory Deliverable |
-|---|---|---|
-| 1 | Party and date block | Legal names, addresses, termination date, effective date, execution date model |
-| 2 | Recitals | Neutral background, consideration framing, counsel-notice paragraph, no-fault framing |
-| 3 | Severance mechanics | Amounts, schedule, tax and withholding, benefit continuation, return of property |
-| 4 | Release | Broad waiver + carve-outs + ADEA/OWBPA flow + retaliation/protected disclosures savings language |
+Draft sections in this fixed order:
+
+| # | Section | Key deliverables |
+|---|---------|-----------------|
+| 1 | Parties and dates | Legal names, addresses, termination date, effective date, execution date |
+| 2 | Recitals | Neutral background, consideration framing, counsel-notice language, no-fault framing |
+| 3 | Severance mechanics | Amounts, schedule, tax/withholding, benefit continuation, property return |
+| 4 | Release of claims | Broad waiver + carve-outs + ADEA/OWBPA flow + protected-disclosure savings |
 | 5 | Confidentiality | Definition, survival, return/destruction, statutory exceptions, DTSA notice |
 | 6 | Non-disparagement | Mutual scope with protected-activity carve-outs |
-| 7 | Restrictive covenants | Non-compete and non-solicit only if jurisdiction and role justify; include reformation + severability |
-| 8 | Dispute framework | Governing law, forum/arbitration design, equitable relief carve-out, fee/cost handling |
-| 9 | Acknowledgments | Voluntary execution, legal/tax advisories, truthfulness/warranty, integration, notices, signatures |
+| 7 | Restrictive covenants | Non-compete/non-solicit only if jurisdiction and role justify; reformation + severability |
+| 8 | Dispute resolution | Governing law, arbitration/forum, equitable relief carve-out, fee allocation |
+| 9 | Acknowledgments | Voluntary execution, legal/tax advisories, integration, notices, signatures |
 
-### Party and jurisdiction capture (required fields)
+## Required Intake Fields
 
 - Employer legal name, entity type, state of organization, principal address
-- Covered entities / affiliates scope defined
+- Covered entities/affiliates scope
 - Employee legal name, home address, title
 - Termination date (last day worked)
-- Offer date and acceptance deadline (revocation timing for age 40+ tracked separately)
-- Governing state law and any chosen arbitration seat
-- Whether group termination / incentive program applies
+- Offer date and acceptance deadline (track OWBPA timing separately for age 40+)
+- Governing state law and arbitration seat
+- Whether group termination/incentive program applies
 
-### Compliance checklist before drafting clauses
+## Pre-Draft Compliance Checklist
 
-- [ ] Verify employee age 40+ and start of OWBPA clock
-- [ ] Verify all consideration items are lawful and payable
-- [ ] Flag prohibited-forbidden waivers (e.g., certain wage, workers’ comp, unemployment rights)
-- [ ] Confirm any restrictive covenant needs and permitted scope in applicable state
-- [ ] Confirm statutory notices are required and placed with prominence (OWBPA, DTA, unknown-claims waiver language)
-- [ ] Confirm no self-created admission of liability language beyond acknowledgment/recitals
+- [ ] Employee age 40+ — start OWBPA clock
+- [ ] All consideration items lawful and payable
+- [ ] Flag non-waivable rights (wage claims, workers' comp, unemployment)
+- [ ] Restrictive covenant scope permitted in applicable state
+- [ ] Statutory notices positioned with prominence (OWBPA, DTSA, unknown-claims waiver)
+- [ ] No self-created admission-of-liability language
 
-### Core clause matrix
+## Clause Requirements
 
-| Topic | Required components | Optional components |
-|---|---|---|
-| Severance | Gross/severance net-of-withholding amounts, payment schedule, tax clause, contingency on performance, return of property | PTO conversion, bonus proration, COBRA stipend windows |
-| Release | Corporate affiliates, officers/directors/agents, known+unknown claims, federal + state anti-discrimination/wage claims | ERISA vesting clarifications, fraud/misrepresentation carve-through |
-| Confidentiality | Definition, return/destruction, survival periods, carve-outs, remote wipe rights | Social media specifics if needed |
-| Restrictive covenants | Tailored scope by role/customer exposure, duration/geography/activities limits | Separate consideration if required under chosen state law |
-| Disputes | Binding arbitration + carve-outs for injunctive relief | Class/collective waiver with strict legal screening |
+### Severance
 
-## Drafting templates
+- Explicit gross amount, payment schedule, payroll mechanics, tax withholding
+- Non-payment on breach only where law permits
+- Optional: PTO conversion, bonus proration, COBRA stipend
 
-Use the following section order and placeholder map:
+### Release
 
-```text
-AGREEMENT HEADER
-1. Parties + Addresses
-2. Recitals
-3. Consideration and Severance Package
-4. Representations for Return/No-Dispute
-5. Release of Claims
-6. Confidentiality and Proprietary Information
-7. Non-Disparagement (Mutual)
-8. Restrictive Covenants (if enforceable in applicable state)
-9. Dispute Resolution (Arbitration + Equity carve-outs)
-10. Compliance Notices (OWBPA/DTA/unknown claims)
-11. Miscellaneous + Integration + Assignment + Waiver + Notices
-12. Execution and Signature Blocks
-```
+- Cover all claims linked to employment/termination: discrimination, wage/hour, retaliation, contract, tort, privacy
+- Name corporate affiliates, officers, directors, agents as released parties
+- Include known + unknown claims; savings clauses for non-waivable rights, whistleblower channels, agency participation
+- Optional: ERISA vesting clarifications, fraud carve-through
 
-```text
-[PLACEHOLDER] Employee Name
-[PLACEHOLDER] Separation Date
-[PLACEHOLDER] OWBPA-Eligible? Yes/No
-[PLACEHOLDER] Severance Amount: $
-[PLACEHOLDER] Payment Method: Lump / Payroll Installments
-[PLACEHOLDER] Non-Compete Duration / Geography / Activities
-[PLACEHOLDER] Non-Solicit Duration / Protected Customer Scope
-[PLACEHOLDER] Arbitration Forum and Venue
-[PLACEHOLDER] Revocation Deadline (if applicable)
-```
+### OWBPA Flow (age 40+)
 
-## Clauses to include (compressed legal requirements)
+- 21-day consideration minimum (45 days for group/incentive separations)
+- 7-day post-signature revocation period
+- Attorney-consultation acknowledgment
+- Effective date conditioned on revocation period expiry
 
-1. **Temporal framework**
-   - Separation Date = last day of employment.
-   - Effective/Enforceability Date = after revocation period (if applicable) and execution conditions.
+### Confidentiality
 
-2. **Severance**
-   - Explicit amount, timing, payroll mechanics, tax withholding statement, and condition that non-payment occurs on default/ breach where law allows.
+- Broad definition with list-based examples
+- Return, deletion, certification, forensics access protocol
+- Exceptions: publicly available, pre-existing, independently developed, legally compelled
+- DTSA immunity notice language [VERIFY]
 
-3. **Release**
-   - Cover employee and all potential claims linked to employment/termination.
-   - Explicitly enumerate discrimination, wage/hour, retaliation, contract, tort, and privacy categories.
-   - Include savings clauses for non-waivable rights, post-execution claims, whistleblower reporting channels, agency participation.
+### Non-Disparagement
 
-4. **Older Workers Benefit Protection Act flow**
-   - 21-day consideration minimum; 45 days for group/incentive separations.
-   - 7-day revocation period post-signature.
-   - Attorney-consultation acknowledgment and effective-date condition.
+- Mutual covenant; carve-outs for truthful testimony, legal rights, whistleblowing, protected concerted activity, lawful subpoena compliance
 
-5. **Confidentiality**
-   - Broad definition of confidential/proprietary information with list-based examples.
-   - Return, deletion, certification, and forensics access protocol.
-   - Standard exceptions: publicly available, pre-existing, independently developed, legal subpoena/government compelled.
+### Restrictive Covenants
 
-6. **DTSA notice**
-   - Include statutory warning language for trade secret disclosure immunity per federal law [VERIFY].
+Include only if supported by role and jurisdiction:
+- Minimum necessary duration, geography, and activity scope
+- Blue-pencil/reformation + severability defaults
+- Separate consideration if required by state law [VERIFY]
 
-7. **Non-disparagement**
-   - Balanced mutual covenant; excludes truthful testimony, legal rights exercise, whistleblowing, protected concerted activity.
-   - Carve-out for truthful statements required by law/subpoena.
+### Dispute Resolution
 
-8. **Non-compete / non-solicit**
-   - Include only if supported by role/jurisdiction.
-   - Use minimum necessary duration and geographic/activity limits.
-   - Add blue-pencil/reformation and severability defaults for restrictive covenant sections.
-   - Add separate consideration if required by state law or prudent under local risk profile.
+- Governing law tied to substantial employment relationship
+- Binding arbitration with fee allocation; injunctive relief carve-out for confidentiality/non-compete breaches
+- Venue/forum aligned with jurisdictional fairness doctrines
+- Optional: class/collective waiver (screen for enforceability)
 
-9. **Dispute governance**
-   - Governing law tied to related substantial relationship.
-   - Arbitration framework with fee allocation and enforceability-safe injunctive relief carve-out for confidentiality/non-compete breaches.
-   - Confirm venue/ forum clauses align with jurisdictional fairness doctrines.
+### Execution and Final Controls
 
-10. **Execution block**
-    - Separate employee and employer signature lines, date confirmation for each signatory.
-    - Return method (mail/courier/delivery) and revocation address/proof requirements.
+- Separate employee/employer signature lines with date confirmation
+- Return method and revocation address/proof requirements
+- Non-admission of liability clause
+- No-waiver-from-non-enforcement provision
+- Surviving agreements preserved unless expressly superseded
 
-11. **Final controls**
-    - Non-admission of liability clause.
-    - No waiver from non-enforcement behavior.
-    - No waiver of separate surviving agreements unless expressly superseded.
+## Placeholder Map
 
-## Jurisdiction and statute controls
+Use these placeholders for variable terms:
 
-- Assume OWBPA timing only for U.S. federal age-discrimination claims; verify all state supplements.
-- Validate non-compete enforceability against local anti-restriction statutes and reasonableness tests.
-- Mark all non-waivable items and public-policy exceptions for the selected jurisdictions.
-- For unknown claims waivers, include California Civil Code Section 1542 where applicable and equivalent-state equivalents [VERIFY].
-- Include DTA immunity notice language exactly as required [VERIFY].
+| Placeholder | Values |
+|-------------|--------|
+| Employee Name | Full legal name |
+| Separation Date | Last day of employment |
+| OWBPA-Eligible | Yes / No |
+| Severance Amount | Dollar amount |
+| Payment Method | Lump sum / Payroll installments |
+| Non-Compete Scope | Duration / Geography / Activities |
+| Non-Solicit Scope | Duration / Protected customer definition |
+| Arbitration Forum | Forum name and venue |
+| Revocation Deadline | Date (if applicable) |
+
+## Jurisdiction Controls
+
+- Apply OWBPA timing only for U.S. federal age-discrimination claims; verify state supplements
+- Validate non-compete enforceability against local anti-restriction statutes and reasonableness tests
+- Mark all non-waivable items and public-policy exceptions for selected jurisdictions
+- Include Cal. Civ. Code § 1542 waiver where applicable; add equivalent-state language [VERIFY]
+- Include DTSA immunity notice exactly as required [VERIFY]
 
 ## Guidelines
 
-- Do and keep:
-  - Balanced language: enforceable but not coercive.
-  - Clear separation of consideration, release, and restrictive obligations.
-  - Explicit acknowledgment of legal counsel advisories.
-  - Precise cross-references and defined terms consistency.
+**Do:**
+- Use balanced, enforceable (not coercive) language
+- Clearly separate consideration, release, and restrictive obligations
+- Include explicit legal-counsel advisory acknowledgments
+- Maintain consistent defined terms and cross-references
 
-- Do not:
-  - Add extra-ordinary nationwide restraints without factual support.
-  - Draft punitive language that implies admission of liability.
-  - Omit revocation mechanics for age-40+ employees.
-  - Forget statute-specific non-waivable carve-outs.
+**Do not:**
+- Add nationwide restraints without factual support
+- Draft language implying admission of liability
+- Omit revocation mechanics for age-40+ employees
+- Skip statute-specific non-waivable carve-outs
 
-- Compliance notes:
-  - Validate all amounts and timing under wage-payment rules and federal/state discrimination statutes.
-  - Reconcile every clause with actual documents and facts before finalization.
-  - Flag uncertain jurisdictional calls and insert explicit [VERIFY] markers where statutory citations or thresholds are state-specific and not fully confirmed.
+**Compliance:**
+- Validate amounts and timing under wage-payment rules and discrimination statutes
+- Reconcile every clause with actual documents and facts before finalization
+- Insert `[VERIFY]` markers where statutory citations or thresholds are state-specific and unconfirmed
+
+## Troubleshooting
+
+**Missing employee age information:** OWBPA compliance cannot be determined. Pause and request age or date of birth before drafting the release section.
+
+**Non-compete clause in a ban state (e.g., California, Minnesota, Oklahoma):** Remove the non-compete section entirely. Non-solicit may still be permitted — verify under applicable state law [VERIFY].
+
+**Group termination but only 21-day consideration period used:** OWBPA requires 45 days for group/incentive program separations. Correct the consideration period and add the required decisional-unit disclosure.
+
+**No separate consideration for restrictive covenants:** Some states require independent consideration beyond continued employment. Verify state law and add a separate consideration clause if needed [VERIFY].
+
+**Unknown-claims waiver without § 1542 language in California:** The release may be unenforceable for unknown claims. Add Cal. Civ. Code § 1542 waiver language for any California-connected employee [VERIFY].
+
+---

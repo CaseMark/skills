@@ -1,31 +1,29 @@
 ---
 name: reaffirmation-agreement
-description: Drafts Reaffirmation Agreements for U.S. bankruptcy proceedings under 11 U.S.C. § 524(c). Structures the document with agreement summary tables, original and modified loan terms, debtor certification, attorney certification, and court approval sections. Enforces Bankruptcy Rule 4008 and Official Form 240A compliance. Use when a debtor reaffirms a dischargeable debt to retain secured collateral such as vehicles or homes.
-tags:
-  - agreement
-  - drafting
-  - litigation
+description: Drafts Reaffirmation Agreements under 11 U.S.C. § 524(c) for U.S. bankruptcy proceedings. Produces Official Form 240A-compliant documents with agreement summary, original/modified loan terms, debtor and attorney certifications, and court approval sections. Use when a debtor reaffirms a dischargeable debt to retain secured collateral such as vehicles or homes.
 ---
 
 # Reaffirmation Agreement
 
-Drafts a court-ready reaffirmation agreement allowing a debtor to retain secured collateral by voluntarily reaffirming a dischargeable debt under 11 U.S.C. § 524(c).
+Drafts a court-ready reaffirmation agreement allowing a debtor to retain secured collateral by voluntarily reaffirming a dischargeable debt under 11 U.S.C. § 524(c). Must comply with Bankruptcy Rule 4008 and Official Form 240A.
 
 ## Prerequisites
 
-1. **Debtor and creditor identification** — full legal names, addresses, case number, chapter filed
-2. **Original loan documentation** — date, principal, interest rate, payment amount/frequency, maturity
-3. **Current account status** — outstanding balance (principal + accrued interest + fees), payment history, default status
-4. **Collateral details** — description, current fair market value, lien position
-5. **Proposed modified terms** (if any) — reduced rate, extended term, principal reduction
-6. **Debtor's Schedule I and J** — current income and expenses for undue hardship analysis
+Collect before drafting:
+
+1. **Parties** — debtor/creditor legal names, addresses, case number, chapter filed
+2. **Original loan** — date, principal, interest rate, payment amount/frequency, maturity
+3. **Current status** — outstanding balance (principal + accrued interest + fees), payment history, default status
+4. **Collateral** — description, current fair market value, lien position
+5. **Modified terms** (if any) — reduced rate, extended term, principal reduction
+6. **Schedule I and J** — debtor's current income and expenses for undue hardship analysis
 7. **Representation status** — whether debtor has counsel (determines court approval requirement)
 
-## Output Structure
+## Document Structure
 
 ### Part A: Agreement Summary
 
-Present in tabular format:
+Present as a table:
 
 | Field | Value |
 |---|---|
@@ -47,8 +45,8 @@ Present in tabular format:
 
 1. **Party identification** — full legal names, addresses
 2. **Original loan terms** — date, principal, rate, payment, frequency, maturity
-3. **Reaffirmed terms** — state whether original terms apply or modifications negotiated
-4. **If modified**, present side-by-side comparison:
+3. **Reaffirmed terms** — state whether original or modified terms apply
+4. **If modified**, include side-by-side comparison:
 
 | Term | Original | Reaffirmed |
 |---|---|---|
@@ -61,57 +59,46 @@ Present in tabular format:
 
 Debtor certifies under penalty of perjury:
 
-- [ ] Agreement is voluntary and not required
-- [ ] Debtor has ability to make required payments
-- [ ] Agreement does not impose undue hardship on debtor or dependents
-- [ ] Debtor understands right to rescind within 60 days after agreement filed with court, or before discharge is entered, whichever is later (11 U.S.C. § 524(c)(4))
-- [ ] Debtor understands that if default occurs, creditor may repossess collateral AND pursue deficiency balance
+- Agreement is voluntary and not required
+- Debtor can make required payments
+- Agreement does not impose undue hardship on debtor or dependents
+- Debtor understands right to rescind within 60 days after filing or before discharge, whichever is later (§ 524(c)(4))
+- Debtor understands default allows repossession AND deficiency pursuit
 
 ### Part D: Attorney Certification
 
 Required when debtor is represented. Attorney certifies:
 
-- [ ] Agreement fully explained to debtor
-- [ ] Debtor entered agreement voluntarily and with informed consent
-- [ ] Debtor advised of legal effect, consequences, and consequences of default
-- [ ] Attorney believes debtor can afford the payments
-- [ ] Agreement does not impose undue hardship on debtor or dependents
+- Agreement fully explained to debtor
+- Debtor entered agreement voluntarily with informed consent
+- Debtor advised of legal effect, consequences, and default consequences
+- Attorney believes debtor can afford payments
+- Agreement does not impose undue hardship
 
 ### Part E: Court Approval
 
-Court approval required when:
+Required when:
 - Debtor is **not represented by counsel**, OR
-- Debtor's income minus expenses (Schedule I and J) is **insufficient** to cover reaffirmed payments
+- Schedule I/J shows income minus expenses **insufficient** to cover reaffirmed payments
 
-Include: notice that hearing will be scheduled; court must find (1) no undue hardship and (2) agreement is in debtor's best interest.
+Include notice of scheduled hearing; court must find (1) no undue hardship and (2) agreement is in debtor's best interest.
 
 ### Signature Block
 
-```
-DEBTOR:
-Signature: ________________________  Date: __________
-Printed Name: _____________________
+Include signature lines for:
+- **Debtor** — signature, printed name, date
+- **Creditor** — signature, printed name, title, date
+- **Debtor's attorney** (if applicable) — signature, printed name, bar number, date
+- **Notarization block** — include if required by local rules
 
-CREDITOR:
-Signature: ________________________  Date: __________
-Printed Name: _____________________
-Title: ____________________________
+## Pitfalls and Checks
 
-DEBTOR'S ATTORNEY (if applicable):
-Signature: ________________________  Date: __________
-Printed Name: _____________________
-Bar Number: _______________________
+- **Rescission rights are mandatory** — omission renders the agreement unenforceable under § 524(c)(4)
+- **No coercion language** — agreement must affirmatively state the debtor is not required to reaffirm
+- **Default consequences** — prominently warn: creditor may repossess collateral AND pursue deficiency balance
+- **Collateral-to-debt ratio** — if debt substantially exceeds collateral value, flag for additional disclosure; vulnerable to judicial scrutiny under undue hardship standard
+- **U.S. Trustee review** — draft anticipating objection; economic justification must be apparent on the face of the document
+- **Local rules** — verify whether the bankruptcy court requires notarization or additional local forms
+- **Plain language** — maintain legal precision while ensuring the debtor can actually understand the obligation
 
-[NOTARIZATION BLOCK — include if required by local rules]
-```
-
-## Guidelines
-
-- **Comply with Official Form 240A** and Bankruptcy Rule 4008 — use the official form structure as the baseline
-- **Collateral-to-debt ratio**: If debt substantially exceeds collateral value, flag for additional disclosure and note vulnerability to judicial scrutiny under undue hardship standard
-- **Rescission rights**: Always include the statutory rescission period — omission renders agreement unenforceable
-- **No coercion language**: Agreement must affirmatively state debtor is not required to reaffirm any debt
-- **Default consequences**: Prominently warn that creditor may repossess collateral AND pursue deficiency balance
-- **Verify local rules**: Some bankruptcy courts require notarization or additional local forms
-- **U.S. Trustee review**: Draft anticipating potential objection from the U.S. Trustee; ensure economic justification is apparent on the face of the document
-- **Plain language**: Use clear language while maintaining legal precision — the debtor must actually understand the obligation
+---

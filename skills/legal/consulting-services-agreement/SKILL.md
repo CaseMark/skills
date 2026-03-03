@@ -1,59 +1,76 @@
 ---
 name: consulting-services-agreement
-description: Drafts a comprehensive U.S. Consulting Services Agreement for transactional engagements. Covers scope of services, compensation structures (hourly, fixed fee, retainer, hybrid), independent contractor classification, IP and work-product ownership, confidentiality, indemnification, limitation of liability, insurance requirements, and dispute resolution. Use when drafting consulting contracts, professional services agreements, or independent contractor agreements during negotiation or formation phases.
-tags:
-  - agreement
-  - drafting
-  - transactional
+description: Drafts a U.S. Consulting Services Agreement covering scope, compensation (hourly, fixed, retainer, hybrid), independent contractor classification, IP ownership, confidentiality, indemnification, liability caps, insurance, and dispute resolution. Use when drafting consulting contracts, professional services agreements, or independent contractor agreements.
 ---
 
 # Consulting Services Agreement
 
-Drafts a complete, business-ready U.S. Consulting Services Agreement allocating rights, responsibilities, and risks between Consultant and Client.
+Drafts a business-ready U.S. Consulting Services Agreement allocating rights, responsibilities, and risks between Consultant and Client.
 
 ## Prerequisites
 
-1. **Party details** — full legal names, entity types (LLC, Corp, etc.), principal addresses, authorized signatories, any DBA designations
-2. **Scope of services** — description of deliverables, milestones, deadlines, quality standards, and explicit exclusions
-3. **Compensation structure** — fee type (hourly / fixed / retainer / hybrid), rates, invoicing cadence, expense reimbursement policy
-4. **Term** — start date, duration or end date, renewal preferences
-5. **Governing state** — determines IC classification rules, payment timing law, and non-compete enforceability
+Gather before drafting:
 
-## Output Structure
+1. **Parties** — legal names, entity types, addresses, signatories
+2. **Scope** — deliverables, milestones, deadlines, exclusions
+3. **Compensation** — fee type (hourly / fixed / retainer / hybrid), rates, invoicing cadence, expense policy
+4. **Term** — start date, duration, renewal preferences
+5. **Governing state** — drives IC classification rules, payment timing law, non-compete enforceability
 
-### Required Sections
+## Workflow
 
-| Section | Key Content |
-|---|---|
-| **Parties** | Full legal names, entity type, DBA if applicable, notice addresses |
-| **Scope of Services** | Deliverables with measurable outcomes, milestones, deadlines, performance standards, explicit exclusions; reference attached SOW/exhibits |
-| **Compensation & Payment** | Fee structure and rate schedule, invoicing frequency, payment due dates, accepted methods, expense reimbursement with documentation requirements, late-payment interest rate, suspension-of-services trigger |
-| **Term & Termination** | Effective date, fixed vs. ongoing, auto-renewal opt-out, termination for convenience (30-day notice default), termination for cause with cure period, work-in-progress and IP disposition on early termination |
-| **Independent Contractor** | Consultant controls manner/means; responsible for self-employment taxes, benefits, licenses, and insurance; may subcontract subject to Client approval; include multi-factor language to withstand reclassification scrutiny |
-| **Confidentiality** | Definition of CI (strategies, financials, customer data, trade secrets, proprietary methodologies); standard exceptions (public domain, independently developed, already known, compelled disclosure); post-termination survival period |
-| **IP & Work Product** | Client owns all deliverables as work made for hire or by explicit assignment; Consultant retains pre-existing IP and general methodologies; Client receives license to background IP; Consultant portfolio use of work samples subject to Client consent |
-| **Representations & Warranties** | Mutual: authority to contract, no conflicting obligations; Consultant: professional/workmanlike performance, no third-party IP infringement, regulatory compliance; disclaim implied warranties beyond express |
-| **Indemnification** | Reciprocal indemnity for breach, negligence, willful misconduct, IP infringement; procedure: prompt notice, cooperation, control of defense and settlement |
-| **Limitation of Liability** | Cap on aggregate liability (fees paid in prior 6–12 months or negotiated fixed amount); mutual exclusion of consequential/incidental/punitive damages; carve-outs for confidentiality breach, IP infringement, indemnification obligations, and fraud |
-| **Insurance** | Consultant maintains: Professional Liability/E&O, Commercial General Liability, Cyber Liability (if handling sensitive data); specify minimum coverage amounts; Client as additional insured or certificate holder |
-| **Governing Law & Disputes** | State designation (Client location or primary performance state); exclusive venue; optional mandatory mediation before arbitration (AAA or JAMS rules); prevailing-party attorneys' fees election |
-| **General Provisions** | Severability, integration/entire agreement, written amendment requirement, no assignment without consent, notice procedures, no-waiver, force majeure, counterpart execution |
-| **Signature Blocks** | Authorized representative name, title, date; corporate authority confirmation if needed |
+1. Collect prerequisites; flag any gaps before drafting
+2. Draft all required sections below in order
+3. Attach exhibits as applicable
+4. Run the pitfalls checklist against the draft
+5. Confirm all defined terms are consistent and cross-referenced
 
-### Exhibits (as applicable)
+## Required Sections
 
-| Exhibit | Contents |
-|---|---|
-| **Exhibit A** | Statement of Work — detailed scope, milestones, acceptance criteria |
-| **Exhibit B** | Fee Schedule / Rate Card |
-| **Exhibit C** | Pre-Existing IP / Background IP List |
+Draft each section with the following key content:
 
-## Guidelines
+**Parties** — Full legal names, entity type, DBA, notice addresses.
 
-- **IC classification risk**: Cross-reference IRS common-law test, DOL economic reality test, and governing state's ABC test — misclassification exposure is highest in CA, MA, and NJ [VERIFY current state standards]
-- **Payment timing law**: Some states (e.g., CA, NY) impose mandatory payment deadlines or interest rates on overdue invoices — confirm governing state requirements
-- **Non-competes**: If scope includes restrictive covenants, confirm enforceability; CA, ND, OK, and MN prohibit them broadly [VERIFY current statutes]
-- **Work made for hire**: Applies only to works within 17 U.S.C. § 101 enumerated categories — always include an explicit assignment as a backstop
-- **Arbitration**: Confirm FAA preemption applies; CA and WA impose state-specific restrictions on arbitration of certain claims [VERIFY]
-- **Cross-border**: This skill covers U.S. domestic engagements only; international consulting requires additional provisions (GDPR, foreign IP law, currency, withholding tax)
-- **Formatting**: Include a table of contents if the agreement exceeds five pages; use consistent defined terms throughout; attach all referenced exhibits
+**Scope of Services** — Measurable deliverables, milestones, deadlines, performance standards, explicit exclusions. Reference attached SOW/exhibits.
+
+**Compensation & Payment** — Fee structure, rate schedule, invoicing frequency, payment terms, expense reimbursement with documentation requirements, late-payment interest, suspension-of-services trigger.
+
+**Term & Termination** — Effective date, fixed vs. rolling, auto-renewal opt-out, termination for convenience (30-day notice default), termination for cause with cure period, IP and WIP disposition on early termination.
+
+**Independent Contractor** — Consultant controls manner/means; responsible for taxes, benefits, licenses, insurance; subcontracting subject to Client approval. Include multi-factor language to withstand reclassification scrutiny.
+
+**Confidentiality** — Define CI (strategies, financials, customer data, trade secrets, proprietary methodologies). Standard exceptions: public domain, independently developed, already known, compelled disclosure. Specify post-termination survival period.
+
+**IP & Work Product** — Client owns deliverables as work made for hire or by explicit assignment. Consultant retains pre-existing IP and general methodologies. Client gets license to background IP. Portfolio use subject to Client consent.
+
+**Representations & Warranties** — Mutual: authority to contract, no conflicting obligations. Consultant: professional performance, no IP infringement, regulatory compliance. Disclaim implied warranties beyond express.
+
+**Indemnification** — Reciprocal for breach, negligence, willful misconduct, IP infringement. Include procedure: prompt notice, cooperation, control of defense/settlement.
+
+**Limitation of Liability** — Cap aggregate liability (fees paid in prior 6–12 months or negotiated amount). Exclude consequential/incidental/punitive damages. Carve out: confidentiality breach, IP infringement, indemnification, fraud.
+
+**Insurance** — Consultant maintains: Professional Liability/E&O, Commercial General Liability, Cyber Liability (if handling sensitive data). Specify minimums; Client as additional insured or certificate holder.
+
+**Governing Law & Disputes** — State designation, exclusive venue, optional mediation before arbitration (AAA or JAMS), prevailing-party attorneys' fees.
+
+**General Provisions** — Severability, entire agreement, written amendments, no assignment without consent, notice procedures, no-waiver, force majeure, counterparts.
+
+**Signature Blocks** — Authorized representative name, title, date; corporate authority confirmation if needed.
+
+## Exhibits
+
+Attach as applicable:
+
+- **Exhibit A** — Statement of Work (scope, milestones, acceptance criteria)
+- **Exhibit B** — Fee Schedule / Rate Card
+- **Exhibit C** — Pre-Existing IP / Background IP List
+
+## Pitfalls
+
+- **IC misclassification** — Cross-reference IRS common-law test, DOL economic reality test, and governing state's ABC test. Highest exposure: CA, MA, NJ. [VERIFY current state standards]
+- **Payment timing** — Some states (CA, NY) impose mandatory payment deadlines or interest on overdue invoices. Confirm governing state requirements.
+- **Non-competes** — CA, ND, OK, MN prohibit broadly. Confirm enforceability before including restrictive covenants. [VERIFY current statutes]
+- **Work made for hire** — Only applies to 17 U.S.C. § 101 enumerated categories. Always include explicit assignment as backstop.
+- **Arbitration** — Confirm FAA preemption applies. CA, WA restrict arbitration of certain claims. [VERIFY]
+- **Cross-border** — This skill covers U.S. domestic only. International engagements need GDPR, foreign IP, currency, and withholding tax provisions.
+- **Formatting** — Include table of contents if agreement exceeds five pages. Use consistent defined terms. Attach all referenced exhibits.

@@ -1,100 +1,84 @@
 ---
 name: form-8k
 description: >-
-  Drafts U.S. Form 8-K current reports for SEC EDGAR filing with item-accurate
-  narratives, exhibit indexing, and signature blocks. Use when a public
-  company has a reportable event, needs Item 1.01/2.01/2.02/5.02/7.01/8.01
-  coverage, or must file a current report within four business days. Trigger
-  keywords: "Form 8-K", "current report", "SEC filing", "EDGAR", "Item 1.01",
-  "Item 2.01", "Item 5.02", "Item 9.01", "Reg FD".
-tags:
-  - corporate
-  - drafting
-  - memo
-  - regulatory
+  Drafts SEC Form 8-K current reports with item-accurate narratives, exhibit
+  indexing, and EDGAR-ready formatting. Use when a public company must disclose
+  a reportable event (material agreement, acquisition, personnel change, Reg FD
+  disclosure) or file a current report within four business days. Trigger on
+  "Form 8-K", "current report", "8-K filing", "EDGAR", "Item 1.01", "Item 2.01",
+  "Item 5.02", "Reg FD".
 ---
 
 # Form 8-K Current Report
 
-Draft a Form 8-K current report ready for EDGAR conversion based on verified source documents.
+Drafts an EDGAR-ready Form 8-K from verified source documents. Requires triggering event facts (dates, parties, terms), registrant identifiers from the latest 10-K/10-Q, item selection with rationale, and source documents (agreements, resolutions, press releases, employment/separation docs).
 
-## Prerequisites
+## Quick Start
 
-1. Triggering event facts with dates for event, board approval, and effectiveness.
-2. Source documents: definitive agreements, amendments, resolutions, press release, investor deck, employment or separation docs.
-3. Registrant identifiers from the latest 10-K/10-Q: exact legal name, Commission File No., CIK, IRS EIN, state of incorporation, fiscal year end, principal executive office address, phone.
-4. Item selection list with rationale for each triggered item.
-5. Financial statement inputs and significance test data for Item 2.01, if applicable.
+1. Collect registrant identifiers: exact legal name, Commission File No., CIK, IRS EIN, state of incorporation, fiscal year end, address, phone, trading symbols.
+2. Identify triggered items using the Item Selection Matrix below.
+3. Gather source documents for each triggered item.
+4. Draft cover page, item narratives, exhibit index, and signature block.
+5. Run quality checks before finalizing.
 
-## Output Structure / Process
+## Cover Page Fields
 
-**Cover Page (EDGAR-Ready Fields)**
+All sourced from latest 10-K/10-Q cover unless noted:
 
-| Field | Source / Rule |
-|---|---|
-| Registrant exact legal name | Latest 10-K/10-Q cover |
-| Commission File No. and CIK | Latest 10-K/10-Q cover |
-| IRS EIN | Latest 10-K/10-Q cover |
-| State of incorporation | Charter or 10-K/10-Q |
-| Fiscal year end | Latest 10-K/10-Q cover |
-| Principal executive offices address and phone | Latest 10-K/10-Q cover |
-| Trading symbol(s) and exchange(s) | Latest 10-K/10-Q cover [VERIFY] |
-| Checkboxes for reporting items | Form 8-K cover |
-| Checkboxes for Rule 425/14a-12/14d-2/13e-4 communications | Form 8-K cover [VERIFY] |
-| Indicate amendment, if 8-K/A | Form 8-K cover |
+- Registrant exact legal name, Commission File No., CIK, IRS EIN
+- State of incorporation (charter or 10-K/10-Q)
+- Fiscal year end, principal executive offices address and phone
+- Trading symbol(s) and exchange(s) [VERIFY]
+- Reporting item checkboxes and Rule 425/14a-12/14d-2/13e-4 communication checkboxes [VERIFY]
+- If 8-K/A, indicate amendment
 
-**Item Selection Matrix**
+## Item Selection Matrix
 
-| Item | Trigger | Required Narrative Elements | Typical Exhibits |
+| Item | Trigger | Required Narrative | Typical Exhibits |
 |---|---|---|---|
-| 1.01 | Entry into material definitive agreement | Date, parties, purpose, key terms, duration, termination, material conditions | Agreement (10.x) |
-| 1.02 | Termination of material definitive agreement | Date, parties, reason, termination fees or obligations | Termination notice (10.x) |
-| 2.01 | Completion of acquisition/disposition | Date, assets/business, consideration, structure, significance | Purchase agreement (10.x), pro forma (99.x) |
-| 2.02 | Results of operations/financial condition | Reference to press release or presentation, caution on furnished status | Press release (99.x) |
-| 2.03 | Creation of direct financial obligation or off-balance sheet obligation | Date, amount, terms, maturity, covenants, events of default | Credit agreement (10.x) |
-| 2.05 | Costs associated with exit/disposal | Nature of plan, expected charges, timing | Board materials (99.x) |
-| 2.06 | Material impairment charges | Nature of impairment, amount, timing | Press release (99.x) |
-| 3.02 | Unregistered sales of equity | Date, securities, exemption relied upon, consideration | Subscription/SPA (10.x) |
-| 5.02 | Director/officer appointment or departure, compensation | Name, title, effective date, background, compensation arrangements | Offer or separation letter (10.x) |
-| 5.03 | Amendments to charter/bylaws, fiscal year change | Description of amendment, effective date | Charter/bylaws (3.1/3.2) |
-| 7.01 | Regulation FD disclosure | Description of information furnished | Presentation (99.x) |
+| 1.01 | Material definitive agreement entered | Date, parties, purpose, key terms, duration, termination, conditions | Agreement (10.x) |
+| 1.02 | Material definitive agreement terminated | Date, parties, reason, fees/obligations | Termination notice (10.x) |
+| 2.01 | Acquisition/disposition completed | Date, assets/business, consideration, structure, significance | Purchase agreement (10.x), pro forma (99.x) |
+| 2.02 | Results of operations/financial condition | Reference press release/presentation; note furnished status | Press release (99.x) |
+| 2.03 | Direct financial or off-balance-sheet obligation created | Date, amount, terms, maturity, covenants, default events | Credit agreement (10.x) |
+| 2.05 | Exit/disposal costs | Plan nature, expected charges, timing | Board materials (99.x) |
+| 2.06 | Material impairment | Nature, amount, timing | Press release (99.x) |
+| 3.02 | Unregistered equity sales | Date, securities, exemption, consideration | Subscription/SPA (10.x) |
+| 5.02 | Director/officer appointment, departure, or compensation | Name, title, effective date, background, compensation | Offer/separation letter (10.x) |
+| 5.03 | Charter/bylaws amendment or fiscal year change | Amendment description, effective date | Charter/bylaws (3.1/3.2) |
+| 7.01 | Regulation FD disclosure | Description of furnished information | Presentation (99.x) |
 | 8.01 | Other events | Factual description, materiality context | Press release (99.x) |
-| 9.01 | Financial statements and exhibits | Identify included or to-be-filed financials, list exhibits | FS/pro forma (99.x), agreements (10.x) |
+| 9.01 | Financial statements and exhibits | Identify financials, list all exhibits | FS/pro forma (99.x), agreements (10.x) |
 
-**Narrative Drafting Rules**
+## Narrative Drafting
 
-- Use objective, non-promotional language and cite only verifiable facts.
-- State the event date and any different effective date.
-- Use exact legal names for parties and titles for individuals.
-- Quantify all material dollar amounts and consideration structure.
-- Align narratives with press releases and exhibits to avoid inconsistencies.
+Use objective, non-promotional language. Cite only verifiable facts. State event date and any different effective date. Use exact legal names and titles. Quantify all material dollar amounts. Align narratives with press releases and exhibits.
 
-**Material Definitive Agreement Summary Template**
+**Item 1.01 — Material Definitive Agreement:**
 
 ```text
 On [Date], [Registrant] entered into [Agreement Title] with [Counterparty].
 The agreement relates to [Purpose/Transaction].
-Material terms include: [Consideration], [Duration], [Termination Rights], [Key Conditions], [Material Covenants].
-The agreement becomes effective on [Effective Date] and may be terminated upon [Conditions].
+Material terms: [Consideration], [Duration], [Termination Rights], [Key Conditions], [Material Covenants].
+Effective [Effective Date]; terminable upon [Conditions].
 ```
 
-**Item 5.02 Personnel Change Template**
+**Item 5.02 — Personnel Change:**
 
 ```text
 Effective [Date], [Name] was [appointed/resigned/terminated] as [Title].
 Background: [Prior roles, relevant experience].
 Compensation: [Base salary], [Bonus], [Equity], [Severance], [Other material terms].
-There are no family relationships or related-party transactions with directors or executive officers, except [if any].
+No family relationships or related-party transactions with directors/officers, except [if any].
 ```
 
-**Item 2.01 and Item 9.01 Financials**
+## Item 2.01 / 9.01 Financials
 
-- Apply significance tests under Regulation S-X Rule 3-05 and Article 11 (Rule 11-01) [VERIFY].
-- Determine whether audited target financials and pro forma financials are required.
-- If financials are not available, state that they will be filed by amendment within the Item 9.01 safe harbor period (71 calendar days after the Form 8-K due date) [VERIFY].
-- Identify whether any financials are filed with the initial 8-K.
+- Apply Reg S-X Rule 3-05 and Article 11 significance tests [VERIFY].
+- Determine if audited target financials and pro forma financials are required.
+- If unavailable, state they will be filed by amendment within 71 calendar days of the 8-K due date (Item 9.01 safe harbor) [VERIFY].
 
-**Exhibit Index (Item 9.01(d))**
+## Exhibit Index (Item 9.01(d))
 
 | Exhibit No. | Description | Status |
 |---|---|---|
@@ -104,7 +88,9 @@ There are no family relationships or related-party transactions with directors o
 | 99.1 | Press release dated [Date] | Furnished |
 | 99.2 | Investor presentation dated [Date] | Furnished |
 
-**Signature Block**
+Filed = binding obligation or governance document. Furnished = Items 2.02 and 7.01 press releases and presentations (not subject to Section 18 liability).
+
+## Signature Block
 
 ```text
 Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized.
@@ -118,20 +104,22 @@ Name: [Officer Name]
 Title: [Officer Title]
 ```
 
-**Quality Control Checklist**
+## Quality Checks
 
-- Confirm all dates, names, and amounts match source documents.
-- Ensure item numbers match the described event.
-- Confirm exhibits referenced are attached and correctly numbered.
-- Verify furnished vs filed treatment for Items 2.02 and 7.01.
-- Ensure consistency between narrative and press release content.
-- Confirm signature authority is documented or customary.
+- [ ] All dates, names, and amounts match source documents
+- [ ] Item numbers match described events
+- [ ] Exhibits referenced are attached and correctly numbered
+- [ ] Items 2.02 and 7.01 materials are furnished (not filed)
+- [ ] Narratives consistent with press releases and exhibits
+- [ ] Signature authority documented or customary
+- [ ] Filing deadline confirmed from triggering event date
 
-## Guidelines
+## Pitfalls
 
-- Do not include projections or opinions unless required by the item or included in furnished materials.
-- Use 8-K/A for material corrections or to file delayed financials under Item 9.01.
-- If requesting confidential treatment or redactions, flag Rule 24b-2 and prepare a separate application [VERIFY].
-- If the disclosure includes forward-looking statements in an exhibit, include or reference appropriate cautionary language in that exhibit.
-- Maintain EDGAR-compatible formatting and avoid typographical or formatting inconsistencies.
-- Confirm filing deadline based on the triggering event date and Form 8-K instructions.
+- **No projections or opinions** unless required by the item or in furnished materials.
+- **Forward-looking statements**: If an exhibit contains them, include cautionary language in that exhibit.
+- **8-K/A**: Use for material corrections or delayed financials under Item 9.01.
+- **Confidential treatment**: Flag Rule 24b-2 and prepare a separate application [VERIFY].
+- **EDGAR formatting**: Maintain compatible formatting; avoid typographical inconsistencies.
+
+---

@@ -1,6 +1,12 @@
 ---
 name: appellant-brief
-description: Drafts appellate briefs for the appellant in federal and state appellate courts. Covers issue selection, standard of review, record citation, argument structure, and procedural compliance under FRAP 28/32 or state equivalents. Use when challenging a lower court decision on appeal.
+description: >-
+  Drafts the appellant's opening brief challenging a lower court decision in
+  federal or state appellate courts. Covers issue selection, standard of review
+  framing, record citation, argument structure, and procedural compliance under
+  FRAP 28/32 or state equivalents. Use when preparing an appellant's opening
+  brief, selecting appellate issues, structuring appellate arguments, or
+  demonstrating reversible error on appeal.
 tags:
   - brief
   - drafting
@@ -9,13 +15,13 @@ tags:
 
 # Appellate Brief — Appellant
 
-Drafts the appellant's opening brief challenging the lower court's decision. The brief must demonstrate reversible error through the record while overcoming deference to the court below.
+Drafts the appellant's opening brief demonstrating reversible error through the record while overcoming deference to the court below.
 
 ## Prerequisites
 
 1. **Lower court decision** — opinion, order, or judgment being appealed
 2. **Trial record** — transcripts, exhibits, motions, and orders
-3. **Preservation** — where each issue was raised and ruled on below
+3. **Preservation map** — where each issue was raised and ruled on below
 4. **Appellate rules** — FRAP 28/32 or state equivalent, local rules, word limits
 5. **Filing deadline** — from notice of appeal or court order
 
@@ -23,67 +29,72 @@ Drafts the appellant's opening brief challenging the lower court's decision. The
 
 ### Front Matter
 
-- Cover page (appellant typically red under FRAP 32 [VERIFY])
-- Corporate disclosure statement (if applicable)
-- Table of Contents with argumentative headings
-- Table of Authorities with pin cites
-- Jurisdictional statement — basis, finality, timeliness of appeal
+| Element | Notes |
+|---|---|
+| Cover page | Appellant typically red under FRAP 32 [VERIFY] |
+| Corporate disclosure | If applicable |
+| Table of Contents | Use argumentative headings |
+| Table of Authorities | Include pin cites |
+| Jurisdictional statement | Basis, finality, timeliness |
 
 ### Statement of Issues
 
-- Frame 1-3 issues (rarely more) as questions suggesting reversal
-- Each issue must have been preserved below
-- Order from strongest to weakest
+- Frame 1–3 issues as questions suggesting reversal
+- Each must have been preserved below
+- Order strongest to weakest
 
 ### Statement of the Case
 
-**Procedural history**: filing, key motions, rulings, judgment, post-trial motions
+**Procedural history**: filing, key motions, rulings, judgment, post-trial motions.
 
 **Statement of facts**:
-- Tell the story from the record favoring reversal
+- Narrate from the record favoring reversal
 - Cite record extensively (transcript pages, exhibit numbers)
 - Include facts the lower court overlooked or mischaracterized
 - Be scrupulously accurate — misrepresenting the record destroys credibility
 
 ### Summary of Argument
 
-1-2 pages previewing the argument structure. Each paragraph maps to a major heading.
+1–2 pages; each paragraph maps to a major argument heading.
 
 ### Argument
 
 For each issue:
 
-1. **Standard of review** — identify and cite controlling authority
-2. **Preservation** — where raised and ruled on below
-3. **Legal framework** — governing rule with controlling authority
-4. **Error identification** — what the lower court got wrong
-5. **Application** — how correct application of the law to the record requires reversal
-6. **Prejudice/harm** — the error affected the outcome (not harmless)
-
-**Structural priorities**:
-- Lead with the strongest issue
-- Use argumentative headings stating conclusions
-- Cite the record relentlessly — appellate courts decide on the record
-- Distinguish unfavorable cases rather than ignoring them
-- Address harmless error proactively
+| Step | Content |
+|---|---|
+| Standard of review | Identify and cite controlling authority |
+| Preservation | Where raised and ruled on below |
+| Legal framework | Governing rule with controlling authority |
+| Error identification | What the lower court got wrong |
+| Application | Correct application of law to record requires reversal |
+| Prejudice/harm | Error affected the outcome (not harmless) |
 
 ### Conclusion
 
-State the specific relief requested (reverse, reverse and remand, reverse and render).
+State specific relief: reverse, reverse and remand, or reverse and render.
 
-### Certificates
+### Certificates and Addenda
 
 - Certificate of Compliance (word count, typeface)
 - Certificate of Service
-- Any required addendum (constitutional/statutory provisions, key orders)
+- Addendum with constitutional/statutory provisions or key orders, if required
+
+## Standard of Review Quick Reference
+
+| Standard | Burden on Appellant | Framing Strategy |
+|---|---|---|
+| De novo | Show correct legal interpretation | Make strongest affirmative case for your reading |
+| Abuse of discretion | Show irrational or unsupported reasoning | Attack the logic and evidentiary basis |
+| Clearly erroneous | Show finding against clear weight of evidence | Marshal record evidence contradicting the finding |
 
 ## Guidelines
 
-- **Issue selection is strategy** — fewer, stronger issues win more than scattershot approaches
-- Every argument must be grounded in the record with specific citations
-- Standard of review determines the argument — frame facts through the applicable lens
-- For de novo issues, make the strongest affirmative case for your interpretation
-- For abuse of discretion, show the lower court's reasoning was irrational or unsupported
-- For clearly erroneous, show the finding is against the clear weight of evidence
+- **Fewer issues win** — select 1–3 strong issues; scattershot briefing dilutes credibility
+- Cite the record relentlessly — appellate courts decide on the record, not new arguments
+- Use argumentative headings that state conclusions
+- Distinguish unfavorable authority rather than ignoring it
+- Address harmless error proactively for each issue
 - Never misrepresent the record — appellate judges check citations
 - Verify all authority or mark `[VERIFY]`
+- Jurisdiction note: confirm FRAP vs. state appellate rules; local rules may impose additional requirements

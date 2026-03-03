@@ -1,6 +1,6 @@
 ---
 name: deposition-summary-page-line
-description: Generates structured page-line deposition summaries from U.S. litigation transcripts, preserving exact page-and-line citations for key testimony, objections, exhibits, admissions, and inconsistencies. Produces PDF (searchable, bookmarked) and DOCX (annotatable) outputs optimized for motion practice, trial preparation, and impeachment. Supports post-delivery Q&A with citation-anchored responses. Use when summarizing deposition transcripts, preparing cross-examination outlines, identifying impeachment material, or building evidentiary records during discovery.
+description: Generates page-line deposition summaries from U.S. litigation transcripts with citation-anchored flagging for admissions, inconsistencies, objections, and exhibits. Trigger when summarizing depositions, preparing cross-examination outlines, identifying impeachment material, or building evidentiary records.
 tags:
   - litigation
   - summarization
@@ -9,70 +9,63 @@ tags:
 
 # Deposition Summary — Page-Line Format
 
-Transforms deposition transcripts into citation-anchored litigation tools with strategic flagging for admissions, inconsistencies, objections, and exhibits.
+Transforms deposition transcripts into topically organized, citation-anchored summaries with strategic flags for admissions, inconsistencies, objections, and exhibits. Delivers PDF (searchable, bookmarked) and DOCX (annotatable) outputs. Supports post-delivery Q&A with citation-grounded responses.
 
-## Prerequisites
+## Quick Start
 
-1. **Deposition transcript** — complete, with page and line numbers intact
-2. **Matter context** *(optional)* — claims/defenses at issue, other depositions in the matter, key disputed facts
-3. **Priority topics** *(optional)* — legal theories or factual disputes to emphasize
+1. Receive deposition transcript (page and line numbers must be intact).
+2. Optionally collect matter context (claims/defenses, prior depositions, disputed facts) and priority topics.
+3. Produce summary document in both PDF and DOCX.
+4. Enter Q&A mode for follow-up attorney queries.
 
-## Output Structure
+## Core Workflow
 
-### Phase 1 — Summary Document (deliver both formats)
+### Step 1 — Build Summary Document
 
-| Format | Requirements |
-|--------|-------------|
-| **PDF** | Fully searchable; bookmarks for each major topic section |
-| **DOCX** | Formatted for annotation; integrates into trial notebooks and case chronologies |
+Cite all testimony as **Page X, Lines Y–Z** throughout.
 
-### Summary Sections
-
-Each section uses **Page X, Lines Y–Z** citation format throughout.
+**Required sections:**
 
 | Section | Content |
 |---------|---------|
-| **Witness & Proceeding Header** | Name, date, matter, counsel present, court reporter |
-| **Topical Testimony** | Organized by legal issue (not chronologically); all substantive statements cited |
-| **Admissions** | Flagged statements establishing elements of claims or defenses |
-| **Inconsistencies** | Side-by-side citations where testimony shifted, contradicted itself, or conflicted with referenced documents |
-| **Evasion / Hedging** | Instances of non-responsive, equivocal, or certainty-shifted answers |
-| **Objections Log** | Each objection with: grounds stated, ruling/outcome, whether answer was given |
-| **Exhibits Referenced** | Exhibit ID, description, page-line of introduction, follow-up needed flag |
-| **Timeline Entries** | Dates/events extracted; cross-referenced for internal inconsistency |
+| Witness & Proceeding Header | Name, date, matter, counsel, court reporter |
+| Topical Testimony | Organized by legal issue, not chronologically |
+| Admissions | Statements establishing claim/defense elements |
+| Inconsistencies | Side-by-side cites where testimony shifted or conflicted |
+| Evasion / Hedging | Non-responsive, equivocal, or certainty-shifted answers |
+| Objections Log | Grounds, ruling/outcome, whether answer was given |
+| Exhibits Referenced | ID, description, introduction cite, follow-up flag |
+| Timeline Entries | Dates/events extracted; cross-referenced for inconsistency |
 
-### Flagging Conventions
+**Flags:**
 
-- `[ADMISSION]` — concedes element of claim or defense
-- `[INCONSISTENT]` — conflicts with earlier testimony (cite both locations)
-- `[CONFLICT-EXT]` — conflicts with documentary evidence or other deposition testimony
-- `[EVASIVE]` — non-responsive or materially hedged answer
+- `[ADMISSION]` — concedes claim/defense element
+- `[INCONSISTENT]` — conflicts with earlier testimony (cite both)
+- `[CONFLICT-EXT]` — conflicts with documents or other depositions
+- `[EVASIVE]` — non-responsive or materially hedged
 - `[EXHIBIT]` — document introduced or referenced
-- `[FOLLOW-UP]` — gaps requiring additional discovery
+- `[FOLLOW-UP]` — gaps needing additional discovery
+
+### Step 2 — Post-Delivery Q&A
+
+After delivering the summary, handle attorney queries with citation-supported analysis.
+
+| Query Type | Handling |
+|------------|----------|
+| Factual | All relevant testimony with exact cites |
+| Comparative | Side-by-side cites showing how testimony evolved |
+| Evaluative | Surface testimony and ambiguities; no legal conclusions |
+| Impeachment | Compile inconsistencies, hedging, `[CONFLICT-EXT]` flags |
+
+Every response must include **Page X, Lines Y–Z** references. When testimony spans multiple locations, cite all and explain relationships.
+
+## Pitfalls and Checks
+
+- **Citation accuracy is non-negotiable** — wrong page-line cites damage courtroom credibility; when uncertain, say so rather than guess.
+- **Topical, not chronological** — organize by legal issue, not questioning order.
+- **No legal conclusions** — present testimony, flag ambiguities; attorney assessment controls.
+- **Incomplete transcripts** — flag missing pages, inaudible markers, or formatting anomalies before summarizing.
+- **Multi-deposition matters** — cross-reference `[CONFLICT-EXT]` flags against prior depositions when available.
+- **Jurisdiction** — U.S. federal and state civil litigation; no jurisdiction-specific rules unless specified.
 
 ---
-
-### Phase 2 — Post-Delivery Q&A Mode
-
-After delivering summary documents, respond to attorney queries with citation-supported analysis.
-
-**Query types and handling:**
-
-| Query Type | Example | Response Approach |
-|------------|---------|-------------------|
-| Factual retrieval | "What did the witness say about the contract signing?" | Provide all relevant testimony with exact citations |
-| Comparative | "How does their account of the meeting differ from their earlier answer?" | Side-by-side citations with narrative of how testimony evolved |
-| Evaluative | "Does this support our statute of limitations defense?" | Surface all relevant testimony with citations; note ambiguities; do not render legal conclusions |
-| Impeachment | "What can we use to attack credibility on damages?" | Compile inconsistencies, hedging, and `[CONFLICT-EXT]` flags with citations |
-
-Every answer must include **Page X, Lines Y–Z** references. If testimony on a topic spans multiple transcript locations, provide all citations and explain how the statements relate.
-
-## Guidelines
-
-- **Accuracy is paramount** — a wrong page-line citation wastes courtroom time and damages credibility; when uncertain, say so explicitly rather than guessing
-- **Topical over chronological** — organize by legal issue, not questioning order
-- **No legal conclusions** — present testimony and flag ambiguities; attorney assessment controls
-- **Work product handling** — summaries may be shared across litigation teams, used in motions, and relied upon at trial; treat accordingly
-- **Incomplete transcripts** — flag missing pages, inaudible markers, or formatting anomalies before delivering summary
-- **Multi-deposition matters** — when prior depositions are available, cross-reference `[CONFLICT-EXT]` flags against them
-- **Jurisdiction**: U.S. federal and state civil litigation; no jurisdiction-specific procedural rules applied unless specified

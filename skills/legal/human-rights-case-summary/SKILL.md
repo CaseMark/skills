@@ -1,36 +1,40 @@
 ---
 name: human-rights-case-summary
 description: >-
-  Produces structured summaries of human rights cases, covering case
-  identification, facts, procedural history, issues, holdings, reasoning,
-  remedies, implementation, and social impact. Use for human rights decision
-  summaries, NGO briefs, policy analysis, or precedent reviews. Trigger
-  keywords: human rights case summary, tribunal decision summary, ICCPR,
-  ICESCR, ICERD, CAT, CRC, ACHR, ECHR, African Charter, UN treaty body,
-  regional human rights court, inter-American, European Court of Human Rights.
+  Produces structured, citation-ready summaries of human rights decisions.
+  Trigger when the user requests a human rights case summary, tribunal decision
+  summary, or analysis involving ICCPR, ICESCR, ICERD, CAT, CRC, ACHR, ECHR,
+  African Charter, UN treaty body views, or regional human rights court rulings.
 tags:
   - analysis
   - litigation
   - research
   - summarization
-  - summary
 ---
 
 # Human Rights Case Summary
 
-Deliver a structured, citation-ready summary that captures legal reasoning and practical impact.
+Structured summary of a human rights decision covering identification, reasoning, remedies, compliance, and impact.
 
 ## Prerequisites
 
-1. Primary decision text or official record (judgment, opinion, order, or treaty body views).
-2. Procedural posture and outcome (trial, appeal, enforcement, compliance stage).
-3. Parties, forum, decision date, and citation data.
-4. Relevant human rights instruments or constitutional/statutory provisions.
-5. If primary materials are missing, list required sources before drafting.
+Before drafting, confirm you have:
 
-## Output Structure / Process
+1. Primary decision text (judgment, opinion, order, or treaty body views)
+2. Procedural posture and outcome stage (trial, appeal, enforcement, compliance)
+3. Parties, forum, decision date, and citation
+4. Relevant human rights instruments or provisions
 
-Use the following template and keep each section concise but complete.
+If any material is missing, list required sources before drafting.
+
+## Quick Start
+
+1. Gather primary decision and procedural context.
+2. Fill each template section; keep entries concise.
+3. Run quality checks.
+4. Flag gaps with `[VERIFY]` or `Unknown — source needed`.
+
+## Output Template
 
 ```text
 Case Identification
@@ -41,12 +45,12 @@ Case Identification
 - Jurisdiction(s):
 - Parties and roles:
 - Procedural posture:
-- Human rights instruments/provisions at issue:
+- Instruments/provisions at issue:
 
 Executive Summary (3–6 sentences)
 - Outcome:
-- Core legal holding:
-- Key human rights principle clarified or expanded:
+- Core holding:
+- Key principle clarified or expanded:
 - Practical consequence:
 
 Facts
@@ -57,7 +61,7 @@ Facts
 Claims and Defenses
 - Petitioner/applicant claims:
 - Respondent defenses:
-- Jurisdiction/admissibility issues:
+- Admissibility/jurisdiction issues:
 
 Legal Issues
 - Issue 1:
@@ -65,18 +69,18 @@ Legal Issues
 - Issue 3:
 
 Holdings
-- Holding for each issue:
+- Holding per issue:
 
 Reasoning
-- Interpretive method (textual, purposive, proportionality, margin of appreciation, etc.):
-- Use of precedent or comparative law:
-- Treatment of evidence and burden:
-- Balancing of competing rights/interests:
+- Interpretive method (textual, purposive, proportionality, margin of appreciation):
+- Precedent or comparative law:
+- Evidence and burden of proof:
+- Balancing of competing rights:
 
 Separate Opinions
 - Concurrences:
 - Dissents:
-- Key points of divergence:
+- Key divergence points:
 
 Remedies and Orders
 - Relief ordered:
@@ -86,7 +90,7 @@ Remedies and Orders
 Implementation Status
 - Government response:
 - Compliance actions:
-- Ongoing litigation or follow-on cases:
+- Follow-on litigation:
 
 Precedential Value
 - Binding scope:
@@ -100,28 +104,28 @@ Social and Policy Impact
 
 Open Questions
 - Doctrinal gaps:
-- Unresolved factual/legal issues:
+- Unresolved issues:
 
 Sources
 - Primary decision:
 - Key filings:
-- Authoritative secondary sources:
+- Secondary sources:
 ```
 
-Quality checks (complete all before finalizing):
+## Quality Checks
 
-1. All facts tied to a source or marked as “Unknown” with a source request.
-2. Instruments and provisions cited accurately; use `[VERIFY]` if unsure.
-3. Holdings and reasoning separated and not conflated.
-4. Remedies and compliance status clearly distinguished.
-5. Dates in Month Day, Year format.
+Run before finalizing:
 
-## Guidelines
+- All facts tied to a source or marked `Unknown — source needed`
+- Instruments and provisions cited accurately; use `[VERIFY]` if unsure
+- Holdings and reasoning not conflated
+- Remedies distinct from compliance status
+- Dates in Month Day, Year format
 
-- Prefer primary sources; cite secondary sources only for context or implementation updates.
-- Separate legal analysis from policy impact; do not blur the two.
-- Identify admissibility and jurisdictional thresholds explicitly.
-- Use neutral tone; avoid advocacy phrasing.
-- If the forum is international or regional, specify enforcement limits and compliance mechanisms.
-- If the case is U.S.-jurisdictional, note federal/state posture and standard of review when relevant.
-- If information is missing, list required sources before drafting the affected section.
+## Pitfalls
+
+- **Blurring analysis and advocacy** — maintain neutral tone; separate legal reasoning from policy impact
+- **Omitting admissibility thresholds** — always address jurisdiction and admissibility explicitly
+- **Ignoring enforcement limits** — for international/regional forums, specify compliance mechanisms and enforcement constraints
+- **Missing posture details** — for U.S.-jurisdictional cases, note federal/state posture and standard of review
+- **Drafting without sources** — if information is missing, request sources before writing the affected section

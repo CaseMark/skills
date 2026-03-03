@@ -1,30 +1,26 @@
 ---
 name: amicus-coalition-management
-description: Manages multi-organization appellate amicus briefs by enforcing single-pen drafting, aligned thesis, controlled circulation, conflict triage, documented sign-offs, and compliant disclosures and filing mechanics. Use when coordinating a coalition amicus brief, managing amicus sign-on for a single joint brief, handling FRAP 29 or Supreme Court Rule 37.6 disclosures, or preparing cover and interest sections for many amici.
-tags:
-  - analysis
-  - brief
-  - drafting
-  - litigation
+description: Manages multi-organization appellate amicus briefs with single-pen drafting, coalition sign-offs, conflict triage, and compliant disclosures. Use when coordinating a coalition amicus brief, managing amicus sign-on, handling FRAP 29 or Supreme Court Rule 37.6 disclosures, or preparing cover and interest sections for multiple amici.
 ---
 
 # Amicus Coalition Management
 
-Run a disciplined coalition workflow that produces a single, compliant amicus brief with auditable approvals.
+Produces a single, compliant coalition amicus brief with auditable approvals and proper disclosures.
 
 ## Prerequisites
 
-1. Court, case number, caption, and all amicus deadlines (including any scheduling orders).
-2. Party briefs and key orders relevant to issues and timing.
-3. Coalition roster with legal name, preferred display name, entity type, and disclosure flags.
-4. Authority map: who can authorize participation and who can approve final text for each organization.
-5. Funding and authorship disclosure inputs for every amicus (party involvement, third-party funding).
-6. Filing logistics: counsel-of-record details, e-filing system, service requirements, format rules.
-7. Known red lines and policy constraints for each organization.
+Gather before starting:
 
-## Output Structure / Process
+1. Court, case number, caption, and all amicus deadlines
+2. Party briefs and key orders (issues and timing)
+3. Coalition roster: legal name, display name, entity type, disclosure flags
+4. Authority map: who authorizes participation and who approves final text per org
+5. Disclosure inputs per amicus: party involvement, third-party funding
+6. Filing logistics: counsel-of-record, e-filing system, service and format rules
+7. Known red lines and policy constraints per organization
 
-**Required artifacts**
+## Required Artifacts
+
 | Artifact | Purpose | Owner |
 | --- | --- | --- |
 | Workflow memo | Timeline, draft dates, comment windows, sign-off cutoff | Lead counsel |
@@ -36,100 +32,97 @@ Run a disciplined coalition workflow that produces a single, compliant amicus br
 | Disclosure text | FRAP 29(a)(4)(E) / Rule 37.6 statements | Lead counsel |
 | Filing checklist | Final compliance verification | Lead counsel |
 
-**Process checklist (execute in order)**
-1. Verify forum-specific amicus rules, timing, word limits, disclosure requirements, cover format, and e-filing technical specs. Flag any rule you cannot confirm as [VERIFY].
-2. Establish single-pen authority and publish the workflow memo with hard internal cutoffs.
-3. Circulate the alignment memo and collect red lines before drafting.
-4. Circulate one official draft version at a time using strict naming and a single comment channel.
-5. Triage conflicts using the issue log and resolve or narrow positions without misrepresenting consensus.
-6. Capture two-step sign-offs and exclude any organization missing written authorization by the cutoff.
-7. Assemble cover, interest, disclosures, corporate disclosure statements, and counsel block from the master roster.
-8. Run final QC, confirm consent or motion for leave, and file within the required window.
+## Core Workflow
 
-**Timeline template (backward from filing deadline)**
-| Milestone | Target timing | Notes |
+Execute in order:
+
+1. **Verify rules** — Forum-specific amicus rules, timing, word limits, disclosure requirements, cover format, e-filing specs. Flag unconfirmed rules as `[VERIFY]`.
+2. **Establish single-pen authority** — Publish workflow memo with hard internal cutoffs.
+3. **Align thesis** — Circulate alignment memo; collect red lines before drafting.
+4. **Controlled circulation** — One official draft version at a time; strict naming; single comment channel.
+5. **Triage conflicts** — Use issue log to resolve or narrow positions without misrepresenting consensus.
+6. **Capture sign-offs** — Two-step authorization; exclude any org missing written sign-off by cutoff.
+7. **Assemble front matter** — Cover, interest section, disclosures, corporate disclosure statements, counsel block from master roster.
+8. **Final QC and file** — Confirm consent or motion for leave; file within required window.
+
+## Timeline (backward from filing deadline)
+
+| Milestone | Timing | Notes |
 | --- | --- | --- |
-| Alignment memo sent | T-21 to T-14 days | Earlier for Supreme Court |
+| Alignment memo sent | T-21 to T-14 | Earlier for Supreme Court |
 | Draft 1 to coalition | T-14 to T-10 | Substantive comments only |
 | Draft 2 (near-final) | T-7 to T-5 | Requires join authorization |
 | Final proof | T-3 to T-1 | Non-substantive edits only |
 | Filing | T-0 | Confirm consent or leave |
 
-**Workflow memo template**
+## Key Templates
+
+**Workflow memo**
+
 ```text
 Subject: Coalition Amicus Brief Workflow and Deadlines
 
-Please provide one consolidated set of comments from your organization by [DATE/TIME].
+Please provide one consolidated set of comments by [DATE/TIME].
 Please provide written authorization to join the brief by [DATE/TIME].
 Absent written authorization by that time, your organization will not be listed.
-
-Only non-substantive edits (citations, formatting, typos) will be made after authorization unless re-confirmed.
+Only non-substantive edits after authorization unless re-confirmed.
 ```
 
-**Comment instructions template**
-```text
-Please focus comments on:
-1) Accuracy of factual statements and citations.
-2) Legal soundness and non-duplication of party arguments.
-3) Any language that prevents your organization from signing.
+**Comment instructions** — Direct reviewers to: (1) factual accuracy and citations, (2) legal soundness and non-duplication of party arguments, (3) any language preventing sign-on. Stylistic preferences welcome but may be declined for clarity or word limits.
 
-Stylistic preferences are welcome but may be declined if they reduce clarity or exceed limits.
-```
+**Sign-off**
 
-**Issue log template**
-| Section | Contested text | Org position | Proposed resolution | Decision deadline |
-
-**Conflict resolution patterns**
-| Situation | Resolution pattern |
-| --- | --- |
-| Core disagreement on legal test | Offer statutory-first framing, constitutional fallback |
-| Remedy scope conflict | Use narrow proposition or avoid remedy specifics |
-| Messaging conflict | Prioritize legal clarity; avoid promotional language |
-
-**Sign-off template**
 ```text
 On behalf of [Organization], I confirm I am authorized to approve participation.
 [Organization] joins the amicus brief in [Case Name], substantially in the form circulated on [DATE].
 Counsel may make non-substantive edits (formatting, citations, typos) before filing.
 ```
 
-**Disclosure statements (insert exact rule language after verification)**
-```text
-FRAP 29(a)(4)(E) statement:
-[Amici] state whether a party's counsel authored this brief in whole or in part, and whether any party,
-party's counsel, or any person other than amici or their counsel contributed money intended to fund
-the preparation or submission of this brief.
+**Disclosure text (verbatim required)**
 
-Supreme Court Rule 37.6 statement:
-[Amici] state whether counsel for a party authored this brief in whole or in part, and whether any
-person or entity other than amici or their counsel made a monetary contribution to its preparation
-or submission.
+- **FRAP 29(a)(4)(E)**: Do not paraphrase. Copy the current rule language verbatim from the controlling source, then insert only confirmed case facts.
+
+```text
+[PASTE CURRENT FRAP 29(a)(4)(E) LANGUAGE VERBATIM]
+[INSERT ONLY CONFIRMED AUTHORSHIP AND FUNDING FACTS FOR THIS BRIEF]
 ```
 
-**Corporate disclosure statement (if required)**
+- **Supreme Court Rule 37.6**: Do not paraphrase. Copy the current rule language verbatim from the controlling source, then insert only confirmed case facts.
+
 ```text
-Pursuant to FRAP 26.1 [VERIFY], [Organization] states:
-- Parent corporations: [list or "None"].
-- Publicly held corporations owning 10% or more of stock: [list or "None"].
+[PASTE CURRENT SUPREME COURT RULE 37.6 LANGUAGE VERBATIM]
+[INSERT ONLY CONFIRMED AUTHORSHIP AND FUNDING FACTS FOR THIS BRIEF]
 ```
 
-**Cover and interest section rules of thumb**
-- Use a single coalition descriptor and place the full roster on an inside page or appendix if long.
-- Group amici by category in the interest section; avoid promotional adjectives.
+**Corporate disclosure (FRAP 26.1 `[VERIFY]`)** — Parent corporations and publicly held corporations owning 10%+ of stock, or "None."
+
+## Conflict Resolution
+
+| Situation | Resolution |
+| --- | --- |
+| Disagreement on legal test | Statutory-first framing, constitutional fallback |
+| Remedy scope conflict | Narrow proposition or avoid remedy specifics |
+| Messaging conflict | Prioritize legal clarity over promotional language |
+
+## Cover and Interest Section
+
+- Single coalition descriptor on cover; full roster on inside page or appendix if long.
+- Group amici by category in interest section; no promotional adjectives.
 - Keep amicus list consistent across cover, interest section, signature block, and disclosures.
 
-**Final filing checklist**
-- All amici listed have written authorization in the sign-off log.
-- Disclosures are complete and match verified rule text.
-- Corporate disclosure statements included where required.
-- Word or page limits, format, and e-filing technical requirements satisfied.
-- Consent obtained or motion for leave prepared and filed as required.
+## Filing Checklist
 
-## Guidelines
+- [ ] All listed amici have written authorization in sign-off log
+- [ ] Disclosures complete and match verified rule text
+- [ ] Corporate disclosure statements included where required
+- [ ] Word/page limits, format, and e-filing requirements satisfied
+- [ ] Consent obtained or motion for leave prepared and filed
 
-- Do not list any organization without written authorization from an authorized signatory.
-- Do not allow multiple draft versions or uncontrolled markup distribution.
-- Do not introduce new arguments late without removing equivalent length and re-confirming sign-offs.
-- Do not invent or guess citations; flag unverified sources as [VERIFY] for attorney review.
-- Treat drafts and comments as confidential; obtain permission before sharing beyond the coalition.
-- Require attorney review of all procedural rules and final filings.
+## Pitfalls
+
+- **Never list an organization** without written authorization from an authorized signatory.
+- **Never allow parallel drafts** or uncontrolled markup distribution.
+- **Never introduce late arguments** without removing equivalent length and re-confirming sign-offs.
+- **Never guess citations** — flag unverified sources as `[VERIFY]` for attorney review.
+- **Treat all drafts and comments as confidential** — obtain permission before sharing beyond coalition.
+- **Require attorney review** of all procedural rules and final filings.

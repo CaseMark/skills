@@ -1,72 +1,72 @@
 ---
 name: contract-summarization
-description: Generates structured summaries of U.S. contracts capturing parties, business terms, legal provisions, termination, and dispute resolution. Flags one-sided, ambiguous, or missing standard provisions. Use when summarizing agreements for due diligence, transaction management, contract review, or compliance monitoring — including multi-document sets with exhibits, schedules, and amendments.
-tags:
-  - agreement
-  - summarization
-  - summary
-  - transactional
+description: Generates structured summaries of U.S. contracts capturing parties, business terms, legal provisions, termination, and dispute resolution. Flags one-sided, ambiguous, or missing standard provisions. Use when summarizing agreements for due diligence, contract review, compliance monitoring, or transaction management — including multi-document sets with exhibits, schedules, and amendments.
 ---
 
 # Contract Summarization
 
-Produces a structured contract summary covering all material terms, obligations, rights, and risks — enabling informed decisions without a full read.
+Produces a structured summary of all material terms, obligations, rights, and risks in a contract — enabling informed decisions without a full read.
 
-## Prerequisites
+## Quick Start
 
-1. **Contract document(s)** — main agreement plus any exhibits, schedules, amendments, or SOWs
-2. **Counterparty context** (optional) — role of reviewing party (buyer/seller, licensor/licensee, etc.) to calibrate risk flags
-3. **Purpose** (optional) — due diligence, compliance monitoring, negotiation, closing review
+1. Gather contract document(s) — main agreement plus exhibits, schedules, amendments, SOWs
+2. Identify reviewing party's role (buyer/seller, licensor/licensee) if provided — calibrates risk flags
+3. Produce summary using the output structure below, citing section numbers for every extracted term
 
 ## Output Structure
 
-Organize the summary with the following sections, citing section numbers for each extracted term:
-
 ### 1. Contract Overview
+
 | Field | Detail |
 |---|---|
 | Parties | Full legal names + roles |
 | Effective Date | |
 | Term / Expiration | Duration + auto-renewal trigger |
-| Subject Matter | One-line description of agreement purpose |
+| Subject Matter | One-line purpose |
 | Governing Law / Venue | |
 
 ### 2. Core Business Terms
-- **Scope of Work / Deliverables** — what each party must do or provide
-- **Pricing & Payment** — amounts, timing, invoicing, late fees (quote figures exactly)
+
+- **Scope / Deliverables** — what each party must do or provide
+- **Pricing & Payment** — amounts, timing, invoicing, late fees (quote exactly)
 - **Performance Obligations** — milestones, SLAs, acceptance criteria
 
 ### 3. Legal Provisions
-- **Representations & Warranties** — by each party; survival period
+
+- **Reps & Warranties** — by each party; survival period
 - **Indemnification** — scope, carve-outs, procedures (notice, control of defense)
-- **Limitation of Liability** — caps (quote amounts/multiples), excluded damages, exclusions to cap
+- **Liability Cap** — amounts/multiples, excluded damages, exclusions to cap
 - **IP Ownership & Licensing** — work-for-hire, license grants, residuals
-- **Confidentiality / NDA** — scope, duration, exceptions, return/destroy obligations
+- **Confidentiality** — scope, duration, exceptions, return/destroy
 - **Non-Compete / Non-Solicit** — duration, geographic scope, covered activities (if present)
 
 ### 4. Termination & Renewal
-- Termination for cause — triggering events, cure period, notice
-- Termination for convenience — availability, notice period, payment on exit
-- Effects of termination — wind-down, surviving obligations, return of materials
-- Auto-renewal terms and opt-out deadlines
+
+- For cause — triggering events, cure period, notice
+- For convenience — availability, notice period, payment on exit
+- Effects — wind-down, surviving obligations, return of materials
+- Auto-renewal — terms and opt-out deadlines
 
 ### 5. Dispute Resolution
+
 - Governing law and jurisdiction
-- Mandatory arbitration or mediation (rules, seat, language)
+- Arbitration / mediation (rules, seat, language)
 - Jury trial waiver
 - Fee-shifting provisions
 
-### 6. Special Provisions & Risk Flags
+### 6. Risk Flags
+
 - Unusual or one-sided terms
 - Missing standard provisions for this contract type
-- Internal inconsistencies or conflicts between main agreement and exhibits
+- Inconsistencies between main agreement and exhibits
 - Ambiguous language requiring clarification
 
-## Guidelines
+## Checks
 
-- **Quote precisely**: monetary amounts, dates, notice periods, and defined terms as written
-- **Cite sections**: every extracted term should reference the contract section or page
-- **Objective tone**: summarize as written; flag concerns without inserting legal opinion unless requested
-- **Multi-document sets**: capture terms from all related documents; note which document governs on conflicts
-- **Jurisdiction**: skill optimized for U.S. agreements; flag if non-U.S. law governs
-- **Length**: 2–5 pages depending on complexity; prioritize completeness over brevity for complex deals
+- **Quote precisely** — monetary amounts, dates, notice periods, defined terms as written
+- **Cite sections** — every extracted term references contract section or page
+- **Objective tone** — summarize as written; flag concerns without inserting legal opinion
+- **Multi-document sets** — capture terms from all related documents; note which governs on conflicts
+- **U.S. jurisdiction** — optimized for U.S. agreements; flag if non-U.S. law governs
+
+---

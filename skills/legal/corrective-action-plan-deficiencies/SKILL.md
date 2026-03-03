@@ -37,7 +37,7 @@ Produces a regulator-ready CAP aligning documented findings with implementable r
 | Deficiency statement | Exact noncompliance language; dates, location, patient population, severity | Deficiency narrative, field notes |
 | Citation mapping | Statute/regulation/standard references as written by regulator | Official citation text |
 | Event timeline | Discovery → preliminary → formal findings → response date | Inspection log, correspondence |
-| Prior-work continuity | Prior CAP references/outcomes; why prior actions failed if recurring | Historical CAPs, QA trend reports |
+| Prior-work continuity | Prior CAP references and outcomes; why prior actions failed if recurring | Historical CAPs, QA trend reports |
 
 ### 2. Root-Cause Analysis
 

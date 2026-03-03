@@ -1,128 +1,132 @@
 ---
 name: negotiation-support
-description: Generates a strategic negotiation support document for legal professionals preparing for settlement discussions, contract negotiations, dispute resolution, or transactional matters. Produces executive summary, interests/positions analysis, leverage assessment, BATNA analysis, risk matrix, and tactical recommendations with issue-by-issue planning. Use when preparing for mediation, settlement conference, contract negotiation, deal structuring, or dispute resolution strategy sessions.
+description: >-
+  Generates a strategic negotiation support document with leverage analysis,
+  BATNA assessment, risk matrix, and issue-by-issue tactical planning. Use
+  when preparing for settlement conferences, mediations, contract negotiations,
+  deal structuring, or dispute resolution strategy sessions.
 tags:
   - analysis
-  - drafting
-  - litigation
   - memo
-  - summary
+  - litigation
   - transactional
 ---
 
-# Negotiation Support Document
+# Negotiation Support
 
-Produces a strategic negotiation roadmap synthesizing case materials into leverage analysis, risk assessment, and tactical recommendations.
+Strategic negotiation roadmap synthesizing case materials into leverage analysis, risk assessment, and tactical recommendations.
 
 ## Prerequisites
 
-1. **Matter context** — party names, relationship history, negotiation type (settlement, contract, transactional, dispute resolution)
-2. **Relevant documents** — contracts, correspondence, prior agreements, discovery materials, financial records
-3. **Client objectives** — stated goals, constraints, authority limits, timeline pressures
-4. **Prior negotiation history** — past offers, counteroffers, impasses, tentative agreements (if any)
+1. **Matter context** — parties, relationship history, negotiation type (settlement / contract / transactional / dispute resolution)
+2. **Documents** — contracts, correspondence, prior agreements, discovery, financials
+3. **Client objectives** — goals, constraints, authority limits, timeline
+4. **Negotiation history** — prior offers, counteroffers, impasses, tentative agreements
+
+## Quick Start
+
+1. Gather prerequisites above.
+2. Produce each output section in order (Executive Summary through Action Items).
+3. Cite source documents for every factual claim.
+4. Mark unconfirmed legal authority with `[VERIFY]`.
+5. Label the document as privileged work product.
 
 ## Output Structure
 
 ### 1. Executive Summary
 
 | Element | Content |
-|---------|---------|
+| --- | --- |
 | Negotiation type | Settlement / contract / transactional / dispute resolution |
 | Parties | Names, roles, relationship summary |
-| Core objectives | Client's 3-5 primary goals ranked by priority |
-| Critical issues | Top issues driving the negotiation |
-| Recommended strategy | Integrative vs. distributive; primary approach in 2-3 sentences |
+| Core objectives | Client's 3–5 primary goals, ranked |
+| Critical issues | Top issues driving negotiation |
+| Recommended strategy | Integrative vs. distributive; approach in 2–3 sentences |
 | Key recommendation | Single most important strategic action |
 
 ### 2. Factual Background
 
-Chronological narrative covering:
-- Relationship history and genesis of negotiation
-- Key dates, amounts, communications, and commitments (cite source documents)
+Chronological narrative with cited sources covering:
+- Relationship history and negotiation genesis
+- Key dates, amounts, communications, commitments
 - Prior negotiation attempts and outcomes
 - Current procedural posture or deal status
 
 ### 3. Interests & Positions Analysis
 
-For each party, build this matrix:
-
 | | Client | Opposing Party |
-|--|--------|----------------|
-| **Stated positions** | What they say they want | What they say they want |
-| **Underlying interests** | Economic, operational, reputational, relational | Economic, operational, reputational, relational |
-| **Constraints** | Authority limits, timeline, regulatory | Likely constraints based on available info |
-| **Priorities** | Rank order of issues | Estimated rank order |
-| **Pressure points** | Internal deadlines, stakeholder demands | Likely pressures |
+| --- | --- | --- |
+| Stated positions | What they demand | What they demand |
+| Underlying interests | Economic, operational, reputational, relational | Same categories (estimated) |
+| Constraints | Authority, timeline, regulatory | Likely constraints |
+| Priorities | Rank order of issues | Estimated rank order |
+| Pressure points | Internal deadlines, stakeholder demands | Likely pressures |
 
 ### 4. Leverage Assessment
 
-For each leverage factor, assess strength (High/Medium/Low) and sustainability:
+Rate each factor High / Medium / Low for both sides:
 
 | Leverage Type | Client | Opposing Party |
-|--------------|--------|----------------|
-| **Legal** — claims strength, precedent, contractual position | | |
-| **Economic** — financial resources, market position, alternatives | | |
-| **Informational** — asymmetric knowledge, discovery exposure | | |
-| **Timing** — deadline pressure, statute of limitations, market windows | | |
-| **Relational** — ongoing relationship value, reputation | | |
+| --- | --- | --- |
+| Legal — claims strength, precedent, contractual position | | |
+| Economic — resources, market position, alternatives | | |
+| Informational — asymmetric knowledge, discovery exposure | | |
+| Timing — deadlines, limitations periods, market windows | | |
+| Relational — ongoing relationship value, reputation | | |
 
 ### 5. BATNA Analysis
 
-| | Client | Opposing Party (estimated) |
-|--|--------|---------------------------|
+| | Client | Opposing Party (est.) |
+| --- | --- | --- |
 | Best alternative | | |
 | Likely outcome if no deal | | |
 | Cost of no deal | | |
 | Timeline of alternative | | |
 | Risks of alternative | | |
-| **Reservation point** | Minimum acceptable outcome | Estimated walk-away |
+| **Reservation point** | Minimum acceptable | Estimated walk-away |
 | **Target outcome** | Aspirational realistic goal | |
 
 ### 6. Risk Matrix
 
-| Risk | Type | Likelihood | Impact | Mitigation Strategy |
-|------|------|-----------|--------|-------------------|
+| Risk | Type | Likelihood | Impact | Mitigation |
+| --- | --- | --- | --- | --- |
 | | Legal / Business / Strategic | H/M/L | H/M/L | Specific action |
 
-Flag: litigation exposure, regulatory concerns, contractual weaknesses, reputational damage, precedent-setting risk, relationship damage.
+Flag categories: litigation exposure, regulatory concerns, contractual weaknesses, reputational damage, precedent-setting risk, relationship damage.
 
-### 7. Issue-by-Issue Negotiation Plan
+### 7. Issue-by-Issue Plan
 
 For each significant issue:
 
-| Issue | Opening Position | Target | Walk-Away | Concession Value to Us | Concession Value to Them |
-|-------|-----------------|--------|-----------|----------------------|------------------------|
+| Issue | Opening | Target | Walk-Away | Value to Us | Value to Them |
+| --- | --- | --- | --- | --- | --- |
 | | | | | H/M/L | H/M/L |
 
-Identify:
-- **Trade opportunities** — low-cost concessions for client that are high-value to opposing party
-- **Package proposals** — bundled issue combinations that create value
+Identify for each issue:
+- **Trade opportunities** — low-cost concessions that are high-value to the other side
+- **Package proposals** — bundled combinations that create value
 - **Sequencing** — optimal order to address issues
 
 ### 8. Tactical Recommendations
 
-**Approach:**
-- Integrative vs. distributive rationale
-- Anchoring strategy and first-offer analysis
-- Concession pattern (graduated, reciprocal, contingent)
-- Framing and communication approach
+**Approach:** integrative vs. distributive rationale, anchoring strategy, concession pattern (graduated / reciprocal / contingent), framing.
 
-**Anticipated Arguments & Responses:**
+**Anticipated arguments & responses:**
 
-| Opposing Argument | Response | Supporting Authority/Facts |
-|-------------------|----------|--------------------------|
-| | | Cite specific documents, precedent, statutory provisions |
+| Opposing Argument | Response | Supporting Authority / Facts |
+| --- | --- | --- |
+| | | Cite documents, precedent, statutory provisions |
 
-**Process Recommendations:**
+**Process recommendations:**
 - Confidentiality protocol (NDA, FRE 408 / settlement privilege)
-- Stakeholder involvement plan and escalation triggers
+- Stakeholder involvement and escalation triggers
 - Documentation protocol for offers and tentative agreements
 - Expert input needs (financial, technical, industry)
 
-### 9. Action Items & Next Steps
+### 9. Action Items
 
 | Action | Owner | Deadline | Priority |
-|--------|-------|----------|----------|
+| --- | --- | --- | --- |
 | Pre-session preparations | | | |
 | Information to gather | | | |
 | Stakeholder decisions needed | | | |
@@ -132,10 +136,19 @@ Include negotiation timeline with milestones.
 
 ## Guidelines
 
-- **Candid assessment** — acknowledge weaknesses in client's position; do not overstate leverage
-- **Cite source documents** — tie every factual claim to specific materials reviewed
-- **Jurisdiction-aware** — flag jurisdiction-specific rules affecting negotiation (e.g., FRE 408 protections, state settlement privilege variations, mandatory mediation requirements)
-- **Confidentiality** — mark document as privileged work product; note if attorney-client privilege applies
-- **Actionable specificity** — no generic negotiation advice; every recommendation must be tailored to the matter facts
-- **Authority verification** — mark any cited legal authority with `[VERIFY]` if not confirmed from source documents
-- **Update protocol** — note that the document should be revised as new information emerges during negotiation
+- **Candid assessment** — acknowledge weaknesses; do not overstate leverage.
+- **Cite sources** — tie every factual claim to specific materials reviewed.
+- **Jurisdiction-aware** — flag rules affecting negotiation (FRE 408, state settlement privilege, mandatory mediation).
+- **Confidentiality** — mark as privileged work product; note attorney-client privilege applicability.
+- **Actionable specificity** — tailor every recommendation to the matter facts; no generic advice.
+- **Authority verification** — mark unconfirmed authority with `[VERIFY]`.
+- **Living document** — revise as new information emerges during negotiation.
+
+## Troubleshooting
+
+- **Missing client authority limits**: Flag gap and request before drafting BATNA reservation points.
+- **Sparse opposing-party information**: Mark estimated fields explicitly; recommend discovery or informal information-gathering steps.
+- **Multi-party negotiation**: Duplicate the Interests & Leverage tables per party; note coalition dynamics.
+- **Cross-jurisdictional matters**: Identify each jurisdiction's settlement privilege rules separately; flag conflicts.
+
+---
