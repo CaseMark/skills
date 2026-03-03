@@ -26,7 +26,7 @@ Gather before drafting:
 | Federal civil | 30 days from entry | FRAP 4(a)(1)(A) |
 | Federal civil (US party) | 60 days from entry | FRAP 4(a)(1)(B) |
 | Federal criminal | 14 days from entry | FRAP 4(b)(1)(A) |
-| Post-judgment motion pending | 30 days from disposition | FRAP 4(a)(4)(A) |
+| Post-judgment motion pending | 30 or 60 days from disposition, matching party-status deadline | FRAP 4(a)(4)(A), 4(a)(1)(A)-(B) |
 | State courts | Varies — confirm rule | [VERIFY] jurisdiction-specific |
 
 **Warning**: Deadlines are jurisdictional and non-waivable. Confirm before drafting.

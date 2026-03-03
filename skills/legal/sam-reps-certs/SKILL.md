@@ -58,7 +58,7 @@ Number sequentially. For each, cite the FAR clause and state status: Compliant /
 | Representation | FAR Clause | Requirement |
 |---------------|------------|-------------|
 | Telecom/video surveillance | FAR 52.204-26 | No covered equipment per NDAA § 889 |
-| Tax delinquency | 26 U.S.C. § 7122 | No unpaid federal tax liability |
+| Tax delinquency | [VERIFY] controlling FAR clause and threshold | No unpaid federal tax liability |
 | Felony conviction | FAR 9-10.2 | None within 24 months |
 | State sponsors of terrorism | FAR 52.225-13 | No business relationships |
 | Equal opportunity | FAR 52.222-22 | Compliance certified |
@@ -76,7 +76,7 @@ Draft formal certifications:
 - Drug-Free Workplace Act of 1988 compliance
 - Lobbying restrictions per 31 U.S.C. § 1352 (Byrd Anti-Lobbying Amendment)
 - Environmental compliance certifications
-- For contracts >$10M: tax obligations under IRC § 6050M and no terrorist organization relationships
+- For high-value awards: verify the current FAR tax-delinquency/felony representation clause and applicable threshold before certification `[VERIFY]`
 
 ### 6. Attestation and Signature Block
 

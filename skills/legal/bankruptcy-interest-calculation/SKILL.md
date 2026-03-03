@@ -17,11 +17,11 @@ Calculates pre-petition interest and generates a defensible worksheet for attach
 ## Quick Start
 
 ```
-Per Diem = (Principal × Annual Rate) ÷ 365
+Per Diem = (Principal × Annual Rate) ÷ Day-Count Divisor
 Pre-Petition Interest = Per Diem × Days (Last Payment → Petition Date)
 ```
 
-Example: $50,000 at 8.5% for 138 days = $11.64/day × 138 = $1,606.32
+Use the day-count divisor required by the contract or governing standard (e.g., 365 or 360).
 
 ## Core Workflow
 
