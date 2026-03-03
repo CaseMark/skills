@@ -1,6 +1,6 @@
 ---
 name: phase-i-esa
-description: Drafts a Phase I Environmental Site Assessment report per ASTM E1527-21 and 40 CFR Part 312. Classifies RECs, CRECs, and HRECs to establish all appropriate inquiries for CERCLA liability protection. Trigger when the user requests a Phase I ESA, environmental site assessment, recognized environmental conditions analysis, ASTM E1527 compliance, or environmental due diligence for property transactions or lending.
+description: Drafts ASTM E1527-21 environmental site assessment reports under 40 CFR Part 312. Classifies RECs, CRECs, and HRECs to establish all appropriate inquiries for CERCLA liability protection. Trigger when the user requests a Phase I ESA, environmental site assessment, recognized environmental conditions analysis, ASTM E1527 compliance, or environmental due diligence for property transactions or lending.
 tags:
   - analysis
   - drafting

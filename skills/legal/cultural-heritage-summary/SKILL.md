@@ -1,6 +1,13 @@
 ---
 name: cultural-heritage-summary
-description: Produces structured, citation-ready summaries of legal developments in cultural heritage protection covering repatriation, site protection, illicit trafficking, and treaty updates. Use when tracking heritage law, preparing government or NGO briefings, or summarizing international and national decisions. Trigger keywords: cultural heritage, repatriation, restitution, UNESCO 1970, Hague Convention 1954, UNIDROIT 1995, illicit trafficking, underwater heritage, intangible heritage.
+description: >-
+  Produces structured, citation-ready summaries of legal developments in
+  cultural heritage protection covering repatriation, site protection, illicit
+  trafficking, and treaty updates. Use when tracking heritage law, preparing
+  government or NGO briefings, or summarizing international and national
+  decisions. Trigger keywords include cultural heritage, repatriation,
+  restitution, UNESCO 1970, Hague Convention 1954, UNIDROIT 1995, illicit
+  trafficking, underwater heritage, and intangible heritage.
 tags:
   - regulatory
   - research

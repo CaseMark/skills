@@ -52,7 +52,7 @@ Define each precisely:
 
 ### 4. Transfer Mechanics
 
-- Tracking system: identify which (WREGIS / PJM-GATS / M-RETS / NC-RETS / NEPOOL-GIS)
+- Tracking registry - identify which (WREGIS / PJM-GATS / M-RETS / NC-RETS / NEPOOL-GIS)
 - Account IDs for both parties
 - Seller initiates transfer within [X] business days after delivery period end
 - Buyer accepts within [X] business days after initiation

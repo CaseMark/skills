@@ -116,7 +116,7 @@ Patient must explicitly acknowledge each:
 | Clinical discretion | All prescribing at provider's professional judgment |
 | DEA controlled substances | In-person exam generally required for Schedules II–V; note exceptions under 21 USC § 831 `[VERIFY]` |
 | State restrictions | Incorporate state-specific rules where more stringent than federal |
-| Excluded categories | Medication classes requiring in-person eval (opioids, benzodiazepines, stimulants) |
+| Excluded categories | Medication classes requiring in-person evaluation (opioids, benzodiazepines, stimulants) |
 
 DEA federal rules are the floor — state rules may be stricter. Adapt to jurisdiction.
 
