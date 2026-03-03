@@ -30,7 +30,50 @@ Gather before drafting:
 - [ ] Verify all placeholders resolved and cross-references consistent
 ```
 
-See `references/ARTICLES.md` for detailed article-by-article output specifications and standard formulations.
+## Article Specifications
+
+### Article I — Definitions
+
+- **Change in Control**: define ownership threshold, merger/consolidation test, and all-or-substantially-all-assets sale test. Include board-turnover test only if needed by the deal context.
+- **Cause**: include felony/plea trigger, willful failure after written notice plus cure period, materially injurious conduct, fiduciary-duty breach, and material policy violation with cure where applicable.
+- **Good Reason**: include material duty diminution, compensation reduction not broadly applied, and relocation threshold. Include notice/cure/election windows.
+- **Qualifying Termination**: without Cause or for Good Reason during the protection period.
+- **Protection Period**: usually 12-24 months post-CIC; include pre-CIC tail only if requested.
+
+### Article II — Severance Benefits
+
+- **Cash severance**: set multiple against base salary plus target annual bonus.
+- **Pro-rated bonus**: specify target vs actual metric and payment timing.
+- **Equity acceleration**: define covered award types and performance-award vesting level.
+- **Exercise window**: specify post-termination option/SAR exercise period.
+- **Benefits continuation**: define COBRA or equivalent duration and end conditions.
+- **Mitigation/offset**: state whether mitigation is required and whether outside earnings offset benefits.
+
+### Article III — Conditions to Benefits
+
+- **Release requirement**: include execution and non-revocation condition with OWBPA-compliant timelines.
+- **Release scope and carve-outs**: list included claims and preserved rights.
+- **Property return and transition cooperation**: include practical handoff obligations and expense reimbursement terms.
+
+### Article IV — Section 280G/4999
+
+- Select one approach: **No Gross-Up**, **Best Net (cutback)**, or **Full Gross-Up**.
+- If cutback applies, define reduction order (for example, cash first, then equity; 409A-covered amounts first).
+- Specify independent calculator (accounting firm or tax counsel), allocation process, and finality standard.
+
+### Article V — Section 409A
+
+- Treat each installment/payment as a separate payment for 409A purposes.
+- Tie payment triggers to 409A separation-from-service definitions.
+- Include specified-employee delay mechanics for applicable public-company executives.
+- Include reimbursement timing/non-liquidation guardrails and a compliant savings clause.
+
+### Article VI — General Provisions
+
+- Governing law and venue/dispute-resolution path.
+- Successor assumption requirements and assignment limits.
+- Supersession hierarchy against prior CIC/severance arrangements.
+- Amendment/waiver formalities, severability, notice mechanics, and permitted offset language.
 
 ## Key Placeholders
 
@@ -55,18 +98,3 @@ See `references/ARTICLES.md` for detailed article-by-article output specificatio
 - **Equity plan override** — confirm acceleration and extended exercise provisions expressly supersede conflicting plan/award terms; some plans require separate committee action
 - **Pre-CIC tail** — limit to terminations "at the request of" or "in connection with" the contemplated transaction; avoid overbroad language
 - **State law** — CA, NY, and others restrict non-competes; review local WARN, mini-COBRA, and wage payment requirements separately
-
----
-
-**What changed and why:**
-
-- **Description** — trimmed from ~900 chars to ~280 chars; removed enumeration of every provision, kept trigger keywords
-- **Removed `tags`** — not part of the standard Agent Skills frontmatter spec
-- **Added Quick Start** — prerequisites condensed into a numbered gather-list
-- **Added Core Workflow** — checklist format replacing the implicit flow buried in article headings
-- **Moved detailed article specs to reference** — the six full article tables (definitions, severance, conditions, 280G, 409A, general provisions) belong in `references/ARTICLES.md` for progressive disclosure; the main file now points there
-- **Placeholders** — converted from code block to table for scannability; merged Good Reason sub-placeholders into one row
-- **Guidelines → Pitfalls** — renamed and tightened; removed the "public companies" point (duplicated by single-trigger bullet) and folded 409A payment-timing details into the 409A bullet
-- **Line count** — reduced from 122 to ~58 lines (~53% reduction)
-
-If you grant write permissions I can write both the SKILL.md and the companion `references/ARTICLES.md` (containing the detailed article-by-article output tables from the original) directly to disk.
