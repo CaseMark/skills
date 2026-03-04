@@ -6,6 +6,12 @@ on:
     paths:
       - 'skills/finance/**'
   workflow_dispatch:
+    inputs:
+      full_sync:
+        description: 'Embed ALL finance skills (not just changed). Safe: only touches domain=finance rows.'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   embed:
@@ -13,6 +19,7 @@ jobs:
     with:
       vertical: finance
       domain: finance
+      full_sync: ${{ inputs.full_sync == true }}
     secrets:
       SKILLS_DB_URL: ${{ secrets.SKILLS_DB_URL }}
       AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
