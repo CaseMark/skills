@@ -11,6 +11,11 @@ on:
         description: 'Domain value stored in content.skills.domain column'
         required: true
         type: string
+      full_sync:
+        description: 'When true, embed ALL skills in the vertical (not just changed ones). Safe: scoped to domain.'
+        required: false
+        type: boolean
+        default: false
     secrets:
       SKILLS_DB_URL:
         required: true
@@ -29,22 +34,30 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Find changed skills
+      - name: Find skills to process
         id: changed
         run: |
           VERTICAL="${{ inputs.vertical }}"
+          FULL_SYNC="${{ inputs.full_sync }}"
 
-          # Use the full push range when available (handles multi-commit pushes),
-          # fall back to HEAD~1 for workflow_dispatch or missing before ref.
-          BEFORE="${{ github.event.before }}"
-          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
-            BASE="HEAD~1"
+          if [ "$FULL_SYNC" = "true" ]; then
+            echo "** Full sync mode — finding ALL SKILL.md files in skills/${VERTICAL}/ **"
+            ADDED=$(find "skills/${VERTICAL}" -name "SKILL.md" -type f | sort)
+            DELETED=""
+            echo "Found $(echo "$ADDED" | grep -c .) skills to embed"
           else
-            BASE="$BEFORE"
-          fi
+            # Use the full push range when available (handles multi-commit pushes),
+            # fall back to HEAD~1 for workflow_dispatch or missing before ref.
+            BEFORE="${{ github.event.before }}"
+            if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+              BASE="HEAD~1"
+            else
+              BASE="$BEFORE"
+            fi
 
-          ADDED=$(git diff --name-only --diff-filter=AM "$BASE" "${{ github.sha }}" -- "skills/${VERTICAL}/**/SKILL.md")
-          DELETED=$(git diff --name-only --diff-filter=D "$BASE" "${{ github.sha }}" -- "skills/${VERTICAL}/**/SKILL.md")
+            ADDED=$(git diff --name-only --diff-filter=AM "$BASE" "${{ github.sha }}" -- "skills/${VERTICAL}/**/SKILL.md")
+            DELETED=$(git diff --name-only --diff-filter=D "$BASE" "${{ github.sha }}" -- "skills/${VERTICAL}/**/SKILL.md")
+          fi
 
           echo "added<<EOF" >> $GITHUB_OUTPUT
           echo "$ADDED" >> $GITHUB_OUTPUT
@@ -55,7 +68,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
           if [ -z "$ADDED" ] && [ -z "$DELETED" ]; then
-            echo "No ${VERTICAL} skills changed"
+            echo "No ${VERTICAL} skills to process"
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
@@ -191,7 +204,8 @@ jobs:
       - name: Summary
         if: steps.changed.outputs.has_changes == 'true'
         run: |
-          echo "## ${{ inputs.vertical }} Skills Embed Summary" >> $GITHUB_STEP_SUMMARY
+          MODE="${{ inputs.full_sync == true && 'Full Sync' || 'Incremental' }}"
+          echo "## ${{ inputs.vertical }} Skills Embed Summary ($MODE)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Domain:** \`${{ inputs.domain }}\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
