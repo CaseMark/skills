@@ -1,0 +1,196 @@
+name: Skill Embed
+
+on:
+  workflow_call:
+    inputs:
+      vertical:
+        description: 'Skill vertical directory name (legal, med, capital)'
+        required: true
+        type: string
+      domain:
+        description: 'Domain value stored in content.skills.domain column'
+        required: true
+        type: string
+    secrets:
+      SKILLS_DB_URL:
+        required: true
+      AI_GATEWAY_API_KEY:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  embed:
+    name: Embed ${{ inputs.vertical }} Skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Find changed skills
+        id: changed
+        run: |
+          VERTICAL="${{ inputs.vertical }}"
+          ADDED=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- "skills/${VERTICAL}/**/SKILL.md")
+          DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- "skills/${VERTICAL}/**/SKILL.md")
+
+          echo "added<<EOF" >> $GITHUB_OUTPUT
+          echo "$ADDED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "deleted<<EOF" >> $GITHUB_OUTPUT
+          echo "$DELETED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          if [ -z "$ADDED" ] && [ -z "$DELETED" ]; then
+            echo "No ${VERTICAL} skills changed"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup Node.js
+        if: steps.changed.outputs.has_changes == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        if: steps.changed.outputs.has_changes == 'true'
+        run: npm install @neondatabase/serverless openai yaml
+
+      - name: Embed and upsert skills
+        if: steps.changed.outputs.has_changes == 'true'
+        env:
+          SKILLS_DB_URL: ${{ secrets.SKILLS_DB_URL }}
+          AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+          SKILL_DOMAIN: ${{ inputs.domain }}
+        run: |
+          node << 'SCRIPT'
+          const { neon } = require('@neondatabase/serverless');
+          const { OpenAI } = require('openai');
+          const yaml = require('yaml');
+          const fs = require('fs');
+          const path = require('path');
+
+          const sql = neon(process.env.SKILLS_DB_URL);
+          const openai = new OpenAI({
+            apiKey: process.env.AI_GATEWAY_API_KEY,
+            baseURL: 'https://ai-gateway.vercel.sh/v1',
+          });
+          const domain = process.env.SKILL_DOMAIN;
+
+          async function parseSkill(filePath) {
+            const content = fs.readFileSync(filePath, 'utf8');
+            const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+            if (!match) throw new Error(`Invalid frontmatter in ${filePath}`);
+
+            const frontmatter = yaml.parse(match[1]);
+            const body = match[2].trim();
+
+            const titleMatch = body.match(/^#\s+(.+)$/m)
+              || body.match(/^\*\*([^*]+)\*\*/m);
+            const displayName = titleMatch ? titleMatch[1].trim() : frontmatter.name;
+
+            return {
+              slug: frontmatter.name,
+              name: displayName,
+              summary: frontmatter.description,
+              content: body,
+              tags: frontmatter.tags || [],
+              license: frontmatter.license || 'Apache-2.0',
+            };
+          }
+
+          async function generateEmbedding(text) {
+            const response = await openai.embeddings.create({
+              model: 'text-embedding-3-small',
+              input: text,
+              dimensions: 1536,
+            });
+            return response.data[0].embedding;
+          }
+
+          async function upsertSkill(skill) {
+            const embeddingInput = `${skill.name}: ${skill.summary}\n\n${skill.content}`;
+            const embedding = await generateEmbedding(embeddingInput);
+            const embeddingStr = `[${embedding.join(',')}]`;
+
+            await sql`
+              INSERT INTO content.skills (slug, name, summary, content, embedding, tags, license, domain, version, created_at, updated_at)
+              VALUES (${skill.slug}, ${skill.name}, ${skill.summary}, ${skill.content}, ${embeddingStr}::vector, ${skill.tags}, ${skill.license}, ${domain}, 1, NOW(), NOW())
+              ON CONFLICT (slug, domain) DO UPDATE SET
+                name = EXCLUDED.name,
+                summary = EXCLUDED.summary,
+                content = EXCLUDED.content,
+                embedding = EXCLUDED.embedding,
+                tags = EXCLUDED.tags,
+                license = EXCLUDED.license,
+                version = content.skills.version + 1,
+                updated_at = NOW()
+            `;
+
+            console.log(`✓ Upserted [${domain}]: ${skill.slug} → "${skill.name}"`);
+          }
+
+          async function softDeleteSkill(slug) {
+            await sql`
+              UPDATE content.skills SET visibility = 'archived', updated_at = NOW()
+              WHERE slug = ${slug} AND domain = ${domain}
+            `;
+            console.log(`✓ Archived [${domain}]: ${slug}`);
+          }
+
+          async function main() {
+            const added = `${{ steps.changed.outputs.added }}`.trim().split('\n').filter(Boolean);
+            const deleted = `${{ steps.changed.outputs.deleted }}`.trim().split('\n').filter(Boolean);
+
+            console.log(`[${domain}] Processing ${added.length} added/modified, ${deleted.length} deleted`);
+
+            for (const filePath of added) {
+              try {
+                const skill = await parseSkill(filePath);
+                await upsertSkill(skill);
+              } catch (err) {
+                console.error(`✗ Failed to process ${filePath}: ${err.message}`);
+                process.exitCode = 1;
+              }
+            }
+
+            for (const filePath of deleted) {
+              const dirName = path.basename(path.dirname(filePath));
+              try {
+                await softDeleteSkill(dirName);
+              } catch (err) {
+                console.error(`✗ Failed to archive ${dirName}: ${err.message}`);
+                process.exitCode = 1;
+              }
+            }
+
+            console.log('\nDone.');
+          }
+
+          main().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          SCRIPT
+
+      - name: Summary
+        if: steps.changed.outputs.has_changes == 'true'
+        run: |
+          echo "## ${{ inputs.vertical }} Skills Embed Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Domain:** \`${{ inputs.domain }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Added/Modified:**" >> $GITHUB_STEP_SUMMARY
+          echo '${{ steps.changed.outputs.added }}' | while read -r line; do
+            [ -n "$line" ] && echo "- \`$line\`" >> $GITHUB_STEP_SUMMARY
+          done
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Deleted:**" >> $GITHUB_STEP_SUMMARY
+          echo '${{ steps.changed.outputs.deleted }}' | while read -r line; do
+            [ -n "$line" ] && echo "- \`$line\`" >> $GITHUB_STEP_SUMMARY
+          done
