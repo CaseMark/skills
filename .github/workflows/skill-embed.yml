@@ -27,14 +27,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Find changed skills
         id: changed
         run: |
           VERTICAL="${{ inputs.vertical }}"
-          ADDED=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- "skills/${VERTICAL}/**/SKILL.md")
-          DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- "skills/${VERTICAL}/**/SKILL.md")
+
+          # Use the full push range when available (handles multi-commit pushes),
+          # fall back to HEAD~1 for workflow_dispatch or missing before ref.
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            BASE="HEAD~1"
+          else
+            BASE="$BEFORE"
+          fi
+
+          ADDED=$(git diff --name-only --diff-filter=AM "$BASE" "${{ github.sha }}" -- "skills/${VERTICAL}/**/SKILL.md")
+          DELETED=$(git diff --name-only --diff-filter=D "$BASE" "${{ github.sha }}" -- "skills/${VERTICAL}/**/SKILL.md")
 
           echo "added<<EOF" >> $GITHUB_OUTPUT
           echo "$ADDED" >> $GITHUB_OUTPUT
@@ -59,7 +69,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.changed.outputs.has_changes == 'true'
-        run: npm install @neondatabase/serverless openai yaml
+        run: npm install @neondatabase/serverless@1.0.2 openai@6.25.0 yaml@2.8.2
 
       - name: Embed and upsert skills
         if: steps.changed.outputs.has_changes == 'true'
