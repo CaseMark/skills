@@ -1,18 +1,18 @@
-name: Legal Skills Embed
+name: Medical Skills Embed
 
 on:
   push:
     branches: [main]
     paths:
-      - 'skills/legal/**'
+      - 'skills/med/**'
   workflow_dispatch:
 
 jobs:
   embed:
     uses: ./.github/workflows/skill-embed.yml
     with:
-      vertical: legal
-      domain: legal
+      vertical: med
+      domain: med
     secrets:
       SKILLS_DB_URL: ${{ secrets.SKILLS_DB_URL }}
       AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
