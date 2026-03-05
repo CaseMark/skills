@@ -15,26 +15,21 @@ metadata:
   skill_modes:
     - Reconciliation
 ---
-
 # Reconciling Accounts
 
 Compares multiple data sources to produce reconciliation reports with break identification and aging analysis.
 
-## Why This Skill Exists
+## When To Use
 
-Account reconciliation is the foundation of financial statement integrity. Every balance on the balance sheet must be supported by verifiable detail that ties back to a source of truth — a bank statement, a sub-ledger, a counterparty confirmation, or an amortization schedule. Unreconciled or poorly reconciled accounts are a leading cause of financial restatements, audit findings, and SOX control deficiencies.
+- Proving a GL balance is **complete, accurate, and valid** at a point in time against a source of truth (bank statement, sub-ledger, counterparty confirmation, amortization schedule).
+- Surfacing and categorizing **breaks** (discrepancies) with aging so they are investigated, not buried.
+- Producing **audit-ready reconciliation documentation** that satisfies reviewer sign-off and SOX evidence requirements. [VERIFY: Confirm whether the entity is subject to SOX or equivalent internal control framework.]
+- Standardizing reconciliation across account types to reduce close cycle time.
+- Performing bank reconciliations, intercompany reconciliations, sub-ledger-to-GL tie-outs, or balance sheet account roll-forwards.
 
-This skill exists to enforce a rigorous, repeatable process for:
-- Proving that a GL balance is **complete, accurate, and valid** at a point in time.
-- Surfacing **breaks** (discrepancies) with categorization and aging so they are investigated — not buried.
-- Producing **audit-ready documentation** that satisfies reviewer sign-off and SOX evidence requirements.
-- Reducing the close cycle by standardizing reconciliation across account types.
+If you cannot reconcile an account, you cannot assert its balance is correct.
 
-If you cannot reconcile an account, you cannot assert its balance is correct. Period.
-
----
-
-## Checkpoint A: Pre-Draft Intake (Mandatory)
+## Inputs To Gather
 
 Before any reconciliation work begins, confirm or collect the following. Do NOT proceed with incomplete intake — mark gaps as `[MISSING]` and escalate.
 
@@ -48,7 +43,7 @@ Before any reconciliation work begins, confirm or collect the following. Do NOT 
 | **Supporting Source** | Yes | The comparison source: bank statement, sub-ledger, counterparty balance, schedule |
 | **Supporting Source Balance** | Yes | Ending balance per the supporting source |
 | **Currency** | Yes | Functional currency. Flag if FX translation is involved. |
-| **Materiality Threshold** | Yes | Dollar amount below which differences may be written off without investigation |
+| **Materiality Threshold** | Yes | Dollar amount below which differences may be written off without investigation [VERIFY: Confirm entity's materiality policy and any audit committee-approved thresholds.] |
 | **Preparer / Reviewer** | Yes | Names for evidence of segregation of duties |
 | **Reconciliation Frequency** | Yes | `Daily`, `Monthly`, `Quarterly` — determines expected cadence |
 | **Prior Period Carryforward Items** | If any | Unresolved items from prior reconciliation that should clear this period |
@@ -65,8 +60,6 @@ Before any reconciliation work begins, confirm or collect the following. Do NOT 
 | Fixed Assets / Depreciation | Monthly | Roll-forward must reconcile additions, disposals, depreciation |
 | Deferred Revenue | Monthly | Revenue recognition schedule drives balance |
 | Equity / Less Active BS | Quarterly | Low activity, but must still be formally reconciled |
-
----
 
 ## Workflow
 
@@ -115,11 +108,11 @@ Every reconciling item gets an age bucket based on how long it has remained unre
 
 | Aging Bucket | Days Outstanding | Required Action |
 |---|---|---|
-| **Current** | 0–30 days | Monitor. Expected to clear next period. |
-| **Aged** | 31–90 days | Investigate. Document reason for delay. Escalate if no clear resolution path. |
+| **Current** | 0-30 days | Monitor. Expected to clear next period. |
+| **Aged** | 31-90 days | Investigate. Document reason for delay. Escalate if no clear resolution path. |
 | **Stale** | >90 days | **Mandatory investigation.** Likely requires a journal entry, write-off, or management decision. Flag for controller review. |
 
-Stale items on a reconciliation are a red flag. If an item has sat unresolved for 90+ days, the reconciliation is not complete — it is a tracker with an open item list.
+Stale items are a red flag. If an item has sat unresolved for 90+ days, the reconciliation is not complete — it is a tracker with an open item list.
 
 ### Step 6: Resolve and Document
 
@@ -152,9 +145,7 @@ Difference                                     $0.00
 
 If the difference is not zero, the reconciliation is not complete.
 
----
-
-## Output Templates
+## Output
 
 ### Reconciliation Summary Header
 
@@ -173,7 +164,9 @@ Status:         [Reconciled / Open Items Remaining]
 
 See `references/RECONCILIATION-TEMPLATE.md` for the standardized table format.
 
-### Summary Metrics (include at bottom of every reconciliation)
+### Summary Metrics
+
+Include at the bottom of every reconciliation:
 
 | Metric | Value |
 |---|---|
@@ -187,9 +180,9 @@ See `references/RECONCILIATION-TEMPLATE.md` for the standardized table format.
 | Materiality Threshold | $XXX |
 | Items Exceeding Threshold | N |
 
----
+## Quality Checks
 
-## Checkpoint B: Post-Draft Alignment (Mandatory)
+### Completeness and Accuracy Verification
 
 Before finalizing any reconciliation output, verify:
 
@@ -204,11 +197,9 @@ Before finalizing any reconciliation output, verify:
 - [ ] **Reviewer sign-off**: Reconciliation includes preparer and reviewer fields; reviewer has a basis to assess completeness
 - [ ] **No stale items without explanation**: Any item >90 days has a documented investigation note
 
----
-
-## Quality Audit
-
 ### SOX Control Considerations
+
+[VERIFY: Confirm whether the entity is subject to SOX Section 404 or an equivalent internal control framework (e.g., CSOX, J-SOX). Adjust control evidence requirements accordingly.]
 
 Account reconciliation is typically a **key control** in a SOX environment. The following must be evidenced:
 
@@ -225,7 +216,7 @@ Account reconciliation is typically a **key control** in a SOX environment. The 
 
 Flag these in quality review — they indicate a reconciliation that looks complete but is not:
 
-1. **"Timing" items that never clear** — If an outstanding check has been outstanding for 6 months, it is not timing. Investigate for stale-dated checks, escheatment requirements, or recording errors.
+1. **"Timing" items that never clear** — If an outstanding check has been outstanding for 6 months, it is not timing. Investigate for stale-dated checks, escheatment requirements, or recording errors. [VERIFY: Check applicable state escheatment/unclaimed property laws for stale-dated check thresholds.]
 2. **Plugged differences** — A single line labeled "Other" or "Miscellaneous" that forces the recon to zero. Every reconciling item must be individually identified.
 3. **Stale support** — Using a bank statement from a different date than the GL balance, or a sub-ledger run at a different time. Sources must be as-of the same point in time.
 4. **Missing prior-period roll** — The reconciliation does not track items from last month. You cannot assess whether aged items are growing or shrinking.
@@ -234,7 +225,7 @@ Flag these in quality review — they indicate a reconciliation that looks compl
 ### Reconciliation-Type-Specific Checks
 
 **Bank Reconciliation**
-- Outstanding checks >180 days: check escheatment laws by jurisdiction
+- Outstanding checks >180 days: check escheatment laws by jurisdiction [VERIFY: State unclaimed property statutes vary; confirm applicable dormancy periods and reporting deadlines.]
 - Deposits in transit >3 business days: investigate; may indicate fictitious revenue (kiting)
 - Bank fees/interest: confirm booked monthly; do not let accumulate
 - NSF / returned items: confirm AR was re-debited or follow-up initiated
@@ -250,12 +241,10 @@ Flag these in quality review — they indicate a reconciliation that looks compl
 - If a difference exists, it usually means a journal entry was posted directly to the GL control account bypassing the sub-ledger — this is a control weakness
 
 **Balance Sheet Account (Schedule-Based)**
-- Roll-forward: Opening balance + additions – reductions = Ending balance = GL balance
+- Roll-forward: Opening balance + additions - reductions = Ending balance = GL balance
 - Prepaid: Amortization schedule must tie; check for fully amortized items still on the schedule
 - Accruals: Each accrual must have a basis (invoice, estimate, contract term); stale accruals indicate over-accrual
 - Fixed assets: Agree to fixed asset register; check for ghost assets
-
----
 
 ## Reference Files
 
