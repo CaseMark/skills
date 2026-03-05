@@ -142,8 +142,8 @@ jobs:
             const embeddingStr = `[${embedding.join(',')}]`;
 
             await sql`
-              INSERT INTO content.skills (slug, name, summary, content, embedding, tags, license, domain, version, created_at, updated_at)
-              VALUES (${skill.slug}, ${skill.name}, ${skill.summary}, ${skill.content}, ${embeddingStr}::vector, ${skill.tags}, ${skill.license}, ${domain}, 1, NOW(), NOW())
+              INSERT INTO content.skills (slug, name, summary, content, embedding, tags, license, domain, visibility, version, created_at, updated_at)
+              VALUES (${skill.slug}, ${skill.name}, ${skill.summary}, ${skill.content}, ${embeddingStr}::vector, ${skill.tags}, ${skill.license}, ${domain}, 'public', 1, NOW(), NOW())
               ON CONFLICT (slug, domain) DO UPDATE SET
                 name = EXCLUDED.name,
                 summary = EXCLUDED.summary,
@@ -152,6 +152,7 @@ jobs:
                 tags = EXCLUDED.tags,
                 license = EXCLUDED.license,
                 version = content.skills.version + 1,
+                visibility = 'public',
                 updated_at = NOW()
             `;
 
@@ -218,3 +219,4 @@ jobs:
           echo '${{ steps.changed.outputs.deleted }}' | while read -r line; do
             [ -n "$line" ] && echo "- \`$line\`" >> $GITHUB_STEP_SUMMARY
           done
+          true
