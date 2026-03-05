@@ -16,165 +16,114 @@ metadata:
   skill_modes:
     - Summarization
 ---
-
 # Summarizing Earnings Calls
 
-## Why This Skill Exists
+## When To Use
 
-Earnings calls are the single most information-dense event in the public-equity calendar. Every quarter, management teams deliver prepared remarks and field analyst questions — compressing capital-allocation decisions, operating trends, and forward guidance into 45–90 minutes. Buy-side analysts covering 30–60 names cannot attend every call live. They need structured, comparable summaries that surface what moved and what matters, delivered within hours of the call ending.
+- Processing a quarterly or annual earnings call transcript into a structured research summary
+- Preparing investment memos where beat/miss framing and guidance changes are the primary deliverable
+- Tracking management narrative shifts across consecutive quarters for a coverage universe
+- Building a comparable summary format across multiple tickers for portfolio-level review
 
-This skill converts a raw earnings-call transcript into a multi-section research summary that tracks beats/misses, guidance changes, KPI trajectories, management tone, and analyst Q&A signal — in a format that plugs directly into an investment workflow.
+## Inputs To Gather
 
----
+Collect before drafting. Do not proceed without the required items.
 
-## Checkpoint A: Pre-Draft Intake (Mandatory)
-
-Before touching the transcript, collect the following from the user. Do not proceed until every required field is answered.
-
-| Field | Required | Why It Matters |
+| Field | Required | Purpose |
 |---|---|---|
 | **Ticker / Company name** | Yes | Determines industry KPI set and peer context |
 | **Quarter & fiscal year** | Yes | Anchors YoY and QoQ comparisons |
-| **Consensus estimates** (Revenue, EPS at minimum) | Yes | Enables beat/miss framing — the single most actionable data point |
-| **Prior-quarter guidance** (if any) | Yes | Needed to quantify guidance revisions |
-| **User's coverage context** | Recommended | "I cover SaaS infrastructure" vs. "I'm a generalist" changes emphasis |
-| **Specific focus areas** | Recommended | e.g., "margin trajectory", "China exposure", "AI capex" |
-| **Prior-quarter summary** (if available) | Optional | Enables language-delta and KPI-trend analysis |
-| **Industry vertical** | Auto-infer | Drives the KPI extraction set (see §Industry KPI Matrix) |
-
-If the user cannot supply consensus estimates, flag this limitation prominently and note that beat/miss language will be omitted.
-
----
+| **Consensus estimates** (Revenue, EPS minimum) | Yes | Enables beat/miss framing — omit beat/miss language entirely if unavailable |
+| **Prior-quarter guidance** (if any) | Yes | Quantifies guidance revisions |
+| **User's coverage context** | Recommended | "SaaS infrastructure analyst" vs. "generalist" shifts emphasis |
+| **Specific focus areas** | Recommended | e.g., "margin trajectory," "China exposure," "AI capex" |
+| **Prior-quarter summary** | Optional | Enables language-delta and KPI-trend analysis |
+| **Industry vertical** | Auto-infer | Drives KPI extraction set (see Industry KPI Matrix below) |
 
 ## Workflow
 
-### Step 1 — Structural Parse
+### 1. Structural Parse
 
-Segment the transcript into its canonical sections:
+Segment the transcript into canonical sections:
 
-1. **Operator / Safe Harbor** — note the safe-harbor disclaimer; do not summarize it, but confirm it exists.
+1. **Operator / Safe Harbor** — confirm disclaimer exists; do not summarize it.
 2. **CEO Prepared Remarks** — strategic narrative, high-level results, thematic emphasis.
-3. **CFO Prepared Remarks** — financial details: revenue, margins, EPS, cash flow, balance sheet, guidance.
-4. **Other Executive Remarks** (if any) — segment heads, CTO on product, etc.
-5. **Analyst Q&A** — each question/answer pair is a discrete unit.
+3. **CFO Prepared Remarks** — revenue, margins, EPS, cash flow, balance sheet, guidance.
+4. **Other Executive Remarks** — segment heads, CTO on product, etc.
+5. **Analyst Q&A** — treat each question/answer pair as a discrete unit.
 
-If the transcript is missing section headers, infer boundaries from speaker changes and content transitions. Flag inferred boundaries with `[INFERRED SECTION BREAK]`.
+If section headers are missing, infer boundaries from speaker changes and flag with `[INFERRED SECTION BREAK]`.
 
-### Step 2 — Headline Numbers Extraction
+### 2. Headline Numbers Extraction
 
-Build the **Financial Snapshot Table**:
-
-| Metric | Reported | Consensus | Beat / Miss | YoY Δ | QoQ Δ |
-|---|---|---|---|---|---|
-| Revenue | $X.XXB | $X.XXB | Beat +X% | +X% | +X% |
-| Adj. EPS | $X.XX | $X.XX | Miss −$0.XX | +X% | −X% |
-| Gross Margin | XX.X% | — | — | +XXbps | −XXbps |
-| Operating Margin | XX.X% | — | — | +XXbps | +XXbps |
-| FCF | $X.XXB | — | — | +X% | +X% |
+Build the Financial Snapshot Table with these columns: Metric | Reported | Consensus | Beat/Miss | YoY Δ | QoQ Δ. Include at minimum: Revenue, Adj. EPS, Gross Margin, Operating Margin, FCF.
 
 Rules:
-- **GAAP vs Non-GAAP**: Always state which basis is used. If management leads with Non-GAAP (common), include both. Flag large adjustments (SBC > 10% of revenue, restructuring charges, one-time items).
+- **Always state GAAP vs Non-GAAP basis.** If management leads with Non-GAAP, include both. Flag large adjustments (SBC > 10% of revenue, restructuring, one-time items).
 - Use basis points (bps) for margin deltas, percentages for revenue/EPS deltas.
-- If a metric is not disclosed or not applicable, write "Not disclosed" — never infer.
+- Write "Not disclosed" for undisclosed metrics — never infer values.
 
-### Step 3 — Guidance Analysis
+### 3. Guidance Analysis
 
-Build the **Guidance Table**:
+Build the Guidance Table with columns: Metric | New Guidance | Prior Guidance | Δ | Consensus | vs. Street.
 
-| Metric | New Guidance | Prior Guidance | Δ | Consensus | vs. Street |
-|---|---|---|---|---|---|
-| FY Revenue | $XX.X–XX.XB | $XX.X–XX.XB | Raised +$XXM at midpoint | $XX.XB | Above / In-line / Below |
-| Q+1 Revenue | $X.XX–X.XXB | — | New | $X.XXB | Above / Below |
-| FY Adj. EPS | $X.XX–X.XX | $X.XX–X.XX | Narrowed, midpoint +$0.XX | $X.XX | Above |
+Classify each metric as: **Raised / Maintained / Lowered / Narrowed / Initiated / Withdrawn**.
 
-Classify each guidance metric: **Raised / Maintained / Lowered / Narrowed / Initiated / Withdrawn**.
+Quantify magnitude at midpoint: "$150M raise at midpoint, +2.1% vs prior guide" — not just "guidance was raised."
 
-Quantify the magnitude: "$150M raise at midpoint, or +2.1% vs prior guide" is far more useful than "guidance was raised."
+### 4. Segment & KPI Deep Dive
 
-### Step 4 — Segment & KPI Deep Dive
+Extract segment-level disclosures and map to industry-relevant KPIs.
 
-Extract every segment-level disclosure and map to industry-relevant KPIs.
+#### Industry KPI Matrix
 
-#### Industry KPI Matrix (select the applicable set)
-
-| Vertical | Key KPIs to Extract |
+| Vertical | Key KPIs |
 |---|---|
 | **SaaS / Cloud** | ARR, NRR/NDR, RPO/cRPO, CAC payback, gross retention, logo adds, DBE |
-| **Retail / Consumer** | Same-store sales (SSS), comp growth, inventory turns, store count Δ, e-commerce mix |
+| **Retail / Consumer** | Same-store sales, comp growth, inventory turns, store count Δ, e-commerce mix |
 | **Banks / Financials** | NIM, provision for credit losses, CET1 ratio, loan growth, deposit costs, NCO rate |
 | **Industrials** | Book-to-bill, backlog, organic growth, price vs volume, input cost trends |
-| **Pharma / Biotech** | Pipeline milestones, Rx volume, pricing/reimbursement, patent cliffs, R&D as % of revenue |
+| **Pharma / Biotech** | Pipeline milestones, Rx volume, pricing/reimbursement, patent cliffs, R&D % of revenue |
 | **Semiconductors** | Design wins, wafer utilization, ASP trends, inventory days, lead times |
 | **Media / Streaming** | Subscriber adds/churn, ARPU, content spend, ad revenue mix |
 
-For each segment reported, produce a mini-table:
+For each reported segment, produce a mini-table: Segment | Revenue | YoY Δ | Margin | Commentary (use direct management language in commentary).
 
-| Segment | Revenue | YoY Δ | Margin | Commentary |
-|---|---|---|---|---|
-| Cloud | $X.XB | +XX% | XX% | "Reacceleration driven by AI workloads" |
-| Enterprise | $X.XB | +X% | XX% | "Large deal closures pushed to Q+1" |
+### 5. Management Sentiment & Tone
 
-### Step 5 — Management Sentiment & Tone Analysis
+Score on a 5-point scale across four dimensions — overall confidence, demand environment, margin outlook, competitive positioning — each supported by a direct quote.
 
-Score management tone on a 5-point scale and support with direct quotes.
+- **Hedging language flags**: Track frequency of "we believe," "we expect," "cautiously optimistic." Compare to prior quarter if available.
+- **Tone shifts**: Explicitly call out language-strength changes vs. prior quarter (e.g., "shifted from 'confident' to 'cautiously optimistic' on enterprise demand").
+- **Forward-looking statements**: Note material claims but flag as subject to safe-harbor provisions. Do not treat as commitments.
 
-| Dimension | Rating (1–5) | Key Evidence |
-|---|---|---|
-| **Overall confidence** | X | Direct quote |
-| **Demand environment** | X | Direct quote |
-| **Margin outlook** | X | Direct quote |
-| **Competitive positioning** | X | Direct quote |
+### 6. Analyst Q&A Extraction
 
-**Hedging language flags**: Track frequency and context of soft qualifiers — "we believe," "we expect," "we anticipate," "we're cautiously optimistic." Compare to prior quarter if a previous summary is available.
+Structure each exchange with columns: # | Analyst (Firm) | Topic | Key Takeaway | New Info? | Evasion Flag.
 
-**Tone shifts**: If the user provides a prior-quarter summary, explicitly call out any change in language strength (e.g., "Management shifted from 'confident' to 'cautiously optimistic' on enterprise demand").
+- **New Information**: Flag any Q&A disclosure absent from prepared remarks — this is where alpha lives.
+- **Evasion Detection**: Flag non-answers, redirects, or vague language. Evasion on a topic is itself a signal.
+- **Follow-up patterns**: Note when multiple analysts pressed on the same topic — indicates Street-level concern.
 
-**Forward-looking statements**: Note material forward-looking claims but flag them as subject to safe-harbor provisions. Do not treat forward-looking language as commitments.
+### 7. Capital Allocation & Balance Sheet
 
-### Step 6 — Analyst Q&A Extraction
+Tabulate: share repurchases, dividends, net debt/EBITDA, M&A commentary, and CapEx — each with current quarter, prior quarter, and commentary.
 
-The Q&A section often contains the most investable information. Structure each exchange:
+### 8. Risks & Watchlist
 
-| # | Analyst (Firm) | Topic | Key Takeaway | New Info? | Evasion Flag |
-|---|---|---|---|---|---|
-| 1 | Jane Doe (GS) | AI monetization | Mgmt expects AI revenue to be "material" in FY+1 | Yes | No |
-| 2 | John Smith (MS) | Gross margin headwinds | Deflected — "multiple puts and takes" | No | **Yes** |
-| 3 | … | … | … | … | … |
+Compile from three sources:
+- **Management-disclosed**: Macro, regulatory, supply chain, FX, competitive.
+- **Q&A-implied**: Topics where multiple analysts pushed or management evaded.
+- **Data-inferred**: Decelerating growth, margin compression, rising DSO.
 
-Rules:
-- **New Information**: Flag any disclosure in Q&A that was not in prepared remarks. This is where alpha lives.
-- **Evasion Detection**: If management redirects, gives a non-answer, or uses vague language to avoid a direct question, flag it. Evasion on a topic is itself a signal.
-- **Follow-up patterns**: Note if multiple analysts pressed on the same topic — this indicates Street-level concern.
-- Capture the analyst's name and firm when identifiable (most transcripts include this).
+Tag each item: `[HIGH]` `[MEDIUM]` `[LOW]`.
 
-### Step 7 — Capital Allocation & Balance Sheet
-
-| Item | Current Quarter | Prior Quarter | Commentary |
-|---|---|---|---|
-| Share repurchases | $X.XB | $X.XB | New $XB authorization announced |
-| Dividends | $X.XX/share | $X.XX/share | +X% YoY increase |
-| Net debt / EBITDA | X.Xx | X.Xx | Deleveraging on track |
-| M&A commentary | — | — | "Evaluating bolt-on opportunities in [segment]" |
-| CapEx | $X.XB | $X.XB | +XX% YoY — driven by AI infrastructure |
-
-### Step 8 — Risks & Watchlist Items
-
-Compile a forward-looking watchlist:
-
-- **Risks disclosed by management**: Macro, regulatory, supply chain, FX, competitive.
-- **Risks implied by Q&A pressure**: Topics where multiple analysts pushed.
-- **Risks inferred from data**: Decelerating growth, margin compression, rising DSO.
-
-Format as a numbered list with severity tags: `[HIGH]` `[MEDIUM]` `[LOW]`.
-
----
-
-## Output Structure
+## Output
 
 Assemble the final summary in this order:
 
 1. **Header**: Ticker, Company, Quarter, Date, Call Duration
-2. **TL;DR** (3–5 bullets): The most investable takeaways — what changed, what surprised
+2. **TL;DR** (3–5 bullets): Most investable takeaways — what changed, what surprised
 3. **Financial Snapshot Table** (Step 2)
 4. **Guidance Table** (Step 3)
 5. **Segment & KPI Detail** (Step 4)
@@ -184,50 +133,23 @@ Assemble the final summary in this order:
 9. **Risks & Watchlist** (Step 8)
 10. **Appendix**: GAAP/Non-GAAP reconciliation notes, definitions of non-standard KPIs
 
-See `references/EARNINGS-SUMMARY-TEMPLATE.md` for a complete output template.
+After presenting the draft, ask the user to verify: completeness of metrics, emphasis balance across sections, accuracy of consensus/guidance figures (highest error-risk fields), sentiment scoring alignment, and formatting for their distribution workflow.
 
----
+## Quality Checks
 
-## Checkpoint B: Post-Draft Alignment (Mandatory)
-
-Present the draft to the user and explicitly ask:
-
-1. **Completeness**: "Are there specific metrics or topics I missed that matter for your thesis?"
-2. **Emphasis**: "Should I elevate or de-emphasize any section? (e.g., more detail on Q&A, less on balance sheet)"
-3. **Accuracy**: "Please verify the consensus estimates and guidance figures I used — these are the highest-risk fields for error."
-4. **Tone calibration**: "Does the sentiment scoring align with your read of the call?"
-5. **Formatting**: "Any changes to structure for your internal template or distribution list?"
-
-Iterate once based on feedback. If the user requests a second revision, proceed but note that the quality ceiling is limited by transcript fidelity.
-
----
-
-## Quality Audit
-
-Before finalizing, verify against this checklist:
-
-| # | Check | Pass? |
-|---|---|---|
-| 1 | Every reported metric cites GAAP or Non-GAAP basis | |
-| 2 | Beat/miss framing uses user-provided consensus — not hallucinated estimates | |
-| 3 | Guidance deltas are quantified at the midpoint, not just directional | |
-| 4 | No forward-looking statement is presented as a commitment or fact | |
-| 5 | Analyst names and firms are attributed where identifiable | |
-| 6 | Evasion flags are supported by specific non-answer quotes | |
-| 7 | YoY and QoQ deltas use consistent basis (same quarter, same metric definition) | |
-| 8 | Industry-specific KPIs match the company's actual vertical | |
-| 9 | Risks section includes at least one item from each source (disclosed, Q&A-implied, data-inferred) | |
-| 10 | `[VERIFY]` tags are attached to any data point sourced from inference rather than explicit transcript text | |
-| 11 | No material information from Q&A is omitted from the summary | |
-| 12 | Compliance disclaimer is present if output will be distributed externally | |
-
----
-
-## Key Rules
-
-- **Never fabricate consensus estimates.** If not provided, omit beat/miss language entirely.
-- **Always distinguish GAAP from Non-GAAP.** When management presents Non-GAAP as the headline, include the GAAP figure in a footnote or reconciliation note.
-- **Mark uncertain data with `[VERIFY]`.** This includes unclear speaker attribution, ambiguous numbers, and inferred section breaks.
-- **Do not editorialize.** "Management sounded defensive" is acceptable only if supported by quoted evidence. "This was a bad quarter" is never acceptable.
-- **Safe harbor awareness.** Acknowledge forward-looking statements but do not amplify or discount them without basis.
-- **Escalate to human review** when the transcript is partial, audio-to-text artifacts are present, or the company uses unusual reporting frameworks.
+| # | Check |
+|---|---|
+| 1 | Every reported metric cites GAAP or Non-GAAP basis |
+| 2 | Beat/miss framing uses user-provided consensus — never fabricated estimates |
+| 3 | Guidance deltas quantified at midpoint, not just directional |
+| 4 | No forward-looking statement presented as a commitment or fact |
+| 5 | Analyst names and firms attributed where identifiable |
+| 6 | Evasion flags supported by specific non-answer quotes |
+| 7 | YoY and QoQ deltas use consistent basis (same quarter, same metric definition) |
+| 8 | Industry-specific KPIs match the company's actual vertical |
+| 9 | Risks section includes at least one item from each source (disclosed, Q&A-implied, data-inferred) |
+| 10 | `[VERIFY]` tags attached to any data point sourced from inference rather than explicit transcript text |
+| 11 | No material Q&A information omitted from summary |
+| 12 | Compliance disclaimer present if output will be distributed externally |
+| 13 | No editorializing without quoted evidence ("management sounded defensive" requires a supporting quote) |
+| 14 | Escalate to human review when transcript is partial, has audio-to-text artifacts, or uses unusual reporting frameworks |

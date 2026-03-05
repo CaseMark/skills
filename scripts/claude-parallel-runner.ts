@@ -483,12 +483,63 @@ function parseClaudeOutput(stdout: string): ParsedClaudeOutput {
     const parsed = JSON.parse(trimmed) as Record<string, unknown>;
     const resultCandidate = parsed.result ?? parsed.text;
     if (typeof resultCandidate === "string") {
-      return {
-        text: resultCandidate,
-        subtype: typeof parsed.subtype === "string" ? parsed.subtype : undefined,
-        payloadType: typeof parsed.type === "string" ? parsed.type : undefined,
-      };
+      // Keep direct result payloads when they already contain a valid SKILL.md document.
+      // Otherwise, continue to permission_denials fallback where denied Write/Edit inputs
+      // may contain the full rewritten document.
+      if (extractSkillMarkdown(resultCandidate)) {
+        return {
+          text: resultCandidate,
+          subtype: typeof parsed.subtype === "string" ? parsed.subtype : undefined,
+          payloadType: typeof parsed.type === "string" ? parsed.type : undefined,
+        };
+      }
     }
+
+    // Claude can emit `error_max_turns` with the generated document embedded inside
+    // a denied Write tool call payload. Recover that content as a fallback.
+    const denials = parsed.permission_denials;
+    if (Array.isArray(denials)) {
+      const candidates: string[] = [];
+      for (const denial of denials) {
+        if (!denial || typeof denial !== "object") {
+          continue;
+        }
+        const record = denial as Record<string, unknown>;
+        const toolInput = record.tool_input;
+        if (!toolInput || typeof toolInput !== "object") {
+          continue;
+        }
+        const values = [
+          (toolInput as Record<string, unknown>).content,
+          (toolInput as Record<string, unknown>).new_string,
+        ];
+        for (const value of values) {
+          if (typeof value === "string" && value.trim().length > 0) {
+            candidates.push(value);
+          }
+        }
+      }
+
+      for (const candidate of candidates) {
+        if (extractSkillMarkdown(candidate)) {
+          return {
+            text: candidate,
+            subtype: typeof parsed.subtype === "string" ? parsed.subtype : undefined,
+            payloadType: typeof parsed.type === "string" ? parsed.type : undefined,
+          };
+        }
+      }
+
+      const longest = candidates.sort((a, b) => b.length - a.length)[0];
+      if (longest) {
+        return {
+          text: longest,
+          subtype: typeof parsed.subtype === "string" ? parsed.subtype : undefined,
+          payloadType: typeof parsed.type === "string" ? parsed.type : undefined,
+        };
+      }
+    }
+
     return {
       text: "",
       subtype: typeof parsed.subtype === "string" ? parsed.subtype : undefined,
