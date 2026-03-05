@@ -1,0 +1,48 @@
+---
+name: managing-regulatory-fund-compliance
+description: Coordinates fund regulatory requirements across SEC, AIFMD, and local jurisdiction registration, reporting, and compliance obligations. Use when managing fund compliance, navigating regulatory registration, or ensuring cross-border compliance.
+tags:
+  - management
+  - fund-formation-and-structuring
+  - compliance
+  - regulatory
+metadata:
+  author: casemark
+  practice_areas:
+    - Fund Formation
+    - Fund Structuring
+    - Partnership Law
+  document_types:
+    - Management Report
+  skill_modes:
+    - Management
+    - Coordination
+---
+
+# Managing Regulatory Fund Compliance
+
+Coordinates fund regulatory requirements across SEC, AIFMD, and local jurisdiction registration, reporting, and compliance obligations.
+
+## Workflow
+
+1. **Identify** scope, stakeholders, and requirements
+2. **Assess** current state against standards or benchmarks
+3. **Execute** required actions with proper documentation
+4. **Monitor** progress against milestones and escalation criteria
+5. **Report** status, exceptions, and next steps
+
+## Key Rules
+
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
+
+## Guidelines
+
+- This skill operates within the **Fund Formation and Structuring** domain
+- Relevant practice areas: Fund Formation, Fund Structuring, Partnership Law
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high

@@ -1,14 +1,15 @@
 # CaseMark Agent Skills
 
-Open-source agent skills for legal, medical, and capital markets AI workflows and the [case.dev](https://case.dev) platform.
+Open-source agent skills for legal, medical, finance, and capital markets AI workflows and the [case.dev](https://case.dev) platform.
 
-This repository contains four categories of skills:
+This repository contains five categories of skills:
 
 | Directory | Audience | Description |
 |-----------|----------|-------------|
 | `skills/legal/` | Legal professionals & legal AI builders | 874 skills for legal tasks (deposition summarization, motion drafting, etc.). Embedded into a vector DB on merge to power the [agentskills.legal](https://agentskills.legal) website and Legal Agent Skills API. |
 | `skills/med/` | Healthcare professionals & health AI builders | 400 skills across 20 medical subgroups (emergency medicine, cardiology, oncology, surgery, etc.). Structured agentic workflows for processing and synthesizing healthcare information. |
-| `skills/capital/` | Financial professionals & fintech builders | 400 skills across 20 capital subgroups (equity research, investment banking, risk management, etc.). Structured agentic workflows for processing and synthesizing financial information. |
+| `skills/finance/` | Financial professionals & fintech builders | 400 skills across 20 finance subgroups (accounting, tax, insurance, banking, wealth management, FP&A, etc.). Consumer and corporate finance workflows. |
+| `skills/capital/` | Institutional investors & capital markets builders | 400 skills across 20 capital subgroups (M&A, VC, PE, fund formation, structured finance, capital markets, etc.). Institutional capital deployment and deal-making workflows. |
 | `skills/casedev/` | case.dev developers | Skills for building on the case.dev platform (vaults, OCR, transcription, search). File-based, consumed directly by Claude Code or any agent. |
 
 ## Quick Start
@@ -77,9 +78,9 @@ See [skills/med/](skills/med/) for 400 healthcare and medical skills organized a
 | Dental Medicine | 20 | Dental exams, treatment planning, periodontal assessment, oral surgery |
 | Rehabilitation Medicine | 20 | Functional assessment, gait analysis, neuro rehab, PT/OT/speech |
 
-### Capital Skills (400 skills)
+### Finance Skills (400 skills)
 
-See [skills/capital/](skills/capital/) for 400 financial services skills organized across 20 subgroups:
+See [skills/finance/](skills/finance/) for 400 consumer and corporate finance skills organized across 20 subgroups:
 
 | Subgroup | Skills | Examples |
 |----------|--------|----------|
@@ -103,6 +104,33 @@ See [skills/capital/](skills/capital/) for 400 financial services skills organiz
 | Commercial Banking | 20 | Loan underwriting, credit approval, trade finance, SBA lending |
 | Sustainable Finance | 20 | ESG scoring, carbon footprints, green bonds, climate scenarios |
 | Economic Analysis | 20 | Economic indicators, monetary policy, inflation dynamics, country risk |
+
+### Capital Skills (400 skills)
+
+See [skills/capital/](skills/capital/) for 400 institutional capital deployment skills organized across 20 subgroups:
+
+| Subgroup | Skills | Examples |
+|----------|--------|----------|
+| Mergers and Acquisitions | 20 | Target screening, CIMs, synergy analysis, PMI planning |
+| Venture Capital | 20 | Deal flow screening, term sheets, cap tables, portfolio support |
+| Private Equity | 20 | LBO modeling, value creation plans, add-on analysis, exit timing |
+| Growth Equity | 20 | SaaS metrics, pre-IPO readiness, minority protections, PLG analysis |
+| Equity Capital Markets | 20 | IPO execution, book building, roadshows, direct listings |
+| Debt Capital Markets | 20 | Bond offerings, loan syndication, covenant analysis, leveraged finance |
+| Structured Finance | 20 | ABS/MBS/CLO structuring, waterfall modeling, collateral analysis |
+| Distressed and Restructuring | 20 | Chapter 11 recovery, DIP financing, liquidity analysis, 363 sales |
+| Secondaries and GP-Led | 20 | LP interest pricing, continuation vehicles, tender offers |
+| Fund Formation and Structuring | 20 | LPA terms, carry mechanics, fund vehicles, tax structuring |
+| Investor Relations and LP Reporting | 20 | Capital calls, distributions, performance reporting, AGMs |
+| Infrastructure and Project Finance | 20 | PPP, concessions, project modeling, construction risk |
+| Real Assets and Natural Resources | 20 | Mining, energy, commodities, royalty streams |
+| Credit and Institutional Lending | 20 | Direct lending, leveraged loans, credit fund operations |
+| Public Markets and Trading | 20 | Market microstructure, execution algorithms, TCA |
+| Derivatives and Structured Products | 20 | Options, swaps, hedging programs, XVA |
+| Cross-Border Capital | 20 | Sovereign risk, FX, international deal structuring |
+| Capital Allocation and Corporate Strategy | 20 | ROIC frameworks, strategic alternatives, buybacks |
+| Activist and Event-Driven Investing | 20 | Activist campaigns, merger arb, special situations |
+| Quantitative Capital Strategies | 20 | Factor models, stat arb, systematic investing |
 
 ## Prerequisites
 
@@ -139,9 +167,9 @@ Every skill is a directory with a `SKILL.md` file following the [Agent Skills sp
 PR opened → skill-qa.yml validates format + quality
                     ↓
             PR merged to main
-           /        |         \
+           /        |          \
 skills/legal/**  skills/med/**   skills/casedev/**
-skills/capital/**
+skills/finance/** skills/capital/**
       ↓                              ↓
 legal-embed.yml                Nothing extra.
 (embed → pgvector)             Files are the product.
@@ -157,6 +185,7 @@ Powers:
 - [case.dev](https://case.dev)
 - [agentskills.legal](https://agentskills.legal)
 - [agentskills.med](https://agentskills.med) (coming soon)
+- [agentskills.finance](https://agentskills.finance) (coming soon)
 - [agentskills.capital](https://agentskills.capital) (coming soon)
 - [Agent Skills Specification](https://agentskills.io/specification)
 - [Claude Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)

@@ -1,0 +1,47 @@
+---
+name: managing-portfolio-company-support
+description: Structures portfolio company engagement with board preparation, hiring support, business development, and follow-on strategy. Use when supporting portfolio companies, preparing board meetings, or coordinating investor resources.
+tags:
+  - management
+  - venture-capital
+  - portfolio
+metadata:
+  author: casemark
+  practice_areas:
+    - Venture Capital
+    - Seed/Series Investing
+    - Startup Ecosystems
+  document_types:
+    - Management Report
+  skill_modes:
+    - Management
+    - Coordination
+---
+
+# Managing Portfolio Company Support
+
+Structures portfolio company engagement with board preparation, hiring support, business development, and follow-on strategy.
+
+## Workflow
+
+1. **Identify** scope, stakeholders, and requirements
+2. **Assess** current state against standards or benchmarks
+3. **Execute** required actions with proper documentation
+4. **Monitor** progress against milestones and escalation criteria
+5. **Report** status, exceptions, and next steps
+
+## Key Rules
+
+- Always verify source data completeness before beginning
+- Flag assumptions explicitly — never present inferred data as confirmed
+- Use consistent terminology throughout the output
+- Note limitations and scope boundaries in the final output
+- When in doubt about a data point, mark with [VERIFY] rather than guessing
+
+## Guidelines
+
+- This skill operates within the **Venture Capital** domain
+- Relevant practice areas: Venture Capital, Seed/Series Investing, Startup Ecosystems
+- Output should be actionable for domain professionals
+- Include appropriate disclaimers for compliance-sensitive outputs
+- Escalate to human review when confidence is low or stakes are high
