@@ -256,3 +256,9 @@ All financial data should be independently verified against primary sources.
 - GAAP and adjusted figures must always be clearly distinguished
 - Flag all one-time items explicitly, even if immaterial — let the analyst decide significance
 - Non-GAAP adjustments must be sourced from management's own reconciliation or independently derived and labeled as such
+
+## Reference Files
+
+| File | Description |
+|---|---|
+| `references/RATIO-DEFINITIONS.md` | Complete ratio definitions, exact formulas, input definitions, and interpretation guidance for all ratio categories |
