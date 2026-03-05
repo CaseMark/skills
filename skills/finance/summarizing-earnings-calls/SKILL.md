@@ -153,3 +153,9 @@ After presenting the draft, ask the user to verify: completeness of metrics, emp
 | 12 | Compliance disclaimer present if output will be distributed externally |
 | 13 | No editorializing without quoted evidence ("management sounded defensive" requires a supporting quote) |
 | 14 | Escalate to human review when transcript is partial, has audio-to-text artifacts, or uses unusual reporting frameworks |
+
+## Reference Files
+
+| File | Description |
+|---|---|
+| `references/EARNINGS-SUMMARY-TEMPLATE.md` | Output structure template for earnings call summaries with all nine sections and appendix |

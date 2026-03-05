@@ -212,3 +212,9 @@ Tag conventions: `[VERIFY]` for unconfirmed data, `[ASSUMPTION]` for forward-loo
 - [ ] EBITDA definition (adjusted vs. reported) stated once and used consistently
 - [ ] Scope limitations noted — e.g., memo based on CIM without QofE should say so
 - [ ] Appropriate disclaimers for compliance-sensitive outputs [VERIFY]
+
+## Reference Files
+
+| File | Description |
+|---|---|
+| `references/MEMO-TEMPLATE.md` | Structural template for investment memoranda with all nine sections and appendices |

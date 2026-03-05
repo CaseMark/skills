@@ -184,3 +184,9 @@ Deliverables for each review:
 - [ ] Terminology consistent throughout
 - [ ] Output actionable for BSA officer / compliance committee
 - [ ] Escalation triggers clearly identified
+
+## Reference Files
+
+| File | Description |
+|---|---|
+| `references/AML-RED-FLAGS.md` | Categorized AML red flag typologies with indicators and activity patterns for transaction screening |
