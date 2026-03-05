@@ -234,3 +234,16 @@ After generating the reconciled list, verify every item below. Do not finalize u
 - Conflicting information between sources that cannot be resolved from available data
 - Medication identified that the agent has low confidence in (unfamiliar drug, unusual dose)
 - Any controlled substance discrepancy
+
+---
+
+## Guidelines
+
+- Always verify high-alert medications (anticoagulants, insulin, opioids, immunosuppressants, antiarrhythmics) individually at every transition point — never batch-reconcile these classes with lower-risk medications.
+- Formulary substitutions must include documented dose-equivalence rationale. When substituting therapeutic equivalents (e.g., home atorvastatin → hospital rosuvastatin), record the conversion basis and alert the patient to the temporary change.
+- Discharge medication lists must be finalized and reconciled within 2 hours of the discharge order. Delays beyond this window increase the risk of the patient leaving with an outdated or incomplete medication list.
+- Held medications require an explicit restart plan at discharge — including the restart date, dose, and any monitoring required. A medication marked "held" without a disposition at discharge is a reconciliation failure.
+- For patients on 3+ controlled substances, perform an independent verification against the state Prescription Drug Monitoring Program (PDMP) database before finalizing the discharge medication list.
+- Every reconciliation must be performed or verified by a licensed pharmacist or credentialed provider. AI-generated reconciliation output is a draft tool, not a final clinical document, until human attestation is completed.
+- When conflicting information exists between the patient-reported medication history and pharmacy records, document both versions and escalate to the prescribing provider for resolution rather than choosing one source over the other.
+- Non-formulary home medications that cannot be therapeutically substituted must be flagged for the discharge planning team at least 24 hours before anticipated discharge to ensure prescription coverage and pharmacy availability.

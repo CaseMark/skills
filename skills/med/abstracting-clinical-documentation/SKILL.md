@@ -248,3 +248,17 @@ entries related to the contested clinical issues.
 - Mark with `[VERIFY]` any data point that cannot be confirmed from available records.
 - Include appropriate disclaimers: the abstract is a summary tool, not a substitute for the complete medical record.
 - Escalate to human review when clinical complexity exceeds abstraction confidence.
+
+
+---
+
+## Guidelines
+
+- Clinical documentation abstraction is a high-stakes activity. Errors propagate to coding, billing, quality reporting, litigation support, and clinical research. Treat abstraction with the same rigor as clinical documentation itself
+- Always prioritize the treating provider's own documentation over secondary references. A consultant quoting another provider is not equivalent to the original provider's own note for abstraction purposes
+- Chronological integrity is the backbone of a defensible abstract. Every data point must be anchored to a specific date, source document, and provider. Undated entries or entries without source attribution undermine the entire abstract
+- CDI queries are a feature, not a flaw. Generating queries when documentation is ambiguous demonstrates rigor and prevents the silent propagation of assumptions through the coding and billing pipeline
+- For litigation-purpose abstracts, apply a higher standard: 100% audit of entries related to contested clinical issues, explicit notation of documentation gaps, and clear distinction between documented facts and clinical inferences
+- PHI handling is not optional for any abstraction activity. Verify de-identification requirements before beginning work and validate compliance before delivering the final product
+- When abstracting records from multiple facilities or providers, maintain consistent terminology normalization across all sources. The same condition described differently by different providers must be reconciled to a single standardized descriptor throughout the abstract
+- Escalate to a clinical subject matter expert when the abstraction requires interpretation of complex clinical scenarios (e.g., distinguishing between related diagnoses, interpreting ambiguous operative findings, or determining whether a documented condition meets coding criteria)

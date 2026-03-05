@@ -230,3 +230,16 @@ Before finalizing, self-check against these criteria:
 Read these when you need the detailed output template:
 
 - `references/DISCHARGE-OUTPUT-TEMPLATE.md` — Full output template with markdown tables for each section of the structured discharge summary
+
+---
+
+## Guidelines
+
+- Medication reconciliation completeness is the single highest-priority quality metric. Every home medication must have an explicit discharge disposition (NEW, CHANGED, CONTINUED, DISCONTINUED) — a medication without a status is an unresolved safety gap.
+- Pending results (cultures, pathology, outpatient imaging) must always appear in a dedicated section even when none are identified. The explicit statement "no pending results" is itself a clinical assertion that must be documented rather than implied by omission.
+- Return precautions must be specific to the discharge diagnoses and must not rely on generic boilerplate. Each warning sign should include the condition it suggests, the urgency level, and the specific action to take (call PCP vs. go to ED vs. call 911).
+- Never infer a medication dose, lab value, or clinical finding that is not explicitly present in the source documents. If information is missing, mark it with `[VERIFY FROM SOURCE]` and surface it in the Open Items section.
+- Discharge summaries for patients with new anticoagulation, insulin regimen changes, or narrow therapeutic index drug adjustments must include explicit monitoring parameters (e.g., "recheck INR in 3 days," "fasting glucose log daily for 1 week") with responsible provider assignment.
+- When source documents conflict (e.g., discharge summary lists a medication the MAR shows was discontinued), flag the inconsistency explicitly rather than choosing one source. The receiving provider needs to see the conflict to resolve it safely.
+- Patient-facing summaries (Lane 2) must be written at or below a 6th-grade reading level, avoid all medical abbreviations, and include a plain-language explanation of why each medication was started, changed, or stopped.
+- Activity restrictions, dietary changes, and driving limitations must include specific durations and conditions for resumption — never use open-ended language like "as tolerated" without defining what "tolerated" means in measurable terms.
