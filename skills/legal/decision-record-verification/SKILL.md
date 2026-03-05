@@ -3,8 +3,8 @@ name: decision-record-verification
 description: Cross-references a judge's decision, court opinion, or final order against one or more hearing/trial/deposition transcripts to verify whether the record supports each finding. Produces strict dual-citation blocks with document names, page/line references, and verbatim quotes from both sources. Use when preparing appellate review, post-trial motions, record discrepancy audits, or transcript-based fact checks of judicial findings.
 tags:
   - analysis
-  - appellate
   - litigation
+  - summary
 ---
 
 # Decision Record Verification
@@ -69,9 +69,8 @@ After all citation blocks, provide:
 1. **Header block** listing all reviewed documents and transcript session labels
 2. **Citation blocks** grouped by session, in session order
 3. Within each session group: list **`[ALIGNMENT]`** blocks first, then **`[DISCREPANCY]`** blocks
-4. **Summary of Findings**
-
-If the corpus is very large, prioritize discrepancy blocks first and then complete alignment coverage.
+4. **Large-corpus override:** if the corpus is very large or the user requests priority triage, list **`[DISCREPANCY]`** blocks first, then **`[ALIGNMENT]`** blocks
+5. **Summary of Findings**
 
 ## Quality Controls
 
