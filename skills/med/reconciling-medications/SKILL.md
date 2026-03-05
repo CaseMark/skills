@@ -267,3 +267,16 @@ Before finalizing, verify **every** item:
 - ISMP List of High-Alert Medications in Acute Care Settings (updated annually)
 - WHO High 5s Project — Standard Operating Protocol for Medication Reconciliation
 - ASHP Guidelines on Pharmacy-Directed Medication Reconciliation
+
+---
+
+## Guidelines
+
+- Never assume a medication was intentionally discontinued without explicit documentation from the prescribing provider. Unexplained absences from a medication list must be flagged as `[OMITTED — UNINTENTIONAL?]` until resolved.
+- The Best Possible Medication History (BPMH) must be sourced from at least two independent sources (e.g., patient interview plus pharmacy fill records). A single-source medication history must always be flagged as `[UNVERIFIED — SINGLE SOURCE]`.
+- High-alert medications per the ISMP list require individual line-by-line reconciliation at every care transition — they must never be batch-processed or assumed continued without verification.
+- All OTC medications, herbal supplements, and vitamins must be explicitly included in the reconciliation matrix. Their omission is the most common source of undetected drug-drug interactions at care transitions.
+- When renal or hepatic function data is unavailable, append a blanket caveat to the reconciliation report rather than assuming doses are appropriate. Never silently pass a renally-cleared medication without organ function verification.
+- Every discrepancy must be assigned a severity tier (Critical, High, Moderate, Low) before the reconciliation report is finalized. Untiered discrepancies are considered incomplete reconciliation.
+- Reconciliation reports are draft documents until attested by a licensed pharmacist or credentialed provider. AI-generated output must never be transmitted to a receiving facility without human review and signature.
+- For cross-facility transfers, confirm formulary compatibility between sending and receiving institutions before finalizing therapeutic substitutions to prevent gaps in medication availability at the receiving site.
