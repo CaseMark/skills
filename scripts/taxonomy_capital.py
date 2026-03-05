@@ -1,1779 +1,1793 @@
 """
-Capital (agentskills.capital) taxonomy: 20 subgroups, 20-40 skills each.
+Capital (agentskills.capital) taxonomy: 20 subgroups, 20 skills each.
 
-Each subgroup is analogous to a legal practice area (e.g., "intellectual property",
-"court motions"). Skills within encode semi-structured agentic workflows for
-moving and processing/synthesizing information in capital markets and financial services.
+Capital focuses on institutional capital deployment, deal-making, and capital
+markets — M&A, venture capital, private equity, fund formation, structured
+finance, capital allocation, and institutional investing. This is distinct from
+the finance vertical (agentskills.finance) which covers consumer/corporate
+finance operations like tax, budgets, accounting, insurance, and banking.
+
+Each subgroup is analogous to a legal practice area. Skills within encode
+semi-structured agentic workflows for moving and processing/synthesizing
+information in capital deployment and capital markets contexts.
 
 Naming: gerund form, lowercase-hyphenated, max 64 chars.
 """
 
 CAPITAL_TAXONOMY = {
-    # ─── 1. EQUITY RESEARCH ──────────────────────────────────────────
-    "Equity Research": {
-        "description": "Public equity analysis workflows from screening through initiation and coverage",
-        "practice_areas": ["Equity Research", "Investment Management"],
-        "skills": [
-            (
-                "summarizing-earnings-calls",
-                "Transforms earnings call transcripts into structured summaries with financial guidance, KPI changes, management sentiment, and analyst Q&A highlights. Use when processing quarterly earnings calls, preparing investment research, or tracking company performance narratives.",
-            ),
-            (
-                "analyzing-financial-ratios",
-                "Computes and interprets liquidity, profitability, leverage, and efficiency ratios with peer benchmarking. Use when analyzing financial statements, building comparable analyses, or evaluating company health metrics.",
-            ),
-            (
-                "building-equity-valuation-models",
-                "Constructs DCF, comparable company, and precedent transaction valuation models with sensitivity analysis. Use when valuing public companies, building financial models, or estimating fair value ranges.",
-            ),
-            (
-                "writing-equity-research-notes",
-                "Creates structured equity research notes with thesis, valuation, risks, and rating justification. Use when initiating coverage, updating research opinions, or writing investment notes.",
-            ),
-            (
-                "screening-equity-opportunities",
-                "Applies quantitative and qualitative screens to filter investable equity universe by financial and strategic criteria. Use when screening stocks, filtering investment candidates, or building watchlists.",
-            ),
-            (
-                "analyzing-management-commentary",
-                "Extracts forward-looking signals from management commentary with sentiment analysis and guidance tracking. Use when analyzing earnings transcripts, tracking guidance changes, or assessing management credibility.",
-            ),
-            (
-                "tracking-consensus-estimates",
-                "Monitors sell-side consensus estimates with revision tracking and surprise analysis. Use when tracking estimate revisions, analyzing consensus changes, or monitoring analyst expectations.",
-            ),
-            (
-                "analyzing-industry-supply-chains",
-                "Maps industry supply chain dynamics with upstream/downstream exposure and competitive positioning. Use when analyzing supply chains, assessing industry structure, or evaluating competitive moats.",
-            ),
-            (
-                "modeling-revenue-forecasts",
-                "Builds bottom-up revenue models from segment-level drivers with assumption documentation. Use when forecasting revenue, modeling growth drivers, or building segment-level projections.",
-            ),
-            (
-                "analyzing-shareholder-activism",
-                "Tracks activist investor campaigns with thesis analysis and outcome assessment. Use when monitoring activist situations, analyzing proxy fights, or evaluating activist theses.",
-            ),
-            (
-                "analyzing-insider-transactions",
-                "Structures insider trading analysis with pattern identification and significance assessment. Use when tracking insider activity, analyzing Form 4 filings, or evaluating insider buying/selling patterns.",
-            ),
-            (
-                "analyzing-short-interest",
-                "Monitors short interest dynamics with days-to-cover calculations and squeeze risk assessment. Use when tracking short interest, analyzing borrowing costs, or assessing short squeeze risk.",
-            ),
-            (
-                "conducting-channel-checks",
-                "Structures industry channel check findings with data normalization and trend identification. Use when synthesizing channel check data, analyzing industry indicators, or documenting field research.",
-            ),
-            (
-                "analyzing-competitive-dynamics",
-                "Maps competitive landscapes with market share tracking and Porter's Five Forces analysis. Use when analyzing competition, assessing market structure, or evaluating competitive threats.",
-            ),
-            (
-                "modeling-margin-analysis",
-                "Deconstructs gross, operating, and net margin trends with driver attribution and normalization. Use when analyzing profitability, attributing margin changes, or benchmarking margins.",
-            ),
-            (
-                "analyzing-capital-allocation",
-                "Evaluates management capital allocation decisions across M&A, buybacks, dividends, and reinvestment. Use when assessing capital allocation, analyzing ROIC, or evaluating shareholder return strategies.",
-            ),
-            (
-                "tracking-sector-rotation",
-                "Monitors sector performance rotation with factor exposure and macro sensitivity analysis. Use when tracking sector rotation, analyzing factor exposures, or identifying sector trends.",
-            ),
-            (
-                "writing-investment-theses",
-                "Formulates structured bull/bear investment theses with variant perception and key risk identification. Use when developing investment theses, articulating variant views, or structuring bull/bear arguments.",
-            ),
-            (
-                "analyzing-earnings-quality",
-                "Assesses earnings quality through accruals analysis, cash conversion, and accounting red flag identification. Use when evaluating earnings quality, detecting accounting anomalies, or analyzing accruals.",
-            ),
-            (
-                "modeling-sum-of-parts-valuations",
-                "Builds SOTP valuations for conglomerates and multi-segment companies with segment-appropriate methodologies. Use when valuing diversified companies, calculating conglomerate discounts, or modeling segment breakups.",
-            ),
-        ],
-    },
-    # ─── 2. FIXED INCOME / CREDIT ────────────────────────────────────
-    "Fixed Income": {
-        "description": "Bond analysis, credit assessment, and fixed income portfolio workflows",
-        "practice_areas": ["Fixed Income", "Credit Research", "Bond Trading"],
-        "skills": [
-            (
-                "analyzing-bond-structures",
-                "Deconstructs bond indenture terms including covenants, call provisions, and credit support features. Use when analyzing bond structures, reviewing indentures, or evaluating bond terms.",
-            ),
-            (
-                "assessing-credit-risk",
-                "Evaluates borrower creditworthiness using financial analysis, industry assessment, and qualitative factors with structured credit opinions. Use when assessing credit risk, writing credit opinions, or evaluating borrower quality.",
-            ),
-            (
-                "analyzing-yield-curves",
-                "Interprets yield curve shapes with term structure analysis and relative value identification. Use when analyzing yield curves, identifying curve trades, or interpreting interest rate expectations.",
-            ),
-            (
-                "modeling-bond-valuations",
-                "Calculates bond pricing with duration, convexity, OAS, and Z-spread analysis. Use when pricing bonds, calculating risk metrics, or evaluating relative value.",
-            ),
-            (
-                "analyzing-credit-ratings",
-                "Interprets and anticipates credit rating actions with methodology analysis and surveillance monitoring. Use when analyzing credit ratings, predicting rating changes, or understanding rating methodology.",
-            ),
-            (
-                "managing-duration-exposure",
-                "Structures portfolio duration management with hedging strategies and benchmark tracking. Use when managing interest rate risk, hedging duration, or optimizing portfolio duration.",
-            ),
-            (
-                "analyzing-municipal-bonds",
-                "Evaluates municipal credit with revenue source analysis, tax considerations, and state/local economic assessment. Use when analyzing municipal bonds, evaluating GO vs revenue bonds, or assessing muni credit.",
-            ),
-            (
-                "analyzing-high-yield-credit",
-                "Structures high-yield credit analysis with recovery rate estimation and distressed debt evaluation. Use when analyzing high-yield bonds, estimating recovery rates, or evaluating distressed credits.",
-            ),
-            (
-                "analyzing-structured-products",
-                "Evaluates ABS, MBS, CLO, and CDO structures with cash flow waterfall and subordination analysis. Use when analyzing structured products, modeling cash flow waterfalls, or evaluating tranche risk.",
-            ),
-            (
-                "analyzing-convertible-bonds",
-                "Evaluates convertible bond structures with equity sensitivity, credit floor, and Greeks calculation. Use when analyzing convertibles, calculating conversion premiums, or evaluating hybrid instruments.",
-            ),
-            (
-                "managing-credit-portfolio-risk",
-                "Structures credit portfolio analysis with concentration metrics, correlation assessment, and stress testing. Use when managing credit portfolios, measuring concentration risk, or stress testing credit exposure.",
-            ),
-            (
-                "analyzing-sovereign-debt",
-                "Evaluates sovereign credit with fiscal analysis, external vulnerability, and political risk assessment. Use when analyzing sovereign bonds, assessing country risk, or evaluating government creditworthiness.",
-            ),
-            (
-                "analyzing-leveraged-loans",
-                "Structures leveraged loan analysis with covenant assessment, amendment tracking, and repricing risk. Use when analyzing leveraged loans, reviewing loan covenants, or evaluating loan market dynamics.",
-            ),
-            (
-                "analyzing-credit-default-swaps",
-                "Interprets CDS markets with basis analysis, curve dynamics, and credit event monitoring. Use when analyzing CDS spreads, monitoring credit events, or evaluating CDS basis.",
-            ),
-            (
-                "managing-fixed-income-attribution",
-                "Structures fixed income performance attribution across duration, credit, and sector allocation effects. Use when attributing fixed income returns, analyzing portfolio performance, or decomposing return drivers.",
-            ),
-            (
-                "analyzing-inflation-linked-bonds",
-                "Evaluates TIPS and inflation-linked securities with breakeven analysis and real yield assessment. Use when analyzing inflation bonds, calculating breakeven inflation, or evaluating real return.",
-            ),
-            (
-                "managing-repo-and-funding",
-                "Structures repo market analysis with collateral valuation, haircut assessment, and funding cost optimization. Use when managing repo positions, evaluating collateral, or optimizing funding costs.",
-            ),
-            (
-                "analyzing-agency-mortgage-bonds",
-                "Evaluates agency MBS with prepayment modeling, OAS analysis, and convexity assessment. Use when analyzing agency MBS, modeling prepayments, or evaluating mortgage bond convexity.",
-            ),
-            (
-                "drafting-credit-memos",
-                "Creates structured credit memos with borrower analysis, risk assessment, and recommendation justification. Use when writing credit memos, documenting credit decisions, or presenting credit recommendations.",
-            ),
-            (
-                "analyzing-covenant-compliance",
-                "Reviews financial covenant compliance calculations with cure provisions and default trigger analysis. Use when checking covenant compliance, calculating coverage ratios, or evaluating covenant headroom.",
-            ),
-        ],
-    },
-    # ─── 3. INVESTMENT BANKING / M&A ─────────────────────────────────
-    "Investment Banking": {
-        "description": "M&A advisory, capital markets, and transaction execution workflows",
+    # ─── 1. MERGERS & ACQUISITIONS ────────────────────────────────────
+    "Mergers and Acquisitions": {
+        "description": "Deal origination, due diligence, transaction execution, and post-merger integration",
         "practice_areas": [
+            "M&A Advisory",
+            "Corporate Development",
             "Investment Banking",
-            "Mergers and Acquisitions",
-            "Corporate Finance",
         ],
         "skills": [
             (
-                "drafting-investment-memos",
-                "Creates structured investment memoranda with business description, financial analysis, valuation, and risk assessment for deal review. Use when writing investment memos, preparing deal summaries, or documenting investment recommendations.",
+                "screening-acquisition-targets",
+                "Filters potential acquisition targets against strategic criteria including size, geography, capability gaps, and synergy potential. Use when building target lists, screening M&A pipelines, or identifying bolt-on candidates.",
             ),
             (
-                "creating-pitch-books",
-                "Builds client pitch materials with market overview, strategic rationale, valuation analysis, and transaction positioning. Use when creating pitch books, preparing client presentations, or building deal marketing materials.",
+                "building-merger-consequence-models",
+                "Constructs accretion/dilution analysis with pro forma financials, synergy phasing, and purchase price allocation. Use when modeling merger outcomes, calculating EPS accretion, or analyzing deal structures.",
             ),
             (
-                "analyzing-comparable-transactions",
-                "Structures precedent transaction analysis with deal multiples, premium calculation, and transaction characteristic comparison. Use when analyzing M&A precedents, calculating transaction multiples, or benchmarking deal terms.",
+                "conducting-buy-side-due-diligence",
+                "Structures comprehensive buy-side diligence across financial, legal, commercial, and operational workstreams. Use when coordinating DD processes, building diligence checklists, or synthesizing DD findings.",
             ),
             (
-                "building-merger-models",
-                "Constructs merger consequence analysis with accretion/dilution, pro forma financials, and synergy assumptions. Use when modeling mergers, calculating accretion/dilution, or analyzing deal structures.",
+                "drafting-confidential-information-memoranda",
+                "Creates sell-side CIMs with business description, financial overview, growth drivers, and investment highlights. Use when preparing sell-side marketing materials, writing CIMs, or positioning companies for sale.",
             ),
             (
-                "building-lbo-models",
-                "Constructs leveraged buyout models with debt capacity, returns analysis, and exit scenarios. Use when modeling LBOs, calculating sponsor returns, or analyzing leveraged transactions.",
+                "analyzing-synergy-potential",
+                "Quantifies revenue and cost synergies with build-up methodology, realization timelines, and integration cost offsets. Use when estimating deal synergies, modeling cost savings, or building synergy cases for IC.",
             ),
             (
-                "drafting-offering-memoranda",
-                "Creates confidential information memoranda (CIM) for sell-side M&A with business description and financial presentation. Use when preparing CIMs, writing sell-side materials, or creating offering documents.",
+                "structuring-deal-consideration",
+                "Evaluates cash vs stock vs mixed consideration structures with tax, accounting, and shareholder impact analysis. Use when structuring deal terms, comparing consideration alternatives, or analyzing tax-efficient structures.",
             ),
             (
-                "managing-due-diligence-processes",
-                "Structures buy-side and sell-side due diligence with workstream coordination and findings documentation. Use when managing due diligence, coordinating DD workstreams, or documenting diligence findings.",
+                "managing-sell-side-auction-processes",
+                "Coordinates competitive auction workflows from teaser distribution through definitive agreement execution. Use when running sell-side processes, managing bid rounds, or tracking buyer engagement.",
             ),
             (
-                "analyzing-fairness-opinions",
-                "Evaluates fairness opinion analyses with valuation methodology review and conclusion assessment. Use when reviewing fairness opinions, analyzing board-level valuations, or evaluating transaction fairness.",
+                "analyzing-fairness-opinion-valuations",
+                "Evaluates fairness opinion methodologies across DCF, trading comps, and precedent transactions for board-level decisions. Use when reviewing fairness opinions, preparing board materials, or analyzing transaction fairness.",
             ),
             (
-                "preparing-board-materials",
-                "Creates board presentation materials with strategic analysis, financial performance, and transaction recommendations. Use when preparing board decks, creating governance presentations, or summarizing strategic options.",
+                "modeling-purchase-price-allocation",
+                "Structures PPA analysis with tangible/intangible asset identification, useful life estimation, and goodwill calculation. Use when modeling purchase accounting, allocating deal price, or estimating amortization impact.",
             ),
             (
-                "managing-deal-processes",
-                "Structures M&A process management with timeline tracking, bid analysis, and negotiation documentation. Use when managing sell-side auctions, tracking bid processes, or coordinating deal timelines.",
+                "managing-deal-data-rooms",
+                "Organizes virtual data room structure with document indexing, access permissions, activity tracking, and Q&A management. Use when setting up VDRs, managing document production, or tracking buyer diligence activity.",
             ),
             (
-                "analyzing-synergy-cases",
-                "Structures revenue and cost synergy analysis with build-up methodology and realization timing. Use when estimating synergies, modeling cost savings, or analyzing revenue enhancement opportunities.",
+                "drafting-transaction-term-sheets",
+                "Structures preliminary transaction terms including price, consideration, conditions, reps/warranties, and indemnification. Use when drafting LOIs, preparing term sheets, or summarizing negotiated deal points.",
             ),
             (
-                "structuring-debt-financing",
-                "Designs acquisition financing structures with leverage analysis, covenant negotiation, and capital structure optimization. Use when structuring deal financing, analyzing debt capacity, or negotiating loan terms.",
+                "analyzing-anti-trust-risk",
+                "Evaluates competition law exposure with market definition, HHI analysis, and remedy estimation for proposed transactions. Use when assessing merger clearance risk, analyzing market concentration, or preparing HSR filings.",
             ),
             (
-                "analyzing-corporate-restructuring",
-                "Evaluates restructuring alternatives with debt-for-equity analysis, 363 sale considerations, and recovery analysis. Use when analyzing restructurings, evaluating Chapter 11 options, or modeling recovery scenarios.",
+                "conducting-quality-of-earnings-analysis",
+                "Adjusts reported earnings for non-recurring items, accounting policy choices, and run-rate normalizations. Use when performing QofE analysis, adjusting EBITDA, or validating seller financial presentations.",
             ),
             (
-                "managing-ipo-processes",
-                "Structures IPO execution with prospectus preparation, pricing analysis, and allocation methodology. Use when managing IPO processes, preparing S-1 filings, or analyzing IPO pricing.",
+                "planning-post-merger-integration",
+                "Structures Day 1 readiness, 100-day plans, and long-term integration workstreams with synergy realization tracking. Use when planning PMI, building integration timelines, or tracking workstream execution.",
             ),
             (
-                "analyzing-spin-off-transactions",
-                "Evaluates corporate spin-off and separation transactions with standalone valuation and Remainco impact. Use when analyzing spin-offs, modeling separations, or evaluating corporate breakup value.",
+                "analyzing-break-up-fees-and-protections",
+                "Evaluates deal protection mechanisms including break-up fees, no-shop clauses, matching rights, and force-the-vote provisions. Use when analyzing deal protections, negotiating break fees, or assessing termination provisions.",
             ),
             (
-                "drafting-transaction-opinions",
-                "Structures transaction opinion analysis with solvency, capital adequacy, and reasonably equivalent value assessment. Use when preparing transaction opinions, evaluating solvency, or assessing transaction fairness.",
+                "modeling-contingent-consideration",
+                "Structures earnout and contingent payment mechanisms with milestone definitions, measurement periods, and payout scenarios. Use when modeling earnouts, designing milestone-based payments, or valuing contingent consideration.",
             ),
             (
-                "analyzing-cross-border-transactions",
-                "Evaluates cross-border M&A considerations including currency, tax, regulatory, and cultural factors. Use when analyzing international deals, assessing cross-border risks, or structuring multinational transactions.",
+                "analyzing-material-adverse-change-clauses",
+                "Evaluates MAC clause scope, carve-outs, and enforceability standards in acquisition agreements. Use when reviewing MAC provisions, assessing deal certainty, or analyzing interim covenant protections.",
             ),
             (
-                "managing-data-room-operations",
-                "Structures virtual data room organization with document indexing, access management, and Q&A tracking. Use when managing VDR operations, organizing deal documents, or tracking buyer questions.",
+                "conducting-management-presentations",
+                "Structures management presentation materials for buyer meetings with business overview, strategy, and financial deep-dives. Use when preparing management presentations, coaching management teams, or organizing buyer meetings.",
             ),
             (
-                "analyzing-deal-financing-alternatives",
-                "Compares financing alternatives including debt, equity, convertibles, and hybrid instruments for transactions. Use when evaluating financing options, comparing capital structure alternatives, or optimizing deal funding.",
+                "analyzing-cross-border-deal-structures",
+                "Evaluates cross-border transaction complexities including tax treaties, currency, regulatory approvals, and cultural factors. Use when structuring international deals, assessing cross-border risk, or navigating multi-jurisdiction closings.",
             ),
             (
-                "writing-engagement-letters",
-                "Structures investment banking engagement terms with scope, fees, indemnification, and tail provisions. Use when drafting engagement letters, negotiating fee structures, or documenting advisory mandates.",
+                "modeling-transaction-financing-structures",
+                "Constructs acquisition financing models with debt capacity, leverage analysis, coverage ratios, and capital structure optimization. Use when modeling deal financing, analyzing leverage capacity, or structuring acquisition debt.",
             ),
         ],
     },
-    # ─── 4. PRIVATE EQUITY / VENTURE CAPITAL ─────────────────────────
+    # ─── 2. VENTURE CAPITAL ───────────────────────────────────────────
+    "Venture Capital": {
+        "description": "Early-stage deal flow, evaluation, term negotiation, and portfolio support",
+        "practice_areas": [
+            "Venture Capital",
+            "Seed/Series Investing",
+            "Startup Ecosystems",
+        ],
+        "skills": [
+            (
+                "screening-deal-flow-pipeline",
+                "Filters inbound deal flow against fund thesis, stage, sector, and return requirements with structured pass/advance decisions. Use when triaging deal flow, evaluating inbound pitches, or managing sourcing pipelines.",
+            ),
+            (
+                "evaluating-startup-business-models",
+                "Assesses startup viability through business model canvas analysis, unit economics validation, and market timing evaluation. Use when evaluating startup pitches, analyzing business model sustainability, or assessing product-market fit.",
+            ),
+            (
+                "analyzing-term-sheet-economics",
+                "Deconstructs VC term sheets with liquidation preference waterfalls, anti-dilution mechanics, and option pool impact analysis. Use when analyzing term sheets, comparing investor terms, or modeling founder dilution.",
+            ),
+            (
+                "modeling-venture-cap-tables",
+                "Builds cap table models with round-by-round dilution, ESOP expansion, convertible note conversion, and exit waterfall analysis. Use when modeling cap tables, projecting ownership dilution, or calculating exit proceeds distribution.",
+            ),
+            (
+                "conducting-technical-due-diligence",
+                "Structures technology diligence with architecture review, code quality assessment, scalability analysis, and technical debt evaluation. Use when evaluating startup technology, assessing engineering teams, or reviewing technical infrastructure.",
+            ),
+            (
+                "drafting-investment-committee-memos",
+                "Creates VC IC presentation materials with deal thesis, market analysis, team assessment, competitive landscape, and return scenarios. Use when preparing IC memos, presenting investment opportunities, or documenting investment decisions.",
+            ),
+            (
+                "building-venture-return-models",
+                "Constructs venture return models with entry valuation, follow-on reserve, multiple scenario exits, and portfolio-level fund math. Use when modeling VC returns, calculating fund economics, or projecting portfolio outcomes.",
+            ),
+            (
+                "managing-portfolio-company-support",
+                "Structures portfolio company engagement with board preparation, hiring support, business development, and follow-on strategy. Use when supporting portfolio companies, preparing board meetings, or coordinating investor resources.",
+            ),
+            (
+                "evaluating-founder-team-dynamics",
+                "Assesses founding team composition, complementarity, equity split rationale, and execution capability. Use when evaluating founding teams, assessing management risk, or conducting reference checks.",
+            ),
+            (
+                "analyzing-market-size-and-timing",
+                "Structures TAM/SAM/SOM analysis with bottom-up and top-down methodology and market timing assessment. Use when sizing markets, validating market opportunity, or assessing timing risk.",
+            ),
+            (
+                "managing-syndication-and-co-investment",
+                "Coordinates multi-investor rounds with allocation, lead/follow dynamics, and information rights structuring. Use when syndicating rounds, managing co-investor relationships, or structuring investor groups.",
+            ),
+            (
+                "analyzing-convertible-instrument-terms",
+                "Evaluates SAFE, convertible note, and KISS structures with conversion mechanics, caps, discounts, and MFN provisions. Use when analyzing convertible instruments, comparing SAFE vs note terms, or modeling conversion scenarios.",
+            ),
+            (
+                "tracking-portfolio-company-metrics",
+                "Monitors portfolio company KPIs including burn rate, runway, MRR growth, CAC/LTV, and cohort performance. Use when tracking portfolio metrics, assessing company health, or preparing portfolio reviews.",
+            ),
+            (
+                "managing-bridge-financing-decisions",
+                "Evaluates bridge round scenarios with insider dynamics, signal risk, and term structuring for existing portfolio companies. Use when considering bridge financing, structuring insider rounds, or analyzing pay-to-play provisions.",
+            ),
+            (
+                "analyzing-competitive-landscapes",
+                "Maps competitive dynamics with market positioning, feature comparison, funding histories, and differentiation assessment. Use when analyzing startup competition, mapping market landscapes, or identifying competitive threats.",
+            ),
+            (
+                "conducting-customer-reference-checks",
+                "Structures customer diligence with interview guides, NPS analysis, switching cost assessment, and usage pattern evaluation. Use when conducting customer references, validating product-market fit, or assessing customer satisfaction.",
+            ),
+            (
+                "managing-follow-on-investment-decisions",
+                "Evaluates pro-rata and follow-on investment decisions with portfolio construction, signaling effects, and reserve management. Use when making follow-on decisions, managing reserves, or evaluating pro-rata rights.",
+            ),
+            (
+                "analyzing-startup-unit-economics",
+                "Deconstructs unit economics with CAC, LTV, payback period, gross margin, and contribution margin analysis. Use when analyzing unit economics, validating SaaS metrics, or assessing business model efficiency.",
+            ),
+            (
+                "modeling-venture-fund-economics",
+                "Builds LP-level fund models with management fees, carried interest, clawback provisions, and waterfall distributions. Use when modeling fund economics, projecting LP returns, or analyzing fund terms.",
+            ),
+            (
+                "preparing-venture-exit-analyses",
+                "Evaluates exit scenarios including IPO, M&A, secondary sale, and recapitalization with timing and return analysis. Use when planning exits, comparing exit routes, or modeling exit outcomes for portfolio companies.",
+            ),
+        ],
+    },
+    # ─── 3. PRIVATE EQUITY ────────────────────────────────────────────
     "Private Equity": {
-        "description": "PE/VC investment evaluation, portfolio management, and fund operations workflows",
-        "practice_areas": ["Private Equity", "Venture Capital", "Growth Equity"],
+        "description": "Buyout evaluation, LBO modeling, value creation, and fund-level operations",
+        "practice_areas": ["Private Equity", "Leveraged Buyouts", "Growth Equity"],
         "skills": [
             (
-                "evaluating-investment-opportunities",
-                "Structures PE/VC investment evaluation with business model assessment, market analysis, and return potential. Use when evaluating deals, screening investment opportunities, or assessing company fit.",
+                "building-leveraged-buyout-models",
+                "Constructs LBO models with sources/uses, debt schedules, operating projections, and returns analysis across entry/exit scenarios. Use when modeling leveraged buyouts, calculating sponsor returns, or analyzing leverage capacity.",
             ),
             (
-                "conducting-commercial-due-diligence",
-                "Structures commercial diligence with market sizing, competitive dynamics, and customer reference analysis. Use when conducting CDD, analyzing target markets, or validating commercial assumptions.",
+                "evaluating-platform-acquisition-targets",
+                "Assesses platform investment opportunities with industry positioning, management quality, organic growth potential, and add-on runway. Use when evaluating platform deals, screening PE investments, or analyzing industry leaders.",
             ),
             (
-                "modeling-portfolio-company-returns",
-                "Builds PE return models with entry/exit multiples, leverage analysis, and value creation attribution. Use when modeling PE returns, calculating IRR/MOIC, or attributing value creation drivers.",
+                "analyzing-add-on-acquisition-candidates",
+                "Evaluates bolt-on acquisitions for existing platforms with strategic fit, synergy quantification, and return contribution analysis. Use when screening add-on targets, building platform acquisition strategies, or modeling tuck-in economics.",
             ),
             (
-                "writing-investment-committee-memos",
-                "Creates IC presentation materials with deal thesis, risk analysis, and recommendation structure. Use when preparing IC memos, presenting deal opportunities, or documenting investment decisions.",
+                "structuring-management-equity-programs",
+                "Designs management incentive structures with rollover equity, option pools, ratchets, and vesting schedules aligned to value creation. Use when structuring management incentives, designing co-invest programs, or aligning management economics.",
             ),
             (
-                "managing-portfolio-company-reporting",
-                "Structures portfolio company monitoring with KPI tracking, budget variance, and management assessment. Use when monitoring portfolio companies, tracking financial performance, or preparing portfolio reviews.",
+                "conducting-buyout-operational-diligence",
+                "Evaluates target company operations with management assessment, systems review, process maturity, and improvement opportunity identification. Use when conducting ops DD, assessing operational risk, or identifying value creation levers.",
             ),
             (
-                "analyzing-venture-deal-terms",
-                "Evaluates VC term sheet provisions with economic and control analysis and cap table impact. Use when analyzing term sheets, negotiating deal terms, or modeling cap table outcomes.",
+                "building-value-creation-plans",
+                "Structures 100-day and long-term value creation plans with revenue growth, margin improvement, and capital efficiency initiatives. Use when building value creation plans, tracking improvement initiatives, or preparing operating partner reviews.",
             ),
             (
-                "managing-fund-reporting",
-                "Structures LP fund reporting with NAV calculation, performance attribution, and portfolio updates. Use when preparing LP reports, calculating fund performance, or creating quarterly updates.",
+                "managing-sponsor-portfolio-reporting",
+                "Structures portfolio company monitoring with monthly financial packages, KPI dashboards, and management assessment frameworks. Use when monitoring portfolio companies, building reporting templates, or tracking financial performance.",
             ),
             (
-                "conducting-operational-due-diligence",
-                "Structures operational diligence with management assessment, systems evaluation, and integration planning. Use when evaluating target operations, assessing management capabilities, or planning post-close integration.",
+                "analyzing-debt-capacity-and-structure",
+                "Evaluates target leverage capacity with cash flow coverage, stress testing, and optimal debt structure across term loans, revolver, and mezzanine. Use when analyzing debt capacity, structuring acquisition financing, or stress testing leverage.",
             ),
             (
-                "modeling-cap-table-scenarios",
-                "Builds cap table models with round-by-round dilution, option pool, and exit waterfall analysis. Use when modeling cap tables, calculating ownership dilution, or projecting exit proceeds.",
+                "modeling-dividend-recapitalizations",
+                "Structures dividend recap analysis with leverage impact, credit agreement compliance, and return enhancement calculation. Use when modeling dividend recaps, evaluating interim distributions, or analyzing recapitalization options.",
             ),
             (
-                "managing-value-creation-plans",
-                "Structures 100-day and long-term value creation plans with initiative tracking and KPI targets. Use when building value creation plans, tracking improvement initiatives, or managing post-acquisition integration.",
+                "planning-exit-timing-and-strategy",
+                "Evaluates exit alternatives (strategic sale, IPO, secondary, continuation) with market conditions, buyer universe, and return optimization. Use when planning exits, evaluating exit timing, or comparing exit routes.",
             ),
             (
-                "analyzing-add-on-acquisitions",
-                "Evaluates platform add-on opportunities with strategic fit, synergy potential, and return contribution. Use when analyzing add-on M&A, evaluating bolt-on targets, or building platform acquisition strategies.",
+                "conducting-buyout-commercial-diligence",
+                "Structures CDD with market sizing, customer concentration, competitive dynamics, and growth sustainability analysis. Use when conducting commercial DD, validating market assumptions, or assessing revenue durability.",
             ),
             (
-                "managing-fundraising-processes",
-                "Structures PE/VC fundraising with LP outreach, DDQ completion, and closing documentation. Use when managing fund raises, completing due diligence questionnaires, or preparing fundraising materials.",
+                "modeling-management-case-scenarios",
+                "Builds base, upside, and downside operating scenarios with key assumption sensitivity and return distribution analysis. Use when building operating cases, stress testing projections, or presenting scenario analysis.",
             ),
             (
-                "analyzing-exit-strategies",
-                "Evaluates exit alternatives (IPO, strategic sale, secondary, recapitalization) with timing and return analysis. Use when planning exits, evaluating exit routes, or modeling exit scenarios.",
+                "analyzing-sector-investment-theses",
+                "Develops PE sector theses with industry mapping, secular trends, fragmentation opportunity, and target universe identification. Use when building sector strategies, mapping investment themes, or identifying subsector opportunities.",
             ),
             (
-                "conducting-management-assessments",
-                "Structures executive evaluation with leadership capabilities, organizational gaps, and bench strength analysis. Use when assessing management teams, evaluating CEO/CFO capabilities, or identifying talent gaps.",
+                "managing-deal-process-execution",
+                "Coordinates buy-side deal execution from LOI through closing with workstream tracking, timeline management, and closing conditions. Use when managing deal processes, tracking closing conditions, or coordinating deal teams.",
             ),
             (
-                "managing-co-investment-processes",
-                "Structures co-investment offerings with allocation, terms, and LP communication documentation. Use when managing co-investments, structuring co-invest terms, or documenting LP allocations.",
+                "structuring-co-investment-allocations",
+                "Designs co-invest offerings with allocation methodology, LP terms, and fee/carry structure for direct investment opportunities. Use when structuring co-investments, allocating deal capacity, or managing LP co-invest programs.",
             ),
             (
-                "analyzing-sector-theses",
-                "Develops investment sector theses with market mapping, trend analysis, and opportunity identification. Use when building sector strategies, mapping target markets, or identifying investment themes.",
+                "analyzing-public-to-private-transactions",
+                "Evaluates take-private feasibility with premium analysis, financing capacity, governance considerations, and regulatory requirements. Use when analyzing take-private opportunities, modeling go-private premiums, or assessing delisting mechanics.",
             ),
             (
-                "managing-esg-in-private-equity",
-                "Structures ESG integration in PE investment process with screening, monitoring, and reporting frameworks. Use when implementing PE ESG, screening investments for ESG, or reporting ESG metrics.",
+                "tracking-value-creation-attribution",
+                "Decomposes PE returns into revenue growth, margin expansion, multiple expansion, leverage paydown, and multiple contraction components. Use when attributing value creation, analyzing return drivers, or preparing exit case studies.",
             ),
             (
-                "analyzing-secondary-transactions",
-                "Evaluates secondary market transactions with NAV assessment, discount/premium analysis, and portfolio evaluation. Use when analyzing secondary deals, pricing LP interests, or evaluating GP-led secondaries.",
+                "managing-operating-partner-engagement",
+                "Structures operating partner involvement with portfolio company assignment, initiative tracking, and impact measurement. Use when coordinating operating partners, tracking operational initiatives, or measuring portfolio support impact.",
             ),
             (
-                "managing-portfolio-company-governance",
-                "Structures board governance for portfolio companies with reporting cadence and strategic oversight documentation. Use when managing portfolio boards, structuring governance frameworks, or documenting board practices.",
+                "analyzing-continuation-fund-structures",
+                "Evaluates GP-led continuation vehicle structures with existing LP options, pricing methodology, and new investor terms. Use when analyzing continuation vehicles, structuring GP-led transactions, or evaluating tender offers.",
             ),
             (
-                "analyzing-continuation-vehicles",
-                "Evaluates GP-led continuation fund structures with existing LP options and new investor terms. Use when analyzing continuation vehicles, structuring GP-led transactions, or evaluating tender offers.",
+                "building-pe-fund-performance-reports",
+                "Constructs fund-level performance reporting with IRR, MOIC, DPI, RVPI, PME, and vintage year benchmarking. Use when building fund reports, calculating performance metrics, or preparing LP reporting packages.",
             ),
         ],
     },
-    # ─── 5. ASSET MANAGEMENT / PORTFOLIO MANAGEMENT ──────────────────
-    "Asset Management": {
-        "description": "Portfolio construction, risk management, and investment operations workflows",
+    # ─── 4. GROWTH EQUITY ─────────────────────────────────────────────
+    "Growth Equity": {
+        "description": "Late-stage minority and majority investments in scaling companies",
         "practice_areas": [
-            "Portfolio Management",
-            "Asset Management",
-            "Wealth Management",
+            "Growth Equity",
+            "Expansion Capital",
+            "Late-Stage Investing",
         ],
         "skills": [
             (
-                "constructing-portfolio-allocations",
-                "Builds strategic and tactical asset allocation models with risk-return optimization and constraint management. Use when constructing portfolios, optimizing asset allocation, or building model portfolios.",
+                "evaluating-growth-stage-companies",
+                "Assesses scaling companies with product-market fit validation, unit economics maturity, and growth trajectory sustainability analysis. Use when evaluating growth-stage investments, analyzing scaling businesses, or assessing expansion readiness.",
             ),
             (
-                "benchmarking-portfolio-performance",
-                "Conducts portfolio performance measurement with benchmark comparison, attribution, and risk-adjusted metrics. Use when measuring portfolio performance, calculating Sharpe/Sortino ratios, or conducting performance attribution.",
+                "analyzing-saas-business-metrics",
+                "Deconstructs SaaS operating metrics including ARR, NRR, gross retention, magic number, rule of 40, and cohort economics. Use when analyzing SaaS businesses, benchmarking software metrics, or evaluating subscription model health.",
             ),
             (
-                "managing-portfolio-rebalancing",
-                "Structures rebalancing processes with drift monitoring, tax-aware trading, and transaction cost optimization. Use when rebalancing portfolios, managing allocation drift, or optimizing trading costs.",
+                "modeling-growth-equity-returns",
+                "Builds growth equity return models with minority/majority economics, participation rights, and preference stack analysis. Use when modeling growth equity returns, projecting minority investment outcomes, or analyzing preference structures.",
             ),
             (
-                "analyzing-factor-exposures",
-                "Decomposes portfolio factor exposures (value, growth, momentum, quality, size) with benchmark relative analysis. Use when analyzing factor tilts, decomposing returns, or managing style exposure.",
+                "structuring-minority-protection-rights",
+                "Designs minority investor protections including board seats, information rights, consent provisions, and anti-dilution mechanisms. Use when negotiating minority terms, structuring protective provisions, or analyzing governance rights.",
             ),
             (
-                "managing-investment-policy-statements",
-                "Creates and maintains IPS documents with objectives, constraints, and governance requirements. Use when writing investment policy statements, documenting investment guidelines, or updating policy parameters.",
+                "analyzing-go-to-market-efficiency",
+                "Evaluates sales efficiency with CAC payback, sales cycle analysis, channel economics, and pipeline conversion metrics. Use when assessing GTM efficiency, analyzing sales productivity, or evaluating distribution strategy.",
             ),
             (
-                "analyzing-alternative-investments",
-                "Evaluates alternative investment strategies (hedge funds, real assets, private markets) with risk-return and liquidity analysis. Use when analyzing alternatives, evaluating fund strategies, or assessing illiquidity premiums.",
+                "conducting-pre-ipo-readiness-assessments",
+                "Evaluates IPO preparedness across financial reporting, governance, compliance, and operational maturity dimensions. Use when assessing IPO readiness, identifying pre-IPO gaps, or planning public market transitions.",
             ),
             (
-                "managing-tax-loss-harvesting",
-                "Identifies and executes tax-loss harvesting opportunities with wash sale compliance and tracking. Use when harvesting tax losses, managing wash sale rules, or optimizing after-tax returns.",
+                "modeling-secondary-share-purchases",
+                "Structures secondary direct transactions with pricing methodology, transfer restriction analysis, and ROFR navigation. Use when modeling secondary purchases, pricing founder/employee shares, or structuring tender offers.",
             ),
             (
-                "generating-client-portfolio-reports",
-                "Creates client-facing portfolio reports with performance, allocation, commentary, and outlook. Use when producing client reports, preparing quarterly reviews, or creating portfolio summaries.",
+                "analyzing-product-led-growth-metrics",
+                "Evaluates PLG dynamics with viral coefficients, freemium conversion, product-qualified leads, and expansion revenue mechanics. Use when analyzing PLG companies, assessing virality, or evaluating product-driven acquisition.",
             ),
             (
-                "managing-cash-flow-modeling",
-                "Models portfolio cash flows for liability-driven and income-oriented investment strategies. Use when modeling portfolio cash flows, planning income distributions, or managing liability matching.",
+                "tracking-net-revenue-retention-dynamics",
+                "Monitors NRR components with expansion, contraction, and churn decomposition across customer segments and cohorts. Use when analyzing revenue retention, decomposing NRR drivers, or assessing expansion revenue quality.",
             ),
             (
-                "analyzing-currency-exposure",
-                "Evaluates and manages portfolio currency risk with hedging strategy analysis and cost assessment. Use when analyzing FX exposure, planning currency hedges, or assessing hedging costs.",
+                "evaluating-marketplace-business-models",
+                "Assesses marketplace dynamics with take rate analysis, liquidity metrics, supply/demand balance, and network effect strength. Use when evaluating marketplaces, analyzing take rates, or assessing network effect moats.",
             ),
             (
-                "managing-concentrated-positions",
-                "Structures diversification strategies for concentrated single-stock positions with tax and risk considerations. Use when managing concentrated holdings, planning diversification, or evaluating exchange funds.",
+                "analyzing-burn-multiple-efficiency",
+                "Evaluates capital efficiency with burn multiple, net new ARR per dollar burned, and path to profitability analysis. Use when analyzing burn efficiency, assessing capital needs, or modeling runway scenarios.",
             ),
             (
-                "analyzing-esg-integration",
-                "Integrates ESG factors into investment analysis with scoring methodology and impact measurement. Use when implementing ESG integration, scoring ESG factors, or measuring sustainability impact.",
+                "structuring-structured-equity-instruments",
+                "Designs structured equity with participating preferred, PIK dividends, conversion mechanics, and downside protection features. Use when structuring growth equity instruments, designing preference terms, or modeling structured returns.",
             ),
             (
-                "managing-model-portfolio-governance",
-                "Structures investment committee processes with model approval, modification, and compliance documentation. Use when managing model portfolios, documenting investment decisions, or tracking portfolio changes.",
+                "conducting-growth-due-diligence",
+                "Structures growth-focused DD with revenue quality, customer concentration, technology scalability, and organizational readiness. Use when conducting growth DD, validating revenue sustainability, or assessing scale capability.",
             ),
             (
-                "analyzing-private-market-allocations",
-                "Structures private market allocation strategy with commitment pacing, J-curve modeling, and liquidity planning. Use when allocating to private markets, modeling commitment pacing, or planning illiquid allocations.",
+                "analyzing-international-expansion-plans",
+                "Evaluates geographic expansion strategies with market entry sequencing, localization requirements, and international unit economics. Use when analyzing expansion plans, assessing international readiness, or modeling geo-expansion costs.",
             ),
             (
-                "managing-portfolio-risk-budgeting",
-                "Allocates portfolio risk across asset classes and strategies with tracking error and VaR budgeting. Use when budgeting portfolio risk, managing tracking error, or allocating risk capital.",
+                "modeling-scenario-based-valuations",
+                "Builds probability-weighted valuation models with multiple exit scenarios, timing assumptions, and risk-adjusted returns. Use when building growth equity valuations, modeling scenario-weighted outcomes, or analyzing risk-adjusted returns.",
             ),
             (
-                "analyzing-manager-selection",
-                "Evaluates and selects investment managers with quantitative screening and qualitative assessment. Use when selecting fund managers, conducting manager due diligence, or evaluating strategy fit.",
+                "evaluating-management-team-scalability",
+                "Assesses leadership team capacity to scale with organizational design review, key person risk, and executive bench analysis. Use when evaluating management scalability, identifying talent gaps, or assessing organizational readiness.",
             ),
             (
-                "managing-portfolio-transitions",
-                "Structures portfolio transitions with legacy position analysis, rebalancing path, and transition cost management. Use when transitioning portfolios, managing manager changes, or planning portfolio restructuring.",
+                "analyzing-competitive-moat-durability",
+                "Evaluates competitive advantage sustainability with switching costs, network effects, data assets, and brand strength analysis. Use when assessing competitive moats, analyzing defensibility, or evaluating long-term positioning.",
             ),
             (
-                "analyzing-multi-asset-strategies",
-                "Evaluates multi-asset investment strategies with regime analysis and dynamic allocation models. Use when analyzing multi-asset funds, evaluating tactical allocation, or assessing regime-based strategies.",
+                "managing-growth-equity-board-governance",
+                "Structures board engagement for growth equity investments with meeting cadence, committee design, and information rights. Use when establishing board governance, preparing board materials, or managing investor board relationships.",
             ),
             (
-                "managing-separately-managed-accounts",
-                "Structures SMA operations with customization, compliance overlay, and performance composites. Use when managing SMAs, implementing custom portfolios, or maintaining performance composites.",
+                "analyzing-customer-cohort-economics",
+                "Deconstructs customer cohort behavior with retention curves, LTV progression, and vintage-over-vintage comparison analysis. Use when analyzing cohort data, assessing customer quality, or modeling lifetime value trajectories.",
             ),
             (
-                "analyzing-liquidity-risk",
-                "Assesses portfolio liquidity with redemption stress testing and market impact estimation. Use when analyzing liquidity risk, stress testing redemptions, or evaluating market impact.",
+                "preparing-growth-equity-exit-materials",
+                "Structures exit preparation with financial audit readiness, management presentation preparation, and buyer/IPO positioning. Use when preparing for exit, building exit marketing materials, or positioning companies for sale or IPO.",
             ),
         ],
     },
-    # ─── 6. RISK MANAGEMENT ──────────────────────────────────────────
-    "Risk Management": {
-        "description": "Enterprise, market, credit, and operational risk management workflows",
-        "practice_areas": ["Risk Management", "Enterprise Risk", "Market Risk"],
+    # ─── 5. EQUITY CAPITAL MARKETS ────────────────────────────────────
+    "Equity Capital Markets": {
+        "description": "IPO execution, follow-on offerings, and equity-linked issuance",
+        "practice_areas": ["ECM", "IPO Advisory", "Equity Origination"],
         "skills": [
             (
-                "calculating-value-at-risk",
-                "Computes VaR using parametric, historical simulation, and Monte Carlo methods with backtesting validation. Use when calculating VaR, comparing risk methodologies, or backtesting risk models.",
+                "managing-ipo-execution-processes",
+                "Structures IPO execution from organizational meeting through pricing with workstream coordination and timeline management. Use when managing IPOs, coordinating offering processes, or tracking ECM execution milestones.",
             ),
             (
-                "conducting-stress-testing",
-                "Designs and executes portfolio and enterprise stress tests with scenario specification and result analysis. Use when stress testing portfolios, designing stress scenarios, or analyzing stress test results.",
+                "analyzing-ipo-valuation-and-pricing",
+                "Evaluates IPO pricing with comparable company analysis, IPO discount estimation, and investor demand assessment. Use when pricing IPOs, determining offering ranges, or analyzing IPO valuation methodologies.",
             ),
             (
-                "managing-counterparty-risk",
-                "Structures counterparty credit risk assessment with exposure calculation and mitigation monitoring. Use when assessing counterparty risk, calculating potential future exposure, or managing collateral.",
+                "drafting-equity-offering-prospectuses",
+                "Structures S-1/F-1 prospectus content with business description, risk factors, MD&A, and financial presentation requirements. Use when preparing IPO prospectuses, drafting SEC filings, or structuring offering documents.",
             ),
             (
-                "managing-operational-risk",
-                "Structures operational risk assessment with loss event classification, RCSA, and KRI monitoring. Use when managing operational risk, conducting risk assessments, or tracking key risk indicators.",
+                "managing-investor-roadshow-logistics",
+                "Coordinates roadshow scheduling with institutional investor targeting, presentation materials, and feedback tracking. Use when managing roadshows, organizing investor meetings, or tracking investor engagement.",
             ),
             (
-                "managing-model-risk",
-                "Structures model validation with independent testing, limitation documentation, and ongoing monitoring. Use when validating risk models, documenting model limitations, or managing model governance.",
+                "analyzing-follow-on-offering-structures",
+                "Evaluates secondary offering types including overnight blocks, marketed deals, ATMs, and bought deals with dilution analysis. Use when analyzing follow-on options, structuring secondary offerings, or evaluating dilution impact.",
             ),
             (
-                "managing-liquidity-risk",
-                "Structures liquidity risk management with cash flow projections, stress testing, and contingency planning. Use when managing liquidity risk, projecting cash needs, or developing liquidity contingency plans.",
+                "modeling-book-building-dynamics",
+                "Structures book-building analysis with demand tiers, allocation methodology, and price sensitivity assessment. Use when managing book-building, analyzing investor demand, or optimizing allocation strategies.",
             ),
             (
-                "conducting-risk-appetite-frameworks",
-                "Develops risk appetite statements with quantitative limits and qualitative boundaries documentation. Use when defining risk appetite, setting risk limits, or calibrating risk tolerances.",
+                "analyzing-equity-linked-instruments",
+                "Evaluates convertible bond and mandatory convertible structures with equity sensitivity, credit floor, and Greeks analysis. Use when analyzing convertible offerings, pricing equity-linked instruments, or modeling conversion economics.",
             ),
             (
-                "managing-concentration-risk",
-                "Identifies and monitors portfolio concentration across counterparties, sectors, geographies, and instruments. Use when analyzing concentration risk, setting exposure limits, or monitoring concentration breaches.",
+                "managing-stabilization-and-greenshoe",
+                "Structures post-offering stabilization with overallotment option exercise, market support, and penalty bid mechanisms. Use when managing stabilization, exercising greenshoe options, or analyzing aftermarket support.",
             ),
             (
-                "analyzing-scenario-analysis",
-                "Structures forward-looking scenario analysis with macroeconomic assumptions and portfolio impact assessment. Use when conducting scenario analysis, modeling macro scenarios, or assessing portfolio vulnerability.",
+                "analyzing-lock-up-period-dynamics",
+                "Evaluates lock-up expiration impact with float analysis, insider selling patterns, and supply overhang assessment. Use when analyzing lock-up expirations, modeling supply dynamics, or assessing post-IPO trading patterns.",
             ),
             (
-                "managing-risk-reporting",
-                "Structures risk reporting dashboards with limit utilization, risk metric trends, and exception documentation. Use when creating risk reports, designing risk dashboards, or documenting risk positions.",
+                "structuring-rights-offerings",
+                "Designs rights issue structures with subscription ratios, pricing discounts, and standby underwriting arrangements. Use when structuring rights offerings, analyzing dilution protection, or evaluating capital raise alternatives.",
             ),
             (
-                "managing-credit-risk-models",
-                "Evaluates and monitors credit risk models (PD, LGD, EAD) with calibration and discrimination metrics. Use when validating credit models, assessing model performance, or calibrating default models.",
+                "managing-direct-listing-processes",
+                "Structures direct listing execution with opening auction mechanics, reference price methodology, and market maker coordination. Use when executing direct listings, analyzing DL mechanics, or comparing DL vs IPO economics.",
             ),
             (
-                "managing-market-risk-limits",
-                "Structures market risk limit frameworks with VaR, sensitivity, and notional-based limits and escalation protocols. Use when setting market risk limits, managing limit breaches, or calibrating risk parameters.",
+                "analyzing-spac-transaction-structures",
+                "Evaluates SPAC de-SPAC transaction economics with sponsor dilution, redemption risk, PIPE analysis, and warrant impact. Use when analyzing SPAC deals, evaluating sponsor economics, or modeling de-SPAC outcomes.",
             ),
             (
-                "analyzing-tail-risk",
-                "Evaluates portfolio tail risk with extreme value theory, expected shortfall, and tail hedge strategies. Use when analyzing tail risk, estimating expected shortfall, or evaluating tail protection.",
+                "managing-at-the-market-programs",
+                "Structures ATM offering programs with sales agent selection, volume limitations, and disclosure requirements. Use when establishing ATM programs, managing ongoing equity issuance, or optimizing capital raising timing.",
             ),
             (
-                "managing-climate-risk",
-                "Structures climate risk assessment with physical and transition risk analysis and scenario modeling. Use when assessing climate risk, modeling transition scenarios, or evaluating environmental exposure.",
+                "analyzing-cornerstone-investor-structures",
+                "Evaluates cornerstone investment commitments with allocation guarantees, lock-up terms, and signaling value assessment. Use when structuring cornerstone tranches, analyzing anchor investors, or evaluating demand signals.",
             ),
             (
-                "managing-cyber-risk-financial",
-                "Structures financial sector cyber risk assessment with scenario quantification and insurance evaluation. Use when assessing cyber risk, quantifying cyber exposure, or evaluating cyber insurance.",
+                "conducting-equity-market-windows-analysis",
+                "Assesses market receptivity for equity issuance with sector sentiment, volatility, and comparable recent offering performance. Use when timing equity offerings, analyzing market windows, or evaluating issuance conditions.",
             ),
             (
-                "managing-third-party-risk",
-                "Structures vendor and third-party risk assessment with due diligence, monitoring, and concentration analysis. Use when assessing vendor risk, conducting third-party due diligence, or monitoring outsourcing risk.",
+                "modeling-dilution-impact-analysis",
+                "Calculates dilutive impact of equity issuance on existing shareholders with EPS, ownership, and NAV per share analysis. Use when modeling dilution, communicating shareholder impact, or comparing capital raise alternatives.",
             ),
             (
-                "managing-reputational-risk",
-                "Structures reputational risk identification with scenario planning and mitigation strategy documentation. Use when assessing reputational risk, planning crisis scenarios, or documenting reputation management.",
+                "managing-sec-registration-processes",
+                "Coordinates SEC filing workflows with S-1/S-3 preparation, comment letter responses, and effectiveness timing. Use when managing SEC registration, responding to SEC comments, or tracking filing status.",
             ),
             (
-                "conducting-risk-control-self-assessments",
-                "Designs and facilitates RCSA processes with risk identification, control evaluation, and action planning. Use when conducting RCSAs, evaluating internal controls, or identifying emerging risks.",
+                "analyzing-institutional-investor-demand",
+                "Maps institutional investor targeting with AUM analysis, sector allocation preferences, and historical participation patterns. Use when targeting investors, analyzing demand profiles, or building investor marketing lists.",
             ),
             (
-                "managing-emerging-risk-identification",
-                "Structures emerging risk scanning with horizon analysis and early warning indicator development. Use when identifying emerging risks, scanning for new threats, or developing early warning systems.",
+                "structuring-employee-stock-offerings",
+                "Designs ESPP and directed share programs with eligibility, pricing mechanics, and regulatory compliance requirements. Use when structuring employee offerings, designing share purchase plans, or managing directed share allocations.",
             ),
             (
-                "managing-risk-governance",
-                "Structures risk governance frameworks with committee charters, escalation protocols, and reporting cadences. Use when designing risk governance, structuring risk committees, or documenting governance frameworks.",
+                "preparing-equity-capital-markets-updates",
+                "Synthesizes ECM market conditions with recent pricing, sector performance, and pipeline activity for client communication. Use when preparing market updates, summarizing ECM activity, or advising on market timing.",
             ),
         ],
     },
-    # ─── 7. COMPLIANCE & REGULATION ──────────────────────────────────
-    "Financial Compliance": {
-        "description": "Regulatory compliance, examination preparation, and regulatory change management",
+    # ─── 6. DEBT CAPITAL MARKETS ──────────────────────────────────────
+    "Debt Capital Markets": {
+        "description": "Bond issuance, loan syndication, and debt origination across investment grade and high yield",
+        "practice_areas": ["DCM", "Leveraged Finance", "Debt Origination"],
+        "skills": [
+            (
+                "structuring-bond-offerings",
+                "Designs bond offering structures with tenor, coupon, call provisions, covenant packages, and pricing methodology. Use when structuring bond deals, selecting debt parameters, or comparing issuance alternatives.",
+            ),
+            (
+                "managing-loan-syndication-processes",
+                "Coordinates leveraged loan syndication from mandate through closing with lender marketing, commitment tracking, and flex analysis. Use when syndicating loans, managing lender groups, or tracking commitment levels.",
+            ),
+            (
+                "drafting-offering-memoranda-debt",
+                "Creates debt offering memoranda with credit overview, financial analysis, industry section, and risk factors for investor marketing. Use when preparing debt OMs, writing credit marketing materials, or structuring lender presentations.",
+            ),
+            (
+                "analyzing-covenant-packages",
+                "Evaluates financial and incurrence covenant packages with headroom analysis, definition review, and covenant-lite comparison. Use when analyzing loan covenants, negotiating covenant levels, or assessing borrower flexibility.",
+            ),
+            (
+                "modeling-debt-capacity-analysis",
+                "Calculates borrower debt capacity with cash flow coverage, leverage multiples, and stress-tested servicing ability. Use when sizing debt facilities, analyzing leverage capacity, or determining optimal capital structure.",
+            ),
+            (
+                "analyzing-high-yield-bond-structures",
+                "Evaluates high-yield issuance with call schedules, change of control puts, and restricted payment baskets. Use when analyzing HY bonds, comparing HY vs leveraged loan terms, or assessing issuer flexibility.",
+            ),
+            (
+                "structuring-revolving-credit-facilities",
+                "Designs revolver structures with commitment amounts, borrowing base mechanics, letter of credit sub-facilities, and pricing grids. Use when structuring revolvers, designing borrowing bases, or analyzing liquidity facilities.",
+            ),
+            (
+                "analyzing-investment-grade-issuance",
+                "Evaluates IG bond market conditions with spread analysis, maturity curve optimization, and investor demand assessment. Use when advising IG issuers, analyzing credit spreads, or timing IG bond offerings.",
+            ),
+            (
+                "managing-bridge-loan-commitments",
+                "Structures bridge financing with commitment terms, flex provisions, and permanent takeout analysis for acquisition financing. Use when arranging bridge facilities, analyzing flex economics, or managing bridge-to-bond transitions.",
+            ),
+            (
+                "analyzing-mezzanine-and-subordinated-debt",
+                "Evaluates mezzanine structures with PIK toggle, equity kickers, and intercreditor subordination mechanics. Use when analyzing mezzanine financing, comparing subordinated debt terms, or modeling layered capital structures.",
+            ),
+            (
+                "structuring-term-loan-b-facilities",
+                "Designs institutional term loan structures with amortization schedules, repricing protection, and soft call provisions. Use when structuring TLBs, analyzing institutional loan terms, or comparing bank vs institutional debt.",
+            ),
+            (
+                "analyzing-credit-facility-amendments",
+                "Evaluates amendment and waiver requests with consent requirements, fee structures, and modified term impact analysis. Use when analyzing amendments, structuring consent solicitations, or evaluating covenant relief requests.",
+            ),
+            (
+                "modeling-debt-maturity-profiles",
+                "Structures debt maturity analysis with refinancing risk, market access assumptions, and liability management opportunities. Use when analyzing maturity walls, planning refinancing, or optimizing debt tenor.",
+            ),
+            (
+                "analyzing-unitranche-financing",
+                "Evaluates unitranche structures with first-out/last-out splits, blended pricing, and agreement among lenders provisions. Use when analyzing unitranche options, comparing unitranche vs traditional structures, or modeling blended costs.",
+            ),
+            (
+                "managing-debt-private-placements",
+                "Coordinates private placement execution with investor targeting, NAIC designation analysis, and shelf registration requirements. Use when managing PP offerings, targeting insurance company investors, or structuring private notes.",
+            ),
+            (
+                "analyzing-sustainable-debt-structures",
+                "Evaluates green bonds, sustainability-linked bonds, and social bonds with KPI selection, step-up mechanics, and framework assessment. Use when structuring ESG-linked debt, analyzing sustainability frameworks, or evaluating green bond eligibility.",
+            ),
+            (
+                "structuring-asset-based-lending",
+                "Designs ABL facilities with borrowing base calculations, collateral eligibility criteria, and field exam requirements. Use when structuring ABL facilities, calculating borrowing availability, or analyzing collateral pools.",
+            ),
+            (
+                "analyzing-credit-rating-advisory",
+                "Prepares credit rating agency presentations with methodology alignment, peer positioning, and target rating analysis. Use when advising on credit ratings, preparing rating agency meetings, or analyzing rating methodology impact.",
+            ),
+            (
+                "conducting-debt-market-conditions-analysis",
+                "Synthesizes DCM market activity with new issue spreads, fund flows, and market technical analysis for issuance timing. Use when analyzing debt market windows, timing bond issuance, or assessing market receptivity.",
+            ),
+            (
+                "modeling-interest-rate-hedging-strategies",
+                "Structures interest rate hedging programs with swap analysis, cap/floor evaluation, and hedge accounting documentation. Use when designing rate hedges, comparing hedging instruments, or analyzing hedge effectiveness.",
+            ),
+        ],
+    },
+    # ─── 7. STRUCTURED FINANCE ────────────────────────────────────────
+    "Structured Finance": {
+        "description": "Securitization, ABS/MBS/CLO structuring, and cash flow waterfall analysis",
+        "practice_areas": ["Structured Finance", "Securitization", "ABS/MBS/CLO"],
+        "skills": [
+            (
+                "structuring-abs-transactions",
+                "Designs asset-backed securitization structures with tranche hierarchy, credit enhancement, and cash flow allocation mechanics. Use when structuring ABS deals, designing tranche waterfall, or analyzing credit enhancement levels.",
+            ),
+            (
+                "modeling-clo-cash-flow-waterfalls",
+                "Builds CLO waterfall models with coverage tests, reinvestment criteria, and distribution allocation across tranches. Use when modeling CLO structures, analyzing OC/IC tests, or projecting tranche returns.",
+            ),
+            (
+                "analyzing-mortgage-backed-securities",
+                "Evaluates MBS structures with prepayment modeling (CPR/CDR), collateral analysis, and tranche-level credit risk assessment. Use when analyzing MBS, modeling prepayment scenarios, or evaluating residential mortgage pools.",
+            ),
+            (
+                "conducting-collateral-pool-analysis",
+                "Assesses underlying asset pools with stratification, concentration analysis, historical performance, and credit quality distribution. Use when analyzing collateral pools, stratifying asset characteristics, or evaluating pool quality.",
+            ),
+            (
+                "modeling-credit-enhancement-requirements",
+                "Calculates required credit enhancement levels with loss modeling, attachment/detachment points, and rating agency methodology. Use when sizing credit enhancement, modeling loss scenarios, or determining tranche subordination.",
+            ),
+            (
+                "structuring-commercial-mortgage-securitization",
+                "Designs CMBS structures with property-level underwriting, DSCR analysis, and loan-level credit assessment. Use when structuring CMBS deals, underwriting commercial mortgage pools, or analyzing property cash flows.",
+            ),
+            (
+                "analyzing-servicer-performance",
+                "Evaluates master and special servicer performance with delinquency management, modification outcomes, and loss mitigation effectiveness. Use when assessing servicer quality, monitoring servicing metrics, or evaluating servicer transfers.",
+            ),
+            (
+                "modeling-prepayment-and-default-scenarios",
+                "Builds CPR/CDR/severity vectors with scenario analysis across interest rate and economic environments. Use when modeling prepayment behavior, projecting default scenarios, or stress testing pool performance.",
+            ),
+            (
+                "structuring-whole-business-securitizations",
+                "Designs whole business securitization with IP collateral, franchise cash flows, and operating covenant structures. Use when structuring WBS transactions, analyzing franchise securitizations, or evaluating non-traditional collateral.",
+            ),
+            (
+                "analyzing-structured-product-ratings",
+                "Evaluates rating agency methodology application with loss model inputs, correlation assumptions, and tranche-level credit assessment. Use when analyzing structured product ratings, comparing agency methodologies, or assessing rating sensitivity.",
+            ),
+            (
+                "modeling-revolving-period-structures",
+                "Builds revolving securitization models with replenishment criteria, early amortization triggers, and portfolio composition limits. Use when modeling revolving structures, analyzing credit card ABS, or evaluating asset purchase criteria.",
+            ),
+            (
+                "structuring-clo-reinvestment-periods",
+                "Designs CLO reinvestment criteria with portfolio quality tests, trading guidelines, and concentration limits. Use when structuring CLO reinvestment, setting portfolio constraints, or analyzing manager flexibility.",
+            ),
+            (
+                "analyzing-tranche-relative-value",
+                "Evaluates structured product tranche pricing with spread analysis, yield attribution, and comparable structure benchmarking. Use when assessing tranche value, comparing structured product pricing, or analyzing spread components.",
+            ),
+            (
+                "conducting-reg-ab-compliance",
+                "Structures Regulation AB II compliance with asset-level data requirements, servicer reporting, and shelf registration eligibility. Use when ensuring Reg AB compliance, preparing ABS reporting, or structuring shelf eligibility.",
+            ),
+            (
+                "modeling-interest-rate-and-basis-risk",
+                "Analyzes structural interest rate exposure with fixed/floating mismatch, basis risk, and cap/floor adequacy assessment. Use when modeling structural rate risk, analyzing basis risk, or evaluating interest rate hedging needs.",
+            ),
+            (
+                "structuring-risk-retention-compliance",
+                "Designs risk retention structures meeting US and EU requirements with vertical, horizontal, and L-shaped retention options. Use when structuring risk retention, analyzing sponsor retention alternatives, or ensuring regulatory compliance.",
+            ),
+            (
+                "analyzing-esoteric-abs-collateral",
+                "Evaluates non-traditional securitization collateral including solar, data centers, digital infrastructure, and IP royalties. Use when analyzing esoteric ABS, evaluating non-standard collateral, or structuring novel asset classes.",
+            ),
+            (
+                "managing-securitization-warehouse-facilities",
+                "Structures warehouse lending for securitization programs with advance rates, eligibility criteria, and ramp-up analysis. Use when managing warehouse lines, structuring ramp facilities, or analyzing warehouse economics.",
+            ),
+            (
+                "analyzing-synthetic-securitization-structures",
+                "Evaluates synthetic CDO and CRT structures with credit default swap mechanics and funded/unfunded tranche analysis. Use when analyzing synthetic structures, evaluating credit risk transfer, or modeling CDS-based securitizations.",
+            ),
+            (
+                "conducting-structured-finance-surveillance",
+                "Monitors structured product performance with collateral deterioration triggers, coverage test tracking, and credit migration analysis. Use when conducting ABS surveillance, monitoring CLO performance, or tracking structured product credit.",
+            ),
+        ],
+    },
+    # ─── 8. DISTRESSED DEBT & RESTRUCTURING ───────────────────────────
+    "Distressed and Restructuring": {
+        "description": "Distressed investing, Chapter 11 processes, and corporate restructuring",
+        "practice_areas": ["Restructuring", "Distressed Investing", "Turnaround"],
+        "skills": [
+            (
+                "analyzing-distressed-credit-situations",
+                "Evaluates distressed debt opportunities with recovery analysis, liquidity assessment, and potential restructuring outcomes. Use when screening distressed situations, analyzing stressed credits, or evaluating workout scenarios.",
+            ),
+            (
+                "modeling-chapter-11-recovery-waterfalls",
+                "Builds recovery waterfall models with absolute priority, secured vs unsecured claims, and plan of reorganization distribution analysis. Use when modeling bankruptcy recoveries, analyzing claim priorities, or estimating creditor distributions.",
+            ),
+            (
+                "conducting-liquidity-and-viability-analysis",
+                "Assesses going-concern viability with 13-week cash flow models, liquidity runway, and critical vendor analysis. Use when evaluating liquidity crises, building 13-week models, or assessing near-term solvency.",
+            ),
+            (
+                "structuring-debtor-in-possession-financing",
+                "Designs DIP financing structures with priming liens, adequate protection, and budget milestones for Chapter 11 proceedings. Use when structuring DIP facilities, analyzing superpriority claims, or evaluating DIP terms.",
+            ),
+            (
+                "analyzing-section-363-asset-sales",
+                "Evaluates 363 sale processes with stalking horse protections, bid procedures, and credit bidding mechanics. Use when analyzing 363 sales, structuring stalking horse bids, or evaluating asset sale alternatives.",
+            ),
+            (
+                "building-restructuring-plan-models",
+                "Constructs plan of reorganization models with debt-for-equity conversion, new money injection, and emergence capital structure. Use when modeling restructuring plans, designing emergence capital structures, or analyzing plan feasibility.",
+            ),
+            (
+                "analyzing-claims-trading-dynamics",
+                "Evaluates claims trading market with trading levels, holder identification, and blocking position analysis. Use when analyzing claims markets, tracking distressed debt trading, or evaluating ad hoc group dynamics.",
+            ),
+            (
+                "conducting-fulcrum-security-analysis",
+                "Identifies fulcrum securities in distressed capital structures with enterprise value allocation and recovery sensitivity analysis. Use when analyzing fulcrum securities, estimating recovery ranges, or determining value breaks.",
+            ),
+            (
+                "managing-out-of-court-workout-processes",
+                "Structures exchange offers, consent solicitations, and amend-and-extend transactions as Chapter 11 alternatives. Use when managing out-of-court workouts, designing exchange offers, or structuring pre-negotiated deals.",
+            ),
+            (
+                "analyzing-executory-contract-decisions",
+                "Evaluates assumption, rejection, and assignment decisions for executory contracts and unexpired leases in bankruptcy. Use when analyzing contract decisions, evaluating lease rejections, or modeling cure cost exposure.",
+            ),
+            (
+                "modeling-fresh-start-accounting",
+                "Structures fresh-start accounting analysis with reorganization value allocation, new basis determination, and emergence balance sheet. Use when modeling fresh-start accounting, preparing emergence financials, or allocating reorganization value.",
+            ),
+            (
+                "analyzing-fraudulent-transfer-exposure",
+                "Evaluates fraudulent conveyance risk for leveraged transactions with solvency analysis and reasonably equivalent value assessment. Use when analyzing fraudulent transfer risk, conducting solvency tests, or evaluating historical transactions.",
+            ),
+            (
+                "structuring-exit-financing-packages",
+                "Designs emergence financing structures with exit term loans, ABL facilities, and capital structure optimization for reorganized entities. Use when structuring exit financing, analyzing emergence capital needs, or comparing financing alternatives.",
+            ),
+            (
+                "analyzing-make-whole-and-redemption-claims",
+                "Evaluates make-whole premium claims in bankruptcy with contract interpretation, present value disputes, and secured status analysis. Use when analyzing make-whole claims, evaluating redemption disputes, or assessing premium recovery.",
+            ),
+            (
+                "managing-creditor-committee-activities",
+                "Structures official committee operations with financial advisor engagement, investigation scope, and plan negotiation strategy. Use when supporting creditor committees, coordinating committee advisors, or analyzing committee positions.",
+            ),
+            (
+                "analyzing-liability-management-transactions",
+                "Evaluates uptier exchanges, drop-down transactions, and covenant-stripping maneuvers as aggressive liability management tools. Use when analyzing LMTs, evaluating creditor-on-creditor violence, or assessing cooperation agreement strategies.",
+            ),
+            (
+                "conducting-operational-turnaround-analysis",
+                "Assesses operational improvement opportunities with cost rationalization, revenue stabilization, and management changes for distressed businesses. Use when evaluating turnaround plans, identifying operational improvements, or assessing management capability.",
+            ),
+            (
+                "analyzing-cross-border-insolvency",
+                "Evaluates multi-jurisdictional restructuring with Chapter 15 recognition, COMI analysis, and parallel proceeding coordination. Use when analyzing cross-border insolvency, assessing jurisdiction selection, or coordinating multi-country restructurings.",
+            ),
+            (
+                "modeling-tax-attribute-preservation",
+                "Analyzes NOL and tax attribute preservation strategies under Section 382 limitations in ownership change scenarios. Use when modeling tax attribute preservation, analyzing 382 limitations, or structuring ownership change thresholds.",
+            ),
+            (
+                "preparing-disclosure-statement-analysis",
+                "Evaluates Chapter 11 disclosure statements with plan description adequacy, feasibility projections, and liquidation analysis comparison. Use when reviewing disclosure statements, analyzing plan feasibility, or preparing objections.",
+            ),
+        ],
+    },
+    # ─── 9. SECONDARY MARKETS & GP-LED TRANSACTIONS ───────────────────
+    "Secondaries and GP-Led": {
+        "description": "LP interest transactions, continuation vehicles, and secondary market dynamics",
         "practice_areas": [
-            "Regulatory Compliance",
-            "Financial Regulation",
-            "Compliance",
+            "Secondaries",
+            "GP-Led Transactions",
+            "LP Portfolio Management",
         ],
         "skills": [
             (
-                "auditing-aml-transactions",
-                "Screens transaction data for suspicious patterns using red flag typologies and structures SAR narrative elements. Use when reviewing transactions for AML, identifying suspicious activity, or drafting SAR narratives.",
+                "pricing-lp-interest-portfolios",
+                "Evaluates LP interest portfolios with fund-by-fund NAV assessment, J-curve positioning, and portfolio-level pricing methodology. Use when pricing secondary portfolios, evaluating LP interest bids, or analyzing fund vintages.",
             ),
             (
-                "reviewing-kyc-documentation",
-                "Evaluates customer identification and verification documentation against CIP/CDD/EDD requirements. Use when reviewing KYC files, validating customer identification, or assessing customer risk.",
+                "structuring-gp-led-continuation-vehicles",
+                "Designs GP-led continuation fund structures with rollover mechanics, new money terms, and existing LP election options. Use when structuring continuation vehicles, designing rollover terms, or analyzing GP-led economics.",
             ),
             (
-                "managing-regulatory-examinations",
-                "Structures regulatory exam preparation with document production, findings response, and remediation tracking. Use when preparing for regulatory exams, responding to examination findings, or managing exam timelines.",
+                "analyzing-secondary-market-pricing",
+                "Monitors secondary market pricing trends with discount/premium analysis, bid-ask spreads, and market-clearing dynamics. Use when analyzing secondary pricing, tracking market trends, or benchmarking transaction levels.",
             ),
             (
-                "tracking-regulatory-changes",
-                "Monitors regulatory developments with impact assessment, gap analysis, and implementation timeline planning. Use when tracking regulatory changes, assessing compliance gaps, or planning implementation.",
+                "modeling-strip-and-tail-transactions",
+                "Builds strip and tail-end fund models with remaining portfolio analysis, unfunded obligation treatment, and duration-adjusted pricing. Use when modeling strip deals, evaluating tail-end portfolios, or analyzing remaining value.",
             ),
             (
-                "managing-compliance-testing",
-                "Designs and executes compliance testing programs with sampling methodology and findings documentation. Use when conducting compliance testing, designing test procedures, or documenting testing results.",
+                "conducting-secondary-due-diligence",
+                "Structures buy-side DD for secondary transactions with underlying fund analysis, manager assessment, and portfolio-level risk evaluation. Use when conducting secondary DD, evaluating fund managers, or analyzing underlying portfolios.",
             ),
             (
-                "managing-sanctions-screening",
-                "Structures OFAC and global sanctions screening with match investigation and escalation protocols. Use when screening for sanctions, investigating potential matches, or managing sanctions compliance.",
+                "managing-tender-offer-processes",
+                "Coordinates tender offer execution with offer terms, election mechanics, proration, and transfer documentation for LP interests. Use when managing tender offers, structuring LP elections, or coordinating interest transfers.",
             ),
             (
-                "managing-trade-surveillance",
-                "Monitors trading activity for market manipulation, insider trading, and best execution compliance. Use when conducting trade surveillance, investigating suspicious trading, or monitoring execution quality.",
+                "analyzing-unfunded-commitment-exposure",
+                "Evaluates unfunded commitment obligations with call probability, pacing models, and portfolio-level exposure management. Use when analyzing unfunded exposure, managing commitment pacing, or stress testing capital calls.",
             ),
             (
-                "managing-advertising-compliance",
-                "Reviews marketing materials against SEC, FINRA, and state regulatory requirements. Use when reviewing investment advertising, ensuring compliance of marketing materials, or managing ad review.",
+                "structuring-preferred-equity-solutions",
+                "Designs NAV-based and structured preferred equity facilities with overcollateralization, coverage tests, and waterfall mechanics. Use when structuring preferred equity, analyzing NAV lending, or evaluating fund-level leverage.",
             ),
             (
-                "managing-fiduciary-compliance",
-                "Evaluates advisory practices against fiduciary standards with conflict identification and disclosure requirements. Use when assessing fiduciary duties, managing conflicts of interest, or documenting fiduciary compliance.",
+                "modeling-fund-of-funds-secondaries",
+                "Evaluates fund-of-funds secondary transactions with layer-on-layer fee analysis, double-carry impact, and net return adjustment. Use when pricing FoF secondaries, analyzing fee drag, or modeling net LP economics.",
             ),
             (
-                "managing-privacy-compliance-financial",
-                "Evaluates data privacy practices against GLBA, CCPA, and state privacy requirements. Use when assessing financial privacy compliance, managing opt-out requirements, or documenting data practices.",
+                "analyzing-stapled-transaction-structures",
+                "Evaluates stapled secondary structures combining primary commitment with secondary purchase in coordinated transactions. Use when analyzing stapled deals, structuring combined primary/secondary, or evaluating staple economics.",
             ),
             (
-                "managing-broker-dealer-compliance",
-                "Structures BD compliance monitoring with supervision, registration, and reporting requirements. Use when managing BD compliance, reviewing supervisory procedures, or monitoring registration requirements.",
+                "managing-transfer-restriction-navigation",
+                "Navigates LP transfer requirements including GP consent, ROFR compliance, and partnership agreement transfer provisions. Use when managing LP transfers, obtaining GP consent, or navigating transfer restrictions.",
             ),
             (
-                "managing-investment-adviser-compliance",
-                "Structures IA compliance with Form ADV, custody rule, and Code of Ethics requirements. Use when managing IA compliance, updating Form ADV, or reviewing Code of Ethics.",
+                "analyzing-single-asset-continuation-vehicles",
+                "Evaluates single-asset GP-led transactions with stand-alone asset valuation, financing structure, and rolling LP vs cashing out analysis. Use when analyzing single-asset CVs, evaluating trophy asset transactions, or structuring single-asset rolls.",
             ),
             (
-                "conducting-compliance-risk-assessments",
-                "Structures compliance risk assessment with regulatory inventory and inherent/residual risk evaluation. Use when assessing compliance risk, inventorying regulatory obligations, or prioritizing compliance resources.",
+                "conducting-manager-track-record-analysis",
+                "Assesses GP track records for secondary pricing with fund-level attribution, unrealized portfolio assessment, and consistency analysis. Use when evaluating GP track records, analyzing fund performance consistency, or assessing manager quality.",
             ),
             (
-                "managing-whistleblower-programs",
-                "Structures whistleblower program operations with intake, investigation, and anti-retaliation documentation. Use when managing whistleblower reports, investigating complaints, or documenting anti-retaliation measures.",
+                "modeling-j-curve-adjusted-pricing",
+                "Builds pricing models incorporating J-curve positioning with blind pool risk, early-vintage assessment, and age-weighted adjustments. Use when pricing early-vintage funds, analyzing J-curve risk, or adjusting for fund maturity.",
             ),
             (
-                "managing-code-of-ethics-compliance",
-                "Monitors personal trading, outside activities, and gift/entertainment compliance with documentation. Use when reviewing personal trading, monitoring outside activities, or managing ethics compliance.",
+                "structuring-deferred-payment-mechanisms",
+                "Designs deferred and contingent payment structures for secondary transactions with earnout mechanics and escrow arrangements. Use when structuring deferred payments, designing earnout mechanisms, or managing payment timing.",
             ),
             (
-                "managing-vendor-due-diligence-compliance",
-                "Structures regulatory vendor due diligence with risk assessment and ongoing monitoring requirements. Use when conducting vendor DD, assessing outsourcing risk, or managing third-party compliance.",
+                "analyzing-secondary-credit-facilities",
+                "Evaluates secondary-focused credit facilities with leverage terms, borrowing base mechanics, and portfolio pledging requirements. Use when analyzing secondary lending, structuring portfolio leverage, or evaluating fund finance options.",
             ),
             (
-                "managing-senior-investor-protection",
-                "Structures senior and vulnerable investor protection programs with exploitation identification and hold protocols. Use when protecting senior investors, identifying financial exploitation, or implementing hold procedures.",
+                "managing-portfolio-construction-secondaries",
+                "Structures secondary portfolio construction with vintage diversification, strategy mix, and geographic allocation optimization. Use when building secondary portfolios, managing allocation targets, or optimizing portfolio composition.",
             ),
             (
-                "managing-cybersecurity-compliance",
-                "Evaluates cybersecurity programs against SEC, FINRA, and state regulatory requirements. Use when assessing cybersecurity compliance, implementing security frameworks, or responding to cyber requirements.",
+                "analyzing-real-estate-secondaries",
+                "Evaluates real estate fund secondary transactions with NAV validation, property-level assessment, and sector/vintage analysis. Use when pricing RE secondaries, analyzing property portfolios, or evaluating REIT fund interests.",
             ),
             (
-                "managing-regulation-best-interest",
-                "Evaluates compliance with Regulation Best Interest including disclosure, care, and conflict obligations. Use when implementing Reg BI, reviewing recommendation practices, or documenting BI compliance.",
+                "conducting-infrastructure-secondary-analysis",
+                "Assesses infrastructure fund secondaries with asset-level cash flow analysis, concession period evaluation, and regulatory risk assessment. Use when analyzing infra secondaries, evaluating infrastructure assets, or pricing infra fund interests.",
             ),
             (
-                "managing-cross-border-compliance",
-                "Structures cross-border compliance with multi-jurisdictional regulatory requirements and conflict resolution. Use when managing international compliance, navigating multi-jurisdictional rules, or resolving regulatory conflicts.",
+                "preparing-secondary-market-reports",
+                "Synthesizes secondary market activity with volume trends, pricing benchmarks, and deal type composition for market participants. Use when preparing market reports, analyzing secondary volumes, or tracking market evolution.",
             ),
         ],
     },
-    # ─── 8. CORPORATE FINANCE / TREASURY ─────────────────────────────
-    "Corporate Finance": {
-        "description": "Corporate financial planning, treasury management, and capital structure workflows",
-        "practice_areas": ["Corporate Finance", "Treasury", "Financial Planning"],
+    # ─── 10. FUND FORMATION & STRUCTURING ─────────────────────────────
+    "Fund Formation and Structuring": {
+        "description": "Fund vehicle design, LP/GP economics, and partnership documentation",
+        "practice_areas": ["Fund Formation", "Fund Structuring", "Partnership Law"],
         "skills": [
             (
-                "building-financial-projections",
-                "Constructs integrated three-statement financial models with scenario analysis and assumption documentation. Use when building financial models, projecting financial statements, or creating forecast scenarios.",
+                "structuring-fund-vehicle-architecture",
+                "Designs fund legal structures with master-feeder, parallel fund, and blocker entity configurations for tax-efficient investor access. Use when designing fund structures, selecting vehicle types, or optimizing multi-jurisdictional access.",
             ),
             (
-                "managing-capital-structure",
-                "Analyzes optimal capital structure with WACC minimization, rating implications, and financing alternatives. Use when optimizing capital structure, analyzing debt capacity, or evaluating leverage targets.",
+                "modeling-carried-interest-mechanics",
+                "Builds carry waterfall models with preferred return hurdles, catch-up provisions, and clawback mechanics across deal-by-deal and whole-fund structures. Use when modeling carry economics, comparing waterfall structures, or analyzing GP incentive alignment.",
             ),
             (
-                "managing-cash-flow-forecasting",
-                "Structures short and long-term cash flow forecasting with variance analysis and liquidity planning. Use when forecasting cash flows, planning liquidity, or analyzing cash flow variances.",
+                "drafting-limited-partnership-agreements",
+                "Structures LPA terms with investment period, harvesting period, key person provisions, and investor governance rights. Use when preparing LPA terms, negotiating fund documents, or summarizing partnership provisions.",
             ),
             (
-                "managing-dividend-policy",
-                "Evaluates dividend policy options with payout ratio analysis, sustainability assessment, and shareholder return comparison. Use when setting dividend policy, analyzing payout sustainability, or comparing return alternatives.",
+                "analyzing-management-fee-structures",
+                "Evaluates management fee designs with commitment-period vs invested-capital bases, step-downs, and offset provisions. Use when analyzing fee structures, comparing fee levels, or modeling fee revenue for GPs.",
             ),
             (
-                "managing-share-repurchase-programs",
-                "Structures buyback program analysis with timing, accretion impact, and regulatory compliance documentation. Use when analyzing buybacks, modeling EPS accretion, or documenting repurchase programs.",
+                "structuring-side-letter-provisions",
+                "Designs side letter accommodations with MFN rights, capacity reservations, co-invest rights, and reporting enhancements. Use when negotiating side letters, analyzing MFN obligations, or structuring LP-specific terms.",
             ),
             (
-                "conducting-cost-of-capital-analysis",
-                "Calculates WACC components with equity risk premium, beta estimation, and debt cost measurement. Use when calculating cost of capital, estimating WACC, or analyzing discount rates.",
+                "managing-fund-formation-processes",
+                "Coordinates fundraising execution with PPM preparation, DDQ completion, legal documentation, and closing mechanics. Use when managing fund launches, coordinating formation processes, or tracking fundraising milestones.",
             ),
             (
-                "managing-working-capital",
-                "Optimizes working capital with DSO, DPO, and DIO analysis and improvement initiative tracking. Use when managing working capital, analyzing cash conversion cycle, or improving collection/payment terms.",
+                "analyzing-gp-commitment-structures",
+                "Evaluates GP capital commitment levels with co-invest obligations, management company funding, and alignment assessment. Use when analyzing GP commitment, assessing alignment, or structuring GP capital contributions.",
             ),
             (
-                "managing-foreign-exchange-hedging",
-                "Structures FX hedging programs with exposure identification, instrument selection, and hedge effectiveness testing. Use when managing FX risk, designing hedge programs, or testing hedge effectiveness.",
+                "structuring-fund-of-funds-vehicles",
+                "Designs fund-of-funds structures with layer-on-layer economics, allocation methodology, and portfolio construction guidelines. Use when structuring FoF vehicles, analyzing layered fee impact, or designing multi-manager programs.",
             ),
             (
-                "managing-interest-rate-hedging",
-                "Structures interest rate hedging with swap, cap, and collar analysis and hedge accounting documentation. Use when hedging interest rate risk, selecting hedging instruments, or documenting hedge relationships.",
+                "modeling-fund-economics-sensitivity",
+                "Builds fund economic models with sensitivity across deployment pace, exit multiples, and fee/carry structures for LP and GP returns. Use when modeling fund economics, projecting LP net returns, or analyzing fee-adjusted performance.",
             ),
             (
-                "managing-credit-facility-administration",
-                "Tracks revolving credit facility compliance with borrowing base, covenant calculations, and amendment documentation. Use when managing credit facilities, calculating borrowing availability, or tracking covenants.",
+                "analyzing-key-person-event-provisions",
+                "Evaluates key person clause triggers, consequences, and cure mechanics in partnership documentation. Use when analyzing key person provisions, assessing management stability risk, or structuring departure protections.",
             ),
             (
-                "managing-pension-fund-obligations",
-                "Structures pension analysis with funded status, actuarial assumptions, and contribution planning. Use when analyzing pension obligations, reviewing actuarial reports, or planning pension contributions.",
+                "structuring-co-investment-vehicles",
+                "Designs co-investment fund structures with deal-specific and programmatic formats, fee terms, and allocation methodology. Use when structuring co-invest programs, designing deal-specific vehicles, or analyzing co-invest economics.",
             ),
             (
-                "managing-lease-accounting",
-                "Structures ASC 842 lease analysis with classification, measurement, and disclosure requirements. Use when managing lease accounting, classifying leases, or calculating right-of-use assets.",
+                "analyzing-investor-advisory-committees",
+                "Structures IAC/LPAC design with composition, authority scope, conflict review protocols, and valuation oversight. Use when designing advisory committees, defining LPAC authority, or structuring conflict resolution processes.",
             ),
             (
-                "managing-intercompany-transactions",
-                "Structures intercompany pricing with transfer pricing documentation and arm's-length analysis. Use when managing transfer pricing, documenting intercompany transactions, or ensuring arm's-length compliance.",
+                "managing-regulatory-fund-compliance",
+                "Coordinates fund regulatory requirements across SEC, AIFMD, and local jurisdiction registration, reporting, and compliance obligations. Use when managing fund compliance, navigating regulatory registration, or ensuring cross-border compliance.",
             ),
             (
-                "managing-insurance-programs",
-                "Structures corporate insurance program analysis with coverage adequacy and renewal documentation. Use when managing insurance programs, analyzing coverage, or documenting insurance renewals.",
+                "structuring-fund-level-credit-facilities",
+                "Designs subscription credit facilities with LP commitment-based lending, borrowing base mechanics, and advance rate analysis. Use when structuring fund lines, analyzing subscription facilities, or evaluating fund-level leverage.",
             ),
             (
-                "managing-corporate-budgeting",
-                "Structures annual budget processes with bottom-up development, consolidation, and variance tracking. Use when managing budgeting processes, consolidating budget submissions, or tracking budget variances.",
+                "analyzing-seed-and-anchor-investor-terms",
+                "Evaluates seed/anchor investor economics with revenue sharing, fee discounts, capacity reservations, and governance rights. Use when analyzing seed terms, structuring anchor economics, or evaluating founding investor arrangements.",
             ),
             (
-                "conducting-working-capital-due-diligence",
-                "Analyzes target company working capital for M&A with normalization, peg calculation, and adjustment mechanics. Use when analyzing WC for transactions, calculating WC pegs, or structuring WC adjustment mechanisms.",
+                "structuring-permanent-capital-vehicles",
+                "Designs permanent capital structures including listed vehicles, evergreen funds, and non-traded REITs with perpetual-life governance. Use when structuring permanent capital, analyzing evergreen mechanics, or designing listed fund vehicles.",
             ),
             (
-                "managing-debt-covenant-compliance",
-                "Tracks financial covenant compliance with calculation methodology and certification requirements. Use when monitoring covenants, calculating compliance metrics, or preparing compliance certificates.",
+                "modeling-waterfall-distribution-mechanics",
+                "Builds distribution waterfall models with European vs American style carry, preferred return accrual, and GP clawback calculation. Use when modeling distribution waterfalls, comparing carry structures, or calculating LP distributions.",
             ),
             (
-                "managing-corporate-credit-ratings",
-                "Structures credit rating agency relationship management with rating methodology analysis and presentation preparation. Use when managing rating relationships, preparing rating presentations, or analyzing rating criteria.",
+                "analyzing-erisa-and-benefit-plan-compliance",
+                "Evaluates ERISA plan asset rules with 25% test, VCOC/REOC exemptions, and benefit plan investor tracking. Use when analyzing ERISA compliance, structuring plan asset exemptions, or managing benefit plan investor thresholds.",
             ),
             (
-                "managing-subsidiary-financing",
-                "Structures subsidiary-level financing with upstream guarantee analysis and structural subordination considerations. Use when financing subsidiaries, analyzing guarantee structures, or evaluating structural subordination.",
+                "structuring-opportunity-zone-funds",
+                "Designs Qualified Opportunity Zone fund structures with investment timeline requirements, substantial improvement tests, and tax benefit mechanics. Use when structuring OZ funds, analyzing QOF requirements, or evaluating OZ tax benefits.",
             ),
             (
-                "managing-capital-expenditure-planning",
-                "Structures capex evaluation with ROI analysis, approval workflows, and project tracking. Use when evaluating capital projects, analyzing investment returns, or managing capex budgets.",
+                "preparing-private-placement-memoranda",
+                "Creates fund PPM documentation with investment strategy, risk factors, fee disclosure, and regulatory compliance for fund marketing. Use when preparing PPMs, drafting fund marketing materials, or structuring offering documentation.",
             ),
         ],
     },
-    # ─── 9. ACCOUNTING / FINANCIAL REPORTING ─────────────────────────
-    "Accounting": {
-        "description": "Financial reporting, audit, and accounting standards workflows",
-        "practice_areas": ["Financial Reporting", "Audit", "Accounting"],
+    # ─── 11. INVESTOR RELATIONS & LP REPORTING ────────────────────────
+    "Investor Relations and LP Reporting": {
+        "description": "Capital call/distribution management, performance reporting, and LP communications",
+        "practice_areas": ["Investor Relations", "LP Reporting", "Fund Administration"],
         "skills": [
             (
-                "synthesizing-financial-statements",
-                "Analyzes 10-K/10-Q filings to extract key metrics, identify trends, and create structured YoY comparisons. Use when analyzing SEC filings, comparing financial statements, or tracking company financial trends.",
+                "managing-capital-call-processes",
+                "Structures capital call execution with notice preparation, pro-rata allocation, default remedy provisions, and wire coordination. Use when processing capital calls, calculating LP contributions, or managing call logistics.",
             ),
             (
-                "executing-month-end-close",
-                "Structures month-end close procedures with journal entry preparation, reconciliation, and variance analysis. Use when performing month-end close, preparing close checklists, or analyzing period variances.",
+                "calculating-fund-performance-metrics",
+                "Computes fund performance with gross/net IRR, MOIC, DPI, RVPI, TVPI, PME, and direct alpha methodologies. Use when calculating fund performance, reconciling return metrics, or benchmarking against peer groups.",
             ),
             (
-                "reconciling-accounts",
-                "Compares multiple data sources to produce reconciliation reports with break identification and aging analysis. Use when reconciling accounts, identifying breaks, or performing bank reconciliations.",
+                "preparing-quarterly-lp-reports",
+                "Creates comprehensive quarterly LP reporting packages with fund performance, portfolio updates, and market commentary. Use when preparing quarterly reports, building LP update packages, or structuring fund communications.",
             ),
             (
-                "managing-revenue-recognition",
-                "Applies ASC 606 five-step model with contract analysis, performance obligation identification, and allocation documentation. Use when analyzing revenue contracts, applying ASC 606, or documenting revenue recognition.",
+                "managing-distribution-waterfall-calculations",
+                "Executes distribution calculations through partnership waterfall with preferred return, GP catch-up, and carried interest allocation. Use when calculating distributions, processing waterfall mechanics, or determining carry payments.",
             ),
             (
-                "managing-lease-accounting-asc842",
-                "Structures ASC 842 compliance with lease identification, classification, measurement, and transition documentation. Use when implementing ASC 842, classifying leases, or calculating lease liabilities.",
+                "structuring-annual-meeting-materials",
+                "Prepares annual meeting presentations with fund performance review, market outlook, pipeline discussion, and LP Q&A preparation. Use when preparing AGM materials, structuring LP presentations, or coordinating annual meetings.",
             ),
             (
-                "managing-impairment-testing",
-                "Structures goodwill and long-lived asset impairment testing with fair value estimation and documentation. Use when testing for impairment, estimating fair values, or documenting impairment analysis.",
+                "managing-investor-due-diligence-responses",
+                "Coordinates DDQ completion with standardized responses, data room preparation, and reference call management for prospective LPs. Use when responding to LP DD, completing DDQs, or managing investor onboarding processes.",
             ),
             (
-                "managing-equity-compensation-accounting",
-                "Structures stock-based compensation accounting with fair value measurement and expense recognition. Use when accounting for equity comp, calculating Black-Scholes values, or documenting share-based payments.",
+                "preparing-fund-valuation-reports",
+                "Structures fund NAV reporting with investment-level valuations, methodology disclosure, and fair value hierarchy classification. Use when preparing NAV reports, documenting valuation methodology, or presenting fair value analysis.",
             ),
             (
-                "managing-income-tax-provisions",
-                "Structures income tax provision calculation with current/deferred components and rate reconciliation. Use when calculating tax provisions, analyzing deferred taxes, or preparing rate reconciliations.",
+                "managing-investor-portal-content",
+                "Structures investor portal organization with document hierarchy, access permissions, and communication archive management. Use when managing investor portals, organizing LP documentation, or maintaining investor communication records.",
             ),
             (
-                "managing-consolidation-accounting",
-                "Structures consolidation procedures with intercompany elimination, minority interest, and foreign currency translation. Use when performing consolidations, eliminating intercompany transactions, or translating foreign subsidiaries.",
+                "analyzing-commitment-pacing-models",
+                "Builds LP commitment pacing with deployment curves, distribution assumptions, and NAV projection for portfolio planning. Use when modeling commitment pacing, projecting LP cash flows, or planning new fund allocations.",
             ),
             (
-                "managing-audit-preparation",
-                "Structures external audit preparation with PBC list management, supporting documentation, and inquiry responses. Use when preparing for external audit, organizing PBC items, or responding to audit inquiries.",
+                "preparing-k1-and-tax-reporting-packages",
+                "Coordinates partner tax reporting with Schedule K-1 preparation, PFIC reporting, and state filing requirements. Use when preparing K-1 packages, coordinating tax reporting, or managing partner tax communication.",
             ),
             (
-                "managing-internal-audit",
-                "Structures internal audit planning and execution with risk assessment, testing, and findings documentation. Use when planning internal audits, conducting audit testing, or documenting audit findings.",
+                "structuring-investor-segmentation",
+                "Designs LP segmentation with tiered communication, access differentiation, and relationship management frameworks. Use when segmenting investor base, designing communication strategies, or managing LP relationships.",
             ),
             (
-                "managing-sox-compliance",
-                "Structures SOX compliance with control documentation, testing, and deficiency evaluation. Use when managing SOX compliance, testing internal controls, or evaluating control deficiencies.",
+                "managing-secondary-transfer-requests",
+                "Processes LP interest transfer requests with GP consent evaluation, ROFR administration, and transfer documentation requirements. Use when managing LP transfers, evaluating transfer requests, or coordinating interest assignments.",
             ),
             (
-                "managing-business-combinations",
-                "Structures acquisition accounting with purchase price allocation, fair value measurement, and goodwill calculation. Use when accounting for acquisitions, allocating purchase price, or measuring fair values.",
+                "preparing-esg-and-impact-reporting",
+                "Structures ESG and impact reporting for fund investors with metric collection, framework alignment, and progress communication. Use when preparing ESG reports, collecting impact data, or aligning with reporting frameworks.",
             ),
             (
-                "managing-segment-reporting",
-                "Structures segment reporting with operating segment identification, measurement, and disclosure requirements. Use when preparing segment disclosures, identifying operating segments, or allocating intersegment items.",
+                "managing-investor-compliance-requests",
+                "Coordinates regulatory and compliance information requests from institutional LPs including FOIA, regulatory filings, and audit support. Use when responding to compliance requests, managing FOIA inquiries, or supporting LP audit processes.",
             ),
             (
-                "managing-fair-value-measurement",
-                "Applies ASC 820 fair value framework with hierarchy classification and valuation technique documentation. Use when measuring fair values, classifying in the fair value hierarchy, or documenting valuation approaches.",
+                "analyzing-investor-concentration-risk",
+                "Monitors LP base composition with concentration analysis, redemption risk, and re-up probability assessment. Use when analyzing investor concentration, assessing re-up risk, or managing LP base diversification.",
             ),
             (
-                "managing-sec-reporting",
-                "Structures SEC filing preparation with 10-K, 10-Q, 8-K content requirements and XBRL tagging. Use when preparing SEC filings, reviewing filing content, or managing XBRL tagging.",
+                "preparing-deal-attribution-analysis",
+                "Structures investment-level performance attribution with return decomposition, timing analysis, and value driver identification. Use when preparing deal attribution, analyzing investment returns, or building exit case studies.",
             ),
             (
-                "managing-earnings-releases",
-                "Structures earnings release preparation with GAAP/non-GAAP reconciliation and forward guidance documentation. Use when preparing earnings releases, reconciling non-GAAP measures, or drafting press releases.",
+                "managing-co-investment-reporting",
+                "Structures co-investment reporting with deal-level performance, fee/carry calculations, and co-invest program aggregate analysis. Use when reporting co-invest performance, tracking deal-level returns, or preparing co-invest summaries.",
             ),
             (
-                "managing-accounting-policy-changes",
-                "Evaluates new accounting standard impacts with transition planning and disclosure preparation. Use when implementing new standards, assessing ASU impacts, or planning accounting transitions.",
+                "conducting-peer-benchmarking-analysis",
+                "Evaluates fund performance against peer universes with vintage year comparison, quartile ranking, and strategy-specific benchmarking. Use when benchmarking fund performance, analyzing vintage comparisons, or assessing relative positioning.",
             ),
             (
-                "managing-foreign-currency-accounting",
-                "Structures foreign currency transaction and translation accounting with hedge documentation. Use when accounting for FX transactions, translating foreign operations, or documenting FX hedges.",
+                "managing-denominator-effect-analysis",
+                "Evaluates LP portfolio rebalancing pressure from denominator effects with over-allocation analysis and pace adjustment recommendations. Use when analyzing denominator effects, assessing LP allocation constraints, or modeling portfolio rebalancing.",
             ),
             (
-                "managing-debt-and-equity-issuance",
-                "Structures accounting for debt and equity issuances with classification, measurement, and issuance cost treatment. Use when accounting for debt issuance, recording equity offerings, or classifying hybrid instruments.",
+                "preparing-fundraising-pipeline-reports",
+                "Tracks fundraising progress with prospect pipeline, commitment tracking, and closing projection for fund formation processes. Use when monitoring fundraising, tracking LP commitments, or projecting fund closing timelines.",
             ),
         ],
     },
-    # ─── 10. REAL ESTATE ─────────────────────────────────────────────
-    "Real Estate Finance": {
-        "description": "Real estate investment analysis, property finance, and REIT workflows",
+    # ─── 12. INFRASTRUCTURE & PROJECT FINANCE ─────────────────────────
+    "Infrastructure and Project Finance": {
+        "description": "Project development, concession analysis, and infrastructure investment evaluation",
+        "practice_areas": ["Project Finance", "Infrastructure Investment", "PPP"],
+        "skills": [
+            (
+                "modeling-project-finance-structures",
+                "Builds project finance models with construction period draws, operational cash flows, DSCR covenants, and sculpted debt repayment. Use when modeling project finance, calculating debt service coverage, or structuring project lending.",
+            ),
+            (
+                "evaluating-concession-agreements",
+                "Analyzes concession terms with revenue sharing, performance requirements, hand-back conditions, and termination provisions. Use when evaluating concessions, analyzing PPP contracts, or assessing concession economics.",
+            ),
+            (
+                "analyzing-infrastructure-asset-valuations",
+                "Values infrastructure assets with DCF, regulated asset base, and comparable transaction methodologies adjusted for regulatory and contractual frameworks. Use when valuing infrastructure assets, analyzing regulated utilities, or benchmarking infra transactions.",
+            ),
+            (
+                "conducting-traffic-and-demand-studies",
+                "Evaluates demand forecasts for toll roads, airports, and ports with independent engineer review and scenario sensitivity analysis. Use when analyzing traffic studies, validating demand forecasts, or stress testing revenue projections.",
+            ),
+            (
+                "structuring-public-private-partnerships",
+                "Designs PPP structures with risk allocation, availability payment mechanisms, and value-for-money analysis for public sponsors. Use when structuring PPPs, analyzing risk allocation, or evaluating VfM for public sector clients.",
+            ),
+            (
+                "analyzing-renewable-energy-project-finance",
+                "Evaluates renewable energy project economics with PPA structures, merchant tail risk, and production profile analysis. Use when analyzing wind/solar projects, evaluating PPA terms, or modeling renewable energy cash flows.",
+            ),
+            (
+                "modeling-construction-period-risk",
+                "Analyzes construction risk with EPC contract review, delay and cost overrun scenarios, and completion guarantee structures. Use when modeling construction risk, evaluating EPC terms, or stress testing project timelines.",
+            ),
+            (
+                "analyzing-regulatory-rate-structures",
+                "Evaluates regulated utility rate-setting with RAB methodology, allowed return analysis, and regulatory reset risk assessment. Use when analyzing regulatory frameworks, modeling rate cases, or evaluating allowed return mechanics.",
+            ),
+            (
+                "structuring-infrastructure-debt-facilities",
+                "Designs infrastructure lending with mini-perm structures, cash sweep mechanics, and maintenance/distribution covenants. Use when structuring project debt, designing covenant packages, or analyzing infrastructure lending terms.",
+            ),
+            (
+                "conducting-infrastructure-due-diligence",
+                "Structures infrastructure DD with technical assessment, regulatory review, environmental analysis, and community impact evaluation. Use when conducting infra DD, evaluating asset condition, or assessing regulatory risk.",
+            ),
+            (
+                "analyzing-transportation-infrastructure",
+                "Evaluates transportation assets with ridership analysis, fare structure assessment, and operating efficiency benchmarking. Use when analyzing transportation projects, evaluating mass transit, or assessing toll road economics.",
+            ),
+            (
+                "modeling-energy-transition-infrastructure",
+                "Assesses energy transition investments with battery storage, grid modernization, EV charging, and hydrogen infrastructure analysis. Use when modeling energy transition assets, evaluating storage economics, or analyzing grid infrastructure.",
+            ),
+            (
+                "analyzing-digital-infrastructure-assets",
+                "Evaluates data centers, fiber networks, and tower assets with capacity analysis, tenant credit, and technology obsolescence risk. Use when analyzing digital infrastructure, evaluating tower portfolios, or assessing data center investments.",
+            ),
+            (
+                "structuring-infrastructure-fund-terms",
+                "Designs infrastructure fund structures with longer fund lives, NAV-based distributions, and co-investment programs for illiquid assets. Use when structuring infra funds, designing open-ended vehicles, or analyzing infrastructure fund terms.",
+            ),
+            (
+                "analyzing-water-and-waste-infrastructure",
+                "Evaluates water treatment, waste management, and environmental services assets with regulatory compliance and growth drivers. Use when analyzing water infrastructure, evaluating waste assets, or assessing utility investments.",
+            ),
+            (
+                "modeling-inflation-linkage-in-infrastructure",
+                "Analyzes inflation protection mechanisms in infrastructure with CPI-linked revenues, index-based contracts, and real return modeling. Use when modeling inflation linkage, analyzing CPI adjustment, or evaluating real return profiles.",
+            ),
+            (
+                "conducting-environmental-impact-assessments",
+                "Evaluates environmental compliance requirements with permitting risk, mitigation obligations, and ESG assessment for infrastructure investments. Use when assessing environmental risk, evaluating permitting timelines, or analyzing environmental compliance.",
+            ),
+            (
+                "analyzing-social-infrastructure-investments",
+                "Evaluates social infrastructure including healthcare, education, and government facilities with availability-based revenue structures. Use when analyzing social infrastructure, evaluating availability payments, or assessing government-backed projects.",
+            ),
+            (
+                "managing-infrastructure-asset-lifecycle",
+                "Tracks infrastructure asset performance with maintenance planning, capital expenditure optimization, and end-of-life valuation. Use when managing infrastructure portfolios, planning capex, or evaluating asset condition.",
+            ),
+            (
+                "preparing-infrastructure-investment-cases",
+                "Structures infrastructure investment recommendations with regulatory analysis, cash flow modeling, and risk assessment for IC presentation. Use when preparing infra investment cases, building IC materials, or documenting infrastructure opportunities.",
+            ),
+        ],
+    },
+    # ─── 13. REAL ASSETS & NATURAL RESOURCES ──────────────────────────
+    "Real Assets and Natural Resources": {
+        "description": "Commodity-linked capital, mining, energy, and real asset investment evaluation",
         "practice_areas": [
-            "Real Estate Finance",
-            "REIT Analysis",
-            "Property Investment",
+            "Natural Resources",
+            "Energy Capital",
+            "Commodity Investment",
         ],
         "skills": [
             (
-                "analyzing-property-valuations",
-                "Structures real estate valuation with income, comparable sales, and cost approaches. Use when valuing properties, performing appraisal analysis, or comparing valuation methodologies.",
+                "evaluating-upstream-energy-assets",
+                "Assesses upstream oil and gas assets with reserve estimation, production decline curves, and net asset value modeling. Use when evaluating E&P assets, analyzing reserve reports, or modeling upstream economics.",
             ),
             (
-                "building-real-estate-pro-formas",
-                "Constructs property pro forma models with rent roll analysis, expense projections, and cash flow forecasting. Use when building real estate models, projecting property cash flows, or analyzing investment returns.",
+                "modeling-mining-project-economics",
+                "Builds mining project financial models with resource estimation, mine plan integration, and commodity price sensitivity analysis. Use when modeling mining investments, analyzing feasibility studies, or evaluating mineral assets.",
             ),
             (
-                "analyzing-reit-financials",
-                "Evaluates REIT financial performance with FFO, AFFO, NAV, and leverage metrics. Use when analyzing REITs, calculating FFO/AFFO, or comparing REIT valuations.",
+                "analyzing-commodity-price-risk",
+                "Evaluates commodity price exposure with forward curve analysis, hedging strategies, and break-even price sensitivity. Use when analyzing commodity risk, designing hedging programs, or stress testing price assumptions.",
             ),
             (
-                "managing-loan-underwriting-real-estate",
-                "Structures commercial real estate loan underwriting with DSCR, LTV, and debt yield analysis. Use when underwriting CRE loans, calculating coverage ratios, or evaluating loan terms.",
+                "structuring-royalty-and-streaming-deals",
+                "Designs royalty and streaming agreements with volume projections, delivery schedules, and implied return analysis. Use when structuring royalty deals, analyzing stream economics, or evaluating passive resource exposure.",
             ),
             (
-                "analyzing-lease-structures",
-                "Evaluates commercial lease terms with net effective rent, concession analysis, and tenant credit assessment. Use when analyzing leases, calculating effective rents, or comparing lease structures.",
+                "conducting-reserve-and-resource-analysis",
+                "Evaluates mineral and hydrocarbon reserves with classification methodology, resource conversion rates, and valuation per unit analysis. Use when analyzing reserve reports, validating resource estimates, or assessing depletion profiles.",
             ),
             (
-                "managing-construction-lending",
-                "Structures construction loan analysis with draw schedules, budget tracking, and completion risk assessment. Use when managing construction loans, tracking draw requests, or monitoring construction progress.",
+                "analyzing-midstream-infrastructure-assets",
+                "Evaluates midstream assets with throughput analysis, fee-based vs commodity-exposed revenue, and contract structure assessment. Use when analyzing midstream investments, evaluating pipeline assets, or assessing gathering systems.",
             ),
             (
-                "analyzing-cap-rates",
-                "Structures capitalization rate analysis with market comparison, risk premium decomposition, and trend assessment. Use when analyzing cap rates, comparing market yields, or assessing pricing trends.",
+                "modeling-renewable-resource-yields",
+                "Builds renewable energy yield models with resource assessment, capacity factor analysis, and P50/P90 production estimates. Use when modeling wind/solar yields, analyzing resource data, or evaluating production uncertainty.",
             ),
             (
-                "managing-property-due-diligence",
-                "Structures real estate due diligence with physical inspection, environmental review, and title analysis coordination. Use when conducting property DD, reviewing environmental reports, or coordinating due diligence workstreams.",
+                "evaluating-timber-and-agriculture-assets",
+                "Assesses timberland and agricultural investments with biological growth rates, harvest economics, and land value appreciation. Use when evaluating timber investments, analyzing farmland, or assessing biological asset returns.",
             ),
             (
-                "analyzing-real-estate-markets",
-                "Structures real estate market analysis with supply/demand dynamics, absorption rates, and rent growth projections. Use when analyzing real estate markets, forecasting market conditions, or evaluating market fundamentals.",
+                "analyzing-power-market-structures",
+                "Evaluates electricity market design with capacity payments, energy margins, ancillary services, and renewable intermittency management. Use when analyzing power markets, evaluating merchant exposure, or assessing capacity market dynamics.",
             ),
             (
-                "managing-reit-portfolio-analysis",
-                "Structures REIT portfolio evaluation with property-level analysis, geographic diversification, and tenant concentration. Use when analyzing REIT portfolios, evaluating property mix, or assessing concentration risk.",
+                "structuring-energy-offtake-agreements",
+                "Designs power purchase agreements and energy offtake structures with price mechanics, volume commitments, and curtailment provisions. Use when structuring PPAs, analyzing offtake terms, or evaluating energy contract risk.",
             ),
             (
-                "managing-real-estate-fund-reporting",
-                "Structures real estate fund reporting with property-level performance, valuation updates, and distribution analysis. Use when preparing real estate fund reports, calculating fund returns, or documenting property performance.",
+                "conducting-environmental-remediation-analysis",
+                "Evaluates environmental liability exposure with remediation cost estimation, regulatory compliance requirements, and insurance coverage assessment. Use when analyzing environmental liabilities, estimating cleanup costs, or assessing environmental risk.",
             ),
             (
-                "analyzing-development-feasibility",
-                "Evaluates real estate development projects with cost analysis, return projections, and risk assessment. Use when analyzing development deals, projecting development returns, or assessing feasibility.",
+                "analyzing-water-rights-and-allocation",
+                "Evaluates water rights valuation with seniority analysis, regulatory framework assessment, and allocation risk for resource investments. Use when analyzing water rights, evaluating water allocation, or assessing water risk.",
             ),
             (
-                "managing-property-disposition",
-                "Structures property sale processes with broker opinion of value, marketing strategy, and bid analysis. Use when managing property sales, evaluating offers, or coordinating disposition processes.",
+                "modeling-carbon-credit-economics",
+                "Builds carbon credit models with offset generation analysis, verification costs, and market pricing dynamics for carbon-linked investments. Use when modeling carbon credits, analyzing offset economics, or evaluating carbon market exposure.",
             ),
             (
-                "analyzing-multifamily-investments",
-                "Structures multifamily property analysis with rent comps, expense benchmarking, and value-add assessment. Use when analyzing apartment investments, comparing rent levels, or evaluating value-add opportunities.",
+                "evaluating-critical-minerals-supply-chains",
+                "Assesses critical mineral investments with supply chain mapping, geopolitical risk, and processing infrastructure analysis. Use when evaluating critical minerals, analyzing lithium/cobalt supply, or assessing rare earth investments.",
             ),
             (
-                "managing-cmbs-analysis",
-                "Evaluates CMBS structures with loan-level analysis, subordination assessment, and special servicing monitoring. Use when analyzing CMBS deals, reviewing loan pools, or monitoring CMBS performance.",
+                "analyzing-oilfield-services-economics",
+                "Evaluates OFS sector investments with rig count sensitivity, day rate analysis, and technology adoption curves. Use when analyzing oilfield services, evaluating service company economics, or assessing technology uptake.",
             ),
             (
-                "analyzing-industrial-properties",
-                "Structures industrial real estate analysis with logistics market assessment and tenant credit evaluation. Use when analyzing industrial properties, evaluating warehouse investments, or assessing logistics demand.",
+                "structuring-real-asset-fund-vehicles",
+                "Designs fund structures for real asset strategies with long-dated commitments, NAV-based mechanics, and co-investment programs. Use when structuring resource funds, designing natural resource vehicles, or analyzing real asset fund terms.",
             ),
             (
-                "managing-real-estate-tax-considerations",
-                "Structures real estate tax planning with 1031 exchange, depreciation, and opportunity zone analysis. Use when planning real estate taxes, structuring 1031 exchanges, or analyzing tax implications.",
+                "analyzing-decommissioning-obligations",
+                "Evaluates asset retirement and decommissioning liabilities with cost estimation, timing analysis, and funding adequacy assessment. Use when analyzing decommissioning costs, evaluating ARO exposure, or assessing abandonment liability.",
             ),
             (
-                "analyzing-hospitality-investments",
-                "Structures hotel and hospitality investment analysis with RevPAR, ADR, and operational benchmarking. Use when analyzing hotel investments, benchmarking hospitality metrics, or evaluating hotel performance.",
+                "conducting-resource-asset-due-diligence",
+                "Structures technical and commercial DD for resource assets with geological review, operational assessment, and regulatory evaluation. Use when conducting resource DD, evaluating technical reports, or assessing operational risk.",
             ),
             (
-                "managing-real-estate-debt-funds",
-                "Structures real estate debt fund analysis with loan origination, portfolio management, and credit metrics. Use when analyzing RE debt funds, evaluating loan portfolios, or managing debt fund performance.",
+                "modeling-resource-depletion-economics",
+                "Builds depletion models with production decline, reserve replacement economics, and terminal value analysis for finite-life assets. Use when modeling depletion, analyzing resource longevity, or evaluating reserve life economics.",
             ),
             (
-                "analyzing-retail-properties",
-                "Structures retail property analysis with tenant sales productivity, co-tenancy evaluation, and redevelopment potential. Use when analyzing retail properties, evaluating tenant performance, or assessing redevelopment.",
+                "preparing-real-asset-investment-cases",
+                "Structures real asset investment recommendations with commodity thesis, asset-level analysis, and risk assessment for IC presentation. Use when preparing resource investment cases, building IC materials, or documenting real asset opportunities.",
             ),
         ],
     },
-    # ─── 11. INSURANCE ───────────────────────────────────────────────
-    "Insurance": {
-        "description": "Insurance analysis, underwriting, and actuarial workflows",
-        "practice_areas": ["Insurance", "Actuarial Science", "Reinsurance"],
+    # ─── 14. CREDIT & INSTITUTIONAL LENDING ───────────────────────────
+    "Credit and Institutional Lending": {
+        "description": "Institutional credit analysis, syndicated lending, and credit fund operations",
+        "practice_areas": ["Credit Markets", "Leveraged Lending", "Direct Lending"],
         "skills": [
             (
-                "analyzing-insurance-financials",
-                "Structures insurance company financial analysis with combined ratio, reserve adequacy, and capital metrics. Use when analyzing insurance financials, evaluating combined ratios, or assessing reserve strength.",
+                "conducting-institutional-credit-analysis",
+                "Structures credit underwriting with financial ratio analysis, cash flow quality assessment, and downside scenario modeling. Use when underwriting credit, analyzing borrower quality, or writing credit opinions.",
             ),
             (
-                "managing-underwriting-analysis",
-                "Structures underwriting evaluation with risk assessment, pricing analysis, and terms documentation. Use when evaluating underwriting risk, analyzing pricing adequacy, or documenting underwriting decisions.",
+                "analyzing-leveraged-loan-markets",
+                "Monitors leveraged loan market conditions with new issue activity, technical dynamics, and CLO demand analysis. Use when analyzing loan markets, tracking CLO activity, or assessing market technical conditions.",
             ),
             (
-                "analyzing-loss-reserves",
-                "Evaluates loss reserve adequacy with development triangle analysis and actuarial methods. Use when analyzing reserves, interpreting loss triangles, or assessing reserve adequacy.",
+                "modeling-credit-fund-portfolios",
+                "Builds credit fund portfolio models with yield attribution, default/recovery scenarios, and portfolio-level return analysis. Use when modeling credit funds, projecting portfolio returns, or analyzing yield components.",
             ),
             (
-                "managing-reinsurance-programs",
-                "Structures reinsurance program analysis with cession optimization, pricing, and counterparty evaluation. Use when analyzing reinsurance, optimizing cession structures, or evaluating reinsurer credit.",
+                "structuring-direct-lending-facilities",
+                "Designs direct lending structures with pricing, covenant packages, and documentation tailored for middle-market borrowers. Use when structuring direct loans, designing covenant packages, or analyzing direct lending terms.",
             ),
             (
-                "analyzing-catastrophe-risk",
-                "Structures catastrophe risk assessment with model output interpretation and accumulation monitoring. Use when analyzing cat risk, interpreting cat model results, or managing cat exposure.",
+                "analyzing-credit-agreement-terms",
+                "Evaluates credit agreement provisions with borrower flexibility, lender protections, and documentation comparison analysis. Use when reviewing credit agreements, analyzing doc terms, or comparing loan documentation.",
             ),
             (
-                "managing-insurance-regulatory-filings",
-                "Structures statutory filing preparation with SAP differences, risk-based capital, and annual statement schedules. Use when preparing statutory filings, calculating RBC, or managing regulatory submissions.",
+                "conducting-credit-committee-presentations",
+                "Structures credit committee packages with borrower analysis, risk assessment, structuring proposal, and recommendation documentation. Use when preparing credit committee materials, presenting loan opportunities, or documenting credit decisions.",
             ),
             (
-                "analyzing-premium-pricing",
-                "Structures actuarial pricing analysis with loss cost estimation, expense loading, and rate adequacy testing. Use when analyzing premium rates, calculating rate indications, or assessing pricing adequacy.",
+                "modeling-default-and-recovery-analysis",
+                "Builds default probability and recovery rate models with industry data, structural analysis, and loss-given-default estimation. Use when modeling credit losses, estimating recovery values, or analyzing default scenarios.",
             ),
             (
-                "managing-claims-analysis",
-                "Structures claims data analysis with severity/frequency trending, case reserve monitoring, and litigation management. Use when analyzing claims data, trending claim frequency, or monitoring claim severity.",
+                "analyzing-middle-market-lending-dynamics",
+                "Evaluates middle-market lending environment with competition analysis, spread trends, and deal structure evolution. Use when analyzing middle-market lending, tracking competitive dynamics, or assessing market conditions.",
             ),
             (
-                "analyzing-insurance-investments",
-                "Evaluates insurance company investment portfolios with ALM considerations and regulatory constraints. Use when analyzing insurer investments, managing ALM, or evaluating portfolio compliance.",
+                "structuring-delayed-draw-facilities",
+                "Designs delayed-draw term loan structures with commitment fees, draw conditions, and availability period mechanics. Use when structuring DDTL facilities, designing draw-down mechanisms, or analyzing delayed-draw economics.",
             ),
             (
-                "managing-surplus-lines-compliance",
-                "Structures surplus lines compliance with eligibility verification, tax filing, and reporting requirements. Use when managing surplus lines, verifying eligibility, or documenting E&S compliance.",
+                "managing-credit-portfolio-surveillance",
+                "Monitors credit portfolio health with rating migration tracking, watchlist management, and early warning indicator analysis. Use when conducting portfolio surveillance, managing credit watchlists, or tracking credit migration.",
             ),
             (
-                "analyzing-life-insurance-products",
-                "Evaluates life insurance product structures with cash value analysis, cost comparisons, and suitability assessment. Use when analyzing life products, comparing insurance costs, or assessing product suitability.",
+                "analyzing-sponsor-backed-credit",
+                "Evaluates PE sponsor-backed credit with sponsor track record, equity contribution, and governance assessment. Use when analyzing sponsor-backed loans, assessing sponsor quality, or evaluating sponsor support dynamics.",
             ),
             (
-                "managing-insurance-fraud-detection",
-                "Structures insurance fraud detection with red flag identification, investigation protocols, and SIU referral documentation. Use when detecting insurance fraud, investigating suspicious claims, or documenting fraud indicators.",
+                "modeling-payment-in-kind-structures",
+                "Builds PIK and PIK toggle models with compound interest analysis, cash vs PIK election scenarios, and leverage impact assessment. Use when modeling PIK instruments, analyzing toggle mechanics, or evaluating accrued interest impact.",
             ),
             (
-                "analyzing-health-insurance-plans",
-                "Evaluates health insurance plan structures with actuarial value, network analysis, and cost projection. Use when analyzing health plans, comparing coverage, or projecting healthcare costs.",
+                "structuring-revolving-credit-commitments",
+                "Designs revolver structures with commitment sizing, utilization analysis, and availability management for credit fund portfolios. Use when structuring revolvers, sizing commitments, or managing availability exposure.",
             ),
             (
-                "managing-insurtech-evaluations",
-                "Evaluates insurance technology solutions with business case analysis and implementation assessment. Use when evaluating insurtech, assessing technology solutions, or analyzing digital insurance platforms.",
+                "conducting-industry-credit-analysis",
+                "Structures industry-level credit assessment with cyclicality analysis, regulatory risk, and sector-specific credit metrics. Use when analyzing industry credit conditions, evaluating sector risk, or building industry-level views.",
             ),
             (
-                "analyzing-cyber-insurance",
-                "Structures cyber insurance evaluation with coverage assessment, limit adequacy, and claims scenario analysis. Use when evaluating cyber coverage, analyzing policy terms, or assessing cyber insurance adequacy.",
+                "analyzing-intercreditor-agreements",
+                "Evaluates intercreditor and subordination provisions with lien priority, payment waterfall, and enforcement rights analysis. Use when analyzing intercreditor terms, evaluating subordination structures, or assessing lender priority.",
             ),
             (
-                "managing-insurance-capital-modeling",
-                "Structures insurance capital model analysis with economic capital, regulatory capital, and rating agency capital comparison. Use when modeling insurance capital, comparing capital frameworks, or assessing capital adequacy.",
+                "managing-loan-trading-and-settlement",
+                "Coordinates loan trading with LSTA standard documentation, delayed settlement compensation, and trade settlement mechanics. Use when managing loan trades, processing LSTA documentation, or coordinating trade settlement.",
             ),
             (
-                "analyzing-property-casualty-lines",
-                "Evaluates P&C insurance lines with market cycle analysis, loss cost trending, and competitive assessment. Use when analyzing P&C markets, tracking insurance cycles, or evaluating line profitability.",
+                "analyzing-credit-fund-performance",
+                "Evaluates credit fund returns with yield attribution, mark-to-market dynamics, and performance comparison across credit strategies. Use when analyzing credit fund performance, decomposing returns, or benchmarking credit strategies.",
             ),
             (
-                "managing-insurance-distribution",
-                "Structures insurance distribution analysis with channel economics, producer management, and compensation modeling. Use when analyzing distribution, evaluating producer performance, or modeling commission structures.",
+                "structuring-first-lien-last-out-facilities",
+                "Designs FILO structures with tranche-level pricing, distribution waterfalls, and intercreditor provisions within unitranche financing. Use when structuring FILO tranches, analyzing split economics, or designing blended pricing.",
             ),
             (
-                "analyzing-annuity-products",
-                "Evaluates annuity structures with guaranteed benefit analysis, fee comparison, and surrender value modeling. Use when analyzing annuities, comparing guaranteed benefits, or evaluating annuity products.",
+                "analyzing-private-credit-market-dynamics",
+                "Monitors private credit market evolution with AUM growth, competitive dynamics, and spread convergence with broadly syndicated markets. Use when analyzing private credit trends, tracking market evolution, or assessing competitive positioning.",
             ),
             (
-                "managing-risk-transfer-analysis",
-                "Structures risk transfer evaluation with economic efficiency, capacity optimization, and alternative risk transfer assessment. Use when evaluating risk transfer, optimizing risk financing, or assessing captive/ART structures.",
+                "preparing-credit-investment-memoranda",
+                "Creates credit investment memos with borrower analysis, structural assessment, risk evaluation, and relative value positioning. Use when writing credit memos, documenting loan decisions, or presenting credit opportunities.",
             ),
         ],
     },
-    # ─── 12. DERIVATIVES / QUANTITATIVE FINANCE ─────────────────────
-    "Quantitative Finance": {
-        "description": "Derivatives pricing, quantitative modeling, and structured product workflows",
+    # ─── 15. PUBLIC MARKETS & TRADING ─────────────────────────────────
+    "Public Markets and Trading": {
+        "description": "Market microstructure, execution strategies, and institutional trading workflows",
+        "practice_areas": ["Trading", "Market Making", "Execution"],
+        "skills": [
+            (
+                "analyzing-market-microstructure",
+                "Evaluates market structure dynamics with order book analysis, spread decomposition, and information asymmetry assessment. Use when analyzing market structure, evaluating trading venues, or assessing execution quality.",
+            ),
+            (
+                "modeling-transaction-cost-analysis",
+                "Builds TCA frameworks with implementation shortfall, VWAP comparison, and market impact estimation across asset classes. Use when conducting TCA, measuring execution quality, or analyzing trading costs.",
+            ),
+            (
+                "structuring-algorithmic-execution-strategies",
+                "Designs algo trading strategies with TWAP, VWAP, and implementation shortfall approaches tailored to order characteristics. Use when selecting execution algos, designing trading strategies, or optimizing order routing.",
+            ),
+            (
+                "analyzing-market-regime-indicators",
+                "Monitors market regime signals with volatility clustering, correlation dynamics, and liquidity condition assessment. Use when analyzing market regimes, detecting regime shifts, or adjusting strategy for market conditions.",
+            ),
+            (
+                "managing-block-trade-execution",
+                "Coordinates large block execution with market impact minimization, counterparty selection, and crossing network utilization. Use when executing block trades, managing large orders, or minimizing market footprint.",
+            ),
+            (
+                "analyzing-equity-market-breadth",
+                "Evaluates market breadth with advance-decline analysis, new high/low tracking, and sector participation assessment. Use when analyzing market breadth, assessing rally quality, or identifying divergences.",
+            ),
+            (
+                "modeling-securities-lending-dynamics",
+                "Analyzes securities lending market with borrow cost, short interest dynamics, and fail-to-deliver monitoring. Use when analyzing lending markets, tracking borrow costs, or evaluating short selling dynamics.",
+            ),
+            (
+                "structuring-portfolio-trading-strategies",
+                "Designs portfolio transition strategies with trade list optimization, crossing opportunities, and execution timeline planning. Use when planning portfolio transitions, managing rebalancing trades, or optimizing transition costs.",
+            ),
+            (
+                "analyzing-etf-creation-redemption-dynamics",
+                "Evaluates ETF market mechanics with premium/discount analysis, authorized participant activity, and creation unit arbitrage. Use when analyzing ETF trading, evaluating NAV premiums, or understanding creation/redemption flows.",
+            ),
+            (
+                "managing-best-execution-compliance",
+                "Structures best execution monitoring with venue analysis, systematic internalization assessment, and regulatory compliance documentation. Use when managing best execution, documenting execution decisions, or conducting venue analysis.",
+            ),
+            (
+                "analyzing-dark-pool-and-alternative-venues",
+                "Evaluates alternative trading systems with fill rate analysis, information leakage assessment, and venue toxicity measurement. Use when analyzing dark pools, evaluating ATS venues, or assessing execution venue quality.",
+            ),
+            (
+                "modeling-intraday-volatility-patterns",
+                "Analyzes intraday volatility dynamics with open/close effects, lunch-time patterns, and event-driven volatility estimation. Use when modeling intraday volatility, timing order execution, or analyzing time-of-day effects.",
+            ),
+            (
+                "analyzing-cross-asset-correlation-dynamics",
+                "Monitors cross-asset correlation patterns with regime-dependent analysis and diversification effectiveness assessment. Use when analyzing correlations, assessing diversification, or evaluating cross-asset relationships.",
+            ),
+            (
+                "structuring-pairs-trading-strategies",
+                "Designs statistical arbitrage pairs with cointegration analysis, spread dynamics, and entry/exit signal calibration. Use when building pairs trades, analyzing cointegration, or designing mean-reversion strategies.",
+            ),
+            (
+                "managing-margin-and-collateral-requirements",
+                "Tracks margin requirements with initial/variation margin, portfolio margin optimization, and collateral eligibility analysis. Use when managing margin, optimizing collateral, or analyzing portfolio margin impact.",
+            ),
+            (
+                "analyzing-market-flow-dynamics",
+                "Evaluates institutional flow patterns with fund flow analysis, positioning data, and sentiment indicator synthesis. Use when analyzing market flows, tracking institutional positioning, or assessing market sentiment.",
+            ),
+            (
+                "conducting-pre-trade-compliance-checks",
+                "Structures pre-trade compliance with restricted list screening, position limits, and regulatory constraint verification. Use when running pre-trade compliance, screening restricted securities, or verifying trading limits.",
+            ),
+            (
+                "analyzing-fixed-income-market-liquidity",
+                "Evaluates bond market liquidity with bid-ask spread analysis, dealer inventory assessment, and electronic trading penetration. Use when analyzing bond liquidity, assessing execution conditions, or evaluating venue selection.",
+            ),
+            (
+                "modeling-event-driven-trading-analysis",
+                "Analyzes event-driven opportunities with catalyst identification, pricing efficiency assessment, and risk/reward evaluation. Use when analyzing event-driven situations, evaluating catalysts, or assessing event timing.",
+            ),
+            (
+                "preparing-trading-desk-risk-reports",
+                "Structures trading desk risk reporting with P&L attribution, position summaries, and limit utilization tracking. Use when preparing desk risk reports, attributing trading P&L, or monitoring position limits.",
+            ),
+        ],
+    },
+    # ─── 16. DERIVATIVES & STRUCTURED PRODUCTS ────────────────────────
+    "Derivatives and Structured Products": {
+        "description": "Options, swaps, exotic structures, and hedging program design",
+        "practice_areas": ["Derivatives", "Structured Products", "Hedging"],
+        "skills": [
+            (
+                "pricing-vanilla-equity-options",
+                "Calculates option values with Black-Scholes, binomial, and Monte Carlo methods including Greeks sensitivity analysis. Use when pricing equity options, calculating Greeks, or evaluating option strategies.",
+            ),
+            (
+                "structuring-interest-rate-swaps",
+                "Designs IRS structures with fixed/float mechanics, day count conventions, and mark-to-market valuation analysis. Use when structuring rate swaps, analyzing swap economics, or evaluating hedging alternatives.",
+            ),
+            (
+                "modeling-exotic-option-payoffs",
+                "Builds pricing models for barrier, Asian, lookback, and other path-dependent options with Monte Carlo simulation. Use when pricing exotic options, modeling complex payoffs, or evaluating structured product components.",
+            ),
+            (
+                "analyzing-credit-derivative-structures",
+                "Evaluates CDS, CDX, and bespoke credit derivative structures with spread analysis and credit event mechanics. Use when analyzing credit derivatives, pricing CDS, or evaluating index tranche products.",
+            ),
+            (
+                "structuring-corporate-hedging-programs",
+                "Designs enterprise hedging strategies for commodity, FX, and interest rate exposures with hedge accounting qualification. Use when designing hedge programs, selecting hedging instruments, or structuring hedge documentation.",
+            ),
+            (
+                "modeling-counterparty-credit-exposure",
+                "Calculates potential future exposure and CVA with simulation-based approaches and netting agreement analysis. Use when modeling counterparty exposure, calculating CVA/DVA, or assessing counterparty risk.",
+            ),
+            (
+                "analyzing-volatility-surface-dynamics",
+                "Evaluates implied volatility surfaces with skew analysis, term structure dynamics, and surface fitting methodologies. Use when analyzing vol surfaces, assessing skew dynamics, or calibrating volatility models.",
+            ),
+            (
+                "structuring-total-return-swaps",
+                "Designs TRS structures with reference asset selection, financing rate mechanics, and collateral arrangements. Use when structuring TRS, analyzing synthetic exposure, or evaluating unfunded exposure alternatives.",
+            ),
+            (
+                "modeling-variance-and-volatility-swaps",
+                "Prices variance and volatility swaps with replication methodology, convexity adjustment, and discrete monitoring analysis. Use when pricing vol products, modeling variance swaps, or evaluating volatility strategies.",
+            ),
+            (
+                "analyzing-structured-note-payoffs",
+                "Deconstructs structured note payoffs with embedded option identification, issuer credit risk, and all-in cost analysis. Use when analyzing structured notes, evaluating embedded options, or assessing structured product costs.",
+            ),
+            (
+                "structuring-collar-and-prepaid-forward",
+                "Designs equity monetization structures with zero-cost collars, prepaid variable forwards, and exchange fund alternatives. Use when structuring equity monetization, designing collars, or evaluating concentrated stock solutions.",
+            ),
+            (
+                "modeling-fx-derivative-pricing",
+                "Prices FX options and exotic structures with Garman-Kohlhagen, local volatility, and stochastic volatility models. Use when pricing FX derivatives, evaluating FX options, or modeling cross-currency products.",
+            ),
+            (
+                "analyzing-isda-documentation-terms",
+                "Evaluates ISDA Master Agreement provisions with close-out netting, termination events, and credit support annexes. Use when reviewing ISDA terms, analyzing CSA provisions, or assessing documentation risk.",
+            ),
+            (
+                "structuring-inflation-derivatives",
+                "Designs inflation swap and option structures with zero-coupon and year-on-year mechanics and seasonal adjustment analysis. Use when structuring inflation derivatives, pricing inflation swaps, or evaluating inflation hedging.",
+            ),
+            (
+                "modeling-xva-adjustments",
+                "Calculates comprehensive XVA including CVA, DVA, FVA, KVA, and MVA with portfolio-level analysis and hedging strategies. Use when computing XVA, modeling valuation adjustments, or analyzing funding costs.",
+            ),
+            (
+                "analyzing-commodity-derivative-structures",
+                "Evaluates commodity swaps, options, and exotic structures with seasonality, convenience yield, and storage cost analysis. Use when pricing commodity derivatives, analyzing energy structures, or evaluating commodity hedging.",
+            ),
+            (
+                "structuring-equity-derivative-strategies",
+                "Designs equity derivative strategies with call spreads, put spreads, straddles, and ratio combinations for investment and hedging. Use when structuring equity strategies, designing option combinations, or evaluating strategy payoffs.",
+            ),
+            (
+                "managing-central-clearing-obligations",
+                "Coordinates central clearing requirements with CCP selection, margin optimization, and clearing threshold monitoring. Use when managing clearing obligations, optimizing CCP selection, or analyzing clearing economics.",
+            ),
+            (
+                "analyzing-counterparty-netting-efficiency",
+                "Evaluates netting benefits across derivative portfolios with bilateral vs cleared netting, portfolio compression, and capital savings. Use when analyzing netting efficiency, evaluating compression opportunities, or optimizing counterparty exposure.",
+            ),
+            (
+                "preparing-derivative-risk-reports",
+                "Structures derivative portfolio risk reporting with Greeks aggregation, scenario analysis, and limit monitoring. Use when preparing derivative risk reports, aggregating portfolio Greeks, or monitoring risk limits.",
+            ),
+        ],
+    },
+    # ─── 17. CROSS-BORDER CAPITAL ─────────────────────────────────────
+    "Cross-Border Capital": {
+        "description": "International deal structuring, FX management, and sovereign risk assessment",
         "practice_areas": [
-            "Derivatives",
-            "Quantitative Analysis",
-            "Structured Products",
+            "International Finance",
+            "Cross-Border Transactions",
+            "Emerging Markets",
         ],
         "skills": [
             (
-                "pricing-equity-options",
-                "Structures equity option pricing with Black-Scholes, binomial models, and implied volatility analysis. Use when pricing options, calculating Greeks, or analyzing implied volatility.",
+                "analyzing-sovereign-credit-risk",
+                "Evaluates sovereign creditworthiness with fiscal analysis, external vulnerability, political risk, and institutional quality assessment. Use when analyzing sovereign risk, assessing country credit, or evaluating government bond exposure.",
             ),
             (
-                "pricing-interest-rate-derivatives",
-                "Structures interest rate swap, cap, floor, and swaption pricing with curve construction and valuation. Use when pricing IR derivatives, building yield curves, or valuing swap portfolios.",
+                "structuring-cross-border-investments",
+                "Designs international investment structures with holding company selection, treaty benefits, and repatriation pathway optimization. Use when structuring cross-border deals, optimizing holding structures, or planning repatriation strategies.",
             ),
             (
-                "managing-derivatives-portfolio-risk",
-                "Structures derivatives portfolio risk with Greek sensitivities, scenario analysis, and hedging strategies. Use when managing derivatives risk, analyzing Greek exposures, or designing hedge strategies.",
+                "analyzing-emerging-market-capital-flows",
+                "Monitors EM capital flow dynamics with FDI, portfolio flows, reserve changes, and balance of payments analysis. Use when analyzing EM flows, tracking capital movement, or assessing EM investment conditions.",
             ),
             (
-                "analyzing-volatility-surfaces",
-                "Constructs and interprets implied volatility surfaces with skew analysis and term structure assessment. Use when analyzing vol surfaces, interpreting skew, or modeling volatility dynamics.",
+                "managing-foreign-currency-exposure",
+                "Structures FX hedging strategies for international portfolios with natural hedge identification, instrument selection, and cost analysis. Use when managing currency risk, designing FX hedges, or analyzing translation exposure.",
             ),
             (
-                "managing-collateral-and-margining",
-                "Structures CSA terms analysis with initial/variation margin calculation and collateral optimization. Use when managing collateral, calculating margin requirements, or optimizing posting strategies.",
+                "evaluating-country-risk-factors",
+                "Assesses country-level investment risk with political stability, rule of law, corruption indices, and expropriation history analysis. Use when evaluating country risk, assessing political exposure, or scoring sovereign investment environments.",
             ),
             (
-                "pricing-credit-derivatives",
-                "Structures credit derivative pricing with hazard rate calibration and default probability estimation. Use when pricing CDS, calculating credit spreads, or modeling default risk.",
+                "analyzing-cross-border-tax-structuring",
+                "Evaluates international tax structures with treaty networks, withholding rates, and permanent establishment risk analysis. Use when structuring cross-border tax, analyzing treaty benefits, or evaluating tax-efficient structuring.",
             ),
             (
-                "analyzing-exotic-options",
-                "Structures exotic option analysis with barrier, Asian, lookback, and digital option pricing methodologies. Use when pricing exotic options, modeling path-dependent payoffs, or analyzing exotic structures.",
+                "structuring-global-fund-distribution",
+                "Designs international fund distribution with UCITS/AIFMD compliance, passporting, and local registration requirements. Use when planning international distribution, structuring cross-border fund access, or navigating regulatory requirements.",
             ),
             (
-                "managing-xva-calculations",
-                "Structures CVA, DVA, FVA, and KVA calculation with methodology selection and counterparty exposure modeling. Use when calculating XVA, pricing counterparty credit risk, or analyzing funding valuation adjustments.",
+                "analyzing-frontier-market-investments",
+                "Evaluates frontier market opportunities with liquidity constraints, custody risk, settlement infrastructure, and governance assessment. Use when analyzing frontier markets, assessing operational risk, or evaluating frontier market access.",
             ),
             (
-                "building-quantitative-trading-models",
-                "Structures systematic trading strategy development with signal generation, backtesting, and validation. Use when building quant models, backtesting strategies, or validating trading signals.",
+                "modeling-currency-hedging-programs",
+                "Builds currency hedging models with rolling forward programs, option-based strategies, and cross-hedge analysis for international portfolios. Use when designing hedge programs, analyzing hedge ratios, or evaluating FX protection costs.",
             ),
             (
-                "managing-structured-note-analysis",
-                "Structures structured note evaluation with payoff analysis, embedded option decomposition, and fair value assessment. Use when analyzing structured notes, decomposing embedded options, or evaluating note pricing.",
+                "analyzing-capital-control-environments",
+                "Evaluates capital control regimes with repatriation restrictions, investment caps, and regulatory approval requirements. Use when assessing capital controls, evaluating repatriation risk, or analyzing investment restrictions.",
             ),
             (
-                "analyzing-commodity-derivatives",
-                "Structures commodity derivative pricing with forward curve construction and convenience yield estimation. Use when pricing commodity derivatives, analyzing forward curves, or modeling commodity markets.",
+                "structuring-offshore-and-onshore-access",
+                "Designs market access structures including QFII, Stock Connect, and GDR programs for restricted market entry. Use when structuring market access, evaluating access programs, or analyzing quota-based investment systems.",
             ),
             (
-                "managing-hedge-accounting",
-                "Structures hedge accounting documentation with effectiveness testing and ASC 815/IFRS 9 compliance. Use when documenting hedge relationships, testing effectiveness, or managing hedge accounting compliance.",
+                "analyzing-geopolitical-risk-exposure",
+                "Evaluates geopolitical risk impact on investment portfolios with sanctions exposure, conflict risk, and supply chain disruption analysis. Use when analyzing geopolitical risk, assessing sanctions impact, or evaluating political event exposure.",
             ),
             (
-                "analyzing-fx-derivatives",
-                "Structures FX option and forward pricing with cross-currency basis analysis and volatility assessment. Use when pricing FX derivatives, analyzing currency options, or evaluating cross-currency basis.",
+                "conducting-cross-border-due-diligence",
+                "Structures international DD with multi-jurisdictional legal review, regulatory assessment, and cultural integration analysis. Use when conducting international DD, managing multi-country processes, or evaluating cross-border operational risk.",
             ),
             (
-                "managing-clearing-and-settlement",
-                "Structures central clearing analysis with CCP margin methodology and default waterfall assessment. Use when managing clearing relationships, analyzing CCP margins, or evaluating default waterfalls.",
+                "analyzing-local-currency-debt-markets",
+                "Evaluates local currency government and corporate bond markets with yield analysis, inflation dynamics, and FX carry assessment. Use when analyzing local currency debt, evaluating EM bond opportunities, or assessing carry strategies.",
             ),
             (
-                "building-monte-carlo-simulations",
-                "Constructs Monte Carlo simulation frameworks with variance reduction and convergence analysis. Use when building MC simulations, implementing variance reduction, or assessing simulation accuracy.",
+                "structuring-development-finance-instruments",
+                "Designs blended finance structures with DFI participation, concessional capital, and catalytic funding for emerging market investments. Use when structuring DFI co-investments, designing blended finance, or analyzing concessional terms.",
             ),
             (
-                "analyzing-correlation-trading",
-                "Structures correlation analysis with index vs. tranche pricing and correlation skew assessment. Use when analyzing correlation products, pricing tranches, or evaluating dispersion trades.",
+                "managing-cross-border-settlement-risk",
+                "Evaluates settlement risk in cross-border transactions with time zone analysis, CLS participation, and Herstatt risk mitigation. Use when managing settlement risk, analyzing CLS eligibility, or evaluating cross-currency settlement.",
             ),
             (
-                "managing-algorithmic-trading-risk",
-                "Structures algo trading risk management with execution quality, market impact, and circuit breaker monitoring. Use when managing algo risk, evaluating execution quality, or monitoring trading algorithms.",
+                "analyzing-international-regulatory-arbitrage",
+                "Evaluates regulatory differences across jurisdictions with comparative framework analysis and optimal domicile selection. Use when analyzing regulatory environments, comparing jurisdiction frameworks, or selecting fund domiciles.",
             ),
             (
-                "analyzing-variance-swaps",
-                "Structures variance and volatility swap pricing with realized/implied vol analysis and hedging. Use when pricing variance swaps, analyzing vol risk premium, or hedging volatility exposure.",
+                "structuring-joint-venture-investments",
+                "Designs cross-border JV structures with governance frameworks, exit mechanisms, and dispute resolution for international partnerships. Use when structuring international JVs, designing governance frameworks, or planning exit mechanics.",
             ),
             (
-                "managing-dodd-frank-reporting",
-                "Structures Dodd-Frank derivatives reporting with trade reporting, position limits, and SEF compliance. Use when managing DFA reporting, submitting trade reports, or ensuring SEF compliance.",
+                "analyzing-trade-finance-instruments",
+                "Evaluates trade finance structures with letters of credit, supply chain financing, and receivables factoring for cross-border commerce. Use when analyzing trade finance, evaluating LC structures, or assessing supply chain financing.",
             ),
             (
-                "analyzing-total-return-swaps",
-                "Structures TRS analysis with funding benefit, counterparty exposure, and economic equivalence assessment. Use when analyzing TRS, evaluating synthetic exposure, or comparing TRS to cash positions.",
+                "preparing-cross-border-investment-cases",
+                "Structures international investment recommendations with country risk overlay, currency analysis, and structural considerations for IC presentation. Use when preparing cross-border cases, building international IC materials, or documenting cross-border opportunities.",
             ),
         ],
     },
-    # ─── 13. FINTECH / PAYMENTS ──────────────────────────────────────
-    "Financial Technology": {
-        "description": "Digital finance, payments, and financial innovation workflows",
-        "practice_areas": ["Fintech", "Payments", "Digital Banking"],
-        "skills": [
-            (
-                "analyzing-payment-flows",
-                "Structures payment system analysis with transaction flow mapping, interchange economics, and settlement timing. Use when analyzing payment systems, mapping transaction flows, or understanding interchange.",
-            ),
-            (
-                "evaluating-fintech-business-models",
-                "Structures fintech company analysis with unit economics, customer acquisition, and regulatory moat assessment. Use when evaluating fintech companies, analyzing unit economics, or assessing fintech business models.",
-            ),
-            (
-                "managing-payment-compliance",
-                "Structures payment regulatory compliance with PCI-DSS, money transmitter licensing, and BSA requirements. Use when managing payment compliance, assessing PCI requirements, or navigating MTL licensing.",
-            ),
-            (
-                "analyzing-digital-lending-platforms",
-                "Evaluates digital lending models with credit model assessment, funding structure, and regulatory analysis. Use when analyzing online lenders, evaluating credit models, or assessing lending platform risk.",
-            ),
-            (
-                "managing-open-banking-integration",
-                "Structures open banking API integration with data sharing, consent management, and security requirements. Use when implementing open banking, managing API integrations, or evaluating data sharing frameworks.",
-            ),
-            (
-                "analyzing-blockchain-applications",
-                "Evaluates blockchain use cases in financial services with DLT assessment and implementation feasibility. Use when analyzing blockchain applications, evaluating DLT solutions, or assessing crypto infrastructure.",
-            ),
-            (
-                "managing-digital-wallet-operations",
-                "Structures digital wallet analysis with stored value, regulatory classification, and risk assessment. Use when analyzing digital wallets, evaluating stored value products, or managing wallet compliance.",
-            ),
-            (
-                "analyzing-embedded-finance",
-                "Evaluates embedded finance opportunities with distribution economics and regulatory framework analysis. Use when analyzing embedded finance, evaluating BaaS models, or assessing embedded lending/insurance.",
-            ),
-            (
-                "managing-regtech-evaluations",
-                "Evaluates regulatory technology solutions with compliance efficiency and implementation cost-benefit analysis. Use when evaluating regtech, analyzing compliance automation, or assessing regulatory technology.",
-            ),
-            (
-                "analyzing-neobank-models",
-                "Structures neobank business analysis with customer economics, funding structure, and growth sustainability. Use when analyzing neobanks, evaluating digital bank models, or assessing challenger bank viability.",
-            ),
-            (
-                "managing-api-banking-analysis",
-                "Structures banking API evaluation with functionality assessment, security review, and integration planning. Use when evaluating banking APIs, planning API integration, or assessing API security.",
-            ),
-            (
-                "analyzing-insurtech-models",
-                "Evaluates insurtech business models with distribution innovation, underwriting technology, and claims automation. Use when analyzing insurtech, evaluating digital insurance, or assessing insurance technology.",
-            ),
-            (
-                "managing-crypto-asset-analysis",
-                "Structures cryptocurrency and digital asset analysis with protocol evaluation and market assessment. Use when analyzing crypto assets, evaluating blockchain protocols, or assessing digital asset markets.",
-            ),
-            (
-                "analyzing-wealthtech-platforms",
-                "Evaluates wealth management technology with robo-advisory models, digital planning, and fee analysis. Use when analyzing wealthtech, evaluating robo-advisors, or assessing digital wealth platforms.",
-            ),
-            (
-                "managing-cross-border-payment-analysis",
-                "Structures cross-border payment evaluation with corridor analysis, pricing, and regulatory requirements. Use when analyzing cross-border payments, evaluating remittance services, or assessing international payment solutions.",
-            ),
-            (
-                "analyzing-buy-now-pay-later",
-                "Evaluates BNPL business models with credit performance, merchant economics, and regulatory treatment. Use when analyzing BNPL, evaluating installment products, or assessing consumer lending innovation.",
-            ),
-            (
-                "managing-stablecoin-analysis",
-                "Structures stablecoin evaluation with reserve backing, redemption mechanics, and regulatory classification. Use when analyzing stablecoins, evaluating reserve adequacy, or assessing stablecoin risk.",
-            ),
-            (
-                "analyzing-tokenization-applications",
-                "Evaluates real-world asset tokenization with legal structure, market infrastructure, and liquidity analysis. Use when analyzing tokenization, evaluating security tokens, or assessing asset digitization.",
-            ),
-            (
-                "managing-financial-data-aggregation",
-                "Structures data aggregation analysis with connectivity, accuracy assessment, and consumer consent frameworks. Use when evaluating data aggregation, analyzing financial data APIs, or assessing account linking.",
-            ),
-            (
-                "analyzing-ai-in-financial-services",
-                "Evaluates AI/ML applications in financial services with model governance, bias assessment, and regulatory considerations. Use when analyzing AI in finance, evaluating ML models, or assessing AI governance.",
-            ),
-        ],
-    },
-    # ─── 14. TAX ─────────────────────────────────────────────────────
-    "Tax": {
-        "description": "Tax planning, compliance, and advisory workflows for financial transactions",
-        "practice_areas": ["Tax Planning", "Tax Compliance", "International Tax"],
-        "skills": [
-            (
-                "analyzing-corporate-tax-structures",
-                "Structures corporate tax analysis with entity selection, state nexus, and effective tax rate optimization. Use when analyzing tax structures, selecting entity types, or optimizing corporate tax positions.",
-            ),
-            (
-                "managing-transfer-pricing-compliance",
-                "Structures transfer pricing documentation with comparable analysis, method selection, and intercompany agreement review. Use when managing transfer pricing, documenting arm's-length pricing, or preparing TP reports.",
-            ),
-            (
-                "analyzing-international-tax-planning",
-                "Evaluates international tax structures with BEPS considerations, treaty analysis, and repatriation planning. Use when planning international tax, analyzing tax treaties, or structuring cross-border operations.",
-            ),
-            (
-                "managing-sales-tax-compliance",
-                "Structures sales tax analysis with nexus determination, taxability classification, and exemption management. Use when managing sales tax, determining nexus, or analyzing taxability.",
-            ),
-            (
-                "analyzing-m-and-a-tax-implications",
-                "Evaluates tax implications of acquisition structures with 338(h)(10), 368 reorganization, and step-up analysis. Use when analyzing deal tax, structuring tax-efficient acquisitions, or evaluating tax-free reorganizations.",
-            ),
-            (
-                "managing-tax-provision-preparation",
-                "Structures income tax provision calculations with ASC 740 requirements and rate reconciliation. Use when preparing tax provisions, calculating deferred taxes, or analyzing ETR components.",
-            ),
-            (
-                "analyzing-partnership-tax-structures",
-                "Evaluates partnership tax arrangements with allocation waterfall, basis tracking, and carried interest treatment. Use when analyzing partnership tax, modeling distribution waterfalls, or tracking outside basis.",
-            ),
-            (
-                "managing-tax-controversy",
-                "Structures tax controversy management with audit defense, protest, and appeals documentation. Use when managing tax audits, preparing protest letters, or documenting audit defense positions.",
-            ),
-            (
-                "analyzing-real-estate-tax-planning",
-                "Evaluates real estate tax strategies including 1031 exchanges, opportunity zones, and cost segregation. Use when planning real estate tax, structuring 1031 exchanges, or analyzing cost segregation studies.",
-            ),
-            (
-                "managing-estimated-tax-planning",
-                "Structures quarterly estimated tax planning with safe harbor calculations and penalty avoidance strategies. Use when planning estimated taxes, calculating safe harbor payments, or avoiding underpayment penalties.",
-            ),
-            (
-                "analyzing-state-income-tax",
-                "Evaluates multi-state income tax positions with apportionment, nexus, and combined reporting analysis. Use when analyzing state tax, calculating apportionment, or managing multi-state filing.",
-            ),
-            (
-                "managing-tax-credit-analysis",
-                "Identifies and structures tax credit opportunities including R&D, energy, and employment credits. Use when analyzing tax credits, quantifying R&D credits, or evaluating credit eligibility.",
-            ),
-            (
-                "analyzing-cryptocurrency-tax",
-                "Structures cryptocurrency tax analysis with cost basis tracking, gain classification, and reporting requirements. Use when analyzing crypto tax, tracking digital asset basis, or classifying crypto transactions.",
-            ),
-            (
-                "managing-estate-and-gift-tax",
-                "Structures estate and gift tax planning with valuation, exemption utilization, and generation-skipping analysis. Use when planning estate tax, analyzing gift tax, or structuring generational transfers.",
-            ),
-            (
-                "analyzing-compensation-tax",
-                "Evaluates executive compensation tax with Section 409A, 280G golden parachute, and equity comp treatment. Use when analyzing compensation tax, evaluating 409A compliance, or structuring equity compensation.",
-            ),
-            (
-                "managing-indirect-tax-analysis",
-                "Structures value-added tax and customs duty analysis with cross-border transaction considerations. Use when managing VAT, analyzing customs duties, or evaluating indirect tax positions.",
-            ),
-            (
-                "analyzing-tax-reform-impacts",
-                "Evaluates legislative tax changes with modeling, transition planning, and compliance requirement analysis. Use when assessing tax reform, modeling legislative changes, or planning compliance transitions.",
-            ),
-            (
-                "managing-tax-information-reporting",
-                "Structures Form 1099, W-2, and other information reporting with classification and filing requirements. Use when managing tax reporting, classifying payments, or ensuring filing compliance.",
-            ),
-            (
-                "analyzing-nonprofit-tax-compliance",
-                "Evaluates tax-exempt organization compliance with Form 990, UBIT, and private foundation requirements. Use when managing nonprofit tax, reviewing Form 990, or analyzing UBIT exposure.",
-            ),
-            (
-                "managing-international-withholding-tax",
-                "Structures withholding tax analysis with treaty benefit claims and QI/QDD compliance. Use when managing withholding tax, claiming treaty benefits, or ensuring QI compliance.",
-            ),
-        ],
-    },
-    # ─── 15. WEALTH MANAGEMENT / PRIVATE BANKING ─────────────────────
-    "Wealth Management": {
-        "description": "High-net-worth advisory, financial planning, and family office workflows",
+    # ─── 18. CAPITAL ALLOCATION & CORPORATE STRATEGY ──────────────────
+    "Capital Allocation and Corporate Strategy": {
+        "description": "ROIC frameworks, capital budgeting, strategic alternatives, and shareholder value optimization",
         "practice_areas": [
-            "Wealth Management",
-            "Private Banking",
-            "Financial Planning",
+            "Corporate Strategy",
+            "Capital Allocation",
+            "Shareholder Value",
         ],
         "skills": [
             (
-                "creating-financial-plans",
-                "Structures comprehensive financial plans with cash flow projection, goal analysis, and strategy integration. Use when building financial plans, projecting retirement needs, or creating comprehensive wealth strategies.",
+                "building-roic-analysis-frameworks",
+                "Constructs ROIC decomposition with invested capital measurement, operating return analysis, and value creation vs destruction assessment. Use when analyzing ROIC, building capital return frameworks, or assessing value creation.",
             ),
             (
-                "managing-estate-planning",
-                "Structures estate plan analysis with trust review, tax efficiency, and legacy documentation. Use when analyzing estate plans, reviewing trust structures, or planning wealth transfer.",
+                "evaluating-strategic-alternatives",
+                "Structures strategic alternatives analysis with status quo, sale, merger, spin-off, and recapitalization scenario comparison. Use when evaluating strategic options, preparing board-level alternatives, or analyzing corporate transformations.",
             ),
             (
-                "managing-retirement-planning",
-                "Structures retirement income analysis with Social Security optimization, distribution sequencing, and longevity modeling. Use when planning retirement income, optimizing Social Security, or modeling retirement spending.",
+                "modeling-capital-budgeting-decisions",
+                "Builds NPV, IRR, and payback models for capital investment decisions with hurdle rate calibration and risk adjustment. Use when evaluating capital investments, comparing project returns, or building capital allocation frameworks.",
             ),
             (
-                "managing-insurance-planning",
-                "Evaluates insurance needs with gap analysis, product comparison, and coverage adequacy assessment. Use when analyzing insurance needs, comparing insurance products, or identifying coverage gaps.",
+                "analyzing-conglomerate-discount-dynamics",
+                "Evaluates conglomerate discount with SOTP analysis, segment-level valuation, and separation benefit quantification. Use when analyzing conglomerate value, building SOTP models, or evaluating break-up scenarios.",
             ),
             (
-                "generating-client-reports-wealth",
-                "Creates wealth management client reports with performance, net worth, and planning progress documentation. Use when preparing client reviews, creating wealth reports, or documenting planning progress.",
+                "structuring-spin-off-transactions",
+                "Designs corporate spin-off execution with Remainco/SpinCo capitalization, Form 10 preparation, and tax-free qualification analysis. Use when structuring spin-offs, analyzing separation mechanics, or evaluating Remainco impact.",
             ),
             (
-                "managing-education-funding",
-                "Structures education savings analysis with 529 plans, financial aid impact, and funding strategy comparison. Use when planning education funding, analyzing 529 options, or projecting college costs.",
+                "modeling-share-repurchase-optimization",
+                "Analyzes buyback program design with timing optimization, price sensitivity, and EPS accretion impact modeling. Use when optimizing buybacks, modeling repurchase economics, or comparing return-of-capital alternatives.",
             ),
             (
-                "managing-charitable-giving-strategies",
-                "Structures charitable planning with vehicle selection, tax benefit optimization, and legacy impact analysis. Use when planning charitable giving, evaluating donor-advised funds, or structuring foundation contributions.",
+                "analyzing-dividend-policy-optimization",
+                "Evaluates dividend policy with payout sustainability, peer comparison, and investor preference analysis across growth and value contexts. Use when analyzing dividend policy, evaluating payout ratios, or designing dividend programs.",
             ),
             (
-                "managing-concentrated-stock-positions",
-                "Evaluates strategies for concentrated equity positions with tax-efficient diversification and hedging analysis. Use when managing concentrated positions, planning diversification, or evaluating hedging strategies.",
+                "conducting-portfolio-rationalization",
+                "Structures portfolio review with strategic fit assessment, divestiture candidate identification, and proceeds redeployment analysis. Use when reviewing corporate portfolios, identifying divestiture candidates, or planning asset dispositions.",
             ),
             (
-                "managing-trust-administration",
-                "Structures trust administration with distribution analysis, tax reporting, and beneficiary communication. Use when managing trusts, analyzing distribution decisions, or documenting trust administration.",
+                "modeling-organic-vs-inorganic-growth",
+                "Compares build vs buy alternatives with risk-adjusted returns, time-to-value, and execution probability assessment. Use when evaluating growth strategies, comparing M&A vs organic investment, or analyzing make-vs-buy decisions.",
             ),
             (
-                "managing-family-governance",
-                "Structures family governance frameworks with meeting protocols, decision-making, and succession planning. Use when establishing family governance, planning family meetings, or documenting succession.",
+                "analyzing-activist-investor-vulnerabilities",
+                "Evaluates corporate vulnerability to shareholder activism with governance assessment, valuation gaps, and operational improvement opportunities. Use when assessing activist risk, identifying vulnerabilities, or preparing defensive analyses.",
             ),
             (
-                "managing-alternative-investments-wealth",
-                "Evaluates alternative investment suitability for wealthy clients with liquidity analysis and portfolio fit assessment. Use when recommending alternatives, assessing suitability, or evaluating illiquid investments.",
+                "structuring-tracking-stock-arrangements",
+                "Designs tracking stock structures with attributed business economics, intergroup arrangements, and value realization mechanics. Use when evaluating tracking stocks, analyzing attributed value structures, or assessing partial separation alternatives.",
             ),
             (
-                "conducting-wealth-transfer-analysis",
-                "Structures intergenerational wealth transfer with gifting strategies, trust design, and tax impact modeling. Use when planning wealth transfer, modeling gift strategies, or designing transfer structures.",
+                "modeling-economic-profit-analysis",
+                "Builds economic profit (EVA) models with capital charge calculation, value spread analysis, and long-term value creation measurement. Use when calculating economic profit, analyzing EVA trends, or measuring value creation.",
             ),
             (
-                "managing-business-succession-planning",
-                "Structures business exit and succession planning with valuation, buyer identification, and tax strategy. Use when planning business succession, valuing private businesses, or structuring ownership transitions.",
+                "analyzing-capital-structure-optimization",
+                "Evaluates optimal leverage with WACC minimization, rating impact, and financial flexibility assessment across market conditions. Use when optimizing capital structure, analyzing target leverage, or evaluating rating implications.",
             ),
             (
-                "managing-private-banking-reviews",
-                "Structures private banking relationship reviews with service assessment, fee analysis, and strategy evaluation. Use when reviewing banking relationships, analyzing fees, or evaluating service quality.",
+                "conducting-investor-day-preparation",
+                "Structures investor day content with long-term strategy presentation, financial targets, and capital allocation framework communication. Use when preparing investor days, designing strategy presentations, or building financial target frameworks.",
             ),
             (
-                "managing-philanthropy-strategy",
-                "Structures philanthropic strategy with impact measurement, vehicle selection, and giving policy documentation. Use when developing philanthropy strategy, measuring charitable impact, or creating giving policies.",
+                "analyzing-corporate-governance-effectiveness",
+                "Evaluates board composition, compensation alignment, and governance practices with proxy advisory and institutional investor standards. Use when analyzing governance, evaluating board effectiveness, or assessing shareholder alignment.",
             ),
             (
-                "managing-lifestyle-advisory",
-                "Structures lifestyle advisory services with cash flow management, major purchase planning, and concierge coordination. Use when managing lifestyle expenses, planning major purchases, or coordinating advisory services.",
+                "modeling-scenario-planning-frameworks",
+                "Builds corporate scenario planning models with macro assumption sets, strategic response options, and contingency plan development. Use when building scenario frameworks, planning strategic responses, or developing contingency strategies.",
             ),
             (
-                "managing-credit-and-lending-wealth",
-                "Structures wealth-based lending analysis with securities-backed, real estate, and art lending evaluation. Use when evaluating wealth lending, analyzing pledge portfolios, or structuring high-net-worth credit.",
+                "analyzing-vertical-integration-economics",
+                "Evaluates vertical integration decisions with make-vs-buy analysis, supply chain control benefits, and margin capture opportunity assessment. Use when analyzing vertical integration, evaluating supply chain strategy, or assessing integration economics.",
             ),
             (
-                "managing-next-generation-planning",
-                "Structures next-generation wealth education and involvement with financial literacy and responsibility programs. Use when preparing next generation, designing wealth education, or managing family learning programs.",
+                "structuring-joint-venture-governance",
+                "Designs JV governance frameworks with decision-making rights, deadlock resolution, and exit mechanisms for corporate partnerships. Use when structuring JV governance, designing partnership agreements, or planning JV operations.",
             ),
             (
-                "managing-divorce-financial-planning",
-                "Structures divorce financial analysis with asset division, support calculations, and post-divorce financial planning. Use when analyzing divorce finances, projecting settlement impacts, or planning post-divorce finances.",
+                "analyzing-esg-strategy-and-value-creation",
+                "Evaluates ESG strategy with materiality assessment, stakeholder analysis, and value creation linkage for corporate decision-making. Use when analyzing ESG strategy, assessing material ESG factors, or linking sustainability to value.",
             ),
             (
-                "managing-expatriate-financial-planning",
-                "Structures cross-border financial planning for expatriates with tax treaty, retirement, and estate considerations. Use when planning for expatriates, managing cross-border taxes, or coordinating international retirement planning.",
+                "preparing-strategic-alternatives-board-materials",
+                "Creates board presentation materials with strategic options analysis, financial impact, and recommendation framework for corporate transformation decisions. Use when preparing board strategy materials, presenting alternatives, or documenting strategic recommendations.",
             ),
         ],
     },
-    # ─── 16. FUND ADMINISTRATION / OPERATIONS ────────────────────────
-    "Fund Operations": {
-        "description": "Fund accounting, administration, and investment operations workflows",
+    # ─── 19. ACTIVIST & EVENT-DRIVEN INVESTING ────────────────────────
+    "Activist and Event-Driven Investing": {
+        "description": "Activist campaigns, special situations, and event-driven strategy analysis",
         "practice_areas": [
-            "Fund Administration",
-            "Investment Operations",
-            "Fund Accounting",
+            "Activist Investing",
+            "Event-Driven Strategy",
+            "Special Situations",
         ],
         "skills": [
             (
-                "calculating-net-asset-value",
-                "Structures NAV calculation with security pricing, accruals, expense allocation, and reconciliation. Use when calculating fund NAV, pricing portfolios, or reconciling NAV components.",
+                "analyzing-activist-campaign-strategies",
+                "Evaluates activist investor campaigns with thesis assessment, proposed changes, and likely outcome analysis. Use when analyzing activist situations, evaluating campaign theses, or assessing activist track records.",
             ),
             (
-                "managing-fund-accounting",
-                "Structures fund accounting processes with trade recording, income allocation, and financial statement preparation. Use when managing fund books, recording investment transactions, or preparing fund financials.",
+                "modeling-merger-arbitrage-spreads",
+                "Calculates merger arb risk/reward with annualized spread, deal break probability, and downside scenario analysis. Use when analyzing merger arb, calculating spread returns, or evaluating deal completion probability.",
             ),
             (
-                "managing-investor-reporting",
-                "Structures investor communications with performance reporting, capital account statements, and distribution notices. Use when creating investor reports, preparing capital statements, or distributing fund communications.",
+                "analyzing-proxy-contest-dynamics",
+                "Evaluates proxy fight mechanics with shareholder base analysis, ISS/Glass Lewis recommendations, and vote probability modeling. Use when analyzing proxy contests, assessing vote outcomes, or evaluating director nomination campaigns.",
             ),
             (
-                "managing-trade-operations",
-                "Structures trade lifecycle management with confirmation, settlement, and exception processing. Use when managing trade operations, processing confirmations, or resolving settlement exceptions.",
+                "evaluating-spin-off-investment-opportunities",
+                "Assesses spin-off equity with forced selling dynamics, orphaned security identification, and standalone valuation analysis. Use when evaluating spin-off investments, identifying forced-sell situations, or analyzing newly public entities.",
             ),
             (
-                "managing-corporate-actions",
-                "Processes corporate action events with election management, entitlement calculation, and position adjustment. Use when managing corporate actions, processing dividends, or handling stock splits.",
+                "analyzing-tender-offer-economics",
+                "Evaluates tender offer structures with premium analysis, proration risk, and conditional tender strategies. Use when analyzing tender offers, calculating tender economics, or evaluating proration scenarios.",
             ),
             (
-                "managing-fund-compliance-monitoring",
-                "Structures investment compliance testing with guideline monitoring and breach reporting. Use when monitoring investment guidelines, testing compliance, or reporting breaches.",
+                "modeling-rights-offering-arbitrage",
+                "Analyzes rights offering dynamics with theoretical ex-rights price, subscription premium, and nil-paid value calculation. Use when evaluating rights offerings, modeling TERP, or analyzing subscription arbitrage.",
             ),
             (
-                "managing-performance-calculation",
-                "Structures portfolio performance calculation with GIPS compliance, composite management, and attribution. Use when calculating returns, managing GIPS composites, or performing attribution analysis.",
+                "evaluating-post-reorganization-equity",
+                "Assesses post-emergence equity with clean balance sheet analysis, improved capital structure, and re-rating potential. Use when evaluating post-reorg equity, analyzing emergence opportunities, or assessing restructured company value.",
             ),
             (
-                "managing-investor-onboarding",
-                "Structures investor onboarding with subscription documentation, AML/KYC, and suitability verification. Use when onboarding investors, processing subscriptions, or managing investor documentation.",
+                "analyzing-dutch-auction-tender-strategies",
+                "Evaluates Dutch auction mechanics with optimal pricing strategy, odd-lot proration, and shareholder base analysis. Use when analyzing Dutch auctions, modeling tender strategies, or evaluating self-tender economics.",
             ),
             (
-                "managing-fund-distributions",
-                "Structures fund distribution processes with allocation methodology, tax lot selection, and distribution notice preparation. Use when processing distributions, allocating fund income, or preparing distribution notices.",
+                "tracking-13d-and-13g-filing-patterns",
+                "Monitors beneficial ownership filings with accumulation pattern analysis, intent assessment, and historical activist progression. Use when tracking 13D filings, analyzing accumulation patterns, or identifying potential activist situations.",
             ),
             (
-                "managing-proxy-voting",
-                "Structures proxy voting processes with policy application, vote execution, and disclosure requirements. Use when managing proxy votes, applying voting policies, or documenting vote rationale.",
+                "analyzing-going-private-transactions",
+                "Evaluates management buyouts and take-private proposals with fairness assessment, minority squeeze-out mechanics, and appraisal rights analysis. Use when analyzing going-private deals, evaluating MBO fairness, or assessing minority shareholder protections.",
             ),
             (
-                "managing-fund-expense-allocation",
-                "Structures fund expense allocation with methodology documentation, compliance, and investor disclosure. Use when allocating fund expenses, documenting allocation methods, or managing expense ratios.",
+                "modeling-stub-value-analysis",
+                "Calculates stub equity value with subsidiary attribution, holding company discount, and sum-of-parts residual analysis. Use when analyzing stub values, evaluating holding company discounts, or identifying negative stub situations.",
             ),
             (
-                "managing-redemption-processing",
-                "Structures redemption processing with NAV calculation, gate provisions, and liquidity management. Use when processing redemptions, managing liquidity, or applying gate provisions.",
+                "analyzing-corporate-governance-catalysts",
+                "Identifies governance-related catalysts with board refreshment, compensation reform, and shareholder proposal analysis. Use when analyzing governance catalysts, evaluating shareholder proposals, or assessing governance improvement potential.",
             ),
             (
-                "managing-fund-audit-preparation",
-                "Structures fund audit preparation with financial statement drafting, confirmation management, and workpaper organization. Use when preparing for fund audits, drafting fund financials, or managing audit confirmations.",
+                "evaluating-litigation-driven-catalysts",
+                "Assesses litigation outcome impact with settlement probability, damage range estimation, and stock price sensitivity analysis. Use when evaluating litigation catalysts, modeling legal outcomes, or analyzing litigation-driven opportunities.",
             ),
             (
-                "managing-fund-tax-reporting",
-                "Structures fund tax reporting with K-1 preparation, PFIC reporting, and investor tax package coordination. Use when preparing K-1s, managing fund tax reporting, or coordinating investor tax packages.",
+                "analyzing-regulatory-event-impacts",
+                "Evaluates regulatory decision impact with approval probability, timeline analysis, and outcome scenario modeling for event-driven positions. Use when analyzing regulatory events, evaluating FDA/FCC/DOJ decisions, or modeling regulatory outcomes.",
             ),
             (
-                "managing-middle-office-operations",
-                "Structures middle office functions with trade matching, position reconciliation, and P&L verification. Use when managing middle office, reconciling positions, or verifying P&L calculations.",
+                "structuring-activist-engagement-strategies",
+                "Designs constructive engagement approaches with value creation proposals, governance improvements, and strategic change recommendations. Use when planning activist engagement, designing value creation proposals, or structuring board discussions.",
             ),
             (
-                "managing-securities-lending",
-                "Structures securities lending operations with borrower management, collateral monitoring, and revenue optimization. Use when managing sec lending, monitoring loan collateral, or optimizing lending revenue.",
+                "analyzing-share-class-arbitrage",
+                "Evaluates dual-class share structures with discount analysis, unification catalysts, and governance reform probability assessment. Use when analyzing share class spreads, evaluating unification likelihood, or assessing dual-class dynamics.",
             ),
             (
-                "managing-fund-formation-documents",
-                "Reviews fund offering documents with LPA terms, side letter analysis, and compliance requirement extraction. Use when reviewing fund documents, analyzing LPA terms, or managing side letter provisions.",
+                "modeling-special-dividend-scenarios",
+                "Analyzes special dividend catalysts with balance sheet capacity, tax efficiency, and shareholder return comparison analysis. Use when modeling special dividends, evaluating capital return catalysts, or assessing dividend capacity.",
             ),
             (
-                "managing-alternative-fund-operations",
-                "Structures operational processes for hedge fund, PE, and real estate fund specific workflows. Use when managing alternative fund ops, processing capital calls, or handling commitment tracking.",
+                "evaluating-sum-of-parts-activism",
+                "Assesses conglomerate break-up activism with segment valuation, separation feasibility, and tax-free qualification analysis. Use when evaluating SOTP activism, analyzing break-up proposals, or modeling separation value.",
             ),
             (
-                "managing-transfer-agency",
-                "Structures transfer agency operations with shareholder servicing, registration, and distribution management. Use when managing transfer agency, processing shareholder transactions, or maintaining shareholder records.",
+                "analyzing-insider-buying-signals",
+                "Evaluates insider purchase patterns with cluster buying identification, historical signal analysis, and conviction scoring. Use when analyzing insider buying, assessing management confidence signals, or tracking insider activity patterns.",
             ),
             (
-                "managing-fund-board-reporting",
-                "Structures fund board reporting with compliance summaries, performance review, and governance documentation. Use when preparing board reports, summarizing fund compliance, or documenting governance items.",
-            ),
-        ],
-    },
-    # ─── 17. FINANCIAL PLANNING & ANALYSIS (FP&A) ────────────────────
-    "Financial Planning and Analysis": {
-        "description": "Corporate FP&A, budgeting, and management reporting workflows",
-        "practice_areas": ["FP&A", "Management Accounting", "Business Intelligence"],
-        "skills": [
-            (
-                "building-annual-operating-plans",
-                "Structures annual operating plan development with revenue, expense, and capital budget integration. Use when building annual budgets, creating operating plans, or developing financial targets.",
-            ),
-            (
-                "conducting-variance-analysis",
-                "Structures budget vs. actual variance analysis with driver decomposition and management narrative. Use when analyzing variances, explaining budget deviations, or preparing variance reports.",
-            ),
-            (
-                "building-rolling-forecasts",
-                "Structures rolling forecast process with driver-based projections and continuous planning methodology. Use when creating rolling forecasts, updating financial projections, or managing continuous planning.",
-            ),
-            (
-                "creating-management-dashboards",
-                "Designs management reporting dashboards with KPI selection, visualization, and drill-down structure. Use when building financial dashboards, selecting KPIs, or designing management reports.",
-            ),
-            (
-                "conducting-profitability-analysis",
-                "Structures product, customer, and segment profitability analysis with cost allocation methodology. Use when analyzing profitability, allocating costs, or evaluating segment performance.",
-            ),
-            (
-                "managing-headcount-planning",
-                "Structures workforce planning with headcount budgeting, compensation modeling, and organizational analysis. Use when planning headcount, budgeting compensation, or modeling workforce scenarios.",
-            ),
-            (
-                "conducting-scenario-planning",
-                "Structures financial scenario analysis with assumption modeling, sensitivity testing, and decision frameworks. Use when modeling scenarios, testing assumptions, or evaluating strategic options.",
-            ),
-            (
-                "managing-capital-allocation-fpna",
-                "Structures capital allocation analysis with project prioritization, ROI evaluation, and portfolio optimization. Use when prioritizing investments, evaluating capital projects, or managing capital budgets.",
-            ),
-            (
-                "building-driver-based-models",
-                "Constructs driver-based financial models with operational metric linkage and sensitivity analysis. Use when building driver-based forecasts, linking operational and financial metrics, or modeling business drivers.",
-            ),
-            (
-                "managing-board-financial-reporting",
-                "Structures board-level financial packages with executive summary, strategic metrics, and forward outlook. Use when preparing board packages, creating executive financial summaries, or presenting financial results.",
-            ),
-            (
-                "analyzing-revenue-trends",
-                "Structures revenue analysis with growth decomposition, cohort analysis, and leading indicator tracking. Use when analyzing revenue, decomposing growth drivers, or tracking revenue leading indicators.",
-            ),
-            (
-                "managing-cost-optimization",
-                "Structures cost reduction analysis with opportunity identification, implementation tracking, and savings verification. Use when identifying cost savings, tracking reduction initiatives, or verifying cost optimization.",
-            ),
-            (
-                "conducting-benchmarking-analysis",
-                "Structures financial and operational benchmarking against industry peers with gap identification. Use when benchmarking performance, comparing to industry metrics, or identifying improvement opportunities.",
-            ),
-            (
-                "managing-long-range-planning",
-                "Structures long-range financial planning (3-5 year) with strategic initiative integration and investment phasing. Use when building long-range plans, modeling strategic scenarios, or projecting multi-year financials.",
-            ),
-            (
-                "analyzing-unit-economics",
-                "Structures unit economic analysis with CAC, LTV, payback period, and cohort-based measurement. Use when analyzing unit economics, calculating LTV/CAC, or evaluating customer economics.",
-            ),
-            (
-                "managing-pricing-analysis",
-                "Structures pricing analysis with margin impact, competitive positioning, and elasticity assessment. Use when analyzing pricing, evaluating margin impact, or assessing pricing strategies.",
-            ),
-            (
-                "managing-business-case-development",
-                "Structures business case documentation with financial impact, risk assessment, and decision criteria. Use when building business cases, justifying investments, or documenting project proposals.",
-            ),
-            (
-                "managing-management-commentary",
-                "Structures MD&A-style management commentary with narrative quality and metric alignment. Use when writing management commentary, preparing earnings narratives, or documenting financial performance.",
-            ),
-            (
-                "managing-consolidation-reporting",
-                "Structures multi-entity consolidation reporting with elimination entries and intercompany reconciliation. Use when consolidating financial results, managing eliminations, or preparing consolidated reports.",
-            ),
-            (
-                "analyzing-operating-leverage",
-                "Structures operating leverage analysis with fixed/variable cost decomposition and breakeven modeling. Use when analyzing operating leverage, modeling breakeven, or assessing cost structure.",
+                "preparing-event-driven-investment-cases",
+                "Structures event-driven investment recommendations with catalyst identification, timeline analysis, and risk/reward framework for portfolio allocation. Use when preparing event-driven cases, documenting catalyst theses, or presenting special situation opportunities.",
             ),
         ],
     },
-    # ─── 18. TRADE FINANCE / COMMERCIAL BANKING ──────────────────────
-    "Commercial Banking": {
-        "description": "Commercial lending, trade finance, and banking operations workflows",
-        "practice_areas": ["Commercial Banking", "Trade Finance", "Lending"],
-        "skills": [
-            (
-                "managing-commercial-loan-underwriting",
-                "Structures commercial loan underwriting with financial spreading, cash flow analysis, and risk rating. Use when underwriting commercial loans, analyzing borrower financials, or assigning risk ratings.",
-            ),
-            (
-                "managing-credit-approval-packages",
-                "Creates credit approval memoranda with borrower analysis, deal structure, and risk mitigation documentation. Use when preparing credit packages, documenting loan recommendations, or presenting to credit committee.",
-            ),
-            (
-                "managing-loan-portfolio-monitoring",
-                "Structures loan portfolio review with credit quality trends, watch list management, and concentration analysis. Use when monitoring loan portfolios, tracking credit quality, or managing watch lists.",
-            ),
-            (
-                "managing-trade-finance-instruments",
-                "Structures letter of credit, bankers acceptance, and documentary collection processing and analysis. Use when managing LCs, processing trade documents, or evaluating trade finance instruments.",
-            ),
-            (
-                "managing-syndicated-loan-operations",
-                "Structures syndicated loan participation with allocation, settlement, and agent bank coordination. Use when managing syndicated loans, processing loan allocations, or coordinating agent bank functions.",
-            ),
-            (
-                "managing-loan-documentation-review",
-                "Reviews loan agreements with covenant extraction, terms analysis, and compliance requirement identification. Use when reviewing loan documents, extracting covenants, or analyzing credit agreement terms.",
-            ),
-            (
-                "managing-agricultural-lending",
-                "Structures agricultural loan analysis with crop budget evaluation, collateral assessment, and seasonal patterns. Use when underwriting agricultural loans, evaluating farm financials, or analyzing crop budgets.",
-            ),
-            (
-                "managing-sba-lending",
-                "Structures SBA loan origination with eligibility verification, packaging requirements, and guarantee documentation. Use when processing SBA loans, verifying eligibility, or preparing SBA packages.",
-            ),
-            (
-                "managing-commercial-real-estate-lending",
-                "Structures CRE loan underwriting with property valuation, cash flow analysis, and environmental review. Use when underwriting CRE loans, analyzing property cash flows, or evaluating loan collateral.",
-            ),
-            (
-                "managing-construction-loan-administration",
-                "Structures construction loan management with draw processing, inspection tracking, and budget monitoring. Use when administering construction loans, processing draw requests, or monitoring construction budgets.",
-            ),
-            (
-                "managing-equipment-financing",
-                "Structures equipment finance analysis with asset valuation, residual estimation, and lease vs. buy comparison. Use when analyzing equipment financing, estimating residuals, or comparing financing alternatives.",
-            ),
-            (
-                "managing-treasury-management-services",
-                "Structures treasury management product analysis with cash management, payment solutions, and fee optimization. Use when evaluating treasury services, analyzing cash management needs, or optimizing banking relationships.",
-            ),
-            (
-                "managing-deposit-operations",
-                "Structures deposit product analysis with pricing, retention analytics, and regulatory compliance. Use when analyzing deposits, evaluating pricing strategies, or managing deposit compliance.",
-            ),
-            (
-                "managing-correspondent-banking",
-                "Structures correspondent banking analysis with relationship assessment, risk evaluation, and regulatory requirements. Use when managing correspondent relationships, evaluating partner banks, or assessing correspondent risk.",
-            ),
-            (
-                "managing-bank-regulatory-reporting",
-                "Structures regulatory report preparation including Call Reports, FR Y-9C, and other required filings. Use when preparing bank regulatory reports, filing Call Reports, or managing regulatory submissions.",
-            ),
-            (
-                "managing-community-reinvestment",
-                "Structures CRA compliance monitoring with lending, investment, and service test analysis. Use when managing CRA compliance, analyzing lending patterns, or documenting community investment.",
-            ),
-            (
-                "managing-loan-loss-provisioning",
-                "Structures CECL/ACL estimation with model methodology, qualitative factors, and forecast integration. Use when calculating loan loss provisions, implementing CECL, or estimating credit losses.",
-            ),
-            (
-                "managing-interest-rate-risk-banking",
-                "Structures bank interest rate risk analysis with EVE, NII sensitivity, and gap analysis. Use when managing bank IRR, modeling NII sensitivity, or analyzing repricing gaps.",
-            ),
-            (
-                "managing-wire-transfer-operations",
-                "Structures wire transfer processing with verification, OFAC screening, and exception handling. Use when processing wires, managing wire operations, or handling wire exceptions.",
-            ),
-            (
-                "managing-fraud-operations-banking",
-                "Structures banking fraud detection with transaction monitoring, investigation, and recovery documentation. Use when detecting banking fraud, investigating suspicious activity, or managing fraud cases.",
-            ),
+    # ─── 20. QUANTITATIVE CAPITAL STRATEGIES ──────────────────────────
+    "Quantitative Capital Strategies": {
+        "description": "Systematic investing, factor modeling, and quantitative portfolio construction for capital markets",
+        "practice_areas": [
+            "Quantitative Investing",
+            "Systematic Strategies",
+            "Factor Investing",
         ],
-    },
-    # ─── 19. ESG / SUSTAINABLE FINANCE ───────────────────────────────
-    "Sustainable Finance": {
-        "description": "ESG analysis, impact investing, and sustainable finance workflows",
-        "practice_areas": ["ESG", "Impact Investing", "Sustainable Finance"],
         "skills": [
             (
-                "scoring-esg-factors",
-                "Structures ESG scoring methodology with environmental, social, and governance pillar assessment. Use when scoring ESG, evaluating sustainability, or building ESG frameworks.",
+                "building-multi-factor-equity-models",
+                "Constructs multi-factor models with value, momentum, quality, size, and volatility factor definitions and portfolio construction rules. Use when building factor models, designing systematic strategies, or constructing factor portfolios.",
             ),
             (
-                "analyzing-carbon-footprints",
-                "Structures carbon footprint analysis with Scope 1/2/3 measurement and intensity benchmarking. Use when measuring carbon emissions, analyzing Scope 3, or benchmarking carbon intensity.",
+                "modeling-portfolio-risk-decomposition",
+                "Decomposes portfolio risk with factor attribution, idiosyncratic risk, and marginal contribution to risk analysis. Use when decomposing portfolio risk, attributing risk sources, or analyzing factor risk contribution.",
             ),
             (
-                "evaluating-green-bonds",
-                "Structures green bond analysis with use-of-proceeds verification, impact reporting, and ICMA alignment. Use when evaluating green bonds, verifying green credentials, or analyzing sustainable debt.",
+                "analyzing-factor-timing-signals",
+                "Evaluates factor timing strategies with macro regime indicators, valuation spreads, and momentum signals for factor rotation. Use when analyzing factor timing, evaluating rotation signals, or designing tactical factor allocation.",
             ),
             (
-                "managing-esg-reporting-standards",
-                "Structures ESG disclosure with TCFD, SASB, GRI, and ISSB framework alignment and gap analysis. Use when preparing ESG disclosures, aligning to reporting frameworks, or analyzing ESG reporting gaps.",
+                "building-statistical-arbitrage-models",
+                "Constructs stat arb strategies with pair selection, signal generation, and portfolio optimization under market neutrality constraints. Use when building stat arb models, designing market-neutral strategies, or optimizing pair portfolios.",
             ),
             (
-                "analyzing-social-impact",
-                "Structures social impact measurement with theory of change, outcome metrics, and stakeholder analysis. Use when measuring social impact, designing impact metrics, or evaluating social outcomes.",
+                "modeling-portfolio-optimization",
+                "Builds mean-variance, Black-Litterman, and risk parity optimization models with constraint management and rebalancing rules. Use when optimizing portfolios, implementing risk parity, or applying Black-Litterman views.",
             ),
             (
-                "managing-climate-scenario-analysis",
-                "Structures TCFD-aligned climate scenario analysis with transition and physical risk modeling. Use when conducting climate scenarios, modeling transition risk, or analyzing physical climate exposure.",
+                "analyzing-alpha-signal-decay",
+                "Evaluates signal half-life, turnover implications, and capacity constraints for systematic alpha factors. Use when analyzing signal persistence, evaluating factor decay, or estimating strategy capacity.",
             ),
             (
-                "evaluating-sustainability-linked-loans",
-                "Structures SLL analysis with KPI assessment, margin ratchet evaluation, and ambition verification. Use when evaluating sustainability-linked loans, assessing SLL KPIs, or analyzing margin ratchets.",
+                "conducting-backtest-validation",
+                "Structures backtesting methodology with out-of-sample testing, cross-validation, and overfitting detection techniques. Use when validating backtests, detecting overfitting, or ensuring backtest robustness.",
             ),
             (
-                "managing-stewardship-and-engagement",
-                "Structures shareholder engagement programs with escalation frameworks and outcome documentation. Use when managing stewardship, planning engagement, or documenting shareholder activism outcomes.",
+                "modeling-transaction-cost-optimization",
+                "Builds transaction cost models with market impact estimation, optimal trade scheduling, and turnover-adjusted returns. Use when modeling trading costs, optimizing turnover, or evaluating net-of-cost alpha.",
             ),
             (
-                "analyzing-biodiversity-risk",
-                "Structures biodiversity risk assessment with nature-related dependency mapping and TNFD alignment. Use when analyzing biodiversity risk, mapping nature dependencies, or implementing TNFD disclosure.",
+                "analyzing-alternative-data-signals",
+                "Evaluates alternative data sources including satellite, NLP sentiment, web scraping, and geolocation for alpha signal generation. Use when analyzing alt data, evaluating new data sources, or integrating non-traditional signals.",
             ),
             (
-                "managing-impact-fund-reporting",
-                "Structures impact fund reporting with IRIS+ metrics, theory of change alignment, and additionality assessment. Use when reporting impact metrics, using IRIS+ indicators, or measuring fund impact.",
+                "building-risk-parity-portfolios",
+                "Constructs risk parity allocation with equal risk contribution, leverage optimization, and asset class volatility targeting. Use when building risk parity, equalizing risk contribution, or designing leveraged balanced portfolios.",
             ),
             (
-                "analyzing-just-transition",
-                "Evaluates just transition implications of decarbonization with workforce impact and community assessment. Use when analyzing just transition, assessing workforce impacts, or evaluating community effects.",
+                "modeling-regime-switching-strategies",
+                "Builds regime detection models with hidden Markov, threshold, and Bayesian change-point methodologies for strategy adaptation. Use when modeling regime changes, detecting market shifts, or adapting strategies to market conditions.",
             ),
             (
-                "managing-esg-data-quality",
-                "Structures ESG data quality assessment with source comparison, estimation methodology, and disclosure gaps. Use when evaluating ESG data, comparing data providers, or assessing data quality.",
+                "analyzing-crowding-and-factor-valuations",
+                "Evaluates factor crowding with positioning analysis, valuation spread monitoring, and unwind risk assessment. Use when analyzing factor crowding, assessing unwind risk, or monitoring factor valuation extremes.",
             ),
             (
-                "analyzing-sustainable-supply-chains",
-                "Structures supply chain sustainability assessment with Scope 3 attribution and risk identification. Use when analyzing supply chain ESG, mapping supplier risk, or assessing supply chain sustainability.",
+                "structuring-smart-beta-product-design",
+                "Designs systematic investment products with transparent methodology, rebalancing rules, and index construction specifications. Use when designing smart beta products, creating index methodologies, or structuring systematic funds.",
             ),
             (
-                "evaluating-social-bonds",
-                "Structures social bond analysis with eligible population targeting, impact metrics, and SBP alignment. Use when evaluating social bonds, assessing social bond frameworks, or measuring social outcomes.",
+                "modeling-volatility-targeting-strategies",
+                "Builds volatility targeting models with realized vol estimation, leverage adjustment, and drawdown management mechanics. Use when implementing vol targeting, adjusting portfolio leverage, or managing drawdown limits.",
             ),
             (
-                "managing-proxy-voting-esg",
-                "Structures ESG-informed proxy voting with resolution analysis, voting rationale, and disclosure. Use when making ESG proxy decisions, analyzing shareholder resolutions, or documenting vote rationale.",
+                "conducting-monte-carlo-portfolio-analysis",
+                "Runs Monte Carlo simulations for portfolio analysis with return distribution, tail risk, and path-dependent scenario evaluation. Use when running portfolio simulations, estimating tail risk, or analyzing return distributions.",
             ),
             (
-                "analyzing-stranded-asset-risk",
-                "Evaluates stranded asset exposure for fossil fuel and carbon-intensive investments with transition modeling. Use when analyzing stranded assets, evaluating fossil fuel exposure, or modeling transition risk.",
+                "analyzing-machine-learning-in-investing",
+                "Evaluates ML applications in investment with feature engineering, model selection, and implementation considerations for alpha generation. Use when evaluating ML for investing, designing ML pipelines, or assessing ML strategy feasibility.",
             ),
             (
-                "managing-dei-metrics",
-                "Structures diversity, equity, and inclusion data collection with benchmarking and disclosure requirements. Use when analyzing DEI metrics, benchmarking diversity, or preparing DEI disclosures.",
+                "building-custom-factor-definitions",
+                "Constructs proprietary factor definitions with signal specification, universe application, and orthogonalization methodology. Use when defining custom factors, creating proprietary signals, or building factor libraries.",
             ),
             (
-                "evaluating-transition-bonds",
-                "Structures transition bond analysis with credibility assessment and transition plan evaluation. Use when evaluating transition bonds, assessing issuer transition plans, or analyzing climate transition financing.",
+                "modeling-portfolio-rebalancing-rules",
+                "Designs rebalancing triggers with calendar-based, threshold-based, and hybrid approaches with tax and cost optimization. Use when designing rebalancing rules, optimizing rebalancing frequency, or modeling turnover impact.",
             ),
             (
-                "managing-eu-taxonomy-compliance",
-                "Structures EU Taxonomy alignment assessment with technical screening criteria and DNSH evaluation. Use when assessing Taxonomy alignment, applying technical criteria, or evaluating substantial contribution.",
+                "analyzing-execution-implementation-shortfall",
+                "Measures implementation shortfall with paper portfolio comparison, delay cost attribution, and execution quality assessment. Use when measuring implementation shortfall, analyzing execution quality, or attributing trading costs.",
             ),
             (
-                "analyzing-water-risk",
-                "Structures water risk assessment with water stress mapping, usage analysis, and regulatory exposure evaluation. Use when analyzing water risk, mapping water stress, or evaluating water-related financial exposure.",
-            ),
-        ],
-    },
-    # ─── 20. ECONOMIC ANALYSIS / MACRO ───────────────────────────────
-    "Economic Analysis": {
-        "description": "Macroeconomic analysis, monetary policy, and economic research workflows",
-        "practice_areas": ["Economic Research", "Macroeconomics", "Policy Analysis"],
-        "skills": [
-            (
-                "analyzing-economic-indicators",
-                "Structures economic indicator analysis with leading, coincident, and lagging indicator interpretation. Use when analyzing economic data, interpreting economic releases, or tracking macro indicators.",
-            ),
-            (
-                "analyzing-monetary-policy",
-                "Structures central bank policy analysis with rate decision assessment, forward guidance interpretation, and market impact. Use when analyzing Fed policy, interpreting FOMC statements, or assessing monetary policy impact.",
-            ),
-            (
-                "analyzing-fiscal-policy",
-                "Evaluates government fiscal policy with budget impact, multiplier effects, and deficit/debt trajectory analysis. Use when analyzing fiscal policy, evaluating budget proposals, or assessing government spending impact.",
-            ),
-            (
-                "forecasting-economic-growth",
-                "Structures GDP growth forecasting with component analysis, nowcasting techniques, and revision tracking. Use when forecasting GDP, analyzing growth components, or building economic projections.",
-            ),
-            (
-                "analyzing-inflation-dynamics",
-                "Structures inflation analysis with component decomposition, expectations tracking, and Phillips curve assessment. Use when analyzing inflation, decomposing CPI/PCE, or tracking inflation expectations.",
-            ),
-            (
-                "analyzing-labor-markets",
-                "Structures employment data analysis with payroll, wage, and participation rate interpretation. Use when analyzing employment, interpreting jobs data, or assessing labor market conditions.",
-            ),
-            (
-                "analyzing-housing-markets",
-                "Structures housing market analysis with price trends, inventory dynamics, and affordability metrics. Use when analyzing housing data, tracking home prices, or assessing affordability.",
-            ),
-            (
-                "analyzing-trade-and-currency",
-                "Structures trade balance analysis with currency dynamics, competitiveness assessment, and tariff impact modeling. Use when analyzing trade data, evaluating currency trends, or assessing trade policy impact.",
-            ),
-            (
-                "analyzing-emerging-markets",
-                "Structures EM economic analysis with growth, inflation, external vulnerability, and political risk assessment. Use when analyzing emerging markets, assessing EM risk, or evaluating developing economy outlook.",
-            ),
-            (
-                "conducting-country-risk-analysis",
-                "Structures sovereign and country risk assessment with economic, political, and financial system evaluation. Use when assessing country risk, evaluating sovereign creditworthiness, or analyzing political risk.",
-            ),
-            (
-                "analyzing-commodity-markets",
-                "Structures commodity market analysis with supply/demand balances, inventory dynamics, and price driver attribution. Use when analyzing commodities, evaluating supply/demand, or forecasting commodity prices.",
-            ),
-            (
-                "analyzing-financial-conditions",
-                "Structures financial conditions index analysis with credit, equity, funding, and volatility component tracking. Use when analyzing financial conditions, tracking financial stress, or assessing market tightness.",
-            ),
-            (
-                "analyzing-business-cycle-positioning",
-                "Structures business cycle analysis with phase identification, leading indicator tracking, and sector implications. Use when identifying cycle phase, tracking business cycles, or assessing cyclical positioning.",
-            ),
-            (
-                "analyzing-productivity-trends",
-                "Structures productivity analysis with labor productivity, TFP estimation, and growth accounting decomposition. Use when analyzing productivity, estimating TFP, or decomposing growth drivers.",
-            ),
-            (
-                "analyzing-global-capital-flows",
-                "Structures capital flow analysis with BOP interpretation, hot money tracking, and flow dynamics assessment. Use when analyzing capital flows, interpreting BOP data, or tracking cross-border investment.",
-            ),
-            (
-                "analyzing-banking-system-health",
-                "Structures banking system assessment with capital adequacy, asset quality, and systemic risk evaluation. Use when analyzing banking systems, assessing financial stability, or evaluating systemic risk.",
-            ),
-            (
-                "managing-economic-scenario-development",
-                "Structures macroeconomic scenario design with consistent variable paths and probability assessment. Use when building economic scenarios, designing stress test scenarios, or creating macro forecasts.",
-            ),
-            (
-                "analyzing-central-bank-balance-sheets",
-                "Structures central bank balance sheet analysis with QE/QT impact assessment and reserve management. Use when analyzing central bank operations, evaluating QE effects, or tracking reserve management.",
-            ),
-            (
-                "analyzing-demographic-trends",
-                "Structures demographic analysis with population projections, dependency ratios, and economic impact assessment. Use when analyzing demographics, projecting population trends, or assessing demographic economic impact.",
-            ),
-            (
-                "analyzing-geopolitical-risk",
-                "Structures geopolitical risk assessment with scenario planning, market impact analysis, and portfolio implications. Use when analyzing geopolitical events, assessing political risk, or evaluating conflict scenarios.",
+                "preparing-quantitative-strategy-reports",
+                "Structures systematic strategy performance reporting with factor exposure, attribution, and risk analytics for investor communication. Use when preparing quant reports, documenting strategy performance, or presenting systematic strategy results.",
             ),
         ],
     },
