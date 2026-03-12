@@ -2,9 +2,9 @@
 name: legal-request-triage
 description: Triages and routes incoming legal requests from business teams to the appropriate legal specialist or workflow. Classifies request type, assigns urgency, and creates structured intake records.
 tags:
-  - legal-ops
-  - intake
-  - routing
+  - corporate
+  - analysis
+  - checklist
 ---
 
 # Legal Request Triage

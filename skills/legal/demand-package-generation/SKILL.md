@@ -2,10 +2,9 @@
 name: demand-package-generation
 description: Generates settlement demand packages for personal injury cases including damages calculations, evidence compilation, and settlement proposals.
 tags:
-  - personal-injury
-  - demand-letter
-  - settlement
-  - damages
+  - litigation
+  - drafting
+  - analysis
 ---
 
 # Demand Package Generation

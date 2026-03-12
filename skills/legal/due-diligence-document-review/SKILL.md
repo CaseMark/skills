@@ -2,9 +2,10 @@
 name: due-diligence-document-review
 description: Conducts systematic document review for transactions or investigations. Processes large document sets, flags risks, extracts key terms, and produces structured findings.
 tags:
-  - due-diligence
-  - document-review
-  - m-and-a
+  - transactional
+  - corporate
+  - analysis
+  - summary
 ---
 
 # Due Diligence Document Review

@@ -2,9 +2,9 @@
 name: contract-redline-review
 description: Reviews incoming contracts against company standards and generates redline markups identifying deviations, risks, and required changes.
 tags:
-  - contracts
-  - review
-  - redlining
+  - transactional
+  - agreement
+  - analysis
 ---
 
 # Contract Redline Review

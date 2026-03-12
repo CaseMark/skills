@@ -2,9 +2,10 @@
 name: ma-due-diligence-review
 description: Conducts AI-accelerated due diligence for M&A by analyzing data room documents at scale. Identifies material risks, obligations, and deal-critical issues.
 tags:
-  - m-and-a
-  - due-diligence
-  - transactions
+  - transactional
+  - corporate
+  - analysis
+  - checklist
 ---
 
 # M&A Due Diligence Review

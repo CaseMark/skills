@@ -2,8 +2,8 @@
 name: medical-record-summarization
 description: Extracts and organizes medical records into chronological timelines for litigation. Processes medical PDFs, identifies treatments and diagnoses, and produces attorney-ready summaries.
 tags:
-  - medical-records
-  - personal-injury
+  - litigation
+  - summary
   - summarization
 ---
 

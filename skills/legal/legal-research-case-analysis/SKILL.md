@@ -2,9 +2,9 @@
 name: legal-research-case-analysis
 description: Researches and analyzes case law to support litigation strategy. Searches legal databases, extracts holdings, identifies distinguishing facts, and produces cited research memos.
 tags:
-  - legal-research
   - litigation
-  - case-law
+  - research
+  - analysis
 ---
 
 # Legal Research & Case Law Analysis

@@ -2,9 +2,9 @@
 name: regulatory-compliance-monitoring
 description: Monitors regulatory changes across jurisdictions and assesses impact on business operations. Tracks new rules, amendments, and enforcement actions.
 tags:
-  - compliance
   - regulatory
-  - monitoring
+  - analysis
+  - checklist
 ---
 
 # Regulatory Compliance Monitoring

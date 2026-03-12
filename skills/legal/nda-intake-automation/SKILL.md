@@ -2,10 +2,9 @@
 name: nda-intake-automation
 description: Automates end-to-end NDA processing from intake request through drafting, review, negotiation, and execution tracking.
 tags:
-  - nda
-  - intake
-  - automation
-  - contracts
+  - transactional
+  - agreement
+  - drafting
 ---
 
 # NDA Intake Automation

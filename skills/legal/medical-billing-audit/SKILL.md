@@ -2,10 +2,9 @@
 name: medical-billing-audit
 description: Audits medical billing records for accuracy, identifies overcharges, duplicate billing, and coding errors. Cross-references against treatment records and fee schedules.
 tags:
-  - medical-billing
-  - audit
-  - personal-injury
-  - healthcare
+  - litigation
+  - analysis
+  - checklist
 ---
 
 # Medical Billing Audit

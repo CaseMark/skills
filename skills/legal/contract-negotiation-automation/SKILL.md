@@ -2,9 +2,9 @@
 name: contract-negotiation-automation
 description: Automates contract negotiation rounds by tracking counterparty redlines, generating responses based on company playbook positions, and managing the exchange.
 tags:
-  - contracts
-  - negotiation
-  - automation
+  - transactional
+  - agreement
+  - analysis
 ---
 
 # Contract Negotiation Automation

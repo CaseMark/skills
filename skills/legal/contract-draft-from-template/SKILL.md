@@ -2,9 +2,9 @@
 name: contract-draft-from-template
 description: Drafts contracts by populating approved template terms with deal-specific information. Handles variable substitution, clause selection, and generates review-ready drafts.
 tags:
-  - contracts
+  - transactional
+  - agreement
   - drafting
-  - automation
 ---
 
 # Contract Draft from Template

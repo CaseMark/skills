@@ -2,10 +2,9 @@
 name: legal-memo-drafting
 description: Drafts legal memoranda and briefs using structured analysis, precedent research, and persuasive writing. Produces properly cited, logically organized legal documents.
 tags:
-  - drafting
-  - memo
-  - brief
   - litigation
+  - memo
+  - drafting
 ---
 
 # Legal Memo & Brief Drafting

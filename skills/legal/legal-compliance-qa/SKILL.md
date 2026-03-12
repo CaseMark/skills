@@ -2,9 +2,9 @@
 name: legal-compliance-qa
 description: Answers legal and compliance questions from business teams using internal knowledge bases and approved sources. Provides sourced, caveated responses with confidence levels.
 tags:
-  - compliance
-  - knowledge-base
-  - legal-ops
+  - regulatory
+  - analysis
+  - research
 ---
 
 # Legal Compliance Q&A

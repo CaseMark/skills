@@ -2,10 +2,9 @@
 name: case-valuation-settlement
 description: Evaluates personal injury case value using medical severity, liability strength, jurisdiction factors, and comparable verdicts. Produces settlement range analysis.
 tags:
-  - case-valuation
-  - settlement
-  - personal-injury
-  - analytics
+  - litigation
+  - analysis
+  - summary
 ---
 
 # Case Valuation & Settlement Analysis

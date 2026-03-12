@@ -2,9 +2,10 @@
 name: contract-portfolio-compliance
 description: Analyzes contract portfolios against regulatory requirements or policy standards. Identifies non-compliant terms across hundreds of contracts and prioritizes remediation.
 tags:
-  - compliance
-  - contracts
-  - portfolio-analysis
+  - regulatory
+  - transactional
+  - analysis
+  - checklist
 ---
 
 # Contract Portfolio Compliance
