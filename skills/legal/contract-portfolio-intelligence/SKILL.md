@@ -2,10 +2,10 @@
 name: contract-portfolio-intelligence
 description: Analyzes an entire portfolio of contracts at scale — extracting key terms, obligations, renewal dates, risk provisions, and financial commitments across hundreds or thousands of agreements simultaneously. Produces structured reports, obligation trackers, renewal calendars, and risk matrices. Also supports playbook-based redlining where contracts are compared against preferred positions and automatically marked up. Use when an in-house legal team, GC, legal ops, procurement, or finance team needs portfolio-wide visibility into contract terms, upcoming renewals, obligation compliance, or batch contract review against organizational standards.
 tags:
-  - contract-management
-  - compliance
+  - transactional
+  - corporate
   - analysis
-  - reporting
+  - summary
 ---
 
 # Contract Portfolio Intelligence
