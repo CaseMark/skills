@@ -4,7 +4,7 @@ const os = require('os')
 const path = require('path')
 const test = require('node:test')
 
-const { buildSkillsCatalog, parseSkillDocument } = require('./skills-catalog')
+const { buildSkillsCatalog, parseSkillDocument, publishSkillsCatalog } = require('./skills-catalog')
 
 test('parseSkillDocument reads frontmatter fields needed for the catalog', () => {
   const { frontmatter, body } = parseSkillDocument(
@@ -82,4 +82,18 @@ Use for platform search tasks.
   )
   assert.deepEqual(catalog.skills[1].tags, ['litigation', 'summary'])
   assert.equal(catalog.skills[0].path, 'casedev/search/SKILL.md')
+})
+
+test('publishSkillsCatalog fails closed when the catalog key is missing', async () => {
+  await assert.rejects(
+    () =>
+      publishSkillsCatalog(
+        { skills: [] },
+        {
+          edgeConfigId: 'ecfg_test',
+          vercelToken: 'token',
+        }
+      ),
+    /Missing SKILLS_CATALOG_EDGE_CONFIG_KEY/
+  )
 })

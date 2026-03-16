@@ -40,7 +40,7 @@ jobs:
           const lines = [
             '## Shared Skills Catalog',
             '',
-            `- Key: \`${process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY || 'agent-skills:catalog:v1'}\``,
+            `- Key: \`${process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY}\``,
             `- Total skills: ${catalog.skillCount}`,
             `- Generated from SHA: ${catalog.generatedFromSha || 'not provided'}`,
             '- Counts by category:',

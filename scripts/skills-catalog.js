@@ -208,13 +208,18 @@ function buildSkillsCatalog(options = {}) {
 async function publishSkillsCatalog(catalog, options = {}) {
   const edgeConfigId = options.edgeConfigId || process.env.SKILLS_EDGE_CONFIG_ID || process.env.EDGE_CONFIG_ID
   const vercelToken = options.vercelToken || process.env.VERCEL_API_TOKEN
-  const catalogKey = options.catalogKey || process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY || DEFAULT_CATALOG_KEY
+  const catalogKey = options.catalogKey || process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY
 
   if (!edgeConfigId) {
     throw new Error('Missing SKILLS_EDGE_CONFIG_ID or EDGE_CONFIG_ID')
   }
   if (!vercelToken) {
     throw new Error('Missing VERCEL_API_TOKEN')
+  }
+  if (!catalogKey) {
+    throw new Error(
+      'Missing SKILLS_CATALOG_EDGE_CONFIG_KEY. Refusing to publish to an implicit default key.'
+    )
   }
 
   const response = await fetch(`https://api.vercel.com/v1/edge-config/${edgeConfigId}/items`, {
@@ -297,6 +302,7 @@ async function main() {
 module.exports = {
   DEFAULT_CATALOG_KEY,
   buildSkillsCatalog,
+  DEFAULT_CATALOG_KEY,
   parseFrontmatterBlock,
   parseSkillDocument,
   parseSkillFile,
