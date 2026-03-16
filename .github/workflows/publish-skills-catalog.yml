@@ -1,0 +1,52 @@
+name: Publish Skills Catalog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'scripts/skills-catalog.js'
+      - '.github/workflows/publish-skills-catalog.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build shared skills catalog
+        run: node scripts/skills-catalog.js --out .artifacts/skills-catalog.json
+
+      - name: Publish shared skills catalog to Edge Config
+        env:
+          SKILLS_EDGE_CONFIG_ID: ${{ secrets.SKILLS_EDGE_CONFIG_ID }}
+          VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
+          SKILLS_CATALOG_EDGE_CONFIG_KEY: ${{ vars.SKILLS_CATALOG_EDGE_CONFIG_KEY }}
+        run: node scripts/skills-catalog.js --publish
+
+      - name: Workflow summary
+        run: |
+          node <<'SCRIPT'
+          const fs = require('fs')
+          const catalog = JSON.parse(fs.readFileSync('.artifacts/skills-catalog.json', 'utf8'))
+          const lines = [
+            '## Shared Skills Catalog',
+            '',
+            `- Key: \`${process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY || 'agent-skills:catalog:v1'}\``,
+            `- Total skills: ${catalog.skillCount}`,
+            `- Generated from SHA: ${catalog.generatedFromSha || 'not provided'}`,
+            '- Counts by category:',
+          ]
+          for (const [category, count] of Object.entries(catalog.countsByCategory)) {
+            lines.push(`  - ${category}: ${count}`)
+          }
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`)
+          SCRIPT
