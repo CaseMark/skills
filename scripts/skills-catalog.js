@@ -6,6 +6,7 @@ const path = require('path')
 const DEFAULT_CATALOG_KEY = 'agent-skills-catalog-v1'
 const CATALOG_VERSION = 1
 const EDGE_CONFIG_KEY_RE = /^[A-Za-z0-9_-]{1,256}$/
+const DEFAULT_MAX_SHARD_BYTES = 180000
 
 function normalizeSlashPath(filePath) {
   return filePath.split(path.sep).join('/')
@@ -206,6 +207,118 @@ function buildSkillsCatalog(options = {}) {
   }
 }
 
+function buildCategoryCatalogPayload(catalog, category, skills) {
+  return {
+    version: catalog.version,
+    generatedAt: catalog.generatedAt,
+    generatedFromSha: catalog.generatedFromSha,
+    skillCount: skills.length,
+    category,
+    skills,
+  }
+}
+
+function buildMetaKey(baseKey) {
+  return `${baseKey}-meta`
+}
+
+function buildShardKey(baseKey, category, index) {
+  return `${baseKey}-${category}-${index}`
+}
+
+function splitCatalogIntoShards(catalog, options = {}) {
+  const maxShardBytes = options.maxShardBytes || DEFAULT_MAX_SHARD_BYTES
+  const skillsByCategory = new Map()
+
+  for (const skill of catalog.skills) {
+    const skills = skillsByCategory.get(skill.category) || []
+    skills.push(skill)
+    skillsByCategory.set(skill.category, skills)
+  }
+
+  const items = []
+  const shardsByCategory = {}
+
+  for (const [category, skills] of Array.from(skillsByCategory.entries()).sort((a, b) =>
+    a[0].localeCompare(b[0])
+  )) {
+    let shardIndex = 0
+    let currentShard = []
+
+    const flushShard = () => {
+      if (currentShard.length === 0) return
+      const key = buildShardKey(catalog.baseKey, category, shardIndex)
+      items.push({
+        key,
+        value: buildCategoryCatalogPayload(catalog, category, currentShard),
+      })
+      shardsByCategory[category] = [...(shardsByCategory[category] || []), key]
+      shardIndex += 1
+      currentShard = []
+    }
+
+    for (const skill of skills) {
+      const candidateShard = [...currentShard, skill]
+      const candidatePayload = buildCategoryCatalogPayload(catalog, category, candidateShard)
+      const candidateBytes = Buffer.byteLength(JSON.stringify(candidatePayload))
+
+      if (candidateBytes > maxShardBytes && currentShard.length > 0) {
+        flushShard()
+      }
+
+      const singlePayload = buildCategoryCatalogPayload(catalog, category, [skill])
+      const singleBytes = Buffer.byteLength(JSON.stringify(singlePayload))
+      if (singleBytes > maxShardBytes) {
+        throw new Error(
+          `Skill ${category}/${skill.slug} is too large for Edge Config shard limit (${singleBytes} bytes)`
+        )
+      }
+
+      currentShard.push(skill)
+    }
+
+    flushShard()
+  }
+
+  const meta = {
+    version: catalog.version,
+    generatedAt: catalog.generatedAt,
+    generatedFromSha: catalog.generatedFromSha,
+    skillCount: catalog.skillCount,
+    countsByCategory: catalog.countsByCategory,
+    shardsByCategory,
+  }
+
+  return {
+    metaKey: buildMetaKey(catalog.baseKey),
+    meta,
+    items,
+  }
+}
+
+async function upsertEdgeConfigItem({ edgeConfigId, vercelToken, key, value }) {
+  const response = await fetch(`https://api.vercel.com/v1/edge-config/${edgeConfigId}/items`, {
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${vercelToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      items: [
+        {
+          operation: 'upsert',
+          key,
+          value,
+        },
+      ],
+    }),
+  })
+
+  if (!response.ok) {
+    throw new Error(`Edge Config update failed (${response.status}): ${await response.text()}`)
+  }
+}
+
 async function publishSkillsCatalog(catalog, options = {}) {
   const edgeConfigId = options.edgeConfigId || process.env.SKILLS_EDGE_CONFIG_ID || process.env.EDGE_CONFIG_ID
   const vercelToken = options.vercelToken || process.env.VERCEL_API_TOKEN
@@ -224,30 +337,29 @@ async function publishSkillsCatalog(catalog, options = {}) {
     )
   }
 
-  const response = await fetch(`https://api.vercel.com/v1/edge-config/${edgeConfigId}/items`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${vercelToken}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      items: [
-        {
-          operation: 'upsert',
-          key: catalogKey,
-          value: catalog,
-        },
-      ],
-    }),
-  })
+  const shardPlan = splitCatalogIntoShards({ ...catalog, baseKey: catalogKey }, options)
 
-  if (!response.ok) {
-    throw new Error(`Edge Config update failed (${response.status}): ${await response.text()}`)
+  for (const item of shardPlan.items) {
+    await upsertEdgeConfigItem({
+      edgeConfigId,
+      vercelToken,
+      key: item.key,
+      value: item.value,
+    })
   }
+
+  await upsertEdgeConfigItem({
+    edgeConfigId,
+    vercelToken,
+    key: shardPlan.metaKey,
+    value: shardPlan.meta,
+  })
 
   return {
     catalogKey,
     edgeConfigId,
+    metaKey: shardPlan.metaKey,
+    shardCount: shardPlan.items.length,
   }
 }
 
@@ -292,7 +404,7 @@ async function main() {
   if (args.publish) {
     const result = await publishSkillsCatalog(catalog)
     console.log(
-      `Published ${catalog.skillCount} skills to Edge Config ${result.edgeConfigId} under ${result.catalogKey}`
+      `Published ${catalog.skillCount} skills to Edge Config ${result.edgeConfigId} using ${result.shardCount} shards and meta key ${result.metaKey}`
     )
   }
 
@@ -304,11 +416,13 @@ async function main() {
 module.exports = {
   DEFAULT_CATALOG_KEY,
   buildSkillsCatalog,
-  DEFAULT_CATALOG_KEY,
+  buildMetaKey,
+  buildShardKey,
   parseFrontmatterBlock,
   parseSkillDocument,
   parseSkillFile,
   publishSkillsCatalog,
+  splitCatalogIntoShards,
 }
 
 if (require.main === module) {
