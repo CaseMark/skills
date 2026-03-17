@@ -3,8 +3,9 @@
 const fs = require('fs')
 const path = require('path')
 
-const DEFAULT_CATALOG_KEY = 'agent-skills:catalog:v1'
+const DEFAULT_CATALOG_KEY = 'agent-skills-catalog-v1'
 const CATALOG_VERSION = 1
+const EDGE_CONFIG_KEY_RE = /^[A-Za-z0-9_-]{1,256}$/
 
 function normalizeSlashPath(filePath) {
   return filePath.split(path.sep).join('/')
@@ -208,7 +209,7 @@ function buildSkillsCatalog(options = {}) {
 async function publishSkillsCatalog(catalog, options = {}) {
   const edgeConfigId = options.edgeConfigId || process.env.SKILLS_EDGE_CONFIG_ID || process.env.EDGE_CONFIG_ID
   const vercelToken = options.vercelToken || process.env.VERCEL_API_TOKEN
-  const catalogKey = options.catalogKey || process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY
+  const catalogKey = options.catalogKey || process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY || DEFAULT_CATALOG_KEY
 
   if (!edgeConfigId) {
     throw new Error('Missing SKILLS_EDGE_CONFIG_ID or EDGE_CONFIG_ID')
@@ -216,9 +217,10 @@ async function publishSkillsCatalog(catalog, options = {}) {
   if (!vercelToken) {
     throw new Error('Missing VERCEL_API_TOKEN')
   }
-  if (!catalogKey) {
+  if (!EDGE_CONFIG_KEY_RE.test(catalogKey)) {
     throw new Error(
-      'Missing SKILLS_CATALOG_EDGE_CONFIG_KEY. Refusing to publish to an implicit default key.'
+      `Invalid SKILLS_CATALOG_EDGE_CONFIG_KEY \"${catalogKey}\". ` +
+        'Vercel Edge Config keys may contain only letters, numbers, underscores, and hyphens.'
     )
   }
 

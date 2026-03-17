@@ -84,7 +84,31 @@ Use for platform search tasks.
   assert.equal(catalog.skills[0].path, 'casedev/search/SKILL.md')
 })
 
-test('publishSkillsCatalog fails closed when the catalog key is missing', async () => {
+test('publishSkillsCatalog uses the valid default key when none is provided', async () => {
+  const previousFetch = global.fetch
+
+  try {
+    global.fetch = async () => ({
+      ok: true,
+      json: async () => ({}),
+      text: async () => '',
+    })
+
+    const result = await publishSkillsCatalog(
+      { skills: [] },
+      {
+        edgeConfigId: 'ecfg_test',
+        vercelToken: 'token',
+      }
+    )
+
+    assert.equal(result.catalogKey, 'agent-skills-catalog-v1')
+  } finally {
+    global.fetch = previousFetch
+  }
+})
+
+test('publishSkillsCatalog rejects invalid catalog keys before calling Vercel', async () => {
   await assert.rejects(
     () =>
       publishSkillsCatalog(
@@ -92,8 +116,9 @@ test('publishSkillsCatalog fails closed when the catalog key is missing', async 
         {
           edgeConfigId: 'ecfg_test',
           vercelToken: 'token',
+          catalogKey: 'agent-skills:catalog:v1',
         }
       ),
-    /Missing SKILLS_CATALOG_EDGE_CONFIG_KEY/
+    /Invalid SKILLS_CATALOG_EDGE_CONFIG_KEY/
   )
 })
