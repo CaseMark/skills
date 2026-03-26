@@ -50,3 +50,19 @@ jobs:
           }
           fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`)
           SCRIPT
+
+      - name: Notify casemark-com-v3 to sync new skills
+        if: success()
+        env:
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$DISPATCH_TOKEN" ]; then
+            echo "::warning::DISPATCH_TOKEN not set — skipping cross-repo dispatch"
+            exit 0
+          fi
+          curl -s -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $DISPATCH_TOKEN" \
+            https://api.github.com/repos/CaseMark/casemark-com-v3/dispatches \
+            -d '{"event_type":"skills-updated","client_payload":{"source":"CaseMark/skills","sha":"'"$GITHUB_SHA"'"}}'
+          echo "Dispatched skills-updated to CaseMark/casemark-com-v3"
