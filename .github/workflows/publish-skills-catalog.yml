@@ -26,6 +26,7 @@ jobs:
         run: node scripts/skills-catalog.js --out .artifacts/skills-catalog.json
 
       - name: Publish shared skills catalog to Edge Config
+        continue-on-error: true
         env:
           SKILLS_EDGE_CONFIG_ID: ${{ secrets.SKILLS_EDGE_CONFIG_ID }}
           VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
@@ -33,6 +34,7 @@ jobs:
         run: node scripts/skills-catalog.js --publish
 
       - name: Workflow summary
+        if: always()
         run: |
           node <<'SCRIPT'
           const fs = require('fs')
@@ -40,7 +42,7 @@ jobs:
           const lines = [
             '## Shared Skills Catalog',
             '',
-            `- Key: \`${process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY}\``,
+            `- Key: \`${process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY || '(not set)'}\``,
             `- Total skills: ${catalog.skillCount}`,
             `- Generated from SHA: ${catalog.generatedFromSha || 'not provided'}`,
             '- Counts by category:',
@@ -52,7 +54,7 @@ jobs:
           SCRIPT
 
       - name: Notify casemark-com-v3 to sync new skills
-        if: success()
+        if: always()
         env:
           DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
         run: |
