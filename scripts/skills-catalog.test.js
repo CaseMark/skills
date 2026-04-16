@@ -6,6 +6,55 @@ const test = require('node:test')
 
 const { buildSkillsCatalog, parseSkillDocument } = require('./skills-catalog')
 
+test('parseSkillDocument folds YAML > and >- scalars into the value', () => {
+  const { frontmatter } = parseSkillDocument(
+    `---
+name: amicus-curiae-brief
+description: >
+  Drafts filing-ready U.S. amicus curiae briefs with rule-anchored
+  compliance, additive thesis selection, and record-safe fact handling.
+
+  Trigger when asked to draft an amicus or friend-of-the-court brief.
+tags:
+  - brief
+---
+
+# Amicus Curiae Brief
+`,
+    'skills/legal/amicus-curiae-brief/SKILL.md'
+  )
+
+  assert.equal(frontmatter.name, 'amicus-curiae-brief')
+  assert.ok(
+    frontmatter.description.startsWith(
+      'Drafts filing-ready U.S. amicus curiae briefs with rule-anchored compliance'
+    ),
+    `unexpected folded description: ${frontmatter.description}`
+  )
+  assert.ok(frontmatter.description.includes('friend-of-the-court brief.'))
+  assert.ok(
+    !frontmatter.description.includes('>'),
+    'folded scalar indicator leaked into value'
+  )
+})
+
+test('parseSkillDocument preserves newlines for literal | scalars', () => {
+  const { frontmatter } = parseSkillDocument(
+    `---
+name: multi-line
+description: |
+  line one
+  line two
+---
+
+# Body
+`,
+    'skills/legal/multi-line/SKILL.md'
+  )
+
+  assert.equal(frontmatter.description, 'line one\nline two')
+})
+
 test('parseSkillDocument reads frontmatter fields needed for the catalog', () => {
   const { frontmatter, body } = parseSkillDocument(
     `---

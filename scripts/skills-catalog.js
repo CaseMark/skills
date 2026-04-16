@@ -31,6 +31,55 @@ function parseInlineArray(value) {
     .filter(Boolean)
 }
 
+const BLOCK_SCALAR_INDICATOR = /^([>|])([+-])?$/
+
+function readBlockScalar(lines, startIndex, style) {
+  const collected = []
+  let cursor = startIndex
+  while (cursor < lines.length) {
+    const candidate = lines[cursor]
+    if (!candidate.trim()) {
+      collected.push('')
+      cursor += 1
+      continue
+    }
+    if (/^\s+/.test(candidate)) {
+      collected.push(candidate.replace(/^\s+/, ''))
+      cursor += 1
+      continue
+    }
+    break
+  }
+
+  while (collected.length > 0 && collected[0] === '') collected.shift()
+  while (collected.length > 0 && collected[collected.length - 1] === '') collected.pop()
+
+  let value
+  if (style === '|') {
+    // Literal — preserve newlines.
+    value = collected.join('\n')
+  } else {
+    // Folded ('>') — join runs of non-empty lines with a space; empty
+    // lines become paragraph breaks.
+    const paragraphs = []
+    let buffer = []
+    for (const line of collected) {
+      if (line === '') {
+        if (buffer.length > 0) {
+          paragraphs.push(buffer.join(' '))
+          buffer = []
+        }
+      } else {
+        buffer.push(line)
+      }
+    }
+    if (buffer.length > 0) paragraphs.push(buffer.join(' '))
+    value = paragraphs.join('\n\n')
+  }
+
+  return { value, nextIndex: cursor }
+}
+
 function parseFrontmatterBlock(block) {
   const lines = block.split(/\r?\n/)
   const frontmatter = {}
@@ -50,6 +99,14 @@ function parseFrontmatterBlock(block) {
 
     const key = keyMatch[1]
     const rawValue = keyMatch[2] ?? ''
+
+    const blockMatch = rawValue.trim().match(BLOCK_SCALAR_INDICATOR)
+    if (blockMatch && key !== 'tags') {
+      const { value, nextIndex } = readBlockScalar(lines, index + 1, blockMatch[1])
+      frontmatter[key] = value
+      index = nextIndex
+      continue
+    }
 
     if (rawValue) {
       frontmatter[key] = key === 'tags' ? parseInlineArray(rawValue) : unquote(rawValue)
