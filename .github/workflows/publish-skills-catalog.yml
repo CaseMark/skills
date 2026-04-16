@@ -25,14 +25,6 @@ jobs:
       - name: Build shared skills catalog
         run: node scripts/skills-catalog.js --out .artifacts/skills-catalog.json
 
-      - name: Publish shared skills catalog to Edge Config
-        continue-on-error: true
-        env:
-          SKILLS_EDGE_CONFIG_ID: ${{ secrets.SKILLS_EDGE_CONFIG_ID }}
-          VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
-          SKILLS_CATALOG_EDGE_CONFIG_KEY: ${{ vars.SKILLS_CATALOG_EDGE_CONFIG_KEY }}
-        run: node scripts/skills-catalog.js --publish
-
       - name: Workflow summary
         if: always()
         run: |
@@ -42,7 +34,6 @@ jobs:
           const lines = [
             '## Shared Skills Catalog',
             '',
-            `- Key: \`${process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY || '(not set)'}\``,
             `- Total skills: ${catalog.skillCount}`,
             `- Generated from SHA: ${catalog.generatedFromSha || 'not provided'}`,
             '- Counts by category:',
@@ -68,3 +59,24 @@ jobs:
             https://api.github.com/repos/CaseMark/casemark-com-v3/dispatches \
             -d '{"event_type":"skills-updated","client_payload":{"source":"CaseMark/skills","sha":"'"$GITHUB_SHA"'"}}'
           echo "Dispatched skills-updated to CaseMark/casemark-com-v3"
+
+      - name: Sync skills catalog to C3
+        if: always()
+        env:
+          C3_SKILLS_SYNC_URL: ${{ vars.C3_SKILLS_SYNC_URL }}
+          C3_SKILLS_SYNC_SECRET: ${{ secrets.C3_SKILLS_SYNC_SECRET }}
+        run: |
+          if [ -z "$C3_SKILLS_SYNC_URL" ] || [ -z "$C3_SKILLS_SYNC_SECRET" ]; then
+            echo "::warning::C3_SKILLS_SYNC_URL or C3_SKILLS_SYNC_SECRET not set — skipping C3 mirror sync"
+            exit 0
+          fi
+          http_code=$(curl -s -o /tmp/c3-sync.txt -w '%{http_code}' \
+            -X POST \
+            -H "x-skills-sync-secret: $C3_SKILLS_SYNC_SECRET" \
+            -H "Content-Type: application/json" \
+            --data-binary @.artifacts/skills-catalog.json \
+            "$C3_SKILLS_SYNC_URL")
+          echo "C3 skills-sync responded $http_code: $(cat /tmp/c3-sync.txt)"
+          if [ "$http_code" != "200" ]; then
+            echo "::warning::C3 skills-sync returned non-200 ($http_code)"
+          fi
