@@ -63,8 +63,8 @@ jobs:
       - name: Sync skills catalog to C3
         if: always()
         env:
-          C3_SKILLS_SYNC_URL: ${{ vars.C3_SKILLS_SYNC_URL }}
-          C3_SKILLS_SYNC_SECRET: ${{ secrets.C3_SKILLS_SYNC_SECRET }}
+          C3_SKILLS_SYNC_URL: ${{ secrets.C3_SKILLS_SYNC_URL }}
+          C3_SKILLS_SYNC_SECRET: ${{ secrets.SKILLS_SYNC_SECRET }}
         run: |
           if [ -z "$C3_SKILLS_SYNC_URL" ] || [ -z "$C3_SKILLS_SYNC_SECRET" ]; then
             echo "::warning::C3_SKILLS_SYNC_URL or C3_SKILLS_SYNC_SECRET not set — skipping C3 mirror sync"
