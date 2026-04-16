@@ -65,13 +65,22 @@ jobs:
         env:
           C3_SKILLS_SYNC_URL: ${{ secrets.C3_SKILLS_SYNC_URL }}
           C3_SKILLS_SYNC_SECRET: ${{ secrets.SKILLS_SYNC_SECRET }}
+          # Optional Vercel Protection Bypass for Automation token — needed
+          # when C3_SKILLS_SYNC_URL points at a preview/staging deployment
+          # that's behind Vercel SSO. Leave unset for production URLs.
+          C3_SKILLS_BYPASS_TOKEN: ${{ secrets.C3_SKILLS_BYPASS_TOKEN }}
         run: |
           if [ -z "$C3_SKILLS_SYNC_URL" ] || [ -z "$C3_SKILLS_SYNC_SECRET" ]; then
             echo "::warning::C3_SKILLS_SYNC_URL or C3_SKILLS_SYNC_SECRET not set — skipping C3 mirror sync"
             exit 0
           fi
+          bypass_header=()
+          if [ -n "$C3_SKILLS_BYPASS_TOKEN" ]; then
+            bypass_header=(-H "x-vercel-protection-bypass: $C3_SKILLS_BYPASS_TOKEN")
+          fi
           http_code=$(curl -s -o /tmp/c3-sync.txt -w '%{http_code}' \
             -X POST \
+            "${bypass_header[@]}" \
             -H "x-skills-sync-secret: $C3_SKILLS_SYNC_SECRET" \
             -H "Content-Type: application/json" \
             --data-binary @.artifacts/skills-catalog.json \
