@@ -25,14 +25,6 @@ jobs:
       - name: Build shared skills catalog
         run: node scripts/skills-catalog.js --out .artifacts/skills-catalog.json
 
-      - name: Publish shared skills catalog to Edge Config
-        continue-on-error: true
-        env:
-          SKILLS_EDGE_CONFIG_ID: ${{ secrets.SKILLS_EDGE_CONFIG_ID }}
-          VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
-          SKILLS_CATALOG_EDGE_CONFIG_KEY: ${{ vars.SKILLS_CATALOG_EDGE_CONFIG_KEY }}
-        run: node scripts/skills-catalog.js --publish
-
       - name: Workflow summary
         if: always()
         run: |
@@ -42,7 +34,6 @@ jobs:
           const lines = [
             '## Shared Skills Catalog',
             '',
-            `- Key: \`${process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY || '(not set)'}\``,
             `- Total skills: ${catalog.skillCount}`,
             `- Generated from SHA: ${catalog.generatedFromSha || 'not provided'}`,
             '- Counts by category:',
@@ -68,3 +59,24 @@ jobs:
             https://api.github.com/repos/CaseMark/casemark-com-v3/dispatches \
             -d '{"event_type":"skills-updated","client_payload":{"source":"CaseMark/skills","sha":"'"$GITHUB_SHA"'"}}'
           echo "Dispatched skills-updated to CaseMark/casemark-com-v3"
+
+      - name: Notify C3 to revalidate skills cache
+        if: always()
+        env:
+          C3_REVALIDATE_URL: ${{ vars.C3_REVALIDATE_URL }}
+          C3_REVALIDATE_SECRET: ${{ secrets.C3_REVALIDATE_SECRET }}
+        run: |
+          if [ -z "$C3_REVALIDATE_URL" ] || [ -z "$C3_REVALIDATE_SECRET" ]; then
+            echo "::warning::C3_REVALIDATE_URL or C3_REVALIDATE_SECRET not set — skipping C3 cache invalidation"
+            exit 0
+          fi
+          http_code=$(curl -s -o /tmp/c3-revalidate.txt -w '%{http_code}' \
+            -X POST \
+            -H "x-revalidate-secret: $C3_REVALIDATE_SECRET" \
+            -H "Content-Type: application/json" \
+            "$C3_REVALIDATE_URL" \
+            -d '{}')
+          echo "C3 revalidate responded $http_code: $(cat /tmp/c3-revalidate.txt)"
+          if [ "$http_code" != "200" ]; then
+            echo "::warning::C3 revalidate returned non-200 ($http_code)"
+          fi

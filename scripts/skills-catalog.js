@@ -3,7 +3,6 @@
 const fs = require('fs')
 const path = require('path')
 
-const DEFAULT_CATALOG_KEY = 'agent-skills:catalog:v1'
 const CATALOG_VERSION = 1
 
 function normalizeSlashPath(filePath) {
@@ -205,55 +204,10 @@ function buildSkillsCatalog(options = {}) {
   }
 }
 
-async function publishSkillsCatalog(catalog, options = {}) {
-  const edgeConfigId = options.edgeConfigId || process.env.SKILLS_EDGE_CONFIG_ID || process.env.EDGE_CONFIG_ID
-  const vercelToken = options.vercelToken || process.env.VERCEL_API_TOKEN
-  const catalogKey = options.catalogKey || process.env.SKILLS_CATALOG_EDGE_CONFIG_KEY
-
-  if (!edgeConfigId) {
-    throw new Error('Missing SKILLS_EDGE_CONFIG_ID or EDGE_CONFIG_ID')
-  }
-  if (!vercelToken) {
-    throw new Error('Missing VERCEL_API_TOKEN')
-  }
-  if (!catalogKey) {
-    throw new Error(
-      'Missing SKILLS_CATALOG_EDGE_CONFIG_KEY. Refusing to publish to an implicit default key.'
-    )
-  }
-
-  const response = await fetch(`https://api.vercel.com/v1/edge-config/${edgeConfigId}/items`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${vercelToken}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      items: [
-        {
-          operation: 'upsert',
-          key: catalogKey,
-          value: catalog,
-        },
-      ],
-    }),
-  })
-
-  if (!response.ok) {
-    throw new Error(`Edge Config update failed (${response.status}): ${await response.text()}`)
-  }
-
-  return {
-    catalogKey,
-    edgeConfigId,
-  }
-}
-
 function parseArgs(argv) {
   const args = {
     repoRoot: path.join(__dirname, '..'),
     out: '',
-    publish: false,
   }
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -268,15 +222,12 @@ function parseArgs(argv) {
       index += 1
       continue
     }
-    if (arg === '--publish') {
-      args.publish = true
-    }
   }
 
   return args
 }
 
-async function main() {
+function main() {
   const args = parseArgs(process.argv.slice(2))
   const catalog = buildSkillsCatalog({ repoRoot: args.repoRoot })
 
@@ -285,33 +236,24 @@ async function main() {
     fs.mkdirSync(path.dirname(outputPath), { recursive: true })
     fs.writeFileSync(outputPath, `${JSON.stringify(catalog, null, 2)}\n`, 'utf8')
     console.log(`Wrote skill catalog to ${outputPath}`)
+    return
   }
 
-  if (args.publish) {
-    const result = await publishSkillsCatalog(catalog)
-    console.log(
-      `Published ${catalog.skillCount} skills to Edge Config ${result.edgeConfigId} under ${result.catalogKey}`
-    )
-  }
-
-  if (!args.out && !args.publish) {
-    process.stdout.write(`${JSON.stringify(catalog, null, 2)}\n`)
-  }
+  process.stdout.write(`${JSON.stringify(catalog, null, 2)}\n`)
 }
 
 module.exports = {
-  DEFAULT_CATALOG_KEY,
   buildSkillsCatalog,
-  DEFAULT_CATALOG_KEY,
   parseFrontmatterBlock,
   parseSkillDocument,
   parseSkillFile,
-  publishSkillsCatalog,
 }
 
 if (require.main === module) {
-  main().catch((error) => {
+  try {
+    main()
+  } catch (error) {
     console.error(error)
     process.exit(1)
-  })
+  }
 }
