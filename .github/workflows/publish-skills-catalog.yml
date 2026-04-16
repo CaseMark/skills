@@ -60,23 +60,23 @@ jobs:
             -d '{"event_type":"skills-updated","client_payload":{"source":"CaseMark/skills","sha":"'"$GITHUB_SHA"'"}}'
           echo "Dispatched skills-updated to CaseMark/casemark-com-v3"
 
-      - name: Notify C3 to revalidate skills cache
+      - name: Sync skills catalog to C3
         if: always()
         env:
-          C3_REVALIDATE_URL: ${{ vars.C3_REVALIDATE_URL }}
-          C3_REVALIDATE_SECRET: ${{ secrets.C3_REVALIDATE_SECRET }}
+          C3_SKILLS_SYNC_URL: ${{ vars.C3_SKILLS_SYNC_URL }}
+          C3_SKILLS_SYNC_SECRET: ${{ secrets.C3_SKILLS_SYNC_SECRET }}
         run: |
-          if [ -z "$C3_REVALIDATE_URL" ] || [ -z "$C3_REVALIDATE_SECRET" ]; then
-            echo "::warning::C3_REVALIDATE_URL or C3_REVALIDATE_SECRET not set — skipping C3 cache invalidation"
+          if [ -z "$C3_SKILLS_SYNC_URL" ] || [ -z "$C3_SKILLS_SYNC_SECRET" ]; then
+            echo "::warning::C3_SKILLS_SYNC_URL or C3_SKILLS_SYNC_SECRET not set — skipping C3 mirror sync"
             exit 0
           fi
-          http_code=$(curl -s -o /tmp/c3-revalidate.txt -w '%{http_code}' \
+          http_code=$(curl -s -o /tmp/c3-sync.txt -w '%{http_code}' \
             -X POST \
-            -H "x-revalidate-secret: $C3_REVALIDATE_SECRET" \
+            -H "x-skills-sync-secret: $C3_SKILLS_SYNC_SECRET" \
             -H "Content-Type: application/json" \
-            "$C3_REVALIDATE_URL" \
-            -d '{}')
-          echo "C3 revalidate responded $http_code: $(cat /tmp/c3-revalidate.txt)"
+            --data-binary @.artifacts/skills-catalog.json \
+            "$C3_SKILLS_SYNC_URL")
+          echo "C3 skills-sync responded $http_code: $(cat /tmp/c3-sync.txt)"
           if [ "$http_code" != "200" ]; then
-            echo "::warning::C3 revalidate returned non-200 ($http_code)"
+            echo "::warning::C3 skills-sync returned non-200 ($http_code)"
           fi
